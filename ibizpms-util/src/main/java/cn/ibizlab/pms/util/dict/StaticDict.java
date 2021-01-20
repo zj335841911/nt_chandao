@@ -2052,6 +2052,28 @@ public class StaticDict {
 
 
     /**
+     * 代码表[任务种别]
+     */
+    @Getter
+    public enum TaskSpecies {
+        PLAN("plan","计划任务"),
+        CYCLE("cycle","周期任务"),
+        TEMP("temp","临时任务");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        TaskSpecies(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
+
+    /**
      * 代码表[列编辑器样式]
      */
     @Getter

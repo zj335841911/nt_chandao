@@ -352,6 +352,158 @@ public class TaskEstimateResource {
                 .body(new PageImpl(taskestimateMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-Create-all')")
+    @ApiOperation(value = "根据产品计划任务建立任务预计", tags = {"任务预计" },  notes = "根据产品计划任务建立任务预计")
+	@RequestMapping(method = RequestMethod.POST, value = "/productplans/{productplan_id}/tasks/{task_id}/taskestimates")
+    public ResponseEntity<TaskEstimateDTO> createByProductPlanTask(@PathVariable("productplan_id") Long productplan_id, @PathVariable("task_id") Long task_id, @RequestBody TaskEstimateDTO taskestimatedto) {
+        TaskEstimate domain = taskestimateMapping.toDomain(taskestimatedto);
+        domain.setTask(task_id);
+		taskestimateService.create(domain);
+        TaskEstimateDTO dto = taskestimateMapping.toDto(domain);
+		return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-Create-all')")
+    @ApiOperation(value = "根据产品计划任务批量建立任务预计", tags = {"任务预计" },  notes = "根据产品计划任务批量建立任务预计")
+	@RequestMapping(method = RequestMethod.POST, value = "/productplans/{productplan_id}/tasks/{task_id}/taskestimates/batch")
+    public ResponseEntity<Boolean> createBatchByProductPlanTask(@PathVariable("productplan_id") Long productplan_id, @PathVariable("task_id") Long task_id, @RequestBody List<TaskEstimateDTO> taskestimatedtos) {
+        List<TaskEstimate> domainlist=taskestimateMapping.toDomain(taskestimatedtos);
+        for(TaskEstimate domain:domainlist){
+            domain.setTask(task_id);
+        }
+        taskestimateService.createBatch(domainlist);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-Update-all')")
+    @ApiOperation(value = "根据产品计划任务更新任务预计", tags = {"任务预计" },  notes = "根据产品计划任务更新任务预计")
+	@RequestMapping(method = RequestMethod.PUT, value = "/productplans/{productplan_id}/tasks/{task_id}/taskestimates/{taskestimate_id}")
+    public ResponseEntity<TaskEstimateDTO> updateByProductPlanTask(@PathVariable("productplan_id") Long productplan_id, @PathVariable("task_id") Long task_id, @PathVariable("taskestimate_id") Long taskestimate_id, @RequestBody TaskEstimateDTO taskestimatedto) {
+        TaskEstimate domain = taskestimateMapping.toDomain(taskestimatedto);
+        domain.setTask(task_id);
+        domain.setId(taskestimate_id);
+		taskestimateService.update(domain);
+        TaskEstimateDTO dto = taskestimateMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-Update-all')")
+    @ApiOperation(value = "根据产品计划任务批量更新任务预计", tags = {"任务预计" },  notes = "根据产品计划任务批量更新任务预计")
+	@RequestMapping(method = RequestMethod.PUT, value = "/productplans/{productplan_id}/tasks/{task_id}/taskestimates/batch")
+    public ResponseEntity<Boolean> updateBatchByProductPlanTask(@PathVariable("productplan_id") Long productplan_id, @PathVariable("task_id") Long task_id, @RequestBody List<TaskEstimateDTO> taskestimatedtos) {
+        List<TaskEstimate> domainlist=taskestimateMapping.toDomain(taskestimatedtos);
+        for(TaskEstimate domain:domainlist){
+            domain.setTask(task_id);
+        }
+        taskestimateService.updateBatch(domainlist);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-Remove-all')")
+    @ApiOperation(value = "根据产品计划任务删除任务预计", tags = {"任务预计" },  notes = "根据产品计划任务删除任务预计")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/productplans/{productplan_id}/tasks/{task_id}/taskestimates/{taskestimate_id}")
+    public ResponseEntity<Boolean> removeByProductPlanTask(@PathVariable("productplan_id") Long productplan_id, @PathVariable("task_id") Long task_id, @PathVariable("taskestimate_id") Long taskestimate_id) {
+		return ResponseEntity.status(HttpStatus.OK).body(taskestimateService.remove(taskestimate_id));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-Remove-all')")
+    @ApiOperation(value = "根据产品计划任务批量删除任务预计", tags = {"任务预计" },  notes = "根据产品计划任务批量删除任务预计")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/productplans/{productplan_id}/tasks/{task_id}/taskestimates/batch")
+    public ResponseEntity<Boolean> removeBatchByProductPlanTask(@RequestBody List<Long> ids) {
+        taskestimateService.removeBatch(ids);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-Get-all')")
+    @ApiOperation(value = "根据产品计划任务获取任务预计", tags = {"任务预计" },  notes = "根据产品计划任务获取任务预计")
+	@RequestMapping(method = RequestMethod.GET, value = "/productplans/{productplan_id}/tasks/{task_id}/taskestimates/{taskestimate_id}")
+    public ResponseEntity<TaskEstimateDTO> getByProductPlanTask(@PathVariable("productplan_id") Long productplan_id, @PathVariable("task_id") Long task_id, @PathVariable("taskestimate_id") Long taskestimate_id) {
+        TaskEstimate domain = taskestimateService.get(taskestimate_id);
+        TaskEstimateDTO dto = taskestimateMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @ApiOperation(value = "根据产品计划任务获取任务预计草稿", tags = {"任务预计" },  notes = "根据产品计划任务获取任务预计草稿")
+    @RequestMapping(method = RequestMethod.GET, value = "/productplans/{productplan_id}/tasks/{task_id}/taskestimates/getdraft")
+    public ResponseEntity<TaskEstimateDTO> getDraftByProductPlanTask(@PathVariable("productplan_id") Long productplan_id, @PathVariable("task_id") Long task_id, TaskEstimateDTO dto) {
+        TaskEstimate domain = taskestimateMapping.toDomain(dto);
+        domain.setTask(task_id);
+        return ResponseEntity.status(HttpStatus.OK).body(taskestimateMapping.toDto(taskestimateService.getDraft(domain)));
+    }
+
+    @ApiOperation(value = "根据产品计划任务检查任务预计", tags = {"任务预计" },  notes = "根据产品计划任务检查任务预计")
+	@RequestMapping(method = RequestMethod.POST, value = "/productplans/{productplan_id}/tasks/{task_id}/taskestimates/checkkey")
+    public ResponseEntity<Boolean> checkKeyByProductPlanTask(@PathVariable("productplan_id") Long productplan_id, @PathVariable("task_id") Long task_id, @RequestBody TaskEstimateDTO taskestimatedto) {
+        return  ResponseEntity.status(HttpStatus.OK).body(taskestimateService.checkKey(taskestimateMapping.toDomain(taskestimatedto)));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-Save-all')")
+    @ApiOperation(value = "根据产品计划任务保存任务预计", tags = {"任务预计" },  notes = "根据产品计划任务保存任务预计")
+	@RequestMapping(method = RequestMethod.POST, value = "/productplans/{productplan_id}/tasks/{task_id}/taskestimates/save")
+    public ResponseEntity<Boolean> saveByProductPlanTask(@PathVariable("productplan_id") Long productplan_id, @PathVariable("task_id") Long task_id, @RequestBody TaskEstimateDTO taskestimatedto) {
+        TaskEstimate domain = taskestimateMapping.toDomain(taskestimatedto);
+        domain.setTask(task_id);
+        return ResponseEntity.status(HttpStatus.OK).body(taskestimateService.save(domain));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-Save-all')")
+    @ApiOperation(value = "根据产品计划任务批量保存任务预计", tags = {"任务预计" },  notes = "根据产品计划任务批量保存任务预计")
+	@RequestMapping(method = RequestMethod.POST, value = "/productplans/{productplan_id}/tasks/{task_id}/taskestimates/savebatch")
+    public ResponseEntity<Boolean> saveBatchByProductPlanTask(@PathVariable("productplan_id") Long productplan_id, @PathVariable("task_id") Long task_id, @RequestBody List<TaskEstimateDTO> taskestimatedtos) {
+        List<TaskEstimate> domainlist=taskestimateMapping.toDomain(taskestimatedtos);
+        for(TaskEstimate domain:domainlist){
+             domain.setTask(task_id);
+        }
+        taskestimateService.saveBatch(domainlist);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-searchDefault-all')")
+	@ApiOperation(value = "根据产品计划任务获取DEFAULT", tags = {"任务预计" } ,notes = "根据产品计划任务获取DEFAULT")
+    @RequestMapping(method= RequestMethod.GET , value="/productplans/{productplan_id}/tasks/{task_id}/taskestimates/fetchdefault")
+	public ResponseEntity<List<TaskEstimateDTO>> fetchTaskEstimateDefaultByProductPlanTask(@PathVariable("productplan_id") Long productplan_id, @PathVariable("task_id") Long task_id,TaskEstimateSearchContext context) {
+        context.setN_task_eq(task_id);
+        Page<TaskEstimate> domains = taskestimateService.searchDefault(context) ;
+        List<TaskEstimateDTO> list = taskestimateMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-searchDefault-all')")
+	@ApiOperation(value = "根据产品计划任务查询DEFAULT", tags = {"任务预计" } ,notes = "根据产品计划任务查询DEFAULT")
+    @RequestMapping(method= RequestMethod.POST , value="/productplans/{productplan_id}/tasks/{task_id}/taskestimates/searchdefault")
+	public ResponseEntity<Page<TaskEstimateDTO>> searchTaskEstimateDefaultByProductPlanTask(@PathVariable("productplan_id") Long productplan_id, @PathVariable("task_id") Long task_id, @RequestBody TaskEstimateSearchContext context) {
+        context.setN_task_eq(task_id);
+        Page<TaskEstimate> domains = taskestimateService.searchDefault(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(taskestimateMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-searchDefaults-all')")
+	@ApiOperation(value = "根据产品计划任务获取DEFAULT1", tags = {"任务预计" } ,notes = "根据产品计划任务获取DEFAULT1")
+    @RequestMapping(method= RequestMethod.GET , value="/productplans/{productplan_id}/tasks/{task_id}/taskestimates/fetchdefaults")
+	public ResponseEntity<List<TaskEstimateDTO>> fetchTaskEstimateDefaultsByProductPlanTask(@PathVariable("productplan_id") Long productplan_id, @PathVariable("task_id") Long task_id,TaskEstimateSearchContext context) {
+        context.setN_task_eq(task_id);
+        Page<TaskEstimate> domains = taskestimateService.searchDefaults(context) ;
+        List<TaskEstimateDTO> list = taskestimateMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-searchDefaults-all')")
+	@ApiOperation(value = "根据产品计划任务查询DEFAULT1", tags = {"任务预计" } ,notes = "根据产品计划任务查询DEFAULT1")
+    @RequestMapping(method= RequestMethod.POST , value="/productplans/{productplan_id}/tasks/{task_id}/taskestimates/searchdefaults")
+	public ResponseEntity<Page<TaskEstimateDTO>> searchTaskEstimateDefaultsByProductPlanTask(@PathVariable("productplan_id") Long productplan_id, @PathVariable("task_id") Long task_id, @RequestBody TaskEstimateSearchContext context) {
+        context.setN_task_eq(task_id);
+        Page<TaskEstimate> domains = taskestimateService.searchDefaults(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(taskestimateMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-Create-all')")
     @ApiOperation(value = "根据需求任务建立任务预计", tags = {"任务预计" },  notes = "根据需求任务建立任务预计")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/taskestimates")
     public ResponseEntity<TaskEstimateDTO> createByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody TaskEstimateDTO taskestimatedto) {
@@ -650,6 +802,158 @@ public class TaskEstimateResource {
 	@ApiOperation(value = "根据项目任务查询DEFAULT1", tags = {"任务预计" } ,notes = "根据项目任务查询DEFAULT1")
     @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/tasks/{task_id}/taskestimates/searchdefaults")
 	public ResponseEntity<Page<TaskEstimateDTO>> searchTaskEstimateDefaultsByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @RequestBody TaskEstimateSearchContext context) {
+        context.setN_task_eq(task_id);
+        Page<TaskEstimate> domains = taskestimateService.searchDefaults(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(taskestimateMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-Create-all')")
+    @ApiOperation(value = "根据产品产品计划任务建立任务预计", tags = {"任务预计" },  notes = "根据产品产品计划任务建立任务预计")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productplans/{productplan_id}/tasks/{task_id}/taskestimates")
+    public ResponseEntity<TaskEstimateDTO> createByProductProductPlanTask(@PathVariable("product_id") Long product_id, @PathVariable("productplan_id") Long productplan_id, @PathVariable("task_id") Long task_id, @RequestBody TaskEstimateDTO taskestimatedto) {
+        TaskEstimate domain = taskestimateMapping.toDomain(taskestimatedto);
+        domain.setTask(task_id);
+		taskestimateService.create(domain);
+        TaskEstimateDTO dto = taskestimateMapping.toDto(domain);
+		return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-Create-all')")
+    @ApiOperation(value = "根据产品产品计划任务批量建立任务预计", tags = {"任务预计" },  notes = "根据产品产品计划任务批量建立任务预计")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productplans/{productplan_id}/tasks/{task_id}/taskestimates/batch")
+    public ResponseEntity<Boolean> createBatchByProductProductPlanTask(@PathVariable("product_id") Long product_id, @PathVariable("productplan_id") Long productplan_id, @PathVariable("task_id") Long task_id, @RequestBody List<TaskEstimateDTO> taskestimatedtos) {
+        List<TaskEstimate> domainlist=taskestimateMapping.toDomain(taskestimatedtos);
+        for(TaskEstimate domain:domainlist){
+            domain.setTask(task_id);
+        }
+        taskestimateService.createBatch(domainlist);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-Update-all')")
+    @ApiOperation(value = "根据产品产品计划任务更新任务预计", tags = {"任务预计" },  notes = "根据产品产品计划任务更新任务预计")
+	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/productplans/{productplan_id}/tasks/{task_id}/taskestimates/{taskestimate_id}")
+    public ResponseEntity<TaskEstimateDTO> updateByProductProductPlanTask(@PathVariable("product_id") Long product_id, @PathVariable("productplan_id") Long productplan_id, @PathVariable("task_id") Long task_id, @PathVariable("taskestimate_id") Long taskestimate_id, @RequestBody TaskEstimateDTO taskestimatedto) {
+        TaskEstimate domain = taskestimateMapping.toDomain(taskestimatedto);
+        domain.setTask(task_id);
+        domain.setId(taskestimate_id);
+		taskestimateService.update(domain);
+        TaskEstimateDTO dto = taskestimateMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-Update-all')")
+    @ApiOperation(value = "根据产品产品计划任务批量更新任务预计", tags = {"任务预计" },  notes = "根据产品产品计划任务批量更新任务预计")
+	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/productplans/{productplan_id}/tasks/{task_id}/taskestimates/batch")
+    public ResponseEntity<Boolean> updateBatchByProductProductPlanTask(@PathVariable("product_id") Long product_id, @PathVariable("productplan_id") Long productplan_id, @PathVariable("task_id") Long task_id, @RequestBody List<TaskEstimateDTO> taskestimatedtos) {
+        List<TaskEstimate> domainlist=taskestimateMapping.toDomain(taskestimatedtos);
+        for(TaskEstimate domain:domainlist){
+            domain.setTask(task_id);
+        }
+        taskestimateService.updateBatch(domainlist);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-Remove-all')")
+    @ApiOperation(value = "根据产品产品计划任务删除任务预计", tags = {"任务预计" },  notes = "根据产品产品计划任务删除任务预计")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/productplans/{productplan_id}/tasks/{task_id}/taskestimates/{taskestimate_id}")
+    public ResponseEntity<Boolean> removeByProductProductPlanTask(@PathVariable("product_id") Long product_id, @PathVariable("productplan_id") Long productplan_id, @PathVariable("task_id") Long task_id, @PathVariable("taskestimate_id") Long taskestimate_id) {
+		return ResponseEntity.status(HttpStatus.OK).body(taskestimateService.remove(taskestimate_id));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-Remove-all')")
+    @ApiOperation(value = "根据产品产品计划任务批量删除任务预计", tags = {"任务预计" },  notes = "根据产品产品计划任务批量删除任务预计")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/products/{product_id}/productplans/{productplan_id}/tasks/{task_id}/taskestimates/batch")
+    public ResponseEntity<Boolean> removeBatchByProductProductPlanTask(@RequestBody List<Long> ids) {
+        taskestimateService.removeBatch(ids);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-Get-all')")
+    @ApiOperation(value = "根据产品产品计划任务获取任务预计", tags = {"任务预计" },  notes = "根据产品产品计划任务获取任务预计")
+	@RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/productplans/{productplan_id}/tasks/{task_id}/taskestimates/{taskestimate_id}")
+    public ResponseEntity<TaskEstimateDTO> getByProductProductPlanTask(@PathVariable("product_id") Long product_id, @PathVariable("productplan_id") Long productplan_id, @PathVariable("task_id") Long task_id, @PathVariable("taskestimate_id") Long taskestimate_id) {
+        TaskEstimate domain = taskestimateService.get(taskestimate_id);
+        TaskEstimateDTO dto = taskestimateMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
+
+    @ApiOperation(value = "根据产品产品计划任务获取任务预计草稿", tags = {"任务预计" },  notes = "根据产品产品计划任务获取任务预计草稿")
+    @RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/productplans/{productplan_id}/tasks/{task_id}/taskestimates/getdraft")
+    public ResponseEntity<TaskEstimateDTO> getDraftByProductProductPlanTask(@PathVariable("product_id") Long product_id, @PathVariable("productplan_id") Long productplan_id, @PathVariable("task_id") Long task_id, TaskEstimateDTO dto) {
+        TaskEstimate domain = taskestimateMapping.toDomain(dto);
+        domain.setTask(task_id);
+        return ResponseEntity.status(HttpStatus.OK).body(taskestimateMapping.toDto(taskestimateService.getDraft(domain)));
+    }
+
+    @ApiOperation(value = "根据产品产品计划任务检查任务预计", tags = {"任务预计" },  notes = "根据产品产品计划任务检查任务预计")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productplans/{productplan_id}/tasks/{task_id}/taskestimates/checkkey")
+    public ResponseEntity<Boolean> checkKeyByProductProductPlanTask(@PathVariable("product_id") Long product_id, @PathVariable("productplan_id") Long productplan_id, @PathVariable("task_id") Long task_id, @RequestBody TaskEstimateDTO taskestimatedto) {
+        return  ResponseEntity.status(HttpStatus.OK).body(taskestimateService.checkKey(taskestimateMapping.toDomain(taskestimatedto)));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-Save-all')")
+    @ApiOperation(value = "根据产品产品计划任务保存任务预计", tags = {"任务预计" },  notes = "根据产品产品计划任务保存任务预计")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productplans/{productplan_id}/tasks/{task_id}/taskestimates/save")
+    public ResponseEntity<Boolean> saveByProductProductPlanTask(@PathVariable("product_id") Long product_id, @PathVariable("productplan_id") Long productplan_id, @PathVariable("task_id") Long task_id, @RequestBody TaskEstimateDTO taskestimatedto) {
+        TaskEstimate domain = taskestimateMapping.toDomain(taskestimatedto);
+        domain.setTask(task_id);
+        return ResponseEntity.status(HttpStatus.OK).body(taskestimateService.save(domain));
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-Save-all')")
+    @ApiOperation(value = "根据产品产品计划任务批量保存任务预计", tags = {"任务预计" },  notes = "根据产品产品计划任务批量保存任务预计")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productplans/{productplan_id}/tasks/{task_id}/taskestimates/savebatch")
+    public ResponseEntity<Boolean> saveBatchByProductProductPlanTask(@PathVariable("product_id") Long product_id, @PathVariable("productplan_id") Long productplan_id, @PathVariable("task_id") Long task_id, @RequestBody List<TaskEstimateDTO> taskestimatedtos) {
+        List<TaskEstimate> domainlist=taskestimateMapping.toDomain(taskestimatedtos);
+        for(TaskEstimate domain:domainlist){
+             domain.setTask(task_id);
+        }
+        taskestimateService.saveBatch(domainlist);
+        return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-searchDefault-all')")
+	@ApiOperation(value = "根据产品产品计划任务获取DEFAULT", tags = {"任务预计" } ,notes = "根据产品产品计划任务获取DEFAULT")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/productplans/{productplan_id}/tasks/{task_id}/taskestimates/fetchdefault")
+	public ResponseEntity<List<TaskEstimateDTO>> fetchTaskEstimateDefaultByProductProductPlanTask(@PathVariable("product_id") Long product_id, @PathVariable("productplan_id") Long productplan_id, @PathVariable("task_id") Long task_id,TaskEstimateSearchContext context) {
+        context.setN_task_eq(task_id);
+        Page<TaskEstimate> domains = taskestimateService.searchDefault(context) ;
+        List<TaskEstimateDTO> list = taskestimateMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-searchDefault-all')")
+	@ApiOperation(value = "根据产品产品计划任务查询DEFAULT", tags = {"任务预计" } ,notes = "根据产品产品计划任务查询DEFAULT")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/productplans/{productplan_id}/tasks/{task_id}/taskestimates/searchdefault")
+	public ResponseEntity<Page<TaskEstimateDTO>> searchTaskEstimateDefaultByProductProductPlanTask(@PathVariable("product_id") Long product_id, @PathVariable("productplan_id") Long productplan_id, @PathVariable("task_id") Long task_id, @RequestBody TaskEstimateSearchContext context) {
+        context.setN_task_eq(task_id);
+        Page<TaskEstimate> domains = taskestimateService.searchDefault(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(taskestimateMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-searchDefaults-all')")
+	@ApiOperation(value = "根据产品产品计划任务获取DEFAULT1", tags = {"任务预计" } ,notes = "根据产品产品计划任务获取DEFAULT1")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/productplans/{productplan_id}/tasks/{task_id}/taskestimates/fetchdefaults")
+	public ResponseEntity<List<TaskEstimateDTO>> fetchTaskEstimateDefaultsByProductProductPlanTask(@PathVariable("product_id") Long product_id, @PathVariable("productplan_id") Long productplan_id, @PathVariable("task_id") Long task_id,TaskEstimateSearchContext context) {
+        context.setN_task_eq(task_id);
+        Page<TaskEstimate> domains = taskestimateService.searchDefaults(context) ;
+        List<TaskEstimateDTO> list = taskestimateMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-searchDefaults-all')")
+	@ApiOperation(value = "根据产品产品计划任务查询DEFAULT1", tags = {"任务预计" } ,notes = "根据产品产品计划任务查询DEFAULT1")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/productplans/{productplan_id}/tasks/{task_id}/taskestimates/searchdefaults")
+	public ResponseEntity<Page<TaskEstimateDTO>> searchTaskEstimateDefaultsByProductProductPlanTask(@PathVariable("product_id") Long product_id, @PathVariable("productplan_id") Long productplan_id, @PathVariable("task_id") Long task_id, @RequestBody TaskEstimateSearchContext context) {
         context.setN_task_eq(task_id);
         Page<TaskEstimate> domains = taskestimateService.searchDefaults(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)

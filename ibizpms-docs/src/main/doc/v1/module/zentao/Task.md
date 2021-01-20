@@ -21,9 +21,10 @@
 | ---- | ---- | ---- |
 | 1 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) | （默认） |
 | 2 | [Bug（ZT_BUG）](../zentao/Bug) | （默认） |
-| 3 | [项目（ZT_PROJECT）](../zentao/Project) | （默认） |
-| 4 | [需求（ZT_STORY）](../zentao/Story) | （默认） |
-| 5 | [任务（ZT_TASK）](../zentao/Task) | （默认） |
+| 3 | [产品计划（ZT_PRODUCTPLAN）](../zentao/ProductPlan) | （默认） |
+| 4 | [项目（ZT_PROJECT）](../zentao/Project) | （默认） |
+| 5 | [需求（ZT_STORY）](../zentao/Story) | （默认） |
+| 6 | [任务（ZT_TASK）](../zentao/Task) | （默认） |
 
 
 ## 实体属性
@@ -100,6 +101,18 @@
 | 69 | [之前消耗](#属性-之前消耗（MYCONSUMED）) | MYCONSUMED | 浮点 | 否 | 是 | 是 |
 | 70 | [我的总消耗](#属性-我的总消耗（MYTOTALTIME）) | MYTOTALTIME | 浮点 | 否 | 是 | 是 |
 | 71 | [转交给](#属性-转交给（ASSIGNEDTOZJ）) | ASSIGNEDTOZJ | 文本，可指定长度 | 否 | 是 | 是 |
+| 72 | [编号](#属性-编号（PLAN）) | PLAN | 外键值 | 否 | 是 | 是 |
+| 73 | [任务种别](#属性-任务种别（TASKSPECIES）) | TASKSPECIES | 单项选择(文本值) | 否 | 是 | 是 |
+| 74 | [周期设置周几](#属性-周期设置周几（CONFIG_WEEK）) | CONFIG_WEEK | 多项选择(文本值) | 否 | 是 | 是 |
+| 75 | [周期设置月](#属性-周期设置月（CONFIG_MONTH）) | CONFIG_MONTH | 多项选择(文本值) | 否 | 是 | 是 |
+| 76 | [周期类型](#属性-周期类型（CONFIG_TYPE）) | CONFIG_TYPE | 单项选择(文本值) | 否 | 是 | 是 |
+| 77 | [提前天数](#属性-提前天数（CONFIG_BEFOREDAYS）) | CONFIG_BEFOREDAYS | 整型 | 否 | 是 | 是 |
+| 78 | [间隔天数](#属性-间隔天数（CONFIG_DAY）) | CONFIG_DAY | 整型 | 否 | 是 | 是 |
+| 79 | [过期日期](#属性-过期日期（CONFIG_END）) | CONFIG_END | 日期型 | 否 | 是 | 是 |
+| 80 | [开始日期](#属性-开始日期（CONFIG_BEGIN）) | CONFIG_BEGIN | 日期型 | 否 | 是 | 是 |
+| 81 | [所属计划](#属性-所属计划（PLANNAME）) | PLANNAME | 外键值文本 | 否 | 是 | 是 |
+| 82 | [关联编号](#属性-关联编号（IDVALUE）) | IDVALUE | 大整型 | 否 | 是 | 是 |
+| 83 | [周期](#属性-周期（CYCLE）) | CYCLE | 整型 | 否 | 是 | 是 |
 
 ### 属性-由谁取消（CANCELEDBY）
 #### 属性说明
@@ -143,8 +156,8 @@ String
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
-| 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
+| 关系实体 | [产品计划（ZT_PRODUCTPLAN）](../zentao/ProductPlan) |
+| 关系属性 | [名称（TITLE）](../zentao/ProductPlan/#属性-名称（TITLE）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-预计剩余（LEFT）
@@ -187,8 +200,8 @@ Double
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
-| 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
+| 关系实体 | [产品计划（ZT_PRODUCTPLAN）](../zentao/ProductPlan) |
+| 关系属性 | [名称（TITLE）](../zentao/ProductPlan/#属性-名称（TITLE）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-创建日期（OPENEDDATE）
@@ -228,8 +241,8 @@ yyyy-MM-dd HH:mm:ss
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
-| 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
+| 关系实体 | [产品计划（ZT_PRODUCTPLAN）](../zentao/ProductPlan) |
+| 关系属性 | [名称（TITLE）](../zentao/ProductPlan/#属性-名称（TITLE）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-标题颜色（COLOR）
@@ -274,8 +287,8 @@ String
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
-| 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
+| 关系实体 | [产品计划（ZT_PRODUCTPLAN）](../zentao/ProductPlan) |
+| 关系属性 | [名称（TITLE）](../zentao/ProductPlan/#属性-名称（TITLE）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-编号（ID）
@@ -317,8 +330,8 @@ Long
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
-| 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
+| 关系实体 | [产品计划（ZT_PRODUCTPLAN）](../zentao/ProductPlan) |
+| 关系属性 | [名称（TITLE）](../zentao/ProductPlan/#属性-名称（TITLE）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-由谁完成（FINISHEDBY）
@@ -363,8 +376,8 @@ String
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
-| 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
+| 关系实体 | [产品计划（ZT_PRODUCTPLAN）](../zentao/ProductPlan) |
+| 关系属性 | [名称（TITLE）](../zentao/ProductPlan/#属性-名称（TITLE）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-完成者列表（FINISHEDLIST）
@@ -407,8 +420,8 @@ String
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
-| 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
+| 关系实体 | [产品计划（ZT_PRODUCTPLAN）](../zentao/ProductPlan) |
+| 关系属性 | [名称（TITLE）](../zentao/ProductPlan/#属性-名称（TITLE）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-实际开始（REALSTARTED）
@@ -448,8 +461,8 @@ yyyy-MM-dd
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
-| 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
+| 关系实体 | [产品计划（ZT_PRODUCTPLAN）](../zentao/ProductPlan) |
+| 关系属性 | [名称（TITLE）](../zentao/ProductPlan/#属性-名称（TITLE）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-由谁关闭（CLOSEDBY）
@@ -494,8 +507,8 @@ String
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
-| 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
+| 关系实体 | [产品计划（ZT_PRODUCTPLAN）](../zentao/ProductPlan) |
+| 关系属性 | [名称（TITLE）](../zentao/ProductPlan/#属性-名称（TITLE）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-子状态（SUBSTATUS）
@@ -538,8 +551,8 @@ String
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
-| 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
+| 关系实体 | [产品计划（ZT_PRODUCTPLAN）](../zentao/ProductPlan) |
+| 关系属性 | [名称（TITLE）](../zentao/ProductPlan/#属性-名称（TITLE）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-关闭原因（CLOSEDREASON）
@@ -584,8 +597,8 @@ String
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
-| 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
+| 关系实体 | [产品计划（ZT_PRODUCTPLAN）](../zentao/ProductPlan) |
+| 关系属性 | [名称（TITLE）](../zentao/ProductPlan/#属性-名称（TITLE）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-最后修改日期（LASTEDITEDDATE）
@@ -625,8 +638,8 @@ yyyy-MM-dd HH:mm:ss
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
-| 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
+| 关系实体 | [产品计划（ZT_PRODUCTPLAN）](../zentao/ProductPlan) |
+| 关系属性 | [名称（TITLE）](../zentao/ProductPlan/#属性-名称（TITLE）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-指派日期（ASSIGNEDDATE）
@@ -668,8 +681,8 @@ yyyy-MM-dd HH:mm:ss
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
-| 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
+| 关系实体 | [产品计划（ZT_PRODUCTPLAN）](../zentao/ProductPlan) |
+| 关系属性 | [名称（TITLE）](../zentao/ProductPlan/#属性-名称（TITLE）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-优先级（PRI）
@@ -715,8 +728,8 @@ Integer
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
-| 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
+| 关系实体 | [产品计划（ZT_PRODUCTPLAN）](../zentao/ProductPlan) |
+| 关系属性 | [名称（TITLE）](../zentao/ProductPlan/#属性-名称（TITLE）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-最后修改（LASTEDITEDBY）
@@ -758,8 +771,8 @@ String
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
-| 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
+| 关系实体 | [产品计划（ZT_PRODUCTPLAN）](../zentao/ProductPlan) |
+| 关系属性 | [名称（TITLE）](../zentao/ProductPlan/#属性-名称（TITLE）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-任务状态（STATUS）
@@ -806,8 +819,8 @@ String
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
-| 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
+| 关系实体 | [产品计划（ZT_PRODUCTPLAN）](../zentao/ProductPlan) |
+| 关系属性 | [名称（TITLE）](../zentao/ProductPlan/#属性-名称（TITLE）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-任务名称（NAME）
@@ -849,8 +862,8 @@ String
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
-| 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
+| 关系实体 | [产品计划（ZT_PRODUCTPLAN）](../zentao/ProductPlan) |
+| 关系属性 | [名称（TITLE）](../zentao/ProductPlan/#属性-名称（TITLE）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-关闭时间（CLOSEDDATE）
@@ -892,8 +905,8 @@ yyyy-MM-dd HH:mm:ss
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
-| 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
+| 关系实体 | [产品计划（ZT_PRODUCTPLAN）](../zentao/ProductPlan) |
+| 关系属性 | [名称（TITLE）](../zentao/ProductPlan/#属性-名称（TITLE）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-任务类型（TYPE）
@@ -938,8 +951,8 @@ String
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
-| 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
+| 关系实体 | [产品计划（ZT_PRODUCTPLAN）](../zentao/ProductPlan) |
+| 关系属性 | [名称（TITLE）](../zentao/ProductPlan/#属性-名称（TITLE）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-指派给（ASSIGNEDTO）
@@ -985,8 +998,8 @@ String
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
-| 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
+| 关系实体 | [产品计划（ZT_PRODUCTPLAN）](../zentao/ProductPlan) |
+| 关系属性 | [名称（TITLE）](../zentao/ProductPlan/#属性-名称（TITLE）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-任务描述（DESC）
@@ -1029,8 +1042,8 @@ String
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
-| 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
+| 关系实体 | [产品计划（ZT_PRODUCTPLAN）](../zentao/ProductPlan) |
+| 关系属性 | [名称（TITLE）](../zentao/ProductPlan/#属性-名称（TITLE）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-预计开始（ESTSTARTED）
@@ -1073,8 +1086,8 @@ yyyy-MM-dd
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
-| 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
+| 关系实体 | [产品计划（ZT_PRODUCTPLAN）](../zentao/ProductPlan) |
+| 关系属性 | [名称（TITLE）](../zentao/ProductPlan/#属性-名称（TITLE）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-截止日期（DEADLINE）
@@ -1114,8 +1127,8 @@ yyyy-MM-dd
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
-| 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
+| 关系实体 | [产品计划（ZT_PRODUCTPLAN）](../zentao/ProductPlan) |
+| 关系属性 | [名称（TITLE）](../zentao/ProductPlan/#属性-名称（TITLE）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-已删除（DELETED）
@@ -1158,8 +1171,8 @@ String
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
-| 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
+| 关系实体 | [产品计划（ZT_PRODUCTPLAN）](../zentao/ProductPlan) |
+| 关系属性 | [名称（TITLE）](../zentao/ProductPlan/#属性-名称（TITLE）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-抄送给（MAILTO）
@@ -1202,8 +1215,8 @@ String
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
-| 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
+| 关系实体 | [产品计划（ZT_PRODUCTPLAN）](../zentao/ProductPlan) |
+| 关系属性 | [名称（TITLE）](../zentao/ProductPlan/#属性-名称（TITLE）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-总计消耗（CONSUMED）
@@ -1246,8 +1259,8 @@ Double
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
-| 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
+| 关系实体 | [产品计划（ZT_PRODUCTPLAN）](../zentao/ProductPlan) |
+| 关系属性 | [名称（TITLE）](../zentao/ProductPlan/#属性-名称（TITLE）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-最初预计（ESTIMATE）
@@ -1290,8 +1303,8 @@ Double
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
-| 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
+| 关系实体 | [产品计划（ZT_PRODUCTPLAN）](../zentao/ProductPlan) |
+| 关系属性 | [名称（TITLE）](../zentao/ProductPlan/#属性-名称（TITLE）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-由谁创建（OPENEDBY）
@@ -1333,8 +1346,8 @@ String
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
-| 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
+| 关系实体 | [产品计划（ZT_PRODUCTPLAN）](../zentao/ProductPlan) |
+| 关系属性 | [名称（TITLE）](../zentao/ProductPlan/#属性-名称（TITLE）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-取消时间（CANCELEDDATE）
@@ -1374,8 +1387,8 @@ yyyy-MM-dd HH:mm:ss
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
-| 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
+| 关系实体 | [产品计划（ZT_PRODUCTPLAN）](../zentao/ProductPlan) |
+| 关系属性 | [名称（TITLE）](../zentao/ProductPlan/#属性-名称（TITLE）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-实际完成（FINISHEDDATE）
@@ -1417,8 +1430,8 @@ yyyy-MM-dd
 #### 关系属性
 | 项目 | 说明 |
 | ---- | ---- |
-| 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
-| 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
+| 关系实体 | [产品计划（ZT_PRODUCTPLAN）](../zentao/ProductPlan) |
+| 关系属性 | [名称（TITLE）](../zentao/ProductPlan/#属性-名称（TITLE）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-所属模块（MODULENAME）
@@ -3182,6 +3195,515 @@ String
 | ---- | ---- |
 | 关系实体 | [任务模块（IBZ_PROJECTMODULE）](../ibiz/ProjectModule) |
 | 关系属性 | [path（PATH）](../ibiz/ProjectModule/#属性-path（PATH）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-编号（PLAN）
+#### 属性说明
+编号
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+外键值
+
+- Java类型
+Long
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+| 序号 | 组合方式 |
+| ---- | ---- |
+| 1 | `=` |
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [产品计划（ZT_PRODUCTPLAN）](../zentao/ProductPlan) |
+| 关系属性 | [编号（ID）](../zentao/ProductPlan/#属性-编号（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-任务种别（TASKSPECIES）
+#### 属性说明
+任务种别
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+单项选择(文本值)
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+参照数据字典【[任务种别（TaskSpecies）](../../codelist/TaskSpecies)】
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+| 序号 | 组合方式 |
+| ---- | ---- |
+| 1 | `=` |
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [产品计划（ZT_PRODUCTPLAN）](../zentao/ProductPlan) |
+| 关系属性 | [编号（ID）](../zentao/ProductPlan/#属性-编号（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-周期设置周几（CONFIG_WEEK）
+#### 属性说明
+周期设置周几
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+多项选择(文本值)
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+参照数据字典【[星期（1～7）（CodeList46）](../../codelist/CodeList46)】
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [产品计划（ZT_PRODUCTPLAN）](../zentao/ProductPlan) |
+| 关系属性 | [编号（ID）](../zentao/ProductPlan/#属性-编号（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-周期设置月（CONFIG_MONTH）
+#### 属性说明
+周期设置月
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+多项选择(文本值)
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+参照数据字典【[月（1～31）（CodeList47）](../../codelist/CodeList47)】
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [产品计划（ZT_PRODUCTPLAN）](../zentao/ProductPlan) |
+| 关系属性 | [编号（ID）](../zentao/ProductPlan/#属性-编号（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-周期类型（CONFIG_TYPE）
+#### 属性说明
+周期类型
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+单项选择(文本值)
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+参照数据字典【[周期类型（CycleType）](../../codelist/CycleType)】
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+| 序号 | 组合方式 |
+| ---- | ---- |
+| 1 | `=` |
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [产品计划（ZT_PRODUCTPLAN）](../zentao/ProductPlan) |
+| 关系属性 | [编号（ID）](../zentao/ProductPlan/#属性-编号（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-提前天数（CONFIG_BEFOREDAYS）
+#### 属性说明
+提前天数
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [产品计划（ZT_PRODUCTPLAN）](../zentao/ProductPlan) |
+| 关系属性 | [编号（ID）](../zentao/ProductPlan/#属性-编号（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-间隔天数（CONFIG_DAY）
+#### 属性说明
+间隔天数
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [产品计划（ZT_PRODUCTPLAN）](../zentao/ProductPlan) |
+| 关系属性 | [编号（ID）](../zentao/ProductPlan/#属性-编号（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-过期日期（CONFIG_END）
+#### 属性说明
+过期日期
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+日期型
+
+- Java类型
+Timestamp
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+yyyy-MM-dd
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [产品计划（ZT_PRODUCTPLAN）](../zentao/ProductPlan) |
+| 关系属性 | [编号（ID）](../zentao/ProductPlan/#属性-编号（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-开始日期（CONFIG_BEGIN）
+#### 属性说明
+开始日期
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+日期型
+
+- Java类型
+Timestamp
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+yyyy-MM-dd
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [产品计划（ZT_PRODUCTPLAN）](../zentao/ProductPlan) |
+| 关系属性 | [编号（ID）](../zentao/ProductPlan/#属性-编号（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-所属计划（PLANNAME）
+#### 属性说明
+所属计划
+
+- 是否是主键
+否
+
+- 属性类型
+链接字段[来自关系实体字段]
+
+- 数据类型
+外键值文本
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+| 序号 | 组合方式 |
+| ---- | ---- |
+| 1 | `=` |
+| 2 | `%like%` |
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [产品计划（ZT_PRODUCTPLAN）](../zentao/ProductPlan) |
+| 关系属性 | [名称（TITLE）](../zentao/ProductPlan/#属性-名称（TITLE）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-关联编号（IDVALUE）
+#### 属性说明
+关联编号
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+大整型
+
+- Java类型
+Long
+
+- 是否允许为空
+是
+
+- 默认值
+| 项目 | 说明 |
+| ---- | ---- |
+| 类型 |  |
+| 值 | 0 |
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [产品计划（ZT_PRODUCTPLAN）](../zentao/ProductPlan) |
+| 关系属性 | [名称（TITLE）](../zentao/ProductPlan/#属性-名称（TITLE）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-周期（CYCLE）
+#### 属性说明
+周期
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+| 项目 | 说明 |
+| ---- | ---- |
+| 类型 |  |
+| 值 | 0 |
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+| 序号 | 组合方式 |
+| ---- | ---- |
+| 1 | `=` |
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [产品计划（ZT_PRODUCTPLAN）](../zentao/ProductPlan) |
+| 关系属性 | [名称（TITLE）](../zentao/ProductPlan/#属性-名称（TITLE）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 
@@ -6571,6 +7093,12 @@ FAVORITES
 | 38 | [模块路径（PATH）](#属性-模块路径（PATH）) | `%like%` |
 | 39 | [任务状态（STATUS1）](#属性-任务状态（STATUS1）) | `=` |
 | 40 | [任务类型（TASKTYPE）](#属性-任务类型（TASKTYPE）) | `=` |
+| 41 | [编号（PLAN）](#属性-编号（PLAN）) | `=` |
+| 42 | [任务种别（TASKSPECIES）](#属性-任务种别（TASKSPECIES）) | `=` |
+| 43 | [周期类型（CONFIG_TYPE）](#属性-周期类型（CONFIG_TYPE）) | `=` |
+| 44 | [所属计划（PLANNAME）](#属性-所属计划（PLANNAME）) | `=` |
+| 45 | [所属计划（PLANNAME）](#属性-所属计划（PLANNAME）) | `%like%` |
+| 46 | [周期（CYCLE）](#属性-周期（CYCLE）) | `=` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |
@@ -7168,7 +7696,15 @@ t1.`CLOSEDBY`,
 t1.`CLOSEDDATE`,
 t1.`CLOSEDREASON`,
 t1.`COLOR`,
+t1.`CONFIG_BEFOREDAYS`,
+t1.`CONFIG_BEGIN`,
+t1.`CONFIG_DAY`,
+t1.`CONFIG_END`,
+t1.`CONFIG_MONTH`,
+t1.`CONFIG_TYPE`,
+t1.`CONFIG_WEEK`,
 t1.`CONSUMED`,
+t1.`CYCLE`,
 t1.`DEADLINE`,
 (case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` in ('wait','doing') and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`,
 t1.`DELETED`,
@@ -7181,6 +7717,7 @@ t1.`FINISHEDDATE`,
 t1.`FINISHEDLIST`,
 t1.`FROMBUG`,
 t1.`ID`,
+t1.`IDVALUE`,
 0 AS `ISFAVORITES`,
 ( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`,
 t1.`LASTEDITEDBY`,
@@ -7199,6 +7736,8 @@ t1.`OPENEDDATE`,
 t1.`PARENT`,
 t51.`NAME` AS `PARENTNAME`,
 t11.`PATH`,
+t1.`PLAN`,
+t61.`TITLE` AS `PLANNAME`,
 t1.`PRI`,
 t21.`PRODUCT`,
 t41.`NAME` AS `PRODUCTNAME`,
@@ -7213,15 +7752,17 @@ t1.`STORY`,
 t21.`TITLE` AS `STORYNAME`,
 t1.`STORYVERSION`,
 t1.`SUBSTATUS`,
+t1.`TASKSPECIES`,
 ( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`,
 t1.`TYPE`,
 DATE_FORMAT(t1.lastediteddate,'%Y-%m-%d') AS `UPDATEDATE`
 FROM `zt_task` t1 
-LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID 
-LEFT JOIN zt_story t21 ON t1.STORY = t21.ID 
-LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID 
-LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID 
-LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID 
+LEFT JOIN `zt_module` t11 ON t1.`MODULE` = t11.`ID` 
+LEFT JOIN `zt_story` t21 ON t1.`STORY` = t21.`ID` 
+LEFT JOIN `zt_project` t31 ON t1.`PROJECT` = t31.`ID` 
+LEFT JOIN `zt_product` t41 ON t21.`PRODUCT` = t41.`ID` 
+LEFT JOIN `zt_task` t51 ON t1.`PARENT` = t51.`ID` 
+LEFT JOIN `zt_productplan` t61 ON t1.`PLAN` = t61.`ID` 
 
 ```
 

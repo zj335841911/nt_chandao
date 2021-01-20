@@ -12,6 +12,7 @@
 任务 *-- 任务 
 任务模块 *-- 任务 
 Bug *-- 任务 
+产品计划 *-- 任务 
 项目 *-- 任务 
 需求 *-- 任务 
 任务 *-- 任务 
@@ -94,6 +95,18 @@ hide members
 |之前消耗|MYCONSUMED|FLOAT|&nbsp;|
 |我的总消耗|MYTOTALTIME|FLOAT|&nbsp;完成界面，临时界面属性|
 |转交给|ASSIGNEDTOZJ|TEXT|&nbsp;|
+|编号|PLAN|PICKUP|&nbsp;|
+|任务种别|TASKSPECIES|SSCODELIST|&nbsp;|
+|周期设置周几|CONFIG_WEEK|SMCODELIST|&nbsp;|
+|周期设置月|CONFIG_MONTH|SMCODELIST|&nbsp;|
+|周期类型|CONFIG_TYPE|SSCODELIST|&nbsp;|
+|提前天数|CONFIG_BEFOREDAYS|INT|&nbsp;|
+|间隔天数|CONFIG_DAY|INT|&nbsp;|
+|过期日期|CONFIG_END|DATE|&nbsp;|
+|开始日期|CONFIG_BEGIN|DATE|&nbsp;|
+|所属计划|PLANNAME|PICKUPTEXT|&nbsp;|
+|关联编号|IDVALUE|BIGINT|&nbsp;|
+|周期|CYCLE|INT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -177,6 +190,18 @@ hide members
 |之前消耗|默认规则|默认规则|
 |我的总消耗|默认规则|默认规则|
 |转交给|默认规则|内容长度必须小于等于[30]|
+|编号|默认规则|默认规则|
+|任务种别|默认规则|内容长度必须小于等于[60]|
+|周期设置周几|默认规则|内容长度必须小于等于[2000]|
+|周期设置月|默认规则|内容长度必须小于等于[2000]|
+|周期类型|默认规则|内容长度必须小于等于[60]|
+|提前天数|默认规则|默认规则|
+|间隔天数|默认规则|默认规则|
+|过期日期|默认规则|默认规则|
+|开始日期|默认规则|默认规则|
+|所属计划|默认规则|内容长度必须小于等于[90]|
+|关联编号|默认规则|默认规则|
+|周期|默认规则|默认规则|
 
 ## 状态控制
 
@@ -1391,6 +1416,12 @@ hide footbox
 |模块路径(PATH)|LIKE|
 |任务状态(STATUS1)|EQ|
 |任务类型(TASKTYPE)|EQ|
+|编号(PLAN)|EQ|
+|任务种别(TASKSPECIES)|EQ|
+|周期类型(CONFIG_TYPE)|EQ|
+|所属计划(PLANNAME)|EQ|
+|所属计划(PLANNAME)|LIKE|
+|周期(CYCLE)|EQ|
 
 ## 导入模式
 无

@@ -72,6 +72,18 @@ export default {
     myconsumed: "之前消耗",
     mytotaltime: "我的总消耗",
     assignedtozj: "转交给",
+    plan: "编号",
+    taskspecies: "任务种别",
+    configweek: "周期设置周几",
+    configmonth: "周期设置月",
+    configtype: "周期类型",
+    configbeforedays: "提前天数",
+    configday: "间隔天数",
+    configend: "过期日期",
+    configbegin: "开始日期",
+    planname: "所属计划",
+    idvalue: "关联编号",
+    cycle: "周期",
   },
 	views: {
 		mobmdview: {

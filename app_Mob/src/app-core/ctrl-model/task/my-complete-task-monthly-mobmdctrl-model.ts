@@ -86,6 +86,11 @@ export class MyCompleteTaskMonthlyModel {
 				dataType: 'PICKUP',
 			},
 			{
+				name: 'plan',
+				prop: 'plan',
+				dataType: 'PICKUP',
+			},
+			{
 				name: 'srfmstag',
 			},
 			{

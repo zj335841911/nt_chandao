@@ -17,6 +17,9 @@ export default {
     root: "项目编号",
     username: "用户",
     taskcnt: "任务数",
+    pm: "项目经理",
+    projectname: "所属项目",
+    exitdate: "退场时间",
   },
 	views: {
 		projectteammobmeditview: {

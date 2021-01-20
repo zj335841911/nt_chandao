@@ -67,6 +67,9 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
     protected cn.ibizlab.pms.core.ibiz.service.IProjectModuleService projectmoduleService;
     @Autowired
     @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.IProductPlanService productplanService;
+    @Autowired
+    @Lazy
     protected cn.ibizlab.pms.core.zentao.service.IProjectService projectService;
     @Autowired
     @Lazy
@@ -587,6 +590,15 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
     }
 
     @Override
+    public List<Task> selectByPlan(Long id) {
+        return baseMapper.selectByPlan(id);
+    }
+    @Override
+    public void removeByPlan(Long id) {
+        this.remove(new QueryWrapper<Task>().eq("plan", id));
+    }
+
+    @Override
     public List<Task> selectByProject(Long id) {
         return baseMapper.selectByProject(id);
     }
@@ -922,6 +934,16 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
             // 父关系等价
             et.setProject(projectmodule.getRoot());
             et.setProjectname(projectmodule.getRootname());
+        }
+        //实体关系[DER1N_ZT_TASK_ZT_PRODUCTPLAN_PLAN]
+        if (!ObjectUtils.isEmpty(et.getPlan())) {
+            cn.ibizlab.pms.core.zentao.domain.ProductPlan productplan=et.getProductplan();
+            if (ObjectUtils.isEmpty(productplan)) {
+                cn.ibizlab.pms.core.zentao.domain.ProductPlan majorEntity=productplanService.get(et.getPlan());
+                et.setProductplan(majorEntity);
+                productplan = majorEntity;
+            }
+            et.setPlanname(productplan.getTitle());
         }
         //实体关系[DER1N_ZT_TASK_ZT_PROJECT_PROJECT]
         if (!ObjectUtils.isEmpty(et.getProject())) {

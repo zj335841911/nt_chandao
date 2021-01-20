@@ -231,6 +231,15 @@ export class MyStoryModel {
       {
         name: 'mdeptid',
       },
+      {
+        name: 'storylatestfinisheddate',
+      },
+      {
+        name: 'storyprovidedate',
+      },
+      {
+        name: 'storyprovider',
+      },
     ]
   }
 

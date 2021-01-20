@@ -64,6 +64,15 @@ export class ProjectTeamMobModel {
         name: 'taskcnt',
       },
       {
+        name: 'pm',
+      },
+      {
+        name: 'projectname',
+      },
+      {
+        name: 'exitdate',
+      },
+      {
         name: 'project',
         prop: 'id',
         dataType: 'FONTKEY',

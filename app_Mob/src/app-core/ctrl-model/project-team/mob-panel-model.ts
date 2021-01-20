@@ -63,6 +63,15 @@ export class MobModel {
       {
         name: 'taskcnt',
       },
+      {
+        name: 'pm',
+      },
+      {
+        name: 'projectname',
+      },
+      {
+        name: 'exitdate',
+      },
     ]
   }
 

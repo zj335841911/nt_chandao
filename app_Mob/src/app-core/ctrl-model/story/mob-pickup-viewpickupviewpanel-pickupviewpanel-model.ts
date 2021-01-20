@@ -231,6 +231,15 @@ export class MobPickupViewpickupviewpanelModel {
       {
         name: 'mdeptid',
       },
+      {
+        name: 'storylatestfinisheddate',
+      },
+      {
+        name: 'storyprovidedate',
+      },
+      {
+        name: 'storyprovider',
+      },
     ]
   }
 

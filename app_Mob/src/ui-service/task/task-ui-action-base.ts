@@ -357,6 +357,12 @@ export default class TaskUIActionBase extends EntityUIActionBase {
             { pathName: 'stories', parameterName: 'story' },
             ]
         }
+        if ((context as any).product && (context as any).productplan && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'productplans', parameterName: 'productplan' },
+            ]
+        }
         if ((context as any).project && true) {
             deResParameters = [
             { pathName: 'projects', parameterName: 'project' },
@@ -365,6 +371,11 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         if ((context as any).story && true) {
             deResParameters = [
             { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        if ((context as any).productplan && true) {
+            deResParameters = [
+            { pathName: 'productplans', parameterName: 'productplan' },
             ]
         }
         if ((context as any).projectmodule && true) {
@@ -547,6 +558,12 @@ export default class TaskUIActionBase extends EntityUIActionBase {
             { pathName: 'stories', parameterName: 'story' },
             ]
         }
+        if ((context as any).product && (context as any).productplan && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'productplans', parameterName: 'productplan' },
+            ]
+        }
         if ((context as any).project && true) {
             deResParameters = [
             { pathName: 'projects', parameterName: 'project' },
@@ -555,6 +572,11 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         if ((context as any).story && true) {
             deResParameters = [
             { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        if ((context as any).productplan && true) {
+            deResParameters = [
+            { pathName: 'productplans', parameterName: 'productplan' },
             ]
         }
         if ((context as any).projectmodule && true) {
@@ -618,6 +640,12 @@ export default class TaskUIActionBase extends EntityUIActionBase {
             { pathName: 'stories', parameterName: 'story' },
             ]
         }
+        if ((context as any).product && (context as any).productplan && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'productplans', parameterName: 'productplan' },
+            ]
+        }
         if ((context as any).project && true) {
             deResParameters = [
             { pathName: 'projects', parameterName: 'project' },
@@ -626,6 +654,11 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         if ((context as any).story && true) {
             deResParameters = [
             { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        if ((context as any).productplan && true) {
+            deResParameters = [
+            { pathName: 'productplans', parameterName: 'productplan' },
             ]
         }
         if ((context as any).projectmodule && true) {
@@ -759,6 +792,12 @@ export default class TaskUIActionBase extends EntityUIActionBase {
             { pathName: 'stories', parameterName: 'story' },
             ]
         }
+        if ((context as any).product && (context as any).productplan && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'productplans', parameterName: 'productplan' },
+            ]
+        }
         if ((context as any).project && true) {
             deResParameters = [
             { pathName: 'projects', parameterName: 'project' },
@@ -767,6 +806,11 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         if ((context as any).story && true) {
             deResParameters = [
             { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        if ((context as any).productplan && true) {
+            deResParameters = [
+            { pathName: 'productplans', parameterName: 'productplan' },
             ]
         }
         if ((context as any).projectmodule && true) {
@@ -1030,6 +1074,12 @@ export default class TaskUIActionBase extends EntityUIActionBase {
             { pathName: 'stories', parameterName: 'story' },
             ]
         }
+        if ((context as any).product && (context as any).productplan && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'productplans', parameterName: 'productplan' },
+            ]
+        }
         if ((context as any).project && true) {
             deResParameters = [
             { pathName: 'projects', parameterName: 'project' },
@@ -1038,6 +1088,11 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         if ((context as any).story && true) {
             deResParameters = [
             { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        if ((context as any).productplan && true) {
+            deResParameters = [
+            { pathName: 'productplans', parameterName: 'productplan' },
             ]
         }
         if ((context as any).projectmodule && true) {
@@ -1163,6 +1218,12 @@ export default class TaskUIActionBase extends EntityUIActionBase {
             { pathName: 'stories', parameterName: 'story' },
             ]
         }
+        if ((context as any).product && (context as any).productplan && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'productplans', parameterName: 'productplan' },
+            ]
+        }
         if ((context as any).project && true) {
             deResParameters = [
             { pathName: 'projects', parameterName: 'project' },
@@ -1171,6 +1232,11 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         if ((context as any).story && true) {
             deResParameters = [
             { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        if ((context as any).productplan && true) {
+            deResParameters = [
+            { pathName: 'productplans', parameterName: 'productplan' },
             ]
         }
         if ((context as any).projectmodule && true) {
@@ -1234,6 +1300,12 @@ export default class TaskUIActionBase extends EntityUIActionBase {
             { pathName: 'stories', parameterName: 'story' },
             ]
         }
+        if ((context as any).product && (context as any).productplan && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'productplans', parameterName: 'productplan' },
+            ]
+        }
         if ((context as any).project && true) {
             deResParameters = [
             { pathName: 'projects', parameterName: 'project' },
@@ -1242,6 +1314,11 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         if ((context as any).story && true) {
             deResParameters = [
             { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        if ((context as any).productplan && true) {
+            deResParameters = [
+            { pathName: 'productplans', parameterName: 'productplan' },
             ]
         }
         if ((context as any).projectmodule && true) {
@@ -1310,6 +1387,12 @@ export default class TaskUIActionBase extends EntityUIActionBase {
             { pathName: 'stories', parameterName: 'story' },
             ]
         }
+        if ((context as any).product && (context as any).productplan && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'productplans', parameterName: 'productplan' },
+            ]
+        }
         if ((context as any).project && true) {
             deResParameters = [
             { pathName: 'projects', parameterName: 'project' },
@@ -1318,6 +1401,11 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         if ((context as any).story && true) {
             deResParameters = [
             { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        if ((context as any).productplan && true) {
+            deResParameters = [
+            { pathName: 'productplans', parameterName: 'productplan' },
             ]
         }
         if ((context as any).projectmodule && true) {
@@ -1443,6 +1531,12 @@ export default class TaskUIActionBase extends EntityUIActionBase {
             { pathName: 'stories', parameterName: 'story' },
             ]
         }
+        if ((context as any).product && (context as any).productplan && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'productplans', parameterName: 'productplan' },
+            ]
+        }
         if ((context as any).project && true) {
             deResParameters = [
             { pathName: 'projects', parameterName: 'project' },
@@ -1451,6 +1545,11 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         if ((context as any).story && true) {
             deResParameters = [
             { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        if ((context as any).productplan && true) {
+            deResParameters = [
+            { pathName: 'productplans', parameterName: 'productplan' },
             ]
         }
         if ((context as any).projectmodule && true) {
@@ -1519,6 +1618,12 @@ export default class TaskUIActionBase extends EntityUIActionBase {
             { pathName: 'stories', parameterName: 'story' },
             ]
         }
+        if ((context as any).product && (context as any).productplan && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'productplans', parameterName: 'productplan' },
+            ]
+        }
         if ((context as any).project && true) {
             deResParameters = [
             { pathName: 'projects', parameterName: 'project' },
@@ -1527,6 +1632,11 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         if ((context as any).story && true) {
             deResParameters = [
             { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        if ((context as any).productplan && true) {
+            deResParameters = [
+            { pathName: 'productplans', parameterName: 'productplan' },
             ]
         }
         if ((context as any).projectmodule && true) {
@@ -1587,6 +1697,12 @@ export default class TaskUIActionBase extends EntityUIActionBase {
             { pathName: 'stories', parameterName: 'story' },
             ]
         }
+        if ((context as any).product && (context as any).productplan && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'productplans', parameterName: 'productplan' },
+            ]
+        }
         if ((context as any).project && true) {
             deResParameters = [
             { pathName: 'projects', parameterName: 'project' },
@@ -1595,6 +1711,11 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         if ((context as any).story && true) {
             deResParameters = [
             { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        if ((context as any).productplan && true) {
+            deResParameters = [
+            { pathName: 'productplans', parameterName: 'productplan' },
             ]
         }
         if ((context as any).projectmodule && true) {
@@ -1660,6 +1781,12 @@ export default class TaskUIActionBase extends EntityUIActionBase {
             { pathName: 'stories', parameterName: 'story' },
             ]
         }
+        if ((context as any).product && (context as any).productplan && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'productplans', parameterName: 'productplan' },
+            ]
+        }
         if ((context as any).project && true) {
             deResParameters = [
             { pathName: 'projects', parameterName: 'project' },
@@ -1668,6 +1795,11 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         if ((context as any).story && true) {
             deResParameters = [
             { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        if ((context as any).productplan && true) {
+            deResParameters = [
+            { pathName: 'productplans', parameterName: 'productplan' },
             ]
         }
         if ((context as any).projectmodule && true) {
@@ -1731,6 +1863,12 @@ export default class TaskUIActionBase extends EntityUIActionBase {
             { pathName: 'stories', parameterName: 'story' },
             ]
         }
+        if ((context as any).product && (context as any).productplan && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'productplans', parameterName: 'productplan' },
+            ]
+        }
         if ((context as any).project && true) {
             deResParameters = [
             { pathName: 'projects', parameterName: 'project' },
@@ -1739,6 +1877,11 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         if ((context as any).story && true) {
             deResParameters = [
             { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        if ((context as any).productplan && true) {
+            deResParameters = [
+            { pathName: 'productplans', parameterName: 'productplan' },
             ]
         }
         if ((context as any).projectmodule && true) {

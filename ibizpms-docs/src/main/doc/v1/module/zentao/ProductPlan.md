@@ -12,7 +12,8 @@
 | ---- | ---- | ---- |
 | 1 | [Bug（ZT_BUG）](../zentao/Bug) | （默认） |
 | 2 | [项目产品（ZT_PROJECTPRODUCT）](../zentao/ProjectProduct) | （默认） |
-| 3 | [产品计划（ZT_PRODUCTPLAN）](../zentao/ProductPlan) | （默认） |
+| 3 | [任务（ZT_TASK）](../zentao/Task) | （默认） |
+| 4 | [产品计划（ZT_PRODUCTPLAN）](../zentao/ProductPlan) | （默认） |
 ### N:1
 | 序号 | 关系实体 | 关系类型 |
 | ---- | ---- | ---- |

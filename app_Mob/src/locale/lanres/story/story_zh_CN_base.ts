@@ -73,6 +73,9 @@ export default {
     acl: "acl",
     acllist: "acllist",
     mdeptid: "MDEPTID",
+    storylatestfinisheddate: "需求最晚完成时间",
+    storyprovidedate: "需求提供时间",
+    storyprovider: "需求提供人",
   },
 	views: {
 		newmobeditview: {

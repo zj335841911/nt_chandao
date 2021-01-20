@@ -267,6 +267,26 @@ export class ProjectTeamServiceBase extends EntityService {
     }
 
     /**
+     * FetchProjectTeamPm接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectTeamServiceBase
+     */
+    public async FetchProjectTeamPm(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/projects/${context.project}/projectteams/fetchprojectteampm`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/projectteams/fetchprojectteampm`,tempData,isloading);
+        return res;
+    }
+
+    /**
      * FetchRowEditDefault接口方法
      *
      * @param {*} [context={}]
@@ -316,6 +336,18 @@ export class ProjectTeamServiceBase extends EntityService {
      * @memberof ProjectTeamServiceBase
      */
     public async FetchTempDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    }
+
+    /**
+     * FetchTempProjectTeamPm接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectTeamServiceBase
+     */
+    public async FetchTempProjectTeamPm(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
     }
 
     /**

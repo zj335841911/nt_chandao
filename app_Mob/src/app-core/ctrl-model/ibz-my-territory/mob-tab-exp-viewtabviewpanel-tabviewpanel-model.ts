@@ -159,6 +159,21 @@ export class MobTabExpViewtabviewpanelModel {
       {
         name: 'myterritorycnt',
       },
+      {
+        name: 'mytodocntjz',
+      },
+      {
+        name: 'leftlcbcnt',
+      },
+      {
+        name: 'leftlcbjzcnt',
+      },
+      {
+        name: 'projectteamcnt',
+      },
+      {
+        name: 'projectteamjzcnt',
+      },
     ]
   }
 

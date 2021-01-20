@@ -124,6 +124,8 @@ public interface ITaskService extends IService<Task> {
     void removeByModule(Long id);
     List<Task> selectByFrombug(Long id);
     void removeByFrombug(Long id);
+    List<Task> selectByPlan(Long id);
+    void removeByPlan(Long id);
     List<Task> selectByProject(Long id);
     void removeByProject(Long id);
     List<Task> selectByStory(Long id);

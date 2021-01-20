@@ -49,6 +49,11 @@ export default {
     myfavoritetasks: "我收藏的任务",
     myfavorites: "我的收藏",
     myterritorycnt: "我的地盘",
+    mytodocntjz: "今日截止待办",
+    leftlcbcnt: "剩余里程碑",
+    leftlcbjzcnt: "剩余里程碑（今日到期）",
+    projectteamcnt: "项目成员",
+    projectteamjzcnt: "项目成员（今日截止）",
   },
 	views: {
 		mobcalendarview: {

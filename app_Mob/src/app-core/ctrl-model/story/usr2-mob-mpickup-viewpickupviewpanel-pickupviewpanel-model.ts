@@ -231,6 +231,15 @@ export class Usr2MobMPickupViewpickupviewpanelModel {
       {
         name: 'mdeptid',
       },
+      {
+        name: 'storylatestfinisheddate',
+      },
+      {
+        name: 'storyprovidedate',
+      },
+      {
+        name: 'storyprovider',
+      },
     ]
   }
 

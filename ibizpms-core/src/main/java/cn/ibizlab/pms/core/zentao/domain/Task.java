@@ -565,6 +565,101 @@ public class Task extends EntityMP implements Serializable {
     @JSONField(name = "assignedtozj")
     @JsonProperty("assignedtozj")
     private String assignedtozj;
+    /**
+     * 编号
+     */
+    @TableField(value = "`plan`")
+    @JSONField(name = "plan")
+    @JsonProperty("plan")
+    private Long plan;
+    /**
+     * 任务种别
+     */
+    @TableField(value = "`taskspecies`")
+    @JSONField(name = "taskspecies")
+    @JsonProperty("taskspecies")
+    private String taskspecies;
+    /**
+     * 周期设置周几
+     */
+    @DEField(name = "config_week")
+    @TableField(value = "`config_week`")
+    @JSONField(name = "configweek")
+    @JsonProperty("configweek")
+    private String configweek;
+    /**
+     * 周期设置月
+     */
+    @DEField(name = "config_month")
+    @TableField(value = "`config_month`")
+    @JSONField(name = "configmonth")
+    @JsonProperty("configmonth")
+    private String configmonth;
+    /**
+     * 周期类型
+     */
+    @DEField(name = "config_type")
+    @TableField(value = "`config_type`")
+    @JSONField(name = "configtype")
+    @JsonProperty("configtype")
+    private String configtype;
+    /**
+     * 提前天数
+     */
+    @DEField(name = "config_beforedays")
+    @TableField(value = "`config_beforedays`")
+    @JSONField(name = "configbeforedays")
+    @JsonProperty("configbeforedays")
+    private Integer configbeforedays;
+    /**
+     * 间隔天数
+     */
+    @DEField(name = "config_day")
+    @TableField(value = "`config_day`")
+    @JSONField(name = "configday")
+    @JsonProperty("configday")
+    private Integer configday;
+    /**
+     * 过期日期
+     */
+    @DEField(name = "config_end")
+    @TableField(value = "`config_end`")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "configend", format = "yyyy-MM-dd")
+    @JsonProperty("configend")
+    private Timestamp configend;
+    /**
+     * 开始日期
+     */
+    @DEField(name = "config_begin")
+    @TableField(value = "`config_begin`")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "configbegin", format = "yyyy-MM-dd")
+    @JsonProperty("configbegin")
+    private Timestamp configbegin;
+    /**
+     * 所属计划
+     */
+    @TableField(exist = false)
+    @JSONField(name = "planname")
+    @JsonProperty("planname")
+    private String planname;
+    /**
+     * 关联编号
+     */
+    @DEField(defaultValue = "0")
+    @TableField(value = "`idvalue`")
+    @JSONField(name = "idvalue")
+    @JsonProperty("idvalue")
+    private Long idvalue;
+    /**
+     * 周期
+     */
+    @DEField(defaultValue = "0")
+    @TableField(value = "`cycle`")
+    @JSONField(name = "cycle")
+    @JsonProperty("cycle")
+    private Integer cycle;
 
     /**
      * 
@@ -581,6 +676,14 @@ public class Task extends EntityMP implements Serializable {
     @JSONField(serialize = false)
     @TableField(exist = false)
     private cn.ibizlab.pms.core.zentao.domain.Bug ztfrombug;
+
+    /**
+     * 相关计划
+     */
+    @JsonIgnore
+    @JSONField(serialize = false)
+    @TableField(exist = false)
+    private cn.ibizlab.pms.core.zentao.domain.ProductPlan productplan;
 
     /**
      * 
@@ -932,6 +1035,114 @@ public class Task extends EntityMP implements Serializable {
     public void setModule(Long module) {
         this.module = module;
         this.modify("module", module);
+    }
+
+    /**
+     * 设置 [编号]
+     */
+    public void setPlan(Long plan) {
+        this.plan = plan;
+        this.modify("plan", plan);
+    }
+
+    /**
+     * 设置 [任务种别]
+     */
+    public void setTaskspecies(String taskspecies) {
+        this.taskspecies = taskspecies;
+        this.modify("taskspecies", taskspecies);
+    }
+
+    /**
+     * 设置 [周期设置周几]
+     */
+    public void setConfigweek(String configweek) {
+        this.configweek = configweek;
+        this.modify("config_week", configweek);
+    }
+
+    /**
+     * 设置 [周期设置月]
+     */
+    public void setConfigmonth(String configmonth) {
+        this.configmonth = configmonth;
+        this.modify("config_month", configmonth);
+    }
+
+    /**
+     * 设置 [周期类型]
+     */
+    public void setConfigtype(String configtype) {
+        this.configtype = configtype;
+        this.modify("config_type", configtype);
+    }
+
+    /**
+     * 设置 [提前天数]
+     */
+    public void setConfigbeforedays(Integer configbeforedays) {
+        this.configbeforedays = configbeforedays;
+        this.modify("config_beforedays", configbeforedays);
+    }
+
+    /**
+     * 设置 [间隔天数]
+     */
+    public void setConfigday(Integer configday) {
+        this.configday = configday;
+        this.modify("config_day", configday);
+    }
+
+    /**
+     * 设置 [过期日期]
+     */
+    public void setConfigend(Timestamp configend) {
+        this.configend = configend;
+        this.modify("config_end", configend);
+    }
+
+    /**
+     * 格式化日期 [过期日期]
+     */
+    public String formatConfigend() {
+        if (this.configend == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return sdf.format(configend);
+    }
+    /**
+     * 设置 [开始日期]
+     */
+    public void setConfigbegin(Timestamp configbegin) {
+        this.configbegin = configbegin;
+        this.modify("config_begin", configbegin);
+    }
+
+    /**
+     * 格式化日期 [开始日期]
+     */
+    public String formatConfigbegin() {
+        if (this.configbegin == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return sdf.format(configbegin);
+    }
+    /**
+     * 设置 [关联编号]
+     */
+    public void setIdvalue(Long idvalue) {
+        this.idvalue = idvalue;
+        this.modify("idvalue", idvalue);
+    }
+
+    /**
+     * 设置 [周期]
+     */
+    public void setCycle(Integer cycle) {
+        this.cycle = cycle;
+        this.modify("cycle", cycle);
     }
 
 

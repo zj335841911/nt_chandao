@@ -97,6 +97,8 @@ public interface TaskMapper extends BaseMapper<Task> {
 
     List<Task> selectByFrombug(@Param("id") Serializable id);
 
+    List<Task> selectByPlan(@Param("id") Serializable id);
+
     List<Task> selectByProject(@Param("id") Serializable id);
 
     List<Task> selectByStory(@Param("id") Serializable id);

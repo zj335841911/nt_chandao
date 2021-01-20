@@ -317,6 +317,48 @@ public class TaskSearchContext extends QueryWrapperContext<Task> {
             this.getSearchCond().eq("`tasktype`", n_tasktype_eq);
         }
     }
+	private Long n_plan_eq;//[编号]
+	public void setN_plan_eq(Long n_plan_eq) {
+        this.n_plan_eq = n_plan_eq;
+        if(!ObjectUtils.isEmpty(this.n_plan_eq)){
+            this.getSearchCond().eq("`plan`", n_plan_eq);
+        }
+    }
+	private String n_taskspecies_eq;//[任务种别]
+	public void setN_taskspecies_eq(String n_taskspecies_eq) {
+        this.n_taskspecies_eq = n_taskspecies_eq;
+        if(!ObjectUtils.isEmpty(this.n_taskspecies_eq)){
+            this.getSearchCond().eq("`taskspecies`", n_taskspecies_eq);
+        }
+    }
+	private String n_config_type_eq;//[周期类型]
+	public void setN_config_type_eq(String n_config_type_eq) {
+        this.n_config_type_eq = n_config_type_eq;
+        if(!ObjectUtils.isEmpty(this.n_config_type_eq)){
+            this.getSearchCond().eq("`config_type`", n_config_type_eq);
+        }
+    }
+	private String n_planname_eq;//[所属计划]
+	public void setN_planname_eq(String n_planname_eq) {
+        this.n_planname_eq = n_planname_eq;
+        if(!ObjectUtils.isEmpty(this.n_planname_eq)){
+            this.getSearchCond().eq("`planname`", n_planname_eq);
+        }
+    }
+	private String n_planname_like;//[所属计划]
+	public void setN_planname_like(String n_planname_like) {
+        this.n_planname_like = n_planname_like;
+        if(!ObjectUtils.isEmpty(this.n_planname_like)){
+            this.getSearchCond().like("`planname`", n_planname_like);
+        }
+    }
+	private Integer n_cycle_eq;//[周期]
+	public void setN_cycle_eq(Integer n_cycle_eq) {
+        this.n_cycle_eq = n_cycle_eq;
+        if(!ObjectUtils.isEmpty(this.n_cycle_eq)){
+            this.getSearchCond().eq("`cycle`", n_cycle_eq);
+        }
+    }
 
     /**
 	 * 启用快速搜索

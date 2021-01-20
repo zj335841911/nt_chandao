@@ -18817,7 +18817,15 @@ t1.`CLOSEDBY`,
 t1.`CLOSEDDATE`,
 t1.`CLOSEDREASON`,
 t1.`COLOR`,
+t1.`CONFIG_BEFOREDAYS`,
+t1.`CONFIG_BEGIN`,
+t1.`CONFIG_DAY`,
+t1.`CONFIG_END`,
+t1.`CONFIG_MONTH`,
+t1.`CONFIG_TYPE`,
+t1.`CONFIG_WEEK`,
 t1.`CONSUMED`,
+t1.`CYCLE`,
 t1.`DEADLINE`,
 (case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` in ('wait','doing') and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`,
 t1.`DELETED`,
@@ -18830,6 +18838,7 @@ t1.`FINISHEDDATE`,
 t1.`FINISHEDLIST`,
 t1.`FROMBUG`,
 t1.`ID`,
+t1.`IDVALUE`,
 0 AS `ISFAVORITES`,
 ( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`,
 t1.`LASTEDITEDBY`,
@@ -18848,6 +18857,8 @@ t1.`OPENEDDATE`,
 t1.`PARENT`,
 t51.`NAME` AS `PARENTNAME`,
 t11.`PATH`,
+t1.`PLAN`,
+t61.`TITLE` AS `PLANNAME`,
 t1.`PRI`,
 t21.`PRODUCT`,
 t41.`NAME` AS `PRODUCTNAME`,
@@ -18862,15 +18873,17 @@ t1.`STORY`,
 t21.`TITLE` AS `STORYNAME`,
 t1.`STORYVERSION`,
 t1.`SUBSTATUS`,
+t1.`TASKSPECIES`,
 ( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`,
 t1.`TYPE`,
 DATE_FORMAT(t1.lastediteddate,'%Y-%m-%d') AS `UPDATEDATE`
 FROM `zt_task` t1 
-LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID 
-LEFT JOIN zt_story t21 ON t1.STORY = t21.ID 
-LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID 
-LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID 
-LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID 
+LEFT JOIN `zt_module` t11 ON t1.`MODULE` = t11.`ID` 
+LEFT JOIN `zt_story` t21 ON t1.`STORY` = t21.`ID` 
+LEFT JOIN `zt_project` t31 ON t1.`PROJECT` = t31.`ID` 
+LEFT JOIN `zt_product` t41 ON t21.`PRODUCT` = t41.`ID` 
+LEFT JOIN `zt_task` t51 ON t1.`PARENT` = t51.`ID` 
+LEFT JOIN `zt_productplan` t61 ON t1.`PLAN` = t61.`ID` 
 
 WHERE t1.DELETED = '0' 
 

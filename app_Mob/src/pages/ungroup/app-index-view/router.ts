@@ -95,6 +95,24 @@ const router = new Router({
                     component: () => import('@pages/ibiz/task-cancel-mob-option-view/task-cancel-mob-option-view.vue'),
                 },
                 {
+                    path: 'products/:product?/productplans/:productplan?/tasks/:task?/cancelmoboptionview',
+                    name: 'task_cancelmoboptionview',
+                    meta: {
+                        caption: 'task.views.cancelmoboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'cancelmoboptionview', parameterName: 'cancelmoboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-cancel-mob-option-view/task-cancel-mob-option-view.vue'),
+                },
+                {
                     path: 'projects/:project?/tasks/:task?/cancelmoboptionview',
                     name: 'task_cancelmoboptionview',
                     meta: {
@@ -121,6 +139,23 @@ const router = new Router({
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'cancelmoboptionview', parameterName: 'cancelmoboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-cancel-mob-option-view/task-cancel-mob-option-view.vue'),
+                },
+                {
+                    path: 'productplans/:productplan?/tasks/:task?/cancelmoboptionview',
+                    name: 'task_cancelmoboptionview',
+                    meta: {
+                        caption: 'task.views.cancelmoboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
                             { pathName: 'tasks', parameterName: 'task' },
                             { pathName: 'cancelmoboptionview', parameterName: 'cancelmoboptionview' },
                         ],
@@ -198,6 +233,24 @@ const router = new Router({
                     component: () => import('@pages/ibiz/task-stop-mob-option-view/task-stop-mob-option-view.vue'),
                 },
                 {
+                    path: 'products/:product?/productplans/:productplan?/tasks/:task?/stopmoboptionview',
+                    name: 'task_stopmoboptionview',
+                    meta: {
+                        caption: 'task.views.stopmoboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'stopmoboptionview', parameterName: 'stopmoboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-stop-mob-option-view/task-stop-mob-option-view.vue'),
+                },
+                {
                     path: 'projects/:project?/tasks/:task?/stopmoboptionview',
                     name: 'task_stopmoboptionview',
                     meta: {
@@ -224,6 +277,23 @@ const router = new Router({
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'stopmoboptionview', parameterName: 'stopmoboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-stop-mob-option-view/task-stop-mob-option-view.vue'),
+                },
+                {
+                    path: 'productplans/:productplan?/tasks/:task?/stopmoboptionview',
+                    name: 'task_stopmoboptionview',
+                    meta: {
+                        caption: 'task.views.stopmoboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
                             { pathName: 'tasks', parameterName: 'task' },
                             { pathName: 'stopmoboptionview', parameterName: 'stopmoboptionview' },
                         ],
@@ -301,6 +371,24 @@ const router = new Router({
                     component: () => import('@pages/ibiz/task-close-mob-option-view/task-close-mob-option-view.vue'),
                 },
                 {
+                    path: 'products/:product?/productplans/:productplan?/tasks/:task?/closemoboptionview',
+                    name: 'task_closemoboptionview',
+                    meta: {
+                        caption: 'task.views.closemoboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'closemoboptionview', parameterName: 'closemoboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-close-mob-option-view/task-close-mob-option-view.vue'),
+                },
+                {
                     path: 'projects/:project?/tasks/:task?/closemoboptionview',
                     name: 'task_closemoboptionview',
                     meta: {
@@ -327,6 +415,23 @@ const router = new Router({
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'closemoboptionview', parameterName: 'closemoboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-close-mob-option-view/task-close-mob-option-view.vue'),
+                },
+                {
+                    path: 'productplans/:productplan?/tasks/:task?/closemoboptionview',
+                    name: 'task_closemoboptionview',
+                    meta: {
+                        caption: 'task.views.closemoboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
                             { pathName: 'tasks', parameterName: 'task' },
                             { pathName: 'closemoboptionview', parameterName: 'closemoboptionview' },
                         ],
@@ -691,6 +796,24 @@ const router = new Router({
                     component: () => import('@pages/ibiz/task-com-mob-option-view/task-com-mob-option-view.vue'),
                 },
                 {
+                    path: 'products/:product?/productplans/:productplan?/tasks/:task?/commoboptionview',
+                    name: 'task_commoboptionview',
+                    meta: {
+                        caption: 'task.views.commoboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'commoboptionview', parameterName: 'commoboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-com-mob-option-view/task-com-mob-option-view.vue'),
+                },
+                {
                     path: 'projects/:project?/tasks/:task?/commoboptionview',
                     name: 'task_commoboptionview',
                     meta: {
@@ -717,6 +840,23 @@ const router = new Router({
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'commoboptionview', parameterName: 'commoboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-com-mob-option-view/task-com-mob-option-view.vue'),
+                },
+                {
+                    path: 'productplans/:productplan?/tasks/:task?/commoboptionview',
+                    name: 'task_commoboptionview',
+                    meta: {
+                        caption: 'task.views.commoboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
                             { pathName: 'tasks', parameterName: 'task' },
                             { pathName: 'commoboptionview', parameterName: 'commoboptionview' },
                         ],
@@ -808,6 +948,24 @@ const router = new Router({
                     component: () => import('@pages/ibiz/task-mob-edit-view/task-mob-edit-view.vue'),
                 },
                 {
+                    path: 'products/:product?/productplans/:productplan?/tasks/:task?/mobeditview',
+                    name: 'task_mobeditview',
+                    meta: {
+                        caption: 'task.views.mobeditview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'mobeditview', parameterName: 'mobeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-mob-edit-view/task-mob-edit-view.vue'),
+                },
+                {
                     path: 'projects/:project?/tasks/:task?/mobeditview',
                     name: 'task_mobeditview',
                     meta: {
@@ -834,6 +992,23 @@ const router = new Router({
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'mobeditview', parameterName: 'mobeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-mob-edit-view/task-mob-edit-view.vue'),
+                },
+                {
+                    path: 'productplans/:productplan?/tasks/:task?/mobeditview',
+                    name: 'task_mobeditview',
+                    meta: {
+                        caption: 'task.views.mobeditview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
                             { pathName: 'tasks', parameterName: 'task' },
                             { pathName: 'mobeditview', parameterName: 'mobeditview' },
                         ],
@@ -1306,6 +1481,23 @@ const router = new Router({
                     component: () => import('@pages/zentao/task-estimate-mob-medit-view9/task-estimate-mob-medit-view9.vue'),
                 },
                 {
+                    path: 'products/:product?/productplans/:productplan?/tasks/:task?/ibztaskestimates/:ibztaskestimate?/mobmeditview9',
+                    name: 'ibztaskestimate_mobmeditview9',
+                    meta: {
+                        caption: 'taskestimate.views.mobmeditview9.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'ibztaskestimates', parameterName: 'ibztaskestimate' },
+                            { pathName: 'mobmeditview9', parameterName: 'mobmeditview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-estimate-mob-medit-view9/task-estimate-mob-medit-view9.vue'),
+                },
+                {
                     path: 'projects/:project?/tasks/:task?/ibztaskestimates/:ibztaskestimate?/mobmeditview9',
                     name: 'ibztaskestimate_mobmeditview9',
                     meta: {
@@ -1329,6 +1521,22 @@ const router = new Router({
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'ibztaskestimates', parameterName: 'ibztaskestimate' },
+                            { pathName: 'mobmeditview9', parameterName: 'mobmeditview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-estimate-mob-medit-view9/task-estimate-mob-medit-view9.vue'),
+                },
+                {
+                    path: 'productplans/:productplan?/tasks/:task?/ibztaskestimates/:ibztaskestimate?/mobmeditview9',
+                    name: 'ibztaskestimate_mobmeditview9',
+                    meta: {
+                        caption: 'taskestimate.views.mobmeditview9.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
                             { pathName: 'tasks', parameterName: 'task' },
                             { pathName: 'ibztaskestimates', parameterName: 'ibztaskestimate' },
                             { pathName: 'mobmeditview9', parameterName: 'mobmeditview9' },
@@ -1466,6 +1674,24 @@ const router = new Router({
                     component: () => import('@pages/ibiz/task-favorite-more-mob-mdview/task-favorite-more-mob-mdview.vue'),
                 },
                 {
+                    path: 'products/:product?/productplans/:productplan?/tasks/:task?/favoritemoremobmdview',
+                    name: 'task_favoritemoremobmdview',
+                    meta: {
+                        caption: 'task.views.favoritemoremobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'favoritemoremobmdview', parameterName: 'favoritemoremobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-favorite-more-mob-mdview/task-favorite-more-mob-mdview.vue'),
+                },
+                {
                     path: 'projects/:project?/tasks/:task?/favoritemoremobmdview',
                     name: 'task_favoritemoremobmdview',
                     meta: {
@@ -1492,6 +1718,23 @@ const router = new Router({
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'favoritemoremobmdview', parameterName: 'favoritemoremobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-favorite-more-mob-mdview/task-favorite-more-mob-mdview.vue'),
+                },
+                {
+                    path: 'productplans/:productplan?/tasks/:task?/favoritemoremobmdview',
+                    name: 'task_favoritemoremobmdview',
+                    meta: {
+                        caption: 'task.views.favoritemoremobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
                             { pathName: 'tasks', parameterName: 'task' },
                             { pathName: 'favoritemoremobmdview', parameterName: 'favoritemoremobmdview' },
                         ],
@@ -1629,6 +1872,23 @@ const router = new Router({
                     component: () => import('@pages/ibiz/task-estimate-mob-edit-view9/task-estimate-mob-edit-view9.vue'),
                 },
                 {
+                    path: 'products/:product?/productplans/:productplan?/tasks/:task?/ibztaskestimates/:ibztaskestimate?/mobeditview9',
+                    name: 'ibztaskestimate_mobeditview9',
+                    meta: {
+                        caption: 'taskestimate.views.mobeditview9.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'ibztaskestimates', parameterName: 'ibztaskestimate' },
+                            { pathName: 'mobeditview9', parameterName: 'mobeditview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-estimate-mob-edit-view9/task-estimate-mob-edit-view9.vue'),
+                },
+                {
                     path: 'projects/:project?/tasks/:task?/ibztaskestimates/:ibztaskestimate?/mobeditview9',
                     name: 'ibztaskestimate_mobeditview9',
                     meta: {
@@ -1652,6 +1912,22 @@ const router = new Router({
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'ibztaskestimates', parameterName: 'ibztaskestimate' },
+                            { pathName: 'mobeditview9', parameterName: 'mobeditview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-estimate-mob-edit-view9/task-estimate-mob-edit-view9.vue'),
+                },
+                {
+                    path: 'productplans/:productplan?/tasks/:task?/ibztaskestimates/:ibztaskestimate?/mobeditview9',
+                    name: 'ibztaskestimate_mobeditview9',
+                    meta: {
+                        caption: 'taskestimate.views.mobeditview9.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
                             { pathName: 'tasks', parameterName: 'task' },
                             { pathName: 'ibztaskestimates', parameterName: 'ibztaskestimate' },
                             { pathName: 'mobeditview9', parameterName: 'mobeditview9' },
@@ -1914,6 +2190,24 @@ const router = new Router({
                     component: () => import('@pages/report/task-daily-done-task-mob-mdview/task-daily-done-task-mob-mdview.vue'),
                 },
                 {
+                    path: 'products/:product?/productplans/:productplan?/tasks/:task?/dailydonetaskmobmdview',
+                    name: 'task_dailydonetaskmobmdview',
+                    meta: {
+                        caption: 'task.views.dailydonetaskmobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'dailydonetaskmobmdview', parameterName: 'dailydonetaskmobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/task-daily-done-task-mob-mdview/task-daily-done-task-mob-mdview.vue'),
+                },
+                {
                     path: 'projects/:project?/tasks/:task?/dailydonetaskmobmdview',
                     name: 'task_dailydonetaskmobmdview',
                     meta: {
@@ -1940,6 +2234,23 @@ const router = new Router({
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'dailydonetaskmobmdview', parameterName: 'dailydonetaskmobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/task-daily-done-task-mob-mdview/task-daily-done-task-mob-mdview.vue'),
+                },
+                {
+                    path: 'productplans/:productplan?/tasks/:task?/dailydonetaskmobmdview',
+                    name: 'task_dailydonetaskmobmdview',
+                    meta: {
+                        caption: 'task.views.dailydonetaskmobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
                             { pathName: 'tasks', parameterName: 'task' },
                             { pathName: 'dailydonetaskmobmdview', parameterName: 'dailydonetaskmobmdview' },
                         ],
@@ -2344,6 +2655,24 @@ const router = new Router({
                     component: () => import('@pages/report/task-monthly-done-task-mob-mdview/task-monthly-done-task-mob-mdview.vue'),
                 },
                 {
+                    path: 'products/:product?/productplans/:productplan?/tasks/:task?/monthlydonetaskmobmdview',
+                    name: 'task_monthlydonetaskmobmdview',
+                    meta: {
+                        caption: 'task.views.monthlydonetaskmobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'monthlydonetaskmobmdview', parameterName: 'monthlydonetaskmobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/task-monthly-done-task-mob-mdview/task-monthly-done-task-mob-mdview.vue'),
+                },
+                {
                     path: 'projects/:project?/tasks/:task?/monthlydonetaskmobmdview',
                     name: 'task_monthlydonetaskmobmdview',
                     meta: {
@@ -2370,6 +2699,23 @@ const router = new Router({
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'monthlydonetaskmobmdview', parameterName: 'monthlydonetaskmobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/task-monthly-done-task-mob-mdview/task-monthly-done-task-mob-mdview.vue'),
+                },
+                {
+                    path: 'productplans/:productplan?/tasks/:task?/monthlydonetaskmobmdview',
+                    name: 'task_monthlydonetaskmobmdview',
+                    meta: {
+                        caption: 'task.views.monthlydonetaskmobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
                             { pathName: 'tasks', parameterName: 'task' },
                             { pathName: 'monthlydonetaskmobmdview', parameterName: 'monthlydonetaskmobmdview' },
                         ],
@@ -2494,6 +2840,24 @@ const router = new Router({
                     component: () => import('@pages/zentao/task-new-mob-edit-view/task-new-mob-edit-view.vue'),
                 },
                 {
+                    path: 'products/:product?/productplans/:productplan?/tasks/:task?/newmobeditview',
+                    name: 'task_newmobeditview',
+                    meta: {
+                        caption: 'task.views.newmobeditview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'newmobeditview', parameterName: 'newmobeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-new-mob-edit-view/task-new-mob-edit-view.vue'),
+                },
+                {
                     path: 'projects/:project?/tasks/:task?/newmobeditview',
                     name: 'task_newmobeditview',
                     meta: {
@@ -2520,6 +2884,23 @@ const router = new Router({
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'newmobeditview', parameterName: 'newmobeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-new-mob-edit-view/task-new-mob-edit-view.vue'),
+                },
+                {
+                    path: 'productplans/:productplan?/tasks/:task?/newmobeditview',
+                    name: 'task_newmobeditview',
+                    meta: {
+                        caption: 'task.views.newmobeditview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
                             { pathName: 'tasks', parameterName: 'task' },
                             { pathName: 'newmobeditview', parameterName: 'newmobeditview' },
                         ],
@@ -3464,6 +3845,24 @@ const router = new Router({
                     component: () => import('@pages/ibiz/task-ass-more-mob-mdview/task-ass-more-mob-mdview.vue'),
                 },
                 {
+                    path: 'products/:product?/productplans/:productplan?/tasks/:task?/assmoremobmdview',
+                    name: 'task_assmoremobmdview',
+                    meta: {
+                        caption: 'task.views.assmoremobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'assmoremobmdview', parameterName: 'assmoremobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-ass-more-mob-mdview/task-ass-more-mob-mdview.vue'),
+                },
+                {
                     path: 'projects/:project?/tasks/:task?/assmoremobmdview',
                     name: 'task_assmoremobmdview',
                     meta: {
@@ -3490,6 +3889,23 @@ const router = new Router({
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'assmoremobmdview', parameterName: 'assmoremobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-ass-more-mob-mdview/task-ass-more-mob-mdview.vue'),
+                },
+                {
+                    path: 'productplans/:productplan?/tasks/:task?/assmoremobmdview',
+                    name: 'task_assmoremobmdview',
+                    meta: {
+                        caption: 'task.views.assmoremobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
                             { pathName: 'tasks', parameterName: 'task' },
                             { pathName: 'assmoremobmdview', parameterName: 'assmoremobmdview' },
                         ],
@@ -3680,6 +4096,24 @@ const router = new Router({
                     component: () => import('@pages/zentao/task-ass-mob-mdview9/task-ass-mob-mdview9.vue'),
                 },
                 {
+                    path: 'products/:product?/productplans/:productplan?/tasks/:task?/assmobmdview9',
+                    name: 'task_assmobmdview9',
+                    meta: {
+                        caption: 'task.views.assmobmdview9.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'assmobmdview9', parameterName: 'assmobmdview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-ass-mob-mdview9/task-ass-mob-mdview9.vue'),
+                },
+                {
                     path: 'projects/:project?/tasks/:task?/assmobmdview9',
                     name: 'task_assmobmdview9',
                     meta: {
@@ -3706,6 +4140,23 @@ const router = new Router({
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'assmobmdview9', parameterName: 'assmobmdview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-ass-mob-mdview9/task-ass-mob-mdview9.vue'),
+                },
+                {
+                    path: 'productplans/:productplan?/tasks/:task?/assmobmdview9',
+                    name: 'task_assmobmdview9',
+                    meta: {
+                        caption: 'task.views.assmobmdview9.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
                             { pathName: 'tasks', parameterName: 'task' },
                             { pathName: 'assmobmdview9', parameterName: 'assmobmdview9' },
                         ],
@@ -3781,6 +4232,23 @@ const router = new Router({
                     component: () => import('@pages/ibiz/task-estimate-mob-mdview9/task-estimate-mob-mdview9.vue'),
                 },
                 {
+                    path: 'products/:product?/productplans/:productplan?/tasks/:task?/taskestimates/:taskestimate?/mobmdview9',
+                    name: 'taskestimate_mobmdview9',
+                    meta: {
+                        caption: 'taskestimate.views.mobmdview9.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'taskestimates', parameterName: 'taskestimate' },
+                            { pathName: 'mobmdview9', parameterName: 'mobmdview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-estimate-mob-mdview9/task-estimate-mob-mdview9.vue'),
+                },
+                {
                     path: 'projects/:project?/tasks/:task?/taskestimates/:taskestimate?/mobmdview9',
                     name: 'taskestimate_mobmdview9',
                     meta: {
@@ -3804,6 +4272,22 @@ const router = new Router({
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'taskestimates', parameterName: 'taskestimate' },
+                            { pathName: 'mobmdview9', parameterName: 'mobmdview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-estimate-mob-mdview9/task-estimate-mob-mdview9.vue'),
+                },
+                {
+                    path: 'productplans/:productplan?/tasks/:task?/taskestimates/:taskestimate?/mobmdview9',
+                    name: 'taskestimate_mobmdview9',
+                    meta: {
+                        caption: 'taskestimate.views.mobmdview9.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
                             { pathName: 'tasks', parameterName: 'task' },
                             { pathName: 'taskestimates', parameterName: 'taskestimate' },
                             { pathName: 'mobmdview9', parameterName: 'mobmdview9' },
@@ -4339,6 +4823,23 @@ const router = new Router({
                     component: () => import('@pages/ibiz/task-team-mob-medit-view9/task-team-mob-medit-view9.vue'),
                 },
                 {
+                    path: 'products/:product?/productplans/:productplan?/tasks/:task?/ibztaskteams/:ibztaskteam?/mobmeditview9',
+                    name: 'ibztaskteam_mobmeditview9',
+                    meta: {
+                        caption: 'taskteam.views.mobmeditview9.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'ibztaskteams', parameterName: 'ibztaskteam' },
+                            { pathName: 'mobmeditview9', parameterName: 'mobmeditview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-team-mob-medit-view9/task-team-mob-medit-view9.vue'),
+                },
+                {
                     path: 'projects/:project?/tasks/:task?/ibztaskteams/:ibztaskteam?/mobmeditview9',
                     name: 'ibztaskteam_mobmeditview9',
                     meta: {
@@ -4362,6 +4863,22 @@ const router = new Router({
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'ibztaskteams', parameterName: 'ibztaskteam' },
+                            { pathName: 'mobmeditview9', parameterName: 'mobmeditview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-team-mob-medit-view9/task-team-mob-medit-view9.vue'),
+                },
+                {
+                    path: 'productplans/:productplan?/tasks/:task?/ibztaskteams/:ibztaskteam?/mobmeditview9',
+                    name: 'ibztaskteam_mobmeditview9',
+                    meta: {
+                        caption: 'taskteam.views.mobmeditview9.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
                             { pathName: 'tasks', parameterName: 'task' },
                             { pathName: 'ibztaskteams', parameterName: 'ibztaskteam' },
                             { pathName: 'mobmeditview9', parameterName: 'mobmeditview9' },
@@ -4479,6 +4996,24 @@ const router = new Router({
                     component: () => import('@pages/report/task-monthly-my-plans-task-mob-mdview/task-monthly-my-plans-task-mob-mdview.vue'),
                 },
                 {
+                    path: 'products/:product?/productplans/:productplan?/tasks/:task?/monthlymyplanstaskmobmdview',
+                    name: 'task_monthlymyplanstaskmobmdview',
+                    meta: {
+                        caption: 'task.views.monthlymyplanstaskmobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'monthlymyplanstaskmobmdview', parameterName: 'monthlymyplanstaskmobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/task-monthly-my-plans-task-mob-mdview/task-monthly-my-plans-task-mob-mdview.vue'),
+                },
+                {
                     path: 'projects/:project?/tasks/:task?/monthlymyplanstaskmobmdview',
                     name: 'task_monthlymyplanstaskmobmdview',
                     meta: {
@@ -4505,6 +5040,23 @@ const router = new Router({
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'monthlymyplanstaskmobmdview', parameterName: 'monthlymyplanstaskmobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/task-monthly-my-plans-task-mob-mdview/task-monthly-my-plans-task-mob-mdview.vue'),
+                },
+                {
+                    path: 'productplans/:productplan?/tasks/:task?/monthlymyplanstaskmobmdview',
+                    name: 'task_monthlymyplanstaskmobmdview',
+                    meta: {
+                        caption: 'task.views.monthlymyplanstaskmobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
                             { pathName: 'tasks', parameterName: 'task' },
                             { pathName: 'monthlymyplanstaskmobmdview', parameterName: 'monthlymyplanstaskmobmdview' },
                         ],
@@ -4610,6 +5162,24 @@ const router = new Router({
                     component: () => import('@pages/report/task-my-complete-task-mob-mdview-weekly/task-my-complete-task-mob-mdview-weekly.vue'),
                 },
                 {
+                    path: 'products/:product?/productplans/:productplan?/tasks/:task?/mycompletetaskmobmdviewweekly',
+                    name: 'task_mycompletetaskmobmdviewweekly',
+                    meta: {
+                        caption: 'task.views.mycompletetaskmobmdviewweekly.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'mycompletetaskmobmdviewweekly', parameterName: 'mycompletetaskmobmdviewweekly' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/task-my-complete-task-mob-mdview-weekly/task-my-complete-task-mob-mdview-weekly.vue'),
+                },
+                {
                     path: 'projects/:project?/tasks/:task?/mycompletetaskmobmdviewweekly',
                     name: 'task_mycompletetaskmobmdviewweekly',
                     meta: {
@@ -4636,6 +5206,23 @@ const router = new Router({
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'mycompletetaskmobmdviewweekly', parameterName: 'mycompletetaskmobmdviewweekly' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/task-my-complete-task-mob-mdview-weekly/task-my-complete-task-mob-mdview-weekly.vue'),
+                },
+                {
+                    path: 'productplans/:productplan?/tasks/:task?/mycompletetaskmobmdviewweekly',
+                    name: 'task_mycompletetaskmobmdviewweekly',
+                    meta: {
+                        caption: 'task.views.mycompletetaskmobmdviewweekly.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
                             { pathName: 'tasks', parameterName: 'task' },
                             { pathName: 'mycompletetaskmobmdviewweekly', parameterName: 'mycompletetaskmobmdviewweekly' },
                         ],
@@ -4713,6 +5300,24 @@ const router = new Router({
                     component: () => import('@pages/report/task-monthly-my-complete-task-mob-mdview/task-monthly-my-complete-task-mob-mdview.vue'),
                 },
                 {
+                    path: 'products/:product?/productplans/:productplan?/tasks/:task?/monthlymycompletetaskmobmdview',
+                    name: 'task_monthlymycompletetaskmobmdview',
+                    meta: {
+                        caption: 'task.views.monthlymycompletetaskmobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'monthlymycompletetaskmobmdview', parameterName: 'monthlymycompletetaskmobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/task-monthly-my-complete-task-mob-mdview/task-monthly-my-complete-task-mob-mdview.vue'),
+                },
+                {
                     path: 'projects/:project?/tasks/:task?/monthlymycompletetaskmobmdview',
                     name: 'task_monthlymycompletetaskmobmdview',
                     meta: {
@@ -4739,6 +5344,23 @@ const router = new Router({
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'monthlymycompletetaskmobmdview', parameterName: 'monthlymycompletetaskmobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/task-monthly-my-complete-task-mob-mdview/task-monthly-my-complete-task-mob-mdview.vue'),
+                },
+                {
+                    path: 'productplans/:productplan?/tasks/:task?/monthlymycompletetaskmobmdview',
+                    name: 'task_monthlymycompletetaskmobmdview',
+                    meta: {
+                        caption: 'task.views.monthlymycompletetaskmobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
                             { pathName: 'tasks', parameterName: 'task' },
                             { pathName: 'monthlymycompletetaskmobmdview', parameterName: 'monthlymycompletetaskmobmdview' },
                         ],
@@ -5174,6 +5796,24 @@ const router = new Router({
                     component: () => import('@pages/zentao/task-usr2-mob-option-view/task-usr2-mob-option-view.vue'),
                 },
                 {
+                    path: 'products/:product?/productplans/:productplan?/tasks/:task?/usr2moboptionview',
+                    name: 'task_usr2moboptionview',
+                    meta: {
+                        caption: 'task.views.usr2moboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'usr2moboptionview', parameterName: 'usr2moboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-usr2-mob-option-view/task-usr2-mob-option-view.vue'),
+                },
+                {
                     path: 'projects/:project?/tasks/:task?/usr2moboptionview',
                     name: 'task_usr2moboptionview',
                     meta: {
@@ -5200,6 +5840,23 @@ const router = new Router({
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'usr2moboptionview', parameterName: 'usr2moboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-usr2-mob-option-view/task-usr2-mob-option-view.vue'),
+                },
+                {
+                    path: 'productplans/:productplan?/tasks/:task?/usr2moboptionview',
+                    name: 'task_usr2moboptionview',
+                    meta: {
+                        caption: 'task.views.usr2moboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
                             { pathName: 'tasks', parameterName: 'task' },
                             { pathName: 'usr2moboptionview', parameterName: 'usr2moboptionview' },
                         ],
@@ -5418,6 +6075,24 @@ const router = new Router({
                     component: () => import('@pages/report/task-weekly-plans-task-mob-mdview/task-weekly-plans-task-mob-mdview.vue'),
                 },
                 {
+                    path: 'products/:product?/productplans/:productplan?/tasks/:task?/weeklyplanstaskmobmdview',
+                    name: 'task_weeklyplanstaskmobmdview',
+                    meta: {
+                        caption: 'task.views.weeklyplanstaskmobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'weeklyplanstaskmobmdview', parameterName: 'weeklyplanstaskmobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/task-weekly-plans-task-mob-mdview/task-weekly-plans-task-mob-mdview.vue'),
+                },
+                {
                     path: 'projects/:project?/tasks/:task?/weeklyplanstaskmobmdview',
                     name: 'task_weeklyplanstaskmobmdview',
                     meta: {
@@ -5444,6 +6119,23 @@ const router = new Router({
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'weeklyplanstaskmobmdview', parameterName: 'weeklyplanstaskmobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/task-weekly-plans-task-mob-mdview/task-weekly-plans-task-mob-mdview.vue'),
+                },
+                {
+                    path: 'productplans/:productplan?/tasks/:task?/weeklyplanstaskmobmdview',
+                    name: 'task_weeklyplanstaskmobmdview',
+                    meta: {
+                        caption: 'task.views.weeklyplanstaskmobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
                             { pathName: 'tasks', parameterName: 'task' },
                             { pathName: 'weeklyplanstaskmobmdview', parameterName: 'weeklyplanstaskmobmdview' },
                         ],
@@ -5817,6 +6509,24 @@ const router = new Router({
                     component: () => import('@pages/report/task-monthly-plans-task-mob-mdview/task-monthly-plans-task-mob-mdview.vue'),
                 },
                 {
+                    path: 'products/:product?/productplans/:productplan?/tasks/:task?/monthlyplanstaskmobmdview',
+                    name: 'task_monthlyplanstaskmobmdview',
+                    meta: {
+                        caption: 'task.views.monthlyplanstaskmobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'monthlyplanstaskmobmdview', parameterName: 'monthlyplanstaskmobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/task-monthly-plans-task-mob-mdview/task-monthly-plans-task-mob-mdview.vue'),
+                },
+                {
                     path: 'projects/:project?/tasks/:task?/monthlyplanstaskmobmdview',
                     name: 'task_monthlyplanstaskmobmdview',
                     meta: {
@@ -5843,6 +6553,23 @@ const router = new Router({
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'monthlyplanstaskmobmdview', parameterName: 'monthlyplanstaskmobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/task-monthly-plans-task-mob-mdview/task-monthly-plans-task-mob-mdview.vue'),
+                },
+                {
+                    path: 'productplans/:productplan?/tasks/:task?/monthlyplanstaskmobmdview',
+                    name: 'task_monthlyplanstaskmobmdview',
+                    meta: {
+                        caption: 'task.views.monthlyplanstaskmobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
                             { pathName: 'tasks', parameterName: 'task' },
                             { pathName: 'monthlyplanstaskmobmdview', parameterName: 'monthlyplanstaskmobmdview' },
                         ],
@@ -6368,6 +7095,24 @@ const router = new Router({
                     component: () => import('@pages/zentao/task-favorite-mob-mdview9/task-favorite-mob-mdview9.vue'),
                 },
                 {
+                    path: 'products/:product?/productplans/:productplan?/tasks/:task?/favoritemobmdview9',
+                    name: 'task_favoritemobmdview9',
+                    meta: {
+                        caption: 'task.views.favoritemobmdview9.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'favoritemobmdview9', parameterName: 'favoritemobmdview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-favorite-mob-mdview9/task-favorite-mob-mdview9.vue'),
+                },
+                {
                     path: 'projects/:project?/tasks/:task?/favoritemobmdview9',
                     name: 'task_favoritemobmdview9',
                     meta: {
@@ -6394,6 +7139,23 @@ const router = new Router({
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'favoritemobmdview9', parameterName: 'favoritemobmdview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-favorite-mob-mdview9/task-favorite-mob-mdview9.vue'),
+                },
+                {
+                    path: 'productplans/:productplan?/tasks/:task?/favoritemobmdview9',
+                    name: 'task_favoritemobmdview9',
+                    meta: {
+                        caption: 'task.views.favoritemobmdview9.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
                             { pathName: 'tasks', parameterName: 'task' },
                             { pathName: 'favoritemobmdview9', parameterName: 'favoritemobmdview9' },
                         ],
@@ -6504,6 +7266,24 @@ const router = new Router({
                     component: () => import('@pages/ibiz/task-mob-option-view/task-mob-option-view.vue'),
                 },
                 {
+                    path: 'products/:product?/productplans/:productplan?/tasks/:task?/moboptionview',
+                    name: 'task_moboptionview',
+                    meta: {
+                        caption: 'task.views.moboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'moboptionview', parameterName: 'moboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-mob-option-view/task-mob-option-view.vue'),
+                },
+                {
                     path: 'projects/:project?/tasks/:task?/moboptionview',
                     name: 'task_moboptionview',
                     meta: {
@@ -6530,6 +7310,23 @@ const router = new Router({
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'moboptionview', parameterName: 'moboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-mob-option-view/task-mob-option-view.vue'),
+                },
+                {
+                    path: 'productplans/:productplan?/tasks/:task?/moboptionview',
+                    name: 'task_moboptionview',
+                    meta: {
+                        caption: 'task.views.moboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
                             { pathName: 'tasks', parameterName: 'task' },
                             { pathName: 'moboptionview', parameterName: 'moboptionview' },
                         ],
@@ -6706,6 +7503,24 @@ const router = new Router({
                     component: () => import('@pages/ibiz/task-gsmob-option-view/task-gsmob-option-view.vue'),
                 },
                 {
+                    path: 'products/:product?/productplans/:productplan?/tasks/:task?/gsmoboptionview',
+                    name: 'task_gsmoboptionview',
+                    meta: {
+                        caption: 'task.views.gsmoboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'gsmoboptionview', parameterName: 'gsmoboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-gsmob-option-view/task-gsmob-option-view.vue'),
+                },
+                {
                     path: 'projects/:project?/tasks/:task?/gsmoboptionview',
                     name: 'task_gsmoboptionview',
                     meta: {
@@ -6732,6 +7547,23 @@ const router = new Router({
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'gsmoboptionview', parameterName: 'gsmoboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-gsmob-option-view/task-gsmob-option-view.vue'),
+                },
+                {
+                    path: 'productplans/:productplan?/tasks/:task?/gsmoboptionview',
+                    name: 'task_gsmoboptionview',
+                    meta: {
+                        caption: 'task.views.gsmoboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
                             { pathName: 'tasks', parameterName: 'task' },
                             { pathName: 'gsmoboptionview', parameterName: 'gsmoboptionview' },
                         ],
@@ -7052,6 +7884,24 @@ const router = new Router({
                     component: () => import('@pages/ibiz/task-startmob-option-view/task-startmob-option-view.vue'),
                 },
                 {
+                    path: 'products/:product?/productplans/:productplan?/tasks/:task?/startmoboptionview',
+                    name: 'task_startmoboptionview',
+                    meta: {
+                        caption: 'task.views.startmoboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'startmoboptionview', parameterName: 'startmoboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-startmob-option-view/task-startmob-option-view.vue'),
+                },
+                {
                     path: 'projects/:project?/tasks/:task?/startmoboptionview',
                     name: 'task_startmoboptionview',
                     meta: {
@@ -7078,6 +7928,23 @@ const router = new Router({
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'startmoboptionview', parameterName: 'startmoboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-startmob-option-view/task-startmob-option-view.vue'),
+                },
+                {
+                    path: 'productplans/:productplan?/tasks/:task?/startmoboptionview',
+                    name: 'task_startmoboptionview',
+                    meta: {
+                        caption: 'task.views.startmoboptionview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
                             { pathName: 'tasks', parameterName: 'task' },
                             { pathName: 'startmoboptionview', parameterName: 'startmoboptionview' },
                         ],
@@ -7155,6 +8022,24 @@ const router = new Router({
                     component: () => import('@pages/report/task-weeklyly-done-task-mob-mdview/task-weeklyly-done-task-mob-mdview.vue'),
                 },
                 {
+                    path: 'products/:product?/productplans/:productplan?/tasks/:task?/weeklylydonetaskmobmdview',
+                    name: 'task_weeklylydonetaskmobmdview',
+                    meta: {
+                        caption: 'task.views.weeklylydonetaskmobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'weeklylydonetaskmobmdview', parameterName: 'weeklylydonetaskmobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/task-weeklyly-done-task-mob-mdview/task-weeklyly-done-task-mob-mdview.vue'),
+                },
+                {
                     path: 'projects/:project?/tasks/:task?/weeklylydonetaskmobmdview',
                     name: 'task_weeklylydonetaskmobmdview',
                     meta: {
@@ -7181,6 +8066,23 @@ const router = new Router({
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'weeklylydonetaskmobmdview', parameterName: 'weeklylydonetaskmobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/task-weeklyly-done-task-mob-mdview/task-weeklyly-done-task-mob-mdview.vue'),
+                },
+                {
+                    path: 'productplans/:productplan?/tasks/:task?/weeklylydonetaskmobmdview',
+                    name: 'task_weeklylydonetaskmobmdview',
+                    meta: {
+                        caption: 'task.views.weeklylydonetaskmobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
                             { pathName: 'tasks', parameterName: 'task' },
                             { pathName: 'weeklylydonetaskmobmdview', parameterName: 'weeklylydonetaskmobmdview' },
                         ],
@@ -7350,6 +8252,24 @@ const router = new Router({
                     component: () => import('@pages/ibiz/task-mob-pickup-view/task-mob-pickup-view.vue'),
                 },
                 {
+                    path: 'products/:product?/productplans/:productplan?/tasks/:task?/mobpickupview',
+                    name: 'task_mobpickupview',
+                    meta: {
+                        caption: 'task.views.mobpickupview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'mobpickupview', parameterName: 'mobpickupview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-mob-pickup-view/task-mob-pickup-view.vue'),
+                },
+                {
                     path: 'projects/:project?/tasks/:task?/mobpickupview',
                     name: 'task_mobpickupview',
                     meta: {
@@ -7376,6 +8296,23 @@ const router = new Router({
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'mobpickupview', parameterName: 'mobpickupview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-mob-pickup-view/task-mob-pickup-view.vue'),
+                },
+                {
+                    path: 'productplans/:productplan?/tasks/:task?/mobpickupview',
+                    name: 'task_mobpickupview',
+                    meta: {
+                        caption: 'task.views.mobpickupview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
                             { pathName: 'tasks', parameterName: 'task' },
                             { pathName: 'mobpickupview', parameterName: 'mobpickupview' },
                         ],
@@ -7512,6 +8449,23 @@ const router = new Router({
                     component: () => import('@pages/ibiz/task-team-mob-edit-view9/task-team-mob-edit-view9.vue'),
                 },
                 {
+                    path: 'products/:product?/productplans/:productplan?/tasks/:task?/ibztaskteams/:ibztaskteam?/mobeditview9',
+                    name: 'ibztaskteam_mobeditview9',
+                    meta: {
+                        caption: 'taskteam.views.mobeditview9.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'ibztaskteams', parameterName: 'ibztaskteam' },
+                            { pathName: 'mobeditview9', parameterName: 'mobeditview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-team-mob-edit-view9/task-team-mob-edit-view9.vue'),
+                },
+                {
                     path: 'projects/:project?/tasks/:task?/ibztaskteams/:ibztaskteam?/mobeditview9',
                     name: 'ibztaskteam_mobeditview9',
                     meta: {
@@ -7535,6 +8489,22 @@ const router = new Router({
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'ibztaskteams', parameterName: 'ibztaskteam' },
+                            { pathName: 'mobeditview9', parameterName: 'mobeditview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-team-mob-edit-view9/task-team-mob-edit-view9.vue'),
+                },
+                {
+                    path: 'productplans/:productplan?/tasks/:task?/ibztaskteams/:ibztaskteam?/mobeditview9',
+                    name: 'ibztaskteam_mobeditview9',
+                    meta: {
+                        caption: 'taskteam.views.mobeditview9.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
                             { pathName: 'tasks', parameterName: 'task' },
                             { pathName: 'ibztaskteams', parameterName: 'ibztaskteam' },
                             { pathName: 'mobeditview9', parameterName: 'mobeditview9' },
@@ -7739,6 +8709,24 @@ const router = new Router({
                     component: () => import('@pages/report/task-my-complete-task-mob-mdview-next-plan-weekly/task-my-complete-task-mob-mdview-next-plan-weekly.vue'),
                 },
                 {
+                    path: 'products/:product?/productplans/:productplan?/tasks/:task?/mycompletetaskmobmdviewnextplanweekly',
+                    name: 'task_mycompletetaskmobmdviewnextplanweekly',
+                    meta: {
+                        caption: 'task.views.mycompletetaskmobmdviewnextplanweekly.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'mycompletetaskmobmdviewnextplanweekly', parameterName: 'mycompletetaskmobmdviewnextplanweekly' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/task-my-complete-task-mob-mdview-next-plan-weekly/task-my-complete-task-mob-mdview-next-plan-weekly.vue'),
+                },
+                {
                     path: 'projects/:project?/tasks/:task?/mycompletetaskmobmdviewnextplanweekly',
                     name: 'task_mycompletetaskmobmdviewnextplanweekly',
                     meta: {
@@ -7765,6 +8753,23 @@ const router = new Router({
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'mycompletetaskmobmdviewnextplanweekly', parameterName: 'mycompletetaskmobmdviewnextplanweekly' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/task-my-complete-task-mob-mdview-next-plan-weekly/task-my-complete-task-mob-mdview-next-plan-weekly.vue'),
+                },
+                {
+                    path: 'productplans/:productplan?/tasks/:task?/mycompletetaskmobmdviewnextplanweekly',
+                    name: 'task_mycompletetaskmobmdviewnextplanweekly',
+                    meta: {
+                        caption: 'task.views.mycompletetaskmobmdviewnextplanweekly.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
                             { pathName: 'tasks', parameterName: 'task' },
                             { pathName: 'mycompletetaskmobmdviewnextplanweekly', parameterName: 'mycompletetaskmobmdviewnextplanweekly' },
                         ],
@@ -7908,6 +8913,23 @@ const router = new Router({
                     component: () => import('@pages/ibiz/task-estimate-mob-option-view/task-estimate-mob-option-view.vue'),
                 },
                 {
+                    path: 'products/:product?/productplans/:productplan?/tasks/:task?/taskestimates/:taskestimate?/moboptionview',
+                    name: 'taskestimate_moboptionview',
+                    meta: {
+                        caption: 'taskestimate.views.moboptionview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'taskestimates', parameterName: 'taskestimate' },
+                            { pathName: 'moboptionview', parameterName: 'moboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-estimate-mob-option-view/task-estimate-mob-option-view.vue'),
+                },
+                {
                     path: 'projects/:project?/tasks/:task?/taskestimates/:taskestimate?/moboptionview',
                     name: 'taskestimate_moboptionview',
                     meta: {
@@ -7931,6 +8953,22 @@ const router = new Router({
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'taskestimates', parameterName: 'taskestimate' },
+                            { pathName: 'moboptionview', parameterName: 'moboptionview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-estimate-mob-option-view/task-estimate-mob-option-view.vue'),
+                },
+                {
+                    path: 'productplans/:productplan?/tasks/:task?/taskestimates/:taskestimate?/moboptionview',
+                    name: 'taskestimate_moboptionview',
+                    meta: {
+                        caption: 'taskestimate.views.moboptionview.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
                             { pathName: 'tasks', parameterName: 'task' },
                             { pathName: 'taskestimates', parameterName: 'taskestimate' },
                             { pathName: 'moboptionview', parameterName: 'moboptionview' },
@@ -8068,6 +9106,24 @@ const router = new Router({
                     component: () => import('@pages/ibiz/task-mob-pickup-mdview/task-mob-pickup-mdview.vue'),
                 },
                 {
+                    path: 'products/:product?/productplans/:productplan?/tasks/:task?/mobpickupmdview',
+                    name: 'task_mobpickupmdview',
+                    meta: {
+                        caption: 'task.views.mobpickupmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'mobpickupmdview', parameterName: 'mobpickupmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-mob-pickup-mdview/task-mob-pickup-mdview.vue'),
+                },
+                {
                     path: 'projects/:project?/tasks/:task?/mobpickupmdview',
                     name: 'task_mobpickupmdview',
                     meta: {
@@ -8094,6 +9150,23 @@ const router = new Router({
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'mobpickupmdview', parameterName: 'mobpickupmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-mob-pickup-mdview/task-mob-pickup-mdview.vue'),
+                },
+                {
+                    path: 'productplans/:productplan?/tasks/:task?/mobpickupmdview',
+                    name: 'task_mobpickupmdview',
+                    meta: {
+                        caption: 'task.views.mobpickupmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
                             { pathName: 'tasks', parameterName: 'task' },
                             { pathName: 'mobpickupmdview', parameterName: 'mobpickupmdview' },
                         ],
@@ -8171,6 +9244,24 @@ const router = new Router({
                     component: () => import('@pages/ibiz/task-edit-mob-edit-view/task-edit-mob-edit-view.vue'),
                 },
                 {
+                    path: 'products/:product?/productplans/:productplan?/tasks/:task?/editmobeditview',
+                    name: 'task_editmobeditview',
+                    meta: {
+                        caption: 'task.views.editmobeditview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'editmobeditview', parameterName: 'editmobeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-edit-mob-edit-view/task-edit-mob-edit-view.vue'),
+                },
+                {
                     path: 'projects/:project?/tasks/:task?/editmobeditview',
                     name: 'task_editmobeditview',
                     meta: {
@@ -8197,6 +9288,23 @@ const router = new Router({
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'editmobeditview', parameterName: 'editmobeditview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-edit-mob-edit-view/task-edit-mob-edit-view.vue'),
+                },
+                {
+                    path: 'productplans/:productplan?/tasks/:task?/editmobeditview',
+                    name: 'task_editmobeditview',
+                    meta: {
+                        caption: 'task.views.editmobeditview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
                             { pathName: 'tasks', parameterName: 'task' },
                             { pathName: 'editmobeditview', parameterName: 'editmobeditview' },
                         ],
@@ -8338,6 +9446,23 @@ const router = new Router({
                     component: () => import('@pages/ibiz/task-team-mob-mdview9/task-team-mob-mdview9.vue'),
                 },
                 {
+                    path: 'products/:product?/productplans/:productplan?/tasks/:task?/taskteams/:taskteam?/mobmdview9',
+                    name: 'taskteam_mobmdview9',
+                    meta: {
+                        caption: 'taskteam.views.mobmdview9.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'taskteams', parameterName: 'taskteam' },
+                            { pathName: 'mobmdview9', parameterName: 'mobmdview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-team-mob-mdview9/task-team-mob-mdview9.vue'),
+                },
+                {
                     path: 'projects/:project?/tasks/:task?/taskteams/:taskteam?/mobmdview9',
                     name: 'taskteam_mobmdview9',
                     meta: {
@@ -8361,6 +9486,22 @@ const router = new Router({
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'taskteams', parameterName: 'taskteam' },
+                            { pathName: 'mobmdview9', parameterName: 'mobmdview9' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/ibiz/task-team-mob-mdview9/task-team-mob-mdview9.vue'),
+                },
+                {
+                    path: 'productplans/:productplan?/tasks/:task?/taskteams/:taskteam?/mobmdview9',
+                    name: 'taskteam_mobmdview9',
+                    meta: {
+                        caption: 'taskteam.views.mobmdview9.caption',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
                             { pathName: 'tasks', parameterName: 'task' },
                             { pathName: 'taskteams', parameterName: 'taskteam' },
                             { pathName: 'mobmdview9', parameterName: 'mobmdview9' },
@@ -8451,6 +9592,24 @@ const router = new Router({
                     component: () => import('@pages/zentao/task-active-mob-task/task-active-mob-task.vue'),
                 },
                 {
+                    path: 'products/:product?/productplans/:productplan?/tasks/:task?/activemobtask',
+                    name: 'task_activemobtask',
+                    meta: {
+                        caption: 'task.views.activemobtask.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'activemobtask', parameterName: 'activemobtask' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-active-mob-task/task-active-mob-task.vue'),
+                },
+                {
                     path: 'projects/:project?/tasks/:task?/activemobtask',
                     name: 'task_activemobtask',
                     meta: {
@@ -8477,6 +9636,23 @@ const router = new Router({
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'activemobtask', parameterName: 'activemobtask' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-active-mob-task/task-active-mob-task.vue'),
+                },
+                {
+                    path: 'productplans/:productplan?/tasks/:task?/activemobtask',
+                    name: 'task_activemobtask',
+                    meta: {
+                        caption: 'task.views.activemobtask.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
                             { pathName: 'tasks', parameterName: 'task' },
                             { pathName: 'activemobtask', parameterName: 'activemobtask' },
                         ],
@@ -9433,6 +10609,24 @@ const router = new Router({
                     component: () => import('@pages/zentao/task-mob-mdview/task-mob-mdview.vue'),
                 },
                 {
+                    path: 'products/:product?/productplans/:productplan?/tasks/:task?/mobmdview',
+                    name: 'task_mobmdview',
+                    meta: {
+                        caption: 'task.views.mobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'mobmdview', parameterName: 'mobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-mob-mdview/task-mob-mdview.vue'),
+                },
+                {
                     path: 'projects/:project?/tasks/:task?/mobmdview',
                     name: 'task_mobmdview',
                     meta: {
@@ -9459,6 +10653,23 @@ const router = new Router({
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'mobmdview', parameterName: 'mobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/task-mob-mdview/task-mob-mdview.vue'),
+                },
+                {
+                    path: 'productplans/:productplan?/tasks/:task?/mobmdview',
+                    name: 'task_mobmdview',
+                    meta: {
+                        caption: 'task.views.mobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
                             { pathName: 'tasks', parameterName: 'task' },
                             { pathName: 'mobmdview', parameterName: 'mobmdview' },
                         ],
@@ -9630,6 +10841,24 @@ const router = new Router({
                     component: () => import('@pages/report/task-daily-plans-task-mob-mdview/task-daily-plans-task-mob-mdview.vue'),
                 },
                 {
+                    path: 'products/:product?/productplans/:productplan?/tasks/:task?/dailyplanstaskmobmdview',
+                    name: 'task_dailyplanstaskmobmdview',
+                    meta: {
+                        caption: 'task.views.dailyplanstaskmobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'products', parameterName: 'product' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'dailyplanstaskmobmdview', parameterName: 'dailyplanstaskmobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/task-daily-plans-task-mob-mdview/task-daily-plans-task-mob-mdview.vue'),
+                },
+                {
                     path: 'projects/:project?/tasks/:task?/dailyplanstaskmobmdview',
                     name: 'task_dailyplanstaskmobmdview',
                     meta: {
@@ -9656,6 +10885,23 @@ const router = new Router({
                         parameters: [
                             { pathName: 'viewshell', parameterName: 'viewshell' },
                             { pathName: 'stories', parameterName: 'story' },
+                            { pathName: 'tasks', parameterName: 'task' },
+                            { pathName: 'dailyplanstaskmobmdview', parameterName: 'dailyplanstaskmobmdview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/report/task-daily-plans-task-mob-mdview/task-daily-plans-task-mob-mdview.vue'),
+                },
+                {
+                    path: 'productplans/:productplan?/tasks/:task?/dailyplanstaskmobmdview',
+                    name: 'task_dailyplanstaskmobmdview',
+                    meta: {
+                        caption: 'task.views.dailyplanstaskmobmdview.caption',
+                        imgPath: '',
+                        iconCls: 'fa fa-tasks',
+                        parameters: [
+                            { pathName: 'viewshell', parameterName: 'viewshell' },
+                            { pathName: 'productplans', parameterName: 'productplan' },
                             { pathName: 'tasks', parameterName: 'task' },
                             { pathName: 'dailyplanstaskmobmdview', parameterName: 'dailyplanstaskmobmdview' },
                         ],

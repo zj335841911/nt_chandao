@@ -17,6 +17,9 @@ export default {
     root:  commonLogic.appcommonhandle("项目编号",null),
     username:  commonLogic.appcommonhandle("用户",null),
     taskCnt:  commonLogic.appcommonhandle("任务数",null),
+    pM:  commonLogic.appcommonhandle("项目经理",null),
+    projectName:  commonLogic.appcommonhandle("所属项目",null),
+    exitdate:  commonLogic.appcommonhandle("退场时间",null),
   },
 	views: {
 		projectteammobmeditview: {

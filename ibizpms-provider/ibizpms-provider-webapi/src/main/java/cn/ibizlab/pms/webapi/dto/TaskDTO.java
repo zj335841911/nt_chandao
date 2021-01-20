@@ -640,6 +640,111 @@ public class TaskDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
     private String assignedtozj;
 
+    /**
+     * 属性 [PLAN]
+     *
+     */
+    @JSONField(name = "plan")
+    @JsonProperty("plan")
+    @JsonSerialize(using = ToStringSerializer.class)
+    private Long plan;
+
+    /**
+     * 属性 [TASKSPECIES]
+     *
+     */
+    @JSONField(name = "taskspecies")
+    @JsonProperty("taskspecies")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    private String taskspecies;
+
+    /**
+     * 属性 [CONFIG_WEEK]
+     *
+     */
+    @JSONField(name = "configweek")
+    @JsonProperty("configweek")
+    @Size(min = 0, max = 2000, message = "内容长度必须小于等于[2000]")
+    private String configweek;
+
+    /**
+     * 属性 [CONFIG_MONTH]
+     *
+     */
+    @JSONField(name = "configmonth")
+    @JsonProperty("configmonth")
+    @Size(min = 0, max = 2000, message = "内容长度必须小于等于[2000]")
+    private String configmonth;
+
+    /**
+     * 属性 [CONFIG_TYPE]
+     *
+     */
+    @JSONField(name = "configtype")
+    @JsonProperty("configtype")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    private String configtype;
+
+    /**
+     * 属性 [CONFIG_BEFOREDAYS]
+     *
+     */
+    @JSONField(name = "configbeforedays")
+    @JsonProperty("configbeforedays")
+    private Integer configbeforedays;
+
+    /**
+     * 属性 [CONFIG_DAY]
+     *
+     */
+    @JSONField(name = "configday")
+    @JsonProperty("configday")
+    private Integer configday;
+
+    /**
+     * 属性 [CONFIG_END]
+     *
+     */
+    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "configend" , format="yyyy-MM-dd")
+    @JsonProperty("configend")
+    private Timestamp configend;
+
+    /**
+     * 属性 [CONFIG_BEGIN]
+     *
+     */
+    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "configbegin" , format="yyyy-MM-dd")
+    @JsonProperty("configbegin")
+    private Timestamp configbegin;
+
+    /**
+     * 属性 [PLANNAME]
+     *
+     */
+    @JSONField(name = "planname")
+    @JsonProperty("planname")
+    @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
+    private String planname;
+
+    /**
+     * 属性 [IDVALUE]
+     *
+     */
+    @JSONField(name = "idvalue")
+    @JsonProperty("idvalue")
+    @JsonSerialize(using = ToStringSerializer.class)
+    private Long idvalue;
+
+    /**
+     * 属性 [CYCLE]
+     *
+     */
+    @JSONField(name = "cycle")
+    @JsonProperty("cycle")
+    private Integer cycle;
+
 
     /**
      * 设置 [CANCELEDBY]
@@ -879,6 +984,94 @@ public class TaskDTO extends DTOBase implements Serializable {
     public void setModule(Long  module){
         this.module = module ;
         this.modify("module",module);
+    }
+
+    /**
+     * 设置 [PLAN]
+     */
+    public void setPlan(Long  plan){
+        this.plan = plan ;
+        this.modify("plan",plan);
+    }
+
+    /**
+     * 设置 [TASKSPECIES]
+     */
+    public void setTaskspecies(String  taskspecies){
+        this.taskspecies = taskspecies ;
+        this.modify("taskspecies",taskspecies);
+    }
+
+    /**
+     * 设置 [CONFIG_WEEK]
+     */
+    public void setConfigweek(String  configweek){
+        this.configweek = configweek ;
+        this.modify("config_week",configweek);
+    }
+
+    /**
+     * 设置 [CONFIG_MONTH]
+     */
+    public void setConfigmonth(String  configmonth){
+        this.configmonth = configmonth ;
+        this.modify("config_month",configmonth);
+    }
+
+    /**
+     * 设置 [CONFIG_TYPE]
+     */
+    public void setConfigtype(String  configtype){
+        this.configtype = configtype ;
+        this.modify("config_type",configtype);
+    }
+
+    /**
+     * 设置 [CONFIG_BEFOREDAYS]
+     */
+    public void setConfigbeforedays(Integer  configbeforedays){
+        this.configbeforedays = configbeforedays ;
+        this.modify("config_beforedays",configbeforedays);
+    }
+
+    /**
+     * 设置 [CONFIG_DAY]
+     */
+    public void setConfigday(Integer  configday){
+        this.configday = configday ;
+        this.modify("config_day",configday);
+    }
+
+    /**
+     * 设置 [CONFIG_END]
+     */
+    public void setConfigend(Timestamp  configend){
+        this.configend = configend ;
+        this.modify("config_end",configend);
+    }
+
+    /**
+     * 设置 [CONFIG_BEGIN]
+     */
+    public void setConfigbegin(Timestamp  configbegin){
+        this.configbegin = configbegin ;
+        this.modify("config_begin",configbegin);
+    }
+
+    /**
+     * 设置 [IDVALUE]
+     */
+    public void setIdvalue(Long  idvalue){
+        this.idvalue = idvalue ;
+        this.modify("idvalue",idvalue);
+    }
+
+    /**
+     * 设置 [CYCLE]
+     */
+    public void setCycle(Integer  cycle){
+        this.cycle = cycle ;
+        this.modify("cycle",cycle);
     }
 
 
