@@ -3932,7 +3932,10 @@ POST
 | 70 | acl | String | 允许 | acl |
 | 71 | acllist | String | 允许 | acllist |
 | 72 | mdeptid | String | 允许 | MDEPTID |
-| 73 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 73 | storylatestfinisheddate | Timestamp | 允许 | 需求最晚完成时间<br>时间格式：yyyy-MM-dd |
+| 74 | storyprovidedate | Timestamp | 允许 | 需求提供时间<br>时间格式：yyyy-MM-dd |
+| 75 | storyprovider | String | 允许 | 需求提供人 |
+| 76 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### StorySearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

@@ -75,6 +75,9 @@ function getLocaleResourceBase(){
 			acl: commonLogic.appcommonhandle("acl",null),
 			acllist: commonLogic.appcommonhandle("acllist",null),
 			mdeptid: commonLogic.appcommonhandle("MDEPTID",null),
+			storylatestfinisheddate: commonLogic.appcommonhandle("需求最晚完成时间",null),
+			storyprovidedate: commonLogic.appcommonhandle("需求提供时间",null),
+			storyprovider: commonLogic.appcommonhandle("需求提供人",null),
 		},
 			views: {
 				pickupgridview4: {

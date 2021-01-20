@@ -587,6 +587,29 @@ public class Story extends EntityMP implements Serializable {
     @JSONField(name = "mdeptid")
     @JsonProperty("mdeptid")
     private String mdeptid;
+    /**
+     * 需求最晚完成时间
+     */
+    @TableField(value = "`storylatestfinisheddate`")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "storylatestfinisheddate", format = "yyyy-MM-dd")
+    @JsonProperty("storylatestfinisheddate")
+    private Timestamp storylatestfinisheddate;
+    /**
+     * 需求提供时间
+     */
+    @TableField(value = "`storyprovidedate`")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "storyprovidedate", format = "yyyy-MM-dd")
+    @JsonProperty("storyprovidedate")
+    private Timestamp storyprovidedate;
+    /**
+     * 需求提供人
+     */
+    @TableField(value = "`storyprovider`")
+    @JSONField(name = "storyprovider")
+    @JsonProperty("storyprovider")
+    private String storyprovider;
 
     /**
      * 
@@ -986,6 +1009,50 @@ public class Story extends EntityMP implements Serializable {
     public void setStorypoints(String storypoints) {
         this.storypoints = storypoints;
         this.modify("storypoints", storypoints);
+    }
+
+    /**
+     * 设置 [需求最晚完成时间]
+     */
+    public void setStorylatestfinisheddate(Timestamp storylatestfinisheddate) {
+        this.storylatestfinisheddate = storylatestfinisheddate;
+        this.modify("storylatestfinisheddate", storylatestfinisheddate);
+    }
+
+    /**
+     * 格式化日期 [需求最晚完成时间]
+     */
+    public String formatStorylatestfinisheddate() {
+        if (this.storylatestfinisheddate == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return sdf.format(storylatestfinisheddate);
+    }
+    /**
+     * 设置 [需求提供时间]
+     */
+    public void setStoryprovidedate(Timestamp storyprovidedate) {
+        this.storyprovidedate = storyprovidedate;
+        this.modify("storyprovidedate", storyprovidedate);
+    }
+
+    /**
+     * 格式化日期 [需求提供时间]
+     */
+    public String formatStoryprovidedate() {
+        if (this.storyprovidedate == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return sdf.format(storyprovidedate);
+    }
+    /**
+     * 设置 [需求提供人]
+     */
+    public void setStoryprovider(String storyprovider) {
+        this.storyprovider = storyprovider;
+        this.modify("storyprovider", storyprovider);
     }
 
 

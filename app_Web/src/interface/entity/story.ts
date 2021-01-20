@@ -581,4 +581,28 @@ export interface Story {
      * @memberof Story
      */
     mdeptid?: any;
+
+    /**
+     * 需求最晚完成时间
+     *
+     * @returns {*}
+     * @memberof Story
+     */
+    storylatestfinisheddate?: any;
+
+    /**
+     * 需求提供时间
+     *
+     * @returns {*}
+     * @memberof Story
+     */
+    storyprovidedate?: any;
+
+    /**
+     * 需求提供人
+     *
+     * @returns {*}
+     * @memberof Story
+     */
+    storyprovider?: any;
 }

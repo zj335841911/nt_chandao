@@ -674,6 +674,33 @@ public class SubStoryDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String mdeptid;
 
+    /**
+     * 属性 [STORYLATESTFINISHEDDATE]
+     *
+     */
+    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "storylatestfinisheddate" , format="yyyy-MM-dd")
+    @JsonProperty("storylatestfinisheddate")
+    private Timestamp storylatestfinisheddate;
+
+    /**
+     * 属性 [STORYPROVIDEDATE]
+     *
+     */
+    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "storyprovidedate" , format="yyyy-MM-dd")
+    @JsonProperty("storyprovidedate")
+    private Timestamp storyprovidedate;
+
+    /**
+     * 属性 [STORYPROVIDER]
+     *
+     */
+    @JSONField(name = "storyprovider")
+    @JsonProperty("storyprovider")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String storyprovider;
+
 
     /**
      * 设置 [ASSIGNEDTO]
@@ -985,6 +1012,30 @@ public class SubStoryDTO extends DTOBase implements Serializable {
     public void setStorypoints(String  storypoints){
         this.storypoints = storypoints ;
         this.modify("storypoints",storypoints);
+    }
+
+    /**
+     * 设置 [STORYLATESTFINISHEDDATE]
+     */
+    public void setStorylatestfinisheddate(Timestamp  storylatestfinisheddate){
+        this.storylatestfinisheddate = storylatestfinisheddate ;
+        this.modify("storylatestfinisheddate",storylatestfinisheddate);
+    }
+
+    /**
+     * 设置 [STORYPROVIDEDATE]
+     */
+    public void setStoryprovidedate(Timestamp  storyprovidedate){
+        this.storyprovidedate = storyprovidedate ;
+        this.modify("storyprovidedate",storyprovidedate);
+    }
+
+    /**
+     * 设置 [STORYPROVIDER]
+     */
+    public void setStoryprovider(String  storyprovider){
+        this.storyprovider = storyprovider ;
+        this.modify("storyprovider",storyprovider);
     }
 
 

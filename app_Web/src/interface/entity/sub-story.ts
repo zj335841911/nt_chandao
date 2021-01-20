@@ -581,4 +581,28 @@ export interface SubStory {
      * @memberof SubStory
      */
     mdeptid?: any;
+
+    /**
+     * 需求最晚完成时间
+     *
+     * @returns {*}
+     * @memberof SubStory
+     */
+    storylatestfinisheddate?: any;
+
+    /**
+     * 需求提供时间
+     *
+     * @returns {*}
+     * @memberof SubStory
+     */
+    storyprovidedate?: any;
+
+    /**
+     * 需求提供人
+     *
+     * @returns {*}
+     * @memberof SubStory
+     */
+    storyprovider?: any;
 }

@@ -100,6 +100,9 @@ hide members
 |acl|ACL|TEXT|&nbsp;|
 |acllist|ACLLIST|TEXT|&nbsp;|
 |MDEPTID|MDEPTID|TEXT|&nbsp;|
+|需求最晚完成时间|STORYLATESTFINISHEDDATE|DATE|&nbsp;|
+|需求提供时间|STORYPROVIDEDATE|DATE|&nbsp;|
+|需求提供人|STORYPROVIDER|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -176,6 +179,9 @@ hide members
 |acl|默认规则|内容长度必须小于等于[100]|
 |acllist|默认规则|内容长度必须小于等于[100]|
 |MDEPTID|默认规则|内容长度必须小于等于[100]|
+|需求最晚完成时间|默认规则|默认规则|
+|需求提供时间|默认规则|默认规则|
+|需求提供人|默认规则|内容长度必须小于等于[100]|
 
 ## 状态控制
 

@@ -36767,6 +36767,46 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"STORYLATESTFINISHEDDATE" ,
+    "codename":"Storylatestfinisheddate",
+    "field_logic_name":"需求最晚完成时间",
+    "entity_name":"ZT_STORY",
+    "field_type":"DATE",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"DATETIME",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"STORYPROVIDEDATE" ,
+    "codename":"Storyprovidedate",
+    "field_logic_name":"需求提供时间",
+    "entity_name":"ZT_STORY",
+    "field_type":"DATE",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"DATETIME",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"STORYPROVIDER" ,
+    "codename":"Storyprovider",
+    "field_logic_name":"需求提供人",
+    "entity_name":"ZT_STORY",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[

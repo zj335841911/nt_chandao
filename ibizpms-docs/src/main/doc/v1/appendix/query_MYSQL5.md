@@ -16753,7 +16753,10 @@ t1.`SOURCEOBJECT`,
 t1.`STAGE`,
 t1.`STAGEDBY`,
 t1.`STATUS`,
+t1.`STORYLATESTFINISHEDDATE`,
 t1.`STORYPOINTS`,
+t1.`STORYPROVIDEDATE`,
+t1.`STORYPROVIDER`,
 t1.`SUBSTATUS`,
 t1.`TITLE`,
 t1.`TOBUG`,
@@ -16761,10 +16764,10 @@ t1.`TYPE`,
 t1.`VERSION`,
 t1.`VERSION` AS `VERSIONC`
 FROM `zt_story` t1 
-LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID 
-LEFT JOIN zt_story t21 ON t1.PARENT = t21.ID 
-LEFT JOIN zt_product t31 ON t1.PRODUCT = t31.ID 
-LEFT JOIN zt_branch t41 ON t1.BRANCH = t41.ID 
+LEFT JOIN `zt_module` t11 ON t1.`MODULE` = t11.`ID` 
+LEFT JOIN `zt_story` t21 ON t1.`PARENT` = t21.`ID` 
+LEFT JOIN `zt_product` t31 ON t1.`PRODUCT` = t31.`ID` 
+LEFT JOIN `zt_branch` t41 ON t1.`BRANCH` = t41.`ID` 
 
 WHERE t1.DELETED = '0' 
 ( t1.`PRODUCT` = ${srfdatacontext('product','{"defname":"PRODUCT","dename":"ZT_STORY"}')}  AND  <#assign _value=srfdatacontext('branch','{"ignoreempty":true,"defname":"BRANCH","dename":"ZT_STORY"}')><#if _value?length gt 0>t1.`BRANCH` = ${_value}<#else>1=1</#if>  AND  <#assign _value=srfdatacontext('nodeid','{"ignoreempty":true,"defname":"MODULE","dename":"ZT_STORY"}')><#if _value?length gt 0>t1.`MODULE` = ${_value}<#else>1=1</#if> ) 
@@ -16882,7 +16885,10 @@ t1.`SOURCEOBJECT`,
 t1.`STAGE`,
 t1.`STAGEDBY`,
 t1.`STATUS`,
+t1.`STORYLATESTFINISHEDDATE`,
 t1.`STORYPOINTS`,
+t1.`STORYPROVIDEDATE`,
+t1.`STORYPROVIDER`,
 t1.`SUBSTATUS`,
 t1.`TITLE`,
 t1.`TOBUG`,
@@ -16890,10 +16896,10 @@ t1.`TYPE`,
 t1.`VERSION`,
 t1.`VERSION` AS `VERSIONC`
 FROM `zt_story` t1 
-LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID 
-LEFT JOIN zt_story t21 ON t1.PARENT = t21.ID 
-LEFT JOIN zt_product t31 ON t1.PRODUCT = t31.ID 
-LEFT JOIN zt_branch t41 ON t1.BRANCH = t41.ID 
+LEFT JOIN `zt_module` t11 ON t1.`MODULE` = t11.`ID` 
+LEFT JOIN `zt_story` t21 ON t1.`PARENT` = t21.`ID` 
+LEFT JOIN `zt_product` t31 ON t1.`PRODUCT` = t31.`ID` 
+LEFT JOIN `zt_branch` t41 ON t1.`BRANCH` = t41.`ID` 
 
 WHERE t1.DELETED = '0' 
 ( DATE_FORMAT( t1.openedDate, '%Y' ) = DATE_FORMAT(now(), '%Y' )  AND  t1.`OPENEDBY` =  ${srfsessioncontext('srfloginname','{"defname":"OPENEDBY","dename":"ZT_STORY"}')} ) 
@@ -17195,7 +17201,10 @@ t1.`SOURCEOBJECT`,
 t1.`STAGE`,
 t1.`STAGEDBY`,
 t1.`STATUS`,
+t1.`STORYLATESTFINISHEDDATE`,
 t1.`STORYPOINTS`,
+t1.`STORYPROVIDEDATE`,
+t1.`STORYPROVIDER`,
 t1.`SUBSTATUS`,
 t1.`TITLE`,
 t1.`TOBUG`,
@@ -17203,17 +17212,17 @@ t1.`TYPE`,
 t1.`VERSION`,
 t1.`VERSION` AS `VERSIONC`
 FROM `zt_story` t1 
-LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID 
-LEFT JOIN zt_story t21 ON t1.PARENT = t21.ID 
-LEFT JOIN zt_product t31 ON t1.PRODUCT = t31.ID 
-LEFT JOIN zt_branch t41 ON t1.BRANCH = t41.ID 
-RIGHT JOIN zt_product t51 ON t1.PRODUCT = t51.ID 
-LEFT OUTER JOIN zt_projectproduct t61 ON t51.ID = t61.PRODUCT 
+LEFT JOIN `zt_module` t11 ON t1.`MODULE` = t11.`ID` 
+LEFT JOIN `zt_story` t21 ON t1.`PARENT` = t21.`ID` 
+LEFT JOIN `zt_product` t31 ON t1.`PRODUCT` = t31.`ID` 
+LEFT JOIN `zt_branch` t41 ON t1.`BRANCH` = t41.`ID` 
+RIGHT JOIN `zt_product` t51 ON t1.`PRODUCT` = t51.`ID` 
+LEFT OUTER JOIN `zt_projectproduct` t61 ON t51.`ID` = t61.`PRODUCT` 
 
 WHERE ( t61.`PROJECT` = ${srfwebcontext('project','{"defname":"PROJECT","dename":"ZT_PROJECTPRODUCT"}')}  AND  (t61.plan = 0 or t1.plan = t61.plan or t1.plan in (select t.id from zt_productplan t where t.parent = t61.plan)) ) 
-NOT(EXISTS(SELECT * FROM zt_projectstory t71 
+NOT(EXISTS(SELECT * FROM `zt_projectstory` t71 
  WHERE 
- t1.ID = t71.STORY  AND  ( t71.`PROJECT` = ${srfwebcontext('project','{"defname":"PROJECT","dename":"ZT_PROJECTSTORY"}')} ) )) 
+ t1.`ID` = t71.`STORY`  AND  ( t71.`PROJECT` = ${srfwebcontext('project','{"defname":"PROJECT","dename":"ZT_PROJECTSTORY"}')} ) )) 
 t1.DELETED = '0' 
 ( t1.`STATUS` NOT  IN ('draft','closed') ) 
 
@@ -17530,7 +17539,10 @@ t1.`SOURCEOBJECT`,
 t1.`STAGE`,
 t1.`STAGEDBY`,
 t1.`STATUS`,
+t1.`STORYLATESTFINISHEDDATE`,
 t1.`STORYPOINTS`,
+t1.`STORYPROVIDEDATE`,
+t1.`STORYPROVIDER`,
 t1.`SUBSTATUS`,
 t1.`TITLE`,
 t1.`TOBUG`,
@@ -17538,10 +17550,10 @@ t1.`TYPE`,
 t1.`VERSION`,
 t1.`VERSION` AS `VERSIONC`
 FROM `zt_story` t1 
-LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID 
-LEFT JOIN zt_story t21 ON t1.PARENT = t21.ID 
-LEFT JOIN zt_product t31 ON t1.PRODUCT = t31.ID 
-LEFT JOIN zt_branch t41 ON t1.BRANCH = t41.ID 
+LEFT JOIN `zt_module` t11 ON t1.`MODULE` = t11.`ID` 
+LEFT JOIN `zt_story` t21 ON t1.`PARENT` = t21.`ID` 
+LEFT JOIN `zt_product` t31 ON t1.`PRODUCT` = t31.`ID` 
+LEFT JOIN `zt_branch` t41 ON t1.`BRANCH` = t41.`ID` 
 
 WHERE t1.DELETED = '0' 
 ( 1<>1 ) 
@@ -17658,7 +17670,10 @@ t1.`SOURCEOBJECT`,
 t1.`STAGE`,
 t1.`STAGEDBY`,
 t1.`STATUS`,
+t1.`STORYLATESTFINISHEDDATE`,
 t1.`STORYPOINTS`,
+t1.`STORYPROVIDEDATE`,
+t1.`STORYPROVIDER`,
 t1.`SUBSTATUS`,
 t1.`TITLE`,
 t1.`TOBUG`,
@@ -17666,10 +17681,10 @@ t1.`TYPE`,
 t1.`VERSION`,
 t1.`VERSION` AS `VERSIONC`
 FROM `zt_story` t1 
-LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID 
-LEFT JOIN zt_story t21 ON t1.PARENT = t21.ID 
-LEFT JOIN zt_product t31 ON t1.PRODUCT = t31.ID 
-LEFT JOIN zt_branch t41 ON t1.BRANCH = t41.ID 
+LEFT JOIN `zt_module` t11 ON t1.`MODULE` = t11.`ID` 
+LEFT JOIN `zt_story` t21 ON t1.`PARENT` = t21.`ID` 
+LEFT JOIN `zt_product` t31 ON t1.`PRODUCT` = t31.`ID` 
+LEFT JOIN `zt_branch` t41 ON t1.`BRANCH` = t41.`ID` 
 
 WHERE t1.DELETED = '0' 
 
