@@ -41,6 +41,10 @@ public class FileHelper extends ZTBaseHelper<FileMapper, File> {
         log.info("processImgURL：未实现");
     }
 
+    public File updateObjectIDForPmsEe(File et){
+        return null;
+    }
+
     public void updateObjectID(Long objectId, String objectType, String files, String extra) {
         if(files != null) {
             JSONArray jsonArray = JSONArray.parseArray(files);
