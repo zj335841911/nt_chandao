@@ -573,4 +573,100 @@ export interface Task {
      * @memberof Task
      */
     assignedtozj?: any;
+
+    /**
+     * 编号
+     *
+     * @returns {*}
+     * @memberof Task
+     */
+    plan?: any;
+
+    /**
+     * 任务种别
+     *
+     * @returns {*}
+     * @memberof Task
+     */
+    taskspecies?: any;
+
+    /**
+     * 周期设置周几
+     *
+     * @returns {*}
+     * @memberof Task
+     */
+    configweek?: any;
+
+    /**
+     * 周期设置月
+     *
+     * @returns {*}
+     * @memberof Task
+     */
+    configmonth?: any;
+
+    /**
+     * 周期类型
+     *
+     * @returns {*}
+     * @memberof Task
+     */
+    configtype?: any;
+
+    /**
+     * 提前天数
+     *
+     * @returns {*}
+     * @memberof Task
+     */
+    configbeforedays?: any;
+
+    /**
+     * 间隔天数
+     *
+     * @returns {*}
+     * @memberof Task
+     */
+    configday?: any;
+
+    /**
+     * 过期日期
+     *
+     * @returns {*}
+     * @memberof Task
+     */
+    configend?: any;
+
+    /**
+     * 开始日期
+     *
+     * @returns {*}
+     * @memberof Task
+     */
+    configbegin?: any;
+
+    /**
+     * 所属计划
+     *
+     * @returns {*}
+     * @memberof Task
+     */
+    planname?: any;
+
+    /**
+     * 关联编号
+     *
+     * @returns {*}
+     * @memberof Task
+     */
+    idvalue?: any;
+
+    /**
+     * 周期
+     *
+     * @returns {*}
+     * @memberof Task
+     */
+    cycle?: any;
 }

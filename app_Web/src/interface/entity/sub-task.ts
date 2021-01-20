@@ -573,4 +573,100 @@ export interface SubTask {
      * @memberof SubTask
      */
     assignedtozj?: any;
+
+    /**
+     * 编号
+     *
+     * @returns {*}
+     * @memberof SubTask
+     */
+    plan?: any;
+
+    /**
+     * 任务种别
+     *
+     * @returns {*}
+     * @memberof SubTask
+     */
+    taskspecies?: any;
+
+    /**
+     * 周期设置周几
+     *
+     * @returns {*}
+     * @memberof SubTask
+     */
+    configweek?: any;
+
+    /**
+     * 周期设置月
+     *
+     * @returns {*}
+     * @memberof SubTask
+     */
+    configmonth?: any;
+
+    /**
+     * 周期类型
+     *
+     * @returns {*}
+     * @memberof SubTask
+     */
+    configtype?: any;
+
+    /**
+     * 提前天数
+     *
+     * @returns {*}
+     * @memberof SubTask
+     */
+    configbeforedays?: any;
+
+    /**
+     * 间隔天数
+     *
+     * @returns {*}
+     * @memberof SubTask
+     */
+    configday?: any;
+
+    /**
+     * 过期日期
+     *
+     * @returns {*}
+     * @memberof SubTask
+     */
+    configend?: any;
+
+    /**
+     * 开始日期
+     *
+     * @returns {*}
+     * @memberof SubTask
+     */
+    configbegin?: any;
+
+    /**
+     * 所属计划
+     *
+     * @returns {*}
+     * @memberof SubTask
+     */
+    planname?: any;
+
+    /**
+     * 关联编号
+     *
+     * @returns {*}
+     * @memberof SubTask
+     */
+    idvalue?: any;
+
+    /**
+     * 周期
+     *
+     * @returns {*}
+     * @memberof SubTask
+     */
+    cycle?: any;
 }

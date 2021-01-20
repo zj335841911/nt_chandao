@@ -60,6 +60,11 @@ export default class TaskServiceBase extends EntityService {
             
             return res;
         }
+        if(context.product && context.productplan && context.task){
+            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/select`,isloading);
+            
+            return res;
+        }
         if(context.project && context.task){
             let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/select`,isloading);
             
@@ -67,6 +72,11 @@ export default class TaskServiceBase extends EntityService {
         }
         if(context.story && context.task){
             let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/select`,isloading);
+            
+            return res;
+        }
+        if(context.productplan && context.task){
+            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/select`,isloading);
             
             return res;
         }
@@ -288,6 +298,105 @@ export default class TaskServiceBase extends EntityService {
             
             return res;
         }
+        if(context.product && context.productplan && true){
+            let masterData:any = {};
+        let ibztaskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+                ibztaskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskestimates = ibztaskestimatesData;
+        let ibztaskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
+            ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+                ibztaskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
+        let taskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
+            taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+                taskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskestimates = taskestimatesData;
+        let taskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
+            taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+                taskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskteams = taskteamsData;
+            Object.assign(data,masterData);
+            if(!data.srffrontuf || data.srffrontuf !== "1"){
+                data[this.APPDEKEY] = null;
+            }
+            if(data.srffrontuf){
+                delete data.srffrontuf;
+            }
+            let tempContext:any = JSON.parse(JSON.stringify(context));
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks`,data,isloading);
+            this.tempStorage.setItem(tempContext.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
+            this.tempStorage.setItem(tempContext.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
+            this.tempStorage.setItem(tempContext.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
+            this.tempStorage.setItem(tempContext.srfsessionkey+'_taskestimates',JSON.stringify(res.data.taskestimates?res.data.taskestimates:[]));
+            this.tempStorage.setItem(tempContext.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams?res.data.taskteams:[]));
+            
+            return res;
+        }
         if(context.project && true){
             let masterData:any = {};
         let ibztaskestimatesData:any = [];
@@ -478,6 +587,105 @@ export default class TaskServiceBase extends EntityService {
             }
             let tempContext:any = JSON.parse(JSON.stringify(context));
             let res:any = await Http.getInstance().post(`/stories/${context.story}/tasks`,data,isloading);
+            this.tempStorage.setItem(tempContext.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
+            this.tempStorage.setItem(tempContext.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
+            this.tempStorage.setItem(tempContext.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
+            this.tempStorage.setItem(tempContext.srfsessionkey+'_taskestimates',JSON.stringify(res.data.taskestimates?res.data.taskestimates:[]));
+            this.tempStorage.setItem(tempContext.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams?res.data.taskteams:[]));
+            
+            return res;
+        }
+        if(context.productplan && true){
+            let masterData:any = {};
+        let ibztaskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+                ibztaskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskestimates = ibztaskestimatesData;
+        let ibztaskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
+            ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+                ibztaskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
+        let taskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
+            taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+                taskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskestimates = taskestimatesData;
+        let taskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
+            taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+                taskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskteams = taskteamsData;
+            Object.assign(data,masterData);
+            if(!data.srffrontuf || data.srffrontuf !== "1"){
+                data[this.APPDEKEY] = null;
+            }
+            if(data.srffrontuf){
+                delete data.srffrontuf;
+            }
+            let tempContext:any = JSON.parse(JSON.stringify(context));
+            let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/tasks`,data,isloading);
             this.tempStorage.setItem(tempContext.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
             this.tempStorage.setItem(tempContext.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
             this.tempStorage.setItem(tempContext.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
@@ -878,6 +1086,98 @@ export default class TaskServiceBase extends EntityService {
 
             return res;
         }
+        if(context.product && context.productplan && context.task){
+            let masterData:any = {};
+        let ibztaskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+                ibztaskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskestimates = ibztaskestimatesData;
+        let ibztaskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
+            ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+                ibztaskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
+        let taskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
+            taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+                taskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskestimates = taskestimatesData;
+        let taskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
+            taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+                taskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskteams = taskteamsData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().put(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskestimates',JSON.stringify(res.data.taskestimates?res.data.taskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams?res.data.taskteams:[]));
+
+            return res;
+        }
         if(context.project && context.task){
             let masterData:any = {};
         let ibztaskestimatesData:any = [];
@@ -1054,6 +1354,98 @@ export default class TaskServiceBase extends EntityService {
         masterData.taskteams = taskteamsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().put(`/stories/${context.story}/tasks/${context.task}`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskestimates',JSON.stringify(res.data.taskestimates?res.data.taskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams?res.data.taskteams:[]));
+
+            return res;
+        }
+        if(context.productplan && context.task){
+            let masterData:any = {};
+        let ibztaskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+                ibztaskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskestimates = ibztaskestimatesData;
+        let ibztaskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
+            ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+                ibztaskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
+        let taskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
+            taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+                taskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskestimates = taskestimatesData;
+        let taskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
+            taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+                taskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskteams = taskteamsData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().put(`/productplans/${context.productplan}/tasks/${context.task}`,data,isloading);
                         this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
@@ -1264,12 +1656,20 @@ export default class TaskServiceBase extends EntityService {
             let res:any = Http.getInstance().delete(`/products/${context.product}/stories/${context.story}/tasks/${context.task}`,isloading);
             return res;
         }
+        if(context.product && context.productplan && context.task){
+            let res:any = Http.getInstance().delete(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}`,isloading);
+            return res;
+        }
         if(context.project && context.task){
             let res:any = Http.getInstance().delete(`/projects/${context.project}/tasks/${context.task}`,isloading);
             return res;
         }
         if(context.story && context.task){
             let res:any = Http.getInstance().delete(`/stories/${context.story}/tasks/${context.task}`,isloading);
+            return res;
+        }
+        if(context.productplan && context.task){
+            let res:any = Http.getInstance().delete(`/productplans/${context.productplan}/tasks/${context.task}`,isloading);
             return res;
         }
         if(context.projectmodule && context.task){
@@ -1310,6 +1710,16 @@ export default class TaskServiceBase extends EntityService {
 
             return res;
         }
+        if(context.product && context.productplan && context.task){
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}`,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskestimates',JSON.stringify(res.data.taskestimates?res.data.taskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams?res.data.taskteams:[]));
+
+            return res;
+        }
         if(context.project && context.task){
             let res:any = await Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}`,isloading);
                         this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
@@ -1322,6 +1732,16 @@ export default class TaskServiceBase extends EntityService {
         }
         if(context.story && context.task){
             let res:any = await Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}`,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskestimates',JSON.stringify(res.data.taskestimates?res.data.taskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams?res.data.taskteams:[]));
+
+            return res;
+        }
+        if(context.productplan && context.task){
+            let res:any = await Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}`,isloading);
                         this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
@@ -1382,6 +1802,17 @@ export default class TaskServiceBase extends EntityService {
 
             return res;
         }
+        if(context.product && context.productplan && true){
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/getdraft`,isloading);
+            res.data.task = data.task;
+                        this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskestimates',JSON.stringify(res.data.taskestimates?res.data.taskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams?res.data.taskteams:[]));
+
+            return res;
+        }
         if(context.project && true){
             let res:any = await Http.getInstance().get(`/projects/${context.project}/tasks/getdraft`,isloading);
             res.data.task = data.task;
@@ -1395,6 +1826,17 @@ export default class TaskServiceBase extends EntityService {
         }
         if(context.story && true){
             let res:any = await Http.getInstance().get(`/stories/${context.story}/tasks/getdraft`,isloading);
+            res.data.task = data.task;
+                        this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskestimates',JSON.stringify(res.data.taskestimates?res.data.taskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams?res.data.taskteams:[]));
+
+            return res;
+        }
+        if(context.productplan && true){
+            let res:any = await Http.getInstance().get(`/productplans/${context.productplan}/tasks/getdraft`,isloading);
             res.data.task = data.task;
                         this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
@@ -1620,6 +2062,98 @@ export default class TaskServiceBase extends EntityService {
 
             return res;
         }
+        if(context.product && context.productplan && context.task){
+            let masterData:any = {};
+        let ibztaskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+                ibztaskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskestimates = ibztaskestimatesData;
+        let ibztaskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
+            ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+                ibztaskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
+        let taskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
+            taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+                taskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskestimates = taskestimatesData;
+        let taskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
+            taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+                taskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskteams = taskteamsData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/activate`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskestimates',JSON.stringify(res.data.taskestimates?res.data.taskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams?res.data.taskteams:[]));
+
+            return res;
+        }
         if(context.project && context.task){
             let masterData:any = {};
         let ibztaskestimatesData:any = [];
@@ -1796,6 +2330,98 @@ export default class TaskServiceBase extends EntityService {
         masterData.taskteams = taskteamsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/activate`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskestimates',JSON.stringify(res.data.taskestimates?res.data.taskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams?res.data.taskteams:[]));
+
+            return res;
+        }
+        if(context.productplan && context.task){
+            let masterData:any = {};
+        let ibztaskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+                ibztaskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskestimates = ibztaskestimatesData;
+        let ibztaskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
+            ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+                ibztaskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
+        let taskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
+            taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+                taskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskestimates = taskestimatesData;
+        let taskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
+            taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+                taskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskteams = taskteamsData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/tasks/${context.task}/activate`,data,isloading);
                         this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
@@ -2094,6 +2720,98 @@ export default class TaskServiceBase extends EntityService {
 
             return res;
         }
+        if(context.product && context.productplan && context.task){
+            let masterData:any = {};
+        let ibztaskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+                ibztaskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskestimates = ibztaskestimatesData;
+        let ibztaskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
+            ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+                ibztaskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
+        let taskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
+            taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+                taskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskestimates = taskestimatesData;
+        let taskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
+            taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+                taskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskteams = taskteamsData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/assignto`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskestimates',JSON.stringify(res.data.taskestimates?res.data.taskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams?res.data.taskteams:[]));
+
+            return res;
+        }
         if(context.project && context.task){
             let masterData:any = {};
         let ibztaskestimatesData:any = [];
@@ -2270,6 +2988,98 @@ export default class TaskServiceBase extends EntityService {
         masterData.taskteams = taskteamsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/assignto`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskestimates',JSON.stringify(res.data.taskestimates?res.data.taskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams?res.data.taskteams:[]));
+
+            return res;
+        }
+        if(context.productplan && context.task){
+            let masterData:any = {};
+        let ibztaskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+                ibztaskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskestimates = ibztaskestimatesData;
+        let ibztaskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
+            ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+                ibztaskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
+        let taskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
+            taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+                taskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskestimates = taskestimatesData;
+        let taskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
+            taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+                taskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskteams = taskteamsData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/tasks/${context.task}/assignto`,data,isloading);
                         this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
@@ -2568,6 +3378,98 @@ export default class TaskServiceBase extends EntityService {
 
             return res;
         }
+        if(context.product && context.productplan && context.task){
+            let masterData:any = {};
+        let ibztaskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+                ibztaskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskestimates = ibztaskestimatesData;
+        let ibztaskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
+            ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+                ibztaskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
+        let taskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
+            taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+                taskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskestimates = taskestimatesData;
+        let taskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
+            taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+                taskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskteams = taskteamsData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/cancel`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskestimates',JSON.stringify(res.data.taskestimates?res.data.taskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams?res.data.taskteams:[]));
+
+            return res;
+        }
         if(context.project && context.task){
             let masterData:any = {};
         let ibztaskestimatesData:any = [];
@@ -2744,6 +3646,98 @@ export default class TaskServiceBase extends EntityService {
         masterData.taskteams = taskteamsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/cancel`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskestimates',JSON.stringify(res.data.taskestimates?res.data.taskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams?res.data.taskteams:[]));
+
+            return res;
+        }
+        if(context.productplan && context.task){
+            let masterData:any = {};
+        let ibztaskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+                ibztaskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskestimates = ibztaskestimatesData;
+        let ibztaskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
+            ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+                ibztaskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
+        let taskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
+            taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+                taskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskestimates = taskestimatesData;
+        let taskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
+            taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+                taskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskteams = taskteamsData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/tasks/${context.task}/cancel`,data,isloading);
                         this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
@@ -3042,6 +4036,98 @@ export default class TaskServiceBase extends EntityService {
 
             return res;
         }
+        if(context.product && context.productplan && context.task){
+            let masterData:any = {};
+        let ibztaskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+                ibztaskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskestimates = ibztaskestimatesData;
+        let ibztaskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
+            ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+                ibztaskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
+        let taskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
+            taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+                taskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskestimates = taskestimatesData;
+        let taskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
+            taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+                taskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskteams = taskteamsData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/checkkey`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskestimates',JSON.stringify(res.data.taskestimates?res.data.taskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams?res.data.taskteams:[]));
+
+            return res;
+        }
         if(context.project && context.task){
             let masterData:any = {};
         let ibztaskestimatesData:any = [];
@@ -3218,6 +4304,98 @@ export default class TaskServiceBase extends EntityService {
         masterData.taskteams = taskteamsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/checkkey`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskestimates',JSON.stringify(res.data.taskestimates?res.data.taskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams?res.data.taskteams:[]));
+
+            return res;
+        }
+        if(context.productplan && context.task){
+            let masterData:any = {};
+        let ibztaskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+                ibztaskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskestimates = ibztaskestimatesData;
+        let ibztaskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
+            ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+                ibztaskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
+        let taskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
+            taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+                taskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskestimates = taskestimatesData;
+        let taskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
+            taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+                taskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskteams = taskteamsData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/tasks/${context.task}/checkkey`,data,isloading);
                         this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
@@ -3516,6 +4694,98 @@ export default class TaskServiceBase extends EntityService {
 
             return res;
         }
+        if(context.product && context.productplan && context.task){
+            let masterData:any = {};
+        let ibztaskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+                ibztaskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskestimates = ibztaskestimatesData;
+        let ibztaskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
+            ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+                ibztaskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
+        let taskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
+            taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+                taskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskestimates = taskestimatesData;
+        let taskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
+            taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+                taskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskteams = taskteamsData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/close`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskestimates',JSON.stringify(res.data.taskestimates?res.data.taskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams?res.data.taskteams:[]));
+
+            return res;
+        }
         if(context.project && context.task){
             let masterData:any = {};
         let ibztaskestimatesData:any = [];
@@ -3692,6 +4962,98 @@ export default class TaskServiceBase extends EntityService {
         masterData.taskteams = taskteamsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/close`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskestimates',JSON.stringify(res.data.taskestimates?res.data.taskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams?res.data.taskteams:[]));
+
+            return res;
+        }
+        if(context.productplan && context.task){
+            let masterData:any = {};
+        let ibztaskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+                ibztaskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskestimates = ibztaskestimatesData;
+        let ibztaskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
+            ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+                ibztaskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
+        let taskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
+            taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+                taskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskestimates = taskestimatesData;
+        let taskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
+            taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+                taskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskteams = taskteamsData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/tasks/${context.task}/close`,data,isloading);
                         this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
@@ -3990,6 +5352,98 @@ export default class TaskServiceBase extends EntityService {
 
             return res;
         }
+        if(context.product && context.productplan && context.task){
+            let masterData:any = {};
+        let ibztaskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+                ibztaskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskestimates = ibztaskestimatesData;
+        let ibztaskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
+            ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+                ibztaskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
+        let taskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
+            taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+                taskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskestimates = taskestimatesData;
+        let taskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
+            taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+                taskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskteams = taskteamsData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/confirmstorychange`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskestimates',JSON.stringify(res.data.taskestimates?res.data.taskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams?res.data.taskteams:[]));
+
+            return res;
+        }
         if(context.project && context.task){
             let masterData:any = {};
         let ibztaskestimatesData:any = [];
@@ -4166,6 +5620,98 @@ export default class TaskServiceBase extends EntityService {
         masterData.taskteams = taskteamsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/confirmstorychange`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskestimates',JSON.stringify(res.data.taskestimates?res.data.taskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams?res.data.taskteams:[]));
+
+            return res;
+        }
+        if(context.productplan && context.task){
+            let masterData:any = {};
+        let ibztaskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+                ibztaskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskestimates = ibztaskestimatesData;
+        let ibztaskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
+            ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+                ibztaskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
+        let taskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
+            taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+                taskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskestimates = taskestimatesData;
+        let taskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
+            taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+                taskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskteams = taskteamsData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/tasks/${context.task}/confirmstorychange`,data,isloading);
                         this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
@@ -4464,6 +6010,98 @@ export default class TaskServiceBase extends EntityService {
 
             return res;
         }
+        if(context.product && context.productplan && context.task){
+            let masterData:any = {};
+        let ibztaskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+                ibztaskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskestimates = ibztaskestimatesData;
+        let ibztaskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
+            ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+                ibztaskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
+        let taskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
+            taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+                taskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskestimates = taskestimatesData;
+        let taskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
+            taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+                taskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskteams = taskteamsData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/deleteestimate`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskestimates',JSON.stringify(res.data.taskestimates?res.data.taskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams?res.data.taskteams:[]));
+
+            return res;
+        }
         if(context.project && context.task){
             let masterData:any = {};
         let ibztaskestimatesData:any = [];
@@ -4640,6 +6278,98 @@ export default class TaskServiceBase extends EntityService {
         masterData.taskteams = taskteamsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/deleteestimate`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskestimates',JSON.stringify(res.data.taskestimates?res.data.taskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams?res.data.taskteams:[]));
+
+            return res;
+        }
+        if(context.productplan && context.task){
+            let masterData:any = {};
+        let ibztaskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+                ibztaskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskestimates = ibztaskestimatesData;
+        let ibztaskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
+            ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+                ibztaskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
+        let taskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
+            taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+                taskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskestimates = taskestimatesData;
+        let taskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
+            taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+                taskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskteams = taskteamsData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/tasks/${context.task}/deleteestimate`,data,isloading);
                         this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
@@ -4938,6 +6668,98 @@ export default class TaskServiceBase extends EntityService {
 
             return res;
         }
+        if(context.product && context.productplan && context.task){
+            let masterData:any = {};
+        let ibztaskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+                ibztaskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskestimates = ibztaskestimatesData;
+        let ibztaskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
+            ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+                ibztaskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
+        let taskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
+            taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+                taskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskestimates = taskestimatesData;
+        let taskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
+            taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+                taskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskteams = taskteamsData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/editestimate`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskestimates',JSON.stringify(res.data.taskestimates?res.data.taskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams?res.data.taskteams:[]));
+
+            return res;
+        }
         if(context.project && context.task){
             let masterData:any = {};
         let ibztaskestimatesData:any = [];
@@ -5114,6 +6936,98 @@ export default class TaskServiceBase extends EntityService {
         masterData.taskteams = taskteamsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/editestimate`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskestimates',JSON.stringify(res.data.taskestimates?res.data.taskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams?res.data.taskteams:[]));
+
+            return res;
+        }
+        if(context.productplan && context.task){
+            let masterData:any = {};
+        let ibztaskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+                ibztaskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskestimates = ibztaskestimatesData;
+        let ibztaskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
+            ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+                ibztaskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
+        let taskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
+            taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+                taskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskestimates = taskestimatesData;
+        let taskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
+            taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+                taskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskteams = taskteamsData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/tasks/${context.task}/editestimate`,data,isloading);
                         this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
@@ -5412,6 +7326,98 @@ export default class TaskServiceBase extends EntityService {
 
             return res;
         }
+        if(context.product && context.productplan && context.task){
+            let masterData:any = {};
+        let ibztaskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+                ibztaskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskestimates = ibztaskestimatesData;
+        let ibztaskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
+            ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+                ibztaskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
+        let taskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
+            taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+                taskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskestimates = taskestimatesData;
+        let taskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
+            taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+                taskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskteams = taskteamsData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/finish`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskestimates',JSON.stringify(res.data.taskestimates?res.data.taskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams?res.data.taskteams:[]));
+
+            return res;
+        }
         if(context.project && context.task){
             let masterData:any = {};
         let ibztaskestimatesData:any = [];
@@ -5588,6 +7594,98 @@ export default class TaskServiceBase extends EntityService {
         masterData.taskteams = taskteamsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/finish`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskestimates',JSON.stringify(res.data.taskestimates?res.data.taskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams?res.data.taskteams:[]));
+
+            return res;
+        }
+        if(context.productplan && context.task){
+            let masterData:any = {};
+        let ibztaskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+                ibztaskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskestimates = ibztaskestimatesData;
+        let ibztaskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
+            ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+                ibztaskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
+        let taskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
+            taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+                taskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskestimates = taskestimatesData;
+        let taskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
+            taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+                taskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskteams = taskteamsData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/tasks/${context.task}/finish`,data,isloading);
                         this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
@@ -5886,6 +7984,98 @@ export default class TaskServiceBase extends EntityService {
 
             return res;
         }
+        if(context.product && context.productplan && context.task){
+            let masterData:any = {};
+        let ibztaskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+                ibztaskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskestimates = ibztaskestimatesData;
+        let ibztaskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
+            ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+                ibztaskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
+        let taskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
+            taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+                taskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskestimates = taskestimatesData;
+        let taskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
+            taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+                taskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskteams = taskteamsData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().put(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/getnextteamuser`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskestimates',JSON.stringify(res.data.taskestimates?res.data.taskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams?res.data.taskteams:[]));
+
+            return res;
+        }
         if(context.project && context.task){
             let masterData:any = {};
         let ibztaskestimatesData:any = [];
@@ -6062,6 +8252,98 @@ export default class TaskServiceBase extends EntityService {
         masterData.taskteams = taskteamsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().put(`/stories/${context.story}/tasks/${context.task}/getnextteamuser`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskestimates',JSON.stringify(res.data.taskestimates?res.data.taskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams?res.data.taskteams:[]));
+
+            return res;
+        }
+        if(context.productplan && context.task){
+            let masterData:any = {};
+        let ibztaskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+                ibztaskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskestimates = ibztaskestimatesData;
+        let ibztaskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
+            ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+                ibztaskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
+        let taskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
+            taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+                taskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskestimates = taskestimatesData;
+        let taskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
+            taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+                taskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskteams = taskteamsData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().put(`/productplans/${context.productplan}/tasks/${context.task}/getnextteamuser`,data,isloading);
                         this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
@@ -6360,6 +8642,98 @@ export default class TaskServiceBase extends EntityService {
 
             return res;
         }
+        if(context.product && context.productplan && context.task){
+            let masterData:any = {};
+        let ibztaskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+                ibztaskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskestimates = ibztaskestimatesData;
+        let ibztaskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
+            ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+                ibztaskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
+        let taskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
+            taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+                taskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskestimates = taskestimatesData;
+        let taskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
+            taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+                taskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskteams = taskteamsData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().put(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/getteamuserleftactivity`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskestimates',JSON.stringify(res.data.taskestimates?res.data.taskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams?res.data.taskteams:[]));
+
+            return res;
+        }
         if(context.project && context.task){
             let masterData:any = {};
         let ibztaskestimatesData:any = [];
@@ -6536,6 +8910,98 @@ export default class TaskServiceBase extends EntityService {
         masterData.taskteams = taskteamsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().put(`/stories/${context.story}/tasks/${context.task}/getteamuserleftactivity`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskestimates',JSON.stringify(res.data.taskestimates?res.data.taskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams?res.data.taskteams:[]));
+
+            return res;
+        }
+        if(context.productplan && context.task){
+            let masterData:any = {};
+        let ibztaskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+                ibztaskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskestimates = ibztaskestimatesData;
+        let ibztaskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
+            ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+                ibztaskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
+        let taskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
+            taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+                taskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskestimates = taskestimatesData;
+        let taskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
+            taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+                taskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskteams = taskteamsData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().put(`/productplans/${context.productplan}/tasks/${context.task}/getteamuserleftactivity`,data,isloading);
                         this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
@@ -6834,6 +9300,98 @@ export default class TaskServiceBase extends EntityService {
 
             return res;
         }
+        if(context.product && context.productplan && context.task){
+            let masterData:any = {};
+        let ibztaskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+                ibztaskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskestimates = ibztaskestimatesData;
+        let ibztaskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
+            ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+                ibztaskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
+        let taskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
+            taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+                taskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskestimates = taskestimatesData;
+        let taskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
+            taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+                taskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskteams = taskteamsData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().put(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/getteamuserleftstart`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskestimates',JSON.stringify(res.data.taskestimates?res.data.taskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams?res.data.taskteams:[]));
+
+            return res;
+        }
         if(context.project && context.task){
             let masterData:any = {};
         let ibztaskestimatesData:any = [];
@@ -7010,6 +9568,98 @@ export default class TaskServiceBase extends EntityService {
         masterData.taskteams = taskteamsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().put(`/stories/${context.story}/tasks/${context.task}/getteamuserleftstart`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskestimates',JSON.stringify(res.data.taskestimates?res.data.taskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams?res.data.taskteams:[]));
+
+            return res;
+        }
+        if(context.productplan && context.task){
+            let masterData:any = {};
+        let ibztaskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+                ibztaskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskestimates = ibztaskestimatesData;
+        let ibztaskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
+            ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+                ibztaskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
+        let taskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
+            taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+                taskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskestimates = taskestimatesData;
+        let taskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
+            taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+                taskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskteams = taskteamsData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().put(`/productplans/${context.productplan}/tasks/${context.task}/getteamuserleftstart`,data,isloading);
                         this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
@@ -7308,6 +9958,98 @@ export default class TaskServiceBase extends EntityService {
 
             return res;
         }
+        if(context.product && context.productplan && context.task){
+            let masterData:any = {};
+        let ibztaskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+                ibztaskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskestimates = ibztaskestimatesData;
+        let ibztaskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
+            ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+                ibztaskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
+        let taskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
+            taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+                taskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskestimates = taskestimatesData;
+        let taskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
+            taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+                taskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskteams = taskteamsData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().put(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/getusernames`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskestimates',JSON.stringify(res.data.taskestimates?res.data.taskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams?res.data.taskteams:[]));
+
+            return res;
+        }
         if(context.project && context.task){
             let masterData:any = {};
         let ibztaskestimatesData:any = [];
@@ -7484,6 +10226,98 @@ export default class TaskServiceBase extends EntityService {
         masterData.taskteams = taskteamsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().put(`/stories/${context.story}/tasks/${context.task}/getusernames`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskestimates',JSON.stringify(res.data.taskestimates?res.data.taskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams?res.data.taskteams:[]));
+
+            return res;
+        }
+        if(context.productplan && context.task){
+            let masterData:any = {};
+        let ibztaskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+                ibztaskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskestimates = ibztaskestimatesData;
+        let ibztaskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
+            ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+                ibztaskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
+        let taskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
+            taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+                taskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskestimates = taskestimatesData;
+        let taskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
+            taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+                taskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskteams = taskteamsData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().put(`/productplans/${context.productplan}/tasks/${context.task}/getusernames`,data,isloading);
                         this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
@@ -7782,6 +10616,98 @@ export default class TaskServiceBase extends EntityService {
 
             return res;
         }
+        if(context.product && context.productplan && context.task){
+            let masterData:any = {};
+        let ibztaskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+                ibztaskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskestimates = ibztaskestimatesData;
+        let ibztaskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
+            ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+                ibztaskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
+        let taskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
+            taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+                taskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskestimates = taskestimatesData;
+        let taskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
+            taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+                taskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskteams = taskteamsData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().put(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/otherupdate`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskestimates',JSON.stringify(res.data.taskestimates?res.data.taskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams?res.data.taskteams:[]));
+
+            return res;
+        }
         if(context.project && context.task){
             let masterData:any = {};
         let ibztaskestimatesData:any = [];
@@ -7958,6 +10884,98 @@ export default class TaskServiceBase extends EntityService {
         masterData.taskteams = taskteamsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().put(`/stories/${context.story}/tasks/${context.task}/otherupdate`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskestimates',JSON.stringify(res.data.taskestimates?res.data.taskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams?res.data.taskteams:[]));
+
+            return res;
+        }
+        if(context.productplan && context.task){
+            let masterData:any = {};
+        let ibztaskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+                ibztaskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskestimates = ibztaskestimatesData;
+        let ibztaskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
+            ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+                ibztaskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
+        let taskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
+            taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+                taskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskestimates = taskestimatesData;
+        let taskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
+            taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+                taskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskteams = taskteamsData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().put(`/productplans/${context.productplan}/tasks/${context.task}/otherupdate`,data,isloading);
                         this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
@@ -8256,6 +11274,98 @@ export default class TaskServiceBase extends EntityService {
 
             return res;
         }
+        if(context.product && context.productplan && context.task){
+            let masterData:any = {};
+        let ibztaskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+                ibztaskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskestimates = ibztaskestimatesData;
+        let ibztaskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
+            ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+                ibztaskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
+        let taskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
+            taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+                taskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskestimates = taskestimatesData;
+        let taskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
+            taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+                taskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskteams = taskteamsData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/pause`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskestimates',JSON.stringify(res.data.taskestimates?res.data.taskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams?res.data.taskteams:[]));
+
+            return res;
+        }
         if(context.project && context.task){
             let masterData:any = {};
         let ibztaskestimatesData:any = [];
@@ -8432,6 +11542,98 @@ export default class TaskServiceBase extends EntityService {
         masterData.taskteams = taskteamsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/pause`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskestimates',JSON.stringify(res.data.taskestimates?res.data.taskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams?res.data.taskteams:[]));
+
+            return res;
+        }
+        if(context.productplan && context.task){
+            let masterData:any = {};
+        let ibztaskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+                ibztaskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskestimates = ibztaskestimatesData;
+        let ibztaskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
+            ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+                ibztaskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
+        let taskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
+            taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+                taskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskestimates = taskestimatesData;
+        let taskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
+            taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+                taskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskteams = taskteamsData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/tasks/${context.task}/pause`,data,isloading);
                         this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
@@ -8730,6 +11932,98 @@ export default class TaskServiceBase extends EntityService {
 
             return res;
         }
+        if(context.product && context.productplan && context.task){
+            let masterData:any = {};
+        let ibztaskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+                ibztaskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskestimates = ibztaskestimatesData;
+        let ibztaskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
+            ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+                ibztaskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
+        let taskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
+            taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+                taskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskestimates = taskestimatesData;
+        let taskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
+            taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+                taskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskteams = taskteamsData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/recordestimate`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskestimates',JSON.stringify(res.data.taskestimates?res.data.taskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams?res.data.taskteams:[]));
+
+            return res;
+        }
         if(context.project && context.task){
             let masterData:any = {};
         let ibztaskestimatesData:any = [];
@@ -8906,6 +12200,98 @@ export default class TaskServiceBase extends EntityService {
         masterData.taskteams = taskteamsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/recordestimate`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskestimates',JSON.stringify(res.data.taskestimates?res.data.taskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams?res.data.taskteams:[]));
+
+            return res;
+        }
+        if(context.productplan && context.task){
+            let masterData:any = {};
+        let ibztaskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+                ibztaskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskestimates = ibztaskestimatesData;
+        let ibztaskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
+            ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+                ibztaskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
+        let taskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
+            taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+                taskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskestimates = taskestimatesData;
+        let taskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
+            taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+                taskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskteams = taskteamsData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/tasks/${context.task}/recordestimate`,data,isloading);
                         this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
@@ -9204,6 +12590,98 @@ export default class TaskServiceBase extends EntityService {
 
             return res;
         }
+        if(context.product && context.productplan && context.task){
+            let masterData:any = {};
+        let ibztaskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+                ibztaskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskestimates = ibztaskestimatesData;
+        let ibztaskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
+            ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+                ibztaskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
+        let taskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
+            taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+                taskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskestimates = taskestimatesData;
+        let taskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
+            taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+                taskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskteams = taskteamsData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/restart`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskestimates',JSON.stringify(res.data.taskestimates?res.data.taskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams?res.data.taskteams:[]));
+
+            return res;
+        }
         if(context.project && context.task){
             let masterData:any = {};
         let ibztaskestimatesData:any = [];
@@ -9380,6 +12858,98 @@ export default class TaskServiceBase extends EntityService {
         masterData.taskteams = taskteamsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/restart`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskestimates',JSON.stringify(res.data.taskestimates?res.data.taskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams?res.data.taskteams:[]));
+
+            return res;
+        }
+        if(context.productplan && context.task){
+            let masterData:any = {};
+        let ibztaskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+                ibztaskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskestimates = ibztaskestimatesData;
+        let ibztaskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
+            ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+                ibztaskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
+        let taskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
+            taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+                taskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskestimates = taskestimatesData;
+        let taskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
+            taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+                taskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskteams = taskteamsData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/tasks/${context.task}/restart`,data,isloading);
                         this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
@@ -9678,6 +13248,98 @@ export default class TaskServiceBase extends EntityService {
 
             return res;
         }
+        if(context.product && context.productplan && context.task){
+            let masterData:any = {};
+        let ibztaskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+                ibztaskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskestimates = ibztaskestimatesData;
+        let ibztaskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
+            ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+                ibztaskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
+        let taskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
+            taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+                taskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskestimates = taskestimatesData;
+        let taskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
+            taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+                taskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskteams = taskteamsData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/save`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskestimates',JSON.stringify(res.data.taskestimates?res.data.taskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams?res.data.taskteams:[]));
+
+            return res;
+        }
         if(context.project && context.task){
             let masterData:any = {};
         let ibztaskestimatesData:any = [];
@@ -9854,6 +13516,98 @@ export default class TaskServiceBase extends EntityService {
         masterData.taskteams = taskteamsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/save`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskestimates',JSON.stringify(res.data.taskestimates?res.data.taskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams?res.data.taskteams:[]));
+
+            return res;
+        }
+        if(context.productplan && context.task){
+            let masterData:any = {};
+        let ibztaskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+                ibztaskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskestimates = ibztaskestimatesData;
+        let ibztaskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
+            ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+                ibztaskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
+        let taskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
+            taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+                taskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskestimates = taskestimatesData;
+        let taskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
+            taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+                taskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskteams = taskteamsData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/tasks/${context.task}/save`,data,isloading);
                         this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
@@ -10240,6 +13994,98 @@ export default class TaskServiceBase extends EntityService {
 
             return res;
         }
+        if(context.product && context.productplan && context.task){
+            let masterData:any = {};
+        let ibztaskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+                ibztaskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskestimates = ibztaskestimatesData;
+        let ibztaskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
+            ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+                ibztaskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
+        let taskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
+            taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+                taskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskestimates = taskestimatesData;
+        let taskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
+            taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+                taskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskteams = taskteamsData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/sendmessage`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskestimates',JSON.stringify(res.data.taskestimates?res.data.taskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams?res.data.taskteams:[]));
+
+            return res;
+        }
         if(context.project && context.task){
             let masterData:any = {};
         let ibztaskestimatesData:any = [];
@@ -10416,6 +14262,98 @@ export default class TaskServiceBase extends EntityService {
         masterData.taskteams = taskteamsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/sendmessage`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskestimates',JSON.stringify(res.data.taskestimates?res.data.taskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams?res.data.taskteams:[]));
+
+            return res;
+        }
+        if(context.productplan && context.task){
+            let masterData:any = {};
+        let ibztaskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+                ibztaskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskestimates = ibztaskestimatesData;
+        let ibztaskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
+            ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+                ibztaskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
+        let taskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
+            taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+                taskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskestimates = taskestimatesData;
+        let taskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
+            taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+                taskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskteams = taskteamsData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/tasks/${context.task}/sendmessage`,data,isloading);
                         this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
@@ -10714,6 +14652,98 @@ export default class TaskServiceBase extends EntityService {
 
             return res;
         }
+        if(context.product && context.productplan && context.task){
+            let masterData:any = {};
+        let ibztaskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+                ibztaskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskestimates = ibztaskestimatesData;
+        let ibztaskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
+            ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+                ibztaskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
+        let taskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
+            taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+                taskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskestimates = taskestimatesData;
+        let taskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
+            taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+                taskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskteams = taskteamsData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/sendmsgpreprocess`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskestimates',JSON.stringify(res.data.taskestimates?res.data.taskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams?res.data.taskteams:[]));
+
+            return res;
+        }
         if(context.project && context.task){
             let masterData:any = {};
         let ibztaskestimatesData:any = [];
@@ -10890,6 +14920,98 @@ export default class TaskServiceBase extends EntityService {
         masterData.taskteams = taskteamsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/sendmsgpreprocess`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskestimates',JSON.stringify(res.data.taskestimates?res.data.taskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams?res.data.taskteams:[]));
+
+            return res;
+        }
+        if(context.productplan && context.task){
+            let masterData:any = {};
+        let ibztaskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+                ibztaskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskestimates = ibztaskestimatesData;
+        let ibztaskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
+            ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+                ibztaskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
+        let taskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
+            taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+                taskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskestimates = taskestimatesData;
+        let taskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
+            taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+                taskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskteams = taskteamsData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/tasks/${context.task}/sendmsgpreprocess`,data,isloading);
                         this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
@@ -11188,6 +15310,98 @@ export default class TaskServiceBase extends EntityService {
 
             return res;
         }
+        if(context.product && context.productplan && context.task){
+            let masterData:any = {};
+        let ibztaskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+                ibztaskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskestimates = ibztaskestimatesData;
+        let ibztaskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
+            ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+                ibztaskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
+        let taskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
+            taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+                taskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskestimates = taskestimatesData;
+        let taskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
+            taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+                taskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskteams = taskteamsData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/start`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskestimates',JSON.stringify(res.data.taskestimates?res.data.taskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams?res.data.taskteams:[]));
+
+            return res;
+        }
         if(context.project && context.task){
             let masterData:any = {};
         let ibztaskestimatesData:any = [];
@@ -11364,6 +15578,98 @@ export default class TaskServiceBase extends EntityService {
         masterData.taskteams = taskteamsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/start`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskestimates',JSON.stringify(res.data.taskestimates?res.data.taskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams?res.data.taskteams:[]));
+
+            return res;
+        }
+        if(context.productplan && context.task){
+            let masterData:any = {};
+        let ibztaskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+                ibztaskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskestimates = ibztaskestimatesData;
+        let ibztaskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
+            ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+                ibztaskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
+        let taskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
+            taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+                taskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskestimates = taskestimatesData;
+        let taskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
+            taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+                taskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskteams = taskteamsData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/tasks/${context.task}/start`,data,isloading);
                         this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
@@ -11662,6 +15968,98 @@ export default class TaskServiceBase extends EntityService {
 
             return res;
         }
+        if(context.product && context.productplan && context.task){
+            let masterData:any = {};
+        let ibztaskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+                ibztaskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskestimates = ibztaskestimatesData;
+        let ibztaskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
+            ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+                ibztaskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
+        let taskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
+            taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+                taskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskestimates = taskestimatesData;
+        let taskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
+            taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+                taskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskteams = taskteamsData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/taskfavorites`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskestimates',JSON.stringify(res.data.taskestimates?res.data.taskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams?res.data.taskteams:[]));
+
+            return res;
+        }
         if(context.project && context.task){
             let masterData:any = {};
         let ibztaskestimatesData:any = [];
@@ -11838,6 +16236,98 @@ export default class TaskServiceBase extends EntityService {
         masterData.taskteams = taskteamsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/taskfavorites`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskestimates',JSON.stringify(res.data.taskestimates?res.data.taskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams?res.data.taskteams:[]));
+
+            return res;
+        }
+        if(context.productplan && context.task){
+            let masterData:any = {};
+        let ibztaskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+                ibztaskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskestimates = ibztaskestimatesData;
+        let ibztaskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
+            ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+                ibztaskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
+        let taskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
+            taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+                taskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskestimates = taskestimatesData;
+        let taskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
+            taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+                taskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskteams = taskteamsData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/tasks/${context.task}/taskfavorites`,data,isloading);
                         this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
@@ -12136,6 +16626,98 @@ export default class TaskServiceBase extends EntityService {
 
             return res;
         }
+        if(context.product && context.productplan && context.task){
+            let masterData:any = {};
+        let ibztaskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+                ibztaskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskestimates = ibztaskestimatesData;
+        let ibztaskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
+            ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+                ibztaskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
+        let taskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
+            taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+                taskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskestimates = taskestimatesData;
+        let taskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
+            taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+                taskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskteams = taskteamsData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/taskforward`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskestimates',JSON.stringify(res.data.taskestimates?res.data.taskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams?res.data.taskteams:[]));
+
+            return res;
+        }
         if(context.project && context.task){
             let masterData:any = {};
         let ibztaskestimatesData:any = [];
@@ -12312,6 +16894,98 @@ export default class TaskServiceBase extends EntityService {
         masterData.taskteams = taskteamsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/taskforward`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskestimates',JSON.stringify(res.data.taskestimates?res.data.taskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams?res.data.taskteams:[]));
+
+            return res;
+        }
+        if(context.productplan && context.task){
+            let masterData:any = {};
+        let ibztaskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+                ibztaskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskestimates = ibztaskestimatesData;
+        let ibztaskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
+            ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+                ibztaskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
+        let taskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
+            taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+                taskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskestimates = taskestimatesData;
+        let taskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
+            taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+                taskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskteams = taskteamsData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/tasks/${context.task}/taskforward`,data,isloading);
                         this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
@@ -12610,6 +17284,98 @@ export default class TaskServiceBase extends EntityService {
 
             return res;
         }
+        if(context.product && context.productplan && context.task){
+            let masterData:any = {};
+        let ibztaskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+                ibztaskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskestimates = ibztaskestimatesData;
+        let ibztaskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
+            ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+                ibztaskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
+        let taskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
+            taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+                taskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskestimates = taskestimatesData;
+        let taskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
+            taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+                taskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskteams = taskteamsData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/tasknfavorites`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskestimates',JSON.stringify(res.data.taskestimates?res.data.taskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams?res.data.taskteams:[]));
+
+            return res;
+        }
         if(context.project && context.task){
             let masterData:any = {};
         let ibztaskestimatesData:any = [];
@@ -12786,6 +17552,98 @@ export default class TaskServiceBase extends EntityService {
         masterData.taskteams = taskteamsData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/tasknfavorites`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskestimates',JSON.stringify(res.data.taskestimates?res.data.taskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams?res.data.taskteams:[]));
+
+            return res;
+        }
+        if(context.productplan && context.task){
+            let masterData:any = {};
+        let ibztaskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+                ibztaskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskestimates = ibztaskestimatesData;
+        let ibztaskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
+            ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+                ibztaskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
+        let taskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
+            taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+                taskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskestimates = taskestimatesData;
+        let taskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
+            taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+                taskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskteams = taskteamsData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/tasks/${context.task}/tasknfavorites`,data,isloading);
                         this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
@@ -13084,6 +17942,98 @@ export default class TaskServiceBase extends EntityService {
 
             return res;
         }
+        if(context.product && context.productplan && context.task){
+            let masterData:any = {};
+        let ibztaskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+                ibztaskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskestimates = ibztaskestimatesData;
+        let ibztaskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
+            ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+                ibztaskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
+        let taskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
+            taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+                taskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskestimates = taskestimatesData;
+        let taskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
+            taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+                taskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskteams = taskteamsData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().put(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/updatestoryversion`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskestimates',JSON.stringify(res.data.taskestimates?res.data.taskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams?res.data.taskteams:[]));
+
+            return res;
+        }
         if(context.project && context.task){
             let masterData:any = {};
         let ibztaskestimatesData:any = [];
@@ -13268,6 +18218,98 @@ export default class TaskServiceBase extends EntityService {
 
             return res;
         }
+        if(context.productplan && context.task){
+            let masterData:any = {};
+        let ibztaskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+                ibztaskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskestimates = ibztaskestimatesData;
+        let ibztaskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
+            ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+                ibztaskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.ibztaskteams = ibztaskteamsData;
+        let subtasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
+            subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
+            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+                subtasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.subtasks = subtasksData;
+        let taskestimatesData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
+            taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+                taskestimatesData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskestimates = taskestimatesData;
+        let taskteamsData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
+            taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+                taskteamsData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.taskteams = taskteamsData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().put(`/productplans/${context.productplan}/tasks/${context.task}/updatestoryversion`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_subtasks',JSON.stringify(res.data.subtasks?res.data.subtasks:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskestimates',JSON.stringify(res.data.taskestimates?res.data.taskestimates:[]));
+            this.tempStorage.setItem(context.srfsessionkey+'_taskteams',JSON.stringify(res.data.taskteams?res.data.taskteams:[]));
+
+            return res;
+        }
         if(context.projectmodule && context.task){
             let masterData:any = {};
         let ibztaskestimatesData:any = [];
@@ -13384,6 +18426,11 @@ export default class TaskServiceBase extends EntityService {
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/fetchassignedtomytask`,tempData,isloading);
             return res;
         }
+        if(context.product && context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/fetchassignedtomytask`,tempData,isloading);
+            return res;
+        }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/fetchassignedtomytask`,tempData,isloading);
@@ -13392,6 +18439,11 @@ export default class TaskServiceBase extends EntityService {
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/fetchassignedtomytask`,tempData,isloading);
+            return res;
+        }
+        if(context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/tasks/fetchassignedtomytask`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && true){
@@ -13422,6 +18474,10 @@ export default class TaskServiceBase extends EntityService {
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/searchassignedtomytask`,tempData,isloading);
         }
+        if(context.product && context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/searchassignedtomytask`,tempData,isloading);
+        }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/projects/${context.project}/tasks/searchassignedtomytask`,tempData,isloading);
@@ -13429,6 +18485,10 @@ export default class TaskServiceBase extends EntityService {
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/stories/${context.story}/tasks/searchassignedtomytask`,tempData,isloading);
+        }
+        if(context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/productplans/${context.productplan}/tasks/searchassignedtomytask`,tempData,isloading);
         }
         if(context.projectmodule && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
@@ -13458,6 +18518,11 @@ export default class TaskServiceBase extends EntityService {
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/fetchassignedtomytaskpc`,tempData,isloading);
             return res;
         }
+        if(context.product && context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/fetchassignedtomytaskpc`,tempData,isloading);
+            return res;
+        }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/fetchassignedtomytaskpc`,tempData,isloading);
@@ -13466,6 +18531,11 @@ export default class TaskServiceBase extends EntityService {
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/fetchassignedtomytaskpc`,tempData,isloading);
+            return res;
+        }
+        if(context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/tasks/fetchassignedtomytaskpc`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && true){
@@ -13496,6 +18566,10 @@ export default class TaskServiceBase extends EntityService {
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/searchassignedtomytaskpc`,tempData,isloading);
         }
+        if(context.product && context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/searchassignedtomytaskpc`,tempData,isloading);
+        }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/projects/${context.project}/tasks/searchassignedtomytaskpc`,tempData,isloading);
@@ -13503,6 +18577,10 @@ export default class TaskServiceBase extends EntityService {
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/stories/${context.story}/tasks/searchassignedtomytaskpc`,tempData,isloading);
+        }
+        if(context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/productplans/${context.productplan}/tasks/searchassignedtomytaskpc`,tempData,isloading);
         }
         if(context.projectmodule && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
@@ -13532,6 +18610,11 @@ export default class TaskServiceBase extends EntityService {
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/fetchbugtask`,tempData,isloading);
             return res;
         }
+        if(context.product && context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/fetchbugtask`,tempData,isloading);
+            return res;
+        }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/fetchbugtask`,tempData,isloading);
@@ -13540,6 +18623,11 @@ export default class TaskServiceBase extends EntityService {
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/fetchbugtask`,tempData,isloading);
+            return res;
+        }
+        if(context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/tasks/fetchbugtask`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && true){
@@ -13570,6 +18658,10 @@ export default class TaskServiceBase extends EntityService {
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/searchbugtask`,tempData,isloading);
         }
+        if(context.product && context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/searchbugtask`,tempData,isloading);
+        }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/projects/${context.project}/tasks/searchbugtask`,tempData,isloading);
@@ -13577,6 +18669,10 @@ export default class TaskServiceBase extends EntityService {
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/stories/${context.story}/tasks/searchbugtask`,tempData,isloading);
+        }
+        if(context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/productplans/${context.productplan}/tasks/searchbugtask`,tempData,isloading);
         }
         if(context.projectmodule && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
@@ -13606,6 +18702,11 @@ export default class TaskServiceBase extends EntityService {
             let res:any = Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/fetchbymodule`,tempData,isloading);
             return res;
         }
+        if(context.product && context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/fetchbymodule`,tempData,isloading);
+            return res;
+        }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().post(`/projects/${context.project}/tasks/fetchbymodule`,tempData,isloading);
@@ -13614,6 +18715,11 @@ export default class TaskServiceBase extends EntityService {
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().post(`/stories/${context.story}/tasks/fetchbymodule`,tempData,isloading);
+            return res;
+        }
+        if(context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().post(`/productplans/${context.productplan}/tasks/fetchbymodule`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && true){
@@ -13644,6 +18750,10 @@ export default class TaskServiceBase extends EntityService {
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/searchbymodule`,tempData,isloading);
         }
+        if(context.product && context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/searchbymodule`,tempData,isloading);
+        }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/projects/${context.project}/tasks/searchbymodule`,tempData,isloading);
@@ -13651,6 +18761,10 @@ export default class TaskServiceBase extends EntityService {
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/stories/${context.story}/tasks/searchbymodule`,tempData,isloading);
+        }
+        if(context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/productplans/${context.productplan}/tasks/searchbymodule`,tempData,isloading);
         }
         if(context.projectmodule && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
@@ -13680,6 +18794,11 @@ export default class TaskServiceBase extends EntityService {
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/fetchchildtask`,tempData,isloading);
             return res;
         }
+        if(context.product && context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/fetchchildtask`,tempData,isloading);
+            return res;
+        }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/fetchchildtask`,tempData,isloading);
@@ -13688,6 +18807,11 @@ export default class TaskServiceBase extends EntityService {
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/fetchchildtask`,tempData,isloading);
+            return res;
+        }
+        if(context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/tasks/fetchchildtask`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && true){
@@ -13718,6 +18842,10 @@ export default class TaskServiceBase extends EntityService {
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/searchchildtask`,tempData,isloading);
         }
+        if(context.product && context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/searchchildtask`,tempData,isloading);
+        }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/projects/${context.project}/tasks/searchchildtask`,tempData,isloading);
@@ -13725,6 +18853,10 @@ export default class TaskServiceBase extends EntityService {
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/stories/${context.story}/tasks/searchchildtask`,tempData,isloading);
+        }
+        if(context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/productplans/${context.productplan}/tasks/searchchildtask`,tempData,isloading);
         }
         if(context.projectmodule && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
@@ -13754,6 +18886,11 @@ export default class TaskServiceBase extends EntityService {
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/fetchchildtasktree`,tempData,isloading);
             return res;
         }
+        if(context.product && context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/fetchchildtasktree`,tempData,isloading);
+            return res;
+        }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/fetchchildtasktree`,tempData,isloading);
@@ -13762,6 +18899,11 @@ export default class TaskServiceBase extends EntityService {
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/fetchchildtasktree`,tempData,isloading);
+            return res;
+        }
+        if(context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/tasks/fetchchildtasktree`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && true){
@@ -13792,6 +18934,10 @@ export default class TaskServiceBase extends EntityService {
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/searchchildtasktree`,tempData,isloading);
         }
+        if(context.product && context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/searchchildtasktree`,tempData,isloading);
+        }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/projects/${context.project}/tasks/searchchildtasktree`,tempData,isloading);
@@ -13799,6 +18945,10 @@ export default class TaskServiceBase extends EntityService {
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/stories/${context.story}/tasks/searchchildtasktree`,tempData,isloading);
+        }
+        if(context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/productplans/${context.productplan}/tasks/searchchildtasktree`,tempData,isloading);
         }
         if(context.projectmodule && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
@@ -13828,6 +18978,11 @@ export default class TaskServiceBase extends EntityService {
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/fetchcurfinishtask`,tempData,isloading);
             return res;
         }
+        if(context.product && context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/fetchcurfinishtask`,tempData,isloading);
+            return res;
+        }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/fetchcurfinishtask`,tempData,isloading);
@@ -13836,6 +18991,11 @@ export default class TaskServiceBase extends EntityService {
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/fetchcurfinishtask`,tempData,isloading);
+            return res;
+        }
+        if(context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/tasks/fetchcurfinishtask`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && true){
@@ -13866,6 +19026,10 @@ export default class TaskServiceBase extends EntityService {
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/searchcurfinishtask`,tempData,isloading);
         }
+        if(context.product && context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/searchcurfinishtask`,tempData,isloading);
+        }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/projects/${context.project}/tasks/searchcurfinishtask`,tempData,isloading);
@@ -13873,6 +19037,10 @@ export default class TaskServiceBase extends EntityService {
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/stories/${context.story}/tasks/searchcurfinishtask`,tempData,isloading);
+        }
+        if(context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/productplans/${context.productplan}/tasks/searchcurfinishtask`,tempData,isloading);
         }
         if(context.projectmodule && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
@@ -13902,6 +19070,11 @@ export default class TaskServiceBase extends EntityService {
             let res:any = Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/fetchdefault`,tempData,isloading);
             return res;
         }
+        if(context.product && context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/fetchdefault`,tempData,isloading);
+            return res;
+        }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().post(`/projects/${context.project}/tasks/fetchdefault`,tempData,isloading);
@@ -13910,6 +19083,11 @@ export default class TaskServiceBase extends EntityService {
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().post(`/stories/${context.story}/tasks/fetchdefault`,tempData,isloading);
+            return res;
+        }
+        if(context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().post(`/productplans/${context.productplan}/tasks/fetchdefault`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && true){
@@ -13940,6 +19118,10 @@ export default class TaskServiceBase extends EntityService {
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/searchdefault`,tempData,isloading);
         }
+        if(context.product && context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/searchdefault`,tempData,isloading);
+        }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/projects/${context.project}/tasks/searchdefault`,tempData,isloading);
@@ -13947,6 +19129,10 @@ export default class TaskServiceBase extends EntityService {
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/stories/${context.story}/tasks/searchdefault`,tempData,isloading);
+        }
+        if(context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/productplans/${context.productplan}/tasks/searchdefault`,tempData,isloading);
         }
         if(context.projectmodule && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
@@ -13976,6 +19162,11 @@ export default class TaskServiceBase extends EntityService {
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/fetchdefaultrow`,tempData,isloading);
             return res;
         }
+        if(context.product && context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/fetchdefaultrow`,tempData,isloading);
+            return res;
+        }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/fetchdefaultrow`,tempData,isloading);
@@ -13984,6 +19175,11 @@ export default class TaskServiceBase extends EntityService {
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/fetchdefaultrow`,tempData,isloading);
+            return res;
+        }
+        if(context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/tasks/fetchdefaultrow`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && true){
@@ -14014,6 +19210,10 @@ export default class TaskServiceBase extends EntityService {
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/searchdefaultrow`,tempData,isloading);
         }
+        if(context.product && context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/searchdefaultrow`,tempData,isloading);
+        }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/projects/${context.project}/tasks/searchdefaultrow`,tempData,isloading);
@@ -14021,6 +19221,10 @@ export default class TaskServiceBase extends EntityService {
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/stories/${context.story}/tasks/searchdefaultrow`,tempData,isloading);
+        }
+        if(context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/productplans/${context.productplan}/tasks/searchdefaultrow`,tempData,isloading);
         }
         if(context.projectmodule && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
@@ -14050,6 +19254,11 @@ export default class TaskServiceBase extends EntityService {
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/fetchesbulk`,tempData,isloading);
             return res;
         }
+        if(context.product && context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/fetchesbulk`,tempData,isloading);
+            return res;
+        }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/fetchesbulk`,tempData,isloading);
@@ -14058,6 +19267,11 @@ export default class TaskServiceBase extends EntityService {
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/fetchesbulk`,tempData,isloading);
+            return res;
+        }
+        if(context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/tasks/fetchesbulk`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && true){
@@ -14088,6 +19302,10 @@ export default class TaskServiceBase extends EntityService {
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/searchesbulk`,tempData,isloading);
         }
+        if(context.product && context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/searchesbulk`,tempData,isloading);
+        }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/projects/${context.project}/tasks/searchesbulk`,tempData,isloading);
@@ -14095,6 +19313,10 @@ export default class TaskServiceBase extends EntityService {
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/stories/${context.story}/tasks/searchesbulk`,tempData,isloading);
+        }
+        if(context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/productplans/${context.productplan}/tasks/searchesbulk`,tempData,isloading);
         }
         if(context.projectmodule && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
@@ -14124,6 +19346,11 @@ export default class TaskServiceBase extends EntityService {
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/fetchmyagenttask`,tempData,isloading);
             return res;
         }
+        if(context.product && context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/fetchmyagenttask`,tempData,isloading);
+            return res;
+        }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/fetchmyagenttask`,tempData,isloading);
@@ -14132,6 +19359,11 @@ export default class TaskServiceBase extends EntityService {
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/fetchmyagenttask`,tempData,isloading);
+            return res;
+        }
+        if(context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/tasks/fetchmyagenttask`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && true){
@@ -14162,6 +19394,10 @@ export default class TaskServiceBase extends EntityService {
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/searchmyagenttask`,tempData,isloading);
         }
+        if(context.product && context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/searchmyagenttask`,tempData,isloading);
+        }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/projects/${context.project}/tasks/searchmyagenttask`,tempData,isloading);
@@ -14169,6 +19405,10 @@ export default class TaskServiceBase extends EntityService {
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/stories/${context.story}/tasks/searchmyagenttask`,tempData,isloading);
+        }
+        if(context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/productplans/${context.productplan}/tasks/searchmyagenttask`,tempData,isloading);
         }
         if(context.projectmodule && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
@@ -14198,6 +19438,11 @@ export default class TaskServiceBase extends EntityService {
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/fetchmycompletetask`,tempData,isloading);
             return res;
         }
+        if(context.product && context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/fetchmycompletetask`,tempData,isloading);
+            return res;
+        }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/fetchmycompletetask`,tempData,isloading);
@@ -14206,6 +19451,11 @@ export default class TaskServiceBase extends EntityService {
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/fetchmycompletetask`,tempData,isloading);
+            return res;
+        }
+        if(context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/tasks/fetchmycompletetask`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && true){
@@ -14236,6 +19486,10 @@ export default class TaskServiceBase extends EntityService {
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/searchmycompletetask`,tempData,isloading);
         }
+        if(context.product && context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/searchmycompletetask`,tempData,isloading);
+        }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/projects/${context.project}/tasks/searchmycompletetask`,tempData,isloading);
@@ -14243,6 +19497,10 @@ export default class TaskServiceBase extends EntityService {
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/stories/${context.story}/tasks/searchmycompletetask`,tempData,isloading);
+        }
+        if(context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/productplans/${context.productplan}/tasks/searchmycompletetask`,tempData,isloading);
         }
         if(context.projectmodule && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
@@ -14272,6 +19530,11 @@ export default class TaskServiceBase extends EntityService {
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/fetchmycompletetaskmobdaily`,tempData,isloading);
             return res;
         }
+        if(context.product && context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/fetchmycompletetaskmobdaily`,tempData,isloading);
+            return res;
+        }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/fetchmycompletetaskmobdaily`,tempData,isloading);
@@ -14280,6 +19543,11 @@ export default class TaskServiceBase extends EntityService {
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/fetchmycompletetaskmobdaily`,tempData,isloading);
+            return res;
+        }
+        if(context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/tasks/fetchmycompletetaskmobdaily`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && true){
@@ -14310,6 +19578,10 @@ export default class TaskServiceBase extends EntityService {
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/searchmycompletetaskmobdaily`,tempData,isloading);
         }
+        if(context.product && context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/searchmycompletetaskmobdaily`,tempData,isloading);
+        }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/projects/${context.project}/tasks/searchmycompletetaskmobdaily`,tempData,isloading);
@@ -14317,6 +19589,10 @@ export default class TaskServiceBase extends EntityService {
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/stories/${context.story}/tasks/searchmycompletetaskmobdaily`,tempData,isloading);
+        }
+        if(context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/productplans/${context.productplan}/tasks/searchmycompletetaskmobdaily`,tempData,isloading);
         }
         if(context.projectmodule && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
@@ -14346,6 +19622,11 @@ export default class TaskServiceBase extends EntityService {
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/fetchmycompletetaskmobmonthly`,tempData,isloading);
             return res;
         }
+        if(context.product && context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/fetchmycompletetaskmobmonthly`,tempData,isloading);
+            return res;
+        }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/fetchmycompletetaskmobmonthly`,tempData,isloading);
@@ -14354,6 +19635,11 @@ export default class TaskServiceBase extends EntityService {
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/fetchmycompletetaskmobmonthly`,tempData,isloading);
+            return res;
+        }
+        if(context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/tasks/fetchmycompletetaskmobmonthly`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && true){
@@ -14384,6 +19670,10 @@ export default class TaskServiceBase extends EntityService {
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/searchmycompletetaskmobmonthly`,tempData,isloading);
         }
+        if(context.product && context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/searchmycompletetaskmobmonthly`,tempData,isloading);
+        }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/projects/${context.project}/tasks/searchmycompletetaskmobmonthly`,tempData,isloading);
@@ -14391,6 +19681,10 @@ export default class TaskServiceBase extends EntityService {
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/stories/${context.story}/tasks/searchmycompletetaskmobmonthly`,tempData,isloading);
+        }
+        if(context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/productplans/${context.productplan}/tasks/searchmycompletetaskmobmonthly`,tempData,isloading);
         }
         if(context.projectmodule && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
@@ -14420,6 +19714,11 @@ export default class TaskServiceBase extends EntityService {
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/fetchmycompletetaskmonthlyzs`,tempData,isloading);
             return res;
         }
+        if(context.product && context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/fetchmycompletetaskmonthlyzs`,tempData,isloading);
+            return res;
+        }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/fetchmycompletetaskmonthlyzs`,tempData,isloading);
@@ -14428,6 +19727,11 @@ export default class TaskServiceBase extends EntityService {
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/fetchmycompletetaskmonthlyzs`,tempData,isloading);
+            return res;
+        }
+        if(context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/tasks/fetchmycompletetaskmonthlyzs`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && true){
@@ -14458,6 +19762,10 @@ export default class TaskServiceBase extends EntityService {
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/searchmycompletetaskmonthlyzs`,tempData,isloading);
         }
+        if(context.product && context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/searchmycompletetaskmonthlyzs`,tempData,isloading);
+        }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/projects/${context.project}/tasks/searchmycompletetaskmonthlyzs`,tempData,isloading);
@@ -14465,6 +19773,10 @@ export default class TaskServiceBase extends EntityService {
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/stories/${context.story}/tasks/searchmycompletetaskmonthlyzs`,tempData,isloading);
+        }
+        if(context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/productplans/${context.productplan}/tasks/searchmycompletetaskmonthlyzs`,tempData,isloading);
         }
         if(context.projectmodule && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
@@ -14494,6 +19806,11 @@ export default class TaskServiceBase extends EntityService {
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/fetchmycompletetaskzs`,tempData,isloading);
             return res;
         }
+        if(context.product && context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/fetchmycompletetaskzs`,tempData,isloading);
+            return res;
+        }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/fetchmycompletetaskzs`,tempData,isloading);
@@ -14502,6 +19819,11 @@ export default class TaskServiceBase extends EntityService {
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/fetchmycompletetaskzs`,tempData,isloading);
+            return res;
+        }
+        if(context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/tasks/fetchmycompletetaskzs`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && true){
@@ -14532,6 +19854,10 @@ export default class TaskServiceBase extends EntityService {
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/searchmycompletetaskzs`,tempData,isloading);
         }
+        if(context.product && context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/searchmycompletetaskzs`,tempData,isloading);
+        }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/projects/${context.project}/tasks/searchmycompletetaskzs`,tempData,isloading);
@@ -14539,6 +19865,10 @@ export default class TaskServiceBase extends EntityService {
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/stories/${context.story}/tasks/searchmycompletetaskzs`,tempData,isloading);
+        }
+        if(context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/productplans/${context.productplan}/tasks/searchmycompletetaskzs`,tempData,isloading);
         }
         if(context.projectmodule && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
@@ -14568,6 +19898,11 @@ export default class TaskServiceBase extends EntityService {
             let res:any = Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/fetchmyfavorites`,tempData,isloading);
             return res;
         }
+        if(context.product && context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/fetchmyfavorites`,tempData,isloading);
+            return res;
+        }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().post(`/projects/${context.project}/tasks/fetchmyfavorites`,tempData,isloading);
@@ -14576,6 +19911,11 @@ export default class TaskServiceBase extends EntityService {
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().post(`/stories/${context.story}/tasks/fetchmyfavorites`,tempData,isloading);
+            return res;
+        }
+        if(context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().post(`/productplans/${context.productplan}/tasks/fetchmyfavorites`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && true){
@@ -14606,6 +19946,10 @@ export default class TaskServiceBase extends EntityService {
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/searchmyfavorites`,tempData,isloading);
         }
+        if(context.product && context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/searchmyfavorites`,tempData,isloading);
+        }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/projects/${context.project}/tasks/searchmyfavorites`,tempData,isloading);
@@ -14613,6 +19957,10 @@ export default class TaskServiceBase extends EntityService {
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/stories/${context.story}/tasks/searchmyfavorites`,tempData,isloading);
+        }
+        if(context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/productplans/${context.productplan}/tasks/searchmyfavorites`,tempData,isloading);
         }
         if(context.projectmodule && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
@@ -14642,6 +19990,11 @@ export default class TaskServiceBase extends EntityService {
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/fetchmyplanstaskmobmonthly`,tempData,isloading);
             return res;
         }
+        if(context.product && context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/fetchmyplanstaskmobmonthly`,tempData,isloading);
+            return res;
+        }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/fetchmyplanstaskmobmonthly`,tempData,isloading);
@@ -14650,6 +20003,11 @@ export default class TaskServiceBase extends EntityService {
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/fetchmyplanstaskmobmonthly`,tempData,isloading);
+            return res;
+        }
+        if(context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/tasks/fetchmyplanstaskmobmonthly`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && true){
@@ -14680,6 +20038,10 @@ export default class TaskServiceBase extends EntityService {
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/searchmyplanstaskmobmonthly`,tempData,isloading);
         }
+        if(context.product && context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/searchmyplanstaskmobmonthly`,tempData,isloading);
+        }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/projects/${context.project}/tasks/searchmyplanstaskmobmonthly`,tempData,isloading);
@@ -14687,6 +20049,10 @@ export default class TaskServiceBase extends EntityService {
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/stories/${context.story}/tasks/searchmyplanstaskmobmonthly`,tempData,isloading);
+        }
+        if(context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/productplans/${context.productplan}/tasks/searchmyplanstaskmobmonthly`,tempData,isloading);
         }
         if(context.projectmodule && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
@@ -14716,6 +20082,11 @@ export default class TaskServiceBase extends EntityService {
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/fetchmytomorrowplantask`,tempData,isloading);
             return res;
         }
+        if(context.product && context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/fetchmytomorrowplantask`,tempData,isloading);
+            return res;
+        }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/fetchmytomorrowplantask`,tempData,isloading);
@@ -14724,6 +20095,11 @@ export default class TaskServiceBase extends EntityService {
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/fetchmytomorrowplantask`,tempData,isloading);
+            return res;
+        }
+        if(context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/tasks/fetchmytomorrowplantask`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && true){
@@ -14754,6 +20130,10 @@ export default class TaskServiceBase extends EntityService {
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/searchmytomorrowplantask`,tempData,isloading);
         }
+        if(context.product && context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/searchmytomorrowplantask`,tempData,isloading);
+        }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/projects/${context.project}/tasks/searchmytomorrowplantask`,tempData,isloading);
@@ -14761,6 +20141,10 @@ export default class TaskServiceBase extends EntityService {
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/stories/${context.story}/tasks/searchmytomorrowplantask`,tempData,isloading);
+        }
+        if(context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/productplans/${context.productplan}/tasks/searchmytomorrowplantask`,tempData,isloading);
         }
         if(context.projectmodule && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
@@ -14790,6 +20174,11 @@ export default class TaskServiceBase extends EntityService {
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/fetchmytomorrowplantaskmobdaily`,tempData,isloading);
             return res;
         }
+        if(context.product && context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/fetchmytomorrowplantaskmobdaily`,tempData,isloading);
+            return res;
+        }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/fetchmytomorrowplantaskmobdaily`,tempData,isloading);
@@ -14798,6 +20187,11 @@ export default class TaskServiceBase extends EntityService {
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/fetchmytomorrowplantaskmobdaily`,tempData,isloading);
+            return res;
+        }
+        if(context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/tasks/fetchmytomorrowplantaskmobdaily`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && true){
@@ -14828,6 +20222,10 @@ export default class TaskServiceBase extends EntityService {
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/searchmytomorrowplantaskmobdaily`,tempData,isloading);
         }
+        if(context.product && context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/searchmytomorrowplantaskmobdaily`,tempData,isloading);
+        }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/projects/${context.project}/tasks/searchmytomorrowplantaskmobdaily`,tempData,isloading);
@@ -14835,6 +20233,10 @@ export default class TaskServiceBase extends EntityService {
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/stories/${context.story}/tasks/searchmytomorrowplantaskmobdaily`,tempData,isloading);
+        }
+        if(context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/productplans/${context.productplan}/tasks/searchmytomorrowplantaskmobdaily`,tempData,isloading);
         }
         if(context.projectmodule && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
@@ -14864,6 +20266,11 @@ export default class TaskServiceBase extends EntityService {
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/fetchnextweekcompletetaskmobzs`,tempData,isloading);
             return res;
         }
+        if(context.product && context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/fetchnextweekcompletetaskmobzs`,tempData,isloading);
+            return res;
+        }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/fetchnextweekcompletetaskmobzs`,tempData,isloading);
@@ -14872,6 +20279,11 @@ export default class TaskServiceBase extends EntityService {
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/fetchnextweekcompletetaskmobzs`,tempData,isloading);
+            return res;
+        }
+        if(context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/tasks/fetchnextweekcompletetaskmobzs`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && true){
@@ -14902,6 +20314,10 @@ export default class TaskServiceBase extends EntityService {
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/searchnextweekcompletetaskmobzs`,tempData,isloading);
         }
+        if(context.product && context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/searchnextweekcompletetaskmobzs`,tempData,isloading);
+        }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/projects/${context.project}/tasks/searchnextweekcompletetaskmobzs`,tempData,isloading);
@@ -14909,6 +20325,10 @@ export default class TaskServiceBase extends EntityService {
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/stories/${context.story}/tasks/searchnextweekcompletetaskmobzs`,tempData,isloading);
+        }
+        if(context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/productplans/${context.productplan}/tasks/searchnextweekcompletetaskmobzs`,tempData,isloading);
         }
         if(context.projectmodule && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
@@ -14938,6 +20358,11 @@ export default class TaskServiceBase extends EntityService {
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/fetchnextweekcompletetaskzs`,tempData,isloading);
             return res;
         }
+        if(context.product && context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/fetchnextweekcompletetaskzs`,tempData,isloading);
+            return res;
+        }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/fetchnextweekcompletetaskzs`,tempData,isloading);
@@ -14946,6 +20371,11 @@ export default class TaskServiceBase extends EntityService {
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/fetchnextweekcompletetaskzs`,tempData,isloading);
+            return res;
+        }
+        if(context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/tasks/fetchnextweekcompletetaskzs`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && true){
@@ -14976,6 +20406,10 @@ export default class TaskServiceBase extends EntityService {
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/searchnextweekcompletetaskzs`,tempData,isloading);
         }
+        if(context.product && context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/searchnextweekcompletetaskzs`,tempData,isloading);
+        }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/projects/${context.project}/tasks/searchnextweekcompletetaskzs`,tempData,isloading);
@@ -14983,6 +20417,10 @@ export default class TaskServiceBase extends EntityService {
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/stories/${context.story}/tasks/searchnextweekcompletetaskzs`,tempData,isloading);
+        }
+        if(context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/productplans/${context.productplan}/tasks/searchnextweekcompletetaskzs`,tempData,isloading);
         }
         if(context.projectmodule && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
@@ -15012,6 +20450,11 @@ export default class TaskServiceBase extends EntityService {
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/fetchnextweekplancompletetask`,tempData,isloading);
             return res;
         }
+        if(context.product && context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/fetchnextweekplancompletetask`,tempData,isloading);
+            return res;
+        }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/fetchnextweekplancompletetask`,tempData,isloading);
@@ -15020,6 +20463,11 @@ export default class TaskServiceBase extends EntityService {
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/fetchnextweekplancompletetask`,tempData,isloading);
+            return res;
+        }
+        if(context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/tasks/fetchnextweekplancompletetask`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && true){
@@ -15050,6 +20498,10 @@ export default class TaskServiceBase extends EntityService {
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/searchnextweekplancompletetask`,tempData,isloading);
         }
+        if(context.product && context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/searchnextweekplancompletetask`,tempData,isloading);
+        }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/projects/${context.project}/tasks/searchnextweekplancompletetask`,tempData,isloading);
@@ -15057,6 +20509,10 @@ export default class TaskServiceBase extends EntityService {
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/stories/${context.story}/tasks/searchnextweekplancompletetask`,tempData,isloading);
+        }
+        if(context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/productplans/${context.productplan}/tasks/searchnextweekplancompletetask`,tempData,isloading);
         }
         if(context.projectmodule && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
@@ -15086,6 +20542,11 @@ export default class TaskServiceBase extends EntityService {
             let res:any = Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/fetchprojecttask`,tempData,isloading);
             return res;
         }
+        if(context.product && context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/fetchprojecttask`,tempData,isloading);
+            return res;
+        }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().post(`/projects/${context.project}/tasks/fetchprojecttask`,tempData,isloading);
@@ -15094,6 +20555,11 @@ export default class TaskServiceBase extends EntityService {
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().post(`/stories/${context.story}/tasks/fetchprojecttask`,tempData,isloading);
+            return res;
+        }
+        if(context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().post(`/productplans/${context.productplan}/tasks/fetchprojecttask`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && true){
@@ -15124,6 +20590,10 @@ export default class TaskServiceBase extends EntityService {
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/searchprojecttask`,tempData,isloading);
         }
+        if(context.product && context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/searchprojecttask`,tempData,isloading);
+        }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/projects/${context.project}/tasks/searchprojecttask`,tempData,isloading);
@@ -15131,6 +20601,10 @@ export default class TaskServiceBase extends EntityService {
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/stories/${context.story}/tasks/searchprojecttask`,tempData,isloading);
+        }
+        if(context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/productplans/${context.productplan}/tasks/searchprojecttask`,tempData,isloading);
         }
         if(context.projectmodule && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
@@ -15160,6 +20634,11 @@ export default class TaskServiceBase extends EntityService {
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/fetchroottask`,tempData,isloading);
             return res;
         }
+        if(context.product && context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/fetchroottask`,tempData,isloading);
+            return res;
+        }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/fetchroottask`,tempData,isloading);
@@ -15168,6 +20647,11 @@ export default class TaskServiceBase extends EntityService {
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/fetchroottask`,tempData,isloading);
+            return res;
+        }
+        if(context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/tasks/fetchroottask`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && true){
@@ -15198,6 +20682,10 @@ export default class TaskServiceBase extends EntityService {
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/searchroottask`,tempData,isloading);
         }
+        if(context.product && context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/searchroottask`,tempData,isloading);
+        }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/projects/${context.project}/tasks/searchroottask`,tempData,isloading);
@@ -15205,6 +20693,10 @@ export default class TaskServiceBase extends EntityService {
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/stories/${context.story}/tasks/searchroottask`,tempData,isloading);
+        }
+        if(context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/productplans/${context.productplan}/tasks/searchroottask`,tempData,isloading);
         }
         if(context.projectmodule && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
@@ -15234,6 +20726,11 @@ export default class TaskServiceBase extends EntityService {
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/fetchthismonthcompletetaskchoice`,tempData,isloading);
             return res;
         }
+        if(context.product && context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/fetchthismonthcompletetaskchoice`,tempData,isloading);
+            return res;
+        }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/fetchthismonthcompletetaskchoice`,tempData,isloading);
@@ -15242,6 +20739,11 @@ export default class TaskServiceBase extends EntityService {
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/fetchthismonthcompletetaskchoice`,tempData,isloading);
+            return res;
+        }
+        if(context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/tasks/fetchthismonthcompletetaskchoice`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && true){
@@ -15272,6 +20774,10 @@ export default class TaskServiceBase extends EntityService {
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/searchthismonthcompletetaskchoice`,tempData,isloading);
         }
+        if(context.product && context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/searchthismonthcompletetaskchoice`,tempData,isloading);
+        }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/projects/${context.project}/tasks/searchthismonthcompletetaskchoice`,tempData,isloading);
@@ -15279,6 +20785,10 @@ export default class TaskServiceBase extends EntityService {
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/stories/${context.story}/tasks/searchthismonthcompletetaskchoice`,tempData,isloading);
+        }
+        if(context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/productplans/${context.productplan}/tasks/searchthismonthcompletetaskchoice`,tempData,isloading);
         }
         if(context.projectmodule && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
@@ -15308,6 +20818,11 @@ export default class TaskServiceBase extends EntityService {
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/fetchthisweekcompletetask`,tempData,isloading);
             return res;
         }
+        if(context.product && context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/fetchthisweekcompletetask`,tempData,isloading);
+            return res;
+        }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/fetchthisweekcompletetask`,tempData,isloading);
@@ -15316,6 +20831,11 @@ export default class TaskServiceBase extends EntityService {
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/fetchthisweekcompletetask`,tempData,isloading);
+            return res;
+        }
+        if(context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/tasks/fetchthisweekcompletetask`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && true){
@@ -15346,6 +20866,10 @@ export default class TaskServiceBase extends EntityService {
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/searchthisweekcompletetask`,tempData,isloading);
         }
+        if(context.product && context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/searchthisweekcompletetask`,tempData,isloading);
+        }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/projects/${context.project}/tasks/searchthisweekcompletetask`,tempData,isloading);
@@ -15353,6 +20877,10 @@ export default class TaskServiceBase extends EntityService {
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/stories/${context.story}/tasks/searchthisweekcompletetask`,tempData,isloading);
+        }
+        if(context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/productplans/${context.productplan}/tasks/searchthisweekcompletetask`,tempData,isloading);
         }
         if(context.projectmodule && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
@@ -15382,6 +20910,11 @@ export default class TaskServiceBase extends EntityService {
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/fetchthisweekcompletetaskchoice`,tempData,isloading);
             return res;
         }
+        if(context.product && context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/fetchthisweekcompletetaskchoice`,tempData,isloading);
+            return res;
+        }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/fetchthisweekcompletetaskchoice`,tempData,isloading);
@@ -15390,6 +20923,11 @@ export default class TaskServiceBase extends EntityService {
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/fetchthisweekcompletetaskchoice`,tempData,isloading);
+            return res;
+        }
+        if(context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/tasks/fetchthisweekcompletetaskchoice`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && true){
@@ -15420,6 +20958,10 @@ export default class TaskServiceBase extends EntityService {
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/searchthisweekcompletetaskchoice`,tempData,isloading);
         }
+        if(context.product && context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/searchthisweekcompletetaskchoice`,tempData,isloading);
+        }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/projects/${context.project}/tasks/searchthisweekcompletetaskchoice`,tempData,isloading);
@@ -15427,6 +20969,10 @@ export default class TaskServiceBase extends EntityService {
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/stories/${context.story}/tasks/searchthisweekcompletetaskchoice`,tempData,isloading);
+        }
+        if(context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/productplans/${context.productplan}/tasks/searchthisweekcompletetaskchoice`,tempData,isloading);
         }
         if(context.projectmodule && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
@@ -15456,6 +21002,11 @@ export default class TaskServiceBase extends EntityService {
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/fetchthisweekcompletetaskmobzs`,tempData,isloading);
             return res;
         }
+        if(context.product && context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/fetchthisweekcompletetaskmobzs`,tempData,isloading);
+            return res;
+        }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/fetchthisweekcompletetaskmobzs`,tempData,isloading);
@@ -15464,6 +21015,11 @@ export default class TaskServiceBase extends EntityService {
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/fetchthisweekcompletetaskmobzs`,tempData,isloading);
+            return res;
+        }
+        if(context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/tasks/fetchthisweekcompletetaskmobzs`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && true){
@@ -15494,6 +21050,10 @@ export default class TaskServiceBase extends EntityService {
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/searchthisweekcompletetaskmobzs`,tempData,isloading);
         }
+        if(context.product && context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/searchthisweekcompletetaskmobzs`,tempData,isloading);
+        }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/projects/${context.project}/tasks/searchthisweekcompletetaskmobzs`,tempData,isloading);
@@ -15501,6 +21061,10 @@ export default class TaskServiceBase extends EntityService {
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/stories/${context.story}/tasks/searchthisweekcompletetaskmobzs`,tempData,isloading);
+        }
+        if(context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/productplans/${context.productplan}/tasks/searchthisweekcompletetaskmobzs`,tempData,isloading);
         }
         if(context.projectmodule && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
@@ -15530,6 +21094,11 @@ export default class TaskServiceBase extends EntityService {
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/fetchthisweekcompletetaskzs`,tempData,isloading);
             return res;
         }
+        if(context.product && context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/fetchthisweekcompletetaskzs`,tempData,isloading);
+            return res;
+        }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/fetchthisweekcompletetaskzs`,tempData,isloading);
@@ -15538,6 +21107,11 @@ export default class TaskServiceBase extends EntityService {
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/fetchthisweekcompletetaskzs`,tempData,isloading);
+            return res;
+        }
+        if(context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/tasks/fetchthisweekcompletetaskzs`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && true){
@@ -15568,6 +21142,10 @@ export default class TaskServiceBase extends EntityService {
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/searchthisweekcompletetaskzs`,tempData,isloading);
         }
+        if(context.product && context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/searchthisweekcompletetaskzs`,tempData,isloading);
+        }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/projects/${context.project}/tasks/searchthisweekcompletetaskzs`,tempData,isloading);
@@ -15575,6 +21153,10 @@ export default class TaskServiceBase extends EntityService {
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/stories/${context.story}/tasks/searchthisweekcompletetaskzs`,tempData,isloading);
+        }
+        if(context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/productplans/${context.productplan}/tasks/searchthisweekcompletetaskzs`,tempData,isloading);
         }
         if(context.projectmodule && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
@@ -15604,6 +21186,11 @@ export default class TaskServiceBase extends EntityService {
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/fetchtodolisttask`,tempData,isloading);
             return res;
         }
+        if(context.product && context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/fetchtodolisttask`,tempData,isloading);
+            return res;
+        }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/fetchtodolisttask`,tempData,isloading);
@@ -15612,6 +21199,11 @@ export default class TaskServiceBase extends EntityService {
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/fetchtodolisttask`,tempData,isloading);
+            return res;
+        }
+        if(context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/tasks/fetchtodolisttask`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && true){
@@ -15642,6 +21234,10 @@ export default class TaskServiceBase extends EntityService {
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/searchtodolisttask`,tempData,isloading);
         }
+        if(context.product && context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/searchtodolisttask`,tempData,isloading);
+        }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/projects/${context.project}/tasks/searchtodolisttask`,tempData,isloading);
@@ -15649,6 +21245,10 @@ export default class TaskServiceBase extends EntityService {
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/stories/${context.story}/tasks/searchtodolisttask`,tempData,isloading);
+        }
+        if(context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/productplans/${context.productplan}/tasks/searchtodolisttask`,tempData,isloading);
         }
         if(context.projectmodule && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
@@ -15678,6 +21278,11 @@ export default class TaskServiceBase extends EntityService {
             let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/fetchtypegroup`,tempData,isloading);
             return res;
         }
+        if(context.product && context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/fetchtypegroup`,tempData,isloading);
+            return res;
+        }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/fetchtypegroup`,tempData,isloading);
@@ -15686,6 +21291,11 @@ export default class TaskServiceBase extends EntityService {
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/fetchtypegroup`,tempData,isloading);
+            return res;
+        }
+        if(context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/tasks/fetchtypegroup`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && true){
@@ -15716,6 +21326,10 @@ export default class TaskServiceBase extends EntityService {
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/searchtypegroup`,tempData,isloading);
         }
+        if(context.product && context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/searchtypegroup`,tempData,isloading);
+        }
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/projects/${context.project}/tasks/searchtypegroup`,tempData,isloading);
@@ -15723,6 +21337,10 @@ export default class TaskServiceBase extends EntityService {
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/stories/${context.story}/tasks/searchtypegroup`,tempData,isloading);
+        }
+        if(context.productplan && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/productplans/${context.productplan}/tasks/searchtypegroup`,tempData,isloading);
         }
         if(context.projectmodule && true){
             let tempData:any = JSON.parse(JSON.stringify(data));

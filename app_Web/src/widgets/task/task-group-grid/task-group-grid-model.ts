@@ -131,6 +131,11 @@ export default class TaskGroupModel {
           dataType: 'PICKUP',
         },
         {
+          name: 'plan',
+          prop: 'plan',
+          dataType: 'PICKUP',
+        },
+        {
           name: 'isfavorites',
           prop: 'isfavorites',
           dataType: 'TEXT',

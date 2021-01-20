@@ -13020,7 +13020,7 @@ t1.`PRODUCT`,
 ((select COUNT(t.id) from zt_story t where (t.plan = t1.id or (t.plan in (select t2.id from zt_productplan t2 where t2.parent = t1.id and t2.deleted = '0')) )  and t.deleted = '0' )) AS `STORYCNT`,
 t1.`TITLE`
 FROM `zt_productplan` t1 
-LEFT JOIN zt_productplan t11 ON t1.PARENT = t11.ID 
+LEFT JOIN `zt_productplan` t11 ON t1.`PARENT` = t11.`ID` 
 
 WHERE t1.DELETED = '0' 
 
@@ -13046,7 +13046,7 @@ t1.`PRODUCT`,
 ((select COUNT(t.id) from zt_story t where (t.plan = t1.id or (t.plan in (select t2.id from zt_productplan t2 where t2.parent = t1.id and t2.deleted = '0')) )  and t.deleted = '0' )) AS `STORYCNT`,
 t1.`TITLE`
 FROM `zt_productplan` t1 
-LEFT JOIN zt_productplan t11 ON t1.PARENT = t11.ID 
+LEFT JOIN `zt_productplan` t11 ON t1.`PARENT` = t11.`ID` 
 
 WHERE t1.DELETED = '0' 
 ( ( t1.`PARENT` <= 0 ) ) 
@@ -13073,7 +13073,7 @@ t1.`PRODUCT`,
 ((select COUNT(t.id) from zt_story t where (t.plan = t1.id or (t.plan in (select t2.id from zt_productplan t2 where t2.parent = t1.id and t2.deleted = '0')) )  and t.deleted = '0' )) AS `STORYCNT`,
 t1.`TITLE`
 FROM `zt_productplan` t1 
-LEFT JOIN zt_productplan t11 ON t1.PARENT = t11.ID 
+LEFT JOIN `zt_productplan` t11 ON t1.`PARENT` = t11.`ID` 
 
 WHERE t1.DELETED = '0' 
 ( ( t1.`PRODUCT` = ${srfdatacontext('product','{"defname":"PRODUCT","dename":"ZT_PRODUCTPLAN"}')}  OR  t1.`PRODUCT` = ${srfdatacontext('products','{"defname":"PRODUCT","dename":"ZT_PRODUCTPLAN"}')} ) ) 
@@ -13151,7 +13151,7 @@ t1.`PRODUCT`,
 ((select COUNT(t.id) from zt_story t where (t.plan = t1.id or (t.plan in (select t2.id from zt_productplan t2 where t2.parent = t1.id and t2.deleted = '0')) )  and t.deleted = '0' )) AS `STORYCNT`,
 t1.`TITLE`
 FROM `zt_productplan` t1 
-LEFT JOIN zt_productplan t11 ON t1.PARENT = t11.ID 
+LEFT JOIN `zt_productplan` t11 ON t1.`PARENT` = t11.`ID` 
 
 WHERE t1.DELETED = '0' 
 

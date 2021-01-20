@@ -1430,7 +1430,7 @@ t1.`PRODUCT`,
 ((select COUNT(t.id) from zt_story t where (t.plan = t1.id or (t.plan in (select t2.id from zt_productplan t2 where t2.parent = t1.id and t2.deleted = '0')) )  and t.deleted = '0' )) AS `STORYCNT`,
 t1.`TITLE`
 FROM `zt_productplan` t1 
-LEFT JOIN zt_productplan t11 ON t1.PARENT = t11.ID 
+LEFT JOIN `zt_productplan` t11 ON t1.`PARENT` = t11.`ID` 
 
 ```
 ### 数据查询-默认查询（DefaultParent）
@@ -1465,7 +1465,7 @@ t1.`PRODUCT`,
 ((select COUNT(t.id) from zt_story t where (t.plan = t1.id or (t.plan in (select t2.id from zt_productplan t2 where t2.parent = t1.id and t2.deleted = '0')) )  and t.deleted = '0' )) AS `STORYCNT`,
 t1.`TITLE`
 FROM `zt_productplan` t1 
-LEFT JOIN zt_productplan t11 ON t1.PARENT = t11.ID 
+LEFT JOIN `zt_productplan` t11 ON t1.`PARENT` = t11.`ID` 
 
 ```
 ### 数据查询-获取产品计划列表（GetList）
@@ -1500,7 +1500,7 @@ t1.`PRODUCT`,
 ((select COUNT(t.id) from zt_story t where (t.plan = t1.id or (t.plan in (select t2.id from zt_productplan t2 where t2.parent = t1.id and t2.deleted = '0')) )  and t.deleted = '0' )) AS `STORYCNT`,
 t1.`TITLE`
 FROM `zt_productplan` t1 
-LEFT JOIN zt_productplan t11 ON t1.PARENT = t11.ID 
+LEFT JOIN `zt_productplan` t11 ON t1.`PARENT` = t11.`ID` 
 
 ```
 ### 数据查询-计划（代码表）（PlanCodeList）
@@ -1595,7 +1595,7 @@ t1.`PRODUCT`,
 ((select COUNT(t.id) from zt_story t where (t.plan = t1.id or (t.plan in (select t2.id from zt_productplan t2 where t2.parent = t1.id and t2.deleted = '0')) )  and t.deleted = '0' )) AS `STORYCNT`,
 t1.`TITLE`
 FROM `zt_productplan` t1 
-LEFT JOIN zt_productplan t11 ON t1.PARENT = t11.ID 
+LEFT JOIN `zt_productplan` t11 ON t1.`PARENT` = t11.`ID` 
 
 ```
 

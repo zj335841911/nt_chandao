@@ -74,6 +74,18 @@ function getLocaleResourceBase(){
 			myconsumed: commonLogic.appcommonhandle("之前消耗",null),
 			mytotaltime: commonLogic.appcommonhandle("我的总消耗",null),
 			assignedtozj: commonLogic.appcommonhandle("转交给",null),
+			plan: commonLogic.appcommonhandle("编号",null),
+			taskspecies: commonLogic.appcommonhandle("任务种别",null),
+			configweek: commonLogic.appcommonhandle("周期设置周几",null),
+			configmonth: commonLogic.appcommonhandle("周期设置月",null),
+			configtype: commonLogic.appcommonhandle("周期类型",null),
+			configbeforedays: commonLogic.appcommonhandle("提前天数",null),
+			configday: commonLogic.appcommonhandle("间隔天数",null),
+			configend: commonLogic.appcommonhandle("过期日期",null),
+			configbegin: commonLogic.appcommonhandle("开始日期",null),
+			planname: commonLogic.appcommonhandle("所属计划",null),
+			idvalue: commonLogic.appcommonhandle("关联编号",null),
+			cycle: commonLogic.appcommonhandle("周期",null),
 		},
 			views: {
 				subtasknewview: {

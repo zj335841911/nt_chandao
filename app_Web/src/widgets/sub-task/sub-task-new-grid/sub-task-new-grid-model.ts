@@ -144,6 +144,11 @@ export default class SubTaskNewModel {
           isEditable:true
         },
         {
+          name: 'plan',
+          prop: 'plan',
+          dataType: 'PICKUP',
+        },
+        {
           name: 'allmodules',
           prop: 'allmodules',
           dataType: 'TEXT',

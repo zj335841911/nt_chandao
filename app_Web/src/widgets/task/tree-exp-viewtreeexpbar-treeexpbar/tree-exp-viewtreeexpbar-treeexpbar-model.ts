@@ -228,6 +228,42 @@ export default class TreeExpViewtreeexpbarModel {
       {
         name: 'assignedtozj',
       },
+      {
+        name: 'plan',
+      },
+      {
+        name: 'taskspecies',
+      },
+      {
+        name: 'configweek',
+      },
+      {
+        name: 'configmonth',
+      },
+      {
+        name: 'configtype',
+      },
+      {
+        name: 'configbeforedays',
+      },
+      {
+        name: 'configday',
+      },
+      {
+        name: 'configend',
+      },
+      {
+        name: 'configbegin',
+      },
+      {
+        name: 'planname',
+      },
+      {
+        name: 'idvalue',
+      },
+      {
+        name: 'cycle',
+      },
     ]
   }
 

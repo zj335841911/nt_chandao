@@ -97,11 +97,6 @@ export default class PivotTableModel {
           dataType: 'PICKUPTEXT',
         },
         {
-          name: 'module',
-          prop: 'module',
-          dataType: 'PICKUP',
-        },
-        {
           name: 'tasktype',
           prop: 'tasktype',
           dataType: 'SSCODELIST',
@@ -112,22 +107,7 @@ export default class PivotTableModel {
           dataType: 'PICKUP',
         },
         {
-          name: 'parent',
-          prop: 'parent',
-          dataType: 'PICKUP',
-        },
-        {
           name: 'srfmstag',
-        },
-        {
-          name: 'srfmajortext',
-          prop: 'name',
-          dataType: 'TEXT',
-        },
-        {
-          name: 'srfdataaccaction',
-          prop: 'id',
-          dataType: 'ACID',
         },
         {
           name: 'srfkey',
@@ -136,13 +116,38 @@ export default class PivotTableModel {
           isEditable:true
         },
         {
+          name: 'srfdataaccaction',
+          prop: 'id',
+          dataType: 'ACID',
+        },
+        {
+          name: 'srfmajortext',
+          prop: 'name',
+          dataType: 'TEXT',
+        },
+        {
           name: 'story',
           prop: 'story',
           dataType: 'PICKUP',
         },
         {
+          name: 'module',
+          prop: 'module',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'parent',
+          prop: 'parent',
+          dataType: 'PICKUP',
+        },
+        {
           name: 'project',
           prop: 'project',
+          dataType: 'PICKUP',
+        },
+        {
+          name: 'plan',
+          prop: 'plan',
           dataType: 'PICKUP',
         },
         {
