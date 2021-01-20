@@ -186,7 +186,7 @@ POST
 
 ### 保存附件
 #### 访问路径
-/files/{file_id}/updateobjectid
+/files/{file_id}/updateobjectidforpmsee
 
 #### 请求方法
 PUT

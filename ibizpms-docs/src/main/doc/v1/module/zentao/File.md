@@ -586,7 +586,7 @@ String
 | 7 | [下载](#实体行为-下载（Ibzdownload）) | ibzdownload | 用户自定义 | 前台 |
 | 8 | [预览](#实体行为-预览（Preview）) | Preview | 用户自定义 | 前台 |
 | 9 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
-| 10 | [保存附件](#实体行为-保存附件（UpdateObjectID）) | updateObjectID | 用户自定义 | 后台 |
+| 10 | [保存附件](#实体行为-保存附件（UpdateObjectIDForPmsEe）) | updateObjectIDForPmsEe | 用户自定义 | 后台 |
 
 ### 实体行为-Create（Create）
 #### 说明
@@ -696,7 +696,7 @@ Save
 
 #### 逻辑附加
 无
-### 实体行为-保存附件（UpdateObjectID）
+### 实体行为-保存附件（UpdateObjectIDForPmsEe）
 #### 说明
 保存附件
 

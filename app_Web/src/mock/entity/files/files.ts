@@ -271,16 +271,16 @@ mock.onPost(new RegExp(/^\/files\/?([a-zA-Z0-9\-\;]{0,35})\/save$/)).reply((conf
     return [status, data];
 });
         
-// UpdateObjectID
-mock.onPut(new RegExp(/^\/files\/?([a-zA-Z0-9\-\;]{0,35})\/updateobjectid$/)).reply((config: any) => {
-    console.groupCollapsed("实体:file 方法: UpdateObjectID");
+// UpdateObjectIDForPmsEe
+mock.onPut(new RegExp(/^\/files\/?([a-zA-Z0-9\-\;]{0,35})\/updateobjectidforpmsee$/)).reply((config: any) => {
+    console.groupCollapsed("实体:file 方法: UpdateObjectIDForPmsEe");
     console.table({url:config.url, method: config.method, data:config.data});
     let status = MockAdapter.mockStatus(config);
     if (status !== 200) {
         return [status, null];
     }    
     const paramArray:Array<any> = ['id'];
-    const matchArray:any = new RegExp(/^\/files\/([a-zA-Z0-9\-\;]{1,35})\/updateobjectid$/).exec(config.url);
+    const matchArray:any = new RegExp(/^\/files\/([a-zA-Z0-9\-\;]{1,35})\/updateobjectidforpmsee$/).exec(config.url);
     let tempValue: any = {};
     if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
         paramArray.forEach((item: any, index: number) => {

@@ -172,7 +172,7 @@ export default class FileServiceBase extends EntityService {
     }
 
     /**
-     * UpdateObjectID接口方法
+     * UpdateObjectIDForPmsEe接口方法
      *
      * @param {*} [context={}]
      * @param {*} [data={}]
@@ -180,8 +180,8 @@ export default class FileServiceBase extends EntityService {
      * @returns {Promise<any>}
      * @memberof FileServiceBase
      */
-    public async UpdateObjectID(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().put(`/files/${context.file}/updateobjectid`,data,isloading);
+    public async UpdateObjectIDForPmsEe(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = Http.getInstance().put(`/files/${context.file}/updateobjectidforpmsee`,data,isloading);
             return res;
     }
 
