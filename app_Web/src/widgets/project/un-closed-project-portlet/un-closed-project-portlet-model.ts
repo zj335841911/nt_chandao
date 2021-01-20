@@ -243,6 +243,9 @@ export default class UnClosedProjectModel {
       {
         name: 'supproreport',
       },
+      {
+        name: 'pmseeprojectinfo',
+      },
     ]
   }
 

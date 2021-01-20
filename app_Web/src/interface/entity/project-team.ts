@@ -133,4 +133,28 @@ export interface ProjectTeam {
      * @memberof ProjectTeam
      */
     taskcnt?: any;
+
+    /**
+     * 项目经理
+     *
+     * @returns {*}
+     * @memberof ProjectTeam
+     */
+    pm?: any;
+
+    /**
+     * 所属项目
+     *
+     * @returns {*}
+     * @memberof ProjectTeam
+     */
+    projectname?: any;
+
+    /**
+     * 退场时间
+     *
+     * @returns {*}
+     * @memberof ProjectTeam
+     */
+    exitdate?: any;
 }

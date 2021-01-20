@@ -159,6 +159,21 @@ export default class ReportTabExpViewtabviewpanel3Model {
       {
         name: 'myterritorycnt',
       },
+      {
+        name: 'mytodocntjz',
+      },
+      {
+        name: 'leftlcbcnt',
+      },
+      {
+        name: 'leftlcbjzcnt',
+      },
+      {
+        name: 'projectteamcnt',
+      },
+      {
+        name: 'projectteamjzcnt',
+      },
     ]
   }
 

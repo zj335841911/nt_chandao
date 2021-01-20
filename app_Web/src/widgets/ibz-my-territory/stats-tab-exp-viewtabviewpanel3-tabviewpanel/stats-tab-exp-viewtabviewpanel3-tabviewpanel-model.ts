@@ -159,6 +159,21 @@ export default class StatsTabExpViewtabviewpanel3Model {
       {
         name: 'myterritorycnt',
       },
+      {
+        name: 'mytodocntjz',
+      },
+      {
+        name: 'leftlcbcnt',
+      },
+      {
+        name: 'leftlcbjzcnt',
+      },
+      {
+        name: 'projectteamcnt',
+      },
+      {
+        name: 'projectteamjzcnt',
+      },
     ]
   }
 

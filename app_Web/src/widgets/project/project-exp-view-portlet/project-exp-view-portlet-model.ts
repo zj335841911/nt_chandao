@@ -243,6 +243,9 @@ export default class ProjectExpViewModel {
       {
         name: 'supproreport',
       },
+      {
+        name: 'pmseeprojectinfo',
+      },
     ]
   }
 

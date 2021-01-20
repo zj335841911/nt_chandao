@@ -3,7 +3,7 @@
 import { Component } from 'vue-property-decorator';
 import { VueLifeCycleProcessing } from '@/studio-core';
 import { SysEmployeeDashboardViewBase } from './sys-employee-dashboard-view-base';
-import view_dashboard from '@widgets/sys-employee/dashboard-dashboard/dashboard-dashboard.vue';
+import view_dashboard from '@widgets/sys-employee/personal-info-dashboard/personal-info-dashboard.vue';
 
 /**
  * 人员数据看板视图视图

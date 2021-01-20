@@ -613,4 +613,12 @@ export interface Project {
      * @memberof Project
      */
     supproreport?: any;
+
+    /**
+     * 项目立项信息
+     *
+     * @returns {*}
+     * @memberof Project
+     */
+    pmseeprojectinfo?: any;
 }

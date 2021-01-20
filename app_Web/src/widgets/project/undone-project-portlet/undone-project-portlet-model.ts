@@ -243,6 +243,9 @@ export default class UndoneProjectModel {
       {
         name: 'supproreport',
       },
+      {
+        name: 'pmseeprojectinfo',
+      },
     ]
   }
 

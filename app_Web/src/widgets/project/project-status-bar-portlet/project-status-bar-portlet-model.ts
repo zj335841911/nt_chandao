@@ -243,6 +243,9 @@ export default class ProjectStatusBarModel {
       {
         name: 'supproreport',
       },
+      {
+        name: 'pmseeprojectinfo',
+      },
     ]
   }
 

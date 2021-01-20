@@ -159,6 +159,21 @@ export default class Usr3TabExpViewtabviewpanel3Model {
       {
         name: 'myterritorycnt',
       },
+      {
+        name: 'mytodocntjz',
+      },
+      {
+        name: 'leftlcbcnt',
+      },
+      {
+        name: 'leftlcbjzcnt',
+      },
+      {
+        name: 'projectteamcnt',
+      },
+      {
+        name: 'projectteamjzcnt',
+      },
     ]
   }
 

@@ -159,6 +159,21 @@ export default class TabExpViewtabexppanelModel {
       {
         name: 'myterritorycnt',
       },
+      {
+        name: 'mytodocntjz',
+      },
+      {
+        name: 'leftlcbcnt',
+      },
+      {
+        name: 'leftlcbjzcnt',
+      },
+      {
+        name: 'projectteamcnt',
+      },
+      {
+        name: 'projectteamjzcnt',
+      },
     ]
   }
 

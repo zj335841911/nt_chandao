@@ -182,6 +182,21 @@ public class FileServiceImpl extends ServiceImpl<FileMapper, File> implements IF
         }
     }
 
+       @Override
+    @Transactional
+    public File updateObjectID(File et) {
+  			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.FileHelper.class).updateObjectID(et);
+    }
+	
+	@Override
+    @Transactional
+    public boolean updateObjectIDBatch (List<File> etList) {
+		 for(File et : etList) {
+		   updateObjectID(et);
+		 }
+	 	 return true;
+    }
+
 
 
     /**

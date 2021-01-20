@@ -243,6 +243,9 @@ export default class ProjectMainToolbarModel {
       {
         name: 'supproreport',
       },
+      {
+        name: 'pmseeprojectinfo',
+      },
     ]
   }
 

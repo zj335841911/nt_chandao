@@ -243,6 +243,9 @@ export default class DashBoradInfoViewModel {
       {
         name: 'supproreport',
       },
+      {
+        name: 'pmseeprojectinfo',
+      },
     ]
   }
 

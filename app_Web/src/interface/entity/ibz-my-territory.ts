@@ -389,4 +389,44 @@ export interface IbzMyTerritory {
      * @memberof IbzMyTerritory
      */
     myterritorycnt?: any;
+
+    /**
+     * 今日截止待办
+     *
+     * @returns {*}
+     * @memberof IbzMyTerritory
+     */
+    mytodocntjz?: any;
+
+    /**
+     * 剩余里程碑
+     *
+     * @returns {*}
+     * @memberof IbzMyTerritory
+     */
+    leftlcbcnt?: any;
+
+    /**
+     * 剩余里程碑（今日到期）
+     *
+     * @returns {*}
+     * @memberof IbzMyTerritory
+     */
+    leftlcbjzcnt?: any;
+
+    /**
+     * 项目成员
+     *
+     * @returns {*}
+     * @memberof IbzMyTerritory
+     */
+    projectteamcnt?: any;
+
+    /**
+     * 项目成员（今日截止）
+     *
+     * @returns {*}
+     * @memberof IbzMyTerritory
+     */
+    projectteamjzcnt?: any;
 }

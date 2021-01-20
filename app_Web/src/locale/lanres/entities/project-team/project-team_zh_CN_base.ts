@@ -19,6 +19,9 @@ function getLocaleResourceBase(){
 			root: commonLogic.appcommonhandle("项目编号",null),
 			username: commonLogic.appcommonhandle("用户",null),
 			taskcnt: commonLogic.appcommonhandle("任务数",null),
+			pm: commonLogic.appcommonhandle("项目经理",null),
+			projectname: commonLogic.appcommonhandle("所属项目",null),
+			exitdate: commonLogic.appcommonhandle("退场时间",null),
 		},
 			views: {
 				maingridview: {

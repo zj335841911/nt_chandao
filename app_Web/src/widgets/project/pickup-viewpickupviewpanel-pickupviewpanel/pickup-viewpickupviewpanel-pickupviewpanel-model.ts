@@ -243,6 +243,9 @@ export default class PickupViewpickupviewpanelModel {
       {
         name: 'supproreport',
       },
+      {
+        name: 'pmseeprojectinfo',
+      },
     ]
   }
 

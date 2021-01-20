@@ -51,6 +51,11 @@ function getLocaleResourceBase(){
 			myfavoritetasks: commonLogic.appcommonhandle("我收藏的任务",null),
 			myfavorites: commonLogic.appcommonhandle("我的收藏",null),
 			myterritorycnt: commonLogic.appcommonhandle("我的地盘",null),
+			mytodocntjz: commonLogic.appcommonhandle("今日截止待办",null),
+			leftlcbcnt: commonLogic.appcommonhandle("剩余里程碑",null),
+			leftlcbjzcnt: commonLogic.appcommonhandle("剩余里程碑（今日到期）",null),
+			projectteamcnt: commonLogic.appcommonhandle("项目成员",null),
+			projectteamjzcnt: commonLogic.appcommonhandle("项目成员（今日截止）",null),
 		},
 			views: {
 				tabexpview: {

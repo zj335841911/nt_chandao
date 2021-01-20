@@ -243,6 +243,9 @@ export default class MainTabExpViewtabviewpanel14Model {
       {
         name: 'supproreport',
       },
+      {
+        name: 'pmseeprojectinfo',
+      },
     ]
   }
 

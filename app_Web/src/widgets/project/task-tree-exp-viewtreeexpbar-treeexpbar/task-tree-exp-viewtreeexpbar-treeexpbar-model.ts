@@ -243,6 +243,9 @@ export default class TaskTreeExpViewtreeexpbarModel {
       {
         name: 'supproreport',
       },
+      {
+        name: 'pmseeprojectinfo',
+      },
     ]
   }
 

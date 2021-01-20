@@ -46,6 +46,8 @@ public interface IFileService extends IService<File> {
     boolean checkKey(File et);
     boolean save(File et);
     void saveBatch(List<File> list);
+    File updateObjectID(File et);
+    boolean updateObjectIDBatch(List<File> etList);
     Page<File> searchDefault(FileSearchContext context);
     Page<File> searchDocLibFile(FileSearchContext context);
     Page<File> searchProductDocLibFile(FileSearchContext context);
