@@ -576,9 +576,6 @@ export class MainEditFormBase extends EditFormControlBase {
         if (this.data.hasOwnProperty('module')) {
             this.data['module'] = this.viewparams['module'];
         }
-        if (this.data.hasOwnProperty('modulename')) {
-            this.data['modulename'] = this.viewparams['modulename'];
-        }
         if (this.data.hasOwnProperty('allmodules')) {
             this.data['allmodules'] = '1';
         }
@@ -587,9 +584,6 @@ export class MainEditFormBase extends EditFormControlBase {
         }
         if (this.data.hasOwnProperty('story')) {
             this.data['story'] = this.viewparams['story'];
-        }
-        if (this.data.hasOwnProperty('storyname')) {
-            this.data['storyname'] = this.viewparams['title'];
         }
     }
 
