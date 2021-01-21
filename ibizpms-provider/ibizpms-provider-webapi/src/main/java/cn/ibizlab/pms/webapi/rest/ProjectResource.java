@@ -417,6 +417,28 @@ public class ProjectResource {
                 .body(new PageImpl(projectMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-searchCurPlanProject-all') and hasPermission(#context,'pms-Project-Get')")
+	@ApiOperation(value = "获取当前计划项目", tags = {"项目" } ,notes = "获取当前计划项目")
+    @RequestMapping(method= RequestMethod.GET , value="/projects/fetchcurplanproject")
+	public ResponseEntity<List<ProjectDTO>> fetchCurPlanProject(ProjectSearchContext context) {
+        Page<Project> domains = projectService.searchCurPlanProject(context) ;
+        List<ProjectDTO> list = projectMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-searchCurPlanProject-all') and hasPermission(#context,'pms-Project-Get')")
+	@ApiOperation(value = "查询当前计划项目", tags = {"项目" } ,notes = "查询当前计划项目")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/searchcurplanproject")
+	public ResponseEntity<Page<ProjectDTO>> searchCurPlanProject(@RequestBody ProjectSearchContext context) {
+        Page<Project> domains = projectService.searchCurPlanProject(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(projectMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-searchCurProduct-all') and hasPermission(#context,'pms-Project-Get')")
 	@ApiOperation(value = "获取当前项目", tags = {"项目" } ,notes = "获取当前项目")
     @RequestMapping(method= RequestMethod.POST , value="/projects/fetchcurproduct")

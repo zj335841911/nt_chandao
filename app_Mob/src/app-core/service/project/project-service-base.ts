@@ -560,6 +560,21 @@ export class ProjectServiceBase extends EntityService {
     }
 
     /**
+     * FetchCurPlanProject接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectServiceBase
+     */
+    public async FetchCurPlanProject(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/projects/fetchcurplanproject`,tempData,isloading);
+        return res;
+    }
+
+    /**
      * FetchCurProduct接口方法
      *
      * @param {*} [context={}]
@@ -755,6 +770,18 @@ export class ProjectServiceBase extends EntityService {
      * @memberof ProjectServiceBase
      */
     public async FetchTempBugProject(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    }
+
+    /**
+     * FetchTempCurPlanProject接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectServiceBase
+     */
+    public async FetchTempCurPlanProject(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
     }
 
     /**

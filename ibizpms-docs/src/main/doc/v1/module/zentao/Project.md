@@ -4486,21 +4486,84 @@ Save
 | 序号 | 查询 | 查询名 | 默认 |
 | ---- | ---- | ---- | ---- |
 | 1 | [Bug表单中可选的项目列表](#数据查询-Bug表单中可选的项目列表（BugSelectableProjectList）) | BugSelectableProjectList | 否 |
-| 2 | [当前项目](#数据查询-当前项目（CurProduct）) | CurProduct | 否 |
-| 3 | [当前用户项目](#数据查询-当前用户项目（CurUser）) | CurUser | 否 |
-| 4 | [DEFAULT](#数据查询-DEFAULT（Default）) | Default | 否 |
-| 5 | [ES批量的导入](#数据查询-ES批量的导入（ESBulk）) | ESBulk | 否 |
-| 6 | [参与项目(年度总结)](#数据查询-参与项目(年度总结)（InvolvedProject）) | InvolvedProject | 否 |
-| 7 | [参与项目完成需求任务bug](#数据查询-参与项目完成需求任务bug（InvolvedProjectStoryTaskBug）) | InvolvedProjectStoryTaskBug | 否 |
-| 8 | [我的项目](#数据查询-我的项目（MyProject）) | MyProject | 否 |
-| 9 | [项目团队](#数据查询-项目团队（ProjectTeam）) | ProjectTeam | 否 |
-| 10 | [需求影响项目](#数据查询-需求影响项目（StoryProject）) | StoryProject | 否 |
-| 11 | [未完成项目](#数据查询-未完成项目（UnDoneProject）) | UnDoneProject | 否 |
-| 12 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 2 | [当前计划项目](#数据查询-当前计划项目（CurPlanProject）) | CurPlanProject | 否 |
+| 3 | [当前项目](#数据查询-当前项目（CurProduct）) | CurProduct | 否 |
+| 4 | [当前用户项目](#数据查询-当前用户项目（CurUser）) | CurUser | 否 |
+| 5 | [DEFAULT](#数据查询-DEFAULT（Default）) | Default | 否 |
+| 6 | [ES批量的导入](#数据查询-ES批量的导入（ESBulk）) | ESBulk | 否 |
+| 7 | [参与项目(年度总结)](#数据查询-参与项目(年度总结)（InvolvedProject）) | InvolvedProject | 否 |
+| 8 | [参与项目完成需求任务bug](#数据查询-参与项目完成需求任务bug（InvolvedProjectStoryTaskBug）) | InvolvedProjectStoryTaskBug | 否 |
+| 9 | [我的项目](#数据查询-我的项目（MyProject）) | MyProject | 否 |
+| 10 | [项目团队](#数据查询-项目团队（ProjectTeam）) | ProjectTeam | 否 |
+| 11 | [需求影响项目](#数据查询-需求影响项目（StoryProject）) | StoryProject | 否 |
+| 12 | [未完成项目](#数据查询-未完成项目（UnDoneProject）) | UnDoneProject | 否 |
+| 13 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-Bug表单中可选的项目列表（BugSelectableProjectList）
 #### 说明
 Bug表单中可选的项目列表、与产品选择做关联，使用网页上下文传递参数（产品标识）。
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+t1.`ACL`,
+t1.`BEGIN`,
+(SELECT COUNT(1) FROM ZT_BUG WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `BUGCNT`,
+t1.`CANCELEDBY`,
+t1.`CANCELEDDATE`,
+t1.`CATID`,
+t1.`CLOSEDBY`,
+t1.`CLOSEDDATE`,
+t1.`CODE`,
+t1.`DAYS`,
+t1.`DELETED`,
+t1.`END`,
+t1.`ID`,
+t1.`ISCAT`,
+'0' AS `ISTOP`,
+t1.`MDEPTID`,
+t1.`NAME`,
+t1.`OPENEDBY`,
+t1.`OPENEDDATE`,
+t1.`OPENEDVERSION`,
+t1.`ORDER`,
+t1.`order` AS `ORDER1`,
+t1.`ORGID`,
+t1.`PARENT`,
+t11.`NAME` AS `PARENTNAME`,
+t1.`PM`,
+t1.`PO`,
+t1.`PRI`,
+t1.`QD`,
+t1.`RD`,
+t1.`STATGE`,
+t1.`STATUS`,
+(SELECT COUNT(1) FROM ZT_STORY LEFT JOIN ZT_PROJECTSTORY ON ZT_STORY.ID = ZT_PROJECTSTORY.STORY WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `STORYCNT`,
+t1.`SUBSTATUS`,
+t1.`SUPPROREPORT`,
+(SELECT COUNT(1) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `TASKCNT`,
+t1.`TEAM`,
+(SELECT round(SUM(CONSUMED),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' AND ( `parent` = '' or `parent` = '0' or `parent` = '-1')) AS `TOTALCONSUMED`,
+(SELECT round(SUM(ESTIMATE),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED =  '0' AND ( `parent` = '' or `parent` = '0' or `parent` = '-1')) AS `TOTALESTIMATE`,
+(select sum(days * hours)  from zt_team tt where type = 'project' and root = t1.id) AS `TOTALHOURS`,
+(SELECT round(SUM(`LEFT`),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' and `status` in ('doing','wait','pause') AND ( `parent` = '' or `parent` = '0' or `parent` = '-1')) AS `TOTALLEFT`,
+((SELECT round(SUM( `LEFT` ),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' AND ( `parent` = '' OR `parent` = '0' OR `parent` = '-1' ) AND `status` in ('doing','wait','pause')) + (SELECT round(SUM( CONSUMED ),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' AND ( `parent` = '' OR `parent` = '0' OR `parent` = '-1' ))) AS `TOTALWH`,
+t1.`TYPE`
+FROM `zt_project` t1 
+LEFT JOIN `zt_project` t11 ON t1.`PARENT` = t11.`ID` 
+LEFT OUTER JOIN `zt_projectproduct` t21 ON t1.`ID` = t21.`PROJECT` 
+
+```
+### 数据查询-当前计划项目（CurPlanProject）
+#### 说明
+当前计划项目
 
 - 默认查询
 否
@@ -5264,16 +5327,17 @@ LEFT JOIN `zt_project` t11 ON t1.`PARENT` = t11.`ID`
 | 序号 | 集合 | 集合名 | 默认 |
 | ---- | ---- | ---- | ---- |
 | 1 | [BugProject](#数据集合-BugProject（BugProject）) | BugProject | 否 |
-| 2 | [当前项目](#数据集合-当前项目（CurProduct）) | CurProduct | 否 |
-| 3 | [当前用户项目](#数据集合-当前用户项目（CurUser）) | CurUser | 否 |
-| 4 | [DEFAULT](#数据集合-DEFAULT（Default）) | Default | 是 |
-| 5 | [ES批量的导入](#数据集合-ES批量的导入（ESBulk）) | ESBulk | 否 |
-| 6 | [参与项目(年度总结)](#数据集合-参与项目(年度总结)（InvolvedProject）) | InvolvedProject | 否 |
-| 7 | [参与项目完成需求任务bug](#数据集合-参与项目完成需求任务bug（InvolvedProject_StoryTaskBug）) | InvolvedProject_StoryTaskBug | 否 |
-| 8 | [我的项目](#数据集合-我的项目（MyProject）) | MyProject | 否 |
-| 9 | [项目团队](#数据集合-项目团队（ProjectTeam）) | ProjectTeam | 否 |
-| 10 | [需求影响项目](#数据集合-需求影响项目（StoryProject）) | StoryProject | 否 |
-| 11 | [未完成项目](#数据集合-未完成项目（UnDoneProject）) | UnDoneProject | 否 |
+| 2 | [当前计划项目](#数据集合-当前计划项目（CurPlanProject）) | CurPlanProject | 否 |
+| 3 | [当前项目](#数据集合-当前项目（CurProduct）) | CurProduct | 否 |
+| 4 | [当前用户项目](#数据集合-当前用户项目（CurUser）) | CurUser | 否 |
+| 5 | [DEFAULT](#数据集合-DEFAULT（Default）) | Default | 是 |
+| 6 | [ES批量的导入](#数据集合-ES批量的导入（ESBulk）) | ESBulk | 否 |
+| 7 | [参与项目(年度总结)](#数据集合-参与项目(年度总结)（InvolvedProject）) | InvolvedProject | 否 |
+| 8 | [参与项目完成需求任务bug](#数据集合-参与项目完成需求任务bug（InvolvedProject_StoryTaskBug）) | InvolvedProject_StoryTaskBug | 否 |
+| 9 | [我的项目](#数据集合-我的项目（MyProject）) | MyProject | 否 |
+| 10 | [项目团队](#数据集合-项目团队（ProjectTeam）) | ProjectTeam | 否 |
+| 11 | [需求影响项目](#数据集合-需求影响项目（StoryProject）) | StoryProject | 否 |
+| 12 | [未完成项目](#数据集合-未完成项目（UnDoneProject）) | UnDoneProject | 否 |
 
 ### 数据集合-BugProject（BugProject）
 #### 说明
@@ -5289,6 +5353,20 @@ BugProject
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [Bug表单中可选的项目列表（BugSelectableProjectList）](#数据查询-Bug表单中可选的项目列表（BugSelectableProjectList）) |
+### 数据集合-当前计划项目（CurPlanProject）
+#### 说明
+当前计划项目
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [当前计划项目（CurPlanProject）](#数据查询-当前计划项目（CurPlanProject）) |
 ### 数据集合-当前项目（CurProduct）
 #### 说明
 当前项目
