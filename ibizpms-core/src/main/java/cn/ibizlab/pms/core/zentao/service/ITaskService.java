@@ -67,6 +67,8 @@ public interface ITaskService extends IService<Task> {
     Task getTeamUserLeftStart(Task et);
     boolean getTeamUserLeftStartBatch(List<Task> etList);
     Task getUsernames(Task et);
+    Task linkPlan(Task et);
+    boolean linkPlanBatch(List<Task> etList);
     Task otherUpdate(Task et);
     boolean otherUpdateBatch(List<Task> etList);
     Task pause(Task et);
@@ -113,6 +115,7 @@ public interface ITaskService extends IService<Task> {
     Page<Task> searchNextWeekPlanCompleteTask(TaskSearchContext context);
     Page<Task> searchProjectTask(TaskSearchContext context);
     Page<Task> searchRootTask(TaskSearchContext context);
+    Page<Task> searchTaskLinkPlan(TaskSearchContext context);
     Page<Task> searchThisMonthCompleteTaskChoice(TaskSearchContext context);
     Page<Task> searchThisWeekCompleteTask(TaskSearchContext context);
     Page<Task> searchThisWeekCompleteTaskChoice(TaskSearchContext context);

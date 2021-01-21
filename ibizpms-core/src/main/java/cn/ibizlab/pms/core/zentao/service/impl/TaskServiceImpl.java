@@ -343,6 +343,21 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
          return et;
     }
 
+    @Override
+    @Transactional
+    public Task linkPlan(Task et) {
+        //自定义代码
+        return et;
+    }
+   @Override
+    @Transactional
+    public boolean linkPlanBatch(List<Task> etList) {
+        for(Task et : etList) {
+            linkPlan(et);
+        }
+        return true;
+    }
+
        @Override
     @Transactional
     public Task otherUpdate(Task et) {
@@ -848,6 +863,15 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
     @Override
     public Page<Task> searchRootTask(TaskSearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchRootTask(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 关联计划（当前项目未关联）
+     */
+    @Override
+    public Page<Task> searchTaskLinkPlan(TaskSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchTaskLinkPlan(context.getPages(), context, context.getSelectCond());
         return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 

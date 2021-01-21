@@ -354,6 +354,25 @@ public class TaskResource {
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-LinkPlan-all')")
+    @ApiOperation(value = "关联计划", tags = {"任务" },  notes = "关联计划")
+	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/linkplan")
+    public ResponseEntity<TaskDTO> linkPlan(@PathVariable("task_id") Long task_id, @RequestBody TaskDTO taskdto) {
+        Task domain = taskMapping.toDomain(taskdto);
+        domain.setId(task_id);
+        domain = taskService.linkPlan(domain);
+        taskdto = taskMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(taskdto);
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-LinkPlan-all')")
+    @ApiOperation(value = "批量处理[关联计划]", tags = {"任务" },  notes = "批量处理[关联计划]")
+	@RequestMapping(method = RequestMethod.POST, value = "/tasks/linkplanbatch")
+    public ResponseEntity<Boolean> linkPlanBatch(@RequestBody List<TaskDTO> taskdtos) {
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.linkPlanBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-OtherUpdate-all')")
     @ApiOperation(value = "其他更新", tags = {"任务" },  notes = "其他更新")
 	@RequestMapping(method = RequestMethod.PUT, value = "/tasks/{task_id}/otherupdate")
@@ -1104,6 +1123,28 @@ public class TaskResource {
                 .body(new PageImpl(taskMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchTaskLinkPlan-all')")
+	@ApiOperation(value = "获取关联计划（当前项目未关联）", tags = {"任务" } ,notes = "获取关联计划（当前项目未关联）")
+    @RequestMapping(method= RequestMethod.GET , value="/tasks/fetchtasklinkplan")
+	public ResponseEntity<List<TaskDTO>> fetchTaskLinkPlan(TaskSearchContext context) {
+        Page<Task> domains = taskService.searchTaskLinkPlan(context) ;
+        List<TaskDTO> list = taskMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchTaskLinkPlan-all')")
+	@ApiOperation(value = "查询关联计划（当前项目未关联）", tags = {"任务" } ,notes = "查询关联计划（当前项目未关联）")
+    @RequestMapping(method= RequestMethod.POST , value="/tasks/searchtasklinkplan")
+	public ResponseEntity<Page<TaskDTO>> searchTaskLinkPlan(@RequestBody TaskSearchContext context) {
+        Page<Task> domains = taskService.searchTaskLinkPlan(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(taskMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchThisMonthCompleteTaskChoice-all')")
 	@ApiOperation(value = "获取我本月完成的任务（下拉列表框）", tags = {"任务" } ,notes = "获取我本月完成的任务（下拉列表框）")
     @RequestMapping(method= RequestMethod.GET , value="/tasks/fetchthismonthcompletetaskchoice")
@@ -1538,6 +1579,23 @@ public class TaskResource {
         domain = taskService.getUsernames(domain) ;
         taskdto = taskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-LinkPlan-all')")
+    @ApiOperation(value = "根据任务模块任务", tags = {"任务" },  notes = "根据任务模块任务")
+	@RequestMapping(method = RequestMethod.POST, value = "/projectmodules/{projectmodule_id}/tasks/{task_id}/linkplan")
+    public ResponseEntity<TaskDTO> linkPlanByProjectModule(@PathVariable("projectmodule_id") Long projectmodule_id, @PathVariable("task_id") Long task_id, @RequestBody TaskDTO taskdto) {
+        Task domain = taskMapping.toDomain(taskdto);
+        domain.setModule(projectmodule_id);
+        domain = taskService.linkPlan(domain) ;
+        taskdto = taskMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(taskdto);
+    }
+    @ApiOperation(value = "批量处理[根据任务模块任务]", tags = {"任务" },  notes = "批量处理[根据任务模块任务]")
+	@RequestMapping(method = RequestMethod.POST, value = "/projectmodules/{projectmodule_id}/tasks/linkplanbatch")
+    public ResponseEntity<Boolean> linkPlanByProjectModule(@PathVariable("projectmodule_id") Long projectmodule_id, @RequestBody List<TaskDTO> taskdtos) {
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.linkPlanBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-OtherUpdate-all')")
     @ApiOperation(value = "根据任务模块任务", tags = {"任务" },  notes = "根据任务模块任务")
@@ -2301,6 +2359,29 @@ public class TaskResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(taskMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchTaskLinkPlan-all')")
+	@ApiOperation(value = "根据任务模块获取关联计划（当前项目未关联）", tags = {"任务" } ,notes = "根据任务模块获取关联计划（当前项目未关联）")
+    @RequestMapping(method= RequestMethod.GET , value="/projectmodules/{projectmodule_id}/tasks/fetchtasklinkplan")
+	public ResponseEntity<List<TaskDTO>> fetchTaskTaskLinkPlanByProjectModule(@PathVariable("projectmodule_id") Long projectmodule_id,TaskSearchContext context) {
+        context.setN_module_eq(projectmodule_id);
+        Page<Task> domains = taskService.searchTaskLinkPlan(context) ;
+        List<TaskDTO> list = taskMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchTaskLinkPlan-all')")
+	@ApiOperation(value = "根据任务模块查询关联计划（当前项目未关联）", tags = {"任务" } ,notes = "根据任务模块查询关联计划（当前项目未关联）")
+    @RequestMapping(method= RequestMethod.POST , value="/projectmodules/{projectmodule_id}/tasks/searchtasklinkplan")
+	public ResponseEntity<Page<TaskDTO>> searchTaskTaskLinkPlanByProjectModule(@PathVariable("projectmodule_id") Long projectmodule_id, @RequestBody TaskSearchContext context) {
+        context.setN_module_eq(projectmodule_id);
+        Page<Task> domains = taskService.searchTaskLinkPlan(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(taskMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchThisMonthCompleteTaskChoice-all')")
 	@ApiOperation(value = "根据任务模块获取我本月完成的任务（下拉列表框）", tags = {"任务" } ,notes = "根据任务模块获取我本月完成的任务（下拉列表框）")
     @RequestMapping(method= RequestMethod.GET , value="/projectmodules/{projectmodule_id}/tasks/fetchthismonthcompletetaskchoice")
@@ -2741,6 +2822,23 @@ public class TaskResource {
         domain = taskService.getUsernames(domain) ;
         taskdto = taskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-LinkPlan-all')")
+    @ApiOperation(value = "根据产品计划任务", tags = {"任务" },  notes = "根据产品计划任务")
+	@RequestMapping(method = RequestMethod.POST, value = "/productplans/{productplan_id}/tasks/{task_id}/linkplan")
+    public ResponseEntity<TaskDTO> linkPlanByProductPlan(@PathVariable("productplan_id") Long productplan_id, @PathVariable("task_id") Long task_id, @RequestBody TaskDTO taskdto) {
+        Task domain = taskMapping.toDomain(taskdto);
+        domain.setPlan(productplan_id);
+        domain = taskService.linkPlan(domain) ;
+        taskdto = taskMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(taskdto);
+    }
+    @ApiOperation(value = "批量处理[根据产品计划任务]", tags = {"任务" },  notes = "批量处理[根据产品计划任务]")
+	@RequestMapping(method = RequestMethod.POST, value = "/productplans/{productplan_id}/tasks/linkplanbatch")
+    public ResponseEntity<Boolean> linkPlanByProductPlan(@PathVariable("productplan_id") Long productplan_id, @RequestBody List<TaskDTO> taskdtos) {
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.linkPlanBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-OtherUpdate-all')")
     @ApiOperation(value = "根据产品计划任务", tags = {"任务" },  notes = "根据产品计划任务")
@@ -3504,6 +3602,29 @@ public class TaskResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(taskMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchTaskLinkPlan-all')")
+	@ApiOperation(value = "根据产品计划获取关联计划（当前项目未关联）", tags = {"任务" } ,notes = "根据产品计划获取关联计划（当前项目未关联）")
+    @RequestMapping(method= RequestMethod.GET , value="/productplans/{productplan_id}/tasks/fetchtasklinkplan")
+	public ResponseEntity<List<TaskDTO>> fetchTaskTaskLinkPlanByProductPlan(@PathVariable("productplan_id") Long productplan_id,TaskSearchContext context) {
+        context.setN_plan_eq(productplan_id);
+        Page<Task> domains = taskService.searchTaskLinkPlan(context) ;
+        List<TaskDTO> list = taskMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchTaskLinkPlan-all')")
+	@ApiOperation(value = "根据产品计划查询关联计划（当前项目未关联）", tags = {"任务" } ,notes = "根据产品计划查询关联计划（当前项目未关联）")
+    @RequestMapping(method= RequestMethod.POST , value="/productplans/{productplan_id}/tasks/searchtasklinkplan")
+	public ResponseEntity<Page<TaskDTO>> searchTaskTaskLinkPlanByProductPlan(@PathVariable("productplan_id") Long productplan_id, @RequestBody TaskSearchContext context) {
+        context.setN_plan_eq(productplan_id);
+        Page<Task> domains = taskService.searchTaskLinkPlan(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(taskMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchThisMonthCompleteTaskChoice-all')")
 	@ApiOperation(value = "根据产品计划获取我本月完成的任务（下拉列表框）", tags = {"任务" } ,notes = "根据产品计划获取我本月完成的任务（下拉列表框）")
     @RequestMapping(method= RequestMethod.GET , value="/productplans/{productplan_id}/tasks/fetchthismonthcompletetaskchoice")
@@ -3944,6 +4065,23 @@ public class TaskResource {
         domain = taskService.getUsernames(domain) ;
         taskdto = taskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-LinkPlan-all')")
+    @ApiOperation(value = "根据需求任务", tags = {"任务" },  notes = "根据需求任务")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/linkplan")
+    public ResponseEntity<TaskDTO> linkPlanByStory(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody TaskDTO taskdto) {
+        Task domain = taskMapping.toDomain(taskdto);
+        domain.setStory(story_id);
+        domain = taskService.linkPlan(domain) ;
+        taskdto = taskMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(taskdto);
+    }
+    @ApiOperation(value = "批量处理[根据需求任务]", tags = {"任务" },  notes = "批量处理[根据需求任务]")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/linkplanbatch")
+    public ResponseEntity<Boolean> linkPlanByStory(@PathVariable("story_id") Long story_id, @RequestBody List<TaskDTO> taskdtos) {
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.linkPlanBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-OtherUpdate-all')")
     @ApiOperation(value = "根据需求任务", tags = {"任务" },  notes = "根据需求任务")
@@ -4707,6 +4845,29 @@ public class TaskResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(taskMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchTaskLinkPlan-all')")
+	@ApiOperation(value = "根据需求获取关联计划（当前项目未关联）", tags = {"任务" } ,notes = "根据需求获取关联计划（当前项目未关联）")
+    @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/tasks/fetchtasklinkplan")
+	public ResponseEntity<List<TaskDTO>> fetchTaskTaskLinkPlanByStory(@PathVariable("story_id") Long story_id,TaskSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Task> domains = taskService.searchTaskLinkPlan(context) ;
+        List<TaskDTO> list = taskMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchTaskLinkPlan-all')")
+	@ApiOperation(value = "根据需求查询关联计划（当前项目未关联）", tags = {"任务" } ,notes = "根据需求查询关联计划（当前项目未关联）")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/tasks/searchtasklinkplan")
+	public ResponseEntity<Page<TaskDTO>> searchTaskTaskLinkPlanByStory(@PathVariable("story_id") Long story_id, @RequestBody TaskSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Task> domains = taskService.searchTaskLinkPlan(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(taskMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchThisMonthCompleteTaskChoice-all')")
 	@ApiOperation(value = "根据需求获取我本月完成的任务（下拉列表框）", tags = {"任务" } ,notes = "根据需求获取我本月完成的任务（下拉列表框）")
     @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/tasks/fetchthismonthcompletetaskchoice")
@@ -5147,6 +5308,23 @@ public class TaskResource {
         domain = taskService.getUsernames(domain) ;
         taskdto = taskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-LinkPlan-all')")
+    @ApiOperation(value = "根据项目任务", tags = {"任务" },  notes = "根据项目任务")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/linkplan")
+    public ResponseEntity<TaskDTO> linkPlanByProject(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @RequestBody TaskDTO taskdto) {
+        Task domain = taskMapping.toDomain(taskdto);
+        domain.setProject(project_id);
+        domain = taskService.linkPlan(domain) ;
+        taskdto = taskMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(taskdto);
+    }
+    @ApiOperation(value = "批量处理[根据项目任务]", tags = {"任务" },  notes = "批量处理[根据项目任务]")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/linkplanbatch")
+    public ResponseEntity<Boolean> linkPlanByProject(@PathVariable("project_id") Long project_id, @RequestBody List<TaskDTO> taskdtos) {
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.linkPlanBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-OtherUpdate-all')")
     @ApiOperation(value = "根据项目任务", tags = {"任务" },  notes = "根据项目任务")
@@ -5910,6 +6088,29 @@ public class TaskResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(taskMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchTaskLinkPlan-all')")
+	@ApiOperation(value = "根据项目获取关联计划（当前项目未关联）", tags = {"任务" } ,notes = "根据项目获取关联计划（当前项目未关联）")
+    @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/tasks/fetchtasklinkplan")
+	public ResponseEntity<List<TaskDTO>> fetchTaskTaskLinkPlanByProject(@PathVariable("project_id") Long project_id,TaskSearchContext context) {
+        context.setN_project_eq(project_id);
+        Page<Task> domains = taskService.searchTaskLinkPlan(context) ;
+        List<TaskDTO> list = taskMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchTaskLinkPlan-all')")
+	@ApiOperation(value = "根据项目查询关联计划（当前项目未关联）", tags = {"任务" } ,notes = "根据项目查询关联计划（当前项目未关联）")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/tasks/searchtasklinkplan")
+	public ResponseEntity<Page<TaskDTO>> searchTaskTaskLinkPlanByProject(@PathVariable("project_id") Long project_id, @RequestBody TaskSearchContext context) {
+        context.setN_project_eq(project_id);
+        Page<Task> domains = taskService.searchTaskLinkPlan(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(taskMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchThisMonthCompleteTaskChoice-all')")
 	@ApiOperation(value = "根据项目获取我本月完成的任务（下拉列表框）", tags = {"任务" } ,notes = "根据项目获取我本月完成的任务（下拉列表框）")
     @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/tasks/fetchthismonthcompletetaskchoice")
@@ -6350,6 +6551,23 @@ public class TaskResource {
         domain = taskService.getUsernames(domain) ;
         taskdto = taskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-LinkPlan-all')")
+    @ApiOperation(value = "根据产品产品计划任务", tags = {"任务" },  notes = "根据产品产品计划任务")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productplans/{productplan_id}/tasks/{task_id}/linkplan")
+    public ResponseEntity<TaskDTO> linkPlanByProductProductPlan(@PathVariable("product_id") Long product_id, @PathVariable("productplan_id") Long productplan_id, @PathVariable("task_id") Long task_id, @RequestBody TaskDTO taskdto) {
+        Task domain = taskMapping.toDomain(taskdto);
+        domain.setPlan(productplan_id);
+        domain = taskService.linkPlan(domain) ;
+        taskdto = taskMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(taskdto);
+    }
+    @ApiOperation(value = "批量处理[根据产品产品计划任务]", tags = {"任务" },  notes = "批量处理[根据产品产品计划任务]")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productplans/{productplan_id}/tasks/linkplanbatch")
+    public ResponseEntity<Boolean> linkPlanByProductProductPlan(@PathVariable("product_id") Long product_id, @PathVariable("productplan_id") Long productplan_id, @RequestBody List<TaskDTO> taskdtos) {
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.linkPlanBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-OtherUpdate-all')")
     @ApiOperation(value = "根据产品产品计划任务", tags = {"任务" },  notes = "根据产品产品计划任务")
@@ -7113,6 +7331,29 @@ public class TaskResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(taskMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchTaskLinkPlan-all')")
+	@ApiOperation(value = "根据产品产品计划获取关联计划（当前项目未关联）", tags = {"任务" } ,notes = "根据产品产品计划获取关联计划（当前项目未关联）")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/productplans/{productplan_id}/tasks/fetchtasklinkplan")
+	public ResponseEntity<List<TaskDTO>> fetchTaskTaskLinkPlanByProductProductPlan(@PathVariable("product_id") Long product_id, @PathVariable("productplan_id") Long productplan_id,TaskSearchContext context) {
+        context.setN_plan_eq(productplan_id);
+        Page<Task> domains = taskService.searchTaskLinkPlan(context) ;
+        List<TaskDTO> list = taskMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchTaskLinkPlan-all')")
+	@ApiOperation(value = "根据产品产品计划查询关联计划（当前项目未关联）", tags = {"任务" } ,notes = "根据产品产品计划查询关联计划（当前项目未关联）")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/productplans/{productplan_id}/tasks/searchtasklinkplan")
+	public ResponseEntity<Page<TaskDTO>> searchTaskTaskLinkPlanByProductProductPlan(@PathVariable("product_id") Long product_id, @PathVariable("productplan_id") Long productplan_id, @RequestBody TaskSearchContext context) {
+        context.setN_plan_eq(productplan_id);
+        Page<Task> domains = taskService.searchTaskLinkPlan(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(taskMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchThisMonthCompleteTaskChoice-all')")
 	@ApiOperation(value = "根据产品产品计划获取我本月完成的任务（下拉列表框）", tags = {"任务" } ,notes = "根据产品产品计划获取我本月完成的任务（下拉列表框）")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/productplans/{productplan_id}/tasks/fetchthismonthcompletetaskchoice")
@@ -7553,6 +7794,23 @@ public class TaskResource {
         domain = taskService.getUsernames(domain) ;
         taskdto = taskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-LinkPlan-all')")
+    @ApiOperation(value = "根据产品需求任务", tags = {"任务" },  notes = "根据产品需求任务")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/linkplan")
+    public ResponseEntity<TaskDTO> linkPlanByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody TaskDTO taskdto) {
+        Task domain = taskMapping.toDomain(taskdto);
+        domain.setStory(story_id);
+        domain = taskService.linkPlan(domain) ;
+        taskdto = taskMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(taskdto);
+    }
+    @ApiOperation(value = "批量处理[根据产品需求任务]", tags = {"任务" },  notes = "批量处理[根据产品需求任务]")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/linkplanbatch")
+    public ResponseEntity<Boolean> linkPlanByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<TaskDTO> taskdtos) {
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.linkPlanBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-OtherUpdate-all')")
     @ApiOperation(value = "根据产品需求任务", tags = {"任务" },  notes = "根据产品需求任务")
@@ -8316,6 +8574,29 @@ public class TaskResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(taskMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchTaskLinkPlan-all')")
+	@ApiOperation(value = "根据产品需求获取关联计划（当前项目未关联）", tags = {"任务" } ,notes = "根据产品需求获取关联计划（当前项目未关联）")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/tasks/fetchtasklinkplan")
+	public ResponseEntity<List<TaskDTO>> fetchTaskTaskLinkPlanByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id,TaskSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Task> domains = taskService.searchTaskLinkPlan(context) ;
+        List<TaskDTO> list = taskMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchTaskLinkPlan-all')")
+	@ApiOperation(value = "根据产品需求查询关联计划（当前项目未关联）", tags = {"任务" } ,notes = "根据产品需求查询关联计划（当前项目未关联）")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/tasks/searchtasklinkplan")
+	public ResponseEntity<Page<TaskDTO>> searchTaskTaskLinkPlanByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody TaskSearchContext context) {
+        context.setN_story_eq(story_id);
+        Page<Task> domains = taskService.searchTaskLinkPlan(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(taskMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchThisMonthCompleteTaskChoice-all')")
 	@ApiOperation(value = "根据产品需求获取我本月完成的任务（下拉列表框）", tags = {"任务" } ,notes = "根据产品需求获取我本月完成的任务（下拉列表框）")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/tasks/fetchthismonthcompletetaskchoice")
@@ -8756,6 +9037,23 @@ public class TaskResource {
         domain = taskService.getUsernames(domain) ;
         taskdto = taskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(taskdto);
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-LinkPlan-all')")
+    @ApiOperation(value = "根据项目任务模块任务", tags = {"任务" },  notes = "根据项目任务模块任务")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/projectmodules/{projectmodule_id}/tasks/{task_id}/linkplan")
+    public ResponseEntity<TaskDTO> linkPlanByProjectProjectModule(@PathVariable("project_id") Long project_id, @PathVariable("projectmodule_id") Long projectmodule_id, @PathVariable("task_id") Long task_id, @RequestBody TaskDTO taskdto) {
+        Task domain = taskMapping.toDomain(taskdto);
+        domain.setModule(projectmodule_id);
+        domain = taskService.linkPlan(domain) ;
+        taskdto = taskMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(taskdto);
+    }
+    @ApiOperation(value = "批量处理[根据项目任务模块任务]", tags = {"任务" },  notes = "批量处理[根据项目任务模块任务]")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/projectmodules/{projectmodule_id}/tasks/linkplanbatch")
+    public ResponseEntity<Boolean> linkPlanByProjectProjectModule(@PathVariable("project_id") Long project_id, @PathVariable("projectmodule_id") Long projectmodule_id, @RequestBody List<TaskDTO> taskdtos) {
+        List<Task> domains = taskMapping.toDomain(taskdtos);
+        boolean result = taskService.linkPlanBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-OtherUpdate-all')")
     @ApiOperation(value = "根据项目任务模块任务", tags = {"任务" },  notes = "根据项目任务模块任务")
@@ -9516,6 +9814,29 @@ public class TaskResource {
 	public ResponseEntity<Page<TaskDTO>> searchTaskRootTaskByProjectProjectModule(@PathVariable("project_id") Long project_id, @PathVariable("projectmodule_id") Long projectmodule_id, @RequestBody TaskSearchContext context) {
         context.setN_module_eq(projectmodule_id);
         Page<Task> domains = taskService.searchRootTask(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(taskMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchTaskLinkPlan-all')")
+	@ApiOperation(value = "根据项目任务模块获取关联计划（当前项目未关联）", tags = {"任务" } ,notes = "根据项目任务模块获取关联计划（当前项目未关联）")
+    @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/projectmodules/{projectmodule_id}/tasks/fetchtasklinkplan")
+	public ResponseEntity<List<TaskDTO>> fetchTaskTaskLinkPlanByProjectProjectModule(@PathVariable("project_id") Long project_id, @PathVariable("projectmodule_id") Long projectmodule_id,TaskSearchContext context) {
+        context.setN_module_eq(projectmodule_id);
+        Page<Task> domains = taskService.searchTaskLinkPlan(context) ;
+        List<TaskDTO> list = taskMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-searchTaskLinkPlan-all')")
+	@ApiOperation(value = "根据项目任务模块查询关联计划（当前项目未关联）", tags = {"任务" } ,notes = "根据项目任务模块查询关联计划（当前项目未关联）")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/projectmodules/{projectmodule_id}/tasks/searchtasklinkplan")
+	public ResponseEntity<Page<TaskDTO>> searchTaskTaskLinkPlanByProjectProjectModule(@PathVariable("project_id") Long project_id, @PathVariable("projectmodule_id") Long projectmodule_id, @RequestBody TaskSearchContext context) {
+        context.setN_module_eq(projectmodule_id);
+        Page<Task> domains = taskService.searchTaskLinkPlan(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(taskMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
