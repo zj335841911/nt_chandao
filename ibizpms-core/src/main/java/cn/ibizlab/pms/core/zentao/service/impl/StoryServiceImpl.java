@@ -421,6 +421,21 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
 
     @Override
     @Transactional
+    public Story createTasks(Story et) {
+        //自定义代码
+        return et;
+    }
+   @Override
+    @Transactional
+    public boolean createTasksBatch(List<Story> etList) {
+        for(Story et : etList) {
+            createTasks(et);
+        }
+        return true;
+    }
+
+    @Override
+    @Transactional
     public Story getStorySpec(Story et) {
         //自定义代码
         return et;

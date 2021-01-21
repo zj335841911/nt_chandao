@@ -79,6 +79,8 @@ public interface IStoryService extends IService<Story> {
     boolean checkKey(Story et);
     Story close(Story et);
     boolean closeBatch(List<Story> etList);
+    Story createTasks(Story et);
+    boolean createTasksBatch(List<Story> etList);
     Story getStorySpec(Story et);
     boolean getStorySpecBatch(List<Story> etList);
     Story getStorySpecs(Story et);
