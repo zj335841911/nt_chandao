@@ -212,7 +212,10 @@ export default class ProjectServiceBase extends EntityService {
      * @memberof ProjectServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/projects/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.project) delete tempData.project;
+        if(tempData.id) delete tempData.id;
+        let res:any = await  Http.getInstance().get(`/projects/getdraft`,tempData,isloading);
         res.data.project = data.project;
                     this.tempStorage.setItem(context.srfsessionkey+'_projectteams',JSON.stringify(res.data.projectteams?res.data.projectteams:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks?res.data.tasks:[]));

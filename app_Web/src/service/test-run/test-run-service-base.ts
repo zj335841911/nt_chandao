@@ -240,24 +240,36 @@ export default class TestRunServiceBase extends EntityService {
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.testtask && true){
-            let res:any = await Http.getInstance().get(`/projects/${context.project}/testtasks/${context.testtask}/testruns/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.testrun) delete tempData.testrun;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/testtasks/${context.testtask}/testruns/getdraft`,tempData,isloading);
             res.data.testrun = data.testrun;
             
             return res;
         }
         if(context.product && context.testtask && true){
-            let res:any = await Http.getInstance().get(`/products/${context.product}/testtasks/${context.testtask}/testruns/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.testrun) delete tempData.testrun;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/products/${context.product}/testtasks/${context.testtask}/testruns/getdraft`,tempData,isloading);
             res.data.testrun = data.testrun;
             
             return res;
         }
         if(context.testtask && true){
-            let res:any = await Http.getInstance().get(`/testtasks/${context.testtask}/testruns/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.testrun) delete tempData.testrun;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/testtasks/${context.testtask}/testruns/getdraft`,tempData,isloading);
             res.data.testrun = data.testrun;
             
             return res;
         }
-        let res:any = await  Http.getInstance().get(`/testruns/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.testrun) delete tempData.testrun;
+        if(tempData.id) delete tempData.id;
+        let res:any = await  Http.getInstance().get(`/testruns/getdraft`,tempData,isloading);
         res.data.testrun = data.testrun;
         
         return res;

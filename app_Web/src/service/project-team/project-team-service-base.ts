@@ -191,12 +191,18 @@ export default class ProjectTeamServiceBase extends EntityService {
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && true){
-            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectteams/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.projectteam) delete tempData.projectteam;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectteams/getdraft`,tempData,isloading);
             res.data.projectteam = data.projectteam;
             
             return res;
         }
-        let res:any = await  Http.getInstance().get(`/projectteams/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.projectteam) delete tempData.projectteam;
+        if(tempData.id) delete tempData.id;
+        let res:any = await  Http.getInstance().get(`/projectteams/getdraft`,tempData,isloading);
         res.data.projectteam = data.projectteam;
         
         return res;

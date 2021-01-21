@@ -169,7 +169,10 @@ export default class IbzPlanTempletServiceBase extends EntityService {
      * @memberof IbzPlanTempletServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/ibzplantemplets/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.ibzplantemplet) delete tempData.ibzplantemplet;
+        if(tempData.ibzplantempletid) delete tempData.ibzplantempletid;
+        let res:any = await  Http.getInstance().get(`/ibzplantemplets/getdraft`,tempData,isloading);
         res.data.ibzplantemplet = data.ibzplantemplet;
                     this.tempStorage.setItem(context.srfsessionkey+'_plantempletdetails',JSON.stringify(res.data.plantempletdetails?res.data.plantempletdetails:[]));
 

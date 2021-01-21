@@ -134,7 +134,10 @@ export default class DocLibModuleServiceBase extends EntityService {
      * @memberof DocLibModuleServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/doclibmodules/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.doclibmodule) delete tempData.doclibmodule;
+        if(tempData.id) delete tempData.id;
+        let res:any = await  Http.getInstance().get(`/doclibmodules/getdraft`,tempData,isloading);
         res.data.doclibmodule = data.doclibmodule;
         
         return res;

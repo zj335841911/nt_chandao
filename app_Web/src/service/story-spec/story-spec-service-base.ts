@@ -205,18 +205,27 @@ export default class StorySpecServiceBase extends EntityService {
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
-            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/storyspecs/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.storyspec) delete tempData.storyspec;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/storyspecs/getdraft`,tempData,isloading);
             res.data.storyspec = data.storyspec;
             
             return res;
         }
         if(context.story && true){
-            let res:any = await Http.getInstance().get(`/stories/${context.story}/storyspecs/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.storyspec) delete tempData.storyspec;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/storyspecs/getdraft`,tempData,isloading);
             res.data.storyspec = data.storyspec;
             
             return res;
         }
-        let res:any = await  Http.getInstance().get(`/storyspecs/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.storyspec) delete tempData.storyspec;
+        if(tempData.id) delete tempData.id;
+        let res:any = await  Http.getInstance().get(`/storyspecs/getdraft`,tempData,isloading);
         res.data.storyspec = data.storyspec;
         
         return res;

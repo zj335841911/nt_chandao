@@ -134,7 +134,10 @@ export default class TodoServiceBase extends EntityService {
      * @memberof TodoServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/todos/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.todo) delete tempData.todo;
+        if(tempData.id) delete tempData.id;
+        let res:any = await  Http.getInstance().get(`/todos/getdraft`,tempData,isloading);
         res.data.todo = data.todo;
         
         return res;

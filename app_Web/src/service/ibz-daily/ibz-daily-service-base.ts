@@ -134,7 +134,10 @@ export default class IbzDailyServiceBase extends EntityService {
      * @memberof IbzDailyServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/ibzdailies/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.ibzdaily) delete tempData.ibzdaily;
+        if(tempData.ibzdailyid) delete tempData.ibzdailyid;
+        let res:any = await  Http.getInstance().get(`/ibzdailies/getdraft`,tempData,isloading);
         res.data.ibzdaily = data.ibzdaily;
         
         return res;

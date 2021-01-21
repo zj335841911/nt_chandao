@@ -269,9 +269,6 @@ export class EditFormControlBase extends FormControlBase {
                 this.data[name] = data[name];
             }
         });
-        if (Object.is(action, 'loadDraft')) {
-            this.createDefault();
-        }
         if (Object.is(action, 'load')) {
             this.updateDefault();
         }

@@ -134,7 +134,10 @@ export default class SysTeamServiceBase extends EntityService {
      * @memberof SysTeamServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/systeams/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.systeam) delete tempData.systeam;
+        if(tempData.teamid) delete tempData.teamid;
+        let res:any = await  Http.getInstance().get(`/systeams/getdraft`,tempData,isloading);
         res.data.systeam = data.systeam;
         
         return res;

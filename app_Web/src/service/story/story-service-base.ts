@@ -317,14 +317,20 @@ export default class StoryServiceBase extends EntityService {
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
-            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.story) delete tempData.story;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/getdraft`,tempData,isloading);
             res.data.story = data.story;
                         this.tempStorage.setItem(context.srfsessionkey+'_cases',JSON.stringify(res.data.cases?res.data.cases:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks?res.data.tasks:[]));
 
             return res;
         }
-        let res:any = await  Http.getInstance().get(`/stories/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.story) delete tempData.story;
+        if(tempData.id) delete tempData.id;
+        let res:any = await  Http.getInstance().get(`/stories/getdraft`,tempData,isloading);
         res.data.story = data.story;
                     this.tempStorage.setItem(context.srfsessionkey+'_cases',JSON.stringify(res.data.cases?res.data.cases:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks?res.data.tasks:[]));

@@ -390,49 +390,73 @@ export default class TaskTeamServiceBase extends EntityService {
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.projectmodule && context.task && true){
-            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/taskteams/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.taskteam) delete tempData.taskteam;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/taskteams/getdraft`,tempData,isloading);
             res.data.taskteam = data.taskteam;
             
             return res;
         }
         if(context.product && context.story && context.task && true){
-            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/taskteams/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.taskteam) delete tempData.taskteam;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/taskteams/getdraft`,tempData,isloading);
             res.data.taskteam = data.taskteam;
             
             return res;
         }
         if(context.product && context.productplan && context.task && true){
-            let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/taskteams/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.taskteam) delete tempData.taskteam;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/taskteams/getdraft`,tempData,isloading);
             res.data.taskteam = data.taskteam;
             
             return res;
         }
         if(context.project && context.task && true){
-            let res:any = await Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/taskteams/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.taskteam) delete tempData.taskteam;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/taskteams/getdraft`,tempData,isloading);
             res.data.taskteam = data.taskteam;
             
             return res;
         }
         if(context.story && context.task && true){
-            let res:any = await Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/taskteams/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.taskteam) delete tempData.taskteam;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/taskteams/getdraft`,tempData,isloading);
             res.data.taskteam = data.taskteam;
             
             return res;
         }
         if(context.productplan && context.task && true){
-            let res:any = await Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/taskteams/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.taskteam) delete tempData.taskteam;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/taskteams/getdraft`,tempData,isloading);
             res.data.taskteam = data.taskteam;
             
             return res;
         }
         if(context.projectmodule && context.task && true){
-            let res:any = await Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/taskteams/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.taskteam) delete tempData.taskteam;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/taskteams/getdraft`,tempData,isloading);
             res.data.taskteam = data.taskteam;
             
             return res;
         }
         if(context.task && true){
-            let res:any = await Http.getInstance().get(`/tasks/${context.task}/taskteams/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.taskteam) delete tempData.taskteam;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/tasks/${context.task}/taskteams/getdraft`,tempData,isloading);
             res.data.taskteam = data.taskteam;
             
             return res;

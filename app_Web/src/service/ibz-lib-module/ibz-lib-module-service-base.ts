@@ -170,12 +170,18 @@ export default class IbzLibModuleServiceBase extends EntityService {
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.ibzlib && true){
-            let res:any = await Http.getInstance().get(`/ibzlibs/${context.ibzlib}/ibzlibmodules/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.ibzlibmodule) delete tempData.ibzlibmodule;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/ibzlibs/${context.ibzlib}/ibzlibmodules/getdraft`,tempData,isloading);
             res.data.ibzlibmodule = data.ibzlibmodule;
             
             return res;
         }
-        let res:any = await  Http.getInstance().get(`/ibzlibmodules/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.ibzlibmodule) delete tempData.ibzlibmodule;
+        if(tempData.id) delete tempData.id;
+        let res:any = await  Http.getInstance().get(`/ibzlibmodules/getdraft`,tempData,isloading);
         res.data.ibzlibmodule = data.ibzlibmodule;
         
         return res;

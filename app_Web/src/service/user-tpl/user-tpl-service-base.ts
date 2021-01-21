@@ -134,7 +134,10 @@ export default class UserTplServiceBase extends EntityService {
      * @memberof UserTplServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/usertpls/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.usertpl) delete tempData.usertpl;
+        if(tempData.id) delete tempData.id;
+        let res:any = await  Http.getInstance().get(`/usertpls/getdraft`,tempData,isloading);
         res.data.usertpl = data.usertpl;
         
         return res;

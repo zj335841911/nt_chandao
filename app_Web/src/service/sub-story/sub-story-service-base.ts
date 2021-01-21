@@ -206,18 +206,27 @@ export default class SubStoryServiceBase extends EntityService {
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
-            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/substories/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.substory) delete tempData.substory;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/substories/getdraft`,tempData,isloading);
             res.data.substory = data.substory;
             
             return res;
         }
         if(context.story && true){
-            let res:any = await Http.getInstance().get(`/stories/${context.story}/substories/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.substory) delete tempData.substory;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/substories/getdraft`,tempData,isloading);
             res.data.substory = data.substory;
             
             return res;
         }
-        let res:any = await  Http.getInstance().get(`/substories/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.substory) delete tempData.substory;
+        if(tempData.id) delete tempData.id;
+        let res:any = await  Http.getInstance().get(`/substories/getdraft`,tempData,isloading);
         res.data.substory = data.substory;
         
         return res;

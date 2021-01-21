@@ -134,7 +134,10 @@ export default class ProductStatsServiceBase extends EntityService {
      * @memberof ProductStatsServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/productstats/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.productstats) delete tempData.productstats;
+        if(tempData.id) delete tempData.id;
+        let res:any = await  Http.getInstance().get(`/productstats/getdraft`,tempData,isloading);
         res.data.productstats = data.productstats;
         
         return res;

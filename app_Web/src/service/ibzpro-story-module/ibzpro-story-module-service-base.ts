@@ -134,7 +134,10 @@ export default class IBZProStoryModuleServiceBase extends EntityService {
      * @memberof IBZProStoryModuleServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/ibzprostorymodules/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.ibzprostorymodule) delete tempData.ibzprostorymodule;
+        if(tempData.id) delete tempData.id;
+        let res:any = await  Http.getInstance().get(`/ibzprostorymodules/getdraft`,tempData,isloading);
         res.data.ibzprostorymodule = data.ibzprostorymodule;
         
         return res;

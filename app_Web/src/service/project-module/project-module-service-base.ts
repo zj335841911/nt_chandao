@@ -240,13 +240,19 @@ export default class ProjectModuleServiceBase extends EntityService {
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && true){
-            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectmodules/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.projectmodule) delete tempData.projectmodule;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectmodules/getdraft`,tempData,isloading);
             res.data.projectmodule = data.projectmodule;
                         this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks?res.data.tasks:[]));
 
             return res;
         }
-        let res:any = await  Http.getInstance().get(`/projectmodules/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.projectmodule) delete tempData.projectmodule;
+        if(tempData.id) delete tempData.id;
+        let res:any = await  Http.getInstance().get(`/projectmodules/getdraft`,tempData,isloading);
         res.data.projectmodule = data.projectmodule;
                     this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks?res.data.tasks:[]));
 

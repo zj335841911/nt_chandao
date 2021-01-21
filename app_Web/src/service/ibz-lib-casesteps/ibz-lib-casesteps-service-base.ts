@@ -180,13 +180,19 @@ export default class IbzLibCasestepsServiceBase extends EntityService {
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.ibzlib && context.ibzcase && true){
-            let res:any = await Http.getInstance().get(`/ibzlibs/${context.ibzlib}/ibzcases/${context.ibzcase}/ibzlibcasesteps/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.ibzlibcasesteps) delete tempData.ibzlibcasesteps;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/ibzlibs/${context.ibzlib}/ibzcases/${context.ibzcase}/ibzlibcasesteps/getdraft`,tempData,isloading);
             res.data.ibzlibcasesteps = data.ibzlibcasesteps;
             
             return res;
         }
         if(context.ibzcase && true){
-            let res:any = await Http.getInstance().get(`/ibzcases/${context.ibzcase}/ibzlibcasesteps/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.ibzlibcasesteps) delete tempData.ibzlibcasesteps;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/ibzcases/${context.ibzcase}/ibzlibcasesteps/getdraft`,tempData,isloading);
             res.data.ibzlibcasesteps = data.ibzlibcasesteps;
             
             return res;

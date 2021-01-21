@@ -233,18 +233,27 @@ export default class TestReportServiceBase extends EntityService {
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && true){
-            let res:any = await Http.getInstance().get(`/projects/${context.project}/testreports/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.testreport) delete tempData.testreport;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/testreports/getdraft`,tempData,isloading);
             res.data.testreport = data.testreport;
             
             return res;
         }
         if(context.product && true){
-            let res:any = await Http.getInstance().get(`/products/${context.product}/testreports/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.testreport) delete tempData.testreport;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/products/${context.product}/testreports/getdraft`,tempData,isloading);
             res.data.testreport = data.testreport;
             
             return res;
         }
-        let res:any = await  Http.getInstance().get(`/testreports/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.testreport) delete tempData.testreport;
+        if(tempData.id) delete tempData.id;
+        let res:any = await  Http.getInstance().get(`/testreports/getdraft`,tempData,isloading);
         res.data.testreport = data.testreport;
         
         return res;

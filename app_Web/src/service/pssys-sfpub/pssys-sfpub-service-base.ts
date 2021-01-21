@@ -134,7 +134,10 @@ export default class PSSysSFPubServiceBase extends EntityService {
      * @memberof PSSysSFPubServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/pssyssfpubs/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.pssyssfpub) delete tempData.pssyssfpub;
+        if(tempData.pssyssfpubid) delete tempData.pssyssfpubid;
+        let res:any = await  Http.getInstance().get(`/pssyssfpubs/getdraft`,tempData,isloading);
         res.data.pssyssfpub = data.pssyssfpub;
         
         return res;

@@ -134,7 +134,10 @@ export default class FileServiceBase extends EntityService {
      * @memberof FileServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/files/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.file) delete tempData.file;
+        if(tempData.id) delete tempData.id;
+        let res:any = await  Http.getInstance().get(`/files/getdraft`,tempData,isloading);
         res.data.file = data.file;
         
         return res;

@@ -170,12 +170,18 @@ export default class DocContentServiceBase extends EntityService {
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.doc && true){
-            let res:any = await Http.getInstance().get(`/docs/${context.doc}/doccontents/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.doccontent) delete tempData.doccontent;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/docs/${context.doc}/doccontents/getdraft`,tempData,isloading);
             res.data.doccontent = data.doccontent;
             
             return res;
         }
-        let res:any = await  Http.getInstance().get(`/doccontents/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.doccontent) delete tempData.doccontent;
+        if(tempData.id) delete tempData.id;
+        let res:any = await  Http.getInstance().get(`/doccontents/getdraft`,tempData,isloading);
         res.data.doccontent = data.doccontent;
         
         return res;

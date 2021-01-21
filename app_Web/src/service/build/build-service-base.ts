@@ -205,18 +205,27 @@ export default class BuildServiceBase extends EntityService {
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && true){
-            let res:any = await Http.getInstance().get(`/projects/${context.project}/builds/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.build) delete tempData.build;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/builds/getdraft`,tempData,isloading);
             res.data.build = data.build;
             
             return res;
         }
         if(context.product && true){
-            let res:any = await Http.getInstance().get(`/products/${context.product}/builds/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.build) delete tempData.build;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/products/${context.product}/builds/getdraft`,tempData,isloading);
             res.data.build = data.build;
             
             return res;
         }
-        let res:any = await  Http.getInstance().get(`/builds/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.build) delete tempData.build;
+        if(tempData.id) delete tempData.id;
+        let res:any = await  Http.getInstance().get(`/builds/getdraft`,tempData,isloading);
         res.data.build = data.build;
         
         return res;

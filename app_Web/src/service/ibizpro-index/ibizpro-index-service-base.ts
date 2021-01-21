@@ -134,7 +134,10 @@ export default class IbizproIndexServiceBase extends EntityService {
      * @memberof IbizproIndexServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/ibizproindices/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.ibizproindex) delete tempData.ibizproindex;
+        if(tempData.indexid) delete tempData.indexid;
+        let res:any = await  Http.getInstance().get(`/ibizproindices/getdraft`,tempData,isloading);
         res.data.ibizproindex = data.ibizproindex;
         
         return res;

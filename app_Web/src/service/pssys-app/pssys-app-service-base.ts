@@ -134,7 +134,10 @@ export default class PSSysAppServiceBase extends EntityService {
      * @memberof PSSysAppServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/pssysapps/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.pssysapp) delete tempData.pssysapp;
+        if(tempData.pssysappid) delete tempData.pssysappid;
+        let res:any = await  Http.getInstance().get(`/pssysapps/getdraft`,tempData,isloading);
         res.data.pssysapp = data.pssysapp;
         
         return res;

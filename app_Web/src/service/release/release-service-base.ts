@@ -170,12 +170,18 @@ export default class ReleaseServiceBase extends EntityService {
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
-            let res:any = await Http.getInstance().get(`/products/${context.product}/releases/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.release) delete tempData.release;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/products/${context.product}/releases/getdraft`,tempData,isloading);
             res.data.release = data.release;
             
             return res;
         }
-        let res:any = await  Http.getInstance().get(`/releases/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.release) delete tempData.release;
+        if(tempData.id) delete tempData.id;
+        let res:any = await  Http.getInstance().get(`/releases/getdraft`,tempData,isloading);
         res.data.release = data.release;
         
         return res;

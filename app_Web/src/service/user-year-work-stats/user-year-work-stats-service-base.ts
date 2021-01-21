@@ -134,7 +134,10 @@ export default class UserYearWorkStatsServiceBase extends EntityService {
      * @memberof UserYearWorkStatsServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/useryearworkstats/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.useryearworkstats) delete tempData.useryearworkstats;
+        if(tempData.id) delete tempData.id;
+        let res:any = await  Http.getInstance().get(`/useryearworkstats/getdraft`,tempData,isloading);
         res.data.useryearworkstats = data.useryearworkstats;
         
         return res;

@@ -134,7 +134,10 @@ export default class ProjectStatsServiceBase extends EntityService {
      * @memberof ProjectStatsServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/projectstats/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.projectstats) delete tempData.projectstats;
+        if(tempData.id) delete tempData.id;
+        let res:any = await  Http.getInstance().get(`/projectstats/getdraft`,tempData,isloading);
         res.data.projectstats = data.projectstats;
         
         return res;

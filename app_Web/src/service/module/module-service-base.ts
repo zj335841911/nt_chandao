@@ -134,7 +134,10 @@ export default class ModuleServiceBase extends EntityService {
      * @memberof ModuleServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/modules/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.module) delete tempData.module;
+        if(tempData.id) delete tempData.id;
+        let res:any = await  Http.getInstance().get(`/modules/getdraft`,tempData,isloading);
         res.data.module = data.module;
         
         return res;

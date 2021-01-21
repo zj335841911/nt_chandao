@@ -170,12 +170,18 @@ export default class BurnServiceBase extends EntityService {
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && true){
-            let res:any = await Http.getInstance().get(`/projects/${context.project}/burns/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.burn) delete tempData.burn;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/burns/getdraft`,tempData,isloading);
             res.data.burn = data.burn;
             
             return res;
         }
-        let res:any = await  Http.getInstance().get(`/burns/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.burn) delete tempData.burn;
+        if(tempData.id) delete tempData.id;
+        let res:any = await  Http.getInstance().get(`/burns/getdraft`,tempData,isloading);
         res.data.burn = data.burn;
         
         return res;

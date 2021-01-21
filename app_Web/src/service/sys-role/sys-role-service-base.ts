@@ -134,7 +134,10 @@ export default class SysRoleServiceBase extends EntityService {
      * @memberof SysRoleServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/sysroles/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.sysrole) delete tempData.sysrole;
+        if(tempData.roleid) delete tempData.roleid;
+        let res:any = await  Http.getInstance().get(`/sysroles/getdraft`,tempData,isloading);
         res.data.sysrole = data.sysrole;
         
         return res;

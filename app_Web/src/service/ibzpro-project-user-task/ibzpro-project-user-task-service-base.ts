@@ -134,7 +134,10 @@ export default class IbzproProjectUserTaskServiceBase extends EntityService {
      * @memberof IbzproProjectUserTaskServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/ibzproprojectusertasks/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.ibzproprojectusertask) delete tempData.ibzproprojectusertask;
+        if(tempData.id) delete tempData.id;
+        let res:any = await  Http.getInstance().get(`/ibzproprojectusertasks/getdraft`,tempData,isloading);
         res.data.ibzproprojectusertask = data.ibzproprojectusertask;
         
         return res;

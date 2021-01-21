@@ -134,7 +134,10 @@ export default class IbzFavoritesServiceBase extends EntityService {
      * @memberof IbzFavoritesServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/ibzfavorites/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.ibzfavorites) delete tempData.ibzfavorites;
+        if(tempData.ibzfavoritesid) delete tempData.ibzfavoritesid;
+        let res:any = await  Http.getInstance().get(`/ibzfavorites/getdraft`,tempData,isloading);
         res.data.ibzfavorites = data.ibzfavorites;
         
         return res;

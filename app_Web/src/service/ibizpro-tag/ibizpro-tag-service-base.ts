@@ -134,7 +134,10 @@ export default class IBIZProTagServiceBase extends EntityService {
      * @memberof IBIZProTagServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/ibizprotags/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.ibizprotag) delete tempData.ibizprotag;
+        if(tempData.id) delete tempData.id;
+        let res:any = await  Http.getInstance().get(`/ibizprotags/getdraft`,tempData,isloading);
         res.data.ibizprotag = data.ibizprotag;
         
         return res;

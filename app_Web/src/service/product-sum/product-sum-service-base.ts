@@ -134,7 +134,10 @@ export default class ProductSumServiceBase extends EntityService {
      * @memberof ProductSumServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/productsums/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.productsum) delete tempData.productsum;
+        if(tempData.id) delete tempData.id;
+        let res:any = await  Http.getInstance().get(`/productsums/getdraft`,tempData,isloading);
         res.data.productsum = data.productsum;
         
         return res;

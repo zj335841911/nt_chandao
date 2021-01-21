@@ -276,30 +276,45 @@ export default class BugServiceBase extends EntityService {
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
-            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/bugs/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.bug) delete tempData.bug;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/bugs/getdraft`,tempData,isloading);
             res.data.bug = data.bug;
             
             return res;
         }
         if(context.project && true){
-            let res:any = await Http.getInstance().get(`/projects/${context.project}/bugs/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.bug) delete tempData.bug;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/bugs/getdraft`,tempData,isloading);
             res.data.bug = data.bug;
             
             return res;
         }
         if(context.story && true){
-            let res:any = await Http.getInstance().get(`/stories/${context.story}/bugs/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.bug) delete tempData.bug;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/bugs/getdraft`,tempData,isloading);
             res.data.bug = data.bug;
             
             return res;
         }
         if(context.product && true){
-            let res:any = await Http.getInstance().get(`/products/${context.product}/bugs/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.bug) delete tempData.bug;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/products/${context.product}/bugs/getdraft`,tempData,isloading);
             res.data.bug = data.bug;
             
             return res;
         }
-        let res:any = await  Http.getInstance().get(`/bugs/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.bug) delete tempData.bug;
+        if(tempData.id) delete tempData.id;
+        let res:any = await  Http.getInstance().get(`/bugs/getdraft`,tempData,isloading);
         res.data.bug = data.bug;
         
         return res;

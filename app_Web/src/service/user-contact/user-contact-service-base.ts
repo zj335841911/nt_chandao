@@ -134,7 +134,10 @@ export default class UserContactServiceBase extends EntityService {
      * @memberof UserContactServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/usercontacts/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.usercontact) delete tempData.usercontact;
+        if(tempData.id) delete tempData.id;
+        let res:any = await  Http.getInstance().get(`/usercontacts/getdraft`,tempData,isloading);
         res.data.usercontact = data.usercontact;
         
         return res;

@@ -525,7 +525,10 @@ export default class CaseServiceBase extends EntityService {
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
-            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.case) delete tempData.case;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/getdraft`,tempData,isloading);
             res.data.case = data.case;
                         this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
@@ -533,7 +536,10 @@ export default class CaseServiceBase extends EntityService {
             return res;
         }
         if(context.story && true){
-            let res:any = await Http.getInstance().get(`/stories/${context.story}/cases/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.case) delete tempData.case;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/cases/getdraft`,tempData,isloading);
             res.data.case = data.case;
                         this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
@@ -541,14 +547,20 @@ export default class CaseServiceBase extends EntityService {
             return res;
         }
         if(context.product && true){
-            let res:any = await Http.getInstance().get(`/products/${context.product}/cases/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.case) delete tempData.case;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/products/${context.product}/cases/getdraft`,tempData,isloading);
             res.data.case = data.case;
                         this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
 
             return res;
         }
-        let res:any = await  Http.getInstance().get(`/cases/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.case) delete tempData.case;
+        if(tempData.id) delete tempData.id;
+        let res:any = await  Http.getInstance().get(`/cases/getdraft`,tempData,isloading);
         res.data.case = data.case;
                     this.tempStorage.setItem(context.srfsessionkey+'_casesteps',JSON.stringify(res.data.casesteps?res.data.casesteps:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));

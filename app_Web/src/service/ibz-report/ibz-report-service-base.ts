@@ -134,7 +134,10 @@ export default class IbzReportServiceBase extends EntityService {
      * @memberof IbzReportServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/ibzreports/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.ibzreport) delete tempData.ibzreport;
+        if(tempData.ibzdailyid) delete tempData.ibzdailyid;
+        let res:any = await  Http.getInstance().get(`/ibzreports/getdraft`,tempData,isloading);
         res.data.ibzreport = data.ibzreport;
         
         return res;

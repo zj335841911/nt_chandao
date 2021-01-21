@@ -134,7 +134,10 @@ export default class DynaDashboardServiceBase extends EntityService {
      * @memberof DynaDashboardServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/dynadashboards/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.dynadashboard) delete tempData.dynadashboard;
+        if(tempData.dynadashboardid) delete tempData.dynadashboardid;
+        let res:any = await  Http.getInstance().get(`/dynadashboards/getdraft`,tempData,isloading);
         res.data.dynadashboard = data.dynadashboard;
         
         return res;

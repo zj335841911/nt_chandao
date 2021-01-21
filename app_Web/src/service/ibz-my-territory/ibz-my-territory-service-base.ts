@@ -135,7 +135,10 @@ export default class IbzMyTerritoryServiceBase extends EntityService {
      * @memberof IbzMyTerritoryServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/ibzmyterritories/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.ibzmyterritory) delete tempData.ibzmyterritory;
+        if(tempData.id) delete tempData.id;
+        let res:any = await  Http.getInstance().get(`/ibzmyterritories/getdraft`,tempData,isloading);
         res.data.ibzmyterritory = data.ibzmyterritory;
         
         return res;

@@ -134,7 +134,10 @@ export default class SysEmployeeServiceBase extends EntityService {
      * @memberof SysEmployeeServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/sysemployees/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.sysemployee) delete tempData.sysemployee;
+        if(tempData.userid) delete tempData.userid;
+        let res:any = await  Http.getInstance().get(`/sysemployees/getdraft`,tempData,isloading);
         res.data.sysemployee = data.sysemployee;
         
         return res;

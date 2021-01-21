@@ -134,7 +134,10 @@ export default class SysDepartmentServiceBase extends EntityService {
      * @memberof SysDepartmentServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/sysdepartments/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.sysdepartment) delete tempData.sysdepartment;
+        if(tempData.deptid) delete tempData.deptid;
+        let res:any = await  Http.getInstance().get(`/sysdepartments/getdraft`,tempData,isloading);
         res.data.sysdepartment = data.sysdepartment;
         
         return res;

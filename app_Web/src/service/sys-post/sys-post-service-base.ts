@@ -134,7 +134,10 @@ export default class SysPostServiceBase extends EntityService {
      * @memberof SysPostServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/sysposts/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.syspost) delete tempData.syspost;
+        if(tempData.postid) delete tempData.postid;
+        let res:any = await  Http.getInstance().get(`/sysposts/getdraft`,tempData,isloading);
         res.data.syspost = data.syspost;
         
         return res;

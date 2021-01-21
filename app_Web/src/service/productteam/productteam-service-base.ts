@@ -170,12 +170,18 @@ export default class PRODUCTTEAMServiceBase extends EntityService {
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
-            let res:any = await Http.getInstance().get(`/products/${context.product}/productteams/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.productteam) delete tempData.productteam;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productteams/getdraft`,tempData,isloading);
             res.data.productteam = data.productteam;
             
             return res;
         }
-        let res:any = await  Http.getInstance().get(`/productteams/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.productteam) delete tempData.productteam;
+        if(tempData.id) delete tempData.id;
+        let res:any = await  Http.getInstance().get(`/productteams/getdraft`,tempData,isloading);
         res.data.productteam = data.productteam;
         
         return res;

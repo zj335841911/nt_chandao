@@ -134,7 +134,10 @@ export default class BugStatsServiceBase extends EntityService {
      * @memberof BugStatsServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/bugstats/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.bugstats) delete tempData.bugstats;
+        if(tempData.id) delete tempData.id;
+        let res:any = await  Http.getInstance().get(`/bugstats/getdraft`,tempData,isloading);
         res.data.bugstats = data.bugstats;
         
         return res;

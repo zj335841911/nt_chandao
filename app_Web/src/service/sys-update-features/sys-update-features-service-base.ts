@@ -170,12 +170,18 @@ export default class SysUpdateFeaturesServiceBase extends EntityService {
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.sysupdatelog && true){
-            let res:any = await Http.getInstance().get(`/sysupdatelogs/${context.sysupdatelog}/sysupdatefeatures/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.sysupdatefeatures) delete tempData.sysupdatefeatures;
+            if(tempData.sysupdatefeaturesid) delete tempData.sysupdatefeaturesid;
+            let res:any = await Http.getInstance().get(`/sysupdatelogs/${context.sysupdatelog}/sysupdatefeatures/getdraft`,tempData,isloading);
             res.data.sysupdatefeatures = data.sysupdatefeatures;
             
             return res;
         }
-        let res:any = await  Http.getInstance().get(`/sysupdatefeatures/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.sysupdatefeatures) delete tempData.sysupdatefeatures;
+        if(tempData.sysupdatefeaturesid) delete tempData.sysupdatefeaturesid;
+        let res:any = await  Http.getInstance().get(`/sysupdatefeatures/getdraft`,tempData,isloading);
         res.data.sysupdatefeatures = data.sysupdatefeatures;
         
         return res;

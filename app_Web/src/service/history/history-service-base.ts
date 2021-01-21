@@ -170,12 +170,18 @@ export default class HistoryServiceBase extends EntityService {
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.action && true){
-            let res:any = await Http.getInstance().get(`/actions/${context.action}/histories/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.history) delete tempData.history;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/actions/${context.action}/histories/getdraft`,tempData,isloading);
             res.data.history = data.history;
             
             return res;
         }
-        let res:any = await  Http.getInstance().get(`/histories/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.history) delete tempData.history;
+        if(tempData.id) delete tempData.id;
+        let res:any = await  Http.getInstance().get(`/histories/getdraft`,tempData,isloading);
         res.data.history = data.history;
         
         return res;

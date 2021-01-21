@@ -134,7 +134,10 @@ export default class IbzProjectMemberServiceBase extends EntityService {
      * @memberof IbzProjectMemberServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/ibzprojectmembers/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.ibzprojectmember) delete tempData.ibzprojectmember;
+        if(tempData.id) delete tempData.id;
+        let res:any = await  Http.getInstance().get(`/ibzprojectmembers/getdraft`,tempData,isloading);
         res.data.ibzprojectmember = data.ibzprojectmember;
         
         return res;

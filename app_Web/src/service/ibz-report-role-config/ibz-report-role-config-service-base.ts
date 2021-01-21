@@ -134,7 +134,10 @@ export default class IbzReportRoleConfigServiceBase extends EntityService {
      * @memberof IbzReportRoleConfigServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/ibzreportroleconfigs/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.ibzreportroleconfig) delete tempData.ibzreportroleconfig;
+        if(tempData.ibzreportroleconfigid) delete tempData.ibzreportroleconfigid;
+        let res:any = await  Http.getInstance().get(`/ibzreportroleconfigs/getdraft`,tempData,isloading);
         res.data.ibzreportroleconfig = data.ibzreportroleconfig;
         
         return res;

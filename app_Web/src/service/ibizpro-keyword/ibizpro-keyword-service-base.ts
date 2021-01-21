@@ -134,7 +134,10 @@ export default class IBIZProKeywordServiceBase extends EntityService {
      * @memberof IBIZProKeywordServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/ibizprokeywords/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.ibizprokeyword) delete tempData.ibizprokeyword;
+        if(tempData.id) delete tempData.id;
+        let res:any = await  Http.getInstance().get(`/ibizprokeywords/getdraft`,tempData,isloading);
         res.data.ibizprokeyword = data.ibizprokeyword;
         
         return res;

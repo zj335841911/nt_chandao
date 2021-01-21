@@ -310,14 +310,20 @@ export default class IbzCaseServiceBase extends EntityService {
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.ibzlib && true){
-            let res:any = await Http.getInstance().get(`/ibzlibs/${context.ibzlib}/ibzcases/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.ibzcase) delete tempData.ibzcase;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/ibzlibs/${context.ibzlib}/ibzcases/getdraft`,tempData,isloading);
             res.data.ibzcase = data.ibzcase;
                         this.tempStorage.setItem(context.srfsessionkey+'_ibzlibcasesteptmps',JSON.stringify(res.data.ibzlibcasesteptmps?res.data.ibzlibcasesteptmps:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_ibzlibcasesteps',JSON.stringify(res.data.ibzlibcasesteps?res.data.ibzlibcasesteps:[]));
 
             return res;
         }
-        let res:any = await  Http.getInstance().get(`/ibzcases/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.ibzcase) delete tempData.ibzcase;
+        if(tempData.id) delete tempData.id;
+        let res:any = await  Http.getInstance().get(`/ibzcases/getdraft`,tempData,isloading);
         res.data.ibzcase = data.ibzcase;
                     this.tempStorage.setItem(context.srfsessionkey+'_ibzlibcasesteptmps',JSON.stringify(res.data.ibzlibcasesteptmps?res.data.ibzlibcasesteptmps:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_ibzlibcasesteps',JSON.stringify(res.data.ibzlibcasesteps?res.data.ibzlibcasesteps:[]));

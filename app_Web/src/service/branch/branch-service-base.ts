@@ -170,12 +170,18 @@ export default class BranchServiceBase extends EntityService {
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
-            let res:any = await Http.getInstance().get(`/products/${context.product}/branches/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.branch) delete tempData.branch;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/products/${context.product}/branches/getdraft`,tempData,isloading);
             res.data.branch = data.branch;
             
             return res;
         }
-        let res:any = await  Http.getInstance().get(`/branches/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.branch) delete tempData.branch;
+        if(tempData.id) delete tempData.id;
+        let res:any = await  Http.getInstance().get(`/branches/getdraft`,tempData,isloading);
         res.data.branch = data.branch;
         
         return res;

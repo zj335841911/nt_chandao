@@ -134,7 +134,10 @@ export default class PSSystemDBCfgServiceBase extends EntityService {
      * @memberof PSSystemDBCfgServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/pssystemdbcfgs/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.pssystemdbcfg) delete tempData.pssystemdbcfg;
+        if(tempData.pssystemdbcfgid) delete tempData.pssystemdbcfgid;
+        let res:any = await  Http.getInstance().get(`/pssystemdbcfgs/getdraft`,tempData,isloading);
         res.data.pssystemdbcfg = data.pssystemdbcfg;
         
         return res;

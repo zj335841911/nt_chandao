@@ -134,7 +134,10 @@ export default class TaskestimatestatsServiceBase extends EntityService {
      * @memberof TaskestimatestatsServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/taskestimatestats/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.taskestimatestats) delete tempData.taskestimatestats;
+        if(tempData.id) delete tempData.id;
+        let res:any = await  Http.getInstance().get(`/taskestimatestats/getdraft`,tempData,isloading);
         res.data.taskestimatestats = data.taskestimatestats;
         
         return res;

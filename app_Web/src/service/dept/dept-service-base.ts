@@ -134,7 +134,10 @@ export default class DeptServiceBase extends EntityService {
      * @memberof DeptServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/depts/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.dept) delete tempData.dept;
+        if(tempData.id) delete tempData.id;
+        let res:any = await  Http.getInstance().get(`/depts/getdraft`,tempData,isloading);
         res.data.dept = data.dept;
         
         return res;

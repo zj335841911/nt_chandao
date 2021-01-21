@@ -134,7 +134,10 @@ export default class IbizproProductDailyServiceBase extends EntityService {
      * @memberof IbizproProductDailyServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/ibizproproductdailies/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.ibizproproductdaily) delete tempData.ibizproproductdaily;
+        if(tempData.ibizproproductdailyid) delete tempData.ibizproproductdailyid;
+        let res:any = await  Http.getInstance().get(`/ibizproproductdailies/getdraft`,tempData,isloading);
         res.data.ibizproproductdaily = data.ibizproproductdaily;
         
         return res;

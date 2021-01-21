@@ -134,7 +134,10 @@ export default class CompanyStatsServiceBase extends EntityService {
      * @memberof CompanyStatsServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/companystats/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.companystats) delete tempData.companystats;
+        if(tempData.id) delete tempData.id;
+        let res:any = await  Http.getInstance().get(`/companystats/getdraft`,tempData,isloading);
         res.data.companystats = data.companystats;
         
         return res;

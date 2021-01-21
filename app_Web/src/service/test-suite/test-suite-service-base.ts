@@ -170,12 +170,18 @@ export default class TestSuiteServiceBase extends EntityService {
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
-            let res:any = await Http.getInstance().get(`/products/${context.product}/testsuites/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.testsuite) delete tempData.testsuite;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/products/${context.product}/testsuites/getdraft`,tempData,isloading);
             res.data.testsuite = data.testsuite;
             
             return res;
         }
-        let res:any = await  Http.getInstance().get(`/testsuites/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.testsuite) delete tempData.testsuite;
+        if(tempData.id) delete tempData.id;
+        let res:any = await  Http.getInstance().get(`/testsuites/getdraft`,tempData,isloading);
         res.data.testsuite = data.testsuite;
         
         return res;

@@ -134,7 +134,10 @@ export default class SysOrganizationServiceBase extends EntityService {
      * @memberof SysOrganizationServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/sysorganizations/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.sysorganization) delete tempData.sysorganization;
+        if(tempData.orgid) delete tempData.orgid;
+        let res:any = await  Http.getInstance().get(`/sysorganizations/getdraft`,tempData,isloading);
         res.data.sysorganization = data.sysorganization;
         
         return res;

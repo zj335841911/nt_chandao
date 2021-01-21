@@ -135,7 +135,10 @@ export default class ActionServiceBase extends EntityService {
      * @memberof ActionServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/actions/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.action) delete tempData.action;
+        if(tempData.id) delete tempData.id;
+        let res:any = await  Http.getInstance().get(`/actions/getdraft`,tempData,isloading);
         res.data.action = data.action;
         
         return res;

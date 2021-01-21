@@ -134,7 +134,10 @@ export default class GroupServiceBase extends EntityService {
      * @memberof GroupServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/groups/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.group) delete tempData.group;
+        if(tempData.id) delete tempData.id;
+        let res:any = await  Http.getInstance().get(`/groups/getdraft`,tempData,isloading);
         res.data.group = data.group;
         
         return res;

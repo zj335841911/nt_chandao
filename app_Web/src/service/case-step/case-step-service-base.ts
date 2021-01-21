@@ -275,30 +275,45 @@ export default class CaseStepServiceBase extends EntityService {
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.case && true){
-            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/${context.case}/casesteps/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.casestep) delete tempData.casestep;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/${context.case}/casesteps/getdraft`,tempData,isloading);
             res.data.casestep = data.casestep;
             
             return res;
         }
         if(context.story && context.case && true){
-            let res:any = await Http.getInstance().get(`/stories/${context.story}/cases/${context.case}/casesteps/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.casestep) delete tempData.casestep;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/cases/${context.case}/casesteps/getdraft`,tempData,isloading);
             res.data.casestep = data.casestep;
             
             return res;
         }
         if(context.product && context.case && true){
-            let res:any = await Http.getInstance().get(`/products/${context.product}/cases/${context.case}/casesteps/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.casestep) delete tempData.casestep;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/products/${context.product}/cases/${context.case}/casesteps/getdraft`,tempData,isloading);
             res.data.casestep = data.casestep;
             
             return res;
         }
         if(context.case && true){
-            let res:any = await Http.getInstance().get(`/cases/${context.case}/casesteps/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.casestep) delete tempData.casestep;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/cases/${context.case}/casesteps/getdraft`,tempData,isloading);
             res.data.casestep = data.casestep;
             
             return res;
         }
-        let res:any = await  Http.getInstance().get(`/casesteps/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.casestep) delete tempData.casestep;
+        if(tempData.id) delete tempData.id;
+        let res:any = await  Http.getInstance().get(`/casesteps/getdraft`,tempData,isloading);
         res.data.casestep = data.casestep;
         
         return res;

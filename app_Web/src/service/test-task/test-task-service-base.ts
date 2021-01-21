@@ -209,18 +209,27 @@ export default class TestTaskServiceBase extends EntityService {
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && true){
-            let res:any = await Http.getInstance().get(`/projects/${context.project}/testtasks/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.testtask) delete tempData.testtask;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/testtasks/getdraft`,tempData,isloading);
             res.data.testtask = data.testtask;
             
             return res;
         }
         if(context.product && true){
-            let res:any = await Http.getInstance().get(`/products/${context.product}/testtasks/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.testtask) delete tempData.testtask;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/products/${context.product}/testtasks/getdraft`,tempData,isloading);
             res.data.testtask = data.testtask;
             
             return res;
         }
-        let res:any = await  Http.getInstance().get(`/testtasks/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.testtask) delete tempData.testtask;
+        if(tempData.id) delete tempData.id;
+        let res:any = await  Http.getInstance().get(`/testtasks/getdraft`,tempData,isloading);
         res.data.testtask = data.testtask;
         
         return res;

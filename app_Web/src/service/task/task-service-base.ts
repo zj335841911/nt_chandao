@@ -1781,7 +1781,10 @@ export default class TaskServiceBase extends EntityService {
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.projectmodule && true){
-            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.task) delete tempData.task;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/getdraft`,tempData,isloading);
             res.data.task = data.task;
                         this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
@@ -1792,7 +1795,10 @@ export default class TaskServiceBase extends EntityService {
             return res;
         }
         if(context.product && context.story && true){
-            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.task) delete tempData.task;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/getdraft`,tempData,isloading);
             res.data.task = data.task;
                         this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
@@ -1803,7 +1809,10 @@ export default class TaskServiceBase extends EntityService {
             return res;
         }
         if(context.product && context.productplan && true){
-            let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.task) delete tempData.task;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/getdraft`,tempData,isloading);
             res.data.task = data.task;
                         this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
@@ -1814,7 +1823,10 @@ export default class TaskServiceBase extends EntityService {
             return res;
         }
         if(context.project && true){
-            let res:any = await Http.getInstance().get(`/projects/${context.project}/tasks/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.task) delete tempData.task;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/tasks/getdraft`,tempData,isloading);
             res.data.task = data.task;
                         this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
@@ -1825,7 +1837,10 @@ export default class TaskServiceBase extends EntityService {
             return res;
         }
         if(context.story && true){
-            let res:any = await Http.getInstance().get(`/stories/${context.story}/tasks/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.task) delete tempData.task;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/tasks/getdraft`,tempData,isloading);
             res.data.task = data.task;
                         this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
@@ -1836,7 +1851,10 @@ export default class TaskServiceBase extends EntityService {
             return res;
         }
         if(context.productplan && true){
-            let res:any = await Http.getInstance().get(`/productplans/${context.productplan}/tasks/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.task) delete tempData.task;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/productplans/${context.productplan}/tasks/getdraft`,tempData,isloading);
             res.data.task = data.task;
                         this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
@@ -1847,7 +1865,10 @@ export default class TaskServiceBase extends EntityService {
             return res;
         }
         if(context.projectmodule && true){
-            let res:any = await Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.task) delete tempData.task;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/getdraft`,tempData,isloading);
             res.data.task = data.task;
                         this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));
@@ -1857,7 +1878,10 @@ export default class TaskServiceBase extends EntityService {
 
             return res;
         }
-        let res:any = await  Http.getInstance().get(`/tasks/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.task) delete tempData.task;
+        if(tempData.id) delete tempData.id;
+        let res:any = await  Http.getInstance().get(`/tasks/getdraft`,tempData,isloading);
         res.data.task = data.task;
                     this.tempStorage.setItem(context.srfsessionkey+'_ibztaskestimates',JSON.stringify(res.data.ibztaskestimates?res.data.ibztaskestimates:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_ibztaskteams',JSON.stringify(res.data.ibztaskteams?res.data.ibztaskteams:[]));

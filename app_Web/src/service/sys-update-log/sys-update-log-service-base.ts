@@ -135,7 +135,10 @@ export default class SysUpdateLogServiceBase extends EntityService {
      * @memberof SysUpdateLogServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/sysupdatelogs/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.sysupdatelog) delete tempData.sysupdatelog;
+        if(tempData.sysupdatelogid) delete tempData.sysupdatelogid;
+        let res:any = await  Http.getInstance().get(`/sysupdatelogs/getdraft`,tempData,isloading);
         res.data.sysupdatelog = data.sysupdatelog;
         
         return res;

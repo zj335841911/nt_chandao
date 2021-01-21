@@ -170,7 +170,10 @@ export default class IbzLibServiceBase extends EntityService {
      * @memberof IbzLibServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/ibzlibs/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.ibzlib) delete tempData.ibzlib;
+        if(tempData.id) delete tempData.id;
+        let res:any = await  Http.getInstance().get(`/ibzlibs/getdraft`,tempData,isloading);
         res.data.ibzlib = data.ibzlib;
                     this.tempStorage.setItem(context.srfsessionkey+'_ibzcases',JSON.stringify(res.data.ibzcases?res.data.ibzcases:[]));
 

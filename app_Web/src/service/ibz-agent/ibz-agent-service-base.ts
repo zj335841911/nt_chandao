@@ -134,7 +134,10 @@ export default class IbzAgentServiceBase extends EntityService {
      * @memberof IbzAgentServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/ibzagents/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.ibzagent) delete tempData.ibzagent;
+        if(tempData.ibzagentid) delete tempData.ibzagentid;
+        let res:any = await  Http.getInstance().get(`/ibzagents/getdraft`,tempData,isloading);
         res.data.ibzagent = data.ibzagent;
         
         return res;

@@ -180,13 +180,19 @@ export default class SubProductPlanServiceBase extends EntityService {
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.productplan && true){
-            let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/subproductplans/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.subproductplan) delete tempData.subproductplan;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/subproductplans/getdraft`,tempData,isloading);
             res.data.subproductplan = data.subproductplan;
             
             return res;
         }
         if(context.productplan && true){
-            let res:any = await Http.getInstance().get(`/productplans/${context.productplan}/subproductplans/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.subproductplan) delete tempData.subproductplan;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/productplans/${context.productplan}/subproductplans/getdraft`,tempData,isloading);
             res.data.subproductplan = data.subproductplan;
             
             return res;

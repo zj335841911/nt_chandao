@@ -242,13 +242,19 @@ export default class ProductPlanServiceBase extends EntityService {
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
-            let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.productplan) delete tempData.productplan;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/getdraft`,tempData,isloading);
             res.data.productplan = data.productplan;
                         this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks?res.data.tasks:[]));
 
             return res;
         }
-        let res:any = await  Http.getInstance().get(`/productplans/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.productplan) delete tempData.productplan;
+        if(tempData.id) delete tempData.id;
+        let res:any = await  Http.getInstance().get(`/productplans/getdraft`,tempData,isloading);
         res.data.productplan = data.productplan;
                     this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks?res.data.tasks:[]));
 

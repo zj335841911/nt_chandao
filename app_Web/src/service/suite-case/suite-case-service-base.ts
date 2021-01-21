@@ -134,7 +134,10 @@ export default class SuiteCaseServiceBase extends EntityService {
      * @memberof SuiteCaseServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/suitecases/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.suitecase) delete tempData.suitecase;
+        if(tempData.id) delete tempData.id;
+        let res:any = await  Http.getInstance().get(`/suitecases/getdraft`,tempData,isloading);
         res.data.suitecase = data.suitecase;
         
         return res;

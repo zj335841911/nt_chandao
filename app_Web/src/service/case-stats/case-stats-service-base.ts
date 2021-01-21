@@ -134,7 +134,10 @@ export default class CaseStatsServiceBase extends EntityService {
      * @memberof CaseStatsServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/casestats/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.casestats) delete tempData.casestats;
+        if(tempData.id) delete tempData.id;
+        let res:any = await  Http.getInstance().get(`/casestats/getdraft`,tempData,isloading);
         res.data.casestats = data.casestats;
         
         return res;

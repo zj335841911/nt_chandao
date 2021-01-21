@@ -170,12 +170,18 @@ export default class TestModuleServiceBase extends EntityService {
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
-            let res:any = await Http.getInstance().get(`/products/${context.product}/testmodules/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.testmodule) delete tempData.testmodule;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/products/${context.product}/testmodules/getdraft`,tempData,isloading);
             res.data.testmodule = data.testmodule;
             
             return res;
         }
-        let res:any = await  Http.getInstance().get(`/testmodules/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.testmodule) delete tempData.testmodule;
+        if(tempData.id) delete tempData.id;
+        let res:any = await  Http.getInstance().get(`/testmodules/getdraft`,tempData,isloading);
         res.data.testmodule = data.testmodule;
         
         return res;

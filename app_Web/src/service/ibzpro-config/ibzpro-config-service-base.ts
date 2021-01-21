@@ -134,7 +134,10 @@ export default class IbzproConfigServiceBase extends EntityService {
      * @memberof IbzproConfigServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/ibzproconfigs/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.ibzproconfig) delete tempData.ibzproconfig;
+        if(tempData.ibzproconfigid) delete tempData.ibzproconfigid;
+        let res:any = await  Http.getInstance().get(`/ibzproconfigs/getdraft`,tempData,isloading);
         res.data.ibzproconfig = data.ibzproconfig;
         
         return res;

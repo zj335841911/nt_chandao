@@ -134,7 +134,10 @@ export default class ProductLineServiceBase extends EntityService {
      * @memberof ProductLineServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/productlines/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.productline) delete tempData.productline;
+        if(tempData.productlineid) delete tempData.productlineid;
+        let res:any = await  Http.getInstance().get(`/productlines/getdraft`,tempData,isloading);
         res.data.productline = data.productline;
         
         return res;

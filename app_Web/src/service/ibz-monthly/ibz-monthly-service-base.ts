@@ -134,7 +134,10 @@ export default class IbzMonthlyServiceBase extends EntityService {
      * @memberof IbzMonthlyServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/ibzmonthlies/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.ibzmonthly) delete tempData.ibzmonthly;
+        if(tempData.ibzmonthlyid) delete tempData.ibzmonthlyid;
+        let res:any = await  Http.getInstance().get(`/ibzmonthlies/getdraft`,tempData,isloading);
         res.data.ibzmonthly = data.ibzmonthly;
         
         return res;

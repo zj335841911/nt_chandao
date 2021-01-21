@@ -170,12 +170,18 @@ export default class ProductModuleServiceBase extends EntityService {
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
-            let res:any = await Http.getInstance().get(`/products/${context.product}/productmodules/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.productmodule) delete tempData.productmodule;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productmodules/getdraft`,tempData,isloading);
             res.data.productmodule = data.productmodule;
             
             return res;
         }
-        let res:any = await  Http.getInstance().get(`/productmodules/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.productmodule) delete tempData.productmodule;
+        if(tempData.id) delete tempData.id;
+        let res:any = await  Http.getInstance().get(`/productmodules/getdraft`,tempData,isloading);
         res.data.productmodule = data.productmodule;
         
         return res;
