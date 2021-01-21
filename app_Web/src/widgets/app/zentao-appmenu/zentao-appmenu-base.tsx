@@ -1,4 +1,4 @@
-import { Prop, Provide, Vue } from 'vue-property-decorator';
+import { Prop, Provide, Vue, Model, Watch } from 'vue-property-decorator';
 import ZentaoModel from './zentao-appmenu-model';
 import AuthService from '@/authservice/auth-service';
 import { Subject, Subscription } from 'rxjs';
@@ -40,6 +40,100 @@ export class ZentaoBase extends Vue {
      * @memberof ZentaoBase
      */
     @Prop() public viewparams!: any;
+
+    /**
+     * 菜单收缩改变
+     *
+     * @type {boolean}
+     * @memberof ZentaoBase
+     */
+    @Model() public collapsechange?: boolean;
+
+    /**
+     * 监听菜单收缩
+     *
+     * @param {*} newVal
+     * @param {*} oldVal
+     * @memberof ZentaoBase
+     */
+    @Watch('collapsechange')
+    onCollapsechangeChange(newVal: any, oldVal: any) {
+        if (newVal !== this.isCollapse) {
+            this.isCollapse = !this.isCollapse;
+        }
+    }
+
+    /**
+     * 当前模式，菜单在顶部还是在底部
+     *
+     * @type {*}
+     * @memberof ZentaoBase
+     */
+    @Prop() mode: any;
+
+    /**
+     * 应用起始页面
+     *
+     * @type {boolean}
+     * @memberof ZentaoBase
+     */
+    @Prop({ default: false }) isDefaultPage?: boolean;
+
+    /**
+     * 空白视图模式
+     *
+     * @type {boolean}
+     * @memberof ZentaoBase
+     */
+    @Prop({ default: false }) isBlankMode?:boolean;
+
+    /**
+     * 默认打开视图
+     *
+     * @type {*}
+     * @memberof ZentaoBase
+     */
+    @Prop() defPSAppView: any;
+
+    /**
+     * 默认激活的index
+     *
+     * @type {*}
+     * @memberof ZentaoBase
+     */
+    @Provide() defaultActive: any = null;
+
+    /**
+     * 当前选中主题
+     *
+     * @type {*}
+     * @memberof ZentaoBase
+     */
+    @Prop() selectTheme: any;
+
+    /**
+     * 默认打开的index数组
+     *
+     * @type {any[]}
+     * @memberof ZentaoBase
+     */
+    @Provide() public defaultOpeneds: any[] = [];
+
+    /**
+     * 是否展开
+     *
+     * @type {boolean}
+     * @memberof ZentaoBase
+     */
+    @Provide() public isCollapse: boolean = false;
+
+    /**
+     * 触发方式，默认click
+     *
+     * @type {string}
+     * @memberof ZentaoBase
+     */
+    @Provide() trigger: string = 'click';
 
     /**
      * 视图状态事件
@@ -129,6 +223,94 @@ export class ZentaoBase extends Vue {
     public afterDestroy() {
         if (this.viewStateEvent) {
             this.viewStateEvent.unsubscribe();
+        }
+    }
+
+    /**
+     * 处理菜单默认选中项
+     *
+     * @public
+     * @memberof ZentaoBase
+     */
+    public doMenuSelect(): void {
+        if (!this.isDefaultPage || this.isBlankMode) {
+            return;
+        }
+        const appFuncs: any[] = this.menuMode.getAppFuncs();
+        if (this.$route && this.$route.matched && this.$route.matched.length == 2) { // 存在二级路由
+            const [{ }, matched] = this.$route.matched;
+            const appfunc: any = appFuncs.find((_appfunc: any) => Object.is(_appfunc.routepath, matched.path) && Object.is(_appfunc.appfuncyype, 'APPVIEW'));
+            if (appfunc) {
+                this.computeMenuSelect(this.menus, appfunc.appfunctag);
+            }
+            return;
+        } else if (this.defPSAppView && Object.keys(this.defPSAppView).length > 0) { // 存在默认视图
+            const appfunc: any = appFuncs.find((_appfunc: any) => Object.is(_appfunc.routepath, this.defPSAppView.routepath) && Object.is(_appfunc.appfuncyype, 'APPVIEW'));
+            if (appfunc) {
+                this.computeMenuSelect(this.menus, appfunc.appfunctag);
+            }
+            const viewparam: any = {};
+            const path: string = this.$viewTool.buildUpRoutePath(this.$route, {}, this.defPSAppView.deResParameters, this.defPSAppView.parameters, [], viewparam);
+            this.$router.push(path);
+            return;
+        }
+
+        this.computeMenuSelect(this.menus, '');
+        let item = this.compute(this.menus, this.defaultActive);
+        if (Object.keys(item).length === 0) {
+            return;
+        }
+        if(!item.hidden){
+            this.click(item);
+        }
+    }
+
+    /**
+     * 计算菜单选中项
+     *
+     * @public
+     * @param {any[]} items
+     * @param {string} appfunctag
+     * @returns {boolean}
+     * @memberof ZentaoBase
+     */
+    public computeMenuSelect(items: any[], appfunctag: string): boolean {
+        const appFuncs: any[] = this.menuMode.getAppFuncs();
+        return items.some((item: any) => {
+            if (Object.is(appfunctag, '') && !Object.is(item.appfunctag, '') && item.opendefault) {
+                const appfunc = appFuncs.find((_appfunc: any) => Object.is(_appfunc.appfunctag, item.appfunctag));
+                if (appfunc.routepath) {
+                    this.defaultActive = item.name;
+                    this.setHideSideBar(item);
+                    return true;
+                }
+            }
+            if (Object.is(item.appfunctag, appfunctag) && item.opendefault) {
+                this.setHideSideBar(item);
+                this.defaultActive = item.name;
+                return true;
+            }
+            if (item.items && item.items.length > 0) {
+                const state = this.computeMenuSelect(item.items, appfunctag);
+                if (state) {
+                    this.defaultOpeneds.push(item.name);
+                    return true;
+                }
+            }
+            return false;
+        });
+    }
+
+    /**
+     * 设置是否隐藏菜单栏
+     *
+     * @public
+     * @param {*} item
+     * @memberof ZentaoBase
+     */
+    public setHideSideBar(item: any): void {
+        if (item.hidesidebar) {
+            this.$emit('collapsechange', true);
         }
     }
 
@@ -829,8 +1011,11 @@ export class ZentaoBase extends Vue {
     public handleMenusResource(inputMenus:Array<any>){
         if(this.$store.getters['authresource/getEnablePermissionValid']){
             this.computedEffectiveMenus(inputMenus);
+            this.computeParentMenus(inputMenus);
         }
+        this.dataProcess(inputMenus);
         this.menus = inputMenus;
+        this.doMenuSelect();
     }
 
     /**
@@ -851,13 +1036,62 @@ export class ZentaoBase extends Vue {
     }
 
     /**
-     * 绘制内容
+     * 计算父项菜单项是否隐藏
      *
-     * @private
+     * @param {*} inputMenus
      * @memberof ZentaoBase
      */
-    public render(): any {
-        return <span style="display: none;"/>
+    public computeParentMenus(inputMenus:Array<any>){
+        if(inputMenus && inputMenus.length >0){
+            inputMenus.forEach((item:any) =>{
+                if(item.hidden && item.items && item.items.length >0){
+                    item.items.map((singleItem:any) =>{
+                        if(!singleItem.hidden){
+                            item.hidden = false;
+                        }else{
+                            if(singleItem.items && singleItem.items.length >0){
+                                singleItem.items.map((grandsonItem:any) =>{
+                                    if(!grandsonItem.hidden){
+                                        item.hidden = false;
+                                    }
+                                })
+                            }
+                        }
+                        if(item.items && item.items.length >0){
+                            this.computeParentMenus(item.items);
+                        }
+                    })
+                }
+            })
+        }
     }
 
+    /**
+     * 数据处理
+     *
+     * @public
+     * @param {any[]} items
+     * @memberof ZentaoBase
+     */
+    public dataProcess(items: any[]): void {
+        items.forEach((_item: any) => {
+            if (_item.expanded) {
+                this.defaultOpeneds.push(_item.name);
+            }
+            if (_item.items && _item.items.length > 0) {
+                this.dataProcess(_item.items)
+            }
+        });
+    }
+
+    /**
+     * 提示框主题样式
+     *
+     * @readonly
+     * @type {string}
+     * @memberof ZentaoBase
+     */
+    get popperClass(): string {
+        return 'app-popper-menu ' + this.selectTheme;
+    }
 }

@@ -4489,15 +4489,16 @@ Save
 | 2 | [当前计划项目](#数据查询-当前计划项目（CurPlanProject）) | CurPlanProject | 否 |
 | 3 | [当前项目](#数据查询-当前项目（CurProduct）) | CurProduct | 否 |
 | 4 | [当前用户项目](#数据查询-当前用户项目（CurUser）) | CurUser | 否 |
-| 5 | [DEFAULT](#数据查询-DEFAULT（Default）) | Default | 否 |
-| 6 | [ES批量的导入](#数据查询-ES批量的导入（ESBulk）) | ESBulk | 否 |
-| 7 | [参与项目(年度总结)](#数据查询-参与项目(年度总结)（InvolvedProject）) | InvolvedProject | 否 |
-| 8 | [参与项目完成需求任务bug](#数据查询-参与项目完成需求任务bug（InvolvedProjectStoryTaskBug）) | InvolvedProjectStoryTaskBug | 否 |
-| 9 | [我的项目](#数据查询-我的项目（MyProject）) | MyProject | 否 |
-| 10 | [项目团队](#数据查询-项目团队（ProjectTeam）) | ProjectTeam | 否 |
-| 11 | [需求影响项目](#数据查询-需求影响项目（StoryProject）) | StoryProject | 否 |
-| 12 | [未完成项目](#数据查询-未完成项目（UnDoneProject）) | UnDoneProject | 否 |
-| 13 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 5 | [当前用户项目（企业版）](#数据查询-当前用户项目（企业版）（CurUserSa）) | CurUserSa | 否 |
+| 6 | [DEFAULT](#数据查询-DEFAULT（Default）) | Default | 否 |
+| 7 | [ES批量的导入](#数据查询-ES批量的导入（ESBulk）) | ESBulk | 否 |
+| 8 | [参与项目(年度总结)](#数据查询-参与项目(年度总结)（InvolvedProject）) | InvolvedProject | 否 |
+| 9 | [参与项目完成需求任务bug](#数据查询-参与项目完成需求任务bug（InvolvedProjectStoryTaskBug）) | InvolvedProjectStoryTaskBug | 否 |
+| 10 | [我的项目](#数据查询-我的项目（MyProject）) | MyProject | 否 |
+| 11 | [项目团队](#数据查询-项目团队（ProjectTeam）) | ProjectTeam | 否 |
+| 12 | [需求影响项目](#数据查询-需求影响项目（StoryProject）) | StoryProject | 否 |
+| 13 | [未完成项目](#数据查询-未完成项目（UnDoneProject）) | UnDoneProject | 否 |
+| 14 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-Bug表单中可选的项目列表（BugSelectableProjectList）
 #### 说明
@@ -4747,6 +4748,120 @@ LEFT JOIN zt_project t11 ON t1.PARENT = t11.ID
 where t1.deleted = '0' and (t1.acl = 'open' or t1.OPENEDBY = #{srf.sessioncontext.srfloginname} or  t1.pm =  #{srf.sessioncontext.srfloginname} or t1.PO = #{srf.sessioncontext.srfloginname} or t1.RD = #{srf.sessioncontext.srfloginname} or t1.QD =  #{srf.sessioncontext.srfloginname} )
 union 
 SELECT
+t1.MDEPTID,
+t1.orgid,
+t1.`ACL`,
+t1.`BEGIN`,
+(SELECT COUNT(1) FROM ZT_BUG WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `BUGCNT`,
+t1.`CANCELEDBY`,
+(select count(1) + 1 from zt_doclib where type = 'project' and project = t1.`id`) as `DOCLIBCNT`,
+t1.`CANCELEDDATE`,
+t1.`CATID`,
+t1.`CLOSEDBY`,
+t1.`CLOSEDDATE`,
+t1.`CODE`,
+t1.`DAYS`,
+t1.`DELETED`,
+t1.`END`,
+t1.`ID`,
+t1.`ISCAT`,
+t1.`NAME`,
+t1.`OPENEDBY`,
+t1.`OPENEDDATE`,
+t1.`OPENEDVERSION`,
+t1.`ORDER`,
+(CASE WHEN T2.OBJECTORDER IS NOT NULL THEN T2.OBJECTORDER ELSE  t1.`ORDER` END) as `ORDER1`,
+	(CASE WHEN T2.OBJECTORDER IS NOT NULL THEN 1 ELSE 0 END) as `ISTOP`,
+t1.`PARENT`,
+t11.`NAME` AS `PARENTNAME`,
+t1.`PM`,
+t1.`PO`,
+t1.`PRI`,
+t1.`QD`,
+t1.`RD`,
+t1.`STATGE`,
+t1.`STATUS`,
+(SELECT COUNT(1) FROM ZT_STORY LEFT JOIN ZT_PROJECTSTORY ON ZT_STORY.ID = ZT_PROJECTSTORY.STORY WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `STORYCNT`,
+t1.`SUBSTATUS`,
+(SELECT COUNT(1) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `TASKCNT`,
+t1.`TEAM`,
+(SELECT round(SUM(CONSUMED),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' AND ( `parent` = '' or `parent` = '0' or `parent` = '-1')) AS `TOTALCONSUMED`,
+(SELECT round(SUM(ESTIMATE),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED =  '0' AND ( `parent` = '' or `parent` = '0' or `parent` = '-1')) AS `TOTALESTIMATE`,
+(select sum(days * hours)  from zt_team tt where type = 'project' and root = t1.id) AS `TOTALHOURS`,
+(SELECT round(SUM(`LEFT`),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' and `status` in ('doing','wait','pause') AND ( `parent` = '' or `parent` = '0' or `parent` = '-1')) AS `TOTALLEFT`,
+((SELECT round(SUM( `LEFT` ),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' AND ( `parent` = '' OR `parent` = '0' OR `parent` = '-1' ) AND `status` in ('doing','wait','pause')) + (SELECT round(SUM( CONSUMED ),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' AND ( `parent` = '' OR `parent` = '0' OR `parent` = '-1' ))) AS `TOTALWH`,
+t1.`TYPE`
+FROM `zt_project` t1 
+left join t_ibz_top t2 on t1.id = t2.OBJECTID and t2.type = 'project' and t2.ACCOUNT = #{srf.sessioncontext.srfloginname}
+LEFT JOIN zt_project t11 ON t1.PARENT = t11.ID 
+where t1.deleted = '0' and t1.acl = 'private' and t1.id in (select t3.root from zt_team t3 where t3.account = #{srf.sessioncontext.srfloginname}  
+and t3.type = 'project')) t1
+```
+### 数据查询-当前用户项目（企业版）（CurUserSa）
+#### 说明
+当前用户项目（企业版）
+
+- 默认查询
+否
+
+- 查询权限使用
+是
+
+#### SQL
+- MYSQL5
+```SQL
+select t1.* from (SELECT
+(select tt.product from zt_projectproduct tt where tt.project = t1.id LIMIT 0,1)as products,
+t1.MDEPTID,
+t1.orgid,
+t1.`ACL`,
+t1.`BEGIN`,
+(SELECT COUNT(1) FROM ZT_BUG WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `BUGCNT`,
+t1.`CANCELEDBY`,
+(select count(1) + 1 from zt_doclib where type = 'project' and project = t1.`id`) as `DOCLIBCNT`,
+t1.`CANCELEDDATE`,
+t1.`CATID`,
+t1.`CLOSEDBY`,
+t1.`CLOSEDDATE`,
+t1.`CODE`,
+t1.`DAYS`,
+t1.`DELETED`,
+t1.`END`,
+t1.`ID`,
+t1.`ISCAT`,
+t1.`NAME`,
+t1.`OPENEDBY`,
+t1.`OPENEDDATE`,
+t1.`OPENEDVERSION`,
+t1.`ORDER`,
+(CASE WHEN T2.OBJECTORDER IS NOT NULL THEN T2.OBJECTORDER ELSE  t1.`ORDER` END) as `ORDER1`,
+	(CASE WHEN T2.OBJECTORDER IS NOT NULL THEN 1 ELSE 0 END) as `ISTOP`,
+t1.`PARENT`,
+t11.`NAME` AS `PARENTNAME`,
+t1.`PM`,
+t1.`PO`,
+t1.`PRI`,
+t1.`QD`,
+t1.`RD`,
+t1.`STATGE`,
+t1.`STATUS`,
+(SELECT COUNT(1) FROM ZT_STORY LEFT JOIN ZT_PROJECTSTORY ON ZT_STORY.ID = ZT_PROJECTSTORY.STORY WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `STORYCNT`,
+t1.`SUBSTATUS`,
+(SELECT COUNT(1) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `TASKCNT`,
+t1.`TEAM`,
+(SELECT round(SUM(CONSUMED),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' AND ( `parent` = '' or `parent` = '0' or `parent` = '-1')) AS `TOTALCONSUMED`,
+(SELECT round(SUM(ESTIMATE),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED =  '0' AND ( `parent` = '' or `parent` = '0' or `parent` = '-1')) AS `TOTALESTIMATE`,
+(select sum(days * hours)  from zt_team tt where type = 'project' and root = t1.id) AS `TOTALHOURS`,
+(SELECT round(SUM(`LEFT`),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' and `status` in ('doing','wait','pause') AND ( `parent` = '' or `parent` = '0' or `parent` = '-1')) AS `TOTALLEFT`,
+((SELECT round(SUM( `LEFT` ),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' AND ( `parent` = '' OR `parent` = '0' OR `parent` = '-1' ) AND `status` in ('doing','wait','pause')) + (SELECT round(SUM( CONSUMED ),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' AND ( `parent` = '' OR `parent` = '0' OR `parent` = '-1' ))) AS `TOTALWH`,
+t1.`TYPE`
+FROM `zt_project` t1 
+left join t_ibz_top t2 on t1.id = t2.OBJECTID and t2.type = 'project' and t2.ACCOUNT = #{srf.sessioncontext.srfloginname}
+LEFT JOIN zt_project t11 ON t1.PARENT = t11.ID 
+where t1.deleted = '0' and (t1.acl = 'open' or t1.OPENEDBY = #{srf.sessioncontext.srfloginname} or  t1.pm =  #{srf.sessioncontext.srfloginname} or t1.PO = #{srf.sessioncontext.srfloginname} or t1.RD = #{srf.sessioncontext.srfloginname} or t1.QD =  #{srf.sessioncontext.srfloginname} )
+union 
+SELECT
+(select tt.product from zt_projectproduct tt where tt.project = t1.id LIMIT 0,1)as products,
 t1.MDEPTID,
 t1.orgid,
 t1.`ACL`,
@@ -5330,14 +5445,15 @@ LEFT JOIN `zt_project` t11 ON t1.`PARENT` = t11.`ID`
 | 2 | [当前计划项目](#数据集合-当前计划项目（CurPlanProject）) | CurPlanProject | 否 |
 | 3 | [当前项目](#数据集合-当前项目（CurProduct）) | CurProduct | 否 |
 | 4 | [当前用户项目](#数据集合-当前用户项目（CurUser）) | CurUser | 否 |
-| 5 | [DEFAULT](#数据集合-DEFAULT（Default）) | Default | 是 |
-| 6 | [ES批量的导入](#数据集合-ES批量的导入（ESBulk）) | ESBulk | 否 |
-| 7 | [参与项目(年度总结)](#数据集合-参与项目(年度总结)（InvolvedProject）) | InvolvedProject | 否 |
-| 8 | [参与项目完成需求任务bug](#数据集合-参与项目完成需求任务bug（InvolvedProject_StoryTaskBug）) | InvolvedProject_StoryTaskBug | 否 |
-| 9 | [我的项目](#数据集合-我的项目（MyProject）) | MyProject | 否 |
-| 10 | [项目团队](#数据集合-项目团队（ProjectTeam）) | ProjectTeam | 否 |
-| 11 | [需求影响项目](#数据集合-需求影响项目（StoryProject）) | StoryProject | 否 |
-| 12 | [未完成项目](#数据集合-未完成项目（UnDoneProject）) | UnDoneProject | 否 |
+| 5 | [当前用户项目（企业版）](#数据集合-当前用户项目（企业版）（CurUserSa）) | CurUserSa | 否 |
+| 6 | [DEFAULT](#数据集合-DEFAULT（Default）) | Default | 是 |
+| 7 | [ES批量的导入](#数据集合-ES批量的导入（ESBulk）) | ESBulk | 否 |
+| 8 | [参与项目(年度总结)](#数据集合-参与项目(年度总结)（InvolvedProject）) | InvolvedProject | 否 |
+| 9 | [参与项目完成需求任务bug](#数据集合-参与项目完成需求任务bug（InvolvedProject_StoryTaskBug）) | InvolvedProject_StoryTaskBug | 否 |
+| 10 | [我的项目](#数据集合-我的项目（MyProject）) | MyProject | 否 |
+| 11 | [项目团队](#数据集合-项目团队（ProjectTeam）) | ProjectTeam | 否 |
+| 12 | [需求影响项目](#数据集合-需求影响项目（StoryProject）) | StoryProject | 否 |
+| 13 | [未完成项目](#数据集合-未完成项目（UnDoneProject）) | UnDoneProject | 否 |
 
 ### 数据集合-BugProject（BugProject）
 #### 说明
@@ -5395,6 +5511,20 @@ BugProject
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [当前用户项目（CurUser）](#数据查询-当前用户项目（CurUser）) |
+### 数据集合-当前用户项目（企业版）（CurUserSa）
+#### 说明
+当前用户项目（企业版）
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [当前用户项目（企业版）（CurUserSa）](#数据查询-当前用户项目（企业版）（CurUserSa）) |
 ### 数据集合-DEFAULT（Default）
 #### 说明
 DEFAULT
