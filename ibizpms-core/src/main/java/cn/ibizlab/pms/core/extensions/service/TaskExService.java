@@ -8,6 +8,7 @@ import cn.ibizlab.pms.core.ibiz.service.impl.IbzFavoritesServiceImpl;
 import cn.ibizlab.pms.core.ou.client.SysEmployeeFeignClient;
 import cn.ibizlab.pms.core.ou.domain.SysEmployee;
 import cn.ibizlab.pms.core.ou.filter.SysEmployeeSearchContext;
+import cn.ibizlab.pms.core.util.ibizzentao.helper.TaskHelper;
 import cn.ibizlab.pms.core.util.ibizzentao.helper.ZTBaseHelper;
 import cn.ibizlab.pms.core.util.message.SendMessage;
 import cn.ibizlab.pms.core.util.zentao.service.IIBZZTFileService;
@@ -55,6 +56,9 @@ public class TaskExService extends TaskServiceImpl {
 
     @Autowired
     SysEmployeeFeignClient sysEmployeeFeignClient;
+
+    @Autowired
+    TaskHelper taskHelper;
 
     @Override
     protected Class currentModelClass() {
@@ -291,6 +295,17 @@ public class TaskExService extends TaskServiceImpl {
             et.setConsumed(taskTeams.get(0).getConsumed());
         }
         return et;
+    }
+
+    @Override
+    @Transactional
+    public Task createCycleTasks(Task et) {
+        List<Task> taskList = this.list(new QueryWrapper<Task>().eq("cycle", 1));
+        for (Task task : taskList) {
+            taskHelper.createByCycle(task);
+        }
+        //自定义代码
+        return  super.createCycleTasks(et);
     }
 }
 

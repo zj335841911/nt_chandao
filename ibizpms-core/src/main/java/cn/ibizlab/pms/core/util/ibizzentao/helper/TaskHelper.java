@@ -23,9 +23,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.lang.reflect.Field;
 import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 /**
  * @author huwei
@@ -80,6 +80,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
 
     /**
      * 判断起始时间和截至时间
+     *
      * @param et Task对象
      */
     public void jugEststartedAndDeadline(Task et) {
@@ -131,6 +132,11 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         if (et.getAssignedto() == null) {
             et.setAssignedto(assignedto);
         }
+        //如果是周期任务  设置周期为1 parent为-1 （父任务）
+        if (et.getTaskspecies().equals("cycle")) {
+            et.setCycle(1);
+            et.setParent(-1L);
+        }
 
         fileHelper.processImgURL(et, null, null);
         if (et.getStory() != null && et.getStory() != 0L) {
@@ -143,7 +149,15 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         }
         String files = et.getFiles();
         String noticeusers = et.getNoticeusers();
-        bOk = super.create(et);
+
+        if (!super.create(et)) {
+            return false;
+        }
+        //周期循环处理
+        if (et.getCycle() != null && et.getCycle() == 1) {
+            et = createByCycle(et);
+        }
+
         fileHelper.updateObjectID(et.getId(), StaticDict.File__object_type.TASK.getValue(), files, "");
 
 
@@ -165,7 +179,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
                 team.setHours(0.0);
                 team.setOrder(i);
                 teamHelper.create(team);
-                i ++;
+                i++;
             }
             this.internalUpdate(et);
 
@@ -175,7 +189,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         if (et.getStory() != null && et.getStory() != 0L) {
             storyHelper.setStage(et.getZtstory());
         }
-        return bOk;
+        return true;
     }
 
     @Transactional(rollbackFor = Exception.class)
@@ -727,7 +741,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         }
 
 //        String sql = String.format("select * from zt_task where parent = %1$s and status <> 'cancel' and deleted = '0'", et.getId());
-        List<Task> list = this.list(new QueryWrapper<Task>().eq("parent",et.getId()).ne("status","cancel").eq("deleted","0"));
+        List<Task> list = this.list(new QueryWrapper<Task>().eq("parent", et.getId()).ne("status", "cancel").eq("deleted", "0"));
 //        List<JSONObject> list = taskService.select(sql, null);
         if (list.size() == 0) {
             return;
@@ -1085,8 +1099,8 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         List<History> changes = ChangeUtil.diff(old, newTask);
         this.removeIgonreChanges(changes);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
-            if (jugAssignToIsChanged(old,et)) {
-                actionHelper.sendMarkDone(newTask.getId(),newTask.getName(),old.getAssignedto(),ITaskService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.TASK.getValue(), ITaskService.OBJECT_SOURCE_PATH,StaticDict.Action__type.ASSIGNED.getText());
+            if (jugAssignToIsChanged(old, et)) {
+                actionHelper.sendMarkDone(newTask.getId(), newTask.getName(), old.getAssignedto(), ITaskService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.TASK.getValue(), ITaskService.OBJECT_SOURCE_PATH, StaticDict.Action__type.ASSIGNED.getText());
                 actionHelper.sendTodo(newTask.getId(), newTask.getName(), noticeusers, newTask.getAssignedto(), newTask.getMailto(),
                         ITaskService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.TASK.getValue(), ITaskService.OBJECT_SOURCE_PATH, StaticDict.Action__type.ASSIGNED.getText());
             }
@@ -1099,9 +1113,9 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         return et;
     }
 
-    public boolean jugAssignToIsChanged(Task old,Task et){
+    public boolean jugAssignToIsChanged(Task old, Task et) {
         boolean flag = false;
-        if ((StaticDict.Task__status.WAIT.getValue().equals(et.getStatus()) || StaticDict.Task__status.DOING.getValue().equals(et.getStatus())) && ((old.getAssignedto() == null) || !old.getAssignedto().equals(et.getAssignedto()))){
+        if ((StaticDict.Task__status.WAIT.getValue().equals(et.getStatus()) || StaticDict.Task__status.DOING.getValue().equals(et.getStatus())) && ((old.getAssignedto() == null) || !old.getAssignedto().equals(et.getAssignedto()))) {
             flag = true;
         }
         return flag;
@@ -1322,7 +1336,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
 
         List<History> changes = ChangeUtil.diff(old, newTask);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
-            actionHelper.sendMarkDone(newTask.getId(),newTask.getName(),old.getAssignedto(),ITaskService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.TASK.getValue(), ITaskService.OBJECT_SOURCE_PATH,StaticDict.Action__type.FINISHED.getText());
+            actionHelper.sendMarkDone(newTask.getId(), newTask.getName(), old.getAssignedto(), ITaskService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.TASK.getValue(), ITaskService.OBJECT_SOURCE_PATH, StaticDict.Action__type.FINISHED.getText());
             actionHelper.sendTodo(newTask.getId(), newTask.getName(), noticeusers, newTask.getAssignedto(), newTask.getMailto(),
                     ITaskService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.TASK.getValue(), ITaskService.OBJECT_SOURCE_PATH, StaticDict.Action__type.FINISHED.getText());
             Action action = actionHelper.create(StaticDict.Action__object_type.TASK.getValue(), newTask.getId(), StaticDict.Action__type.FINISHED.getValue(),
@@ -1422,7 +1436,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         double teamLeft = 0d;
         double taskLeft = 0d;
         Timestamp nowDate = ZTDateUtil.now();
-        List<TaskEstimate> list = taskEstimateHelper.list(new QueryWrapper<TaskEstimate>().eq("task",old.getId()).orderByDesc(FIELD_DATE,FIELD_ID));
+        List<TaskEstimate> list = taskEstimateHelper.list(new QueryWrapper<TaskEstimate>().eq("task", old.getId()).orderByDesc(FIELD_DATE, FIELD_ID));
         Timestamp lastDate = null;
         if (list.size() > 0) {
             lastDate = list.get(0).getDate();
@@ -1609,4 +1623,129 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         }
         return true;
     }
+
+    @Transactional(rollbackFor = Exception.class)
+    public Task createByCycle(Task et) {
+        Date now = new Date(System.currentTimeMillis());
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Date today = null;
+        String curToday = sdf.format(now);
+        try {
+            today = sdf.parse(curToday);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        //开始时间
+        Date begin = et.getConfigbegin();
+        //结束时间
+        Date end = et.getConfigend();
+        //提前提醒天数
+        Integer beforeDays = et.getConfigbeforedays();
+        //设置提醒时间
+        Calendar calendar = Calendar.getInstance();
+        if (beforeDays != null && beforeDays > 0) {
+            if (begin != null) {
+                calendar.setTime(begin);
+            }
+            calendar.add(Calendar.DATE, -beforeDays);
+            begin = calendar.getTime();
+        }
+        //如果已经开始或者已经结束
+        if (today.before(begin) || today.after(end)) {
+            return et;
+        }
+
+        Task newTask = new Task();
+        CachedBeanCopier.copy(et, newTask);
+
+        //要更改的属性：parent idvalue cycle name
+        newTask.setParent(et.getId());
+        newTask.setIdvalue(et.getId());
+        newTask.setCycle(0);
+        newTask.setName(et.getName() + "-" + curToday + "-" + et.getAssignedto());
+
+        newTask.setStatus(StaticDict.Task__status.WAIT.getValue());
+        if (newTask.getAssignedto() != null) {
+            newTask.setAssigneddate(new Timestamp(now.getTime()));
+        }
+        calendar.setTime(today);
+        if (beforeDays != null) {
+            calendar.add(Calendar.DATE, beforeDays);
+        }
+        Date finish = calendar.getTime();
+        for (long time = begin.getTime(); time <= finish.getTime(); time += 86400000) {
+
+            Date today1 = new Date(time);
+            List<Task> lastCycleList = this.list(new QueryWrapper<Task>().eq("idvalue", et.getId()).orderByDesc("config_begin"));
+
+            Task lastCycleJson = null;
+            if (lastCycleList.size() > 0) {
+                lastCycleJson = lastCycleList.get(0);
+            }
+
+            Date date = null;
+
+            if (StaticDict.CycleType.DAY.getValue().equals(et.getConfigtype())) {
+                Integer day = et.getConfigday();
+                if (day <= 0) {
+                    continue;
+                }
+                if (lastCycleJson == null) {
+                    calendar.setTime(today1);
+                    calendar.add(Calendar.DATE, day - 1);
+                    date = calendar.getTime();
+                } else if (lastCycleJson.getConfigbegin() != null) {
+                    calendar.setTime(lastCycleJson.getConfigbegin());
+                    calendar.add(Calendar.DATE, day);
+                    date = calendar.getTime();
+                }
+            } else if (StaticDict.CycleType.WEEK.getValue().equals(et.getConfigtype())) {
+                calendar.setTime(today1);
+                int week = calendar.get(Calendar.DAY_OF_WEEK);
+                if (et.getConfigweek().equals(String.valueOf(week))) {
+                    if (lastCycleJson == null) {
+                        date = today1;
+                    } else if (lastCycleJson.getConfigbegin() != null && lastCycleJson.getConfigbegin().before(today1)) {
+                        date = today1;
+                    }
+                }
+            } else if (StaticDict.CycleType.MONTH.getValue().equals(et.getConfigtype())) {
+                calendar.setTime(today1);
+                int day = calendar.get(Calendar.DAY_OF_MONTH);
+                if (et.getConfigmonth().equals(String.valueOf(day))) {
+                    if (lastCycleJson == null) {
+                        date = today1;
+                    } else if (lastCycleJson.getConfigbegin() != null && lastCycleJson.getConfigbegin().before(today1)) {
+                        date = today1;
+                    }
+                }
+            }
+
+            if (date == null) {
+                continue;
+            }
+            Date configBegin = et.getConfigbegin();
+
+
+            if (date.before(configBegin)) {
+                continue;
+            }
+
+            if (date.before(today)) {
+                continue;
+            }
+            if (date.after(finish)) {
+                continue;
+            }
+            if (end != null && date.after(end)) {
+                continue;
+            }
+            this.baseMapper.insert(newTask);
+            actionHelper.create(StaticDict.Action__object_type.TASK.getValue(), newTask.getId(), StaticDict.Action__type.OPENED.getValue(),
+                    "", "", newTask.getOpenedby(), true);
+        }
+
+        return et;
+    }
+
 }
