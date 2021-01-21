@@ -295,7 +295,7 @@ export class PersonalInfoDashboardBase extends MainControlBase {
      * 刷新
      * 
      * @param args 
-     * @memberof Main
+     * @memberof PersonalInfo
      */
     public refresh(args?: any){
       this.$emit('refresh',args);

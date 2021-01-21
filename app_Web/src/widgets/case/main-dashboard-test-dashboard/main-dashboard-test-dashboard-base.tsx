@@ -295,7 +295,7 @@ export class MainDashboardTestDashboardBase extends MainControlBase {
      * 刷新
      * 
      * @param args 
-     * @memberof Main
+     * @memberof MainDashboardTest
      */
     public refresh(args?: any){
       this.$emit('refresh',args);

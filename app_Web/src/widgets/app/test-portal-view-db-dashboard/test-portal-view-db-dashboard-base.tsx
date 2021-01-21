@@ -259,7 +259,7 @@ export class TestPortalView_dbDashboardBase extends MainControlBase {
      * 刷新
      * 
      * @param args 
-     * @memberof Main
+     * @memberof TestPortalView_db
      */
     public refresh(args?: any){
       this.$emit('refresh',args);

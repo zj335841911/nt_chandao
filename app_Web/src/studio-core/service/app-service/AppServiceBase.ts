@@ -102,20 +102,24 @@ export class AppServiceBase {
             if (Environment.LoginMode.toUpperCase() === 'UAA') {
                 location.href = `${Environment.LoginUrl}?redirect=${encodeURIComponent(redirect)}`;
             } else if (Environment.LoginMode.toUpperCase() === 'CAS') {
+                let pathname = location.pathname;
+                if (pathname.endsWith('/') || pathname.endsWith('.html')) {
+                    pathname = pathname.substring(0, pathname.lastIndexOf('/'));
+                }
                 if (isLogin) {
                     location.href = `${Environment.CasUrl}/login?service=${encodeURIComponent(
-                        `${location.origin}${location.pathname}/cas-login.html?RU=${encodeURIComponent(location.href)}`
+                        `${location.origin}${pathname}/cas-login.html?RU=${encodeURIComponent(location.href)}`,
                     )}`;
                 } else {
                     location.href = `${Environment.CasUrl}/logout?service=${encodeURIComponent(
                         `${Environment.CasUrl}/login?service=${encodeURIComponent(
-                            `${location.origin}${location.pathname}/cas-login.html?RU=${encodeURIComponent(location.href)}`
-                        )}`
+                            `${location.origin}${pathname}/cas-login.html?RU=${encodeURIComponent(location.href)}`,
+                        )}`,
                     )}`;
                 }
             } else {
                 location.href = `${location.origin}${location.pathname}#/login?redirect=${encodeURIComponent(
-                    redirect
+                    redirect,
                 )}`;
                 setTimeout(() => {
                     location.reload();
@@ -165,22 +169,24 @@ export class AppServiceBase {
      * @param {*} [data={}]
      * @memberof AppServiceBase
      */
-    public refreshToken(data:any = {}):void{
-        if(data && data.config && (data.config.url == "/uaa/refreshToken")){
+    public refreshToken(data: any = {}): void {
+        if (data && data.config && data.config.url == '/uaa/refreshToken') {
             return;
         }
-        Http.getInstance().post('/uaa/refreshToken',this.getToken(),false).then((response: any) => {
-            if (response && response.status === 200) {
-                const data = response.data;
-                if (data) {
-                    this.setToken(data);
+        Http.getInstance()
+            .post('/uaa/refreshToken', this.getToken(), false)
+            .then((response: any) => {
+                if (response && response.status === 200) {
+                    const data = response.data;
+                    if (data) {
+                        this.setToken(data);
+                    }
+                } else {
+                    console.log('刷新token出错');
                 }
-            }else{
-                console.log("刷新token出错");
-            }
-        }).catch((error: any) => {
-            console.log("刷新token出错");
-        });
+            })
+            .catch((error: any) => {
+                console.log('刷新token出错');
+            });
     }
-
 }
