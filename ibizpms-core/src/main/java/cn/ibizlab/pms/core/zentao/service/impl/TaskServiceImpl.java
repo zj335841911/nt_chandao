@@ -246,6 +246,21 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
 	 	 return true;
     }
 
+    @Override
+    @Transactional
+    public Task createCycleTasks(Task et) {
+        //自定义代码
+        return et;
+    }
+   @Override
+    @Transactional
+    public boolean createCycleTasksBatch(List<Task> etList) {
+        for(Task et : etList) {
+            createCycleTasks(et);
+        }
+        return true;
+    }
+
        @Override
     @Transactional
     public Task deleteEstimate(Task et) {
