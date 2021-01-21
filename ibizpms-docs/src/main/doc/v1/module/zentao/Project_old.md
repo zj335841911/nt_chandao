@@ -658,6 +658,7 @@ hide footbox
 |CurPlanProject|当前计划项目([MYSQL5](../../appendix/query_MYSQL5.md#Project_CurPlanProject))|否|&nbsp;|
 |CurProduct|当前项目([MYSQL5](../../appendix/query_MYSQL5.md#Project_CurProduct))|否|&nbsp;|
 |CurUser|当前用户项目([MYSQL5](../../appendix/query_MYSQL5.md#Project_CurUser))|否|&nbsp;|
+|CurUserSa|当前用户项目（企业版）([MYSQL5](../../appendix/query_MYSQL5.md#Project_CurUserSa))|否|&nbsp;|
 |DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#Project_Default))|否|&nbsp;|
 |ESBulk|ES批量的导入([MYSQL5](../../appendix/query_MYSQL5.md#Project_ESBulk))|否|&nbsp;|
 |InvolvedProject|参与项目(年度总结)([MYSQL5](../../appendix/query_MYSQL5.md#Project_InvolvedProject))|否|&nbsp;|
@@ -676,6 +677,7 @@ hide footbox
 |CurPlanProject|当前计划项目|CurPlanProject|否|&nbsp;|
 |CurProduct|当前项目|CurProduct|否|&nbsp;|
 |CurUser|当前用户项目|CurUser|否|&nbsp;|
+|CurUserSa|当前用户项目（企业版）|CurUserSa|否|&nbsp;|
 |DEFAULT|DEFAULT|DEFAULT|是|&nbsp;|
 |ESBulk|ES批量的导入|ESBulk|否|&nbsp;|
 |InvolvedProject|参与项目(年度总结)|InvolvedProject|否|&nbsp;|
