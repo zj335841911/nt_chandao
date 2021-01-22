@@ -362,7 +362,8 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
     @Transactional
     public Task linkPlan(Task et) {
         //自定义代码
-        return et;
+        return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.TaskHelper.class).linkPlan(et);
+
     }
    @Override
     @Transactional

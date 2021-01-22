@@ -75,6 +75,9 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
     @Autowired
     ISysEmployeeService sysEmployeeService;
 
+    @Autowired
+    IProductPlanService productPlanService;
+
     String[] diffAttrs = {"desc"};
     List<String> ignore = Arrays.asList("totalwh", "totalleft", "totalconsumed", "totalestimate");
 
@@ -133,7 +136,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             et.setAssignedto(assignedto);
         }
         //如果是周期任务  设置周期为1 parent为-1 （父任务）
-        if (et.getTaskspecies().equals("cycle")) {
+        if (et.getTaskspecies() != null && et.getTaskspecies().equals(StaticDict.TaskSpecies.CYCLE.getValue())) {
             et.setCycle(1);
             et.setParent(-1L);
         }
@@ -1746,6 +1749,31 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         }
 
         return et;
+    }
+
+    @Transactional
+    public Task linkPlan(Task et) {
+        //先找到这个任务对应的productplan
+        List<ProductPlan> productPlanList = productPlanService.list(new QueryWrapper<ProductPlan>().eq("id", et.getPlan()));
+        ProductPlan oldProductPlan = productPlanList.get(0);
+        ProductPlan productPlan = new ProductPlan();
+        productPlan.setProduct(oldProductPlan.getProduct());
+        productPlan.setId(oldProductPlan.getId());
+        productPlan.set("tasks", getTasks(et));
+        cn.ibizlab.pms.util.security.SpringContextHolder.getBean(ProductPlanHelper.class).linkTask(productPlan);
+        return et;
+    }
+
+    public String getTasks(Task et) {
+        String tasks = "";
+        ArrayList<Map> list = (ArrayList) et.get(FIELD_SRFACTIONPARAM);
+        for (Map data : list) {
+            if (tasks.length() > 0) {
+                tasks += MULTIPLE_CHOICE;
+            }
+            tasks += data.get(FIELD_ID);
+        }
+        return tasks;
     }
 
 }

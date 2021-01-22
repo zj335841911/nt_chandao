@@ -36,6 +36,9 @@ public class ProductPlanHelper extends ZTBaseHelper<ProductPlanMapper, ProductPl
     @Autowired
     IProductPlanService productPlanService;
 
+    @Autowired
+    TaskHelper taskHelper;
+
     @Override
     @Transactional(rollbackFor = Exception.class)
     public boolean create(ProductPlan et) {
@@ -231,5 +234,55 @@ public class ProductPlanHelper extends ZTBaseHelper<ProductPlanMapper, ProductPl
     public ProductPlan batchUnlinkBug(ProductPlan et) {
 
         throw new RuntimeException("未实现");
+    }
+
+    @Transactional(rollbackFor = Exception.class)
+    public ProductPlan linkTask(ProductPlan et) {
+        Long productPlanId = et.getId();
+        if (productPlanId == null) {
+            if (et.get(StaticDict.Action__object_type.PRODUCTPLAN.getValue()) == null) {
+                throw new RuntimeException("缺少计划");
+            }
+            productPlanId = Long.parseLong(et.get(StaticDict.Action__object_type.PRODUCTPLAN.getValue()).toString());
+        }
+        String tasks = "";
+        if (et.get("tasks") != null) {
+            tasks = et.get("tasks").toString();
+        } else if (et.get(FIELD_SRFACTIONPARAM) != null) {
+            List<Map<String, Object>> list = (List<Map<String, Object>>) et.get(FIELD_SRFACTIONPARAM);
+            for (Map<String, Object> jsonObject : list) {
+                if (!"".equals(tasks)) {
+                    tasks += MULTIPLE_CHOICE;
+                }
+                tasks += jsonObject.get(FIELD_ID);
+            }
+        }
+        if ("".equals(tasks)) {
+            return et;
+        }
+        ProductPlan old = this.get(productPlanId);
+
+        Product product = productHelper.get(et.getProduct());
+        String curOrder = old.getOrder();
+
+        for (String taskId : tasks.split(MULTIPLE_CHOICE)) {
+            if (curOrder.contains(taskId)) {
+                continue;
+            }
+            curOrder += taskId + MULTIPLE_CHOICE;
+            Task task = new Task();
+            task.setId(Long.parseLong(taskId));
+            if (StringUtils.compare(product.getType(), StaticDict.Product__type.NORMAL.getValue()) == 0) {
+                task.setPlan(productPlanId);
+            } else {
+                task.setPlan(productPlanId);
+            }
+            taskHelper.internalUpdate(task);
+            actionHelper.create(StaticDict.Action__object_type.TASK.getValue(), Long.parseLong(taskId), StaticDict.Action__type.LINKED2PLAN.getValue(), "", String.valueOf(productPlanId), null, true);
+
+        }
+        old.setOrder(curOrder);
+        this.internalUpdate(old);
+        return old;
     }
 }
