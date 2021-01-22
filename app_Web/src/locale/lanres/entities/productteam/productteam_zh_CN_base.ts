@@ -19,6 +19,8 @@ function getLocaleResourceBase(){
 			total: commonLogic.appcommonhandle("总计可用",null),
 			taskcnt: commonLogic.appcommonhandle("任务数",null),
 			username: commonLogic.appcommonhandle("用户",null),
+			end: commonLogic.appcommonhandle("结束时间",null),
+			leadingcadre: commonLogic.appcommonhandle("当前负责人",null),
 		},
 			views: {
 				usr2gridview: {

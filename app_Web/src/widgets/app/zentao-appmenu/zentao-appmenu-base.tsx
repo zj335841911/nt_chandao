@@ -172,6 +172,16 @@ export class ZentaoBase extends Vue {
      */
     @Provide()
     public menus: any[] = [];
+    
+    /**
+     * 主菜单数据
+     *
+     * @public
+     * @type {any[]}
+     * @memberof ProductNewBase
+     */
+    @Provide()
+    public mainMenus: any[] = [];
 
     /**
      * 建构权限服务对象
@@ -1009,12 +1019,21 @@ export class ZentaoBase extends Vue {
      * @memberof ZentaoBase
      */
     public handleMenusResource(inputMenus:Array<any>){
+        let mainMenus: Array<any> = [];
         if(this.$store.getters['authresource/getEnablePermissionValid']){
             this.computedEffectiveMenus(inputMenus);
             this.computeParentMenus(inputMenus);
         }
         this.dataProcess(inputMenus);
+        if(inputMenus && inputMenus.length > 0){
+            inputMenus.forEach((menu: any) =>{
+                if(Object.is(menu.name,'main_menus') && menu.items.length > 0){
+                    mainMenus = [...menu.items];
+                }
+            })
+        }
         this.menus = inputMenus;
+        this.mainMenus = mainMenus;
         this.doMenuSelect();
     }
 

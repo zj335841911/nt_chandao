@@ -28,6 +28,8 @@ hide members
 |总计可用|TOTAL|INT|&nbsp;|
 |任务数|TASKCNT|INT|&nbsp;|
 |用户|USERNAME|TEXT|&nbsp;|
+|结束时间|END|DATE|&nbsp;|
+|当前负责人|LEADINGCADRE|SSCODELIST|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -48,6 +50,8 @@ hide members
 |总计可用|默认规则|默认规则|
 |任务数|默认规则|默认规则|
 |用户|默认规则|内容长度必须小于等于[200]|
+|结束时间|默认规则|默认规则|
+|当前负责人|默认规则|内容长度必须小于等于[60]|
 
 ## 状态控制
 
@@ -127,6 +131,7 @@ hide footbox
 |受限用户(LIMITED)|EQ|
 |产品编号(ROOT)|EQ|
 |用户(ACCOUNT)|LIKE|
+|当前负责人(LEADINGCADRE)|EQ|
 
 ## 导入模式
 无

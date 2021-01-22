@@ -133,4 +133,20 @@ export interface PRODUCTTEAM {
      * @memberof PRODUCTTEAM
      */
     username?: any;
+
+    /**
+     * 结束时间
+     *
+     * @returns {*}
+     * @memberof PRODUCTTEAM
+     */
+    end?: any;
+
+    /**
+     * 当前负责人
+     *
+     * @returns {*}
+     * @memberof PRODUCTTEAM
+     */
+    leadingcadre?: any;
 }

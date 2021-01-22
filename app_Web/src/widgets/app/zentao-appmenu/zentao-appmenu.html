@@ -8,7 +8,7 @@
         @select="select.apply(_self, arguments)"
         :default-active="defaultActive">
         <template v-if="Object.is(mode,'horizontal')">
-            <template v-for="item0 in menus">
+            <template v-for="item0 in mainMenus">
                 <template v-if="item0.items && Array.isArray(item0.items) && item0.items.length > 0">
                     <el-submenu v-show="!item0.hidden" :index="item0.name" :popper-class="popperClass" :key="item0.id" :class="item0.textcls">
                         <template slot='title'>
@@ -105,6 +105,6 @@
                 </template>
             </template>  
         </template> 
-        <app-menu-item v-else :isCollapse="isCollapse" :menus="menus" ctrlName="zentao" :isFirst="true" :counterdata="counterdata" :popper-class="popperClass"></app-menu-item>
+        <app-menu-item v-else :isCollapse="isCollapse" :menus="mainMenus" ctrlName="zentao" :isFirst="true" :counterdata="counterdata" :popper-class="popperClass"></app-menu-item>
     </el-menu>
 </div>

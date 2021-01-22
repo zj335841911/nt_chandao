@@ -165,6 +165,24 @@ public class PRODUCTTEAMDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
     private String username;
 
+    /**
+     * 属性 [END]
+     *
+     */
+    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "end" , format="yyyy-MM-dd")
+    @JsonProperty("end")
+    private Timestamp end;
+
+    /**
+     * 属性 [LEADINGCADRE]
+     *
+     */
+    @JSONField(name = "leadingcadre")
+    @JsonProperty("leadingcadre")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    private String leadingcadre;
+
 
     /**
      * 设置 [JOIN]
@@ -260,6 +278,22 @@ public class PRODUCTTEAMDTO extends DTOBase implements Serializable {
     public void setEstimate(Double  estimate){
         this.estimate = estimate ;
         this.modify("estimate",estimate);
+    }
+
+    /**
+     * 设置 [END]
+     */
+    public void setEnd(Timestamp  end){
+        this.end = end ;
+        this.modify("end",end);
+    }
+
+    /**
+     * 设置 [LEADINGCADRE]
+     */
+    public void setLeadingcadre(String  leadingcadre){
+        this.leadingcadre = leadingcadre ;
+        this.modify("leadingcadre",leadingcadre);
     }
 
 

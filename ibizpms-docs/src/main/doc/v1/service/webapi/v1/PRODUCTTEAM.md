@@ -618,7 +618,9 @@ POST
 | 14 | total | Integer | 允许 | 总计可用 |
 | 15 | taskcnt | Integer | 允许 | 任务数 |
 | 16 | username | String | 允许 | 用户 |
-| 17 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 17 | end | Timestamp | 允许 | 结束时间<br>时间格式：yyyy-MM-dd |
+| 18 | leadingcadre | String | 允许 | 当前负责人 |
+| 19 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### PRODUCTTEAMSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
@@ -627,10 +629,11 @@ POST
 | 2 | n_limited_eq | String | 允许 | 条件字段：limited<br>条件组合方式：`=` |
 | 3 | n_root_eq | Long | 允许 | 条件字段：root<br>条件组合方式：`=` |
 | 4 | n_account_like | String | 允许 | 条件字段：account<br>条件组合方式：`%like%` |
-| 5 | customcond | String | 允许 | 自定义查询条件 |
-| 6 | customparams | String | 允许 | 自定义查询参数 |
-| 7 | query | String | 允许 | 快速搜索 |
-| 8 | filter | QueryFilter | 允许 | 条件表达式<br>参照`cn.ibizlab.pms.util.filter.QueryFilter` |
-| 9 | page | int | 允许 | 当前页数<br>默认值0 |
-| 10 | size | int | 允许 | 每页显示条数<br>默认值20 |
-| 11 | sort | String | 允许 | 排序 |
+| 5 | n_leadingcadre_eq | String | 允许 | 条件字段：leadingcadre<br>条件组合方式：`=` |
+| 6 | customcond | String | 允许 | 自定义查询条件 |
+| 7 | customparams | String | 允许 | 自定义查询参数 |
+| 8 | query | String | 允许 | 快速搜索 |
+| 9 | filter | QueryFilter | 允许 | 条件表达式<br>参照`cn.ibizlab.pms.util.filter.QueryFilter` |
+| 10 | page | int | 允许 | 当前页数<br>默认值0 |
+| 11 | size | int | 允许 | 每页显示条数<br>默认值20 |
+| 12 | sort | String | 允许 | 排序 |

@@ -34,6 +34,8 @@
 | 14 | [总计可用](#属性-总计可用（TOTAL）) | TOTAL | 整型 | 否 | 是 | 是 |
 | 15 | [任务数](#属性-任务数（TASKCNT）) | TASKCNT | 整型 | 否 | 是 | 是 |
 | 16 | [用户](#属性-用户（USERNAME）) | USERNAME | 文本，可指定长度 | 否 | 是 | 是 |
+| 17 | [结束时间](#属性-结束时间（END）) | END | 日期型 | 否 | 是 | 是 |
+| 18 | [当前负责人](#属性-当前负责人（LEADINGCADRE）) | LEADINGCADRE | 单项选择(文本值) | 否 | 是 | 是 |
 
 ### 属性-加盟日（JOIN）
 #### 属性说明
@@ -730,6 +732,90 @@ String
 | 关系属性 | [编号（ID）](../zentao/Product/#属性-编号（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
+### 属性-结束时间（END）
+#### 属性说明
+结束时间
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+日期型
+
+- Java类型
+Timestamp
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+yyyy-MM-dd
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
+| 关系属性 | [编号（ID）](../zentao/Product/#属性-编号（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-当前负责人（LEADINGCADRE）
+#### 属性说明
+当前负责人
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+单项选择(文本值)
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+参照数据字典【[用户真实名称（动态）（UserRealName）](../../codelist/UserRealName)】
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+| 序号 | 组合方式 |
+| ---- | ---- |
+| 1 | `=` |
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
+| 关系属性 | [编号（ID）](../zentao/Product/#属性-编号（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
 
 ## 业务状态
 无
@@ -876,6 +962,7 @@ Save
 | 2 | [受限用户（LIMITED）](#属性-受限用户（LIMITED）) | `=` |
 | 3 | [产品编号（ROOT）](#属性-产品编号（ROOT）) | `=` |
 | 4 | [用户（ACCOUNT）](#属性-用户（ACCOUNT）) | `%like%` |
+| 5 | [当前负责人（LEADINGCADRE）](#属性-当前负责人（LEADINGCADRE）) | `=` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |
@@ -902,10 +989,12 @@ SELECT
 t1.`ACCOUNT`,
 t1.`CONSUMED`,
 t1.`DAYS`,
+t1.`END`,
 t1.`ESTIMATE`,
 t1.`HOURS`,
 t1.`ID`,
 t1.`JOIN`,
+t1.`LEADINGCADRE`,
 t1.`LEFT`,
 t1.`LIMITED`,
 t1.`ORDER`,
@@ -936,6 +1025,8 @@ SELECT
 	t1.hours,
 	t1.id,
 	t1.`join`,
+        t1.`end`,
+        t1.`LEADINGCADRE`,
 	t1.limited,
 	t1.`order`,
 	t1.role,
@@ -1022,6 +1113,8 @@ SELECT
 	t1.`ACCOUNT`,
 	t1.`CONSUMED`,
 	t1.`DAYS`,
+        t1.`end`,
+        t1.`LEADINGCADRE`,
 	t1.`ESTIMATE`,
 	t1.`HOURS`,
 	t1.id as `ID`,
@@ -1044,6 +1137,8 @@ FROM
 	((select SUM(tt.days) from zt_project tt where  FIND_IN_SET(tt.id,(SELECT GROUP_CONCAT(project) FROM zt_projectproduct where product = #{srf.datacontext.root} )
 	)) )
 	AS `DAYS`,
+        null as `end`,
+        null as `LEADINGCADRE`,
 	0 AS `ESTIMATE`,
 	7 AS `HOURS`,
 	null as `ID`,
@@ -1071,6 +1166,8 @@ FROM
 	((select SUM(tt.days) from zt_project tt where  FIND_IN_SET(tt.id,(SELECT GROUP_CONCAT(project) FROM zt_projectproduct where product = #{srf.datacontext.root} )
 	)) )
 	AS `DAYS`,
+        null as `end`,
+        null as `LEADINGCADRE`,
 	0 AS `ESTIMATE`,
 	7 AS `HOURS`,
 	null as `ID`,
@@ -1110,10 +1207,12 @@ SELECT
 t1.`ACCOUNT`,
 t1.`CONSUMED`,
 t1.`DAYS`,
+t1.`END`,
 t1.`ESTIMATE`,
 t1.`HOURS`,
 t1.`ID`,
 t1.`JOIN`,
+t1.`LEADINGCADRE`,
 t1.`LEFT`,
 t1.`LIMITED`,
 t1.`ORDER`,

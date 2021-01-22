@@ -20268,6 +20268,34 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"END" ,
+    "codename":"End",
+    "field_logic_name":"结束时间",
+    "entity_name":"IBZ_PRODUCTTEAM",
+    "field_type":"DATE",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"DATETIME",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"LEADINGCADRE" ,
+    "codename":"Leadingcadre",
+    "field_logic_name":"当前负责人",
+    "entity_name":"IBZ_PRODUCTTEAM",
+    "field_type":"SSCODELIST",
+    "dict":"UserRealName",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":60,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[

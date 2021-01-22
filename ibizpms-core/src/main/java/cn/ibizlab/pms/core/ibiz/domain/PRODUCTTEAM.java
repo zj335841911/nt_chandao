@@ -166,6 +166,21 @@ public class PRODUCTTEAM extends EntityMP implements Serializable {
     @JSONField(name = "username")
     @JsonProperty("username")
     private String username;
+    /**
+     * 结束时间
+     */
+    @TableField(value = "`end`")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "end", format = "yyyy-MM-dd")
+    @JsonProperty("end")
+    private Timestamp end;
+    /**
+     * 当前负责人
+     */
+    @TableField(value = "`leadingcadre`")
+    @JSONField(name = "leadingcadre")
+    @JsonProperty("leadingcadre")
+    private String leadingcadre;
 
     /**
      * 
@@ -281,6 +296,32 @@ public class PRODUCTTEAM extends EntityMP implements Serializable {
     public void setEstimate(Double estimate) {
         this.estimate = estimate;
         this.modify("estimate", estimate);
+    }
+
+    /**
+     * 设置 [结束时间]
+     */
+    public void setEnd(Timestamp end) {
+        this.end = end;
+        this.modify("end", end);
+    }
+
+    /**
+     * 格式化日期 [结束时间]
+     */
+    public String formatEnd() {
+        if (this.end == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return sdf.format(end);
+    }
+    /**
+     * 设置 [当前负责人]
+     */
+    public void setLeadingcadre(String leadingcadre) {
+        this.leadingcadre = leadingcadre;
+        this.modify("leadingcadre", leadingcadre);
     }
 
 

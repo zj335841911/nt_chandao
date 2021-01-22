@@ -55,6 +55,13 @@ public class PRODUCTTEAMSearchContext extends QueryWrapperContext<PRODUCTTEAM> {
             this.getSearchCond().like("`account`", n_account_like);
         }
     }
+	private String n_leadingcadre_eq;//[当前负责人]
+	public void setN_leadingcadre_eq(String n_leadingcadre_eq) {
+        this.n_leadingcadre_eq = n_leadingcadre_eq;
+        if(!ObjectUtils.isEmpty(this.n_leadingcadre_eq)){
+            this.getSearchCond().eq("`leadingcadre`", n_leadingcadre_eq);
+        }
+    }
 
     /**
 	 * 启用快速搜索
