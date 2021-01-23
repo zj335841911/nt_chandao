@@ -4713,6 +4713,208 @@ export default class SubTaskServiceBase extends EntityService {
     }
 
     /**
+     * FetchPlanTask接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubTaskServiceBase
+     */
+    public async FetchPlanTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().post(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchplantask`,tempData,isloading);
+            return res;
+        }
+        if(context.product && context.story && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchplantask`,tempData,isloading);
+            return res;
+        }
+        if(context.product && context.productplan && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchplantask`,tempData,isloading);
+            return res;
+        }
+        if(context.project && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchplantask`,tempData,isloading);
+            return res;
+        }
+        if(context.story && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchplantask`,tempData,isloading);
+            return res;
+        }
+        if(context.productplan && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().post(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchplantask`,tempData,isloading);
+            return res;
+        }
+        if(context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().post(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchplantask`,tempData,isloading);
+            return res;
+        }
+        if(context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().post(`/tasks/${context.task}/subtasks/fetchplantask`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().post(`/subtasks/fetchplantask`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * searchPlanTask接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubTaskServiceBase
+     */
+    public async searchPlanTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/searchplantask`,tempData,isloading);
+        }
+        if(context.product && context.story && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/searchplantask`,tempData,isloading);
+        }
+        if(context.product && context.productplan && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/searchplantask`,tempData,isloading);
+        }
+        if(context.project && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/searchplantask`,tempData,isloading);
+        }
+        if(context.story && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/subtasks/searchplantask`,tempData,isloading);
+        }
+        if(context.productplan && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/searchplantask`,tempData,isloading);
+        }
+        if(context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/searchplantask`,tempData,isloading);
+        }
+        if(context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/tasks/${context.task}/subtasks/searchplantask`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/subtasks/searchplantask`,tempData,isloading);
+    }
+
+    /**
+     * FetchProjectAppTask接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubTaskServiceBase
+     */
+    public async FetchProjectAppTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().post(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchprojectapptask`,tempData,isloading);
+            return res;
+        }
+        if(context.product && context.story && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchprojectapptask`,tempData,isloading);
+            return res;
+        }
+        if(context.product && context.productplan && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchprojectapptask`,tempData,isloading);
+            return res;
+        }
+        if(context.project && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchprojectapptask`,tempData,isloading);
+            return res;
+        }
+        if(context.story && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchprojectapptask`,tempData,isloading);
+            return res;
+        }
+        if(context.productplan && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().post(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchprojectapptask`,tempData,isloading);
+            return res;
+        }
+        if(context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().post(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchprojectapptask`,tempData,isloading);
+            return res;
+        }
+        if(context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().post(`/tasks/${context.task}/subtasks/fetchprojectapptask`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().post(`/subtasks/fetchprojectapptask`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * searchProjectAppTask接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubTaskServiceBase
+     */
+    public async searchProjectAppTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/searchprojectapptask`,tempData,isloading);
+        }
+        if(context.product && context.story && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/searchprojectapptask`,tempData,isloading);
+        }
+        if(context.product && context.productplan && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/searchprojectapptask`,tempData,isloading);
+        }
+        if(context.project && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/searchprojectapptask`,tempData,isloading);
+        }
+        if(context.story && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/subtasks/searchprojectapptask`,tempData,isloading);
+        }
+        if(context.productplan && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/searchprojectapptask`,tempData,isloading);
+        }
+        if(context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/searchprojectapptask`,tempData,isloading);
+        }
+        if(context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/tasks/${context.task}/subtasks/searchprojectapptask`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/subtasks/searchprojectapptask`,tempData,isloading);
+    }
+
+    /**
      * FetchProjectTask接口方法
      *
      * @param {*} [context={}]
@@ -6023,6 +6225,30 @@ export default class SubTaskServiceBase extends EntityService {
      * @memberof SubTaskServiceBase
      */
     public async FetchTempNextWeekPlanCompleteTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    }
+
+    /**
+     * FetchTempPlanTask接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubTaskServiceBase
+     */
+    public async FetchTempPlanTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    }
+
+    /**
+     * FetchTempProjectAppTask接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubTaskServiceBase
+     */
+    public async FetchTempProjectAppTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
     }
 
     /**

@@ -48,6 +48,7 @@ public interface IPRODUCTTEAMService extends IService<PRODUCTTEAM> {
     void saveBatch(List<PRODUCTTEAM> list);
     Page<PRODUCTTEAM> searchDefault(PRODUCTTEAMSearchContext context);
     Page<PRODUCTTEAM> searchProductTeamInfo(PRODUCTTEAMSearchContext context);
+    Page<PRODUCTTEAM> searchProjectApp(PRODUCTTEAMSearchContext context);
     Page<PRODUCTTEAM> searchRowEditDefaultProductTeam(PRODUCTTEAMSearchContext context);
     List<PRODUCTTEAM> selectByRoot(Long id);
     void removeByRoot(Long id);

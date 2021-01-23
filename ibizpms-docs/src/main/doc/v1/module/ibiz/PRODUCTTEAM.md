@@ -969,8 +969,9 @@ Save
 | ---- | ---- | ---- | ---- |
 | 1 | [数据查询](#数据查询-数据查询（Default）) | Default | 否 |
 | 2 | [产品团队成员信息](#数据查询-产品团队成员信息（ProductTeamInfo）) | ProductTeamInfo | 否 |
-| 3 | [产品团队管理](#数据查询-产品团队管理（RowEditDefaultProductTeam）) | RowEditDefaultProductTeam | 否 |
-| 4 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 3 | [项目立项](#数据查询-项目立项（ProjectApp）) | ProjectApp | 否 |
+| 4 | [产品团队管理](#数据查询-产品团队管理（RowEditDefaultProductTeam）) | RowEditDefaultProductTeam | 否 |
+| 5 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-数据查询（Default）
 #### 说明
@@ -1091,6 +1092,40 @@ WHERE
 FROM
 	(	SELECT *,(SELECT GROUP_CONCAT(project) from zt_projectproduct where product =  t1.root and t1.type = 'product' ) as zzz from zt_team t1
 ) t1
+```
+### 数据查询-项目立项（ProjectApp）
+#### 说明
+项目立项
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+t1.`ACCOUNT`,
+t1.`CONSUMED`,
+t1.`DAYS`,
+t1.`END`,
+t1.`ESTIMATE`,
+t1.`HOURS`,
+t1.`ID`,
+t1.`JOIN`,
+t1.`LEADINGCADRE`,
+t1.`LEFT`,
+t1.`LIMITED`,
+t1.`ORDER`,
+t1.`ROLE`,
+t1.`ROOT`,
+(t1.`DAYS` * t1.`HOURS`) AS `TOTAL`,
+t1.`TYPE`,
+(select t.realname from zt_user t where t.account = t1.account) AS `USERNAME`
+FROM `zt_team` t1 
+
 ```
 ### 数据查询-产品团队管理（RowEditDefaultProductTeam）
 #### 说明
@@ -1230,7 +1265,8 @@ FROM `zt_team` t1
 | ---- | ---- | ---- | ---- |
 | 1 | [数据集](#数据集合-数据集（Default）) | Default | 是 |
 | 2 | [产品团队成员信息](#数据集合-产品团队成员信息（ProductTeamInfo）) | ProductTeamInfo | 否 |
-| 3 | [产品团队管理](#数据集合-产品团队管理（RowEditDefaultProductTeam）) | RowEditDefaultProductTeam | 否 |
+| 3 | [项目立项](#数据集合-项目立项（ProjectApp）) | ProjectApp | 否 |
+| 4 | [产品团队管理](#数据集合-产品团队管理（RowEditDefaultProductTeam）) | RowEditDefaultProductTeam | 否 |
 
 ### 数据集合-数据集（Default）
 #### 说明
@@ -1260,6 +1296,20 @@ FROM `zt_team` t1
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [产品团队成员信息（ProductTeamInfo）](#数据查询-产品团队成员信息（ProductTeamInfo）) |
+### 数据集合-项目立项（ProjectApp）
+#### 说明
+项目立项
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [项目立项（ProjectApp）](#数据查询-项目立项（ProjectApp）) |
 ### 数据集合-产品团队管理（RowEditDefaultProductTeam）
 #### 说明
 产品团队管理

@@ -248,6 +248,15 @@ public class PRODUCTTEAMServiceImpl extends ServiceImpl<PRODUCTTEAMMapper, PRODU
     }
 
     /**
+     * 查询集合 项目立项
+     */
+    @Override
+    public Page<PRODUCTTEAM> searchProjectApp(PRODUCTTEAMSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<PRODUCTTEAM> pages=baseMapper.searchProjectApp(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<PRODUCTTEAM>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 产品团队管理
      */
     @Override

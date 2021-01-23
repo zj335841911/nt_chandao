@@ -309,6 +309,44 @@ export default class PRODUCTTEAMServiceBase extends EntityService {
     }
 
     /**
+     * FetchProjectApp接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof PRODUCTTEAMServiceBase
+     */
+    public async FetchProjectApp(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/productteams/fetchprojectapp`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/productteams/fetchprojectapp`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * searchProjectApp接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof PRODUCTTEAMServiceBase
+     */
+    public async searchProjectApp(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productteams/searchprojectapp`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/productteams/searchprojectapp`,tempData,isloading);
+    }
+
+    /**
      * FetchRowEditDefaultProductTeam接口方法
      *
      * @param {*} [context={}]
