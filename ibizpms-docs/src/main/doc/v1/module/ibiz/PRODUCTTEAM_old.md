@@ -113,6 +113,7 @@ hide footbox
 | --------  | --------   | --------   | ----- |
 |DEFAULT|数据查询([MYSQL5](../../appendix/query_MYSQL5.md#PRODUCTTEAM_Default))|否|&nbsp;|
 |ProductTeamInfo|产品团队成员信息([MYSQL5](../../appendix/query_MYSQL5.md#PRODUCTTEAM_ProductTeamInfo))|否|&nbsp;|
+|ProjectApp|项目立项([MYSQL5](../../appendix/query_MYSQL5.md#PRODUCTTEAM_ProjectApp))|否|&nbsp;|
 |RowEditDefaultProductTeam|产品团队管理([MYSQL5](../../appendix/query_MYSQL5.md#PRODUCTTEAM_RowEditDefaultProductTeam))|否|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#PRODUCTTEAM_View))|否|&nbsp;|
 
@@ -122,6 +123,7 @@ hide footbox
 | --------  | --------   | -------- | --------   | ----- |
 |DEFAULT|数据集|DEFAULT|是|&nbsp;|
 |ProductTeamInfo|产品团队成员信息|ProductTeamInfo|否|&nbsp;|
+|ProjectApp|项目立项|ProjectApp|否|&nbsp;|
 |RowEditDefaultProductTeam|产品团队管理|RowEditDefaultProductTeam|否|&nbsp;|
 
 ## 查询模式

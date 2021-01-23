@@ -388,6 +388,15 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
     }
 
     /**
+     * 查询集合 项目立项
+     */
+    @Override
+    public Page<ProductPlan> searchProjectApp(ProductPlanSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProductPlan> pages=baseMapper.searchProjectApp(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<ProductPlan>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 项目计划列表
      */
     @Override

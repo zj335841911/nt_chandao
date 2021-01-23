@@ -1395,8 +1395,9 @@ Save
 | 2 | [默认查询](#数据查询-默认查询（DefaultParent）) | DefaultParent | 否 |
 | 3 | [获取产品计划列表](#数据查询-获取产品计划列表（GetList）) | GetList | 否 |
 | 4 | [计划（代码表）](#数据查询-计划（代码表）（PlanCodeList）) | PlanCodeList | 否 |
-| 5 | [项目计划列表](#数据查询-项目计划列表（ProjectPlan）) | ProjectPlan | 否 |
-| 6 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 5 | [项目立项](#数据查询-项目立项（ProjectApp）) | ProjectApp | 否 |
+| 6 | [项目计划列表](#数据查询-项目计划列表（ProjectPlan）) | ProjectPlan | 否 |
+| 7 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-DEFAULT（Default）
 #### 说明
@@ -1530,6 +1531,41 @@ SELECT
 0 as parent
 FROM dual  ) t1
 ```
+### 数据查询-项目立项（ProjectApp）
+#### 说明
+项目立项
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+t1.`BEGIN`,
+(case when t1.`begin` = '2030-01-01' then '待定' else t1.`begin` end) AS `BEGINSTR`,
+t1.`BRANCH`,
+((select count(t.id) FROM zt_bug t where (t.plan = t1.id or (t.plan in (select t2.id from zt_productplan t2 where t2.parent = t1.id and t2.deleted = '0')) )  and t.deleted = '0')) AS `BUGCNT`,
+t1.`DELETED`,
+t1.`END`,
+(case when t1.`end` = '2030-01-01' then '待定' else t1.`end` end) AS `ENDSTR`,
+(select sum(t.estimate) from zt_story t where (t.plan = t1.id or (t.plan in (select t2.id from zt_productplan t2 where t2.parent = t1.id and t2.deleted = '0')) )  and t.deleted = '0' ) AS `ESTIMATECNT`,
+(case when t1.`begin` = '2030-01-01' or t1.`end` = '2030-01-01' then 'on' else '' end) AS `FUTURE`,
+t1.`ID`,
+(case when t1.`end` > now() then '0' else '1' end) AS `ISEXPIRED`,
+t1.`PARENT`,
+t11.`TITLE` AS `PARENTNAME`,
+t1.`PRODUCT`,
+(case when t1.parent = -1 then 'parent' when t1.parent > 0 then  'chlid' else 'normal' end) AS `STATUSS`,
+((select COUNT(t.id) from zt_story t where (t.plan = t1.id or (t.plan in (select t2.id from zt_productplan t2 where t2.parent = t1.id and t2.deleted = '0')) )  and t.deleted = '0' )) AS `STORYCNT`,
+t1.`TITLE`
+FROM `zt_productplan` t1 
+LEFT JOIN `zt_productplan` t11 ON t1.`PARENT` = t11.`ID` 
+
+```
 ### 数据查询-项目计划列表（ProjectPlan）
 #### 说明
 项目计划列表
@@ -1606,7 +1642,8 @@ LEFT JOIN `zt_productplan` t11 ON t1.`PARENT` = t11.`ID`
 | 2 | [DEFAULT](#数据集合-DEFAULT（Default）) | Default | 是 |
 | 3 | [默认查询](#数据集合-默认查询（DefaultParent）) | DefaultParent | 否 |
 | 4 | [计划（代码表）](#数据集合-计划（代码表）（PlanCodeList）) | PlanCodeList | 否 |
-| 5 | [项目计划列表](#数据集合-项目计划列表（ProjectPlan）) | ProjectPlan | 否 |
+| 5 | [项目立项](#数据集合-项目立项（ProjectApp）) | ProjectApp | 否 |
+| 6 | [项目计划列表](#数据集合-项目计划列表（ProjectPlan）) | ProjectPlan | 否 |
 
 ### 数据集合-CurProductPlan（CurProductPlan）
 #### 说明
@@ -1664,6 +1701,20 @@ DEFAULT
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [计划（代码表）（PlanCodeList）](#数据查询-计划（代码表）（PlanCodeList）) |
+### 数据集合-项目立项（ProjectApp）
+#### 说明
+项目立项
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [项目立项（ProjectApp）](#数据查询-项目立项（ProjectApp）) |
 ### 数据集合-项目计划列表（ProjectPlan）
 #### 说明
 项目计划列表
