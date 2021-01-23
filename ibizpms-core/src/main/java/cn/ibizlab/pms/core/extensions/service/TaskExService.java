@@ -248,6 +248,48 @@ public class TaskExService extends TaskServiceImpl {
         return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
+    /**
+     * 查询集合 项目任务
+     */
+    @Override
+    public Page<Task> searchPlanTask(TaskSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchPlanTask(context.getPages(),context,context.getSelectCond());
+        for(Task task : pages.getRecords()) {
+            if(task.getParent() == 0) {
+                continue;
+            }
+            TaskSearchContext context1 = new TaskSearchContext();
+            context1.setSelectCond(context.getSelectCond().clone());
+            context1.setN_parent_eq(task.getId());
+            List<Task> taskList = this.searchDefault(context1).getContent();
+            task.set("items", taskList);
+            pages.setPages(pages.getTotal() + taskList.size());
+
+        }
+        return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 项目任务
+     */
+    @Override
+    public Page<Task> searchProjectAppTask(TaskSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchProjectAppTask(context.getPages(),context,context.getSelectCond());
+        for(Task task : pages.getRecords()) {
+            if(task.getParent() == 0) {
+                continue;
+            }
+            TaskSearchContext context1 = new TaskSearchContext();
+            context1.setSelectCond(context.getSelectCond().clone());
+            context1.setN_parent_eq(task.getId());
+            List<Task> taskList = this.searchDefault(context1).getContent();
+            task.set("items", taskList);
+            pages.setPages(pages.getTotal() + taskList.size());
+
+        }
+        return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
     @Override
     @Transactional
     public Task get(Long key) {
