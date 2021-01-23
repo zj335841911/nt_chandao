@@ -30,6 +30,7 @@ public interface TaskMapper extends BaseMapper<Task> {
     Page<Task> searchDefaultRow(IPage page, @Param("srf") TaskSearchContext context, @Param("ew") Wrapper<Task> wrapper);
     Page<Task> searchESBulk(IPage page, @Param("srf") TaskSearchContext context, @Param("ew") Wrapper<Task> wrapper);
     Page<Task> searchMyAgentTask(IPage page, @Param("srf") TaskSearchContext context, @Param("ew") Wrapper<Task> wrapper);
+    Page<Task> searchMyAllTask(IPage page, @Param("srf") TaskSearchContext context, @Param("ew") Wrapper<Task> wrapper);
     Page<Task> searchMyCompleteTask(IPage page, @Param("srf") TaskSearchContext context, @Param("ew") Wrapper<Task> wrapper);
     Page<Task> searchMyCompleteTaskMobDaily(IPage page, @Param("srf") TaskSearchContext context, @Param("ew") Wrapper<Task> wrapper);
     Page<Task> searchMyCompleteTaskMobMonthly(IPage page, @Param("srf") TaskSearchContext context, @Param("ew") Wrapper<Task> wrapper);

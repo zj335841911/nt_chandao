@@ -7140,31 +7140,32 @@ FAVORITES
 | 9 | [DefaultRow](#数据查询-DefaultRow（DefaultRow）) | DefaultRow | 否 |
 | 10 | [ES批量的导入](#数据查询-ES批量的导入（ESBulk）) | ESBulk | 否 |
 | 11 | [我代理的任务](#数据查询-我代理的任务（MyAgentTask）) | MyAgentTask | 否 |
-| 12 | [我完成的任务（汇报）](#数据查询-我完成的任务（汇报）（MyCompleteTask）) | MyCompleteTask | 否 |
-| 13 | [我完成的任务（移动端日报）](#数据查询-我完成的任务（移动端日报）（MyCompleteTaskMobDaily）) | MyCompleteTaskMobDaily | 否 |
-| 14 | [我完成的任务（移动端月报）](#数据查询-我完成的任务（移动端月报）（MyCompleteTaskMobMonthly）) | MyCompleteTaskMobMonthly | 否 |
-| 15 | [我完成的任务（月报展示）](#数据查询-我完成的任务（月报展示）（MyCompleteTaskMonthlyZS）) | MyCompleteTaskMonthlyZS | 否 |
-| 16 | [我完成的任务（汇报）](#数据查询-我完成的任务（汇报）（MyCompleteTaskZS）) | MyCompleteTaskZS | 否 |
-| 17 | [我的收藏](#数据查询-我的收藏（MyFavorites）) | MyFavorites | 否 |
-| 18 | [我计划参与的任务（移动端月报）](#数据查询-我计划参与的任务（移动端月报）（MyPlansTaskMobMonthly）) | MyPlansTaskMobMonthly | 否 |
-| 19 | [我计划参与的任务（汇报）](#数据查询-我计划参与的任务（汇报）（MyTomorrowPlanTask）) | MyTomorrowPlanTask | 否 |
-| 20 | [我计划参与的任务（汇报）](#数据查询-我计划参与的任务（汇报）（MyTomorrowPlanTaskMobDaily）) | MyTomorrowPlanTaskMobDaily | 否 |
-| 21 | [移动端下周计划参与(汇报)](#数据查询-移动端下周计划参与(汇报)（NextWeekCompleteTaskMobZS）) | NextWeekCompleteTaskMobZS | 否 |
-| 22 | [本周完成的任务(汇报)](#数据查询-本周完成的任务(汇报)（NextWeekCompleteTaskZS）) | NextWeekCompleteTaskZS | 否 |
-| 23 | [下周计划完成任务(汇报)](#数据查询-下周计划完成任务(汇报)（NextWeekPlanCompleteTask）) | NextWeekPlanCompleteTask | 否 |
-| 24 | [相关任务（计划）](#数据查询-相关任务（计划）（PlanTask）) | PlanTask | 否 |
-| 25 | [项目任务（项目立项）](#数据查询-项目任务（项目立项）（ProjectAppTask）) | ProjectAppTask | 否 |
-| 26 | [项目任务](#数据查询-项目任务（ProjectTask）) | ProjectTask | 否 |
-| 27 | [根任务](#数据查询-根任务（RootTask）) | RootTask | 否 |
-| 28 | [关联计划（当前项目未关联）](#数据查询-关联计划（当前项目未关联）（TaskLinkPlan）) | TaskLinkPlan | 否 |
-| 29 | [我本月完成的任务（下拉列表框）](#数据查询-我本月完成的任务（下拉列表框）（ThisMonthCompleteTaskChoice）) | ThisMonthCompleteTaskChoice | 否 |
-| 30 | [本周完成的任务(汇报)](#数据查询-本周完成的任务(汇报)（ThisWeekCompleteTask）) | ThisWeekCompleteTask | 否 |
-| 31 | [本周已完成任务(下拉框选择)](#数据查询-本周已完成任务(下拉框选择)（ThisWeekCompleteTaskChoice）) | ThisWeekCompleteTaskChoice | 否 |
-| 32 | [移动端本周已完成任务(汇报)](#数据查询-移动端本周已完成任务(汇报)（ThisWeekCompleteTaskMobZS）) | ThisWeekCompleteTaskMobZS | 否 |
-| 33 | [本周完成的任务(汇报)](#数据查询-本周完成的任务(汇报)（ThisWeekCompleteTaskZS）) | ThisWeekCompleteTaskZS | 否 |
-| 34 | [todo列表查询](#数据查询-todo列表查询（TodoListTask）) | TodoListTask | 否 |
-| 35 | [任务类型分组](#数据查询-任务类型分组（TypeGroup）) | TypeGroup | 否 |
-| 36 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 12 | [我相关的任务](#数据查询-我相关的任务（MyAllTask）) | MyAllTask | 否 |
+| 13 | [我完成的任务（汇报）](#数据查询-我完成的任务（汇报）（MyCompleteTask）) | MyCompleteTask | 否 |
+| 14 | [我完成的任务（移动端日报）](#数据查询-我完成的任务（移动端日报）（MyCompleteTaskMobDaily）) | MyCompleteTaskMobDaily | 否 |
+| 15 | [我完成的任务（移动端月报）](#数据查询-我完成的任务（移动端月报）（MyCompleteTaskMobMonthly）) | MyCompleteTaskMobMonthly | 否 |
+| 16 | [我完成的任务（月报展示）](#数据查询-我完成的任务（月报展示）（MyCompleteTaskMonthlyZS）) | MyCompleteTaskMonthlyZS | 否 |
+| 17 | [我完成的任务（汇报）](#数据查询-我完成的任务（汇报）（MyCompleteTaskZS）) | MyCompleteTaskZS | 否 |
+| 18 | [我的收藏](#数据查询-我的收藏（MyFavorites）) | MyFavorites | 否 |
+| 19 | [我计划参与的任务（移动端月报）](#数据查询-我计划参与的任务（移动端月报）（MyPlansTaskMobMonthly）) | MyPlansTaskMobMonthly | 否 |
+| 20 | [我计划参与的任务（汇报）](#数据查询-我计划参与的任务（汇报）（MyTomorrowPlanTask）) | MyTomorrowPlanTask | 否 |
+| 21 | [我计划参与的任务（汇报）](#数据查询-我计划参与的任务（汇报）（MyTomorrowPlanTaskMobDaily）) | MyTomorrowPlanTaskMobDaily | 否 |
+| 22 | [移动端下周计划参与(汇报)](#数据查询-移动端下周计划参与(汇报)（NextWeekCompleteTaskMobZS）) | NextWeekCompleteTaskMobZS | 否 |
+| 23 | [本周完成的任务(汇报)](#数据查询-本周完成的任务(汇报)（NextWeekCompleteTaskZS）) | NextWeekCompleteTaskZS | 否 |
+| 24 | [下周计划完成任务(汇报)](#数据查询-下周计划完成任务(汇报)（NextWeekPlanCompleteTask）) | NextWeekPlanCompleteTask | 否 |
+| 25 | [相关任务（计划）](#数据查询-相关任务（计划）（PlanTask）) | PlanTask | 否 |
+| 26 | [项目任务（项目立项）](#数据查询-项目任务（项目立项）（ProjectAppTask）) | ProjectAppTask | 否 |
+| 27 | [项目任务](#数据查询-项目任务（ProjectTask）) | ProjectTask | 否 |
+| 28 | [根任务](#数据查询-根任务（RootTask）) | RootTask | 否 |
+| 29 | [关联计划（当前项目未关联）](#数据查询-关联计划（当前项目未关联）（TaskLinkPlan）) | TaskLinkPlan | 否 |
+| 30 | [我本月完成的任务（下拉列表框）](#数据查询-我本月完成的任务（下拉列表框）（ThisMonthCompleteTaskChoice）) | ThisMonthCompleteTaskChoice | 否 |
+| 31 | [本周完成的任务(汇报)](#数据查询-本周完成的任务(汇报)（ThisWeekCompleteTask）) | ThisWeekCompleteTask | 否 |
+| 32 | [本周已完成任务(下拉框选择)](#数据查询-本周已完成任务(下拉框选择)（ThisWeekCompleteTaskChoice）) | ThisWeekCompleteTaskChoice | 否 |
+| 33 | [移动端本周已完成任务(汇报)](#数据查询-移动端本周已完成任务(汇报)（ThisWeekCompleteTaskMobZS）) | ThisWeekCompleteTaskMobZS | 否 |
+| 34 | [本周完成的任务(汇报)](#数据查询-本周完成的任务(汇报)（ThisWeekCompleteTaskZS）) | ThisWeekCompleteTaskZS | 否 |
+| 35 | [todo列表查询](#数据查询-todo列表查询（TodoListTask）) | TodoListTask | 否 |
+| 36 | [任务类型分组](#数据查询-任务类型分组（TypeGroup）) | TypeGroup | 否 |
+| 37 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-指派给我任务（AssignedToMyTask）
 #### 说明
@@ -7181,6 +7182,7 @@ FAVORITES
 ```SQL
 SELECT t1.`ASSIGNEDDATE`, t1.`ASSIGNEDTO`, t1.`CANCELEDBY`, t1.`CANCELEDDATE`, t1.`CLOSEDBY`, t1.`CLOSEDDATE`, t1.`CLOSEDREASON`, t1.`COLOR`, t1.`CONSUMED`, t1.`DEADLINE`, t1.`DELETED`, (To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`)) AS `DURATION`, t1.`ESTIMATE`, t1.`ESTSTARTED`, t1.`FINISHEDBY`, t1.`FINISHEDDATE`, t1.`FROMBUG`, t1.`ID`, (select (case when COUNT(t.IBZ_FAVORITESID) > 0 then 1 else 0 end ) as ISFAVORITES from T_IBZ_FAVORITES t where t.TYPE = 'task' and t.ACCOUNT = #{srf.sessioncontext.srfloginname} and t.OBJECTID = t1.id) AS `ISFAVORITES`, ( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`, t1.`LASTEDITEDBY`, t1.`LASTEDITEDDATE`, t1.`LEFT`, t1.`MODULE`, t11.`NAME` AS `MODULENAME`, (SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1) AS `MODULENAME1`, ( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` ) AS `MULTIPLE`, t1.`NAME`, t1.`OPENEDBY`, t1.`OPENEDDATE`, t1.`PARENT`, t51.`NAME` AS `PARENTNAME`, t11.`PATH`, t1.`PRI`, t21.`PRODUCT`, t41.`NAME` AS `PRODUCTNAME`, t1.`PROJECT`, t31.`NAME` AS `PROJECTNAME`, t1.`REALSTARTED`, t1.`STATUS`, t1.`STORY`, t21.`TITLE` AS `STORYNAME`, t1.`STORYVERSION`, t1.`SUBSTATUS`, t1.`TYPE`, ( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`, (case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) as `STATUS1`, (case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when t1.`status` = 'done' then 30 when t1.`status` = 'closed' then 40 when t1.`status` = 'cancel' then 50 else 60 end) as statusorder ,
 t1.`PLAN`,
+t1.`TASKSPECIES`,
 t61.`TITLE` AS `PLANNAME` FROM `zt_task` t1  LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID  LEFT JOIN zt_story t21 ON t1.STORY = t21.ID  LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID  LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID  LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID LEFT JOIN `zt_productplan` t61 ON t1.`PLAN` = t61.`ID`
 ```
 ### 数据查询-指派给我任务（PC）（AssignedToMyTaskPc）
@@ -7410,6 +7412,24 @@ SELECT t1.id, t1.`name`, t1.desc, t1.deleted FROM zt_task t1
 SELECT t1.`ASSIGNEDDATE`, case when t61.AGENTUSER = #{srf.sessioncontext.srfloginname} then t61.AGENTUSER else t1.assignedTo end as `ASSIGNEDTO`,  t1.`CANCELEDBY`, t1.`CANCELEDDATE`, t1.`CLOSEDBY`, t1.`CLOSEDDATE`, t1.`CLOSEDREASON`, t1.`COLOR`, t1.`CONSUMED`, t1.`DEADLINE`, t1.`DELETED`, (To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`)) AS `DURATION`, t1.`ESTIMATE`, t1.`ESTSTARTED`, t1.`FINISHEDBY`, t1.`FINISHEDDATE`, t1.`FROMBUG`, t1.`ID`, (select (case when COUNT(t.IBZ_FAVORITESID) > 0 then 1 else 0 end ) as ISFAVORITES from T_IBZ_FAVORITES t where t.TYPE = 'task' and t.ACCOUNT = #{srf.sessioncontext.srfloginname}) AS `ISFAVORITES`, ( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`, t1.`LASTEDITEDBY`, t1.`LASTEDITEDDATE`, t1.`LEFT`, t1.`MODULE`, t11.`NAME` AS `MODULENAME`, (SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1) AS `MODULENAME1`, (case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` in ('wait','doing') and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`, ( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` ) AS `MULTIPLE`, t1.`NAME`, t1.`OPENEDBY`, t1.`OPENEDDATE`, t1.`PARENT`, t51.`NAME` AS `PARENTNAME`, t11.`PATH`, t1.`PRI`, t21.`PRODUCT`, t41.`NAME` AS `PRODUCTNAME`, t1.`PROJECT`, t31.`NAME` AS `PROJECTNAME`, t1.`REALSTARTED`, t1.`STATUS`, t1.`STORY`, t21.`TITLE` AS `STORYNAME`, t1.`STORYVERSION`, t1.`SUBSTATUS`, t1.`TYPE`, 	( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`, CONCAT_WS('',case when t1.consumed = 0 or t1.consumed is null then '0' when t1.`left` = 0 or t1.`left` is null then '100' else ROUND((ROUND(t1.`consumed`/(t1.`left` + t1.consumed),2)) * 100) end ,'%') as progressrate, (case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) as `STATUS1`, (case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when t1.`status` = 'done' then 30 when t1.`status` = 'closed' then 40 when t1.`status` = 'cancel' then 50 else 60 end) as statusorder  ,
 t1.`PLAN`,
 t71.`TITLE` AS `PLANNAME` FROM `zt_task` t1  LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID  LEFT JOIN zt_story t21 ON t1.STORY = t21.ID  LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID  LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID  LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID LEFT JOIN t_ibz_agent t61 ON t1.assignedTo = t61.CREATEMANNAME and DATE_FORMAT(now(), '%Y-%m-%d') >= t61.AGENTBEGIN and DATE_FORMAT(now(), '%Y-%m-%d') <= t61.AGENTEND LEFT JOIN `zt_productplan` t71 ON t1.`PLAN` = t71.`ID`
+```
+### 数据查询-我相关的任务（MyAllTask）
+#### 说明
+我相关的任务
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT t1.`ASSIGNEDDATE`, t1.`ASSIGNEDTO`, t1.`CANCELEDBY`, t1.`CANCELEDDATE`, t1.`CLOSEDBY`, t1.`CLOSEDDATE`, t1.`CLOSEDREASON`, t1.`COLOR`, t1.`CONSUMED`, t1.`DEADLINE`, t1.`DELETED`, (To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`)) AS `DURATION`, t1.`ESTIMATE`, t1.`ESTSTARTED`, t1.`FINISHEDBY`, t1.`FINISHEDDATE`, t1.`FROMBUG`, t1.`ID`, (select (case when COUNT(t.IBZ_FAVORITESID) > 0 then 1 else 0 end ) as ISFAVORITES from T_IBZ_FAVORITES t where t.TYPE = 'task' and t.ACCOUNT = #{srf.sessioncontext.srfloginname} and t.OBJECTID = t1.id) AS `ISFAVORITES`, ( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`, t1.`LASTEDITEDBY`, t1.`LASTEDITEDDATE`, t1.`LEFT`, t1.`MODULE`, t11.`NAME` AS `MODULENAME`, (SELECT case when tt.type = 'task' then GROUP_CONCAT( tt.NAME SEPARATOR '>' ) else CONCAT_WS('',t2.`name`,'>',GROUP_CONCAT( tt.NAME SEPARATOR '>' )) end as `name` FROM zt_module tt left join zt_product t2 on tt.root = t2.id WHERE FIND_IN_SET( tt.id, t11.path ) GROUP BY tt.root limit 0,1) AS `MODULENAME1`, ( SELECT case when count( t.`id` ) > 0 then 1 else 0 end FROM `zt_team` t WHERE t.`type` = 'task' AND t.`root` = t1.`id` ) AS `MULTIPLE`, t1.`NAME`, t1.`OPENEDBY`, t1.`OPENEDDATE`, t1.`PARENT`, t51.`NAME` AS `PARENTNAME`, t11.`PATH`, t1.`PRI`, t21.`PRODUCT`, t41.`NAME` AS `PRODUCTNAME`, t1.`PROJECT`, t31.`NAME` AS `PROJECTNAME`, t1.`REALSTARTED`, t1.`STATUS`, t1.`STORY`, t21.`TITLE` AS `STORYNAME`, t1.`STORYVERSION`, t1.`SUBSTATUS`, t1.`TYPE`, ( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`, (case when t1.storyVersion < t21.version and t21.`status` <> 'changed' then 'storychange'  else t1.`status` end ) as `STATUS1`, (case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when t1.`status` = 'done' then 30 when t1.`status` = 'closed' then 40 when t1.`status` = 'cancel' then 50 else 60 end) as statusorder ,
+t1.`PLAN`,
+t1.`TASKSPECIES`,
+t61.`TITLE` AS `PLANNAME` FROM `zt_task` t1  LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID  LEFT JOIN zt_story t21 ON t1.STORY = t21.ID  LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID  LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID  LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID LEFT JOIN `zt_productplan` t61 ON t1.`PLAN` = t61.`ID`
 ```
 ### 数据查询-我完成的任务（汇报）（MyCompleteTask）
 #### 说明
@@ -8059,30 +8079,31 @@ LEFT JOIN `zt_productplan` t61 ON t1.`PLAN` = t61.`ID`
 | 9 | [DefaultRow](#数据集合-DefaultRow（DefaultRow）) | DefaultRow | 否 |
 | 10 | [ES批量的导入](#数据集合-ES批量的导入（ESBulk）) | ESBulk | 否 |
 | 11 | [我代理的任务](#数据集合-我代理的任务（MyAgentTask）) | MyAgentTask | 否 |
-| 12 | [我完成的任务（汇报）](#数据集合-我完成的任务（汇报）（MyCompleteTask）) | MyCompleteTask | 否 |
-| 13 | [我完成的任务（移动端日报）](#数据集合-我完成的任务（移动端日报）（MyCompleteTaskMobDaily）) | MyCompleteTaskMobDaily | 否 |
-| 14 | [我完成的任务（移动端月报）](#数据集合-我完成的任务（移动端月报）（MyCompleteTaskMobMonthly）) | MyCompleteTaskMobMonthly | 否 |
-| 15 | [我完成的任务（月报展示）](#数据集合-我完成的任务（月报展示）（MyCompleteTaskMonthlyZS）) | MyCompleteTaskMonthlyZS | 否 |
-| 16 | [我完成的任务（汇报）](#数据集合-我完成的任务（汇报）（MyCompleteTaskZS）) | MyCompleteTaskZS | 否 |
-| 17 | [我的收藏](#数据集合-我的收藏（MyFavorites）) | MyFavorites | 否 |
-| 18 | [我计划参与的任务（移动端月报）](#数据集合-我计划参与的任务（移动端月报）（MyPlansTaskMobMonthly）) | MyPlansTaskMobMonthly | 否 |
-| 19 | [我计划参与的任务（汇报）](#数据集合-我计划参与的任务（汇报）（MyTomorrowPlanTask）) | MyTomorrowPlanTask | 否 |
-| 20 | [我计划参与的任务（汇报）](#数据集合-我计划参与的任务（汇报）（MyTomorrowPlanTaskMobDaily）) | MyTomorrowPlanTaskMobDaily | 否 |
-| 21 | [移动端下周计划参与(汇报)](#数据集合-移动端下周计划参与(汇报)（NextWeekCompleteTaskMobZS）) | NextWeekCompleteTaskMobZS | 否 |
-| 22 | [本周完成的任务(汇报)](#数据集合-本周完成的任务(汇报)（NextWeekCompleteTaskZS）) | NextWeekCompleteTaskZS | 否 |
-| 23 | [下周计划完成任务(汇报)](#数据集合-下周计划完成任务(汇报)（NextWeekPlanCompleteTask）) | NextWeekPlanCompleteTask | 否 |
-| 24 | [相关任务（计划）](#数据集合-相关任务（计划）（PlanTask）) | PlanTask | 否 |
-| 25 | [项目任务（项目立项）](#数据集合-项目任务（项目立项）（ProjectAppTask）) | ProjectAppTask | 否 |
-| 26 | [项目任务](#数据集合-项目任务（ProjectTask）) | ProjectTask | 否 |
-| 27 | [根任务](#数据集合-根任务（RootTask）) | RootTask | 否 |
-| 28 | [关联计划（当前项目未关联）](#数据集合-关联计划（当前项目未关联）（TaskLinkPlan）) | TaskLinkPlan | 否 |
-| 29 | [我本月完成的任务（下拉列表框）](#数据集合-我本月完成的任务（下拉列表框）（ThisMonthCompleteTaskChoice）) | ThisMonthCompleteTaskChoice | 否 |
-| 30 | [本周完成的任务(汇报)](#数据集合-本周完成的任务(汇报)（ThisWeekCompleteTask）) | ThisWeekCompleteTask | 否 |
-| 31 | [本周已完成任务(下拉框选择)](#数据集合-本周已完成任务(下拉框选择)（ThisWeekCompleteTaskChoice）) | ThisWeekCompleteTaskChoice | 否 |
-| 32 | [移动端本周已完成任务(汇报)](#数据集合-移动端本周已完成任务(汇报)（ThisWeekCompleteTaskMobZS）) | ThisWeekCompleteTaskMobZS | 否 |
-| 33 | [本周完成的任务(汇报)](#数据集合-本周完成的任务(汇报)（ThisWeekCompleteTaskZS）) | ThisWeekCompleteTaskZS | 否 |
-| 34 | [todo列表查询](#数据集合-todo列表查询（TodoListTask）) | TodoListTask | 否 |
-| 35 | [任务类型分组](#数据集合-任务类型分组（TypeGroup）) | TypeGroup | 否 |
+| 12 | [我相关的任务](#数据集合-我相关的任务（MyAllTask）) | MyAllTask | 否 |
+| 13 | [我完成的任务（汇报）](#数据集合-我完成的任务（汇报）（MyCompleteTask）) | MyCompleteTask | 否 |
+| 14 | [我完成的任务（移动端日报）](#数据集合-我完成的任务（移动端日报）（MyCompleteTaskMobDaily）) | MyCompleteTaskMobDaily | 否 |
+| 15 | [我完成的任务（移动端月报）](#数据集合-我完成的任务（移动端月报）（MyCompleteTaskMobMonthly）) | MyCompleteTaskMobMonthly | 否 |
+| 16 | [我完成的任务（月报展示）](#数据集合-我完成的任务（月报展示）（MyCompleteTaskMonthlyZS）) | MyCompleteTaskMonthlyZS | 否 |
+| 17 | [我完成的任务（汇报）](#数据集合-我完成的任务（汇报）（MyCompleteTaskZS）) | MyCompleteTaskZS | 否 |
+| 18 | [我的收藏](#数据集合-我的收藏（MyFavorites）) | MyFavorites | 否 |
+| 19 | [我计划参与的任务（移动端月报）](#数据集合-我计划参与的任务（移动端月报）（MyPlansTaskMobMonthly）) | MyPlansTaskMobMonthly | 否 |
+| 20 | [我计划参与的任务（汇报）](#数据集合-我计划参与的任务（汇报）（MyTomorrowPlanTask）) | MyTomorrowPlanTask | 否 |
+| 21 | [我计划参与的任务（汇报）](#数据集合-我计划参与的任务（汇报）（MyTomorrowPlanTaskMobDaily）) | MyTomorrowPlanTaskMobDaily | 否 |
+| 22 | [移动端下周计划参与(汇报)](#数据集合-移动端下周计划参与(汇报)（NextWeekCompleteTaskMobZS）) | NextWeekCompleteTaskMobZS | 否 |
+| 23 | [本周完成的任务(汇报)](#数据集合-本周完成的任务(汇报)（NextWeekCompleteTaskZS）) | NextWeekCompleteTaskZS | 否 |
+| 24 | [下周计划完成任务(汇报)](#数据集合-下周计划完成任务(汇报)（NextWeekPlanCompleteTask）) | NextWeekPlanCompleteTask | 否 |
+| 25 | [相关任务（计划）](#数据集合-相关任务（计划）（PlanTask）) | PlanTask | 否 |
+| 26 | [项目任务（项目立项）](#数据集合-项目任务（项目立项）（ProjectAppTask）) | ProjectAppTask | 否 |
+| 27 | [项目任务](#数据集合-项目任务（ProjectTask）) | ProjectTask | 否 |
+| 28 | [根任务](#数据集合-根任务（RootTask）) | RootTask | 否 |
+| 29 | [关联计划（当前项目未关联）](#数据集合-关联计划（当前项目未关联）（TaskLinkPlan）) | TaskLinkPlan | 否 |
+| 30 | [我本月完成的任务（下拉列表框）](#数据集合-我本月完成的任务（下拉列表框）（ThisMonthCompleteTaskChoice）) | ThisMonthCompleteTaskChoice | 否 |
+| 31 | [本周完成的任务(汇报)](#数据集合-本周完成的任务(汇报)（ThisWeekCompleteTask）) | ThisWeekCompleteTask | 否 |
+| 32 | [本周已完成任务(下拉框选择)](#数据集合-本周已完成任务(下拉框选择)（ThisWeekCompleteTaskChoice）) | ThisWeekCompleteTaskChoice | 否 |
+| 33 | [移动端本周已完成任务(汇报)](#数据集合-移动端本周已完成任务(汇报)（ThisWeekCompleteTaskMobZS）) | ThisWeekCompleteTaskMobZS | 否 |
+| 34 | [本周完成的任务(汇报)](#数据集合-本周完成的任务(汇报)（ThisWeekCompleteTaskZS）) | ThisWeekCompleteTaskZS | 否 |
+| 35 | [todo列表查询](#数据集合-todo列表查询（TodoListTask）) | TodoListTask | 否 |
+| 36 | [任务类型分组](#数据集合-任务类型分组（TypeGroup）) | TypeGroup | 否 |
 
 ### 数据集合-指派给我任务（AssignedToMyTask）
 #### 说明
@@ -8238,6 +8259,20 @@ ES批量的导入
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [我代理的任务（MyAgentTask）](#数据查询-我代理的任务（MyAgentTask）) |
+### 数据集合-我相关的任务（MyAllTask）
+#### 说明
+我相关的任务
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [我相关的任务（MyAllTask）](#数据查询-我相关的任务（MyAllTask）) |
 ### 数据集合-我完成的任务（汇报）（MyCompleteTask）
 #### 说明
 我完成的任务（汇报）

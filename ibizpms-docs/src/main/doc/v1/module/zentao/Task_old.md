@@ -1315,6 +1315,7 @@ hide footbox
 |DefaultRow|DefaultRow([MYSQL5](../../appendix/query_MYSQL5.md#Task_DefaultRow))|否|&nbsp;|
 |ESBulk|ES批量的导入([MYSQL5](../../appendix/query_MYSQL5.md#Task_ESBulk))|否|&nbsp;|
 |MyAgentTask|我代理的任务([MYSQL5](../../appendix/query_MYSQL5.md#Task_MyAgentTask))|否|&nbsp;|
+|MyAllTask|我相关的任务([MYSQL5](../../appendix/query_MYSQL5.md#Task_MyAllTask))|否|&nbsp;|
 |MyCompleteTask|我完成的任务（汇报）([MYSQL5](../../appendix/query_MYSQL5.md#Task_MyCompleteTask))|否|&nbsp;|
 |MyCompleteTaskMobDaily|我完成的任务（移动端日报）([MYSQL5](../../appendix/query_MYSQL5.md#Task_MyCompleteTaskMobDaily))|否|&nbsp;|
 |MyCompleteTaskMobMonthly|我完成的任务（移动端月报）([MYSQL5](../../appendix/query_MYSQL5.md#Task_MyCompleteTaskMobMonthly))|否|&nbsp;|
@@ -1356,6 +1357,7 @@ hide footbox
 |DefaultRow|DefaultRow|DefaultRow|否|&nbsp;|
 |ESBulk|ES批量的导入|ESBulk|否|&nbsp;|
 |MyAgentTask|我代理的任务|MyAgentTask|否|&nbsp;|
+|MyAllTask|我相关的任务|MyAllTask|否|&nbsp;|
 |MyCompleteTask|我完成的任务（汇报）|MyCompleteTask|否|&nbsp;|
 |MyCompleteTaskMobDaily|我完成的任务（移动端日报）|MyCompleteTaskMobDaily|否|&nbsp;|
 |MyCompleteTaskMobMonthly|我完成的任务（移动端月报）|MyCompleteTaskMobMonthly|否|&nbsp;|
