@@ -185,7 +185,7 @@ public class PSDEFieldServiceImpl implements IPSDEFieldService {
 
     @Override
     public PSDEField getDraft(String devSlnSysId, PSDEField et) {
-        et = getPSDEFieldFeignClient(devSlnSysId).getDraft();
+        et = getPSDEFieldFeignClient(devSlnSysId).getDraft(et);
         return et;
     }
 

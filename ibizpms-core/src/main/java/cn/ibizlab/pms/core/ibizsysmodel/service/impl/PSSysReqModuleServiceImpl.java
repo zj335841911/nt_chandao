@@ -185,7 +185,7 @@ public class PSSysReqModuleServiceImpl implements IPSSysReqModuleService {
 
     @Override
     public PSSysReqModule getDraft(String devSlnSysId, PSSysReqModule et) {
-        et = getPSSysReqModuleFeignClient(devSlnSysId).getDraft();
+        et = getPSSysReqModuleFeignClient(devSlnSysId).getDraft(et);
         return et;
     }
 

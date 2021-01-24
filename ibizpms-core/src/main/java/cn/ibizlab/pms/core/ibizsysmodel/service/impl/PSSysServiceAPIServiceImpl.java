@@ -185,7 +185,7 @@ public class PSSysServiceAPIServiceImpl implements IPSSysServiceAPIService {
 
     @Override
     public PSSysServiceAPI getDraft(String devSlnSysId, PSSysServiceAPI et) {
-        et = getPSSysServiceAPIFeignClient(devSlnSysId).getDraft();
+        et = getPSSysServiceAPIFeignClient(devSlnSysId).getDraft(et);
         return et;
     }
 

@@ -185,7 +185,7 @@ public class PSSysRunSessionServiceImpl implements IPSSysRunSessionService {
 
     @Override
     public PSSysRunSession getDraft(String devSlnSysId, PSSysRunSession et) {
-        et = getPSSysRunSessionFeignClient(devSlnSysId).getDraft();
+        et = getPSSysRunSessionFeignClient(devSlnSysId).getDraft(et);
         return et;
     }
 

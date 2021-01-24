@@ -185,7 +185,7 @@ public class PSModuleServiceImpl implements IPSModuleService {
 
     @Override
     public PSModule getDraft(String devSlnSysId, PSModule et) {
-        et = getPSModuleFeignClient(devSlnSysId).getDraft();
+        et = getPSModuleFeignClient(devSlnSysId).getDraft(et);
         return et;
     }
 

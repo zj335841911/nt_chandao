@@ -185,7 +185,7 @@ public class PSSysAppServiceImpl implements IPSSysAppService {
 
     @Override
     public PSSysApp getDraft(String devSlnSysId, PSSysApp et) {
-        et = getPSSysAppFeignClient(devSlnSysId).getDraft();
+        et = getPSSysAppFeignClient(devSlnSysId).getDraft(et);
         return et;
     }
 

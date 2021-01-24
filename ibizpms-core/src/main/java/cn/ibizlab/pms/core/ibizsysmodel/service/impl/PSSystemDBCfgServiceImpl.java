@@ -185,7 +185,7 @@ public class PSSystemDBCfgServiceImpl implements IPSSystemDBCfgService {
 
     @Override
     public PSSystemDBCfg getDraft(String devSlnSysId, PSSystemDBCfg et) {
-        et = getPSSystemDBCfgFeignClient(devSlnSysId).getDraft();
+        et = getPSSystemDBCfgFeignClient(devSlnSysId).getDraft(et);
         return et;
     }
 
