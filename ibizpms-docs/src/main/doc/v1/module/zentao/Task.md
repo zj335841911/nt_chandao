@@ -6641,8 +6641,8 @@ FAVORITES
 | 序号 | 节点 | 节点名 | 节点类型 |
 | ---- | ---- | ---- | ---- |
 | 1 | 设置常规参数 | Prepareparam1 | 准备参数 |
-| 2 | 开始 | Begin | 开始 |
-| 3 | 获取项目 | Rawsqlcall1 | 直接SQL调用 |
+| 2 | 获取项目 | Rawsqlcall2 | 直接SQL调用 |
+| 3 | 开始 | Begin | 开始 |
 ### 逻辑处理-获取团队成员（getUsernames）
 #### 说明
 获取团队成员
