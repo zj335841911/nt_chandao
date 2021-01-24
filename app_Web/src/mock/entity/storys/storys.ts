@@ -266,7 +266,7 @@ mock.onPut(new RegExp(/^\/stories\/?([a-zA-Z0-9\-\;]{0,35})$/)).reply((config: a
 
 
 // GetDraft
-mock.onGet(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/stories\/getdraft$/)).reply((config: any) => {
+mock.onPost(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/stories\/getdraft$/)).reply((config: any) => {
     console.groupCollapsed("实体:story 方法: GetDraft");
     console.table({url:config.url, method: config.method, data:config.data});
     // GetDraft
@@ -282,7 +282,7 @@ mock.onGet(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/stories\/getdraft$/
 });
 
 // GetDraft
-mock.onGet(new RegExp(/^\/stories\/getdraft$/)).reply((config: any) => {
+mock.onPost(new RegExp(/^\/stories\/getdraft$/)).reply((config: any) => {
     console.groupCollapsed("实体:story 方法: GetDraft");
     console.table({url:config.url, method: config.method, data:config.data});
     // GetDraft
