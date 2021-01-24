@@ -10507,6 +10507,8 @@ t1.`TYPE`,
 (select t.realname from zt_user t where t.account = t1.account) AS `USERNAME`
 FROM `zt_team` t1 
 
+WHERE ( t1.`TYPE` = 'product' ) 
+
 ```
 ### 产品团队成员信息(ProductTeamInfo)<div id="PRODUCTTEAM_ProductTeamInfo"></div>
 ```sql
