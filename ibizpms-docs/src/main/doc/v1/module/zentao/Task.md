@@ -113,6 +113,7 @@
 | 81 | [所属计划](#属性-所属计划（PLANNAME）) | PLANNAME | 外键值文本 | 否 | 是 | 是 |
 | 82 | [关联编号](#属性-关联编号（IDVALUE）) | IDVALUE | 大整型 | 否 | 是 | 是 |
 | 83 | [周期](#属性-周期（CYCLE）) | CYCLE | 整型 | 否 | 是 | 是 |
+| 84 | [是否指派](#属性-是否指派（ASSIGN）) | ASSIGN | 文本，可指定长度 | 否 | 是 | 是 |
 
 ### 属性-由谁取消（CANCELEDBY）
 #### 属性说明
@@ -3706,6 +3707,47 @@ Integer
 | 关系属性 | [名称（TITLE）](../zentao/ProductPlan/#属性-名称（TITLE）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
+### 属性-是否指派（ASSIGN）
+#### 属性说明
+是否指派
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+文本，可指定长度
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [产品计划（ZT_PRODUCTPLAN）](../zentao/ProductPlan) |
+| 关系属性 | [名称（TITLE）](../zentao/ProductPlan/#属性-名称（TITLE）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
 
 ## 业务状态
 | 序号 | 状态名称 | [任务状态](#属性-任务状态（STATUS1）)<br>（STATUS1） | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | [任务类型](#属性-任务类型（TASKTYPE）)<br>（TASKTYPE） | 默认 |
@@ -6129,7 +6171,9 @@ GetDraft
 后台及前台
 
 #### 逻辑附加
-无
+| 序号 | 附加逻辑 | 附加模式 | 内部逻辑 | 备注 |
+| ---- | ---- | ---- | ---- | ---- |
+| 1 | [根据计划获取相关项目<br>（getProjectByPlan）](#逻辑处理-根据计划获取相关项目（getProjectByPlan）) | 执行之后 | 是 |  |
 ### 实体行为-GetDraftTemp（GetDraftTemp）
 #### 说明
 GetDraftTemp
@@ -6513,15 +6557,16 @@ FAVORITES
 | 3 | [任务取消收藏](#逻辑处理-任务取消收藏（TaskCancleFavorites）) | TaskCancleFavorites | 后台 |
 | 4 | [任务收藏](#逻辑处理-任务收藏（TaskFavorites）) | TaskFavorites | 后台 |
 | 5 | [更新需求版本](#逻辑处理-更新需求版本（UpdateStoryVersion）) | UpdateStoryVersion | 后台 |
-| 6 | [获取团队成员](#逻辑处理-获取团队成员（getUsernames）) | getUsernames | 后台 |
-| 7 | [获取团队成员（草稿）](#逻辑处理-获取团队成员（草稿）（getUsernamesDraft）) | getUsernamesDraft | 后台 |
-| 8 | [行为[Update]主状态拒绝逻辑](#逻辑处理-行为[Update]主状态拒绝逻辑（Update__MSDeny）) | Update__MSDeny | 后台 |
-| 9 | [行为[UpdateTemp]主状态拒绝逻辑](#逻辑处理-行为[UpdateTemp]主状态拒绝逻辑（UpdateTemp__MSDeny）) | UpdateTemp__MSDeny | 后台 |
-| 10 | [行为[UpdateTempMajor]主状态拒绝逻辑](#逻辑处理-行为[UpdateTempMajor]主状态拒绝逻辑（UpdateTempMajor__MSDeny）) | UpdateTempMajor__MSDeny | 后台 |
-| 11 | [行为[Remove]主状态拒绝逻辑](#逻辑处理-行为[Remove]主状态拒绝逻辑（Remove__MSDeny）) | Remove__MSDeny | 后台 |
-| 12 | [行为[RemoveTemp]主状态拒绝逻辑](#逻辑处理-行为[RemoveTemp]主状态拒绝逻辑（RemoveTemp__MSDeny）) | RemoveTemp__MSDeny | 后台 |
-| 13 | [行为[RemoveTempMajor]主状态拒绝逻辑](#逻辑处理-行为[RemoveTempMajor]主状态拒绝逻辑（RemoveTempMajor__MSDeny）) | RemoveTempMajor__MSDeny | 后台 |
-| 14 | [行为[updateStoryVersion]主状态拒绝逻辑](#逻辑处理-行为[updateStoryVersion]主状态拒绝逻辑（UpdateStoryVersion__MSDeny）) | UpdateStoryVersion__MSDeny | 后台 |
+| 6 | [根据计划获取相关项目](#逻辑处理-根据计划获取相关项目（getProjectByPlan）) | getProjectByPlan | 后台 |
+| 7 | [获取团队成员](#逻辑处理-获取团队成员（getUsernames）) | getUsernames | 后台 |
+| 8 | [获取团队成员（草稿）](#逻辑处理-获取团队成员（草稿）（getUsernamesDraft）) | getUsernamesDraft | 后台 |
+| 9 | [行为[Update]主状态拒绝逻辑](#逻辑处理-行为[Update]主状态拒绝逻辑（Update__MSDeny）) | Update__MSDeny | 后台 |
+| 10 | [行为[UpdateTemp]主状态拒绝逻辑](#逻辑处理-行为[UpdateTemp]主状态拒绝逻辑（UpdateTemp__MSDeny）) | UpdateTemp__MSDeny | 后台 |
+| 11 | [行为[UpdateTempMajor]主状态拒绝逻辑](#逻辑处理-行为[UpdateTempMajor]主状态拒绝逻辑（UpdateTempMajor__MSDeny）) | UpdateTempMajor__MSDeny | 后台 |
+| 12 | [行为[Remove]主状态拒绝逻辑](#逻辑处理-行为[Remove]主状态拒绝逻辑（Remove__MSDeny）) | Remove__MSDeny | 后台 |
+| 13 | [行为[RemoveTemp]主状态拒绝逻辑](#逻辑处理-行为[RemoveTemp]主状态拒绝逻辑（RemoveTemp__MSDeny）) | RemoveTemp__MSDeny | 后台 |
+| 14 | [行为[RemoveTempMajor]主状态拒绝逻辑](#逻辑处理-行为[RemoveTempMajor]主状态拒绝逻辑（RemoveTempMajor__MSDeny）) | RemoveTempMajor__MSDeny | 后台 |
+| 15 | [行为[updateStoryVersion]主状态拒绝逻辑](#逻辑处理-行为[updateStoryVersion]主状态拒绝逻辑（UpdateStoryVersion__MSDeny）) | UpdateStoryVersion__MSDeny | 后台 |
 
 ### 逻辑处理-获取联系人（GetUserConcat）
 #### 说明
@@ -6585,6 +6630,19 @@ FAVORITES
 | 1 | 开始 | Begin | 开始 |
 | 2 | 获取需求版本 | Rawsqlcall1 | 直接SQL调用 |
 | 3 | 重置需求版本 | Prepareparam1 | 准备参数 |
+### 逻辑处理-根据计划获取相关项目（getProjectByPlan）
+#### 说明
+根据计划获取相关项目
+
+- 逻辑持有者
+后台
+
+#### 逻辑节点
+| 序号 | 节点 | 节点名 | 节点类型 |
+| ---- | ---- | ---- | ---- |
+| 1 | 设置常规参数 | Prepareparam1 | 准备参数 |
+| 2 | 开始 | Begin | 开始 |
+| 3 | 获取项目 | Rawsqlcall1 | 直接SQL调用 |
 ### 逻辑处理-获取团队成员（getUsernames）
 #### 说明
 获取团队成员
@@ -7780,6 +7838,7 @@ LEFT JOIN `zt_productplan` t61 ON t1.`PLAN` = t61.`ID`
 - MYSQL5
 ```SQL
 SELECT
+t1.`ASSIGN`,
 t1.`ASSIGNEDDATE`,
 t1.`ASSIGNEDTO`,
 t1.`CANCELEDBY`,
@@ -7987,6 +8046,7 @@ t61.`TITLE` AS `PLANNAME` FROM `zt_task` t1  LEFT JOIN zt_task t11 ON t1.PARENT 
 - MYSQL5
 ```SQL
 SELECT
+t1.`ASSIGN`,
 t1.`ASSIGNEDDATE`,
 t1.`ASSIGNEDTO`,
 t1.`CANCELEDBY`,

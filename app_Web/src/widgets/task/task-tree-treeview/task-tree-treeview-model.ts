@@ -264,6 +264,9 @@ export default class TaskTreeModel {
       {
         name: 'cycle',
       },
+      {
+        name: 'assign',
+      },
     ]
   }
 

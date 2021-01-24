@@ -89,6 +89,10 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
 
     @Autowired
     @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.logic.ITaskgetProjectByPlanLogic getprojectbyplanLogic;
+
+    @Autowired
+    @Lazy
     protected cn.ibizlab.pms.core.zentao.service.logic.ITaskgetUsernamesLogic getusernamesLogic;
 
     @Autowired
@@ -164,6 +168,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
     @Override
     public Task getDraft(Task et) {
         fillParentData(et);
+        getprojectbyplanLogic.execute(et);
         return et;
     }
 

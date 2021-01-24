@@ -669,4 +669,12 @@ export interface Task {
      * @memberof Task
      */
     cycle?: any;
+
+    /**
+     * 是否指派
+     *
+     * @returns {*}
+     * @memberof Task
+     */
+    assign?: any;
 }

@@ -660,6 +660,13 @@ public class Task extends EntityMP implements Serializable {
     @JSONField(name = "cycle")
     @JsonProperty("cycle")
     private Integer cycle;
+    /**
+     * 是否指派
+     */
+    @TableField(value = "`assign`")
+    @JSONField(name = "assign")
+    @JsonProperty("assign")
+    private String assign;
 
     /**
      * 
@@ -1143,6 +1150,14 @@ public class Task extends EntityMP implements Serializable {
     public void setCycle(Integer cycle) {
         this.cycle = cycle;
         this.modify("cycle", cycle);
+    }
+
+    /**
+     * 设置 [是否指派]
+     */
+    public void setAssign(String assign) {
+        this.assign = assign;
+        this.modify("assign", assign);
     }
 
 

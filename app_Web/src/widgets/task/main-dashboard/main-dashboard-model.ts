@@ -264,6 +264,9 @@ export default class MainModel {
       {
         name: 'cycle',
       },
+      {
+        name: 'assign',
+      },
     ]
   }
 

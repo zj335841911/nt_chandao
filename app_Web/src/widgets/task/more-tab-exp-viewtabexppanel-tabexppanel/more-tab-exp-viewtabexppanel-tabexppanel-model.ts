@@ -264,6 +264,9 @@ export default class MoreTabExpViewtabexppanelModel {
       {
         name: 'cycle',
       },
+      {
+        name: 'assign',
+      },
     ]
   }
 

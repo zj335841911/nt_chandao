@@ -264,6 +264,9 @@ export default class AssignToMeModel {
       {
         name: 'cycle',
       },
+      {
+        name: 'assign',
+      },
     ]
   }
 

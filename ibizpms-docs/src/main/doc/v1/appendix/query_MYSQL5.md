@@ -19126,6 +19126,7 @@ t1.`PARENT` in (0,-1)
 ### 关联计划（当前项目未关联）(TaskLinkPlan)<div id="Task_TaskLinkPlan"></div>
 ```sql
 SELECT
+t1.`ASSIGN`,
 t1.`ASSIGNEDDATE`,
 t1.`ASSIGNEDTO`,
 t1.`CANCELEDBY`,
@@ -19266,6 +19267,7 @@ t61.`TITLE` AS `PLANNAME` FROM `zt_task` t1  LEFT JOIN zt_task t11 ON t1.PARENT 
 ### 默认（全部数据）(VIEW)<div id="Task_View"></div>
 ```sql
 SELECT
+t1.`ASSIGN`,
 t1.`ASSIGNEDDATE`,
 t1.`ASSIGNEDTO`,
 t1.`CANCELEDBY`,

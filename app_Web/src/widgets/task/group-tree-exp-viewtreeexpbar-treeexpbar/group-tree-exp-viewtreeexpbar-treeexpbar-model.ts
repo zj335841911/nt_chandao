@@ -264,6 +264,9 @@ export default class GroupTreeExpViewtreeexpbarModel {
       {
         name: 'cycle',
       },
+      {
+        name: 'assign',
+      },
     ]
   }
 

@@ -264,6 +264,9 @@ export default class WorkInfoModel {
       {
         name: 'cycle',
       },
+      {
+        name: 'assign',
+      },
     ]
   }
 

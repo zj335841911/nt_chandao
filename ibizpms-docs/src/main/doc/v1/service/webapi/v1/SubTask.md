@@ -18513,7 +18513,8 @@ POST
 | 79 | planname | String | 允许 | 所属计划 |
 | 80 | idvalue | Long | 允许 | 关联编号 |
 | 81 | cycle | Integer | 允许 | 周期 |
-| 82 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 82 | assign | String | 允许 | 是否指派 |
+| 83 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### TaskSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

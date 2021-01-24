@@ -264,6 +264,9 @@ export default class CurFinishedbyTaskModel {
       {
         name: 'cycle',
       },
+      {
+        name: 'assign',
+      },
     ]
   }
 

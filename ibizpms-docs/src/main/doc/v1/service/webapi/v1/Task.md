@@ -16454,9 +16454,10 @@ POST
 | 79 | planname | String | 允许 | 所属计划 |
 | 80 | idvalue | Long | 允许 | 关联编号 |
 | 81 | cycle | Integer | 允许 | 周期 |
-| 82 | ibztaskestimates | List<[IBZTaskEstimateDTO}](#IBZTaskEstimateDTO})> | 允许 | 任务预计 |
-| 83 | ibztaskteams | List<[IBZTaskTeamDTO}](#IBZTaskTeamDTO})> | 允许 | 任务团队 |
-| 84 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 82 | assign | String | 允许 | 是否指派 |
+| 83 | ibztaskestimates | List<[IBZTaskEstimateDTO}](#IBZTaskEstimateDTO})> | 允许 | 任务预计 |
+| 84 | ibztaskteams | List<[IBZTaskTeamDTO}](#IBZTaskTeamDTO})> | 允许 | 任务团队 |
+| 85 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### IBZTaskEstimateDTO
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

@@ -745,6 +745,15 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @JsonProperty("cycle")
     private Integer cycle;
 
+    /**
+     * 属性 [ASSIGN]
+     *
+     */
+    @JSONField(name = "assign")
+    @JsonProperty("assign")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String assign;
+
 
     /**
      * 设置 [CANCELEDBY]
@@ -1072,6 +1081,14 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     public void setCycle(Integer  cycle){
         this.cycle = cycle ;
         this.modify("cycle",cycle);
+    }
+
+    /**
+     * 设置 [ASSIGN]
+     */
+    public void setAssign(String  assign){
+        this.assign = assign ;
+        this.modify("assign",assign);
     }
 
 

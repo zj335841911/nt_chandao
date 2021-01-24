@@ -264,6 +264,9 @@ export default class ToolbarModel {
       {
         name: 'cycle',
       },
+      {
+        name: 'assign',
+      },
     ]
   }
 

@@ -264,6 +264,9 @@ export default class MainDetailModel {
       {
         name: 'cycle',
       },
+      {
+        name: 'assign',
+      },
     ]
   }
 

@@ -669,4 +669,12 @@ export interface SubTask {
      * @memberof SubTask
      */
     cycle?: any;
+
+    /**
+     * 是否指派
+     *
+     * @returns {*}
+     * @memberof SubTask
+     */
+    assign?: any;
 }

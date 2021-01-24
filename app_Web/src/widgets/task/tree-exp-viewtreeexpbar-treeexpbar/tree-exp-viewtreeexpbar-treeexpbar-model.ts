@@ -264,6 +264,9 @@ export default class TreeExpViewtreeexpbarModel {
       {
         name: 'cycle',
       },
+      {
+        name: 'assign',
+      },
     ]
   }
 
