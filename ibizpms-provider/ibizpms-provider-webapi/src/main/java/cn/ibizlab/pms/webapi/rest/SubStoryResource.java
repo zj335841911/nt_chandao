@@ -110,7 +110,7 @@ public class SubStoryResource {
     }
 
     @ApiOperation(value = "获取需求草稿", tags = {"需求" },  notes = "获取需求草稿")
-	@RequestMapping(method = RequestMethod.POST, value = "/substories/getdraft")
+	@RequestMapping(method = RequestMethod.GET, value = "/substories/getdraft")
     public ResponseEntity<SubStoryDTO> getDraft(SubStoryDTO dto) {
         Story domain = substoryMapping.toDomain(dto);
         return ResponseEntity.status(HttpStatus.OK).body(substoryMapping.toDto(storyService.getDraft(domain)));
@@ -1506,7 +1506,7 @@ public class SubStoryResource {
     }
 
     @ApiOperation(value = "根据需求获取需求草稿", tags = {"需求" },  notes = "根据需求获取需求草稿")
-    @RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/getdraft")
+    @RequestMapping(method = RequestMethod.GET, value = "/stories/{story_id}/substories/getdraft")
     public ResponseEntity<SubStoryDTO> getDraftByStory(@PathVariable("story_id") Long story_id, SubStoryDTO dto) {
         Story domain = substoryMapping.toDomain(dto);
         domain.setParent(story_id);
@@ -2862,7 +2862,7 @@ public class SubStoryResource {
     }
 
     @ApiOperation(value = "根据产品需求获取需求草稿", tags = {"需求" },  notes = "根据产品需求获取需求草稿")
-    @RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/getdraft")
+    @RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/stories/{story_id}/substories/getdraft")
     public ResponseEntity<SubStoryDTO> getDraftByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, SubStoryDTO dto) {
         Story domain = substoryMapping.toDomain(dto);
         domain.setParent(story_id);
