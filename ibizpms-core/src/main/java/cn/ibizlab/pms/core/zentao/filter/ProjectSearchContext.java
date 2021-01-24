@@ -48,6 +48,13 @@ public class ProjectSearchContext extends QueryWrapperContext<Project> {
             this.getSearchCond().eq("`id`", n_id_eq);
         }
     }
+	private String n_id_in;//[项目编号]
+	public void setN_id_in(String n_id_in) {
+        this.n_id_in = n_id_in;
+        if(!ObjectUtils.isEmpty(this.n_id_in)){
+			this.getSearchCond().in("`id`",this.n_id_in.split(";"));
+        }
+    }
 	private Long n_id_noteq;//[项目编号]
 	public void setN_id_noteq(Long n_id_noteq) {
         this.n_id_noteq = n_id_noteq;

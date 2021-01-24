@@ -48,6 +48,13 @@ public class ProductSearchContext extends QueryWrapperContext<Product> {
             this.getSearchCond().eq("`id`", n_id_eq);
         }
     }
+	private String n_id_in;//[编号]
+	public void setN_id_in(String n_id_in) {
+        this.n_id_in = n_id_in;
+        if(!ObjectUtils.isEmpty(this.n_id_in)){
+			this.getSearchCond().in("`id`",this.n_id_in.split(";"));
+        }
+    }
 	private String n_type_eq;//[产品类型]
 	public void setN_type_eq(String n_type_eq) {
         this.n_type_eq = n_type_eq;

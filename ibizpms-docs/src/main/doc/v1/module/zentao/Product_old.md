@@ -336,6 +336,7 @@ hide footbox
 |访问控制(ACL)|EQ|
 |产品名称(NAME)|LIKE|
 |编号(ID)|EQ|
+|编号(ID)|IN|
 |产品类型(TYPE)|EQ|
 |状态(STATUS)|EQ|
 |状态(STATUS)|ISNOTNULL|

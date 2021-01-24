@@ -693,6 +693,7 @@ hide footbox
 |访问控制(ACL)|EQ|
 |项目负责人(PM)|EQ|
 |项目编号(ID)|EQ|
+|项目编号(ID)|IN|
 |项目编号(ID)|NOTEQ|
 |项目名称(NAME)|LIKE|
 |发布负责人(RD)|EQ|
