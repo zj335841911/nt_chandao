@@ -110,7 +110,7 @@ public class SysOrganizationServiceImpl implements ISysOrganizationService {
 
     @Override
     public SysOrganization getDraft(SysOrganization et) {
-        et = sysOrganizationFeignClient.getDraft();
+        et=sysOrganizationFeignClient.getDraft(et);
         return et;
     }
 

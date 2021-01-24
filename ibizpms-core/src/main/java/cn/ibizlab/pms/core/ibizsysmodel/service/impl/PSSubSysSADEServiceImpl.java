@@ -179,7 +179,7 @@ public class PSSubSysSADEServiceImpl implements IPSSubSysSADEService {
 
     @Override
     public PSSubSysSADE getDraft(PSSubSysSADE et) {
-        et = pSSubSysSADEFeignClient.getDraft();
+        et=pSSubSysSADEFeignClient.getDraft(et);
         return et;
     }
 

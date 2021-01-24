@@ -110,7 +110,7 @@ public class SysTeamServiceImpl implements ISysTeamService {
 
     @Override
     public SysTeam getDraft(SysTeam et) {
-        et = sysTeamFeignClient.getDraft();
+        et=sysTeamFeignClient.getDraft(et);
         return et;
     }
 

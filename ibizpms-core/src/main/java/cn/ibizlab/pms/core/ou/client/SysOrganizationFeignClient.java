@@ -52,7 +52,7 @@ public interface SysOrganizationFeignClient {
 
 
     @RequestMapping(method = RequestMethod.GET, value = "/sysorganizations/getdraft")
-    SysOrganization getDraft();
+    SysOrganization getDraft(SysOrganization entity);
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/sysorganizations/checkkey")

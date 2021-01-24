@@ -52,7 +52,7 @@ public interface PSModuleFeignClient {
 
 
     @RequestMapping(method = RequestMethod.GET, value = "/psmodules/getdraft")
-    PSModule getDraft();
+    PSModule getDraft(PSModule entity);
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/psmodules/checkkey")

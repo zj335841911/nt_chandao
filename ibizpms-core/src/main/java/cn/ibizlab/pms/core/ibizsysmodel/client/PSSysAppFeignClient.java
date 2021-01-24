@@ -52,7 +52,7 @@ public interface PSSysAppFeignClient {
 
 
     @RequestMapping(method = RequestMethod.GET, value = "/pssysapps/getdraft")
-    PSSysApp getDraft();
+    PSSysApp getDraft(PSSysApp entity);
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/pssysapps/checkkey")

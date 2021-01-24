@@ -179,7 +179,7 @@ public class PSSubSysServiceAPIServiceImpl implements IPSSubSysServiceAPIService
 
     @Override
     public PSSubSysServiceAPI getDraft(PSSubSysServiceAPI et) {
-        et = pSSubSysServiceAPIFeignClient.getDraft();
+        et=pSSubSysServiceAPIFeignClient.getDraft(et);
         return et;
     }
 

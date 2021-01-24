@@ -110,7 +110,7 @@ public class SysPostServiceImpl implements ISysPostService {
 
     @Override
     public SysPost getDraft(SysPost et) {
-        et = sysPostFeignClient.getDraft();
+        et=sysPostFeignClient.getDraft(et);
         return et;
     }
 

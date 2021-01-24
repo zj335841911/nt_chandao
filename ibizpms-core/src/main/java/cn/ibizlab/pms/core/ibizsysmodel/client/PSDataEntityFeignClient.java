@@ -52,7 +52,7 @@ public interface PSDataEntityFeignClient {
 
 
     @RequestMapping(method = RequestMethod.GET, value = "/psdataentities/getdraft")
-    PSDataEntity getDraft();
+    PSDataEntity getDraft(PSDataEntity entity);
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/psdataentities/checkkey")

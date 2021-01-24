@@ -55,7 +55,7 @@ public class PSDataEntityFallback implements PSDataEntityFeignClient {
     }
 
 
-    public PSDataEntity getDraft(){
+    public PSDataEntity getDraft(PSDataEntity entity){
         return null;
     }
 

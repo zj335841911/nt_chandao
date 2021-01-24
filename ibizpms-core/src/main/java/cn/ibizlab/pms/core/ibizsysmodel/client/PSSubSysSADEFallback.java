@@ -55,7 +55,7 @@ public class PSSubSysSADEFallback implements PSSubSysSADEFeignClient {
     }
 
 
-    public PSSubSysSADE getDraft(){
+    public PSSubSysSADE getDraft(PSSubSysSADE entity){
         return null;
     }
 

@@ -52,7 +52,7 @@ public interface PSSysSFPubFeignClient {
 
 
     @RequestMapping(method = RequestMethod.GET, value = "/pssyssfpubs/getdraft")
-    PSSysSFPub getDraft();
+    PSSysSFPub getDraft(PSSysSFPub entity);
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/pssyssfpubs/checkkey")

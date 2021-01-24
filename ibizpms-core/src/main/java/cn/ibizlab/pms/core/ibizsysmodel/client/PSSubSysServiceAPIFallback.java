@@ -55,7 +55,7 @@ public class PSSubSysServiceAPIFallback implements PSSubSysServiceAPIFeignClient
     }
 
 
-    public PSSubSysServiceAPI getDraft(){
+    public PSSubSysServiceAPI getDraft(PSSubSysServiceAPI entity){
         return null;
     }
 

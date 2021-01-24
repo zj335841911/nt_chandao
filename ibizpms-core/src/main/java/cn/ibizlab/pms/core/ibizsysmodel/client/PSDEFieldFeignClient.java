@@ -52,7 +52,7 @@ public interface PSDEFieldFeignClient {
 
 
     @RequestMapping(method = RequestMethod.GET, value = "/psdefields/getdraft")
-    PSDEField getDraft();
+    PSDEField getDraft(PSDEField entity);
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/psdefields/checkkey")

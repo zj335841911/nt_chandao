@@ -179,7 +179,7 @@ public class PSDataEntityServiceImpl implements IPSDataEntityService {
 
     @Override
     public PSDataEntity getDraft(PSDataEntity et) {
-        et = pSDataEntityFeignClient.getDraft();
+        et=pSDataEntityFeignClient.getDraft(et);
         return et;
     }
 

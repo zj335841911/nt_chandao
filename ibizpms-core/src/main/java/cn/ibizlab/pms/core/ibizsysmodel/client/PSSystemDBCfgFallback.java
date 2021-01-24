@@ -55,7 +55,7 @@ public class PSSystemDBCfgFallback implements PSSystemDBCfgFeignClient {
     }
 
 
-    public PSSystemDBCfg getDraft(){
+    public PSSystemDBCfg getDraft(PSSystemDBCfg entity){
         return null;
     }
 

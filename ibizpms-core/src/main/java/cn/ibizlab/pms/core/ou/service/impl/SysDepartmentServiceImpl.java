@@ -110,7 +110,7 @@ public class SysDepartmentServiceImpl implements ISysDepartmentService {
 
     @Override
     public SysDepartment getDraft(SysDepartment et) {
-        et = sysDepartmentFeignClient.getDraft();
+        et=sysDepartmentFeignClient.getDraft(et);
         return et;
     }
 

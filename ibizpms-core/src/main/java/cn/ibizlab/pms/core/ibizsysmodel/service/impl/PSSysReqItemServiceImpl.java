@@ -179,7 +179,7 @@ public class PSSysReqItemServiceImpl implements IPSSysReqItemService {
 
     @Override
     public PSSysReqItem getDraft(PSSysReqItem et) {
-        et = pSSysReqItemFeignClient.getDraft();
+        et=pSSysReqItemFeignClient.getDraft(et);
         return et;
     }
 

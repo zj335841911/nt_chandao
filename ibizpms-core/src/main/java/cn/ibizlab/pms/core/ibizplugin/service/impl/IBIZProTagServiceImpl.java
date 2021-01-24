@@ -110,7 +110,7 @@ public class IBIZProTagServiceImpl implements IIBIZProTagService {
 
     @Override
     public IBIZProTag getDraft(IBIZProTag et) {
-        et = iBIZProTagFeignClient.getDraft();
+        et=iBIZProTagFeignClient.getDraft(et);
         return et;
     }
 

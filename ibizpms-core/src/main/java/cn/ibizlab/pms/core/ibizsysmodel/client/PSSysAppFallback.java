@@ -55,7 +55,7 @@ public class PSSysAppFallback implements PSSysAppFeignClient {
     }
 
 
-    public PSSysApp getDraft(){
+    public PSSysApp getDraft(PSSysApp entity){
         return null;
     }
 

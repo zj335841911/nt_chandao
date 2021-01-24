@@ -55,7 +55,7 @@ public class IBIZProKeywordFallback implements IBIZProKeywordFeignClient {
     }
 
 
-    public IBIZProKeyword getDraft(){
+    public IBIZProKeyword getDraft(IBIZProKeyword entity){
         return null;
     }
 

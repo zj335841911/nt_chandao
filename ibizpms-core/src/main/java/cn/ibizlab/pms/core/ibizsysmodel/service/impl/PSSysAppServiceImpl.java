@@ -179,7 +179,7 @@ public class PSSysAppServiceImpl implements IPSSysAppService {
 
     @Override
     public PSSysApp getDraft(PSSysApp et) {
-        et = pSSysAppFeignClient.getDraft();
+        et=pSSysAppFeignClient.getDraft(et);
         return et;
     }
 

@@ -179,7 +179,7 @@ public class PSSysReqModuleServiceImpl implements IPSSysReqModuleService {
 
     @Override
     public PSSysReqModule getDraft(PSSysReqModule et) {
-        et = pSSysReqModuleFeignClient.getDraft();
+        et=pSSysReqModuleFeignClient.getDraft(et);
         return et;
     }
 

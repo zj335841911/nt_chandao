@@ -55,7 +55,7 @@ public class SysPostFallback implements SysPostFeignClient {
     }
 
 
-    public SysPost getDraft(){
+    public SysPost getDraft(SysPost entity){
         return null;
     }
 

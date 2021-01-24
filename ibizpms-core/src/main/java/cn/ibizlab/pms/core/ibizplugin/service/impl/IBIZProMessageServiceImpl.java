@@ -110,7 +110,7 @@ public class IBIZProMessageServiceImpl implements IIBIZProMessageService {
 
     @Override
     public IBIZProMessage getDraft(IBIZProMessage et) {
-        et = iBIZProMessageFeignClient.getDraft();
+        et=iBIZProMessageFeignClient.getDraft(et);
         return et;
     }
 

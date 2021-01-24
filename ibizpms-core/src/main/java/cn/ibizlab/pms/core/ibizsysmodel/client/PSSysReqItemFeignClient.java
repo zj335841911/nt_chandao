@@ -52,7 +52,7 @@ public interface PSSysReqItemFeignClient {
 
 
     @RequestMapping(method = RequestMethod.GET, value = "/pssysreqitems/getdraft")
-    PSSysReqItem getDraft();
+    PSSysReqItem getDraft(PSSysReqItem entity);
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/pssysreqitems/checkkey")

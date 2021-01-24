@@ -110,7 +110,7 @@ public class IBIZProPluginServiceImpl implements IIBIZProPluginService {
 
     @Override
     public IBIZProPlugin getDraft(IBIZProPlugin et) {
-        et = iBIZProPluginFeignClient.getDraft();
+        et=iBIZProPluginFeignClient.getDraft(et);
         return et;
     }
 

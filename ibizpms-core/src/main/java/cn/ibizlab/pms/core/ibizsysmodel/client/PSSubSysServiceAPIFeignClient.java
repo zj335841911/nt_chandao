@@ -52,7 +52,7 @@ public interface PSSubSysServiceAPIFeignClient {
 
 
     @RequestMapping(method = RequestMethod.GET, value = "/pssubsysserviceapis/getdraft")
-    PSSubSysServiceAPI getDraft();
+    PSSubSysServiceAPI getDraft(PSSubSysServiceAPI entity);
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/pssubsysserviceapis/checkkey")

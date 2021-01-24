@@ -110,7 +110,7 @@ public class SysRoleServiceImpl implements ISysRoleService {
 
     @Override
     public SysRole getDraft(SysRole et) {
-        et = sysRoleFeignClient.getDraft();
+        et=sysRoleFeignClient.getDraft(et);
         return et;
     }
 

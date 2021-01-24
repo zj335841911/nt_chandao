@@ -179,7 +179,7 @@ public class PSSystemDBCfgServiceImpl implements IPSSystemDBCfgService {
 
     @Override
     public PSSystemDBCfg getDraft(PSSystemDBCfg et) {
-        et = pSSystemDBCfgFeignClient.getDraft();
+        et=pSSystemDBCfgFeignClient.getDraft(et);
         return et;
     }
 

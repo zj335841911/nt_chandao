@@ -110,7 +110,7 @@ public class SysUserServiceImpl implements ISysUserService {
 
     @Override
     public SysUser getDraft(SysUser et) {
-        et = sysUserFeignClient.getDraft();
+        et=sysUserFeignClient.getDraft(et);
         return et;
     }
 

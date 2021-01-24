@@ -55,7 +55,7 @@ public class IBIZProPluginFallback implements IBIZProPluginFeignClient {
     }
 
 
-    public IBIZProPlugin getDraft(){
+    public IBIZProPlugin getDraft(IBIZProPlugin entity){
         return null;
     }
 

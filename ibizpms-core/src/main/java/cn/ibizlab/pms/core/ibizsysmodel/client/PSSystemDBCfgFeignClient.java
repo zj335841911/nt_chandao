@@ -52,7 +52,7 @@ public interface PSSystemDBCfgFeignClient {
 
 
     @RequestMapping(method = RequestMethod.GET, value = "/pssystemdbcfgs/getdraft")
-    PSSystemDBCfg getDraft();
+    PSSystemDBCfg getDraft(PSSystemDBCfg entity);
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/pssystemdbcfgs/checkkey")

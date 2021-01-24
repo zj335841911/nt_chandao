@@ -55,7 +55,7 @@ public class IBIZProMessageFallback implements IBIZProMessageFeignClient {
     }
 
 
-    public IBIZProMessage getDraft(){
+    public IBIZProMessage getDraft(IBIZProMessage entity){
         return null;
     }
 

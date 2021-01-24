@@ -1352,8 +1352,8 @@ public class SubTaskResource {
 
 	@ApiOperation(value = "获取任务类型分组", tags = {"任务" } ,notes = "获取任务类型分组")
     @RequestMapping(method= RequestMethod.GET , value="/subtasks/fetchtypegroup")
-	public ResponseEntity<List<HashMap>> fetchTypeGroup(TaskSearchContext context) {
-        Page<HashMap> domains = taskService.searchTypeGroup(context) ;
+	public ResponseEntity<List<Map>> fetchTypeGroup(TaskSearchContext context) {
+        Page<Map> domains = taskService.searchTypeGroup(context) ;
         return ResponseEntity.status(HttpStatus.OK)
                 .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
                 .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
@@ -1363,8 +1363,8 @@ public class SubTaskResource {
 
 	@ApiOperation(value = "查询任务类型分组", tags = {"任务" } ,notes = "查询任务类型分组")
     @RequestMapping(method= RequestMethod.POST , value="/subtasks/searchtypegroup")
-	public ResponseEntity<Page<HashMap>> searchTypeGroup(@RequestBody TaskSearchContext context) {
-        Page<HashMap> domains = taskService.searchTypeGroup(context) ;
+	public ResponseEntity<Page<Map>> searchTypeGroup(@RequestBody TaskSearchContext context) {
+        Page<Map> domains = taskService.searchTypeGroup(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(domains.getContent(), context.getPageable(), domains.getTotalElements()));
 	}
@@ -2681,9 +2681,9 @@ public class SubTaskResource {
 	}
 	@ApiOperation(value = "根据任务获取任务类型分组", tags = {"任务" } ,notes = "根据任务获取任务类型分组")
     @RequestMapping(method= RequestMethod.GET , value="/tasks/{task_id}/subtasks/fetchtypegroup")
-	public ResponseEntity<List<HashMap>> fetchSubTaskTypeGroupByTask(@PathVariable("task_id") Long task_id,TaskSearchContext context) {
+	public ResponseEntity<List<Map>> fetchSubTaskTypeGroupByTask(@PathVariable("task_id") Long task_id,TaskSearchContext context) {
         context.setN_parent_eq(task_id);
-        Page<HashMap> domains = taskService.searchTypeGroup(context) ;
+        Page<Map> domains = taskService.searchTypeGroup(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
                 .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
@@ -2693,9 +2693,9 @@ public class SubTaskResource {
 
 	@ApiOperation(value = "根据任务查询任务类型分组", tags = {"任务" } ,notes = "根据任务查询任务类型分组")
     @RequestMapping(method= RequestMethod.POST , value="/tasks/{task_id}/subtasks/searchtypegroup")
-	public ResponseEntity<Page<HashMap>> searchSubTaskTypeGroupByTask(@PathVariable("task_id") Long task_id, @RequestBody TaskSearchContext context) {
+	public ResponseEntity<Page<Map>> searchSubTaskTypeGroupByTask(@PathVariable("task_id") Long task_id, @RequestBody TaskSearchContext context) {
         context.setN_parent_eq(task_id);
-        Page<HashMap> domains = taskService.searchTypeGroup(context) ;
+        Page<Map> domains = taskService.searchTypeGroup(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(domains.getContent(), context.getPageable(), domains.getTotalElements()));
 	}
@@ -4010,9 +4010,9 @@ public class SubTaskResource {
 	}
 	@ApiOperation(value = "根据任务模块任务获取任务类型分组", tags = {"任务" } ,notes = "根据任务模块任务获取任务类型分组")
     @RequestMapping(method= RequestMethod.GET , value="/projectmodules/{projectmodule_id}/tasks/{task_id}/subtasks/fetchtypegroup")
-	public ResponseEntity<List<HashMap>> fetchSubTaskTypeGroupByProjectModuleTask(@PathVariable("projectmodule_id") Long projectmodule_id, @PathVariable("task_id") Long task_id,TaskSearchContext context) {
+	public ResponseEntity<List<Map>> fetchSubTaskTypeGroupByProjectModuleTask(@PathVariable("projectmodule_id") Long projectmodule_id, @PathVariable("task_id") Long task_id,TaskSearchContext context) {
         context.setN_parent_eq(task_id);
-        Page<HashMap> domains = taskService.searchTypeGroup(context) ;
+        Page<Map> domains = taskService.searchTypeGroup(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
                 .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
@@ -4022,9 +4022,9 @@ public class SubTaskResource {
 
 	@ApiOperation(value = "根据任务模块任务查询任务类型分组", tags = {"任务" } ,notes = "根据任务模块任务查询任务类型分组")
     @RequestMapping(method= RequestMethod.POST , value="/projectmodules/{projectmodule_id}/tasks/{task_id}/subtasks/searchtypegroup")
-	public ResponseEntity<Page<HashMap>> searchSubTaskTypeGroupByProjectModuleTask(@PathVariable("projectmodule_id") Long projectmodule_id, @PathVariable("task_id") Long task_id, @RequestBody TaskSearchContext context) {
+	public ResponseEntity<Page<Map>> searchSubTaskTypeGroupByProjectModuleTask(@PathVariable("projectmodule_id") Long projectmodule_id, @PathVariable("task_id") Long task_id, @RequestBody TaskSearchContext context) {
         context.setN_parent_eq(task_id);
-        Page<HashMap> domains = taskService.searchTypeGroup(context) ;
+        Page<Map> domains = taskService.searchTypeGroup(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(domains.getContent(), context.getPageable(), domains.getTotalElements()));
 	}
@@ -5339,9 +5339,9 @@ public class SubTaskResource {
 	}
 	@ApiOperation(value = "根据产品计划任务获取任务类型分组", tags = {"任务" } ,notes = "根据产品计划任务获取任务类型分组")
     @RequestMapping(method= RequestMethod.GET , value="/productplans/{productplan_id}/tasks/{task_id}/subtasks/fetchtypegroup")
-	public ResponseEntity<List<HashMap>> fetchSubTaskTypeGroupByProductPlanTask(@PathVariable("productplan_id") Long productplan_id, @PathVariable("task_id") Long task_id,TaskSearchContext context) {
+	public ResponseEntity<List<Map>> fetchSubTaskTypeGroupByProductPlanTask(@PathVariable("productplan_id") Long productplan_id, @PathVariable("task_id") Long task_id,TaskSearchContext context) {
         context.setN_parent_eq(task_id);
-        Page<HashMap> domains = taskService.searchTypeGroup(context) ;
+        Page<Map> domains = taskService.searchTypeGroup(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
                 .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
@@ -5351,9 +5351,9 @@ public class SubTaskResource {
 
 	@ApiOperation(value = "根据产品计划任务查询任务类型分组", tags = {"任务" } ,notes = "根据产品计划任务查询任务类型分组")
     @RequestMapping(method= RequestMethod.POST , value="/productplans/{productplan_id}/tasks/{task_id}/subtasks/searchtypegroup")
-	public ResponseEntity<Page<HashMap>> searchSubTaskTypeGroupByProductPlanTask(@PathVariable("productplan_id") Long productplan_id, @PathVariable("task_id") Long task_id, @RequestBody TaskSearchContext context) {
+	public ResponseEntity<Page<Map>> searchSubTaskTypeGroupByProductPlanTask(@PathVariable("productplan_id") Long productplan_id, @PathVariable("task_id") Long task_id, @RequestBody TaskSearchContext context) {
         context.setN_parent_eq(task_id);
-        Page<HashMap> domains = taskService.searchTypeGroup(context) ;
+        Page<Map> domains = taskService.searchTypeGroup(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(domains.getContent(), context.getPageable(), domains.getTotalElements()));
 	}
@@ -6668,9 +6668,9 @@ public class SubTaskResource {
 	}
 	@ApiOperation(value = "根据需求任务获取任务类型分组", tags = {"任务" } ,notes = "根据需求任务获取任务类型分组")
     @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/tasks/{task_id}/subtasks/fetchtypegroup")
-	public ResponseEntity<List<HashMap>> fetchSubTaskTypeGroupByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,TaskSearchContext context) {
+	public ResponseEntity<List<Map>> fetchSubTaskTypeGroupByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,TaskSearchContext context) {
         context.setN_parent_eq(task_id);
-        Page<HashMap> domains = taskService.searchTypeGroup(context) ;
+        Page<Map> domains = taskService.searchTypeGroup(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
                 .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
@@ -6680,9 +6680,9 @@ public class SubTaskResource {
 
 	@ApiOperation(value = "根据需求任务查询任务类型分组", tags = {"任务" } ,notes = "根据需求任务查询任务类型分组")
     @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/tasks/{task_id}/subtasks/searchtypegroup")
-	public ResponseEntity<Page<HashMap>> searchSubTaskTypeGroupByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody TaskSearchContext context) {
+	public ResponseEntity<Page<Map>> searchSubTaskTypeGroupByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody TaskSearchContext context) {
         context.setN_parent_eq(task_id);
-        Page<HashMap> domains = taskService.searchTypeGroup(context) ;
+        Page<Map> domains = taskService.searchTypeGroup(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(domains.getContent(), context.getPageable(), domains.getTotalElements()));
 	}
@@ -7997,9 +7997,9 @@ public class SubTaskResource {
 	}
 	@ApiOperation(value = "根据项目任务获取任务类型分组", tags = {"任务" } ,notes = "根据项目任务获取任务类型分组")
     @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/tasks/{task_id}/subtasks/fetchtypegroup")
-	public ResponseEntity<List<HashMap>> fetchSubTaskTypeGroupByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id,TaskSearchContext context) {
+	public ResponseEntity<List<Map>> fetchSubTaskTypeGroupByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id,TaskSearchContext context) {
         context.setN_parent_eq(task_id);
-        Page<HashMap> domains = taskService.searchTypeGroup(context) ;
+        Page<Map> domains = taskService.searchTypeGroup(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
                 .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
@@ -8009,9 +8009,9 @@ public class SubTaskResource {
 
 	@ApiOperation(value = "根据项目任务查询任务类型分组", tags = {"任务" } ,notes = "根据项目任务查询任务类型分组")
     @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/tasks/{task_id}/subtasks/searchtypegroup")
-	public ResponseEntity<Page<HashMap>> searchSubTaskTypeGroupByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @RequestBody TaskSearchContext context) {
+	public ResponseEntity<Page<Map>> searchSubTaskTypeGroupByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @RequestBody TaskSearchContext context) {
         context.setN_parent_eq(task_id);
-        Page<HashMap> domains = taskService.searchTypeGroup(context) ;
+        Page<Map> domains = taskService.searchTypeGroup(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(domains.getContent(), context.getPageable(), domains.getTotalElements()));
 	}
@@ -9326,9 +9326,9 @@ public class SubTaskResource {
 	}
 	@ApiOperation(value = "根据产品产品计划任务获取任务类型分组", tags = {"任务" } ,notes = "根据产品产品计划任务获取任务类型分组")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/productplans/{productplan_id}/tasks/{task_id}/subtasks/fetchtypegroup")
-	public ResponseEntity<List<HashMap>> fetchSubTaskTypeGroupByProductProductPlanTask(@PathVariable("product_id") Long product_id, @PathVariable("productplan_id") Long productplan_id, @PathVariable("task_id") Long task_id,TaskSearchContext context) {
+	public ResponseEntity<List<Map>> fetchSubTaskTypeGroupByProductProductPlanTask(@PathVariable("product_id") Long product_id, @PathVariable("productplan_id") Long productplan_id, @PathVariable("task_id") Long task_id,TaskSearchContext context) {
         context.setN_parent_eq(task_id);
-        Page<HashMap> domains = taskService.searchTypeGroup(context) ;
+        Page<Map> domains = taskService.searchTypeGroup(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
                 .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
@@ -9338,9 +9338,9 @@ public class SubTaskResource {
 
 	@ApiOperation(value = "根据产品产品计划任务查询任务类型分组", tags = {"任务" } ,notes = "根据产品产品计划任务查询任务类型分组")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/productplans/{productplan_id}/tasks/{task_id}/subtasks/searchtypegroup")
-	public ResponseEntity<Page<HashMap>> searchSubTaskTypeGroupByProductProductPlanTask(@PathVariable("product_id") Long product_id, @PathVariable("productplan_id") Long productplan_id, @PathVariable("task_id") Long task_id, @RequestBody TaskSearchContext context) {
+	public ResponseEntity<Page<Map>> searchSubTaskTypeGroupByProductProductPlanTask(@PathVariable("product_id") Long product_id, @PathVariable("productplan_id") Long productplan_id, @PathVariable("task_id") Long task_id, @RequestBody TaskSearchContext context) {
         context.setN_parent_eq(task_id);
-        Page<HashMap> domains = taskService.searchTypeGroup(context) ;
+        Page<Map> domains = taskService.searchTypeGroup(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(domains.getContent(), context.getPageable(), domains.getTotalElements()));
 	}
@@ -10655,9 +10655,9 @@ public class SubTaskResource {
 	}
 	@ApiOperation(value = "根据产品需求任务获取任务类型分组", tags = {"任务" } ,notes = "根据产品需求任务获取任务类型分组")
     @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/subtasks/fetchtypegroup")
-	public ResponseEntity<List<HashMap>> fetchSubTaskTypeGroupByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,TaskSearchContext context) {
+	public ResponseEntity<List<Map>> fetchSubTaskTypeGroupByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,TaskSearchContext context) {
         context.setN_parent_eq(task_id);
-        Page<HashMap> domains = taskService.searchTypeGroup(context) ;
+        Page<Map> domains = taskService.searchTypeGroup(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
                 .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
@@ -10667,9 +10667,9 @@ public class SubTaskResource {
 
 	@ApiOperation(value = "根据产品需求任务查询任务类型分组", tags = {"任务" } ,notes = "根据产品需求任务查询任务类型分组")
     @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/subtasks/searchtypegroup")
-	public ResponseEntity<Page<HashMap>> searchSubTaskTypeGroupByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody TaskSearchContext context) {
+	public ResponseEntity<Page<Map>> searchSubTaskTypeGroupByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody TaskSearchContext context) {
         context.setN_parent_eq(task_id);
-        Page<HashMap> domains = taskService.searchTypeGroup(context) ;
+        Page<Map> domains = taskService.searchTypeGroup(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(domains.getContent(), context.getPageable(), domains.getTotalElements()));
 	}
@@ -11984,9 +11984,9 @@ public class SubTaskResource {
 	}
 	@ApiOperation(value = "根据项目任务模块任务获取任务类型分组", tags = {"任务" } ,notes = "根据项目任务模块任务获取任务类型分组")
     @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/projectmodules/{projectmodule_id}/tasks/{task_id}/subtasks/fetchtypegroup")
-	public ResponseEntity<List<HashMap>> fetchSubTaskTypeGroupByProjectProjectModuleTask(@PathVariable("project_id") Long project_id, @PathVariable("projectmodule_id") Long projectmodule_id, @PathVariable("task_id") Long task_id,TaskSearchContext context) {
+	public ResponseEntity<List<Map>> fetchSubTaskTypeGroupByProjectProjectModuleTask(@PathVariable("project_id") Long project_id, @PathVariable("projectmodule_id") Long projectmodule_id, @PathVariable("task_id") Long task_id,TaskSearchContext context) {
         context.setN_parent_eq(task_id);
-        Page<HashMap> domains = taskService.searchTypeGroup(context) ;
+        Page<Map> domains = taskService.searchTypeGroup(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
                 .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
@@ -11996,9 +11996,9 @@ public class SubTaskResource {
 
 	@ApiOperation(value = "根据项目任务模块任务查询任务类型分组", tags = {"任务" } ,notes = "根据项目任务模块任务查询任务类型分组")
     @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/projectmodules/{projectmodule_id}/tasks/{task_id}/subtasks/searchtypegroup")
-	public ResponseEntity<Page<HashMap>> searchSubTaskTypeGroupByProjectProjectModuleTask(@PathVariable("project_id") Long project_id, @PathVariable("projectmodule_id") Long projectmodule_id, @PathVariable("task_id") Long task_id, @RequestBody TaskSearchContext context) {
+	public ResponseEntity<Page<Map>> searchSubTaskTypeGroupByProjectProjectModuleTask(@PathVariable("project_id") Long project_id, @PathVariable("projectmodule_id") Long projectmodule_id, @PathVariable("task_id") Long task_id, @RequestBody TaskSearchContext context) {
         context.setN_parent_eq(task_id);
-        Page<HashMap> domains = taskService.searchTypeGroup(context) ;
+        Page<Map> domains = taskService.searchTypeGroup(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(domains.getContent(), context.getPageable(), domains.getTotalElements()));
 	}

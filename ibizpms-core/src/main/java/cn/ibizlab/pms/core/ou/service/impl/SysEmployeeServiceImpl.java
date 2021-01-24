@@ -110,7 +110,7 @@ public class SysEmployeeServiceImpl implements ISysEmployeeService {
 
     @Override
     public SysEmployee getDraft(SysEmployee et) {
-        et = sysEmployeeFeignClient.getDraft();
+        et=sysEmployeeFeignClient.getDraft(et);
         return et;
     }
 

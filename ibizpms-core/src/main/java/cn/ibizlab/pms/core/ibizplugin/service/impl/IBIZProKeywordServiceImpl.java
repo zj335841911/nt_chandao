@@ -110,7 +110,7 @@ public class IBIZProKeywordServiceImpl implements IIBIZProKeywordService {
 
     @Override
     public IBIZProKeyword getDraft(IBIZProKeyword et) {
-        et = iBIZProKeywordFeignClient.getDraft();
+        et=iBIZProKeywordFeignClient.getDraft(et);
         return et;
     }
 

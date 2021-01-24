@@ -52,7 +52,7 @@ public interface IBIZProPluginFeignClient {
 
 
     @RequestMapping(method = RequestMethod.GET, value = "/ibizproplugins/getdraft")
-    IBIZProPlugin getDraft();
+    IBIZProPlugin getDraft(IBIZProPlugin entity);
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/ibizproplugins/checkkey")

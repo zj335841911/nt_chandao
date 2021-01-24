@@ -55,7 +55,7 @@ public class PSSysReqItemFallback implements PSSysReqItemFeignClient {
     }
 
 
-    public PSSysReqItem getDraft(){
+    public PSSysReqItem getDraft(PSSysReqItem entity){
         return null;
     }
 

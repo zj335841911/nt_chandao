@@ -52,7 +52,7 @@ public interface IBIZProTagFeignClient {
 
 
     @RequestMapping(method = RequestMethod.GET, value = "/ibizprotags/getdraft")
-    IBIZProTag getDraft();
+    IBIZProTag getDraft(IBIZProTag entity);
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/ibizprotags/checkkey")

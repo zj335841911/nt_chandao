@@ -52,7 +52,7 @@ public interface PSSysRunSessionFeignClient {
 
 
     @RequestMapping(method = RequestMethod.GET, value = "/pssysrunsessions/getdraft")
-    PSSysRunSession getDraft();
+    PSSysRunSession getDraft(PSSysRunSession entity);
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/pssysrunsessions/checkkey")

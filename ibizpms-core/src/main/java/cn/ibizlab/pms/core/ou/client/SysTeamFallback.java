@@ -55,7 +55,7 @@ public class SysTeamFallback implements SysTeamFeignClient {
     }
 
 
-    public SysTeam getDraft(){
+    public SysTeam getDraft(SysTeam entity){
         return null;
     }
 

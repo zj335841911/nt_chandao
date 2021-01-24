@@ -52,7 +52,7 @@ public interface IBIZProKeywordFeignClient {
 
 
     @RequestMapping(method = RequestMethod.GET, value = "/ibizprokeywords/getdraft")
-    IBIZProKeyword getDraft();
+    IBIZProKeyword getDraft(IBIZProKeyword entity);
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/ibizprokeywords/checkkey")

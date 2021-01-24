@@ -52,7 +52,7 @@ public interface PSSubSysSADEFeignClient {
 
 
     @RequestMapping(method = RequestMethod.GET, value = "/pssubsyssades/getdraft")
-    PSSubSysSADE getDraft();
+    PSSubSysSADE getDraft(PSSubSysSADE entity);
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/pssubsyssades/checkkey")

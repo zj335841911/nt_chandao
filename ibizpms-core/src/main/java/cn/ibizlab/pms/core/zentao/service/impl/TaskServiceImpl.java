@@ -980,9 +980,9 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
      * 查询集合 任务类型分组
      */
     @Override
-    public Page<HashMap> searchTypeGroup(TaskSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<HashMap> pages=baseMapper.searchTypeGroup(context.getPages(), context, context.getSelectCond());
-        return new PageImpl<HashMap>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    public Page<Map> searchTypeGroup(TaskSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Map> pages=baseMapper.searchTypeGroup(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<Map>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
 

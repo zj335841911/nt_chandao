@@ -179,7 +179,7 @@ public class PSSysSFPubServiceImpl implements IPSSysSFPubService {
 
     @Override
     public PSSysSFPub getDraft(PSSysSFPub et) {
-        et = pSSysSFPubFeignClient.getDraft();
+        et=pSSysSFPubFeignClient.getDraft(et);
         return et;
     }
 

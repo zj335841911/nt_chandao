@@ -55,7 +55,7 @@ public class IBIZProTagFallback implements IBIZProTagFeignClient {
     }
 
 
-    public IBIZProTag getDraft(){
+    public IBIZProTag getDraft(IBIZProTag entity){
         return null;
     }
 

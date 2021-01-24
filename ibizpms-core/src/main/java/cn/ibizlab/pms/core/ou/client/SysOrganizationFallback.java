@@ -55,7 +55,7 @@ public class SysOrganizationFallback implements SysOrganizationFeignClient {
     }
 
 
-    public SysOrganization getDraft(){
+    public SysOrganization getDraft(SysOrganization entity){
         return null;
     }
 

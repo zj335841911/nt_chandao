@@ -55,7 +55,7 @@ public class PSSysReqModuleFallback implements PSSysReqModuleFeignClient {
     }
 
 
-    public PSSysReqModule getDraft(){
+    public PSSysReqModule getDraft(PSSysReqModule entity){
         return null;
     }
 

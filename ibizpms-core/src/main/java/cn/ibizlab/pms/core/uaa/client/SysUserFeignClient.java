@@ -52,7 +52,7 @@ public interface SysUserFeignClient {
 
 
     @RequestMapping(method = RequestMethod.GET, value = "/sysusers/getdraft")
-    SysUser getDraft();
+    SysUser getDraft(SysUser entity);
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/sysusers/{userid}/changepwd")

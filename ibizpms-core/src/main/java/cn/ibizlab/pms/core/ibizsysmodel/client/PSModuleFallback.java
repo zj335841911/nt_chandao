@@ -55,7 +55,7 @@ public class PSModuleFallback implements PSModuleFeignClient {
     }
 
 
-    public PSModule getDraft(){
+    public PSModule getDraft(PSModule entity){
         return null;
     }
 

@@ -110,7 +110,7 @@ public class StoryResource {
     }
 
     @ApiOperation(value = "获取需求草稿", tags = {"需求" },  notes = "获取需求草稿")
-	@RequestMapping(method = RequestMethod.GET, value = "/stories/getdraft")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/getdraft")
     public ResponseEntity<StoryDTO> getDraft(StoryDTO dto) {
         Story domain = storyMapping.toDomain(dto);
         return ResponseEntity.status(HttpStatus.OK).body(storyMapping.toDto(storyService.getDraft(domain)));
@@ -1506,7 +1506,7 @@ public class StoryResource {
     }
 
     @ApiOperation(value = "根据产品获取需求草稿", tags = {"需求" },  notes = "根据产品获取需求草稿")
-    @RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/stories/getdraft")
+    @RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/getdraft")
     public ResponseEntity<StoryDTO> getDraftByProduct(@PathVariable("product_id") Long product_id, StoryDTO dto) {
         Story domain = storyMapping.toDomain(dto);
         domain.setProduct(product_id);

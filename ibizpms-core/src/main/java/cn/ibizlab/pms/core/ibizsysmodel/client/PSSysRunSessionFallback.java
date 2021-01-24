@@ -55,7 +55,7 @@ public class PSSysRunSessionFallback implements PSSysRunSessionFeignClient {
     }
 
 
-    public PSSysRunSession getDraft(){
+    public PSSysRunSession getDraft(PSSysRunSession entity){
         return null;
     }
 

@@ -52,7 +52,7 @@ public interface SysDepartmentFeignClient {
 
 
     @RequestMapping(method = RequestMethod.GET, value = "/sysdepartments/getdraft")
-    SysDepartment getDraft();
+    SysDepartment getDraft(SysDepartment entity);
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/sysdepartments/checkkey")

@@ -55,7 +55,7 @@ public class PSSysSFPubFallback implements PSSysSFPubFeignClient {
     }
 
 
-    public PSSysSFPub getDraft(){
+    public PSSysSFPub getDraft(PSSysSFPub entity){
         return null;
     }
 

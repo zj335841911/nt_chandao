@@ -52,7 +52,7 @@ public interface SysTeamMemberFeignClient {
 
 
     @RequestMapping(method = RequestMethod.GET, value = "/systeammembers/getdraft")
-    SysTeamMember getDraft();
+    SysTeamMember getDraft(SysTeamMember entity);
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/systeammembers/checkkey")
