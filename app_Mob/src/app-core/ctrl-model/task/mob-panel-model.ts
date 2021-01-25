@@ -264,6 +264,9 @@ export class MobModel {
       {
         name: 'cycle',
       },
+      {
+        name: 'assign',
+      },
     ]
   }
 

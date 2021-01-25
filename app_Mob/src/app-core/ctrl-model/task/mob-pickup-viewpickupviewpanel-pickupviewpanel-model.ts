@@ -264,6 +264,9 @@ export class MobPickupViewpickupviewpanelModel {
       {
         name: 'cycle',
       },
+      {
+        name: 'assign',
+      },
     ]
   }
 

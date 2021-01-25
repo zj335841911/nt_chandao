@@ -264,6 +264,9 @@ export class MyTaskMobModel {
       {
         name: 'cycle',
       },
+      {
+        name: 'assign',
+      },
     ]
   }
 
