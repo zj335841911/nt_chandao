@@ -129,11 +129,13 @@ hide footbox
 ## 查询模式
 | 属性      |    搜索模式     |
 | --------   |------------|
+|加盟日(JOIN)|GTANDEQ|
 |团队类型(TYPE)|EQ|
 |受限用户(LIMITED)|EQ|
 |产品编号(ROOT)|EQ|
 |产品编号(ROOT)|IN|
 |用户(ACCOUNT)|LIKE|
+|结束时间(END)|LTANDEQ|
 |当前负责人(LEADINGCADRE)|EQ|
 
 ## 导入模式
