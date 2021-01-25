@@ -402,7 +402,7 @@ public class StoryDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "spec")
     @JsonProperty("spec")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
     private String spec;
 
     /**
@@ -411,7 +411,7 @@ public class StoryDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "verify")
     @JsonProperty("verify")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
     private String verify;
 
     /**

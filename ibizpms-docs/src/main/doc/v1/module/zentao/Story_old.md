@@ -69,8 +69,8 @@ hide members
 |重复需求ID|DUPLICATESTORY|PICKUP|&nbsp;|
 |平台/分支|BRANCH|PICKUP|&nbsp;|
 |转Bug|TOBUG|PICKUP|&nbsp;暂时没找到使用地方（页面操作了从需求转Bug也没有更新该字段）|
-|需求描述|SPEC|TEXT|&nbsp;|
-|验收标准|VERIFY|TEXT|&nbsp;|
+|需求描述|SPEC|HTMLTEXT|&nbsp;|
+|验收标准|VERIFY|LONGTEXT|&nbsp;|
 |评审结果|RESULT|SSCODELIST|&nbsp;|
 |备注|COMMENT|HTMLTEXT|&nbsp;|
 |是否子需求|ISLEAF|TEXT|&nbsp;|
@@ -148,8 +148,8 @@ hide members
 |重复需求ID|默认规则|默认规则|
 |平台/分支|默认规则|默认规则|
 |转Bug|默认规则|默认规则|
-|需求描述|默认规则|内容长度必须小于等于[100]|
-|验收标准|默认规则|内容长度必须小于等于[100]|
+|需求描述|默认规则|内容长度必须小于等于[1048576]|
+|验收标准|默认规则|内容长度必须小于等于[1048576]|
 |评审结果|默认规则|内容长度必须小于等于[200]|
 |备注|默认规则|内容长度必须小于等于[1048576]|
 |是否子需求|默认规则|内容长度必须小于等于[200]|
