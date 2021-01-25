@@ -320,7 +320,7 @@ export default class StoryServiceBase extends EntityService {
             let tempData:any = JSON.parse(JSON.stringify(data));
             if(tempData.story) delete tempData.story;
             if(tempData.id) delete tempData.id;
-            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/getdraft`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/getdraft`,tempData,isloading);
             res.data.story = data.story;
                         this.tempStorage.setItem(context.srfsessionkey+'_cases',JSON.stringify(res.data.cases?res.data.cases:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks?res.data.tasks:[]));
@@ -330,7 +330,7 @@ export default class StoryServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         if(tempData.story) delete tempData.story;
         if(tempData.id) delete tempData.id;
-        let res:any = await  Http.getInstance().post(`/stories/getdraft`,tempData,isloading);
+        let res:any = await  Http.getInstance().get(`/stories/getdraft`,tempData,isloading);
         res.data.story = data.story;
                     this.tempStorage.setItem(context.srfsessionkey+'_cases',JSON.stringify(res.data.cases?res.data.cases:[]));
             this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks?res.data.tasks:[]));

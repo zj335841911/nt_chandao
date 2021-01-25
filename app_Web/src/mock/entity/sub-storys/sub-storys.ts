@@ -351,7 +351,7 @@ mock.onPut(new RegExp(/^\/substories\/?([a-zA-Z0-9\-\;]{0,35})$/)).reply((config
 
 
 // GetDraft
-mock.onPost(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/stories\/([a-zA-Z0-9\-\;]{1,35})\/substories\/getdraft$/)).reply((config: any) => {
+mock.onGet(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/stories\/([a-zA-Z0-9\-\;]{1,35})\/substories\/getdraft$/)).reply((config: any) => {
     console.groupCollapsed("实体:substory 方法: GetDraft");
     console.table({url:config.url, method: config.method, data:config.data});
     // GetDraft
@@ -368,7 +368,7 @@ mock.onPost(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/stories\/([a-zA-Z0
 
 
 // GetDraft
-mock.onPost(new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/substories\/getdraft$/)).reply((config: any) => {
+mock.onGet(new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/substories\/getdraft$/)).reply((config: any) => {
     console.groupCollapsed("实体:substory 方法: GetDraft");
     console.table({url:config.url, method: config.method, data:config.data});
     // GetDraft
@@ -384,7 +384,7 @@ mock.onPost(new RegExp(/^\/stories\/([a-zA-Z0-9\-\;]{1,35})\/substories\/getdraf
 });
 
 // GetDraft
-mock.onPost(new RegExp(/^\/substories\/getdraft$/)).reply((config: any) => {
+mock.onGet(new RegExp(/^\/substories\/getdraft$/)).reply((config: any) => {
     console.groupCollapsed("实体:substory 方法: GetDraft");
     console.table({url:config.url, method: config.method, data:config.data});
     // GetDraft

@@ -209,7 +209,7 @@ export default class SubStoryServiceBase extends EntityService {
             let tempData:any = JSON.parse(JSON.stringify(data));
             if(tempData.substory) delete tempData.substory;
             if(tempData.id) delete tempData.id;
-            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/substories/getdraft`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/substories/getdraft`,tempData,isloading);
             res.data.substory = data.substory;
             
             return res;
@@ -218,7 +218,7 @@ export default class SubStoryServiceBase extends EntityService {
             let tempData:any = JSON.parse(JSON.stringify(data));
             if(tempData.substory) delete tempData.substory;
             if(tempData.id) delete tempData.id;
-            let res:any = await Http.getInstance().post(`/stories/${context.story}/substories/getdraft`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/substories/getdraft`,tempData,isloading);
             res.data.substory = data.substory;
             
             return res;
@@ -226,7 +226,7 @@ export default class SubStoryServiceBase extends EntityService {
         let tempData:any = JSON.parse(JSON.stringify(data));
         if(tempData.substory) delete tempData.substory;
         if(tempData.id) delete tempData.id;
-        let res:any = await  Http.getInstance().post(`/substories/getdraft`,tempData,isloading);
+        let res:any = await  Http.getInstance().get(`/substories/getdraft`,tempData,isloading);
         res.data.substory = data.substory;
         
         return res;
