@@ -84,6 +84,7 @@ export default {
     planname:  commonLogic.appcommonhandle("所属计划",null),
     idvalue:  commonLogic.appcommonhandle("关联编号",null),
     cycle:  commonLogic.appcommonhandle("周期",null),
+    aSSIGN:  commonLogic.appcommonhandle("是否指派",null),
   },
 	views: {
 		mobmdview: {

@@ -264,6 +264,9 @@ export class MyFavoriteTaskModel {
       {
         name: 'cycle',
       },
+      {
+        name: 'assign',
+      },
     ]
   }
 

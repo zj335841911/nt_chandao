@@ -84,6 +84,7 @@ export default {
     planname: "所属计划",
     idvalue: "关联编号",
     cycle: "周期",
+    assign: "是否指派",
   },
 	views: {
 		mobmdview: {
