@@ -103,6 +103,7 @@ export class ActivationEditFormBase extends EditFormControlBase {
         srfdeid: null,
         srfsourcekey: null,
         assignedto: null,
+        product: null,
         comment: null,
         id: null,
         story: null,
@@ -209,6 +210,13 @@ export class ActivationEditFormBase extends EditFormControlBase {
 
         assignedto: new FormItemModel({
     caption: '指派给', detailType: 'FORMITEM', name: 'assignedto', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
+        product: new FormItemModel({
+    caption: '所属产品', detailType: 'FORMITEM', name: 'product', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,

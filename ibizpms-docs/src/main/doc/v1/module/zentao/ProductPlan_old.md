@@ -160,6 +160,7 @@ hide footbox
 |PlanCodeList|计划（代码表）([MYSQL5](../../appendix/query_MYSQL5.md#ProductPlan_PlanCodeList))|否|&nbsp;|
 |ProjectApp|项目立项([MYSQL5](../../appendix/query_MYSQL5.md#ProductPlan_ProjectApp))|否|&nbsp;|
 |ProjectPlan|项目计划列表([MYSQL5](../../appendix/query_MYSQL5.md#ProductPlan_ProjectPlan))|否|&nbsp;|
+|TaskPlan|任务计划([MYSQL5](../../appendix/query_MYSQL5.md#ProductPlan_TaskPlan))|否|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#ProductPlan_View))|否|&nbsp;|
 
 * **数据集合**
@@ -172,6 +173,7 @@ hide footbox
 |PlanCodeList|计划（代码表）|PlanCodeList|否|&nbsp;|
 |ProjectApp|项目立项|ProjectApp|否|&nbsp;|
 |ProjectPlan|项目计划列表|ProjectPlan|否|&nbsp;|
+|TaskPlan|任务计划|TaskPlan|否|&nbsp;|
 
 ## 查询模式
 | 属性      |    搜索模式     |

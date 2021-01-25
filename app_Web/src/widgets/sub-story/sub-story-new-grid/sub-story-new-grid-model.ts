@@ -47,7 +47,7 @@ export default class SubStoryNewModel {
         {
           name: 'spec',
           prop: 'spec',
-          dataType: 'TEXT',
+          dataType: 'HTMLTEXT',
           isEditable:true
         },
         {

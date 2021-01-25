@@ -132,6 +132,7 @@ hide footbox
 |团队类型(TYPE)|EQ|
 |受限用户(LIMITED)|EQ|
 |产品编号(ROOT)|EQ|
+|产品编号(ROOT)|IN|
 |用户(ACCOUNT)|LIKE|
 |当前负责人(LEADINGCADRE)|EQ|
 

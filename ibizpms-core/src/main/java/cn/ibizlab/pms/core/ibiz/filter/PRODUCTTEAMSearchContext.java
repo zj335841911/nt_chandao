@@ -48,6 +48,13 @@ public class PRODUCTTEAMSearchContext extends QueryWrapperContext<PRODUCTTEAM> {
             this.getSearchCond().eq("`root`", n_root_eq);
         }
     }
+	private String n_root_in;//[产品编号]
+	public void setN_root_in(String n_root_in) {
+        this.n_root_in = n_root_in;
+        if(!ObjectUtils.isEmpty(this.n_root_in)){
+			this.getSearchCond().in("`root`",this.n_root_in.split(";"));
+        }
+    }
 	private String n_account_like;//[用户]
 	public void setN_account_like(String n_account_like) {
         this.n_account_like = n_account_like;

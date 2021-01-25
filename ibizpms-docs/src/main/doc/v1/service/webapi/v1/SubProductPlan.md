@@ -602,6 +602,44 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[SubProductPlanDTO](#SubProductPlanDTO)>：产品计划实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
+### 根据获取任务计划
+#### 访问路径
+/productplans/{productplan_id}/subproductplans/fetchtaskplan
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productplan_id | Long | 产品计划主键ID |
+| 2 | context | [ProductPlanSearchContext](#ProductPlanSearchContext) | 产品计划查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[SubProductPlanDTO](#SubProductPlanDTO)>：产品计划实体传输对象列表 |
+
+### 根据查询任务计划
+#### 访问路径
+/productplans/{productplan_id}/subproductplans/searchtaskplan
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productplan_id | Long | 产品计划主键ID |
+| 2 | context | [ProductPlanSearchContext](#ProductPlanSearchContext) | 产品计划查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[SubProductPlanDTO](#SubProductPlanDTO)>：产品计划实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
 ### 根据建立产品计划
 #### 访问路径
 /products/{product_id}/productplans/{productplan_id}/subproductplans
@@ -1185,6 +1223,44 @@ GET
 ### 根据查询项目计划列表
 #### 访问路径
 /products/{product_id}/productplans/{productplan_id}/subproductplans/searchprojectplan
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productplan_id | Long | 产品计划主键ID |
+| 3 | context | [ProductPlanSearchContext](#ProductPlanSearchContext) | 产品计划查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[SubProductPlanDTO](#SubProductPlanDTO)>：产品计划实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 根据获取任务计划
+#### 访问路径
+/products/{product_id}/productplans/{productplan_id}/subproductplans/fetchtaskplan
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |/r/n| 2 | productplan_id | Long | 产品计划主键ID |
+| 3 | context | [ProductPlanSearchContext](#ProductPlanSearchContext) | 产品计划查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[SubProductPlanDTO](#SubProductPlanDTO)>：产品计划实体传输对象列表 |
+
+### 根据查询任务计划
+#### 访问路径
+/products/{product_id}/productplans/{productplan_id}/subproductplans/searchtaskplan
 
 #### 请求方法
 POST

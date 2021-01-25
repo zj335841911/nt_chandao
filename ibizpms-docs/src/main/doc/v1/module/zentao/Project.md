@@ -3718,18 +3718,19 @@ String
 | 21 | [关联需求](#实体行为-关联需求（LinkStory）) | LinkStory | 用户自定义 | 后台及前台 |
 | 22 | [团队管理](#实体行为-团队管理（ManageMembers）) | ManageMembers | 用户自定义 | 后台及前台 |
 | 23 | [移动端项目计数器](#实体行为-移动端项目计数器（MobProjectCount）) | MobProjectCount | 实体处理逻辑 | 后台 |
-| 24 | [项目任务快速分组计数器](#实体行为-项目任务快速分组计数器（ProjectTaskQCnt）) | ProjectTaskQCnt | 实体处理逻辑 | 后台 |
-| 25 | [置顶](#实体行为-置顶（ProjectTop）) | projectTop | 实体处理逻辑 | 后台 |
-| 26 | [延期](#实体行为-延期（Putoff）) | Putoff | 用户自定义 | 后台及前台 |
-| 27 | [退出](#实体行为-退出（ReturnEdit）) | ReturnEdit | 用户自定义 | 前台 |
-| 28 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
-| 29 | [开始](#实体行为-开始（Start）) | Start | 用户自定义 | 后台及前台 |
-| 30 | [挂起](#实体行为-挂起（Suspend）) | Suspend | 用户自定义 | 后台及前台 |
-| 31 | [移除成员](#实体行为-移除成员（UnlinkMember）) | UnlinkMember | 用户自定义 | 后台及前台 |
-| 32 | [解除关联需求](#实体行为-解除关联需求（UnlinkStory）) | UnlinkStory | 用户自定义 | 后台及前台 |
-| 33 | [根据结束日期更新可用工作日](#实体行为-根据结束日期更新可用工作日（UpdateCycle）) | UpdateCycle | 用户自定义 | 前台 |
-| 34 | [排序](#实体行为-排序（UpdateOrder）) | UpdateOrder | 用户自定义 | 后台及前台 |
-| 35 | [更新项目周期及可用工作日](#实体行为-更新项目周期及可用工作日（UpdateProjectCycle）) | UpdateProjectCycle | 用户自定义 | 前台 |
+| 24 | [项目立项任务快速分组计数器](#实体行为-项目立项任务快速分组计数器（PmsEeProjectTaskCount）) | PmsEeProjectTaskCount | 实体处理逻辑 | 后台 |
+| 25 | [项目任务快速分组计数器](#实体行为-项目任务快速分组计数器（ProjectTaskQCnt）) | ProjectTaskQCnt | 实体处理逻辑 | 后台 |
+| 26 | [置顶](#实体行为-置顶（ProjectTop）) | projectTop | 实体处理逻辑 | 后台 |
+| 27 | [延期](#实体行为-延期（Putoff）) | Putoff | 用户自定义 | 后台及前台 |
+| 28 | [退出](#实体行为-退出（ReturnEdit）) | ReturnEdit | 用户自定义 | 前台 |
+| 29 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+| 30 | [开始](#实体行为-开始（Start）) | Start | 用户自定义 | 后台及前台 |
+| 31 | [挂起](#实体行为-挂起（Suspend）) | Suspend | 用户自定义 | 后台及前台 |
+| 32 | [移除成员](#实体行为-移除成员（UnlinkMember）) | UnlinkMember | 用户自定义 | 后台及前台 |
+| 33 | [解除关联需求](#实体行为-解除关联需求（UnlinkStory）) | UnlinkStory | 用户自定义 | 后台及前台 |
+| 34 | [根据结束日期更新可用工作日](#实体行为-根据结束日期更新可用工作日（UpdateCycle）) | UpdateCycle | 用户自定义 | 前台 |
+| 35 | [排序](#实体行为-排序（UpdateOrder）) | UpdateOrder | 用户自定义 | 后台及前台 |
+| 36 | [更新项目周期及可用工作日](#实体行为-更新项目周期及可用工作日（UpdateProjectCycle）) | UpdateProjectCycle | 用户自定义 | 前台 |
 
 ### 实体行为-Create（Create）
 #### 说明
@@ -4021,6 +4022,18 @@ CheckKey
 
 #### 逻辑附加
 无
+### 实体行为-项目立项任务快速分组计数器（PmsEeProjectTaskCount）
+#### 说明
+项目立项任务快速分组计数器
+
+- 行为类型
+实体处理逻辑
+
+- 行为持有者
+后台
+
+#### 逻辑附加
+无
 ### 实体行为-项目任务快速分组计数器（ProjectTaskQCnt）
 #### 说明
 项目任务快速分组计数器
@@ -4177,18 +4190,19 @@ Save
 | ---- | ---- | ---- | ---- |
 | 1 | [取消置顶](#逻辑处理-取消置顶（CancelProjectTop）) | CancelProjectTop | 后台 |
 | 2 | [移动端项目计数器](#逻辑处理-移动端项目计数器（MobProjectCount）) | MobProjectCount | 后台 |
-| 3 | [项目任务快速分组计数器](#逻辑处理-项目任务快速分组计数器（ProjectTaskQCnt）) | ProjectTaskQCnt | 后台及前台 |
-| 4 | [置顶](#逻辑处理-置顶（ProjectTop）) | ProjectTop | 后台 |
-| 5 | [获取项目产品计划](#逻辑处理-获取项目产品计划（getProjectProductPlan）) | getProjectProductPlan | 后台 |
-| 6 | [行为[Update]主状态拒绝逻辑](#逻辑处理-行为[Update]主状态拒绝逻辑（Update__MSDeny）) | Update__MSDeny | 后台 |
-| 7 | [行为[UpdateTemp]主状态拒绝逻辑](#逻辑处理-行为[UpdateTemp]主状态拒绝逻辑（UpdateTemp__MSDeny）) | UpdateTemp__MSDeny | 后台 |
-| 8 | [行为[UpdateTempMajor]主状态拒绝逻辑](#逻辑处理-行为[UpdateTempMajor]主状态拒绝逻辑（UpdateTempMajor__MSDeny）) | UpdateTempMajor__MSDeny | 后台 |
-| 9 | [行为[Remove]主状态拒绝逻辑](#逻辑处理-行为[Remove]主状态拒绝逻辑（Remove__MSDeny）) | Remove__MSDeny | 后台 |
-| 10 | [行为[RemoveTemp]主状态拒绝逻辑](#逻辑处理-行为[RemoveTemp]主状态拒绝逻辑（RemoveTemp__MSDeny）) | RemoveTemp__MSDeny | 后台 |
-| 11 | [行为[RemoveTempMajor]主状态拒绝逻辑](#逻辑处理-行为[RemoveTempMajor]主状态拒绝逻辑（RemoveTempMajor__MSDeny）) | RemoveTempMajor__MSDeny | 后台 |
-| 12 | [行为[UpdateCycle]主状态拒绝逻辑](#逻辑处理-行为[UpdateCycle]主状态拒绝逻辑（UpdateCycle__MSDeny）) | UpdateCycle__MSDeny | 后台 |
-| 13 | [行为[UpdateOrder]主状态拒绝逻辑](#逻辑处理-行为[UpdateOrder]主状态拒绝逻辑（UpdateOrder__MSDeny）) | UpdateOrder__MSDeny | 后台 |
-| 14 | [行为[UpdateProjectCycle]主状态拒绝逻辑](#逻辑处理-行为[UpdateProjectCycle]主状态拒绝逻辑（UpdateProjectCycle__MSDeny）) | UpdateProjectCycle__MSDeny | 后台 |
+| 3 | [项目立项任务快速分组计数器](#逻辑处理-项目立项任务快速分组计数器（PmsEeProjectTaskCount）) | PmsEeProjectTaskCount | 后台 |
+| 4 | [项目任务快速分组计数器](#逻辑处理-项目任务快速分组计数器（ProjectTaskQCnt）) | ProjectTaskQCnt | 后台及前台 |
+| 5 | [置顶](#逻辑处理-置顶（ProjectTop）) | ProjectTop | 后台 |
+| 6 | [获取项目产品计划](#逻辑处理-获取项目产品计划（getProjectProductPlan）) | getProjectProductPlan | 后台 |
+| 7 | [行为[Update]主状态拒绝逻辑](#逻辑处理-行为[Update]主状态拒绝逻辑（Update__MSDeny）) | Update__MSDeny | 后台 |
+| 8 | [行为[UpdateTemp]主状态拒绝逻辑](#逻辑处理-行为[UpdateTemp]主状态拒绝逻辑（UpdateTemp__MSDeny）) | UpdateTemp__MSDeny | 后台 |
+| 9 | [行为[UpdateTempMajor]主状态拒绝逻辑](#逻辑处理-行为[UpdateTempMajor]主状态拒绝逻辑（UpdateTempMajor__MSDeny）) | UpdateTempMajor__MSDeny | 后台 |
+| 10 | [行为[Remove]主状态拒绝逻辑](#逻辑处理-行为[Remove]主状态拒绝逻辑（Remove__MSDeny）) | Remove__MSDeny | 后台 |
+| 11 | [行为[RemoveTemp]主状态拒绝逻辑](#逻辑处理-行为[RemoveTemp]主状态拒绝逻辑（RemoveTemp__MSDeny）) | RemoveTemp__MSDeny | 后台 |
+| 12 | [行为[RemoveTempMajor]主状态拒绝逻辑](#逻辑处理-行为[RemoveTempMajor]主状态拒绝逻辑（RemoveTempMajor__MSDeny）) | RemoveTempMajor__MSDeny | 后台 |
+| 13 | [行为[UpdateCycle]主状态拒绝逻辑](#逻辑处理-行为[UpdateCycle]主状态拒绝逻辑（UpdateCycle__MSDeny）) | UpdateCycle__MSDeny | 后台 |
+| 14 | [行为[UpdateOrder]主状态拒绝逻辑](#逻辑处理-行为[UpdateOrder]主状态拒绝逻辑（UpdateOrder__MSDeny）) | UpdateOrder__MSDeny | 后台 |
+| 15 | [行为[UpdateProjectCycle]主状态拒绝逻辑](#逻辑处理-行为[UpdateProjectCycle]主状态拒绝逻辑（UpdateProjectCycle__MSDeny）) | UpdateProjectCycle__MSDeny | 后台 |
 
 ### 逻辑处理-取消置顶（CancelProjectTop）
 #### 说明
@@ -4218,6 +4232,21 @@ Save
 | 4 | 团队成员 | Rawsqlcall5 | 直接SQL调用 |
 | 5 | 获取任务数 | Rawsqlcall2 | 直接SQL调用 |
 | 6 | 版本数 | Rawsqlcall4 | 直接SQL调用 |
+### 逻辑处理-项目立项任务快速分组计数器（PmsEeProjectTaskCount）
+#### 说明
+项目立项任务快速分组计数器
+
+- 逻辑持有者
+后台
+
+#### 逻辑节点
+| 序号 | 节点 | 节点名 | 节点类型 |
+| ---- | ---- | ---- | ---- |
+| 1 | 获取所有任务 | Rawsqlcall4 | 直接SQL调用 |
+| 2 | 获取周期任务 | Rawsqlcall2 | 直接SQL调用 |
+| 3 | 获取计划任务 | Rawsqlcall3 | 直接SQL调用 |
+| 4 | 获取临时任务 | Rawsqlcall1 | 直接SQL调用 |
+| 5 | 开始 | Begin | 开始 |
 ### 逻辑处理-项目任务快速分组计数器（ProjectTaskQCnt）
 #### 说明
 项目任务快速分组计数器
