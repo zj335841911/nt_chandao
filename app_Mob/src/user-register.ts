@@ -35,7 +35,7 @@ export const UserComponent = {
         // 任务团队列表组件
         v.component('app-taskteam-list',() => import('@/ibiz-core/components/app-taskteam-list/app-taskteam-list.vue'));
         // 图片截取
-        v.component('app-img-cropper',() => import('@/ibiz-core/components/app-img-cropper/app-img-cropper.vue'));
+        // v.component('app-img-cropper',() => import('@/ibiz-core/components/app-img-cropper/app-img-cropper.vue'));
         // 复合表单项--动态选择
         v.component('app-mob-select-dynamic',() => import('@/ibiz-core/components/app-mob-select-dynamic/app-mob-select-dynamic.vue'));
         // 复合表单项插件
