@@ -20,6 +20,11 @@ hide members
 |work|WORK|LONGTEXT|&nbsp;暂时还不知道做什么用的，没有任何处理的代码|
 |任务|TASK|PICKUP|&nbsp;|
 |日期|DATES|DATE|&nbsp;|
+|评估状态|EVALUATIONSTATUS|TEXT|&nbsp;|
+|评估成本|EVALUATIONCOST|FLOAT|&nbsp;|
+|评估工时|EVALUATIONTIME|FLOAT|&nbsp;|
+|投入成本|INPUTCOST|FLOAT|&nbsp;|
+|评估说明|EVALUATIONDESC|LONGTEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -34,6 +39,11 @@ hide members
 |work|默认规则|内容长度必须小于等于[65535]|
 |任务|默认规则|默认规则|
 |日期|默认规则|默认规则|
+|评估状态|默认规则|内容长度必须小于等于[100]|
+|评估成本|默认规则|默认规则|
+|评估工时|默认规则|默认规则|
+|投入成本|默认规则|默认规则|
+|评估说明|默认规则|内容长度必须小于等于[1048576]|
 
 ## 状态控制
 

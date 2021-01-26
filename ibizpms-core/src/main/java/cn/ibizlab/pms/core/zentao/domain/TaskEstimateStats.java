@@ -86,6 +86,34 @@ public class TaskEstimateStats extends EntityMP implements Serializable {
     @JSONField(name = "name")
     @JsonProperty("name")
     private String name;
+    /**
+     * 投入成本
+     */
+    @TableField(value = "`inputcost`")
+    @JSONField(name = "inputcost")
+    @JsonProperty("inputcost")
+    private Double inputcost;
+    /**
+     * 评估工时
+     */
+    @TableField(value = "`evaluationtime`")
+    @JSONField(name = "evaluationtime")
+    @JsonProperty("evaluationtime")
+    private Double evaluationtime;
+    /**
+     * 评估成本
+     */
+    @TableField(value = "`evaluationcost`")
+    @JSONField(name = "evaluationcost")
+    @JsonProperty("evaluationcost")
+    private Double evaluationcost;
+    /**
+     * 评估状态
+     */
+    @TableField(value = "`evaluationstatus`")
+    @JSONField(name = "evaluationstatus")
+    @JsonProperty("evaluationstatus")
+    private String evaluationstatus;
 
 
 
@@ -103,6 +131,38 @@ public class TaskEstimateStats extends EntityMP implements Serializable {
     public void setDate(String date) {
         this.date = date;
         this.modify("date", date);
+    }
+
+    /**
+     * 设置 [投入成本]
+     */
+    public void setInputcost(Double inputcost) {
+        this.inputcost = inputcost;
+        this.modify("inputcost", inputcost);
+    }
+
+    /**
+     * 设置 [评估工时]
+     */
+    public void setEvaluationtime(Double evaluationtime) {
+        this.evaluationtime = evaluationtime;
+        this.modify("evaluationtime", evaluationtime);
+    }
+
+    /**
+     * 设置 [评估成本]
+     */
+    public void setEvaluationcost(Double evaluationcost) {
+        this.evaluationcost = evaluationcost;
+        this.modify("evaluationcost", evaluationcost);
+    }
+
+    /**
+     * 设置 [评估状态]
+     */
+    public void setEvaluationstatus(String evaluationstatus) {
+        this.evaluationstatus = evaluationstatus;
+        this.modify("evaluationstatus", evaluationstatus);
     }
 
 

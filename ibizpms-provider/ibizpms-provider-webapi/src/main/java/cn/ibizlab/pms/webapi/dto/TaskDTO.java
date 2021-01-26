@@ -754,6 +754,14 @@ public class TaskDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String assign;
 
+    /**
+     * 属性 [INPUTCOST]
+     *
+     */
+    @JSONField(name = "inputcost")
+    @JsonProperty("inputcost")
+    private Double inputcost;
+
 
     /**
      * 设置 [CANCELEDBY]
@@ -1089,6 +1097,14 @@ public class TaskDTO extends DTOBase implements Serializable {
     public void setAssign(String  assign){
         this.assign = assign ;
         this.modify("assign",assign);
+    }
+
+    /**
+     * 设置 [INPUTCOST]
+     */
+    public void setInputcost(Double  inputcost){
+        this.inputcost = inputcost ;
+        this.modify("inputcost",inputcost);
     }
 
 

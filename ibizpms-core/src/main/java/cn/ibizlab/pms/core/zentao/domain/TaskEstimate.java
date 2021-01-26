@@ -107,6 +107,42 @@ public class TaskEstimate extends EntityMP implements Serializable {
     @JSONField(name = "dates", format = "yyyy-MM-dd")
     @JsonProperty("dates")
     private Timestamp dates;
+    /**
+     * 评估状态
+     */
+    @DEField(defaultValue = "no")
+    @TableField(value = "`evaluationstatus`")
+    @JSONField(name = "evaluationstatus")
+    @JsonProperty("evaluationstatus")
+    private String evaluationstatus;
+    /**
+     * 评估成本
+     */
+    @TableField(value = "`evaluationcost`")
+    @JSONField(name = "evaluationcost")
+    @JsonProperty("evaluationcost")
+    private Double evaluationcost;
+    /**
+     * 评估工时
+     */
+    @TableField(value = "`evaluationtime`")
+    @JSONField(name = "evaluationtime")
+    @JsonProperty("evaluationtime")
+    private Double evaluationtime;
+    /**
+     * 投入成本
+     */
+    @TableField(value = "`inputcost`")
+    @JSONField(name = "inputcost")
+    @JsonProperty("inputcost")
+    private Double inputcost;
+    /**
+     * 评估说明
+     */
+    @TableField(value = "`evaluationdesc`")
+    @JSONField(name = "evaluationdesc")
+    @JsonProperty("evaluationdesc")
+    private String evaluationdesc;
 
     /**
      * 
@@ -174,6 +210,46 @@ public class TaskEstimate extends EntityMP implements Serializable {
     public void setTask(Long task) {
         this.task = task;
         this.modify("task", task);
+    }
+
+    /**
+     * 设置 [评估状态]
+     */
+    public void setEvaluationstatus(String evaluationstatus) {
+        this.evaluationstatus = evaluationstatus;
+        this.modify("evaluationstatus", evaluationstatus);
+    }
+
+    /**
+     * 设置 [评估成本]
+     */
+    public void setEvaluationcost(Double evaluationcost) {
+        this.evaluationcost = evaluationcost;
+        this.modify("evaluationcost", evaluationcost);
+    }
+
+    /**
+     * 设置 [评估工时]
+     */
+    public void setEvaluationtime(Double evaluationtime) {
+        this.evaluationtime = evaluationtime;
+        this.modify("evaluationtime", evaluationtime);
+    }
+
+    /**
+     * 设置 [投入成本]
+     */
+    public void setInputcost(Double inputcost) {
+        this.inputcost = inputcost;
+        this.modify("inputcost", inputcost);
+    }
+
+    /**
+     * 设置 [评估说明]
+     */
+    public void setEvaluationdesc(String evaluationdesc) {
+        this.evaluationdesc = evaluationdesc;
+        this.modify("evaluationdesc", evaluationdesc);
     }
 
 

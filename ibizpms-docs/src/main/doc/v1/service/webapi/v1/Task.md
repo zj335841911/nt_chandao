@@ -16455,9 +16455,10 @@ POST
 | 80 | idvalue | Long | 允许 | 关联编号 |
 | 81 | cycle | Integer | 允许 | 周期 |
 | 82 | assign | String | 允许 | 是否指派 |
-| 83 | ibztaskestimates | List<[IBZTaskEstimateDTO}](#IBZTaskEstimateDTO})> | 允许 | 任务预计 |
-| 84 | ibztaskteams | List<[IBZTaskTeamDTO}](#IBZTaskTeamDTO})> | 允许 | 任务团队 |
-| 85 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 83 | inputcost | Double | 允许 | 投入成本 |
+| 84 | ibztaskestimates | List<[IBZTaskEstimateDTO}](#IBZTaskEstimateDTO})> | 允许 | 任务预计 |
+| 85 | ibztaskteams | List<[IBZTaskTeamDTO}](#IBZTaskTeamDTO})> | 允许 | 任务团队 |
+| 86 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### IBZTaskEstimateDTO
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
@@ -16470,7 +16471,12 @@ POST
 | 6 | work | String | 允许 | work |
 | 7 | task | Long | 允许 | 任务 |
 | 8 | dates | Timestamp | 允许 | 日期<br>时间格式：yyyy-MM-dd |
-| 9 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 9 | evaluationstatus | String | 允许 | 评估状态 |
+| 10 | evaluationcost | Double | 允许 | 评估成本 |
+| 11 | evaluationtime | Double | 允许 | 评估工时 |
+| 12 | inputcost | Double | 允许 | 投入成本 |
+| 13 | evaluationdesc | String | 允许 | 评估说明 |
+| 14 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### IBZTaskTeamDTO
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

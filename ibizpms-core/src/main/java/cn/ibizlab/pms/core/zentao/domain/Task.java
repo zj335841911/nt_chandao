@@ -667,6 +667,13 @@ public class Task extends EntityMP implements Serializable {
     @JSONField(name = "assign")
     @JsonProperty("assign")
     private String assign;
+    /**
+     * 投入成本
+     */
+    @TableField(value = "`inputcost`")
+    @JSONField(name = "inputcost")
+    @JsonProperty("inputcost")
+    private Double inputcost;
 
     /**
      * 
@@ -1158,6 +1165,14 @@ public class Task extends EntityMP implements Serializable {
     public void setAssign(String assign) {
         this.assign = assign;
         this.modify("assign", assign);
+    }
+
+    /**
+     * 设置 [投入成本]
+     */
+    public void setInputcost(Double inputcost) {
+        this.inputcost = inputcost;
+        this.modify("inputcost", inputcost);
     }
 
 

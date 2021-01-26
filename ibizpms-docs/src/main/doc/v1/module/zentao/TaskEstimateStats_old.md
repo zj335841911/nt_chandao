@@ -15,6 +15,10 @@
 |消耗的工时|CONSUMED|FLOAT|&nbsp;|
 |编号|ID|ACID|&nbsp;|
 |项目名称|NAME|TEXT|&nbsp;|
+|投入成本|INPUTCOST|FLOAT|&nbsp;|
+|评估工时|EVALUATIONTIME|FLOAT|&nbsp;|
+|评估成本|EVALUATIONCOST|FLOAT|&nbsp;|
+|评估状态|EVALUATIONSTATUS|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -25,6 +29,10 @@
 |消耗的工时|默认规则|默认规则|
 |编号|默认规则|默认规则|
 |项目名称|默认规则|内容长度必须小于等于[100]|
+|投入成本|默认规则|默认规则|
+|评估工时|默认规则|默认规则|
+|评估成本|默认规则|默认规则|
+|评估状态|默认规则|内容长度必须小于等于[100]|
 
 ## 状态控制
 

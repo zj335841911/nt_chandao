@@ -2152,7 +2152,12 @@ POST
 | 6 | work | String | 允许 | work |
 | 7 | task | Long | 允许 | 任务 |
 | 8 | dates | Timestamp | 允许 | 日期<br>时间格式：yyyy-MM-dd |
-| 9 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 9 | evaluationstatus | String | 允许 | 评估状态 |
+| 10 | evaluationcost | Double | 允许 | 评估成本 |
+| 11 | evaluationtime | Double | 允许 | 评估工时 |
+| 12 | inputcost | Double | 允许 | 投入成本 |
+| 13 | evaluationdesc | String | 允许 | 评估说明 |
+| 14 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### TaskEstimateSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

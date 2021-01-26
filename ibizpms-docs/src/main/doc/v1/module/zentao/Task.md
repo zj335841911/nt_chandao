@@ -114,6 +114,7 @@
 | 82 | [关联编号](#属性-关联编号（IDVALUE）) | IDVALUE | 大整型 | 否 | 是 | 是 |
 | 83 | [周期](#属性-周期（CYCLE）) | CYCLE | 整型 | 否 | 是 | 是 |
 | 84 | [是否指派](#属性-是否指派（ASSIGN）) | ASSIGN | 文本，可指定长度 | 否 | 是 | 是 |
+| 85 | [投入成本](#属性-投入成本（INPUTCOST）) | INPUTCOST | 浮点 | 否 | 是 | 是 |
 
 ### 属性-由谁取消（CANCELEDBY）
 #### 属性说明
@@ -321,7 +322,7 @@ Long
 无
 
 - 是否支持快速搜索
-否
+是
 
 - 搜索条件
 | 序号 | 组合方式 |
@@ -3748,6 +3749,47 @@ String
 | 关系属性 | [名称（TITLE）](../zentao/ProductPlan/#属性-名称（TITLE）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
+### 属性-投入成本（INPUTCOST）
+#### 属性说明
+投入成本
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+浮点
+
+- Java类型
+Double
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [产品计划（ZT_PRODUCTPLAN）](../zentao/ProductPlan) |
+| 关系属性 | [名称（TITLE）](../zentao/ProductPlan/#属性-名称（TITLE）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
 
 ## 业务状态
 | 序号 | 状态名称 | [任务状态](#属性-任务状态（STATUS1）)<br>（STATUS1） | [是否收藏](#属性-是否收藏（ISFAVORITES）)<br>（ISFAVORITES） | [任务类型](#属性-任务类型（TASKTYPE）)<br>（TASKTYPE） | 默认 |
@@ -7132,7 +7174,8 @@ FAVORITES
 ### 快速搜索项
 | 序号 | 属性 |
 | ---- | ---- |
-| 1 | [任务名称（NAME）](#属性-任务名称（NAME）) |
+| 1 | [编号（ID）](#属性-编号（ID）) |
+| 2 | [任务名称（NAME）](#属性-任务名称（NAME）) |
 
 ### 搜索条件
 | 序号 | 属性 | 组合方式 |
@@ -7867,6 +7910,7 @@ t1.`FINISHEDDATE`,
 t1.`FROMBUG`,
 t1.`ID`,
 t1.`IDVALUE`,
+t1.`INPUTCOST`,
 0 AS `ISFAVORITES`,
 ( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`,
 t1.`LASTEDITEDBY`,
@@ -8077,6 +8121,7 @@ t1.`FINISHEDLIST`,
 t1.`FROMBUG`,
 t1.`ID`,
 t1.`IDVALUE`,
+t1.`INPUTCOST`,
 0 AS `ISFAVORITES`,
 ( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`,
 t1.`LASTEDITEDBY`,

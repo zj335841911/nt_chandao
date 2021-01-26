@@ -231,7 +231,11 @@ POST
 | 4 | consumed | Double | 允许 | 消耗的工时 |
 | 5 | id | Long | 允许 | 编号 |
 | 6 | name | String | 允许 | 项目名称 |
-| 7 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 7 | inputcost | Double | 允许 | 投入成本 |
+| 8 | evaluationtime | Double | 允许 | 评估工时 |
+| 9 | evaluationcost | Double | 允许 | 评估成本 |
+| 10 | evaluationstatus | String | 允许 | 评估状态 |
+| 11 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### TaskEstimateStatsSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

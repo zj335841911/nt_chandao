@@ -81,6 +81,39 @@ public class taskestimatestatsDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String name;
 
+    /**
+     * 属性 [INPUTCOST]
+     *
+     */
+    @JSONField(name = "inputcost")
+    @JsonProperty("inputcost")
+    private Double inputcost;
+
+    /**
+     * 属性 [EVALUATIONTIME]
+     *
+     */
+    @JSONField(name = "evaluationtime")
+    @JsonProperty("evaluationtime")
+    private Double evaluationtime;
+
+    /**
+     * 属性 [EVALUATIONCOST]
+     *
+     */
+    @JSONField(name = "evaluationcost")
+    @JsonProperty("evaluationcost")
+    private Double evaluationcost;
+
+    /**
+     * 属性 [EVALUATIONSTATUS]
+     *
+     */
+    @JSONField(name = "evaluationstatus")
+    @JsonProperty("evaluationstatus")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String evaluationstatus;
+
 
     /**
      * 设置 [ACCOUNT]
@@ -96,6 +129,38 @@ public class taskestimatestatsDTO extends DTOBase implements Serializable {
     public void setDate(String  date){
         this.date = date ;
         this.modify("date",date);
+    }
+
+    /**
+     * 设置 [INPUTCOST]
+     */
+    public void setInputcost(Double  inputcost){
+        this.inputcost = inputcost ;
+        this.modify("inputcost",inputcost);
+    }
+
+    /**
+     * 设置 [EVALUATIONTIME]
+     */
+    public void setEvaluationtime(Double  evaluationtime){
+        this.evaluationtime = evaluationtime ;
+        this.modify("evaluationtime",evaluationtime);
+    }
+
+    /**
+     * 设置 [EVALUATIONCOST]
+     */
+    public void setEvaluationcost(Double  evaluationcost){
+        this.evaluationcost = evaluationcost ;
+        this.modify("evaluationcost",evaluationcost);
+    }
+
+    /**
+     * 设置 [EVALUATIONSTATUS]
+     */
+    public void setEvaluationstatus(String  evaluationstatus){
+        this.evaluationstatus = evaluationstatus ;
+        this.modify("evaluationstatus",evaluationstatus);
     }
 
 

@@ -26,6 +26,11 @@
 | 6 | [work](#属性-work（WORK）) | WORK | 长文本，没有长度限制 | 否 | 否 | 是 |
 | 7 | [任务](#属性-任务（TASK）) | TASK | 外键值 | 否 | 是 | 是 |
 | 8 | [日期](#属性-日期（DATES）) | DATES | 日期型 | 否 | 是 | 是 |
+| 9 | [评估状态](#属性-评估状态（EVALUATIONSTATUS）) | EVALUATIONSTATUS | 文本，可指定长度 | 否 | 是 | 是 |
+| 10 | [评估成本](#属性-评估成本（EVALUATIONCOST）) | EVALUATIONCOST | 浮点 | 否 | 是 | 是 |
+| 11 | [评估工时](#属性-评估工时（EVALUATIONTIME）) | EVALUATIONTIME | 浮点 | 否 | 是 | 是 |
+| 12 | [投入成本](#属性-投入成本（INPUTCOST）) | INPUTCOST | 浮点 | 否 | 是 | 是 |
+| 13 | [评估说明](#属性-评估说明（EVALUATIONDESC）) | EVALUATIONDESC | 长文本，没有长度限制 | 否 | 是 | 是 |
 
 ### 属性-用户（ACCOUNT）
 #### 属性说明
@@ -376,6 +381,214 @@ yyyy-MM-dd
 | 关系属性 | [编号（ID）](../zentao/Task/#属性-编号（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
+### 属性-评估状态（EVALUATIONSTATUS）
+#### 属性说明
+评估状态
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+文本，可指定长度
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+| 项目 | 说明 |
+| ---- | ---- |
+| 类型 |  |
+| 值 | no |
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [任务（ZT_TASK）](../zentao/Task) |
+| 关系属性 | [编号（ID）](../zentao/Task/#属性-编号（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-评估成本（EVALUATIONCOST）
+#### 属性说明
+评估成本
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+浮点
+
+- Java类型
+Double
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [任务（ZT_TASK）](../zentao/Task) |
+| 关系属性 | [编号（ID）](../zentao/Task/#属性-编号（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-评估工时（EVALUATIONTIME）
+#### 属性说明
+评估工时
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+浮点
+
+- Java类型
+Double
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [任务（ZT_TASK）](../zentao/Task) |
+| 关系属性 | [编号（ID）](../zentao/Task/#属性-编号（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-投入成本（INPUTCOST）
+#### 属性说明
+投入成本
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+浮点
+
+- Java类型
+Double
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [任务（ZT_TASK）](../zentao/Task) |
+| 关系属性 | [编号（ID）](../zentao/Task/#属性-编号（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-评估说明（EVALUATIONDESC）
+#### 属性说明
+评估说明
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+长文本，没有长度限制
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [任务（ZT_TASK）](../zentao/Task) |
+| 关系属性 | [编号（ID）](../zentao/Task/#属性-编号（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
 
 ## 业务状态
 无
@@ -646,7 +859,11 @@ t1.`ACCOUNT`,
 t1.`CONSUMED`,
 t1.`DATE`,
 t1.`date` AS `DATES`,
+t1.`EVALUATIONCOST`,
+t1.`EVALUATIONSTATUS`,
+t1.`EVALUATIONTIME`,
 t1.`ID`,
+t1.`INPUTCOST`,
 t1.`LEFT`,
 t1.`TASK`
 FROM `zt_taskestimate` t1 
@@ -670,7 +887,11 @@ t1.`ACCOUNT`,
 t1.`CONSUMED`,
 t1.`DATE`,
 t1.`date` AS `DATES`,
+t1.`EVALUATIONCOST`,
+t1.`EVALUATIONSTATUS`,
+t1.`EVALUATIONTIME`,
 t1.`ID`,
+t1.`INPUTCOST`,
 t1.`LEFT`,
 t1.`TASK`
 FROM `zt_taskestimate` t1 
@@ -694,7 +915,12 @@ t1.`ACCOUNT`,
 t1.`CONSUMED`,
 t1.`DATE`,
 t1.`date` AS `DATES`,
+t1.`EVALUATIONCOST`,
+t1.`EVALUATIONDESC`,
+t1.`EVALUATIONSTATUS`,
+t1.`EVALUATIONTIME`,
 t1.`ID`,
+t1.`INPUTCOST`,
 t1.`LEFT`,
 t1.`TASK`,
 t1.`WORK`

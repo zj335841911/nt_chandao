@@ -108,6 +108,7 @@ hide members
 |关联编号|IDVALUE|BIGINT|&nbsp;|
 |周期|CYCLE|INT|&nbsp;|
 |是否指派|ASSIGN|TEXT|&nbsp;|
+|投入成本|INPUTCOST|FLOAT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -204,6 +205,7 @@ hide members
 |关联编号|默认规则|默认规则|
 |周期|默认规则|默认规则|
 |是否指派|默认规则|内容长度必须小于等于[100]|
+|投入成本|默认规则|默认规则|
 
 ## 状态控制
 
