@@ -41,6 +41,20 @@ public class TaskEstimateSearchContext extends QueryWrapperContext<TaskEstimate>
             this.getSearchCond().eq("`task`", n_task_eq);
         }
     }
+	private String n_taskname_eq;//[任务名称]
+	public void setN_taskname_eq(String n_taskname_eq) {
+        this.n_taskname_eq = n_taskname_eq;
+        if(!ObjectUtils.isEmpty(this.n_taskname_eq)){
+            this.getSearchCond().eq("`taskname`", n_taskname_eq);
+        }
+    }
+	private String n_taskname_like;//[任务名称]
+	public void setN_taskname_like(String n_taskname_like) {
+        this.n_taskname_like = n_taskname_like;
+        if(!ObjectUtils.isEmpty(this.n_taskname_like)){
+            this.getSearchCond().like("`taskname`", n_taskname_like);
+        }
+    }
 
     /**
 	 * 启用快速搜索

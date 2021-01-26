@@ -143,6 +143,27 @@ public class TaskEstimate extends EntityMP implements Serializable {
     @JSONField(name = "evaluationdesc")
     @JsonProperty("evaluationdesc")
     private String evaluationdesc;
+    /**
+     * 任务名称
+     */
+    @TableField(exist = false)
+    @JSONField(name = "taskname")
+    @JsonProperty("taskname")
+    private String taskname;
+    /**
+     * 项目
+     */
+    @TableField(exist = false)
+    @JSONField(name = "project")
+    @JsonProperty("project")
+    private Long project;
+    /**
+     * 所属项目
+     */
+    @TableField(exist = false)
+    @JSONField(name = "projectname")
+    @JsonProperty("projectname")
+    private String projectname;
 
     /**
      * 

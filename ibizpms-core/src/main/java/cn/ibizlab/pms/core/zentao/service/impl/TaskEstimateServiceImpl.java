@@ -57,6 +57,7 @@ public class TaskEstimateServiceImpl extends ServiceImpl<TaskEstimateMapper, Tas
     @Override
     @Transactional
     public boolean create(TaskEstimate et) {
+        fillParentData(et);
         if (!this.retBool(this.baseMapper.insert(et))) {
             return false;
         }
@@ -67,6 +68,7 @@ public class TaskEstimateServiceImpl extends ServiceImpl<TaskEstimateMapper, Tas
     @Override
     @Transactional
     public void createBatch(List<TaskEstimate> list) {
+        list.forEach(item->fillParentData(item));
         this.saveBatch(list, batchSize);
     }
 
@@ -109,6 +111,7 @@ public class TaskEstimateServiceImpl extends ServiceImpl<TaskEstimateMapper, Tas
 
     @Override
     public TaskEstimate getDraft(TaskEstimate et) {
+        fillParentData(et);
         return et;
     }
 
@@ -138,6 +141,7 @@ public class TaskEstimateServiceImpl extends ServiceImpl<TaskEstimateMapper, Tas
     @Override
     @Transactional
     public boolean saveBatch(Collection<TaskEstimate> list) {
+        list.forEach(item->fillParentData(item));
         List<TaskEstimate> create = new ArrayList<>();
         List<TaskEstimate> update = new ArrayList<>();
         for (TaskEstimate et : list) {
@@ -159,6 +163,7 @@ public class TaskEstimateServiceImpl extends ServiceImpl<TaskEstimateMapper, Tas
     @Override
     @Transactional
     public void saveBatch(List<TaskEstimate> list) {
+        list.forEach(item -> fillParentData(item));
         List<TaskEstimate> create = new ArrayList<>();
         List<TaskEstimate> update = new ArrayList<>();
         for (TaskEstimate et : list) {
@@ -242,8 +247,35 @@ public class TaskEstimateServiceImpl extends ServiceImpl<TaskEstimateMapper, Tas
         return new PageImpl<TaskEstimate>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
+    /**
+     * 查询集合 项目日志
+     */
+    @Override
+    public Page<TaskEstimate> searchProjectTaskEstimate(TaskEstimateSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<TaskEstimate> pages=baseMapper.searchProjectTaskEstimate(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<TaskEstimate>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
 
 
+
+    /**
+     * 为当前实体填充父数据（外键值文本、外键值附加数据）
+     * @param et
+     */
+    private void fillParentData(TaskEstimate et){
+        //实体关系[DER1N_ZT_TASKESTIMATE_ZT_TASK_TASK]
+        if (!ObjectUtils.isEmpty(et.getTask())) {
+            cn.ibizlab.pms.core.zentao.domain.Task zttask=et.getZttask();
+            if (ObjectUtils.isEmpty(zttask)) {
+                cn.ibizlab.pms.core.zentao.domain.Task majorEntity=taskService.get(et.getTask());
+                et.setZttask(majorEntity);
+                zttask = majorEntity;
+            }
+            et.setTaskname(zttask.getName());
+            et.setProject(zttask.getProject());
+            et.setProjectname(zttask.getProjectname());
+        }
+    }
 
 
 

@@ -25,6 +25,9 @@ hide members
 |评估工时|EVALUATIONTIME|FLOAT|&nbsp;|
 |投入成本|INPUTCOST|FLOAT|&nbsp;|
 |评估说明|EVALUATIONDESC|LONGTEXT|&nbsp;|
+|任务名称|TASKNAME|PICKUPTEXT|&nbsp;|
+|项目|PROJECT|PICKUPDATA|&nbsp;|
+|所属项目|PROJECTNAME|PICKUPDATA|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -44,6 +47,9 @@ hide members
 |评估工时|默认规则|默认规则|
 |投入成本|默认规则|默认规则|
 |评估说明|默认规则|内容长度必须小于等于[1048576]|
+|任务名称|默认规则|内容长度必须小于等于[255]|
+|项目|默认规则|默认规则|
+|所属项目|默认规则|内容长度必须小于等于[90]|
 
 ## 状态控制
 
@@ -82,6 +88,7 @@ hide members
 | --------  | --------   | --------   | ----- |
 |DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#TaskEstimate_Default))|否|&nbsp;|
 |DEFAULT1|DEFAULT1([MYSQL5](../../appendix/query_MYSQL5.md#TaskEstimate_Defaults))|否|&nbsp;|
+|ProjectTaskEstimate|项目日志([MYSQL5](../../appendix/query_MYSQL5.md#TaskEstimate_ProjectTaskEstimate))|否|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#TaskEstimate_View))|否|&nbsp;|
 
 * **数据集合**
@@ -90,12 +97,15 @@ hide members
 | --------  | --------   | -------- | --------   | ----- |
 |DEFAULT|DEFAULT|DEFAULT|是|&nbsp;|
 |DEFAULT1|DEFAULT1|DEFAULT1|否|&nbsp;|
+|ProjectTaskEstimate|项目日志|ProjectTaskEstimate|否|&nbsp;|
 
 ## 查询模式
 | 属性      |    搜索模式     |
 | --------   |------------|
 |编号(ID)|LIKE|
 |任务(TASK)|EQ|
+|任务名称(TASKNAME)|EQ|
+|任务名称(TASKNAME)|LIKE|
 
 ## 导入模式
 无

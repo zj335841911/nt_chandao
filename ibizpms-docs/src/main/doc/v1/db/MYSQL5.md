@@ -191521,11 +191521,14 @@ CREATE TABLE `zt_task`(
 | --------   |------------| :-----:   | :----: | :--------- | 
 | EVALUATIONCOST        | 评估成本  | DOUBLE      |   2   | &nbsp; |
 | TASK        | 任务  |       |   8   | &nbsp; |
+| PROJECTNAME        | 所属项目  | VARCHAR      |   90   | &nbsp; |
 | EVALUATIONTIME        | 评估工时  | DOUBLE      |   2   | &nbsp; |
 | ACCOUNT        | 用户  | VARCHAR      |   30   | &nbsp; |
+| TASKNAME        | 任务名称  | VARCHAR      |   255   | &nbsp; |
 | CONSUMED        | 总计消耗  | DOUBLE      |   -1   | &nbsp; |
 | EVALUATIONDESC        | 评估说明  | CLOB      |   1,048,576   | &nbsp; |
 | INPUTCOST        | 投入成本  | DOUBLE      |   2   | &nbsp; |
+| PROJECT        | 项目  |       |   8   | &nbsp; |
 | LEFT        | 预计剩余  | DOUBLE      |   -1   | &nbsp; |
 | ID        | 编号  |       |   -1   | 主键&nbsp; |
 | DATE        | 日期  | DATETIME      |   -1   | &nbsp; |

@@ -16476,7 +16476,10 @@ POST
 | 11 | evaluationtime | Double | 允许 | 评估工时 |
 | 12 | inputcost | Double | 允许 | 投入成本 |
 | 13 | evaluationdesc | String | 允许 | 评估说明 |
-| 14 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 14 | taskname | String | 允许 | 任务名称 |
+| 15 | project | Long | 允许 | 项目 |
+| 16 | projectname | String | 允许 | 所属项目 |
+| 17 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### IBZTaskTeamDTO
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

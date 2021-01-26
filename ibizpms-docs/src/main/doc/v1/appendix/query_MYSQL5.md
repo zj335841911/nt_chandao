@@ -19447,8 +19447,13 @@ t1.`EVALUATIONTIME`,
 t1.`ID`,
 t1.`INPUTCOST`,
 t1.`LEFT`,
-t1.`TASK`
+t11.`PROJECT`,
+t21.`NAME` AS `PROJECTNAME`,
+t1.`TASK`,
+t11.`NAME` AS `TASKNAME`
 FROM `zt_taskestimate` t1 
+LEFT JOIN `zt_task` t11 ON t1.`TASK` = t11.`ID` 
+LEFT JOIN `zt_project` t21 ON t11.`PROJECT` = t21.`ID` 
 
 ```
 ### DEFAULT1(DEFAULT1)<div id="TaskEstimate_Defaults"></div>
@@ -19464,10 +19469,39 @@ t1.`EVALUATIONTIME`,
 t1.`ID`,
 t1.`INPUTCOST`,
 t1.`LEFT`,
-t1.`TASK`
+t11.`PROJECT`,
+t21.`NAME` AS `PROJECTNAME`,
+t1.`TASK`,
+t11.`NAME` AS `TASKNAME`
 FROM `zt_taskestimate` t1 
+LEFT JOIN `zt_task` t11 ON t1.`TASK` = t11.`ID` 
+LEFT JOIN `zt_project` t21 ON t11.`PROJECT` = t21.`ID` 
 
 WHERE ( 1<>1 ) 
+
+```
+### 项目日志(ProjectTaskEstimate)<div id="TaskEstimate_ProjectTaskEstimate"></div>
+```sql
+SELECT
+t1.`ACCOUNT`,
+t1.`CONSUMED`,
+t1.`DATE`,
+t1.`date` AS `DATES`,
+t1.`EVALUATIONCOST`,
+t1.`EVALUATIONSTATUS`,
+t1.`EVALUATIONTIME`,
+t1.`ID`,
+t1.`INPUTCOST`,
+t1.`LEFT`,
+t11.`PROJECT`,
+t21.`NAME` AS `PROJECTNAME`,
+t1.`TASK`,
+t11.`NAME` AS `TASKNAME`
+FROM `zt_taskestimate` t1 
+LEFT JOIN `zt_task` t11 ON t1.`TASK` = t11.`ID` 
+LEFT JOIN `zt_project` t21 ON t11.`PROJECT` = t21.`ID` 
+
+WHERE ( t11.`PROJECT` = ${srfwebcontext('project','{"defname":"PROJECT","dename":"ZT_TASKESTIMATE"}')} ) 
 
 ```
 ### 默认（全部数据）(VIEW)<div id="TaskEstimate_View"></div>
@@ -19484,9 +19518,14 @@ t1.`EVALUATIONTIME`,
 t1.`ID`,
 t1.`INPUTCOST`,
 t1.`LEFT`,
+t11.`PROJECT`,
+t21.`NAME` AS `PROJECTNAME`,
 t1.`TASK`,
+t11.`NAME` AS `TASKNAME`,
 t1.`WORK`
 FROM `zt_taskestimate` t1 
+LEFT JOIN `zt_task` t11 ON t1.`TASK` = t11.`ID` 
+LEFT JOIN `zt_project` t21 ON t11.`PROJECT` = t21.`ID` 
 
 ```
 

@@ -141,6 +141,33 @@ public class TaskEstimateDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
     private String evaluationdesc;
 
+    /**
+     * 属性 [TASKNAME]
+     *
+     */
+    @JSONField(name = "taskname")
+    @JsonProperty("taskname")
+    @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
+    private String taskname;
+
+    /**
+     * 属性 [PROJECT]
+     *
+     */
+    @JSONField(name = "project")
+    @JsonProperty("project")
+    @JsonSerialize(using = ToStringSerializer.class)
+    private Long project;
+
+    /**
+     * 属性 [PROJECTNAME]
+     *
+     */
+    @JSONField(name = "projectname")
+    @JsonProperty("projectname")
+    @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
+    private String projectname;
+
 
     /**
      * 设置 [ACCOUNT]

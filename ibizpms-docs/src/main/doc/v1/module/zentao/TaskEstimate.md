@@ -31,6 +31,9 @@
 | 11 | [评估工时](#属性-评估工时（EVALUATIONTIME）) | EVALUATIONTIME | 浮点 | 否 | 是 | 是 |
 | 12 | [投入成本](#属性-投入成本（INPUTCOST）) | INPUTCOST | 浮点 | 否 | 是 | 是 |
 | 13 | [评估说明](#属性-评估说明（EVALUATIONDESC）) | EVALUATIONDESC | 长文本，没有长度限制 | 否 | 是 | 是 |
+| 14 | [任务名称](#属性-任务名称（TASKNAME）) | TASKNAME | 外键值文本 | 否 | 是 | 是 |
+| 15 | [项目](#属性-项目（PROJECT）) | PROJECT | 外键值附加数据 | 否 | 是 | 是 |
+| 16 | [所属项目](#属性-所属项目（PROJECTNAME）) | PROJECTNAME | 外键值附加数据 | 否 | 是 | 是 |
 
 ### 属性-用户（ACCOUNT）
 #### 属性说明
@@ -73,7 +76,7 @@ String
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [任务（ZT_TASK）](../zentao/Task) |
-| 关系属性 | [编号（ID）](../zentao/Task/#属性-编号（ID）) |
+| 关系属性 | [所属项目（PROJECTNAME）](../zentao/Task/#属性-所属项目（PROJECTNAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-预计剩余（LEFT）
@@ -117,7 +120,7 @@ Double
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [任务（ZT_TASK）](../zentao/Task) |
-| 关系属性 | [编号（ID）](../zentao/Task/#属性-编号（ID）) |
+| 关系属性 | [所属项目（PROJECTNAME）](../zentao/Task/#属性-所属项目（PROJECTNAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-总计消耗（CONSUMED）
@@ -161,7 +164,7 @@ Double
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [任务（ZT_TASK）](../zentao/Task) |
-| 关系属性 | [编号（ID）](../zentao/Task/#属性-编号（ID）) |
+| 关系属性 | [所属项目（PROJECTNAME）](../zentao/Task/#属性-所属项目（PROJECTNAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-编号（ID）
@@ -204,7 +207,7 @@ Long
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [任务（ZT_TASK）](../zentao/Task) |
-| 关系属性 | [编号（ID）](../zentao/Task/#属性-编号（ID）) |
+| 关系属性 | [所属项目（PROJECTNAME）](../zentao/Task/#属性-所属项目（PROJECTNAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-日期（DATE）
@@ -245,7 +248,7 @@ yyyy-MM-dd
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [任务（ZT_TASK）](../zentao/Task) |
-| 关系属性 | [编号（ID）](../zentao/Task/#属性-编号（ID）) |
+| 关系属性 | [所属项目（PROJECTNAME）](../zentao/Task/#属性-所属项目（PROJECTNAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-work（WORK）
@@ -289,7 +292,7 @@ String
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [任务（ZT_TASK）](../zentao/Task) |
-| 关系属性 | [编号（ID）](../zentao/Task/#属性-编号（ID）) |
+| 关系属性 | [所属项目（PROJECTNAME）](../zentao/Task/#属性-所属项目（PROJECTNAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-任务（TASK）
@@ -589,6 +592,132 @@ String
 | 关系属性 | [编号（ID）](../zentao/Task/#属性-编号（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
+### 属性-任务名称（TASKNAME）
+#### 属性说明
+任务名称
+
+- 是否是主键
+否
+
+- 属性类型
+链接字段[来自关系实体字段]
+
+- 数据类型
+外键值文本
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+| 序号 | 组合方式 |
+| ---- | ---- |
+| 1 | `=` |
+| 2 | `%like%` |
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [任务（ZT_TASK）](../zentao/Task) |
+| 关系属性 | [任务名称（NAME）](../zentao/Task/#属性-任务名称（NAME）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-项目（PROJECT）
+#### 属性说明
+项目
+
+- 是否是主键
+否
+
+- 属性类型
+链接字段[来自关系实体字段]
+
+- 数据类型
+外键值附加数据
+
+- Java类型
+Long
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [任务（ZT_TASK）](../zentao/Task) |
+| 关系属性 | [所属项目（PROJECT）](../zentao/Task/#属性-所属项目（PROJECT）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-所属项目（PROJECTNAME）
+#### 属性说明
+所属项目
+
+- 是否是主键
+否
+
+- 属性类型
+链接字段[来自关系实体字段]
+
+- 数据类型
+外键值附加数据
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [任务（ZT_TASK）](../zentao/Task) |
+| 关系属性 | [所属项目（PROJECTNAME）](../zentao/Task/#属性-所属项目（PROJECTNAME）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
 
 ## 业务状态
 无
@@ -833,13 +962,16 @@ Save
 | ---- | ---- | ---- |
 | 1 | [编号（ID）](#属性-编号（ID）) | `%like%` |
 | 2 | [任务（TASK）](#属性-任务（TASK）) | `=` |
+| 3 | [任务名称（TASKNAME）](#属性-任务名称（TASKNAME）) | `=` |
+| 4 | [任务名称（TASKNAME）](#属性-任务名称（TASKNAME）) | `%like%` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |
 | ---- | ---- | ---- | ---- |
 | 1 | [DEFAULT](#数据查询-DEFAULT（Default）) | Default | 否 |
 | 2 | [DEFAULT1](#数据查询-DEFAULT1（Defaults）) | Defaults | 否 |
-| 3 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 3 | [项目日志](#数据查询-项目日志（ProjectTaskEstimate）) | ProjectTaskEstimate | 否 |
+| 4 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-DEFAULT（Default）
 #### 说明
@@ -865,8 +997,13 @@ t1.`EVALUATIONTIME`,
 t1.`ID`,
 t1.`INPUTCOST`,
 t1.`LEFT`,
-t1.`TASK`
+t11.`PROJECT`,
+t21.`NAME` AS `PROJECTNAME`,
+t1.`TASK`,
+t11.`NAME` AS `TASKNAME`
 FROM `zt_taskestimate` t1 
+LEFT JOIN `zt_task` t11 ON t1.`TASK` = t11.`ID` 
+LEFT JOIN `zt_project` t21 ON t11.`PROJECT` = t21.`ID` 
 
 ```
 ### 数据查询-DEFAULT1（Defaults）
@@ -893,8 +1030,46 @@ t1.`EVALUATIONTIME`,
 t1.`ID`,
 t1.`INPUTCOST`,
 t1.`LEFT`,
-t1.`TASK`
+t11.`PROJECT`,
+t21.`NAME` AS `PROJECTNAME`,
+t1.`TASK`,
+t11.`NAME` AS `TASKNAME`
 FROM `zt_taskestimate` t1 
+LEFT JOIN `zt_task` t11 ON t1.`TASK` = t11.`ID` 
+LEFT JOIN `zt_project` t21 ON t11.`PROJECT` = t21.`ID` 
+
+```
+### 数据查询-项目日志（ProjectTaskEstimate）
+#### 说明
+项目日志
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+t1.`ACCOUNT`,
+t1.`CONSUMED`,
+t1.`DATE`,
+t1.`date` AS `DATES`,
+t1.`EVALUATIONCOST`,
+t1.`EVALUATIONSTATUS`,
+t1.`EVALUATIONTIME`,
+t1.`ID`,
+t1.`INPUTCOST`,
+t1.`LEFT`,
+t11.`PROJECT`,
+t21.`NAME` AS `PROJECTNAME`,
+t1.`TASK`,
+t11.`NAME` AS `TASKNAME`
+FROM `zt_taskestimate` t1 
+LEFT JOIN `zt_task` t11 ON t1.`TASK` = t11.`ID` 
+LEFT JOIN `zt_project` t21 ON t11.`PROJECT` = t21.`ID` 
 
 ```
 ### 数据查询-默认（全部数据）（View）
@@ -922,9 +1097,14 @@ t1.`EVALUATIONTIME`,
 t1.`ID`,
 t1.`INPUTCOST`,
 t1.`LEFT`,
+t11.`PROJECT`,
+t21.`NAME` AS `PROJECTNAME`,
 t1.`TASK`,
+t11.`NAME` AS `TASKNAME`,
 t1.`WORK`
 FROM `zt_taskestimate` t1 
+LEFT JOIN `zt_task` t11 ON t1.`TASK` = t11.`ID` 
+LEFT JOIN `zt_project` t21 ON t11.`PROJECT` = t21.`ID` 
 
 ```
 
@@ -933,6 +1113,7 @@ FROM `zt_taskestimate` t1
 | ---- | ---- | ---- | ---- |
 | 1 | [DEFAULT](#数据集合-DEFAULT（Default）) | Default | 是 |
 | 2 | [DEFAULT1](#数据集合-DEFAULT1（Defaults）) | Defaults | 否 |
+| 3 | [项目日志](#数据集合-项目日志（ProjectTaskEstimate）) | ProjectTaskEstimate | 否 |
 
 ### 数据集合-DEFAULT（Default）
 #### 说明
@@ -962,6 +1143,20 @@ DEFAULT1
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [DEFAULT1（Defaults）](#数据查询-DEFAULT1（Defaults）) |
+### 数据集合-项目日志（ProjectTaskEstimate）
+#### 说明
+项目日志
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [项目日志（ProjectTaskEstimate）](#数据查询-项目日志（ProjectTaskEstimate）) |
 
 ## 数据导入
 无

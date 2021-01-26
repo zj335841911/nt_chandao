@@ -199,6 +199,29 @@ public class TaskEstimateResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(taskestimateMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-searchProjectTaskEstimate-all')")
+	@ApiOperation(value = "根据任务获取项目日志", tags = {"任务预计" } ,notes = "根据任务获取项目日志")
+    @RequestMapping(method= RequestMethod.GET , value="/tasks/{task_id}/taskestimates/fetchprojecttaskestimate")
+	public ResponseEntity<List<TaskEstimateDTO>> fetchTaskEstimateProjectTaskEstimateByTask(@PathVariable("task_id") Long task_id,TaskEstimateSearchContext context) {
+        context.setN_task_eq(task_id);
+        Page<TaskEstimate> domains = taskestimateService.searchProjectTaskEstimate(context) ;
+        List<TaskEstimateDTO> list = taskestimateMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-searchProjectTaskEstimate-all')")
+	@ApiOperation(value = "根据任务查询项目日志", tags = {"任务预计" } ,notes = "根据任务查询项目日志")
+    @RequestMapping(method= RequestMethod.POST , value="/tasks/{task_id}/taskestimates/searchprojecttaskestimate")
+	public ResponseEntity<Page<TaskEstimateDTO>> searchTaskEstimateProjectTaskEstimateByTask(@PathVariable("task_id") Long task_id, @RequestBody TaskEstimateSearchContext context) {
+        context.setN_task_eq(task_id);
+        Page<TaskEstimate> domains = taskestimateService.searchProjectTaskEstimate(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(taskestimateMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-Create-all')")
     @ApiOperation(value = "根据任务模块任务建立任务预计", tags = {"任务预计" },  notes = "根据任务模块任务建立任务预计")
 	@RequestMapping(method = RequestMethod.POST, value = "/projectmodules/{projectmodule_id}/tasks/{task_id}/taskestimates")
@@ -348,6 +371,29 @@ public class TaskEstimateResource {
 	public ResponseEntity<Page<TaskEstimateDTO>> searchTaskEstimateDefaultsByProjectModuleTask(@PathVariable("projectmodule_id") Long projectmodule_id, @PathVariable("task_id") Long task_id, @RequestBody TaskEstimateSearchContext context) {
         context.setN_task_eq(task_id);
         Page<TaskEstimate> domains = taskestimateService.searchDefaults(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(taskestimateMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-searchProjectTaskEstimate-all')")
+	@ApiOperation(value = "根据任务模块任务获取项目日志", tags = {"任务预计" } ,notes = "根据任务模块任务获取项目日志")
+    @RequestMapping(method= RequestMethod.GET , value="/projectmodules/{projectmodule_id}/tasks/{task_id}/taskestimates/fetchprojecttaskestimate")
+	public ResponseEntity<List<TaskEstimateDTO>> fetchTaskEstimateProjectTaskEstimateByProjectModuleTask(@PathVariable("projectmodule_id") Long projectmodule_id, @PathVariable("task_id") Long task_id,TaskEstimateSearchContext context) {
+        context.setN_task_eq(task_id);
+        Page<TaskEstimate> domains = taskestimateService.searchProjectTaskEstimate(context) ;
+        List<TaskEstimateDTO> list = taskestimateMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-searchProjectTaskEstimate-all')")
+	@ApiOperation(value = "根据任务模块任务查询项目日志", tags = {"任务预计" } ,notes = "根据任务模块任务查询项目日志")
+    @RequestMapping(method= RequestMethod.POST , value="/projectmodules/{projectmodule_id}/tasks/{task_id}/taskestimates/searchprojecttaskestimate")
+	public ResponseEntity<Page<TaskEstimateDTO>> searchTaskEstimateProjectTaskEstimateByProjectModuleTask(@PathVariable("projectmodule_id") Long projectmodule_id, @PathVariable("task_id") Long task_id, @RequestBody TaskEstimateSearchContext context) {
+        context.setN_task_eq(task_id);
+        Page<TaskEstimate> domains = taskestimateService.searchProjectTaskEstimate(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(taskestimateMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
@@ -503,6 +549,29 @@ public class TaskEstimateResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(taskestimateMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-searchProjectTaskEstimate-all')")
+	@ApiOperation(value = "根据产品计划任务获取项目日志", tags = {"任务预计" } ,notes = "根据产品计划任务获取项目日志")
+    @RequestMapping(method= RequestMethod.GET , value="/productplans/{productplan_id}/tasks/{task_id}/taskestimates/fetchprojecttaskestimate")
+	public ResponseEntity<List<TaskEstimateDTO>> fetchTaskEstimateProjectTaskEstimateByProductPlanTask(@PathVariable("productplan_id") Long productplan_id, @PathVariable("task_id") Long task_id,TaskEstimateSearchContext context) {
+        context.setN_task_eq(task_id);
+        Page<TaskEstimate> domains = taskestimateService.searchProjectTaskEstimate(context) ;
+        List<TaskEstimateDTO> list = taskestimateMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-searchProjectTaskEstimate-all')")
+	@ApiOperation(value = "根据产品计划任务查询项目日志", tags = {"任务预计" } ,notes = "根据产品计划任务查询项目日志")
+    @RequestMapping(method= RequestMethod.POST , value="/productplans/{productplan_id}/tasks/{task_id}/taskestimates/searchprojecttaskestimate")
+	public ResponseEntity<Page<TaskEstimateDTO>> searchTaskEstimateProjectTaskEstimateByProductPlanTask(@PathVariable("productplan_id") Long productplan_id, @PathVariable("task_id") Long task_id, @RequestBody TaskEstimateSearchContext context) {
+        context.setN_task_eq(task_id);
+        Page<TaskEstimate> domains = taskestimateService.searchProjectTaskEstimate(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(taskestimateMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-Create-all')")
     @ApiOperation(value = "根据需求任务建立任务预计", tags = {"任务预计" },  notes = "根据需求任务建立任务预计")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/taskestimates")
@@ -652,6 +721,29 @@ public class TaskEstimateResource {
 	public ResponseEntity<Page<TaskEstimateDTO>> searchTaskEstimateDefaultsByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody TaskEstimateSearchContext context) {
         context.setN_task_eq(task_id);
         Page<TaskEstimate> domains = taskestimateService.searchDefaults(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(taskestimateMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-searchProjectTaskEstimate-all')")
+	@ApiOperation(value = "根据需求任务获取项目日志", tags = {"任务预计" } ,notes = "根据需求任务获取项目日志")
+    @RequestMapping(method= RequestMethod.GET , value="/stories/{story_id}/tasks/{task_id}/taskestimates/fetchprojecttaskestimate")
+	public ResponseEntity<List<TaskEstimateDTO>> fetchTaskEstimateProjectTaskEstimateByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,TaskEstimateSearchContext context) {
+        context.setN_task_eq(task_id);
+        Page<TaskEstimate> domains = taskestimateService.searchProjectTaskEstimate(context) ;
+        List<TaskEstimateDTO> list = taskestimateMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-searchProjectTaskEstimate-all')")
+	@ApiOperation(value = "根据需求任务查询项目日志", tags = {"任务预计" } ,notes = "根据需求任务查询项目日志")
+    @RequestMapping(method= RequestMethod.POST , value="/stories/{story_id}/tasks/{task_id}/taskestimates/searchprojecttaskestimate")
+	public ResponseEntity<Page<TaskEstimateDTO>> searchTaskEstimateProjectTaskEstimateByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody TaskEstimateSearchContext context) {
+        context.setN_task_eq(task_id);
+        Page<TaskEstimate> domains = taskestimateService.searchProjectTaskEstimate(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(taskestimateMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
@@ -807,6 +899,29 @@ public class TaskEstimateResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(taskestimateMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-searchProjectTaskEstimate-all')")
+	@ApiOperation(value = "根据项目任务获取项目日志", tags = {"任务预计" } ,notes = "根据项目任务获取项目日志")
+    @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/tasks/{task_id}/taskestimates/fetchprojecttaskestimate")
+	public ResponseEntity<List<TaskEstimateDTO>> fetchTaskEstimateProjectTaskEstimateByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id,TaskEstimateSearchContext context) {
+        context.setN_task_eq(task_id);
+        Page<TaskEstimate> domains = taskestimateService.searchProjectTaskEstimate(context) ;
+        List<TaskEstimateDTO> list = taskestimateMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-searchProjectTaskEstimate-all')")
+	@ApiOperation(value = "根据项目任务查询项目日志", tags = {"任务预计" } ,notes = "根据项目任务查询项目日志")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/tasks/{task_id}/taskestimates/searchprojecttaskestimate")
+	public ResponseEntity<Page<TaskEstimateDTO>> searchTaskEstimateProjectTaskEstimateByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @RequestBody TaskEstimateSearchContext context) {
+        context.setN_task_eq(task_id);
+        Page<TaskEstimate> domains = taskestimateService.searchProjectTaskEstimate(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(taskestimateMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-Create-all')")
     @ApiOperation(value = "根据产品产品计划任务建立任务预计", tags = {"任务预计" },  notes = "根据产品产品计划任务建立任务预计")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productplans/{productplan_id}/tasks/{task_id}/taskestimates")
@@ -956,6 +1071,29 @@ public class TaskEstimateResource {
 	public ResponseEntity<Page<TaskEstimateDTO>> searchTaskEstimateDefaultsByProductProductPlanTask(@PathVariable("product_id") Long product_id, @PathVariable("productplan_id") Long productplan_id, @PathVariable("task_id") Long task_id, @RequestBody TaskEstimateSearchContext context) {
         context.setN_task_eq(task_id);
         Page<TaskEstimate> domains = taskestimateService.searchDefaults(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(taskestimateMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-searchProjectTaskEstimate-all')")
+	@ApiOperation(value = "根据产品产品计划任务获取项目日志", tags = {"任务预计" } ,notes = "根据产品产品计划任务获取项目日志")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/productplans/{productplan_id}/tasks/{task_id}/taskestimates/fetchprojecttaskestimate")
+	public ResponseEntity<List<TaskEstimateDTO>> fetchTaskEstimateProjectTaskEstimateByProductProductPlanTask(@PathVariable("product_id") Long product_id, @PathVariable("productplan_id") Long productplan_id, @PathVariable("task_id") Long task_id,TaskEstimateSearchContext context) {
+        context.setN_task_eq(task_id);
+        Page<TaskEstimate> domains = taskestimateService.searchProjectTaskEstimate(context) ;
+        List<TaskEstimateDTO> list = taskestimateMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-searchProjectTaskEstimate-all')")
+	@ApiOperation(value = "根据产品产品计划任务查询项目日志", tags = {"任务预计" } ,notes = "根据产品产品计划任务查询项目日志")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/productplans/{productplan_id}/tasks/{task_id}/taskestimates/searchprojecttaskestimate")
+	public ResponseEntity<Page<TaskEstimateDTO>> searchTaskEstimateProjectTaskEstimateByProductProductPlanTask(@PathVariable("product_id") Long product_id, @PathVariable("productplan_id") Long productplan_id, @PathVariable("task_id") Long task_id, @RequestBody TaskEstimateSearchContext context) {
+        context.setN_task_eq(task_id);
+        Page<TaskEstimate> domains = taskestimateService.searchProjectTaskEstimate(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(taskestimateMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
@@ -1111,6 +1249,29 @@ public class TaskEstimateResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(taskestimateMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-searchProjectTaskEstimate-all')")
+	@ApiOperation(value = "根据产品需求任务获取项目日志", tags = {"任务预计" } ,notes = "根据产品需求任务获取项目日志")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/taskestimates/fetchprojecttaskestimate")
+	public ResponseEntity<List<TaskEstimateDTO>> fetchTaskEstimateProjectTaskEstimateByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id,TaskEstimateSearchContext context) {
+        context.setN_task_eq(task_id);
+        Page<TaskEstimate> domains = taskestimateService.searchProjectTaskEstimate(context) ;
+        List<TaskEstimateDTO> list = taskestimateMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-searchProjectTaskEstimate-all')")
+	@ApiOperation(value = "根据产品需求任务查询项目日志", tags = {"任务预计" } ,notes = "根据产品需求任务查询项目日志")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/stories/{story_id}/tasks/{task_id}/taskestimates/searchprojecttaskestimate")
+	public ResponseEntity<Page<TaskEstimateDTO>> searchTaskEstimateProjectTaskEstimateByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody TaskEstimateSearchContext context) {
+        context.setN_task_eq(task_id);
+        Page<TaskEstimate> domains = taskestimateService.searchProjectTaskEstimate(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(taskestimateMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-Create-all')")
     @ApiOperation(value = "根据项目任务模块任务建立任务预计", tags = {"任务预计" },  notes = "根据项目任务模块任务建立任务预计")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/projectmodules/{projectmodule_id}/tasks/{task_id}/taskestimates")
@@ -1260,6 +1421,29 @@ public class TaskEstimateResource {
 	public ResponseEntity<Page<TaskEstimateDTO>> searchTaskEstimateDefaultsByProjectProjectModuleTask(@PathVariable("project_id") Long project_id, @PathVariable("projectmodule_id") Long projectmodule_id, @PathVariable("task_id") Long task_id, @RequestBody TaskEstimateSearchContext context) {
         context.setN_task_eq(task_id);
         Page<TaskEstimate> domains = taskestimateService.searchDefaults(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(taskestimateMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-searchProjectTaskEstimate-all')")
+	@ApiOperation(value = "根据项目任务模块任务获取项目日志", tags = {"任务预计" } ,notes = "根据项目任务模块任务获取项目日志")
+    @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/projectmodules/{projectmodule_id}/tasks/{task_id}/taskestimates/fetchprojecttaskestimate")
+	public ResponseEntity<List<TaskEstimateDTO>> fetchTaskEstimateProjectTaskEstimateByProjectProjectModuleTask(@PathVariable("project_id") Long project_id, @PathVariable("projectmodule_id") Long projectmodule_id, @PathVariable("task_id") Long task_id,TaskEstimateSearchContext context) {
+        context.setN_task_eq(task_id);
+        Page<TaskEstimate> domains = taskestimateService.searchProjectTaskEstimate(context) ;
+        List<TaskEstimateDTO> list = taskestimateMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-searchProjectTaskEstimate-all')")
+	@ApiOperation(value = "根据项目任务模块任务查询项目日志", tags = {"任务预计" } ,notes = "根据项目任务模块任务查询项目日志")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/projectmodules/{projectmodule_id}/tasks/{task_id}/taskestimates/searchprojecttaskestimate")
+	public ResponseEntity<Page<TaskEstimateDTO>> searchTaskEstimateProjectTaskEstimateByProjectProjectModuleTask(@PathVariable("project_id") Long project_id, @PathVariable("projectmodule_id") Long projectmodule_id, @PathVariable("task_id") Long task_id, @RequestBody TaskEstimateSearchContext context) {
+        context.setN_task_eq(task_id);
+        Page<TaskEstimate> domains = taskestimateService.searchProjectTaskEstimate(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(taskestimateMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
