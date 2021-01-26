@@ -1391,16 +1391,52 @@ Save
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |
 | ---- | ---- | ---- | ---- |
-| 1 | [DEFAULT](#数据查询-DEFAULT（Default）) | Default | 否 |
-| 2 | [默认查询](#数据查询-默认查询（DefaultParent）) | DefaultParent | 否 |
-| 3 | [获取产品计划列表](#数据查询-获取产品计划列表（GetList）) | GetList | 否 |
-| 4 | [计划（代码表）](#数据查询-计划（代码表）（PlanCodeList）) | PlanCodeList | 否 |
-| 5 | [项目立项](#数据查询-项目立项（ProjectApp）) | ProjectApp | 否 |
-| 6 | [项目计划列表](#数据查询-项目计划列表（ProjectPlan）) | ProjectPlan | 否 |
-| 7 | [跟计划](#数据查询-跟计划（RootPlan）) | RootPlan | 否 |
-| 8 | [任务计划](#数据查询-任务计划（TaskPlan）) | TaskPlan | 否 |
-| 9 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 1 | [子计划](#数据查询-子计划（ChildPlan）) | ChildPlan | 否 |
+| 2 | [DEFAULT](#数据查询-DEFAULT（Default）) | Default | 否 |
+| 3 | [默认查询](#数据查询-默认查询（DefaultParent）) | DefaultParent | 否 |
+| 4 | [获取产品计划列表](#数据查询-获取产品计划列表（GetList）) | GetList | 否 |
+| 5 | [计划（代码表）](#数据查询-计划（代码表）（PlanCodeList）) | PlanCodeList | 否 |
+| 6 | [项目立项](#数据查询-项目立项（ProjectApp）) | ProjectApp | 否 |
+| 7 | [项目计划列表](#数据查询-项目计划列表（ProjectPlan）) | ProjectPlan | 否 |
+| 8 | [根计划](#数据查询-根计划（RootPlan）) | RootPlan | 否 |
+| 9 | [任务计划](#数据查询-任务计划（TaskPlan）) | TaskPlan | 否 |
+| 10 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
+### 数据查询-子计划（ChildPlan）
+#### 说明
+子计划
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+t1.`BEGIN`,
+(case when t1.`begin` = '2030-01-01' then '待定' else t1.`begin` end) AS `BEGINSTR`,
+t1.`BRANCH`,
+((select count(t.id) FROM zt_bug t where (t.plan = t1.id or (t.plan in (select t2.id from zt_productplan t2 where t2.parent = t1.id and t2.deleted = '0')) )  and t.deleted = '0')) AS `BUGCNT`,
+t1.`DELETED`,
+t1.`END`,
+(case when t1.`end` = '2030-01-01' then '待定' else t1.`end` end) AS `ENDSTR`,
+(select sum(t.estimate) from zt_story t where (t.plan = t1.id or (t.plan in (select t2.id from zt_productplan t2 where t2.parent = t1.id and t2.deleted = '0')) )  and t.deleted = '0' ) AS `ESTIMATECNT`,
+(case when t1.`begin` = '2030-01-01' or t1.`end` = '2030-01-01' then 'on' else '' end) AS `FUTURE`,
+t1.`ID`,
+(case when t1.`end` > now() then '0' else '1' end) AS `ISEXPIRED`,
+t1.`PARENT`,
+t11.`TITLE` AS `PARENTNAME`,
+t1.`PRODUCT`,
+(case when t1.parent = -1 then 'parent' when t1.parent > 0 then  'chlid' else 'normal' end) AS `STATUSS`,
+((select COUNT(t.id) from zt_story t where (t.plan = t1.id or (t.plan in (select t2.id from zt_productplan t2 where t2.parent = t1.id and t2.deleted = '0')) )  and t.deleted = '0' )) AS `STORYCNT`,
+concat( t1.`TITLE` ,'（', ( CASE WHEN t1.`begin` = '2030-01-01' THEN '待定' ELSE t1.`begin` END ),'~',( CASE WHEN t1.`end` = '2030-01-01' THEN '待定' ELSE t1.`end` END ),'）') as `TITLE`
+FROM `zt_productplan` t1 
+LEFT JOIN `zt_productplan` t11 ON t1.`PARENT` = t11.`ID` 
+
+```
 ### 数据查询-DEFAULT（Default）
 #### 说明
 DEFAULT
@@ -1599,9 +1635,9 @@ FROM
 	LEFT JOIN zt_product t31 ON t1.product = t31.id 
 	LEFT JOIN zt_projectproduct t21 ON t31.id = t21.product and t1.id = t21.plan
 ```
-### 数据查询-跟计划（RootPlan）
+### 数据查询-根计划（RootPlan）
 #### 说明
-跟计划
+根计划
 
 - 默认查询
 否
@@ -1629,7 +1665,7 @@ t11.`TITLE` AS `PARENTNAME`,
 t1.`PRODUCT`,
 (case when t1.parent = -1 then 'parent' when t1.parent > 0 then  'chlid' else 'normal' end) AS `STATUSS`,
 ((select COUNT(t.id) from zt_story t where (t.plan = t1.id or (t.plan in (select t2.id from zt_productplan t2 where t2.parent = t1.id and t2.deleted = '0')) )  and t.deleted = '0' )) AS `STORYCNT`,
-t1.`TITLE`
+concat( t1.`TITLE` ,'（', ( CASE WHEN t1.`begin` = '2030-01-01' THEN '待定' ELSE t1.`begin` END ),'~',( CASE WHEN t1.`end` = '2030-01-01' THEN '待定' ELSE t1.`end` END ),'）') as `TITLE`
 FROM `zt_productplan` t1 
 LEFT JOIN `zt_productplan` t11 ON t1.`PARENT` = t11.`ID` 
 
@@ -1710,15 +1746,30 @@ LEFT JOIN `zt_productplan` t11 ON t1.`PARENT` = t11.`ID`
 ## 数据集合
 | 序号 | 集合 | 集合名 | 默认 |
 | ---- | ---- | ---- | ---- |
-| 1 | [CurProductPlan](#数据集合-CurProductPlan（CurProductPlan）) | CurProductPlan | 否 |
-| 2 | [DEFAULT](#数据集合-DEFAULT（Default）) | Default | 是 |
-| 3 | [默认查询](#数据集合-默认查询（DefaultParent）) | DefaultParent | 否 |
-| 4 | [计划（代码表）](#数据集合-计划（代码表）（PlanCodeList）) | PlanCodeList | 否 |
-| 5 | [项目立项](#数据集合-项目立项（ProjectApp）) | ProjectApp | 否 |
-| 6 | [项目计划列表](#数据集合-项目计划列表（ProjectPlan）) | ProjectPlan | 否 |
-| 7 | [跟计划](#数据集合-跟计划（RootPlan）) | RootPlan | 否 |
-| 8 | [任务计划](#数据集合-任务计划（TaskPlan）) | TaskPlan | 否 |
+| 1 | [子计划](#数据集合-子计划（ChildPlan）) | ChildPlan | 否 |
+| 2 | [CurProductPlan](#数据集合-CurProductPlan（CurProductPlan）) | CurProductPlan | 否 |
+| 3 | [DEFAULT](#数据集合-DEFAULT（Default）) | Default | 是 |
+| 4 | [默认查询](#数据集合-默认查询（DefaultParent）) | DefaultParent | 否 |
+| 5 | [计划（代码表）](#数据集合-计划（代码表）（PlanCodeList）) | PlanCodeList | 否 |
+| 6 | [项目立项](#数据集合-项目立项（ProjectApp）) | ProjectApp | 否 |
+| 7 | [项目计划列表](#数据集合-项目计划列表（ProjectPlan）) | ProjectPlan | 否 |
+| 8 | [跟计划](#数据集合-跟计划（RootPlan）) | RootPlan | 否 |
+| 9 | [任务计划](#数据集合-任务计划（TaskPlan）) | TaskPlan | 否 |
 
+### 数据集合-子计划（ChildPlan）
+#### 说明
+子计划
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [子计划（ChildPlan）](#数据查询-子计划（ChildPlan）) |
 ### 数据集合-CurProductPlan（CurProductPlan）
 #### 说明
 CurProductPlan
@@ -1816,7 +1867,7 @@ DEFAULT
 #### 关联的数据查询
 | 序号 | 数据查询 |
 | ---- | ---- |
-| 1 | [跟计划（RootPlan）](#数据查询-跟计划（RootPlan）) |
+| 1 | [根计划（RootPlan）](#数据查询-根计划（RootPlan）) |
 ### 数据集合-任务计划（TaskPlan）
 #### 说明
 任务计划

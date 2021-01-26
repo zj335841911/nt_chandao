@@ -355,6 +355,42 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | [ProductPlanDTO](#ProductPlanDTO)：产品计划实体传输对象 |
 
+### 获取子计划
+#### 访问路径
+/productplans/fetchchildplan
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [ProductPlanSearchContext](#ProductPlanSearchContext) | 产品计划查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[ProductPlanDTO](#ProductPlanDTO)>：产品计划实体传输对象列表 |
+
+### 查询子计划
+#### 访问路径
+/productplans/searchchildplan
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [ProductPlanSearchContext](#ProductPlanSearchContext) | 产品计划查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[ProductPlanDTO](#ProductPlanDTO)>：产品计划实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
 ### 获取CurProductPlan
 #### 访问路径
 /productplans/fetchcurproductplan
@@ -1013,6 +1049,44 @@ POST
 | ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | [ProductPlanDTO](#ProductPlanDTO)：产品计划实体传输对象 |
+
+### 根据获取子计划
+#### 访问路径
+/products/{product_id}/productplans/fetchchildplan
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |
+| 2 | context | [ProductPlanSearchContext](#ProductPlanSearchContext) | 产品计划查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[ProductPlanDTO](#ProductPlanDTO)>：产品计划实体传输对象列表 |
+
+### 根据查询子计划
+#### 访问路径
+/products/{product_id}/productplans/searchchildplan
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |
+| 2 | context | [ProductPlanSearchContext](#ProductPlanSearchContext) | 产品计划查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[ProductPlanDTO](#ProductPlanDTO)>：产品计划实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
 ### 根据获取CurProductPlan
 #### 访问路径

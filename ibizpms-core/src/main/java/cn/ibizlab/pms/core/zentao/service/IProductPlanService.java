@@ -62,6 +62,7 @@ public interface IProductPlanService extends IService<ProductPlan> {
     boolean unlinkBugBatch(List<ProductPlan> etList);
     ProductPlan unlinkStory(ProductPlan et);
     boolean unlinkStoryBatch(List<ProductPlan> etList);
+    Page<ProductPlan> searchChildPlan(ProductPlanSearchContext context);
     Page<ProductPlan> searchCurProductPlan(ProductPlanSearchContext context);
     Page<ProductPlan> searchDefault(ProductPlanSearchContext context);
     Page<ProductPlan> searchDefaultParent(ProductPlanSearchContext context);

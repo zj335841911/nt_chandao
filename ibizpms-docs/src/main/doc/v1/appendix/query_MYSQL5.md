@@ -13038,6 +13038,32 @@ WHERE t1.DELETED = '0'
 
 # **产品计划**(ZT_PRODUCTPLAN)
 
+### 子计划(ChildPlan)<div id="ProductPlan_ChildPlan"></div>
+```sql
+SELECT
+t1.`BEGIN`,
+(case when t1.`begin` = '2030-01-01' then '待定' else t1.`begin` end) AS `BEGINSTR`,
+t1.`BRANCH`,
+((select count(t.id) FROM zt_bug t where (t.plan = t1.id or (t.plan in (select t2.id from zt_productplan t2 where t2.parent = t1.id and t2.deleted = '0')) )  and t.deleted = '0')) AS `BUGCNT`,
+t1.`DELETED`,
+t1.`END`,
+(case when t1.`end` = '2030-01-01' then '待定' else t1.`end` end) AS `ENDSTR`,
+(select sum(t.estimate) from zt_story t where (t.plan = t1.id or (t.plan in (select t2.id from zt_productplan t2 where t2.parent = t1.id and t2.deleted = '0')) )  and t.deleted = '0' ) AS `ESTIMATECNT`,
+(case when t1.`begin` = '2030-01-01' or t1.`end` = '2030-01-01' then 'on' else '' end) AS `FUTURE`,
+t1.`ID`,
+(case when t1.`end` > now() then '0' else '1' end) AS `ISEXPIRED`,
+t1.`PARENT`,
+t11.`TITLE` AS `PARENTNAME`,
+t1.`PRODUCT`,
+(case when t1.parent = -1 then 'parent' when t1.parent > 0 then  'chlid' else 'normal' end) AS `STATUSS`,
+((select COUNT(t.id) from zt_story t where (t.plan = t1.id or (t.plan in (select t2.id from zt_productplan t2 where t2.parent = t1.id and t2.deleted = '0')) )  and t.deleted = '0' )) AS `STORYCNT`,
+concat( t1.`TITLE` ,'（', ( CASE WHEN t1.`begin` = '2030-01-01' THEN '待定' ELSE t1.`begin` END ),'~',( CASE WHEN t1.`end` = '2030-01-01' THEN '待定' ELSE t1.`end` END ),'）') as `TITLE`
+FROM `zt_productplan` t1 
+LEFT JOIN `zt_productplan` t11 ON t1.`PARENT` = t11.`ID` 
+
+WHERE t1.DELETED = '0' 
+
+```
 ### DEFAULT(DEFAULT)<div id="ProductPlan_Default"></div>
 ```sql
 SELECT
@@ -13194,7 +13220,7 @@ ${srfdatacontext('srfparentkey','{"defname":"PROJECT","dename":"ZT_PROJECTPRODUC
 t1.DELETED = '0' 
 
 ```
-### 跟计划(RootPlan)<div id="ProductPlan_RootPlan"></div>
+### 根计划(RootPlan)<div id="ProductPlan_RootPlan"></div>
 ```sql
 SELECT
 t1.`BEGIN`,
@@ -13213,7 +13239,7 @@ t11.`TITLE` AS `PARENTNAME`,
 t1.`PRODUCT`,
 (case when t1.parent = -1 then 'parent' when t1.parent > 0 then  'chlid' else 'normal' end) AS `STATUSS`,
 ((select COUNT(t.id) from zt_story t where (t.plan = t1.id or (t.plan in (select t2.id from zt_productplan t2 where t2.parent = t1.id and t2.deleted = '0')) )  and t.deleted = '0' )) AS `STORYCNT`,
-t1.`TITLE`
+concat( t1.`TITLE` ,'（', ( CASE WHEN t1.`begin` = '2030-01-01' THEN '待定' ELSE t1.`begin` END ),'~',( CASE WHEN t1.`end` = '2030-01-01' THEN '待定' ELSE t1.`end` END ),'）') as `TITLE`
 FROM `zt_productplan` t1 
 LEFT JOIN `zt_productplan` t11 ON t1.`PARENT` = t11.`ID` 
 
@@ -19317,7 +19343,7 @@ WHERE t1.deleted = '0'
 ```
 ### 任务类型分组(TypeGroup)<div id="Task_TypeGroup"></div>
 ```sql
-SELECT t1.`ASSIGNEDDATE`, t1.`ASSIGNEDTO`, t1.`CANCELEDBY`, t1.`CANCELEDDATE`, t1.`CLOSEDBY`, t1.`CLOSEDDATE`, t1.`CLOSEDREASON`, t1.`COLOR`, t1.`CONSUMED`, t1.`DELETED`, t1.`ESTIMATE`, (SELECT MIN(ESTSTARTED) FROM `zt_task` WHERE DELETED = '0' AND TYPE = t1.`TYPE` AND PROJECT = t1.`PROJECT` and ESTSTARTED <> '0000-00-00') AS `ESTSTARTED`, (SELECT MAX(DEADLINE) FROM `zt_task` WHERE DELETED = '0' AND TYPE = t1.`TYPE` AND PROJECT = t1.`PROJECT` and DEADLINE <> '0000-00-00') AS `DEADLINE`, (SELECT DATEDIFF(MAX(DEADLINE),MIN(ESTSTARTED))  FROM `zt_task` WHERE DELETED = '0' AND TYPE = t1.`TYPE` AND PROJECT = t1.`PROJECT` and ESTSTARTED <> '0000-00-00' AND DEADLINE <> '0000-00-00') AS `DURATION`, t1.`FINISHEDBY`, t1.`FINISHEDDATE`, t1.`FROMBUG`, t1.`ID`, t1.`LASTEDITEDBY`, t1.`LASTEDITEDDATE`, t1.`LEFT`, t1.`MODULE`, t21.`NAME` AS `MODULENAME`, t1.`NAME`, t1.`OPENEDBY`, t1.`OPENEDDATE`, t1.`PARENT`, t11.`NAME` AS `PARENTNAME`, t1.`PRI`, t31.`PRODUCT`, t41.`NAME` AS `PRODUCTNAME`, t1.`PROJECT`, t51.`NAME` AS `PROJECTNAME`, t1.`REALSTARTED`, t1.`STATUS`, t1.`STORY`, t31.`TITLE` AS `STORYNAME`, t1.`STORYVERSION`, t1.`SUBSTATUS`, t1.`TYPE`, ( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`, (case when t1.storyVersion < t31.version and t31.`status` <> 'changed' then 'storychange'  else t1.`status` end ) as `STATUS1`, (case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when t1.`status` = 'done' then 30 when t1.`status` = 'closed' then 40 when t1.`status` = 'cancel' then 50 else 60 end) as statusorder ,
+SELECT t1.`ASSIGNEDDATE`, t1.`ASSIGNEDTO`, t1.`CANCELEDBY`, t1.`CANCELEDDATE`, t1.`CLOSEDBY`, t1.`CLOSEDDATE`, t1.`CLOSEDREASON`, t1.`COLOR`, t1.`CONSUMED`, t1.`DELETED`, t1.`ESTIMATE`, (SELECT MIN(ESTSTARTED) FROM `zt_task` WHERE DELETED = '0' AND TYPE = t1.`TYPE` AND PROJECT = t1.`PROJECT` and ESTSTARTED <> '0000-00-00'  and estStarted <> '0002-11-30'  and estStarted <> '1970-01-01') AS `ESTSTARTED`, (SELECT MAX(DEADLINE) FROM `zt_task` WHERE DELETED = '0' AND TYPE = t1.`TYPE` AND PROJECT = t1.`PROJECT` and DEADLINE <> '0000-00-00'  and estStarted <> '0002-11-30'  and estStarted <> '1970-01-01') AS `DEADLINE`, (SELECT DATEDIFF(MAX(DEADLINE),MIN(ESTSTARTED))  FROM `zt_task` WHERE DELETED = '0' AND TYPE = t1.`TYPE` AND PROJECT = t1.`PROJECT` and ESTSTARTED <> '0000-00-00' AND DEADLINE <> '0000-00-00'  and estStarted <> '0002-11-30'  and estStarted <> '1970-01-01') AS `DURATION`, t1.`FINISHEDBY`, t1.`FINISHEDDATE`, t1.`FROMBUG`, t1.`ID`, t1.`LASTEDITEDBY`, t1.`LASTEDITEDDATE`, t1.`LEFT`, t1.`MODULE`, t21.`NAME` AS `MODULENAME`, t1.`NAME`, t1.`OPENEDBY`, t1.`OPENEDDATE`, t1.`PARENT`, t11.`NAME` AS `PARENTNAME`, t1.`PRI`, t31.`PRODUCT`, t41.`NAME` AS `PRODUCTNAME`, t1.`PROJECT`, t51.`NAME` AS `PROJECTNAME`, t1.`REALSTARTED`, t1.`STATUS`, t1.`STORY`, t31.`TITLE` AS `STORYNAME`, t1.`STORYVERSION`, t1.`SUBSTATUS`, t1.`TYPE`, ( CASE WHEN ( SELECT CASE	 WHEN count( t.`id` ) > 0 THEN 1 ELSE 0  END  FROM `zt_team` t  WHERE t.`type` = 'task'  AND t.`root` = t1.`id`  ) = 1 THEN '10'  WHEN t1.parent = - 1 THEN'20'   WHEN t1.parent = 0 THEN '30' ELSE '40' END) AS `TASKTYPE`, (case when t1.storyVersion < t31.version and t31.`status` <> 'changed' then 'storychange'  else t1.`status` end ) as `STATUS1`, (case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when t1.`status` = 'done' then 30 when t1.`status` = 'closed' then 40 when t1.`status` = 'cancel' then 50 else 60 end) as statusorder ,
 t1.`PLAN`,
 t61.`TITLE` AS `PLANNAME` FROM `zt_task` t1  LEFT JOIN zt_task t11 ON t1.PARENT = t11.ID  LEFT JOIN zt_module t21 ON t1.MODULE = t21.ID  LEFT JOIN zt_story t31 ON t1.STORY = t31.ID  LEFT JOIN zt_product t41 ON t31.PRODUCT = t41.ID  LEFT JOIN zt_project t51 ON t1.PROJECT = t51.ID  LEFT JOIN `zt_productplan` t61 ON t1.`PLAN` = t61.`ID`   WHERE  t1.DELETED = '0'
 ```

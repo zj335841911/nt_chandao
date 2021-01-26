@@ -154,13 +154,14 @@ hide footbox
 
 | 查询编号 | 查询名称       | 默认查询 |   备注|
 | --------  | --------   | --------   | ----- |
+|ChildPlan|子计划([MYSQL5](../../appendix/query_MYSQL5.md#ProductPlan_ChildPlan))|否|&nbsp;|
 |DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#ProductPlan_Default))|否|&nbsp;|
 |DefaultParent|默认查询([MYSQL5](../../appendix/query_MYSQL5.md#ProductPlan_DefaultParent))|否|&nbsp;|
 |GetList|获取产品计划列表([MYSQL5](../../appendix/query_MYSQL5.md#ProductPlan_GetList))|否|&nbsp;获取当前用户的相关产品（分支）的计划|
 |PlanCodeList|计划（代码表）([MYSQL5](../../appendix/query_MYSQL5.md#ProductPlan_PlanCodeList))|否|&nbsp;|
 |ProjectApp|项目立项([MYSQL5](../../appendix/query_MYSQL5.md#ProductPlan_ProjectApp))|否|&nbsp;|
 |ProjectPlan|项目计划列表([MYSQL5](../../appendix/query_MYSQL5.md#ProductPlan_ProjectPlan))|否|&nbsp;|
-|RootPlan|跟计划([MYSQL5](../../appendix/query_MYSQL5.md#ProductPlan_RootPlan))|否|&nbsp;|
+|RootPlan|根计划([MYSQL5](../../appendix/query_MYSQL5.md#ProductPlan_RootPlan))|否|&nbsp;|
 |TaskPlan|任务计划([MYSQL5](../../appendix/query_MYSQL5.md#ProductPlan_TaskPlan))|否|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#ProductPlan_View))|否|&nbsp;|
 
@@ -168,6 +169,7 @@ hide footbox
 
 | 集合编号 | 集合名称   |  包含查询  | 默认集合 |   备注|
 | --------  | --------   | -------- | --------   | ----- |
+|ChildPlan|子计划|ChildPlan|否|&nbsp;|
 |CurProductPlan|CurProductPlan|GetList|否|&nbsp;|
 |DEFAULT|DEFAULT|DEFAULT|是|&nbsp;|
 |DefaultParent|默认查询|DefaultParent|否|&nbsp;|
