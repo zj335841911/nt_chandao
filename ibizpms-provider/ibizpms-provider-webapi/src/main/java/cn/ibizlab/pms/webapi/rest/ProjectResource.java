@@ -244,13 +244,24 @@ public class ProjectResource {
         return ResponseEntity.status(HttpStatus.OK).body(projectdto);
     }
 
-    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-PmsEeProjectTaskCount-all')")
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-PmsEeProjectAllTaskCount-all')")
     @ApiOperation(value = "项目立项任务快速分组计数器", tags = {"项目" },  notes = "项目立项任务快速分组计数器")
-	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/pmseeprojecttaskcount")
-    public ResponseEntity<ProjectDTO> pmsEeProjectTaskCount(@PathVariable("project_id") Long project_id, @RequestBody ProjectDTO projectdto) {
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/pmseeprojectalltaskcount")
+    public ResponseEntity<ProjectDTO> pmsEeProjectAllTaskCount(@PathVariable("project_id") Long project_id, @RequestBody ProjectDTO projectdto) {
         Project domain = projectMapping.toDomain(projectdto);
         domain.setId(project_id);
-        domain = projectService.pmsEeProjectTaskCount(domain);
+        domain = projectService.pmsEeProjectAllTaskCount(domain);
+        projectdto = projectMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(projectdto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-PmsEeProjectTodoTaskCount-all')")
+    @ApiOperation(value = "项目立项待办任务快速分组计数器", tags = {"项目" },  notes = "项目立项待办任务快速分组计数器")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/pmseeprojecttodotaskcount")
+    public ResponseEntity<ProjectDTO> pmsEeProjectTodoTaskCount(@PathVariable("project_id") Long project_id, @RequestBody ProjectDTO projectdto) {
+        Project domain = projectMapping.toDomain(projectdto);
+        domain.setId(project_id);
+        domain = projectService.pmsEeProjectTodoTaskCount(domain);
         projectdto = projectMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(projectdto);
     }

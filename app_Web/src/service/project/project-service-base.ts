@@ -336,7 +336,7 @@ export default class ProjectServiceBase extends EntityService {
     }
 
     /**
-     * PmsEeProjectTaskCount接口方法
+     * PmsEeProjectAllTaskCount接口方法
      *
      * @param {*} [context={}]
      * @param {*} [data={}]
@@ -344,8 +344,22 @@ export default class ProjectServiceBase extends EntityService {
      * @returns {Promise<any>}
      * @memberof ProjectServiceBase
      */
-    public async PmsEeProjectTaskCount(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/projects/${context.project}/pmseeprojecttaskcount`,data,isloading);
+    public async PmsEeProjectAllTaskCount(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = Http.getInstance().post(`/projects/${context.project}/pmseeprojectalltaskcount`,data,isloading);
+            return res;
+    }
+
+    /**
+     * PmsEeProjectTodoTaskCount接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectServiceBase
+     */
+    public async PmsEeProjectTodoTaskCount(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = Http.getInstance().post(`/projects/${context.project}/pmseeprojecttodotaskcount`,data,isloading);
             return res;
     }
 

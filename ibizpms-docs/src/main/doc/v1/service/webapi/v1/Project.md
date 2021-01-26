@@ -283,7 +283,26 @@ POST
 
 ### 项目立项任务快速分组计数器
 #### 访问路径
-/projects/{project_id}/pmseeprojecttaskcount
+/projects/{project_id}/pmseeprojectalltaskcount
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | project_id | Long | 项目主键ID |
+| 2 | projectdto | [ProjectDTO](#ProjectDTO) | 项目实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [ProjectDTO](#ProjectDTO)：项目实体传输对象 |
+
+### 项目立项待办任务快速分组计数器
+#### 访问路径
+/projects/{project_id}/pmseeprojecttodotaskcount
 
 #### 请求方法
 POST
