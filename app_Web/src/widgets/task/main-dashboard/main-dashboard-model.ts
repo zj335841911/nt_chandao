@@ -267,6 +267,9 @@ export default class MainModel {
       {
         name: 'assign',
       },
+      {
+        name: 'inputcost',
+      },
     ]
   }
 

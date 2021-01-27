@@ -677,4 +677,12 @@ export interface SubTask {
      * @memberof SubTask
      */
     assign?: any;
+
+    /**
+     * 投入成本
+     *
+     * @returns {*}
+     * @memberof SubTask
+     */
+    inputcost?: any;
 }

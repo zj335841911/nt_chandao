@@ -677,4 +677,12 @@ export interface Task {
      * @memberof Task
      */
     assign?: any;
+
+    /**
+     * 投入成本
+     *
+     * @returns {*}
+     * @memberof Task
+     */
+    inputcost?: any;
 }

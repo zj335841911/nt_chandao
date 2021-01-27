@@ -75,6 +75,7 @@ hide members
 |GetDraftTemp|内置方法|&nbsp;|
 |GetDraftTempMajor|内置方法|&nbsp;|
 |CheckKey|内置方法|&nbsp;|
+|项目经理评估|用户自定义|&nbsp;|
 |Save|内置方法|&nbsp;|
 
 ## 处理逻辑

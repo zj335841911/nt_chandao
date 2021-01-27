@@ -11,7 +11,7 @@
         clearable
         
         v-model="query"
-        :placeholder="$t('entities.task.fields.name')"
+        :placeholder="$t('entities.task.fields.id')+','+$t('entities.task.fields.name')"
         search
         @on-search="onSearch($event)"
     ></i-input>

@@ -11,6 +11,14 @@ function getLocaleResourceBase(){
 			work: commonLogic.appcommonhandle("work",null),
 			task: commonLogic.appcommonhandle("任务",null),
 			dates: commonLogic.appcommonhandle("日期",null),
+			evaluationstatus: commonLogic.appcommonhandle("评估状态",null),
+			evaluationcost: commonLogic.appcommonhandle("评估成本",null),
+			evaluationtime: commonLogic.appcommonhandle("评估工时",null),
+			inputcost: commonLogic.appcommonhandle("投入成本",null),
+			evaluationdesc: commonLogic.appcommonhandle("评估说明",null),
+			taskname: commonLogic.appcommonhandle("任务名称",null),
+			project: commonLogic.appcommonhandle("项目",null),
+			projectname: commonLogic.appcommonhandle("所属项目",null),
 		},
 			views: {
 				optionview: {

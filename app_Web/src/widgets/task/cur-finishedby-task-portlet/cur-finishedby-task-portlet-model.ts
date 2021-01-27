@@ -267,6 +267,9 @@ export default class CurFinishedbyTaskModel {
       {
         name: 'assign',
       },
+      {
+        name: 'inputcost',
+      },
     ]
   }
 

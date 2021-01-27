@@ -267,6 +267,9 @@ export default class MoreTabExpViewtabviewpanel2Model {
       {
         name: 'assign',
       },
+      {
+        name: 'inputcost',
+      },
     ]
   }
 

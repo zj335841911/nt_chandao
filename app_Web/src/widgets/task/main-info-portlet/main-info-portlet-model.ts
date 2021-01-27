@@ -267,6 +267,9 @@ export default class MainInfoModel {
       {
         name: 'assign',
       },
+      {
+        name: 'inputcost',
+      },
     ]
   }
 

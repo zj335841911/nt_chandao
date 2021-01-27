@@ -267,6 +267,9 @@ export default class AssignToMeModel {
       {
         name: 'assign',
       },
+      {
+        name: 'inputcost',
+      },
     ]
   }
 

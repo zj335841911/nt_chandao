@@ -267,6 +267,9 @@ export default class GroupTreeExpViewtreeexpbarModel {
       {
         name: 'assign',
       },
+      {
+        name: 'inputcost',
+      },
     ]
   }
 

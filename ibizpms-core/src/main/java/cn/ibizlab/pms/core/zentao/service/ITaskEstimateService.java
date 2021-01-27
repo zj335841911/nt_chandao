@@ -44,6 +44,8 @@ public interface ITaskEstimateService extends IService<TaskEstimate> {
     TaskEstimate get(Long key);
     TaskEstimate getDraft(TaskEstimate et);
     boolean checkKey(TaskEstimate et);
+    TaskEstimate pMEvaluation(TaskEstimate et);
+    boolean pMEvaluationBatch(List<TaskEstimate> etList);
     boolean save(TaskEstimate et);
     void saveBatch(List<TaskEstimate> list);
     Page<TaskEstimate> searchDefault(TaskEstimateSearchContext context);

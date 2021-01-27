@@ -267,6 +267,9 @@ export default class WorkInfoModel {
       {
         name: 'assign',
       },
+      {
+        name: 'inputcost',
+      },
     ]
   }
 

@@ -69,4 +69,68 @@ export interface TaskEstimate {
      * @memberof TaskEstimate
      */
     dates?: any;
+
+    /**
+     * 评估状态
+     *
+     * @returns {*}
+     * @memberof TaskEstimate
+     */
+    evaluationstatus?: any;
+
+    /**
+     * 评估成本
+     *
+     * @returns {*}
+     * @memberof TaskEstimate
+     */
+    evaluationcost?: any;
+
+    /**
+     * 评估工时
+     *
+     * @returns {*}
+     * @memberof TaskEstimate
+     */
+    evaluationtime?: any;
+
+    /**
+     * 投入成本
+     *
+     * @returns {*}
+     * @memberof TaskEstimate
+     */
+    inputcost?: any;
+
+    /**
+     * 评估说明
+     *
+     * @returns {*}
+     * @memberof TaskEstimate
+     */
+    evaluationdesc?: any;
+
+    /**
+     * 任务名称
+     *
+     * @returns {*}
+     * @memberof TaskEstimate
+     */
+    taskname?: any;
+
+    /**
+     * 项目
+     *
+     * @returns {*}
+     * @memberof TaskEstimate
+     */
+    project?: any;
+
+    /**
+     * 所属项目
+     *
+     * @returns {*}
+     * @memberof TaskEstimate
+     */
+    projectname?: any;
 }

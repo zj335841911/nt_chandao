@@ -121,6 +121,21 @@ public class TaskEstimateServiceImpl extends ServiceImpl<TaskEstimateMapper, Tas
     }
     @Override
     @Transactional
+    public TaskEstimate pMEvaluation(TaskEstimate et) {
+        //自定义代码
+        return et;
+    }
+   @Override
+    @Transactional
+    public boolean pMEvaluationBatch(List<TaskEstimate> etList) {
+        for(TaskEstimate et : etList) {
+            pMEvaluation(et);
+        }
+        return true;
+    }
+
+    @Override
+    @Transactional
     public boolean save(TaskEstimate et) {
         if (!saveOrUpdate(et)) {
             return false;

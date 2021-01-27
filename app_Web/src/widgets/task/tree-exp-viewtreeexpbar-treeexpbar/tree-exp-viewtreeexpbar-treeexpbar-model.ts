@@ -267,6 +267,9 @@ export default class TreeExpViewtreeexpbarModel {
       {
         name: 'assign',
       },
+      {
+        name: 'inputcost',
+      },
     ]
   }
 

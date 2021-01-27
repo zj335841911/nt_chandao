@@ -267,6 +267,9 @@ export default class ToolbarModel {
       {
         name: 'assign',
       },
+      {
+        name: 'inputcost',
+      },
     ]
   }
 

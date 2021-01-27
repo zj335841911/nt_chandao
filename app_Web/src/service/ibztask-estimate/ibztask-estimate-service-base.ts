@@ -40,6 +40,42 @@ export default class IBZTaskEstimateServiceBase extends EntityService {
 // 实体接口
 
     /**
+     * PMEvaluation接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IBZTaskEstimateServiceBase
+     */
+    public async PMEvaluation(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.projectmodule && context.task &&  true){
+            return Http.getInstance().post(`projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/ibztaskestimates/pmevaluation`,data,isloading);
+        }
+        if(context.product && context.story && context.task &&  true){
+            return Http.getInstance().post(`products/${context.product}/stories/${context.story}/tasks/${context.task}/ibztaskestimates/pmevaluation`,data,isloading);
+        }
+        if(context.product && context.productplan && context.task &&  true){
+            return Http.getInstance().post(`products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/ibztaskestimates/pmevaluation`,data,isloading);
+        }
+        if(context.project && context.task &&  true){
+            return Http.getInstance().post(`projects/${context.project}/tasks/${context.task}/ibztaskestimates/pmevaluation`,data,isloading);
+        }
+        if(context.story && context.task &&  true){
+            return Http.getInstance().post(`stories/${context.story}/tasks/${context.task}/ibztaskestimates/pmevaluation`,data,isloading);
+        }
+        if(context.productplan && context.task &&  true){
+            return Http.getInstance().post(`productplans/${context.productplan}/tasks/${context.task}/ibztaskestimates/pmevaluation`,data,isloading);
+        }
+        if(context.projectmodule && context.task &&  true){
+            return Http.getInstance().post(`projectmodules/${context.projectmodule}/tasks/${context.task}/ibztaskestimates/pmevaluation`,data,isloading);
+        }
+        if(context.task &&  true){
+            return Http.getInstance().post(`tasks/${context.task}/ibztaskestimates/pmevaluation`,data,isloading);
+        }
+    }
+
+    /**
      * FetchDefault接口方法
      *
      * @param {*} [context={}]
@@ -143,6 +179,64 @@ export default class IBZTaskEstimateServiceBase extends EntityService {
      */
     public async FetchTempDefaults(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         // FetchTempDefaults ---FETCHTEMP
+        if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(result){
+                return {"status":200,"data":result};
+            }else{
+                return {"status":200,"data":[]};
+            } 
+        }else{
+            return {"status":200,"data":[]};
+        }
+    }
+
+    /**
+     * FetchProjectTaskEstimate接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IBZTaskEstimateServiceBase
+     */
+    public async FetchProjectTaskEstimate(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // FetchProjectTaskEstimate ---FETCH
+        if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(result){
+                return {"status":200,"data":result};
+            }else{
+                return {"status":200,"data":[]};
+            } 
+        }else{
+            return {"status":200,"data":[]};
+        }
+    }
+
+    /**
+     * searchProjectTaskEstimate接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IBZTaskEstimateServiceBase
+     */
+    public async searchProjectTaskEstimate(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    }
+
+    /**
+     * FetchTempProjectTaskEstimate接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IBZTaskEstimateServiceBase
+     */
+    public async FetchTempProjectTaskEstimate(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // FetchTempProjectTaskEstimate ---FETCHTEMP
         if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
             if(result){

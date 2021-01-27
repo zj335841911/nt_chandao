@@ -9,6 +9,10 @@ function getLocaleResourceBase(){
 			consumed: commonLogic.appcommonhandle("消耗的工时",null),
 			id: commonLogic.appcommonhandle("编号",null),
 			name: commonLogic.appcommonhandle("项目名称",null),
+			inputcost: commonLogic.appcommonhandle("投入成本",null),
+			evaluationtime: commonLogic.appcommonhandle("评估工时",null),
+			evaluationcost: commonLogic.appcommonhandle("评估成本",null),
+			evaluationstatus: commonLogic.appcommonhandle("评估状态",null),
 		},
 		};
 		return data;

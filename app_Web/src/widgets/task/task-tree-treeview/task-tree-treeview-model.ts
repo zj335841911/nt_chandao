@@ -267,6 +267,9 @@ export default class TaskTreeModel {
       {
         name: 'assign',
       },
+      {
+        name: 'inputcost',
+      },
     ]
   }
 
