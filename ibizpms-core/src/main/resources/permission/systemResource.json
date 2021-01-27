@@ -794,6 +794,14 @@
     ],
     "entities":[
     {
+    "dename":"AccountTaskestimate",
+    "delogicname":"用户工时统计",
+    "sysmoudle":{"id":"IBIZPRO","name":"iBizPro模块"},
+    "dedataset":[{"id":"Default" , "name":"数据集"}],
+    "deaction":[{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" }],
+    "datascope":[{"id":"all","name":"全部数据"}]
+    }
+    ,    {
     "dename":"Action",
     "delogicname":"系统日志",
     "sysmoudle":{"id":"ZENTAO","name":"基础管理模块"},
@@ -1375,6 +1383,14 @@
     "sysmoudle":{"id":"IBIZ","name":"iBiz增强模块"},
     "dedataset":[{"id":"Default" , "name":"DEFAULT"},{"id":"NoOpenProduct" , "name":"未关闭产品"},{"id":"ProjectBugType" , "name":"项目bug类型统计"},{"id":"ProjectInputStats" , "name":"项目投入统计"},{"id":"ProjectProgress" , "name":"项目进度"},{"id":"ProjectQuality" , "name":"项目质量"},{"id":"ProjectStoryStageStats" , "name":"项目需求阶段统计"},{"id":"ProjectStoryStatusStats" , "name":"项目需求状态统计"},{"id":"ProjectTaskCountByTaskStatus" , "name":"项目任务统计(任务状态)"},{"id":"ProjectTaskCountByType" , "name":"项目任务类型统计"},{"id":"TaskTime" , "name":"任务工时消耗剩余查询"}],
     "deaction":[{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"ProjectQualitySum" , "name":"项目质量表聚合逻辑" , "type":"DELOGIC" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" }],
+    "datascope":[{"id":"all","name":"全部数据"}]
+    }
+    ,    {
+    "dename":"ProjectTaskestimate",
+    "delogicname":"项目工时统计",
+    "sysmoudle":{"id":"IBIZPRO","name":"iBizPro模块"},
+    "dedataset":[{"id":"Default" , "name":"数据集"}],
+    "deaction":[{"id":"Create" , "name":"Create" , "type":"BUILTIN" },{"id":"Update" , "name":"Update" , "type":"BUILTIN" },{"id":"Remove" , "name":"Remove" , "type":"BUILTIN" },{"id":"Get" , "name":"Get" , "type":"BUILTIN" },{"id":"GetDraft" , "name":"GetDraft" , "type":"BUILTIN" },{"id":"CheckKey" , "name":"CheckKey" , "type":"BUILTIN" },{"id":"Save" , "name":"Save" , "type":"BUILTIN" }],
     "datascope":[{"id":"all","name":"全部数据"}]
     }
     ,    {

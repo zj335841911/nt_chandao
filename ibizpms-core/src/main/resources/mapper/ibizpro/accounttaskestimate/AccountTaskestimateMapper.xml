@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper	namespace="cn.ibizlab.pms.core.ibizpro.mapper.AccountTaskestimateMapper">
+
+    <!--该方法用于重写mybatis中selectById方法，以实现查询逻辑属性-->
+	<select id="selectById"  resultMap="AccountTaskestimateResultMap" databaseId="mysql">
+        <![CDATA[select t1.* from (SELECT t1.`DATE`, t1.`EVALUATIONCOST`, t1.`INPUTCOST` FROM `zt_taskestimate` t1  ) t1 where id=#{id}]]>
+    </select>
+
+    <!--通过mybatis将查询结果注入到entity中,通过配置autoMapping="true"由mybatis自动处理映射关系 -->
+    <resultMap id="AccountTaskestimateResultMap" type="cn.ibizlab.pms.core.ibizpro.domain.AccountTaskestimate" autoMapping="true">
+
+
+    </resultMap>
+
+
+    <!--数据集合[Default]-->
+	 <select id="searchDefault"  parameterType="cn.ibizlab.pms.core.ibizpro.filter.AccountTaskestimateSearchContext"  resultMap="AccountTaskestimateResultMap">
+         select t1.* from (
+                <include refid="Default" />
+         )t1
+         <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
+         <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
+     </select>
+
+    <!--数据查询[Default]-->
+    <sql id="Default" databaseId="mysql">
+		<![CDATA[ SELECT 	t1.*  FROM 	( SELECT YEAR 	( t1.date ) AS `year`, 	MONTH ( t1.date ) AS `month`, 	t11.project, 	t21.`name` AS projectname, 	t1.account, 	t1.date, 	ROUND( sum( t1.consumed ), 2 ) AS consumed, 	ROUND( sum( t1.EVALUATIONCOST ), 2 ) AS EVALUATIONCOST, 	ROUND( sum( t1.INPUTCOST ), 2 ) AS INPUTCOST, 	ROUND( sum( t1.EVALUATIONTIME ), 2 ) AS EVALUATIONTIME  FROM 	`zt_taskestimate` t1 	LEFT JOIN `zt_task` t11 ON t1.`TASK` = t11.`ID` 	LEFT JOIN `zt_project` t21 ON t11.`PROJECT` = t21.`ID`  WHERE 	t11.project IS NOT NULL  	AND t11.project <> '0'  	AND t1.date <> '0000-00-00'  GROUP BY 	t11.project, 	t21.`name`, 	t1.account, 	t1.date  	) t1
+					 WHERE 	t1.account =#{srf.webcontext.account}
+			]]>
+    </sql>
+    <!--数据查询[View]-->
+    <sql id="View" databaseId="mysql">
+		<![CDATA[ SELECT t1.`DATE`, t1.`EVALUATIONCOST`, t1.`INPUTCOST` FROM `zt_taskestimate` t1  
+			]]>
+    </sql>
+</mapper>
+

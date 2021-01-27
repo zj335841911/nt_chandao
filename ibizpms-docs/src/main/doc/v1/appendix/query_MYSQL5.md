@@ -1,4 +1,50 @@
 
+# **用户工时统计**(ACCOUNTTASKESTIMATE)
+
+### 数据查询(DEFAULT)<div id="AccountTaskestimate_Default"></div>
+```sql
+SELECT
+	t1.* 
+FROM
+	(
+SELECT YEAR
+	( t1.date ) AS `year`,
+	MONTH ( t1.date ) AS `month`,
+	t11.project,
+	t21.`name` AS projectname,
+	t1.account,
+	t1.date,
+	ROUND( sum( t1.consumed ), 2 ) AS consumed,
+	ROUND( sum( t1.EVALUATIONCOST ), 2 ) AS EVALUATIONCOST,
+	ROUND( sum( t1.INPUTCOST ), 2 ) AS INPUTCOST,
+	ROUND( sum( t1.EVALUATIONTIME ), 2 ) AS EVALUATIONTIME 
+FROM
+	`zt_taskestimate` t1
+	LEFT JOIN `zt_task` t11 ON t1.`TASK` = t11.`ID`
+	LEFT JOIN `zt_project` t21 ON t11.`PROJECT` = t21.`ID` 
+WHERE
+	t11.project IS NOT NULL 
+	AND t11.project <> '0' 
+	AND t1.date <> '0000-00-00' 
+GROUP BY
+	t11.project,
+	t21.`name`,
+	t1.account,
+	t1.date 
+	) t1
+WHERE t1.account =#{srf.webcontext.account} 
+
+```
+### 默认（全部数据）(VIEW)<div id="AccountTaskestimate_View"></div>
+```sql
+SELECT
+t1.`DATE`,
+t1.`EVALUATIONCOST`,
+t1.`INPUTCOST`
+FROM `zt_taskestimate` t1 
+
+```
+
 # **系统日志**(ZT_ACTION)
 
 ### DEFAULT(DEFAULT)<div id="Action_Default"></div>
@@ -15873,6 +15919,54 @@ t1.`PROJECT`,
 t1.`STORY`,
 t1.`VERSION`
 FROM `zt_projectstory` t1 
+
+```
+
+# **项目工时统计**(PROJECTTASKESTIMATE)
+
+### 数据查询(DEFAULT)<div id="ProjectTaskestimate_Default"></div>
+```sql
+SELECT
+	t1.* 
+FROM
+	(
+SELECT YEAR
+	( t1.date ) AS `year`,
+	MONTH ( t1.date ) AS `month`,
+	t11.project,
+	t21.`name` AS projectname,
+	t1.account,
+	t1.date,
+	ROUND( sum( t1.consumed ), 2 ) AS consumed,
+	ROUND( sum( t1.EVALUATIONCOST ), 2 ) AS EVALUATIONCOST,
+	ROUND( sum( t1.INPUTCOST ), 2 ) AS INPUTCOST,
+	ROUND( sum( t1.EVALUATIONTIME ), 2 ) AS EVALUATIONTIME,
+        (select ROUND(sum(t.consumed),2) from zt_taskestimate t left join zt_task tt on tt.id = t.task where tt.project <> t11.project and t.account = t1.account and t.date = t1.date ) as otherconsumed,
+	(select ROUND(sum(t.EVALUATIONTIME),2) from zt_taskestimate t left join zt_task tt on tt.id = t.task where tt.project <> t11.project and t.account = t1.account and t.date = t1.date ) as otherEVALUATIONTIME
+FROM
+	`zt_taskestimate` t1
+	LEFT JOIN `zt_task` t11 ON t1.`TASK` = t11.`ID`
+	LEFT JOIN `zt_project` t21 ON t11.`PROJECT` = t21.`ID` 
+WHERE
+	t11.project IS NOT NULL 
+	AND t11.project <> '0' 
+	AND t1.date <> '0000-00-00' 
+GROUP BY
+	t11.project,
+	t21.`name`,
+	t1.account,
+	t1.date 
+	) t1
+WHERE t1.project =#{srf.webcontext.project} 
+
+```
+### 默认（全部数据）(VIEW)<div id="ProjectTaskestimate_View"></div>
+```sql
+SELECT
+t1.`DATE`,
+t1.`EVALUATIONCOST`,
+t1.`INPUTCOST`
+FROM `zt_taskestimate` t1 
 
 ```
 

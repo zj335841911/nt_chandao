@@ -647,6 +647,9 @@ hide members
 
 package iBizPro模块 {
 
+class 用户工时统计 {
+}
+
 class 平台产品 {
 }
 
@@ -696,6 +699,9 @@ class 产品汇报用户任务 {
 }
 
 class 项目汇报用户任务 {
+}
+
+class 项目工时统计 {
 }
 
 

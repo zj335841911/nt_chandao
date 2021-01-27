@@ -218,6 +218,8 @@
 
   * [iBizPro模块](module/ibizpro.md) 
 
+    * [用户工时统计](module/ibizpro/AccountTaskestimate.md) 
+
     * [平台产品](module/ibizpro/IBZProProduct.md) 
 
     * [需求](module/ibizpro/IBZProStory.md) 
@@ -251,6 +253,8 @@
     * [产品汇报用户任务](module/ibizpro/IbzproProductUserTask.md) 
 
     * [项目汇报用户任务](module/ibizpro/IbzproProjectUserTask.md) 
+
+    * [项目工时统计](module/ibizpro/ProjectTaskestimate.md) 
 
   * [iBiz插件模块](module/ibizplugin.md) 
 

@@ -7,6 +7,9 @@
 
 package iBizPro模块 {
 
+class 用户工时统计 {
+}
+
 class 平台产品 {
 }
 
@@ -58,6 +61,9 @@ class 产品汇报用户任务 {
 class 项目汇报用户任务 {
 }
 
+class 项目工时统计 {
+}
+
 
 平台产品 *-- 需求模块 
 
@@ -86,6 +92,7 @@ hide members
 
 | 实体编号    |    实体名称    |  实体类型     |  备注  |
 | --------   |------------| -----   |  -------- | 
+|ACCOUNTTASKESTIMATE|[用户工时统计](ibizpro/AccountTaskestimate.md)|主实体|&nbsp;|
 |IBZPRO_PRODUCT|[平台产品](ibizpro/IBZProProduct.md)|主实体|&nbsp;|
 |IBZPRO_STORY|[需求](ibizpro/IBZProStory.md)|主实体|&nbsp;|
 |IBZPRO_STORYMODULE|[需求模块](ibizpro/IBZProStoryModule.md)|主实体|&nbsp;|
@@ -103,3 +110,4 @@ hide members
 |IBZPRO_CONFIG|[系统配置表](ibizpro/IbzproConfig.md)|主实体|&nbsp;|
 |IBIZPRO_PRODUCTUSERTASK|[产品汇报用户任务](ibizpro/IbzproProductUserTask.md)|主实体|&nbsp;|
 |IBIZPRO_PROJECTUSERTASK|[项目汇报用户任务](ibizpro/IbzproProjectUserTask.md)|主实体|&nbsp;|
+|PROJECTTASKESTIMATE|[项目工时统计](ibizpro/ProjectTaskestimate.md)|主实体|&nbsp;|
