@@ -271,6 +271,50 @@ mock.onPost(new RegExp(/^\/accounttaskestimates\/?([a-zA-Z0-9\-\;]{0,35})\/save$
     return [status, data];
 });
     
+// FetchAllAccountEstimate
+mock.onGet(new RegExp(/^\/accounttaskestimates\/fetchallaccountestimate$/)).reply((config: any) => {
+    console.groupCollapsed("实体:accounttaskestimate 方法: FetchAllAccountEstimate");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(mockDatas);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, mockDatas ? mockDatas : []];
+});
+
+// FetchAllAccountEstimate
+mock.onGet(new RegExp(/^\/accounttaskestimates\/fetchallaccountestimate(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
+    console.groupCollapsed("实体:accounttaskestimate 方法: FetchAllAccountEstimate");
+    console.table({url:config.url, method: config.method, data:config.data});
+    if(config.url.includes('page')){
+        let url = config.url.split('?')[1];
+        let params  =  qs.parse(url);
+        Object.assign(config, params);
+    }
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    let total = mockDatas.length;
+    let records: Array<any> = [];
+    if(!config.page || !config.size){
+        records = mockDatas;
+    }else{
+        if((config.page-1)*config.size < total){
+          records = mockDatas.slice(config.page,config.size);
+        }
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(records ?  records : []);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, records ?  records : []];
+});
+    
 // FetchDefault
 mock.onGet(new RegExp(/^\/accounttaskestimates\/fetchdefault$/)).reply((config: any) => {
     console.groupCollapsed("实体:accounttaskestimate 方法: FetchDefault");

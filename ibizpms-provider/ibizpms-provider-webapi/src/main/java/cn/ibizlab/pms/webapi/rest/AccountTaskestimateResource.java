@@ -136,6 +136,25 @@ public class AccountTaskestimateResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
+	@ApiOperation(value = "获取所有用户工时", tags = {"用户工时统计" } ,notes = "获取所有用户工时")
+    @RequestMapping(method= RequestMethod.GET , value="/accounttaskestimates/fetchallaccountestimate")
+	public ResponseEntity<List<Map>> fetchAllAccountEstimate(AccountTaskestimateSearchContext context) {
+        Page<Map> domains = accounttaskestimateService.searchAllAccountEstimate(context) ;
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(domains.getContent());
+	}
+
+	@ApiOperation(value = "查询所有用户工时", tags = {"用户工时统计" } ,notes = "查询所有用户工时")
+    @RequestMapping(method= RequestMethod.POST , value="/accounttaskestimates/searchallaccountestimate")
+	public ResponseEntity<Page<Map>> searchAllAccountEstimate(@RequestBody AccountTaskestimateSearchContext context) {
+        Page<Map> domains = accounttaskestimateService.searchAllAccountEstimate(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(domains.getContent(), context.getPageable(), domains.getTotalElements()));
+	}
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-AccountTaskestimate-searchDefault-all')")
 	@ApiOperation(value = "获取数据集", tags = {"用户工时统计" } ,notes = "获取数据集")
     @RequestMapping(method= RequestMethod.GET , value="/accounttaskestimates/fetchdefault")

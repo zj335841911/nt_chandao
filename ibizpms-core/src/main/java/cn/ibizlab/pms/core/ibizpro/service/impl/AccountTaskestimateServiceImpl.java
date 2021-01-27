@@ -181,6 +181,15 @@ public class AccountTaskestimateServiceImpl extends ServiceImpl<AccountTaskestim
 
 
     /**
+     * 查询集合 所有用户工时
+     */
+    @Override
+    public Page<Map> searchAllAccountEstimate(AccountTaskestimateSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Map> pages=baseMapper.searchAllAccountEstimate(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<Map>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 数据集
      */
     @Override

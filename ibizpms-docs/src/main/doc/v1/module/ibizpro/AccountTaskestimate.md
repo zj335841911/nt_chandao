@@ -558,9 +558,39 @@ Save
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |
 | ---- | ---- | ---- | ---- |
-| 1 | [数据查询](#数据查询-数据查询（Default）) | Default | 否 |
-| 2 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 1 | [所有用户工时](#数据查询-所有用户工时（AllAccountEstimate）) | AllAccountEstimate | 否 |
+| 2 | [数据查询](#数据查询-数据查询（Default）) | Default | 否 |
+| 3 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
+### 数据查询-所有用户工时（AllAccountEstimate）
+#### 说明
+所有用户工时
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT YEAR
+	( t1.date ) AS `year`,
+	MONTH ( t1.date ) AS `month`,
+	t11.project,
+	t21.`name` AS projectname,
+	t1.account,
+	t1.date,
+	t1.consumed AS consumed,
+	t1.EVALUATIONCOST AS EVALUATIONCOST,
+	t1.INPUTCOST AS INPUTCOST,
+	t1.EVALUATIONTIME AS EVALUATIONTIME 
+FROM
+	`zt_taskestimate` t1
+	LEFT JOIN `zt_task` t11 ON t1.`TASK` = t11.`ID`
+	LEFT JOIN `zt_project` t21 ON t11.`PROJECT` = t21.`ID`
+```
 ### 数据查询-数据查询（Default）
 #### 说明
 数据查询
@@ -628,8 +658,23 @@ FROM `zt_taskestimate` t1
 ## 数据集合
 | 序号 | 集合 | 集合名 | 默认 |
 | ---- | ---- | ---- | ---- |
-| 1 | [数据集](#数据集合-数据集（Default）) | Default | 是 |
+| 1 | [所有用户工时](#数据集合-所有用户工时（AllAccountEstimate）) | AllAccountEstimate | 否 |
+| 2 | [数据集](#数据集合-数据集（Default）) | Default | 是 |
 
+### 数据集合-所有用户工时（AllAccountEstimate）
+#### 说明
+所有用户工时
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [所有用户工时（AllAccountEstimate）](#数据查询-所有用户工时（AllAccountEstimate）) |
 ### 数据集合-数据集（Default）
 #### 说明
 数据集

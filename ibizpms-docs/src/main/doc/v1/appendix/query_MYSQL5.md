@@ -1,6 +1,26 @@
 
 # **用户工时统计**(ACCOUNTTASKESTIMATE)
 
+### 所有用户工时(AllAccountEstimate)<div id="AccountTaskestimate_AllAccountEstimate"></div>
+```sql
+SELECT YEAR
+	( t1.date ) AS `year`,
+	MONTH ( t1.date ) AS `month`,
+	t11.project,
+	t21.`name` AS projectname,
+	t1.account,
+	t1.date,
+	t1.consumed AS consumed,
+	t1.EVALUATIONCOST AS EVALUATIONCOST,
+	t1.INPUTCOST AS INPUTCOST,
+	t1.EVALUATIONTIME AS EVALUATIONTIME 
+FROM
+	`zt_taskestimate` t1
+	LEFT JOIN `zt_task` t11 ON t1.`TASK` = t11.`ID`
+	LEFT JOIN `zt_project` t21 ON t11.`PROJECT` = t21.`ID`
+WHERE t11.project IS NOT NULL  AND t11.project <> '0'  AND t1.date <> '0000-00-00' 
+
+```
 ### 数据查询(DEFAULT)<div id="AccountTaskestimate_Default"></div>
 ```sql
 SELECT
