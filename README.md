@@ -107,7 +107,7 @@ iBizPMS使用了现代化软件架构，采取中台模式，前端技术使用V
 
 **架构图**
 
-![framework](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/framework_v1.png)
+![framework](https://xtemplcdn.oss-cn-shanghai.aliyuncs.com/pms/framework_v2.png)
 
 **后端技术框架：[iBiz4j Spring R7](http://demo.ibizlab.cn/ibizr7sfstdtempl/ibiz4jr7)**
 
