@@ -13060,7 +13060,7 @@ t11.`TITLE` AS `PARENTNAME`,
 t1.`PRODUCT`,
 (case when t1.parent = -1 then 'parent' when t1.parent > 0 then  'chlid' else 'normal' end) AS `STATUSS`,
 ((select COUNT(t.id) from zt_story t where (t.plan = t1.id or (t.plan in (select t2.id from zt_productplan t2 where t2.parent = t1.id and t2.deleted = '0')) )  and t.deleted = '0' )) AS `STORYCNT`,
-concat( t1.`TITLE` ,'（', ( CASE WHEN t1.`begin` = '2030-01-01' THEN '待定' ELSE t1.`begin` END ),'~',( CASE WHEN t1.`end` = '2030-01-01' THEN '待定' ELSE t1.`end` END ),'）') as `TITLE`
+t1.`TITLE` as `TITLE`
 FROM `zt_productplan` t1 
 LEFT JOIN `zt_productplan` t11 ON t1.`PARENT` = t11.`ID` 
 
@@ -13242,7 +13242,7 @@ t11.`TITLE` AS `PARENTNAME`,
 t1.`PRODUCT`,
 (case when t1.parent = -1 then 'parent' when t1.parent > 0 then  'chlid' else 'normal' end) AS `STATUSS`,
 ((select COUNT(t.id) from zt_story t where (t.plan = t1.id or (t.plan in (select t2.id from zt_productplan t2 where t2.parent = t1.id and t2.deleted = '0')) )  and t.deleted = '0' )) AS `STORYCNT`,
-concat( t1.`TITLE` ,'（', ( CASE WHEN t1.`begin` = '2030-01-01' THEN '待定' ELSE t1.`begin` END ),'~',( CASE WHEN t1.`end` = '2030-01-01' THEN '待定' ELSE t1.`end` END ),'）') as `TITLE`
+t1.`TITLE` as `TITLE`
 FROM `zt_productplan` t1 
 LEFT JOIN `zt_productplan` t11 ON t1.`PARENT` = t11.`ID` 
 
