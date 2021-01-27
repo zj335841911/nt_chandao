@@ -662,7 +662,7 @@ FROM
 	(
 SELECT YEAR
 	( t1.date ) AS `year`,
-	MONTH ( t1.date ) AS `month`,
+	Right(100 + MONTH ( t1.date ), 2) AS `month`,
 	t11.project,
 	t21.`name` AS projectname,
 	t1.account,
