@@ -1,8 +1,12 @@
 package cn.ibizlab.pms.core.extensions.service;
 
+import cn.ibizlab.pms.core.zentao.domain.Task;
+import cn.ibizlab.pms.core.zentao.service.ITaskService;
 import cn.ibizlab.pms.core.zentao.service.impl.TaskEstimateServiceImpl;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import lombok.extern.slf4j.Slf4j;
 import cn.ibizlab.pms.core.zentao.domain.TaskEstimate;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.context.annotation.Primary;
@@ -15,6 +19,9 @@ import java.util.*;
 @Primary
 @Service("TaskEstimateExService")
 public class TaskEstimateExService extends TaskEstimateServiceImpl {
+
+    @Autowired
+    ITaskService taskService;
 
     @Override
     protected Class currentModelClass() {
@@ -29,7 +36,20 @@ public class TaskEstimateExService extends TaskEstimateServiceImpl {
     @Override
     @Transactional
     public TaskEstimate pMEvaluation(TaskEstimate et) {
-        return super.pMEvaluation(et);
+        et.setEvaluationstatus("yes");
+        super.update(et);
+        //汇总成本
+        //先通过传入的任务id去获取今天完成的这个任务工时集合
+        List<TaskEstimate> taskEstimateList = this.list(new QueryWrapper<TaskEstimate>().eq("task", et.getTask()));
+        Double allCost=0d;
+        for (TaskEstimate estimate : taskEstimateList) {
+            Double evaluationcost = estimate.getEvaluationcost()==null?0d:estimate.getEvaluationcost();
+            allCost+=evaluationcost;
+        }
+        Task task = taskService.get(et.getTask());
+        task.setInputcost(allCost);
+        taskService.update(task);
+        return et;
     }
 }
 
