@@ -78,6 +78,7 @@
 |项目标识(PROJECT)|IN|
 |年(YEAR)|EQ|
 |月(MONTH)|EQ|
+|用户(ACCOUNT)|EQ|
 
 ## 导入模式
 无
