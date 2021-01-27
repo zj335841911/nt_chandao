@@ -1440,6 +1440,7 @@ hide footbox
 |父任务(PARENTNAME)|EQ|
 |父任务(PARENTNAME)|LIKE|
 |所属项目(PROJECT)|EQ|
+|所属项目(PROJECT)|IN|
 |相关需求(STORY)|EQ|
 |父任务(PARENT)|EQ|
 |父任务(PARENT)|GTANDEQ|

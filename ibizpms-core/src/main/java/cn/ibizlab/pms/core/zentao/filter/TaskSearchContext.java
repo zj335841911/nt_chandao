@@ -261,6 +261,13 @@ public class TaskSearchContext extends QueryWrapperContext<Task> {
             this.getSearchCond().eq("`project`", n_project_eq);
         }
     }
+	private String n_project_in;//[所属项目]
+	public void setN_project_in(String n_project_in) {
+        this.n_project_in = n_project_in;
+        if(!ObjectUtils.isEmpty(this.n_project_in)){
+			this.getSearchCond().in("`project`",this.n_project_in.split(";"));
+        }
+    }
 	private Long n_story_eq;//[相关需求]
 	public void setN_story_eq(Long n_story_eq) {
         this.n_story_eq = n_story_eq;

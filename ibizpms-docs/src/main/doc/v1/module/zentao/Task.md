@@ -1778,6 +1778,7 @@ Long
 | 序号 | 组合方式 |
 | ---- | ---- |
 | 1 | `=` |
+| 2 | `in(...)` |
 
 #### 关系属性
 | 项目 | 说明 |
@@ -7212,20 +7213,21 @@ FAVORITES
 | 30 | [父任务（PARENTNAME）](#属性-父任务（PARENTNAME）) | `=` |
 | 31 | [父任务（PARENTNAME）](#属性-父任务（PARENTNAME）) | `%like%` |
 | 32 | [所属项目（PROJECT）](#属性-所属项目（PROJECT）) | `=` |
-| 33 | [相关需求（STORY）](#属性-相关需求（STORY）) | `=` |
-| 34 | [父任务（PARENT）](#属性-父任务（PARENT）) | `=` |
-| 35 | [父任务（PARENT）](#属性-父任务（PARENT）) | `>=` |
-| 36 | [来源Bug（FROMBUG）](#属性-来源Bug（FROMBUG）) | `=` |
-| 37 | [模块（MODULE）](#属性-模块（MODULE）) | `=` |
-| 38 | [模块路径（PATH）](#属性-模块路径（PATH）) | `%like%` |
-| 39 | [任务状态（STATUS1）](#属性-任务状态（STATUS1）) | `=` |
-| 40 | [任务类型（TASKTYPE）](#属性-任务类型（TASKTYPE）) | `=` |
-| 41 | [编号（PLAN）](#属性-编号（PLAN）) | `=` |
-| 42 | [任务种别（TASKSPECIES）](#属性-任务种别（TASKSPECIES）) | `=` |
-| 43 | [周期类型（CONFIG_TYPE）](#属性-周期类型（CONFIG_TYPE）) | `=` |
-| 44 | [所属计划（PLANNAME）](#属性-所属计划（PLANNAME）) | `=` |
-| 45 | [所属计划（PLANNAME）](#属性-所属计划（PLANNAME）) | `%like%` |
-| 46 | [周期（CYCLE）](#属性-周期（CYCLE）) | `=` |
+| 33 | [所属项目（PROJECT）](#属性-所属项目（PROJECT）) | `in(...)` |
+| 34 | [相关需求（STORY）](#属性-相关需求（STORY）) | `=` |
+| 35 | [父任务（PARENT）](#属性-父任务（PARENT）) | `=` |
+| 36 | [父任务（PARENT）](#属性-父任务（PARENT）) | `>=` |
+| 37 | [来源Bug（FROMBUG）](#属性-来源Bug（FROMBUG）) | `=` |
+| 38 | [模块（MODULE）](#属性-模块（MODULE）) | `=` |
+| 39 | [模块路径（PATH）](#属性-模块路径（PATH）) | `%like%` |
+| 40 | [任务状态（STATUS1）](#属性-任务状态（STATUS1）) | `=` |
+| 41 | [任务类型（TASKTYPE）](#属性-任务类型（TASKTYPE）) | `=` |
+| 42 | [编号（PLAN）](#属性-编号（PLAN）) | `=` |
+| 43 | [任务种别（TASKSPECIES）](#属性-任务种别（TASKSPECIES）) | `=` |
+| 44 | [周期类型（CONFIG_TYPE）](#属性-周期类型（CONFIG_TYPE）) | `=` |
+| 45 | [所属计划（PLANNAME）](#属性-所属计划（PLANNAME）) | `=` |
+| 46 | [所属计划（PLANNAME）](#属性-所属计划（PLANNAME）) | `%like%` |
+| 47 | [周期（CYCLE）](#属性-周期（CYCLE）) | `=` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |
