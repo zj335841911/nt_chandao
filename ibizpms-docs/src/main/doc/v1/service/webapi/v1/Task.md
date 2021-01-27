@@ -16479,7 +16479,9 @@ POST
 | 14 | taskname | String | 允许 | 任务名称 |
 | 15 | project | Long | 允许 | 项目 |
 | 16 | projectname | String | 允许 | 所属项目 |
-| 17 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 17 | taskspecies | String | 允许 | 任务种别 |
+| 18 | type | String | 允许 | 任务类型 |
+| 19 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### IBZTaskTeamDTO
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

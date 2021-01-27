@@ -36,6 +36,7 @@
 | 16 | [用户](#属性-用户（USERNAME）) | USERNAME | 文本，可指定长度 | 否 | 是 | 是 |
 | 17 | [结束时间](#属性-结束时间（END）) | END | 日期型 | 否 | 是 | 是 |
 | 18 | [当前负责人](#属性-当前负责人（LEADINGCADRE）) | LEADINGCADRE | 单项选择(文本值) | 否 | 是 | 是 |
+| 19 | [成员状态](#属性-成员状态（TEAMSTATUS）) | TEAMSTATUS | 文本，可指定长度 | 否 | 是 | 是 |
 
 ### 属性-加盟日（JOIN）
 #### 属性说明
@@ -821,6 +822,50 @@ String
 | 关系属性 | [编号（ID）](../zentao/Product/#属性-编号（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
+### 属性-成员状态（TEAMSTATUS）
+#### 属性说明
+成员状态
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+文本，可指定长度
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+| 项目 | 说明 |
+| ---- | ---- |
+| 类型 |  |
+| 值 | 10 |
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
+| 关系属性 | [编号（ID）](../zentao/Product/#属性-编号（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
 
 ## 业务状态
 无
@@ -1009,6 +1054,7 @@ t1.`LIMITED`,
 t1.`ORDER`,
 t1.`ROLE`,
 t1.`ROOT`,
+t1.`TEAMSTATUS`,
 (t1.`DAYS` * t1.`HOURS`) AS `TOTAL`,
 t1.`TYPE`,
 (select t.realname from zt_user t where t.account = t1.account) AS `USERNAME`
@@ -1129,6 +1175,7 @@ t1.`LIMITED`,
 t1.`ORDER`,
 t1.`ROLE`,
 t1.`ROOT`,
+t1.`TEAMSTATUS`,
 (t1.`DAYS` * t1.`HOURS`) AS `TOTAL`,
 t1.`TYPE`,
 (select t.realname from zt_user t where t.account = t1.account) AS `USERNAME`
@@ -1261,6 +1308,7 @@ t1.`LIMITED`,
 t1.`ORDER`,
 t1.`ROLE`,
 t1.`ROOT`,
+t1.`TEAMSTATUS`,
 (t1.`DAYS` * t1.`HOURS`) AS `TOTAL`,
 t1.`TYPE`,
 (select t.realname from zt_user t where t.account = t1.account) AS `USERNAME`

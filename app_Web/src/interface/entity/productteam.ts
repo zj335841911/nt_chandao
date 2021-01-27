@@ -149,4 +149,12 @@ export interface PRODUCTTEAM {
      * @memberof PRODUCTTEAM
      */
     leadingcadre?: any;
+
+    /**
+     * 成员状态
+     *
+     * @returns {*}
+     * @memberof PRODUCTTEAM
+     */
+    teamstatus?: any;
 }

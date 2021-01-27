@@ -30,6 +30,7 @@ hide members
 |用户|USERNAME|TEXT|&nbsp;|
 |结束时间|END|DATE|&nbsp;|
 |当前负责人|LEADINGCADRE|SSCODELIST|&nbsp;|
+|成员状态|TEAMSTATUS|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -52,6 +53,7 @@ hide members
 |用户|默认规则|内容长度必须小于等于[200]|
 |结束时间|默认规则|默认规则|
 |当前负责人|默认规则|内容长度必须小于等于[60]|
+|成员状态|默认规则|内容长度必须小于等于[100]|
 
 ## 状态控制
 

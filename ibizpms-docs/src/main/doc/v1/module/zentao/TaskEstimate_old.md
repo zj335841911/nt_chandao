@@ -28,6 +28,8 @@ hide members
 |任务名称|TASKNAME|PICKUPTEXT|&nbsp;|
 |项目|PROJECT|PICKUPDATA|&nbsp;|
 |所属项目|PROJECTNAME|PICKUPDATA|&nbsp;|
+|任务种别|TASKSPECIES|PICKUPDATA|&nbsp;|
+|任务类型|TYPE|PICKUPDATA|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -50,6 +52,8 @@ hide members
 |任务名称|默认规则|内容长度必须小于等于[255]|
 |项目|默认规则|默认规则|
 |所属项目|默认规则|内容长度必须小于等于[90]|
+|任务种别|默认规则|内容长度必须小于等于[60]|
+|任务类型|默认规则|内容长度必须小于等于[20]|
 
 ## 状态控制
 

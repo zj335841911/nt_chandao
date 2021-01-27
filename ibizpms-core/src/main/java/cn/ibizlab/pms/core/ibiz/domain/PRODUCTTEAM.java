@@ -181,6 +181,14 @@ public class PRODUCTTEAM extends EntityMP implements Serializable {
     @JSONField(name = "leadingcadre")
     @JsonProperty("leadingcadre")
     private String leadingcadre;
+    /**
+     * 成员状态
+     */
+    @DEField(defaultValue = "10")
+    @TableField(value = "`teamstatus`")
+    @JSONField(name = "teamstatus")
+    @JsonProperty("teamstatus")
+    private String teamstatus;
 
     /**
      * 
@@ -322,6 +330,14 @@ public class PRODUCTTEAM extends EntityMP implements Serializable {
     public void setLeadingcadre(String leadingcadre) {
         this.leadingcadre = leadingcadre;
         this.modify("leadingcadre", leadingcadre);
+    }
+
+    /**
+     * 设置 [成员状态]
+     */
+    public void setTeamstatus(String teamstatus) {
+        this.teamstatus = teamstatus;
+        this.modify("teamstatus", teamstatus);
     }
 
 

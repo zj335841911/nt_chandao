@@ -19,6 +19,8 @@ function getLocaleResourceBase(){
 			taskname: commonLogic.appcommonhandle("任务名称",null),
 			project: commonLogic.appcommonhandle("项目",null),
 			projectname: commonLogic.appcommonhandle("所属项目",null),
+			taskspecies: commonLogic.appcommonhandle("任务种别",null),
+			type: commonLogic.appcommonhandle("任务类型",null),
 		},
 			views: {
 				optionview: {

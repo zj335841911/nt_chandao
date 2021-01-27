@@ -34,6 +34,8 @@
 | 14 | [任务名称](#属性-任务名称（TASKNAME）) | TASKNAME | 外键值文本 | 否 | 是 | 是 |
 | 15 | [项目](#属性-项目（PROJECT）) | PROJECT | 外键值附加数据 | 否 | 是 | 是 |
 | 16 | [所属项目](#属性-所属项目（PROJECTNAME）) | PROJECTNAME | 外键值附加数据 | 否 | 是 | 是 |
+| 17 | [任务种别](#属性-任务种别（TASKSPECIES）) | TASKSPECIES | 外键值附加数据 | 否 | 是 | 是 |
+| 18 | [任务类型](#属性-任务类型（TYPE）) | TYPE | 外键值附加数据 | 否 | 是 | 是 |
 
 ### 属性-用户（ACCOUNT）
 #### 属性说明
@@ -76,7 +78,7 @@ String
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [任务（ZT_TASK）](../zentao/Task) |
-| 关系属性 | [所属项目（PROJECTNAME）](../zentao/Task/#属性-所属项目（PROJECTNAME）) |
+| 关系属性 | [任务类型（TYPE）](../zentao/Task/#属性-任务类型（TYPE）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-预计剩余（LEFT）
@@ -120,7 +122,7 @@ Double
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [任务（ZT_TASK）](../zentao/Task) |
-| 关系属性 | [所属项目（PROJECTNAME）](../zentao/Task/#属性-所属项目（PROJECTNAME）) |
+| 关系属性 | [任务类型（TYPE）](../zentao/Task/#属性-任务类型（TYPE）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-总计消耗（CONSUMED）
@@ -164,7 +166,7 @@ Double
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [任务（ZT_TASK）](../zentao/Task) |
-| 关系属性 | [所属项目（PROJECTNAME）](../zentao/Task/#属性-所属项目（PROJECTNAME）) |
+| 关系属性 | [任务类型（TYPE）](../zentao/Task/#属性-任务类型（TYPE）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-编号（ID）
@@ -207,7 +209,7 @@ Long
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [任务（ZT_TASK）](../zentao/Task) |
-| 关系属性 | [所属项目（PROJECTNAME）](../zentao/Task/#属性-所属项目（PROJECTNAME）) |
+| 关系属性 | [任务类型（TYPE）](../zentao/Task/#属性-任务类型（TYPE）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-日期（DATE）
@@ -248,7 +250,7 @@ yyyy-MM-dd
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [任务（ZT_TASK）](../zentao/Task) |
-| 关系属性 | [所属项目（PROJECTNAME）](../zentao/Task/#属性-所属项目（PROJECTNAME）) |
+| 关系属性 | [任务类型（TYPE）](../zentao/Task/#属性-任务类型（TYPE）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-work（WORK）
@@ -292,7 +294,7 @@ String
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [任务（ZT_TASK）](../zentao/Task) |
-| 关系属性 | [所属项目（PROJECTNAME）](../zentao/Task/#属性-所属项目（PROJECTNAME）) |
+| 关系属性 | [任务类型（TYPE）](../zentao/Task/#属性-任务类型（TYPE）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-任务（TASK）
@@ -718,6 +720,88 @@ String
 | 关系属性 | [所属项目（PROJECTNAME）](../zentao/Task/#属性-所属项目（PROJECTNAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
+### 属性-任务种别（TASKSPECIES）
+#### 属性说明
+任务种别
+
+- 是否是主键
+否
+
+- 属性类型
+链接字段[来自关系实体字段]
+
+- 数据类型
+外键值附加数据
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+参照数据字典【[任务种别（TaskSpecies）](../../codelist/TaskSpecies)】
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [任务（ZT_TASK）](../zentao/Task) |
+| 关系属性 | [任务种别（TASKSPECIES）](../zentao/Task/#属性-任务种别（TASKSPECIES）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-任务类型（TYPE）
+#### 属性说明
+任务类型
+
+- 是否是主键
+否
+
+- 属性类型
+链接字段[来自关系实体字段]
+
+- 数据类型
+外键值附加数据
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+参照数据字典【[任务类型（Task__type）](../../codelist/Task__type)】
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [任务（ZT_TASK）](../zentao/Task) |
+| 关系属性 | [任务类型（TYPE）](../zentao/Task/#属性-任务类型（TYPE）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
 
 ## 业务状态
 无
@@ -1013,7 +1097,9 @@ t1.`LEFT`,
 t11.`PROJECT`,
 t21.`NAME` AS `PROJECTNAME`,
 t1.`TASK`,
-t11.`NAME` AS `TASKNAME`
+t11.`NAME` AS `TASKNAME`,
+t11.`TASKSPECIES`,
+t11.`TYPE`
 FROM `zt_taskestimate` t1 
 LEFT JOIN `zt_task` t11 ON t1.`TASK` = t11.`ID` 
 LEFT JOIN `zt_project` t21 ON t11.`PROJECT` = t21.`ID` 
@@ -1046,7 +1132,9 @@ t1.`LEFT`,
 t11.`PROJECT`,
 t21.`NAME` AS `PROJECTNAME`,
 t1.`TASK`,
-t11.`NAME` AS `TASKNAME`
+t11.`NAME` AS `TASKNAME`,
+t11.`TASKSPECIES`,
+t11.`TYPE`
 FROM `zt_taskestimate` t1 
 LEFT JOIN `zt_task` t11 ON t1.`TASK` = t11.`ID` 
 LEFT JOIN `zt_project` t21 ON t11.`PROJECT` = t21.`ID` 
@@ -1079,7 +1167,9 @@ t1.`LEFT`,
 t11.`PROJECT`,
 t21.`NAME` AS `PROJECTNAME`,
 t1.`TASK`,
-t11.`NAME` AS `TASKNAME`
+t11.`NAME` AS `TASKNAME`,
+t11.`TASKSPECIES`,
+t11.`TYPE`
 FROM `zt_taskestimate` t1 
 LEFT JOIN `zt_task` t11 ON t1.`TASK` = t11.`ID` 
 LEFT JOIN `zt_project` t21 ON t11.`PROJECT` = t21.`ID` 
@@ -1114,6 +1204,8 @@ t11.`PROJECT`,
 t21.`NAME` AS `PROJECTNAME`,
 t1.`TASK`,
 t11.`NAME` AS `TASKNAME`,
+t11.`TASKSPECIES`,
+t11.`TYPE`,
 t1.`WORK`
 FROM `zt_taskestimate` t1 
 LEFT JOIN `zt_task` t11 ON t1.`TASK` = t11.`ID` 

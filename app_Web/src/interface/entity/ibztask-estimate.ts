@@ -133,4 +133,20 @@ export interface IBZTaskEstimate {
      * @memberof IBZTaskEstimate
      */
     projectname?: any;
+
+    /**
+     * 任务种别
+     *
+     * @returns {*}
+     * @memberof IBZTaskEstimate
+     */
+    taskspecies?: any;
+
+    /**
+     * 任务类型
+     *
+     * @returns {*}
+     * @memberof IBZTaskEstimate
+     */
+    type?: any;
 }

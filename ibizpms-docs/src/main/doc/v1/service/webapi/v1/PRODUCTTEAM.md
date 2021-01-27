@@ -694,7 +694,8 @@ POST
 | 16 | username | String | 允许 | 用户 |
 | 17 | end | Timestamp | 允许 | 结束时间<br>时间格式：yyyy-MM-dd |
 | 18 | leadingcadre | String | 允许 | 当前负责人 |
-| 19 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 19 | teamstatus | String | 允许 | 成员状态 |
+| 20 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### PRODUCTTEAMSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

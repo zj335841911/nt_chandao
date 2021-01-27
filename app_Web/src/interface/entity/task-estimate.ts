@@ -133,4 +133,20 @@ export interface TaskEstimate {
      * @memberof TaskEstimate
      */
     projectname?: any;
+
+    /**
+     * 任务种别
+     *
+     * @returns {*}
+     * @memberof TaskEstimate
+     */
+    taskspecies?: any;
+
+    /**
+     * 任务类型
+     *
+     * @returns {*}
+     * @memberof TaskEstimate
+     */
+    type?: any;
 }

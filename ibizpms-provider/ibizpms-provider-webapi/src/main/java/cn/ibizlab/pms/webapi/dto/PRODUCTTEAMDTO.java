@@ -183,6 +183,15 @@ public class PRODUCTTEAMDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
     private String leadingcadre;
 
+    /**
+     * 属性 [TEAMSTATUS]
+     *
+     */
+    @JSONField(name = "teamstatus")
+    @JsonProperty("teamstatus")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String teamstatus;
+
 
     /**
      * 设置 [JOIN]
@@ -294,6 +303,14 @@ public class PRODUCTTEAMDTO extends DTOBase implements Serializable {
     public void setLeadingcadre(String  leadingcadre){
         this.leadingcadre = leadingcadre ;
         this.modify("leadingcadre",leadingcadre);
+    }
+
+    /**
+     * 设置 [TEAMSTATUS]
+     */
+    public void setTeamstatus(String  teamstatus){
+        this.teamstatus = teamstatus ;
+        this.modify("teamstatus",teamstatus);
     }
 
 

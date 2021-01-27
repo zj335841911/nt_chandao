@@ -21,6 +21,7 @@ function getLocaleResourceBase(){
 			username: commonLogic.appcommonhandle("用户",null),
 			end: commonLogic.appcommonhandle("结束时间",null),
 			leadingcadre: commonLogic.appcommonhandle("当前负责人",null),
+			teamstatus: commonLogic.appcommonhandle("成员状态",null),
 		},
 			views: {
 				usr2gridview: {

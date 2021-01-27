@@ -10502,6 +10502,7 @@ t1.`LIMITED`,
 t1.`ORDER`,
 t1.`ROLE`,
 t1.`ROOT`,
+t1.`TEAMSTATUS`,
 (t1.`DAYS` * t1.`HOURS`) AS `TOTAL`,
 t1.`TYPE`,
 (select t.realname from zt_user t where t.account = t1.account) AS `USERNAME`
@@ -10604,6 +10605,7 @@ t1.`LIMITED`,
 t1.`ORDER`,
 t1.`ROLE`,
 t1.`ROOT`,
+t1.`TEAMSTATUS`,
 (t1.`DAYS` * t1.`HOURS`) AS `TOTAL`,
 t1.`TYPE`,
 (select t.realname from zt_user t where t.account = t1.account) AS `USERNAME`
@@ -10718,6 +10720,7 @@ t1.`LIMITED`,
 t1.`ORDER`,
 t1.`ROLE`,
 t1.`ROOT`,
+t1.`TEAMSTATUS`,
 (t1.`DAYS` * t1.`HOURS`) AS `TOTAL`,
 t1.`TYPE`,
 (select t.realname from zt_user t where t.account = t1.account) AS `USERNAME`
@@ -19450,7 +19453,9 @@ t1.`LEFT`,
 t11.`PROJECT`,
 t21.`NAME` AS `PROJECTNAME`,
 t1.`TASK`,
-t11.`NAME` AS `TASKNAME`
+t11.`NAME` AS `TASKNAME`,
+t11.`TASKSPECIES`,
+t11.`TYPE`
 FROM `zt_taskestimate` t1 
 LEFT JOIN `zt_task` t11 ON t1.`TASK` = t11.`ID` 
 LEFT JOIN `zt_project` t21 ON t11.`PROJECT` = t21.`ID` 
@@ -19472,7 +19477,9 @@ t1.`LEFT`,
 t11.`PROJECT`,
 t21.`NAME` AS `PROJECTNAME`,
 t1.`TASK`,
-t11.`NAME` AS `TASKNAME`
+t11.`NAME` AS `TASKNAME`,
+t11.`TASKSPECIES`,
+t11.`TYPE`
 FROM `zt_taskestimate` t1 
 LEFT JOIN `zt_task` t11 ON t1.`TASK` = t11.`ID` 
 LEFT JOIN `zt_project` t21 ON t11.`PROJECT` = t21.`ID` 
@@ -19496,7 +19503,9 @@ t1.`LEFT`,
 t11.`PROJECT`,
 t21.`NAME` AS `PROJECTNAME`,
 t1.`TASK`,
-t11.`NAME` AS `TASKNAME`
+t11.`NAME` AS `TASKNAME`,
+t11.`TASKSPECIES`,
+t11.`TYPE`
 FROM `zt_taskestimate` t1 
 LEFT JOIN `zt_task` t11 ON t1.`TASK` = t11.`ID` 
 LEFT JOIN `zt_project` t21 ON t11.`PROJECT` = t21.`ID` 
@@ -19522,6 +19531,8 @@ t11.`PROJECT`,
 t21.`NAME` AS `PROJECTNAME`,
 t1.`TASK`,
 t11.`NAME` AS `TASKNAME`,
+t11.`TASKSPECIES`,
+t11.`TYPE`,
 t1.`WORK`
 FROM `zt_taskestimate` t1 
 LEFT JOIN `zt_task` t11 ON t1.`TASK` = t11.`ID` 
