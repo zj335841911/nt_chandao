@@ -19,6 +19,10 @@ zuul:
       path: /projectproducts/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
+    accounttaskestimate:
+      path: /accounttaskestimates/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
     zt_case:
       path: /cases/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
@@ -441,6 +445,10 @@ zuul:
       stripPrefix: false
     dynadashboard:
       path: /dynadashboards/**
+      serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
+      stripPrefix: false
+    projecttaskestimate:
+      path: /projecttaskestimates/**
       serviceId: ${ibiz.ref.service.pms-webapi:pms-webapi}
       stripPrefix: false
     ibzemp:

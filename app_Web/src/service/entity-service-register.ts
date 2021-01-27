@@ -42,6 +42,7 @@ export class EntityServiceRegister {
                 this.allEntityService.set('productplan', () => import('@/service/product-plan/product-plan-service'));
         this.allEntityService.set('ibzreportroleconfig', () => import('@/service/ibz-report-role-config/ibz-report-role-config-service'));
         this.allEntityService.set('projectproduct', () => import('@/service/project-product/project-product-service'));
+        this.allEntityService.set('accounttaskestimate', () => import('@/service/account-taskestimate/account-taskestimate-service'));
         this.allEntityService.set('case', () => import('@/service/case/case-service'));
         this.allEntityService.set('sysuser', () => import('@/service/sys-user/sys-user-service'));
         this.allEntityService.set('ibztaskteam', () => import('@/service/ibztask-team/ibztask-team-service'));
@@ -148,6 +149,7 @@ export class EntityServiceRegister {
         this.allEntityService.set('release', () => import('@/service/release/release-service'));
         this.allEntityService.set('casestats', () => import('@/service/case-stats/case-stats-service'));
         this.allEntityService.set('dynadashboard', () => import('@/service/dyna-dashboard/dyna-dashboard-service'));
+        this.allEntityService.set('projecttaskestimate', () => import('@/service/project-taskestimate/project-taskestimate-service'));
         this.allEntityService.set('sysemployee', () => import('@/service/sys-employee/sys-employee-service'));
     }
 

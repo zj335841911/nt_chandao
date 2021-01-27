@@ -42,6 +42,7 @@ export class UIServiceRegister {
                 this.allUIService.set('productplan', () => import('@/uiservice/product-plan/product-plan-ui-service'));
         this.allUIService.set('ibzreportroleconfig', () => import('@/uiservice/ibz-report-role-config/ibz-report-role-config-ui-service'));
         this.allUIService.set('projectproduct', () => import('@/uiservice/project-product/project-product-ui-service'));
+        this.allUIService.set('accounttaskestimate', () => import('@/uiservice/account-taskestimate/account-taskestimate-ui-service'));
         this.allUIService.set('case', () => import('@/uiservice/case/case-ui-service'));
         this.allUIService.set('sysuser', () => import('@/uiservice/sys-user/sys-user-ui-service'));
         this.allUIService.set('ibztaskteam', () => import('@/uiservice/ibztask-team/ibztask-team-ui-service'));
@@ -148,6 +149,7 @@ export class UIServiceRegister {
         this.allUIService.set('release', () => import('@/uiservice/release/release-ui-service'));
         this.allUIService.set('casestats', () => import('@/uiservice/case-stats/case-stats-ui-service'));
         this.allUIService.set('dynadashboard', () => import('@/uiservice/dyna-dashboard/dyna-dashboard-ui-service'));
+        this.allUIService.set('projecttaskestimate', () => import('@/uiservice/project-taskestimate/project-taskestimate-ui-service'));
         this.allUIService.set('sysemployee', () => import('@/uiservice/sys-employee/sys-employee-ui-service'));
     }
 

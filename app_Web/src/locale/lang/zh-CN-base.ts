@@ -3,6 +3,7 @@ import zhCNUser from '../user/zh-CN.user';
 import productplan_zh_CN from '@locale/lanres/entities/product-plan/product-plan_zh_CN';
 import ibzreportroleconfig_zh_CN from '@locale/lanres/entities/ibz-report-role-config/ibz-report-role-config_zh_CN';
 import projectproduct_zh_CN from '@locale/lanres/entities/project-product/project-product_zh_CN';
+import accounttaskestimate_zh_CN from '@locale/lanres/entities/account-taskestimate/account-taskestimate_zh_CN';
 import case_zh_CN from '@locale/lanres/entities/case/case_zh_CN';
 import sysuser_zh_CN from '@locale/lanres/entities/sys-user/sys-user_zh_CN';
 import ibztaskteam_zh_CN from '@locale/lanres/entities/ibztask-team/ibztask-team_zh_CN';
@@ -109,6 +110,7 @@ import sysupdatefeatures_zh_CN from '@locale/lanres/entities/sys-update-features
 import release_zh_CN from '@locale/lanres/entities/release/release_zh_CN';
 import casestats_zh_CN from '@locale/lanres/entities/case-stats/case-stats_zh_CN';
 import dynadashboard_zh_CN from '@locale/lanres/entities/dyna-dashboard/dyna-dashboard_zh_CN';
+import projecttaskestimate_zh_CN from '@locale/lanres/entities/project-taskestimate/project-taskestimate_zh_CN';
 import sysemployee_zh_CN from '@locale/lanres/entities/sys-employee/sys-employee_zh_CN';
 import components_zh_CN from '@locale/lanres/components/components_zh_CN';
 import codelist_zh_CN from '@locale/lanres/codelist/codelist_zh_CN';
@@ -405,6 +407,7 @@ function getAppLocale(){
             productplan: productplan_zh_CN(),
             ibzreportroleconfig: ibzreportroleconfig_zh_CN(),
             projectproduct: projectproduct_zh_CN(),
+            accounttaskestimate: accounttaskestimate_zh_CN(),
             case: case_zh_CN(),
             sysuser: sysuser_zh_CN(),
             ibztaskteam: ibztaskteam_zh_CN(),
@@ -511,6 +514,7 @@ function getAppLocale(){
             release: release_zh_CN(),
             casestats: casestats_zh_CN(),
             dynadashboard: dynadashboard_zh_CN(),
+            projecttaskestimate: projecttaskestimate_zh_CN(),
             sysemployee: sysemployee_zh_CN(),
         },
         components: components_zh_CN,

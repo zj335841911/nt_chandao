@@ -27,6 +27,20 @@ import cn.ibizlab.pms.core.ibizpro.domain.AccountTaskestimate;
 @Data
 public class AccountTaskestimateSearchContext extends QueryWrapperContext<AccountTaskestimate> {
 
+	private String n_year_eq;//[年]
+	public void setN_year_eq(String n_year_eq) {
+        this.n_year_eq = n_year_eq;
+        if(!ObjectUtils.isEmpty(this.n_year_eq)){
+            this.getSearchCond().eq("`year`", n_year_eq);
+        }
+    }
+	private String n_month_eq;//[月]
+	public void setN_month_eq(String n_month_eq) {
+        this.n_month_eq = n_month_eq;
+        if(!ObjectUtils.isEmpty(this.n_month_eq)){
+            this.getSearchCond().eq("`month`", n_month_eq);
+        }
+    }
 
     /**
 	 * 启用快速搜索

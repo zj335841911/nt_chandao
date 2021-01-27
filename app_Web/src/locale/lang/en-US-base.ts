@@ -3,6 +3,7 @@ import { Util } from '@/utils/util/util';
 import productplan_en_US from '@locale/lanres/entities/product-plan/product-plan_en_US';
 import ibzreportroleconfig_en_US from '@locale/lanres/entities/ibz-report-role-config/ibz-report-role-config_en_US';
 import projectproduct_en_US from '@locale/lanres/entities/project-product/project-product_en_US';
+import accounttaskestimate_en_US from '@locale/lanres/entities/account-taskestimate/account-taskestimate_en_US';
 import case_en_US from '@locale/lanres/entities/case/case_en_US';
 import sysuser_en_US from '@locale/lanres/entities/sys-user/sys-user_en_US';
 import ibztaskteam_en_US from '@locale/lanres/entities/ibztask-team/ibztask-team_en_US';
@@ -109,6 +110,7 @@ import sysupdatefeatures_en_US from '@locale/lanres/entities/sys-update-features
 import release_en_US from '@locale/lanres/entities/release/release_en_US';
 import casestats_en_US from '@locale/lanres/entities/case-stats/case-stats_en_US';
 import dynadashboard_en_US from '@locale/lanres/entities/dyna-dashboard/dyna-dashboard_en_US';
+import projecttaskestimate_en_US from '@locale/lanres/entities/project-taskestimate/project-taskestimate_en_US';
 import sysemployee_en_US from '@locale/lanres/entities/sys-employee/sys-employee_en_US';
 import components_en_US from '@locale/lanres/components/components_en_US';
 import codelist_en_US from '@locale/lanres/codelist/codelist_en_US';
@@ -406,6 +408,7 @@ function getAppLocale(){
             productplan: productplan_en_US(),
             ibzreportroleconfig: ibzreportroleconfig_en_US(),
             projectproduct: projectproduct_en_US(),
+            accounttaskestimate: accounttaskestimate_en_US(),
             case: case_en_US(),
             sysuser: sysuser_en_US(),
             ibztaskteam: ibztaskteam_en_US(),
@@ -512,6 +515,7 @@ function getAppLocale(){
             release: release_en_US(),
             casestats: casestats_en_US(),
             dynadashboard: dynadashboard_en_US(),
+            projecttaskestimate: projecttaskestimate_en_US(),
             sysemployee: sysemployee_en_US(),
         },
         components: components_en_US,

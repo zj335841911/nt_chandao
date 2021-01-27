@@ -42,6 +42,7 @@ export class AuthServiceRegister {
                 this.allAuthService.set('productplan', () => import('@/authservice/product-plan/product-plan-auth-service'));
         this.allAuthService.set('ibzreportroleconfig', () => import('@/authservice/ibz-report-role-config/ibz-report-role-config-auth-service'));
         this.allAuthService.set('projectproduct', () => import('@/authservice/project-product/project-product-auth-service'));
+        this.allAuthService.set('accounttaskestimate', () => import('@/authservice/account-taskestimate/account-taskestimate-auth-service'));
         this.allAuthService.set('case', () => import('@/authservice/case/case-auth-service'));
         this.allAuthService.set('sysuser', () => import('@/authservice/sys-user/sys-user-auth-service'));
         this.allAuthService.set('ibztaskteam', () => import('@/authservice/ibztask-team/ibztask-team-auth-service'));
@@ -148,6 +149,7 @@ export class AuthServiceRegister {
         this.allAuthService.set('release', () => import('@/authservice/release/release-auth-service'));
         this.allAuthService.set('casestats', () => import('@/authservice/case-stats/case-stats-auth-service'));
         this.allAuthService.set('dynadashboard', () => import('@/authservice/dyna-dashboard/dyna-dashboard-auth-service'));
+        this.allAuthService.set('projecttaskestimate', () => import('@/authservice/project-taskestimate/project-taskestimate-auth-service'));
         this.allAuthService.set('sysemployee', () => import('@/authservice/sys-employee/sys-employee-auth-service'));
     }
 
