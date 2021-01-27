@@ -735,7 +735,8 @@ Save
 | 2 | [文件库查询](#数据查询-文件库查询（DocLibFile）) | DocLibFile | 否 |
 | 3 | [文件库查询](#数据查询-文件库查询（ProductDocLibFile）) | ProductDocLibFile | 否 |
 | 4 | [动态(根据类型过滤)](#数据查询-动态(根据类型过滤)（Type）) | Type | 否 |
-| 5 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 5 | [查询附件](#数据查询-查询附件（TypeNotBySrfparentkey）) | TypeNotBySrfparentkey | 否 |
+| 6 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-DEFAULT（Default）
 #### 说明
@@ -857,6 +858,36 @@ t1.`TITLE`
 FROM `zt_file` t1 
 
 ```
+### 数据查询-查询附件（TypeNotBySrfparentkey）
+#### 说明
+查询附件
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+t1.`ADDEDBY`,
+t1.`ADDEDDATE`,
+t1.`DELETED`,
+t1.`DOWNLOADS`,
+t1.`EXTENSION`,
+t1.`EXTRA`,
+t1.`ID`,
+t1.`OBJECTID`,
+t1.`OBJECTTYPE`,
+t1.`PATHNAME`,
+t1.`SIZE`,
+CONCAT_WS('',case when (t1.size/1024) > 1024 then ROUND(t1.size/(1024 * 1024), 1) when (t1.size/1024) > 1 then ROUND(t1.size/1024, 1) else ROUND(t1.size, 1) end, case when (t1.size/1024) > 1024 then 'MB' when (t1.size/1024) > 1 then 'KB' else 'B' end) AS `STRSIZE`,
+t1.`TITLE`
+FROM `zt_file` t1 
+
+```
 ### 数据查询-默认（全部数据）（View）
 #### 说明
 默认（全部数据）
@@ -895,6 +926,7 @@ FROM `zt_file` t1
 | 2 | [文件库查询](#数据集合-文件库查询（DocLibFile）) | DocLibFile | 否 |
 | 3 | [文件库查询](#数据集合-文件库查询（ProductDocLibFile）) | ProductDocLibFile | 否 |
 | 4 | [动态(根据类型过滤)](#数据集合-动态(根据类型过滤)（Type）) | Type | 否 |
+| 5 | [查询附件](#数据集合-查询附件（TypeNotBySrfparentkey）) | TypeNotBySrfparentkey | 否 |
 
 ### 数据集合-DEFAULT（Default）
 #### 说明
@@ -952,6 +984,20 @@ DEFAULT
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [动态(根据类型过滤)（Type）](#数据查询-动态(根据类型过滤)（Type）) |
+### 数据集合-查询附件（TypeNotBySrfparentkey）
+#### 说明
+查询附件
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [查询附件（TypeNotBySrfparentkey）](#数据查询-查询附件（TypeNotBySrfparentkey）) |
 
 ## 数据导入
 无

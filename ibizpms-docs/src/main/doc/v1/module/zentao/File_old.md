@@ -77,6 +77,7 @@ hide members
 |DocLibFile|文件库查询([MYSQL5](../../appendix/query_MYSQL5.md#File_DocLibFile))|否|&nbsp;|
 |ProductDocLibFile|文件库查询([MYSQL5](../../appendix/query_MYSQL5.md#File_ProductDocLibFile))|否|&nbsp;|
 |Type|动态(根据类型过滤)([MYSQL5](../../appendix/query_MYSQL5.md#File_Type))|否|&nbsp;过滤编辑器中上传的图片|
+|TypeNotBySrfparentkey|查询附件([MYSQL5](../../appendix/query_MYSQL5.md#File_TypeNotBySrfparentkey))|否|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#File_View))|否|&nbsp;|
 
 * **数据集合**
@@ -87,6 +88,7 @@ hide members
 |DocLibFile|文件库查询|DocLibFile|否|&nbsp;|
 |ProductDocLibFile|文件库查询|ProductDocLibFile|否|&nbsp;|
 |Type|动态(根据类型过滤)|Type|否|&nbsp;|
+|TypeNotBySrfparentkey|查询附件|TypeNotBySrfparentkey|否|&nbsp;|
 
 ## 查询模式
 | 属性      |    搜索模式     |

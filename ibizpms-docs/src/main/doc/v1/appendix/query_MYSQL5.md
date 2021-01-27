@@ -6833,6 +6833,28 @@ WHERE t1.DELETED = '0'
 ( t1.`OBJECTID` = ${srfdatacontext('srfparentkey','{"defname":"OBJECTID","dename":"ZT_FILE"}')}  AND  t1.`OBJECTTYPE` =  ${srfdatacontext('objecttype','{"defname":"OBJECTTYPE","dename":"ZT_FILE"}')}  AND  t1.`EXTRA` <> 'editor' ) 
 
 ```
+### 查询附件(TypeNotBySrfparentkey)<div id="File_TypeNotBySrfparentkey"></div>
+```sql
+SELECT
+t1.`ADDEDBY`,
+t1.`ADDEDDATE`,
+t1.`DELETED`,
+t1.`DOWNLOADS`,
+t1.`EXTENSION`,
+t1.`EXTRA`,
+t1.`ID`,
+t1.`OBJECTID`,
+t1.`OBJECTTYPE`,
+t1.`PATHNAME`,
+t1.`SIZE`,
+CONCAT_WS('',case when (t1.size/1024) > 1024 then ROUND(t1.size/(1024 * 1024), 1) when (t1.size/1024) > 1 then ROUND(t1.size/1024, 1) else ROUND(t1.size, 1) end, case when (t1.size/1024) > 1024 then 'MB' when (t1.size/1024) > 1 then 'KB' else 'B' end) AS `STRSIZE`,
+t1.`TITLE`
+FROM `zt_file` t1 
+
+WHERE t1.DELETED = '0' 
+( t1.`OBJECTID` = ${srfdatacontext('objectid','{"defname":"OBJECTID","dename":"ZT_FILE"}')}  AND  t1.`OBJECTTYPE` =  ${srfdatacontext('objecttype','{"defname":"OBJECTTYPE","dename":"ZT_FILE"}')}  AND  t1.`EXTRA` <> 'editor' ) 
+
+```
 ### 默认（全部数据）(VIEW)<div id="File_View"></div>
 ```sql
 SELECT
