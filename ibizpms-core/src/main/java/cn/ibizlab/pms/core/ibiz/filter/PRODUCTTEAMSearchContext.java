@@ -87,6 +87,13 @@ public class PRODUCTTEAMSearchContext extends QueryWrapperContext<PRODUCTTEAM> {
             this.getSearchCond().eq("`leadingcadre`", n_leadingcadre_eq);
         }
     }
+	private String n_teamstatus_eq;//[成员状态]
+	public void setN_teamstatus_eq(String n_teamstatus_eq) {
+        this.n_teamstatus_eq = n_teamstatus_eq;
+        if(!ObjectUtils.isEmpty(this.n_teamstatus_eq)){
+            this.getSearchCond().eq("`teamstatus`", n_teamstatus_eq);
+        }
+    }
 
     /**
 	 * 启用快速搜索

@@ -139,6 +139,7 @@ hide footbox
 |用户(ACCOUNT)|LIKE|
 |结束时间(END)|LTANDEQ|
 |当前负责人(LEADINGCADRE)|EQ|
+|成员状态(TEAMSTATUS)|EQ|
 
 ## 导入模式
 无
