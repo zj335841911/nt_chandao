@@ -52,6 +52,7 @@ public interface IFileService extends IService<File> {
     Page<File> searchDocLibFile(FileSearchContext context);
     Page<File> searchProductDocLibFile(FileSearchContext context);
     Page<File> searchType(FileSearchContext context);
+    Page<File> searchTypeNotBySrfparentkey(FileSearchContext context);
     /**
      * 自定义查询SQL
      * @param sql  select * from table where id =#{et.param}

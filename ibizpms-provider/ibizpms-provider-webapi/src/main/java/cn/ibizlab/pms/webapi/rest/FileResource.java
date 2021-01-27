@@ -243,6 +243,28 @@ public class FileResource {
                 .body(new PageImpl(fileMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-File-searchTypeNotBySrfparentkey-all')")
+	@ApiOperation(value = "获取查询附件", tags = {"附件" } ,notes = "获取查询附件")
+    @RequestMapping(method= RequestMethod.GET , value="/files/fetchtypenotbysrfparentkey")
+	public ResponseEntity<List<FileDTO>> fetchTypeNotBySrfparentkey(FileSearchContext context) {
+        Page<File> domains = fileService.searchTypeNotBySrfparentkey(context) ;
+        List<FileDTO> list = fileMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-File-searchTypeNotBySrfparentkey-all')")
+	@ApiOperation(value = "查询查询附件", tags = {"附件" } ,notes = "查询查询附件")
+    @RequestMapping(method= RequestMethod.POST , value="/files/searchtypenotbysrfparentkey")
+	public ResponseEntity<Page<FileDTO>> searchTypeNotBySrfparentkey(@RequestBody FileSearchContext context) {
+        Page<File> domains = fileService.searchTypeNotBySrfparentkey(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(fileMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
 
 }
 
