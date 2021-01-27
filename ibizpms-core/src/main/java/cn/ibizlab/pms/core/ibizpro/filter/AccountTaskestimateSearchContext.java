@@ -55,6 +55,15 @@ public class AccountTaskestimateSearchContext extends QueryWrapperContext<Accoun
             this.getSearchCond().eq("`account`", n_account_eq);
         }
     }
+    @JsonFormat(pattern="yyyy-MM-dd", timezone="GMT+8")
+    @JSONField(format="yyyy-MM-dd")
+	private Timestamp n_date_eq;//[日期]
+	public void setN_date_eq(Timestamp n_date_eq) {
+        this.n_date_eq = n_date_eq;
+        if(!ObjectUtils.isEmpty(this.n_date_eq)){
+            this.getSearchCond().eq("`date`", n_date_eq);
+        }
+    }
 
     /**
 	 * 启用快速搜索

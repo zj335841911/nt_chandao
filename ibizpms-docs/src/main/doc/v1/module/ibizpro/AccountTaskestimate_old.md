@@ -79,6 +79,7 @@
 |年(YEAR)|EQ|
 |月(MONTH)|EQ|
 |用户(ACCOUNT)|EQ|
+|日期(DATE)|EQ|
 
 ## 导入模式
 无
