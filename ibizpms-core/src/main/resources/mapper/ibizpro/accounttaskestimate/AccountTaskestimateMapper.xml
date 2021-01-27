@@ -17,7 +17,7 @@
 
     <!--数据集合[AllAccountEstimate]-->
 	 <select id="searchAllAccountEstimate"  parameterType="cn.ibizlab.pms.core.ibizpro.filter.AccountTaskestimateSearchContext"  resultType="java.util.HashMap">
-	 	select 	ROUND( sum( t1.INPUTCOST ), 2 ) as "inputcost",ROUND( sum( t1.consumed ), 2 ) as "consumed",ROUND( sum( t1.EVALUATIONCOST ), 2 ) as "evaluationcost",date as "date",ROUND( sum( t1.EVALUATIONTIME ), 2 ) as "evaluationtime",account as "account"
+	 	select 	ROUND( sum( t1.INPUTCOST ), 2 ) as "inputcost",ROUND( sum( t1.consumed ), 2 ) as "consumed",month as "month",ROUND( sum( t1.EVALUATIONCOST ), 2 ) as "evaluationcost",date as "date",year as "year",ROUND( sum( t1.EVALUATIONTIME ), 2 ) as "evaluationtime",account as "account"
  from (
          select t1.* from (
                 <include refid="AllAccountEstimate" />
@@ -25,7 +25,7 @@
          <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
 		 )t1
-		 group by `date`,`account`
+		 group by `month`,`date`,`year`,`account`
      </select>
 
     <!--数据集合[Default]-->
