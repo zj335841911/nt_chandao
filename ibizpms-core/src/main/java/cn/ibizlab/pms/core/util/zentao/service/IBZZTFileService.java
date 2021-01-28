@@ -4,6 +4,7 @@ import cn.ibizlab.pms.core.util.zentao.bean.ZTDownloadFile;
 import cn.ibizlab.pms.core.util.zentao.bean.ZTFileItem;
 import cn.ibizlab.pms.core.util.zentao.constants.ZenTaoMessage;
 import cn.ibizlab.pms.core.zentao.service.IFileService;
+import cn.ibizlab.pms.util.constants.IBizPMSConstants;
 import cn.ibizlab.pms.util.errors.InternalServerErrorException;
 import cn.ibizlab.pms.util.security.AuthenticationUser;
 import com.alibaba.fastjson.JSONObject;
@@ -38,6 +39,8 @@ public class IBZZTFileService implements IIBZZTFileService {
      */
     @Value("${ibiz.filePath:/app/file/}")
     private String filePath;
+
+    private String fileSeparator = IBizPMSConstants.FILE_SEPARATOR;
 
     // 水印透明度
     private static float alpha = 0.5f;
@@ -77,9 +80,9 @@ public class IBZZTFileService implements IIBZZTFileService {
         if (filePath == null) {
             filePath = "";
         }
-        filePath = filePath.replaceAll("\\\\", File.separator);
-        if (!filePath.isEmpty() && !filePath.endsWith("/")) {
-            filePath += File.separator;
+        filePath = filePath.replaceAll("\\\\", fileSeparator);
+        if (!filePath.isEmpty() && !filePath.endsWith(fileSeparator)) {
+            filePath += fileSeparator;
         }
         try {
             if (params != null && params.get("objecttype") != null) {
@@ -95,9 +98,9 @@ public class IBZZTFileService implements IIBZZTFileService {
                 md5FileName = DigestUtils.md5DigestAsHex(md5FileName.getBytes());
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyyMM");
                 String curDate = sdf.format(new Date(curTime));
-//                String fileShortPath = curDate + File.separator + md5FileName + extname;
-                String fileShortPath = curDate + File.separator + md5FileName;
-                fileShortPath = fileShortPath.replace("\\", "/");
+//                String fileShortPath = curDate + fileSeparator + md5FileName + extname;
+                String fileShortPath = curDate + fileSeparator + md5FileName;
+                fileShortPath = fileShortPath.replace("\\", fileSeparator);
                 String fileFullPath = filePath + fileShortPath;
                 File file = new File(fileFullPath);
                 File parent = new File(file.getParent());
@@ -128,7 +131,7 @@ public class IBZZTFileService implements IIBZZTFileService {
                 item = new ZTFileItem(fileId, fileName, fileId, fileName, (int) multipartFile.getSize(), extname, objectType, objectId, extra, version);
             } else {
                 String fileid = DigestUtils.md5DigestAsHex(multipartFile.getInputStream());
-                String fileFullPath = filePath + "ibizutil/" + fileid + File.separator + fileName;
+                String fileFullPath = filePath + "ibizutil/" + fileid + fileSeparator + fileName;
                 File file = new File(fileFullPath);
                 File parent = new File(file.getParent());
                 if (!parent.exists()) {
@@ -156,9 +159,9 @@ public class IBZZTFileService implements IIBZZTFileService {
         if (filePath == null) {
             filePath = "";
         }
-        filePath = filePath.replaceAll("\\\\", File.separator);
-        if (!filePath.isEmpty() && !filePath.endsWith("/")) {
-            filePath += File.separator;
+        filePath = filePath.replaceAll("\\\\", fileSeparator);
+        if (!filePath.isEmpty() && !filePath.endsWith(fileSeparator)) {
+            filePath += fileSeparator;
         }
         try {
             if (params != null && params.get("objecttype") != null) {
@@ -174,7 +177,7 @@ public class IBZZTFileService implements IIBZZTFileService {
                 md5FileName = DigestUtils.md5DigestAsHex(md5FileName.getBytes());
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyyMM");
                 String curDate = sdf.format(new Date(curTime));
-                String fileShortPath = curDate + File.separator + md5FileName + extname;
+                String fileShortPath = curDate + fileSeparator + md5FileName + extname;
                 String fileFullPath = filePath + fileShortPath;
                 File file = new File(fileFullPath);
                 File parent = new File(file.getParent());
@@ -207,7 +210,7 @@ public class IBZZTFileService implements IIBZZTFileService {
             } else {
                 InputStream inputStream = new FileInputStream(multipartFile);
                 String fileid = DigestUtils.md5DigestAsHex(inputStream);
-                String fileFullPath = filePath + "ibizutil/" + fileid + File.separator + fileName;
+                String fileFullPath = filePath + "ibizutil/" + fileid + fileSeparator + fileName;
                 File file = new File(fileFullPath);
                 File parent = new File(file.getParent());
                 if (!parent.exists()) {
@@ -228,9 +231,9 @@ public class IBZZTFileService implements IIBZZTFileService {
         if (filePath == null) {
             filePath = "";
         }
-        filePath = filePath.replaceAll("\\\\", File.separator);
-        if (!filePath.isEmpty() && !filePath.endsWith("/")) {
-            filePath += File.separator;
+        filePath = filePath.replaceAll("\\\\", fileSeparator);
+        if (!filePath.isEmpty() && !filePath.endsWith(fileSeparator)) {
+            filePath += fileSeparator;
         }
 
         ZTDownloadFile downloadFile = new ZTDownloadFile();
@@ -363,20 +366,20 @@ public class IBZZTFileService implements IIBZZTFileService {
      */
     @Override
     public List<File> getFileByObjectIdAndType(String ObjectId, String ObjectType) {
-        //用于存放要批量下载的附件的集合
+        // 用于存放要批量下载的附件的集合
         List<File> downloadFiles = new ArrayList<>();
         String filePath = this.filePath;
         if (filePath == null) {
             filePath = "";
         }
-        filePath = filePath.replaceAll("\\\\", File.separator);
-        if (!filePath.isEmpty() && !filePath.endsWith("/")) {
-            filePath += File.separator;
+        filePath = filePath.replaceAll("\\\\", fileSeparator);
+        if (!filePath.isEmpty() && !filePath.endsWith(fileSeparator)) {
+            filePath += fileSeparator;
         }
-        //获取要下载的附件文件
+        // 获取要下载的附件文件
         List<cn.ibizlab.pms.core.zentao.domain.File> files = fileService.list(new QueryWrapper<cn.ibizlab.pms.core.zentao.domain.File>().eq("objectid", ObjectId).eq("objecttype", ObjectType));
         if (files.size() == 0) {
-            //异常待完善
+            // 异常待完善
             throw new InternalServerErrorException("没有附件可以下载");
         }
         for (cn.ibizlab.pms.core.zentao.domain.File ztFile : files) {
@@ -385,7 +388,7 @@ public class IBZZTFileService implements IIBZZTFileService {
             if (!file.exists()) {
                 throw new InternalServerErrorException("文件不存在");
             }
-            //设置该附件的下载次数
+            // 设置该附件的下载次数
             ztFile.setDownloads((ztFile.getDownloads() != null ? ztFile.getDownloads() : 0) + 1);
             fileService.update(ztFile);
             downloadFiles.add(file);
