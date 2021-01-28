@@ -34,6 +34,13 @@ public class ProductSearchContext extends QueryWrapperContext<Product> {
             this.getSearchCond().eq("`acl`", n_acl_eq);
         }
     }
+	private String n_name_eq;//[产品名称]
+	public void setN_name_eq(String n_name_eq) {
+        this.n_name_eq = n_name_eq;
+        if(!ObjectUtils.isEmpty(this.n_name_eq)){
+            this.getSearchCond().eq("`name`", n_name_eq);
+        }
+    }
 	private String n_name_like;//[产品名称]
 	public void setN_name_like(String n_name_like) {
         this.n_name_like = n_name_like;

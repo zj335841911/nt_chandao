@@ -62,6 +62,13 @@ public class ProjectSearchContext extends QueryWrapperContext<Project> {
             this.getSearchCond().ne("`id`", n_id_noteq);
         }
     }
+	private String n_name_eq;//[项目名称]
+	public void setN_name_eq(String n_name_eq) {
+        this.n_name_eq = n_name_eq;
+        if(!ObjectUtils.isEmpty(this.n_name_eq)){
+            this.getSearchCond().eq("`name`", n_name_eq);
+        }
+    }
 	private String n_name_like;//[项目名称]
 	public void setN_name_like(String n_name_like) {
         this.n_name_like = n_name_like;

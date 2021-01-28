@@ -466,7 +466,8 @@ String
 - 搜索条件
 | 序号 | 组合方式 |
 | ---- | ---- |
-| 1 | `%like%` |
+| 1 | `=` |
+| 2 | `%like%` |
 
 #### 关系属性
 | 项目 | 说明 |
@@ -4649,24 +4650,25 @@ Save
 | 3 | [项目编号（ID）](#属性-项目编号（ID）) | `=` |
 | 4 | [项目编号（ID）](#属性-项目编号（ID）) | `in(...)` |
 | 5 | [项目编号（ID）](#属性-项目编号（ID）) | `!=`或者`<>` |
-| 6 | [项目名称（NAME）](#属性-项目名称（NAME）) | `%like%` |
-| 7 | [发布负责人（RD）](#属性-发布负责人（RD）) | `=` |
-| 8 | [优先级（PRI）](#属性-优先级（PRI）) | `=` |
-| 9 | [statge（STATGE）](#属性-statge（STATGE）) | `=` |
-| 10 | [isCat（ISCAT）](#属性-isCat（ISCAT）) | `=` |
-| 11 | [项目类型（TYPE）](#属性-项目类型（TYPE）) | `=` |
-| 12 | [产品负责人（PO）](#属性-产品负责人（PO）) | `=` |
-| 13 | [项目状态（STATUS）](#属性-项目状态（STATUS）) | `=` |
-| 14 | [项目状态（STATUS）](#属性-项目状态（STATUS）) | `!=`或者`<>` |
-| 15 | [测试负责人（QD）](#属性-测试负责人（QD）) | `=` |
-| 16 | [parent（PARENTNAME）](#属性-parent（PARENTNAME）) | `=` |
-| 17 | [parent（PARENTNAME）](#属性-parent（PARENTNAME）) | `%like%` |
-| 18 | [父项目（PARENT）](#属性-父项目（PARENT）) | `=` |
-| 19 | [时间段（PERIOD）](#属性-时间段（PERIOD）) | `=` |
-| 20 | [项目团队成员（ACCOUNT）](#属性-项目团队成员（ACCOUNT）) | `=` |
-| 21 | [选择部门（DEPT）](#属性-选择部门（DEPT）) | `=` |
-| 22 | [复制团队（MANAGEMEMBERS）](#属性-复制团队（MANAGEMEMBERS）) | `=` |
-| 23 | [支持项目汇报（SUPPROREPORT）](#属性-支持项目汇报（SUPPROREPORT）) | `=` |
+| 6 | [项目名称（NAME）](#属性-项目名称（NAME）) | `=` |
+| 7 | [项目名称（NAME）](#属性-项目名称（NAME）) | `%like%` |
+| 8 | [发布负责人（RD）](#属性-发布负责人（RD）) | `=` |
+| 9 | [优先级（PRI）](#属性-优先级（PRI）) | `=` |
+| 10 | [statge（STATGE）](#属性-statge（STATGE）) | `=` |
+| 11 | [isCat（ISCAT）](#属性-isCat（ISCAT）) | `=` |
+| 12 | [项目类型（TYPE）](#属性-项目类型（TYPE）) | `=` |
+| 13 | [产品负责人（PO）](#属性-产品负责人（PO）) | `=` |
+| 14 | [项目状态（STATUS）](#属性-项目状态（STATUS）) | `=` |
+| 15 | [项目状态（STATUS）](#属性-项目状态（STATUS）) | `!=`或者`<>` |
+| 16 | [测试负责人（QD）](#属性-测试负责人（QD）) | `=` |
+| 17 | [parent（PARENTNAME）](#属性-parent（PARENTNAME）) | `=` |
+| 18 | [parent（PARENTNAME）](#属性-parent（PARENTNAME）) | `%like%` |
+| 19 | [父项目（PARENT）](#属性-父项目（PARENT）) | `=` |
+| 20 | [时间段（PERIOD）](#属性-时间段（PERIOD）) | `=` |
+| 21 | [项目团队成员（ACCOUNT）](#属性-项目团队成员（ACCOUNT）) | `=` |
+| 22 | [选择部门（DEPT）](#属性-选择部门（DEPT）) | `=` |
+| 23 | [复制团队（MANAGEMEMBERS）](#属性-复制团队（MANAGEMEMBERS）) | `=` |
+| 24 | [支持项目汇报（SUPPROREPORT）](#属性-支持项目汇报（SUPPROREPORT）) | `=` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |
