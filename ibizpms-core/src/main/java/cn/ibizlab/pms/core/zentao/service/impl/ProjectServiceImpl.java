@@ -127,14 +127,6 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
 
     @Autowired
     @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.IProjectPmsEeProjectAllTaskCountLogic pmseeprojectalltaskcountLogic;
-
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.IProjectPmsEeProjectTodoTaskCountLogic pmseeprojecttodotaskcountLogic;
-
-    @Autowired
-    @Lazy
     protected cn.ibizlab.pms.core.zentao.service.logic.IProjectProjectTaskQCntLogic projecttaskqcntLogic;
 
     @Autowired
@@ -297,18 +289,34 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
          return et;
     }
 
-    @Override
+       @Override
     @Transactional
     public Project pmsEeProjectAllTaskCount(Project et) {
-        pmseeprojectalltaskcountLogic.execute(et);
-         return et;
+  			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.ProjectHelper.class).pmsEeProjectAllTaskCount(et);
+    }
+	
+	@Override
+    @Transactional
+    public boolean pmsEeProjectAllTaskCountBatch (List<Project> etList) {
+		 for(Project et : etList) {
+		   pmsEeProjectAllTaskCount(et);
+		 }
+	 	 return true;
     }
 
-    @Override
+       @Override
     @Transactional
     public Project pmsEeProjectTodoTaskCount(Project et) {
-        pmseeprojecttodotaskcountLogic.execute(et);
-         return et;
+  			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.ProjectHelper.class).pmsEeProjectTodoTaskCount(et);
+    }
+	
+	@Override
+    @Transactional
+    public boolean pmsEeProjectTodoTaskCountBatch (List<Project> etList) {
+		 for(Project et : etList) {
+		   pmsEeProjectTodoTaskCount(et);
+		 }
+	 	 return true;
     }
 
     @Override

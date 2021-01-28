@@ -621,4 +621,28 @@ export interface Project {
      * @memberof Project
      */
     pmseeprojectinfo?: any;
+
+    /**
+     * 临时任务数
+     *
+     * @returns {*}
+     * @memberof Project
+     */
+    temptaskcnt?: any;
+
+    /**
+     * 周期任务数
+     *
+     * @returns {*}
+     * @memberof Project
+     */
+    cycletaskcnt?: any;
+
+    /**
+     * 计划任务数
+     *
+     * @returns {*}
+     * @memberof Project
+     */
+    plantaskcnt?: any;
 }

@@ -115,6 +115,9 @@
 | 75 | [项目团队成员](#属性-项目团队成员（PROJECTTEAMS）) | PROJECTTEAMS | 一对多关系数据集合 | 否 | 是 | 是 |
 | 76 | [支持项目汇报](#属性-支持项目汇报（SUPPROREPORT）) | SUPPROREPORT | 单项选择(文本值) | 否 | 是 | 是 |
 | 77 | [项目立项信息](#属性-项目立项信息（PMSEEPROJECTINFO）) | PMSEEPROJECTINFO | 长文本，没有长度限制 | 否 | 是 | 是 |
+| 78 | [临时任务数](#属性-临时任务数（TEMPTASKCNT）) | TEMPTASKCNT | 整型 | 否 | 是 | 是 |
+| 79 | [周期任务数](#属性-周期任务数（CYCLETASKCNT）) | CYCLETASKCNT | 整型 | 否 | 是 | 是 |
+| 80 | [计划任务数](#属性-计划任务数（PLANTASKCNT）) | PLANTASKCNT | 整型 | 否 | 是 | 是 |
 
 ### 属性-当前系统版本（OPENEDVERSION）
 #### 属性说明
@@ -3410,6 +3413,129 @@ String
 | 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
+### 属性-临时任务数（TEMPTASKCNT）
+#### 属性说明
+临时任务数
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-周期任务数（CYCLETASKCNT）
+#### 属性说明
+周期任务数
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-计划任务数（PLANTASKCNT）
+#### 属性说明
+计划任务数
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
 
 ## 业务状态
 | 序号 | 状态名称 | [项目状态](#属性-项目状态（STATUS）)<br>（STATUS） | [是否置顶](#属性-是否置顶（ISTOP）)<br>（ISTOP） | 默认 |
@@ -3718,8 +3844,8 @@ String
 | 21 | [关联需求](#实体行为-关联需求（LinkStory）) | LinkStory | 用户自定义 | 后台及前台 |
 | 22 | [团队管理](#实体行为-团队管理（ManageMembers）) | ManageMembers | 用户自定义 | 后台及前台 |
 | 23 | [移动端项目计数器](#实体行为-移动端项目计数器（MobProjectCount）) | MobProjectCount | 实体处理逻辑 | 后台 |
-| 24 | [项目立项任务快速分组计数器](#实体行为-项目立项任务快速分组计数器（PmsEeProjectAllTaskCount）) | PmsEeProjectAllTaskCount | 实体处理逻辑 | 后台 |
-| 25 | [项目立项待办任务快速分组计数器](#实体行为-项目立项待办任务快速分组计数器（PmsEeProjectTodoTaskCount）) | PmsEeProjectTodoTaskCount | 实体处理逻辑 | 后台 |
+| 24 | [项目立项任务快速分组计数器](#实体行为-项目立项任务快速分组计数器（PmsEeProjectAllTaskCount）) | PmsEeProjectAllTaskCount | 用户自定义 | 后台 |
+| 25 | [项目立项待办任务快速分组计数器](#实体行为-项目立项待办任务快速分组计数器（PmsEeProjectTodoTaskCount）) | PmsEeProjectTodoTaskCount | 用户自定义 | 后台及前台 |
 | 26 | [项目任务快速分组计数器](#实体行为-项目任务快速分组计数器（ProjectTaskQCnt）) | ProjectTaskQCnt | 实体处理逻辑 | 后台 |
 | 27 | [置顶](#实体行为-置顶（ProjectTop）) | projectTop | 实体处理逻辑 | 后台 |
 | 28 | [延期](#实体行为-延期（Putoff）) | Putoff | 用户自定义 | 后台及前台 |
@@ -4028,7 +4154,7 @@ CheckKey
 项目立项任务快速分组计数器
 
 - 行为类型
-实体处理逻辑
+用户自定义
 
 - 行为持有者
 后台
@@ -4040,10 +4166,10 @@ CheckKey
 项目立项待办任务快速分组计数器
 
 - 行为类型
-实体处理逻辑
+用户自定义
 
 - 行为持有者
-后台
+后台及前台
 
 #### 逻辑附加
 无

@@ -687,6 +687,30 @@ public class ProjectDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
     private String pmseeprojectinfo;
 
+    /**
+     * 属性 [TEMPTASKCNT]
+     *
+     */
+    @JSONField(name = "temptaskcnt")
+    @JsonProperty("temptaskcnt")
+    private Integer temptaskcnt;
+
+    /**
+     * 属性 [CYCLETASKCNT]
+     *
+     */
+    @JSONField(name = "cycletaskcnt")
+    @JsonProperty("cycletaskcnt")
+    private Integer cycletaskcnt;
+
+    /**
+     * 属性 [PLANTASKCNT]
+     *
+     */
+    @JSONField(name = "plantaskcnt")
+    @JsonProperty("plantaskcnt")
+    private Integer plantaskcnt;
+
 
     /**
      * 设置 [OPENEDVERSION]

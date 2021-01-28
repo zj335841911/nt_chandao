@@ -254,6 +254,14 @@ public class ProjectResource {
         projectdto = projectMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(projectdto);
     }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-PmsEeProjectAllTaskCount-all')")
+    @ApiOperation(value = "批量处理[项目立项任务快速分组计数器]", tags = {"项目" },  notes = "批量处理[项目立项任务快速分组计数器]")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/pmseeprojectalltaskcountbatch")
+    public ResponseEntity<Boolean> pmsEeProjectAllTaskCountBatch(@RequestBody List<ProjectDTO> projectdtos) {
+        List<Project> domains = projectMapping.toDomain(projectdtos);
+        boolean result = projectService.pmsEeProjectAllTaskCountBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
+    }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-PmsEeProjectTodoTaskCount-all')")
     @ApiOperation(value = "项目立项待办任务快速分组计数器", tags = {"项目" },  notes = "项目立项待办任务快速分组计数器")
@@ -264,6 +272,14 @@ public class ProjectResource {
         domain = projectService.pmsEeProjectTodoTaskCount(domain);
         projectdto = projectMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(projectdto);
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-PmsEeProjectTodoTaskCount-all')")
+    @ApiOperation(value = "批量处理[项目立项待办任务快速分组计数器]", tags = {"项目" },  notes = "批量处理[项目立项待办任务快速分组计数器]")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/pmseeprojecttodotaskcountbatch")
+    public ResponseEntity<Boolean> pmsEeProjectTodoTaskCountBatch(@RequestBody List<ProjectDTO> projectdtos) {
+        List<Project> domains = projectMapping.toDomain(projectdtos);
+        boolean result = projectService.pmsEeProjectTodoTaskCountBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-ProjectTaskQCnt-all')")

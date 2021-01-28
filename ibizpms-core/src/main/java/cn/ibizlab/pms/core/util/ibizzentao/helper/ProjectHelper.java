@@ -419,4 +419,17 @@ public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
         }
         return et;
     }
+
+
+    @Transactional(rollbackFor = Exception.class)
+    public Project pmsEeProjectAllTaskCount(Project et){
+        return null;
+    }
+
+
+    @Transactional(rollbackFor = Exception.class)
+    public Project pmsEeProjectTodoTaskCount(Project et){
+        return null;
+    }
+
 }
