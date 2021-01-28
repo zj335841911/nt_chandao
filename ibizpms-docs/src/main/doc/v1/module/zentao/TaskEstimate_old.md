@@ -123,6 +123,8 @@ hide members
 |任务(TASK)|EQ|
 |任务名称(TASKNAME)|EQ|
 |任务名称(TASKNAME)|LIKE|
+|年(YEAR)|EQ|
+|月(MONTH)|EQ|
 
 ## 导入模式
 无
