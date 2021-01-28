@@ -246,6 +246,15 @@ export default class DashBoradInfoViewModel {
       {
         name: 'pmseeprojectinfo',
       },
+      {
+        name: 'temptaskcnt',
+      },
+      {
+        name: 'cycletaskcnt',
+      },
+      {
+        name: 'plantaskcnt',
+      },
     ]
   }
 

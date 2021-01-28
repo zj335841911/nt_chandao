@@ -109,6 +109,9 @@ hide members
 |项目团队成员|PROJECTTEAMS|ONE2MANYDATA|&nbsp;|
 |支持项目汇报|SUPPROREPORT|SSCODELIST|&nbsp;|
 |项目立项信息|PMSEEPROJECTINFO|LONGTEXT|&nbsp;|
+|临时任务数|TEMPTASKCNT|INT|&nbsp;|
+|周期任务数|CYCLETASKCNT|INT|&nbsp;|
+|计划任务数|PLANTASKCNT|INT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -192,6 +195,9 @@ hide members
 |项目团队成员|默认规则|内容长度必须小于等于[1048576]|
 |支持项目汇报|默认规则|内容长度必须小于等于[60]|
 |项目立项信息|默认规则|内容长度必须小于等于[1048576]|
+|临时任务数|默认规则|默认规则|
+|周期任务数|默认规则|默认规则|
+|计划任务数|默认规则|默认规则|
 
 ## 状态控制
 

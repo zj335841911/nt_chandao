@@ -246,6 +246,15 @@ export default class MainTabExpViewtabviewpanel11Model {
       {
         name: 'pmseeprojectinfo',
       },
+      {
+        name: 'temptaskcnt',
+      },
+      {
+        name: 'cycletaskcnt',
+      },
+      {
+        name: 'plantaskcnt',
+      },
     ]
   }
 

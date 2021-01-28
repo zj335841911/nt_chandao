@@ -246,6 +246,15 @@ export default class ProjectStatusBarModel {
       {
         name: 'pmseeprojectinfo',
       },
+      {
+        name: 'temptaskcnt',
+      },
+      {
+        name: 'cycletaskcnt',
+      },
+      {
+        name: 'plantaskcnt',
+      },
     ]
   }
 

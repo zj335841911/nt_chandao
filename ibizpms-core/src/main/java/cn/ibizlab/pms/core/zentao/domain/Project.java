@@ -612,6 +612,27 @@ public class Project extends EntityMP implements Serializable {
     @JSONField(name = "pmseeprojectinfo")
     @JsonProperty("pmseeprojectinfo")
     private String pmseeprojectinfo;
+    /**
+     * 临时任务数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "temptaskcnt")
+    @JsonProperty("temptaskcnt")
+    private Integer temptaskcnt;
+    /**
+     * 周期任务数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "cycletaskcnt")
+    @JsonProperty("cycletaskcnt")
+    private Integer cycletaskcnt;
+    /**
+     * 计划任务数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "plantaskcnt")
+    @JsonProperty("plantaskcnt")
+    private Integer plantaskcnt;
 
     /**
      * 

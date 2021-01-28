@@ -80,6 +80,9 @@ function getLocaleResourceBase(){
 			projectteams: commonLogic.appcommonhandle("项目团队成员",null),
 			supproreport: commonLogic.appcommonhandle("支持项目汇报",null),
 			pmseeprojectinfo: commonLogic.appcommonhandle("项目立项信息",null),
+			temptaskcnt: commonLogic.appcommonhandle("临时任务数",null),
+			cycletaskcnt: commonLogic.appcommonhandle("周期任务数",null),
+			plantaskcnt: commonLogic.appcommonhandle("计划任务数",null),
 		},
 			views: {
 				storymeditview9: {

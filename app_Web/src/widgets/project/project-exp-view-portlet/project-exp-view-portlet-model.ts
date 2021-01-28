@@ -246,6 +246,15 @@ export default class ProjectExpViewModel {
       {
         name: 'pmseeprojectinfo',
       },
+      {
+        name: 'temptaskcnt',
+      },
+      {
+        name: 'cycletaskcnt',
+      },
+      {
+        name: 'plantaskcnt',
+      },
     ]
   }
 

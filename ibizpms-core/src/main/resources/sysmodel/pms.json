@@ -32462,6 +32462,45 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"TEMPTASKCNT" ,
+    "codename":"TempTaskCnt",
+    "field_logic_name":"临时任务数",
+    "entity_name":"ZT_PROJECT",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"CYCLETASKCNT" ,
+    "codename":"CycleTaskCnt",
+    "field_logic_name":"周期任务数",
+    "entity_name":"ZT_PROJECT",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"PLANTASKCNT" ,
+    "codename":"PlanTaskCnt",
+    "field_logic_name":"计划任务数",
+    "entity_name":"ZT_PROJECT",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[
