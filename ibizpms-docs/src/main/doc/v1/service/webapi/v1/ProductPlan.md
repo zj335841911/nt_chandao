@@ -262,6 +262,25 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | [ProductPlanDTO](#ProductPlanDTO)：产品计划实体传输对象 |
 
+### 关联任务
+#### 访问路径
+/productplans/{productplan_id}/linktask
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productplan_id | Long | 产品计划主键ID |
+| 2 | productplandto | [ProductPlanDTO](#ProductPlanDTO) | 产品计划实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [ProductPlanDTO](#ProductPlanDTO)：产品计划实体传输对象 |
+
 ### 移动端产品计划计数器
 #### 访问路径
 /productplans/{productplan_id}/mobproductplancounter
@@ -935,6 +954,26 @@ POST
 ### 关联需求
 #### 访问路径
 /products/{product_id}/productplans/{productplan_id}/linkstory
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |
+| 2 | productplan_id | Long | 产品计划主键ID |
+| 3 | productplandto | [ProductPlanDTO](#ProductPlanDTO) | 产品计划实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [ProductPlanDTO](#ProductPlanDTO)：产品计划实体传输对象 |
+
+### 关联任务
+#### 访问路径
+/products/{product_id}/productplans/{productplan_id}/linktask
 
 #### 请求方法
 POST

@@ -19424,7 +19424,7 @@ LEFT JOIN `zt_task` t51 ON t1.`PARENT` = t51.`ID`
 LEFT JOIN `zt_productplan` t61 ON t1.`PLAN` = t61.`ID` 
 
 WHERE t1.DELETED = '0' 
-( t1.`PLAN` <> ${srfwebcontext('plan','{"defname":"PLAN","dename":"ZT_TASK"}')}  AND  t1.project in (select t.project from zt_projectproduct t left join zt_productplan tt on tt.product = t.product where tt.id = ${srfwebcontext('plan','{"defname":"PLAN","dename":"ZT_TASK"}')}) ) 
+( t1.`PLAN` <> ${srfwebcontext('productplan','{"defname":"PLAN","dename":"ZT_TASK"}')}  AND  t1.project in (select t.project from zt_projectproduct t left join zt_productplan tt on tt.product = t.product where tt.id = ${srfwebcontext('productplan','{"defname":"PLAN","dename":"ZT_TASK"}')}) ) 
 
 ```
 ### 我本月完成的任务（下拉列表框）(ThisMonthCompleteTaskChoice)<div id="Task_ThisMonthCompleteTaskChoice"></div>

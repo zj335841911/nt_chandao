@@ -225,6 +225,21 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
 
     @Override
     @Transactional
+    public ProductPlan linkTask(ProductPlan et) {
+        //自定义代码
+        return et;
+    }
+   @Override
+    @Transactional
+    public boolean linkTaskBatch(List<ProductPlan> etList) {
+        for(ProductPlan et : etList) {
+            linkTask(et);
+        }
+        return true;
+    }
+
+    @Override
+    @Transactional
     public ProductPlan mobProductPlanCounter(ProductPlan et) {
         mobproductplancounterLogic.execute(et);
          return et;

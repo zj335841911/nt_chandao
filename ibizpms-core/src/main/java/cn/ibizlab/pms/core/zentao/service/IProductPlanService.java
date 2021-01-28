@@ -55,6 +55,8 @@ public interface IProductPlanService extends IService<ProductPlan> {
     boolean linkBugBatch(List<ProductPlan> etList);
     ProductPlan linkStory(ProductPlan et);
     boolean linkStoryBatch(List<ProductPlan> etList);
+    ProductPlan linkTask(ProductPlan et);
+    boolean linkTaskBatch(List<ProductPlan> etList);
     ProductPlan mobProductPlanCounter(ProductPlan et);
     boolean save(ProductPlan et);
     void saveBatch(List<ProductPlan> list);

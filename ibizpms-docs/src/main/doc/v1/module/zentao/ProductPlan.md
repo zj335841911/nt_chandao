@@ -1107,10 +1107,11 @@ String
 | 11 | [导入计划模板](#实体行为-导入计划模板（ImportPlanTemplet）) | ImportPlanTemplet | 用户自定义 | 后台及前台 |
 | 12 | [关联Bug](#实体行为-关联Bug（LinkBug）) | LinkBug | 用户自定义 | 后台及前台 |
 | 13 | [关联需求](#实体行为-关联需求（LinkStory）) | LinkStory | 用户自定义 | 后台及前台 |
-| 14 | [移动端产品计划计数器](#实体行为-移动端产品计划计数器（MobProductPlanCounter）) | MobProductPlanCounter | 实体处理逻辑 | 后台 |
-| 15 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
-| 16 | [解除关联Bug](#实体行为-解除关联Bug（UnlinkBug）) | UnlinkBug | 用户自定义 | 后台及前台 |
-| 17 | [解除关联需求](#实体行为-解除关联需求（UnlinkStory）) | UnlinkStory | 用户自定义 | 后台及前台 |
+| 14 | [关联任务](#实体行为-关联任务（LinkTask）) | LinkTask | 用户自定义 | 后台及前台 |
+| 15 | [移动端产品计划计数器](#实体行为-移动端产品计划计数器（MobProductPlanCounter）) | MobProductPlanCounter | 实体处理逻辑 | 后台 |
+| 16 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+| 17 | [解除关联Bug](#实体行为-解除关联Bug（UnlinkBug）) | UnlinkBug | 用户自定义 | 后台及前台 |
+| 18 | [解除关联需求](#实体行为-解除关联需求（UnlinkStory）) | UnlinkStory | 用户自定义 | 后台及前台 |
 
 ### 实体行为-Create（Create）
 #### 说明
@@ -1263,6 +1264,18 @@ CheckKey
 ### 实体行为-关联需求（LinkStory）
 #### 说明
 关联需求
+
+- 行为类型
+用户自定义
+
+- 行为持有者
+后台及前台
+
+#### 逻辑附加
+无
+### 实体行为-关联任务（LinkTask）
+#### 说明
+关联任务
 
 - 行为类型
 用户自定义
