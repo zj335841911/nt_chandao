@@ -93,7 +93,7 @@ export class AppContentBottomExp extends Vue {
      * @memberof AppContentLeftExp
      */
     protected itemClick(item: any, index: number): void {
-        if (!Object.is(item.appfuncyype, 'APPVIEW')) {
+        if (!Object.is(item?.appfunctype, 'APPVIEW')) {
             return;
         }
         this.uiState.layoutState.bottomExpActiveIndex = index;
@@ -113,7 +113,7 @@ export class AppContentBottomExp extends Vue {
      */
     protected renderTitle(h: any, item: any): any {
         return (
-            <div title={item.tooltip} class="tab-exp-title">
+            <div title={item.tooltip} class='tab-exp-title'>
                 <menu-icon item={item} />
                 {this.$t(`app.menus.${this.ctrlName}.${item.name}`)}
             </div>
@@ -128,9 +128,9 @@ export class AppContentBottomExp extends Vue {
      */
     public render(): any {
         return (
-            <div class="app-content-bottom-exp">
+            <div class='app-content-bottom-exp'>
                 <tabs
-                    size="small"
+                    size='small'
                     animated={false}
                     value={this.activeIndex.toString()}
                     on-on-click={(name: string) => this.activeTab(name)}
@@ -142,7 +142,7 @@ export class AppContentBottomExp extends Vue {
                         return (
                             <tabPane label={(h: any) => this.renderTitle(h, item)} name={i.toString()}>
                                 {item.isActivated ? (
-                                    <div key={i} class="tab-exp-item-content">
+                                    <div key={i} class='tab-exp-item-content'>
                                         {this.$createElement(item.viewname)}
                                     </div>
                                 ) : null}

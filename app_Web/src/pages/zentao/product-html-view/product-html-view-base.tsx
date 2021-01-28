@@ -137,4 +137,72 @@ export class ProductHtmlViewBase extends ViewBase {
     }
 
 
+    /**
+     * 嵌入视图路径
+     *
+     * @public
+     * @type string
+     * @memberof ProductHtmlViewBase
+     */
+    public iframeUrl: string = '';
+
+    /**
+     * 解析嵌入视图路径
+     *
+     * @public
+     * @memberof ProductHtmlViewBase
+     */
+    public parseIframeSrc(context: any,viewparams: any){
+        this.iframeUrl = `./assets/html/iBizPMS.html`;
+    }
+
+    /**
+     * 初始化视图参数
+     *
+     * @protected
+     * @memberof ViewBase
+     */
+    protected parseViewParam(): void {
+        this.context.clearAll();
+        if (!this.viewDefaultUsage && this.viewdata && !Object.is(this.viewdata, '')) {
+            if (this.$store.getters.getAppData() && this.$store.getters.getAppData().context) {
+                Object.assign(this.context, this.$store.getters.getAppData().context);
+            }
+            if (typeof this.viewdata == 'string') {
+                Object.assign(this.context, JSON.parse(this.viewdata));
+            }
+            if (this.context && this.context.srfparentdename) {
+                Object.assign(this.viewparams, { srfparentdename: this.context.srfparentdename });
+            }
+            if (this.context && this.context.srfparentkey) {
+                Object.assign(this.viewparams, { srfparentkey: this.context.srfparentkey });
+            }
+        } else {
+            if (this.$store.getters.getAppData() && this.$store.getters.getAppData().context) {
+                Object.assign(this.context, this.$store.getters.getAppData().context);
+            }
+            const path = this.$route.matched[this.$route.matched.length - 1].path;
+            const keys: Array<any> = [];
+            const curReg = this.$pathToRegExp.pathToRegexp(path, keys);
+            const matchArray = curReg.exec(this.$route.path);
+            const tempValue: Object = {};
+            keys.forEach((item: any, index: number) => {
+                Object.defineProperty(tempValue, item.name, {
+                    enumerable: true,
+                    value: matchArray[index + 1],
+                });
+            });
+            this.$viewTool.formatRouteParams(tempValue, this.$route, this.context, this.viewparams);
+            if (this.isDeView) {
+                this.context.srfsessionid = this.$util.createUUID();
+            }
+        }
+        if (this.isDeView && !isEmpty(this.appDeName)) {
+            this.context.srfappdename = this.appDeName;
+        }
+        this.handleCustomViewData();
+        this.parseIframeSrc(this.context,this.viewparams);
+    }
+
+
 }

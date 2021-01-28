@@ -249,13 +249,13 @@ export class ZentaoBase extends Vue {
         const appFuncs: any[] = this.menuMode.getAppFuncs();
         if (this.$route && this.$route.matched && this.$route.matched.length == 2) { // 存在二级路由
             const [{ }, matched] = this.$route.matched;
-            const appfunc: any = appFuncs.find((_appfunc: any) => Object.is(_appfunc.routepath, matched.path) && Object.is(_appfunc.appfuncyype, 'APPVIEW'));
+            const appfunc: any = appFuncs.find((_appfunc: any) => Object.is(_appfunc.routepath, matched.path) && Object.is(_appfunc.appfunctype, 'APPVIEW'));
             if (appfunc) {
                 this.computeMenuSelect(this.menus, appfunc.appfunctag);
             }
             return;
         } else if (this.defPSAppView && Object.keys(this.defPSAppView).length > 0) { // 存在默认视图
-            const appfunc: any = appFuncs.find((_appfunc: any) => Object.is(_appfunc.routepath, this.defPSAppView.routepath) && Object.is(_appfunc.appfuncyype, 'APPVIEW'));
+            const appfunc: any = appFuncs.find((_appfunc: any) => Object.is(_appfunc.routepath, this.defPSAppView.routepath) && Object.is(_appfunc.appfunctype, 'APPVIEW'));
             if (appfunc) {
                 this.computeMenuSelect(this.menus, appfunc.appfunctag);
             }

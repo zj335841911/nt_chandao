@@ -406,9 +406,24 @@
 
             > .center {
                 flex-grow: 1;
-
+                width: calc(80% - 50px);
                 > .pickupviewpanel {
                     height: 100%;
+                }
+
+                .search-form-wrapper {
+                    width: 25%;
+                    .app-search-form {
+                        width: 100%;
+
+                        .search-button {
+                            width: 100%;
+                        }
+
+                        .form-content {
+                            width: 100%;
+                        }
+                    }
                 }
             }
 
@@ -420,11 +435,16 @@
                 text-align: center;
                 border-left: 1px solid var(--view-dividing-line-color-bright);
                 border-right: 1px solid var(--view-dividing-line-color-bright);
+                > .buttons {
+                    > .ivu-btn {
+                        margin: 3px 0px 3px 0px;
+                    }
+                }
             }
 
             > .right {
                 flex-shrink: 0;
-                width: 350px;
+                width: 20%;
 
                 > .mpicker-select {
                     height: 100%;
@@ -450,8 +470,12 @@
                 padding: 6px 16px;
             }
         }
+
+
     }
 }
+
+
 
 // 列表导航视图
 .delistexpview.studio-view.view-container {
@@ -533,6 +557,21 @@
 
         .pickupviewpanel {
             height: 100%;
+
+            .search-form-wrapper {
+                width: 20%;
+                .app-search-form {
+                    width: 100%;
+
+                    .search-button {
+                        width: 100%;
+                    }
+
+                    .form-content {
+                        width: 100%;
+                    }
+                }
+            }
         }
     }
 }
