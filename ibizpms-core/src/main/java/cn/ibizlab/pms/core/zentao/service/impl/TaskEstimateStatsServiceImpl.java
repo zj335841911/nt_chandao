@@ -181,6 +181,24 @@ public class TaskEstimateStatsServiceImpl extends ServiceImpl<TaskEstimateStatsM
 
 
     /**
+     * 查询集合 日志月
+     */
+    @Override
+    public Page<TaskEstimateStats> searchActionMonth(TaskEstimateStatsSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<TaskEstimateStats> pages=baseMapper.searchActionMonth(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<TaskEstimateStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 日志年
+     */
+    @Override
+    public Page<TaskEstimateStats> searchActionYear(TaskEstimateStatsSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<TaskEstimateStats> pages=baseMapper.searchActionYear(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<TaskEstimateStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
      * 查询集合 数据集
      */
     @Override

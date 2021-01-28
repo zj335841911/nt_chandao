@@ -16481,7 +16481,11 @@ POST
 | 16 | projectname | String | 允许 | 所属项目 |
 | 17 | taskspecies | String | 允许 | 任务种别 |
 | 18 | type | String | 允许 | 任务类型 |
-| 19 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 19 | year | String | 允许 | 年 |
+| 20 | yearname | String | 允许 | 年（显示） |
+| 21 | month | String | 允许 | 月 |
+| 22 | monthname | String | 允许 | 月（显示） |
+| 23 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### IBZTaskTeamDTO
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

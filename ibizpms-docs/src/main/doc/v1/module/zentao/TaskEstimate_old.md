@@ -30,6 +30,10 @@ hide members
 |所属项目|PROJECTNAME|PICKUPDATA|&nbsp;|
 |任务种别|TASKSPECIES|PICKUPDATA|&nbsp;|
 |任务类型|TYPE|PICKUPDATA|&nbsp;|
+|年|YEAR|TEXT|&nbsp;|
+|年（显示）|YEARNAME|TEXT|&nbsp;|
+|月|MONTH|TEXT|&nbsp;|
+|月（显示）|MONTHNAME|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -54,6 +58,10 @@ hide members
 |所属项目|默认规则|内容长度必须小于等于[90]|
 |任务种别|默认规则|内容长度必须小于等于[60]|
 |任务类型|默认规则|内容长度必须小于等于[20]|
+|年|默认规则|内容长度必须小于等于[100]|
+|年（显示）|默认规则|内容长度必须小于等于[100]|
+|月|默认规则|内容长度必须小于等于[100]|
+|月（显示）|默认规则|内容长度必须小于等于[100]|
 
 ## 状态控制
 
@@ -91,6 +99,8 @@ hide members
 
 | 查询编号 | 查询名称       | 默认查询 |   备注|
 | --------  | --------   | --------   | ----- |
+|ActionMonth|日志月([MYSQL5](../../appendix/query_MYSQL5.md#TaskEstimate_ActionMonth))|否|&nbsp;|
+|ActionYear|日志年([MYSQL5](../../appendix/query_MYSQL5.md#TaskEstimate_ActionYear))|否|&nbsp;|
 |DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#TaskEstimate_Default))|否|&nbsp;|
 |DEFAULT1|DEFAULT1([MYSQL5](../../appendix/query_MYSQL5.md#TaskEstimate_Defaults))|否|&nbsp;|
 |ProjectTaskEstimate|项目日志([MYSQL5](../../appendix/query_MYSQL5.md#TaskEstimate_ProjectTaskEstimate))|否|&nbsp;|
@@ -100,6 +110,8 @@ hide members
 
 | 集合编号 | 集合名称   |  包含查询  | 默认集合 |   备注|
 | --------  | --------   | -------- | --------   | ----- |
+|ActionMonth|日志月|ActionMonth|否|&nbsp;|
+|ActionYear|日志年|ActionYear|否|&nbsp;|
 |DEFAULT|DEFAULT|DEFAULT|是|&nbsp;|
 |DEFAULT1|DEFAULT1|DEFAULT1|否|&nbsp;|
 |ProjectTaskEstimate|项目日志|ProjectTaskEstimate|否|&nbsp;|

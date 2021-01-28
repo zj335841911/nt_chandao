@@ -114,6 +114,42 @@ public class taskestimatestatsDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String evaluationstatus;
 
+    /**
+     * 属性 [YEAR]
+     *
+     */
+    @JSONField(name = "year")
+    @JsonProperty("year")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String year;
+
+    /**
+     * 属性 [YEARNAME]
+     *
+     */
+    @JSONField(name = "yearname")
+    @JsonProperty("yearname")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String yearname;
+
+    /**
+     * 属性 [MONTH]
+     *
+     */
+    @JSONField(name = "month")
+    @JsonProperty("month")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String month;
+
+    /**
+     * 属性 [MONTHNAME]
+     *
+     */
+    @JSONField(name = "monthname")
+    @JsonProperty("monthname")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String monthname;
+
 
     /**
      * 设置 [ACCOUNT]
@@ -161,6 +197,14 @@ public class taskestimatestatsDTO extends DTOBase implements Serializable {
     public void setEvaluationstatus(String  evaluationstatus){
         this.evaluationstatus = evaluationstatus ;
         this.modify("evaluationstatus",evaluationstatus);
+    }
+
+    /**
+     * 设置 [MONTHNAME]
+     */
+    public void setMonthname(String  monthname){
+        this.monthname = monthname ;
+        this.modify("monthname",monthname);
     }
 
 

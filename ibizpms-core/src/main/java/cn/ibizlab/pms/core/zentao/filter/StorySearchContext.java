@@ -339,6 +339,7 @@ public class StorySearchContext extends QueryWrapperContext<Story> {
 		 if(!StringUtils.isEmpty(query)){
             this.getSearchCond().and( wrapper ->
                      wrapper.like("`title`", query)
+                        .or().like("`id`", query)
             );
 		 }
 	}

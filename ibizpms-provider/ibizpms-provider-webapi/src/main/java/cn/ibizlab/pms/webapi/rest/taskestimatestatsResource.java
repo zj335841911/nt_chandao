@@ -136,6 +136,50 @@ public class taskestimatestatsResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimateStats-searchActionMonth-all')")
+	@ApiOperation(value = "获取日志月", tags = {"任务工时统计" } ,notes = "获取日志月")
+    @RequestMapping(method= RequestMethod.GET , value="/taskestimatestats/fetchactionmonth")
+	public ResponseEntity<List<taskestimatestatsDTO>> fetchActionMonth(TaskEstimateStatsSearchContext context) {
+        Page<TaskEstimateStats> domains = taskestimatestatsService.searchActionMonth(context) ;
+        List<taskestimatestatsDTO> list = taskestimatestatsMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimateStats-searchActionMonth-all')")
+	@ApiOperation(value = "查询日志月", tags = {"任务工时统计" } ,notes = "查询日志月")
+    @RequestMapping(method= RequestMethod.POST , value="/taskestimatestats/searchactionmonth")
+	public ResponseEntity<Page<taskestimatestatsDTO>> searchActionMonth(@RequestBody TaskEstimateStatsSearchContext context) {
+        Page<TaskEstimateStats> domains = taskestimatestatsService.searchActionMonth(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(taskestimatestatsMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimateStats-searchActionYear-all')")
+	@ApiOperation(value = "获取日志年", tags = {"任务工时统计" } ,notes = "获取日志年")
+    @RequestMapping(method= RequestMethod.GET , value="/taskestimatestats/fetchactionyear")
+	public ResponseEntity<List<taskestimatestatsDTO>> fetchActionYear(TaskEstimateStatsSearchContext context) {
+        Page<TaskEstimateStats> domains = taskestimatestatsService.searchActionYear(context) ;
+        List<taskestimatestatsDTO> list = taskestimatestatsMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimateStats-searchActionYear-all')")
+	@ApiOperation(value = "查询日志年", tags = {"任务工时统计" } ,notes = "查询日志年")
+    @RequestMapping(method= RequestMethod.POST , value="/taskestimatestats/searchactionyear")
+	public ResponseEntity<Page<taskestimatestatsDTO>> searchActionYear(@RequestBody TaskEstimateStatsSearchContext context) {
+        Page<TaskEstimateStats> domains = taskestimatestatsService.searchActionYear(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(taskestimatestatsMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimateStats-searchDefault-all')")
 	@ApiOperation(value = "获取数据集", tags = {"任务工时统计" } ,notes = "获取数据集")
     @RequestMapping(method= RequestMethod.GET , value="/taskestimatestats/fetchdefault")

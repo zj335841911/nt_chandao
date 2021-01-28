@@ -19,6 +19,10 @@
 |评估工时|EVALUATIONTIME|FLOAT|&nbsp;|
 |评估成本|EVALUATIONCOST|FLOAT|&nbsp;|
 |评估状态|EVALUATIONSTATUS|TEXT|&nbsp;|
+|年|YEAR|TEXT|&nbsp;|
+|年（显示）|YEARNAME|TEXT|&nbsp;|
+|月|MONTH|TEXT|&nbsp;|
+|月（显示）|MONTHNAME|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -33,6 +37,10 @@
 |评估工时|默认规则|默认规则|
 |评估成本|默认规则|默认规则|
 |评估状态|默认规则|内容长度必须小于等于[100]|
+|年|默认规则|内容长度必须小于等于[100]|
+|年（显示）|默认规则|内容长度必须小于等于[100]|
+|月|默认规则|内容长度必须小于等于[100]|
+|月（显示）|默认规则|内容长度必须小于等于[100]|
 
 ## 状态控制
 
@@ -59,6 +67,8 @@
 
 | 查询编号 | 查询名称       | 默认查询 |   备注|
 | --------  | --------   | --------   | ----- |
+|ActionMonth|日志月([MYSQL5](../../appendix/query_MYSQL5.md#TaskEstimateStats_ActionMonth))|否|&nbsp;|
+|ActionYear|日志年([MYSQL5](../../appendix/query_MYSQL5.md#TaskEstimateStats_ActionYear))|否|&nbsp;|
 |DEFAULT|数据查询([MYSQL5](../../appendix/query_MYSQL5.md#TaskEstimateStats_Default))|否|&nbsp;|
 |TaskEstimateStatsSum|任务工时统计([MYSQL5](../../appendix/query_MYSQL5.md#TaskEstimateStats_TaskEstimateStatsSum))|否|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#TaskEstimateStats_View))|否|&nbsp;|
@@ -67,6 +77,8 @@
 
 | 集合编号 | 集合名称   |  包含查询  | 默认集合 |   备注|
 | --------  | --------   | -------- | --------   | ----- |
+|ActionMonth|日志月|ActionMonth|否|&nbsp;|
+|ActionYear|日志年|ActionYear|否|&nbsp;|
 |DEFAULT|数据集|DEFAULT|是|&nbsp;|
 
 ## 查询模式

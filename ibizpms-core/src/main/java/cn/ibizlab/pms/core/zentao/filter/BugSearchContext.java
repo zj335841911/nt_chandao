@@ -404,7 +404,8 @@ public class BugSearchContext extends QueryWrapperContext<Bug> {
 		 this.query=query;
 		 if(!StringUtils.isEmpty(query)){
             this.getSearchCond().and( wrapper ->
-                     wrapper.like("`title`", query)
+                     wrapper.like("`id`", query)
+                        .or().like("`title`", query)
             );
 		 }
 	}

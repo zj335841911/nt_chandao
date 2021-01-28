@@ -178,6 +178,34 @@ public class TaskEstimate extends EntityMP implements Serializable {
     @JSONField(name = "type")
     @JsonProperty("type")
     private String type;
+    /**
+     * 年
+     */
+    @TableField(exist = false)
+    @JSONField(name = "year")
+    @JsonProperty("year")
+    private String year;
+    /**
+     * 年（显示）
+     */
+    @TableField(exist = false)
+    @JSONField(name = "yearname")
+    @JsonProperty("yearname")
+    private String yearname;
+    /**
+     * 月
+     */
+    @TableField(exist = false)
+    @JSONField(name = "month")
+    @JsonProperty("month")
+    private String month;
+    /**
+     * 月（显示）
+     */
+    @TableField(value = "`monthname`")
+    @JSONField(name = "monthname")
+    @JsonProperty("monthname")
+    private String monthname;
 
     /**
      * 
@@ -285,6 +313,14 @@ public class TaskEstimate extends EntityMP implements Serializable {
     public void setEvaluationdesc(String evaluationdesc) {
         this.evaluationdesc = evaluationdesc;
         this.modify("evaluationdesc", evaluationdesc);
+    }
+
+    /**
+     * 设置 [月（显示）]
+     */
+    public void setMonthname(String monthname) {
+        this.monthname = monthname;
+        this.modify("monthname", monthname);
     }
 
 

@@ -136,6 +136,657 @@ public class ProjectTaskestimate extends EntityMP implements Serializable {
     @JSONField(name = "otherevaluationtime")
     @JsonProperty("otherevaluationtime")
     private Double otherevaluationtime;
+    /**
+     * 一号评估成本
+     */
+    @TableField(exist = false)
+    @JSONField(name = "oneevaluationcost")
+    @JsonProperty("oneevaluationcost")
+    private Double oneevaluationcost;
+    /**
+     * 二号评估成本
+     */
+    @TableField(exist = false)
+    @JSONField(name = "twoevaluationcost")
+    @JsonProperty("twoevaluationcost")
+    private Double twoevaluationcost;
+    /**
+     * 三号评估成本
+     */
+    @TableField(exist = false)
+    @JSONField(name = "threeevaluationcost")
+    @JsonProperty("threeevaluationcost")
+    private Double threeevaluationcost;
+    /**
+     * 四号评估成本
+     */
+    @TableField(exist = false)
+    @JSONField(name = "fourevaluationcost")
+    @JsonProperty("fourevaluationcost")
+    private Double fourevaluationcost;
+    /**
+     * 六号评估成本
+     */
+    @TableField(exist = false)
+    @JSONField(name = "sixevaluationcost")
+    @JsonProperty("sixevaluationcost")
+    private Double sixevaluationcost;
+    /**
+     * 五号评估成本
+     */
+    @TableField(exist = false)
+    @JSONField(name = "fiveevaluationcost")
+    @JsonProperty("fiveevaluationcost")
+    private Double fiveevaluationcost;
+    /**
+     * 八号评估成本
+     */
+    @TableField(exist = false)
+    @JSONField(name = "eightevaluationcost")
+    @JsonProperty("eightevaluationcost")
+    private Double eightevaluationcost;
+    /**
+     * 七号评估成本
+     */
+    @TableField(exist = false)
+    @JSONField(name = "sevenevaluationcost")
+    @JsonProperty("sevenevaluationcost")
+    private Double sevenevaluationcost;
+    /**
+     * 九号评估成本
+     */
+    @TableField(exist = false)
+    @JSONField(name = "nineevaluationcost")
+    @JsonProperty("nineevaluationcost")
+    private Double nineevaluationcost;
+    /**
+     * 十一号评估成本
+     */
+    @TableField(exist = false)
+    @JSONField(name = "elevenevaluationcost")
+    @JsonProperty("elevenevaluationcost")
+    private Double elevenevaluationcost;
+    /**
+     * 十二号评估成本
+     */
+    @TableField(exist = false)
+    @JSONField(name = "twelveevaluationcost")
+    @JsonProperty("twelveevaluationcost")
+    private Double twelveevaluationcost;
+    /**
+     * 十三号评估成本
+     */
+    @TableField(exist = false)
+    @JSONField(name = "thirteenevaluationcost")
+    @JsonProperty("thirteenevaluationcost")
+    private Double thirteenevaluationcost;
+    /**
+     * 十号评估成本
+     */
+    @TableField(exist = false)
+    @JSONField(name = "tenevaluationcost")
+    @JsonProperty("tenevaluationcost")
+    private Double tenevaluationcost;
+    /**
+     * 十四号评估成本
+     */
+    @TableField(exist = false)
+    @JSONField(name = "fourteenevaluationcost")
+    @JsonProperty("fourteenevaluationcost")
+    private Double fourteenevaluationcost;
+    /**
+     * 十五号评估成本
+     */
+    @TableField(exist = false)
+    @JSONField(name = "fifteenevaluationcost")
+    @JsonProperty("fifteenevaluationcost")
+    private Double fifteenevaluationcost;
+    /**
+     * 十六号评估成本
+     */
+    @TableField(exist = false)
+    @JSONField(name = "sixteenevaluationcost")
+    @JsonProperty("sixteenevaluationcost")
+    private Double sixteenevaluationcost;
+    /**
+     * 十八号评估成本
+     */
+    @TableField(exist = false)
+    @JSONField(name = "eighteenevaluationcost")
+    @JsonProperty("eighteenevaluationcost")
+    private Double eighteenevaluationcost;
+    /**
+     * 十七号评估成本
+     */
+    @TableField(exist = false)
+    @JSONField(name = "seventeenevaluationcost")
+    @JsonProperty("seventeenevaluationcost")
+    private Double seventeenevaluationcost;
+    /**
+     * 二十号评估成本
+     */
+    @TableField(exist = false)
+    @JSONField(name = "twentyevaluationcost")
+    @JsonProperty("twentyevaluationcost")
+    private Double twentyevaluationcost;
+    /**
+     * 十九号评估成本
+     */
+    @TableField(exist = false)
+    @JSONField(name = "nineteenevaluationcost")
+    @JsonProperty("nineteenevaluationcost")
+    private Double nineteenevaluationcost;
+    /**
+     * 二十一号评估成本
+     */
+    @TableField(exist = false)
+    @JSONField(name = "twentyoneevaluationcost")
+    @JsonProperty("twentyoneevaluationcost")
+    private Double twentyoneevaluationcost;
+    /**
+     * 二十二号评估成本
+     */
+    @TableField(exist = false)
+    @JSONField(name = "twentytwoevaluationcost")
+    @JsonProperty("twentytwoevaluationcost")
+    private Double twentytwoevaluationcost;
+    /**
+     * 二十四号评估成本
+     */
+    @TableField(exist = false)
+    @JSONField(name = "twentyfourevaluationcost")
+    @JsonProperty("twentyfourevaluationcost")
+    private Double twentyfourevaluationcost;
+    /**
+     * 二十三号评估成本
+     */
+    @TableField(exist = false)
+    @JSONField(name = "twentythreeevaluationcost")
+    @JsonProperty("twentythreeevaluationcost")
+    private Double twentythreeevaluationcost;
+    /**
+     * 二十五号评估成本
+     */
+    @TableField(exist = false)
+    @JSONField(name = "twentyfiveevaluationcost")
+    @JsonProperty("twentyfiveevaluationcost")
+    private Double twentyfiveevaluationcost;
+    /**
+     * 二十六号评估成本
+     */
+    @TableField(exist = false)
+    @JSONField(name = "twentysixevaluationcost")
+    @JsonProperty("twentysixevaluationcost")
+    private Double twentysixevaluationcost;
+    /**
+     * 二十八号评估成本
+     */
+    @TableField(exist = false)
+    @JSONField(name = "twentyeightevaluationcost")
+    @JsonProperty("twentyeightevaluationcost")
+    private Double twentyeightevaluationcost;
+    /**
+     * 二十九号评估成本
+     */
+    @TableField(exist = false)
+    @JSONField(name = "twentynineevaluationcost")
+    @JsonProperty("twentynineevaluationcost")
+    private Double twentynineevaluationcost;
+    /**
+     * 二十七号评估成本
+     */
+    @TableField(exist = false)
+    @JSONField(name = "twentysevenevaluationcost")
+    @JsonProperty("twentysevenevaluationcost")
+    private Double twentysevenevaluationcost;
+    /**
+     * 三十号评估成本
+     */
+    @TableField(exist = false)
+    @JSONField(name = "thirtyevaluationcost")
+    @JsonProperty("thirtyevaluationcost")
+    private Double thirtyevaluationcost;
+    /**
+     * 三十一号评估成本
+     */
+    @TableField(exist = false)
+    @JSONField(name = "thirtyoneevaluationcost")
+    @JsonProperty("thirtyoneevaluationcost")
+    private Double thirtyoneevaluationcost;
+    /**
+     * 三十号工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "thirtyconsumed")
+    @JsonProperty("thirtyconsumed")
+    private Double thirtyconsumed;
+    /**
+     * 三十一号工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "thirtyoneconsumed")
+    @JsonProperty("thirtyoneconsumed")
+    private Double thirtyoneconsumed;
+    /**
+     * 二十八号工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "twentyeightconsumed")
+    @JsonProperty("twentyeightconsumed")
+    private Double twentyeightconsumed;
+    /**
+     * 二十九号工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "twentynineconsumed")
+    @JsonProperty("twentynineconsumed")
+    private Double twentynineconsumed;
+    /**
+     * 二十五号工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "twentyfiveconsumed")
+    @JsonProperty("twentyfiveconsumed")
+    private Double twentyfiveconsumed;
+    /**
+     * 二十七号工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "twentysevenconsumed")
+    @JsonProperty("twentysevenconsumed")
+    private Double twentysevenconsumed;
+    /**
+     * 二十六号工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "twentysixconsumed")
+    @JsonProperty("twentysixconsumed")
+    private Double twentysixconsumed;
+    /**
+     * 二十四号工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "twentyfourconsumed")
+    @JsonProperty("twentyfourconsumed")
+    private Double twentyfourconsumed;
+    /**
+     * 二十三号工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "twentythreeconsumed")
+    @JsonProperty("twentythreeconsumed")
+    private Double twentythreeconsumed;
+    /**
+     * 二十一号工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "twentyoneconsumed")
+    @JsonProperty("twentyoneconsumed")
+    private Double twentyoneconsumed;
+    /**
+     * 二十二号工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "twentytwoconsumed")
+    @JsonProperty("twentytwoconsumed")
+    private Double twentytwoconsumed;
+    /**
+     * 二十号工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "twentyconsumed")
+    @JsonProperty("twentyconsumed")
+    private Double twentyconsumed;
+    /**
+     * 十九号工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "nineteenconsumed")
+    @JsonProperty("nineteenconsumed")
+    private Double nineteenconsumed;
+    /**
+     * 十七号工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "seventeenconsumed")
+    @JsonProperty("seventeenconsumed")
+    private Double seventeenconsumed;
+    /**
+     * 十六号工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "sixteenconsumed")
+    @JsonProperty("sixteenconsumed")
+    private Double sixteenconsumed;
+    /**
+     * 十八号工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "eighteenconsumed")
+    @JsonProperty("eighteenconsumed")
+    private Double eighteenconsumed;
+    /**
+     * 十四号工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "fourteenconsumed")
+    @JsonProperty("fourteenconsumed")
+    private Double fourteenconsumed;
+    /**
+     * 十五号工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "fifteenconsumed")
+    @JsonProperty("fifteenconsumed")
+    private Double fifteenconsumed;
+    /**
+     * 十三号工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "thirteenconsumed")
+    @JsonProperty("thirteenconsumed")
+    private Double thirteenconsumed;
+    /**
+     * 十二号工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "twelveconsumed")
+    @JsonProperty("twelveconsumed")
+    private Double twelveconsumed;
+    /**
+     * 十一号工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "elevenconsumed")
+    @JsonProperty("elevenconsumed")
+    private Double elevenconsumed;
+    /**
+     * 十号工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "tenconsumed")
+    @JsonProperty("tenconsumed")
+    private Double tenconsumed;
+    /**
+     * 八号工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "eightconsumed")
+    @JsonProperty("eightconsumed")
+    private Double eightconsumed;
+    /**
+     * 九号工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "nineconsumed")
+    @JsonProperty("nineconsumed")
+    private Double nineconsumed;
+    /**
+     * 七号工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "sevenconsumed")
+    @JsonProperty("sevenconsumed")
+    private Double sevenconsumed;
+    /**
+     * 六号工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "sixconsumed")
+    @JsonProperty("sixconsumed")
+    private Double sixconsumed;
+    /**
+     * 五号工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "fiveconsumed")
+    @JsonProperty("fiveconsumed")
+    private Double fiveconsumed;
+    /**
+     * 三号工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "threeconsumed")
+    @JsonProperty("threeconsumed")
+    private Double threeconsumed;
+    /**
+     * 四号工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "fourconsumed")
+    @JsonProperty("fourconsumed")
+    private Double fourconsumed;
+    /**
+     * 二号工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "twoconsumed")
+    @JsonProperty("twoconsumed")
+    private Double twoconsumed;
+    /**
+     * 一号工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "oneconsumed")
+    @JsonProperty("oneconsumed")
+    private Double oneconsumed;
+    /**
+     * 二号评估工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "twoevaluationtime")
+    @JsonProperty("twoevaluationtime")
+    private Double twoevaluationtime;
+    /**
+     * 四号评估工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "fourevaluationtime")
+    @JsonProperty("fourevaluationtime")
+    private Double fourevaluationtime;
+    /**
+     * 一号评估工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "oneevaluationtime")
+    @JsonProperty("oneevaluationtime")
+    private Double oneevaluationtime;
+    /**
+     * 三号评估工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "threeevaluationtime")
+    @JsonProperty("threeevaluationtime")
+    private Double threeevaluationtime;
+    /**
+     * 八号评估工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "eightevaluationtime")
+    @JsonProperty("eightevaluationtime")
+    private Double eightevaluationtime;
+    /**
+     * 六号评估工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "sixevaluationtime")
+    @JsonProperty("sixevaluationtime")
+    private Double sixevaluationtime;
+    /**
+     * 五号评估工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "fiveevaluationtime")
+    @JsonProperty("fiveevaluationtime")
+    private Double fiveevaluationtime;
+    /**
+     * 十号评估工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "tenevaluationtime")
+    @JsonProperty("tenevaluationtime")
+    private Double tenevaluationtime;
+    /**
+     * 七号评估工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "sevenevaluationtime")
+    @JsonProperty("sevenevaluationtime")
+    private Double sevenevaluationtime;
+    /**
+     * 九号评估工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "nineevaluationtime")
+    @JsonProperty("nineevaluationtime")
+    private Double nineevaluationtime;
+    /**
+     * 十一号评估工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "elevenevaluationtime")
+    @JsonProperty("elevenevaluationtime")
+    private Double elevenevaluationtime;
+    /**
+     * 十四号评估工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "fourteenevaluationtime")
+    @JsonProperty("fourteenevaluationtime")
+    private Double fourteenevaluationtime;
+    /**
+     * 十二号评估工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "twelveevaluationtime")
+    @JsonProperty("twelveevaluationtime")
+    private Double twelveevaluationtime;
+    /**
+     * 十五号评估工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "fifteenevaluationtime")
+    @JsonProperty("fifteenevaluationtime")
+    private Double fifteenevaluationtime;
+    /**
+     * 十三号评估工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "thirteenevaluationtime")
+    @JsonProperty("thirteenevaluationtime")
+    private Double thirteenevaluationtime;
+    /**
+     * 十八号评估工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "eighteenevaluationtime")
+    @JsonProperty("eighteenevaluationtime")
+    private Double eighteenevaluationtime;
+    /**
+     * 十六号评估工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "sixteenevaluationtime")
+    @JsonProperty("sixteenevaluationtime")
+    private Double sixteenevaluationtime;
+    /**
+     * 二十号评估工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "twentyevaluationtime")
+    @JsonProperty("twentyevaluationtime")
+    private Double twentyevaluationtime;
+    /**
+     * 十七号评估工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "seventeenevaluationtime")
+    @JsonProperty("seventeenevaluationtime")
+    private Double seventeenevaluationtime;
+    /**
+     * 十九号评估工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "nineteenevaluationtime")
+    @JsonProperty("nineteenevaluationtime")
+    private Double nineteenevaluationtime;
+    /**
+     * 二十一号评估工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "twentyoneevaluationtime")
+    @JsonProperty("twentyoneevaluationtime")
+    private Double twentyoneevaluationtime;
+    /**
+     * 二十二号评估工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "twentytwoevaluationtime")
+    @JsonProperty("twentytwoevaluationtime")
+    private Double twentytwoevaluationtime;
+    /**
+     * 二十三号评估工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "twentythreeevaluationtime")
+    @JsonProperty("twentythreeevaluationtime")
+    private Double twentythreeevaluationtime;
+    /**
+     * 二十五号评估工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "twentyfiveevaluationtime")
+    @JsonProperty("twentyfiveevaluationtime")
+    private Double twentyfiveevaluationtime;
+    /**
+     * 二十四号评估工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "twentyfourevaluationtime")
+    @JsonProperty("twentyfourevaluationtime")
+    private Double twentyfourevaluationtime;
+    /**
+     * 二十六号评估工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "twentysixevaluationtime")
+    @JsonProperty("twentysixevaluationtime")
+    private Double twentysixevaluationtime;
+    /**
+     * 二十九号评估工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "twentynineevaluationtime")
+    @JsonProperty("twentynineevaluationtime")
+    private Double twentynineevaluationtime;
+    /**
+     * 二十七号评估工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "twentysevenevaluationtime")
+    @JsonProperty("twentysevenevaluationtime")
+    private Double twentysevenevaluationtime;
+    /**
+     * 三十号评估工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "thirtyevaluationtime")
+    @JsonProperty("thirtyevaluationtime")
+    private Double thirtyevaluationtime;
+    /**
+     * 二十八号评估工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "twentyeightevaluationtime")
+    @JsonProperty("twentyeightevaluationtime")
+    private Double twentyeightevaluationtime;
+    /**
+     * 三十一号评估工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "thirtyoneevaluationtime")
+    @JsonProperty("thirtyoneevaluationtime")
+    private Double thirtyoneevaluationtime;
 
 
 

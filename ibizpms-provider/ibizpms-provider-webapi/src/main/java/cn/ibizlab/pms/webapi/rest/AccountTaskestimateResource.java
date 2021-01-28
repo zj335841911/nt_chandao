@@ -136,23 +136,26 @@ public class AccountTaskestimateResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-AccountTaskestimate-searchAllAccountEstimate-all')")
 	@ApiOperation(value = "获取所有用户工时", tags = {"用户工时统计" } ,notes = "获取所有用户工时")
     @RequestMapping(method= RequestMethod.GET , value="/accounttaskestimates/fetchallaccountestimate")
-	public ResponseEntity<List<Map>> fetchAllAccountEstimate(AccountTaskestimateSearchContext context) {
-        Page<Map> domains = accounttaskestimateService.searchAllAccountEstimate(context) ;
+	public ResponseEntity<List<AccountTaskestimateDTO>> fetchAllAccountEstimate(AccountTaskestimateSearchContext context) {
+        Page<AccountTaskestimate> domains = accounttaskestimateService.searchAllAccountEstimate(context) ;
+        List<AccountTaskestimateDTO> list = accounttaskestimateMapping.toDto(domains.getContent());
         return ResponseEntity.status(HttpStatus.OK)
                 .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
                 .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
                 .header("x-total", String.valueOf(domains.getTotalElements()))
-                .body(domains.getContent());
+                .body(list);
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-AccountTaskestimate-searchAllAccountEstimate-all')")
 	@ApiOperation(value = "查询所有用户工时", tags = {"用户工时统计" } ,notes = "查询所有用户工时")
     @RequestMapping(method= RequestMethod.POST , value="/accounttaskestimates/searchallaccountestimate")
-	public ResponseEntity<Page<Map>> searchAllAccountEstimate(@RequestBody AccountTaskestimateSearchContext context) {
-        Page<Map> domains = accounttaskestimateService.searchAllAccountEstimate(context) ;
+	public ResponseEntity<Page<AccountTaskestimateDTO>> searchAllAccountEstimate(@RequestBody AccountTaskestimateSearchContext context) {
+        Page<AccountTaskestimate> domains = accounttaskestimateService.searchAllAccountEstimate(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
-                .body(new PageImpl(domains.getContent(), context.getPageable(), domains.getTotalElements()));
+                .body(new PageImpl(accounttaskestimateMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-AccountTaskestimate-searchDefault-all')")

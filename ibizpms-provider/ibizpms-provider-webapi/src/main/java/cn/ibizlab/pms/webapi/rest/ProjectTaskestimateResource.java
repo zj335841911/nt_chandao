@@ -136,6 +136,28 @@ public class ProjectTaskestimateResource {
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectTaskestimate-searchAccountDetail-all')")
+	@ApiOperation(value = "获取用户月工时详情", tags = {"项目工时统计" } ,notes = "获取用户月工时详情")
+    @RequestMapping(method= RequestMethod.GET , value="/projecttaskestimates/fetchaccountdetail")
+	public ResponseEntity<List<ProjectTaskestimateDTO>> fetchAccountDetail(ProjectTaskestimateSearchContext context) {
+        Page<ProjectTaskestimate> domains = projecttaskestimateService.searchAccountDetail(context) ;
+        List<ProjectTaskestimateDTO> list = projecttaskestimateMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectTaskestimate-searchAccountDetail-all')")
+	@ApiOperation(value = "查询用户月工时详情", tags = {"项目工时统计" } ,notes = "查询用户月工时详情")
+    @RequestMapping(method= RequestMethod.POST , value="/projecttaskestimates/searchaccountdetail")
+	public ResponseEntity<Page<ProjectTaskestimateDTO>> searchAccountDetail(@RequestBody ProjectTaskestimateSearchContext context) {
+        Page<ProjectTaskestimate> domains = projecttaskestimateService.searchAccountDetail(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(projecttaskestimateMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectTaskestimate-searchDefault-all')")
 	@ApiOperation(value = "获取数据集", tags = {"项目工时统计" } ,notes = "获取数据集")
     @RequestMapping(method= RequestMethod.GET , value="/projecttaskestimates/fetchdefault")

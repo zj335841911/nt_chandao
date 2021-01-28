@@ -1468,7 +1468,7 @@ Long
 无
 
 - 是否支持快速搜索
-否
+是
 
 - 搜索条件
 | 序号 | 组合方式 |
@@ -4442,7 +4442,8 @@ Save
 ### 快速搜索项
 | 序号 | 属性 |
 | ---- | ---- |
-| 1 | [Bug标题（TITLE）](#属性-Bug标题（TITLE）) |
+| 1 | [Bug编号（ID）](#属性-Bug编号（ID）) |
+| 2 | [Bug标题（TITLE）](#属性-Bug标题（TITLE）) |
 
 ### 搜索条件
 | 序号 | 属性 | 组合方式 |
@@ -7278,13 +7279,13 @@ t1.`TYPE`,
 t1.`V1`,
 t1.`V2`
 FROM `zt_bug` t1 
-LEFT JOIN zt_product t11 ON t1.PRODUCT = t11.ID 
-LEFT JOIN zt_project t21 ON t1.PROJECT = t21.ID 
-LEFT JOIN zt_story t31 ON t1.STORY = t31.ID 
-LEFT JOIN zt_task t41 ON t1.TASK = t41.ID 
-LEFT JOIN zt_module t51 ON t1.MODULE = t51.ID 
-LEFT JOIN zt_branch t61 ON t1.BRANCH = t61.ID 
-LEFT JOIN zt_case t71 ON t1.CASE = t71.ID 
+LEFT JOIN `zt_product` t11 ON t1.`PRODUCT` = t11.`ID` 
+LEFT JOIN `zt_project` t21 ON t1.`PROJECT` = t21.`ID` 
+LEFT JOIN `zt_story` t31 ON t1.`STORY` = t31.`ID` 
+LEFT JOIN `zt_task` t41 ON t1.`TASK` = t41.`ID` 
+LEFT JOIN `zt_module` t51 ON t1.`MODULE` = t51.`ID` 
+LEFT JOIN `zt_branch` t61 ON t1.`BRANCH` = t61.`ID` 
+LEFT JOIN `zt_case` t71 ON t1.`CASE` = t71.`ID` 
 
 ```
 

@@ -19,6 +19,8 @@ import com.alibaba.fastjson.JSONObject;
 
 public interface TaskEstimateStatsMapper extends BaseMapper<TaskEstimateStats> {
 
+    Page<TaskEstimateStats> searchActionMonth(IPage page, @Param("srf") TaskEstimateStatsSearchContext context, @Param("ew") Wrapper<TaskEstimateStats> wrapper);
+    Page<TaskEstimateStats> searchActionYear(IPage page, @Param("srf") TaskEstimateStatsSearchContext context, @Param("ew") Wrapper<TaskEstimateStats> wrapper);
     Page<TaskEstimateStats> searchDefault(IPage page, @Param("srf") TaskEstimateStatsSearchContext context, @Param("ew") Wrapper<TaskEstimateStats> wrapper);
     @Override
     TaskEstimateStats selectById(Serializable id);
