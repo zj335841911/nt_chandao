@@ -289,34 +289,34 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
          return et;
     }
 
-    @Override
+       @Override
     @Transactional
     public Project pmsEeProjectAllTaskCount(Project et) {
-        //自定义代码
-        return et;
+  			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.ProjectHelper.class).pmsEeProjectAllTaskCount(et);
     }
-   @Override
+	
+	@Override
     @Transactional
-    public boolean pmsEeProjectAllTaskCountBatch(List<Project> etList) {
-        for(Project et : etList) {
-            pmsEeProjectAllTaskCount(et);
-        }
-        return true;
+    public boolean pmsEeProjectAllTaskCountBatch (List<Project> etList) {
+		 for(Project et : etList) {
+		   pmsEeProjectAllTaskCount(et);
+		 }
+	 	 return true;
     }
 
-    @Override
+       @Override
     @Transactional
     public Project pmsEeProjectTodoTaskCount(Project et) {
-        //自定义代码
-        return et;
+  			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.ProjectHelper.class).pmsEeProjectTodoTaskCount(et);
     }
-   @Override
+	
+	@Override
     @Transactional
-    public boolean pmsEeProjectTodoTaskCountBatch(List<Project> etList) {
-        for(Project et : etList) {
-            pmsEeProjectTodoTaskCount(et);
-        }
-        return true;
+    public boolean pmsEeProjectTodoTaskCountBatch (List<Project> etList) {
+		 for(Project et : etList) {
+		   pmsEeProjectTodoTaskCount(et);
+		 }
+	 	 return true;
     }
 
     @Override
