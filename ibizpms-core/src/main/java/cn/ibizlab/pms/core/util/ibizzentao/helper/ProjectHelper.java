@@ -423,13 +423,36 @@ public class ProjectHelper extends ZTBaseHelper<ProjectMapper, Project> {
 
     @Transactional(rollbackFor = Exception.class)
     public Project pmsEeProjectAllTaskCount(Project et){
-        return null;
+        Map<String,Object> map = et.getExtensionparams();
+        String srfCurProject = map.get("n_project_in").toString().replaceAll(";",",");
+        String srfloginname = AuthenticationUser.getAuthenticationUser().getUsername();
+        List<Task> tempTasks = taskHelper.list(new QueryWrapper<Task>().last(String.format("and project in (%1$s) and taskspecies = 'temp' and (assignedTo = '%2$s' or openedBy = '%3$s'  or FIND_IN_SET('%4$s', finishedList) or closedBy = '%5$s' or finishedBy = '%6$s' or canceledBy = '%7$s' )",srfCurProject,srfloginname,srfloginname,srfloginname,srfloginname,srfloginname,srfloginname)));
+        et.setTemptaskcnt(tempTasks.size());
+        List<Task> cycleTasks = taskHelper.list(new QueryWrapper<Task>().last(String.format("and project in (%1$s) and taskspecies = 'cycle' and (assignedTo = '%2$s' or openedBy = '%3$s'  or FIND_IN_SET('%4$s', finishedList) or closedBy = '%5$s' or finishedBy = '%6$s' or canceledBy = '%7$s'  )",srfCurProject,srfloginname,srfloginname,srfloginname,srfloginname,srfloginname,srfloginname)));
+        et.setCycletaskcnt(cycleTasks.size());
+        List<Task> planTasks = taskHelper.list(new QueryWrapper<Task>().last(String.format("and project in (%1$s) and taskspecies = 'plan' and (assignedTo = '%2$s' or openedBy = '%3$s'  or FIND_IN_SET('%4$s', finishedList) or closedBy = '%5$s' or finishedBy = '%6$s' or canceledBy = '%7$s'  )",srfCurProject,srfloginname,srfloginname,srfloginname,srfloginname,srfloginname,srfloginname)));
+        et.setPlantaskcnt(planTasks.size());
+        List<Task> allTasks = taskHelper.list(new QueryWrapper<Task>().last(String.format("and project in (%1$s)  and (assignedTo = '%2$s' or openedBy = '%3$s'  or FIND_IN_SET('%4$s', finishedList) or closedBy = '%5$s' or finishedBy = '%6$s' or canceledBy = '%7$s'  )",srfCurProject,srfloginname,srfloginname,srfloginname,srfloginname,srfloginname,srfloginname)));
+        et.setAlltaskcnt(allTasks.size());
+        return et;
     }
 
 
     @Transactional(rollbackFor = Exception.class)
     public Project pmsEeProjectTodoTaskCount(Project et){
-        return null;
+        Map<String,Object> map = et.getExtensionparams();
+        String srfCurProject = map.get("n_project_in").toString().replaceAll(";",",");
+
+        String srfloginname = AuthenticationUser.getAuthenticationUser().getUsername();
+        List<Task> tempTasks = taskHelper.list(new QueryWrapper<Task>().last(String.format("and project in (%1$s) and taskspecies = 'temp' and (assignedTo = '%2$s' )",srfCurProject,srfloginname)));
+        et.setTemptaskcnt(tempTasks.size());
+        List<Task> cycleTasks = taskHelper.list(new QueryWrapper<Task>().last(String.format("and project in (%1$s) and taskspecies = 'cycle' and (assignedTo = '%2$s' )",srfCurProject,srfloginname)));
+        et.setCycletaskcnt(cycleTasks.size());
+        List<Task> planTasks = taskHelper.list(new QueryWrapper<Task>().last(String.format("and project in (%1$s) and taskspecies = 'plan' and (assignedTo = '%2$s' )",srfCurProject,srfloginname)));
+        et.setPlantaskcnt(planTasks.size());
+        List<Task> allTasks = taskHelper.list(new QueryWrapper<Task>().last(String.format("and project in (%1$s)  and (assignedTo = '%2$s' )",srfCurProject,srfloginname)));
+        et.setAlltaskcnt(allTasks.size());
+        return et;
     }
 
 }
