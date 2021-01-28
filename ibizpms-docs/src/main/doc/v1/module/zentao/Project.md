@@ -3718,8 +3718,8 @@ String
 | 21 | [关联需求](#实体行为-关联需求（LinkStory）) | LinkStory | 用户自定义 | 后台及前台 |
 | 22 | [团队管理](#实体行为-团队管理（ManageMembers）) | ManageMembers | 用户自定义 | 后台及前台 |
 | 23 | [移动端项目计数器](#实体行为-移动端项目计数器（MobProjectCount）) | MobProjectCount | 实体处理逻辑 | 后台 |
-| 24 | [项目立项任务快速分组计数器](#实体行为-项目立项任务快速分组计数器（PmsEeProjectAllTaskCount）) | PmsEeProjectAllTaskCount | 实体处理逻辑 | 后台 |
-| 25 | [项目立项待办任务快速分组计数器](#实体行为-项目立项待办任务快速分组计数器（PmsEeProjectTodoTaskCount）) | PmsEeProjectTodoTaskCount | 实体处理逻辑 | 后台 |
+| 24 | [项目立项任务快速分组计数器](#实体行为-项目立项任务快速分组计数器（PmsEeProjectAllTaskCount）) | PmsEeProjectAllTaskCount | 用户自定义 | 后台 |
+| 25 | [项目立项待办任务快速分组计数器](#实体行为-项目立项待办任务快速分组计数器（PmsEeProjectTodoTaskCount）) | PmsEeProjectTodoTaskCount | 用户自定义 | 后台及前台 |
 | 26 | [项目任务快速分组计数器](#实体行为-项目任务快速分组计数器（ProjectTaskQCnt）) | ProjectTaskQCnt | 实体处理逻辑 | 后台 |
 | 27 | [置顶](#实体行为-置顶（ProjectTop）) | projectTop | 实体处理逻辑 | 后台 |
 | 28 | [延期](#实体行为-延期（Putoff）) | Putoff | 用户自定义 | 后台及前台 |
@@ -4028,7 +4028,7 @@ CheckKey
 项目立项任务快速分组计数器
 
 - 行为类型
-实体处理逻辑
+用户自定义
 
 - 行为持有者
 后台
@@ -4040,10 +4040,10 @@ CheckKey
 项目立项待办任务快速分组计数器
 
 - 行为类型
-实体处理逻辑
+用户自定义
 
 - 行为持有者
-后台
+后台及前台
 
 #### 逻辑附加
 无

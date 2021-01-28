@@ -57,7 +57,9 @@ public interface IProjectService extends IService<Project> {
     boolean manageMembersBatch(List<Project> etList);
     Project mobProjectCount(Project et);
     Project pmsEeProjectAllTaskCount(Project et);
+    boolean pmsEeProjectAllTaskCountBatch(List<Project> etList);
     Project pmsEeProjectTodoTaskCount(Project et);
+    boolean pmsEeProjectTodoTaskCountBatch(List<Project> etList);
     Project projectTaskQCnt(Project et);
     Project projectTop(Project et);
     Project putoff(Project et);

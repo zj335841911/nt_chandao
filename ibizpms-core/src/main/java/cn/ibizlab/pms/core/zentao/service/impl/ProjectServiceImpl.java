@@ -127,14 +127,6 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
 
     @Autowired
     @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.IProjectPmsEeProjectAllTaskCountLogic pmseeprojectalltaskcountLogic;
-
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.IProjectPmsEeProjectTodoTaskCountLogic pmseeprojecttodotaskcountLogic;
-
-    @Autowired
-    @Lazy
     protected cn.ibizlab.pms.core.zentao.service.logic.IProjectProjectTaskQCntLogic projecttaskqcntLogic;
 
     @Autowired
@@ -300,15 +292,31 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
     @Override
     @Transactional
     public Project pmsEeProjectAllTaskCount(Project et) {
-        pmseeprojectalltaskcountLogic.execute(et);
-         return et;
+        //自定义代码
+        return et;
+    }
+   @Override
+    @Transactional
+    public boolean pmsEeProjectAllTaskCountBatch(List<Project> etList) {
+        for(Project et : etList) {
+            pmsEeProjectAllTaskCount(et);
+        }
+        return true;
     }
 
     @Override
     @Transactional
     public Project pmsEeProjectTodoTaskCount(Project et) {
-        pmseeprojecttodotaskcountLogic.execute(et);
-         return et;
+        //自定义代码
+        return et;
+    }
+   @Override
+    @Transactional
+    public boolean pmsEeProjectTodoTaskCountBatch(List<Project> etList) {
+        for(Project et : etList) {
+            pmsEeProjectTodoTaskCount(et);
+        }
+        return true;
     }
 
     @Override

@@ -72,6 +72,26 @@ public class ProjectExService extends ProjectServiceImpl {
         return super.manageMembers(et);
     }
     /**
+     * [PmsEeProjectAllTaskCount:项目立项任务快速分组计数器] 行为扩展
+     * @param et
+     * @return
+     */
+    @Override
+    @Transactional
+    public Project pmsEeProjectAllTaskCount(Project et) {
+        return super.pmsEeProjectAllTaskCount(et);
+    }
+    /**
+     * [PmsEeProjectTodoTaskCount:项目立项待办任务快速分组计数器] 行为扩展
+     * @param et
+     * @return
+     */
+    @Override
+    @Transactional
+    public Project pmsEeProjectTodoTaskCount(Project et) {
+        return super.pmsEeProjectTodoTaskCount(et);
+    }
+    /**
      * [Putoff:延期] 行为扩展
      * @param et
      * @return
