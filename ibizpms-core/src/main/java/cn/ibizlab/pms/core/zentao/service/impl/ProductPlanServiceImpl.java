@@ -223,19 +223,19 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
 	 	 return true;
     }
 
-    @Override
+       @Override
     @Transactional
     public ProductPlan linkTask(ProductPlan et) {
-        //自定义代码
-        return et;
+  			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.ProductPlanHelper.class).linkTask(et);
     }
-   @Override
+	
+	@Override
     @Transactional
-    public boolean linkTaskBatch(List<ProductPlan> etList) {
-        for(ProductPlan et : etList) {
-            linkTask(et);
-        }
-        return true;
+    public boolean linkTaskBatch (List<ProductPlan> etList) {
+		 for(ProductPlan et : etList) {
+		   linkTask(et);
+		 }
+	 	 return true;
     }
 
     @Override
