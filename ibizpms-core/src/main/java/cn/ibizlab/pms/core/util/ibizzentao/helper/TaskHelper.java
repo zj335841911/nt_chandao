@@ -945,6 +945,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
 
     @Transactional(rollbackFor = Exception.class)
     public void starts(Task et, Task old, Task newTask) {
+        String files = et.getFiles();
         newTask.setStatus(StaticDict.Task__status.DOING.getValue());
         newTask.setLeft(et.getLeft() != null ? et.getLeft() : 0d);
         newTask.setConsumed(et.getConsumed() != null ? et.getConsumed() : 0d);
@@ -980,6 +981,8 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         }
 
         this.internalUpdate(newTask);
+        //保存开始任务时上传的附件
+        fileHelper.updateObjectID(newTask.getId(),StaticDict.File__object_type.TASK.getValue(),files,"");
         if (old.getParent() > 0) {
             updateParentStatus(old, old.getParent(), true);
             computeBeginAndEnd(this.get(old.getParent()));
@@ -1405,6 +1408,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
 
     @Transactional(rollbackFor = Exception.class)
     public Task recordEstimate(Task et) {
+        String files = et.getFiles();
         Task old = new Task();
         CachedBeanCopier.copy(this.get(et.getId()), old);
         List<TaskEstimate> taskEstimates = new ArrayList<>();
@@ -1514,6 +1518,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             this.computeHours4Multiple(old, task, null, false);
         }
         this.internalUpdate(task);
+        fileHelper.updateObjectID(task.getId(),StaticDict.File__object_type.TASK.getValue(),files,"");
 
         List<History> changes = ChangeUtil.diff(old, task);
         if (actionid != null && changes.size() > 0) {
