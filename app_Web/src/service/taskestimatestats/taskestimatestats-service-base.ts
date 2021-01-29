@@ -175,6 +175,64 @@ export default class TaskestimatestatsServiceBase extends EntityService {
     }
 
     /**
+     * FetchActionMonth接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TaskestimatestatsServiceBase
+     */
+    public async FetchActionMonth(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/taskestimatestats/fetchactionmonth`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * searchActionMonth接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TaskestimatestatsServiceBase
+     */
+    public async searchActionMonth(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/taskestimatestats/searchactionmonth`,tempData,isloading);
+    }
+
+    /**
+     * FetchActionYear接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TaskestimatestatsServiceBase
+     */
+    public async FetchActionYear(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/taskestimatestats/fetchactionyear`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * searchActionYear接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TaskestimatestatsServiceBase
+     */
+    public async searchActionYear(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/taskestimatestats/searchactionyear`,tempData,isloading);
+    }
+
+    /**
      * FetchDefault接口方法
      *
      * @param {*} [context={}]

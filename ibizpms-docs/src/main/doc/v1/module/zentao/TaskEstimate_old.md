@@ -105,6 +105,8 @@ hide members
 |ActionYear|日志年([MYSQL5](../../appendix/query_MYSQL5.md#TaskEstimate_ActionYear))|否|&nbsp;|
 |DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#TaskEstimate_Default))|否|&nbsp;|
 |DEFAULT1|DEFAULT1([MYSQL5](../../appendix/query_MYSQL5.md#TaskEstimate_Defaults))|否|&nbsp;|
+|ProjectActionMonth|日志月（项目）([MYSQL5](../../appendix/query_MYSQL5.md#TaskEstimate_ProjectActionMonth))|否|&nbsp;|
+|ProjectActionYear|日志年（项目）([MYSQL5](../../appendix/query_MYSQL5.md#TaskEstimate_ProjectActionYear))|否|&nbsp;|
 |ProjectTaskEstimate|项目日志([MYSQL5](../../appendix/query_MYSQL5.md#TaskEstimate_ProjectTaskEstimate))|否|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#TaskEstimate_View))|否|&nbsp;|
 
@@ -116,6 +118,8 @@ hide members
 |ActionYear|日志年|ActionYear|否|&nbsp;|
 |DEFAULT|DEFAULT|DEFAULT|是|&nbsp;|
 |DEFAULT1|DEFAULT1|DEFAULT1|否|&nbsp;|
+|ProjectActionMonth|日志月（项目）|ProjectActionMonth|否|&nbsp;|
+|ProjectActionYear|日志年（项目）|ProjectActionYear|否|&nbsp;|
 |ProjectTaskEstimate|项目日志|ProjectTaskEstimate|否|&nbsp;|
 
 ## 查询模式
@@ -125,6 +129,7 @@ hide members
 |任务(TASK)|EQ|
 |任务名称(TASKNAME)|EQ|
 |任务名称(TASKNAME)|LIKE|
+|项目(PROJECT)|EQ|
 |年(YEAR)|EQ|
 |月(MONTH)|EQ|
 

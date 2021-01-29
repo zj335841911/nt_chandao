@@ -4,7 +4,7 @@
         clearable
         
         v-model="query"
-        :placeholder="$t('entities.bug.fields.title')"
+        :placeholder="$t('entities.bug.fields.id')+','+$t('entities.bug.fields.title')"
         search
         @on-search="onSearch($event)"
     ></i-input>

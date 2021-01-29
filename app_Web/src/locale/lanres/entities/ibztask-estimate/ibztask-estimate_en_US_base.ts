@@ -21,6 +21,11 @@ function getLocaleResourceBase(){
 			projectname: commonLogic.appcommonhandle("所属项目",null),
 			taskspecies: commonLogic.appcommonhandle("任务种别",null),
 			type: commonLogic.appcommonhandle("任务类型",null),
+			year: commonLogic.appcommonhandle("年",null),
+			yearname: commonLogic.appcommonhandle("年（显示）",null),
+			month: commonLogic.appcommonhandle("月",null),
+			monthname: commonLogic.appcommonhandle("月（显示）",null),
+			monthorder: commonLogic.appcommonhandle("月（排序）",null),
 		},
 			views: {
 				gridview9: {

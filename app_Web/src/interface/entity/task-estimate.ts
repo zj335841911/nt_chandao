@@ -149,4 +149,44 @@ export interface TaskEstimate {
      * @memberof TaskEstimate
      */
     type?: any;
+
+    /**
+     * 年
+     *
+     * @returns {*}
+     * @memberof TaskEstimate
+     */
+    year?: any;
+
+    /**
+     * 年（显示）
+     *
+     * @returns {*}
+     * @memberof TaskEstimate
+     */
+    yearname?: any;
+
+    /**
+     * 月
+     *
+     * @returns {*}
+     * @memberof TaskEstimate
+     */
+    month?: any;
+
+    /**
+     * 月（显示）
+     *
+     * @returns {*}
+     * @memberof TaskEstimate
+     */
+    monthname?: any;
+
+    /**
+     * 月（排序）
+     *
+     * @returns {*}
+     * @memberof TaskEstimate
+     */
+    monthorder?: any;
 }

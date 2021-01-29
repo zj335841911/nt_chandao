@@ -19474,7 +19474,7 @@ t1.`COLOR`,
 t1.`CONSUMED`,
 t1.`DEADLINE`,
 t1.`DELETED`,
-(To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`)) AS `DURATION`,
+case when ( To_Days( t1.`DEADLINE` ) - To_Days( t1.`ESTSTARTED` ) ) is null then null else ( To_Days( t1.`DEADLINE` ) - To_Days( t1.`ESTSTARTED` ) ) + 1 end  AS `DURATION`,
 t1.`ESTIMATE`,
 t1.`ESTSTARTED`,
 t1.`FINISHEDBY`,
@@ -19757,7 +19757,66 @@ WHERE t1.DELETED = '0'
 ```
 ### 根任务(RootTask)<div id="Task_RootTask"></div>
 ```sql
-SELECT t1.`ASSIGNEDDATE`, t61.`REALNAME`  AS `ASSIGNEDTO`, t1.`CANCELEDBY`, t1.`CANCELEDDATE`, t1.`CLOSEDBY`, t1.`CLOSEDDATE`, t1.`CLOSEDREASON`, t1.`COLOR`, t1.`CONSUMED`, t1.`DEADLINE`, t1.`DELETED`, (To_Days(t1.`DEADLINE`)-To_Days(t1.`ESTSTARTED`))  AS `DURATION`, 0 AS `ISFAVORITES`, ( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`, t1.`ESTIMATE`, t1.`ESTSTARTED`, t1.`FINISHEDBY`, t1.`FINISHEDDATE`, t1.`FROMBUG`, t1.`ID`, t1.`LASTEDITEDBY`, t1.`LASTEDITEDDATE`, t1.`LEFT`, t1.`MODULE`, t11.`NAME` AS `MODULENAME`, CONCAT_WS('','任务-',t1.`name`,'-',t1.assignedTo,'-',t1.id) as `NAME`, t1.`OPENEDBY`, t1.`OPENEDDATE`, t1.`PARENT`, t51.`NAME` AS `PARENTNAME`, t1.`PRI`, t21.`PRODUCT`, t41.`NAME` AS `PRODUCTNAME`, t1.`PROJECT`, t31.`NAME` AS `PROJECTNAME`, t1.`REALSTARTED`, t1.`STATUS`, t1.`STORY`, t21.`TITLE` AS `STORYNAME`, t1.`STORYVERSION`, t1.`SUBSTATUS`, t1.`TYPE`, '40' AS `TASKTYPE`, t1.`status` as `STATUS1`, (case when t1.`status` = 'wait' then 10 when t1.`status` = 'doing' then 20 when t1.`status` = 'done' then 30 when t1.`status` = 'closed' then 40 when t1.`status` = 'cancel' then 50 else 60 end) as statusorder ,
+SELECT
+	t1.`ASSIGNEDDATE`,
+	t61.`REALNAME` AS `ASSIGNEDTO`,
+	t1.`CANCELEDBY`,
+	t1.`CANCELEDDATE`,
+	t1.`CLOSEDBY`,
+	t1.`CLOSEDDATE`,
+	t1.`CLOSEDREASON`,
+	t1.`COLOR`,
+	t1.`CONSUMED`,
+	t1.`DEADLINE`,
+	t1.`DELETED`,
+	case when ( To_Days( t1.`DEADLINE` ) - To_Days( t1.`ESTSTARTED` ) ) is null then null else ( To_Days( t1.`DEADLINE` ) - To_Days( t1.`ESTSTARTED` ) ) + 1 end  AS `DURATION`,
+	0 AS `ISFAVORITES`,
+	( CASE WHEN t1.parent > 0 THEN TRUE ELSE FALSE END ) AS `ISLEAF`,
+	t1.`ESTIMATE`,
+	t1.`ESTSTARTED`,
+	t1.`FINISHEDBY`,
+	t1.`FINISHEDDATE`,
+	t1.`FROMBUG`,
+	t1.`ID`,
+	t1.`LASTEDITEDBY`,
+	t1.`LASTEDITEDDATE`,
+	t1.`LEFT`,
+	t1.`MODULE`,
+	t11.`NAME` AS `MODULENAME`,
+	CONCAT_WS( '', '任务-', t1.`name`, '-', t1.assignedTo, '-', t1.id ) AS `NAME`,
+	t1.`OPENEDBY`,
+	t1.`OPENEDDATE`,
+	t1.`PARENT`,
+	t51.`NAME` AS `PARENTNAME`,
+	t1.`PRI`,
+	t21.`PRODUCT`,
+	t41.`NAME` AS `PRODUCTNAME`,
+	t1.`PROJECT`,
+	t31.`NAME` AS `PROJECTNAME`,
+	t1.`REALSTARTED`,
+	t1.`STATUS`,
+	t1.`STORY`,
+	t21.`TITLE` AS `STORYNAME`,
+	t1.`STORYVERSION`,
+	t1.`SUBSTATUS`,
+	t1.`TYPE`,
+	'40' AS `TASKTYPE`,
+	t1.`status` AS `STATUS1`,
+	(
+CASE
+	
+	WHEN t1.`status` = 'wait' THEN
+	10 
+	WHEN t1.`status` = 'doing' THEN
+	20 
+	WHEN t1.`status` = 'done' THEN
+	30 
+	WHEN t1.`status` = 'closed' THEN
+	40 
+	WHEN t1.`status` = 'cancel' THEN
+	50 ELSE 60 
+END 
+	) AS statusorder,
 t1.`PLAN`,
 t71.`TITLE` AS `PLANNAME` FROM `zt_task` t1  LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID  LEFT JOIN zt_story t21 ON t1.STORY = t21.ID  LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID  LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID  LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID  LEFT JOIN zt_user t61 on t1.ASSIGNEDTO =  t61.ACCOUNT 
 LEFT JOIN `zt_productplan` t71 ON t1.`PLAN` = t71.`ID`
@@ -20067,6 +20126,39 @@ LEFT JOIN `zt_task` t11 ON t1.`TASK` = t11.`ID`
 LEFT JOIN `zt_project` t21 ON t11.`PROJECT` = t21.`ID` 
 
 WHERE ( 1<>1 ) 
+
+```
+### 日志月（项目）(ProjectActionMonth)<div id="TaskEstimate_ProjectActionMonth"></div>
+```sql
+SELECT
+	t1.`YEAR`,
+	concat( t1.`YEAR`, RIGHT ( 100+ t1.`MONTH`, 2 ) ) AS `MONTH`,
+	t1.`MONTH` as monthorder,
+	concat( t1.`MONTH`, '月' ) AS monthname ,
+	t1.project
+FROM
+	(
+SELECT DISTINCT YEAR
+	( t1.date ) AS `year`,
+	MONTH ( t1.date ) AS `MONTH` ,
+	t.project
+FROM
+	zt_taskestimate t1 left join zt_task t on t.id = t1.task
+WHERE
+	t1.date <> '0000-00-00' 
+	) t1
+WHERE t1.project =#{srf.webcontext.project} 
+
+```
+### 日志年（项目）(ProjectActionYear)<div id="TaskEstimate_ProjectActionYear"></div>
+```sql
+SELECT
+	t1.`YEAR`,
+	concat( t1.`year`, '年' ) AS yearname ,
+	t1.project
+FROM
+	( SELECT DISTINCT YEAR ( t1.date ) AS `year`,t.project FROM zt_taskestimate t1 left join zt_task t on t.id = t1.task WHERE t1.date <> '0000-00-00'  ) t1
+WHERE t1.project =#{srf.webcontext.project} 
 
 ```
 ### 项目日志(ProjectTaskEstimate)<div id="TaskEstimate_ProjectTaskEstimate"></div>
