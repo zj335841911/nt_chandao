@@ -144,7 +144,7 @@ public class CaseHelper extends ZTBaseHelper<CaseMapper, Case> {
         if (!bOk) {
             return bOk;
         }
-        fileHelper.updateObjectID(et.getId(), StaticDict.File__object_type.CASE.getValue(), files, "");
+        fileHelper.updateObjectID(et.getId(), StaticDict.File__object_type.CASE.getValue(), files, et.getVersion().toString());
         if (caseStepFlag) {
             createCaseStep(et,caseSteps);
         }
