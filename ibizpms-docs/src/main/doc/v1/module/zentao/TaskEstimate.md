@@ -40,6 +40,7 @@
 | 20 | [年（显示）](#属性-年（显示）（YEARNAME）) | YEARNAME | 文本，可指定长度 | 否 | 是 | 是 |
 | 21 | [月](#属性-月（MONTH）) | MONTH | 文本，可指定长度 | 否 | 是 | 是 |
 | 22 | [月（显示）](#属性-月（显示）（MONTHNAME）) | MONTHNAME | 文本，可指定长度 | 否 | 是 | 是 |
+| 23 | [月（排序）](#属性-月（排序）（MONTHORDER）) | MONTHORDER | 整型 | 否 | 是 | 是 |
 
 ### 属性-用户（ACCOUNT）
 #### 属性说明
@@ -974,6 +975,47 @@ String
 | 关系属性 | [任务类型（TYPE）](../zentao/Task/#属性-任务类型（TYPE）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
+### 属性-月（排序）（MONTHORDER）
+#### 属性说明
+月（排序）
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [任务（ZT_TASK）](../zentao/Task) |
+| 关系属性 | [任务类型（TYPE）](../zentao/Task/#属性-任务类型（TYPE）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
 
 ## 业务状态
 无
@@ -1259,7 +1301,21 @@ Save
 #### SQL
 - MYSQL5
 ```SQL
-select t1.`YEAR`,concat(t1.`YEAR`, Right(100+ t1.`MONTH`,2)) as `MONTH`,concat(t1.`MONTH`,'月') as monthname from (select DISTINCT year( t1.date ) AS `year`,MONTH(t1.date) as `MONTH` from zt_taskestimate t1 where t1.date <> '0000-00-00' ) t1
+SELECT
+	t1.`YEAR`,
+	concat( t1.`YEAR`, RIGHT ( 100+ t1.`MONTH`, 2 ) ) AS `MONTH`,
+	t1.`MONTH` as monthorder,
+	concat( t1.`MONTH`, '月' ) AS monthname 
+FROM
+	(
+SELECT DISTINCT YEAR
+	( t1.date ) AS `year`,
+	MONTH ( t1.date ) AS `MONTH` 
+FROM
+	zt_taskestimate t1 
+WHERE
+	t1.date <> '0000-00-00' 
+	) t1
 ```
 ### 数据查询-日志年（ActionYear）
 #### 说明

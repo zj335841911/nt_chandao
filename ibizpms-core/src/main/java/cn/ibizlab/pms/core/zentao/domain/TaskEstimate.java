@@ -206,6 +206,13 @@ public class TaskEstimate extends EntityMP implements Serializable {
     @JSONField(name = "monthname")
     @JsonProperty("monthname")
     private String monthname;
+    /**
+     * 月（排序）
+     */
+    @TableField(exist = false)
+    @JSONField(name = "monthorder")
+    @JsonProperty("monthorder")
+    private Integer monthorder;
 
     /**
      * 

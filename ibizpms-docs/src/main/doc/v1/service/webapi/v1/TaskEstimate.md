@@ -3618,7 +3618,8 @@ POST
 | 20 | yearname | String | 允许 | 年（显示） |
 | 21 | month | String | 允许 | 月 |
 | 22 | monthname | String | 允许 | 月（显示） |
-| 23 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 23 | monthorder | Integer | 允许 | 月（排序） |
+| 24 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### TaskEstimateSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

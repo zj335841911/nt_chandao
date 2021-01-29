@@ -222,6 +222,14 @@ public class IBZTaskEstimateDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String monthname;
 
+    /**
+     * 属性 [MONTHORDER]
+     *
+     */
+    @JSONField(name = "monthorder")
+    @JsonProperty("monthorder")
+    private Integer monthorder;
+
 
     /**
      * 设置 [ACCOUNT]

@@ -34,6 +34,7 @@ hide members
 |年（显示）|YEARNAME|TEXT|&nbsp;|
 |月|MONTH|TEXT|&nbsp;|
 |月（显示）|MONTHNAME|TEXT|&nbsp;|
+|月（排序）|MONTHORDER|INT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -62,6 +63,7 @@ hide members
 |年（显示）|默认规则|内容长度必须小于等于[100]|
 |月|默认规则|内容长度必须小于等于[100]|
 |月（显示）|默认规则|内容长度必须小于等于[100]|
+|月（排序）|默认规则|默认规则|
 
 ## 状态控制
 

@@ -19997,7 +19997,21 @@ WHERE t1.DELETED = '0'
 
 ### 日志月(ActionMonth)<div id="TaskEstimate_ActionMonth"></div>
 ```sql
-select t1.`YEAR`,concat(t1.`YEAR`, Right(100+ t1.`MONTH`,2)) as `MONTH`,concat(t1.`MONTH`,'月') as monthname from (select DISTINCT year( t1.date ) AS `year`,MONTH(t1.date) as `MONTH` from zt_taskestimate t1 where t1.date <> '0000-00-00' ) t1
+SELECT
+	t1.`YEAR`,
+	concat( t1.`YEAR`, RIGHT ( 100+ t1.`MONTH`, 2 ) ) AS `MONTH`,
+	t1.`MONTH` as monthorder,
+	concat( t1.`MONTH`, '月' ) AS monthname 
+FROM
+	(
+SELECT DISTINCT YEAR
+	( t1.date ) AS `year`,
+	MONTH ( t1.date ) AS `MONTH` 
+FROM
+	zt_taskestimate t1 
+WHERE
+	t1.date <> '0000-00-00' 
+	) t1
 ```
 ### 日志年(ActionYear)<div id="TaskEstimate_ActionYear"></div>
 ```sql
