@@ -52,6 +52,8 @@ public interface ITaskEstimateService extends IService<TaskEstimate> {
     Page<TaskEstimate> searchActionYear(TaskEstimateSearchContext context);
     Page<TaskEstimate> searchDefault(TaskEstimateSearchContext context);
     Page<TaskEstimate> searchDefaults(TaskEstimateSearchContext context);
+    Page<TaskEstimate> searchProjectActionMonth(TaskEstimateSearchContext context);
+    Page<TaskEstimate> searchProjectActionYear(TaskEstimateSearchContext context);
     Page<TaskEstimate> searchProjectTaskEstimate(TaskEstimateSearchContext context);
     List<TaskEstimate> selectByTask(Long id);
     void removeByTask(Long id);

@@ -76,6 +76,122 @@ export default class IBZTaskEstimateServiceBase extends EntityService {
     }
 
     /**
+     * FetchActionMonth接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IBZTaskEstimateServiceBase
+     */
+    public async FetchActionMonth(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // FetchActionMonth ---FETCH
+        if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(result){
+                return {"status":200,"data":result};
+            }else{
+                return {"status":200,"data":[]};
+            } 
+        }else{
+            return {"status":200,"data":[]};
+        }
+    }
+
+    /**
+     * searchActionMonth接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IBZTaskEstimateServiceBase
+     */
+    public async searchActionMonth(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    }
+
+    /**
+     * FetchTempActionMonth接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IBZTaskEstimateServiceBase
+     */
+    public async FetchTempActionMonth(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // FetchTempActionMonth ---FETCHTEMP
+        if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(result){
+                return {"status":200,"data":result};
+            }else{
+                return {"status":200,"data":[]};
+            } 
+        }else{
+            return {"status":200,"data":[]};
+        }
+    }
+
+    /**
+     * FetchActionYear接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IBZTaskEstimateServiceBase
+     */
+    public async FetchActionYear(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // FetchActionYear ---FETCH
+        if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(result){
+                return {"status":200,"data":result};
+            }else{
+                return {"status":200,"data":[]};
+            } 
+        }else{
+            return {"status":200,"data":[]};
+        }
+    }
+
+    /**
+     * searchActionYear接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IBZTaskEstimateServiceBase
+     */
+    public async searchActionYear(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    }
+
+    /**
+     * FetchTempActionYear接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IBZTaskEstimateServiceBase
+     */
+    public async FetchTempActionYear(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // FetchTempActionYear ---FETCHTEMP
+        if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(result){
+                return {"status":200,"data":result};
+            }else{
+                return {"status":200,"data":[]};
+            } 
+        }else{
+            return {"status":200,"data":[]};
+        }
+    }
+
+    /**
      * FetchDefault接口方法
      *
      * @param {*} [context={}]
@@ -179,6 +295,122 @@ export default class IBZTaskEstimateServiceBase extends EntityService {
      */
     public async FetchTempDefaults(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         // FetchTempDefaults ---FETCHTEMP
+        if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(result){
+                return {"status":200,"data":result};
+            }else{
+                return {"status":200,"data":[]};
+            } 
+        }else{
+            return {"status":200,"data":[]};
+        }
+    }
+
+    /**
+     * FetchProjectActionMonth接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IBZTaskEstimateServiceBase
+     */
+    public async FetchProjectActionMonth(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // FetchProjectActionMonth ---FETCH
+        if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(result){
+                return {"status":200,"data":result};
+            }else{
+                return {"status":200,"data":[]};
+            } 
+        }else{
+            return {"status":200,"data":[]};
+        }
+    }
+
+    /**
+     * searchProjectActionMonth接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IBZTaskEstimateServiceBase
+     */
+    public async searchProjectActionMonth(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    }
+
+    /**
+     * FetchTempProjectActionMonth接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IBZTaskEstimateServiceBase
+     */
+    public async FetchTempProjectActionMonth(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // FetchTempProjectActionMonth ---FETCHTEMP
+        if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(result){
+                return {"status":200,"data":result};
+            }else{
+                return {"status":200,"data":[]};
+            } 
+        }else{
+            return {"status":200,"data":[]};
+        }
+    }
+
+    /**
+     * FetchProjectActionYear接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IBZTaskEstimateServiceBase
+     */
+    public async FetchProjectActionYear(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // FetchProjectActionYear ---FETCH
+        if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
+            let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
+            if(result){
+                return {"status":200,"data":result};
+            }else{
+                return {"status":200,"data":[]};
+            } 
+        }else{
+            return {"status":200,"data":[]};
+        }
+    }
+
+    /**
+     * searchProjectActionYear接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IBZTaskEstimateServiceBase
+     */
+    public async searchProjectActionYear(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    }
+
+    /**
+     * FetchTempProjectActionYear接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IBZTaskEstimateServiceBase
+     */
+    public async FetchTempProjectActionYear(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // FetchTempProjectActionYear ---FETCHTEMP
         if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
             if(result){

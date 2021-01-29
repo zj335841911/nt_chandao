@@ -85,4 +85,36 @@ export interface taskestimatestats {
      * @memberof taskestimatestats
      */
     evaluationstatus?: any;
+
+    /**
+     * 年
+     *
+     * @returns {*}
+     * @memberof taskestimatestats
+     */
+    year?: any;
+
+    /**
+     * 年（显示）
+     *
+     * @returns {*}
+     * @memberof taskestimatestats
+     */
+    yearname?: any;
+
+    /**
+     * 月
+     *
+     * @returns {*}
+     * @memberof taskestimatestats
+     */
+    month?: any;
+
+    /**
+     * 月（显示）
+     *
+     * @returns {*}
+     * @memberof taskestimatestats
+     */
+    monthname?: any;
 }

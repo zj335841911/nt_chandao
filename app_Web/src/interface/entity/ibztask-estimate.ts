@@ -149,4 +149,44 @@ export interface IBZTaskEstimate {
      * @memberof IBZTaskEstimate
      */
     type?: any;
+
+    /**
+     * 年
+     *
+     * @returns {*}
+     * @memberof IBZTaskEstimate
+     */
+    year?: any;
+
+    /**
+     * 年（显示）
+     *
+     * @returns {*}
+     * @memberof IBZTaskEstimate
+     */
+    yearname?: any;
+
+    /**
+     * 月
+     *
+     * @returns {*}
+     * @memberof IBZTaskEstimate
+     */
+    month?: any;
+
+    /**
+     * 月（显示）
+     *
+     * @returns {*}
+     * @memberof IBZTaskEstimate
+     */
+    monthname?: any;
+
+    /**
+     * 月（排序）
+     *
+     * @returns {*}
+     * @memberof IBZTaskEstimate
+     */
+    monthorder?: any;
 }

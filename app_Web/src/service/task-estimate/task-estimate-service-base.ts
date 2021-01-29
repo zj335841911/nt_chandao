@@ -709,6 +709,208 @@ export default class TaskEstimateServiceBase extends EntityService {
     }
 
     /**
+     * FetchActionMonth接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TaskEstimateServiceBase
+     */
+    public async FetchActionMonth(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/fetchactionmonth`,tempData,isloading);
+            return res;
+        }
+        if(context.product && context.story && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/taskestimates/fetchactionmonth`,tempData,isloading);
+            return res;
+        }
+        if(context.product && context.productplan && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/taskestimates/fetchactionmonth`,tempData,isloading);
+            return res;
+        }
+        if(context.project && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/taskestimates/fetchactionmonth`,tempData,isloading);
+            return res;
+        }
+        if(context.story && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/taskestimates/fetchactionmonth`,tempData,isloading);
+            return res;
+        }
+        if(context.productplan && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/taskestimates/fetchactionmonth`,tempData,isloading);
+            return res;
+        }
+        if(context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/fetchactionmonth`,tempData,isloading);
+            return res;
+        }
+        if(context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/tasks/${context.task}/taskestimates/fetchactionmonth`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/taskestimates/fetchactionmonth`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * searchActionMonth接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TaskEstimateServiceBase
+     */
+    public async searchActionMonth(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/searchactionmonth`,tempData,isloading);
+        }
+        if(context.product && context.story && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/taskestimates/searchactionmonth`,tempData,isloading);
+        }
+        if(context.product && context.productplan && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/taskestimates/searchactionmonth`,tempData,isloading);
+        }
+        if(context.project && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/taskestimates/searchactionmonth`,tempData,isloading);
+        }
+        if(context.story && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/taskestimates/searchactionmonth`,tempData,isloading);
+        }
+        if(context.productplan && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/productplans/${context.productplan}/tasks/${context.task}/taskestimates/searchactionmonth`,tempData,isloading);
+        }
+        if(context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/searchactionmonth`,tempData,isloading);
+        }
+        if(context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/tasks/${context.task}/taskestimates/searchactionmonth`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/taskestimates/searchactionmonth`,tempData,isloading);
+    }
+
+    /**
+     * FetchActionYear接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TaskEstimateServiceBase
+     */
+    public async FetchActionYear(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/fetchactionyear`,tempData,isloading);
+            return res;
+        }
+        if(context.product && context.story && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/taskestimates/fetchactionyear`,tempData,isloading);
+            return res;
+        }
+        if(context.product && context.productplan && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/taskestimates/fetchactionyear`,tempData,isloading);
+            return res;
+        }
+        if(context.project && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/taskestimates/fetchactionyear`,tempData,isloading);
+            return res;
+        }
+        if(context.story && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/taskestimates/fetchactionyear`,tempData,isloading);
+            return res;
+        }
+        if(context.productplan && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/taskestimates/fetchactionyear`,tempData,isloading);
+            return res;
+        }
+        if(context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/fetchactionyear`,tempData,isloading);
+            return res;
+        }
+        if(context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/tasks/${context.task}/taskestimates/fetchactionyear`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/taskestimates/fetchactionyear`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * searchActionYear接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TaskEstimateServiceBase
+     */
+    public async searchActionYear(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/searchactionyear`,tempData,isloading);
+        }
+        if(context.product && context.story && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/taskestimates/searchactionyear`,tempData,isloading);
+        }
+        if(context.product && context.productplan && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/taskestimates/searchactionyear`,tempData,isloading);
+        }
+        if(context.project && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/taskestimates/searchactionyear`,tempData,isloading);
+        }
+        if(context.story && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/taskestimates/searchactionyear`,tempData,isloading);
+        }
+        if(context.productplan && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/productplans/${context.productplan}/tasks/${context.task}/taskestimates/searchactionyear`,tempData,isloading);
+        }
+        if(context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/searchactionyear`,tempData,isloading);
+        }
+        if(context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/tasks/${context.task}/taskestimates/searchactionyear`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/taskestimates/searchactionyear`,tempData,isloading);
+    }
+
+    /**
      * FetchDefault接口方法
      *
      * @param {*} [context={}]
@@ -911,6 +1113,208 @@ export default class TaskEstimateServiceBase extends EntityService {
     }
 
     /**
+     * FetchProjectActionMonth接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TaskEstimateServiceBase
+     */
+    public async FetchProjectActionMonth(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/fetchprojectactionmonth`,tempData,isloading);
+            return res;
+        }
+        if(context.product && context.story && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/taskestimates/fetchprojectactionmonth`,tempData,isloading);
+            return res;
+        }
+        if(context.product && context.productplan && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/taskestimates/fetchprojectactionmonth`,tempData,isloading);
+            return res;
+        }
+        if(context.project && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/taskestimates/fetchprojectactionmonth`,tempData,isloading);
+            return res;
+        }
+        if(context.story && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/taskestimates/fetchprojectactionmonth`,tempData,isloading);
+            return res;
+        }
+        if(context.productplan && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/taskestimates/fetchprojectactionmonth`,tempData,isloading);
+            return res;
+        }
+        if(context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/fetchprojectactionmonth`,tempData,isloading);
+            return res;
+        }
+        if(context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/tasks/${context.task}/taskestimates/fetchprojectactionmonth`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/taskestimates/fetchprojectactionmonth`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * searchProjectActionMonth接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TaskEstimateServiceBase
+     */
+    public async searchProjectActionMonth(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/searchprojectactionmonth`,tempData,isloading);
+        }
+        if(context.product && context.story && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/taskestimates/searchprojectactionmonth`,tempData,isloading);
+        }
+        if(context.product && context.productplan && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/taskestimates/searchprojectactionmonth`,tempData,isloading);
+        }
+        if(context.project && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/taskestimates/searchprojectactionmonth`,tempData,isloading);
+        }
+        if(context.story && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/taskestimates/searchprojectactionmonth`,tempData,isloading);
+        }
+        if(context.productplan && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/productplans/${context.productplan}/tasks/${context.task}/taskestimates/searchprojectactionmonth`,tempData,isloading);
+        }
+        if(context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/searchprojectactionmonth`,tempData,isloading);
+        }
+        if(context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/tasks/${context.task}/taskestimates/searchprojectactionmonth`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/taskestimates/searchprojectactionmonth`,tempData,isloading);
+    }
+
+    /**
+     * FetchProjectActionYear接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TaskEstimateServiceBase
+     */
+    public async FetchProjectActionYear(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/fetchprojectactionyear`,tempData,isloading);
+            return res;
+        }
+        if(context.product && context.story && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/taskestimates/fetchprojectactionyear`,tempData,isloading);
+            return res;
+        }
+        if(context.product && context.productplan && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/taskestimates/fetchprojectactionyear`,tempData,isloading);
+            return res;
+        }
+        if(context.project && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/taskestimates/fetchprojectactionyear`,tempData,isloading);
+            return res;
+        }
+        if(context.story && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/taskestimates/fetchprojectactionyear`,tempData,isloading);
+            return res;
+        }
+        if(context.productplan && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/taskestimates/fetchprojectactionyear`,tempData,isloading);
+            return res;
+        }
+        if(context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/fetchprojectactionyear`,tempData,isloading);
+            return res;
+        }
+        if(context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/tasks/${context.task}/taskestimates/fetchprojectactionyear`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/taskestimates/fetchprojectactionyear`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * searchProjectActionYear接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TaskEstimateServiceBase
+     */
+    public async searchProjectActionYear(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/searchprojectactionyear`,tempData,isloading);
+        }
+        if(context.product && context.story && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/taskestimates/searchprojectactionyear`,tempData,isloading);
+        }
+        if(context.product && context.productplan && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/taskestimates/searchprojectactionyear`,tempData,isloading);
+        }
+        if(context.project && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/taskestimates/searchprojectactionyear`,tempData,isloading);
+        }
+        if(context.story && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/taskestimates/searchprojectactionyear`,tempData,isloading);
+        }
+        if(context.productplan && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/productplans/${context.productplan}/tasks/${context.task}/taskestimates/searchprojectactionyear`,tempData,isloading);
+        }
+        if(context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/searchprojectactionyear`,tempData,isloading);
+        }
+        if(context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/tasks/${context.task}/taskestimates/searchprojectactionyear`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/taskestimates/searchprojectactionyear`,tempData,isloading);
+    }
+
+    /**
      * FetchProjectTaskEstimate接口方法
      *
      * @param {*} [context={}]
@@ -1012,6 +1416,30 @@ export default class TaskEstimateServiceBase extends EntityService {
     }
 
     /**
+     * FetchTempActionMonth接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TaskEstimateServiceBase
+     */
+    public async FetchTempActionMonth(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    }
+
+    /**
+     * FetchTempActionYear接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TaskEstimateServiceBase
+     */
+    public async FetchTempActionYear(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    }
+
+    /**
      * FetchTempDefault接口方法
      *
      * @param {*} [context={}]
@@ -1033,6 +1461,30 @@ export default class TaskEstimateServiceBase extends EntityService {
      * @memberof TaskEstimateServiceBase
      */
     public async FetchTempDefaults(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    }
+
+    /**
+     * FetchTempProjectActionMonth接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TaskEstimateServiceBase
+     */
+    public async FetchTempProjectActionMonth(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    }
+
+    /**
+     * FetchTempProjectActionYear接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TaskEstimateServiceBase
+     */
+    public async FetchTempProjectActionYear(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
     }
 
     /**

@@ -675,7 +675,9 @@ Long
 否
 
 - 搜索条件
-无
+| 序号 | 组合方式 |
+| ---- | ---- |
+| 1 | `=` |
 
 #### 关系属性
 | 项目 | 说明 |
@@ -1275,8 +1277,9 @@ Save
 | 2 | [任务（TASK）](#属性-任务（TASK）) | `=` |
 | 3 | [任务名称（TASKNAME）](#属性-任务名称（TASKNAME）) | `=` |
 | 4 | [任务名称（TASKNAME）](#属性-任务名称（TASKNAME）) | `%like%` |
-| 5 | [年（YEAR）](#属性-年（YEAR）) | `=` |
-| 6 | [月（MONTH）](#属性-月（MONTH）) | `=` |
+| 5 | [项目（PROJECT）](#属性-项目（PROJECT）) | `=` |
+| 6 | [年（YEAR）](#属性-年（YEAR）) | `=` |
+| 7 | [月（MONTH）](#属性-月（MONTH）) | `=` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |
@@ -1285,8 +1288,10 @@ Save
 | 2 | [日志年](#数据查询-日志年（ActionYear）) | ActionYear | 否 |
 | 3 | [DEFAULT](#数据查询-DEFAULT（Default）) | Default | 否 |
 | 4 | [DEFAULT1](#数据查询-DEFAULT1（Defaults）) | Defaults | 否 |
-| 5 | [项目日志](#数据查询-项目日志（ProjectTaskEstimate）) | ProjectTaskEstimate | 否 |
-| 6 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 5 | [日志月（项目）](#数据查询-日志月（项目）（ProjectActionMonth）) | ProjectActionMonth | 否 |
+| 6 | [日志年（项目）](#数据查询-日志年（项目）（ProjectActionYear）) | ProjectActionYear | 否 |
+| 7 | [项目日志](#数据查询-项目日志（ProjectTaskEstimate）) | ProjectTaskEstimate | 否 |
+| 8 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-日志月（ActionMonth）
 #### 说明
@@ -1404,6 +1409,57 @@ LEFT JOIN `zt_task` t11 ON t1.`TASK` = t11.`ID`
 LEFT JOIN `zt_project` t21 ON t11.`PROJECT` = t21.`ID` 
 
 ```
+### 数据查询-日志月（项目）（ProjectActionMonth）
+#### 说明
+日志月（项目）
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+	t1.`YEAR`,
+	concat( t1.`YEAR`, RIGHT ( 100+ t1.`MONTH`, 2 ) ) AS `MONTH`,
+	t1.`MONTH` as monthorder,
+	concat( t1.`MONTH`, '月' ) AS monthname ,
+	t1.project
+FROM
+	(
+SELECT DISTINCT YEAR
+	( t1.date ) AS `year`,
+	MONTH ( t1.date ) AS `MONTH` ,
+	t.project
+FROM
+	zt_taskestimate t1 left join zt_task t on t.id = t1.task
+WHERE
+	t1.date <> '0000-00-00' 
+	) t1
+```
+### 数据查询-日志年（项目）（ProjectActionYear）
+#### 说明
+日志年（项目）
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+	t1.`YEAR`,
+	concat( t1.`year`, '年' ) AS yearname ,
+	t1.project
+FROM
+	( SELECT DISTINCT YEAR ( t1.date ) AS `year`,t.project FROM zt_taskestimate t1 left join zt_task t on t.id = t1.task WHERE t1.date <> '0000-00-00'  ) t1
+```
 ### 数据查询-项目日志（ProjectTaskEstimate）
 #### 说明
 项目日志
@@ -1486,7 +1542,9 @@ LEFT JOIN `zt_project` t21 ON t11.`PROJECT` = t21.`ID`
 | 2 | [日志年](#数据集合-日志年（ActionYear）) | ActionYear | 否 |
 | 3 | [DEFAULT](#数据集合-DEFAULT（Default）) | Default | 是 |
 | 4 | [DEFAULT1](#数据集合-DEFAULT1（Defaults）) | Defaults | 否 |
-| 5 | [项目日志](#数据集合-项目日志（ProjectTaskEstimate）) | ProjectTaskEstimate | 否 |
+| 5 | [日志月（项目）](#数据集合-日志月（项目）（ProjectActionMonth）) | ProjectActionMonth | 否 |
+| 6 | [日志年（项目）](#数据集合-日志年（项目）（ProjectActionYear）) | ProjectActionYear | 否 |
+| 7 | [项目日志](#数据集合-项目日志（ProjectTaskEstimate）) | ProjectTaskEstimate | 否 |
 
 ### 数据集合-日志月（ActionMonth）
 #### 说明
@@ -1544,6 +1602,34 @@ DEFAULT1
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [DEFAULT1（Defaults）](#数据查询-DEFAULT1（Defaults）) |
+### 数据集合-日志月（项目）（ProjectActionMonth）
+#### 说明
+日志月（项目）
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [日志月（项目）（ProjectActionMonth）](#数据查询-日志月（项目）（ProjectActionMonth）) |
+### 数据集合-日志年（项目）（ProjectActionYear）
+#### 说明
+日志年（项目）
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [日志年（项目）（ProjectActionYear）](#数据查询-日志年（项目）（ProjectActionYear）) |
 ### 数据集合-项目日志（ProjectTaskEstimate）
 #### 说明
 项目日志

@@ -271,6 +271,94 @@ mock.onPost(new RegExp(/^\/taskestimatestats\/?([a-zA-Z0-9\-\;]{0,35})\/save$/))
     return [status, data];
 });
     
+// FetchActionMonth
+mock.onGet(new RegExp(/^\/taskestimatestats\/fetchactionmonth$/)).reply((config: any) => {
+    console.groupCollapsed("实体:taskestimatestats 方法: FetchActionMonth");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(mockDatas);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, mockDatas ? mockDatas : []];
+});
+
+// FetchActionMonth
+mock.onGet(new RegExp(/^\/taskestimatestats\/fetchactionmonth(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
+    console.groupCollapsed("实体:taskestimatestats 方法: FetchActionMonth");
+    console.table({url:config.url, method: config.method, data:config.data});
+    if(config.url.includes('page')){
+        let url = config.url.split('?')[1];
+        let params  =  qs.parse(url);
+        Object.assign(config, params);
+    }
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    let total = mockDatas.length;
+    let records: Array<any> = [];
+    if(!config.page || !config.size){
+        records = mockDatas;
+    }else{
+        if((config.page-1)*config.size < total){
+          records = mockDatas.slice(config.page,config.size);
+        }
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(records ?  records : []);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, records ?  records : []];
+});
+    
+// FetchActionYear
+mock.onGet(new RegExp(/^\/taskestimatestats\/fetchactionyear$/)).reply((config: any) => {
+    console.groupCollapsed("实体:taskestimatestats 方法: FetchActionYear");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(mockDatas);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, mockDatas ? mockDatas : []];
+});
+
+// FetchActionYear
+mock.onGet(new RegExp(/^\/taskestimatestats\/fetchactionyear(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
+    console.groupCollapsed("实体:taskestimatestats 方法: FetchActionYear");
+    console.table({url:config.url, method: config.method, data:config.data});
+    if(config.url.includes('page')){
+        let url = config.url.split('?')[1];
+        let params  =  qs.parse(url);
+        Object.assign(config, params);
+    }
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    let total = mockDatas.length;
+    let records: Array<any> = [];
+    if(!config.page || !config.size){
+        records = mockDatas;
+    }else{
+        if((config.page-1)*config.size < total){
+          records = mockDatas.slice(config.page,config.size);
+        }
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(records ?  records : []);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, records ?  records : []];
+});
+    
 // FetchDefault
 mock.onGet(new RegExp(/^\/taskestimatestats\/fetchdefault$/)).reply((config: any) => {
     console.groupCollapsed("实体:taskestimatestats 方法: FetchDefault");

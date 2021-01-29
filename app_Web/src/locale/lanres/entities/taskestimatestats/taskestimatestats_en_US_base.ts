@@ -13,6 +13,10 @@ function getLocaleResourceBase(){
 			evaluationtime: commonLogic.appcommonhandle("评估工时",null),
 			evaluationcost: commonLogic.appcommonhandle("评估成本",null),
 			evaluationstatus: commonLogic.appcommonhandle("评估状态",null),
+			year: commonLogic.appcommonhandle("年",null),
+			yearname: commonLogic.appcommonhandle("年（显示）",null),
+			month: commonLogic.appcommonhandle("月",null),
+			monthname: commonLogic.appcommonhandle("月（显示）",null),
 		},
 		};
 		return data;
