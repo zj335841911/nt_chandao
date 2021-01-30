@@ -62,7 +62,8 @@
     labelPos="LEFT"
 >
     
-<app-span name='ibz_reportlyid' :value="data.ibz_reportlyid" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+<app-span name='ibz_reportlyid' :value="data.ibz_reportlyid" dataType="ACID" unitName=""     :precision="0"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
 >  
 </app-span>
 
@@ -92,7 +93,8 @@
     labelPos="LEFT"
 >
     
-<app-span name='ibz_reportlyname' :value="data.ibz_reportlyname" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+<app-span name='ibz_reportlyname' :value="data.ibz_reportlyname" dataType="TEXT" unitName=""     :precision="0"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
 >  
 </app-span>
 
@@ -158,7 +160,8 @@
     labelPos="LEFT"
 >
     
-<app-span name='account' :value="data.account" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+<app-span name='account' :value="data.account" dataType="SSCODELIST" unitName=""     :precision="0"
+tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
 >  
 </app-span>
 
@@ -188,7 +191,8 @@
     labelPos="LEFT"
 >
     
-<app-span name='date' :value="data.date" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+<app-span name='date' :value="data.date" dataType="DATE" unitName="" valueFormat="%1$tY-%1$tm-%1$td"     :precision="0"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
 >  
 </app-span>
 

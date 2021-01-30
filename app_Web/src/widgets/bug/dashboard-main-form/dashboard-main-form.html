@@ -128,7 +128,8 @@
     labelPos="LEFT"
 >
     
-<app-span name='branch' :value="data.branch" tag='ProductBranch' codelistType='DYNAMIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ PRODUCT:"%product%" }'  :localParam ='{ product:"%product%" }'    style=""
+<app-span name='branch' :value="data.branch" dataType="PICKUP" unitName=""     :precision="0"
+tag='ProductBranch' codelistType='DYNAMIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ PRODUCT:"%product%" }'  :localParam ='{ product:"%product%" }'    style=""
 >  
 </app-span>
 
@@ -158,7 +159,8 @@
     labelPos="LEFT"
 >
     
-<app-span name='modulename1' :value="data.modulename1" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ PRODUCT:"%product%" }'  :localParam ='{ product:"%product%" }'    style=""
+<app-span name='modulename1' :value="data.modulename1" dataType="TEXT" unitName=""     :precision="0"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ PRODUCT:"%product%" }'  :localParam ='{ product:"%product%" }'    style=""
 >  
 </app-span>
 
@@ -188,7 +190,8 @@
     labelPos="LEFT"
 >
     
-<app-span name='type' :value="data.type" tag='Bug__type' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+<app-span name='type' :value="data.type" dataType="SSCODELIST" unitName=""     :precision="0"
+tag='Bug__type' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
 >  
 </app-span>
 
@@ -218,7 +221,8 @@
     labelPos="LEFT"
 >
     
-<app-span name='severity' :value="data.severity" tag='Bug__severity' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+<app-span name='severity' :value="data.severity" dataType="NSCODELIST" unitName=""     :precision="0"
+tag='Bug__severity' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
 >  
 </app-span>
 
@@ -248,7 +252,8 @@
     labelPos="LEFT"
 >
     
-<app-span name='pri' :value="data.pri" tag='Bug__pri' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+<app-span name='pri' :value="data.pri" dataType="NSCODELIST" unitName=""     :precision="0"
+tag='Bug__pri' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
 >  
 </app-span>
 
@@ -278,7 +283,8 @@
     labelPos="LEFT"
 >
     
-<app-span name='status' :value="data.status" tag='Bug__status' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+<app-span name='status' :value="data.status" dataType="SSCODELIST" unitName=""     :precision="0"
+tag='Bug__status' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
 >  
 </app-span>
 
@@ -308,7 +314,8 @@
     labelPos="LEFT"
 >
     
-<app-span name='activatedcount' :value="data.activatedcount" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+<app-span name='activatedcount' :value="data.activatedcount" dataType="INT" unitName=""     :precision="0"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
 >  
 </app-span>
 
@@ -338,7 +345,8 @@
     labelPos="LEFT"
 >
     
-<app-span name='activateddate' :value="data.activateddate" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+<app-span name='activateddate' :value="data.activateddate" dataType="DATE" unitName="" valueFormat="%1$tY-%1$tm-%1$td"     :precision="0"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
 >  
 </app-span>
 
@@ -368,7 +376,8 @@
     labelPos="LEFT"
 >
     
-<app-span name='confirmed' :value="data.confirmed" tag='YesNo2' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+<app-span name='confirmed' :value="data.confirmed" dataType="NSCODELIST" unitName=""     :precision="0"
+tag='YesNo2' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
 >  
 </app-span>
 
@@ -429,7 +438,8 @@
     labelPos="LEFT"
 >
     
-<app-span name='assignedto' :value="data.assignedto" tag='UserRealNameUnAssignTo_Gird' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+<app-span name='assignedto' :value="data.assignedto" dataType="TEXT" unitName=""     :precision="0"
+tag='UserRealNameUnAssignTo_Gird' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
 >  
 </app-span>
 
@@ -459,7 +469,8 @@
     labelPos="LEFT"
 >
     
-<app-span name='assigneddate' :value="data.assigneddate" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+<app-span name='assigneddate' :value="data.assigneddate" dataType="DATETIME" unitName="" valueFormat="%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS"     :precision="0"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
 >  
 </app-span>
 
@@ -525,7 +536,8 @@
     labelPos="LEFT"
 >
     
-<app-span name='deadline' :value="data.deadline" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+<app-span name='deadline' :value="data.deadline" dataType="DATE" unitName="" valueFormat="%1$tY-%1$tm-%1$td"     :precision="0"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
 >  
 </app-span>
 
@@ -555,7 +567,8 @@
     labelPos="LEFT"
 >
     
-<app-span name='delay' :value="data.delay" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+<app-span name='delay' :value="data.delay" dataType="TEXT" unitName=""     :precision="0"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
 >  
 </app-span>
 
@@ -590,7 +603,8 @@
     labelPos="LEFT"
 >
     
-<app-span name='os' :value="data.os" tag='Bug__os' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+<app-span name='os' :value="data.os" dataType="SSCODELIST" unitName=""     :precision="0"
+tag='Bug__os' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
 >  
 </app-span>
 
@@ -620,7 +634,8 @@
     labelPos="LEFT"
 >
     
-<app-span name='browser' :value="data.browser" tag='Bug__browser' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+<app-span name='browser' :value="data.browser" dataType="SSCODELIST" unitName=""     :precision="0"
+tag='Bug__browser' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
 >  
 </app-span>
 
@@ -650,7 +665,8 @@
     labelPos="LEFT"
 >
     
-<app-span name='keywords' :value="data.keywords" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+<app-span name='keywords' :value="data.keywords" dataType="TEXT" unitName=""     :precision="0"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
 >  
 </app-span>
 
@@ -680,7 +696,8 @@
     labelPos="LEFT"
 >
     
-<app-span name='mailto' :value="data.mailto" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+<app-span name='mailto' :value="data.mailto" dataType="SMCODELIST" unitName=""     :precision="0"
+tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
 >  
 </app-span>
 

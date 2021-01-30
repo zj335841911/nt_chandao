@@ -93,7 +93,8 @@
     labelPos="LEFT"
 >
     
-<app-span name='id' :value="data.id" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+<app-span name='id' :value="data.id" dataType="ACID" unitName=""     :precision="0"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
 >  
 </app-span>
 
@@ -123,7 +124,8 @@
     labelPos="LEFT"
 >
     
-<app-span name='status' :value="data.status" tag='Story__status' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+<app-span name='status' :value="data.status" dataType="SSCODELIST" unitName=""     :precision="0"
+tag='Story__status' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
 >  
 </app-span>
 
@@ -153,7 +155,8 @@
     labelPos="LEFT"
 >
     
-<app-span name='title' :value="data.title" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+<app-span name='title' :value="data.title" dataType="TEXT" unitName=""     :precision="0"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
 >  
 </app-span>
 
@@ -224,7 +227,8 @@
     labelPos="LEFT"
 >
     
-<app-span name='pri' :value="data.pri" tag='Story__pri' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+<app-span name='pri' :value="data.pri" dataType="NSCODELIST" unitName=""     :precision="0"
+tag='Story__pri' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
 >  
 </app-span>
 
@@ -254,7 +258,8 @@
     labelPos="LEFT"
 >
     
-<app-span name='stage' :value="data.stage" tag='Story__stage' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+<app-span name='stage' :value="data.stage" dataType="SSCODELIST" unitName=""     :precision="0"
+tag='Story__stage' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
 >  
 </app-span>
 
@@ -284,7 +289,8 @@
     labelPos="LEFT"
 >
     
-<app-span name='estimate' :value="data.estimate" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+<app-span name='estimate' :value="data.estimate" dataType="FLOAT" unitName=""     :precision="2"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
 >  
 </app-span>
 

@@ -31,7 +31,8 @@
     labelPos="LEFT"
 >
     
-<app-span name='id' :value="data.id" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style="height:32px;width:40px;"
+<app-span name='id' :value="data.id" dataType="ACID" unitName=""     :precision="0"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style="height:32px;width:40px;"
 >  
 </app-span>
 
@@ -61,7 +62,8 @@
     labelPos="LEFT"
 >
     
-<app-span name='name' :value="data.name" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+<app-span name='name' :value="data.name" dataType="TEXT" unitName=""     :precision="0"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
 >  
 </app-span>
 

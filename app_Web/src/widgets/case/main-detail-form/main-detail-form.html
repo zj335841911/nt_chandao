@@ -62,7 +62,8 @@
     labelPos="LEFT"
 >
     
-<app-span name='productname' :value="data.productname" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+<app-span name='productname' :value="data.productname" dataType="PICKUPTEXT" unitName=""     :precision="0"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
 >  
 </app-span>
 
@@ -92,7 +93,8 @@
     labelPos="LEFT"
 >
     
-<app-span name='modulename1' :value="data.modulename1" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+<app-span name='modulename1' :value="data.modulename1" dataType="TEXT" unitName=""     :precision="0"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
 >  
 </app-span>
 
@@ -167,7 +169,8 @@
     labelPos="LEFT"
 >
     
-<app-span name='type' :value="data.type" tag='Testcase__type' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+<app-span name='type' :value="data.type" dataType="SSCODELIST" unitName=""     :precision="0"
+tag='Testcase__type' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
 >  
 </app-span>
 
@@ -197,7 +200,8 @@
     labelPos="LEFT"
 >
     
-<app-span name='stage' :value="data.stage" tag='Testcase__stage' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+<app-span name='stage' :value="data.stage" dataType="SMCODELIST" unitName=""     :precision="0"
+tag='Testcase__stage' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
 >  
 </app-span>
 
@@ -227,7 +231,8 @@
     labelPos="LEFT"
 >
     
-<app-span name='pri' :value="data.pri" tag='Testcase__pri' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+<app-span name='pri' :value="data.pri" dataType="NSCODELIST" unitName=""     :precision="0"
+tag='Testcase__pri' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
 >  
 </app-span>
 
@@ -257,7 +262,8 @@
     labelPos="LEFT"
 >
     
-<app-span name='status' :value="data.status" tag='Testcase__status' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+<app-span name='status' :value="data.status" dataType="SSCODELIST" unitName=""     :precision="0"
+tag='Testcase__status' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
 >  
 </app-span>
 
@@ -287,7 +293,8 @@
     labelPos="LEFT"
 >
     
-<app-span name='lastrundate' :value="data.lastrundate" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+<app-span name='lastrundate' :value="data.lastrundate" dataType="DATETIME" unitName="" valueFormat="%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS"     :precision="0"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
 >  
 </app-span>
 
@@ -317,7 +324,8 @@
     labelPos="LEFT"
 >
     
-<app-span name='lastrunresult' :value="data.lastrunresult" tag='Testcase__result' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+<app-span name='lastrunresult' :value="data.lastrunresult" dataType="SSCODELIST" unitName=""     :precision="0"
+tag='Testcase__result' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
 >  
 </app-span>
 
@@ -347,7 +355,8 @@
     labelPos="LEFT"
 >
     
-<app-span name='keywords' :value="data.keywords" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+<app-span name='keywords' :value="data.keywords" dataType="TEXT" unitName=""     :precision="0"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
 >  
 </app-span>
 
@@ -377,7 +386,8 @@
     labelPos="LEFT"
 >
     
-<app-span name='linkcase' :value="data.linkcase" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+<app-span name='linkcase' :value="data.linkcase" dataType="TEXT" unitName=""     :precision="0"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
 >  
 </app-span>
 
@@ -474,7 +484,8 @@
     labelPos="LEFT"
 >
     
-<app-span name='openedby' :value="data.openedby" tag='UserRealName_Gird' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+<app-span name='openedby' :value="data.openedby" dataType="TEXT" unitName=""     :precision="0"
+tag='UserRealName_Gird' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
 >  
 </app-span>
 
@@ -504,7 +515,8 @@
     labelPos="LEFT"
 >
     
-<app-span name='openeddate' :value="data.openeddate" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+<app-span name='openeddate' :value="data.openeddate" dataType="DATETIME" unitName="" valueFormat="%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS"     :precision="0"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
 >  
 </app-span>
 
@@ -534,7 +546,8 @@
     labelPos="LEFT"
 >
     
-<app-span name='lasteditedby' :value="data.lasteditedby" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+<app-span name='lasteditedby' :value="data.lasteditedby" dataType="TEXT" unitName=""     :precision="0"
+tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
 >  
 </app-span>
 
@@ -564,7 +577,8 @@
     labelPos="LEFT"
 >
     
-<app-span name='lastediteddate' :value="data.lastediteddate" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+<app-span name='lastediteddate' :value="data.lastediteddate" dataType="DATETIME" unitName="" valueFormat="%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS"     :precision="0"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
 >  
 </app-span>
 

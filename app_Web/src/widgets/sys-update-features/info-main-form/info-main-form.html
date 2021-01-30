@@ -128,7 +128,8 @@
     labelPos="LEFT"
 >
     
-<app-span name='type' :value="data.type" tag='SYS_UPDATE_LOG_TYPE' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+<app-span name='type' :value="data.type" dataType="SSCODELIST" unitName=""     :precision="0"
+tag='SYS_UPDATE_LOG_TYPE' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
 >  
 </app-span>
 
@@ -158,7 +159,8 @@
     labelPos="LEFT"
 >
     
-<app-span name='upfeatures' :value="data.upfeatures" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+<app-span name='upfeatures' :value="data.upfeatures" dataType="TEXT" unitName=""     :precision="0"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
 >  
 </app-span>
 
@@ -188,7 +190,8 @@
     labelPos="LEFT"
 >
     
-<app-span name='displayorder' :value="data.displayorder" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+<app-span name='displayorder' :value="data.displayorder" dataType="INT" unitName=""     :precision="0"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
 >  
 </app-span>
 
@@ -297,7 +300,8 @@
     labelPos="LEFT"
 >
     
-<app-span name='createman' :value="data.createman" tag='SysOperator' codelistType='DYNAMIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+<app-span name='createman' :value="data.createman" dataType="TEXT" unitName=""     :precision="0"
+tag='SysOperator' codelistType='DYNAMIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
 >  
 </app-span>
 
@@ -327,7 +331,8 @@
     labelPos="LEFT"
 >
     
-<app-span name='createdate' :value="data.createdate" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+<app-span name='createdate' :value="data.createdate" dataType="DATETIME" unitName="" valueFormat="%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS"     :precision="0"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
 >  
 </app-span>
 
@@ -357,7 +362,8 @@
     labelPos="LEFT"
 >
     
-<app-span name='updateman' :value="data.updateman" tag='SysOperator' codelistType='DYNAMIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+<app-span name='updateman' :value="data.updateman" dataType="TEXT" unitName=""     :precision="0"
+tag='SysOperator' codelistType='DYNAMIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
 >  
 </app-span>
 
@@ -387,7 +393,8 @@
     labelPos="LEFT"
 >
     
-<app-span name='updatedate' :value="data.updatedate" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+<app-span name='updatedate' :value="data.updatedate" dataType="DATETIME" unitName="" valueFormat="%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS"     :precision="0"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
 >  
 </app-span>
 

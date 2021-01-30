@@ -817,7 +817,8 @@
     labelPos="LEFT"
 >
     
-<app-span name='openedby' :value="data.openedby" tag='UserRealName_Gird' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+<app-span name='openedby' :value="data.openedby" dataType="TEXT" unitName=""     :precision="0"
+tag='UserRealName_Gird' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
 >  
 </app-span>
 
@@ -847,7 +848,8 @@
     labelPos="LEFT"
 >
     
-<app-span name='openeddate' :value="data.openeddate" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+<app-span name='openeddate' :value="data.openeddate" dataType="DATETIME" unitName="" valueFormat="%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS"     :precision="0"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
 >  
 </app-span>
 
@@ -877,7 +879,8 @@
     labelPos="LEFT"
 >
     
-<app-span name='lasteditedby' :value="data.lasteditedby" tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+<app-span name='lasteditedby' :value="data.lasteditedby" dataType="TEXT" unitName=""     :precision="0"
+tag='UserRealName' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
 >  
 </app-span>
 
@@ -907,7 +910,8 @@
     labelPos="LEFT"
 >
     
-<app-span name='lastediteddate' :value="data.lastediteddate" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+<app-span name='lastediteddate' :value="data.lastediteddate" dataType="DATETIME" unitName="" valueFormat="%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS"     :precision="0"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
 >  
 </app-span>
 

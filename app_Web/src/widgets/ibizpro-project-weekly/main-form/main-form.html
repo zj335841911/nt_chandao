@@ -107,7 +107,8 @@
     labelPos="LEFT"
 >
     
-<app-span name='pm' :value="data.pm" tag='UserRealName_Gird' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+<app-span name='pm' :value="data.pm" dataType="TEXT" unitName=""     :precision="0"
+tag='UserRealName_Gird' codelistType='DYNAMIC' renderMode="STR" valueSeparator="," textSeparator="," :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
 >  
 </app-span>
 
@@ -137,7 +138,8 @@
     labelPos="LEFT"
 >
     
-<app-span name='week' :value="data.week" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+<app-span name='week' :value="data.week" dataType="TEXT" unitName=""     :precision="0"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
 >  
 </app-span>
 
@@ -167,7 +169,8 @@
     labelPos="LEFT"
 >
     
-<app-span name='totalestimates1' :value="data.totalestimates1" :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
+<app-span name='totalestimates1' :value="data.totalestimates1" dataType="FLOAT" unitName=""     :precision="2"
+:data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
 >  
 </app-span>
 
