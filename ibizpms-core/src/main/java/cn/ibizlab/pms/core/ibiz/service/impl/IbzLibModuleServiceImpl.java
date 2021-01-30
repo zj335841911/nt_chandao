@@ -71,7 +71,6 @@ public class IbzLibModuleServiceImpl extends ServiceImpl<IbzLibModuleMapper, Ibz
             return false;
         }
         CachedBeanCopier.copy(get(et.getId()), et);
-        fixpathLogic.execute(et);
         return true;
     }
 
@@ -90,7 +89,6 @@ public class IbzLibModuleServiceImpl extends ServiceImpl<IbzLibModuleMapper, Ibz
             return false;
         }
         CachedBeanCopier.copy(get(et.getId()), et);
-        fixpathLogic.execute(et);
         return true;
     }
 
@@ -292,6 +290,5 @@ public class IbzLibModuleServiceImpl extends ServiceImpl<IbzLibModuleMapper, Ibz
         return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
     }
 }
-
 
 

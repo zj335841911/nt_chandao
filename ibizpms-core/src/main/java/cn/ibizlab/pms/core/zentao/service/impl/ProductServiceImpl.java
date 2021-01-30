@@ -204,7 +204,6 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
     @Override
     @Transactional
     public Product cancelProductTop(Product et) {
-        cancelproducttopLogic.execute(et);
          return et;
     }
 
@@ -230,21 +229,18 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
     @Override
     @Transactional
     public Product mobProductCounter(Product et) {
-        mobproductcounterLogic.execute(et);
          return et;
     }
 
     @Override
     @Transactional
     public Product mobProductTestCounter(Product et) {
-        mobproducttestcounterLogic.execute(et);
          return et;
     }
 
     @Override
     @Transactional
     public Product productTop(Product et) {
-        producttopLogic.execute(et);
          return et;
     }
 
@@ -487,6 +483,5 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
         return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
     }
 }
-
 
 

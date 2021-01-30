@@ -159,6 +159,7 @@ public class HistoryResource {
 	}
 
 
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-History-Create-all')")
     @ApiOperation(value = "根据系统日志建立操作历史", tags = {"操作历史" },  notes = "根据系统日志建立操作历史")
 	@RequestMapping(method = RequestMethod.POST, value = "/actions/{action_id}/histories")

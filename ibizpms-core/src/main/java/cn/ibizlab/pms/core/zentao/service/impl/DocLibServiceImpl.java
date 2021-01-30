@@ -103,8 +103,6 @@ public class DocLibServiceImpl extends ServiceImpl<DocLibMapper, DocLib> impleme
     @Override
     @Transactional
     public DocLib get(Long key) {
-        DocLib tempET = new DocLib();
-        tempET.set("id", key);
         DocLib et = getById(key);
         if (et == null) {
             et = new DocLib();
@@ -112,7 +110,6 @@ public class DocLibServiceImpl extends ServiceImpl<DocLibMapper, DocLib> impleme
         }
         else {
         }
-        curuserisfLogic.execute(et);
         return et;
     }
 
@@ -405,6 +402,5 @@ public class DocLibServiceImpl extends ServiceImpl<DocLibMapper, DocLib> impleme
         return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
     }
 }
-
 
 

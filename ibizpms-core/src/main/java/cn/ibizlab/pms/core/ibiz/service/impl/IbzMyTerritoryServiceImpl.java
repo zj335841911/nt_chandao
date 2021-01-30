@@ -133,21 +133,18 @@ public class IbzMyTerritoryServiceImpl extends ServiceImpl<IbzMyTerritoryMapper,
     @Override
     @Transactional
     public IbzMyTerritory mobMenuCount(IbzMyTerritory et) {
-        mobmenucountLogic.execute(et);
          return et;
     }
 
     @Override
     @Transactional
     public IbzMyTerritory myFavoriteCount(IbzMyTerritory et) {
-        myfavoritecountLogic.execute(et);
          return et;
     }
 
     @Override
     @Transactional
     public IbzMyTerritory myTerritoryCount(IbzMyTerritory et) {
-        myterritorycountLogic.execute(et);
          return et;
     }
 
@@ -306,6 +303,5 @@ public class IbzMyTerritoryServiceImpl extends ServiceImpl<IbzMyTerritoryMapper,
         return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
     }
 }
-
 
 

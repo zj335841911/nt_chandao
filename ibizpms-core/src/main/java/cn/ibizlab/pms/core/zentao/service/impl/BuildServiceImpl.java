@@ -145,7 +145,6 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
     @Override
     @Transactional
     public Build mobProjectBuildCounter(Build et) {
-        mobprojectbuildcounterLogic.execute(et);
          return et;
     }
 
@@ -364,6 +363,5 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
         return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
     }
 }
-
 
 

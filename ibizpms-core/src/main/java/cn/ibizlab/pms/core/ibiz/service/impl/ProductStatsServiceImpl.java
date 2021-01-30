@@ -103,8 +103,6 @@ public class ProductStatsServiceImpl extends ServiceImpl<ProductStatsMapper, Pro
     @Override
     @Transactional
     public ProductStats get(Long key) {
-        ProductStats tempET = new ProductStats();
-        tempET.set("id", key);
         ProductStats et = getById(key);
         if (et == null) {
             et = new ProductStats();
@@ -112,7 +110,6 @@ public class ProductStatsServiceImpl extends ServiceImpl<ProductStatsMapper, Pro
         }
         else {
         }
-        getcuruserbugcntLogic.execute(et);
         return et;
     }
 
@@ -278,6 +275,5 @@ public class ProductStatsServiceImpl extends ServiceImpl<ProductStatsMapper, Pro
         return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
     }
 }
-
 
 

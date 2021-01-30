@@ -303,4 +303,3 @@ public class BurnServiceImpl extends ServiceImpl<BurnMapper, Burn> implements IB
 }
 
 
-

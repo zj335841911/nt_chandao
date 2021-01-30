@@ -117,8 +117,6 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
     @Override
     @Transactional
     public ProductPlan get(Long key) {
-        ProductPlan tempET = new ProductPlan();
-        tempET.set("id", key);
         ProductPlan et = getById(key);
         if (et == null) {
             et = new ProductPlan();
@@ -126,14 +124,12 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
         }
         else {
         }
-        getbedinandendLogic.execute(et);
         return et;
     }
 
     @Override
     public ProductPlan getDraft(ProductPlan et) {
         fillParentData(et);
-        getoldplannameLogic.execute(et);
         return et;
     }
 
@@ -174,7 +170,6 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
     @Override
     @Transactional
     public ProductPlan getOldPlanName(ProductPlan et) {
-        getoldplannameLogic.execute(et);
          return et;
     }
 
@@ -241,7 +236,6 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
     @Override
     @Transactional
     public ProductPlan mobProductPlanCounter(ProductPlan et) {
-        mobproductplancounterLogic.execute(et);
          return et;
     }
 
@@ -502,6 +496,5 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
         return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
     }
 }
-
 
 

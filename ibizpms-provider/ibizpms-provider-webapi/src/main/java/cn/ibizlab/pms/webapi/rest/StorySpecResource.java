@@ -181,6 +181,7 @@ public class StorySpecResource {
 	}
 
 
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-StorySpec-Create-all')")
     @ApiOperation(value = "根据需求建立需求描述", tags = {"需求描述" },  notes = "根据需求建立需求描述")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/storyspecs")

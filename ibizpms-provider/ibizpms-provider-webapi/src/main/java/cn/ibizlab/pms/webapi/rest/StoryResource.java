@@ -1433,6 +1433,7 @@ public class StoryResource {
 	}
 
 
+
     @PreAuthorize("hasPermission(this.storyMapping.toDomain(#storydto),'pms-Story-Create')")
     @ApiOperation(value = "根据产品建立需求", tags = {"需求" },  notes = "根据产品建立需求")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories")

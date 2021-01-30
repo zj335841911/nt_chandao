@@ -129,14 +129,12 @@ public class IbzReportServiceImpl extends ServiceImpl<IbzReportMapper, IbzReport
     @Override
     @Transactional
     public IbzReport myReportINotSubmit(IbzReport et) {
-        myreportinotsubmitLogic.execute(et);
          return et;
     }
 
     @Override
     @Transactional
     public IbzReport reportIReceived(IbzReport et) {
-        reportireceivedLogic.execute(et);
          return et;
     }
 
@@ -289,6 +287,5 @@ public class IbzReportServiceImpl extends ServiceImpl<IbzReportMapper, IbzReport
         return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
     }
 }
-
 
 

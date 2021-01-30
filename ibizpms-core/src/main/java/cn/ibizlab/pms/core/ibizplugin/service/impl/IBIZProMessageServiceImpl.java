@@ -227,8 +227,6 @@ public class IBIZProMessageServiceImpl implements IIBIZProMessageService {
 
 
 
-
 }
-
 
 

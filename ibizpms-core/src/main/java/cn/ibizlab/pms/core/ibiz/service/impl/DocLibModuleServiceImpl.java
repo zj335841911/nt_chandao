@@ -88,7 +88,6 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
             return false;
         }
         CachedBeanCopier.copy(get(et.getId()), et);
-        fixpathLogic.execute(et);
         return true;
     }
 
@@ -107,7 +106,6 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
             return false;
         }
         CachedBeanCopier.copy(get(et.getId()), et);
-        fixpathLogic.execute(et);
         return true;
     }
 
@@ -121,8 +119,6 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
     @Override
     @Transactional
     public boolean remove(Long key) {
-        DocLibModule et = new DocLibModule();
-        et.set("id", key);
         boolean result = removeById(key);
         return result;
     }
@@ -136,8 +132,6 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
     @Override
     @Transactional
     public DocLibModule get(Long key) {
-        DocLibModule tempET = new DocLibModule();
-        tempET.set("id", key);
         DocLibModule et = getById(key);
         if (et == null) {
             et = new DocLibModule();
@@ -145,7 +139,6 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
         }
         else {
         }
-        curuserisfLogic.execute(et);
         return et;
     }
 
@@ -177,21 +170,18 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
     @Override
     @Transactional
     public DocLibModule docLibModuleNFavorite(DocLibModule et) {
-        doclibmodulenfavoriteLogic.execute(et);
          return et;
     }
 
     @Override
     @Transactional
     public DocLibModule doclibModuleFavorite(DocLibModule et) {
-        doclibmodulefavoriteLogic.execute(et);
          return et;
     }
 
     @Override
     @Transactional
     public DocLibModule fix(DocLibModule et) {
-        fixpathLogic.execute(et);
          return et;
     }
 
@@ -447,6 +437,5 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
         return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
     }
 }
-
 
 

@@ -141,21 +141,18 @@ public class UserYearWorkStatsServiceImpl extends ServiceImpl<UserYearWorkStatsM
     @Override
     @Transactional
     public UserYearWorkStats getDevInfomation(UserYearWorkStats et) {
-        getdevinfomationLogic.execute(et);
          return et;
     }
 
     @Override
     @Transactional
     public UserYearWorkStats getPoInfomation(UserYearWorkStats et) {
-        getpoinfomationLogic.execute(et);
          return et;
     }
 
     @Override
     @Transactional
     public UserYearWorkStats getQaInfomation(UserYearWorkStats et) {
-        getqainformationLogic.execute(et);
          return et;
     }
 
@@ -163,7 +160,6 @@ public class UserYearWorkStatsServiceImpl extends ServiceImpl<UserYearWorkStatsM
     @Transactional
     public UserYearWorkStats getUserYearAction(UserYearWorkStats et) {
         //自定义代码
-        getinfoLogic.execute(et);
         return et;
     }
    @Override
@@ -239,7 +235,6 @@ public class UserYearWorkStatsServiceImpl extends ServiceImpl<UserYearWorkStatsM
     @Transactional
     public UserYearWorkStats updateTitleByYear(UserYearWorkStats et) {
         //自定义代码
-        updateinfoLogic.execute(et);
         return et;
     }
    @Override
@@ -328,6 +323,5 @@ public class UserYearWorkStatsServiceImpl extends ServiceImpl<UserYearWorkStatsM
         return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
     }
 }
-
 
 

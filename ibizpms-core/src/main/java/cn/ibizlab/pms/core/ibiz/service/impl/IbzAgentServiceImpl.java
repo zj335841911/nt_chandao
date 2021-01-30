@@ -245,4 +245,3 @@ public class IbzAgentServiceImpl extends ServiceImpl<IbzAgentMapper, IbzAgent> i
 }
 
 
-

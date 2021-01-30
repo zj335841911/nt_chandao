@@ -200,6 +200,7 @@ public class BurnResource {
 	}
 
 
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Burn-Create-all')")
     @ApiOperation(value = "根据项目建立burn", tags = {"burn" },  notes = "根据项目建立burn")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/burns")

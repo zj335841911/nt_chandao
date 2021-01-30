@@ -124,7 +124,6 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
     @Override
     public TestTask getDraft(TestTask et) {
         fillParentData(et);
-        getproductbuildLogic.execute(et);
         return et;
     }
 
@@ -195,7 +194,6 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
     @Override
     @Transactional
     public TestTask mobTestTaskCounter(TestTask et) {
-        mobtesttaskcounterLogic.execute(et);
          return et;
     }
 
@@ -628,6 +626,5 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
 
 
 }
-
 
 

@@ -106,8 +106,6 @@ public class DocServiceImpl extends ServiceImpl<DocMapper, Doc> implements IDocS
     @Override
     @Transactional
     public Doc get(Long key) {
-        Doc tempET = new Doc();
-        tempET.set("id", key);
         Doc et = getById(key);
         if (et == null) {
             et = new Doc();
@@ -115,7 +113,6 @@ public class DocServiceImpl extends ServiceImpl<DocMapper, Doc> implements IDocS
         }
         else {
         }
-        curuserisfLogic.execute(et);
         return et;
     }
 
@@ -503,6 +500,5 @@ public class DocServiceImpl extends ServiceImpl<DocMapper, Doc> implements IDocS
         return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
     }
 }
-
 
 

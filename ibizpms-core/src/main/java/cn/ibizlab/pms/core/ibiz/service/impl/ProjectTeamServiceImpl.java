@@ -123,7 +123,6 @@ public class ProjectTeamServiceImpl extends ServiceImpl<ProjectTeamMapper, Proje
     @Override
     public ProjectTeam getDraft(ProjectTeam et) {
         fillParentData(et);
-        getprojectdaysLogic.execute(et);
         return et;
     }
 
@@ -345,6 +344,5 @@ public class ProjectTeamServiceImpl extends ServiceImpl<ProjectTeamMapper, Proje
 
 
 }
-
 
 

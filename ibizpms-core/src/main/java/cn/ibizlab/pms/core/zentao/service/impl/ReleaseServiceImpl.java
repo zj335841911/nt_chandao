@@ -237,7 +237,6 @@ public class ReleaseServiceImpl extends ServiceImpl<ReleaseMapper, Release> impl
     @Override
     @Transactional
     public Release mobReleaseCounter(Release et) {
-        mobreleasecounterLogic.execute(et);
          return et;
     }
 
@@ -462,6 +461,5 @@ public class ReleaseServiceImpl extends ServiceImpl<ReleaseMapper, Release> impl
         return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
     }
 }
-
 
 

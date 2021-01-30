@@ -150,8 +150,6 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
     @Override
     @Transactional
     public Task get(Long key) {
-        Task tempET = new Task();
-        tempET.set("id", key);
         Task et = getById(key);
         if (et == null) {
             et = new Task();
@@ -161,14 +159,12 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
             et.setTaskteam(taskteamService.selectByRoot(key));
             et.setTaskestimate(taskestimateService.selectByTask(key));
         }
-        resettaskestimateLogic.execute(et);
         return et;
     }
 
     @Override
     public Task getDraft(Task et) {
         fillParentData(et);
-        getprojectbyplanLogic.execute(et);
         return et;
     }
 
@@ -359,7 +355,6 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
     @Override
     @Transactional
     public Task getUsernames(Task et) {
-        getusernamesLogic.execute(et);
          return et;
     }
 
@@ -572,7 +567,6 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
     @Override
     @Transactional
     public Task taskFavorites(Task et) {
-        taskfavoritesLogic.execute(et);
          return et;
     }
 
@@ -594,14 +588,12 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
     @Override
     @Transactional
     public Task taskNFavorites(Task et) {
-        taskcanclefavoritesLogic.execute(et);
          return et;
     }
 
     @Override
     @Transactional
     public Task updateStoryVersion(Task et) {
-        updatestoryversionLogic.execute(et);
          return et;
     }
 
@@ -1084,6 +1076,5 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
         return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
     }
 }
-
 
 

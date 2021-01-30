@@ -119,7 +119,6 @@ public class ActionServiceImpl extends ServiceImpl<ActionMapper, Action> impleme
     @Override
     @Transactional
     public Action comment(Action et) {
-        commentLogic.execute(et);
          return et;
     }
 
@@ -326,6 +325,5 @@ public class ActionServiceImpl extends ServiceImpl<ActionMapper, Action> impleme
         return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
     }
 }
-
 
 

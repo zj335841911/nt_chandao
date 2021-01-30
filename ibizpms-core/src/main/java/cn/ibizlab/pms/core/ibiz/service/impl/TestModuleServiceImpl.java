@@ -72,7 +72,6 @@ public class TestModuleServiceImpl extends ServiceImpl<TestModuleMapper, TestMod
             return false;
         }
         CachedBeanCopier.copy(get(et.getId()), et);
-        fixpathLogic.execute(et);
         return true;
     }
 
@@ -91,7 +90,6 @@ public class TestModuleServiceImpl extends ServiceImpl<TestModuleMapper, TestMod
             return false;
         }
         CachedBeanCopier.copy(get(et.getId()), et);
-        fixpathLogic.execute(et);
         return true;
     }
 
@@ -141,14 +139,12 @@ public class TestModuleServiceImpl extends ServiceImpl<TestModuleMapper, TestMod
     @Override
     @Transactional
     public TestModule fix(TestModule et) {
-        fixpathLogic.execute(et);
          return et;
     }
 
     @Override
     @Transactional
     public TestModule removeModule(TestModule et) {
-        removemoduleLogic.execute(et);
          return et;
     }
 
@@ -353,6 +349,5 @@ public class TestModuleServiceImpl extends ServiceImpl<TestModuleMapper, TestMod
         return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
     }
 }
-
 
 

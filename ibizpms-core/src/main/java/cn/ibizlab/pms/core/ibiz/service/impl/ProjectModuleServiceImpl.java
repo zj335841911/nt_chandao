@@ -75,7 +75,6 @@ public class ProjectModuleServiceImpl extends ServiceImpl<ProjectModuleMapper, P
             return false;
         }
         CachedBeanCopier.copy(get(et.getId()), et);
-        fixpathLogic.execute(et);
         return true;
     }
 
@@ -94,7 +93,6 @@ public class ProjectModuleServiceImpl extends ServiceImpl<ProjectModuleMapper, P
             return false;
         }
         CachedBeanCopier.copy(get(et.getId()), et);
-        fixpathLogic.execute(et);
         return true;
     }
 
@@ -144,14 +142,12 @@ public class ProjectModuleServiceImpl extends ServiceImpl<ProjectModuleMapper, P
     @Override
     @Transactional
     public ProjectModule fix(ProjectModule et) {
-        fixpathLogic.execute(et);
          return et;
     }
 
     @Override
     @Transactional
     public ProjectModule removeModule(ProjectModule et) {
-        removemoduleLogic.execute(et);
          return et;
     }
 
@@ -365,6 +361,5 @@ public class ProjectModuleServiceImpl extends ServiceImpl<ProjectModuleMapper, P
         return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
     }
 }
-
 
 

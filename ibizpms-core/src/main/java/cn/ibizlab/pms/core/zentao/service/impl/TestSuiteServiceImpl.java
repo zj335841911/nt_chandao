@@ -123,7 +123,6 @@ public class TestSuiteServiceImpl extends ServiceImpl<TestSuiteMapper, TestSuite
     @Override
     @Transactional
     public TestSuite mobTestSuiteCount(TestSuite et) {
-        mobtestsuitecountLogic.execute(et);
          return et;
     }
 
@@ -255,6 +254,5 @@ public class TestSuiteServiceImpl extends ServiceImpl<TestSuiteMapper, TestSuite
         return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
     }
 }
-
 
 

@@ -125,7 +125,6 @@ public class ProjectStatsServiceImpl extends ServiceImpl<ProjectStatsMapper, Pro
     @Override
     @Transactional
     public ProjectStats projectQualitySum(ProjectStats et) {
-        projectqualitysumLogic.execute(et);
          return et;
     }
 
@@ -329,6 +328,5 @@ public class ProjectStatsServiceImpl extends ServiceImpl<ProjectStatsMapper, Pro
         return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
     }
 }
-
 
 

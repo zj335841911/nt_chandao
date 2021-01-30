@@ -181,6 +181,7 @@ public class TestResultResource {
 	}
 
 
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestResult-Create-all')")
     @ApiOperation(value = "根据测试用例建立测试结果", tags = {"测试结果" },  notes = "根据测试用例建立测试结果")
 	@RequestMapping(method = RequestMethod.POST, value = "/cases/{case_id}/testresults")

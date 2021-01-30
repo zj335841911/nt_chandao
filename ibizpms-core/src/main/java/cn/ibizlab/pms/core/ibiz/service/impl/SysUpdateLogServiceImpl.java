@@ -65,7 +65,6 @@ public class SysUpdateLogServiceImpl extends ServiceImpl<SysUpdateLogMapper, Sys
             return false;
         }
         CachedBeanCopier.copy(get(et.getSysupdatelogid()), et);
-        updatelastedLogic.execute(et);
         return true;
     }
 
@@ -274,6 +273,5 @@ public class SysUpdateLogServiceImpl extends ServiceImpl<SysUpdateLogMapper, Sys
         return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
     }
 }
-
 
 

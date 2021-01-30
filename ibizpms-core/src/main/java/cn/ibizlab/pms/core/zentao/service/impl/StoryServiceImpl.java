@@ -381,7 +381,6 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
     @Override
     @Transactional
     public Story buildUnlinkStorys(Story et) {
-        buildunlinkstorysLogic.execute(et);
          return et;
     }
 
@@ -452,7 +451,6 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
     @Override
     @Transactional
     public Story getStorySpecs(Story et) {
-        getstoryspecsLogic.execute(et);
          return et;
     }
 
@@ -534,7 +532,6 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
     @Override
     @Transactional
     public Story projectUnlinkStorys(Story et) {
-        projectunlinkstorysLogic.execute(et);
          return et;
     }
 
@@ -747,14 +744,12 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
     @Override
     @Transactional
     public Story storyFavorites(Story et) {
-        storyfavoritesLogic.execute(et);
          return et;
     }
 
     @Override
     @Transactional
     public Story storyNFavorites(Story et) {
-        storynfavoritesLogic.execute(et);
          return et;
     }
 
@@ -1203,6 +1198,5 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
         return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
     }
 }
-
 
 

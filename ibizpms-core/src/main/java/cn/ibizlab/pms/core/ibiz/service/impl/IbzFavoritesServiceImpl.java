@@ -251,4 +251,3 @@ public class IbzFavoritesServiceImpl extends ServiceImpl<IbzFavoritesMapper, Ibz
 }
 
 
-

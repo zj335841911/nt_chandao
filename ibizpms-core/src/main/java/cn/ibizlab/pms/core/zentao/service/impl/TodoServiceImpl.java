@@ -96,8 +96,6 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
     @Override
     @Transactional
     public Todo get(Long key) {
-        Todo tempET = new Todo();
-        tempET.set("id", key);
         Todo et = getById(key);
         if (et == null) {
             et = new Todo();
@@ -105,8 +103,6 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
         }
         else {
         }
-        gettodotitleLogic.execute(et);
-        resetbeginendLogic.execute(et);
         return et;
     }
 
@@ -385,6 +381,5 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
         return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
     }
 }
-
 
 

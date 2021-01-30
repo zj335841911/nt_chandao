@@ -193,6 +193,7 @@ public class TestSuiteResource {
 	}
 
 
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestSuite-Create-all')")
     @ApiOperation(value = "根据产品建立测试套件", tags = {"测试套件" },  notes = "根据产品建立测试套件")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/testsuites")

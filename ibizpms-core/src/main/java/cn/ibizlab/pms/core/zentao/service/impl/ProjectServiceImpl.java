@@ -176,8 +176,6 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
     @Override
     @Transactional
     public Project get(Long key) {
-        Project tempET = new Project();
-        tempET.set("id", key);
         Project et = getById(key);
         if (et == null) {
             et = new Project();
@@ -186,7 +184,6 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
         else {
             et.setProjectteam(projectteamService.selectByRoot(key));
         }
-        getprojectproductplanLogic.execute(et);
         return et;
     }
 
@@ -229,7 +226,6 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
     @Override
     @Transactional
     public Project cancelProjectTop(Project et) {
-        cancelprojecttopLogic.execute(et);
          return et;
     }
 
@@ -285,7 +281,6 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
     @Override
     @Transactional
     public Project mobProjectCount(Project et) {
-        mobprojectcountLogic.execute(et);
          return et;
     }
 
@@ -322,14 +317,12 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
     @Override
     @Transactional
     public Project projectTaskQCnt(Project et) {
-        projecttaskqcntLogic.execute(et);
          return et;
     }
 
     @Override
     @Transactional
     public Project projectTop(Project et) {
-        projecttopLogic.execute(et);
          return et;
     }
 
@@ -689,6 +682,5 @@ public class ProjectServiceImpl extends ServiceImpl<ProjectMapper, Project> impl
         return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
     }
 }
-
 
 

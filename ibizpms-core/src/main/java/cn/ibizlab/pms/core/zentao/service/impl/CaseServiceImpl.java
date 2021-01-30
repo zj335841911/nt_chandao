@@ -164,14 +164,12 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
     @Override
     @Transactional
     public Case caseFavorite(Case et) {
-        casefavoriteLogic.execute(et);
          return et;
     }
 
     @Override
     @Transactional
     public Case caseNFavorite(Case et) {
-        casenfavoriteLogic.execute(et);
          return et;
     }
 
@@ -287,7 +285,6 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
     @Override
     @Transactional
     public Case runCases(Case et) {
-        runcasesLogic.execute(et);
          return et;
     }
 
@@ -371,7 +368,6 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
     @Override
     @Transactional
     public Case testRunCases(Case et) {
-        testruncasesLogic.execute(et);
          return et;
     }
 
@@ -408,7 +404,6 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
     @Override
     @Transactional
     public Case unlinkCases(Case et) {
-        unlinkcasesLogic.execute(et);
          return et;
     }
 
@@ -430,7 +425,6 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
     @Override
     @Transactional
     public Case unlinkSuiteCases(Case et) {
-        unlinksuitecasesLogic.execute(et);
          return et;
     }
 
@@ -793,6 +787,5 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
         return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
     }
 }
-
 
 

@@ -1382,6 +1382,7 @@ public class TaskResource {
 	}
 
 
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Task-Create-all')")
     @ApiOperation(value = "根据任务模块建立任务", tags = {"任务" },  notes = "根据任务模块建立任务")
 	@RequestMapping(method = RequestMethod.POST, value = "/projectmodules/{projectmodule_id}/tasks")

@@ -149,56 +149,48 @@ public class TestReportServiceImpl extends ServiceImpl<TestReportMapper, TestRep
     @Override
     @Transactional
     public TestReport getInfoTaskOvByTime(TestReport et) {
-        getinfotesttaskovbytimeLogic.execute(et);
          return et;
     }
 
     @Override
     @Transactional
     public TestReport getInfoTestTask(TestReport et) {
-        getinfotesttaskLogic.execute(et);
          return et;
     }
 
     @Override
     @Transactional
     public TestReport getInfoTestTaskOvProject(TestReport et) {
-        getinfotesttaskovprojectLogic.execute(et);
          return et;
     }
 
     @Override
     @Transactional
     public TestReport getInfoTestTaskProject(TestReport et) {
-        getinfotesttaskprojectLogic.execute(et);
          return et;
     }
 
     @Override
     @Transactional
     public TestReport getInfoTestTaskR(TestReport et) {
-        getinfotesttaskrLogic.execute(et);
          return et;
     }
 
     @Override
     @Transactional
     public TestReport getInfoTestTaskS(TestReport et) {
-        getinfotesttasksLogic.execute(et);
          return et;
     }
 
     @Override
     @Transactional
     public TestReport getTestReportBasicInfo(TestReport et) {
-        gettestreportbasicinfoLogic.execute(et);
          return et;
     }
 
     @Override
     @Transactional
     public TestReport getTestReportProject(TestReport et) {
-        gettestreportprojectLogic.execute(et);
          return et;
     }
 
@@ -358,6 +350,5 @@ public class TestReportServiceImpl extends ServiceImpl<TestReportMapper, TestRep
         return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
     }
 }
-
 
 

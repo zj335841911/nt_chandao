@@ -1433,6 +1433,7 @@ public class SubStoryResource {
 	}
 
 
+
     @PreAuthorize("hasPermission(this.substoryMapping.toDomain(#substorydto),'pms-Story-Create')")
     @ApiOperation(value = "根据需求建立需求", tags = {"需求" },  notes = "根据需求建立需求")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories")

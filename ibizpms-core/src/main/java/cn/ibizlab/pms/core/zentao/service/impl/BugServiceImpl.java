@@ -160,7 +160,6 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
     @Override
     public Bug getDraft(Bug et) {
         fillParentData(et);
-        getproductsLogic.execute(et);
         return et;
     }
 
@@ -212,14 +211,12 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
     @Override
     @Transactional
     public Bug bugFavorites(Bug et) {
-        bugfavoritesLogic.execute(et);
          return et;
     }
 
     @Override
     @Transactional
     public Bug bugNFavorites(Bug et) {
-        bugnfavoritesLogic.execute(et);
          return et;
     }
 
@@ -556,7 +553,6 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
     @Override
     @Transactional
     public Bug updateStoryVersion(Bug et) {
-        updatestoryversionLogic.execute(et);
          return et;
     }
 
@@ -1108,6 +1104,5 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
         return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
     }
 }
-
 
 

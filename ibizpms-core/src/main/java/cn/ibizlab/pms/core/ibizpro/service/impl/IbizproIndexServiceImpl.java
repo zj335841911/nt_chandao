@@ -292,4 +292,3 @@ public class IbizproIndexServiceImpl extends ServiceImpl<IbizproIndexMapper, Ibi
 }
 
 
-
