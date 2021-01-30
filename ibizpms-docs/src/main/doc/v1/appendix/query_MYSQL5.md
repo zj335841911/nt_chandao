@@ -259,6 +259,33 @@ FROM `zt_taskestimate` t1
 
 # **系统日志**(ZT_ACTION)
 
+### 项目立项变更线路操作历史记录(BianGengLineHistory)<div id="Action_BianGengLineHistory"></div>
+```sql
+SELECT
+t1.`ACTION`,
+(case when t1.objectType in ('bug','story','release') and t1.action in ('changestatus','resolved','closed', 'reviewed') and t1.extra <> '' then CONCAT_WS('_',t1.objectType,t1.action,t1.extra) else '' end) AS `ACTIONMANNER`,
+t1.`ACTOR`,
+t1.`COMMENT`,
+t1.`DATE`,
+DATE_FORMAT(t1.date,'%m月%d日 %H:%i') AS `DATE1`,
+t1.`ID`,
+0 AS `ISACTORSS`,
+t1.`comment` AS `LASTCOMMENT`,
+(case when DATE_FORMAT(t1.date,'%Y-%m') = DATE_FORMAT(DATE_ADD(now(),INTERVAL -1 MONTH),'%Y-%m') then '1' end) AS `LASTMONTH`,
+(case when YEARWEEK(DATE_ADD(now(),INTERVAL -1 WEEK)) = YEARWEEK(t1.date) then '1' end) AS `LASTWEEK`,
+t1.`OBJECTID`,
+t1.`OBJECTTYPE`,
+t1.`PRODUCT`,
+t1.`PROJECT`,
+t1.`READ`,
+t1.id AS `SRFKEY`,
+(case when DATE_FORMAT(t1.date,'%Y-%m') = DATE_FORMAT(now(),'%Y-%m') then '1' end) AS `THISMONTH`,
+(case when YEARWEEK(now()) = YEARWEEK(t1.date) then '1' end) AS `THISWEEK`,
+(case when DATE_FORMAT(t1.date,'%Y-%m-%d') = DATE_FORMAT(now(),'%Y-%m-%d') then '1' end) AS `TODAY`,
+(case when DATE_FORMAT(t1.date,'%Y-%m-%d') = DATE_FORMAT(DATE_ADD(now(),INTERVAL -1 DAY),'%Y-%m-%d') then '1' end) AS `YESTERDAY`
+FROM `zt_action` t1 
+
+```
 ### DEFAULT(DEFAULT)<div id="Action_Default"></div>
 ```sql
 SELECT

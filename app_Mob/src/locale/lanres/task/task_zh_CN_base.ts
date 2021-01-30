@@ -85,6 +85,7 @@ export default {
     idvalue: "关联编号",
     cycle: "周期",
     assign: "是否指派",
+    inputcost: "投入成本",
   },
 	views: {
 		mobmdview: {

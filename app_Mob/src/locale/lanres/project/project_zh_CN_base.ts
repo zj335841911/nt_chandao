@@ -78,6 +78,9 @@ export default {
     projectteams: "项目团队成员",
     supproreport: "支持项目汇报",
     pmseeprojectinfo: "项目立项信息",
+    temptaskcnt: "临时任务数",
+    cycletaskcnt: "周期任务数",
+    plantaskcnt: "计划任务数",
   },
 	views: {
 		mobchartview: {

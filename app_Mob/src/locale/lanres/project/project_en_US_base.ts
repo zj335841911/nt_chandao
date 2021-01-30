@@ -78,6 +78,9 @@ export default {
     projectteams:  commonLogic.appcommonhandle("项目团队成员",null),
     supproreport:  commonLogic.appcommonhandle("支持项目汇报",null),
     pmseeprojectinfo:  commonLogic.appcommonhandle("项目立项信息",null),
+    tempTaskCnt:  commonLogic.appcommonhandle("临时任务数",null),
+    cycleTaskCnt:  commonLogic.appcommonhandle("周期任务数",null),
+    planTaskCnt:  commonLogic.appcommonhandle("计划任务数",null),
   },
 	views: {
 		mobchartview: {

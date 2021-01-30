@@ -267,6 +267,9 @@ export class MyFavoriteTaskModel {
       {
         name: 'assign',
       },
+      {
+        name: 'inputcost',
+      },
     ]
   }
 

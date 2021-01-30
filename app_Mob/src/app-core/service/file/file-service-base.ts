@@ -245,6 +245,21 @@ export class FileServiceBase extends EntityService {
     }
 
     /**
+     * FetchTypeNotBySrfparentkey接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof FileServiceBase
+     */
+    public async FetchTypeNotBySrfparentkey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/files/fetchtypenotbysrfparentkey`,tempData,isloading);
+        return res;
+    }
+
+    /**
      * Ibzdownload接口方法
      *
      * @param {*} [context={}]

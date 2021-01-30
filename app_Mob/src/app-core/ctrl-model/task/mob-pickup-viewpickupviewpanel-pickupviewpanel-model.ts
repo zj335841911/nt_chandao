@@ -267,6 +267,9 @@ export class MobPickupViewpickupviewpanelModel {
       {
         name: 'assign',
       },
+      {
+        name: 'inputcost',
+      },
     ]
   }
 

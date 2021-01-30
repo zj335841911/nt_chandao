@@ -1,0 +1,13 @@
+global cn.ibizlab.pms.core.zentao.service.IStoryService  storyService;
+global cn.ibizlab.pms.core.zentao.domain.Story et;
+
+    no-loop
+    rule "storygetstoryspec"
+    ruleflow-group "15AC896A-30EE-47B7-8071-F6875BF95042"
+    when
+    then
+    cn.ibizlab.pms.core.zentao.domain.Story actionLogicDE =new cn.ibizlab.pms.core.zentao.domain.Story();
+    et.copyTo(actionLogicDE,true);
+    storyService.getStorySpec(actionLogicDE);
+    end
+

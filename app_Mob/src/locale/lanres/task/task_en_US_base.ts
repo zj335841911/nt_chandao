@@ -85,6 +85,7 @@ export default {
     idvalue:  commonLogic.appcommonhandle("关联编号",null),
     cycle:  commonLogic.appcommonhandle("周期",null),
     aSSIGN:  commonLogic.appcommonhandle("是否指派",null),
+    inputcost:  commonLogic.appcommonhandle("投入成本",null),
   },
 	views: {
 		mobmdview: {

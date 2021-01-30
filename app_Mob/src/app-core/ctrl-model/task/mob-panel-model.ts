@@ -267,6 +267,9 @@ export class MobModel {
       {
         name: 'assign',
       },
+      {
+        name: 'inputcost',
+      },
     ]
   }
 

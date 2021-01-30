@@ -40,6 +40,51 @@ export class MainModel {
         name: 'dates',
       },
       {
+        name: 'evaluationstatus',
+      },
+      {
+        name: 'evaluationcost',
+      },
+      {
+        name: 'evaluationtime',
+      },
+      {
+        name: 'inputcost',
+      },
+      {
+        name: 'evaluationdesc',
+      },
+      {
+        name: 'taskname',
+      },
+      {
+        name: 'project',
+      },
+      {
+        name: 'projectname',
+      },
+      {
+        name: 'taskspecies',
+      },
+      {
+        name: 'type',
+      },
+      {
+        name: 'year',
+      },
+      {
+        name: 'yearname',
+      },
+      {
+        name: 'month',
+      },
+      {
+        name: 'monthname',
+      },
+      {
+        name: 'monthorder',
+      },
+      {
         name: 'task',
         prop: 'id',
         dataType: 'FONTKEY',

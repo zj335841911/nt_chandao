@@ -267,6 +267,9 @@ export class MyTaskMobModel {
       {
         name: 'assign',
       },
+      {
+        name: 'inputcost',
+      },
     ]
   }
 
