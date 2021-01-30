@@ -51,7 +51,9 @@
                 </template>
                 <template v-if="Object.is(data.editor, 'status1eq')">
                     
-
+<app-span name='status1eq' :value="data.status1eq" tag='TestCaseStatusGrid' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style="width:100px;"
+>  
+</app-span>
 
                 </template>
                 <template v-if="Object.is(data.editor, 'assignedtoeq')">
@@ -200,7 +202,9 @@
                 </template>
                 <template v-if="Object.is(data.editor, 'lastrunresult1eq')">
                     
-
+<app-span name='lastrunresult1eq' :value="data.lastrunresult1eq" tag='Testcase__result' codelistType='STATIC' :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style="width:100px;"
+>  
+</app-span>
 
                 </template>
                 <template v-if="Object.is(data.editor, 'libnameeq')">
