@@ -189,4 +189,12 @@ export interface IBZTaskEstimate {
      * @memberof IBZTaskEstimate
      */
     monthorder?: any;
+
+    /**
+     * 附件
+     *
+     * @returns {*}
+     * @memberof IBZTaskEstimate
+     */
+    files?: any;
 }
