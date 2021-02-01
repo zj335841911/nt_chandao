@@ -5,6 +5,11 @@
             <tns:import name="java.util.Map" />
             <tns:import name="org.springframework.util.StringUtils"/>
             <tns:import name="cn.ibizlab.pms.util.helper.RuleUtils"/>
+            <tns:metaData express="" name="doclibmoduleupdate__msdenydefault" type="entity"/>
+            <tns:metaData express="new cn.ibizlab.pms.core.ibiz.domain.DocLibModule()" name="doclibmoduleupdate__msdenytemp" type="refentity"/>
+            <tns:metaData express="T(cn.ibizlab.pms.util.security.SpringContextHolder).getBean(T(cn.ibizlab.pms.core.ibiz.service.IDocLibModuleService))" name="doclibmoduleservice" type="service"/>
+            <tns:metaData express="T(cn.ibizlab.pms.util.security.SpringContextHolder).getBean(T(cn.ibizlab.pms.core.ibiz.service.IDocLibModuleService))" name="iBzSysDoclibmoduleDefaultService" type="service"/>
+            <tns:metaData express="T(cn.ibizlab.pms.util.security.AuthenticationUser).getAuthenticationUser()" name="curuser" type="session"/>
         <tns:global identifier="doclibmoduleupdate__msdenydefault" type="cn.ibizlab.pms.core.ibiz.domain.DocLibModule" />
         <tns:global identifier="doclibmoduleupdate__msdenytemp" type="cn.ibizlab.pms.core.ibiz.domain.DocLibModule" />
         </extensionElements>

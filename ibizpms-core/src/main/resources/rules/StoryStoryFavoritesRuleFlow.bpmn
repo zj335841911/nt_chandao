@@ -5,6 +5,11 @@
             <tns:import name="java.util.Map" />
             <tns:import name="org.springframework.util.StringUtils"/>
             <tns:import name="cn.ibizlab.pms.util.helper.RuleUtils"/>
+            <tns:metaData express="new cn.ibizlab.pms.core.ibiz.domain.IbzFavorites()" name="storystoryfavoritesibzfavorites" type="refentity"/>
+            <tns:metaData express="" name="storystoryfavoritesdefault" type="entity"/>
+            <tns:metaData express="T(cn.ibizlab.pms.util.security.SpringContextHolder).getBean(T(cn.ibizlab.pms.core.ibiz.service.IIbzFavoritesService))" name="ibzfavoritesservice" type="service"/>
+            <tns:metaData express="T(cn.ibizlab.pms.util.security.SpringContextHolder).getBean(T(cn.ibizlab.pms.core.zentao.service.IStoryService))" name="iBzSysStoryDefaultService" type="service"/>
+            <tns:metaData express="T(cn.ibizlab.pms.util.security.AuthenticationUser).getAuthenticationUser()" name="curuser" type="session"/>
         <tns:global identifier="storystoryfavoritesibzfavorites" type="cn.ibizlab.pms.core.ibiz.domain.IbzFavorites" />
         <tns:global identifier="storystoryfavoritesdefault" type="cn.ibizlab.pms.core.zentao.domain.Story" />
         </extensionElements>

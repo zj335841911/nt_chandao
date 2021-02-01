@@ -5,6 +5,9 @@
             <tns:import name="java.util.Map" />
             <tns:import name="org.springframework.util.StringUtils"/>
             <tns:import name="cn.ibizlab.pms.util.helper.RuleUtils"/>
+            <tns:metaData express="" name="ibzmyterritorymyfavoritecountdefault" type="entity"/>
+            <tns:metaData express="T(cn.ibizlab.pms.util.security.SpringContextHolder).getBean(T(cn.ibizlab.pms.core.ibiz.service.IIbzMyTerritoryService))" name="iBzSysIbzmyterritoryDefaultService" type="service"/>
+            <tns:metaData express="T(cn.ibizlab.pms.util.security.AuthenticationUser).getAuthenticationUser()" name="curuser" type="session"/>
         <tns:global identifier="ibzmyterritorymyfavoritecountdefault" type="cn.ibizlab.pms.core.ibiz.domain.IbzMyTerritory" />
         </extensionElements>
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ibzmyterritorymyfavoritecountrawsqlcall3" id="rawsqlcall3" implementation="http://www.jboss.org/drools/rule" name="我的收藏任务数"/>

@@ -5,6 +5,10 @@
             <tns:import name="java.util.Map" />
             <tns:import name="org.springframework.util.StringUtils"/>
             <tns:import name="cn.ibizlab.pms.util.helper.RuleUtils"/>
+            <tns:metaData express="" name="testreportgetinfotesttaskdefault" type="entity"/>
+            <tns:metaData express="new cn.ibizlab.pms.core.zentao.domain.TestTask()" name="testreportgetinfotesttasktesttask" type="refentity"/>
+            <tns:metaData express="T(cn.ibizlab.pms.util.security.SpringContextHolder).getBean(T(cn.ibizlab.pms.core.zentao.service.ITestReportService))" name="iBzSysTestreportDefaultService" type="service"/>
+            <tns:metaData express="T(cn.ibizlab.pms.util.security.AuthenticationUser).getAuthenticationUser()" name="curuser" type="session"/>
         <tns:global identifier="testreportgetinfotesttaskdefault" type="cn.ibizlab.pms.core.zentao.domain.TestReport" />
         <tns:global identifier="testreportgetinfotesttasktesttask" type="cn.ibizlab.pms.core.zentao.domain.TestTask" />
         </extensionElements>

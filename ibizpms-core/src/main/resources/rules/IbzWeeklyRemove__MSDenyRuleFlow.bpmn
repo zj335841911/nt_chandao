@@ -5,6 +5,11 @@
             <tns:import name="java.util.Map" />
             <tns:import name="org.springframework.util.StringUtils"/>
             <tns:import name="cn.ibizlab.pms.util.helper.RuleUtils"/>
+            <tns:metaData express="" name="ibzweeklyremove__msdenydefault" type="entity"/>
+            <tns:metaData express="new cn.ibizlab.pms.core.report.domain.IbzWeekly()" name="ibzweeklyremove__msdenytemp" type="refentity"/>
+            <tns:metaData express="T(cn.ibizlab.pms.util.security.SpringContextHolder).getBean(T(cn.ibizlab.pms.core.report.service.IIbzWeeklyService))" name="ibzweeklyservice" type="service"/>
+            <tns:metaData express="T(cn.ibizlab.pms.util.security.SpringContextHolder).getBean(T(cn.ibizlab.pms.core.report.service.IIbzWeeklyService))" name="iBzSysIbzweeklyDefaultService" type="service"/>
+            <tns:metaData express="T(cn.ibizlab.pms.util.security.AuthenticationUser).getAuthenticationUser()" name="curuser" type="session"/>
         <tns:global identifier="ibzweeklyremove__msdenydefault" type="cn.ibizlab.pms.core.report.domain.IbzWeekly" />
         <tns:global identifier="ibzweeklyremove__msdenytemp" type="cn.ibizlab.pms.core.report.domain.IbzWeekly" />
         </extensionElements>

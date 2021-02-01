@@ -5,6 +5,11 @@
             <tns:import name="java.util.Map" />
             <tns:import name="org.springframework.util.StringUtils"/>
             <tns:import name="cn.ibizlab.pms.util.helper.RuleUtils"/>
+            <tns:metaData express="new cn.ibizlab.pms.core.zentao.domain.Product()" name="productremove__msdenytemp" type="refentity"/>
+            <tns:metaData express="" name="productremove__msdenydefault" type="entity"/>
+            <tns:metaData express="T(cn.ibizlab.pms.util.security.SpringContextHolder).getBean(T(cn.ibizlab.pms.core.zentao.service.IProductService))" name="productservice" type="service"/>
+            <tns:metaData express="T(cn.ibizlab.pms.util.security.SpringContextHolder).getBean(T(cn.ibizlab.pms.core.zentao.service.IProductService))" name="iBzSysProductDefaultService" type="service"/>
+            <tns:metaData express="T(cn.ibizlab.pms.util.security.AuthenticationUser).getAuthenticationUser()" name="curuser" type="session"/>
         <tns:global identifier="productremove__msdenytemp" type="cn.ibizlab.pms.core.zentao.domain.Product" />
         <tns:global identifier="productremove__msdenydefault" type="cn.ibizlab.pms.core.zentao.domain.Product" />
         </extensionElements>

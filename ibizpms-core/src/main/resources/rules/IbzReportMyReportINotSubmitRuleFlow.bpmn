@@ -5,6 +5,9 @@
             <tns:import name="java.util.Map" />
             <tns:import name="org.springframework.util.StringUtils"/>
             <tns:import name="cn.ibizlab.pms.util.helper.RuleUtils"/>
+            <tns:metaData express="" name="ibzreportmyreportinotsubmitdefault" type="entity"/>
+            <tns:metaData express="T(cn.ibizlab.pms.util.security.SpringContextHolder).getBean(T(cn.ibizlab.pms.core.report.service.IIbzReportService))" name="iBzSysIbzreportDefaultService" type="service"/>
+            <tns:metaData express="T(cn.ibizlab.pms.util.security.AuthenticationUser).getAuthenticationUser()" name="curuser" type="session"/>
         <tns:global identifier="ibzreportmyreportinotsubmitdefault" type="cn.ibizlab.pms.core.report.domain.IbzReport" />
         </extensionElements>
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ibzreportmyreportinotsubmitrawsqlcall4" id="rawsqlcall4" implementation="http://www.jboss.org/drools/rule" name="统计我未提交的汇报数"/>

@@ -5,6 +5,9 @@
             <tns:import name="java.util.Map" />
             <tns:import name="org.springframework.util.StringUtils"/>
             <tns:import name="cn.ibizlab.pms.util.helper.RuleUtils"/>
+            <tns:metaData express="" name="todogettodotitledefault" type="entity"/>
+            <tns:metaData express="T(cn.ibizlab.pms.util.security.SpringContextHolder).getBean(T(cn.ibizlab.pms.core.zentao.service.ITodoService))" name="iBzSysTodoDefaultService" type="service"/>
+            <tns:metaData express="T(cn.ibizlab.pms.util.security.AuthenticationUser).getAuthenticationUser()" name="curuser" type="session"/>
         <tns:global identifier="todogettodotitledefault" type="cn.ibizlab.pms.core.zentao.domain.Todo" />
         </extensionElements>
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="todogettodotitlerawsqlcall1" id="rawsqlcall1" implementation="http://www.jboss.org/drools/rule" name="获取待办的标题"/>
