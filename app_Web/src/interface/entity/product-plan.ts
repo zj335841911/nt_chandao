@@ -181,4 +181,36 @@ export interface ProductPlan {
      * @memberof ProductPlan
      */
     plantemplet?: any;
+
+    /**
+     * 延迟任务数
+     *
+     * @returns {*}
+     * @memberof ProductPlan
+     */
+    delaytaskscnt?: any;
+
+    /**
+     * 未完成任务数
+     *
+     * @returns {*}
+     * @memberof ProductPlan
+     */
+    unfinishedtaskscnt?: any;
+
+    /**
+     * 完成任务数
+     *
+     * @returns {*}
+     * @memberof ProductPlan
+     */
+    finishedtaskscnt?: any;
+
+    /**
+     * 总任务数
+     *
+     * @returns {*}
+     * @memberof ProductPlan
+     */
+    taskscnt?: any;
 }

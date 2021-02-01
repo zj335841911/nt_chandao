@@ -40,6 +40,10 @@ hide members
 |开始日期|BEGINSTR|TEXT|&nbsp;|
 |结束日期|ENDSTR|TEXT|&nbsp;|
 |计划模板|PLANTEMPLET|SSCODELIST|&nbsp;|
+|延迟任务数|DELAYTASKSCNT|INT|&nbsp;|
+|未完成任务数|UNFINISHEDTASKSCNT|INT|&nbsp;|
+|完成任务数|FINISHEDTASKSCNT|INT|&nbsp;|
+|总任务数|TASKSCNT|INT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -66,6 +70,10 @@ hide members
 |开始日期|默认规则|内容长度必须小于等于[200]|
 |结束日期|默认规则|内容长度必须小于等于[200]|
 |计划模板|默认规则|内容长度必须小于等于[200]|
+|延迟任务数|默认规则|默认规则|
+|未完成任务数|默认规则|默认规则|
+|完成任务数|默认规则|默认规则|
+|总任务数|默认规则|默认规则|
 
 ## 状态控制
 

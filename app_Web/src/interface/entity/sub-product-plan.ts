@@ -181,4 +181,36 @@ export interface SubProductPlan {
      * @memberof SubProductPlan
      */
     plantemplet?: any;
+
+    /**
+     * 延迟任务数
+     *
+     * @returns {*}
+     * @memberof SubProductPlan
+     */
+    delaytaskscnt?: any;
+
+    /**
+     * 未完成任务数
+     *
+     * @returns {*}
+     * @memberof SubProductPlan
+     */
+    unfinishedtaskscnt?: any;
+
+    /**
+     * 完成任务数
+     *
+     * @returns {*}
+     * @memberof SubProductPlan
+     */
+    finishedtaskscnt?: any;
+
+    /**
+     * 总任务数
+     *
+     * @returns {*}
+     * @memberof SubProductPlan
+     */
+    taskscnt?: any;
 }

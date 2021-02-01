@@ -1532,7 +1532,11 @@ POST
 | 20 | beginstr | String | 允许 | 开始日期 |
 | 21 | endstr | String | 允许 | 结束日期 |
 | 22 | plantemplet | String | 允许 | 计划模板 |
-| 23 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 23 | delaytaskscnt | Integer | 允许 | 延迟任务数 |
+| 24 | unfinishedtaskscnt | Integer | 允许 | 未完成任务数 |
+| 25 | finishedtaskscnt | Integer | 允许 | 完成任务数 |
+| 26 | taskscnt | Integer | 允许 | 总任务数 |
+| 27 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### ProductPlanSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

@@ -225,6 +225,38 @@ public class SubProductPlanDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
     private String plantemplet;
 
+    /**
+     * 属性 [DELAYTASKSCNT]
+     *
+     */
+    @JSONField(name = "delaytaskscnt")
+    @JsonProperty("delaytaskscnt")
+    private Integer delaytaskscnt;
+
+    /**
+     * 属性 [UNFINISHEDTASKSCNT]
+     *
+     */
+    @JSONField(name = "unfinishedtaskscnt")
+    @JsonProperty("unfinishedtaskscnt")
+    private Integer unfinishedtaskscnt;
+
+    /**
+     * 属性 [FINISHEDTASKSCNT]
+     *
+     */
+    @JSONField(name = "finishedtaskscnt")
+    @JsonProperty("finishedtaskscnt")
+    private Integer finishedtaskscnt;
+
+    /**
+     * 属性 [TASKSCNT]
+     *
+     */
+    @JSONField(name = "taskscnt")
+    @JsonProperty("taskscnt")
+    private Integer taskscnt;
+
 
     /**
      * 设置 [TITLE]
