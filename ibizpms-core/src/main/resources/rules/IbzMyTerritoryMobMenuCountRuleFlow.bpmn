@@ -5,6 +5,10 @@
             <tns:import name="java.util.Map" />
             <tns:import name="org.springframework.util.StringUtils"/>
             <tns:import name="cn.ibizlab.pms.util.helper.RuleUtils"/>
+            <tns:metaData express="" name="ibzmyterritorymobmenucountdefault" type="entity"/>
+            <tns:metaData express="T(cn.ibizlab.pms.util.security.SpringContextHolder).getBean(T(cn.ibizlab.pms.core.ibiz.service.IIbzMyTerritoryService))" name="ibzmyterritoryservice" type="service"/>
+            <tns:metaData express="T(cn.ibizlab.pms.util.security.SpringContextHolder).getBean(T(cn.ibizlab.pms.core.ibiz.service.IIbzMyTerritoryService))" name="iBzSysIbzmyterritoryDefaultService" type="service"/>
+            <tns:metaData express="T(cn.ibizlab.pms.util.security.AuthenticationUser).getAuthenticationUser()" name="curuser" type="session"/>
         <tns:global identifier="ibzmyterritorymobmenucountdefault" type="cn.ibizlab.pms.core.ibiz.domain.IbzMyTerritory" />
         </extensionElements>
      <startEvent id="begin" isInterrupting="true"/>

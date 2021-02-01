@@ -5,6 +5,9 @@
             <tns:import name="java.util.Map" />
             <tns:import name="org.springframework.util.StringUtils"/>
             <tns:import name="cn.ibizlab.pms.util.helper.RuleUtils"/>
+            <tns:metaData express="" name="testreportgetinfotesttaskovprojectdefault" type="entity"/>
+            <tns:metaData express="T(cn.ibizlab.pms.util.security.SpringContextHolder).getBean(T(cn.ibizlab.pms.core.zentao.service.ITestReportService))" name="iBzSysTestreportDefaultService" type="service"/>
+            <tns:metaData express="T(cn.ibizlab.pms.util.security.AuthenticationUser).getAuthenticationUser()" name="curuser" type="session"/>
         <tns:global identifier="testreportgetinfotesttaskovprojectdefault" type="cn.ibizlab.pms.core.zentao.domain.TestReport" />
         </extensionElements>
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="testreportgetinfotesttaskovprojectrawsqlcall3" id="rawsqlcall3" implementation="http://www.jboss.org/drools/rule" name="执行的用例数"/>

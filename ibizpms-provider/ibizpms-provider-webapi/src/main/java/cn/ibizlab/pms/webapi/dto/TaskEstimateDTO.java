@@ -230,6 +230,15 @@ public class TaskEstimateDTO extends DTOBase implements Serializable {
     @JsonProperty("monthorder")
     private Integer monthorder;
 
+    /**
+     * 属性 [FILES]
+     *
+     */
+    @JSONField(name = "files")
+    @JsonProperty("files")
+    @Size(min = 0, max = 2000, message = "内容长度必须小于等于[2000]")
+    private String files;
+
 
     /**
      * 设置 [ACCOUNT]
@@ -325,6 +334,14 @@ public class TaskEstimateDTO extends DTOBase implements Serializable {
     public void setMonthname(String  monthname){
         this.monthname = monthname ;
         this.modify("monthname",monthname);
+    }
+
+    /**
+     * 设置 [FILES]
+     */
+    public void setFiles(String  files){
+        this.files = files ;
+        this.modify("files",files);
     }
 
 

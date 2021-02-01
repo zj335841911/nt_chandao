@@ -4299,7 +4299,8 @@ POST
 | 21 | month | String | 允许 | 月 |
 | 22 | monthname | String | 允许 | 月（显示） |
 | 23 | monthorder | Integer | 允许 | 月（排序） |
-| 24 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 24 | files | String | 允许 | 附件 |
+| 25 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### TaskEstimateSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

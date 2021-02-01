@@ -5,6 +5,10 @@
             <tns:import name="java.util.Map" />
             <tns:import name="org.springframework.util.StringUtils"/>
             <tns:import name="cn.ibizlab.pms.util.helper.RuleUtils"/>
+            <tns:metaData express="" name="useryearworkstatsgetinfodefault" type="entity"/>
+            <tns:metaData express="T(cn.ibizlab.pms.util.security.SpringContextHolder).getBean(T(cn.ibizlab.pms.core.ibiz.service.IUserYearWorkStatsService))" name="useryearworkstatsservice" type="service"/>
+            <tns:metaData express="T(cn.ibizlab.pms.util.security.SpringContextHolder).getBean(T(cn.ibizlab.pms.core.ibiz.service.IUserYearWorkStatsService))" name="iBzSysUseryearworkstatsDefaultService" type="service"/>
+            <tns:metaData express="T(cn.ibizlab.pms.util.security.AuthenticationUser).getAuthenticationUser()" name="curuser" type="session"/>
         <tns:global identifier="useryearworkstatsgetinfodefault" type="cn.ibizlab.pms.core.ibiz.domain.UserYearWorkStats" />
         </extensionElements>
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="useryearworkstatsgetinfodeaction2" id="deaction2" implementation="http://www.jboss.org/drools/rule" name="获取研发用户信息"/>

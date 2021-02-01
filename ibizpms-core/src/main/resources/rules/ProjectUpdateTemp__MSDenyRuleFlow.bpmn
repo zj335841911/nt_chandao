@@ -5,6 +5,11 @@
             <tns:import name="java.util.Map" />
             <tns:import name="org.springframework.util.StringUtils"/>
             <tns:import name="cn.ibizlab.pms.util.helper.RuleUtils"/>
+            <tns:metaData express="new cn.ibizlab.pms.core.zentao.domain.Project()" name="projectupdatetemp__msdenytemp" type="refentity"/>
+            <tns:metaData express="" name="projectupdatetemp__msdenydefault" type="entity"/>
+            <tns:metaData express="T(cn.ibizlab.pms.util.security.SpringContextHolder).getBean(T(cn.ibizlab.pms.core.zentao.service.IProjectService))" name="projectservice" type="service"/>
+            <tns:metaData express="T(cn.ibizlab.pms.util.security.SpringContextHolder).getBean(T(cn.ibizlab.pms.core.zentao.service.IProjectService))" name="iBzSysProjectDefaultService" type="service"/>
+            <tns:metaData express="T(cn.ibizlab.pms.util.security.AuthenticationUser).getAuthenticationUser()" name="curuser" type="session"/>
         <tns:global identifier="projectupdatetemp__msdenytemp" type="cn.ibizlab.pms.core.zentao.domain.Project" />
         <tns:global identifier="projectupdatetemp__msdenydefault" type="cn.ibizlab.pms.core.zentao.domain.Project" />
         </extensionElements>

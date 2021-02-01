@@ -189,4 +189,12 @@ export interface TaskEstimate {
      * @memberof TaskEstimate
      */
     monthorder?: any;
+
+    /**
+     * 附件
+     *
+     * @returns {*}
+     * @memberof TaskEstimate
+     */
+    files?: any;
 }

@@ -5,6 +5,9 @@
             <tns:import name="java.util.Map" />
             <tns:import name="org.springframework.util.StringUtils"/>
             <tns:import name="cn.ibizlab.pms.util.helper.RuleUtils"/>
+            <tns:metaData express="" name="productstatsgetcuruserbugcntdefault" type="entity"/>
+            <tns:metaData express="T(cn.ibizlab.pms.util.security.SpringContextHolder).getBean(T(cn.ibizlab.pms.core.ibiz.service.IProductStatsService))" name="iBzSysProductstatsDefaultService" type="service"/>
+            <tns:metaData express="T(cn.ibizlab.pms.util.security.AuthenticationUser).getAuthenticationUser()" name="curuser" type="session"/>
         <tns:global identifier="productstatsgetcuruserbugcntdefault" type="cn.ibizlab.pms.core.ibiz.domain.ProductStats" />
         </extensionElements>
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="productstatsgetcuruserbugcntrawsqlcall1" id="rawsqlcall1" implementation="http://www.jboss.org/drools/rule" name="获取bug数"/>

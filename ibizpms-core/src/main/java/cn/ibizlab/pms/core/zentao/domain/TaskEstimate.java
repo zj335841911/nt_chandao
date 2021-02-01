@@ -213,6 +213,13 @@ public class TaskEstimate extends EntityMP implements Serializable {
     @JSONField(name = "monthorder")
     @JsonProperty("monthorder")
     private Integer monthorder;
+    /**
+     * 附件
+     */
+    @TableField(value = "`files`")
+    @JSONField(name = "files")
+    @JsonProperty("files")
+    private String files;
 
     /**
      * 
@@ -328,6 +335,14 @@ public class TaskEstimate extends EntityMP implements Serializable {
     public void setMonthname(String monthname) {
         this.monthname = monthname;
         this.modify("monthname", monthname);
+    }
+
+    /**
+     * 设置 [附件]
+     */
+    public void setFiles(String files) {
+        this.files = files;
+        this.modify("files", files);
     }
 
 

@@ -5,6 +5,11 @@
             <tns:import name="java.util.Map" />
             <tns:import name="org.springframework.util.StringUtils"/>
             <tns:import name="cn.ibizlab.pms.util.helper.RuleUtils"/>
+            <tns:metaData express="new cn.ibizlab.pms.core.zentao.domain.Module()" name="projectmoduleremovemodulemodule" type="refentity"/>
+            <tns:metaData express="" name="projectmoduleremovemoduledefault" type="entity"/>
+            <tns:metaData express="T(cn.ibizlab.pms.util.security.SpringContextHolder).getBean(T(cn.ibizlab.pms.core.zentao.service.IModuleService))" name="moduleservice" type="service"/>
+            <tns:metaData express="T(cn.ibizlab.pms.util.security.SpringContextHolder).getBean(T(cn.ibizlab.pms.core.ibiz.service.IProjectModuleService))" name="iBzSysProjectmoduleDefaultService" type="service"/>
+            <tns:metaData express="T(cn.ibizlab.pms.util.security.AuthenticationUser).getAuthenticationUser()" name="curuser" type="session"/>
         <tns:global identifier="projectmoduleremovemodulemodule" type="cn.ibizlab.pms.core.zentao.domain.Module" />
         <tns:global identifier="projectmoduleremovemoduledefault" type="cn.ibizlab.pms.core.ibiz.domain.ProjectModule" />
         </extensionElements>
