@@ -103,6 +103,15 @@
          <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
      </select>
 
+    <!--数据集合[PlanTasks]-->
+	 <select id="searchPlanTasks"  parameterType="cn.ibizlab.pms.core.zentao.filter.ProductPlanSearchContext"  resultMap="ProductPlanResultMap">
+         select t1.* from (
+                <include refid="PlanTasks" />
+         )t1
+         <where><if test="ew!=null and ew.sqlSegment!=null and !ew.emptyOfWhere">${ew.sqlSegment}</if></where>
+         <if test="ew!=null and ew.sqlSegment!=null and ew.emptyOfWhere">${ew.sqlSegment}</if>
+     </select>
+
     <!--数据集合[ProjectApp]-->
 	 <select id="searchProjectApp"  parameterType="cn.ibizlab.pms.core.zentao.filter.ProductPlanSearchContext"  resultMap="ProductPlanResultMap">
          select t1.* from (
@@ -168,6 +177,11 @@
     <!--数据查询[PlanCodeList]-->
     <sql id="PlanCodeList" databaseId="mysql">
 		<![CDATA[ select t1.* from ( SELECT t1.`ID`, t1.`TITLE`, t1.product, t1.parent FROM `zt_productplan` t1  UNION SELECT 0 as `ID`, '未计划' as `TITLE`, 0 as product, 0 as parent FROM dual  ) t1
+			]]>
+    </sql>
+    <!--数据查询[PlanTasks]-->
+    <sql id="PlanTasks" databaseId="mysql">
+		<![CDATA[ 
 			]]>
     </sql>
     <!--数据查询[ProjectApp]-->
