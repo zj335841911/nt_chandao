@@ -81,6 +81,18 @@ export class MobModel {
       {
         name: 'plantemplet',
       },
+      {
+        name: 'delaytaskscnt',
+      },
+      {
+        name: 'unfinishedtaskscnt',
+      },
+      {
+        name: 'finishedtaskscnt',
+      },
+      {
+        name: 'taskscnt',
+      },
     ]
   }
 
