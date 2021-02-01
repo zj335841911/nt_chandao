@@ -35,6 +35,7 @@ hide members
 |月|MONTH|TEXT|&nbsp;|
 |月（显示）|MONTHNAME|TEXT|&nbsp;|
 |月（排序）|MONTHORDER|INT|&nbsp;|
+|附件|FILES|LONGTEXT_1000|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -64,6 +65,7 @@ hide members
 |月|默认规则|内容长度必须小于等于[100]|
 |月（显示）|默认规则|内容长度必须小于等于[100]|
 |月（排序）|默认规则|默认规则|
+|附件|默认规则|内容长度必须小于等于[2000]|
 
 ## 状态控制
 

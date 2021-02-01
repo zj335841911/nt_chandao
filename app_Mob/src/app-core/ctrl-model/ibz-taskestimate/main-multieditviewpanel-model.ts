@@ -85,6 +85,9 @@ export class MainModel {
         name: 'monthorder',
       },
       {
+        name: 'files',
+      },
+      {
         name: 'task',
         prop: 'id',
         dataType: 'FONTKEY',

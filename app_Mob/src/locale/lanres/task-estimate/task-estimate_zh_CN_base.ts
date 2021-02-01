@@ -24,6 +24,7 @@ export default {
     month: "月",
     monthname: "月（显示）",
     monthorder: "月（排序）",
+    files: "附件",
   },
 	views: {
 		moboptionview: {
