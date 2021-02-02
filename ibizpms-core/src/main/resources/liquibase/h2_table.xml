@@ -1083,7 +1083,7 @@
 
 
     <!--输出实体[IBIZPRO_INDEX]数据结构 -->
-    <changeSet author="zentao" id="tab-ibizpro_index-1-37">
+    <changeSet author="zentao" id="tab-ibizpro_index-3-37">
         <createTable tableName="">
         </createTable>
     </changeSet>
