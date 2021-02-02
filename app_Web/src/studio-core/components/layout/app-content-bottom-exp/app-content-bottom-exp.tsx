@@ -136,7 +136,7 @@ export class AppContentBottomExp extends Vue {
                     on-on-click={(name: string) => this.activeTab(name)}
                 >
                     {this.menus.map((item: any, i: number) => {
-                        if (!Object.is(item.appfuncyype, 'APPVIEW') || item.hidden) {
+                        if (!Object.is(item.appfunctype, 'APPVIEW') || item.hidden) {
                             return;
                         }
                         return (

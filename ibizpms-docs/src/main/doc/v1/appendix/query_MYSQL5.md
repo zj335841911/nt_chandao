@@ -16294,8 +16294,9 @@ SELECT T1.* FROM (SELECT
 	sum(if(t1.`day` = '29',t1.EVALUATIONCOST, 0)) as twentynineEVALUATIONCOST,
 	sum(if(t1.`day` = '30',t1.EVALUATIONCOST, 0)) as thirtyEVALUATIONCOST,
 	sum(if(t1.`day` = '31',t1.EVALUATIONCOST, 0)) as thirtyoneEVALUATIONCOST,
-	SUM(T1.consumed) AS consumed,SUM(T1.EVALUATIONCOST) AS EVALUATIONCOST, SUM(T1.INPUTCOST) AS INPUTCOST, SUM(T1.EVALUATIONTIME) AS EVALUATIONTIME,SUM(T1.otherconsumed) AS otherconsumed,
-	SUM(T1.otherEVALUATIONTIME) AS otherEVALUATIONTIME
+	SUM(T1.consumed) AS consumed,SUM(T1.EVALUATIONCOST) AS EVALUATIONCOST, SUM(T1.INPUTCOST) AS INPUTCOST, SUM(T1.EVALUATIONTIME) AS EVALUATIONTIME,
+(select ROUND(sum(t.consumed),2) from zt_taskestimate t left join zt_task tt on tt.id = t.task where tt.project <> t1.project and t.account = t1.account and DATE_FORMAT(t.date,'%Y%m') = concat(t1.`YEAR`, t1.`MONTH`)) as otherconsumed,
+	(select ROUND(sum(t.EVALUATIONTIME),2) from zt_taskestimate t left join zt_task tt on tt.id = t.task where tt.project <> t1.project and t.account = t1.account and DATE_FORMAT(t.date,'%Y%m') = concat(t1.`YEAR`, t1.`MONTH`)) as otherEVALUATIONTIME
 FROM
 	(
 SELECT YEAR
@@ -16309,9 +16310,7 @@ SELECT YEAR
 	ROUND( sum( t1.consumed ), 2 ) AS consumed,
 	ROUND( sum( t1.EVALUATIONCOST ), 2 ) AS EVALUATIONCOST,
 	ROUND( sum( t1.INPUTCOST ), 2 ) AS INPUTCOST,
-	ROUND( sum( t1.EVALUATIONTIME ), 2 ) AS EVALUATIONTIME,
-        (select ROUND(sum(t.consumed),2) from zt_taskestimate t left join zt_task tt on tt.id = t.task where tt.project <> t11.project and t.account = t1.account and t.date = t1.date ) as otherconsumed,
-	(select ROUND(sum(t.EVALUATIONTIME),2) from zt_taskestimate t left join zt_task tt on tt.id = t.task where tt.project <> t11.project and t.account = t1.account and t.date = t1.date ) as otherEVALUATIONTIME
+	ROUND( sum( t1.EVALUATIONTIME ), 2 ) AS EVALUATIONTIME
 FROM
 	`zt_taskestimate` t1
 	LEFT JOIN `zt_task` t11 ON t1.`TASK` = t11.`ID`
@@ -16427,8 +16426,9 @@ SELECT T1.* FROM (SELECT
 	sum(if(t1.`day` = '29',t1.EVALUATIONCOST, 0)) as twentynineEVALUATIONCOST,
 	sum(if(t1.`day` = '30',t1.EVALUATIONCOST, 0)) as thirtyEVALUATIONCOST,
 	sum(if(t1.`day` = '31',t1.EVALUATIONCOST, 0)) as thirtyoneEVALUATIONCOST,
-	SUM(T1.consumed) AS consumed,SUM(T1.EVALUATIONCOST) AS EVALUATIONCOST, SUM(T1.INPUTCOST) AS INPUTCOST, SUM(T1.EVALUATIONTIME) AS EVALUATIONTIME,SUM(T1.otherconsumed) AS otherconsumed,
-	SUM(T1.otherEVALUATIONTIME) AS otherEVALUATIONTIME
+	SUM(T1.consumed) AS consumed,SUM(T1.EVALUATIONCOST) AS EVALUATIONCOST, SUM(T1.INPUTCOST) AS INPUTCOST, SUM(T1.EVALUATIONTIME) AS EVALUATIONTIME,
+(select ROUND(sum(t.consumed),2) from zt_taskestimate t left join zt_task tt on tt.id = t.task where tt.project <> t1.project and t.account = t1.account and DATE_FORMAT(t.date,'%Y%m') = concat(t1.`YEAR`, t1.`MONTH`)) as otherconsumed,
+	(select ROUND(sum(t.EVALUATIONTIME),2) from zt_taskestimate t left join zt_task tt on tt.id = t.task where tt.project <> t1.project and t.account = t1.account and DATE_FORMAT(t.date,'%Y%m') = concat(t1.`YEAR`, t1.`MONTH`)) as otherEVALUATIONTIME
 FROM
 	(
 SELECT YEAR
@@ -16442,9 +16442,7 @@ SELECT YEAR
 	ROUND( sum( t1.consumed ), 2 ) AS consumed,
 	ROUND( sum( t1.EVALUATIONCOST ), 2 ) AS EVALUATIONCOST,
 	ROUND( sum( t1.INPUTCOST ), 2 ) AS INPUTCOST,
-	ROUND( sum( t1.EVALUATIONTIME ), 2 ) AS EVALUATIONTIME,
-        (select ROUND(sum(t.consumed),2) from zt_taskestimate t left join zt_task tt on tt.id = t.task where tt.project <> t11.project and t.account = t1.account and t.date = t1.date ) as otherconsumed,
-	(select ROUND(sum(t.EVALUATIONTIME),2) from zt_taskestimate t left join zt_task tt on tt.id = t.task where tt.project <> t11.project and t.account = t1.account and t.date = t1.date ) as otherEVALUATIONTIME
+	ROUND( sum( t1.EVALUATIONTIME ), 2 ) AS EVALUATIONTIME
 FROM
 	`zt_taskestimate` t1
 	LEFT JOIN `zt_task` t11 ON t1.`TASK` = t11.`ID`
