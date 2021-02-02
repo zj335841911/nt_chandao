@@ -55,10 +55,6 @@ public class ActionServiceImpl extends ServiceImpl<ActionMapper, Action> impleme
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.IProjectService projectService;
 
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.IActionCommentLogic commentLogic;
-
     protected int batchSize = 500;
 
         @Override

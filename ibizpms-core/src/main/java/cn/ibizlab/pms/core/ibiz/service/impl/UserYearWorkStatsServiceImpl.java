@@ -49,26 +49,6 @@ import org.springframework.util.StringUtils;
 public class UserYearWorkStatsServiceImpl extends ServiceImpl<UserYearWorkStatsMapper, UserYearWorkStats> implements IUserYearWorkStatsService {
 
 
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.ibiz.service.logic.IUserYearWorkStatsGetDevInfomationLogic getdevinfomationLogic;
-
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.ibiz.service.logic.IUserYearWorkStatsGetPOInfomationLogic getpoinfomationLogic;
-
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.ibiz.service.logic.IUserYearWorkStatsGetQAInformationLogic getqainformationLogic;
-
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.ibiz.service.logic.IUserYearWorkStatsGetInfoLogic getinfoLogic;
-
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.ibiz.service.logic.IUserYearWorkStatsUpdateInfoLogic updateinfoLogic;
-
     protected int batchSize = 500;
 
     @Override

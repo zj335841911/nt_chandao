@@ -54,14 +54,6 @@ public class TestModuleServiceImpl extends ServiceImpl<TestModuleMapper, TestMod
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.IProductService productService;
 
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.ibiz.service.logic.ITestModuleFixPathLogic fixpathLogic;
-
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.ibiz.service.logic.ITestModuleRemoveModuleLogic removemoduleLogic;
-
     protected int batchSize = 500;
 
     @Override

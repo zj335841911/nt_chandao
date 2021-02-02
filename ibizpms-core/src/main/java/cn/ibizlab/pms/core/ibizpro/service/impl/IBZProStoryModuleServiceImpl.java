@@ -57,10 +57,6 @@ public class IBZProStoryModuleServiceImpl extends ServiceImpl<IBZProStoryModuleM
     @Lazy
     protected cn.ibizlab.pms.core.ibizpro.service.IIBZProProductService ibzproproductService;
 
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.ibizpro.service.logic.IIBZProStoryModuleFixPathLogic fixpathLogic;
-
     protected int batchSize = 500;
 
     @Override

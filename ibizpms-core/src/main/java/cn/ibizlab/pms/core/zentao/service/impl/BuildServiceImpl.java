@@ -64,10 +64,6 @@ public class BuildServiceImpl extends ServiceImpl<BuildMapper, Build> implements
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.IProjectService projectService;
 
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.IBuildMobProjectBuildCounterLogic mobprojectbuildcounterLogic;
-
     protected int batchSize = 500;
 
         @Override

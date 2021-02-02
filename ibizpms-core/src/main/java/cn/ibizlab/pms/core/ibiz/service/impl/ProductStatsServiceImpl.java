@@ -49,10 +49,6 @@ import org.springframework.util.StringUtils;
 public class ProductStatsServiceImpl extends ServiceImpl<ProductStatsMapper, ProductStats> implements IProductStatsService {
 
 
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.ibiz.service.logic.IProductStatsGetCurUserBugCntLogic getcuruserbugcntLogic;
-
     protected int batchSize = 500;
 
     @Override

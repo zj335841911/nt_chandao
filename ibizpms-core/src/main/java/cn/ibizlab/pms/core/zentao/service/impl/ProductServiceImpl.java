@@ -121,30 +121,6 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.IModuleService moduleService;
 
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.IProductUpdate__MSDenyLogic update__msdenyLogic;
-
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.IProductRemove__MSDenyLogic remove__msdenyLogic;
-
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.IProductCancelProductTopLogic cancelproducttopLogic;
-
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.IProductMobProductCounterLogic mobproductcounterLogic;
-
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.IProductMobProductTestCounterLogic mobproducttestcounterLogic;
-
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.IProductProductTopLogic producttopLogic;
-
     protected int batchSize = 500;
 
         @Override

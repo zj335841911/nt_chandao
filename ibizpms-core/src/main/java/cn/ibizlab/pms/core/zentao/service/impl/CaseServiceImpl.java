@@ -81,30 +81,6 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.ITestSuiteService testsuiteService;
 
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.ICasecaseFavoriteLogic casefavoriteLogic;
-
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.ICaseCaseNFavoriteLogic casenfavoriteLogic;
-
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.ICaserunCasesLogic runcasesLogic;
-
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.ICasetestRunCasesLogic testruncasesLogic;
-
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.ICaseunlinkCasesLogic unlinkcasesLogic;
-
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.ICaseunlinkSuiteCasesLogic unlinksuitecasesLogic;
-
     protected int batchSize = 500;
 
         @Override
