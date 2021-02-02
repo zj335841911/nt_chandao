@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:g="http://www.jboss.org/drools/flow/gpd" xmlns:tns="http://www.jboss.org/drools" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.mvel.org/2.0" id="Definition" name="" targetNamespace="http://www.jboss.org/drools" typeLanguage="http://www.java.com/javaTypes">
+    <process id="cn.ibizlab.pms.core.zentao.bug.close.afterLogic" isClosed="false" isExecutable="true" name="zentao_bug_close_afterLogic" processType="Private" tns:packageName="cn.ibizlab.pms.core.zentao.bug.close.afterLogic">
+        <extensionElements>
+            <tns:import name="java.util.Map"/>
+            <tns:import name="org.springframework.util.StringUtils"/>
+            <tns:import name="cn.ibizlab.pms.util.helper.RuleUtils"/>
+            <tns:import name="cn.ibizlab.pms.core.zentao.domain.Bug"/>
+        </extensionElements>
+            <startEvent id="begin" isInterrupting="true"/>
+            <endEvent id="prepareparam1_end" name="end"/>
+           <callActivity activiti:exclusive="true" calledElement="cn.ibizlab.pms.core.zentao.service.logic.bugsendnotice" id="C3AD4124-ABFD-4017-97C5-605D16C6070C" name="BugsendNoticeRuleFlow.bpmn"/>
+           <sequenceFlow id="begin_C3AD4124-ABFD-4017-97C5-605D16C6070C" sourceRef="begin" targetRef="C3AD4124-ABFD-4017-97C5-605D16C6070C"/>
+           <sequenceFlow id="C3AD4124-ABFD-4017-97C5-605D16C6070C_prepareparam1_end" sourceRef="C3AD4124-ABFD-4017-97C5-605D16C6070C" targetRef="prepareparam1_end"/>
+    </process>
+</definitions>
