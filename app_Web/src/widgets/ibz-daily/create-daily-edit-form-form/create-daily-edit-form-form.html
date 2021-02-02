@@ -46,6 +46,87 @@
 </i-col>
 <i-col
     class="form-layout-container"
+    v-show="detailsModel.reportto.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 12, offset: 0 }"
+>
+    <app-form-item
+    name="reportto"
+    :itemRules="this.rules().reportto"
+    class=""
+
+    :caption="$t('entities.ibzdaily.createdailyeditform_form.details.reportto')"
+    uiStyle="DEFAULT"
+    :labelWidth="100"
+    :isShowCaption="true"
+    :error="detailsModel.reportto.error"
+    :isEmptyCaption="false"
+    labelPos="LEFT"
+>
+    
+<dropdown-list 
+    v-model="data.reportto"
+    :data="data"
+    :context="context"
+    :formState="formState"
+    :viewparams="viewparams"
+    :localContext='{ }' 
+    :localParam='{ }' 
+    :disabled="detailsModel.reportto.disabled"
+    valueType="string"
+    tag="UserRealName"
+    codelistType="DYNAMIC"
+    placeholder="请选择..."
+
+></dropdown-list>
+</app-form-item>
+
+</i-col>
+<i-col
+    class="form-layout-container"
+    v-show="detailsModel.mailto.visible"
+    :style="{}"
+    
+    
+    :lg="{ span: 24, offset: 0 }"
+    :xl="{ span: 12, offset: 0 }"
+>
+    <app-form-item
+    name="mailto"
+    :itemRules="this.rules().mailto"
+    class=""
+
+    :caption="$t('entities.ibzdaily.createdailyeditform_form.details.mailto')"
+    uiStyle="DEFAULT"
+    :labelWidth="100"
+    :isShowCaption="true"
+    :error="detailsModel.mailto.error"
+    :isEmptyCaption="false"
+    labelPos="LEFT"
+>
+    
+<dropdown-list-mpicker 
+  v-model="data.mailto"
+  :data="data" 
+  :context="context"
+  :viewparams="viewparams" 
+  :localContext ='{ }' 
+  :localParam ='{ }' 
+  :disabled="detailsModel.mailto.disabled"
+  tag='UserRealName' 
+  codelistType='DYNAMIC' 
+  valueSeparator=","
+  placeholder='请选择...' style="">
+</dropdown-list-mpicker>
+
+</app-form-item>
+
+</i-col>
+<i-col
+    class="form-layout-container"
     v-show="detailsModel.todaytask.visible"
     :style="{}"
     
@@ -279,87 +360,6 @@
     :exportparams='{objecttype:"daily",objectid:"0",version:"1"}'
     style="overflow: auto;"
 ></app-file-upload>
-</app-form-item>
-
-</i-col>
-<i-col
-    class="form-layout-container"
-    v-show="detailsModel.reportto.visible"
-    :style="{}"
-    
-    
-    :lg="{ span: 24, offset: 0 }"
-    :xl="{ span: 12, offset: 0 }"
->
-    <app-form-item
-    name="reportto"
-    :itemRules="this.rules().reportto"
-    class=""
-
-    :caption="$t('entities.ibzdaily.createdailyeditform_form.details.reportto')"
-    uiStyle="DEFAULT"
-    :labelWidth="100"
-    :isShowCaption="true"
-    :error="detailsModel.reportto.error"
-    :isEmptyCaption="false"
-    labelPos="LEFT"
->
-    
-<dropdown-list 
-    v-model="data.reportto"
-    :data="data"
-    :context="context"
-    :formState="formState"
-    :viewparams="viewparams"
-    :localContext='{ }' 
-    :localParam='{ }' 
-    :disabled="detailsModel.reportto.disabled"
-    valueType="string"
-    tag="UserRealName"
-    codelistType="DYNAMIC"
-    placeholder="请选择..."
-
-></dropdown-list>
-</app-form-item>
-
-</i-col>
-<i-col
-    class="form-layout-container"
-    v-show="detailsModel.mailto.visible"
-    :style="{}"
-    
-    
-    :lg="{ span: 24, offset: 0 }"
-    :xl="{ span: 12, offset: 0 }"
->
-    <app-form-item
-    name="mailto"
-    :itemRules="this.rules().mailto"
-    class=""
-
-    :caption="$t('entities.ibzdaily.createdailyeditform_form.details.mailto')"
-    uiStyle="DEFAULT"
-    :labelWidth="100"
-    :isShowCaption="true"
-    :error="detailsModel.mailto.error"
-    :isEmptyCaption="false"
-    labelPos="LEFT"
->
-    
-<dropdown-list-mpicker 
-  v-model="data.mailto"
-  :data="data" 
-  :context="context"
-  :viewparams="viewparams" 
-  :localContext ='{ }' 
-  :localParam ='{ }' 
-  :disabled="detailsModel.mailto.disabled"
-  tag='UserRealName' 
-  codelistType='DYNAMIC' 
-  valueSeparator=","
-  placeholder='请选择...' style="">
-</dropdown-list-mpicker>
-
 </app-form-item>
 
 </i-col>

@@ -23,6 +23,10 @@ export default {
     beginstr:  commonLogic.appcommonhandle("开始日期",null),
     endstr:  commonLogic.appcommonhandle("结束日期",null),
     plantemplet:  commonLogic.appcommonhandle("计划模板",null),
+    delayTaskscnt:  commonLogic.appcommonhandle("延迟任务数",null),
+    unFinishedTaskscnt:  commonLogic.appcommonhandle("未完成任务数",null),
+    finishedTaskscnt:  commonLogic.appcommonhandle("完成任务数",null),
+    taskscnt:  commonLogic.appcommonhandle("总任务数",null),
   },
 	views: {
 		mobmdview: {

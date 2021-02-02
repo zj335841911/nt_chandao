@@ -100,7 +100,7 @@ export default class IBZWEEKLYUIServiceBase extends UIService {
             viewname: 'editview',
             srfappde: 'ibzweeklies',
             component: 'ibz-weekly-edit-view',
-            openmode: 'DRAWER_RIGHT',
+            openmode: 'INDEXVIEWTAB',
             title: '周报',
             width: 0,
             height: 0
@@ -176,25 +176,14 @@ export default class IBZWEEKLYUIServiceBase extends UIService {
         let deResParameters: any[] = [];
         const parameters: any[] = [
             { pathName: 'ibzweeklies', parameterName: 'ibzweekly' },
+            { pathName: 'editviewedit', parameterName: 'editviewedit' },
         ];
-            const openDrawer = (view: any, data: any) => {
-                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
-                container.subscribe((result: any) => {
-                    if (!result || !Object.is(result.ret, 'OK')) {
-                        return;
-                    }
-                    const _this: any = actionContext;
-                    return result.datas;
-                });
-            }
-            const view: any = {
-                viewname: 'ibz-weekly-edit-view-edit', 
-                height: 0, 
-                width: 0,  
-                title: actionContext.$t('entities.ibzweekly.views.editviewedit.title'),
-                placement: 'DRAWER_RIGHT',
-            };
-            openDrawer(view, data);
+        const openIndexViewTab = (data: any) => {
+            const routePath = actionContext.$viewTool.buildUpRoutePath(actionContext.$route, context, deResParameters, parameters, _args, data);
+            actionContext.$router.push(routePath);
+            return null;
+        }
+        openIndexViewTab(data);
     }
 
     /**
@@ -384,25 +373,14 @@ export default class IBZWEEKLYUIServiceBase extends UIService {
         let deResParameters: any[] = [];
         const parameters: any[] = [
             { pathName: 'ibzweeklies', parameterName: 'ibzweekly' },
+            { pathName: 'editview', parameterName: 'editview' },
         ];
-            const openDrawer = (view: any, data: any) => {
-                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
-                container.subscribe((result: any) => {
-                    if (!result || !Object.is(result.ret, 'OK')) {
-                        return;
-                    }
-                    const _this: any = actionContext;
-                    return result.datas;
-                });
-            }
-            const view: any = {
-                viewname: 'ibz-weekly-edit-view', 
-                height: 0, 
-                width: 0,  
-                title: actionContext.$t('entities.ibzweekly.views.editview.title'),
-                placement: 'DRAWER_RIGHT',
-            };
-            openDrawer(view, data);
+        const openIndexViewTab = (data: any) => {
+            const routePath = actionContext.$viewTool.buildUpRoutePath(actionContext.$route, context, deResParameters, parameters, _args, data);
+            actionContext.$router.push(routePath);
+            return null;
+        }
+        openIndexViewTab(data);
     }
 
     /**

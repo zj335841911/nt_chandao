@@ -81,6 +81,18 @@ export class MobTabExpViewtabviewpanel2Model {
       {
         name: 'plantemplet',
       },
+      {
+        name: 'delaytaskscnt',
+      },
+      {
+        name: 'unfinishedtaskscnt',
+      },
+      {
+        name: 'finishedtaskscnt',
+      },
+      {
+        name: 'taskscnt',
+      },
     ]
   }
 

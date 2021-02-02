@@ -350,28 +350,17 @@ export default class IbzMonthlyUIServiceBase extends UIService {
         let deResParameters: any[] = [];
         const parameters: any[] = [
             { pathName: 'ibzmonthlies', parameterName: 'ibzmonthly' },
+            { pathName: 'editmonthlyeditview', parameterName: 'editmonthlyeditview' },
         ];
-            const openDrawer = (view: any, data: any) => {
-                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
-                container.subscribe((result: any) => {
-                    if (!result || !Object.is(result.ret, 'OK')) {
-                        return;
-                    }
-                    const _this: any = actionContext;
-                    if (xData && xData.refresh && xData.refresh instanceof Function) {
-                        xData.refresh(args);
-                    }
-                    return result.datas;
-                });
+        const openIndexViewTab = (data: any) => {
+            const routePath = actionContext.$viewTool.buildUpRoutePath(actionContext.$route, context, deResParameters, parameters, _args, data);
+            actionContext.$router.push(routePath);
+            if (xData && xData.refresh && xData.refresh instanceof Function) {
+                xData.refresh(args);
             }
-            const view: any = {
-                viewname: 'ibz-monthly-edit-monthly-edit-view', 
-                height: 0, 
-                width: 800,  
-                title: actionContext.$t('entities.ibzmonthly.views.editmonthlyeditview.title'),
-                placement: 'DRAWER_RIGHT',
-            };
-            openDrawer(view, data);
+            return null;
+        }
+        openIndexViewTab(data);
     }
 
     /**
@@ -411,28 +400,17 @@ export default class IbzMonthlyUIServiceBase extends UIService {
         let deResParameters: any[] = [];
         const parameters: any[] = [
             { pathName: 'ibzmonthlies', parameterName: 'ibzmonthly' },
+            { pathName: 'newmonthlyeditview', parameterName: 'newmonthlyeditview' },
         ];
-            const openDrawer = (view: any, data: any) => {
-                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
-                container.subscribe((result: any) => {
-                    if (!result || !Object.is(result.ret, 'OK')) {
-                        return;
-                    }
-                    const _this: any = actionContext;
-                    if (xData && xData.refresh && xData.refresh instanceof Function) {
-                        xData.refresh(args);
-                    }
-                    return result.datas;
-                });
+        const openIndexViewTab = (data: any) => {
+            const routePath = actionContext.$viewTool.buildUpRoutePath(actionContext.$route, context, deResParameters, parameters, _args, data);
+            actionContext.$router.push(routePath);
+            if (xData && xData.refresh && xData.refresh instanceof Function) {
+                xData.refresh(args);
             }
-            const view: any = {
-                viewname: 'ibz-monthly-new-monthly-edit-view', 
-                height: 0, 
-                width: 800,  
-                title: actionContext.$t('entities.ibzmonthly.views.newmonthlyeditview.title'),
-                placement: 'DRAWER_RIGHT',
-            };
-            openDrawer(view, data);
+            return null;
+        }
+        openIndexViewTab(data);
     }
 
 

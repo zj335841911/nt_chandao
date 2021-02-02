@@ -66,6 +66,16 @@ export default class EditDailyEditFormModel {
         dataType: 'DATE',
       },
       {
+        name: 'reportto',
+        prop: 'reportto',
+        dataType: 'SSCODELIST',
+      },
+      {
+        name: 'mailto',
+        prop: 'mailto',
+        dataType: 'SMCODELIST',
+      },
+      {
         name: 'todaytask',
         prop: 'todaytask',
         dataType: 'SMCODELIST',
@@ -94,16 +104,6 @@ export default class EditDailyEditFormModel {
         name: 'files',
         prop: 'files',
         dataType: 'TEXT',
-      },
-      {
-        name: 'reportto',
-        prop: 'reportto',
-        dataType: 'SSCODELIST',
-      },
-      {
-        name: 'mailto',
-        prop: 'mailto',
-        dataType: 'SMCODELIST',
       },
       {
         name: 'ibz_dailyid',

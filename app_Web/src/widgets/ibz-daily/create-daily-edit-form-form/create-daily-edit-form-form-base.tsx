@@ -95,14 +95,14 @@ export class CreateDailyEditFormEditFormBase extends EditFormControlBase {
         srfsourcekey: null,
         ibz_dailyname: null,
         date: null,
+        reportto: null,
+        mailto: null,
         todaytask: null,
         worktoday: null,
         tomorrowplanstask: null,
         planstomorrow: null,
         comment: null,
         files: null,
-        reportto: null,
-        mailto: null,
         ibz_dailyid: null,
         account: null,
         issubmit: null,
@@ -218,6 +218,20 @@ export class CreateDailyEditFormEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
+        reportto: new FormItemModel({
+    caption: '汇报给', detailType: 'FORMITEM', name: 'reportto', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
+        mailto: new FormItemModel({
+    caption: '抄送给', detailType: 'FORMITEM', name: 'mailto', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
         todaytask: new FormItemModel({
     caption: '完成任务', detailType: 'FORMITEM', name: 'todaytask', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
@@ -255,20 +269,6 @@ export class CreateDailyEditFormEditFormBase extends EditFormControlBase {
 
         files: new FormItemModel({
     caption: '附件', detailType: 'FORMITEM', name: 'files', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
-    required:false,
-    disabled: false,
-    enableCond: 3,
-}),
-
-        reportto: new FormItemModel({
-    caption: '汇报给', detailType: 'FORMITEM', name: 'reportto', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
-    required:false,
-    disabled: false,
-    enableCond: 3,
-}),
-
-        mailto: new FormItemModel({
-    caption: '抄送给', detailType: 'FORMITEM', name: 'mailto', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,

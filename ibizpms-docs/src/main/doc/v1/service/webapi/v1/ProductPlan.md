@@ -554,6 +554,42 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[ProductPlanDTO](#ProductPlanDTO)>：产品计划实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
+### 获取项目计划任务（项目管理-项目计划）
+#### 访问路径
+/productplans/fetchplantasks
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [ProductPlanSearchContext](#ProductPlanSearchContext) | 产品计划查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[ProductPlanDTO](#ProductPlanDTO)>：产品计划实体传输对象列表 |
+
+### 查询项目计划任务（项目管理-项目计划）
+#### 访问路径
+/productplans/searchplantasks
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [ProductPlanSearchContext](#ProductPlanSearchContext) | 产品计划查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[ProductPlanDTO](#ProductPlanDTO)>：产品计划实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
 ### 获取项目立项
 #### 访问路径
 /productplans/fetchprojectapp
@@ -1279,6 +1315,44 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[ProductPlanDTO](#ProductPlanDTO)>：产品计划实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
+### 根据获取项目计划任务（项目管理-项目计划）
+#### 访问路径
+/products/{product_id}/productplans/fetchplantasks
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |
+| 2 | context | [ProductPlanSearchContext](#ProductPlanSearchContext) | 产品计划查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[ProductPlanDTO](#ProductPlanDTO)>：产品计划实体传输对象列表 |
+
+### 根据查询项目计划任务（项目管理-项目计划）
+#### 访问路径
+/products/{product_id}/productplans/searchplantasks
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |
+| 2 | context | [ProductPlanSearchContext](#ProductPlanSearchContext) | 产品计划查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[ProductPlanDTO](#ProductPlanDTO)>：产品计划实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
 ### 根据获取项目立项
 #### 访问路径
 /products/{product_id}/productplans/fetchprojectapp
@@ -1458,7 +1532,12 @@ POST
 | 20 | beginstr | String | 允许 | 开始日期 |
 | 21 | endstr | String | 允许 | 结束日期 |
 | 22 | plantemplet | String | 允许 | 计划模板 |
-| 23 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 23 | delaytaskscnt | Integer | 允许 | 延迟任务数 |
+| 24 | unfinishedtaskscnt | Integer | 允许 | 未完成任务数 |
+| 25 | finishedtaskscnt | Integer | 允许 | 完成任务数 |
+| 26 | taskscnt | Integer | 允许 | 总任务数 |
+| 27 | duration | String | 允许 | 持续时间 |
+| 28 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### ProductPlanSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

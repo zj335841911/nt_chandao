@@ -207,6 +207,41 @@ public class ProductPlan extends EntityMP implements Serializable {
     @JSONField(name = "plantemplet")
     @JsonProperty("plantemplet")
     private String plantemplet;
+    /**
+     * 延迟任务数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "delaytaskscnt")
+    @JsonProperty("delaytaskscnt")
+    private Integer delaytaskscnt;
+    /**
+     * 未完成任务数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "unfinishedtaskscnt")
+    @JsonProperty("unfinishedtaskscnt")
+    private Integer unfinishedtaskscnt;
+    /**
+     * 完成任务数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "finishedtaskscnt")
+    @JsonProperty("finishedtaskscnt")
+    private Integer finishedtaskscnt;
+    /**
+     * 总任务数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "taskscnt")
+    @JsonProperty("taskscnt")
+    private Integer taskscnt;
+    /**
+     * 持续时间
+     */
+    @TableField(exist = false)
+    @JSONField(name = "duration")
+    @JsonProperty("duration")
+    private String duration;
 
     /**
      * 

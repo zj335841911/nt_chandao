@@ -66,6 +66,16 @@ export default class NewModel {
         dataType: 'DATE',
       },
       {
+        name: 'reportto',
+        prop: 'reportto',
+        dataType: 'SSCODELIST',
+      },
+      {
+        name: 'mailto',
+        prop: 'mailto',
+        dataType: 'SMCODELIST',
+      },
+      {
         name: 'thismonthtask',
         prop: 'thismonthtask',
         dataType: 'SMCODELIST',
@@ -94,16 +104,6 @@ export default class NewModel {
         name: 'files',
         prop: 'files',
         dataType: 'TEXT',
-      },
-      {
-        name: 'reportto',
-        prop: 'reportto',
-        dataType: 'SSCODELIST',
-      },
-      {
-        name: 'mailto',
-        prop: 'mailto',
-        dataType: 'SMCODELIST',
       },
       {
         name: 'ibz_monthlyid',

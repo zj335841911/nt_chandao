@@ -23,6 +23,10 @@ export default {
     beginstr: "开始日期",
     endstr: "结束日期",
     plantemplet: "计划模板",
+    delaytaskscnt: "延迟任务数",
+    unfinishedtaskscnt: "未完成任务数",
+    finishedtaskscnt: "完成任务数",
+    taskscnt: "总任务数",
   },
 	views: {
 		mobmdview: {

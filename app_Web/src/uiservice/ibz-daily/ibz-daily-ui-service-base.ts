@@ -284,25 +284,14 @@ export default class IbzDailyUIServiceBase extends UIService {
         let deResParameters: any[] = [];
         const parameters: any[] = [
             { pathName: 'ibzdailies', parameterName: 'ibzdaily' },
+            { pathName: 'dailyeditview', parameterName: 'dailyeditview' },
         ];
-            const openDrawer = (view: any, data: any) => {
-                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
-                container.subscribe((result: any) => {
-                    if (!result || !Object.is(result.ret, 'OK')) {
-                        return;
-                    }
-                    const _this: any = actionContext;
-                    return result.datas;
-                });
-            }
-            const view: any = {
-                viewname: 'ibz-daily-daily-edit-view', 
-                height: 0, 
-                width: 0,  
-                title: actionContext.$t('entities.ibzdaily.views.dailyeditview.title'),
-                placement: 'DRAWER_RIGHT',
-            };
-            openDrawer(view, data);
+        const openIndexViewTab = (data: any) => {
+            const routePath = actionContext.$viewTool.buildUpRoutePath(actionContext.$route, context, deResParameters, parameters, _args, data);
+            actionContext.$router.push(routePath);
+            return null;
+        }
+        openIndexViewTab(data);
     }
 
     /**
@@ -345,25 +334,14 @@ export default class IbzDailyUIServiceBase extends UIService {
         let deResParameters: any[] = [];
         const parameters: any[] = [
             { pathName: 'ibzdailies', parameterName: 'ibzdaily' },
+            { pathName: 'maineditview', parameterName: 'maineditview' },
         ];
-            const openDrawer = (view: any, data: any) => {
-                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
-                container.subscribe((result: any) => {
-                    if (!result || !Object.is(result.ret, 'OK')) {
-                        return;
-                    }
-                    const _this: any = actionContext;
-                    return result.datas;
-                });
-            }
-            const view: any = {
-                viewname: 'ibz-dailymain-edit-view', 
-                height: 0, 
-                width: 0,  
-                title: actionContext.$t('entities.ibzdaily.views.maineditview.title'),
-                placement: 'DRAWER_RIGHT',
-            };
-            openDrawer(view, data);
+        const openIndexViewTab = (data: any) => {
+            const routePath = actionContext.$viewTool.buildUpRoutePath(actionContext.$route, context, deResParameters, parameters, _args, data);
+            actionContext.$router.push(routePath);
+            return null;
+        }
+        openIndexViewTab(data);
     }
 
     /**
@@ -404,25 +382,14 @@ export default class IbzDailyUIServiceBase extends UIService {
         let deResParameters: any[] = [];
         const parameters: any[] = [
             { pathName: 'ibzdailies', parameterName: 'ibzdaily' },
+            { pathName: 'maineditview', parameterName: 'maineditview' },
         ];
-            const openDrawer = (view: any, data: any) => {
-                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
-                container.subscribe((result: any) => {
-                    if (!result || !Object.is(result.ret, 'OK')) {
-                        return;
-                    }
-                    const _this: any = actionContext;
-                    return result.datas;
-                });
-            }
-            const view: any = {
-                viewname: 'ibz-dailymain-edit-view', 
-                height: 0, 
-                width: 0,  
-                title: actionContext.$t('entities.ibzdaily.views.maineditview.title'),
-                placement: 'DRAWER_RIGHT',
-            };
-            openDrawer(view, data);
+        const openIndexViewTab = (data: any) => {
+            const routePath = actionContext.$viewTool.buildUpRoutePath(actionContext.$route, context, deResParameters, parameters, _args, data);
+            actionContext.$router.push(routePath);
+            return null;
+        }
+        openIndexViewTab(data);
     }
 
     /**

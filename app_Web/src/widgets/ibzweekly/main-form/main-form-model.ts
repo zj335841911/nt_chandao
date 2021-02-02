@@ -66,6 +66,16 @@ export default class MainModel {
         dataType: 'DATE',
       },
       {
+        name: 'reportto',
+        prop: 'reportto',
+        dataType: 'SSCODELIST',
+      },
+      {
+        name: 'mailto',
+        prop: 'mailto',
+        dataType: 'SMCODELIST',
+      },
+      {
         name: 'thisweektask',
         prop: 'thisweektask',
         dataType: 'SMCODELIST',
@@ -94,16 +104,6 @@ export default class MainModel {
         name: 'files',
         prop: 'files',
         dataType: 'TEXT',
-      },
-      {
-        name: 'reportto',
-        prop: 'reportto',
-        dataType: 'SSCODELIST',
-      },
-      {
-        name: 'mailto',
-        prop: 'mailto',
-        dataType: 'SMCODELIST',
       },
       {
         name: 'ibz_weeklyid',

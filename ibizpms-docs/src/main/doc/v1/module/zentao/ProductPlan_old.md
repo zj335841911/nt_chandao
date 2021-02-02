@@ -40,6 +40,11 @@ hide members
 |开始日期|BEGINSTR|TEXT|&nbsp;|
 |结束日期|ENDSTR|TEXT|&nbsp;|
 |计划模板|PLANTEMPLET|SSCODELIST|&nbsp;|
+|延迟任务数|DELAYTASKSCNT|INT|&nbsp;|
+|未完成任务数|UNFINISHEDTASKSCNT|INT|&nbsp;|
+|完成任务数|FINISHEDTASKSCNT|INT|&nbsp;|
+|总任务数|TASKSCNT|INT|&nbsp;|
+|持续时间|DURATION|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -66,6 +71,11 @@ hide members
 |开始日期|默认规则|内容长度必须小于等于[200]|
 |结束日期|默认规则|内容长度必须小于等于[200]|
 |计划模板|默认规则|内容长度必须小于等于[200]|
+|延迟任务数|默认规则|默认规则|
+|未完成任务数|默认规则|默认规则|
+|完成任务数|默认规则|默认规则|
+|总任务数|默认规则|默认规则|
+|持续时间|默认规则|内容长度必须小于等于[200]|
 
 ## 状态控制
 
@@ -160,6 +170,7 @@ hide footbox
 |DefaultParent|默认查询([MYSQL5](../../appendix/query_MYSQL5.md#ProductPlan_DefaultParent))|否|&nbsp;|
 |GetList|获取产品计划列表([MYSQL5](../../appendix/query_MYSQL5.md#ProductPlan_GetList))|否|&nbsp;获取当前用户的相关产品（分支）的计划|
 |PlanCodeList|计划（代码表）([MYSQL5](../../appendix/query_MYSQL5.md#ProductPlan_PlanCodeList))|否|&nbsp;|
+|PlanTasks|项目计划任务（项目管理-项目计划）([MYSQL5](../../appendix/query_MYSQL5.md#ProductPlan_PlanTasks))|否|&nbsp;|
 |ProjectApp|项目立项([MYSQL5](../../appendix/query_MYSQL5.md#ProductPlan_ProjectApp))|否|&nbsp;|
 |ProjectPlan|项目计划列表([MYSQL5](../../appendix/query_MYSQL5.md#ProductPlan_ProjectPlan))|否|&nbsp;|
 |RootPlan|根计划([MYSQL5](../../appendix/query_MYSQL5.md#ProductPlan_RootPlan))|否|&nbsp;|
@@ -175,6 +186,7 @@ hide footbox
 |DEFAULT|DEFAULT|DEFAULT|是|&nbsp;|
 |DefaultParent|默认查询|DefaultParent|否|&nbsp;|
 |PlanCodeList|计划（代码表）|PlanCodeList|否|&nbsp;|
+|PlanTasks|项目计划任务（项目管理-项目计划）|PlanTasks|否|&nbsp;|
 |ProjectApp|项目立项|ProjectApp|否|&nbsp;|
 |ProjectPlan|项目计划列表|ProjectPlan|否|&nbsp;|
 |RootPlan|跟计划|RootPlan|否|&nbsp;|

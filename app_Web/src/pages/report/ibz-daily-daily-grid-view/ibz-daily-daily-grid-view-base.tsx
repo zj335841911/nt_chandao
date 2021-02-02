@@ -419,28 +419,16 @@ export class IbzDailyDailyGridViewBase extends GridViewBase {
         const deResParameters: any[] = [];
         const parameters: any[] = [
             { pathName: 'ibzdailies', parameterName: 'ibzdaily' },
+            { pathName: 'dailyeditview', parameterName: 'dailyeditview' },
         ];
         const _this: any = this;
-        const openDrawer = (view: any, data: any) => {
-            let container: Subject<any> = this.$appdrawer.openDrawer(view, tempContext, data);
-            container.subscribe((result: any) => {
-                if (!result || !Object.is(result.ret, 'OK')) {
-                    return;
-                }
-                if (!xData || !(xData.refresh instanceof Function)) {
-                    return;
-                }
-                xData.refresh(result.datas);
-            });
+        const openIndexViewTab = (data: any) => {
+            const _data: any = { w: (new Date().getTime()) };
+            Object.assign(_data, data);
+            const routePath = this.$viewTool.buildUpRoutePath(this.$route, tempContext, deResParameters, parameters, args, _data);
+            this.$router.push(routePath);
         }
-        const view: any = {
-            viewname: 'ibz-daily-daily-edit-view', 
-            height: 0, 
-            width: 0,  
-            title: this.$t('entities.ibzdaily.views.dailyeditview.title'),
-            placement: 'DRAWER_RIGHT',
-        };
-        openDrawer(view, data);
+        openIndexViewTab(data);
     }
 
 

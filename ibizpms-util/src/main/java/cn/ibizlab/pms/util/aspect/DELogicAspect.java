@@ -76,7 +76,7 @@ public class DELogicAspect {
         String action = point.getSignature().getName();
         EntityBase entity = null;
         if ("remove".equalsIgnoreCase(action) || "get".equalsIgnoreCase(action)) {
-            entity = getEntity(service);
+            entity = getEntity(service.getClass());
             String id = DEFieldCacheMap.getDEKeyField(entity.getClass());
             if(StringUtils.isEmpty(id)) {
                 log.debug("无法获取实体主键属性[{}]",entity.getClass().getSimpleName());
@@ -305,10 +305,9 @@ public class DELogicAspect {
      *
      * @param service
      * @return
-     * @throws Exception
      */
-    private EntityBase getEntity(Object service) throws Exception {
-        Method[] methods = service.getClass().getDeclaredMethods();
+    private EntityBase getEntity(Class service) {
+        Method[] methods = service.getDeclaredMethods();
         for (Method method : methods) {
             for (Class cls : method.getParameterTypes()) {
                 try {
@@ -316,9 +315,12 @@ public class DELogicAspect {
                     if (arg instanceof EntityBase) {
                         return (EntityBase) arg;
                     }
-                } catch (InstantiationException e) {
+                } catch (Exception e) {
                 }
             }
+        }
+        if(!ObjectUtils.isEmpty(service.getSuperclass()) && !service.getSuperclass().getName().equals(Object.class.getName())) {
+            return getEntity(service.getSuperclass());
         }
         throw new BadRequestAlertException("获取实体信息失败", "DELogicAspect", "getEntity");
     }

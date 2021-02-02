@@ -318,9 +318,9 @@ export class IBizPMSBase extends Vue {
     inputMenus.forEach((_item: any) => {
       if (!this.authService.getMenusPermission(_item)) {
         _item.hidden = true;
-        if (_item.items && _item.items.length > 0) {
+      }
+      if (_item.items && _item.items.length > 0) {
           this.computedEffectiveMenus(_item.items);
-        }
       }
     })
   }

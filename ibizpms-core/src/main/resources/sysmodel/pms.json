@@ -31472,6 +31472,73 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"DELAYTASKSCNT" ,
+    "codename":"DelayTaskscnt",
+    "field_logic_name":"延迟任务数",
+    "entity_name":"ZT_PRODUCTPLAN",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"UNFINISHEDTASKSCNT" ,
+    "codename":"UnFinishedTaskscnt",
+    "field_logic_name":"未完成任务数",
+    "entity_name":"ZT_PRODUCTPLAN",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"FINISHEDTASKSCNT" ,
+    "codename":"FinishedTaskscnt",
+    "field_logic_name":"完成任务数",
+    "entity_name":"ZT_PRODUCTPLAN",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"TASKSCNT" ,
+    "codename":"Taskscnt",
+    "field_logic_name":"总任务数",
+    "entity_name":"ZT_PRODUCTPLAN",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"DURATION" ,
+    "codename":"Duration",
+    "field_logic_name":"持续时间",
+    "entity_name":"ZT_PRODUCTPLAN",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":200,
+    "expression":"(to_Days(%1$s) - to_Days(%2$s))",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[
