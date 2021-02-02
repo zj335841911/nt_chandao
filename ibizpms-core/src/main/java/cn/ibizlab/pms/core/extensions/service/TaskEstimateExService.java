@@ -38,7 +38,7 @@ public class TaskEstimateExService extends TaskEstimateServiceImpl {
     @Transactional
     public TaskEstimate pMEvaluation(TaskEstimate et) {
         et.setEvaluationstatus("yes");
-        if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("pmsee_projectid", et.getId()))) {
+        if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", et.getId()))) {
             return et;
         }
         //汇总成本
