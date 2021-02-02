@@ -52,6 +52,9 @@ public class TaskEstimateExService extends TaskEstimateServiceImpl {
         Task task = taskService.get(et.getTask());
         task.setInputcost(allCost);
         taskService.update(task);
+        if(!taskService.update(task,  (Wrapper) task.getUpdateWrapper(true).eq("id", task.getId()))) {
+            return et;
+        }
         return et;
     }
 }
