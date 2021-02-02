@@ -4721,7 +4721,7 @@
     "physical_field":0,
     "data_type":"VARCHAR",
     "data_length":200,
-    "expression":"(case when t1.module = '0' then '/' else (SELECT GROUP_CONCAT( tt.NAME SEPARATOR '>' )  FROM zt_module tt WHERE FIND_IN_SET( tt.id, t11.path ) AND tt.type = 'story'  GROUP BY tt.root limit 0,1) end)",
+    "expression":"(case when t1.module = '0' then '/' else (SELECT GROUP_CONCAT( tt.NAME SEPARATOR '>' )  FROM zt_module tt WHERE FIND_IN_SET( tt.id, t31.path ) AND tt.type = 'story'  GROUP BY tt.root limit 0,1) end)",
     "key_field":0,
     "show_order":1000,
     "major_field":0
