@@ -34,18 +34,18 @@ public class IbzTopSearchContext extends QueryWrapperContext<IbzTop> {
             this.getSearchCond().like("`ibz_topname`", n_ibz_topname_like);
         }
     }
-	private String n_type_eq;//[类型]
-	public void setN_type_eq(String n_type_eq) {
-        this.n_type_eq = n_type_eq;
-        if(!ObjectUtils.isEmpty(this.n_type_eq)){
-            this.getSearchCond().eq("`type`", n_type_eq);
-        }
-    }
 	private String n_account_eq;//[置顶用户]
 	public void setN_account_eq(String n_account_eq) {
         this.n_account_eq = n_account_eq;
         if(!ObjectUtils.isEmpty(this.n_account_eq)){
             this.getSearchCond().eq("`account`", n_account_eq);
+        }
+    }
+	private String n_type_eq;//[类型]
+	public void setN_type_eq(String n_type_eq) {
+        this.n_type_eq = n_type_eq;
+        if(!ObjectUtils.isEmpty(this.n_type_eq)){
+            this.getSearchCond().eq("`type`", n_type_eq);
         }
     }
 

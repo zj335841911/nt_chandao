@@ -74,7 +74,7 @@ export class FavoriteMainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_ua4634db_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_uaa2ed02_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -102,7 +102,7 @@ export class FavoriteMainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u0efb050_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_ue1d68fc_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -130,7 +130,7 @@ export class FavoriteMainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_uc6d84c5_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u3cd3d7f_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -158,7 +158,7 @@ export class FavoriteMainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u953838c_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u0e29832_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -186,7 +186,7 @@ export class FavoriteMainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u386df94_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_uf4572d8_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -213,7 +213,7 @@ export class FavoriteMainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_udd304f5_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u4047a48_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -241,7 +241,7 @@ export class FavoriteMainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u9e18a05_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_uf6a6cf4_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -820,25 +820,25 @@ export class FavoriteMainGridBase extends GridControlBase {
 	public uiAction(row: any, tag: any, $event: any): void {
         $event.stopPropagation();
         if(Object.is('ConfirmBug', tag)) {
-            this.grid_uagridcolumn1_ua4634db_click(row, tag, $event);
+            this.grid_uagridcolumn1_uaa2ed02_click(row, tag, $event);
         }
         if(Object.is('ResolveBug', tag)) {
-            this.grid_uagridcolumn1_u0efb050_click(row, tag, $event);
+            this.grid_uagridcolumn1_ue1d68fc_click(row, tag, $event);
         }
         if(Object.is('CloseBug', tag)) {
-            this.grid_uagridcolumn1_uc6d84c5_click(row, tag, $event);
+            this.grid_uagridcolumn1_u3cd3d7f_click(row, tag, $event);
         }
         if(Object.is('MainEdit', tag)) {
-            this.grid_uagridcolumn1_u953838c_click(row, tag, $event);
+            this.grid_uagridcolumn1_u0e29832_click(row, tag, $event);
         }
         if(Object.is('Copy', tag)) {
-            this.grid_uagridcolumn1_u386df94_click(row, tag, $event);
+            this.grid_uagridcolumn1_uf4572d8_click(row, tag, $event);
         }
         if(Object.is('BugFavorites', tag)) {
-            this.grid_uagridcolumn1_udd304f5_click(row, tag, $event);
+            this.grid_uagridcolumn1_u4047a48_click(row, tag, $event);
         }
         if(Object.is('BugNFavorites', tag)) {
-            this.grid_uagridcolumn1_u9e18a05_click(row, tag, $event);
+            this.grid_uagridcolumn1_uf6a6cf4_click(row, tag, $event);
         }
     }
 

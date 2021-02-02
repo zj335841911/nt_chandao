@@ -141,7 +141,7 @@ export class IbzMonthlyMainMonthlyGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof IbzMonthlyMainMonthlyGridViewBase
      */
-	protected viewtag: string = 'd054969e8eb4b11e01d771b95045178c';
+	protected viewtag: string = '7c509954bcc0516db88536ea91442adf';
 
     /**
      * 视图名称

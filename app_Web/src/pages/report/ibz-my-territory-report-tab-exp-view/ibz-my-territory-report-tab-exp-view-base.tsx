@@ -100,7 +100,7 @@ export class IbzMyTerritoryReportTabExpViewBase extends TabExpViewBase {
      * @type {string}
      * @memberof IbzMyTerritoryReportTabExpViewBase
      */
-	protected viewtag: string = '6e1a903e2d94b6568debc087b75e5d53';
+	protected viewtag: string = 'eafce53cbf0c9a1108bc8a0319c09808';
 
     /**
      * 视图名称

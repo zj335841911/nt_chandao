@@ -30,15 +30,6 @@ public class EmpLoyeeloadDTO extends DTOBase implements Serializable {
 	private static final long serialVersionUID = 1L;
 
     /**
-     * 属性 [ID]
-     *
-     */
-    @JSONField(name = "id")
-    @JsonProperty("id")
-    @JsonSerialize(using = ToStringSerializer.class)
-    private Long id;
-
-    /**
      * 属性 [NAME]
      *
      */
@@ -56,22 +47,30 @@ public class EmpLoyeeloadDTO extends DTOBase implements Serializable {
     private Integer taskcnt;
 
     /**
-     * 属性 [PROJECT]
+     * 属性 [DEPT]
      *
      */
-    @JSONField(name = "project")
-    @JsonProperty("project")
-    @JsonSerialize(using = ToStringSerializer.class)
-    private Long project;
+    @JSONField(name = "dept")
+    @JsonProperty("dept")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String dept;
 
     /**
-     * 属性 [PROJECTNAME]
+     * 属性 [ID]
      *
      */
-    @JSONField(name = "projectname")
-    @JsonProperty("projectname")
-    @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
-    private String projectname;
+    @JSONField(name = "id")
+    @JsonProperty("id")
+    @JsonSerialize(using = ToStringSerializer.class)
+    private Long id;
+
+    /**
+     * 属性 [WORKDAY]
+     *
+     */
+    @JSONField(name = "workday")
+    @JsonProperty("workday")
+    private Integer workday;
 
     /**
      * 属性 [TOTALTASKCNT]
@@ -80,31 +79,6 @@ public class EmpLoyeeloadDTO extends DTOBase implements Serializable {
     @JSONField(name = "totaltaskcnt")
     @JsonProperty("totaltaskcnt")
     private Integer totaltaskcnt;
-
-    /**
-     * 属性 [TOTALLEFT]
-     *
-     */
-    @JSONField(name = "totalleft")
-    @JsonProperty("totalleft")
-    private Integer totalleft;
-
-    /**
-     * 属性 [LEFT]
-     *
-     */
-    @JSONField(name = "left")
-    @JsonProperty("left")
-    private Integer left;
-
-    /**
-     * 属性 [WORKLOAD]
-     *
-     */
-    @JSONField(name = "workload")
-    @JsonProperty("workload")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String workload;
 
     /**
      * 属性 [ASSIGNEDTO]
@@ -116,13 +90,21 @@ public class EmpLoyeeloadDTO extends DTOBase implements Serializable {
     private String assignedto;
 
     /**
-     * 属性 [DEPT]
+     * 属性 [LEFT]
      *
      */
-    @JSONField(name = "dept")
-    @JsonProperty("dept")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String dept;
+    @JSONField(name = "left")
+    @JsonProperty("left")
+    private Integer left;
+
+    /**
+     * 属性 [ASSIGN]
+     *
+     */
+    @JSONField(name = "assign")
+    @JsonProperty("assign")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String assign;
 
     /**
      * 属性 [BEGIN]
@@ -134,6 +116,23 @@ public class EmpLoyeeloadDTO extends DTOBase implements Serializable {
     private Timestamp begin;
 
     /**
+     * 属性 [TOTALLEFT]
+     *
+     */
+    @JSONField(name = "totalleft")
+    @JsonProperty("totalleft")
+    private Integer totalleft;
+
+    /**
+     * 属性 [WORKLOAD]
+     *
+     */
+    @JSONField(name = "workload")
+    @JsonProperty("workload")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String workload;
+
+    /**
      * 属性 [END]
      *
      */
@@ -143,21 +142,22 @@ public class EmpLoyeeloadDTO extends DTOBase implements Serializable {
     private Timestamp end;
 
     /**
-     * 属性 [WORKDAY]
+     * 属性 [PROJECTNAME]
      *
      */
-    @JSONField(name = "workday")
-    @JsonProperty("workday")
-    private Integer workday;
+    @JSONField(name = "projectname")
+    @JsonProperty("projectname")
+    @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
+    private String projectname;
 
     /**
-     * 属性 [ASSIGN]
+     * 属性 [PROJECT]
      *
      */
-    @JSONField(name = "assign")
-    @JsonProperty("assign")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String assign;
+    @JSONField(name = "project")
+    @JsonProperty("project")
+    @JsonSerialize(using = ToStringSerializer.class)
+    private Long project;
 
 
     /**
@@ -166,14 +166,6 @@ public class EmpLoyeeloadDTO extends DTOBase implements Serializable {
     public void setName(String  name){
         this.name = name ;
         this.modify("name",name);
-    }
-
-    /**
-     * 设置 [PROJECT]
-     */
-    public void setProject(Long  project){
-        this.project = project ;
-        this.modify("project",project);
     }
 
     /**
@@ -190,6 +182,14 @@ public class EmpLoyeeloadDTO extends DTOBase implements Serializable {
     public void setAssign(String  assign){
         this.assign = assign ;
         this.modify("assign",assign);
+    }
+
+    /**
+     * 设置 [PROJECT]
+     */
+    public void setProject(Long  project){
+        this.project = project ;
+        this.modify("project",project);
     }
 
 

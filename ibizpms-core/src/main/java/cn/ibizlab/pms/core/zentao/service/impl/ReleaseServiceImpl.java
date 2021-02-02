@@ -397,8 +397,8 @@ public class ReleaseServiceImpl extends ServiceImpl<ReleaseMapper, Release> impl
                 et.setZtbuild(majorEntity);
                 ztbuild = majorEntity;
             }
-            et.setBuildname(ztbuild.getName());
             et.setBuilder(ztbuild.getBuilder());
+            et.setBuildname(ztbuild.getName());
             et.setBuilddate(ztbuild.getDate());
         }
         //实体关系[DER1N_ZT_RELEASE_ZT_PRODUCT_PRODUCT]

@@ -48,6 +48,15 @@ public class TestTaskDTO extends DTOBase implements Serializable {
     private Timestamp begin;
 
     /**
+     * 属性 [OWNERPK]
+     *
+     */
+    @JSONField(name = "ownerpk")
+    @JsonProperty("ownerpk")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String ownerpk;
+
+    /**
      * 属性 [MAILTO]
      *
      */
@@ -57,12 +66,38 @@ public class TestTaskDTO extends DTOBase implements Serializable {
     private String mailto;
 
     /**
+     * 属性 [CASECNT]
+     *
+     */
+    @JSONField(name = "casecnt")
+    @JsonProperty("casecnt")
+    private Integer casecnt;
+
+    /**
+     * 属性 [MAILTOPK]
+     *
+     */
+    @JSONField(name = "mailtopk")
+    @JsonProperty("mailtopk")
+    @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
+    private String mailtopk;
+
+    /**
      * 属性 [PRI]
      *
      */
     @JSONField(name = "pri")
     @JsonProperty("pri")
     private Integer pri;
+
+    /**
+     * 属性 [COMMENT]
+     *
+     */
+    @JSONField(name = "comment")
+    @JsonProperty("comment")
+    @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
+    private String comment;
 
     /**
      * 属性 [SUBSTATUS]
@@ -110,6 +145,15 @@ public class TestTaskDTO extends DTOBase implements Serializable {
     private String status;
 
     /**
+     * 属性 [MAILTOCONACT]
+     *
+     */
+    @JSONField(name = "mailtoconact")
+    @JsonProperty("mailtoconact")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String mailtoconact;
+
+    /**
      * 属性 [OWNER]
      *
      */
@@ -147,6 +191,33 @@ public class TestTaskDTO extends DTOBase implements Serializable {
     private String name;
 
     /**
+     * 属性 [BUILDNAME]
+     *
+     */
+    @JSONField(name = "buildname")
+    @JsonProperty("buildname")
+    @Size(min = 0, max = 150, message = "内容长度必须小于等于[150]")
+    private String buildname;
+
+    /**
+     * 属性 [PRODUCTNAME]
+     *
+     */
+    @JSONField(name = "productname")
+    @JsonProperty("productname")
+    @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
+    private String productname;
+
+    /**
+     * 属性 [PROJECTTNAME]
+     *
+     */
+    @JSONField(name = "projecttname")
+    @JsonProperty("projecttname")
+    @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
+    private String projecttname;
+
+    /**
      * 属性 [PRODUCT]
      *
      */
@@ -172,77 +243,6 @@ public class TestTaskDTO extends DTOBase implements Serializable {
     @JsonProperty("project")
     @JsonSerialize(using = ToStringSerializer.class)
     private Long project;
-
-    /**
-     * 属性 [PRODUCTNAME]
-     *
-     */
-    @JSONField(name = "productname")
-    @JsonProperty("productname")
-    @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
-    private String productname;
-
-    /**
-     * 属性 [PROJECTTNAME]
-     *
-     */
-    @JSONField(name = "projecttname")
-    @JsonProperty("projecttname")
-    @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
-    private String projecttname;
-
-    /**
-     * 属性 [BUILDNAME]
-     *
-     */
-    @JSONField(name = "buildname")
-    @JsonProperty("buildname")
-    @Size(min = 0, max = 150, message = "内容长度必须小于等于[150]")
-    private String buildname;
-
-    /**
-     * 属性 [COMMENT]
-     *
-     */
-    @JSONField(name = "comment")
-    @JsonProperty("comment")
-    @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
-    private String comment;
-
-    /**
-     * 属性 [CASECNT]
-     *
-     */
-    @JSONField(name = "casecnt")
-    @JsonProperty("casecnt")
-    private Integer casecnt;
-
-    /**
-     * 属性 [OWNERPK]
-     *
-     */
-    @JSONField(name = "ownerpk")
-    @JsonProperty("ownerpk")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String ownerpk;
-
-    /**
-     * 属性 [MAILTOCONACT]
-     *
-     */
-    @JSONField(name = "mailtoconact")
-    @JsonProperty("mailtoconact")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String mailtoconact;
-
-    /**
-     * 属性 [MAILTOPK]
-     *
-     */
-    @JSONField(name = "mailtopk")
-    @JsonProperty("mailtopk")
-    @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
-    private String mailtopk;
 
 
     /**

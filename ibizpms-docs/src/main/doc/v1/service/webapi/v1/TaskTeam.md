@@ -1840,30 +1840,30 @@ POST
 #### TaskTeamDTO
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
-| 1 | role | String | 允许 | 角色 |
-| 2 | root | Long | 允许 | 编号 |
-| 3 | limited | String | 允许 | 受限用户 |
-| 4 | total | Integer | 允许 | 总计可用 |
-| 5 | username | String | 允许 | 用户 |
+| 1 | estimate | Double | 允许 | 最初预计 |
+| 2 | username | String | 允许 | 用户 |
+| 3 | join | Timestamp | 允许 | 加盟日<br>时间格式：yyyy-MM-dd |
+| 4 | hours | Double | 允许 | 可用工时/天 |
+| 5 | account | String | 允许 | 用户 |
 | 6 | order | Integer | 允许 | 排序 |
-| 7 | days | Integer | 允许 | 可用工日 |
-| 8 | type | String | 允许 | 团队类型 |
-| 9 | estimate | Double | 允许 | 最初预计 |
-| 10 | account | String | 允许 | 用户 |
-| 11 | consumed | Double | 允许 | 总计消耗 |
-| 12 | id | Long | 不可 | 编号 |
-| 13 | join | Timestamp | 允许 | 加盟日<br>时间格式：yyyy-MM-dd |
-| 14 | hours | Double | 允许 | 可用工时/天 |
-| 15 | left | Double | 允许 | 预计剩余 |
+| 7 | left | Double | 允许 | 预计剩余 |
+| 8 | consumed | Double | 允许 | 总计消耗 |
+| 9 | limited | String | 允许 | 受限用户 |
+| 10 | role | String | 允许 | 角色 |
+| 11 | id | Long | 不可 | 编号 |
+| 12 | days | Integer | 允许 | 可用工日 |
+| 13 | total | Integer | 允许 | 总计可用 |
+| 14 | type | String | 允许 | 团队类型 |
+| 15 | root | Long | 允许 | 编号 |
 | 16 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### TaskTeamSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
-| 1 | n_root_eq | Long | 允许 | 条件字段：root<br>条件组合方式：`=` |
+| 1 | n_account_like | String | 允许 | 条件字段：account<br>条件组合方式：`%like%` |
 | 2 | n_limited_eq | String | 允许 | 条件字段：limited<br>条件组合方式：`=` |
 | 3 | n_type_eq | String | 允许 | 条件字段：type<br>条件组合方式：`=` |
-| 4 | n_account_like | String | 允许 | 条件字段：account<br>条件组合方式：`%like%` |
+| 4 | n_root_eq | Long | 允许 | 条件字段：root<br>条件组合方式：`=` |
 | 5 | customcond | String | 允许 | 自定义查询条件 |
 | 6 | customparams | String | 允许 | 自定义查询参数 |
 | 7 | query | String | 允许 | 快速搜索 |

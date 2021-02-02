@@ -100,7 +100,7 @@ export class SysEmployeeDashboardViewBase extends DashboardViewBase {
      * @type {string}
      * @memberof SysEmployeeDashboardViewBase
      */
-	protected viewtag: string = 'a6e3310693a8abeade4e5d1f928ab1f6';
+	protected viewtag: string = 'e1d5f010f5462cd529bf9d820bc3d518';
 
     /**
      * 视图名称

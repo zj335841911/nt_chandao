@@ -125,7 +125,7 @@ export class DocLibModuleEditViewMainBase extends EditViewBase {
      * @type {string}
      * @memberof DocLibModuleEditViewMainBase
      */
-	protected viewtag: string = '4532f2b69291dd6bbd457b5588ac528b';
+	protected viewtag: string = '2f404e39010d73a94c75537fcbf4ce97';
 
     /**
      * 视图名称

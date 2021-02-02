@@ -162,7 +162,7 @@ export class TaskCloseTaskViewBase extends OptionViewBase {
      * @type {string}
      * @memberof TaskCloseTaskViewBase
      */
-	protected viewtag: string = '507c506d62dc910a814332e6ae242266';
+	protected viewtag: string = '5b843e1de0332a77a847782432d7a40d';
 
     /**
      * 视图名称

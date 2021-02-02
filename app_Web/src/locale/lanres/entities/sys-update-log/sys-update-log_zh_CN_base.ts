@@ -3,20 +3,24 @@ function getLocaleResourceBase(){
 	const data:any = {
 		appdename: commonLogic.appcommonhandle("系统更新日志", null),
 		fields: {
-			sysupdatelogid: commonLogic.appcommonhandle("系统更新日志标识",null),
-			sysupdatelogname: commonLogic.appcommonhandle("更新名称",null),
+			updatedate: commonLogic.appcommonhandle("更新时间",null),
 			updateman: commonLogic.appcommonhandle("更新人",null),
 			createman: commonLogic.appcommonhandle("建立人",null),
 			createdate: commonLogic.appcommonhandle("建立时间",null),
-			updatedate: commonLogic.appcommonhandle("更新时间",null),
-			update: commonLogic.appcommonhandle("更新日期",null),
-			updesc: commonLogic.appcommonhandle("更新说明",null),
-			latestupdate: commonLogic.appcommonhandle("最新更新",null),
-			updatefeatures: commonLogic.appcommonhandle("更新功能列表详情",null),
+			sysupdatelogid: commonLogic.appcommonhandle("系统更新日志标识",null),
 			updatebranch: commonLogic.appcommonhandle("更新平台",null),
+			updatefeatures: commonLogic.appcommonhandle("更新功能列表详情",null),
+			updesc: commonLogic.appcommonhandle("更新说明",null),
+			sysupdatelogname: commonLogic.appcommonhandle("更新名称",null),
+			latestupdate: commonLogic.appcommonhandle("最新更新",null),
+			update: commonLogic.appcommonhandle("更新日期",null),
 		},
 			views: {
-				lastgridview: {
+				editview: {
+					caption: commonLogic.appcommonhandle("更新日志",null),
+					title: commonLogic.appcommonhandle("系统更新日志编辑视图",null),
+				},
+				gridview: {
 					caption: commonLogic.appcommonhandle("更新日志",null),
 					title: commonLogic.appcommonhandle("系统更新日志表格视图",null),
 				},
@@ -24,21 +28,17 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("更新日志",null),
 					title: commonLogic.appcommonhandle("系统更新日志分页导航视图",null),
 				},
-				infoeditview: {
+				lastgridview: {
 					caption: commonLogic.appcommonhandle("更新日志",null),
-					title: commonLogic.appcommonhandle("系统更新日志编辑视图",null),
-				},
-				editview: {
-					caption: commonLogic.appcommonhandle("更新日志",null),
-					title: commonLogic.appcommonhandle("系统更新日志编辑视图",null),
+					title: commonLogic.appcommonhandle("系统更新日志表格视图",null),
 				},
 				tabexpview: {
 					caption: commonLogic.appcommonhandle("更新日志",null),
 					title: commonLogic.appcommonhandle("系统更新日志分页导航视图",null),
 				},
-				gridview: {
+				infoeditview: {
 					caption: commonLogic.appcommonhandle("更新日志",null),
-					title: commonLogic.appcommonhandle("系统更新日志表格视图",null),
+					title: commonLogic.appcommonhandle("系统更新日志编辑视图",null),
 				},
 			},
 			mainl_form: {

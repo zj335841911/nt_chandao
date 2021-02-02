@@ -74,7 +74,7 @@ export class MainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_ud00e98f_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_ucbe5848_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -102,7 +102,7 @@ export class MainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_ufc04fbc_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u73f3925_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -130,7 +130,7 @@ export class MainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_ue94853b_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u028b830_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -158,7 +158,7 @@ export class MainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u651627d_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u24b965b_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -186,7 +186,7 @@ export class MainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_ue75a757_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_uc8e81f7_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -214,7 +214,7 @@ export class MainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_ufd16e23_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u51ddac6_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -679,22 +679,22 @@ export class MainGridBase extends GridControlBase {
 	public uiAction(row: any, tag: any, $event: any): void {
         $event.stopPropagation();
         if(Object.is('assignTo', tag)) {
-            this.grid_uagridcolumn1_ud00e98f_click(row, tag, $event);
+            this.grid_uagridcolumn1_ucbe5848_click(row, tag, $event);
         }
         if(Object.is('finish', tag)) {
-            this.grid_uagridcolumn1_ufc04fbc_click(row, tag, $event);
+            this.grid_uagridcolumn1_u73f3925_click(row, tag, $event);
         }
         if(Object.is('activate', tag)) {
-            this.grid_uagridcolumn1_ue94853b_click(row, tag, $event);
+            this.grid_uagridcolumn1_u028b830_click(row, tag, $event);
         }
         if(Object.is('close', tag)) {
-            this.grid_uagridcolumn1_u651627d_click(row, tag, $event);
+            this.grid_uagridcolumn1_u24b965b_click(row, tag, $event);
         }
         if(Object.is('edit1', tag)) {
-            this.grid_uagridcolumn1_ue75a757_click(row, tag, $event);
+            this.grid_uagridcolumn1_uc8e81f7_click(row, tag, $event);
         }
         if(Object.is('delete', tag)) {
-            this.grid_uagridcolumn1_ufd16e23_click(row, tag, $event);
+            this.grid_uagridcolumn1_u51ddac6_click(row, tag, $event);
         }
     }
 

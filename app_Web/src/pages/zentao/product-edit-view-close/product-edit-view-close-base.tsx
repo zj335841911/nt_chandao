@@ -125,7 +125,7 @@ export class ProductEditView_CloseBase extends EditViewBase {
      * @type {string}
      * @memberof ProductEditView_CloseBase
      */
-	protected viewtag: string = '3fa1a1978a4380209df04704e2f8059f';
+	protected viewtag: string = 'f67e66bcffbdb0dcb87e541997e19ee2';
 
     /**
      * 视图名称

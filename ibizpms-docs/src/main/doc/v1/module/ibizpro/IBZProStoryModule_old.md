@@ -15,38 +15,38 @@ hide members
 
 | 属性名称        |    中文名称    | 类型     |  备注  |
 | --------   |------------| -----   |  -------- | 
-|id|ID|ACID|&nbsp;|
-|名称|NAME|TEXT|&nbsp;|
-|编号|ROOT|PICKUP|&nbsp;|
-|IBIZ标识|IBIZ_ID|TEXT|&nbsp;|
-|类型|TYPE|SSCODELIST|&nbsp;|
 |级别|GRADE|INT|&nbsp;|
-|路径|PATH|TEXT|&nbsp;从根到自己|
-|简称|SHORT|TEXT|&nbsp;|
-|id|PARENT|PICKUP|&nbsp;|
-|产品|PRODUCTNAME|PICKUPTEXT|&nbsp;|
-|owner|OWNER|TEXT|&nbsp;|
 |collector|COLLECTOR|LONGTEXT|&nbsp;|
-|已删除|DELETED|TEXT|&nbsp;|
+|owner|OWNER|TEXT|&nbsp;|
 |需求模块类型|IBIZ_STORYTYPE|SSCODELIST|&nbsp;|
+|id|ID|ACID|&nbsp;|
+|类型|TYPE|SSCODELIST|&nbsp;|
+|简称|SHORT|TEXT|&nbsp;|
+|名称|NAME|TEXT|&nbsp;|
+|已删除|DELETED|TEXT|&nbsp;|
+|路径|PATH|TEXT|&nbsp;从根到自己|
+|IBIZ标识|IBIZ_ID|TEXT|&nbsp;|
+|产品|PRODUCTNAME|PICKUPTEXT|&nbsp;|
+|编号|ROOT|PICKUP|&nbsp;|
+|id|PARENT|PICKUP|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
 | --------   |------------| ----- | 
-|id|默认规则|默认规则|
-|名称|默认规则|内容长度必须小于等于[60]|
-|编号|默认规则|默认规则|
-|IBIZ标识|默认规则|内容长度必须小于等于[100]|
-|类型|默认规则|内容长度必须小于等于[30]|
 |级别|默认规则|默认规则|
-|路径|默认规则|内容长度必须小于等于[255]|
-|简称|默认规则|内容长度必须小于等于[30]|
-|id|默认规则|默认规则|
-|产品|默认规则|内容长度必须小于等于[90]|
-|owner|默认规则|内容长度必须小于等于[30]|
 |collector|默认规则|内容长度必须小于等于[65535]|
-|已删除|默认规则|内容长度必须小于等于[1]|
+|owner|默认规则|内容长度必须小于等于[30]|
 |需求模块类型|默认规则|内容长度必须小于等于[60]|
+|id|默认规则|默认规则|
+|类型|默认规则|内容长度必须小于等于[30]|
+|简称|默认规则|内容长度必须小于等于[30]|
+|名称|默认规则|内容长度必须小于等于[60]|
+|已删除|默认规则|内容长度必须小于等于[1]|
+|路径|默认规则|内容长度必须小于等于[255]|
+|IBIZ标识|默认规则|内容长度必须小于等于[100]|
+|产品|默认规则|内容长度必须小于等于[90]|
+|编号|默认规则|默认规则|
+|id|默认规则|默认规则|
 
 ## 状态控制
 
@@ -102,14 +102,14 @@ hide footbox
 ## 查询模式
 | 属性      |    搜索模式     |
 | --------   |------------|
-|名称(NAME)|LIKE|
-|编号(ROOT)|EQ|
-|IBIZ标识(IBIZ_ID)|EQ|
+|需求模块类型(IBIZ_STORYTYPE)|EQ|
 |类型(TYPE)|EQ|
-|id(PARENT)|EQ|
+|名称(NAME)|LIKE|
+|IBIZ标识(IBIZ_ID)|EQ|
 |产品(PRODUCTNAME)|EQ|
 |产品(PRODUCTNAME)|LIKE|
-|需求模块类型(IBIZ_STORYTYPE)|EQ|
+|编号(ROOT)|EQ|
+|id(PARENT)|EQ|
 
 ## 导入模式
 无

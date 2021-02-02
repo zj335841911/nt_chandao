@@ -144,7 +144,7 @@ export class StoryEditView9Base extends EditView9Base {
      * @type {string}
      * @memberof StoryEditView9Base
      */
-	protected viewtag: string = 'a9d151a6bb5fb2481836a7e0ed5afb7e';
+	protected viewtag: string = '8c3bd17ea668e9cf5802751378c3a378';
 
     /**
      * 视图名称

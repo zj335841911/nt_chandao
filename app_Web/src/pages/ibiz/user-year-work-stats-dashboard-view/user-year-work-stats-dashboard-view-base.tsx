@@ -128,7 +128,7 @@ export class UserYearWorkStatsDashboardViewBase extends DashboardViewBase {
      * @type {string}
      * @memberof UserYearWorkStatsDashboardViewBase
      */
-	protected viewtag: string = 'a300309f336ad917bb9fae375cd5620a';
+	protected viewtag: string = '35452fdae20ad8f9a786c708744662b4';
 
     /**
      * 视图名称

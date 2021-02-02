@@ -27,6 +27,20 @@ import cn.ibizlab.pms.core.zentao.domain.TestResult;
 @Data
 public class TestResultSearchContext extends QueryWrapperContext<TestResult> {
 
+	private Long n_product_eq;//[所属产品]
+	public void setN_product_eq(Long n_product_eq) {
+        this.n_product_eq = n_product_eq;
+        if(!ObjectUtils.isEmpty(this.n_product_eq)){
+            this.getSearchCond().eq("`product`", n_product_eq);
+        }
+    }
+	private Long n_product_like;//[所属产品]
+	public void setN_product_like(Long n_product_like) {
+        this.n_product_like = n_product_like;
+        if(!ObjectUtils.isEmpty(this.n_product_like)){
+            this.getSearchCond().like("`product`", n_product_like);
+        }
+    }
 	private Long n_job_eq;//[构建任务]
 	public void setN_job_eq(Long n_job_eq) {
         this.n_job_eq = n_job_eq;
@@ -53,20 +67,6 @@ public class TestResultSearchContext extends QueryWrapperContext<TestResult> {
         this.n_compile_eq = n_compile_eq;
         if(!ObjectUtils.isEmpty(this.n_compile_eq)){
             this.getSearchCond().eq("`compile`", n_compile_eq);
-        }
-    }
-	private Long n_product_eq;//[所属产品]
-	public void setN_product_eq(Long n_product_eq) {
-        this.n_product_eq = n_product_eq;
-        if(!ObjectUtils.isEmpty(this.n_product_eq)){
-            this.getSearchCond().eq("`product`", n_product_eq);
-        }
-    }
-	private Long n_product_like;//[所属产品]
-	public void setN_product_like(Long n_product_like) {
-        this.n_product_like = n_product_like;
-        if(!ObjectUtils.isEmpty(this.n_product_like)){
-            this.getSearchCond().like("`product`", n_product_like);
         }
     }
 

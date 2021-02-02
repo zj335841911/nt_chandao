@@ -74,7 +74,7 @@ export class MainInfoGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_actions_u9e6c008_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_actions_ua470664_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -102,7 +102,7 @@ export class MainInfoGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_actions_uaa449c7_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_actions_u54b2dce_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -130,7 +130,7 @@ export class MainInfoGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_actions_uae31417_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_actions_u02b47f0_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -158,7 +158,7 @@ export class MainInfoGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_actions_u7a43501_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_actions_u7d4e6c8_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -186,7 +186,7 @@ export class MainInfoGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_actions_u663d352_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_actions_ud7f4fc7_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -214,7 +214,7 @@ export class MainInfoGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_actions_u3021255_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_actions_u38dee22_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -241,7 +241,7 @@ export class MainInfoGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_actions_u0f98794_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_actions_ub056033_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -550,25 +550,25 @@ export class MainInfoGridBase extends GridControlBase {
 	public uiAction(row: any, tag: any, $event: any): void {
         $event.stopPropagation();
         if(Object.is('AddProject', tag)) {
-            this.grid_actions_u9e6c008_click(row, tag, $event);
+            this.grid_actions_ua470664_click(row, tag, $event);
         }
         if(Object.is('RelationStory', tag)) {
-            this.grid_actions_uaa449c7_click(row, tag, $event);
+            this.grid_actions_u54b2dce_click(row, tag, $event);
         }
         if(Object.is('RelationBug', tag)) {
-            this.grid_actions_uae31417_click(row, tag, $event);
+            this.grid_actions_u02b47f0_click(row, tag, $event);
         }
         if(Object.is('MainEdit', tag)) {
-            this.grid_actions_u7a43501_click(row, tag, $event);
+            this.grid_actions_u7d4e6c8_click(row, tag, $event);
         }
         if(Object.is('NewSubPlan', tag)) {
-            this.grid_actions_u663d352_click(row, tag, $event);
+            this.grid_actions_ud7f4fc7_click(row, tag, $event);
         }
         if(Object.is('Copy', tag)) {
-            this.grid_actions_u3021255_click(row, tag, $event);
+            this.grid_actions_u38dee22_click(row, tag, $event);
         }
         if(Object.is('Delete', tag)) {
-            this.grid_actions_u0f98794_click(row, tag, $event);
+            this.grid_actions_ub056033_click(row, tag, $event);
         }
     }
 

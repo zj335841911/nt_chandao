@@ -44,6 +44,20 @@ public class TestReport extends EntityMP implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
+     * 项目报告产品数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "productcnt")
+    @JsonProperty("productcnt")
+    private Integer productcnt;
+    /**
+     * 概况
+     */
+    @TableField(exist = false)
+    @JSONField(name = "overviews")
+    @JsonProperty("overviews")
+    private String overviews;
+    /**
      * 所属对象
      */
     @DEField(defaultValue = "0")
@@ -91,6 +105,20 @@ public class TestReport extends EntityMP implements Serializable {
     @JSONField(name = "stories")
     @JsonProperty("stories")
     private String stories;
+    /**
+     * 附件
+     */
+    @TableField(exist = false)
+    @JSONField(name = "files")
+    @JsonProperty("files")
+    private String files;
+    /**
+     * 备注
+     */
+    @TableField(exist = false)
+    @JSONField(name = "comment")
+    @JsonProperty("comment")
+    private String comment;
     /**
      * 测试单
      */
@@ -181,6 +209,20 @@ public class TestReport extends EntityMP implements Serializable {
     @JsonProperty("deleted")
     private String deleted;
     /**
+     * 所属项目
+     */
+    @TableField(exist = false)
+    @JSONField(name = "projectname")
+    @JsonProperty("projectname")
+    private String projectname;
+    /**
+     * 所属产品
+     */
+    @TableField(exist = false)
+    @JSONField(name = "productname")
+    @JsonProperty("productname")
+    private String productname;
+    /**
      * 所属产品
      */
     @DEField(defaultValue = "0")
@@ -196,48 +238,6 @@ public class TestReport extends EntityMP implements Serializable {
     @JSONField(name = "project")
     @JsonProperty("project")
     private Long project;
-    /**
-     * 所属产品
-     */
-    @TableField(exist = false)
-    @JSONField(name = "productname")
-    @JsonProperty("productname")
-    private String productname;
-    /**
-     * 所属项目
-     */
-    @TableField(exist = false)
-    @JSONField(name = "projectname")
-    @JsonProperty("projectname")
-    private String projectname;
-    /**
-     * 备注
-     */
-    @TableField(exist = false)
-    @JSONField(name = "comment")
-    @JsonProperty("comment")
-    private String comment;
-    /**
-     * 概况
-     */
-    @TableField(exist = false)
-    @JSONField(name = "overviews")
-    @JsonProperty("overviews")
-    private String overviews;
-    /**
-     * 附件
-     */
-    @TableField(exist = false)
-    @JSONField(name = "files")
-    @JsonProperty("files")
-    private String files;
-    /**
-     * 项目报告产品数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "productcnt")
-    @JsonProperty("productcnt")
-    private Integer productcnt;
 
     /**
      * 

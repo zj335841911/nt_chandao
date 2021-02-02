@@ -44,30 +44,6 @@ public class IbzDaily extends EntityMP implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
-     * 建立人
-     */
-    @DEField(preType = DEPredefinedFieldType.CREATEMAN)
-    @TableField(value = "`createman`", fill = FieldFill.INSERT)
-    @JSONField(name = "createman")
-    @JsonProperty("createman")
-    private String createman;
-    /**
-     * 日报标识
-     */
-    @DEField(name = "ibz_dailyid", isKeyField = true)
-    @TableId(value = "ibz_dailyid", type = IdType.AUTO)
-    @JSONField(name = "ibzdailyid")
-    @JsonProperty("ibzdailyid")
-    private Long ibzdailyid;
-    /**
-     * 日报名称
-     */
-    @DEField(name = "ibz_dailyname")
-    @TableField(value = "`ibz_dailyname`")
-    @JSONField(name = "ibzdailyname")
-    @JsonProperty("ibzdailyname")
-    private String ibzdailyname;
-    /**
      * 更新时间
      */
     @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
@@ -77,58 +53,13 @@ public class IbzDaily extends EntityMP implements Serializable {
     @JsonProperty("updatedate")
     private Timestamp updatedate;
     /**
-     * 建立时间
+     * 提交时间
      */
-    @DEField(preType = DEPredefinedFieldType.CREATEDATE)
-    @TableField(value = "`createdate`", fill = FieldFill.INSERT)
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
-    @JSONField(name = "createdate", format = "yyyy-MM-dd HH:mm:ss")
-    @JsonProperty("createdate")
-    private Timestamp createdate;
-    /**
-     * 更新人
-     */
-    @DEField(preType = DEPredefinedFieldType.UPDATEMAN)
-    @TableField(value = "`updateman`")
-    @JSONField(name = "updateman")
-    @JsonProperty("updateman")
-    private String updateman;
-    /**
-     * 日期
-     */
-    @TableField(value = "`date`")
-    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
-    @JSONField(name = "date", format = "yyyy-MM-dd")
-    @JsonProperty("date")
-    private Timestamp date;
-    /**
-     * 用户
-     */
-    @TableField(value = "`account`")
-    @JSONField(name = "account")
-    @JsonProperty("account")
-    private String account;
-    /**
-     * 今日工作
-     */
-    @TableField(value = "`worktoday`")
-    @JSONField(name = "worktoday")
-    @JsonProperty("worktoday")
-    private String worktoday;
-    /**
-     * 抄送给
-     */
-    @TableField(value = "`mailto`")
-    @JSONField(name = "mailto")
-    @JsonProperty("mailto")
-    private String mailto;
-    /**
-     * 附件
-     */
-    @TableField(exist = false)
-    @JSONField(name = "files")
-    @JsonProperty("files")
-    private String files;
+    @TableField(value = "`submittime`")
+    @JsonFormat(pattern = "HH:mm:ss", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "submittime", format = "HH:mm:ss")
+    @JsonProperty("submittime")
+    private Timestamp submittime;
     /**
      * 完成任务
      */
@@ -137,20 +68,12 @@ public class IbzDaily extends EntityMP implements Serializable {
     @JsonProperty("todaytask")
     private String todaytask;
     /**
-     * 是否提交
+     * 今日工作
      */
-    @DEField(defaultValue = "0")
-    @TableField(value = "`issubmit`")
-    @JSONField(name = "issubmit")
-    @JsonProperty("issubmit")
-    private String issubmit;
-    /**
-     * 明日计划
-     */
-    @TableField(value = "`planstomorrow`")
-    @JSONField(name = "planstomorrow")
-    @JsonProperty("planstomorrow")
-    private String planstomorrow;
+    @TableField(value = "`worktoday`")
+    @JSONField(name = "worktoday")
+    @JsonProperty("worktoday")
+    private String worktoday;
     /**
      * 明日计划任务
      */
@@ -166,20 +89,45 @@ public class IbzDaily extends EntityMP implements Serializable {
     @JsonProperty("reportto")
     private String reportto;
     /**
-     * 其他事项
+     * 建立人
      */
-    @TableField(value = "`comment`")
-    @JSONField(name = "comment")
-    @JsonProperty("comment")
-    private String comment;
+    @DEField(preType = DEPredefinedFieldType.CREATEMAN)
+    @TableField(value = "`createman`", fill = FieldFill.INSERT)
+    @JSONField(name = "createman")
+    @JsonProperty("createman")
+    private String createman;
     /**
-     * 建立人名称
+     * 建立时间
      */
-    @DEField(preType = DEPredefinedFieldType.CREATEMANNAME)
-    @TableField(value = "`createmanname`")
-    @JSONField(name = "createmanname")
-    @JsonProperty("createmanname")
-    private String createmanname;
+    @DEField(preType = DEPredefinedFieldType.CREATEDATE)
+    @TableField(value = "`createdate`", fill = FieldFill.INSERT)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "createdate", format = "yyyy-MM-dd HH:mm:ss")
+    @JsonProperty("createdate")
+    private Timestamp createdate;
+    /**
+     * 是否提交
+     */
+    @DEField(defaultValue = "0")
+    @TableField(value = "`issubmit`")
+    @JSONField(name = "issubmit")
+    @JsonProperty("issubmit")
+    private String issubmit;
+    /**
+     * 日期
+     */
+    @TableField(value = "`date`")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "date", format = "yyyy-MM-dd")
+    @JsonProperty("date")
+    private Timestamp date;
+    /**
+     * 附件
+     */
+    @TableField(exist = false)
+    @JSONField(name = "files")
+    @JsonProperty("files")
+    private String files;
     /**
      * 更新人名称
      */
@@ -189,6 +137,13 @@ public class IbzDaily extends EntityMP implements Serializable {
     @JsonProperty("updatemanname")
     private String updatemanname;
     /**
+     * 抄送给（选择）
+     */
+    @TableField(exist = false)
+    @JSONField(name = "mailtopk")
+    @JsonProperty("mailtopk")
+    private String mailtopk;
+    /**
      * 状态
      */
     @DEField(defaultValue = "0")
@@ -197,13 +152,49 @@ public class IbzDaily extends EntityMP implements Serializable {
     @JsonProperty("reportstatus")
     private String reportstatus;
     /**
-     * 提交时间
+     * 其他事项
      */
-    @TableField(value = "`submittime`")
-    @JsonFormat(pattern = "HH:mm:ss", locale = "zh", timezone = "GMT+8")
-    @JSONField(name = "submittime", format = "HH:mm:ss")
-    @JsonProperty("submittime")
-    private Timestamp submittime;
+    @TableField(value = "`comment`")
+    @JSONField(name = "comment")
+    @JsonProperty("comment")
+    private String comment;
+    /**
+     * 更新人
+     */
+    @DEField(preType = DEPredefinedFieldType.UPDATEMAN)
+    @TableField(value = "`updateman`")
+    @JSONField(name = "updateman")
+    @JsonProperty("updateman")
+    private String updateman;
+    /**
+     * 明日计划
+     */
+    @TableField(value = "`planstomorrow`")
+    @JSONField(name = "planstomorrow")
+    @JsonProperty("planstomorrow")
+    private String planstomorrow;
+    /**
+     * 抄送给
+     */
+    @TableField(value = "`mailto`")
+    @JSONField(name = "mailto")
+    @JsonProperty("mailto")
+    private String mailto;
+    /**
+     * 日报标识
+     */
+    @DEField(name = "ibz_dailyid", isKeyField = true)
+    @TableId(value = "ibz_dailyid", type = IdType.AUTO)
+    @JSONField(name = "ibzdailyid")
+    @JsonProperty("ibzdailyid")
+    private Long ibzdailyid;
+    /**
+     * 用户
+     */
+    @TableField(value = "`account`")
+    @JSONField(name = "account")
+    @JsonProperty("account")
+    private String account;
     /**
      * 汇报给（选择）
      */
@@ -212,21 +203,80 @@ public class IbzDaily extends EntityMP implements Serializable {
     @JsonProperty("reporttopk")
     private String reporttopk;
     /**
-     * 抄送给（选择）
+     * 建立人名称
      */
-    @TableField(exist = false)
-    @JSONField(name = "mailtopk")
-    @JsonProperty("mailtopk")
-    private String mailtopk;
+    @DEField(preType = DEPredefinedFieldType.CREATEMANNAME)
+    @TableField(value = "`createmanname`")
+    @JSONField(name = "createmanname")
+    @JsonProperty("createmanname")
+    private String createmanname;
+    /**
+     * 日报名称
+     */
+    @DEField(name = "ibz_dailyname")
+    @TableField(value = "`ibz_dailyname`")
+    @JSONField(name = "ibzdailyname")
+    @JsonProperty("ibzdailyname")
+    private String ibzdailyname;
 
 
 
     /**
-     * 设置 [日报名称]
+     * 设置 [提交时间]
      */
-    public void setIbzdailyname(String ibzdailyname) {
-        this.ibzdailyname = ibzdailyname;
-        this.modify("ibz_dailyname", ibzdailyname);
+    public void setSubmittime(Timestamp submittime) {
+        this.submittime = submittime;
+        this.modify("submittime", submittime);
+    }
+
+    /**
+     * 格式化日期 [提交时间]
+     */
+    public String formatSubmittime() {
+        if (this.submittime == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+        return sdf.format(submittime);
+    }
+    /**
+     * 设置 [完成任务]
+     */
+    public void setTodaytask(String todaytask) {
+        this.todaytask = todaytask;
+        this.modify("todaytask", todaytask);
+    }
+
+    /**
+     * 设置 [今日工作]
+     */
+    public void setWorktoday(String worktoday) {
+        this.worktoday = worktoday;
+        this.modify("worktoday", worktoday);
+    }
+
+    /**
+     * 设置 [明日计划任务]
+     */
+    public void setTomorrowplanstask(String tomorrowplanstask) {
+        this.tomorrowplanstask = tomorrowplanstask;
+        this.modify("tomorrowplanstask", tomorrowplanstask);
+    }
+
+    /**
+     * 设置 [汇报给]
+     */
+    public void setReportto(String reportto) {
+        this.reportto = reportto;
+        this.modify("reportto", reportto);
+    }
+
+    /**
+     * 设置 [是否提交]
+     */
+    public void setIssubmit(String issubmit) {
+        this.issubmit = issubmit;
+        this.modify("issubmit", issubmit);
     }
 
     /**
@@ -248,67 +298,11 @@ public class IbzDaily extends EntityMP implements Serializable {
         return sdf.format(date);
     }
     /**
-     * 设置 [用户]
+     * 设置 [状态]
      */
-    public void setAccount(String account) {
-        this.account = account;
-        this.modify("account", account);
-    }
-
-    /**
-     * 设置 [今日工作]
-     */
-    public void setWorktoday(String worktoday) {
-        this.worktoday = worktoday;
-        this.modify("worktoday", worktoday);
-    }
-
-    /**
-     * 设置 [抄送给]
-     */
-    public void setMailto(String mailto) {
-        this.mailto = mailto;
-        this.modify("mailto", mailto);
-    }
-
-    /**
-     * 设置 [完成任务]
-     */
-    public void setTodaytask(String todaytask) {
-        this.todaytask = todaytask;
-        this.modify("todaytask", todaytask);
-    }
-
-    /**
-     * 设置 [是否提交]
-     */
-    public void setIssubmit(String issubmit) {
-        this.issubmit = issubmit;
-        this.modify("issubmit", issubmit);
-    }
-
-    /**
-     * 设置 [明日计划]
-     */
-    public void setPlanstomorrow(String planstomorrow) {
-        this.planstomorrow = planstomorrow;
-        this.modify("planstomorrow", planstomorrow);
-    }
-
-    /**
-     * 设置 [明日计划任务]
-     */
-    public void setTomorrowplanstask(String tomorrowplanstask) {
-        this.tomorrowplanstask = tomorrowplanstask;
-        this.modify("tomorrowplanstask", tomorrowplanstask);
-    }
-
-    /**
-     * 设置 [汇报给]
-     */
-    public void setReportto(String reportto) {
-        this.reportto = reportto;
-        this.modify("reportto", reportto);
+    public void setReportstatus(String reportstatus) {
+        this.reportstatus = reportstatus;
+        this.modify("reportstatus", reportstatus);
     }
 
     /**
@@ -320,31 +314,37 @@ public class IbzDaily extends EntityMP implements Serializable {
     }
 
     /**
-     * 设置 [状态]
+     * 设置 [明日计划]
      */
-    public void setReportstatus(String reportstatus) {
-        this.reportstatus = reportstatus;
-        this.modify("reportstatus", reportstatus);
+    public void setPlanstomorrow(String planstomorrow) {
+        this.planstomorrow = planstomorrow;
+        this.modify("planstomorrow", planstomorrow);
     }
 
     /**
-     * 设置 [提交时间]
+     * 设置 [抄送给]
      */
-    public void setSubmittime(Timestamp submittime) {
-        this.submittime = submittime;
-        this.modify("submittime", submittime);
+    public void setMailto(String mailto) {
+        this.mailto = mailto;
+        this.modify("mailto", mailto);
     }
 
     /**
-     * 格式化日期 [提交时间]
+     * 设置 [用户]
      */
-    public String formatSubmittime() {
-        if (this.submittime == null) {
-            return null;
-        }
-        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
-        return sdf.format(submittime);
+    public void setAccount(String account) {
+        this.account = account;
+        this.modify("account", account);
     }
+
+    /**
+     * 设置 [日报名称]
+     */
+    public void setIbzdailyname(String ibzdailyname) {
+        this.ibzdailyname = ibzdailyname;
+        this.modify("ibz_dailyname", ibzdailyname);
+    }
+
 
     @Override
     public Serializable getDefaultKey(boolean gen) {

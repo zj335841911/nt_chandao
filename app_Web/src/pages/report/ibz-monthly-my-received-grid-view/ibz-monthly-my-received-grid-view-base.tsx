@@ -105,7 +105,7 @@ export class IbzMonthlyMyReceivedGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof IbzMonthlyMyReceivedGridViewBase
      */
-	protected viewtag: string = 'becc7b01bce4e44c2fbad7d10e02080e';
+	protected viewtag: string = '581145d8c4bc3c651356a6ef9a4c0da8';
 
     /**
      * 视图名称

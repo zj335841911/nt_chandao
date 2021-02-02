@@ -44,6 +44,30 @@ public class IbzAgent extends EntityMP implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
+     * 更新人
+     */
+    @DEField(preType = DEPredefinedFieldType.UPDATEMAN)
+    @TableField(value = "`updateman`")
+    @JSONField(name = "updateman")
+    @JsonProperty("updateman")
+    private String updateman;
+    /**
+     * 创建人姓名
+     */
+    @DEField(preType = DEPredefinedFieldType.CREATEMANNAME)
+    @TableField(value = "`createmanname`")
+    @JSONField(name = "createmanname")
+    @JsonProperty("createmanname")
+    private String createmanname;
+    /**
+     * 代理结束日期
+     */
+    @TableField(value = "`agentend`")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "agentend", format = "yyyy-MM-dd")
+    @JsonProperty("agentend")
+    private Timestamp agentend;
+    /**
      * 代理标识
      */
     @DEField(name = "ibz_agentid", isKeyField = true)
@@ -59,31 +83,6 @@ public class IbzAgent extends EntityMP implements Serializable {
     @JSONField(name = "createman")
     @JsonProperty("createman")
     private String createman;
-    /**
-     * 建立时间
-     */
-    @DEField(preType = DEPredefinedFieldType.CREATEDATE)
-    @TableField(value = "`createdate`", fill = FieldFill.INSERT)
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
-    @JSONField(name = "createdate", format = "yyyy-MM-dd HH:mm:ss")
-    @JsonProperty("createdate")
-    private Timestamp createdate;
-    /**
-     * 代理名称
-     */
-    @DEField(name = "ibz_agentname")
-    @TableField(value = "`ibz_agentname`")
-    @JSONField(name = "ibzagentname")
-    @JsonProperty("ibzagentname")
-    private String ibzagentname;
-    /**
-     * 更新人
-     */
-    @DEField(preType = DEPredefinedFieldType.UPDATEMAN)
-    @TableField(value = "`updateman`")
-    @JSONField(name = "updateman")
-    @JsonProperty("updateman")
-    private String updateman;
     /**
      * 更新时间
      */
@@ -101,6 +100,15 @@ public class IbzAgent extends EntityMP implements Serializable {
     @JsonProperty("agentuser")
     private String agentuser;
     /**
+     * 建立时间
+     */
+    @DEField(preType = DEPredefinedFieldType.CREATEDATE)
+    @TableField(value = "`createdate`", fill = FieldFill.INSERT)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "createdate", format = "yyyy-MM-dd HH:mm:ss")
+    @JsonProperty("createdate")
+    private Timestamp createdate;
+    /**
      * 代理开始日期
      */
     @TableField(value = "`agentbegin`")
@@ -109,32 +117,34 @@ public class IbzAgent extends EntityMP implements Serializable {
     @JsonProperty("agentbegin")
     private Timestamp agentbegin;
     /**
-     * 代理结束日期
+     * 代理名称
      */
-    @TableField(value = "`agentend`")
-    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
-    @JSONField(name = "agentend", format = "yyyy-MM-dd")
-    @JsonProperty("agentend")
-    private Timestamp agentend;
-    /**
-     * 创建人姓名
-     */
-    @DEField(preType = DEPredefinedFieldType.CREATEMANNAME)
-    @TableField(value = "`createmanname`")
-    @JSONField(name = "createmanname")
-    @JsonProperty("createmanname")
-    private String createmanname;
+    @DEField(name = "ibz_agentname")
+    @TableField(value = "`ibz_agentname`")
+    @JSONField(name = "ibzagentname")
+    @JsonProperty("ibzagentname")
+    private String ibzagentname;
 
 
 
     /**
-     * 设置 [代理名称]
+     * 设置 [代理结束日期]
      */
-    public void setIbzagentname(String ibzagentname) {
-        this.ibzagentname = ibzagentname;
-        this.modify("ibz_agentname", ibzagentname);
+    public void setAgentend(Timestamp agentend) {
+        this.agentend = agentend;
+        this.modify("agentend", agentend);
     }
 
+    /**
+     * 格式化日期 [代理结束日期]
+     */
+    public String formatAgentend() {
+        if (this.agentend == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return sdf.format(agentend);
+    }
     /**
      * 设置 [代理用户]
      */
@@ -162,23 +172,13 @@ public class IbzAgent extends EntityMP implements Serializable {
         return sdf.format(agentbegin);
     }
     /**
-     * 设置 [代理结束日期]
+     * 设置 [代理名称]
      */
-    public void setAgentend(Timestamp agentend) {
-        this.agentend = agentend;
-        this.modify("agentend", agentend);
+    public void setIbzagentname(String ibzagentname) {
+        this.ibzagentname = ibzagentname;
+        this.modify("ibz_agentname", ibzagentname);
     }
 
-    /**
-     * 格式化日期 [代理结束日期]
-     */
-    public String formatAgentend() {
-        if (this.agentend == null) {
-            return null;
-        }
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        return sdf.format(agentend);
-    }
 
     @Override
     public Serializable getDefaultKey(boolean gen) {

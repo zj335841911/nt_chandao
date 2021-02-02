@@ -136,7 +136,7 @@ export class IbzproConfigGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof IbzproConfigGridViewBase
      */
-	protected viewtag: string = 'a5b6a193363e3516bf0ce46577a7721c';
+	protected viewtag: string = 'd86ccce9f88117cf723ae455a1bd065c';
 
     /**
      * 视图名称

@@ -163,7 +163,7 @@ export class StoryBuildSubGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof StoryBuildSubGridViewBase
      */
-	protected viewtag: string = '5b1056f95f9015cdb45901308a758e25';
+	protected viewtag: string = '30b9ee91769537268785ee0a9d1ab250';
 
     /**
      * 视图名称

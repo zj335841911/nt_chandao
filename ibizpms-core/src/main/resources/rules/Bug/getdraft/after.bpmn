@@ -9,8 +9,8 @@
         </extensionElements>
             <startEvent id="begin" isInterrupting="true"/>
             <endEvent id="prepareparam1_end" name="end"/>
-           <callActivity activiti:exclusive="true" calledElement="cn.ibizlab.pms.core.zentao.service.logic.buggetproducts" id="FAFD0AFF-AE13-43DE-AFDB-533E51F5F6BA" name="BugGetProductsRuleFlow.bpmn"/>
-           <sequenceFlow id="begin_FAFD0AFF-AE13-43DE-AFDB-533E51F5F6BA" sourceRef="begin" targetRef="FAFD0AFF-AE13-43DE-AFDB-533E51F5F6BA"/>
-           <sequenceFlow id="FAFD0AFF-AE13-43DE-AFDB-533E51F5F6BA_prepareparam1_end" sourceRef="FAFD0AFF-AE13-43DE-AFDB-533E51F5F6BA" targetRef="prepareparam1_end"/>
+           <callActivity activiti:exclusive="true" calledElement="cn.ibizlab.pms.core.zentao.service.logic.buggetproducts" id="73e6b9f57a8d056c8e90aceeccae9924" name="BugGetProductsRuleFlow.bpmn"/>
+           <sequenceFlow id="begin_73e6b9f57a8d056c8e90aceeccae9924" sourceRef="begin" targetRef="73e6b9f57a8d056c8e90aceeccae9924"/>
+           <sequenceFlow id="73e6b9f57a8d056c8e90aceeccae9924_prepareparam1_end" sourceRef="73e6b9f57a8d056c8e90aceeccae9924" targetRef="prepareparam1_end"/>
     </process>
 </definitions>

@@ -118,7 +118,7 @@ export class CaseMainDashboardViewBase extends DashboardViewBase {
      * @type {string}
      * @memberof CaseMainDashboardViewBase
      */
-	protected viewtag: string = '6f78b25e86923ab600a2141d50fe49fd';
+	protected viewtag: string = 'bf84dbcdd77fd96f9b831316d7f969fd';
 
     /**
      * 视图名称

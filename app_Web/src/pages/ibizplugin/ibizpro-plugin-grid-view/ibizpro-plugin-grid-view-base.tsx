@@ -136,7 +136,7 @@ export class IBIZProPluginGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof IBIZProPluginGridViewBase
      */
-	protected viewtag: string = 'c4099c98661bbfac92a0e718c183e718';
+	protected viewtag: string = 'f17a5c894627e83a450a47a7cd75968b';
 
     /**
      * 视图名称

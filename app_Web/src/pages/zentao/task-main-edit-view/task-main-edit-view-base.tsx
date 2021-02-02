@@ -153,7 +153,7 @@ export class TaskMainEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof TaskMainEditViewBase
      */
-	protected viewtag: string = '21e00a7239d9737bbfda5c1608b4129c';
+	protected viewtag: string = 'f7cc804a46bac35842ad9cb21963ee26';
 
     /**
      * 视图名称

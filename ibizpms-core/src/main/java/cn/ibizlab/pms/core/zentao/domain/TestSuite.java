@@ -110,6 +110,13 @@ public class TestSuite extends EntityMP implements Serializable {
     @JsonProperty("addedby")
     private String addedby;
     /**
+     * 用例数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "casecnt")
+    @JsonProperty("casecnt")
+    private Integer casecnt;
+    /**
      * 描述
      */
     @DEField(defaultValue = "#EMPTY")
@@ -125,13 +132,6 @@ public class TestSuite extends EntityMP implements Serializable {
     @JSONField(name = "product")
     @JsonProperty("product")
     private Long product;
-    /**
-     * 用例数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "casecnt")
-    @JsonProperty("casecnt")
-    private Integer casecnt;
 
     /**
      * 

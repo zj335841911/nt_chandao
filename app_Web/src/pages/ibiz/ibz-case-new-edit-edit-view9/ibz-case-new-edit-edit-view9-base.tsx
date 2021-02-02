@@ -102,7 +102,7 @@ export class IbzCaseNewEditEditView9Base extends EditView9Base {
      * @type {string}
      * @memberof IbzCaseNewEditEditView9Base
      */
-	protected viewtag: string = '03840483160859a4e36e33e9f9471ed3';
+	protected viewtag: string = '5a2461765fd92788e6946206d6baec7e';
 
     /**
      * 视图名称

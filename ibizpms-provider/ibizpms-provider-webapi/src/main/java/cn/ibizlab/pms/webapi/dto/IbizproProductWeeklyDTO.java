@@ -30,23 +30,6 @@ public class IbizproProductWeeklyDTO extends DTOBase implements Serializable {
 	private static final long serialVersionUID = 1L;
 
     /**
-     * 属性 [TOTALESTIMATES]
-     *
-     */
-    @JSONField(name = "totalestimates")
-    @JsonProperty("totalestimates")
-    private Double totalestimates;
-
-    /**
-     * 属性 [TASKS]
-     *
-     */
-    @JSONField(name = "tasks")
-    @JsonProperty("tasks")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String tasks;
-
-    /**
      * 属性 [PO]
      *
      */
@@ -56,13 +39,13 @@ public class IbizproProductWeeklyDTO extends DTOBase implements Serializable {
     private String po;
 
     /**
-     * 属性 [DATE]
+     * 属性 [IBIZPRO_PRODUCTWEEKLYID]
      *
      */
-    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "date" , format="yyyy-MM-dd")
-    @JsonProperty("date")
-    private Timestamp date;
+    @JSONField(name = "ibizpro_productweeklyid")
+    @JsonProperty("ibizpro_productweeklyid")
+    @JsonSerialize(using = ToStringSerializer.class)
+    private Long ibizproProductweeklyid;
 
     /**
      * 属性 [UPDATEDATE]
@@ -74,6 +57,15 @@ public class IbizproProductWeeklyDTO extends DTOBase implements Serializable {
     private Timestamp updatedate;
 
     /**
+     * 属性 [TASKS]
+     *
+     */
+    @JSONField(name = "tasks")
+    @JsonProperty("tasks")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String tasks;
+
+    /**
      * 属性 [UPDATEMAN]
      *
      */
@@ -81,6 +73,15 @@ public class IbizproProductWeeklyDTO extends DTOBase implements Serializable {
     @JsonProperty("updateman")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
     private String updateman;
+
+    /**
+     * 属性 [DATE]
+     *
+     */
+    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "date" , format="yyyy-MM-dd")
+    @JsonProperty("date")
+    private Timestamp date;
 
     /**
      * 属性 [CREATEMAN]
@@ -110,22 +111,30 @@ public class IbizproProductWeeklyDTO extends DTOBase implements Serializable {
     private String ibizproproductweeklyname;
 
     /**
-     * 属性 [IBIZPRO_PRODUCTWEEKLYID]
+     * 属性 [BEGINDATESTATS]
      *
      */
-    @JSONField(name = "ibizpro_productweeklyid")
-    @JsonProperty("ibizpro_productweeklyid")
-    @JsonSerialize(using = ToStringSerializer.class)
-    private Long ibizproProductweeklyid;
+    @JSONField(name = "begindatestats")
+    @JsonProperty("begindatestats")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String begindatestats;
 
     /**
-     * 属性 [PRODUCT]
+     * 属性 [TOTALESTIMATES]
      *
      */
-    @JSONField(name = "product")
-    @JsonProperty("product")
-    @JsonSerialize(using = ToStringSerializer.class)
-    private Long product;
+    @JSONField(name = "totalestimates")
+    @JsonProperty("totalestimates")
+    private Double totalestimates;
+
+    /**
+     * 属性 [ENDDATESTATS]
+     *
+     */
+    @JSONField(name = "enddatestats")
+    @JsonProperty("enddatestats")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String enddatestats;
 
     /**
      * 属性 [PRODUCTNAME]
@@ -137,30 +146,21 @@ public class IbizproProductWeeklyDTO extends DTOBase implements Serializable {
     private String productname;
 
     /**
-     * 属性 [BEGINDATESTATS]
+     * 属性 [PRODUCT]
      *
      */
-    @JSONField(name = "begindatestats")
-    @JsonProperty("begindatestats")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String begindatestats;
-
-    /**
-     * 属性 [ENDDATESTATS]
-     *
-     */
-    @JSONField(name = "enddatestats")
-    @JsonProperty("enddatestats")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String enddatestats;
+    @JSONField(name = "product")
+    @JsonProperty("product")
+    @JsonSerialize(using = ToStringSerializer.class)
+    private Long product;
 
 
     /**
-     * 设置 [TOTALESTIMATES]
+     * 设置 [PO]
      */
-    public void setTotalestimates(Double  totalestimates){
-        this.totalestimates = totalestimates ;
-        this.modify("totalestimates",totalestimates);
+    public void setPo(String  po){
+        this.po = po ;
+        this.modify("po",po);
     }
 
     /**
@@ -169,14 +169,6 @@ public class IbizproProductWeeklyDTO extends DTOBase implements Serializable {
     public void setTasks(String  tasks){
         this.tasks = tasks ;
         this.modify("tasks",tasks);
-    }
-
-    /**
-     * 设置 [PO]
-     */
-    public void setPo(String  po){
-        this.po = po ;
-        this.modify("po",po);
     }
 
     /**
@@ -196,14 +188,6 @@ public class IbizproProductWeeklyDTO extends DTOBase implements Serializable {
     }
 
     /**
-     * 设置 [PRODUCT]
-     */
-    public void setProduct(Long  product){
-        this.product = product ;
-        this.modify("product",product);
-    }
-
-    /**
      * 设置 [BEGINDATESTATS]
      */
     public void setBegindatestats(String  begindatestats){
@@ -212,11 +196,27 @@ public class IbizproProductWeeklyDTO extends DTOBase implements Serializable {
     }
 
     /**
+     * 设置 [TOTALESTIMATES]
+     */
+    public void setTotalestimates(Double  totalestimates){
+        this.totalestimates = totalestimates ;
+        this.modify("totalestimates",totalestimates);
+    }
+
+    /**
      * 设置 [ENDDATESTATS]
      */
     public void setEnddatestats(String  enddatestats){
         this.enddatestats = enddatestats ;
         this.modify("enddatestats",enddatestats);
+    }
+
+    /**
+     * 设置 [PRODUCT]
+     */
+    public void setProduct(Long  product){
+        this.product = product ;
+        this.modify("product",product);
     }
 
 

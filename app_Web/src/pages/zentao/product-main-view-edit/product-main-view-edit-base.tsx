@@ -125,7 +125,7 @@ export class ProductMainView_EditBase extends EditViewBase {
      * @type {string}
      * @memberof ProductMainView_EditBase
      */
-	protected viewtag: string = 'c02574075c8c15c67231cd71be040763';
+	protected viewtag: string = 'c279b2ea8245d900a0b405d4d87e2f9f';
 
     /**
      * 视图名称

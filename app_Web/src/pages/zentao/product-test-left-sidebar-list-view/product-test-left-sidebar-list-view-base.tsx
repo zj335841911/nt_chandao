@@ -137,7 +137,7 @@ export class ProductTestLeftSidebarListViewBase extends ListViewBase {
      * @type {string}
      * @memberof ProductTestLeftSidebarListViewBase
      */
-	protected viewtag: string = '7af111f4c127f7032c3e12e8c5fc0045';
+	protected viewtag: string = 'ae1ea68f418b4b37b773adca6b349679';
 
     /**
      * 视图名称

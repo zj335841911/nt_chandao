@@ -109,7 +109,7 @@ export class IbzReportlyReportlyDetailEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof IbzReportlyReportlyDetailEditViewBase
      */
-	protected viewtag: string = '3a81cfd739313c5e2fa5a4ada539abed';
+	protected viewtag: string = 'd6d6a7c24897b28611fb32791d4d1a4a';
 
     /**
      * 视图名称

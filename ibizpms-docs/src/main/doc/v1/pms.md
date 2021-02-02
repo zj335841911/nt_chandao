@@ -1,18 +1,18 @@
-# pms（pms）
+# iBiz产品生产管理系统（pms）
 ## 系统说明
-pms
+iBiz产品生产管理系统
 
 ## 系统模块
 | 序号 | 模块 | 模块名 |
 | ---- | ---- | ---- |
 | 1 | [iBiz增强模块](module/ibiz) | ibiz |
-| 2 | [基础管理模块](module/zentao) | zentao |
-| 3 | [iBizPro模块](module/ibizpro) | ibizpro |
-| 4 | [iBiz插件模块](module/ibizplugin) | ibizplugin |
-| 5 | [汇报模块](module/report) | report |
-| 6 | [iBiz系统模型](module/ibizsysmodel) | ibizsysmodel |
-| 7 | [uaa权限模块](module/uaa) | uaa |
-| 8 | [ou组织用户管理模块](module/ou) | ou |
+| 2 | [uaa权限模块](module/uaa) | uaa |
+| 3 | [iBiz插件模块](module/ibizplugin) | ibizplugin |
+| 4 | [基础管理模块](module/zentao) | zentao |
+| 5 | [iBiz系统模型](module/ibizsysmodel) | ibizsysmodel |
+| 6 | [汇报模块](module/report) | report |
+| 7 | [ou组织用户管理模块](module/ou) | ou |
+| 8 | [iBizPro模块](module/ibizpro) | ibizpro |
 
 ## 系统服务
 | 序号 | 服务 | 服务名 | 当前版本 |
@@ -22,8 +22,8 @@ pms
 ## 系统应用
 | 序号 | 应用 | 应用服务名 | 应用类型 | 应用模式 |
 | ---- | ---- | ---- | ---- | ---- |
-| 1 | [iBiz软件生产管理（Mob）](app/mob) | pms-mob |  |  |
-| 2 | [iBiz软件生产管理](app/web) | pms-web |  |  |
+| 1 | [iBiz软件生产管理](app/web) | pms-web |  |  |
+| 2 | [iBiz软件生产管理（Mob）](app/mob) | pms-mob |  |  |
 
 ## 工作流
 无

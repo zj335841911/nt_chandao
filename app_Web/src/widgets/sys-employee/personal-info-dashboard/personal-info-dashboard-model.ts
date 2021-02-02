@@ -100,13 +100,13 @@ export default class PersonalInfoModel {
         name: 'createdate',
       },
       {
+        name: 'updatedate',
+      },
+      {
         name: 'updateman',
       },
       {
         name: 'createman',
-      },
-      {
-        name: 'updatedate',
       },
     ]
   }

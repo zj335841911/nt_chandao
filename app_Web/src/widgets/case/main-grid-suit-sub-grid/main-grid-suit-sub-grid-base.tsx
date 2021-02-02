@@ -74,7 +74,7 @@ export class MainGrid_SuitSubGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u57d1959_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_uef3aae0_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -102,7 +102,7 @@ export class MainGrid_SuitSubGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_uc27cc64_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_udb1307b_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -130,7 +130,7 @@ export class MainGrid_SuitSubGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u8fd0327_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_uceeae1e_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -682,13 +682,13 @@ export class MainGrid_SuitSubGridBase extends GridControlBase {
 	public uiAction(row: any, tag: any, $event: any): void {
         $event.stopPropagation();
         if(Object.is('unlinkSuiteCase', tag)) {
-            this.grid_uagridcolumn1_u57d1959_click(row, tag, $event);
+            this.grid_uagridcolumn1_uef3aae0_click(row, tag, $event);
         }
         if(Object.is('OpenTestRunResultView', tag)) {
-            this.grid_uagridcolumn1_uc27cc64_click(row, tag, $event);
+            this.grid_uagridcolumn1_udb1307b_click(row, tag, $event);
         }
         if(Object.is('Execute', tag)) {
-            this.grid_uagridcolumn1_u8fd0327_click(row, tag, $event);
+            this.grid_uagridcolumn1_uceeae1e_click(row, tag, $event);
         }
     }
 

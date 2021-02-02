@@ -3,19 +3,19 @@ import commonLogic from '@/locale/logic/common/common-logic';
 function getLocaleResourceBase(){
 	const data:any = {
 		fields: {
-			id: commonLogic.appcommonhandle("编号",null),
-			name: commonLogic.appcommonhandle("项目名称",null),
-			rd: commonLogic.appcommonhandle("发布负责人",null),
-			po: commonLogic.appcommonhandle("产品负责人",null),
-			pm: commonLogic.appcommonhandle("项目负责人",null),
-			qd: commonLogic.appcommonhandle("测试负责人",null),
-			fristmember: commonLogic.appcommonhandle("团队成员（一）",null),
 			secondmember: commonLogic.appcommonhandle("团队成员（二）",null),
+			rd: commonLogic.appcommonhandle("发布负责人",null),
+			qd: commonLogic.appcommonhandle("测试负责人",null),
+			teamembers: commonLogic.appcommonhandle("全部成员",null),
 			thirdmember: commonLogic.appcommonhandle("团队成员（三）",null),
+			id: commonLogic.appcommonhandle("编号",null),
+			fristmember: commonLogic.appcommonhandle("团队成员（一）",null),
+			po: commonLogic.appcommonhandle("产品负责人",null),
 			fourthmember: commonLogic.appcommonhandle("团队成员（四）",null),
+			pm: commonLogic.appcommonhandle("项目负责人",null),
 			fifthmember: commonLogic.appcommonhandle("团队成员（五）",null),
 			sixthmember: commonLogic.appcommonhandle("团队成员（六）",null),
-			teamembers: commonLogic.appcommonhandle("全部成员",null),
+			name: commonLogic.appcommonhandle("项目名称",null),
 		},
 			views: {
 				editview9: {

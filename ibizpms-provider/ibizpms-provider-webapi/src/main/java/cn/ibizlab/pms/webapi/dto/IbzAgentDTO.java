@@ -30,6 +30,33 @@ public class IbzAgentDTO extends DTOBase implements Serializable {
 	private static final long serialVersionUID = 1L;
 
     /**
+     * 属性 [UPDATEMAN]
+     *
+     */
+    @JSONField(name = "updateman")
+    @JsonProperty("updateman")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    private String updateman;
+
+    /**
+     * 属性 [CREATEMANNAME]
+     *
+     */
+    @JSONField(name = "createmanname")
+    @JsonProperty("createmanname")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String createmanname;
+
+    /**
+     * 属性 [AGENTEND]
+     *
+     */
+    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "agentend" , format="yyyy-MM-dd")
+    @JsonProperty("agentend")
+    private Timestamp agentend;
+
+    /**
      * 属性 [IBZ_AGENTID]
      *
      */
@@ -46,33 +73,6 @@ public class IbzAgentDTO extends DTOBase implements Serializable {
     @JsonProperty("createman")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
     private String createman;
-
-    /**
-     * 属性 [CREATEDATE]
-     *
-     */
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "createdate" , format="yyyy-MM-dd HH:mm:ss")
-    @JsonProperty("createdate")
-    private Timestamp createdate;
-
-    /**
-     * 属性 [IBZ_AGENTNAME]
-     *
-     */
-    @JSONField(name = "ibzagentname")
-    @JsonProperty("ibzagentname")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String ibzagentname;
-
-    /**
-     * 属性 [UPDATEMAN]
-     *
-     */
-    @JSONField(name = "updateman")
-    @JsonProperty("updateman")
-    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
-    private String updateman;
 
     /**
      * 属性 [UPDATEDATE]
@@ -93,6 +93,15 @@ public class IbzAgentDTO extends DTOBase implements Serializable {
     private String agentuser;
 
     /**
+     * 属性 [CREATEDATE]
+     *
+     */
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "createdate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonProperty("createdate")
+    private Timestamp createdate;
+
+    /**
      * 属性 [AGENTBEGIN]
      *
      */
@@ -102,30 +111,21 @@ public class IbzAgentDTO extends DTOBase implements Serializable {
     private Timestamp agentbegin;
 
     /**
-     * 属性 [AGENTEND]
+     * 属性 [IBZ_AGENTNAME]
      *
      */
-    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "agentend" , format="yyyy-MM-dd")
-    @JsonProperty("agentend")
-    private Timestamp agentend;
-
-    /**
-     * 属性 [CREATEMANNAME]
-     *
-     */
-    @JSONField(name = "createmanname")
-    @JsonProperty("createmanname")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String createmanname;
+    @JSONField(name = "ibzagentname")
+    @JsonProperty("ibzagentname")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String ibzagentname;
 
 
     /**
-     * 设置 [IBZ_AGENTNAME]
+     * 设置 [AGENTEND]
      */
-    public void setIbzagentname(String  ibzagentname){
-        this.ibzagentname = ibzagentname ;
-        this.modify("ibz_agentname",ibzagentname);
+    public void setAgentend(Timestamp  agentend){
+        this.agentend = agentend ;
+        this.modify("agentend",agentend);
     }
 
     /**
@@ -145,11 +145,11 @@ public class IbzAgentDTO extends DTOBase implements Serializable {
     }
 
     /**
-     * 设置 [AGENTEND]
+     * 设置 [IBZ_AGENTNAME]
      */
-    public void setAgentend(Timestamp  agentend){
-        this.agentend = agentend ;
-        this.modify("agentend",agentend);
+    public void setIbzagentname(String  ibzagentname){
+        this.ibzagentname = ibzagentname ;
+        this.modify("ibz_agentname",ibzagentname);
     }
 
 

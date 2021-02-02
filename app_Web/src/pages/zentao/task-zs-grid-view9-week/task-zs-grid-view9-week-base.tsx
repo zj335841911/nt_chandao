@@ -123,7 +123,7 @@ export class TaskZsGridView9WeekBase extends GridView9Base {
      * @type {string}
      * @memberof TaskZsGridView9WeekBase
      */
-	protected viewtag: string = '6af549668ff8757cf378a5a50d8917e4';
+	protected viewtag: string = '4b619aaffc27d96024f58edab6738bdf';
 
     /**
      * 视图名称

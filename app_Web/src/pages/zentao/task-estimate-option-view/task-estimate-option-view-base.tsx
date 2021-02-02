@@ -144,7 +144,7 @@ export class TaskEstimateOptionViewBase extends OptionViewBase {
      * @type {string}
      * @memberof TaskEstimateOptionViewBase
      */
-	protected viewtag: string = '4acc52d66d0c31e82166d85b1b0cd826';
+	protected viewtag: string = 'd8db3dc48ecc1e32478d7490136cda6c';
 
     /**
      * 视图名称

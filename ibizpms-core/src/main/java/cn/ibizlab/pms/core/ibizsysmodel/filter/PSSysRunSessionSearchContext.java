@@ -31,27 +31,27 @@ public class PSSysRunSessionSearchContext extends SearchContextBase {
 
 	private String n_runmode_eq;//[运行模式]
 
-	private Integer n_rebuildmode_eq;//[重新构建]
-
 	private Integer n_runstate_eq;//[运行状态]
+
+	private Integer n_rebuildmode_eq;//[重新构建]
 
 	private String n_pssysappname2_eq;//[系统应用2]
 
 	private String n_pssysappname2_like;//[系统应用2]
 
-	private String n_pssysappid2_eq;//[系统应用2]
+	private String n_pssysserviceapiname_eq;//[系统服务接口]
+
+	private String n_pssysserviceapiname_like;//[系统服务接口]
 
 	private String n_pssysappname_eq;//[系统应用]
 
 	private String n_pssysappname_like;//[系统应用]
 
-	private String n_pssysappid_eq;//[系统应用]
-
-	private String n_pssysserviceapiname_eq;//[系统服务接口]
-
-	private String n_pssysserviceapiname_like;//[系统服务接口]
+	private String n_pssysappid2_eq;//[系统应用2]
 
 	private String n_pssysserviceapiid_eq;//[系统服务接口]
+
+	private String n_pssysappid_eq;//[系统应用]
 
 }
 

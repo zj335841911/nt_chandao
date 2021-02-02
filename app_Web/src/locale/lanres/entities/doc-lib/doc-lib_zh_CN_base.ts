@@ -4,115 +4,31 @@ function getLocaleResourceBase(){
 		appdename: commonLogic.appcommonhandle("文档库", null),
 		fields: {
 			type: commonLogic.appcommonhandle("文档类型",null),
+			doclibtype: commonLogic.appcommonhandle("文件库类型",null),
+			isfavourites: commonLogic.appcommonhandle("是否收藏",null),
 			collector: commonLogic.appcommonhandle("收藏者",null),
+			mdeptid: commonLogic.appcommonhandle("部门标识",null),
+			orgid: commonLogic.appcommonhandle("组织标识",null),
 			acl: commonLogic.appcommonhandle("权限",null),
+			root: commonLogic.appcommonhandle("Root",null),
 			deleted: commonLogic.appcommonhandle("已删除",null),
 			groups: commonLogic.appcommonhandle("分组",null),
+			doccnt: commonLogic.appcommonhandle("文档数量",null),
 			id: commonLogic.appcommonhandle("编号",null),
 			users: commonLogic.appcommonhandle("用户",null),
 			main: commonLogic.appcommonhandle("是否是主库",null),
 			name: commonLogic.appcommonhandle("文档库名称",null),
-			order: commonLogic.appcommonhandle("排序",null),
-			project: commonLogic.appcommonhandle("项目库",null),
-			product: commonLogic.appcommonhandle("产品库",null),
-			doccnt: commonLogic.appcommonhandle("文档数量",null),
-			doclibtype: commonLogic.appcommonhandle("文件库类型",null),
-			projectname: commonLogic.appcommonhandle("所属项目",null),
-			productname: commonLogic.appcommonhandle("所属产品",null),
-			isfavourites: commonLogic.appcommonhandle("是否收藏",null),
-			orgid: commonLogic.appcommonhandle("组织标识",null),
-			mdeptid: commonLogic.appcommonhandle("部门标识",null),
-			root: commonLogic.appcommonhandle("Root",null),
 			modulecnt: commonLogic.appcommonhandle("文件夹数",null),
 			openeddate: commonLogic.appcommonhandle("创建时间",null),
+			order: commonLogic.appcommonhandle("排序",null),
+			productname: commonLogic.appcommonhandle("所属产品",null),
+			projectname: commonLogic.appcommonhandle("所属项目",null),
+			project: commonLogic.appcommonhandle("项目库",null),
+			product: commonLogic.appcommonhandle("产品库",null),
 		},
 			views: {
-				projecttreeexpview: {
-					caption: commonLogic.appcommonhandle("项目文档库",null),
-					title: commonLogic.appcommonhandle("文档库树导航视图（项目文档库）",null),
-				},
-				usr3treeview: {
+				usr2treeview: {
 					caption: commonLogic.appcommonhandle("文档库",null),
-					title: commonLogic.appcommonhandle("文档库树视图",null),
-				},
-				undoneprojecttreeexpview: {
-					caption: commonLogic.appcommonhandle("未完成项目",null),
-					title: commonLogic.appcommonhandle("文档库树导航视图",null),
-				},
-				treeview: {
-					caption: commonLogic.appcommonhandle("文档库",null),
-					title: commonLogic.appcommonhandle("文档库树视图",null),
-				},
-				producttreeexpview: {
-					caption: commonLogic.appcommonhandle("产品文档库",null),
-					title: commonLogic.appcommonhandle("文档库树导航视图（产品文档库）",null),
-				},
-				pickupview: {
-					caption: commonLogic.appcommonhandle("文档库",null),
-					title: commonLogic.appcommonhandle("doclib数据选择视图",null),
-				},
-				customtreeexpview: {
-					caption: commonLogic.appcommonhandle("自定义文档库",null),
-					title: commonLogic.appcommonhandle("文档库树导航视图（自定义文档库）",null),
-				},
-				customdoclibchildtreeview: {
-					caption: commonLogic.appcommonhandle("自定义文档库-子目录",null),
-					title: commonLogic.appcommonhandle("文档库树视图（自定义文档库-子目录）",null),
-				},
-				editview: {
-					caption: commonLogic.appcommonhandle("文档库",null),
-					title: commonLogic.appcommonhandle("创建文档库",null),
-				},
-				productgridexpview: {
-					caption: commonLogic.appcommonhandle("产品文档库导航视图",null),
-					title: commonLogic.appcommonhandle("文档库表格导航视图（产品文档库导航视图）",null),
-				},
-				pickupgridview: {
-					caption: commonLogic.appcommonhandle("文档库",null),
-					title: commonLogic.appcommonhandle("doclib选择表格视图",null),
-				},
-				gridview: {
-					caption: commonLogic.appcommonhandle("文档库",null),
-					title: commonLogic.appcommonhandle("doclib表格视图",null),
-				},
-				undoneprojectgridview: {
-					caption: commonLogic.appcommonhandle("文档库",null),
-					title: commonLogic.appcommonhandle("doclib表格视图",null),
-				},
-				producttreeview: {
-					caption: commonLogic.appcommonhandle("产品",null),
-					title: commonLogic.appcommonhandle("文档库树视图（产品）",null),
-				},
-				customdoclibroottreeview: {
-					caption: commonLogic.appcommonhandle("自定义文档库-根目录",null),
-					title: commonLogic.appcommonhandle("文档库树视图（自定义文档库-根目录）",null),
-				},
-				productgridview: {
-					caption: commonLogic.appcommonhandle("文档库",null),
-					title: commonLogic.appcommonhandle("doclib表格视图",null),
-				},
-				usr2editview: {
-					caption: commonLogic.appcommonhandle("文档库",null),
-					title: commonLogic.appcommonhandle("文档库编辑视图",null),
-				},
-				libtabexpview: {
-					caption: commonLogic.appcommonhandle("文档库主页",null),
-					title: commonLogic.appcommonhandle("文档库分页导航视图（文档）",null),
-				},
-				byprojecttreeexpview: {
-					caption: commonLogic.appcommonhandle("项目下属文档库",null),
-					title: commonLogic.appcommonhandle("文档库树导航视图（项目下属）",null),
-				},
-				byproducttreeexpview: {
-					caption: commonLogic.appcommonhandle("产品下属文档库",null),
-					title: commonLogic.appcommonhandle("文档库树导航视图（产品下属）",null),
-				},
-				treeviewproductroot: {
-					caption: commonLogic.appcommonhandle("文档库",null),
-					title: commonLogic.appcommonhandle("文档库树视图",null),
-				},
-				projecttreeview: {
-					caption: commonLogic.appcommonhandle("项目",null),
 					title: commonLogic.appcommonhandle("文档库树视图",null),
 				},
 				producttreeviewcust: {
@@ -123,9 +39,93 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("文档主页",null),
 					title: commonLogic.appcommonhandle("文档库数据看板视图",null),
 				},
-				usr2treeview: {
+				pickupview: {
+					caption: commonLogic.appcommonhandle("文档库",null),
+					title: commonLogic.appcommonhandle("doclib数据选择视图",null),
+				},
+				undoneprojecttreeexpview: {
+					caption: commonLogic.appcommonhandle("未完成项目",null),
+					title: commonLogic.appcommonhandle("文档库树导航视图",null),
+				},
+				editview: {
+					caption: commonLogic.appcommonhandle("文档库",null),
+					title: commonLogic.appcommonhandle("创建文档库",null),
+				},
+				pickupgridview: {
+					caption: commonLogic.appcommonhandle("文档库",null),
+					title: commonLogic.appcommonhandle("doclib选择表格视图",null),
+				},
+				gridview: {
+					caption: commonLogic.appcommonhandle("文档库",null),
+					title: commonLogic.appcommonhandle("doclib表格视图",null),
+				},
+				customdoclibroottreeview: {
+					caption: commonLogic.appcommonhandle("自定义文档库-根目录",null),
+					title: commonLogic.appcommonhandle("文档库树视图（自定义文档库-根目录）",null),
+				},
+				projecttreeview: {
+					caption: commonLogic.appcommonhandle("项目",null),
+					title: commonLogic.appcommonhandle("文档库树视图",null),
+				},
+				byprojecttreeexpview: {
+					caption: commonLogic.appcommonhandle("项目下属文档库",null),
+					title: commonLogic.appcommonhandle("文档库树导航视图（项目下属）",null),
+				},
+				libtabexpview: {
+					caption: commonLogic.appcommonhandle("文档库主页",null),
+					title: commonLogic.appcommonhandle("文档库分页导航视图（文档）",null),
+				},
+				usr2editview: {
+					caption: commonLogic.appcommonhandle("文档库",null),
+					title: commonLogic.appcommonhandle("文档库编辑视图",null),
+				},
+				undoneprojectgridview: {
+					caption: commonLogic.appcommonhandle("文档库",null),
+					title: commonLogic.appcommonhandle("doclib表格视图",null),
+				},
+				productgridview: {
+					caption: commonLogic.appcommonhandle("文档库",null),
+					title: commonLogic.appcommonhandle("doclib表格视图",null),
+				},
+				treeview: {
 					caption: commonLogic.appcommonhandle("文档库",null),
 					title: commonLogic.appcommonhandle("文档库树视图",null),
+				},
+				treeviewproductroot: {
+					caption: commonLogic.appcommonhandle("文档库",null),
+					title: commonLogic.appcommonhandle("文档库树视图",null),
+				},
+				productgridexpview: {
+					caption: commonLogic.appcommonhandle("产品文档库导航视图",null),
+					title: commonLogic.appcommonhandle("文档库表格导航视图（产品文档库导航视图）",null),
+				},
+				usr3treeview: {
+					caption: commonLogic.appcommonhandle("文档库",null),
+					title: commonLogic.appcommonhandle("文档库树视图",null),
+				},
+				producttreeview: {
+					caption: commonLogic.appcommonhandle("产品",null),
+					title: commonLogic.appcommonhandle("文档库树视图（产品）",null),
+				},
+				customtreeexpview: {
+					caption: commonLogic.appcommonhandle("自定义文档库",null),
+					title: commonLogic.appcommonhandle("文档库树导航视图（自定义文档库）",null),
+				},
+				producttreeexpview: {
+					caption: commonLogic.appcommonhandle("产品文档库",null),
+					title: commonLogic.appcommonhandle("文档库树导航视图（产品文档库）",null),
+				},
+				customdoclibchildtreeview: {
+					caption: commonLogic.appcommonhandle("自定义文档库-子目录",null),
+					title: commonLogic.appcommonhandle("文档库树视图（自定义文档库-子目录）",null),
+				},
+				projecttreeexpview: {
+					caption: commonLogic.appcommonhandle("项目文档库",null),
+					title: commonLogic.appcommonhandle("文档库树导航视图（项目文档库）",null),
+				},
+				byproducttreeexpview: {
+					caption: commonLogic.appcommonhandle("产品下属文档库",null),
+					title: commonLogic.appcommonhandle("文档库树导航视图（产品下属）",null),
 				},
 			},
 			main_form: {
@@ -167,14 +167,6 @@ function getLocaleResourceBase(){
 					doclib_uncollect: commonLogic.appcommonhandle("取消收藏",null),
 				},
 			},
-			expproductmain_grid: {
-				columns: {
-					name: commonLogic.appcommonhandle("文档库名称",null),
-				},
-				nodata:commonLogic.appcommonhandle("",null),
-				uiactions: {
-				},
-			},
 			productmain_grid: {
 				columns: {
 					name: commonLogic.appcommonhandle("文档库名称",null),
@@ -188,6 +180,14 @@ function getLocaleResourceBase(){
 					doclib_weihufenlei: commonLogic.appcommonhandle("维护分类",null),
 					doclib_collect: commonLogic.appcommonhandle("收藏",null),
 					doclib_uncollect: commonLogic.appcommonhandle("取消收藏",null),
+				},
+			},
+			expproductmain_grid: {
+				columns: {
+					name: commonLogic.appcommonhandle("文档库名称",null),
+				},
+				nodata:commonLogic.appcommonhandle("",null),
+				uiactions: {
 				},
 			},
 			default_searchform: {
@@ -253,12 +253,15 @@ function getLocaleResourceBase(){
 					tip: commonLogic.appcommonhandle("过滤",null),
 				},
 			},
-			childdoclibmoduletree_treeview: {
+			doclibtreeproject_treeview: {
 				nodata:commonLogic.appcommonhandle("",null),
 				nodes: {
+					files: commonLogic.appcommonhandle("附件库",null),
 					root: commonLogic.appcommonhandle("默认根节点",null),
 				},
 				uiactions: {
+					file_ibzdownload: commonLogic.appcommonhandle("下载",null),
+					file_delete: commonLogic.appcommonhandle("删除",null),
 					doclibmodule_edit: commonLogic.appcommonhandle("编辑",null),
 					doclibmodule_weihufenlei: commonLogic.appcommonhandle("维护分类",null),
 					doclibmodule_favorite: commonLogic.appcommonhandle("收藏",null),
@@ -268,30 +271,10 @@ function getLocaleResourceBase(){
 					doc_onlycollectdoc: commonLogic.appcommonhandle("收藏",null),
 					doc_onlyuncollectdoc: commonLogic.appcommonhandle("取消收藏",null),
 					doc_docinfo: commonLogic.appcommonhandle("查看文档详情",null),
-				},
-			},
-			doclibtreeproject_treeview: {
-				nodata:commonLogic.appcommonhandle("",null),
-				nodes: {
-					root: commonLogic.appcommonhandle("默认根节点",null),
-					files: commonLogic.appcommonhandle("附件库",null),
-				},
-				uiactions: {
 					doclib_editdoclib: commonLogic.appcommonhandle("编辑",null),
 					doclib_weihufenlei: commonLogic.appcommonhandle("维护分类",null),
 					doclib_uncollect: commonLogic.appcommonhandle("取消收藏",null),
 					doclib_collect: commonLogic.appcommonhandle("收藏",null),
-					file_ibzdownload: commonLogic.appcommonhandle("下载",null),
-					file_delete: commonLogic.appcommonhandle("删除",null),
-					doc_edit: commonLogic.appcommonhandle("编辑",null),
-					doc_delete: commonLogic.appcommonhandle("删除",null),
-					doc_onlycollectdoc: commonLogic.appcommonhandle("收藏",null),
-					doc_onlyuncollectdoc: commonLogic.appcommonhandle("取消收藏",null),
-					doc_docinfo: commonLogic.appcommonhandle("查看文档详情",null),
-					doclibmodule_edit: commonLogic.appcommonhandle("编辑",null),
-					doclibmodule_weihufenlei: commonLogic.appcommonhandle("维护分类",null),
-					doclibmodule_favorite: commonLogic.appcommonhandle("收藏",null),
-					doclibmodule_nfavorite: commonLogic.appcommonhandle("取消收藏",null),
 				},
 			},
 			rootdoclibprojecttreeveiw_treeview: {
@@ -311,15 +294,73 @@ function getLocaleResourceBase(){
 					doc_docinfo: commonLogic.appcommonhandle("查看文档详情",null),
 				},
 			},
-			projectleftdoclibtree_treeview: {
+			childdoclibmoduletree_treeview: {
 				nodata:commonLogic.appcommonhandle("",null),
 				nodes: {
 					root: commonLogic.appcommonhandle("默认根节点",null),
-					all: commonLogic.appcommonhandle("所有文档库",null),
+				},
+				uiactions: {
+					doc_edit: commonLogic.appcommonhandle("编辑",null),
+					doc_delete: commonLogic.appcommonhandle("删除",null),
+					doc_onlycollectdoc: commonLogic.appcommonhandle("收藏",null),
+					doc_onlyuncollectdoc: commonLogic.appcommonhandle("取消收藏",null),
+					doc_docinfo: commonLogic.appcommonhandle("查看文档详情",null),
+					doclibmodule_edit: commonLogic.appcommonhandle("编辑",null),
+					doclibmodule_weihufenlei: commonLogic.appcommonhandle("维护分类",null),
+					doclibmodule_favorite: commonLogic.appcommonhandle("收藏",null),
+					doclibmodule_nfavorite: commonLogic.appcommonhandle("取消收藏",null),
+				},
+			},
+			projectleftdoclibtree_treeview: {
+				nodata:commonLogic.appcommonhandle("",null),
+				nodes: {
 					files: commonLogic.appcommonhandle("附件库",null),
+					all: commonLogic.appcommonhandle("所有文档库",null),
+					root: commonLogic.appcommonhandle("默认根节点",null),
 				},
 				uiactions: {
 					refreshall: commonLogic.appcommonhandle("刷新",null),
+				},
+			},
+			doclibtreeproduct_treeview: {
+				nodata:commonLogic.appcommonhandle("",null),
+				nodes: {
+					files: commonLogic.appcommonhandle("附件库",null),
+					root: commonLogic.appcommonhandle("默认根节点",null),
+				},
+				uiactions: {
+					doclibmodule_edit: commonLogic.appcommonhandle("编辑",null),
+					doclibmodule_weihufenlei: commonLogic.appcommonhandle("维护分类",null),
+					doclibmodule_favorite: commonLogic.appcommonhandle("收藏",null),
+					doclibmodule_nfavorite: commonLogic.appcommonhandle("取消收藏",null),
+					doclib_editdoclib: commonLogic.appcommonhandle("编辑",null),
+					doclib_weihufenlei: commonLogic.appcommonhandle("维护分类",null),
+					doclib_uncollect: commonLogic.appcommonhandle("取消收藏",null),
+					doclib_collect: commonLogic.appcommonhandle("收藏",null),
+					file_ibzdownload: commonLogic.appcommonhandle("下载",null),
+					file_delete: commonLogic.appcommonhandle("删除",null),
+					doc_edit: commonLogic.appcommonhandle("编辑",null),
+					doc_delete: commonLogic.appcommonhandle("删除",null),
+					doc_onlycollectdoc: commonLogic.appcommonhandle("收藏",null),
+					doc_onlyuncollectdoc: commonLogic.appcommonhandle("取消收藏",null),
+					doc_docinfo: commonLogic.appcommonhandle("查看文档详情",null),
+				},
+			},
+			docchildproducttreeview_treeview: {
+				nodata:commonLogic.appcommonhandle("",null),
+				nodes: {
+					root: commonLogic.appcommonhandle("默认根节点",null),
+				},
+				uiactions: {
+					doclibmodule_edit: commonLogic.appcommonhandle("编辑",null),
+					doclibmodule_weihufenlei: commonLogic.appcommonhandle("维护分类",null),
+					doclibmodule_favorite: commonLogic.appcommonhandle("收藏",null),
+					doclibmodule_nfavorite: commonLogic.appcommonhandle("取消收藏",null),
+					doc_edit: commonLogic.appcommonhandle("编辑",null),
+					doc_delete: commonLogic.appcommonhandle("删除",null),
+					doc_onlycollectdoc: commonLogic.appcommonhandle("收藏",null),
+					doc_onlyuncollectdoc: commonLogic.appcommonhandle("取消收藏",null),
+					doc_docinfo: commonLogic.appcommonhandle("查看文档详情",null),
 				},
 			},
 			doclibchildtreeview_treeview: {
@@ -339,74 +380,23 @@ function getLocaleResourceBase(){
 					doclibmodule_nfavorite: commonLogic.appcommonhandle("取消收藏",null),
 				},
 			},
-			docchildproducttreeview_treeview: {
-				nodata:commonLogic.appcommonhandle("",null),
-				nodes: {
-					root: commonLogic.appcommonhandle("默认根节点",null),
-				},
-				uiactions: {
-					doc_edit: commonLogic.appcommonhandle("编辑",null),
-					doc_delete: commonLogic.appcommonhandle("删除",null),
-					doc_onlycollectdoc: commonLogic.appcommonhandle("收藏",null),
-					doc_onlyuncollectdoc: commonLogic.appcommonhandle("取消收藏",null),
-					doc_docinfo: commonLogic.appcommonhandle("查看文档详情",null),
-					doclibmodule_edit: commonLogic.appcommonhandle("编辑",null),
-					doclibmodule_weihufenlei: commonLogic.appcommonhandle("维护分类",null),
-					doclibmodule_favorite: commonLogic.appcommonhandle("收藏",null),
-					doclibmodule_nfavorite: commonLogic.appcommonhandle("取消收藏",null),
-				},
-			},
-			doclibtreeproduct_treeview: {
-				nodata:commonLogic.appcommonhandle("",null),
-				nodes: {
-					root: commonLogic.appcommonhandle("默认根节点",null),
-					files: commonLogic.appcommonhandle("附件库",null),
-				},
-				uiactions: {
-					doc_edit: commonLogic.appcommonhandle("编辑",null),
-					doc_delete: commonLogic.appcommonhandle("删除",null),
-					doc_onlycollectdoc: commonLogic.appcommonhandle("收藏",null),
-					doc_onlyuncollectdoc: commonLogic.appcommonhandle("取消收藏",null),
-					doc_docinfo: commonLogic.appcommonhandle("查看文档详情",null),
-					file_ibzdownload: commonLogic.appcommonhandle("下载",null),
-					file_delete: commonLogic.appcommonhandle("删除",null),
-					doclibmodule_edit: commonLogic.appcommonhandle("编辑",null),
-					doclibmodule_weihufenlei: commonLogic.appcommonhandle("维护分类",null),
-					doclibmodule_favorite: commonLogic.appcommonhandle("收藏",null),
-					doclibmodule_nfavorite: commonLogic.appcommonhandle("取消收藏",null),
-					doclib_editdoclib: commonLogic.appcommonhandle("编辑",null),
-					doclib_weihufenlei: commonLogic.appcommonhandle("维护分类",null),
-					doclib_uncollect: commonLogic.appcommonhandle("取消收藏",null),
-					doclib_collect: commonLogic.appcommonhandle("收藏",null),
-				},
-			},
 			productleftdoclibtree_treeview: {
 				nodata:commonLogic.appcommonhandle("",null),
 				nodes: {
 					root: commonLogic.appcommonhandle("默认根节点",null),
-					files: commonLogic.appcommonhandle("附件库",null),
 					all: commonLogic.appcommonhandle("所有文档库",null),
+					files: commonLogic.appcommonhandle("附件库",null),
 				},
 				uiactions: {
 					refreshall: commonLogic.appcommonhandle("刷新",null),
-				},
-			},
-			projectdoclibtree_treeview: {
-				nodata:commonLogic.appcommonhandle("",null),
-				nodes: {
-					root: commonLogic.appcommonhandle("默认根节点",null),
-					allproject: commonLogic.appcommonhandle("所有项目",null),
-					files: commonLogic.appcommonhandle("附件库",null),
-				},
-				uiactions: {
 				},
 			},
 			undoneprojectdoclibtree_treeview: {
 				nodata:commonLogic.appcommonhandle("",null),
 				nodes: {
 					allundoneproject: commonLogic.appcommonhandle("所有未关闭项目",null),
-					root: commonLogic.appcommonhandle("默认根节点",null),
 					files: commonLogic.appcommonhandle("附件库",null),
+					root: commonLogic.appcommonhandle("默认根节点",null),
 				},
 				uiactions: {
 				},
@@ -421,21 +411,31 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
+			projectdoclibtree_treeview: {
+				nodata:commonLogic.appcommonhandle("",null),
+				nodes: {
+					root: commonLogic.appcommonhandle("默认根节点",null),
+					allproject: commonLogic.appcommonhandle("所有项目",null),
+					files: commonLogic.appcommonhandle("附件库",null),
+				},
+				uiactions: {
+				},
+			},
 			doclibtreecustchild_treeview: {
 				nodata:commonLogic.appcommonhandle("",null),
 				nodes: {
 					root: commonLogic.appcommonhandle("默认根节点",null),
 				},
 				uiactions: {
-					doclibmodule_edit: commonLogic.appcommonhandle("编辑",null),
-					doclibmodule_weihufenlei: commonLogic.appcommonhandle("维护分类",null),
-					doclibmodule_favorite: commonLogic.appcommonhandle("收藏",null),
-					doclibmodule_nfavorite: commonLogic.appcommonhandle("取消收藏",null),
 					doc_edit: commonLogic.appcommonhandle("编辑",null),
 					doc_delete: commonLogic.appcommonhandle("删除",null),
 					doc_onlycollectdoc: commonLogic.appcommonhandle("收藏",null),
 					doc_onlyuncollectdoc: commonLogic.appcommonhandle("取消收藏",null),
 					doc_docinfo: commonLogic.appcommonhandle("查看文档详情",null),
+					doclibmodule_edit: commonLogic.appcommonhandle("编辑",null),
+					doclibmodule_weihufenlei: commonLogic.appcommonhandle("维护分类",null),
+					doclibmodule_favorite: commonLogic.appcommonhandle("收藏",null),
+					doclibmodule_nfavorite: commonLogic.appcommonhandle("取消收藏",null),
 				},
 			},
 			doclibtreecustroot_treeview: {
@@ -444,15 +444,15 @@ function getLocaleResourceBase(){
 					root: commonLogic.appcommonhandle("默认根节点",null),
 				},
 				uiactions: {
-					doclibmodule_edit: commonLogic.appcommonhandle("编辑",null),
-					doclibmodule_weihufenlei: commonLogic.appcommonhandle("维护分类",null),
-					doclibmodule_favorite: commonLogic.appcommonhandle("收藏",null),
-					doclibmodule_nfavorite: commonLogic.appcommonhandle("取消收藏",null),
 					doc_edit: commonLogic.appcommonhandle("编辑",null),
 					doc_delete: commonLogic.appcommonhandle("删除",null),
 					doc_onlycollectdoc: commonLogic.appcommonhandle("收藏",null),
 					doc_onlyuncollectdoc: commonLogic.appcommonhandle("取消收藏",null),
 					doc_docinfo: commonLogic.appcommonhandle("查看文档详情",null),
+					doclibmodule_edit: commonLogic.appcommonhandle("编辑",null),
+					doclibmodule_weihufenlei: commonLogic.appcommonhandle("维护分类",null),
+					doclibmodule_favorite: commonLogic.appcommonhandle("收藏",null),
+					doclibmodule_nfavorite: commonLogic.appcommonhandle("取消收藏",null),
 				},
 			},
 			doclibtreecust_treeview: {
@@ -461,6 +461,10 @@ function getLocaleResourceBase(){
 					root: commonLogic.appcommonhandle("默认根节点",null),
 				},
 				uiactions: {
+					doclib_editdoclib: commonLogic.appcommonhandle("编辑",null),
+					doclib_weihufenlei: commonLogic.appcommonhandle("维护分类",null),
+					doclib_uncollect: commonLogic.appcommonhandle("取消收藏",null),
+					doclib_collect: commonLogic.appcommonhandle("收藏",null),
 					doclibmodule_edit: commonLogic.appcommonhandle("编辑",null),
 					doclibmodule_weihufenlei: commonLogic.appcommonhandle("维护分类",null),
 					doclibmodule_favorite: commonLogic.appcommonhandle("收藏",null),
@@ -470,17 +474,13 @@ function getLocaleResourceBase(){
 					doc_onlycollectdoc: commonLogic.appcommonhandle("收藏",null),
 					doc_onlyuncollectdoc: commonLogic.appcommonhandle("取消收藏",null),
 					doc_docinfo: commonLogic.appcommonhandle("查看文档详情",null),
-					doclib_editdoclib: commonLogic.appcommonhandle("编辑",null),
-					doclib_weihufenlei: commonLogic.appcommonhandle("维护分类",null),
-					doclib_uncollect: commonLogic.appcommonhandle("取消收藏",null),
-					doclib_collect: commonLogic.appcommonhandle("收藏",null),
 				},
 			},
 			customdoclibtree_treeview: {
 				nodata:commonLogic.appcommonhandle("",null),
 				nodes: {
-					root: commonLogic.appcommonhandle("默认根节点",null),
 					all: commonLogic.appcommonhandle("所有文档库",null),
+					root: commonLogic.appcommonhandle("默认根节点",null),
 				},
 				uiactions: {
 					doclib_editcustomdoclib: commonLogic.appcommonhandle("编辑",null),

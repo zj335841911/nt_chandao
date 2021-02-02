@@ -4,10 +4,10 @@ import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import DocLibService from '@/service/doc-lib/doc-lib-service';
 import DocLibTreeProjectService from './doc-lib-tree-project-treeview-service';
-import DocLibUIService from '@/uiservice/doc-lib/doc-lib-ui-service';
 import FileUIService from '@/uiservice/file/file-ui-service';
-import DocUIService from '@/uiservice/doc/doc-ui-service';
 import DocLibModuleUIService from '@/uiservice/doc-lib-module/doc-lib-module-ui-service';
+import DocUIService from '@/uiservice/doc/doc-ui-service';
+import DocLibUIService from '@/uiservice/doc-lib/doc-lib-ui-service';
 import { Environment } from '@/environments/environment';
 
 /**
@@ -114,28 +114,6 @@ export class DocLibTreeProjectTreeBase extends MainControlBase {
     }
 
     /**
-     * doclibmodule_cm 部件 click 事件
-     *
-     * @param {*} [args={}]
-     * @param {*} $event
-     * @memberof DocLibTreeProjectTreeBase
-     */
-    public doclibmodule_cm_click($event: any, $event2?: any) {
-        if (Object.is($event.tag, 'deuiaction1')) {
-            this.doclibmodule_cm_deuiaction1_click(null, 'doclibmodule_cm', $event2);
-        }
-        if (Object.is($event.tag, 'deuiaction4')) {
-            this.doclibmodule_cm_deuiaction4_click(null, 'doclibmodule_cm', $event2);
-        }
-        if (Object.is($event.tag, 'deuiaction2')) {
-            this.doclibmodule_cm_deuiaction2_click(null, 'doclibmodule_cm', $event2);
-        }
-        if (Object.is($event.tag, 'deuiaction3')) {
-            this.doclibmodule_cm_deuiaction3_click(null, 'doclibmodule_cm', $event2);
-        }
-    }
-
-    /**
      * doclibdoc_cm 部件 click 事件
      *
      * @param {*} [args={}]
@@ -157,6 +135,28 @@ export class DocLibTreeProjectTreeBase extends MainControlBase {
         }
         if (Object.is($event.tag, 'deuiaction5')) {
             this.doclibdoc_cm_deuiaction5_click(null, 'doclibdoc_cm', $event2);
+        }
+    }
+
+    /**
+     * doclibmodule_cm 部件 click 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof DocLibTreeProjectTreeBase
+     */
+    public doclibmodule_cm_click($event: any, $event2?: any) {
+        if (Object.is($event.tag, 'deuiaction1')) {
+            this.doclibmodule_cm_deuiaction1_click(null, 'doclibmodule_cm', $event2);
+        }
+        if (Object.is($event.tag, 'deuiaction4')) {
+            this.doclibmodule_cm_deuiaction4_click(null, 'doclibmodule_cm', $event2);
+        }
+        if (Object.is($event.tag, 'deuiaction2')) {
+            this.doclibmodule_cm_deuiaction2_click(null, 'doclibmodule_cm', $event2);
+        }
+        if (Object.is($event.tag, 'deuiaction3')) {
+            this.doclibmodule_cm_deuiaction3_click(null, 'doclibmodule_cm', $event2);
         }
     }
 
@@ -199,122 +199,6 @@ export class DocLibTreeProjectTreeBase extends MainControlBase {
         if (Object.is($event.tag, 'deuiaction3')) {
             this.file_cm_deuiaction3_click(null, 'file_cm', $event2);
         }
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public doclib_cm_deuiaction1_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        const curUIService:DocLibUIService  = new DocLibUIService();
-        curUIService.DocLib_EditDocLib(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public doclib_cm_deuiaction2_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        const curUIService:DocLibUIService  = new DocLibUIService();
-        curUIService.DocLib_WeiHuFenLei(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public doclib_cm_deuiaction3_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        const curUIService:DocLibUIService  = new DocLibUIService();
-        curUIService.DocLib_UnCollect(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public doclib_cm_deuiaction4_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        const curUIService:DocLibUIService  = new DocLibUIService();
-        curUIService.DocLib_Collect(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
     }
 
     /**
@@ -373,6 +257,238 @@ export class DocLibTreeProjectTreeBase extends MainControlBase {
         // 界面行为
         const curUIService:FileUIService  = new FileUIService();
         curUIService.File_delete(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public doclibmodule_cm_deuiaction1_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:DocLibModuleUIService  = new DocLibModuleUIService();
+        curUIService.DocLibModule_edit(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public doclibmodule_cm_deuiaction4_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:DocLibModuleUIService  = new DocLibModuleUIService();
+        curUIService.DocLibModule_WeiHuFenLei(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public doclibmodule_cm_deuiaction2_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:DocLibModuleUIService  = new DocLibModuleUIService();
+        curUIService.DocLibModule_Favorite(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public doclibmodule_cm_deuiaction3_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:DocLibModuleUIService  = new DocLibModuleUIService();
+        curUIService.DocLibModule_NFavorite(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public childdoclibmodule_cm_deuiaction1_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:DocLibModuleUIService  = new DocLibModuleUIService();
+        curUIService.DocLibModule_edit(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public childdoclibmodule_cm_deuiaction4_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:DocLibModuleUIService  = new DocLibModuleUIService();
+        curUIService.DocLibModule_WeiHuFenLei(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public childdoclibmodule_cm_deuiaction2_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:DocLibModuleUIService  = new DocLibModuleUIService();
+        curUIService.DocLibModule_Favorite(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public childdoclibmodule_cm_deuiaction3_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:DocLibModuleUIService  = new DocLibModuleUIService();
+        curUIService.DocLibModule_NFavorite(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
     }
 
     /**
@@ -528,7 +644,7 @@ export class DocLibTreeProjectTreeBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public childdoclibmodule_cm_deuiaction1_click(params: any = {}, tag?: any, $event?: any) {
+    public doclib_cm_deuiaction1_click(params: any = {}, tag?: any, $event?: any) {
         // 参数
         // 取数
         let datas: any[] = [];
@@ -545,8 +661,8 @@ export class DocLibTreeProjectTreeBase extends MainControlBase {
           datas = [params];
         }
         // 界面行为
-        const curUIService:DocLibModuleUIService  = new DocLibModuleUIService();
-        curUIService.DocLibModule_edit(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
+        const curUIService:DocLibUIService  = new DocLibUIService();
+        curUIService.DocLib_EditDocLib(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
     }
 
     /**
@@ -557,7 +673,7 @@ export class DocLibTreeProjectTreeBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public childdoclibmodule_cm_deuiaction4_click(params: any = {}, tag?: any, $event?: any) {
+    public doclib_cm_deuiaction2_click(params: any = {}, tag?: any, $event?: any) {
         // 参数
         // 取数
         let datas: any[] = [];
@@ -574,8 +690,8 @@ export class DocLibTreeProjectTreeBase extends MainControlBase {
           datas = [params];
         }
         // 界面行为
-        const curUIService:DocLibModuleUIService  = new DocLibModuleUIService();
-        curUIService.DocLibModule_WeiHuFenLei(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
+        const curUIService:DocLibUIService  = new DocLibUIService();
+        curUIService.DocLib_WeiHuFenLei(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
     }
 
     /**
@@ -586,7 +702,7 @@ export class DocLibTreeProjectTreeBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public childdoclibmodule_cm_deuiaction2_click(params: any = {}, tag?: any, $event?: any) {
+    public doclib_cm_deuiaction3_click(params: any = {}, tag?: any, $event?: any) {
         // 参数
         // 取数
         let datas: any[] = [];
@@ -603,8 +719,8 @@ export class DocLibTreeProjectTreeBase extends MainControlBase {
           datas = [params];
         }
         // 界面行为
-        const curUIService:DocLibModuleUIService  = new DocLibModuleUIService();
-        curUIService.DocLibModule_Favorite(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
+        const curUIService:DocLibUIService  = new DocLibUIService();
+        curUIService.DocLib_UnCollect(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
     }
 
     /**
@@ -615,7 +731,7 @@ export class DocLibTreeProjectTreeBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public childdoclibmodule_cm_deuiaction3_click(params: any = {}, tag?: any, $event?: any) {
+    public doclib_cm_deuiaction4_click(params: any = {}, tag?: any, $event?: any) {
         // 参数
         // 取数
         let datas: any[] = [];
@@ -632,124 +748,8 @@ export class DocLibTreeProjectTreeBase extends MainControlBase {
           datas = [params];
         }
         // 界面行为
-        const curUIService:DocLibModuleUIService  = new DocLibModuleUIService();
-        curUIService.DocLibModule_NFavorite(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public doclibmodule_cm_deuiaction1_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        const curUIService:DocLibModuleUIService  = new DocLibModuleUIService();
-        curUIService.DocLibModule_edit(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public doclibmodule_cm_deuiaction4_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        const curUIService:DocLibModuleUIService  = new DocLibModuleUIService();
-        curUIService.DocLibModule_WeiHuFenLei(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public doclibmodule_cm_deuiaction2_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        const curUIService:DocLibModuleUIService  = new DocLibModuleUIService();
-        curUIService.DocLibModule_Favorite(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public doclibmodule_cm_deuiaction3_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        const curUIService:DocLibModuleUIService  = new DocLibModuleUIService();
-        curUIService.DocLibModule_NFavorite(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
+        const curUIService:DocLibUIService  = new DocLibUIService();
+        curUIService.DocLib_Collect(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
     }
 
     /**
@@ -1077,15 +1077,15 @@ export class DocLibTreeProjectTreeBase extends MainControlBase {
         DocLib_deuiaction2: {ctrlname: 'doclib_cm',name:'deuiaction2',nodeOwner:'DocLib',type: 'DEUIACTION', tag: 'WeiHuFenLei', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_MAINTENANCE_BUT', visible: true, disabled: false,imgclass: 'fa fa-lock',caption: '',title:'entities.doclib.doclibtreeproject_treeview.uiactions.doclib_weihufenlei'},
         DocLib_deuiaction3: {ctrlname: 'doclib_cm',name:'deuiaction3',nodeOwner:'DocLib',type: 'DEUIACTION', tag: 'UnCollect', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIB_NFAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star',caption: '',title:'entities.doclib.doclibtreeproject_treeview.uiactions.doclib_uncollect'},
         DocLib_deuiaction4: {ctrlname: 'doclib_cm',name:'deuiaction4',nodeOwner:'DocLib',type: 'DEUIACTION', tag: 'Collect', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIB_FAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star-o',caption: '',title:'entities.doclib.doclibtreeproject_treeview.uiactions.doclib_collect'},
-        DocLibModule_deuiaction1: {ctrlname: 'doclibmodule_cm',name:'deuiaction1',nodeOwner:'DocLibModule',type: 'DEUIACTION', tag: 'edit', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_EDIT_BUT', visible: true, disabled: false,imgclass: 'fa fa-edit',caption: '',title:'entities.doclib.doclibtreeproject_treeview.uiactions.doclibmodule_edit'},
-        DocLibModule_deuiaction4: {ctrlname: 'doclibmodule_cm',name:'deuiaction4',nodeOwner:'DocLibModule',type: 'DEUIACTION', tag: 'WeiHuFenLei', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_MAINTENANCE_BUT', visible: true, disabled: false,imgclass: 'fa fa-lock',caption: '',title:'entities.doclib.doclibtreeproject_treeview.uiactions.doclibmodule_weihufenlei'},
-        DocLibModule_deuiaction2: {ctrlname: 'doclibmodule_cm',name:'deuiaction2',nodeOwner:'DocLibModule',type: 'DEUIACTION', tag: 'Favorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_FAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star-o',caption: '',title:'entities.doclib.doclibtreeproject_treeview.uiactions.doclibmodule_favorite'},
-        DocLibModule_deuiaction3: {ctrlname: 'doclibmodule_cm',name:'deuiaction3',nodeOwner:'DocLibModule',type: 'DEUIACTION', tag: 'NFavorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_NFAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star',caption: '',title:'entities.doclib.doclibtreeproject_treeview.uiactions.doclibmodule_nfavorite'},
         DocLibDoc_deuiaction1: {ctrlname: 'doclibdoc_cm',name:'deuiaction1',nodeOwner:'DocLibDoc',type: 'DEUIACTION', tag: 'Edit', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_EDIT_BUT', visible: true, disabled: false,imgclass: 'fa fa-edit',caption: '',title:'entities.doclib.doclibtreeproject_treeview.uiactions.doc_edit'},
         DocLibDoc_deuiaction4: {ctrlname: 'doclibdoc_cm',name:'deuiaction4',nodeOwner:'DocLibDoc',type: 'DEUIACTION', tag: 'Delete', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_DELETE_BUT', visible: true, disabled: false,imgclass: 'fa fa-remove',caption: '',title:'entities.doclib.doclibtreeproject_treeview.uiactions.doc_delete'},
         DocLibDoc_deuiaction2: {ctrlname: 'doclibdoc_cm',name:'deuiaction2',nodeOwner:'DocLibDoc',type: 'DEUIACTION', tag: 'OnlyCollectDoc', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_FAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star-o',caption: '',title:'entities.doclib.doclibtreeproject_treeview.uiactions.doc_onlycollectdoc'},
         DocLibDoc_deuiaction3: {ctrlname: 'doclibdoc_cm',name:'deuiaction3',nodeOwner:'DocLibDoc',type: 'DEUIACTION', tag: 'OnlyUnCollectDoc', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_NFAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star',caption: '',title:'entities.doclib.doclibtreeproject_treeview.uiactions.doc_onlyuncollectdoc'},
         DocLibDoc_deuiaction5: {ctrlname: 'doclibdoc_cm',name:'deuiaction5',nodeOwner:'DocLibDoc',type: 'DEUIACTION', tag: 'DocInfo', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, visible: true, disabled: false,imgclass: 'fa fa-eye',caption: '',title:'entities.doclib.doclibtreeproject_treeview.uiactions.doc_docinfo'},
+        DocLibModule_deuiaction1: {ctrlname: 'doclibmodule_cm',name:'deuiaction1',nodeOwner:'DocLibModule',type: 'DEUIACTION', tag: 'edit', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_EDIT_BUT', visible: true, disabled: false,imgclass: 'fa fa-edit',caption: '',title:'entities.doclib.doclibtreeproject_treeview.uiactions.doclibmodule_edit'},
+        DocLibModule_deuiaction4: {ctrlname: 'doclibmodule_cm',name:'deuiaction4',nodeOwner:'DocLibModule',type: 'DEUIACTION', tag: 'WeiHuFenLei', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_MAINTENANCE_BUT', visible: true, disabled: false,imgclass: 'fa fa-lock',caption: '',title:'entities.doclib.doclibtreeproject_treeview.uiactions.doclibmodule_weihufenlei'},
+        DocLibModule_deuiaction2: {ctrlname: 'doclibmodule_cm',name:'deuiaction2',nodeOwner:'DocLibModule',type: 'DEUIACTION', tag: 'Favorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_FAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star-o',caption: '',title:'entities.doclib.doclibtreeproject_treeview.uiactions.doclibmodule_favorite'},
+        DocLibModule_deuiaction3: {ctrlname: 'doclibmodule_cm',name:'deuiaction3',nodeOwner:'DocLibModule',type: 'DEUIACTION', tag: 'NFavorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_NFAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star',caption: '',title:'entities.doclib.doclibtreeproject_treeview.uiactions.doclibmodule_nfavorite'},
         ModuleDoc_deuiaction1: {ctrlname: 'moduledoc_cm',name:'deuiaction1',nodeOwner:'ModuleDoc',type: 'DEUIACTION', tag: 'Edit', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_EDIT_BUT', visible: true, disabled: false,imgclass: 'fa fa-edit',caption: '',title:'entities.doclib.doclibtreeproject_treeview.uiactions.doc_edit'},
         ModuleDoc_deuiaction4: {ctrlname: 'moduledoc_cm',name:'deuiaction4',nodeOwner:'ModuleDoc',type: 'DEUIACTION', tag: 'Delete', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_DELETE_BUT', visible: true, disabled: false,imgclass: 'fa fa-remove',caption: '',title:'entities.doclib.doclibtreeproject_treeview.uiactions.doc_delete'},
         ModuleDoc_deuiaction2: {ctrlname: 'moduledoc_cm',name:'deuiaction2',nodeOwner:'ModuleDoc',type: 'DEUIACTION', tag: 'OnlyCollectDoc', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_FAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star-o',caption: '',title:'entities.doclib.doclibtreeproject_treeview.uiactions.doc_onlycollectdoc'},
@@ -1481,11 +1481,11 @@ export class DocLibTreeProjectTreeBase extends MainControlBase {
         if (Object.is('doclib_cm',ctrlname) && _this.doclib_cm_click && _this.doclib_cm_click instanceof Function) {
             _this.doclib_cm_click({ tag: tag });
         }           
-        if (Object.is('doclibmodule_cm',ctrlname) && _this.doclibmodule_cm_click && _this.doclibmodule_cm_click instanceof Function) {
-            _this.doclibmodule_cm_click({ tag: tag });
-        }           
         if (Object.is('doclibdoc_cm',ctrlname) && _this.doclibdoc_cm_click && _this.doclibdoc_cm_click instanceof Function) {
             _this.doclibdoc_cm_click({ tag: tag });
+        }           
+        if (Object.is('doclibmodule_cm',ctrlname) && _this.doclibmodule_cm_click && _this.doclibmodule_cm_click instanceof Function) {
+            _this.doclibmodule_cm_click({ tag: tag });
         }           
         if (Object.is('moduledoc_cm',ctrlname) && _this.moduledoc_cm_click && _this.moduledoc_cm_click instanceof Function) {
             _this.moduledoc_cm_click({ tag: tag });

@@ -162,7 +162,7 @@ export class TaskCancelTaskViewBase extends OptionViewBase {
      * @type {string}
      * @memberof TaskCancelTaskViewBase
      */
-	protected viewtag: string = 'a97ff9ae4f22d5974b51af2c0fae1aa2';
+	protected viewtag: string = '6e1e2145a5e4622fb1936fe37f6d07e7';
 
     /**
      * 视图名称

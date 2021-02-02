@@ -44,50 +44,13 @@ public class IBZProStory extends EntityMP implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
-     * 编号
+     * 版本号
      */
-    @DEField(isKeyField = true)
-    @TableId(value = "id", type = IdType.AUTO)
-    @JSONField(name = "id")
-    @JsonProperty("id")
-    private Long id;
-    /**
-     * 需求名称
-     */
-    @TableField(value = "`title`")
-    @JSONField(name = "title")
-    @JsonProperty("title")
-    private String title;
-    /**
-     * id
-     */
-    @TableField(value = "`module`")
-    @JSONField(name = "module")
-    @JsonProperty("module")
-    private Long module;
-    /**
-     * 编号
-     */
-    @TableField(value = "`product`")
-    @JSONField(name = "product")
-    @JsonProperty("product")
-    private Long product;
-    /**
-     * IBIZ标识
-     */
-    @DEField(name = "ibiz_id")
-    @TableField(value = "`ibiz_id`")
-    @JSONField(name = "ibizid")
-    @JsonProperty("ibizid")
-    private String ibizid;
-    /**
-     * 需求来源
-     */
-    @DEField(defaultValue = "iBiz")
-    @TableField(value = "`source`")
-    @JSONField(name = "source")
-    @JsonProperty("source")
-    private String source;
+    @DEField(defaultValue = "1")
+    @TableField(value = "`version`")
+    @JSONField(name = "version")
+    @JsonProperty("version")
+    private Integer version;
     /**
      * 来源备注
      */
@@ -96,13 +59,27 @@ public class IBZProStory extends EntityMP implements Serializable {
     @JsonProperty("sourcenote")
     private String sourcenote;
     /**
-     * 来源对象
+     * 抄送给
      */
-    @DEField(name = "ibiz_sourceobject")
-    @TableField(value = "`ibiz_sourceobject`")
-    @JSONField(name = "ibiz_sourceobject")
-    @JsonProperty("ibiz_sourceobject")
-    private String ibizSourceobject;
+    @TableField(value = "`mailto`")
+    @JSONField(name = "mailto")
+    @JsonProperty("mailto")
+    private String mailto;
+    /**
+     * 设置阶段者
+     */
+    @TableField(value = "`stagedby`")
+    @JSONField(name = "stagedby")
+    @JsonProperty("stagedby")
+    private String stagedby;
+    /**
+     * 已删除
+     */
+    @DEField(defaultValue = "0", preType = DEPredefinedFieldType.LOGICVALID)
+    @TableField(value = "`deleted`")
+    @JSONField(name = "deleted")
+    @JsonProperty("deleted")
+    private String deleted;
     /**
      * 来源对象名称
      */
@@ -112,28 +89,69 @@ public class IBZProStory extends EntityMP implements Serializable {
     @JsonProperty("ibiz_sourcename")
     private String ibizSourcename;
     /**
-     * 来源对象标识
+     * 优先级
      */
-    @DEField(name = "ibiz_sourceid")
-    @TableField(value = "`ibiz_sourceid`")
-    @JSONField(name = "ibiz_sourceid")
-    @JsonProperty("ibiz_sourceid")
-    private String ibizSourceid;
+    @TableField(value = "`pri`")
+    @JSONField(name = "pri")
+    @JsonProperty("pri")
+    private Integer pri;
     /**
-     * 版本号
+     * 需求阶段
      */
-    @DEField(defaultValue = "1")
-    @TableField(value = "`version`")
-    @JSONField(name = "version")
-    @JsonProperty("version")
-    private Integer version;
+    @TableField(value = "`stage`")
+    @JSONField(name = "stage")
+    @JsonProperty("stage")
+    private String stage;
     /**
-     * 预计工时
+     * 由谁关闭
      */
-    @TableField(value = "`estimate`")
-    @JSONField(name = "estimate")
-    @JsonProperty("estimate")
-    private Double estimate;
+    @TableField(value = "`closedby`")
+    @JSONField(name = "closedby")
+    @JsonProperty("closedby")
+    private String closedby;
+    /**
+     * 需求描述
+     */
+    @TableField(exist = false)
+    @JSONField(name = "spec")
+    @JsonProperty("spec")
+    private String spec;
+    /**
+     * 关闭日期	
+     */
+    @TableField(value = "`closeddate`")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "closeddate", format = "yyyy-MM-dd HH:mm:ss")
+    @JsonProperty("closeddate")
+    private Timestamp closeddate;
+    /**
+     * 相关需求
+     */
+    @TableField(value = "`linkstories`")
+    @JSONField(name = "linkstories")
+    @JsonProperty("linkstories")
+    private String linkstories;
+    /**
+     * 需求类型
+     */
+    @TableField(value = "`type`")
+    @JSONField(name = "type")
+    @JsonProperty("type")
+    private String type;
+    /**
+     * 重复需求
+     */
+    @TableField(value = "`duplicatestory`")
+    @JSONField(name = "duplicatestory")
+    @JsonProperty("duplicatestory")
+    private Integer duplicatestory;
+    /**
+     * 平台
+     */
+    @TableField(value = "`branch`")
+    @JSONField(name = "branch")
+    @JsonProperty("branch")
+    private Integer branch;
     /**
      * 关键词
      */
@@ -141,6 +159,13 @@ public class IBZProStory extends EntityMP implements Serializable {
     @JSONField(name = "keywords")
     @JsonProperty("keywords")
     private String keywords;
+    /**
+     * 需求细分
+     */
+    @TableField(value = "`childstories`")
+    @JSONField(name = "childstories")
+    @JsonProperty("childstories")
+    private String childstories;
     /**
      * 创建日期
      */
@@ -151,63 +176,34 @@ public class IBZProStory extends EntityMP implements Serializable {
     @JsonProperty("openeddate")
     private Timestamp openeddate;
     /**
-     * 最后修改日期
+     * 转Bug
      */
-    @TableField(value = "`lastediteddate`")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
-    @JSONField(name = "lastediteddate", format = "yyyy-MM-dd HH:mm:ss")
-    @JsonProperty("lastediteddate")
-    private Timestamp lastediteddate;
+    @TableField(value = "`tobug`")
+    @JSONField(name = "tobug")
+    @JsonProperty("tobug")
+    private Integer tobug;
     /**
-     * 已删除
+     * 备注
      */
-    @DEField(defaultValue = "0", preType = DEPredefinedFieldType.LOGICVALID)
-    @TableField(value = "`deleted`")
-    @JSONField(name = "deleted")
-    @JsonProperty("deleted")
-    private String deleted;
+    @TableField(exist = false)
+    @JSONField(name = "comment")
+    @JsonProperty("comment")
+    private String comment;
     /**
-     * 由谁创建
+     * 编号
      */
-    @TableField(value = "`openedby`")
-    @JSONField(name = "openedby")
-    @JsonProperty("openedby")
-    private String openedby;
+    @DEField(isKeyField = true)
+    @TableId(value = "id", type = IdType.AUTO)
+    @JSONField(name = "id")
+    @JsonProperty("id")
+    private Long id;
     /**
-     * 状态
+     * 关闭原因
      */
-    @TableField(value = "`status`")
-    @JSONField(name = "status")
-    @JsonProperty("status")
-    private String status;
-    /**
-     * 需求类型
-     */
-    @TableField(value = "`type`")
-    @JSONField(name = "type")
-    @JsonProperty("type")
-    private String type;
-    /**
-     * 需求阶段
-     */
-    @TableField(value = "`stage`")
-    @JSONField(name = "stage")
-    @JsonProperty("stage")
-    private String stage;
-    /**
-     * 优先级
-     */
-    @TableField(value = "`pri`")
-    @JSONField(name = "pri")
-    @JsonProperty("pri")
-    private Integer pri;
-    /**
-     * 颜色
-     */
-    @TableField(value = "`color`")
-    @JSONField(name = "color")
-    @JsonProperty("color")
-    private String color;
+    @TableField(value = "`closedreason`")
+    @JSONField(name = "closedreason")
+    @JsonProperty("closedreason")
+    private String closedreason;
     /**
      * 项目
      */
@@ -216,19 +212,19 @@ public class IBZProStory extends EntityMP implements Serializable {
     @JsonProperty("project")
     private String project;
     /**
-     * 设置阶段者
+     * 来源Bug
      */
-    @TableField(value = "`stagedby`")
-    @JSONField(name = "stagedby")
-    @JsonProperty("stagedby")
-    private String stagedby;
+    @TableField(value = "`frombug`")
+    @JSONField(name = "frombug")
+    @JsonProperty("frombug")
+    private Integer frombug;
     /**
-     * 指派给
+     * 最后修改者
      */
-    @TableField(value = "`assignedto`")
-    @JSONField(name = "assignedto")
-    @JsonProperty("assignedto")
-    private String assignedto;
+    @TableField(value = "`lasteditedby`")
+    @JSONField(name = "lasteditedby")
+    @JsonProperty("lasteditedby")
+    private String lasteditedby;
     /**
      * 指派日期
      */
@@ -238,12 +234,94 @@ public class IBZProStory extends EntityMP implements Serializable {
     @JsonProperty("assigneddate")
     private Timestamp assigneddate;
     /**
+     * 子状态
+     */
+    @TableField(value = "`substatus`")
+    @JSONField(name = "substatus")
+    @JsonProperty("substatus")
+    private String substatus;
+    /**
+     * 来源对象标识
+     */
+    @DEField(name = "ibiz_sourceid")
+    @TableField(value = "`ibiz_sourceid`")
+    @JSONField(name = "ibiz_sourceid")
+    @JsonProperty("ibiz_sourceid")
+    private String ibizSourceid;
+    /**
+     * 需求名称
+     */
+    @TableField(value = "`title`")
+    @JSONField(name = "title")
+    @JsonProperty("title")
+    private String title;
+    /**
+     * 最后修改日期
+     */
+    @TableField(value = "`lastediteddate`")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "lastediteddate", format = "yyyy-MM-dd HH:mm:ss")
+    @JsonProperty("lastediteddate")
+    private Timestamp lastediteddate;
+    /**
+     * 来源对象
+     */
+    @DEField(name = "ibiz_sourceobject")
+    @TableField(value = "`ibiz_sourceobject`")
+    @JSONField(name = "ibiz_sourceobject")
+    @JsonProperty("ibiz_sourceobject")
+    private String ibizSourceobject;
+    /**
+     * IBIZ标识
+     */
+    @DEField(name = "ibiz_id")
+    @TableField(value = "`ibiz_id`")
+    @JSONField(name = "ibizid")
+    @JsonProperty("ibizid")
+    private String ibizid;
+    /**
+     * 验收标准
+     */
+    @TableField(exist = false)
+    @JSONField(name = "verify")
+    @JsonProperty("verify")
+    private String verify;
+    /**
      * 由谁评审
      */
     @TableField(value = "`reviewedby`")
     @JSONField(name = "reviewedby")
     @JsonProperty("reviewedby")
     private String reviewedby;
+    /**
+     * 指派给
+     */
+    @TableField(value = "`assignedto`")
+    @JSONField(name = "assignedto")
+    @JsonProperty("assignedto")
+    private String assignedto;
+    /**
+     * 需求来源
+     */
+    @DEField(defaultValue = "iBiz")
+    @TableField(value = "`source`")
+    @JSONField(name = "source")
+    @JsonProperty("source")
+    private String source;
+    /**
+     * 预计工时
+     */
+    @TableField(value = "`estimate`")
+    @JSONField(name = "estimate")
+    @JsonProperty("estimate")
+    private Double estimate;
+    /**
+     * 由谁创建
+     */
+    @TableField(value = "`openedby`")
+    @JSONField(name = "openedby")
+    @JsonProperty("openedby")
+    private String openedby;
     /**
      * 评审时间
      */
@@ -253,111 +331,33 @@ public class IBZProStory extends EntityMP implements Serializable {
     @JsonProperty("revieweddate")
     private Timestamp revieweddate;
     /**
-     * 平台
+     * 颜色
      */
-    @TableField(value = "`branch`")
-    @JSONField(name = "branch")
-    @JsonProperty("branch")
-    private Integer branch;
+    @TableField(value = "`color`")
+    @JSONField(name = "color")
+    @JsonProperty("color")
+    private String color;
     /**
-     * 抄送给
+     * 状态
      */
-    @TableField(value = "`mailto`")
-    @JSONField(name = "mailto")
-    @JsonProperty("mailto")
-    private String mailto;
+    @TableField(value = "`status`")
+    @JSONField(name = "status")
+    @JsonProperty("status")
+    private String status;
     /**
-     * 最后修改者
+     * 编号
      */
-    @TableField(value = "`lasteditedby`")
-    @JSONField(name = "lasteditedby")
-    @JsonProperty("lasteditedby")
-    private String lasteditedby;
+    @TableField(value = "`product`")
+    @JSONField(name = "product")
+    @JsonProperty("product")
+    private Long product;
     /**
-     * 需求细分
+     * id
      */
-    @TableField(value = "`childstories`")
-    @JSONField(name = "childstories")
-    @JsonProperty("childstories")
-    private String childstories;
-    /**
-     * 相关需求
-     */
-    @TableField(value = "`linkstories`")
-    @JSONField(name = "linkstories")
-    @JsonProperty("linkstories")
-    private String linkstories;
-    /**
-     * 由谁关闭
-     */
-    @TableField(value = "`closedby`")
-    @JSONField(name = "closedby")
-    @JsonProperty("closedby")
-    private String closedby;
-    /**
-     * 子状态
-     */
-    @TableField(value = "`substatus`")
-    @JSONField(name = "substatus")
-    @JsonProperty("substatus")
-    private String substatus;
-    /**
-     * 关闭日期	
-     */
-    @TableField(value = "`closeddate`")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
-    @JSONField(name = "closeddate", format = "yyyy-MM-dd HH:mm:ss")
-    @JsonProperty("closeddate")
-    private Timestamp closeddate;
-    /**
-     * 关闭原因
-     */
-    @TableField(value = "`closedreason`")
-    @JSONField(name = "closedreason")
-    @JsonProperty("closedreason")
-    private String closedreason;
-    /**
-     * 转Bug
-     */
-    @TableField(value = "`tobug`")
-    @JSONField(name = "tobug")
-    @JsonProperty("tobug")
-    private Integer tobug;
-    /**
-     * 重复需求
-     */
-    @TableField(value = "`duplicatestory`")
-    @JSONField(name = "duplicatestory")
-    @JsonProperty("duplicatestory")
-    private Integer duplicatestory;
-    /**
-     * 来源Bug
-     */
-    @TableField(value = "`frombug`")
-    @JSONField(name = "frombug")
-    @JsonProperty("frombug")
-    private Integer frombug;
-    /**
-     * 需求描述
-     */
-    @TableField(exist = false)
-    @JSONField(name = "spec")
-    @JsonProperty("spec")
-    private String spec;
-    /**
-     * 验收标准
-     */
-    @TableField(exist = false)
-    @JSONField(name = "verify")
-    @JsonProperty("verify")
-    private String verify;
-    /**
-     * 备注
-     */
-    @TableField(exist = false)
-    @JSONField(name = "comment")
-    @JsonProperty("comment")
-    private String comment;
+    @TableField(value = "`module`")
+    @JSONField(name = "module")
+    @JsonProperty("module")
+    private Long module;
 
     /**
      * 产品
@@ -378,43 +378,11 @@ public class IBZProStory extends EntityMP implements Serializable {
 
 
     /**
-     * 设置 [需求名称]
+     * 设置 [版本号]
      */
-    public void setTitle(String title) {
-        this.title = title;
-        this.modify("title", title);
-    }
-
-    /**
-     * 设置 [id]
-     */
-    public void setModule(Long module) {
-        this.module = module;
-        this.modify("module", module);
-    }
-
-    /**
-     * 设置 [编号]
-     */
-    public void setProduct(Long product) {
-        this.product = product;
-        this.modify("product", product);
-    }
-
-    /**
-     * 设置 [IBIZ标识]
-     */
-    public void setIbizid(String ibizid) {
-        this.ibizid = ibizid;
-        this.modify("ibiz_id", ibizid);
-    }
-
-    /**
-     * 设置 [需求来源]
-     */
-    public void setSource(String source) {
-        this.source = source;
-        this.modify("source", source);
+    public void setVersion(Integer version) {
+        this.version = version;
+        this.modify("version", version);
     }
 
     /**
@@ -426,117 +394,11 @@ public class IBZProStory extends EntityMP implements Serializable {
     }
 
     /**
-     * 设置 [来源对象]
+     * 设置 [抄送给]
      */
-    public void setIbizSourceobject(String ibizSourceobject) {
-        this.ibizSourceobject = ibizSourceobject;
-        this.modify("ibiz_sourceobject", ibizSourceobject);
-    }
-
-    /**
-     * 设置 [来源对象名称]
-     */
-    public void setIbizSourcename(String ibizSourcename) {
-        this.ibizSourcename = ibizSourcename;
-        this.modify("ibiz_sourcename", ibizSourcename);
-    }
-
-    /**
-     * 设置 [来源对象标识]
-     */
-    public void setIbizSourceid(String ibizSourceid) {
-        this.ibizSourceid = ibizSourceid;
-        this.modify("ibiz_sourceid", ibizSourceid);
-    }
-
-    /**
-     * 设置 [版本号]
-     */
-    public void setVersion(Integer version) {
-        this.version = version;
-        this.modify("version", version);
-    }
-
-    /**
-     * 设置 [预计工时]
-     */
-    public void setEstimate(Double estimate) {
-        this.estimate = estimate;
-        this.modify("estimate", estimate);
-    }
-
-    /**
-     * 设置 [关键词]
-     */
-    public void setKeywords(String keywords) {
-        this.keywords = keywords;
-        this.modify("keywords", keywords);
-    }
-
-    /**
-     * 设置 [最后修改日期]
-     */
-    public void setLastediteddate(Timestamp lastediteddate) {
-        this.lastediteddate = lastediteddate;
-        this.modify("lastediteddate", lastediteddate);
-    }
-
-    /**
-     * 格式化日期 [最后修改日期]
-     */
-    public String formatLastediteddate() {
-        if (this.lastediteddate == null) {
-            return null;
-        }
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        return sdf.format(lastediteddate);
-    }
-    /**
-     * 设置 [由谁创建]
-     */
-    public void setOpenedby(String openedby) {
-        this.openedby = openedby;
-        this.modify("openedby", openedby);
-    }
-
-    /**
-     * 设置 [状态]
-     */
-    public void setStatus(String status) {
-        this.status = status;
-        this.modify("status", status);
-    }
-
-    /**
-     * 设置 [需求类型]
-     */
-    public void setType(String type) {
-        this.type = type;
-        this.modify("type", type);
-    }
-
-    /**
-     * 设置 [需求阶段]
-     */
-    public void setStage(String stage) {
-        this.stage = stage;
-        this.modify("stage", stage);
-    }
-
-    /**
-     * 设置 [优先级]
-     */
-    public void setPri(Integer pri) {
-        this.pri = pri;
-        this.modify("pri", pri);
-    }
-
-    /**
-     * 设置 [颜色]
-     */
-    public void setColor(String color) {
-        this.color = color;
-        this.modify("color", color);
+    public void setMailto(String mailto) {
+        this.mailto = mailto;
+        this.modify("mailto", mailto);
     }
 
     /**
@@ -548,95 +410,27 @@ public class IBZProStory extends EntityMP implements Serializable {
     }
 
     /**
-     * 设置 [指派给]
+     * 设置 [来源对象名称]
      */
-    public void setAssignedto(String assignedto) {
-        this.assignedto = assignedto;
-        this.modify("assignedto", assignedto);
+    public void setIbizSourcename(String ibizSourcename) {
+        this.ibizSourcename = ibizSourcename;
+        this.modify("ibiz_sourcename", ibizSourcename);
     }
 
     /**
-     * 设置 [指派日期]
+     * 设置 [优先级]
      */
-    public void setAssigneddate(Timestamp assigneddate) {
-        this.assigneddate = assigneddate;
-        this.modify("assigneddate", assigneddate);
+    public void setPri(Integer pri) {
+        this.pri = pri;
+        this.modify("pri", pri);
     }
 
     /**
-     * 格式化日期 [指派日期]
+     * 设置 [需求阶段]
      */
-    public String formatAssigneddate() {
-        if (this.assigneddate == null) {
-            return null;
-        }
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        return sdf.format(assigneddate);
-    }
-    /**
-     * 设置 [由谁评审]
-     */
-    public void setReviewedby(String reviewedby) {
-        this.reviewedby = reviewedby;
-        this.modify("reviewedby", reviewedby);
-    }
-
-    /**
-     * 设置 [评审时间]
-     */
-    public void setRevieweddate(Timestamp revieweddate) {
-        this.revieweddate = revieweddate;
-        this.modify("revieweddate", revieweddate);
-    }
-
-    /**
-     * 格式化日期 [评审时间]
-     */
-    public String formatRevieweddate() {
-        if (this.revieweddate == null) {
-            return null;
-        }
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        return sdf.format(revieweddate);
-    }
-    /**
-     * 设置 [平台]
-     */
-    public void setBranch(Integer branch) {
-        this.branch = branch;
-        this.modify("branch", branch);
-    }
-
-    /**
-     * 设置 [抄送给]
-     */
-    public void setMailto(String mailto) {
-        this.mailto = mailto;
-        this.modify("mailto", mailto);
-    }
-
-    /**
-     * 设置 [最后修改者]
-     */
-    public void setLasteditedby(String lasteditedby) {
-        this.lasteditedby = lasteditedby;
-        this.modify("lasteditedby", lasteditedby);
-    }
-
-    /**
-     * 设置 [需求细分]
-     */
-    public void setChildstories(String childstories) {
-        this.childstories = childstories;
-        this.modify("childstories", childstories);
-    }
-
-    /**
-     * 设置 [相关需求]
-     */
-    public void setLinkstories(String linkstories) {
-        this.linkstories = linkstories;
-        this.modify("linkstories", linkstories);
+    public void setStage(String stage) {
+        this.stage = stage;
+        this.modify("stage", stage);
     }
 
     /**
@@ -645,14 +439,6 @@ public class IBZProStory extends EntityMP implements Serializable {
     public void setClosedby(String closedby) {
         this.closedby = closedby;
         this.modify("closedby", closedby);
-    }
-
-    /**
-     * 设置 [子状态]
-     */
-    public void setSubstatus(String substatus) {
-        this.substatus = substatus;
-        this.modify("substatus", substatus);
     }
 
     /**
@@ -674,19 +460,19 @@ public class IBZProStory extends EntityMP implements Serializable {
         return sdf.format(closeddate);
     }
     /**
-     * 设置 [关闭原因]
+     * 设置 [相关需求]
      */
-    public void setClosedreason(String closedreason) {
-        this.closedreason = closedreason;
-        this.modify("closedreason", closedreason);
+    public void setLinkstories(String linkstories) {
+        this.linkstories = linkstories;
+        this.modify("linkstories", linkstories);
     }
 
     /**
-     * 设置 [转Bug]
+     * 设置 [需求类型]
      */
-    public void setTobug(Integer tobug) {
-        this.tobug = tobug;
-        this.modify("tobug", tobug);
+    public void setType(String type) {
+        this.type = type;
+        this.modify("type", type);
     }
 
     /**
@@ -698,11 +484,225 @@ public class IBZProStory extends EntityMP implements Serializable {
     }
 
     /**
+     * 设置 [平台]
+     */
+    public void setBranch(Integer branch) {
+        this.branch = branch;
+        this.modify("branch", branch);
+    }
+
+    /**
+     * 设置 [关键词]
+     */
+    public void setKeywords(String keywords) {
+        this.keywords = keywords;
+        this.modify("keywords", keywords);
+    }
+
+    /**
+     * 设置 [需求细分]
+     */
+    public void setChildstories(String childstories) {
+        this.childstories = childstories;
+        this.modify("childstories", childstories);
+    }
+
+    /**
+     * 设置 [转Bug]
+     */
+    public void setTobug(Integer tobug) {
+        this.tobug = tobug;
+        this.modify("tobug", tobug);
+    }
+
+    /**
+     * 设置 [关闭原因]
+     */
+    public void setClosedreason(String closedreason) {
+        this.closedreason = closedreason;
+        this.modify("closedreason", closedreason);
+    }
+
+    /**
      * 设置 [来源Bug]
      */
     public void setFrombug(Integer frombug) {
         this.frombug = frombug;
         this.modify("frombug", frombug);
+    }
+
+    /**
+     * 设置 [最后修改者]
+     */
+    public void setLasteditedby(String lasteditedby) {
+        this.lasteditedby = lasteditedby;
+        this.modify("lasteditedby", lasteditedby);
+    }
+
+    /**
+     * 设置 [指派日期]
+     */
+    public void setAssigneddate(Timestamp assigneddate) {
+        this.assigneddate = assigneddate;
+        this.modify("assigneddate", assigneddate);
+    }
+
+    /**
+     * 格式化日期 [指派日期]
+     */
+    public String formatAssigneddate() {
+        if (this.assigneddate == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return sdf.format(assigneddate);
+    }
+    /**
+     * 设置 [子状态]
+     */
+    public void setSubstatus(String substatus) {
+        this.substatus = substatus;
+        this.modify("substatus", substatus);
+    }
+
+    /**
+     * 设置 [来源对象标识]
+     */
+    public void setIbizSourceid(String ibizSourceid) {
+        this.ibizSourceid = ibizSourceid;
+        this.modify("ibiz_sourceid", ibizSourceid);
+    }
+
+    /**
+     * 设置 [需求名称]
+     */
+    public void setTitle(String title) {
+        this.title = title;
+        this.modify("title", title);
+    }
+
+    /**
+     * 设置 [最后修改日期]
+     */
+    public void setLastediteddate(Timestamp lastediteddate) {
+        this.lastediteddate = lastediteddate;
+        this.modify("lastediteddate", lastediteddate);
+    }
+
+    /**
+     * 格式化日期 [最后修改日期]
+     */
+    public String formatLastediteddate() {
+        if (this.lastediteddate == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return sdf.format(lastediteddate);
+    }
+    /**
+     * 设置 [来源对象]
+     */
+    public void setIbizSourceobject(String ibizSourceobject) {
+        this.ibizSourceobject = ibizSourceobject;
+        this.modify("ibiz_sourceobject", ibizSourceobject);
+    }
+
+    /**
+     * 设置 [IBIZ标识]
+     */
+    public void setIbizid(String ibizid) {
+        this.ibizid = ibizid;
+        this.modify("ibiz_id", ibizid);
+    }
+
+    /**
+     * 设置 [由谁评审]
+     */
+    public void setReviewedby(String reviewedby) {
+        this.reviewedby = reviewedby;
+        this.modify("reviewedby", reviewedby);
+    }
+
+    /**
+     * 设置 [指派给]
+     */
+    public void setAssignedto(String assignedto) {
+        this.assignedto = assignedto;
+        this.modify("assignedto", assignedto);
+    }
+
+    /**
+     * 设置 [需求来源]
+     */
+    public void setSource(String source) {
+        this.source = source;
+        this.modify("source", source);
+    }
+
+    /**
+     * 设置 [预计工时]
+     */
+    public void setEstimate(Double estimate) {
+        this.estimate = estimate;
+        this.modify("estimate", estimate);
+    }
+
+    /**
+     * 设置 [由谁创建]
+     */
+    public void setOpenedby(String openedby) {
+        this.openedby = openedby;
+        this.modify("openedby", openedby);
+    }
+
+    /**
+     * 设置 [评审时间]
+     */
+    public void setRevieweddate(Timestamp revieweddate) {
+        this.revieweddate = revieweddate;
+        this.modify("revieweddate", revieweddate);
+    }
+
+    /**
+     * 格式化日期 [评审时间]
+     */
+    public String formatRevieweddate() {
+        if (this.revieweddate == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return sdf.format(revieweddate);
+    }
+    /**
+     * 设置 [颜色]
+     */
+    public void setColor(String color) {
+        this.color = color;
+        this.modify("color", color);
+    }
+
+    /**
+     * 设置 [状态]
+     */
+    public void setStatus(String status) {
+        this.status = status;
+        this.modify("status", status);
+    }
+
+    /**
+     * 设置 [编号]
+     */
+    public void setProduct(Long product) {
+        this.product = product;
+        this.modify("product", product);
+    }
+
+    /**
+     * 设置 [id]
+     */
+    public void setModule(Long module) {
+        this.module = module;
+        this.modify("module", module);
     }
 
 

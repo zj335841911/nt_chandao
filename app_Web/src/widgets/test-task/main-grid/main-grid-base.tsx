@@ -74,7 +74,7 @@ export class MainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u6b02f33_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u3d954ff_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -102,7 +102,7 @@ export class MainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u6444282_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u5de62c9_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -130,7 +130,7 @@ export class MainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u9008f43_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_ub317314_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -186,7 +186,7 @@ export class MainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u5afde9e_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u5e6cdb9_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -660,19 +660,19 @@ export class MainGridBase extends GridControlBase {
 	public uiAction(row: any, tag: any, $event: any): void {
         $event.stopPropagation();
         if(Object.is('LinkCase', tag)) {
-            this.grid_uagridcolumn1_u6b02f33_click(row, tag, $event);
+            this.grid_uagridcolumn1_u3d954ff_click(row, tag, $event);
         }
         if(Object.is('TestReportR', tag)) {
-            this.grid_uagridcolumn1_u6444282_click(row, tag, $event);
+            this.grid_uagridcolumn1_u5de62c9_click(row, tag, $event);
         }
         if(Object.is('OpenInfoView', tag)) {
-            this.grid_uagridcolumn1_u9008f43_click(row, tag, $event);
+            this.grid_uagridcolumn1_ub317314_click(row, tag, $event);
         }
         if(Object.is('EditEdit', tag)) {
             this.grid_uagridcolumn1_editedit_click(row, tag, $event);
         }
         if(Object.is('Delete', tag)) {
-            this.grid_uagridcolumn1_u5afde9e_click(row, tag, $event);
+            this.grid_uagridcolumn1_u5e6cdb9_click(row, tag, $event);
         }
     }
 

@@ -118,7 +118,7 @@ export class Storymaindashboardview_linkBase extends DashboardViewBase {
      * @type {string}
      * @memberof Storymaindashboardview_linkBase
      */
-	protected viewtag: string = 'cfc7781789f7706e02b2d2504339de69';
+	protected viewtag: string = '021e4a7269fe8ec26b9001c39df0e215';
 
     /**
      * 视图名称

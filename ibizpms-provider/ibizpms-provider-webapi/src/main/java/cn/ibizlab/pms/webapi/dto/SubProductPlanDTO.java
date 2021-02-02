@@ -30,6 +30,22 @@ public class SubProductPlanDTO extends DTOBase implements Serializable {
 	private static final long serialVersionUID = 1L;
 
     /**
+     * 属性 [TASKSCNT]
+     *
+     */
+    @JSONField(name = "taskscnt")
+    @JsonProperty("taskscnt")
+    private Integer taskscnt;
+
+    /**
+     * 属性 [ESTIMATECNT]
+     *
+     */
+    @JSONField(name = "estimatecnt")
+    @JsonProperty("estimatecnt")
+    private Integer estimatecnt;
+
+    /**
      * 属性 [TITLE]
      *
      */
@@ -38,6 +54,23 @@ public class SubProductPlanDTO extends DTOBase implements Serializable {
     @NotBlank(message = "[名称]不允许为空!")
     @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
     private String title;
+
+    /**
+     * 属性 [DELAYTASKSCNT]
+     *
+     */
+    @JSONField(name = "delaytaskscnt")
+    @JsonProperty("delaytaskscnt")
+    private Integer delaytaskscnt;
+
+    /**
+     * 属性 [OLDTITLE]
+     *
+     */
+    @JSONField(name = "oldtitle")
+    @JsonProperty("oldtitle")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String oldtitle;
 
     /**
      * 属性 [ID]
@@ -58,6 +91,15 @@ public class SubProductPlanDTO extends DTOBase implements Serializable {
     private Timestamp begin;
 
     /**
+     * 属性 [STATUSS]
+     *
+     */
+    @JSONField(name = "statuss")
+    @JsonProperty("statuss")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String statuss;
+
+    /**
      * 属性 [DESC]
      *
      */
@@ -76,6 +118,59 @@ public class SubProductPlanDTO extends DTOBase implements Serializable {
     private Timestamp end;
 
     /**
+     * 属性 [DURATION]
+     *
+     */
+    @JSONField(name = "duration")
+    @JsonProperty("duration")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String duration;
+
+    /**
+     * 属性 [BEGINSTR]
+     *
+     */
+    @JSONField(name = "beginstr")
+    @JsonProperty("beginstr")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String beginstr;
+
+    /**
+     * 属性 [PLANTEMPLET]
+     *
+     */
+    @JSONField(name = "plantemplet")
+    @JsonProperty("plantemplet")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String plantemplet;
+
+    /**
+     * 属性 [UNFINISHEDTASKSCNT]
+     *
+     */
+    @JSONField(name = "unfinishedtaskscnt")
+    @JsonProperty("unfinishedtaskscnt")
+    private Integer unfinishedtaskscnt;
+
+    /**
+     * 属性 [ENDSTR]
+     *
+     */
+    @JSONField(name = "endstr")
+    @JsonProperty("endstr")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String endstr;
+
+    /**
+     * 属性 [ISEXPIRED]
+     *
+     */
+    @JSONField(name = "isexpired")
+    @JsonProperty("isexpired")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String isexpired;
+
+    /**
      * 属性 [DELETED]
      *
      */
@@ -92,6 +187,48 @@ public class SubProductPlanDTO extends DTOBase implements Serializable {
     @JsonProperty("order")
     @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
     private String order;
+
+    /**
+     * 属性 [FUTURE]
+     *
+     */
+    @JSONField(name = "future")
+    @JsonProperty("future")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String future;
+
+    /**
+     * 属性 [STORYCNT]
+     *
+     */
+    @JSONField(name = "storycnt")
+    @JsonProperty("storycnt")
+    private Integer storycnt;
+
+    /**
+     * 属性 [DELTA]
+     *
+     */
+    @JSONField(name = "delta")
+    @JsonProperty("delta")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String delta;
+
+    /**
+     * 属性 [FINISHEDTASKSCNT]
+     *
+     */
+    @JSONField(name = "finishedtaskscnt")
+    @JsonProperty("finishedtaskscnt")
+    private Integer finishedtaskscnt;
+
+    /**
+     * 属性 [BUGCNT]
+     *
+     */
+    @JSONField(name = "bugcnt")
+    @JsonProperty("bugcnt")
+    private Integer bugcnt;
 
     /**
      * 属性 [PARENTNAME]
@@ -128,143 +265,6 @@ public class SubProductPlanDTO extends DTOBase implements Serializable {
     @JsonProperty("product")
     @JsonSerialize(using = ToStringSerializer.class)
     private Long product;
-
-    /**
-     * 属性 [STATUSS]
-     *
-     */
-    @JSONField(name = "statuss")
-    @JsonProperty("statuss")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String statuss;
-
-    /**
-     * 属性 [FUTURE]
-     *
-     */
-    @JSONField(name = "future")
-    @JsonProperty("future")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String future;
-
-    /**
-     * 属性 [DELTA]
-     *
-     */
-    @JSONField(name = "delta")
-    @JsonProperty("delta")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String delta;
-
-    /**
-     * 属性 [OLDTITLE]
-     *
-     */
-    @JSONField(name = "oldtitle")
-    @JsonProperty("oldtitle")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String oldtitle;
-
-    /**
-     * 属性 [STORYCNT]
-     *
-     */
-    @JSONField(name = "storycnt")
-    @JsonProperty("storycnt")
-    private Integer storycnt;
-
-    /**
-     * 属性 [BUGCNT]
-     *
-     */
-    @JSONField(name = "bugcnt")
-    @JsonProperty("bugcnt")
-    private Integer bugcnt;
-
-    /**
-     * 属性 [ISEXPIRED]
-     *
-     */
-    @JSONField(name = "isexpired")
-    @JsonProperty("isexpired")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String isexpired;
-
-    /**
-     * 属性 [ESTIMATECNT]
-     *
-     */
-    @JSONField(name = "estimatecnt")
-    @JsonProperty("estimatecnt")
-    private Integer estimatecnt;
-
-    /**
-     * 属性 [BEGINSTR]
-     *
-     */
-    @JSONField(name = "beginstr")
-    @JsonProperty("beginstr")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String beginstr;
-
-    /**
-     * 属性 [ENDSTR]
-     *
-     */
-    @JSONField(name = "endstr")
-    @JsonProperty("endstr")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String endstr;
-
-    /**
-     * 属性 [PLANTEMPLET]
-     *
-     */
-    @JSONField(name = "plantemplet")
-    @JsonProperty("plantemplet")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String plantemplet;
-
-    /**
-     * 属性 [DELAYTASKSCNT]
-     *
-     */
-    @JSONField(name = "delaytaskscnt")
-    @JsonProperty("delaytaskscnt")
-    private Integer delaytaskscnt;
-
-    /**
-     * 属性 [UNFINISHEDTASKSCNT]
-     *
-     */
-    @JSONField(name = "unfinishedtaskscnt")
-    @JsonProperty("unfinishedtaskscnt")
-    private Integer unfinishedtaskscnt;
-
-    /**
-     * 属性 [FINISHEDTASKSCNT]
-     *
-     */
-    @JSONField(name = "finishedtaskscnt")
-    @JsonProperty("finishedtaskscnt")
-    private Integer finishedtaskscnt;
-
-    /**
-     * 属性 [TASKSCNT]
-     *
-     */
-    @JSONField(name = "taskscnt")
-    @JsonProperty("taskscnt")
-    private Integer taskscnt;
-
-    /**
-     * 属性 [DURATION]
-     *
-     */
-    @JSONField(name = "duration")
-    @JsonProperty("duration")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String duration;
 
 
     /**

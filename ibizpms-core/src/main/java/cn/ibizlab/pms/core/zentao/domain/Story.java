@@ -52,6 +52,20 @@ public class Story extends EntityMP implements Serializable {
     @JsonProperty("assignedto")
     private String assignedto;
     /**
+     * 所属模块名称
+     */
+    @TableField(exist = false)
+    @JSONField(name = "modulename1")
+    @JsonProperty("modulename1")
+    private String modulename1;
+    /**
+     * 附件
+     */
+    @TableField(exist = false)
+    @JSONField(name = "files")
+    @JsonProperty("files")
+    private String files;
+    /**
      * 细分需求
      */
     @DEField(defaultValue = "#EMPTY")
@@ -59,6 +73,14 @@ public class Story extends EntityMP implements Serializable {
     @JSONField(name = "childstories")
     @JsonProperty("childstories")
     private String childstories;
+    /**
+     * IBIZ标识
+     */
+    @DEField(name = "ibiz_id")
+    @TableField(value = "`ibiz_id`")
+    @JSONField(name = "ibiz_id")
+    @JsonProperty("ibiz_id")
+    private String ibizId;
     /**
      * 所属计划
      */
@@ -84,6 +106,35 @@ public class Story extends EntityMP implements Serializable {
     @JsonProperty("assigneddate")
     private Timestamp assigneddate;
     /**
+     * 故事点
+     */
+    @TableField(value = "`storypoints`")
+    @JSONField(name = "storypoints")
+    @JsonProperty("storypoints")
+    private String storypoints;
+    /**
+     * 来源对象名称
+     */
+    @TableField(value = "`sourcename`")
+    @JSONField(name = "sourcename")
+    @JsonProperty("sourcename")
+    private String sourcename;
+    /**
+     * 需求提供时间
+     */
+    @TableField(value = "`storyprovidedate`")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "storyprovidedate", format = "yyyy-MM-dd")
+    @JsonProperty("storyprovidedate")
+    private Timestamp storyprovidedate;
+    /**
+     * 是否子需求
+     */
+    @TableField(exist = false)
+    @JSONField(name = "isleaf")
+    @JsonProperty("isleaf")
+    private String isleaf;
+    /**
      * 优先级
      */
     @DEField(defaultValue = "3")
@@ -91,6 +142,13 @@ public class Story extends EntityMP implements Serializable {
     @JSONField(name = "pri")
     @JsonProperty("pri")
     private Integer pri;
+    /**
+     * 来源对象标识
+     */
+    @TableField(value = "`sourceid`")
+    @JSONField(name = "sourceid")
+    @JsonProperty("sourceid")
+    private String sourceid;
     /**
      * 相关需求
      */
@@ -100,6 +158,13 @@ public class Story extends EntityMP implements Serializable {
     @JsonProperty("linkstories")
     private String linkstories;
     /**
+     * 评审结果
+     */
+    @TableField(exist = false)
+    @JSONField(name = "assessresult")
+    @JsonProperty("assessresult")
+    private String assessresult;
+    /**
      * 当前状态
      */
     @DEField(defaultValue = "draft")
@@ -108,6 +173,13 @@ public class Story extends EntityMP implements Serializable {
     @JsonProperty("status")
     private String status;
     /**
+     * 抄送给
+     */
+    @TableField(exist = false)
+    @JSONField(name = "mailtopk")
+    @JsonProperty("mailtopk")
+    private String mailtopk;
+    /**
      * 预计工时
      */
     @DEField(defaultValue = "0")
@@ -115,6 +187,13 @@ public class Story extends EntityMP implements Serializable {
     @JSONField(name = "estimate")
     @JsonProperty("estimate")
     private Double estimate;
+    /**
+     * 消息通知用户
+     */
+    @TableField(exist = false)
+    @JSONField(name = "noticeusers")
+    @JsonProperty("noticeusers")
+    private String noticeusers;
     /**
      * 评审时间
      */
@@ -131,6 +210,13 @@ public class Story extends EntityMP implements Serializable {
     @JsonProperty("title")
     private String title;
     /**
+     * 联系人
+     */
+    @TableField(exist = false)
+    @JSONField(name = "mailtoconact")
+    @JsonProperty("mailtoconact")
+    private String mailtoconact;
+    /**
      * 来源备注
      */
     @DEField(defaultValue = "#EMPTY")
@@ -138,6 +224,13 @@ public class Story extends EntityMP implements Serializable {
     @JSONField(name = "sourcenote")
     @JsonProperty("sourcenote")
     private String sourcenote;
+    /**
+     * 版本号
+     */
+    @TableField(exist = false)
+    @JSONField(name = "versionc")
+    @JsonProperty("versionc")
+    private String versionc;
     /**
      * 由谁评审
      */
@@ -186,6 +279,14 @@ public class Story extends EntityMP implements Serializable {
     @JsonProperty("id")
     private Long id;
     /**
+     * 来源对象
+     */
+    @DEField(name = "ibiz_sourceobject")
+    @TableField(value = "`ibiz_sourceobject`")
+    @JSONField(name = "ibiz_sourceobject")
+    @JsonProperty("ibiz_sourceobject")
+    private String ibizSourceobject;
+    /**
      * 需求来源
      */
     @DEField(defaultValue = "#EMPTY")
@@ -193,6 +294,28 @@ public class Story extends EntityMP implements Serializable {
     @JSONField(name = "source")
     @JsonProperty("source")
     private String source;
+    /**
+     * 需求最晚完成时间
+     */
+    @TableField(value = "`storylatestfinisheddate`")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "storylatestfinisheddate", format = "yyyy-MM-dd")
+    @JsonProperty("storylatestfinisheddate")
+    private Timestamp storylatestfinisheddate;
+    /**
+     * 不需要评审
+     */
+    @TableField(exist = false)
+    @JSONField(name = "neednotreview")
+    @JsonProperty("neednotreview")
+    private String neednotreview;
+    /**
+     * 是否可以细分
+     */
+    @TableField(exist = false)
+    @JSONField(name = "ischild")
+    @JsonProperty("ischild")
+    private String ischild;
     /**
      * 关闭原因
      */
@@ -210,12 +333,33 @@ public class Story extends EntityMP implements Serializable {
     @JsonProperty("color")
     private String color;
     /**
+     * orgid
+     */
+    @TableField(exist = false)
+    @JSONField(name = "orgid")
+    @JsonProperty("orgid")
+    private String orgid;
+    /**
      * 抄送给
      */
     @TableField(value = "`mailto`")
     @JSONField(name = "mailto")
     @JsonProperty("mailto")
     private String mailto;
+    /**
+     * 是否收藏
+     */
+    @TableField(exist = false)
+    @JSONField(name = "isfavorites")
+    @JsonProperty("isfavorites")
+    private String isfavorites;
+    /**
+     * 来源对象
+     */
+    @TableField(value = "`sourceobject`")
+    @JSONField(name = "sourceobject")
+    @JsonProperty("sourceobject")
+    private String sourceobject;
     /**
      * 已删除
      */
@@ -250,6 +394,13 @@ public class Story extends EntityMP implements Serializable {
     @JsonProperty("stage")
     private String stage;
     /**
+     * 项目
+     */
+    @TableField(exist = false)
+    @JSONField(name = "project")
+    @JsonProperty("project")
+    private Long project;
+    /**
      * 关闭日期	
      */
     @TableField(value = "`closeddate`")
@@ -258,6 +409,49 @@ public class Story extends EntityMP implements Serializable {
     @JsonProperty("closeddate")
     private Timestamp closeddate;
     /**
+     * 需求描述
+     */
+    @TableField(exist = false)
+    @JSONField(name = "spec")
+    @JsonProperty("spec")
+    private String spec;
+    /**
+     * 来源对象名称
+     */
+    @DEField(name = "ibiz_sourcename")
+    @TableField(value = "`ibiz_sourcename`")
+    @JSONField(name = "ibiz_sourcename")
+    @JsonProperty("ibiz_sourcename")
+    private String ibizSourcename;
+    /**
+     * 指派给（选择）
+     */
+    @TableField(exist = false)
+    @JSONField(name = "assignedtopk")
+    @JsonProperty("assignedtopk")
+    private String assignedtopk;
+    /**
+     * 备注
+     */
+    @TableField(exist = false)
+    @JSONField(name = "comment")
+    @JsonProperty("comment")
+    private String comment;
+    /**
+     * acllist
+     */
+    @TableField(exist = false)
+    @JSONField(name = "acllist")
+    @JsonProperty("acllist")
+    private String acllist;
+    /**
+     * 验收标准
+     */
+    @TableField(exist = false)
+    @JSONField(name = "verify")
+    @JsonProperty("verify")
+    private String verify;
+    /**
      * 由谁关闭
      */
     @DEField(defaultValue = "#EMPTY")
@@ -265,6 +459,20 @@ public class Story extends EntityMP implements Serializable {
     @JSONField(name = "closedby")
     @JsonProperty("closedby")
     private String closedby;
+    /**
+     * acl
+     */
+    @TableField(exist = false)
+    @JSONField(name = "acl")
+    @JsonProperty("acl")
+    private String acl;
+    /**
+     * 评审结果
+     */
+    @TableField(exist = false)
+    @JSONField(name = "result")
+    @JsonProperty("result")
+    private String result;
     /**
      * 需求类型
      */
@@ -282,6 +490,35 @@ public class Story extends EntityMP implements Serializable {
     @JSONField(name = "lastediteddate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("lastediteddate")
     private Timestamp lastediteddate;
+    /**
+     * 来源对象标识
+     */
+    @DEField(name = "ibiz_sourceid")
+    @TableField(value = "`ibiz_sourceid`")
+    @JSONField(name = "ibiz_sourceid")
+    @JsonProperty("ibiz_sourceid")
+    private String ibizSourceid;
+    /**
+     * 之前的版本
+     */
+    @TableField(exist = false)
+    @JSONField(name = "preversion")
+    @JsonProperty("preversion")
+    private Integer preversion;
+    /**
+     * 需求提供人
+     */
+    @TableField(value = "`storyprovider`")
+    @JSONField(name = "storyprovider")
+    @JsonProperty("storyprovider")
+    private String storyprovider;
+    /**
+     * MDEPTID
+     */
+    @TableField(exist = false)
+    @JSONField(name = "mdeptid")
+    @JsonProperty("mdeptid")
+    private String mdeptid;
     /**
      * 模块路径
      */
@@ -310,6 +547,13 @@ public class Story extends EntityMP implements Serializable {
     @JSONField(name = "productname")
     @JsonProperty("productname")
     private String productname;
+    /**
+     * 平台/分支
+     */
+    @TableField(exist = false)
+    @JSONField(name = "branchname")
+    @JsonProperty("branchname")
+    private String branchname;
     /**
      * 来源Bug
      */
@@ -366,250 +610,6 @@ public class Story extends EntityMP implements Serializable {
     @JSONField(name = "tobug")
     @JsonProperty("tobug")
     private Long tobug;
-    /**
-     * 需求描述
-     */
-    @TableField(exist = false)
-    @JSONField(name = "spec")
-    @JsonProperty("spec")
-    private String spec;
-    /**
-     * 验收标准
-     */
-    @TableField(exist = false)
-    @JSONField(name = "verify")
-    @JsonProperty("verify")
-    private String verify;
-    /**
-     * 评审结果
-     */
-    @TableField(exist = false)
-    @JSONField(name = "result")
-    @JsonProperty("result")
-    private String result;
-    /**
-     * 备注
-     */
-    @TableField(exist = false)
-    @JSONField(name = "comment")
-    @JsonProperty("comment")
-    private String comment;
-    /**
-     * 是否子需求
-     */
-    @TableField(exist = false)
-    @JSONField(name = "isleaf")
-    @JsonProperty("isleaf")
-    private String isleaf;
-    /**
-     * 附件
-     */
-    @TableField(exist = false)
-    @JSONField(name = "files")
-    @JsonProperty("files")
-    private String files;
-    /**
-     * 平台/分支
-     */
-    @TableField(exist = false)
-    @JSONField(name = "branchname")
-    @JsonProperty("branchname")
-    private String branchname;
-    /**
-     * 版本号
-     */
-    @TableField(exist = false)
-    @JSONField(name = "versionc")
-    @JsonProperty("versionc")
-    private String versionc;
-    /**
-     * 所属模块名称
-     */
-    @TableField(exist = false)
-    @JSONField(name = "modulename1")
-    @JsonProperty("modulename1")
-    private String modulename1;
-    /**
-     * 项目
-     */
-    @TableField(exist = false)
-    @JSONField(name = "project")
-    @JsonProperty("project")
-    private Long project;
-    /**
-     * 之前的版本
-     */
-    @TableField(exist = false)
-    @JSONField(name = "preversion")
-    @JsonProperty("preversion")
-    private Integer preversion;
-    /**
-     * 不需要评审
-     */
-    @TableField(exist = false)
-    @JSONField(name = "neednotreview")
-    @JsonProperty("neednotreview")
-    private String neednotreview;
-    /**
-     * 是否收藏
-     */
-    @TableField(exist = false)
-    @JSONField(name = "isfavorites")
-    @JsonProperty("isfavorites")
-    private String isfavorites;
-    /**
-     * 是否可以细分
-     */
-    @TableField(exist = false)
-    @JSONField(name = "ischild")
-    @JsonProperty("ischild")
-    private String ischild;
-    /**
-     * 联系人
-     */
-    @TableField(exist = false)
-    @JSONField(name = "mailtoconact")
-    @JsonProperty("mailtoconact")
-    private String mailtoconact;
-    /**
-     * 抄送给
-     */
-    @TableField(exist = false)
-    @JSONField(name = "mailtopk")
-    @JsonProperty("mailtopk")
-    private String mailtopk;
-    /**
-     * 指派给（选择）
-     */
-    @TableField(exist = false)
-    @JSONField(name = "assignedtopk")
-    @JsonProperty("assignedtopk")
-    private String assignedtopk;
-    /**
-     * 消息通知用户
-     */
-    @TableField(exist = false)
-    @JSONField(name = "noticeusers")
-    @JsonProperty("noticeusers")
-    private String noticeusers;
-    /**
-     * 来源对象
-     */
-    @DEField(name = "ibiz_sourceobject")
-    @TableField(value = "`ibiz_sourceobject`")
-    @JSONField(name = "ibiz_sourceobject")
-    @JsonProperty("ibiz_sourceobject")
-    private String ibizSourceobject;
-    /**
-     * 来源对象
-     */
-    @TableField(value = "`sourceobject`")
-    @JSONField(name = "sourceobject")
-    @JsonProperty("sourceobject")
-    private String sourceobject;
-    /**
-     * IBIZ标识
-     */
-    @DEField(name = "ibiz_id")
-    @TableField(value = "`ibiz_id`")
-    @JSONField(name = "ibiz_id")
-    @JsonProperty("ibiz_id")
-    private String ibizId;
-    /**
-     * 来源对象名称
-     */
-    @TableField(value = "`sourcename`")
-    @JSONField(name = "sourcename")
-    @JsonProperty("sourcename")
-    private String sourcename;
-    /**
-     * 来源对象标识
-     */
-    @TableField(value = "`sourceid`")
-    @JSONField(name = "sourceid")
-    @JsonProperty("sourceid")
-    private String sourceid;
-    /**
-     * 来源对象标识
-     */
-    @DEField(name = "ibiz_sourceid")
-    @TableField(value = "`ibiz_sourceid`")
-    @JSONField(name = "ibiz_sourceid")
-    @JsonProperty("ibiz_sourceid")
-    private String ibizSourceid;
-    /**
-     * 来源对象名称
-     */
-    @DEField(name = "ibiz_sourcename")
-    @TableField(value = "`ibiz_sourcename`")
-    @JSONField(name = "ibiz_sourcename")
-    @JsonProperty("ibiz_sourcename")
-    private String ibizSourcename;
-    /**
-     * 故事点
-     */
-    @TableField(value = "`storypoints`")
-    @JSONField(name = "storypoints")
-    @JsonProperty("storypoints")
-    private String storypoints;
-    /**
-     * 评审结果
-     */
-    @TableField(exist = false)
-    @JSONField(name = "assessresult")
-    @JsonProperty("assessresult")
-    private String assessresult;
-    /**
-     * orgid
-     */
-    @TableField(exist = false)
-    @JSONField(name = "orgid")
-    @JsonProperty("orgid")
-    private String orgid;
-    /**
-     * acl
-     */
-    @TableField(exist = false)
-    @JSONField(name = "acl")
-    @JsonProperty("acl")
-    private String acl;
-    /**
-     * acllist
-     */
-    @TableField(exist = false)
-    @JSONField(name = "acllist")
-    @JsonProperty("acllist")
-    private String acllist;
-    /**
-     * MDEPTID
-     */
-    @TableField(exist = false)
-    @JSONField(name = "mdeptid")
-    @JsonProperty("mdeptid")
-    private String mdeptid;
-    /**
-     * 需求最晚完成时间
-     */
-    @TableField(value = "`storylatestfinisheddate`")
-    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
-    @JSONField(name = "storylatestfinisheddate", format = "yyyy-MM-dd")
-    @JsonProperty("storylatestfinisheddate")
-    private Timestamp storylatestfinisheddate;
-    /**
-     * 需求提供时间
-     */
-    @TableField(value = "`storyprovidedate`")
-    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
-    @JSONField(name = "storyprovidedate", format = "yyyy-MM-dd")
-    @JsonProperty("storyprovidedate")
-    private Timestamp storyprovidedate;
-    /**
-     * 需求提供人
-     */
-    @TableField(value = "`storyprovider`")
-    @JSONField(name = "storyprovider")
-    @JsonProperty("storyprovider")
-    private String storyprovider;
 
     /**
      * 
@@ -686,6 +686,14 @@ public class Story extends EntityMP implements Serializable {
     }
 
     /**
+     * 设置 [IBIZ标识]
+     */
+    public void setIbizId(String ibizId) {
+        this.ibizId = ibizId;
+        this.modify("ibiz_id", ibizId);
+    }
+
+    /**
      * 设置 [所属计划]
      */
     public void setPlan(String plan) {
@@ -720,11 +728,53 @@ public class Story extends EntityMP implements Serializable {
         return sdf.format(assigneddate);
     }
     /**
+     * 设置 [故事点]
+     */
+    public void setStorypoints(String storypoints) {
+        this.storypoints = storypoints;
+        this.modify("storypoints", storypoints);
+    }
+
+    /**
+     * 设置 [来源对象名称]
+     */
+    public void setSourcename(String sourcename) {
+        this.sourcename = sourcename;
+        this.modify("sourcename", sourcename);
+    }
+
+    /**
+     * 设置 [需求提供时间]
+     */
+    public void setStoryprovidedate(Timestamp storyprovidedate) {
+        this.storyprovidedate = storyprovidedate;
+        this.modify("storyprovidedate", storyprovidedate);
+    }
+
+    /**
+     * 格式化日期 [需求提供时间]
+     */
+    public String formatStoryprovidedate() {
+        if (this.storyprovidedate == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return sdf.format(storyprovidedate);
+    }
+    /**
      * 设置 [优先级]
      */
     public void setPri(Integer pri) {
         this.pri = pri;
         this.modify("pri", pri);
+    }
+
+    /**
+     * 设置 [来源对象标识]
+     */
+    public void setSourceid(String sourceid) {
+        this.sourceid = sourceid;
+        this.modify("sourceid", sourceid);
     }
 
     /**
@@ -810,6 +860,14 @@ public class Story extends EntityMP implements Serializable {
     }
 
     /**
+     * 设置 [来源对象]
+     */
+    public void setIbizSourceobject(String ibizSourceobject) {
+        this.ibizSourceobject = ibizSourceobject;
+        this.modify("ibiz_sourceobject", ibizSourceobject);
+    }
+
+    /**
      * 设置 [需求来源]
      */
     public void setSource(String source) {
@@ -817,6 +875,24 @@ public class Story extends EntityMP implements Serializable {
         this.modify("source", source);
     }
 
+    /**
+     * 设置 [需求最晚完成时间]
+     */
+    public void setStorylatestfinisheddate(Timestamp storylatestfinisheddate) {
+        this.storylatestfinisheddate = storylatestfinisheddate;
+        this.modify("storylatestfinisheddate", storylatestfinisheddate);
+    }
+
+    /**
+     * 格式化日期 [需求最晚完成时间]
+     */
+    public String formatStorylatestfinisheddate() {
+        if (this.storylatestfinisheddate == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return sdf.format(storylatestfinisheddate);
+    }
     /**
      * 设置 [关闭原因]
      */
@@ -839,6 +915,14 @@ public class Story extends EntityMP implements Serializable {
     public void setMailto(String mailto) {
         this.mailto = mailto;
         this.modify("mailto", mailto);
+    }
+
+    /**
+     * 设置 [来源对象]
+     */
+    public void setSourceobject(String sourceobject) {
+        this.sourceobject = sourceobject;
+        this.modify("sourceobject", sourceobject);
     }
 
     /**
@@ -876,6 +960,14 @@ public class Story extends EntityMP implements Serializable {
         return sdf.format(closeddate);
     }
     /**
+     * 设置 [来源对象名称]
+     */
+    public void setIbizSourcename(String ibizSourcename) {
+        this.ibizSourcename = ibizSourcename;
+        this.modify("ibiz_sourcename", ibizSourcename);
+    }
+
+    /**
      * 设置 [由谁关闭]
      */
     public void setClosedby(String closedby) {
@@ -889,6 +981,22 @@ public class Story extends EntityMP implements Serializable {
     public void setType(String type) {
         this.type = type;
         this.modify("type", type);
+    }
+
+    /**
+     * 设置 [来源对象标识]
+     */
+    public void setIbizSourceid(String ibizSourceid) {
+        this.ibizSourceid = ibizSourceid;
+        this.modify("ibiz_sourceid", ibizSourceid);
+    }
+
+    /**
+     * 设置 [需求提供人]
+     */
+    public void setStoryprovider(String storyprovider) {
+        this.storyprovider = storyprovider;
+        this.modify("storyprovider", storyprovider);
     }
 
     /**
@@ -945,114 +1053,6 @@ public class Story extends EntityMP implements Serializable {
     public void setTobug(Long tobug) {
         this.tobug = tobug;
         this.modify("tobug", tobug);
-    }
-
-    /**
-     * 设置 [来源对象]
-     */
-    public void setIbizSourceobject(String ibizSourceobject) {
-        this.ibizSourceobject = ibizSourceobject;
-        this.modify("ibiz_sourceobject", ibizSourceobject);
-    }
-
-    /**
-     * 设置 [来源对象]
-     */
-    public void setSourceobject(String sourceobject) {
-        this.sourceobject = sourceobject;
-        this.modify("sourceobject", sourceobject);
-    }
-
-    /**
-     * 设置 [IBIZ标识]
-     */
-    public void setIbizId(String ibizId) {
-        this.ibizId = ibizId;
-        this.modify("ibiz_id", ibizId);
-    }
-
-    /**
-     * 设置 [来源对象名称]
-     */
-    public void setSourcename(String sourcename) {
-        this.sourcename = sourcename;
-        this.modify("sourcename", sourcename);
-    }
-
-    /**
-     * 设置 [来源对象标识]
-     */
-    public void setSourceid(String sourceid) {
-        this.sourceid = sourceid;
-        this.modify("sourceid", sourceid);
-    }
-
-    /**
-     * 设置 [来源对象标识]
-     */
-    public void setIbizSourceid(String ibizSourceid) {
-        this.ibizSourceid = ibizSourceid;
-        this.modify("ibiz_sourceid", ibizSourceid);
-    }
-
-    /**
-     * 设置 [来源对象名称]
-     */
-    public void setIbizSourcename(String ibizSourcename) {
-        this.ibizSourcename = ibizSourcename;
-        this.modify("ibiz_sourcename", ibizSourcename);
-    }
-
-    /**
-     * 设置 [故事点]
-     */
-    public void setStorypoints(String storypoints) {
-        this.storypoints = storypoints;
-        this.modify("storypoints", storypoints);
-    }
-
-    /**
-     * 设置 [需求最晚完成时间]
-     */
-    public void setStorylatestfinisheddate(Timestamp storylatestfinisheddate) {
-        this.storylatestfinisheddate = storylatestfinisheddate;
-        this.modify("storylatestfinisheddate", storylatestfinisheddate);
-    }
-
-    /**
-     * 格式化日期 [需求最晚完成时间]
-     */
-    public String formatStorylatestfinisheddate() {
-        if (this.storylatestfinisheddate == null) {
-            return null;
-        }
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        return sdf.format(storylatestfinisheddate);
-    }
-    /**
-     * 设置 [需求提供时间]
-     */
-    public void setStoryprovidedate(Timestamp storyprovidedate) {
-        this.storyprovidedate = storyprovidedate;
-        this.modify("storyprovidedate", storyprovidedate);
-    }
-
-    /**
-     * 格式化日期 [需求提供时间]
-     */
-    public String formatStoryprovidedate() {
-        if (this.storyprovidedate == null) {
-            return null;
-        }
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        return sdf.format(storyprovidedate);
-    }
-    /**
-     * 设置 [需求提供人]
-     */
-    public void setStoryprovider(String storyprovider) {
-        this.storyprovider = storyprovider;
-        this.modify("storyprovider", storyprovider);
     }
 
 

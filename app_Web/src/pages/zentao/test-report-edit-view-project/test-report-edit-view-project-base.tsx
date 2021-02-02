@@ -153,7 +153,7 @@ export class TestReportEditView_ProjectBase extends EditViewBase {
      * @type {string}
      * @memberof TestReportEditView_ProjectBase
      */
-	protected viewtag: string = 'cbd1280e0ec2cd69ffa85cf60ece100d';
+	protected viewtag: string = 'faba3852d18767038ace554cb404255d';
 
     /**
      * 视图名称

@@ -102,7 +102,7 @@ export class DocLibUsr3TreeViewBase extends TreeViewBase {
      * @type {string}
      * @memberof DocLibUsr3TreeViewBase
      */
-	protected viewtag: string = '13ee26e3aef1942ab979bab497a318b1';
+	protected viewtag: string = 'c24564db2a7ca9f2322928be41c5f16d';
 
     /**
      * 视图名称

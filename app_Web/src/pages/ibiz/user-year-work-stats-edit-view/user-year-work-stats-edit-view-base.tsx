@@ -153,7 +153,7 @@ export class UserYearWorkStatsEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof UserYearWorkStatsEditViewBase
      */
-	protected viewtag: string = 'db750bbb894c25f38ca2741f234df3c6';
+	protected viewtag: string = '92828782339ab18470626ac28292615a';
 
     /**
      * 视图名称

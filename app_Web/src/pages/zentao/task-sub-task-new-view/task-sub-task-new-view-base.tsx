@@ -137,7 +137,7 @@ export class TaskSubTaskNewViewBase extends GridViewBase {
      * @type {string}
      * @memberof TaskSubTaskNewViewBase
      */
-	protected viewtag: string = '35ba93bac795e0deb7297d2d471b7180';
+	protected viewtag: string = 'f6d0bb444705d74d6b39051dc8225eb9';
 
     /**
      * 视图名称

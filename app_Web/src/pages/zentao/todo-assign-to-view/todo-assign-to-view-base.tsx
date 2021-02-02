@@ -144,7 +144,7 @@ export class TodoAssignToViewBase extends OptionViewBase {
      * @type {string}
      * @memberof TodoAssignToViewBase
      */
-	protected viewtag: string = '43582fa5b922cb77d0b1e704a7b6e5c3';
+	protected viewtag: string = '375a839817c57466639c0cb40c6a6057';
 
     /**
      * 视图名称

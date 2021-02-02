@@ -15,43 +15,43 @@ export default class TrendsModel {
 	public getDataItems(): any[] {
 		return [
 			{
-				name: 'read',
-        codelist:{tag:'Action__read',codelistType:'STATIC'},
+				name: 'action',
 			},
 			{
-				name: 'actionmanner',
-        codelist:{tag:'ActionManner',codelistType:'STATIC'},
+				name: 'date1',
 			},
 			{
 				name: 'id',
 			},
 			{
-				name: 'action',
+				name: 'srfkey',
 			},
 			{
-				name: 'product',
+				name: 'project',
+			},
+			{
+				name: 'date',
+			},
+			{
+				name: 'objecttype',
+			},
+			{
+				name: 'objectid',
 			},
 			{
 				name: 'actor',
         codelist:{tag:'UserRealName',codelistType:'DYNAMIC'},
 			},
 			{
-				name: 'date1',
+				name: 'read',
+        codelist:{tag:'Action__read',codelistType:'STATIC'},
 			},
 			{
-				name: 'project',
+				name: 'product',
 			},
 			{
-				name: 'objectid',
-			},
-			{
-				name: 'date',
-			},
-			{
-				name: 'srfkey',
-			},
-			{
-				name: 'objecttype',
+				name: 'actionmanner',
+        codelist:{tag:'ActionManner',codelistType:'STATIC'},
 			},
       {
         name:'size',

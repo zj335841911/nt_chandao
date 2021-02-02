@@ -30,76 +30,13 @@ public class IbizproProductDailyDTO extends DTOBase implements Serializable {
 	private static final long serialVersionUID = 1L;
 
     /**
-     * 属性 [IBIZPRO_PRODUCTDAILYNAME]
+     * 属性 [END]
      *
      */
-    @JSONField(name = "ibizproproductdailyname")
-    @JsonProperty("ibizproproductdailyname")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String ibizproproductdailyname;
-
-    /**
-     * 属性 [IBIZPRO_PRODUCTDAILYID]
-     *
-     */
-    @JSONField(name = "ibizproproductdailyid")
-    @JsonProperty("ibizproproductdailyid")
-    @JsonSerialize(using = ToStringSerializer.class)
-    private Long ibizproproductdailyid;
-
-    /**
-     * 属性 [CREATEMAN]
-     *
-     */
-    @JSONField(name = "createman")
-    @JsonProperty("createman")
-    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
-    private String createman;
-
-    /**
-     * 属性 [CREATEDATE]
-     *
-     */
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "createdate" , format="yyyy-MM-dd HH:mm:ss")
-    @JsonProperty("createdate")
-    private Timestamp createdate;
-
-    /**
-     * 属性 [UPDATEDATE]
-     *
-     */
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "updatedate" , format="yyyy-MM-dd HH:mm:ss")
-    @JsonProperty("updatedate")
-    private Timestamp updatedate;
-
-    /**
-     * 属性 [UPDATEMAN]
-     *
-     */
-    @JSONField(name = "updateman")
-    @JsonProperty("updateman")
-    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
-    private String updateman;
-
-    /**
-     * 属性 [PO]
-     *
-     */
-    @JSONField(name = "po")
-    @JsonProperty("po")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String po;
-
-    /**
-     * 属性 [PRODUCT]
-     *
-     */
-    @JSONField(name = "product")
-    @JsonProperty("product")
-    @JsonSerialize(using = ToStringSerializer.class)
-    private Long product;
+    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "end" , format="yyyy-MM-dd")
+    @JsonProperty("end")
+    private Timestamp end;
 
     /**
      * 属性 [DATE]
@@ -111,6 +48,42 @@ public class IbizproProductDailyDTO extends DTOBase implements Serializable {
     private Timestamp date;
 
     /**
+     * 属性 [UPDATEDATE]
+     *
+     */
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "updatedate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonProperty("updatedate")
+    private Timestamp updatedate;
+
+    /**
+     * 属性 [IBIZPRO_PRODUCTDAILYNAME]
+     *
+     */
+    @JSONField(name = "ibizproproductdailyname")
+    @JsonProperty("ibizproproductdailyname")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String ibizproproductdailyname;
+
+    /**
+     * 属性 [UPDATEMAN]
+     *
+     */
+    @JSONField(name = "updateman")
+    @JsonProperty("updateman")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    private String updateman;
+
+    /**
+     * 属性 [CREATEMAN]
+     *
+     */
+    @JSONField(name = "createman")
+    @JsonProperty("createman")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    private String createman;
+
+    /**
      * 属性 [TASKS]
      *
      */
@@ -120,21 +93,30 @@ public class IbizproProductDailyDTO extends DTOBase implements Serializable {
     private String tasks;
 
     /**
+     * 属性 [CREATEDATE]
+     *
+     */
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "createdate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonProperty("createdate")
+    private Timestamp createdate;
+
+    /**
+     * 属性 [IBIZPRO_PRODUCTDAILYID]
+     *
+     */
+    @JSONField(name = "ibizproproductdailyid")
+    @JsonProperty("ibizproproductdailyid")
+    @JsonSerialize(using = ToStringSerializer.class)
+    private Long ibizproproductdailyid;
+
+    /**
      * 属性 [TOTALESTIMATES]
      *
      */
     @JSONField(name = "totalestimates")
     @JsonProperty("totalestimates")
     private Double totalestimates;
-
-    /**
-     * 属性 [PRODUCTNAME]
-     *
-     */
-    @JSONField(name = "productname")
-    @JsonProperty("productname")
-    @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
-    private String productname;
 
     /**
      * 属性 [BEGIN]
@@ -146,37 +128,39 @@ public class IbizproProductDailyDTO extends DTOBase implements Serializable {
     private Timestamp begin;
 
     /**
-     * 属性 [END]
+     * 属性 [PO]
      *
      */
-    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "end" , format="yyyy-MM-dd")
-    @JsonProperty("end")
-    private Timestamp end;
+    @JSONField(name = "po")
+    @JsonProperty("po")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String po;
+
+    /**
+     * 属性 [PRODUCTNAME]
+     *
+     */
+    @JSONField(name = "productname")
+    @JsonProperty("productname")
+    @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
+    private String productname;
+
+    /**
+     * 属性 [PRODUCT]
+     *
+     */
+    @JSONField(name = "product")
+    @JsonProperty("product")
+    @JsonSerialize(using = ToStringSerializer.class)
+    private Long product;
 
 
     /**
-     * 设置 [IBIZPRO_PRODUCTDAILYNAME]
+     * 设置 [END]
      */
-    public void setIbizproproductdailyname(String  ibizproproductdailyname){
-        this.ibizproproductdailyname = ibizproproductdailyname ;
-        this.modify("ibizpro_productdailyname",ibizproproductdailyname);
-    }
-
-    /**
-     * 设置 [PO]
-     */
-    public void setPo(String  po){
-        this.po = po ;
-        this.modify("po",po);
-    }
-
-    /**
-     * 设置 [PRODUCT]
-     */
-    public void setProduct(Long  product){
-        this.product = product ;
-        this.modify("product",product);
+    public void setEnd(Timestamp  end){
+        this.end = end ;
+        this.modify("end",end);
     }
 
     /**
@@ -185,6 +169,14 @@ public class IbizproProductDailyDTO extends DTOBase implements Serializable {
     public void setDate(Timestamp  date){
         this.date = date ;
         this.modify("date",date);
+    }
+
+    /**
+     * 设置 [IBIZPRO_PRODUCTDAILYNAME]
+     */
+    public void setIbizproproductdailyname(String  ibizproproductdailyname){
+        this.ibizproproductdailyname = ibizproproductdailyname ;
+        this.modify("ibizpro_productdailyname",ibizproproductdailyname);
     }
 
     /**
@@ -212,11 +204,19 @@ public class IbizproProductDailyDTO extends DTOBase implements Serializable {
     }
 
     /**
-     * 设置 [END]
+     * 设置 [PO]
      */
-    public void setEnd(Timestamp  end){
-        this.end = end ;
-        this.modify("end",end);
+    public void setPo(String  po){
+        this.po = po ;
+        this.modify("po",po);
+    }
+
+    /**
+     * 设置 [PRODUCT]
+     */
+    public void setProduct(Long  product){
+        this.product = product ;
+        this.modify("product",product);
     }
 
 

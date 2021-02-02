@@ -101,7 +101,7 @@ export class ProjectMainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u02f694c_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u58bc4ed_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -129,7 +129,7 @@ export class ProjectMainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u1df0b3c_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u0499c7d_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -511,10 +511,10 @@ export class ProjectMainGridBase extends GridControlBase {
             this.grid_title_click(row, tag, $event);
         }
         if(Object.is('ProjectEdits', tag)) {
-            this.grid_uagridcolumn1_u02f694c_click(row, tag, $event);
+            this.grid_uagridcolumn1_u58bc4ed_click(row, tag, $event);
         }
         if(Object.is('Delete', tag)) {
-            this.grid_uagridcolumn1_u1df0b3c_click(row, tag, $event);
+            this.grid_uagridcolumn1_u0499c7d_click(row, tag, $event);
         }
     }
 

@@ -102,7 +102,7 @@ export class DocLibLGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_ue0442cd_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_ue934bc9_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -130,7 +130,7 @@ export class DocLibLGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u45b9da2_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u8a00ae7_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -495,10 +495,10 @@ export class DocLibLGridBase extends GridControlBase {
             this.grid_title_click(row, tag, $event);
         }
         if(Object.is('ibzdownload', tag)) {
-            this.grid_uagridcolumn1_ue0442cd_click(row, tag, $event);
+            this.grid_uagridcolumn1_ue934bc9_click(row, tag, $event);
         }
         if(Object.is('delete', tag)) {
-            this.grid_uagridcolumn1_u45b9da2_click(row, tag, $event);
+            this.grid_uagridcolumn1_u8a00ae7_click(row, tag, $event);
         }
     }
 

@@ -16,58 +16,58 @@ hide members
 
 | 属性名称        |    中文名称    | 类型     |  备注  |
 | --------   |------------| -----   |  -------- | 
+|Bug版本健值|IDS|TEXT|&nbsp;|
 |名称编号|NAME|TEXT|&nbsp;|
+|后台体系|BACKGROUNDID|SSCODELIST|&nbsp;|
 |构建者|BUILDER|TEXT|&nbsp;|
+|附件|FILES|TEXT|&nbsp;|
+|运行模式|RELEASETYPE|SSCODELIST|&nbsp;|
+|构建者（选择）|BUILDERPK|TEXT|&nbsp;|
+|重新构建|REBUILD|NSCODELIST|&nbsp;|
 |描述|DESC|LONGTEXT|&nbsp;|
 |id|ID|ACID|&nbsp;|
 |已删除|DELETED|TEXT|&nbsp;|
+|运行数据库|SQLID|SSCODELIST|&nbsp;|
 |源代码地址|SCMPATH|TEXT|&nbsp;|
 |下载地址|FILEPATH|TEXT|&nbsp;|
+|产生的bug|CREATEBUGCNT|LONGTEXT|&nbsp;|
 |完成的需求|STORIES|LONGTEXT|&nbsp;|
 |解决的Bug|BUGS|LONGTEXT|&nbsp;|
+|系统应用|FRONTAPPLICATION|SSCODELIST|&nbsp;|
+|消息通知用户|NOTICEUSERS|TEXT|&nbsp;|
 |打包日期|DATE|DATE|&nbsp;|
+|产品名称|PRODUCTNAME|PICKUPTEXT|&nbsp;|
 |产品|PRODUCT|PICKUP|&nbsp;|
 |平台/分支|BRANCH|PICKUP|&nbsp;|
 |所属项目|PROJECT|PICKUP|&nbsp;|
-|产品名称|PRODUCTNAME|PICKUPTEXT|&nbsp;|
-|Bug版本健值|IDS|TEXT|&nbsp;|
-|附件|FILES|TEXT|&nbsp;|
-|重新构建|REBUILD|NSCODELIST|&nbsp;|
-|运行模式|RELEASETYPE|SSCODELIST|&nbsp;|
-|系统应用|FRONTAPPLICATION|SSCODELIST|&nbsp;|
-|后台体系|BACKGROUNDID|SSCODELIST|&nbsp;|
-|运行数据库|SQLID|SSCODELIST|&nbsp;|
-|产生的bug|CREATEBUGCNT|LONGTEXT|&nbsp;|
-|构建者（选择）|BUILDERPK|TEXT|&nbsp;|
-|消息通知用户|NOTICEUSERS|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
 | --------   |------------| ----- | 
+|Bug版本健值|默认规则|内容长度必须小于等于[100]|
 |名称编号|默认规则|内容长度必须小于等于[150]|
+|后台体系|默认规则|内容长度必须小于等于[200]|
 |构建者|默认规则|内容长度必须小于等于[30]|
+|附件|默认规则|内容长度必须小于等于[1000]|
+|运行模式|默认规则|内容长度必须小于等于[200]|
+|构建者（选择）|默认规则|内容长度必须小于等于[200]|
+|重新构建|默认规则|默认规则|
 |描述|默认规则|内容长度必须小于等于[65535]|
 |id|默认规则|默认规则|
 |已删除|默认规则|内容长度必须小于等于[1]|
+|运行数据库|默认规则|内容长度必须小于等于[200]|
 |源代码地址|默认规则|内容长度必须小于等于[255]|
 |下载地址|默认规则|内容长度必须小于等于[255]|
+|产生的bug|默认规则|内容长度必须小于等于[1048576]|
 |完成的需求|默认规则|内容长度必须小于等于[65535]|
 |解决的Bug|默认规则|内容长度必须小于等于[65535]|
+|系统应用|默认规则|内容长度必须小于等于[200]|
+|消息通知用户|默认规则|内容长度必须小于等于[100]|
 |打包日期|默认规则|默认规则|
+|产品名称|默认规则|内容长度必须小于等于[90]|
 |产品|默认规则|默认规则|
 |平台/分支|默认规则|默认规则|
 |所属项目|默认规则|默认规则|
-|产品名称|默认规则|内容长度必须小于等于[90]|
-|Bug版本健值|默认规则|内容长度必须小于等于[100]|
-|附件|默认规则|内容长度必须小于等于[1000]|
-|重新构建|默认规则|默认规则|
-|运行模式|默认规则|内容长度必须小于等于[200]|
-|系统应用|默认规则|内容长度必须小于等于[200]|
-|后台体系|默认规则|内容长度必须小于等于[200]|
-|运行数据库|默认规则|内容长度必须小于等于[200]|
-|产生的bug|默认规则|内容长度必须小于等于[1048576]|
-|构建者（选择）|默认规则|内容长度必须小于等于[200]|
-|消息通知用户|默认规则|内容长度必须小于等于[100]|
 
 ## 状态控制
 
@@ -97,16 +97,16 @@ hide members
 {% plantuml %}
 hide footbox
 
-版本 -> 版本: 获取产生的bug
 版本 -> 版本: 获取完成的需求数
+版本 -> 版本: 获取产生的bug
 版本 -> 版本: 获取解决的bug
 {% endplantuml %}
 
 | 步骤       | 操作        |
 | --------   | --------   |
-|1|获取产生的bug |
-|1|开始 | 
-|2|获取完成的需求数 |
+|0|开始 | 
+|1|获取完成的需求数 |
+|2|获取产生的bug |
 |3|获取解决的bug |
 <center>移动端项目版本计数器</center>
 
@@ -139,17 +139,17 @@ hide footbox
 | 属性      |    搜索模式     |
 | --------   |------------|
 |名称编号(NAME)|LIKE|
+|后台体系(BACKGROUNDID)|EQ|
+|运行模式(RELEASETYPE)|EQ|
+|重新构建(REBUILD)|EQ|
+|运行数据库(SQLID)|EQ|
+|系统应用(FRONTAPPLICATION)|EQ|
 |打包日期(DATE)|LTANDEQ|
+|产品名称(PRODUCTNAME)|EQ|
+|产品名称(PRODUCTNAME)|LIKE|
 |产品(PRODUCT)|EQ|
 |平台/分支(BRANCH)|EQ|
 |所属项目(PROJECT)|EQ|
-|产品名称(PRODUCTNAME)|EQ|
-|产品名称(PRODUCTNAME)|LIKE|
-|重新构建(REBUILD)|EQ|
-|运行模式(RELEASETYPE)|EQ|
-|系统应用(FRONTAPPLICATION)|EQ|
-|后台体系(BACKGROUNDID)|EQ|
-|运行数据库(SQLID)|EQ|
 
 ## 导入模式
 无

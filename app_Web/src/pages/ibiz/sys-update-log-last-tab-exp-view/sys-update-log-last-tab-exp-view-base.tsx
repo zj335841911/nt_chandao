@@ -100,7 +100,7 @@ export class SysUpdateLogLastTabExpViewBase extends TabExpViewBase {
      * @type {string}
      * @memberof SysUpdateLogLastTabExpViewBase
      */
-	protected viewtag: string = '6203dc73c54acc8229989fecc87f058b';
+	protected viewtag: string = '7fe32344f7079d3359213223f8c3f63f';
 
     /**
      * 视图名称

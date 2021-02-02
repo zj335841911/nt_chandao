@@ -73,13 +73,13 @@ export default class ModuleWeiHuService extends ControlService {
 	public TREENODE_ROOT: string = 'ROOT';
 
     /**
-     * 目录节点分隔符号
+     * 子目录节点分隔符号
      *
      * @public
      * @type {string}
      * @memberof ModuleWeiHuService
      */
-	public TREENODE_MODULE: string = 'Module';
+	public TREENODE_CHILEMODULE: string = 'ChileModule';
 
     /**
      * 所有分类节点分隔符号
@@ -91,13 +91,13 @@ export default class ModuleWeiHuService extends ControlService {
 	public TREENODE_ALLMODULE: string = 'AllModule';
 
     /**
-     * 子目录节点分隔符号
+     * 目录节点分隔符号
      *
      * @public
      * @type {string}
      * @memberof ModuleWeiHuService
      */
-	public TREENODE_CHILEMODULE: string = 'ChileModule';
+	public TREENODE_MODULE: string = 'Module';
 
     /**
      * 获取节点数据
@@ -177,16 +177,16 @@ export default class ModuleWeiHuService extends ControlService {
             await this.fillRootNodeChilds(context,filter, list);
             return Promise.resolve({ status: 200, data: list });
         }
-        if (Object.is(strNodeType, this.TREENODE_MODULE)) {
-            await this.fillModuleNodeChilds(context,filter, list);
+        if (Object.is(strNodeType, this.TREENODE_CHILEMODULE)) {
+            await this.fillChilemoduleNodeChilds(context,filter, list);
             return Promise.resolve({ status: 200, data: list });
         }
         if (Object.is(strNodeType, this.TREENODE_ALLMODULE)) {
             await this.fillAllmoduleNodeChilds(context,filter, list);
             return Promise.resolve({ status: 200, data: list });
         }
-        if (Object.is(strNodeType, this.TREENODE_CHILEMODULE)) {
-            await this.fillChilemoduleNodeChilds(context,filter, list);
+        if (Object.is(strNodeType, this.TREENODE_MODULE)) {
+            await this.fillModuleNodeChilds(context,filter, list);
             return Promise.resolve({ status: 200, data: list });
         }
         return Promise.resolve({ status: 500, data: { title: '失败', message: `树节点${strTreeNodeId}标识无效` } });
@@ -257,223 +257,6 @@ export default class ModuleWeiHuService extends ControlService {
             let AllmoduleRsNavParams:any = {};
             let AllmoduleRsParams:any = {};
 			await this.fillAllmoduleNodes(context, filter, list ,AllmoduleRsNavContext,AllmoduleRsNavParams,AllmoduleRsParams);
-		}
-	}
-
-    /**
-     * 填充 树视图节点[目录]
-     *
-     * @public
-     * @param {any{}} context     
-     * @param {*} filter
-     * @param {any[]} list
-     * @param {*} rsNavContext   
-     * @param {*} rsNavParams
-     * @param {*} rsParams
-     * @returns {Promise<any>}
-     * @memberof ModuleWeiHuService
-     */
-    @Errorlog
-    public fillModuleNodes(context:any={},filter: any, list: any[],rsNavContext?:any,rsNavParams?:any,rsParams?:any): Promise<any> {
-        context = this.handleResNavContext(context,filter,rsNavContext);
-        filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
-        return new Promise((resolve:any,reject:any) =>{
-            let searchFilter: any = {};
-            Object.assign(searchFilter, { total: false });
-            let bFirst: boolean = true;
-            let records: any[] = [];
-            try {
-                this.searchModule(context, searchFilter, filter).then((records:any) =>{
-                    if(records && records.length >0){
-                        records.forEach((entity: any) => {
-                        let treeNode: any = {};
-                        // 整理context
-                        let strId: string = entity.id;
-                        let strText: string = entity.name;
-                        Object.assign(treeNode,{srfparentdename:'DocLibModule',srfparentkey:entity.id});
-                        let tempContext:any = JSON.parse(JSON.stringify(context));
-                        Object.assign(tempContext,{srfparentdename:'DocLibModule',srfparentkey:entity.id,doclibmodule:strId})
-                        Object.assign(treeNode,{srfappctx:tempContext});
-                        Object.assign(treeNode,{'doclibmodule':strId});
-                        Object.assign(treeNode, { srfkey: strId });
-                        Object.assign(treeNode, { text: strText, srfmajortext: strText });
-                        let strNodeId: string = 'Module';
-                        strNodeId += this.TREENODE_SEPARATOR;
-                        strNodeId += strId;
-                        Object.assign(treeNode, { id: strNodeId });
-                        Object.assign(treeNode, { iconcls: 'fa fa-folder-o' });
-                        Object.assign(treeNode, { expanded: filter.isautoexpand });
-                        Object.assign(treeNode, { leaf: false });
-                        Object.assign(treeNode, { navfilter: "n_parent_eq" });
-                        Object.assign(treeNode, { curData: entity });
-                        Object.assign(treeNode, { nodeid: treeNode.srfkey });
-                        Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
-                        Object.assign(treeNode, { nodeType: "DE",appEntityName:"doclibmodule" });
-                        list.push(treeNode);
-                        resolve(list);
-                        bFirst = false;
-                    });
-                    }else{
-                        resolve(list);
-                    }
-                });
-            } catch (error) {
-                console.error(error);
-            }
-        });
-
-	}
-
-    /**
-     * 获取查询集合
-     *
-     * @public
-     * @param {any{}} context     
-     * @param {*} searchFilter
-     * @param {*} filter
-     * @returns {any[]}
-     * @memberof TestEnetityDatasService
-     */
-    @Errorlog
-    public searchModule(context:any={}, searchFilter: any, filter: any): Promise<any> {
-        return new Promise((resolve:any,reject:any) =>{
-            if(filter.viewparams){
-                Object.assign(searchFilter,filter.viewparams);
-            }
-            if(!searchFilter.page){
-                Object.assign(searchFilter,{page:0});
-            }
-            if(!searchFilter.size){
-                Object.assign(searchFilter,{size:1000});
-            }
-            if(context && context.srfparentdename){
-                Object.assign(searchFilter,{srfparentdename:JSON.parse(JSON.stringify(context)).srfparentdename});
-            }
-            if(context && context.srfparentkey){
-                Object.assign(searchFilter,{srfparentkey:JSON.parse(JSON.stringify(context)).srfparentkey});
-            }
-            const _appEntityService: any = this.appEntityService;
-            let list: any[] = [];
-            if (_appEntityService['FetchChildModuleByRealParent'] && _appEntityService['FetchChildModuleByRealParent'] instanceof Function) {
-                const response: Promise<any> = _appEntityService['FetchChildModuleByRealParent'](context, searchFilter, false);
-                response.then((response: any) => {
-                    if (!response.status || response.status !== 200) {
-                        resolve([]);
-                        console.log(JSON.stringify(context));
-                        console.error('查询FetchChildModuleByRealParent数据集异常!');
-                    }
-                    const data: any = response.data;
-                    if (Object.keys(data).length > 0) {
-                        list = JSON.parse(JSON.stringify(data));
-                        resolve(list);
-                    } else {
-                        resolve([]);
-                    }
-                }).catch((response: any) => {
-                        resolve([]);
-                        console.log(JSON.stringify(context));
-                        console.error('查询FetchChildModuleByRealParent数据集异常!');
-                });
-            }
-        })
-    }
-
-    /**
-     * 填充 树视图节点[目录]子节点
-     *
-     * @public
-     * @param {any{}} context         
-     * @param {*} filter
-     * @param {any[]} list
-     * @returns {Promise<any>}
-     * @memberof ModuleWeiHuService
-     */
-    @Errorlog
-    public async fillModuleNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
-		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
-			// 填充子目录
-            let ChilemoduleRsNavContext:any = {};
-            let ChilemoduleRsNavParams:any = {};
-            let ChilemoduleRsParams:any = {};
-			await this.fillChilemoduleNodes(context, filter, list ,ChilemoduleRsNavContext,ChilemoduleRsNavParams,ChilemoduleRsParams);
-		} else {
-			// 填充子目录
-            let ChilemoduleRsNavContext:any = {};
-            let ChilemoduleRsNavParams:any = {};
-            let ChilemoduleRsParams:any = {};
-			await this.fillChilemoduleNodes(context, filter, list ,ChilemoduleRsNavContext,ChilemoduleRsNavParams,ChilemoduleRsParams);
-		}
-	}
-
-    /**
-     * 填充 树视图节点[所有分类]
-     *
-     * @public
-     * @param {any{}} context     
-     * @param {*} filter
-     * @param {any[]} list
-     * @param {*} rsNavContext   
-     * @param {*} rsNavParams
-     * @param {*} rsParams
-     * @returns {Promise<any>}
-     * @memberof ModuleWeiHuService
-     */
-    @Errorlog
-    public fillAllmoduleNodes(context:any={},filter: any, list: any[],rsNavContext?:any,rsNavParams?:any,rsParams?:any): Promise<any> {
-        context = this.handleResNavContext(context,filter,rsNavContext);
-        filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
-        return new Promise((resolve:any,reject:any) =>{
-            let treeNode: any = {};
-            Object.assign(treeNode, { text: i18n.t('entities.doclibmodule.moduleweihu_treeview.nodes.allmodule') });
-            Object.assign(treeNode, { isUseLangRes: true });
-            Object.assign(treeNode,{srfappctx:context});
-            Object.assign(treeNode, { srfmajortext: treeNode.text });
-            let strNodeId: string = 'AllModule';
-
-            // 没有指定节点值，直接使用父节点值
-            Object.assign(treeNode, { srfkey: filter.strRealNodeId });
-            strNodeId += this.TREENODE_SEPARATOR;
-            strNodeId += filter.strRealNodeId;
-
-            Object.assign(treeNode, { id: strNodeId });
-
-            Object.assign(treeNode, { iconcls: 'fa fa-folder-o' });
-
-            Object.assign(treeNode, { expanded: true });
-            Object.assign(treeNode, { leaf: false });
-            Object.assign(treeNode, {navigateParams: {n_root_eq:"%srfroot%",n_parent_eq:"%srfparent%"} });
-            Object.assign(treeNode, { nodeid: treeNode.srfkey });
-            Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
-            Object.assign(treeNode, { nodeType: "STATIC" });
-            list.push(treeNode);
-            resolve(list);
-        });
-	}
-
-    /**
-     * 填充 树视图节点[所有分类]子节点
-     *
-     * @public
-     * @param {any{}} context         
-     * @param {*} filter
-     * @param {any[]} list
-     * @returns {Promise<any>}
-     * @memberof ModuleWeiHuService
-     */
-    @Errorlog
-    public async fillAllmoduleNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
-		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
-			// 填充目录
-            let ModuleRsNavContext:any = {};
-            let ModuleRsNavParams:any = {};
-            let ModuleRsParams:any = {};
-			await this.fillModuleNodes(context, filter, list ,ModuleRsNavContext,ModuleRsNavParams,ModuleRsParams);
-		} else {
-			// 填充目录
-            let ModuleRsNavContext:any = {};
-            let ModuleRsNavParams:any = {};
-            let ModuleRsParams:any = {};
-			await this.fillModuleNodes(context, filter, list ,ModuleRsNavContext,ModuleRsNavParams,ModuleRsParams);
 		}
 	}
 
@@ -617,6 +400,223 @@ export default class ModuleWeiHuService extends ControlService {
      */
     @Errorlog
     public async fillChilemoduleNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
+		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
+			// 填充子目录
+            let ChilemoduleRsNavContext:any = {};
+            let ChilemoduleRsNavParams:any = {};
+            let ChilemoduleRsParams:any = {};
+			await this.fillChilemoduleNodes(context, filter, list ,ChilemoduleRsNavContext,ChilemoduleRsNavParams,ChilemoduleRsParams);
+		} else {
+			// 填充子目录
+            let ChilemoduleRsNavContext:any = {};
+            let ChilemoduleRsNavParams:any = {};
+            let ChilemoduleRsParams:any = {};
+			await this.fillChilemoduleNodes(context, filter, list ,ChilemoduleRsNavContext,ChilemoduleRsNavParams,ChilemoduleRsParams);
+		}
+	}
+
+    /**
+     * 填充 树视图节点[所有分类]
+     *
+     * @public
+     * @param {any{}} context     
+     * @param {*} filter
+     * @param {any[]} list
+     * @param {*} rsNavContext   
+     * @param {*} rsNavParams
+     * @param {*} rsParams
+     * @returns {Promise<any>}
+     * @memberof ModuleWeiHuService
+     */
+    @Errorlog
+    public fillAllmoduleNodes(context:any={},filter: any, list: any[],rsNavContext?:any,rsNavParams?:any,rsParams?:any): Promise<any> {
+        context = this.handleResNavContext(context,filter,rsNavContext);
+        filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
+        return new Promise((resolve:any,reject:any) =>{
+            let treeNode: any = {};
+            Object.assign(treeNode, { text: i18n.t('entities.doclibmodule.moduleweihu_treeview.nodes.allmodule') });
+            Object.assign(treeNode, { isUseLangRes: true });
+            Object.assign(treeNode,{srfappctx:context});
+            Object.assign(treeNode, { srfmajortext: treeNode.text });
+            let strNodeId: string = 'AllModule';
+
+            // 没有指定节点值，直接使用父节点值
+            Object.assign(treeNode, { srfkey: filter.strRealNodeId });
+            strNodeId += this.TREENODE_SEPARATOR;
+            strNodeId += filter.strRealNodeId;
+
+            Object.assign(treeNode, { id: strNodeId });
+
+            Object.assign(treeNode, { iconcls: 'fa fa-folder-o' });
+
+            Object.assign(treeNode, { expanded: true });
+            Object.assign(treeNode, { leaf: false });
+            Object.assign(treeNode, {navigateParams: {n_root_eq:"%srfroot%",n_parent_eq:"%srfparent%"} });
+            Object.assign(treeNode, { nodeid: treeNode.srfkey });
+            Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+            Object.assign(treeNode, { nodeType: "STATIC" });
+            list.push(treeNode);
+            resolve(list);
+        });
+	}
+
+    /**
+     * 填充 树视图节点[所有分类]子节点
+     *
+     * @public
+     * @param {any{}} context         
+     * @param {*} filter
+     * @param {any[]} list
+     * @returns {Promise<any>}
+     * @memberof ModuleWeiHuService
+     */
+    @Errorlog
+    public async fillAllmoduleNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
+		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
+			// 填充目录
+            let ModuleRsNavContext:any = {};
+            let ModuleRsNavParams:any = {};
+            let ModuleRsParams:any = {};
+			await this.fillModuleNodes(context, filter, list ,ModuleRsNavContext,ModuleRsNavParams,ModuleRsParams);
+		} else {
+			// 填充目录
+            let ModuleRsNavContext:any = {};
+            let ModuleRsNavParams:any = {};
+            let ModuleRsParams:any = {};
+			await this.fillModuleNodes(context, filter, list ,ModuleRsNavContext,ModuleRsNavParams,ModuleRsParams);
+		}
+	}
+
+    /**
+     * 填充 树视图节点[目录]
+     *
+     * @public
+     * @param {any{}} context     
+     * @param {*} filter
+     * @param {any[]} list
+     * @param {*} rsNavContext   
+     * @param {*} rsNavParams
+     * @param {*} rsParams
+     * @returns {Promise<any>}
+     * @memberof ModuleWeiHuService
+     */
+    @Errorlog
+    public fillModuleNodes(context:any={},filter: any, list: any[],rsNavContext?:any,rsNavParams?:any,rsParams?:any): Promise<any> {
+        context = this.handleResNavContext(context,filter,rsNavContext);
+        filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
+        return new Promise((resolve:any,reject:any) =>{
+            let searchFilter: any = {};
+            Object.assign(searchFilter, { total: false });
+            let bFirst: boolean = true;
+            let records: any[] = [];
+            try {
+                this.searchModule(context, searchFilter, filter).then((records:any) =>{
+                    if(records && records.length >0){
+                        records.forEach((entity: any) => {
+                        let treeNode: any = {};
+                        // 整理context
+                        let strId: string = entity.id;
+                        let strText: string = entity.name;
+                        Object.assign(treeNode,{srfparentdename:'DocLibModule',srfparentkey:entity.id});
+                        let tempContext:any = JSON.parse(JSON.stringify(context));
+                        Object.assign(tempContext,{srfparentdename:'DocLibModule',srfparentkey:entity.id,doclibmodule:strId})
+                        Object.assign(treeNode,{srfappctx:tempContext});
+                        Object.assign(treeNode,{'doclibmodule':strId});
+                        Object.assign(treeNode, { srfkey: strId });
+                        Object.assign(treeNode, { text: strText, srfmajortext: strText });
+                        let strNodeId: string = 'Module';
+                        strNodeId += this.TREENODE_SEPARATOR;
+                        strNodeId += strId;
+                        Object.assign(treeNode, { id: strNodeId });
+                        Object.assign(treeNode, { iconcls: 'fa fa-folder-o' });
+                        Object.assign(treeNode, { expanded: filter.isautoexpand });
+                        Object.assign(treeNode, { leaf: false });
+                        Object.assign(treeNode, { navfilter: "n_parent_eq" });
+                        Object.assign(treeNode, { curData: entity });
+                        Object.assign(treeNode, { nodeid: treeNode.srfkey });
+                        Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+                        Object.assign(treeNode, { nodeType: "DE",appEntityName:"doclibmodule" });
+                        list.push(treeNode);
+                        resolve(list);
+                        bFirst = false;
+                    });
+                    }else{
+                        resolve(list);
+                    }
+                });
+            } catch (error) {
+                console.error(error);
+            }
+        });
+
+	}
+
+    /**
+     * 获取查询集合
+     *
+     * @public
+     * @param {any{}} context     
+     * @param {*} searchFilter
+     * @param {*} filter
+     * @returns {any[]}
+     * @memberof TestEnetityDatasService
+     */
+    @Errorlog
+    public searchModule(context:any={}, searchFilter: any, filter: any): Promise<any> {
+        return new Promise((resolve:any,reject:any) =>{
+            if(filter.viewparams){
+                Object.assign(searchFilter,filter.viewparams);
+            }
+            if(!searchFilter.page){
+                Object.assign(searchFilter,{page:0});
+            }
+            if(!searchFilter.size){
+                Object.assign(searchFilter,{size:1000});
+            }
+            if(context && context.srfparentdename){
+                Object.assign(searchFilter,{srfparentdename:JSON.parse(JSON.stringify(context)).srfparentdename});
+            }
+            if(context && context.srfparentkey){
+                Object.assign(searchFilter,{srfparentkey:JSON.parse(JSON.stringify(context)).srfparentkey});
+            }
+            const _appEntityService: any = this.appEntityService;
+            let list: any[] = [];
+            if (_appEntityService['FetchChildModuleByRealParent'] && _appEntityService['FetchChildModuleByRealParent'] instanceof Function) {
+                const response: Promise<any> = _appEntityService['FetchChildModuleByRealParent'](context, searchFilter, false);
+                response.then((response: any) => {
+                    if (!response.status || response.status !== 200) {
+                        resolve([]);
+                        console.log(JSON.stringify(context));
+                        console.error('查询FetchChildModuleByRealParent数据集异常!');
+                    }
+                    const data: any = response.data;
+                    if (Object.keys(data).length > 0) {
+                        list = JSON.parse(JSON.stringify(data));
+                        resolve(list);
+                    } else {
+                        resolve([]);
+                    }
+                }).catch((response: any) => {
+                        resolve([]);
+                        console.log(JSON.stringify(context));
+                        console.error('查询FetchChildModuleByRealParent数据集异常!');
+                });
+            }
+        })
+    }
+
+    /**
+     * 填充 树视图节点[目录]子节点
+     *
+     * @public
+     * @param {any{}} context         
+     * @param {*} filter
+     * @param {any[]} list
+     * @returns {Promise<any>}
+     * @memberof ModuleWeiHuService
+     */
+    @Errorlog
+    public async fillModuleNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
 		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
 			// 填充子目录
             let ChilemoduleRsNavContext:any = {};

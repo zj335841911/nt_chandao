@@ -125,7 +125,7 @@ export class BugEditView_4791Base extends EditViewBase {
      * @type {string}
      * @memberof BugEditView_4791Base
      */
-	protected viewtag: string = 'a46256cb1bcfceabf09ad93f33e766a1';
+	protected viewtag: string = '0cf81cd23060369941ea5191d9d88bc9';
 
     /**
      * 视图名称

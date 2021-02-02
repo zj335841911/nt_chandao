@@ -144,7 +144,7 @@ export class TodoFinishViewBase extends OptionViewBase {
      * @type {string}
      * @memberof TodoFinishViewBase
      */
-	protected viewtag: string = '807a419a917fbfdfa3378d2fac6a2785';
+	protected viewtag: string = 'e2542e0695475ad7d3be90ae4372d13f';
 
     /**
      * 视图名称

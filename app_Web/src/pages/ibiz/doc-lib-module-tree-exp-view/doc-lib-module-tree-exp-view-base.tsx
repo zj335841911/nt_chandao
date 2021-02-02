@@ -118,7 +118,7 @@ export class DocLibModuleTreeExpViewBase extends TreeExpViewBase {
      * @type {string}
      * @memberof DocLibModuleTreeExpViewBase
      */
-	protected viewtag: string = 'f7e64f3828c862a4bce56437e1e51069';
+	protected viewtag: string = 'a421ac5dc338340c0a86e58a9abedafd';
 
     /**
      * 视图名称

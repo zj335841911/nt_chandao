@@ -9,8 +9,8 @@
         </extensionElements>
             <startEvent id="begin" isInterrupting="true"/>
             <endEvent id="prepareparam1_end" name="end"/>
-           <callActivity activiti:exclusive="true" calledElement="cn.ibizlab.pms.core.zentao.service.logic.bugsendnotice" id="6EE51922-6895-4ECA-B3EC-B2C186B36592" name="BugsendNoticeRuleFlow.bpmn"/>
-           <sequenceFlow id="begin_6EE51922-6895-4ECA-B3EC-B2C186B36592" sourceRef="begin" targetRef="6EE51922-6895-4ECA-B3EC-B2C186B36592"/>
-           <sequenceFlow id="6EE51922-6895-4ECA-B3EC-B2C186B36592_prepareparam1_end" sourceRef="6EE51922-6895-4ECA-B3EC-B2C186B36592" targetRef="prepareparam1_end"/>
+           <callActivity activiti:exclusive="true" calledElement="cn.ibizlab.pms.core.zentao.service.logic.bugsendnotice" id="4105ff04f2db7d927493d43344917f25" name="BugsendNoticeRuleFlow.bpmn"/>
+           <sequenceFlow id="begin_4105ff04f2db7d927493d43344917f25" sourceRef="begin" targetRef="4105ff04f2db7d927493d43344917f25"/>
+           <sequenceFlow id="4105ff04f2db7d927493d43344917f25_prepareparam1_end" sourceRef="4105ff04f2db7d927493d43344917f25" targetRef="prepareparam1_end"/>
     </process>
 </definitions>

@@ -138,7 +138,7 @@ export class TaskKanbanViewBase extends KanBanViewBase {
      * @type {string}
      * @memberof TaskKanbanViewBase
      */
-	protected viewtag: string = '7088260bcd6a0303378af2f8e207f479';
+	protected viewtag: string = 'd617e99633b9426aa8bd3ea293f91c6c';
 
     /**
      * 视图名称

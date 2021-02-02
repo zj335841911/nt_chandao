@@ -5,12 +5,12 @@ function getLocaleResourceBase(){
 		fields: {
 			ibzreportroleconfigname: commonLogic.appcommonhandle("汇报角色配置名称",null),
 			ibzreportroleconfigid: commonLogic.appcommonhandle("汇报角色配置标识",null),
-			createdate: commonLogic.appcommonhandle("建立时间",null),
-			createman: commonLogic.appcommonhandle("建立人",null),
-			updateman: commonLogic.appcommonhandle("更新人",null),
-			updatedate: commonLogic.appcommonhandle("更新时间",null),
 			report_role: commonLogic.appcommonhandle("角色",null),
 			type: commonLogic.appcommonhandle("类型",null),
+			createdate: commonLogic.appcommonhandle("建立时间",null),
+			updatedate: commonLogic.appcommonhandle("更新时间",null),
+			createman: commonLogic.appcommonhandle("建立人",null),
+			updateman: commonLogic.appcommonhandle("更新人",null),
 		},
 			views: {
 				gridview: {

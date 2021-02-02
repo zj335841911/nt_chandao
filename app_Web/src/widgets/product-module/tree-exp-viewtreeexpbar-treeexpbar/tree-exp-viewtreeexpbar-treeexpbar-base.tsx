@@ -207,14 +207,14 @@ export class TreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarControlBase {
         if (!expmode) {
             expmode = '';
         }
-        if (Object.is(expmode, 'MODULE')) {
+        if (Object.is(expmode, 'ROOT_NOBRANCH')) {
             return {  
                 viewname: 'product-module-grid-view', 
                 parentdata: {"srfparentdefname":"n_parent_eq"},
                 deKeyField:'productmodule'
 			};
         }
-        if (Object.is(expmode, 'ROOT_NOBRANCH')) {
+        if (Object.is(expmode, 'MODULE')) {
             return {  
                 viewname: 'product-module-grid-view', 
                 parentdata: {"srfparentdefname":"n_parent_eq"},

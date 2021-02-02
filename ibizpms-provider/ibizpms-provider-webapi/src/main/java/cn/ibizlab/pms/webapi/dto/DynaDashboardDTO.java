@@ -30,6 +30,15 @@ public class DynaDashboardDTO extends DTOBase implements Serializable {
 	private static final long serialVersionUID = 1L;
 
     /**
+     * 属性 [USERID]
+     *
+     */
+    @JSONField(name = "userid")
+    @JsonProperty("userid")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String userid;
+
+    /**
      * 属性 [DYNADASHBOARDID]
      *
      */
@@ -66,6 +75,15 @@ public class DynaDashboardDTO extends DTOBase implements Serializable {
     private String updateman;
 
     /**
+     * 属性 [MODELID]
+     *
+     */
+    @JSONField(name = "modelid")
+    @JsonProperty("modelid")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String modelid;
+
+    /**
      * 属性 [UPDATEDATE]
      *
      */
@@ -73,24 +91,6 @@ public class DynaDashboardDTO extends DTOBase implements Serializable {
     @JSONField(name = "updatedate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("updatedate")
     private Timestamp updatedate;
-
-    /**
-     * 属性 [CREATEDATE]
-     *
-     */
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "createdate" , format="yyyy-MM-dd HH:mm:ss")
-    @JsonProperty("createdate")
-    private Timestamp createdate;
-
-    /**
-     * 属性 [USERID]
-     *
-     */
-    @JSONField(name = "userid")
-    @JsonProperty("userid")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String userid;
 
     /**
      * 属性 [APPID]
@@ -102,6 +102,15 @@ public class DynaDashboardDTO extends DTOBase implements Serializable {
     private String appid;
 
     /**
+     * 属性 [CREATEDATE]
+     *
+     */
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "createdate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonProperty("createdate")
+    private Timestamp createdate;
+
+    /**
      * 属性 [MODEL]
      *
      */
@@ -110,15 +119,14 @@ public class DynaDashboardDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
     private String model;
 
-    /**
-     * 属性 [MODELID]
-     *
-     */
-    @JSONField(name = "modelid")
-    @JsonProperty("modelid")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String modelid;
 
+    /**
+     * 设置 [USERID]
+     */
+    public void setUserid(String  userid){
+        this.userid = userid ;
+        this.modify("userid",userid);
+    }
 
     /**
      * 设置 [DYNADASHBOARDNAME]
@@ -129,11 +137,11 @@ public class DynaDashboardDTO extends DTOBase implements Serializable {
     }
 
     /**
-     * 设置 [USERID]
+     * 设置 [MODELID]
      */
-    public void setUserid(String  userid){
-        this.userid = userid ;
-        this.modify("userid",userid);
+    public void setModelid(String  modelid){
+        this.modelid = modelid ;
+        this.modify("modelid",modelid);
     }
 
     /**
@@ -150,14 +158,6 @@ public class DynaDashboardDTO extends DTOBase implements Serializable {
     public void setModel(String  model){
         this.model = model ;
         this.modify("model",model);
-    }
-
-    /**
-     * 设置 [MODELID]
-     */
-    public void setModelid(String  modelid){
-        this.modelid = modelid ;
-        this.modify("modelid",modelid);
     }
 
 

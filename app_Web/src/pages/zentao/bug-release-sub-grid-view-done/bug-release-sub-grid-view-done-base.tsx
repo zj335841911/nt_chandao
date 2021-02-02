@@ -127,7 +127,7 @@ export class BugReleaseSubGridView_DoneBase extends GridViewBase {
      * @type {string}
      * @memberof BugReleaseSubGridView_DoneBase
      */
-	protected viewtag: string = '572e63d8153209ef20848682018326b2';
+	protected viewtag: string = '21c207cc92b8484d58a4231ad8053553';
 
     /**
      * 视图名称

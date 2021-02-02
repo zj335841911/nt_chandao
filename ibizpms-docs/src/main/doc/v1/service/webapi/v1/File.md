@@ -390,18 +390,18 @@ POST
 | ---- | ---- | ---- | ---- | ---- |
 | 1 | pathname | String | 允许 | 路径 |
 | 2 | objectid | Long | 允许 | 对象ID |
-| 3 | deleted | String | 允许 | 已删除 |
-| 4 | extension | String | 允许 | 文件类型 |
-| 5 | objecttype | String | 允许 | 对象类型 |
-| 6 | addedby | String | 允许 | 由谁添加 |
-| 7 | title | String | 不可 | 标题 |
-| 8 | addeddate | Timestamp | 允许 | 添加时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
-| 9 | downloads | Integer | 允许 | 下载次数 |
-| 10 | size | Integer | 允许 | 大小 |
-| 11 | id | Long | 不可 | id |
-| 12 | extra | String | 允许 | 备注 |
-| 13 | strsize | String | 允许 | 显示大小 |
-| 14 | doclibtype | String | 允许 | 文档类型 |
+| 3 | strsize | String | 允许 | 显示大小 |
+| 4 | doclibtype | String | 允许 | 文档类型 |
+| 5 | deleted | String | 允许 | 已删除 |
+| 6 | extension | String | 允许 | 文件类型 |
+| 7 | objecttype | String | 允许 | 对象类型 |
+| 8 | addedby | String | 允许 | 由谁添加 |
+| 9 | title | String | 不可 | 标题 |
+| 10 | addeddate | Timestamp | 允许 | 添加时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
+| 11 | downloads | Integer | 允许 | 下载次数 |
+| 12 | size | Integer | 允许 | 大小 |
+| 13 | id | Long | 不可 | id |
+| 14 | extra | String | 允许 | 备注 |
 | 15 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### FileSearchContext

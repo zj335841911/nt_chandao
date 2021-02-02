@@ -123,7 +123,7 @@ export class BugTodoEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof BugTodoEditViewBase
      */
-	protected viewtag: string = 'b5709ef6b436135e1738304e61b5f200';
+	protected viewtag: string = 'c0c12f14e7745eda77a80da04527a26e';
 
     /**
      * 视图名称

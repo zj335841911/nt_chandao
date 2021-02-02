@@ -30,22 +30,13 @@ public class SysUpdateLogDTO extends DTOBase implements Serializable {
 	private static final long serialVersionUID = 1L;
 
     /**
-     * 属性 [SYS_UPDATE_LOGID]
+     * 属性 [UPDATEDATE]
      *
      */
-    @JSONField(name = "sysupdatelogid")
-    @JsonProperty("sysupdatelogid")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String sysupdatelogid;
-
-    /**
-     * 属性 [SYS_UPDATE_LOGNAME]
-     *
-     */
-    @JSONField(name = "sysupdatelogname")
-    @JsonProperty("sysupdatelogname")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String sysupdatelogname;
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "updatedate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonProperty("updatedate")
+    private Timestamp updatedate;
 
     /**
      * 属性 [UPDATEMAN]
@@ -75,22 +66,22 @@ public class SysUpdateLogDTO extends DTOBase implements Serializable {
     private Timestamp createdate;
 
     /**
-     * 属性 [UPDATEDATE]
+     * 属性 [SYS_UPDATE_LOGID]
      *
      */
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "updatedate" , format="yyyy-MM-dd HH:mm:ss")
-    @JsonProperty("updatedate")
-    private Timestamp updatedate;
+    @JSONField(name = "sysupdatelogid")
+    @JsonProperty("sysupdatelogid")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String sysupdatelogid;
 
     /**
-     * 属性 [UPDATE]
+     * 属性 [UPDATEBRANCH]
      *
      */
-    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "update" , format="yyyy-MM-dd")
-    @JsonProperty("update")
-    private Timestamp update;
+    @JSONField(name = "updatebranch")
+    @JsonProperty("updatebranch")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    private String updatebranch;
 
     /**
      * 属性 [UPDESC]
@@ -102,6 +93,15 @@ public class SysUpdateLogDTO extends DTOBase implements Serializable {
     private String updesc;
 
     /**
+     * 属性 [SYS_UPDATE_LOGNAME]
+     *
+     */
+    @JSONField(name = "sysupdatelogname")
+    @JsonProperty("sysupdatelogname")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String sysupdatelogname;
+
+    /**
      * 属性 [LATESTUPDATE]
      *
      */
@@ -110,29 +110,21 @@ public class SysUpdateLogDTO extends DTOBase implements Serializable {
     private Integer latestupdate;
 
     /**
-     * 属性 [UPDATEBRANCH]
+     * 属性 [UPDATE]
      *
      */
-    @JSONField(name = "updatebranch")
-    @JsonProperty("updatebranch")
-    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
-    private String updatebranch;
+    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "update" , format="yyyy-MM-dd")
+    @JsonProperty("update")
+    private Timestamp update;
 
 
     /**
-     * 设置 [SYS_UPDATE_LOGNAME]
+     * 设置 [UPDATEBRANCH]
      */
-    public void setSysupdatelogname(String  sysupdatelogname){
-        this.sysupdatelogname = sysupdatelogname ;
-        this.modify("sys_update_logname",sysupdatelogname);
-    }
-
-    /**
-     * 设置 [UPDATE]
-     */
-    public void setUpdate(Timestamp  update){
-        this.update = update ;
-        this.modify("update",update);
+    public void setUpdatebranch(String  updatebranch){
+        this.updatebranch = updatebranch ;
+        this.modify("updatebranch",updatebranch);
     }
 
     /**
@@ -144,6 +136,14 @@ public class SysUpdateLogDTO extends DTOBase implements Serializable {
     }
 
     /**
+     * 设置 [SYS_UPDATE_LOGNAME]
+     */
+    public void setSysupdatelogname(String  sysupdatelogname){
+        this.sysupdatelogname = sysupdatelogname ;
+        this.modify("sys_update_logname",sysupdatelogname);
+    }
+
+    /**
      * 设置 [LATESTUPDATE]
      */
     public void setLatestupdate(Integer  latestupdate){
@@ -152,11 +152,11 @@ public class SysUpdateLogDTO extends DTOBase implements Serializable {
     }
 
     /**
-     * 设置 [UPDATEBRANCH]
+     * 设置 [UPDATE]
      */
-    public void setUpdatebranch(String  updatebranch){
-        this.updatebranch = updatebranch ;
-        this.modify("updatebranch",updatebranch);
+    public void setUpdate(Timestamp  update){
+        this.update = update ;
+        this.modify("update",update);
     }
 
 

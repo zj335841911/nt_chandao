@@ -14,15 +14,15 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("平台管理",null),
 					title: commonLogic.appcommonhandle("平台管理",null),
 				},
+				pminfoeditview: {
+					caption: commonLogic.appcommonhandle("产品的分支和平台信息",null),
+					title: commonLogic.appcommonhandle("平台管理",null),
+				},
 				pickupview: {
 					caption: commonLogic.appcommonhandle("产品的分支和平台信息",null),
 					title: commonLogic.appcommonhandle("平台数据选择视图",null),
 				},
 				pmeditview: {
-					caption: commonLogic.appcommonhandle("产品的分支和平台信息",null),
-					title: commonLogic.appcommonhandle("平台管理",null),
-				},
-				pminfoeditview: {
 					caption: commonLogic.appcommonhandle("产品的分支和平台信息",null),
 					title: commonLogic.appcommonhandle("平台管理",null),
 				},

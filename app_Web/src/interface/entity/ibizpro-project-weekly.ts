@@ -7,22 +7,6 @@
 export interface IbizproProjectWeekly {
 
     /**
-     * 项目周报名称
-     *
-     * @returns {*}
-     * @memberof IbizproProjectWeekly
-     */
-    projectweeklyname?: any;
-
-    /**
-     * 项目周报标识
-     *
-     * @returns {*}
-     * @memberof IbizproProjectWeekly
-     */
-    projectweeklyid?: any;
-
-    /**
      * 建立时间
      *
      * @returns {*}
@@ -39,36 +23,28 @@ export interface IbizproProjectWeekly {
     updateman?: any;
 
     /**
+     * 年
+     *
+     * @returns {*}
+     * @memberof IbizproProjectWeekly
+     */
+    year?: any;
+
+    /**
+     * 结束统计
+     *
+     * @returns {*}
+     * @memberof IbizproProjectWeekly
+     */
+    enddatestats?: any;
+
+    /**
      * 建立人
      *
      * @returns {*}
      * @memberof IbizproProjectWeekly
      */
     createman?: any;
-
-    /**
-     * 更新时间
-     *
-     * @returns {*}
-     * @memberof IbizproProjectWeekly
-     */
-    updatedate?: any;
-
-    /**
-     * 项目负责人
-     *
-     * @returns {*}
-     * @memberof IbizproProjectWeekly
-     */
-    pm?: any;
-
-    /**
-     * 总工时
-     *
-     * @returns {*}
-     * @memberof IbizproProjectWeekly
-     */
-    totalestimates?: any;
 
     /**
      * 任务
@@ -79,28 +55,12 @@ export interface IbizproProjectWeekly {
     tasks?: any;
 
     /**
-     * 日期
+     * 项目周报名称
      *
      * @returns {*}
      * @memberof IbizproProjectWeekly
      */
-    date?: any;
-
-    /**
-     * 项目编号
-     *
-     * @returns {*}
-     * @memberof IbizproProjectWeekly
-     */
-    project?: any;
-
-    /**
-     * 项目名称
-     *
-     * @returns {*}
-     * @memberof IbizproProjectWeekly
-     */
-    projectname?: any;
+    projectweeklyname?: any;
 
     /**
      * 周
@@ -111,20 +71,36 @@ export interface IbizproProjectWeekly {
     week?: any;
 
     /**
-     * 年
+     * 项目周报标识
      *
      * @returns {*}
      * @memberof IbizproProjectWeekly
      */
-    year?: any;
+    projectweeklyid?: any;
 
     /**
-     * 月
+     * 项目负责人
      *
      * @returns {*}
      * @memberof IbizproProjectWeekly
      */
-    month?: any;
+    pm?: any;
+
+    /**
+     * 日期
+     *
+     * @returns {*}
+     * @memberof IbizproProjectWeekly
+     */
+    date?: any;
+
+    /**
+     * 总工时
+     *
+     * @returns {*}
+     * @memberof IbizproProjectWeekly
+     */
+    totalestimates?: any;
 
     /**
      * 开始统计
@@ -135,10 +111,34 @@ export interface IbizproProjectWeekly {
     begindatestats?: any;
 
     /**
-     * 结束统计
+     * 更新时间
      *
      * @returns {*}
      * @memberof IbizproProjectWeekly
      */
-    enddatestats?: any;
+    updatedate?: any;
+
+    /**
+     * 月
+     *
+     * @returns {*}
+     * @memberof IbizproProjectWeekly
+     */
+    month?: any;
+
+    /**
+     * 项目名称
+     *
+     * @returns {*}
+     * @memberof IbizproProjectWeekly
+     */
+    projectname?: any;
+
+    /**
+     * 项目编号
+     *
+     * @returns {*}
+     * @memberof IbizproProjectWeekly
+     */
+    project?: any;
 }

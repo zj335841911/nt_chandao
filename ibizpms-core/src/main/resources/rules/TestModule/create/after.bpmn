@@ -9,8 +9,8 @@
         </extensionElements>
             <startEvent id="begin" isInterrupting="true"/>
             <endEvent id="prepareparam1_end" name="end"/>
-           <callActivity activiti:exclusive="true" calledElement="cn.ibizlab.pms.core.ibiz.service.logic.testmodulefixpath" id="43451338-DFF9-469E-B39F-687BBE456418" name="TestModuleFixPathRuleFlow.bpmn"/>
-           <sequenceFlow id="begin_43451338-DFF9-469E-B39F-687BBE456418" sourceRef="begin" targetRef="43451338-DFF9-469E-B39F-687BBE456418"/>
-           <sequenceFlow id="43451338-DFF9-469E-B39F-687BBE456418_prepareparam1_end" sourceRef="43451338-DFF9-469E-B39F-687BBE456418" targetRef="prepareparam1_end"/>
+           <callActivity activiti:exclusive="true" calledElement="cn.ibizlab.pms.core.ibiz.service.logic.testmodulefixpath" id="72e998f1d2bad955f41babb43c044e77" name="TestModuleFixPathRuleFlow.bpmn"/>
+           <sequenceFlow id="begin_72e998f1d2bad955f41babb43c044e77" sourceRef="begin" targetRef="72e998f1d2bad955f41babb43c044e77"/>
+           <sequenceFlow id="72e998f1d2bad955f41babb43c044e77_prepareparam1_end" sourceRef="72e998f1d2bad955f41babb43c044e77" targetRef="prepareparam1_end"/>
     </process>
 </definitions>

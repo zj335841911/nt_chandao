@@ -371,31 +371,31 @@ POST
 #### IbzReportlyDTO
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
-| 1 | ibzreportlyid | Long | 不可 | 汇报标识 |
-| 2 | ibzreportlyname | String | 允许 | 汇报名称 |
+| 1 | files | String | 允许 | 附件 |
+| 2 | account | String | 允许 | 用户 |
 | 3 | updateman | String | 不可 | 更新人 |
 | 4 | createdate | Timestamp | 不可 | 建立时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
-| 5 | createman | String | 不可 | 建立人 |
-| 6 | updatedate | Timestamp | 不可 | 更新时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
-| 7 | content | String | 允许 | 工作内容 |
-| 8 | files | String | 允许 | 附件 |
-| 9 | reportto | String | 允许 | 汇报给 |
-| 10 | mailto | String | 允许 | 抄送给 |
-| 11 | date | Timestamp | 允许 | 汇报日期<br>时间格式：yyyy-MM-dd |
-| 12 | issubmit | String | 允许 | 是否提交 |
-| 13 | submittime | Timestamp | 允许 | 提交时间<br>时间格式：HH:mm:ss |
-| 14 | account | String | 允许 | 用户 |
-| 15 | reportstatus | String | 允许 | 状态 |
-| 16 | reporttopk | String | 允许 | 汇报给（选择） |
+| 5 | mailto | String | 允许 | 抄送给 |
+| 6 | ibzreportlyid | Long | 不可 | 汇报标识 |
+| 7 | ibzreportlyname | String | 允许 | 汇报名称 |
+| 8 | reportstatus | String | 允许 | 状态 |
+| 9 | submittime | Timestamp | 允许 | 提交时间<br>时间格式：HH:mm:ss |
+| 10 | reporttopk | String | 允许 | 汇报给（选择） |
+| 11 | reportto | String | 允许 | 汇报给 |
+| 12 | createman | String | 不可 | 建立人 |
+| 13 | issubmit | String | 允许 | 是否提交 |
+| 14 | updatedate | Timestamp | 不可 | 更新时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
+| 15 | content | String | 允许 | 工作内容 |
+| 16 | date | Timestamp | 允许 | 汇报日期<br>时间格式：yyyy-MM-dd |
 | 17 | mailtopk | String | 允许 | 抄送给（选择） |
 | 18 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### IbzReportlySearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
-| 1 | n_ibz_reportlyname_like | String | 允许 | 条件字段：ibz_reportlyname<br>条件组合方式：`%like%` |
-| 2 | n_issubmit_eq | String | 允许 | 条件字段：issubmit<br>条件组合方式：`=` |
-| 3 | n_account_eq | String | 允许 | 条件字段：account<br>条件组合方式：`=` |
+| 1 | n_account_eq | String | 允许 | 条件字段：account<br>条件组合方式：`=` |
+| 2 | n_ibz_reportlyname_like | String | 允许 | 条件字段：ibz_reportlyname<br>条件组合方式：`%like%` |
+| 3 | n_issubmit_eq | String | 允许 | 条件字段：issubmit<br>条件组合方式：`=` |
 | 4 | customcond | String | 允许 | 自定义查询条件 |
 | 5 | customparams | String | 允许 | 自定义查询参数 |
 | 6 | query | String | 允许 | 快速搜索 |

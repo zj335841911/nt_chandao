@@ -236,6 +236,15 @@ public class SysEmployee extends EntityClient implements Serializable {
     private Timestamp createdate;
 
     /**
+     * 更新时间
+     */
+    @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "updatedate" , format = "yyyy-MM-dd HH:mm:ss")
+    @JsonProperty("updatedate")
+    private Timestamp updatedate;
+
+    /**
      * 更新人
      */
     @DEField(preType = DEPredefinedFieldType.UPDATEMAN)
@@ -250,15 +259,6 @@ public class SysEmployee extends EntityClient implements Serializable {
     @JSONField(name = "createman")
     @JsonProperty("createman")
     private String createman;
-
-    /**
-     * 更新时间
-     */
-    @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
-    @JSONField(name = "updatedate" , format = "yyyy-MM-dd HH:mm:ss")
-    @JsonProperty("updatedate")
-    private Timestamp updatedate;
 
 
     /**

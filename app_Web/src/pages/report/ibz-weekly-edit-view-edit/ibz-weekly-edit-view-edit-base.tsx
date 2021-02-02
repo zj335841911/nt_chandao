@@ -125,7 +125,7 @@ export class IbzWeeklyEditViewEditBase extends EditViewBase {
      * @type {string}
      * @memberof IbzWeeklyEditViewEditBase
      */
-	protected viewtag: string = 'cae188c0626835fabf7a9b27431c9461';
+	protected viewtag: string = '0551f0f5f821e55d9ba9e4e4ed97aae8';
 
     /**
      * 视图名称

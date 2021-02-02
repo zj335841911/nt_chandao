@@ -131,7 +131,7 @@ export class EMPLOYEELOADEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof EMPLOYEELOADEditViewBase
      */
-	protected viewtag: string = 'cdb6ad5305bb1900e7349e9e057b3596';
+	protected viewtag: string = '04f35686909b8baee14970bda69d9dfc';
 
     /**
      * 视图名称

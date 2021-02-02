@@ -12,32 +12,32 @@ hide members
 
 | 属性名称        |    中文名称    | 类型     |  备注  |
 | --------   |------------| -----   |  -------- | 
-|产品计划模板标识|IBZ_PLANTEMPLETID|GUID|&nbsp;|
-|模板名称|IBZ_PLANTEMPLETNAME|TEXT|&nbsp;|
-|建立人|CREATEMAN|TEXT|&nbsp;|
 |建立时间|CREATEDATE|DATETIME|&nbsp;|
-|更新人|UPDATEMAN|TEXT|&nbsp;|
-|更新时间|UPDATEDATE|DATETIME|&nbsp;|
 |计划|PLANS|SMCODELIST|&nbsp;|
-|产品|PRODUCT|BIGINT|&nbsp;|
-|计划项|PLANTEMPLETDETAIL|ONE2MANYDATA|&nbsp;|
 |权限|ACL|SSCODELIST|&nbsp;|
 |创建人姓名|CREATEMANNAME|TEXT|&nbsp;|
+|产品|PRODUCT|BIGINT|&nbsp;|
+|产品计划模板标识|IBZ_PLANTEMPLETID|GUID|&nbsp;|
+|计划项|PLANTEMPLETDETAIL|ONE2MANYDATA|&nbsp;|
+|更新人|UPDATEMAN|TEXT|&nbsp;|
+|模板名称|IBZ_PLANTEMPLETNAME|TEXT|&nbsp;|
+|更新时间|UPDATEDATE|DATETIME|&nbsp;|
+|建立人|CREATEMAN|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
 | --------   |------------| ----- | 
-|产品计划模板标识|默认规则|内容长度必须小于等于[100]|
-|模板名称|默认规则|内容长度必须小于等于[200]|
-|建立人|默认规则|内容长度必须小于等于[60]|
 |建立时间|默认规则|默认规则|
-|更新人|默认规则|内容长度必须小于等于[60]|
-|更新时间|默认规则|默认规则|
 |计划|默认规则|内容长度必须小于等于[2000]|
-|产品|默认规则|默认规则|
-|计划项|默认规则|内容长度必须小于等于[1048576]|
 |权限|默认规则|内容长度必须小于等于[60]|
 |创建人姓名|默认规则|内容长度必须小于等于[100]|
+|产品|默认规则|默认规则|
+|产品计划模板标识|默认规则|内容长度必须小于等于[100]|
+|计划项|默认规则|内容长度必须小于等于[1048576]|
+|更新人|默认规则|内容长度必须小于等于[60]|
+|模板名称|默认规则|内容长度必须小于等于[200]|
+|更新时间|默认规则|默认规则|
+|建立人|默认规则|内容长度必须小于等于[60]|
 
 ## 状态控制
 
@@ -89,9 +89,9 @@ hide members
 ## 查询模式
 | 属性      |    搜索模式     |
 | --------   |------------|
-|模板名称(IBZ_PLANTEMPLETNAME)|LIKE|
 |权限(ACL)|EQ|
 |创建人姓名(CREATEMANNAME)|EQ|
+|模板名称(IBZ_PLANTEMPLETNAME)|LIKE|
 
 ## 导入模式
 无

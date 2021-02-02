@@ -124,7 +124,7 @@ export class BugBugKanbanViewBase extends KanBanViewBase {
      * @type {string}
      * @memberof BugBugKanbanViewBase
      */
-	protected viewtag: string = '6e27d3c90de590e23204e3a310321f21';
+	protected viewtag: string = '4eab91076167a1215a6cbe746eb8033f';
 
     /**
      * 视图名称

@@ -30,6 +30,13 @@ ruleflow-group "taskgetusernamesrawsqlcall2"
     update(taskgetusernamesdefault);//更新fact中变量值
     end
 
+//逻辑处理节点[开始]
+rule "begin"
+ruleflow-group "taskgetusernamesbegin"
+    when
+    then
+    end
+
 //逻辑处理节点[任务团队]
 rule "rawsqlcall1"
 ruleflow-group "taskgetusernamesrawsqlcall1"
@@ -46,12 +53,5 @@ ruleflow-group "taskgetusernamesrawsqlcall1"
         }
     }
     update(taskgetusernamesdefault);//更新fact中变量值
-    end
-
-//逻辑处理节点[开始]
-rule "begin"
-ruleflow-group "taskgetusernamesbegin"
-    when
-    then
     end
 

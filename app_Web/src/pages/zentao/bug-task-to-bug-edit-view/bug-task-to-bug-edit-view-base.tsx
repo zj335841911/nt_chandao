@@ -225,7 +225,7 @@ export class BugTaskToBugEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof BugTaskToBugEditViewBase
      */
-	protected viewtag: string = 'c9c2b18a9b5b1e628179f9ab99ffe23a';
+	protected viewtag: string = '54638099445607e6cb16757f25193b2f';
 
     /**
      * 视图名称

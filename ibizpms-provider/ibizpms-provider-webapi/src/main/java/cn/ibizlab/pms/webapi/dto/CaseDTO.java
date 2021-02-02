@@ -83,6 +83,15 @@ public class CaseDTO extends DTOBase implements Serializable {
     private String lastrunresult;
 
     /**
+     * 属性 [MODULENAME1]
+     *
+     */
+    @JSONField(name = "modulename1")
+    @JsonProperty("modulename1")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String modulename1;
+
+    /**
      * 属性 [LINKCASE]
      *
      */
@@ -90,6 +99,15 @@ public class CaseDTO extends DTOBase implements Serializable {
     @JsonProperty("linkcase")
     @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
     private String linkcase;
+
+    /**
+     * 属性 [TASK]
+     *
+     */
+    @JSONField(name = "task")
+    @JsonProperty("task")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String task;
 
     /**
      * 属性 [ORDER]
@@ -107,6 +125,23 @@ public class CaseDTO extends DTOBase implements Serializable {
     @JsonProperty("howrun")
     @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
     private String howrun;
+
+    /**
+     * 属性 [RESULTCNT]
+     *
+     */
+    @JSONField(name = "resultcnt")
+    @JsonProperty("resultcnt")
+    private Integer resultcnt;
+
+    /**
+     * 属性 [NOTICEUSERS]
+     *
+     */
+    @JSONField(name = "noticeusers")
+    @JsonProperty("noticeusers")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String noticeusers;
 
     /**
      * 属性 [VERSION]
@@ -144,6 +179,14 @@ public class CaseDTO extends DTOBase implements Serializable {
     private String type;
 
     /**
+     * 属性 [RESULTFALICNT]
+     *
+     */
+    @JSONField(name = "resultfalicnt")
+    @JsonProperty("resultfalicnt")
+    private Integer resultfalicnt;
+
+    /**
      * 属性 [STATUS]
      *
      */
@@ -153,6 +196,15 @@ public class CaseDTO extends DTOBase implements Serializable {
     private String status;
 
     /**
+     * 属性 [COMMENT]
+     *
+     */
+    @JSONField(name = "comment")
+    @JsonProperty("comment")
+    @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
+    private String comment;
+
+    /**
      * 属性 [AUTO]
      *
      */
@@ -160,6 +212,15 @@ public class CaseDTO extends DTOBase implements Serializable {
     @JsonProperty("auto")
     @Size(min = 0, max = 10, message = "内容长度必须小于等于[10]")
     private String auto;
+
+    /**
+     * 属性 [ISFAVORITES]
+     *
+     */
+    @JSONField(name = "isfavorites")
+    @JsonProperty("isfavorites")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String isfavorites;
 
     /**
      * 属性 [FREQUENCY]
@@ -197,6 +258,32 @@ public class CaseDTO extends DTOBase implements Serializable {
     @JsonProperty("reviewedby")
     @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
     private String reviewedby;
+
+    /**
+     * 属性 [FILES]
+     *
+     */
+    @JSONField(name = "files")
+    @JsonProperty("files")
+    @Size(min = 0, max = 1000, message = "内容长度必须小于等于[1000]")
+    private String files;
+
+    /**
+     * 属性 [TOBUGCNT]
+     *
+     */
+    @JSONField(name = "tobugcnt")
+    @JsonProperty("tobugcnt")
+    private Integer tobugcnt;
+
+    /**
+     * 属性 [ASSIGNEDTO]
+     *
+     */
+    @JSONField(name = "assignedto")
+    @JsonProperty("assignedto")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String assignedto;
 
     /**
      * 属性 [DELETED]
@@ -243,6 +330,15 @@ public class CaseDTO extends DTOBase implements Serializable {
     private String scriptlocation;
 
     /**
+     * 属性 [STATUS1]
+     *
+     */
+    @JSONField(name = "status1")
+    @JsonProperty("status1")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String status1;
+
+    /**
      * 属性 [LASTRUNDATE]
      *
      */
@@ -277,6 +373,23 @@ public class CaseDTO extends DTOBase implements Serializable {
     @JsonProperty("frame")
     @Size(min = 0, max = 10, message = "内容长度必须小于等于[10]")
     private String frame;
+
+    /**
+     * 属性 [LASTRUNRESULT1]
+     *
+     */
+    @JSONField(name = "lastrunresult1")
+    @JsonProperty("lastrunresult1")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String lastrunresult1;
+
+    /**
+     * 属性 [STEPCNT]
+     *
+     */
+    @JSONField(name = "stepcnt")
+    @JsonProperty("stepcnt")
+    private Integer stepcnt;
 
     /**
      * 属性 [SUBSTATUS]
@@ -315,6 +428,15 @@ public class CaseDTO extends DTOBase implements Serializable {
     private String lastrunner;
 
     /**
+     * 属性 [LIBNAME]
+     *
+     */
+    @JSONField(name = "libname")
+    @JsonProperty("libname")
+    @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
+    private String libname;
+
+    /**
      * 属性 [FROMCASEVERSION]
      *
      */
@@ -323,12 +445,39 @@ public class CaseDTO extends DTOBase implements Serializable {
     private Integer fromcaseversion;
 
     /**
+     * 属性 [STORYNAME]
+     *
+     */
+    @JSONField(name = "storyname")
+    @JsonProperty("storyname")
+    @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
+    private String storyname;
+
+    /**
+     * 属性 [MODULENAME]
+     *
+     */
+    @JSONField(name = "modulename")
+    @JsonProperty("modulename")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    private String modulename;
+
+    /**
      * 属性 [STORYVERSION]
      *
      */
     @JSONField(name = "storyversion")
     @JsonProperty("storyversion")
     private Integer storyversion;
+
+    /**
+     * 属性 [PRODUCTNAME]
+     *
+     */
+    @JSONField(name = "productname")
+    @JsonProperty("productname")
+    @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
+    private String productname;
 
     /**
      * 属性 [FROMCASEID]
@@ -392,155 +541,6 @@ public class CaseDTO extends DTOBase implements Serializable {
     @JsonProperty("module")
     @JsonSerialize(using = ToStringSerializer.class)
     private Long module;
-
-    /**
-     * 属性 [MODULENAME]
-     *
-     */
-    @JSONField(name = "modulename")
-    @JsonProperty("modulename")
-    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
-    private String modulename;
-
-    /**
-     * 属性 [STORYNAME]
-     *
-     */
-    @JSONField(name = "storyname")
-    @JsonProperty("storyname")
-    @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
-    private String storyname;
-
-    /**
-     * 属性 [PRODUCTNAME]
-     *
-     */
-    @JSONField(name = "productname")
-    @JsonProperty("productname")
-    @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
-    private String productname;
-
-    /**
-     * 属性 [TOBUGCNT]
-     *
-     */
-    @JSONField(name = "tobugcnt")
-    @JsonProperty("tobugcnt")
-    private Integer tobugcnt;
-
-    /**
-     * 属性 [RESULTCNT]
-     *
-     */
-    @JSONField(name = "resultcnt")
-    @JsonProperty("resultcnt")
-    private Integer resultcnt;
-
-    /**
-     * 属性 [STEPCNT]
-     *
-     */
-    @JSONField(name = "stepcnt")
-    @JsonProperty("stepcnt")
-    private Integer stepcnt;
-
-    /**
-     * 属性 [COMMENT]
-     *
-     */
-    @JSONField(name = "comment")
-    @JsonProperty("comment")
-    @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
-    private String comment;
-
-    /**
-     * 属性 [RESULTFALICNT]
-     *
-     */
-    @JSONField(name = "resultfalicnt")
-    @JsonProperty("resultfalicnt")
-    private Integer resultfalicnt;
-
-    /**
-     * 属性 [STATUS1]
-     *
-     */
-    @JSONField(name = "status1")
-    @JsonProperty("status1")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String status1;
-
-    /**
-     * 属性 [ASSIGNEDTO]
-     *
-     */
-    @JSONField(name = "assignedto")
-    @JsonProperty("assignedto")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String assignedto;
-
-    /**
-     * 属性 [TASK]
-     *
-     */
-    @JSONField(name = "task")
-    @JsonProperty("task")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String task;
-
-    /**
-     * 属性 [LIBNAME]
-     *
-     */
-    @JSONField(name = "libname")
-    @JsonProperty("libname")
-    @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
-    private String libname;
-
-    /**
-     * 属性 [LASTRUNRESULT1]
-     *
-     */
-    @JSONField(name = "lastrunresult1")
-    @JsonProperty("lastrunresult1")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String lastrunresult1;
-
-    /**
-     * 属性 [ISFAVORITES]
-     *
-     */
-    @JSONField(name = "isfavorites")
-    @JsonProperty("isfavorites")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String isfavorites;
-
-    /**
-     * 属性 [MODULENAME1]
-     *
-     */
-    @JSONField(name = "modulename1")
-    @JsonProperty("modulename1")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String modulename1;
-
-    /**
-     * 属性 [FILES]
-     *
-     */
-    @JSONField(name = "files")
-    @JsonProperty("files")
-    @Size(min = 0, max = 1000, message = "内容长度必须小于等于[1000]")
-    private String files;
-
-    /**
-     * 属性 [NOTICEUSERS]
-     *
-     */
-    @JSONField(name = "noticeusers")
-    @JsonProperty("noticeusers")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String noticeusers;
 
 
     /**

@@ -96,15 +96,6 @@ export default class TestModuleUIServiceBase extends UIService {
      * @memberof  TestModuleUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set('EDITVIEW:', {
-            viewname: 'editview',
-            srfappde: 'testmodules',
-            component: 'test-module-edit-view',
-            openmode: '',
-            title: '测试模块',
-            width: 0,
-            height: 0
-        });
         this.allViewMap.set('MDATAVIEW:', {
             viewname: 'gridview',
             srfappde: 'testmodules',
@@ -118,6 +109,15 @@ export default class TestModuleUIServiceBase extends UIService {
             viewname: 'pickupview',
             srfappde: 'testmodules',
             component: 'test-module-pickup-view',
+            openmode: '',
+            title: '测试模块',
+            width: 0,
+            height: 0
+        });
+        this.allViewMap.set('EDITVIEW:', {
+            viewname: 'editview',
+            srfappde: 'testmodules',
+            component: 'test-module-edit-view',
             openmode: '',
             title: '测试模块',
             width: 0,

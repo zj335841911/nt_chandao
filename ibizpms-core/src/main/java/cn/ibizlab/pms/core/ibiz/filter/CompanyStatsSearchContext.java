@@ -27,13 +27,6 @@ import cn.ibizlab.pms.core.ibiz.domain.CompanyStats;
 @Data
 public class CompanyStatsSearchContext extends QueryWrapperContext<CompanyStats> {
 
-	private String n_comment_like;//[备注]
-	public void setN_comment_like(String n_comment_like) {
-        this.n_comment_like = n_comment_like;
-        if(!ObjectUtils.isEmpty(this.n_comment_like)){
-            this.getSearchCond().like("`comment`", n_comment_like);
-        }
-    }
     @JsonFormat(pattern="yyyy-MM-dd", timezone="GMT+8")
     @JSONField(format="yyyy-MM-dd")
 	private Timestamp n_date_gtandeq;//[日志日期]
@@ -50,6 +43,13 @@ public class CompanyStatsSearchContext extends QueryWrapperContext<CompanyStats>
         this.n_date_ltandeq = n_date_ltandeq;
         if(!ObjectUtils.isEmpty(this.n_date_ltandeq)){
             this.getSearchCond().le("`date`", n_date_ltandeq);
+        }
+    }
+	private String n_comment_like;//[备注]
+	public void setN_comment_like(String n_comment_like) {
+        this.n_comment_like = n_comment_like;
+        if(!ObjectUtils.isEmpty(this.n_comment_like)){
+            this.getSearchCond().like("`comment`", n_comment_like);
         }
     }
 

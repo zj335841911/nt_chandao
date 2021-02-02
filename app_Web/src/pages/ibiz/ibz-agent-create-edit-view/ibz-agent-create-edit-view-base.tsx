@@ -125,7 +125,7 @@ export class IbzAgentCreateEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof IbzAgentCreateEditViewBase
      */
-	protected viewtag: string = '2b5c1c3213fbe9290285fe76805d426b';
+	protected viewtag: string = '821253e790f5c38ff3e995117cf457bc';
 
     /**
      * 视图名称

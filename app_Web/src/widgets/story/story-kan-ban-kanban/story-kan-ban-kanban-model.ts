@@ -36,12 +36,12 @@ export default class StoryKanBanModel {
 				name: 'srfmstag',
 			},
 			{
+				name: 'estimate',
+			},
+			{
 				name: 'stage',
 				prop: 'stage',
 				dataType: 'SSCODELIST',
-			},
-			{
-				name: 'estimate',
 			},
 			{
 				name: 'tobug',

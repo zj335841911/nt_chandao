@@ -129,16 +129,16 @@ export class UnDoneProjectTreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBar
                 deKeyField:'doclib'
 			};
         }
-        if (Object.is(expmode, 'ROOTDOCLIBMODULE')) {
+        if (Object.is(expmode, 'DOCLIB')) {
             return {  
-                viewname: 'doc-lib-usr3-tree-view', 
+                viewname: 'doc-lib-usr2-tree-view', 
                 parentdata: {},
                 deKeyField:'doclib'
 			};
         }
-        if (Object.is(expmode, 'DOCLIB')) {
+        if (Object.is(expmode, 'ROOTDOCLIBMODULE')) {
             return {  
-                viewname: 'doc-lib-usr2-tree-view', 
+                viewname: 'doc-lib-usr3-tree-view', 
                 parentdata: {},
                 deKeyField:'doclib'
 			};

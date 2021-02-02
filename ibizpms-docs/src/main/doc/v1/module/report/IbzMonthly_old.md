@@ -9,63 +9,63 @@
 
 | 属性名称        |    中文名称    | 类型     |  备注  |
 | --------   |------------| -----   |  -------- | 
-|月报标识|IBZ_MONTHLYID|ACID|&nbsp;|
 |建立人|CREATEMAN|TEXT|&nbsp;|
-|更新人|UPDATEMAN|TEXT|&nbsp;|
-|建立时间|CREATEDATE|DATETIME|&nbsp;|
-|月报名称|IBZ_MONTHLYNAME|TEXT|&nbsp;|
-|更新时间|UPDATEDATE|DATETIME|&nbsp;|
-|日期|DATE|DATE|&nbsp;|
-|用户|ACCOUNT|SSCODELIST|&nbsp;|
-|本月工作|WORKTHISMONTH|HTMLTEXT|&nbsp;|
-|下月计划|PLANSNEXTMONTH|HTMLTEXT|&nbsp;|
-|汇报给|REPORTTO|SSCODELIST|&nbsp;|
-|抄送给|MAILTO|SMCODELIST|&nbsp;|
-|其他事项|COMMENT|HTMLTEXT|&nbsp;|
-|本月完成任务|THISMONTHTASK|SMCODELIST|&nbsp;|
-|下月计划任务|NEXTMONTHPLANSTASK|SMCODELIST|&nbsp;|
-|附件|FILES|TEXT|&nbsp;|
-|是否提交|ISSUBMIT|SSCODELIST|&nbsp;|
-|更新人名称|UPDATEMANNAME|TEXT|&nbsp;|
 |状态|REPORTSTATUS|SSCODELIST|&nbsp;|
-|建立人名称|CREATEMANNAME|TEXT|&nbsp;|
-|提交时间|SUBMITTIME|TIME|&nbsp;|
+|更新时间|UPDATEDATE|DATETIME|&nbsp;|
+|下月计划|PLANSNEXTMONTH|HTMLTEXT|&nbsp;|
 |汇报给（选择）|REPORTTOPK|TEXT|&nbsp;|
+|是否提交|ISSUBMIT|SSCODELIST|&nbsp;|
 |抄送给（选择）|MAILTOPK|TEXT|&nbsp;|
+|更新人名称|UPDATEMANNAME|TEXT|&nbsp;|
+|更新人|UPDATEMAN|TEXT|&nbsp;|
+|日期|DATE|DATE|&nbsp;|
+|提交时间|SUBMITTIME|TIME|&nbsp;|
+|建立时间|CREATEDATE|DATETIME|&nbsp;|
+|建立人名称|CREATEMANNAME|TEXT|&nbsp;|
+|附件|FILES|TEXT|&nbsp;|
+|月报标识|IBZ_MONTHLYID|ACID|&nbsp;|
+|用户|ACCOUNT|SSCODELIST|&nbsp;|
+|下月计划任务|NEXTMONTHPLANSTASK|SMCODELIST|&nbsp;|
+|本月完成任务|THISMONTHTASK|SMCODELIST|&nbsp;|
+|本月工作|WORKTHISMONTH|HTMLTEXT|&nbsp;|
+|汇报给|REPORTTO|SSCODELIST|&nbsp;|
+|月报名称|IBZ_MONTHLYNAME|TEXT|&nbsp;|
+|其他事项|COMMENT|HTMLTEXT|&nbsp;|
+|抄送给|MAILTO|SMCODELIST|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
 | --------   |------------| ----- | 
-|月报标识|默认规则|默认规则|
 |建立人|默认规则|内容长度必须小于等于[60]|
-|更新人|默认规则|内容长度必须小于等于[60]|
-|建立时间|默认规则|默认规则|
-|月报名称|默认规则|内容长度必须小于等于[200]|
-|更新时间|默认规则|默认规则|
-|日期|默认规则|默认规则|
-|用户|默认规则|内容长度必须小于等于[100]|
-|本月工作|默认规则|内容长度必须小于等于[1048576]|
-|下月计划|默认规则|内容长度必须小于等于[1048576]|
-|汇报给|默认规则|内容长度必须小于等于[60]|
-|抄送给|默认规则|内容长度必须小于等于[2000]|
-|其他事项|默认规则|内容长度必须小于等于[1048576]|
-|本月完成任务|默认规则|内容长度必须小于等于[2000]|
-|下月计划任务|默认规则|内容长度必须小于等于[2000]|
-|附件|默认规则|内容长度必须小于等于[100]|
-|是否提交|默认规则|内容长度必须小于等于[100]|
-|更新人名称|默认规则|内容长度必须小于等于[60]|
 |状态|默认规则|内容长度必须小于等于[60]|
-|建立人名称|默认规则|内容长度必须小于等于[60]|
-|提交时间|默认规则|默认规则|
+|更新时间|默认规则|默认规则|
+|下月计划|默认规则|内容长度必须小于等于[1048576]|
 |汇报给（选择）|默认规则|内容长度必须小于等于[200]|
+|是否提交|默认规则|内容长度必须小于等于[100]|
 |抄送给（选择）|默认规则|内容长度必须小于等于[200]|
+|更新人名称|默认规则|内容长度必须小于等于[60]|
+|更新人|默认规则|内容长度必须小于等于[60]|
+|日期|默认规则|默认规则|
+|提交时间|默认规则|默认规则|
+|建立时间|默认规则|默认规则|
+|建立人名称|默认规则|内容长度必须小于等于[60]|
+|附件|默认规则|内容长度必须小于等于[100]|
+|月报标识|默认规则|默认规则|
+|用户|默认规则|内容长度必须小于等于[100]|
+|下月计划任务|默认规则|内容长度必须小于等于[2000]|
+|本月完成任务|默认规则|内容长度必须小于等于[2000]|
+|本月工作|默认规则|内容长度必须小于等于[1048576]|
+|汇报给|默认规则|内容长度必须小于等于[60]|
+|月报名称|默认规则|内容长度必须小于等于[200]|
+|其他事项|默认规则|内容长度必须小于等于[1048576]|
+|抄送给|默认规则|内容长度必须小于等于[2000]|
 
 ## 状态控制
 
 |是否提交|行为控制模式| 控制行为 | 操作标识控制模式 | 控制操作 |
 | --------   | ------------|------------|------------|------------|
 |Value| 允许|  | 不允许 |  |
-|Value| 允许|  | 不允许 | SRFUR__MONTHLY_EDIT_BUT<br>SRFUR__MONTHLY_SUBMIT_BUT<br> |
+|Value| 允许|  | 不允许 | SRFUR__MONTHLY_SUBMIT_BUT<br>SRFUR__MONTHLY_EDIT_BUT<br> |
 
 是否提交
 
@@ -124,11 +124,11 @@
 ## 查询模式
 | 属性      |    搜索模式     |
 | --------   |------------|
-|月报名称(IBZ_MONTHLYNAME)|LIKE|
+|状态(REPORTSTATUS)|EQ|
+|是否提交(ISSUBMIT)|EQ|
 |用户(ACCOUNT)|EQ|
 |汇报给(REPORTTO)|EQ|
-|是否提交(ISSUBMIT)|EQ|
-|状态(REPORTSTATUS)|EQ|
+|月报名称(IBZ_MONTHLYNAME)|LIKE|
 
 ## 导入模式
 无

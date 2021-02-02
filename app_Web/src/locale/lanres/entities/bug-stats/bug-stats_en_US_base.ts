@@ -3,64 +3,64 @@ import commonLogic from '@/locale/logic/common/common-logic';
 function getLocaleResourceBase(){
 	const data:any = {
 		fields: {
-			id: commonLogic.appcommonhandle("标识",null),
-			title: commonLogic.appcommonhandle("名称",null),
-			openedby: commonLogic.appcommonhandle("由谁创建",null),
-			bugwjj: commonLogic.appcommonhandle("未解决",null),
-			bugbydesign: commonLogic.appcommonhandle("设计如此",null),
-			bugduplicate: commonLogic.appcommonhandle("重复Bug",null),
-			bugexternal: commonLogic.appcommonhandle("外部原因",null),
-			bugfixed: commonLogic.appcommonhandle("已解决",null),
-			bugnotrepro: commonLogic.appcommonhandle("无法重现",null),
-			bugpostponed: commonLogic.appcommonhandle("延期处理",null),
-			bugwillnotfix: commonLogic.appcommonhandle("不予解决",null),
-			bugtostory: commonLogic.appcommonhandle("转为需求",null),
-			bugefficient: commonLogic.appcommonhandle("有效率",null),
-			bugtotal: commonLogic.appcommonhandle("总计",null),
-			product: commonLogic.appcommonhandle("编号",null),
-			productname: commonLogic.appcommonhandle("产品名称",null),
-			bugcnt: commonLogic.appcommonhandle("Bug",null),
-			assignedto: commonLogic.appcommonhandle("指派给",null),
-			resolvedby: commonLogic.appcommonhandle("由谁解决",null),
-			project: commonLogic.appcommonhandle("项目编号",null),
-			projectname: commonLogic.appcommonhandle("项目名称",null),
 			bugactive: commonLogic.appcommonhandle("激活Bug",null),
-			bugresolved: commonLogic.appcommonhandle("已解决Bug",null),
-			bugclosed: commonLogic.appcommonhandle("已关闭Bug",null),
-			projectname1: commonLogic.appcommonhandle("项目名称",null),
+			bugwillnotfix: commonLogic.appcommonhandle("不予解决",null),
+			resolvedby: commonLogic.appcommonhandle("由谁解决",null),
 			bugresolution: commonLogic.appcommonhandle("Bug解决方案",null),
-			bugstatus: commonLogic.appcommonhandle("Bug状态",null),
-			bugid: commonLogic.appcommonhandle("Bug编号",null),
-			bugtitle: commonLogic.appcommonhandle("Bug标题",null),
-			bugpri: commonLogic.appcommonhandle("Bug优先级",null),
-			bugseverity: commonLogic.appcommonhandle("Bug严重程度",null),
-			bugopenedby: commonLogic.appcommonhandle("bug创建人",null),
-			bugopeneddate: commonLogic.appcommonhandle("Bug创建日期",null),
-			bugresolveddate: commonLogic.appcommonhandle("bug解决日期",null),
 			dept: commonLogic.appcommonhandle("部门",null),
+			bugbydesign: commonLogic.appcommonhandle("设计如此",null),
+			bugopenedby: commonLogic.appcommonhandle("bug创建人",null),
+			bugstatus: commonLogic.appcommonhandle("Bug状态",null),
+			bugclosed: commonLogic.appcommonhandle("已关闭Bug",null),
+			assignedto: commonLogic.appcommonhandle("指派给",null),
+			bugexternal: commonLogic.appcommonhandle("外部原因",null),
 			begin: commonLogic.appcommonhandle("开始",null),
+			bugresolveddate: commonLogic.appcommonhandle("bug解决日期",null),
 			end: commonLogic.appcommonhandle("结束",null),
+			bugid: commonLogic.appcommonhandle("Bug编号",null),
+			projectname: commonLogic.appcommonhandle("项目名称",null),
+			bugfixed: commonLogic.appcommonhandle("已解决",null),
+			id: commonLogic.appcommonhandle("标识",null),
+			bugpostponed: commonLogic.appcommonhandle("延期处理",null),
+			bugtitle: commonLogic.appcommonhandle("Bug标题",null),
+			bugcnt: commonLogic.appcommonhandle("Bug",null),
+			bugopeneddate: commonLogic.appcommonhandle("Bug创建日期",null),
+			bugwjj: commonLogic.appcommonhandle("未解决",null),
+			title: commonLogic.appcommonhandle("名称",null),
+			bugpri: commonLogic.appcommonhandle("Bug优先级",null),
+			bugnotrepro: commonLogic.appcommonhandle("无法重现",null),
+			projectname1: commonLogic.appcommonhandle("项目名称",null),
+			bugresolved: commonLogic.appcommonhandle("已解决Bug",null),
+			bugduplicate: commonLogic.appcommonhandle("重复Bug",null),
+			openedby: commonLogic.appcommonhandle("由谁创建",null),
+			bugefficient: commonLogic.appcommonhandle("有效率",null),
+			bugtostory: commonLogic.appcommonhandle("转为需求",null),
+			bugseverity: commonLogic.appcommonhandle("Bug严重程度",null),
+			bugtotal: commonLogic.appcommonhandle("总计",null),
+			productname: commonLogic.appcommonhandle("产品名称",null),
+			product: commonLogic.appcommonhandle("编号",null),
+			project: commonLogic.appcommonhandle("项目编号",null),
 		},
 			views: {
-				editview: {
-					caption: commonLogic.appcommonhandle("Bug统计",null),
-					title: commonLogic.appcommonhandle("Bug统计编辑视图",null),
+				bugresolvedbygridview: {
+					caption: commonLogic.appcommonhandle("Bug完成表",null),
+					title: commonLogic.appcommonhandle("Bug统计表格视图（Bug完成表）",null),
 				},
 				productbugresolutiongridview: {
 					caption: commonLogic.appcommonhandle("产品Bug解决方案汇总",null),
 					title: commonLogic.appcommonhandle("Bug统计表格视图",null),
 				},
-				usr2gridviewprojectbugstatuscount: {
-					caption: commonLogic.appcommonhandle("bug状态统计",null),
-					title: commonLogic.appcommonhandle("Bug统计表格视图(bug状态统计)",null),
-				},
-				bugresolvedbygridview: {
-					caption: commonLogic.appcommonhandle("Bug完成表",null),
-					title: commonLogic.appcommonhandle("Bug统计表格视图（Bug完成表）",null),
-				},
 				bugresolvetion: {
 					caption: commonLogic.appcommonhandle("Bug统计",null),
 					title: commonLogic.appcommonhandle("每个解决方案的Bug数统计表格视图",null),
+				},
+				bugresolvedbygridviewzuzhi: {
+					caption: commonLogic.appcommonhandle("Bug完成表",null),
+					title: commonLogic.appcommonhandle("Bug统计表格视图（Bug完成表）",null),
+				},
+				usr2gridviewprojectbugstatuscount: {
+					caption: commonLogic.appcommonhandle("bug状态统计",null),
+					title: commonLogic.appcommonhandle("Bug统计表格视图(bug状态统计)",null),
 				},
 				productbugstatusgridview: {
 					caption: commonLogic.appcommonhandle("产品Bug状态汇总",null),
@@ -74,9 +74,9 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("Bug指派表",null),
 					title: commonLogic.appcommonhandle("Bug统计表格视图（Bug指派表）",null),
 				},
-				bugresolvedbygridviewzuzhi: {
-					caption: commonLogic.appcommonhandle("Bug完成表",null),
-					title: commonLogic.appcommonhandle("Bug统计表格视图（Bug完成表）",null),
+				editview: {
+					caption: commonLogic.appcommonhandle("Bug统计",null),
+					title: commonLogic.appcommonhandle("Bug统计编辑视图",null),
 				},
 			},
 			main_form: {
@@ -97,33 +97,9 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
-			productbugstatuscount_grid: {
+			main_grid: {
 				columns: {
-					productname: commonLogic.appcommonhandle("产品名称",null),
-					bugresolved: commonLogic.appcommonhandle("已解决",null),
-					bugclosed: commonLogic.appcommonhandle("已关闭",null),
-					bugactive: commonLogic.appcommonhandle("已激活",null),
-					bugefficient: commonLogic.appcommonhandle("有效率",null),
-					bugtotal: commonLogic.appcommonhandle("总计",null),
-				},
-				nodata:commonLogic.appcommonhandle("",null),
-				uiactions: {
-				},
-			},
-			bugassignedto_grid: {
-				columns: {
-					assignedto: commonLogic.appcommonhandle("姓名",null),
-					productname: commonLogic.appcommonhandle("产品",null),
-					bugcnt: commonLogic.appcommonhandle("Bug",null),
-					bugtotal: commonLogic.appcommonhandle("总计",null),
-				},
-				nodata:commonLogic.appcommonhandle("",null),
-				uiactions: {
-				},
-			},
-			productbugresolutionstats_grid: {
-				columns: {
-					productname: commonLogic.appcommonhandle("产品名称",null),
+					openedby: commonLogic.appcommonhandle("由谁创建",null),
 					bugwjj: commonLogic.appcommonhandle("未解决",null),
 					bugbydesign: commonLogic.appcommonhandle("设计如此",null),
 					bugduplicate: commonLogic.appcommonhandle("重复Bug",null),
@@ -140,9 +116,9 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
-			main_grid: {
+			productbugresolutionstats_grid: {
 				columns: {
-					openedby: commonLogic.appcommonhandle("由谁创建",null),
+					productname: commonLogic.appcommonhandle("产品名称",null),
 					bugwjj: commonLogic.appcommonhandle("未解决",null),
 					bugbydesign: commonLogic.appcommonhandle("设计如此",null),
 					bugduplicate: commonLogic.appcommonhandle("重复Bug",null),
@@ -170,18 +146,25 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
-			bugresolutioncnt_grid: {
+			productbugstatuscount_grid: {
 				columns: {
-					projectname: commonLogic.appcommonhandle("项目名称",null),
-					bugduplicate: commonLogic.appcommonhandle("重复Bug",null),
-					bugbydesign: commonLogic.appcommonhandle("设计如此",null),
-					bugfixed: commonLogic.appcommonhandle("已解决",null),
-					bugpostponed: commonLogic.appcommonhandle("延期处理",null),
-					bugnotrepro: commonLogic.appcommonhandle("无法重现",null),
-					bugtostory: commonLogic.appcommonhandle("转为需求",null),
-					bugwillnotfix: commonLogic.appcommonhandle("不予解决",null),
-					bugexternal: commonLogic.appcommonhandle("外部原因",null),
-					bugcnt: commonLogic.appcommonhandle("总计",null),
+					productname: commonLogic.appcommonhandle("产品名称",null),
+					bugresolved: commonLogic.appcommonhandle("已解决",null),
+					bugclosed: commonLogic.appcommonhandle("已关闭",null),
+					bugactive: commonLogic.appcommonhandle("已激活",null),
+					bugefficient: commonLogic.appcommonhandle("有效率",null),
+					bugtotal: commonLogic.appcommonhandle("总计",null),
+				},
+				nodata:commonLogic.appcommonhandle("",null),
+				uiactions: {
+				},
+			},
+			bugassignedto_grid: {
+				columns: {
+					assignedto: commonLogic.appcommonhandle("姓名",null),
+					productname: commonLogic.appcommonhandle("产品",null),
+					bugcnt: commonLogic.appcommonhandle("Bug",null),
+					bugtotal: commonLogic.appcommonhandle("总计",null),
 				},
 				nodata:commonLogic.appcommonhandle("",null),
 				uiactions: {
@@ -193,6 +176,23 @@ function getLocaleResourceBase(){
 					bugactive: commonLogic.appcommonhandle("激活",null),
 					bugresolved: commonLogic.appcommonhandle("已解决",null),
 					bugclosed: commonLogic.appcommonhandle("已关闭",null),
+					bugcnt: commonLogic.appcommonhandle("总计",null),
+				},
+				nodata:commonLogic.appcommonhandle("",null),
+				uiactions: {
+				},
+			},
+			bugresolutioncnt_grid: {
+				columns: {
+					projectname: commonLogic.appcommonhandle("项目名称",null),
+					bugduplicate: commonLogic.appcommonhandle("重复Bug",null),
+					bugbydesign: commonLogic.appcommonhandle("设计如此",null),
+					bugfixed: commonLogic.appcommonhandle("已解决",null),
+					bugpostponed: commonLogic.appcommonhandle("延期处理",null),
+					bugnotrepro: commonLogic.appcommonhandle("无法重现",null),
+					bugtostory: commonLogic.appcommonhandle("转为需求",null),
+					bugwillnotfix: commonLogic.appcommonhandle("不予解决",null),
+					bugexternal: commonLogic.appcommonhandle("外部原因",null),
 					bugcnt: commonLogic.appcommonhandle("总计",null),
 				},
 				nodata:commonLogic.appcommonhandle("",null),
@@ -228,7 +228,7 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
-			productbug_searchform: {
+			default_searchform: {
 				details: {
 					grouppanel1: commonLogic.appcommonhandle("分组面板",null), 
 					grouppanel2: commonLogic.appcommonhandle("分组面板",null), 
@@ -241,16 +241,7 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
-			assignedtobug_searchform: {
-				details: {
-					formpage1: commonLogic.appcommonhandle("表单分页",null), 
-					n_product_eq: commonLogic.appcommonhandle("产品",null), 
-					n_assignedto_eq: commonLogic.appcommonhandle("指派给",null), 
-				},
-				uiactions: {
-				},
-			},
-			default_searchform: {
+			productbug_searchform: {
 				details: {
 					grouppanel1: commonLogic.appcommonhandle("分组面板",null), 
 					grouppanel2: commonLogic.appcommonhandle("分组面板",null), 
@@ -268,6 +259,15 @@ function getLocaleResourceBase(){
 					formpage1: commonLogic.appcommonhandle("表单分页",null), 
 					n_product_eq: commonLogic.appcommonhandle("产品",null), 
 					n_resolvedby_eq: commonLogic.appcommonhandle("由谁完成",null), 
+				},
+				uiactions: {
+				},
+			},
+			assignedtobug_searchform: {
+				details: {
+					formpage1: commonLogic.appcommonhandle("表单分页",null), 
+					n_product_eq: commonLogic.appcommonhandle("产品",null), 
+					n_assignedto_eq: commonLogic.appcommonhandle("指派给",null), 
 				},
 				uiactions: {
 				},
@@ -300,9 +300,9 @@ function getLocaleResourceBase(){
 					tip: commonLogic.appcommonhandle("Remove And Close Window",null),
 				},
 			},
-			productbugstatusgridviewtoolbar_toolbar: {
-			},
 			productbugresolutiongridviewtoolbar_toolbar: {
+			},
+			productbugstatusgridviewtoolbar_toolbar: {
 			},
 			bugresolvedbygridviewzuzhitoolbar_toolbar: {
 				deuiaction1: {

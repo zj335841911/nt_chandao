@@ -18,30 +18,30 @@ export default class TestSidebarModel {
 				name: 'id',
 			},
 			{
+				name: 'type',
+        codelist:{tag:'Product__type',codelistType:'STATIC'},
+			},
+			{
 				name: 'notclosedbugcnt',
 			},
 			{
-				name: 'istop',
+				name: 'unconfirmbugcnt',
+			},
+			{
+				name: 'code',
+			},
+			{
+				name: 'activebugcnt',
 			},
 			{
 				name: 'status',
         codelist:{tag:'Product__status',codelistType:'STATIC'},
 			},
 			{
-				name: 'unconfirmbugcnt',
-			},
-			{
-				name: 'type',
-        codelist:{tag:'Product__type',codelistType:'STATIC'},
-			},
-			{
-				name: 'code',
-			},
-			{
 				name: 'name',
 			},
 			{
-				name: 'activebugcnt',
+				name: 'istop',
 			},
 			{
 				name: 'srfkey',

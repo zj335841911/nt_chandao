@@ -119,7 +119,7 @@ export class ProductGridView_UnClosedBase extends GridViewBase {
      * @type {string}
      * @memberof ProductGridView_UnClosedBase
      */
-	protected viewtag: string = '52e850ef857c81c2a96f5db0a84836f8';
+	protected viewtag: string = '5b8fe24966d2257379bc14443cc9174a';
 
     /**
      * 视图名称

@@ -26,12 +26,12 @@
         </dependency>
         <dependency>
             <groupId>cn.ibizlab.pms</groupId>
-            <artifactId>ibizpms-app-mob</artifactId>
+            <artifactId>ibizpms-app-web</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>cn.ibizlab.pms</groupId>
-            <artifactId>ibizpms-app-web</artifactId>
+            <artifactId>ibizpms-app-mob</artifactId>
             <version>${project.version}</version>
         </dependency>
     </dependencies>

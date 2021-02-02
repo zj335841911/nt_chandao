@@ -12,32 +12,32 @@ hide members
 
 | 属性名称        |    中文名称    | 类型     |  备注  |
 | --------   |------------| -----   |  -------- | 
-|系统更新日志标识|SYS_UPDATE_LOGID|GUID|&nbsp;|
-|更新名称|SYS_UPDATE_LOGNAME|TEXT|&nbsp;|
+|更新时间|UPDATEDATE|DATETIME|&nbsp;|
 |更新人|UPDATEMAN|TEXT|&nbsp;|
 |建立人|CREATEMAN|TEXT|&nbsp;|
 |建立时间|CREATEDATE|DATETIME|&nbsp;|
-|更新时间|UPDATEDATE|DATETIME|&nbsp;|
-|更新日期|UPDATE|DATE|&nbsp;|
-|更新说明|UPDESC|HTMLTEXT|&nbsp;|
-|最新更新|LATESTUPDATE|YESNO|&nbsp;|
-|更新功能列表详情|UPDATEFEATURES|ONE2MANYDATA|&nbsp;|
+|系统更新日志标识|SYS_UPDATE_LOGID|GUID|&nbsp;|
 |更新平台|UPDATEBRANCH|SSCODELIST|&nbsp;|
+|更新功能列表详情|UPDATEFEATURES|ONE2MANYDATA|&nbsp;|
+|更新说明|UPDESC|HTMLTEXT|&nbsp;|
+|更新名称|SYS_UPDATE_LOGNAME|TEXT|&nbsp;|
+|最新更新|LATESTUPDATE|YESNO|&nbsp;|
+|更新日期|UPDATE|DATE|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
 | --------   |------------| ----- | 
-|系统更新日志标识|默认规则|内容长度必须小于等于[100]|
-|更新名称|默认规则|内容长度必须小于等于[200]|
+|更新时间|默认规则|默认规则|
 |更新人|默认规则|内容长度必须小于等于[60]|
 |建立人|默认规则|内容长度必须小于等于[60]|
 |建立时间|默认规则|默认规则|
-|更新时间|默认规则|默认规则|
-|更新日期|默认规则|默认规则|
-|更新说明|默认规则|内容长度必须小于等于[1048576]|
-|最新更新|默认规则|默认规则|
-|更新功能列表详情|默认规则|内容长度必须小于等于[1048576]|
+|系统更新日志标识|默认规则|内容长度必须小于等于[100]|
 |更新平台|默认规则|内容长度必须小于等于[60]|
+|更新功能列表详情|默认规则|内容长度必须小于等于[1048576]|
+|更新说明|默认规则|内容长度必须小于等于[1048576]|
+|更新名称|默认规则|内容长度必须小于等于[200]|
+|最新更新|默认规则|默认规则|
+|更新日期|默认规则|默认规则|
 
 ## 状态控制
 
@@ -91,9 +91,9 @@ hide footbox
 ## 查询模式
 | 属性      |    搜索模式     |
 | --------   |------------|
+|更新平台(UPDATEBRANCH)|EQ|
 |更新名称(SYS_UPDATE_LOGNAME)|LIKE|
 |最新更新(LATESTUPDATE)|EQ|
-|更新平台(UPDATEBRANCH)|EQ|
 
 ## 导入模式
 无

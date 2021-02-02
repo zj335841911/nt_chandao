@@ -145,7 +145,7 @@ export class TestModuleGridViewMainBase extends GridViewBase {
      * @type {string}
      * @memberof TestModuleGridViewMainBase
      */
-	protected viewtag: string = '9396442ba87e188748229e6bc6927156';
+	protected viewtag: string = 'ed329f43ccb32635aa3d643e421c3eb3';
 
     /**
      * 视图名称

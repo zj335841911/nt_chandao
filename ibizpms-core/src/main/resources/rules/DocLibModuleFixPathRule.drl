@@ -5,31 +5,14 @@ import com.alibaba.fastjson.JSONObject;
 import org.springframework.util.StringUtils;
 import org.springframework.util.ObjectUtils;
 import cn.ibizlab.pms.util.errors.BadRequestAlertException;
-global cn.ibizlab.pms.core.zentao.domain.Module doclibmodulefixpathzt_module;
 global cn.ibizlab.pms.core.ibiz.domain.DocLibModule doclibmodulefixpathdefault;
+global cn.ibizlab.pms.core.zentao.domain.Module doclibmodulefixpathzt_module;
 global cn.ibizlab.pms.core.zentao.service.IModuleService moduleservice;
 global cn.ibizlab.pms.core.ibiz.service.IDocLibModuleService iBzSysDoclibmoduleDefaultService;
 global cn.ibizlab.pms.util.security.AuthenticationUser curuser;
 
 
 no-loop
-
-//逻辑处理节点[开始]
-rule "begin"
-ruleflow-group "doclibmodulefixpathbegin"
-    when
-    then
-    end
-
-//逻辑处理节点[执行重建模型路径]
-rule "deaction1"
-ruleflow-group "doclibmodulefixpathdeaction1"
-    when
-    then
-    moduleservice.update(doclibmodulefixpathzt_module);
-    update(doclibmodulefixpathzt_module);//更新fact中变量值
-    update(doclibmodulefixpathdefault);//更新fact中变量值
-    end
 
 //逻辑处理节点[准备参数]
 rule "prepareparam1"
@@ -46,7 +29,24 @@ ruleflow-group "doclibmodulefixpathprepareparam1"
     doclibmodulefixpathzt_module.set("root",doclibmodulefixpathdefault.get("root"));
     doclibmodulefixpathzt_module.set("ibizshort",doclibmodulefixpathdefault.get("ibizshort"));
     doclibmodulefixpathzt_module.set("type",doclibmodulefixpathdefault.get("type"));
-    update(doclibmodulefixpathzt_module);//更新fact中变量值
     update(doclibmodulefixpathdefault);//更新fact中变量值
+    update(doclibmodulefixpathzt_module);//更新fact中变量值
+    end
+
+//逻辑处理节点[执行重建模型路径]
+rule "deaction1"
+ruleflow-group "doclibmodulefixpathdeaction1"
+    when
+    then
+    moduleservice.update(doclibmodulefixpathzt_module);
+    update(doclibmodulefixpathdefault);//更新fact中变量值
+    update(doclibmodulefixpathzt_module);//更新fact中变量值
+    end
+
+//逻辑处理节点[开始]
+rule "begin"
+ruleflow-group "doclibmodulefixpathbegin"
+    when
+    then
     end
 

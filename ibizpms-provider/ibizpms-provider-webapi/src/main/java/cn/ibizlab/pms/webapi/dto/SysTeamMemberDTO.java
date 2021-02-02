@@ -67,31 +67,13 @@ public class SysTeamMemberDTO extends DTOBase implements Serializable {
     private String domains;
 
     /**
-     * 属性 [USERID]
+     * 属性 [USERICON]
      *
      */
-    @JSONField(name = "userid")
-    @JsonProperty("userid")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String userid;
-
-    /**
-     * 属性 [TEAMID]
-     *
-     */
-    @JSONField(name = "teamid")
-    @JsonProperty("teamid")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String teamid;
-
-    /**
-     * 属性 [POSTID]
-     *
-     */
-    @JSONField(name = "postid")
-    @JsonProperty("postid")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String postid;
+    @JSONField(name = "usericon")
+    @JsonProperty("usericon")
+    @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
+    private String usericon;
 
     /**
      * 属性 [PERSONNAME]
@@ -112,13 +94,31 @@ public class SysTeamMemberDTO extends DTOBase implements Serializable {
     private String username;
 
     /**
-     * 属性 [USERICON]
+     * 属性 [POSTID]
      *
      */
-    @JSONField(name = "usericon")
-    @JsonProperty("usericon")
-    @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
-    private String usericon;
+    @JSONField(name = "postid")
+    @JsonProperty("postid")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String postid;
+
+    /**
+     * 属性 [TEAMID]
+     *
+     */
+    @JSONField(name = "teamid")
+    @JsonProperty("teamid")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String teamid;
+
+    /**
+     * 属性 [USERID]
+     *
+     */
+    @JSONField(name = "userid")
+    @JsonProperty("userid")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String userid;
 
 
     /**
@@ -130,11 +130,11 @@ public class SysTeamMemberDTO extends DTOBase implements Serializable {
     }
 
     /**
-     * 设置 [USERID]
+     * 设置 [POSTID]
      */
-    public void setUserid(String  userid){
-        this.userid = userid ;
-        this.modify("userid",userid);
+    public void setPostid(String  postid){
+        this.postid = postid ;
+        this.modify("postid",postid);
     }
 
     /**
@@ -146,11 +146,11 @@ public class SysTeamMemberDTO extends DTOBase implements Serializable {
     }
 
     /**
-     * 设置 [POSTID]
+     * 设置 [USERID]
      */
-    public void setPostid(String  postid){
-        this.postid = postid ;
-        this.modify("postid",postid);
+    public void setUserid(String  userid){
+        this.userid = userid ;
+        this.modify("userid",userid);
     }
 
 

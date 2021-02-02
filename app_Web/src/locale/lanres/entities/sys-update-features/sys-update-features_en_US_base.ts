@@ -4,34 +4,34 @@ function getLocaleResourceBase(){
 	const data:any = {
 		fields: {
 			sysupdatefeaturesname: commonLogic.appcommonhandle("系统更新功能名称",null),
-			sysupdatefeaturesid: commonLogic.appcommonhandle("系统更新功能标识",null),
+			updatedate: commonLogic.appcommonhandle("更新时间",null),
 			createman: commonLogic.appcommonhandle("建立人",null),
 			updateman: commonLogic.appcommonhandle("更新人",null),
-			createdate: commonLogic.appcommonhandle("建立时间",null),
-			updatedate: commonLogic.appcommonhandle("更新时间",null),
-			sysupdatelogid: commonLogic.appcommonhandle("系统更新日志标识",null),
-			sysupdatelogname: commonLogic.appcommonhandle("所属更新",null),
-			upfeatures: commonLogic.appcommonhandle("更新功能",null),
-			featuresdesc: commonLogic.appcommonhandle("功能描述",null),
 			type: commonLogic.appcommonhandle("更新类型",null),
+			createdate: commonLogic.appcommonhandle("建立时间",null),
+			upfeatures: commonLogic.appcommonhandle("更新功能",null),
+			sysupdatefeaturesid: commonLogic.appcommonhandle("系统更新功能标识",null),
 			displayorder: commonLogic.appcommonhandle("展示顺序",null),
+			featuresdesc: commonLogic.appcommonhandle("功能描述",null),
+			sysupdatelogname: commonLogic.appcommonhandle("所属更新",null),
+			sysupdatelogid: commonLogic.appcommonhandle("系统更新日志标识",null),
 		},
 			views: {
-				lastgridview: {
-					caption: commonLogic.appcommonhandle("系统更新功能",null),
-					title: commonLogic.appcommonhandle("系统更新功能表格视图",null),
-				},
 				editview: {
 					caption: commonLogic.appcommonhandle("系统更新功能",null),
 					title: commonLogic.appcommonhandle("系统更新功能编辑视图",null),
 				},
-				gridview: {
+				lastgridview: {
 					caption: commonLogic.appcommonhandle("系统更新功能",null),
 					title: commonLogic.appcommonhandle("系统更新功能表格视图",null),
 				},
 				infoeditview: {
 					caption: commonLogic.appcommonhandle("系统更新功能",null),
 					title: commonLogic.appcommonhandle("系统更新功能编辑视图",null),
+				},
+				gridview: {
+					caption: commonLogic.appcommonhandle("系统更新功能",null),
+					title: commonLogic.appcommonhandle("系统更新功能表格视图",null),
 				},
 			},
 			main_form: {

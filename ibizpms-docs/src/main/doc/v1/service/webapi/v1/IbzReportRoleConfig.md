@@ -227,12 +227,12 @@ POST
 | ---- | ---- | ---- | ---- | ---- |
 | 1 | ibzreportroleconfigname | String | 允许 | 汇报角色配置名称 |
 | 2 | ibzreportroleconfigid | String | 不可 | 汇报角色配置标识 |
-| 3 | createdate | Timestamp | 不可 | 建立时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
-| 4 | createman | String | 不可 | 建立人 |
-| 5 | updateman | String | 不可 | 更新人 |
+| 3 | report_role | String | 允许 | 角色 |
+| 4 | type | String | 允许 | 类型 |
+| 5 | createdate | Timestamp | 不可 | 建立时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
 | 6 | updatedate | Timestamp | 不可 | 更新时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
-| 7 | report_role | String | 允许 | 角色 |
-| 8 | type | String | 允许 | 类型 |
+| 7 | createman | String | 不可 | 建立人 |
+| 8 | updateman | String | 不可 | 更新人 |
 | 9 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### IbzReportRoleConfigSearchContext

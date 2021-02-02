@@ -147,7 +147,7 @@ export class TaskStoryNewEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof TaskStoryNewEditViewBase
      */
-	protected viewtag: string = 'ecbf5b4a77da69166a45c1ad211d047a';
+	protected viewtag: string = '52a6a2a4e6961e9fe8c7f07df59309d0';
 
     /**
      * 视图名称

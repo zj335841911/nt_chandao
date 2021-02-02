@@ -9,8 +9,8 @@
         </extensionElements>
             <startEvent id="begin" isInterrupting="true"/>
             <endEvent id="prepareparam1_end" name="end"/>
-           <callActivity activiti:exclusive="true" calledElement="cn.ibizlab.pms.core.zentao.service.logic.testtaskgetproductbuild" id="018676C5-9917-4C95-950B-84ED4698F710" name="TestTaskGetProductBuildRuleFlow.bpmn"/>
-           <sequenceFlow id="begin_018676C5-9917-4C95-950B-84ED4698F710" sourceRef="begin" targetRef="018676C5-9917-4C95-950B-84ED4698F710"/>
-           <sequenceFlow id="018676C5-9917-4C95-950B-84ED4698F710_prepareparam1_end" sourceRef="018676C5-9917-4C95-950B-84ED4698F710" targetRef="prepareparam1_end"/>
+           <callActivity activiti:exclusive="true" calledElement="cn.ibizlab.pms.core.zentao.service.logic.testtaskgetproductbuild" id="c9cbef2bdf075ddfc669ad726436a2eb" name="TestTaskGetProductBuildRuleFlow.bpmn"/>
+           <sequenceFlow id="begin_c9cbef2bdf075ddfc669ad726436a2eb" sourceRef="begin" targetRef="c9cbef2bdf075ddfc669ad726436a2eb"/>
+           <sequenceFlow id="c9cbef2bdf075ddfc669ad726436a2eb_prepareparam1_end" sourceRef="c9cbef2bdf075ddfc669ad726436a2eb" targetRef="prepareparam1_end"/>
     </process>
 </definitions>

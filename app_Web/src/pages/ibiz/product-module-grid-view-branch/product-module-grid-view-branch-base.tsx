@@ -167,7 +167,7 @@ export class ProductModuleGridViewBranchBase extends GridViewBase {
      * @type {string}
      * @memberof ProductModuleGridViewBranchBase
      */
-	protected viewtag: string = '01384caaa1bc452610f056415c86aaf4';
+	protected viewtag: string = '10d6cb2fc147ac7b82b684d94cfa6c9b';
 
     /**
      * 视图名称

@@ -7,6 +7,14 @@
 export interface DynaDashboard {
 
     /**
+     * 用户标识
+     *
+     * @returns {*}
+     * @memberof DynaDashboard
+     */
+    userid?: any;
+
+    /**
      * 动态数据看板标识
      *
      * @returns {*}
@@ -39,28 +47,20 @@ export interface DynaDashboard {
     updateman?: any;
 
     /**
+     * 模型标识
+     *
+     * @returns {*}
+     * @memberof DynaDashboard
+     */
+    modelid?: any;
+
+    /**
      * 更新时间
      *
      * @returns {*}
      * @memberof DynaDashboard
      */
     updatedate?: any;
-
-    /**
-     * 建立时间
-     *
-     * @returns {*}
-     * @memberof DynaDashboard
-     */
-    createdate?: any;
-
-    /**
-     * 用户标识
-     *
-     * @returns {*}
-     * @memberof DynaDashboard
-     */
-    userid?: any;
 
     /**
      * 应用标识
@@ -71,18 +71,18 @@ export interface DynaDashboard {
     appid?: any;
 
     /**
+     * 建立时间
+     *
+     * @returns {*}
+     * @memberof DynaDashboard
+     */
+    createdate?: any;
+
+    /**
      * 模型
      *
      * @returns {*}
      * @memberof DynaDashboard
      */
     model?: any;
-
-    /**
-     * 模型标识
-     *
-     * @returns {*}
-     * @memberof DynaDashboard
-     */
-    modelid?: any;
 }

@@ -15,68 +15,68 @@ hide members
 
 | 属性名称        |    中文名称    | 类型     |  备注  |
 | --------   |------------| -----   |  -------- | 
-|系统需求项标识|PSSYSREQITEMID|GUID|&nbsp;|
-|建立人|CREATEMAN|TEXT|&nbsp;|
-|系统需求项名称|PSSYSREQITEMNAME|TEXT|&nbsp;|
-|建立时间|CREATEDATE|DATETIME|&nbsp;|
-|更新时间|UPDATEDATE|DATETIME|&nbsp;|
-|更新人|UPDATEMAN|TEXT|&nbsp;|
-|代码标识|CODENAME|TEXT|&nbsp;|
 |项编号|ITEMSN|TEXT|&nbsp;|
-|项标记|ITEMTAG|TEXT|&nbsp;|
-|项标记2|ITEMTAG2|TEXT|&nbsp;|
 |项类型|ITEMTYPE|SSCODELIST|&nbsp;|
-|备注|MEMO|LONGTEXT_1000|&nbsp;|
-|次序|ORDERVALUE|INT|&nbsp;|
-|内容|REQCONTENT|HTMLTEXT|&nbsp;|
+|系统用例|PSSYSUSERCASEID|TEXT|&nbsp;|
 |用户标记2|USERTAG2|TEXT|&nbsp;|
-|用户标记|USERTAG|TEXT|&nbsp;|
-|用户分类|USERCAT|SSCODELIST|&nbsp;|
-|用户标记3|USERTAG3|TEXT|&nbsp;|
-|用户标记4|USERTAG4|TEXT|&nbsp;|
+|建立时间|CREATEDATE|DATETIME|&nbsp;|
+|次序|ORDERVALUE|INT|&nbsp;|
 |版本|VER|INT|&nbsp;|
+|用户标记3|USERTAG3|TEXT|&nbsp;|
+|系统|PSSYSTEMNAME|TEXT|&nbsp;|
+|项标记|ITEMTAG|TEXT|&nbsp;|
+|系统需求项标识|PSSYSREQITEMID|GUID|&nbsp;|
+|项标记2|ITEMTAG2|TEXT|&nbsp;|
+|更新时间|UPDATEDATE|DATETIME|&nbsp;|
+|内容|REQCONTENT|HTMLTEXT|&nbsp;|
+|建立人|CREATEMAN|TEXT|&nbsp;|
+|用户标记|USERTAG|TEXT|&nbsp;|
 |是否有效|VALIDFLAG|YESNO|&nbsp;|
-|父需求项|PPSSYSREQITEMID|PICKUP|&nbsp;|
+|系统用例|PSSYSUSERCASENAME|TEXT|&nbsp;|
+|用户分类|USERCAT|SSCODELIST|&nbsp;|
+|代码标识|CODENAME|TEXT|&nbsp;|
+|更新人|UPDATEMAN|TEXT|&nbsp;|
+|备注|MEMO|LONGTEXT_1000|&nbsp;|
+|系统需求项名称|PSSYSREQITEMNAME|TEXT|&nbsp;|
+|用户标记4|USERTAG4|TEXT|&nbsp;|
+|系统|PSSYSTEMID|TEXT|&nbsp;|
+|需求模块|PSSYSREQMODULENAME|PICKUPTEXT|&nbsp;|
 |父需求项|PPSSYSREQITEMNAME|PICKUPTEXT|&nbsp;|
 |需求模块|PSSYSREQMODULEID|PICKUP|&nbsp;|
-|需求模块|PSSYSREQMODULENAME|PICKUPTEXT|&nbsp;|
-|系统|PSSYSTEMID|TEXT|&nbsp;|
-|系统|PSSYSTEMNAME|TEXT|&nbsp;|
-|系统用例|PSSYSUSERCASEID|TEXT|&nbsp;|
-|系统用例|PSSYSUSERCASENAME|TEXT|&nbsp;|
+|父需求项|PPSSYSREQITEMID|PICKUP|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
 | --------   |------------| ----- | 
-|系统需求项标识|默认规则|内容长度必须小于等于[100]|
-|建立人|默认规则|内容长度必须小于等于[60]|
-|系统需求项名称|默认规则|内容长度必须小于等于[200]|
-|建立时间|默认规则|默认规则|
-|更新时间|默认规则|默认规则|
-|更新人|默认规则|内容长度必须小于等于[60]|
-|代码标识|默认规则|内容长度必须小于等于[50]|
 |项编号|默认规则|内容长度必须小于等于[100]|
-|项标记|默认规则|内容长度必须小于等于[200]|
-|项标记2|默认规则|内容长度必须小于等于[200]|
 |项类型|默认规则|内容长度必须小于等于[50]|
-|备注|默认规则|内容长度必须小于等于[4000]|
-|次序|默认规则|默认规则|
-|内容|默认规则|内容长度必须小于等于[1048576]|
+|系统用例|默认规则|内容长度必须小于等于[100]|
 |用户标记2|默认规则|内容长度必须小于等于[200]|
-|用户标记|默认规则|内容长度必须小于等于[200]|
-|用户分类|默认规则|内容长度必须小于等于[10]|
-|用户标记3|默认规则|内容长度必须小于等于[50]|
-|用户标记4|默认规则|内容长度必须小于等于[50]|
+|建立时间|默认规则|默认规则|
+|次序|默认规则|默认规则|
 |版本|默认规则|默认规则|
+|用户标记3|默认规则|内容长度必须小于等于[50]|
+|系统|默认规则|内容长度必须小于等于[100]|
+|项标记|默认规则|内容长度必须小于等于[200]|
+|系统需求项标识|默认规则|内容长度必须小于等于[100]|
+|项标记2|默认规则|内容长度必须小于等于[200]|
+|更新时间|默认规则|默认规则|
+|内容|默认规则|内容长度必须小于等于[1048576]|
+|建立人|默认规则|内容长度必须小于等于[60]|
+|用户标记|默认规则|内容长度必须小于等于[200]|
 |是否有效|默认规则|默认规则|
-|父需求项|默认规则|内容长度必须小于等于[100]|
+|系统用例|默认规则|内容长度必须小于等于[100]|
+|用户分类|默认规则|内容长度必须小于等于[10]|
+|代码标识|默认规则|内容长度必须小于等于[50]|
+|更新人|默认规则|内容长度必须小于等于[60]|
+|备注|默认规则|内容长度必须小于等于[4000]|
+|系统需求项名称|默认规则|内容长度必须小于等于[200]|
+|用户标记4|默认规则|内容长度必须小于等于[50]|
+|系统|默认规则|内容长度必须小于等于[100]|
+|需求模块|默认规则|内容长度必须小于等于[200]|
 |父需求项|默认规则|内容长度必须小于等于[200]|
 |需求模块|默认规则|内容长度必须小于等于[100]|
-|需求模块|默认规则|内容长度必须小于等于[200]|
-|系统|默认规则|内容长度必须小于等于[100]|
-|系统|默认规则|内容长度必须小于等于[100]|
-|系统用例|默认规则|内容长度必须小于等于[100]|
-|系统用例|默认规则|内容长度必须小于等于[100]|
+|父需求项|默认规则|内容长度必须小于等于[100]|
 
 ## 状态控制
 
@@ -115,15 +115,15 @@ hide members
 ## 查询模式
 | 属性      |    搜索模式     |
 | --------   |------------|
-|系统需求项名称(PSSYSREQITEMNAME)|LIKE|
 |项类型(ITEMTYPE)|EQ|
 |用户分类(USERCAT)|EQ|
-|父需求项(PPSSYSREQITEMID)|EQ|
+|系统需求项名称(PSSYSREQITEMNAME)|LIKE|
+|需求模块(PSSYSREQMODULENAME)|EQ|
+|需求模块(PSSYSREQMODULENAME)|LIKE|
 |父需求项(PPSSYSREQITEMNAME)|EQ|
 |父需求项(PPSSYSREQITEMNAME)|LIKE|
 |需求模块(PSSYSREQMODULEID)|EQ|
-|需求模块(PSSYSREQMODULENAME)|EQ|
-|需求模块(PSSYSREQMODULENAME)|LIKE|
+|父需求项(PPSSYSREQITEMID)|EQ|
 
 ## 导入模式
 无

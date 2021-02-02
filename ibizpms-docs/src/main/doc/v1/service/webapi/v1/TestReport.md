@@ -1155,31 +1155,31 @@ POST
 #### TestReportDTO
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
-| 1 | objectid | Integer | 允许 | 所属对象 |
-| 2 | cases | String | 允许 | 用例 |
-| 3 | members | String | 允许 | 参与人员 |
-| 4 | bugs | String | 允许 | 测试的Bug |
-| 5 | createdby | String | 允许 | 由谁创建 |
-| 6 | stories | String | 允许 | 测试的需求 |
-| 7 | tasks | String | 允许 | 测试单 |
-| 8 | title | String | 不可 | 标题 |
-| 9 | begin | Timestamp | 不可 | 开始时间<br>时间格式：yyyy-MM-dd |
-| 10 | objecttype | String | 允许 | 对象类型 |
-| 11 | end | Timestamp | 不可 | 结束时间<br>时间格式：yyyy-MM-dd |
-| 12 | builds | String | 允许 | 版本信息 |
-| 13 | createddate | Timestamp | 允许 | 创建时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
-| 14 | report | String | 允许 | 总结 |
-| 15 | id | Long | 不可 | 编号 |
-| 16 | owner | String | 允许 | 负责人 |
-| 17 | deleted | String | 允许 | 已删除 |
-| 18 | product | Long | 允许 | 所属产品 |
-| 19 | project | Long | 允许 | 所属项目 |
-| 20 | productname | String | 允许 | 所属产品 |
-| 21 | projectname | String | 允许 | 所属项目 |
-| 22 | comment | String | 允许 | 备注 |
-| 23 | overviews | String | 允许 | 概况 |
-| 24 | files | String | 允许 | 附件 |
-| 25 | productcnt | Integer | 允许 | 项目报告产品数 |
+| 1 | productcnt | Integer | 允许 | 项目报告产品数 |
+| 2 | overviews | String | 允许 | 概况 |
+| 3 | objectid | Integer | 允许 | 所属对象 |
+| 4 | cases | String | 允许 | 用例 |
+| 5 | members | String | 允许 | 参与人员 |
+| 6 | bugs | String | 允许 | 测试的Bug |
+| 7 | createdby | String | 允许 | 由谁创建 |
+| 8 | stories | String | 允许 | 测试的需求 |
+| 9 | files | String | 允许 | 附件 |
+| 10 | comment | String | 允许 | 备注 |
+| 11 | tasks | String | 允许 | 测试单 |
+| 12 | title | String | 不可 | 标题 |
+| 13 | begin | Timestamp | 不可 | 开始时间<br>时间格式：yyyy-MM-dd |
+| 14 | objecttype | String | 允许 | 对象类型 |
+| 15 | end | Timestamp | 不可 | 结束时间<br>时间格式：yyyy-MM-dd |
+| 16 | builds | String | 允许 | 版本信息 |
+| 17 | createddate | Timestamp | 允许 | 创建时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
+| 18 | report | String | 允许 | 总结 |
+| 19 | id | Long | 不可 | 编号 |
+| 20 | owner | String | 允许 | 负责人 |
+| 21 | deleted | String | 允许 | 已删除 |
+| 22 | projectname | String | 允许 | 所属项目 |
+| 23 | productname | String | 允许 | 所属产品 |
+| 24 | product | Long | 允许 | 所属产品 |
+| 25 | project | Long | 允许 | 所属项目 |
 | 26 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### TestReportSearchContext
@@ -1187,12 +1187,12 @@ POST
 | ---- | ---- | ---- | ---- | ---- |
 | 1 | n_title_like | String | 允许 | 条件字段：title<br>条件组合方式：`%like%` |
 | 2 | n_objecttype_eq | String | 允许 | 条件字段：objecttype<br>条件组合方式：`=` |
-| 3 | n_product_eq | Long | 允许 | 条件字段：product<br>条件组合方式：`=` |
-| 4 | n_project_eq | Long | 允许 | 条件字段：project<br>条件组合方式：`=` |
+| 3 | n_projectname_eq | String | 允许 | 条件字段：projectname<br>条件组合方式：`=` |
+| 4 | n_projectname_like | String | 允许 | 条件字段：projectname<br>条件组合方式：`%like%` |
 | 5 | n_productname_eq | String | 允许 | 条件字段：productname<br>条件组合方式：`=` |
 | 6 | n_productname_like | String | 允许 | 条件字段：productname<br>条件组合方式：`%like%` |
-| 7 | n_projectname_eq | String | 允许 | 条件字段：projectname<br>条件组合方式：`=` |
-| 8 | n_projectname_like | String | 允许 | 条件字段：projectname<br>条件组合方式：`%like%` |
+| 7 | n_product_eq | Long | 允许 | 条件字段：product<br>条件组合方式：`=` |
+| 8 | n_project_eq | Long | 允许 | 条件字段：project<br>条件组合方式：`=` |
 | 9 | customcond | String | 允许 | 自定义查询条件 |
 | 10 | customparams | String | 允许 | 自定义查询参数 |
 | 11 | query | String | 允许 | 快速搜索 |

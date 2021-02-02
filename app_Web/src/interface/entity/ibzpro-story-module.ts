@@ -7,92 +7,12 @@
 export interface IBZProStoryModule {
 
     /**
-     * id
-     *
-     * @returns {*}
-     * @memberof IBZProStoryModule
-     */
-    id?: any;
-
-    /**
-     * 名称
-     *
-     * @returns {*}
-     * @memberof IBZProStoryModule
-     */
-    name?: any;
-
-    /**
-     * 编号
-     *
-     * @returns {*}
-     * @memberof IBZProStoryModule
-     */
-    root?: any;
-
-    /**
-     * IBIZ标识
-     *
-     * @returns {*}
-     * @memberof IBZProStoryModule
-     */
-    ibizid?: any;
-
-    /**
-     * 类型
-     *
-     * @returns {*}
-     * @memberof IBZProStoryModule
-     */
-    type?: any;
-
-    /**
      * 级别
      *
      * @returns {*}
      * @memberof IBZProStoryModule
      */
     grade?: any;
-
-    /**
-     * 路径
-     *
-     * @returns {*}
-     * @memberof IBZProStoryModule
-     */
-    path?: any;
-
-    /**
-     * 简称
-     *
-     * @returns {*}
-     * @memberof IBZProStoryModule
-     */
-    ibizshort?: any;
-
-    /**
-     * id
-     *
-     * @returns {*}
-     * @memberof IBZProStoryModule
-     */
-    parent?: any;
-
-    /**
-     * 产品
-     *
-     * @returns {*}
-     * @memberof IBZProStoryModule
-     */
-    productname?: any;
-
-    /**
-     * owner
-     *
-     * @returns {*}
-     * @memberof IBZProStoryModule
-     */
-    owner?: any;
 
     /**
      * collector
@@ -103,12 +23,12 @@ export interface IBZProStoryModule {
     collector?: any;
 
     /**
-     * 已删除
+     * owner
      *
      * @returns {*}
      * @memberof IBZProStoryModule
      */
-    deleted?: any;
+    owner?: any;
 
     /**
      * 需求模块类型
@@ -117,4 +37,84 @@ export interface IBZProStoryModule {
      * @memberof IBZProStoryModule
      */
     ibiz_storytype?: any;
+
+    /**
+     * id
+     *
+     * @returns {*}
+     * @memberof IBZProStoryModule
+     */
+    id?: any;
+
+    /**
+     * 类型
+     *
+     * @returns {*}
+     * @memberof IBZProStoryModule
+     */
+    type?: any;
+
+    /**
+     * 简称
+     *
+     * @returns {*}
+     * @memberof IBZProStoryModule
+     */
+    ibizshort?: any;
+
+    /**
+     * 名称
+     *
+     * @returns {*}
+     * @memberof IBZProStoryModule
+     */
+    name?: any;
+
+    /**
+     * 已删除
+     *
+     * @returns {*}
+     * @memberof IBZProStoryModule
+     */
+    deleted?: any;
+
+    /**
+     * 路径
+     *
+     * @returns {*}
+     * @memberof IBZProStoryModule
+     */
+    path?: any;
+
+    /**
+     * IBIZ标识
+     *
+     * @returns {*}
+     * @memberof IBZProStoryModule
+     */
+    ibizid?: any;
+
+    /**
+     * 产品
+     *
+     * @returns {*}
+     * @memberof IBZProStoryModule
+     */
+    productname?: any;
+
+    /**
+     * 编号
+     *
+     * @returns {*}
+     * @memberof IBZProStoryModule
+     */
+    root?: any;
+
+    /**
+     * id
+     *
+     * @returns {*}
+     * @memberof IBZProStoryModule
+     */
+    parent?: any;
 }

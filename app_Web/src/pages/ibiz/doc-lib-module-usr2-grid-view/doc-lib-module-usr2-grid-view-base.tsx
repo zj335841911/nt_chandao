@@ -137,7 +137,7 @@ export class DocLibModuleUsr2GridViewBase extends GridViewBase {
      * @type {string}
      * @memberof DocLibModuleUsr2GridViewBase
      */
-	protected viewtag: string = 'f3b0810b31f6ce2c9e2eac61e3ba941d';
+	protected viewtag: string = '1f58c36b426313948746ac301e8716b1';
 
     /**
      * 视图名称

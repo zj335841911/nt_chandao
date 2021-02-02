@@ -795,15 +795,15 @@ export default class ExpService extends ControlService {
         filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
         return new Promise((resolve:any,reject:any) =>{
             let searchFilter: any = {};
-            if (Object.is(filter.strNodeType, this.TREENODE_MODULE)) {
-                Object.assign(searchFilter, { n_parent_eq: filter.nodeid });
-            }
-
             if (Object.is(filter.strNodeType, this.TREENODE_ROOT_NOBRANCH)) {
                 Object.assign(searchFilter, { n_parent_eq: filter.nodeid });
             }
 
             if (Object.is(filter.strNodeType, this.TREENODE_ROOTMODULE)) {
+                Object.assign(searchFilter, { n_parent_eq: filter.nodeid });
+            }
+
+            if (Object.is(filter.strNodeType, this.TREENODE_MODULE)) {
                 Object.assign(searchFilter, { n_parent_eq: filter.nodeid });
             }
 

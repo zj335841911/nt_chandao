@@ -466,15 +466,15 @@ export class MyWorkPCCalendarBase extends MainControlBase {
                     parameters: [{ pathName: 'todos', parameterName: 'todo' }, { pathName: 'calendareditview', parameterName: 'calendareditview' } ],
                 };
                 break;
-            case "task": 
+            case "story": 
                 view = {
-                    viewname: 'task-calendar-edit-view', 
+                    viewname: 'story-calendar-edit-view', 
                     height: 0, 
                     width: 0,
-                    title: this.$t('entities.task.views.calendareditview.title'),
+                    title: this.$t('entities.story.views.calendareditview.title'),
                     placement: '',
-                    deResParameters: [{ pathName: 'projectmodules', parameterName: 'projectmodule' }, ],
-                    parameters: [{ pathName: 'tasks', parameterName: 'task' }, { pathName: 'calendareditview', parameterName: 'calendareditview' } ],
+                    deResParameters: [{ pathName: 'products', parameterName: 'product' }, ],
+                    parameters: [{ pathName: 'stories', parameterName: 'story' }, { pathName: 'calendareditview', parameterName: 'calendareditview' } ],
                 };
                 break;
             case "bug": 
@@ -488,28 +488,6 @@ export class MyWorkPCCalendarBase extends MainControlBase {
                     parameters: [{ pathName: 'bugs', parameterName: 'bug' }, { pathName: 'calendareditview', parameterName: 'calendareditview' } ],
                 };
                 break;
-            case "ibzreportly": 
-                view = {
-                    viewname: 'ibz-reportly-calendar-edit-view', 
-                    height: 0, 
-                    width: 0,
-                    title: this.$t('entities.ibzreportly.views.calendareditview.title'),
-                    placement: '',
-                    deResParameters: [],
-                    parameters: [{ pathName: 'ibzreportlies', parameterName: 'ibzreportly' }, { pathName: 'calendareditview', parameterName: 'calendareditview' } ],
-                };
-                break;
-            case "story": 
-                view = {
-                    viewname: 'story-calendar-edit-view', 
-                    height: 0, 
-                    width: 0,
-                    title: this.$t('entities.story.views.calendareditview.title'),
-                    placement: '',
-                    deResParameters: [{ pathName: 'products', parameterName: 'product' }, ],
-                    parameters: [{ pathName: 'stories', parameterName: 'story' }, { pathName: 'calendareditview', parameterName: 'calendareditview' } ],
-                };
-                break;
             case "ibzdaily": 
                 view = {
                     viewname: 'ibz-daily-daily-info-calendar-edit-view', 
@@ -519,6 +497,28 @@ export class MyWorkPCCalendarBase extends MainControlBase {
                     placement: '',
                     deResParameters: [],
                     parameters: [{ pathName: 'ibzdailies', parameterName: 'ibzdaily' }, { pathName: 'dailyinfocalendareditview', parameterName: 'dailyinfocalendareditview' } ],
+                };
+                break;
+            case "task": 
+                view = {
+                    viewname: 'task-calendar-edit-view', 
+                    height: 0, 
+                    width: 0,
+                    title: this.$t('entities.task.views.calendareditview.title'),
+                    placement: '',
+                    deResParameters: [{ pathName: 'projectmodules', parameterName: 'projectmodule' }, ],
+                    parameters: [{ pathName: 'tasks', parameterName: 'task' }, { pathName: 'calendareditview', parameterName: 'calendareditview' } ],
+                };
+                break;
+            case "ibzreportly": 
+                view = {
+                    viewname: 'ibz-reportly-calendar-edit-view', 
+                    height: 0, 
+                    width: 0,
+                    title: this.$t('entities.ibzreportly.views.calendareditview.title'),
+                    placement: '',
+                    deResParameters: [],
+                    parameters: [{ pathName: 'ibzreportlies', parameterName: 'ibzreportly' }, { pathName: 'calendareditview', parameterName: 'calendareditview' } ],
                 };
                 break;
         }

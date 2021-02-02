@@ -253,8 +253,8 @@ public class IbizproProductMonthlyServiceImpl extends ServiceImpl<IbizproProduct
                 et.setZtproduct(majorEntity);
                 ztproduct = majorEntity;
             }
-            et.setProductname(ztproduct.getName());
             et.setPo(ztproduct.getPo());
+            et.setProductname(ztproduct.getName());
         }
     }
 

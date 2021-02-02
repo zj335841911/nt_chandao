@@ -128,7 +128,7 @@ export class ProductModuleTreeExpViewBase extends TreeExpViewBase {
      * @type {string}
      * @memberof ProductModuleTreeExpViewBase
      */
-	protected viewtag: string = '84104216ff9049079f9442c9cbd54342';
+	protected viewtag: string = '91d3e67caa36efe3f59590d8531a7e0b';
 
     /**
      * 视图名称

@@ -48,6 +48,13 @@ public class StorySearchContext extends QueryWrapperContext<Story> {
             this.getSearchCond().ne("`plan`", n_plan_noteq);
         }
     }
+	private String n_storypoints_eq;//[故事点]
+	public void setN_storypoints_eq(String n_storypoints_eq) {
+        this.n_storypoints_eq = n_storypoints_eq;
+        if(!ObjectUtils.isEmpty(this.n_storypoints_eq)){
+            this.getSearchCond().eq("`storypoints`", n_storypoints_eq);
+        }
+    }
 	private Integer n_pri_eq;//[优先级]
 	public void setN_pri_eq(Integer n_pri_eq) {
         this.n_pri_eq = n_pri_eq;
@@ -67,6 +74,13 @@ public class StorySearchContext extends QueryWrapperContext<Story> {
         this.n_pri_ltandeq = n_pri_ltandeq;
         if(!ObjectUtils.isEmpty(this.n_pri_ltandeq)){
             this.getSearchCond().le("`pri`", n_pri_ltandeq);
+        }
+    }
+	private String n_assessresult_eq;//[评审结果]
+	public void setN_assessresult_eq(String n_assessresult_eq) {
+        this.n_assessresult_eq = n_assessresult_eq;
+        if(!ObjectUtils.isEmpty(this.n_assessresult_eq)){
+            this.getSearchCond().eq("`assessresult`", n_assessresult_eq);
         }
     }
 	private String n_status_eq;//[当前状态]
@@ -181,11 +195,25 @@ public class StorySearchContext extends QueryWrapperContext<Story> {
             this.getSearchCond().eq("`closedby`", n_closedby_eq);
         }
     }
+	private String n_result_eq;//[评审结果]
+	public void setN_result_eq(String n_result_eq) {
+        this.n_result_eq = n_result_eq;
+        if(!ObjectUtils.isEmpty(this.n_result_eq)){
+            this.getSearchCond().eq("`result`", n_result_eq);
+        }
+    }
 	private String n_type_eq;//[需求类型]
 	public void setN_type_eq(String n_type_eq) {
         this.n_type_eq = n_type_eq;
         if(!ObjectUtils.isEmpty(this.n_type_eq)){
             this.getSearchCond().eq("`type`", n_type_eq);
+        }
+    }
+	private Integer n_preversion_eq;//[之前的版本]
+	public void setN_preversion_eq(Integer n_preversion_eq) {
+        this.n_preversion_eq = n_preversion_eq;
+        if(!ObjectUtils.isEmpty(this.n_preversion_eq)){
+            this.getSearchCond().eq("`preversion`", n_preversion_eq);
         }
     }
 	private String n_path_like;//[模块路径]
@@ -235,6 +263,20 @@ public class StorySearchContext extends QueryWrapperContext<Story> {
         this.n_prodoctname_like = n_prodoctname_like;
         if(!ObjectUtils.isEmpty(this.n_prodoctname_like)){
             this.getSearchCond().like("`prodoctname`", n_prodoctname_like);
+        }
+    }
+	private String n_branchname_eq;//[平台/分支]
+	public void setN_branchname_eq(String n_branchname_eq) {
+        this.n_branchname_eq = n_branchname_eq;
+        if(!ObjectUtils.isEmpty(this.n_branchname_eq)){
+            this.getSearchCond().eq("`branchname`", n_branchname_eq);
+        }
+    }
+	private String n_branchname_like;//[平台/分支]
+	public void setN_branchname_like(String n_branchname_like) {
+        this.n_branchname_like = n_branchname_like;
+        if(!ObjectUtils.isEmpty(this.n_branchname_like)){
+            this.getSearchCond().like("`branchname`", n_branchname_like);
         }
     }
 	private Long n_frombug_eq;//[来源Bug]
@@ -291,48 +333,6 @@ public class StorySearchContext extends QueryWrapperContext<Story> {
         this.n_tobug_eq = n_tobug_eq;
         if(!ObjectUtils.isEmpty(this.n_tobug_eq)){
             this.getSearchCond().eq("`tobug`", n_tobug_eq);
-        }
-    }
-	private String n_result_eq;//[评审结果]
-	public void setN_result_eq(String n_result_eq) {
-        this.n_result_eq = n_result_eq;
-        if(!ObjectUtils.isEmpty(this.n_result_eq)){
-            this.getSearchCond().eq("`result`", n_result_eq);
-        }
-    }
-	private String n_branchname_eq;//[平台/分支]
-	public void setN_branchname_eq(String n_branchname_eq) {
-        this.n_branchname_eq = n_branchname_eq;
-        if(!ObjectUtils.isEmpty(this.n_branchname_eq)){
-            this.getSearchCond().eq("`branchname`", n_branchname_eq);
-        }
-    }
-	private String n_branchname_like;//[平台/分支]
-	public void setN_branchname_like(String n_branchname_like) {
-        this.n_branchname_like = n_branchname_like;
-        if(!ObjectUtils.isEmpty(this.n_branchname_like)){
-            this.getSearchCond().like("`branchname`", n_branchname_like);
-        }
-    }
-	private Integer n_preversion_eq;//[之前的版本]
-	public void setN_preversion_eq(Integer n_preversion_eq) {
-        this.n_preversion_eq = n_preversion_eq;
-        if(!ObjectUtils.isEmpty(this.n_preversion_eq)){
-            this.getSearchCond().eq("`preversion`", n_preversion_eq);
-        }
-    }
-	private String n_storypoints_eq;//[故事点]
-	public void setN_storypoints_eq(String n_storypoints_eq) {
-        this.n_storypoints_eq = n_storypoints_eq;
-        if(!ObjectUtils.isEmpty(this.n_storypoints_eq)){
-            this.getSearchCond().eq("`storypoints`", n_storypoints_eq);
-        }
-    }
-	private String n_assessresult_eq;//[评审结果]
-	public void setN_assessresult_eq(String n_assessresult_eq) {
-        this.n_assessresult_eq = n_assessresult_eq;
-        if(!ObjectUtils.isEmpty(this.n_assessresult_eq)){
-            this.getSearchCond().eq("`assessresult`", n_assessresult_eq);
         }
     }
 

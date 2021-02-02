@@ -3,67 +3,67 @@ function getLocaleResourceBase(){
 	const data:any = {
 		appdename: commonLogic.appcommonhandle("用户年度工作内容统计", null),
 		fields: {
-			id: commonLogic.appcommonhandle("用户编号",null),
-			realname: commonLogic.appcommonhandle("真实用户名",null),
-			account: commonLogic.appcommonhandle("账号",null),
-			role: commonLogic.appcommonhandle("角色",null),
-			dept: commonLogic.appcommonhandle("部门编号",null),
-			visits: commonLogic.appcommonhandle("累计登录次数",null),
-			yearplancnt: commonLogic.appcommonhandle("累计创建计划数",null),
+			password: commonLogic.appcommonhandle("密码",null),
 			yearproductcnt: commonLogic.appcommonhandle("累计参与产品数",null),
-			yearstorycnt: commonLogic.appcommonhandle("累计创建需求数",null),
-			yearactioncnt: commonLogic.appcommonhandle("累计动态数",null),
 			yearbugcnt: commonLogic.appcommonhandle("累计创建Bug数",null),
-			yearcasecnt: commonLogic.appcommonhandle("累计创建用例数",null),
-			yearlogcnt: commonLogic.appcommonhandle("累计日志数",null),
-			yearestimatecnt: commonLogic.appcommonhandle("累计工时数",null),
-			judgerole: commonLogic.appcommonhandle("判断角色",null),
-			yearvisits: commonLogic.appcommonhandle("累计登录次数",null),
-			curyear: commonLogic.appcommonhandle("年度",null),
-			title: commonLogic.appcommonhandle("标题",null),
-			monthfinishtask: commonLogic.appcommonhandle("月完成任务数",null),
-			montestimate: commonLogic.appcommonhandle("月累计工时",null),
-			montresolvedbug: commonLogic.appcommonhandle("月解决Bug数",null),
-			curmonth: commonLogic.appcommonhandle("当前月",null),
-			slack: commonLogic.appcommonhandle("slack",null),
-			skype: commonLogic.appcommonhandle("skype",null),
-			score: commonLogic.appcommonhandle("score",null),
 			weixin: commonLogic.appcommonhandle("微信",null),
-			join: commonLogic.appcommonhandle("入职日期",null),
-			phone: commonLogic.appcommonhandle("电话",null),
-			fails: commonLogic.appcommonhandle("fails",null),
-			email: commonLogic.appcommonhandle("邮箱",null),
-			clientlang: commonLogic.appcommonhandle("clientLang",null),
-			deleted: commonLogic.appcommonhandle("逻辑删除标志",null),
-			ranzhi: commonLogic.appcommonhandle("ranzhi",null),
-			avatar: commonLogic.appcommonhandle("avatar",null),
-			commiter: commonLogic.appcommonhandle("源代码账户",null),
-			gender: commonLogic.appcommonhandle("性别",null),
+			yearcasecnt: commonLogic.appcommonhandle("累计创建用例数",null),
+			account: commonLogic.appcommonhandle("账号",null),
 			qq: commonLogic.appcommonhandle("QQ",null),
-			birthday: commonLogic.appcommonhandle("birthday",null),
-			locked: commonLogic.appcommonhandle("locked",null),
+			ranzhi: commonLogic.appcommonhandle("ranzhi",null),
+			nickname: commonLogic.appcommonhandle("nickname",null),
+			avatar: commonLogic.appcommonhandle("avatar",null),
+			monthfinishtask: commonLogic.appcommonhandle("月完成任务数",null),
+			fails: commonLogic.appcommonhandle("fails",null),
+			join: commonLogic.appcommonhandle("入职日期",null),
+			yearstorycnt: commonLogic.appcommonhandle("累计创建需求数",null),
+			yearplancnt: commonLogic.appcommonhandle("累计创建计划数",null),
 			dingding: commonLogic.appcommonhandle("钉钉",null),
 			ip: commonLogic.appcommonhandle("ip",null),
-			whatsapp: commonLogic.appcommonhandle("whatsapp",null),
-			zipcode: commonLogic.appcommonhandle("zipcode",null),
-			password: commonLogic.appcommonhandle("密码",null),
-			nickname: commonLogic.appcommonhandle("nickname",null),
-			clientstatus: commonLogic.appcommonhandle("clientStatus",null),
-			scorelevel: commonLogic.appcommonhandle("scoreLevel",null),
+			yearactioncnt: commonLogic.appcommonhandle("累计动态数",null),
 			mobile: commonLogic.appcommonhandle("手机",null),
+			whatsapp: commonLogic.appcommonhandle("whatsapp",null),
+			id: commonLogic.appcommonhandle("用户编号",null),
+			email: commonLogic.appcommonhandle("邮箱",null),
+			yearestimatecnt: commonLogic.appcommonhandle("累计工时数",null),
+			clientlang: commonLogic.appcommonhandle("clientLang",null),
+			montestimate: commonLogic.appcommonhandle("月累计工时",null),
+			realname: commonLogic.appcommonhandle("真实用户名",null),
+			commiter: commonLogic.appcommonhandle("源代码账户",null),
+			slack: commonLogic.appcommonhandle("slack",null),
+			deleted: commonLogic.appcommonhandle("逻辑删除标志",null),
 			last: commonLogic.appcommonhandle("最后登录",null),
+			curyear: commonLogic.appcommonhandle("年度",null),
+			judgerole: commonLogic.appcommonhandle("判断角色",null),
+			skype: commonLogic.appcommonhandle("skype",null),
+			birthday: commonLogic.appcommonhandle("birthday",null),
+			phone: commonLogic.appcommonhandle("电话",null),
+			yearvisits: commonLogic.appcommonhandle("累计登录次数",null),
+			score: commonLogic.appcommonhandle("score",null),
+			role: commonLogic.appcommonhandle("角色",null),
+			clientstatus: commonLogic.appcommonhandle("clientStatus",null),
+			dept: commonLogic.appcommonhandle("部门编号",null),
+			title: commonLogic.appcommonhandle("标题",null),
+			curmonth: commonLogic.appcommonhandle("当前月",null),
+			montresolvedbug: commonLogic.appcommonhandle("月解决Bug数",null),
 			address: commonLogic.appcommonhandle("通讯地址",null),
+			scorelevel: commonLogic.appcommonhandle("scoreLevel",null),
+			visits: commonLogic.appcommonhandle("累计登录次数",null),
+			yearlogcnt: commonLogic.appcommonhandle("累计日志数",null),
+			locked: commonLogic.appcommonhandle("locked",null),
+			gender: commonLogic.appcommonhandle("性别",null),
+			zipcode: commonLogic.appcommonhandle("zipcode",null),
 		},
 			views: {
+				dashboardview: {
+					caption: commonLogic.appcommonhandle("用户年度工作内容统计",null),
+					title: commonLogic.appcommonhandle("用户年度工作内容统计数据看板视图",null),
+				},
 				infoeditview9: {
 					caption: commonLogic.appcommonhandle("基础信息",null),
 					title: commonLogic.appcommonhandle("用户年度工作内容统计编辑视图（基础信息）",null),
 				},
-				titleeditview9: {
-					caption: commonLogic.appcommonhandle("标题",null),
-					title: commonLogic.appcommonhandle("用户年度工作内容统计编辑视图（标题）",null),
-				},
-				dashboardview: {
+				podashboardview: {
 					caption: commonLogic.appcommonhandle("用户年度工作内容统计",null),
 					title: commonLogic.appcommonhandle("用户年度工作内容统计数据看板视图",null),
 				},
@@ -71,13 +71,13 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("用户年度工作内容统计",null),
 					title: commonLogic.appcommonhandle("用户年度工作内容统计数据看板视图",null),
 				},
-				podashboardview: {
-					caption: commonLogic.appcommonhandle("用户年度工作内容统计",null),
-					title: commonLogic.appcommonhandle("用户年度工作内容统计数据看板视图",null),
-				},
 				editview: {
 					caption: commonLogic.appcommonhandle("用户年度工作内容统计",null),
 					title: commonLogic.appcommonhandle("用户年度工作内容统计编辑视图",null),
+				},
+				titleeditview9: {
+					caption: commonLogic.appcommonhandle("标题",null),
+					title: commonLogic.appcommonhandle("用户年度工作内容统计编辑视图（标题）",null),
 				},
 			},
 			basismaininfo_form: {
@@ -188,14 +188,39 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
-			monthopenedbugandcase_chart: {
+			monthfinishtaskandbug_chart: {
 				nodata:commonLogic.appcommonhandle("",null),
 			},
-			monthfinishtaskandbug_chart: {
+			monthopenedbugandcase_chart: {
 				nodata:commonLogic.appcommonhandle("",null),
 			},
 			monthopenedstory_chart: {
 				nodata:commonLogic.appcommonhandle("",null),
+			},
+			dashboardviewdashboard_container3_portlet: {
+				uiactions: {
+				},
+			},
+			dashboardviewdashboard_container4_portlet: {
+				dashboardviewdashboard_container4: {
+					title: commonLogic.appcommonhandle("完成任务数和解决Bug数", null)
+				},
+				uiactions: {
+				},
+			},
+			dashboardviewdashboard_container5_portlet: {
+				dashboardviewdashboard_container5: {
+					title: commonLogic.appcommonhandle("月完成任务数及累计工时和解决Bug数", null)
+				},
+				uiactions: {
+				},
+			},
+			finishtaskandbug_portlet: {
+				finishtaskandbug: {
+					title: commonLogic.appcommonhandle("月完成任务数及累计工时和解决Bug数", null)
+				},
+				uiactions: {
+				},
 			},
 			qadashboardviewdashboard_container3_portlet: {
 				uiactions: {
@@ -226,31 +251,6 @@ function getLocaleResourceBase(){
 			monthopenedbugandcase_portlet: {
 				monthopenedbugandcase: {
 					title: commonLogic.appcommonhandle("月创建Bug数和创建用例数", null)
-				},
-				uiactions: {
-				},
-			},
-			dashboardviewdashboard_container3_portlet: {
-				uiactions: {
-				},
-			},
-			dashboardviewdashboard_container4_portlet: {
-				dashboardviewdashboard_container4: {
-					title: commonLogic.appcommonhandle("完成任务数和解决Bug数", null)
-				},
-				uiactions: {
-				},
-			},
-			dashboardviewdashboard_container5_portlet: {
-				dashboardviewdashboard_container5: {
-					title: commonLogic.appcommonhandle("月完成任务数及累计工时和解决Bug数", null)
-				},
-				uiactions: {
-				},
-			},
-			finishtaskandbug_portlet: {
-				finishtaskandbug: {
-					title: commonLogic.appcommonhandle("月完成任务数及累计工时和解决Bug数", null)
 				},
 				uiactions: {
 				},

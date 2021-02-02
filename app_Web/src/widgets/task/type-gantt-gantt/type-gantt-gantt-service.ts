@@ -108,12 +108,12 @@ export default class TypeGanttService extends ControlService {
      */
     public dataModel: any = {
         TaskTypes: {
-            assignedto: {
-                prop: 'assignedto',
-                default: null
-            },
             end: {
                 prop: 'deadline',
+                default: null
+            },
+            assignedto: {
+                prop: 'assignedto',
                 default: null
             },
             start: {
@@ -132,30 +132,38 @@ export default class TypeGanttService extends ControlService {
         ROOT: {
         },
         ChildTasks: {
-            text: {
-                prop: 'name',
+            taskduration: {
+                prop: 'duration',
                 default: null
             },
-            assignedto: {
-                prop: 'assignedto',
+            text: {
+                prop: 'name',
                 default: null
             },
             end: {
                 prop: 'deadline',
                 default: null
             },
-            start: {
-                prop: 'eststarted',
+            assignedto: {
+                prop: 'assignedto',
                 default: null
             },
-            taskduration: {
-                prop: 'duration',
+            start: {
+                prop: 'eststarted',
                 default: null
             },
         },
         Tasks: {
+            assignedto: {
+                prop: 'assignedto',
+                default: null
+            },
             start: {
                 prop: 'eststarted',
+                default: null
+            },
+            taskduration: {
+                prop: 'duration',
                 default: null
             },
             text: {
@@ -164,14 +172,6 @@ export default class TypeGanttService extends ControlService {
             },
             end: {
                 prop: 'deadline',
-                default: null
-            },
-            assignedto: {
-                prop: 'assignedto',
-                default: null
-            },
-            taskduration: {
-                prop: 'duration',
                 default: null
             },
         },

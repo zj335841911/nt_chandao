@@ -53,12 +53,12 @@ export default class TypeGanttModel {
                     prop: 'type'
                   },
                   {
-                    name: 'assignedto',
-                    prop: 'assignedto'
-                  },
-                  {
                     name: 'end',
                     prop: 'deadline'
+                  },
+                  {
+                    name: 'assignedto',
+                    prop: 'assignedto'
                   },
                   {
                     name: 'start',
@@ -81,24 +81,24 @@ export default class TypeGanttModel {
                     prop: 'id'
                   },
                   {
-                    name: 'text',
-                    prop: 'name'
+                    name: 'taskduration',
+                    prop: 'duration'
                   },
                   {
-                    name: 'assignedto',
-                    prop: 'assignedto'
+                    name: 'text',
+                    prop: 'name'
                   },
                   {
                     name: 'end',
                     prop: 'deadline'
                   },
                   {
-                    name: 'start',
-                    prop: 'eststarted'
+                    name: 'assignedto',
+                    prop: 'assignedto'
                   },
                   {
-                    name: 'taskduration',
-                    prop: 'duration'
+                    name: 'start',
+                    prop: 'eststarted'
                   },
               ];
               break;
@@ -109,8 +109,16 @@ export default class TypeGanttModel {
                     prop: 'id'
                   },
                   {
+                    name: 'assignedto',
+                    prop: 'assignedto'
+                  },
+                  {
                     name: 'start',
                     prop: 'eststarted'
+                  },
+                  {
+                    name: 'taskduration',
+                    prop: 'duration'
                   },
                   {
                     name: 'text',
@@ -119,14 +127,6 @@ export default class TypeGanttModel {
                   {
                     name: 'end',
                     prop: 'deadline'
-                  },
-                  {
-                    name: 'assignedto',
-                    prop: 'assignedto'
-                  },
-                  {
-                    name: 'taskduration',
-                    prop: 'duration'
                   },
               ];
               break;

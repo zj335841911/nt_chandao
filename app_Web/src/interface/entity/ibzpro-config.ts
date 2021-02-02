@@ -7,6 +7,14 @@
 export interface IbzproConfig {
 
     /**
+     * 更新人
+     *
+     * @returns {*}
+     * @memberof IbzproConfig
+     */
+    updateman?: any;
+
+    /**
      * 系统配置表名称
      *
      * @returns {*}
@@ -15,20 +23,12 @@ export interface IbzproConfig {
     ibzproconfigname?: any;
 
     /**
-     * 系统配置表标识
+     * 描述
      *
      * @returns {*}
      * @memberof IbzproConfig
      */
-    ibzproconfigid?: any;
-
-    /**
-     * 更新人
-     *
-     * @returns {*}
-     * @memberof IbzproConfig
-     */
-    updateman?: any;
+    memo?: any;
 
     /**
      * 更新时间
@@ -47,12 +47,12 @@ export interface IbzproConfig {
     createdate?: any;
 
     /**
-     * 建立人
+     * 系统配置表标识
      *
      * @returns {*}
      * @memberof IbzproConfig
      */
-    createman?: any;
+    ibzproconfigid?: any;
 
     /**
      * 范围
@@ -61,22 +61,6 @@ export interface IbzproConfig {
      * @memberof IbzproConfig
      */
     scope?: any;
-
-    /**
-     * 是否启用
-     *
-     * @returns {*}
-     * @memberof IbzproConfig
-     */
-    vaild?: any;
-
-    /**
-     * 描述
-     *
-     * @returns {*}
-     * @memberof IbzproConfig
-     */
-    memo?: any;
 
     /**
      * 类型
@@ -93,4 +77,20 @@ export interface IbzproConfig {
      * @memberof IbzproConfig
      */
     managementstatus?: any;
+
+    /**
+     * 是否启用
+     *
+     * @returns {*}
+     * @memberof IbzproConfig
+     */
+    vaild?: any;
+
+    /**
+     * 建立人
+     *
+     * @returns {*}
+     * @memberof IbzproConfig
+     */
+    createman?: any;
 }

@@ -105,7 +105,7 @@ export class ProductProjectGridView9Base extends GridView9Base {
      * @type {string}
      * @memberof ProductProjectGridView9Base
      */
-	protected viewtag: string = '0b1b51910ca13751bfd6d356dcadbbce';
+	protected viewtag: string = '581084cd753b743ee95f85d6b2ee472c';
 
     /**
      * 视图名称

@@ -152,7 +152,7 @@ export class TodoDashboardViewBase extends DashboardViewBase {
      * @type {string}
      * @memberof TodoDashboardViewBase
      */
-	protected viewtag: string = 'ebf37bf3881bb27c09db9bbe5d0b0f77';
+	protected viewtag: string = '61d2ee8616572ff282d832653d6e8461';
 
     /**
      * 视图名称

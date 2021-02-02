@@ -128,7 +128,7 @@ export class BugMPickupView5Base extends MPickupViewBase {
      * @type {string}
      * @memberof BugMPickupView5Base
      */
-	protected viewtag: string = 'f1e935bce2146c2c75597dcee9ee4412';
+	protected viewtag: string = '061236c487f882bb6b17d4e6e44fcc3f';
 
     /**
      * 视图名称

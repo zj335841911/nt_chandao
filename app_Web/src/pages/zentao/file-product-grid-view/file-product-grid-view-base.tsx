@@ -141,7 +141,7 @@ export class FileProductGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof FileProductGridViewBase
      */
-	protected viewtag: string = 'bfdd5a8d625f1be3f009084fbc16c909';
+	protected viewtag: string = '25604124fe30ec7cc83066e3e058b0ec';
 
     /**
      * 视图名称

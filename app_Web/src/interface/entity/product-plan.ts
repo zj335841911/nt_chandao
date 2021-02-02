@@ -7,12 +7,44 @@
 export interface ProductPlan {
 
     /**
+     * 总任务数
+     *
+     * @returns {*}
+     * @memberof ProductPlan
+     */
+    taskscnt?: any;
+
+    /**
+     * 工时数
+     *
+     * @returns {*}
+     * @memberof ProductPlan
+     */
+    estimatecnt?: any;
+
+    /**
      * 名称
      *
      * @returns {*}
      * @memberof ProductPlan
      */
     title?: any;
+
+    /**
+     * 延迟任务数
+     *
+     * @returns {*}
+     * @memberof ProductPlan
+     */
+    delaytaskscnt?: any;
+
+    /**
+     * 上一次计划名称
+     *
+     * @returns {*}
+     * @memberof ProductPlan
+     */
+    oldtitle?: any;
 
     /**
      * 编号
@@ -31,6 +63,14 @@ export interface ProductPlan {
     begin?: any;
 
     /**
+     * 状态
+     *
+     * @returns {*}
+     * @memberof ProductPlan
+     */
+    statuss?: any;
+
+    /**
      * 描述
      *
      * @returns {*}
@@ -47,6 +87,54 @@ export interface ProductPlan {
     end?: any;
 
     /**
+     * 持续时间
+     *
+     * @returns {*}
+     * @memberof ProductPlan
+     */
+    duration?: any;
+
+    /**
+     * 开始日期
+     *
+     * @returns {*}
+     * @memberof ProductPlan
+     */
+    beginstr?: any;
+
+    /**
+     * 计划模板
+     *
+     * @returns {*}
+     * @memberof ProductPlan
+     */
+    plantemplet?: any;
+
+    /**
+     * 未完成任务数
+     *
+     * @returns {*}
+     * @memberof ProductPlan
+     */
+    unfinishedtaskscnt?: any;
+
+    /**
+     * 结束日期
+     *
+     * @returns {*}
+     * @memberof ProductPlan
+     */
+    endstr?: any;
+
+    /**
+     * 是否过期
+     *
+     * @returns {*}
+     * @memberof ProductPlan
+     */
+    isexpired?: any;
+
+    /**
      * 已删除
      *
      * @returns {*}
@@ -61,6 +149,46 @@ export interface ProductPlan {
      * @memberof ProductPlan
      */
     order?: any;
+
+    /**
+     * 待定
+     *
+     * @returns {*}
+     * @memberof ProductPlan
+     */
+    future?: any;
+
+    /**
+     * 需求数
+     *
+     * @returns {*}
+     * @memberof ProductPlan
+     */
+    storycnt?: any;
+
+    /**
+     * 周期
+     *
+     * @returns {*}
+     * @memberof ProductPlan
+     */
+    delta?: any;
+
+    /**
+     * 完成任务数
+     *
+     * @returns {*}
+     * @memberof ProductPlan
+     */
+    finishedtaskscnt?: any;
+
+    /**
+     * bug数
+     *
+     * @returns {*}
+     * @memberof ProductPlan
+     */
+    bugcnt?: any;
 
     /**
      * 父计划名称
@@ -93,132 +221,4 @@ export interface ProductPlan {
      * @memberof ProductPlan
      */
     product?: any;
-
-    /**
-     * 状态
-     *
-     * @returns {*}
-     * @memberof ProductPlan
-     */
-    statuss?: any;
-
-    /**
-     * 待定
-     *
-     * @returns {*}
-     * @memberof ProductPlan
-     */
-    future?: any;
-
-    /**
-     * 周期
-     *
-     * @returns {*}
-     * @memberof ProductPlan
-     */
-    delta?: any;
-
-    /**
-     * 上一次计划名称
-     *
-     * @returns {*}
-     * @memberof ProductPlan
-     */
-    oldtitle?: any;
-
-    /**
-     * 需求数
-     *
-     * @returns {*}
-     * @memberof ProductPlan
-     */
-    storycnt?: any;
-
-    /**
-     * bug数
-     *
-     * @returns {*}
-     * @memberof ProductPlan
-     */
-    bugcnt?: any;
-
-    /**
-     * 是否过期
-     *
-     * @returns {*}
-     * @memberof ProductPlan
-     */
-    isexpired?: any;
-
-    /**
-     * 工时数
-     *
-     * @returns {*}
-     * @memberof ProductPlan
-     */
-    estimatecnt?: any;
-
-    /**
-     * 开始日期
-     *
-     * @returns {*}
-     * @memberof ProductPlan
-     */
-    beginstr?: any;
-
-    /**
-     * 结束日期
-     *
-     * @returns {*}
-     * @memberof ProductPlan
-     */
-    endstr?: any;
-
-    /**
-     * 计划模板
-     *
-     * @returns {*}
-     * @memberof ProductPlan
-     */
-    plantemplet?: any;
-
-    /**
-     * 延迟任务数
-     *
-     * @returns {*}
-     * @memberof ProductPlan
-     */
-    delaytaskscnt?: any;
-
-    /**
-     * 未完成任务数
-     *
-     * @returns {*}
-     * @memberof ProductPlan
-     */
-    unfinishedtaskscnt?: any;
-
-    /**
-     * 完成任务数
-     *
-     * @returns {*}
-     * @memberof ProductPlan
-     */
-    finishedtaskscnt?: any;
-
-    /**
-     * 总任务数
-     *
-     * @returns {*}
-     * @memberof ProductPlan
-     */
-    taskscnt?: any;
-
-    /**
-     * 持续时间
-     *
-     * @returns {*}
-     * @memberof ProductPlan
-     */
-    duration?: any;
 }

@@ -3,15 +3,15 @@ function getLocaleResourceBase(){
 	const data:any = {
 		appdename: commonLogic.appcommonhandle("用例库用例步骤", null),
 		fields: {
-			version: commonLogic.appcommonhandle("版本",null),
-			ibizcase: commonLogic.appcommonhandle("用例编号",null),
+			reals: commonLogic.appcommonhandle("实际情况",null),
 			expect: commonLogic.appcommonhandle("预期",null),
+			desc: commonLogic.appcommonhandle("步骤",null),
 			files: commonLogic.appcommonhandle("附件",null),
 			id: commonLogic.appcommonhandle("编号",null),
-			reals: commonLogic.appcommonhandle("实际情况",null),
-			desc: commonLogic.appcommonhandle("步骤",null),
-			parent: commonLogic.appcommonhandle("编号",null),
 			type: commonLogic.appcommonhandle("类型",null),
+			version: commonLogic.appcommonhandle("版本",null),
+			parent: commonLogic.appcommonhandle("编号",null),
+			ibizcase: commonLogic.appcommonhandle("用例编号",null),
 		},
 			views: {
 				infogridview9: {

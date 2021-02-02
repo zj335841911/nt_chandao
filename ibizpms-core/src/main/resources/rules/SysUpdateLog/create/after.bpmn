@@ -9,8 +9,8 @@
         </extensionElements>
             <startEvent id="begin" isInterrupting="true"/>
             <endEvent id="prepareparam1_end" name="end"/>
-           <callActivity activiti:exclusive="true" calledElement="cn.ibizlab.pms.core.ibiz.service.logic.sysupdatelogupdatelasted" id="8916DC7D-8EB7-49E3-AB7E-31BD42F1334B" name="SysUpdateLogUpdateLastedRuleFlow.bpmn"/>
-           <sequenceFlow id="begin_8916DC7D-8EB7-49E3-AB7E-31BD42F1334B" sourceRef="begin" targetRef="8916DC7D-8EB7-49E3-AB7E-31BD42F1334B"/>
-           <sequenceFlow id="8916DC7D-8EB7-49E3-AB7E-31BD42F1334B_prepareparam1_end" sourceRef="8916DC7D-8EB7-49E3-AB7E-31BD42F1334B" targetRef="prepareparam1_end"/>
+           <callActivity activiti:exclusive="true" calledElement="cn.ibizlab.pms.core.ibiz.service.logic.sysupdatelogupdatelasted" id="48e813679e2f0ff718c7ebedbc26fff7" name="SysUpdateLogUpdateLastedRuleFlow.bpmn"/>
+           <sequenceFlow id="begin_48e813679e2f0ff718c7ebedbc26fff7" sourceRef="begin" targetRef="48e813679e2f0ff718c7ebedbc26fff7"/>
+           <sequenceFlow id="48e813679e2f0ff718c7ebedbc26fff7_prepareparam1_end" sourceRef="48e813679e2f0ff718c7ebedbc26fff7" targetRef="prepareparam1_end"/>
     </process>
 </definitions>

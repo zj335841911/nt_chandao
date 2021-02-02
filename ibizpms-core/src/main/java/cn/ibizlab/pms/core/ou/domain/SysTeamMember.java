@@ -63,25 +63,11 @@ public class SysTeamMember extends EntityClient implements Serializable {
     private String domains;
 
     /**
-     * 用户标识
+     * 头像
      */
-    @JSONField(name = "userid")
-    @JsonProperty("userid")
-    private String userid;
-
-    /**
-     * 组标识
-     */
-    @JSONField(name = "teamid")
-    @JsonProperty("teamid")
-    private String teamid;
-
-    /**
-     * 岗位标识
-     */
-    @JSONField(name = "postid")
-    @JsonProperty("postid")
-    private String postid;
+    @JSONField(name = "usericon")
+    @JsonProperty("usericon")
+    private String usericon;
 
     /**
      * 姓名
@@ -98,11 +84,25 @@ public class SysTeamMember extends EntityClient implements Serializable {
     private String username;
 
     /**
-     * 头像
+     * 岗位标识
      */
-    @JSONField(name = "usericon")
-    @JsonProperty("usericon")
-    private String usericon;
+    @JSONField(name = "postid")
+    @JsonProperty("postid")
+    private String postid;
+
+    /**
+     * 组标识
+     */
+    @JSONField(name = "teamid")
+    @JsonProperty("teamid")
+    private String teamid;
+
+    /**
+     * 用户标识
+     */
+    @JSONField(name = "userid")
+    @JsonProperty("userid")
+    private String userid;
 
 
     /**
@@ -138,11 +138,11 @@ public class SysTeamMember extends EntityClient implements Serializable {
     }
 
     /**
-     * 设置 [用户标识]
+     * 设置 [岗位标识]
      */
-    public void setUserid(String userid) {
-        this.userid = userid ;
-        this.modify("userid", userid);
+    public void setPostid(String postid) {
+        this.postid = postid ;
+        this.modify("postid", postid);
     }
 
     /**
@@ -154,11 +154,11 @@ public class SysTeamMember extends EntityClient implements Serializable {
     }
 
     /**
-     * 设置 [岗位标识]
+     * 设置 [用户标识]
      */
-    public void setPostid(String postid) {
-        this.postid = postid ;
-        this.modify("postid", postid);
+    public void setUserid(String userid) {
+        this.userid = userid ;
+        this.modify("userid", userid);
     }
 
     /**

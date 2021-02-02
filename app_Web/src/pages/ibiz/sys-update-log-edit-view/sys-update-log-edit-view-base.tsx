@@ -125,7 +125,7 @@ export class SysUpdateLogEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof SysUpdateLogEditViewBase
      */
-	protected viewtag: string = 'f2dfdf637fb965a83519ac280de3e97c';
+	protected viewtag: string = '172b7a0413a1bfcf5223f1dc1d3e931c';
 
     /**
      * 视图名称

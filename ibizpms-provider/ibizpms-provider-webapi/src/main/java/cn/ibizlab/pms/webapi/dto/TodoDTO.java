@@ -48,6 +48,41 @@ public class TodoDTO extends DTOBase implements Serializable {
     private String account;
 
     /**
+     * 属性 [CONFIG_DAY]
+     *
+     */
+    @JSONField(name = "config_day")
+    @JsonProperty("config_day")
+    private Integer configDay;
+
+    /**
+     * 属性 [ASSIGNEDTOPK]
+     *
+     */
+    @JSONField(name = "assignedtopk")
+    @JsonProperty("assignedtopk")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String assignedtopk;
+
+    /**
+     * 属性 [DATE1]
+     *
+     */
+    @JSONField(name = "date1")
+    @JsonProperty("date1")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String date1;
+
+    /**
+     * 属性 [CONFIG_TYPE]
+     *
+     */
+    @JSONField(name = "config_type")
+    @JsonProperty("config_type")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String configType;
+
+    /**
      * 属性 [CLOSEDDATE]
      *
      */
@@ -92,6 +127,15 @@ public class TodoDTO extends DTOBase implements Serializable {
     private String desc;
 
     /**
+     * 属性 [NOTICEUSERS]
+     *
+     */
+    @JSONField(name = "noticeusers")
+    @JsonProperty("noticeusers")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String noticeusers;
+
+    /**
      * 属性 [FINISHEDBY]
      *
      */
@@ -127,6 +171,33 @@ public class TodoDTO extends DTOBase implements Serializable {
     private String assignedby;
 
     /**
+     * 属性 [CONFIG_MONTH]
+     *
+     */
+    @JSONField(name = "config_month")
+    @JsonProperty("config_month")
+    @Size(min = 0, max = 4000, message = "内容长度必须小于等于[4000]")
+    private String configMonth;
+
+    /**
+     * 属性 [TASK]
+     *
+     */
+    @JSONField(name = "task")
+    @JsonProperty("task")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String task;
+
+    /**
+     * 属性 [BUG]
+     *
+     */
+    @JSONField(name = "bug")
+    @JsonProperty("bug")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String bug;
+
+    /**
      * 属性 [FINISHEDDATE]
      *
      */
@@ -142,6 +213,24 @@ public class TodoDTO extends DTOBase implements Serializable {
     @JSONField(name = "cycle")
     @JsonProperty("cycle")
     private Integer cycle;
+
+    /**
+     * 属性 [DATE_DISABLE]
+     *
+     */
+    @JSONField(name = "date_disable")
+    @JsonProperty("date_disable")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String dateDisable;
+
+    /**
+     * 属性 [CONFIG_WEEK]
+     *
+     */
+    @JSONField(name = "config_week")
+    @JsonProperty("config_week")
+    @Size(min = 0, max = 4000, message = "内容长度必须小于等于[4000]")
+    private String configWeek;
 
     /**
      * 属性 [ASSIGNEDTO]
@@ -162,6 +251,14 @@ public class TodoDTO extends DTOBase implements Serializable {
     private String status;
 
     /**
+     * 属性 [CONFIG_BEFOREDAYS]
+     *
+     */
+    @JSONField(name = "config_beforedays")
+    @JsonProperty("config_beforedays")
+    private Integer configBeforedays;
+
+    /**
      * 属性 [NAME]
      *
      */
@@ -178,6 +275,15 @@ public class TodoDTO extends DTOBase implements Serializable {
     @JSONField(name = "assigneddate" , format="yyyy-MM-dd")
     @JsonProperty("assigneddate")
     private Timestamp assigneddate;
+
+    /**
+     * 属性 [CONFIG_END]
+     *
+     */
+    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "config_end" , format="yyyy-MM-dd")
+    @JsonProperty("config_end")
+    private Timestamp configEnd;
 
     /**
      * 属性 [PRI]
@@ -197,6 +303,15 @@ public class TodoDTO extends DTOBase implements Serializable {
     private Timestamp date;
 
     /**
+     * 属性 [STORY]
+     *
+     */
+    @JSONField(name = "story")
+    @JsonProperty("story")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String story;
+
+    /**
      * 属性 [PRIVATE]
      *
      */
@@ -213,121 +328,6 @@ public class TodoDTO extends DTOBase implements Serializable {
     @JsonProperty("config")
     @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
     private String config;
-
-    /**
-     * 属性 [CONFIG_DAY]
-     *
-     */
-    @JSONField(name = "config_day")
-    @JsonProperty("config_day")
-    private Integer configDay;
-
-    /**
-     * 属性 [CONFIG_BEFOREDAYS]
-     *
-     */
-    @JSONField(name = "config_beforedays")
-    @JsonProperty("config_beforedays")
-    private Integer configBeforedays;
-
-    /**
-     * 属性 [CONFIG_WEEK]
-     *
-     */
-    @JSONField(name = "config_week")
-    @JsonProperty("config_week")
-    @Size(min = 0, max = 4000, message = "内容长度必须小于等于[4000]")
-    private String configWeek;
-
-    /**
-     * 属性 [CONFIG_MONTH]
-     *
-     */
-    @JSONField(name = "config_month")
-    @JsonProperty("config_month")
-    @Size(min = 0, max = 4000, message = "内容长度必须小于等于[4000]")
-    private String configMonth;
-
-    /**
-     * 属性 [CONFIG_TYPE]
-     *
-     */
-    @JSONField(name = "config_type")
-    @JsonProperty("config_type")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String configType;
-
-    /**
-     * 属性 [CONFIG_END]
-     *
-     */
-    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "config_end" , format="yyyy-MM-dd")
-    @JsonProperty("config_end")
-    private Timestamp configEnd;
-
-    /**
-     * 属性 [BUG]
-     *
-     */
-    @JSONField(name = "bug")
-    @JsonProperty("bug")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String bug;
-
-    /**
-     * 属性 [TASK]
-     *
-     */
-    @JSONField(name = "task")
-    @JsonProperty("task")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String task;
-
-    /**
-     * 属性 [STORY]
-     *
-     */
-    @JSONField(name = "story")
-    @JsonProperty("story")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String story;
-
-    /**
-     * 属性 [DATE1]
-     *
-     */
-    @JSONField(name = "date1")
-    @JsonProperty("date1")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String date1;
-
-    /**
-     * 属性 [DATE_DISABLE]
-     *
-     */
-    @JSONField(name = "date_disable")
-    @JsonProperty("date_disable")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String dateDisable;
-
-    /**
-     * 属性 [ASSIGNEDTOPK]
-     *
-     */
-    @JSONField(name = "assignedtopk")
-    @JsonProperty("assignedtopk")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String assignedtopk;
-
-    /**
-     * 属性 [NOTICEUSERS]
-     *
-     */
-    @JSONField(name = "noticeusers")
-    @JsonProperty("noticeusers")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String noticeusers;
 
 
     /**

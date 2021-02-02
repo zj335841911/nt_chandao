@@ -30,6 +30,41 @@ public class PlanTempletDetailDTO extends DTOBase implements Serializable {
 	private static final long serialVersionUID = 1L;
 
     /**
+     * 属性 [TYPE]
+     *
+     */
+    @JSONField(name = "type")
+    @JsonProperty("type")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    private String type;
+
+    /**
+     * 属性 [PLANCODE]
+     *
+     */
+    @JSONField(name = "plancode")
+    @JsonProperty("plancode")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String plancode;
+
+    /**
+     * 属性 [DESC]
+     *
+     */
+    @JSONField(name = "desc")
+    @JsonProperty("desc")
+    @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
+    private String desc;
+
+    /**
+     * 属性 [ORDER]
+     *
+     */
+    @JSONField(name = "order")
+    @JsonProperty("order")
+    private Integer order;
+
+    /**
      * 属性 [IBZ_PLANTEMPLETDETAILID]
      *
      */
@@ -75,6 +110,15 @@ public class PlanTempletDetailDTO extends DTOBase implements Serializable {
     private String updateman;
 
     /**
+     * 属性 [EXPECT]
+     *
+     */
+    @JSONField(name = "expect")
+    @JsonProperty("expect")
+    @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
+    private String expect;
+
+    /**
      * 属性 [UPDATEDATE]
      *
      */
@@ -92,65 +136,13 @@ public class PlanTempletDetailDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String plantempletid;
 
-    /**
-     * 属性 [PLANCODE]
-     *
-     */
-    @JSONField(name = "plancode")
-    @JsonProperty("plancode")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String plancode;
 
     /**
-     * 属性 [ORDER]
-     *
+     * 设置 [TYPE]
      */
-    @JSONField(name = "order")
-    @JsonProperty("order")
-    private Integer order;
-
-    /**
-     * 属性 [DESC]
-     *
-     */
-    @JSONField(name = "desc")
-    @JsonProperty("desc")
-    @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
-    private String desc;
-
-    /**
-     * 属性 [EXPECT]
-     *
-     */
-    @JSONField(name = "expect")
-    @JsonProperty("expect")
-    @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
-    private String expect;
-
-    /**
-     * 属性 [TYPE]
-     *
-     */
-    @JSONField(name = "type")
-    @JsonProperty("type")
-    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
-    private String type;
-
-
-    /**
-     * 设置 [IBZ_PLANTEMPLETDETAILNAME]
-     */
-    public void setIbzplantempletdetailname(String  ibzplantempletdetailname){
-        this.ibzplantempletdetailname = ibzplantempletdetailname ;
-        this.modify("ibz_plantempletdetailname",ibzplantempletdetailname);
-    }
-
-    /**
-     * 设置 [PLANTEMPLETID]
-     */
-    public void setPlantempletid(String  plantempletid){
-        this.plantempletid = plantempletid ;
-        this.modify("plantempletid",plantempletid);
+    public void setType(String  type){
+        this.type = type ;
+        this.modify("type",type);
     }
 
     /**
@@ -162,6 +154,14 @@ public class PlanTempletDetailDTO extends DTOBase implements Serializable {
     }
 
     /**
+     * 设置 [DESC]
+     */
+    public void setDesc(String  desc){
+        this.desc = desc ;
+        this.modify("desc",desc);
+    }
+
+    /**
      * 设置 [ORDER]
      */
     public void setOrder(Integer  order){
@@ -170,11 +170,11 @@ public class PlanTempletDetailDTO extends DTOBase implements Serializable {
     }
 
     /**
-     * 设置 [DESC]
+     * 设置 [IBZ_PLANTEMPLETDETAILNAME]
      */
-    public void setDesc(String  desc){
-        this.desc = desc ;
-        this.modify("desc",desc);
+    public void setIbzplantempletdetailname(String  ibzplantempletdetailname){
+        this.ibzplantempletdetailname = ibzplantempletdetailname ;
+        this.modify("ibz_plantempletdetailname",ibzplantempletdetailname);
     }
 
     /**
@@ -186,11 +186,11 @@ public class PlanTempletDetailDTO extends DTOBase implements Serializable {
     }
 
     /**
-     * 设置 [TYPE]
+     * 设置 [PLANTEMPLETID]
      */
-    public void setType(String  type){
-        this.type = type ;
-        this.modify("type",type);
+    public void setPlantempletid(String  plantempletid){
+        this.plantempletid = plantempletid ;
+        this.modify("plantempletid",plantempletid);
     }
 
 

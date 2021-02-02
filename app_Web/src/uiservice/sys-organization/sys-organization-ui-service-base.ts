@@ -96,19 +96,19 @@ export default class SysOrganizationUIServiceBase extends UIService {
      * @memberof  SysOrganizationUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set('MDATAVIEW:', {
-            viewname: 'gridview',
+        this.allViewMap.set('EDITVIEW:', {
+            viewname: 'editview',
             srfappde: 'sysorganizations',
-            component: 'sys-organization-grid-view',
+            component: 'sys-organization-edit-view',
             openmode: '',
             title: '单位',
             width: 0,
             height: 0
         });
-        this.allViewMap.set('EDITVIEW:', {
-            viewname: 'editview',
+        this.allViewMap.set('MDATAVIEW:', {
+            viewname: 'gridview',
             srfappde: 'sysorganizations',
-            component: 'sys-organization-edit-view',
+            component: 'sys-organization-grid-view',
             openmode: '',
             title: '单位',
             width: 0,

@@ -11,8 +11,8 @@
         </extensionElements>
             <startEvent id="begin" isInterrupting="true"/>
             <endEvent id="prepareparam1_end" name="end"/>
-           <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="15AC896A-30EE-47B7-8071-F6875BF95042" id="15AC896A-30EE-47B7-8071-F6875BF95042" implementation="http://www.jboss.org/drools/rule" name="storygetstoryspec"/>
-           <sequenceFlow id="begin_15AC896A-30EE-47B7-8071-F6875BF95042" sourceRef="begin" targetRef="15AC896A-30EE-47B7-8071-F6875BF95042"/>
-           <sequenceFlow id="15AC896A-30EE-47B7-8071-F6875BF95042_prepareparam1_end" sourceRef="15AC896A-30EE-47B7-8071-F6875BF95042" targetRef="prepareparam1_end"/>
+           <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="8a35251dd9a6667f40d9079f7eab62e6" id="8a35251dd9a6667f40d9079f7eab62e6" implementation="http://www.jboss.org/drools/rule" name="storygetstoryspec"/>
+           <sequenceFlow id="begin_8a35251dd9a6667f40d9079f7eab62e6" sourceRef="begin" targetRef="8a35251dd9a6667f40d9079f7eab62e6"/>
+           <sequenceFlow id="8a35251dd9a6667f40d9079f7eab62e6_prepareparam1_end" sourceRef="8a35251dd9a6667f40d9079f7eab62e6" targetRef="prepareparam1_end"/>
     </process>
 </definitions>

@@ -127,7 +127,7 @@ export class StoryCalendarEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof StoryCalendarEditViewBase
      */
-	protected viewtag: string = '8d57c8c411a365de243247e493c264ff';
+	protected viewtag: string = '9c99ca56cf2ea7a4d2c20575e71311dd';
 
     /**
      * 视图名称

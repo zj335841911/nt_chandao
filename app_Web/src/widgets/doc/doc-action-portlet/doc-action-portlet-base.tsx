@@ -75,7 +75,7 @@ export class DocActionPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet1_uc788c20_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet1_uf3df86f_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -102,7 +102,7 @@ export class DocActionPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet1_ubdbeb9f_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet1_u4fde162_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -130,7 +130,7 @@ export class DocActionPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet1_u7f5ce3e_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet1_u638ba7d_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -212,7 +212,7 @@ export class DocActionPortletBase extends MainControlBase {
      * @memberof DocActionBase
      */
     public actionBarModelData:any[] =[
-        { viewlogicname:"dashboard_sysportlet1_uc788c20_click",
+        { viewlogicname:"dashboard_sysportlet1_uf3df86f_click",
         text: "返回",
         iconcls: "fa fa-sign-out",
         icon: "",
@@ -221,7 +221,7 @@ export class DocActionPortletBase extends MainControlBase {
         visible:true,
         disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet1_ubdbeb9f_click",
+        { viewlogicname:"dashboard_sysportlet1_u4fde162_click",
         text: "编辑",
         iconcls: "fa fa-edit",
         icon: "",
@@ -231,7 +231,7 @@ export class DocActionPortletBase extends MainControlBase {
         visible:true,
         disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet1_u7f5ce3e_click",
+        { viewlogicname:"dashboard_sysportlet1_u638ba7d_click",
         text: "删除",
         iconcls: "fa fa-remove",
         icon: "",
@@ -249,14 +249,14 @@ export class DocActionPortletBase extends MainControlBase {
      * @memberof DocActionBase
      */
     public handleItemClick($event:any){
-        if(Object.is($event,'dashboard_sysportlet1_uc788c20_click')){
-            this.dashboard_sysportlet1_uc788c20_click(null);
+        if(Object.is($event,'dashboard_sysportlet1_uf3df86f_click')){
+            this.dashboard_sysportlet1_uf3df86f_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet1_ubdbeb9f_click')){
-            this.dashboard_sysportlet1_ubdbeb9f_click(null);
+        if(Object.is($event,'dashboard_sysportlet1_u4fde162_click')){
+            this.dashboard_sysportlet1_u4fde162_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet1_u7f5ce3e_click')){
-            this.dashboard_sysportlet1_u7f5ce3e_click(null);
+        if(Object.is($event,'dashboard_sysportlet1_u638ba7d_click')){
+            this.dashboard_sysportlet1_u638ba7d_click(null);
         }
     }
 

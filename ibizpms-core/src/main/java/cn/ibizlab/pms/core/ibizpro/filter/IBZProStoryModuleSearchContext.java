@@ -27,25 +27,11 @@ import cn.ibizlab.pms.core.ibizpro.domain.IBZProStoryModule;
 @Data
 public class IBZProStoryModuleSearchContext extends QueryWrapperContext<IBZProStoryModule> {
 
-	private String n_name_like;//[名称]
-	public void setN_name_like(String n_name_like) {
-        this.n_name_like = n_name_like;
-        if(!ObjectUtils.isEmpty(this.n_name_like)){
-            this.getSearchCond().like("`name`", n_name_like);
-        }
-    }
-	private Long n_root_eq;//[编号]
-	public void setN_root_eq(Long n_root_eq) {
-        this.n_root_eq = n_root_eq;
-        if(!ObjectUtils.isEmpty(this.n_root_eq)){
-            this.getSearchCond().eq("`root`", n_root_eq);
-        }
-    }
-	private String n_ibiz_id_eq;//[IBIZ标识]
-	public void setN_ibiz_id_eq(String n_ibiz_id_eq) {
-        this.n_ibiz_id_eq = n_ibiz_id_eq;
-        if(!ObjectUtils.isEmpty(this.n_ibiz_id_eq)){
-            this.getSearchCond().eq("`ibiz_id`", n_ibiz_id_eq);
+	private String n_ibiz_storytype_eq;//[需求模块类型]
+	public void setN_ibiz_storytype_eq(String n_ibiz_storytype_eq) {
+        this.n_ibiz_storytype_eq = n_ibiz_storytype_eq;
+        if(!ObjectUtils.isEmpty(this.n_ibiz_storytype_eq)){
+            this.getSearchCond().eq("`ibiz_storytype`", n_ibiz_storytype_eq);
         }
     }
 	private String n_type_eq;//[类型]
@@ -55,11 +41,18 @@ public class IBZProStoryModuleSearchContext extends QueryWrapperContext<IBZProSt
             this.getSearchCond().eq("`type`", n_type_eq);
         }
     }
-	private Long n_parent_eq;//[id]
-	public void setN_parent_eq(Long n_parent_eq) {
-        this.n_parent_eq = n_parent_eq;
-        if(!ObjectUtils.isEmpty(this.n_parent_eq)){
-            this.getSearchCond().eq("`parent`", n_parent_eq);
+	private String n_name_like;//[名称]
+	public void setN_name_like(String n_name_like) {
+        this.n_name_like = n_name_like;
+        if(!ObjectUtils.isEmpty(this.n_name_like)){
+            this.getSearchCond().like("`name`", n_name_like);
+        }
+    }
+	private String n_ibiz_id_eq;//[IBIZ标识]
+	public void setN_ibiz_id_eq(String n_ibiz_id_eq) {
+        this.n_ibiz_id_eq = n_ibiz_id_eq;
+        if(!ObjectUtils.isEmpty(this.n_ibiz_id_eq)){
+            this.getSearchCond().eq("`ibiz_id`", n_ibiz_id_eq);
         }
     }
 	private String n_productname_eq;//[产品]
@@ -76,11 +69,18 @@ public class IBZProStoryModuleSearchContext extends QueryWrapperContext<IBZProSt
             this.getSearchCond().like("`productname`", n_productname_like);
         }
     }
-	private String n_ibiz_storytype_eq;//[需求模块类型]
-	public void setN_ibiz_storytype_eq(String n_ibiz_storytype_eq) {
-        this.n_ibiz_storytype_eq = n_ibiz_storytype_eq;
-        if(!ObjectUtils.isEmpty(this.n_ibiz_storytype_eq)){
-            this.getSearchCond().eq("`ibiz_storytype`", n_ibiz_storytype_eq);
+	private Long n_root_eq;//[编号]
+	public void setN_root_eq(Long n_root_eq) {
+        this.n_root_eq = n_root_eq;
+        if(!ObjectUtils.isEmpty(this.n_root_eq)){
+            this.getSearchCond().eq("`root`", n_root_eq);
+        }
+    }
+	private Long n_parent_eq;//[id]
+	public void setN_parent_eq(Long n_parent_eq) {
+        this.n_parent_eq = n_parent_eq;
+        if(!ObjectUtils.isEmpty(this.n_parent_eq)){
+            this.getSearchCond().eq("`parent`", n_parent_eq);
         }
     }
 

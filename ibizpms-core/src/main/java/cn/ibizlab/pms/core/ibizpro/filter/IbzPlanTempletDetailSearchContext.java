@@ -27,6 +27,13 @@ import cn.ibizlab.pms.core.ibizpro.domain.IbzPlanTempletDetail;
 @Data
 public class IbzPlanTempletDetailSearchContext extends QueryWrapperContext<IbzPlanTempletDetail> {
 
+	private String n_type_eq;//[类型]
+	public void setN_type_eq(String n_type_eq) {
+        this.n_type_eq = n_type_eq;
+        if(!ObjectUtils.isEmpty(this.n_type_eq)){
+            this.getSearchCond().eq("`type`", n_type_eq);
+        }
+    }
 	private String n_ibz_plantempletdetailname_like;//[计划模板详情名称]
 	public void setN_ibz_plantempletdetailname_like(String n_ibz_plantempletdetailname_like) {
         this.n_ibz_plantempletdetailname_like = n_ibz_plantempletdetailname_like;
@@ -39,13 +46,6 @@ public class IbzPlanTempletDetailSearchContext extends QueryWrapperContext<IbzPl
         this.n_plantempletid_eq = n_plantempletid_eq;
         if(!ObjectUtils.isEmpty(this.n_plantempletid_eq)){
             this.getSearchCond().eq("`plantempletid`", n_plantempletid_eq);
-        }
-    }
-	private String n_type_eq;//[类型]
-	public void setN_type_eq(String n_type_eq) {
-        this.n_type_eq = n_type_eq;
-        if(!ObjectUtils.isEmpty(this.n_type_eq)){
-            this.getSearchCond().eq("`type`", n_type_eq);
         }
     }
 

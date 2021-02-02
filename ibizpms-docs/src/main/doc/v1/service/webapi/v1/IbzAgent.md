@@ -225,23 +225,23 @@ POST
 #### IbzAgentDTO
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
-| 1 | ibzagentid | Long | 不可 | 代理标识 |
-| 2 | createman | String | 不可 | 建立人 |
-| 3 | createdate | Timestamp | 不可 | 建立时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
-| 4 | ibzagentname | String | 允许 | 代理名称 |
-| 5 | updateman | String | 不可 | 更新人 |
+| 1 | updateman | String | 不可 | 更新人 |
+| 2 | createmanname | String | 允许 | 创建人姓名 |
+| 3 | agentend | Timestamp | 允许 | 代理结束日期<br>时间格式：yyyy-MM-dd |
+| 4 | ibzagentid | Long | 不可 | 代理标识 |
+| 5 | createman | String | 不可 | 建立人 |
 | 6 | updatedate | Timestamp | 不可 | 更新时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
 | 7 | agentuser | String | 允许 | 代理用户 |
-| 8 | agentbegin | Timestamp | 允许 | 代理开始日期<br>时间格式：yyyy-MM-dd |
-| 9 | agentend | Timestamp | 允许 | 代理结束日期<br>时间格式：yyyy-MM-dd |
-| 10 | createmanname | String | 允许 | 创建人姓名 |
+| 8 | createdate | Timestamp | 不可 | 建立时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
+| 9 | agentbegin | Timestamp | 允许 | 代理开始日期<br>时间格式：yyyy-MM-dd |
+| 10 | ibzagentname | String | 允许 | 代理名称 |
 | 11 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### IbzAgentSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
-| 1 | n_ibz_agentname_like | String | 允许 | 条件字段：ibz_agentname<br>条件组合方式：`%like%` |
-| 2 | n_createmanname_eq | String | 允许 | 条件字段：createmanname<br>条件组合方式：`=` |
+| 1 | n_createmanname_eq | String | 允许 | 条件字段：createmanname<br>条件组合方式：`=` |
+| 2 | n_ibz_agentname_like | String | 允许 | 条件字段：ibz_agentname<br>条件组合方式：`%like%` |
 | 3 | customcond | String | 允许 | 自定义查询条件 |
 | 4 | customparams | String | 允许 | 自定义查询参数 |
 | 5 | query | String | 允许 | 快速搜索 |

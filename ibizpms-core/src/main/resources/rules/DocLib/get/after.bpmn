@@ -9,8 +9,8 @@
         </extensionElements>
             <startEvent id="begin" isInterrupting="true"/>
             <endEvent id="prepareparam1_end" name="end"/>
-           <callActivity activiti:exclusive="true" calledElement="cn.ibizlab.pms.core.zentao.service.logic.doclibcuruserisf" id="5473827B-8DFD-41AB-A490-A550B20914C8" name="DocLibCurUserIsFRuleFlow.bpmn"/>
-           <sequenceFlow id="begin_5473827B-8DFD-41AB-A490-A550B20914C8" sourceRef="begin" targetRef="5473827B-8DFD-41AB-A490-A550B20914C8"/>
-           <sequenceFlow id="5473827B-8DFD-41AB-A490-A550B20914C8_prepareparam1_end" sourceRef="5473827B-8DFD-41AB-A490-A550B20914C8" targetRef="prepareparam1_end"/>
+           <callActivity activiti:exclusive="true" calledElement="cn.ibizlab.pms.core.zentao.service.logic.doclibcuruserisf" id="e39a86437d23ff254b418e0a34b04898" name="DocLibCurUserIsFRuleFlow.bpmn"/>
+           <sequenceFlow id="begin_e39a86437d23ff254b418e0a34b04898" sourceRef="begin" targetRef="e39a86437d23ff254b418e0a34b04898"/>
+           <sequenceFlow id="e39a86437d23ff254b418e0a34b04898_prepareparam1_end" sourceRef="e39a86437d23ff254b418e0a34b04898" targetRef="prepareparam1_end"/>
     </process>
 </definitions>

@@ -23,6 +23,38 @@ export interface Todo {
     account?: any;
 
     /**
+     * 间隔天数
+     *
+     * @returns {*}
+     * @memberof Todo
+     */
+    config_day?: any;
+
+    /**
+     * 指派给（选择）
+     *
+     * @returns {*}
+     * @memberof Todo
+     */
+    assignedtopk?: any;
+
+    /**
+     * 日期
+     *
+     * @returns {*}
+     * @memberof Todo
+     */
+    date1?: any;
+
+    /**
+     * 周期类型
+     *
+     * @returns {*}
+     * @memberof Todo
+     */
+    config_type?: any;
+
+    /**
      * 关闭时间
      *
      * @returns {*}
@@ -63,6 +95,14 @@ export interface Todo {
     desc?: any;
 
     /**
+     * 消息通知用户
+     *
+     * @returns {*}
+     * @memberof Todo
+     */
+    noticeusers?: any;
+
+    /**
      * 由谁完成
      *
      * @returns {*}
@@ -95,6 +135,30 @@ export interface Todo {
     assignedby?: any;
 
     /**
+     * 周期设置月
+     *
+     * @returns {*}
+     * @memberof Todo
+     */
+    config_month?: any;
+
+    /**
+     * 待办名称
+     *
+     * @returns {*}
+     * @memberof Todo
+     */
+    task?: any;
+
+    /**
+     * 待办名称
+     *
+     * @returns {*}
+     * @memberof Todo
+     */
+    bug?: any;
+
+    /**
      * 完成时间
      *
      * @returns {*}
@@ -109,6 +173,22 @@ export interface Todo {
      * @memberof Todo
      */
     cycle?: any;
+
+    /**
+     * 待定
+     *
+     * @returns {*}
+     * @memberof Todo
+     */
+    date_disable?: any;
+
+    /**
+     * 周期设置周几
+     *
+     * @returns {*}
+     * @memberof Todo
+     */
+    config_week?: any;
 
     /**
      * 指派给
@@ -127,6 +207,14 @@ export interface Todo {
     status?: any;
 
     /**
+     * 提前
+     *
+     * @returns {*}
+     * @memberof Todo
+     */
+    config_beforedays?: any;
+
+    /**
      * 待办名称
      *
      * @returns {*}
@@ -141,6 +229,14 @@ export interface Todo {
      * @memberof Todo
      */
     assigneddate?: any;
+
+    /**
+     * 过期时间
+     *
+     * @returns {*}
+     * @memberof Todo
+     */
+    config_end?: any;
 
     /**
      * 优先级
@@ -159,6 +255,14 @@ export interface Todo {
     date?: any;
 
     /**
+     * 待办名称
+     *
+     * @returns {*}
+     * @memberof Todo
+     */
+    story?: any;
+
+    /**
      * 私人事务
      *
      * @returns {*}
@@ -173,108 +277,4 @@ export interface Todo {
      * @memberof Todo
      */
     config?: any;
-
-    /**
-     * 间隔天数
-     *
-     * @returns {*}
-     * @memberof Todo
-     */
-    config_day?: any;
-
-    /**
-     * 提前
-     *
-     * @returns {*}
-     * @memberof Todo
-     */
-    config_beforedays?: any;
-
-    /**
-     * 周期设置周几
-     *
-     * @returns {*}
-     * @memberof Todo
-     */
-    config_week?: any;
-
-    /**
-     * 周期设置月
-     *
-     * @returns {*}
-     * @memberof Todo
-     */
-    config_month?: any;
-
-    /**
-     * 周期类型
-     *
-     * @returns {*}
-     * @memberof Todo
-     */
-    config_type?: any;
-
-    /**
-     * 过期时间
-     *
-     * @returns {*}
-     * @memberof Todo
-     */
-    config_end?: any;
-
-    /**
-     * 待办名称
-     *
-     * @returns {*}
-     * @memberof Todo
-     */
-    bug?: any;
-
-    /**
-     * 待办名称
-     *
-     * @returns {*}
-     * @memberof Todo
-     */
-    task?: any;
-
-    /**
-     * 待办名称
-     *
-     * @returns {*}
-     * @memberof Todo
-     */
-    story?: any;
-
-    /**
-     * 日期
-     *
-     * @returns {*}
-     * @memberof Todo
-     */
-    date1?: any;
-
-    /**
-     * 待定
-     *
-     * @returns {*}
-     * @memberof Todo
-     */
-    date_disable?: any;
-
-    /**
-     * 指派给（选择）
-     *
-     * @returns {*}
-     * @memberof Todo
-     */
-    assignedtopk?: any;
-
-    /**
-     * 消息通知用户
-     *
-     * @returns {*}
-     * @memberof Todo
-     */
-    noticeusers?: any;
 }

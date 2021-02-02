@@ -130,7 +130,7 @@ export class StoryMainView9_RelatedBase extends EditView9Base {
      * @type {string}
      * @memberof StoryMainView9_RelatedBase
      */
-	protected viewtag: string = '1f87f07919b8496e5bf832f95686fada';
+	protected viewtag: string = '5d2060546043b483498845da6eb440d9';
 
     /**
      * 视图名称

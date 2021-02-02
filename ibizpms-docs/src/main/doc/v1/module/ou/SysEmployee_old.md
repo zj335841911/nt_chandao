@@ -42,9 +42,9 @@ hide members
 |排序|SHOWORDER|INT|&nbsp;|
 |逻辑有效|ENABLE|YESNO|&nbsp;|
 |创建时间|CREATEDATE|DATETIME|&nbsp;|
+|更新时间|UPDATEDATE|DATETIME|&nbsp;|
 |更新人|UPDATEMAN|TEXT|&nbsp;|
 |建立人|CREATEMAN|TEXT|&nbsp;|
-|更新时间|UPDATEDATE|DATETIME|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -77,9 +77,9 @@ hide members
 |排序|默认规则|默认规则|
 |逻辑有效|默认规则|默认规则|
 |创建时间|默认规则|默认规则|
+|更新时间|默认规则|默认规则|
 |更新人|默认规则|内容长度必须小于等于[60]|
 |建立人|默认规则|内容长度必须小于等于[60]|
-|更新时间|默认规则|默认规则|
 
 ## 状态控制
 

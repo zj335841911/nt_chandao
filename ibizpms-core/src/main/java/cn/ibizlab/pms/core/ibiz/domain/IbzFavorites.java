@@ -44,6 +44,13 @@ public class IbzFavorites extends EntityMP implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
+     * 类型
+     */
+    @TableField(value = "`type`")
+    @JSONField(name = "type")
+    @JsonProperty("type")
+    private String type;
+    /**
      * 建立人
      */
     @DEField(preType = DEPredefinedFieldType.CREATEMAN)
@@ -69,14 +76,6 @@ public class IbzFavorites extends EntityMP implements Serializable {
     @JsonProperty("createdate")
     private Timestamp createdate;
     /**
-     * 收藏名称
-     */
-    @DEField(name = "ibz_favoritesname")
-    @TableField(value = "`ibz_favoritesname`")
-    @JSONField(name = "ibzfavoritesname")
-    @JsonProperty("ibzfavoritesname")
-    private String ibzfavoritesname;
-    /**
      * 更新人
      */
     @DEField(preType = DEPredefinedFieldType.UPDATEMAN)
@@ -84,15 +83,6 @@ public class IbzFavorites extends EntityMP implements Serializable {
     @JSONField(name = "updateman")
     @JsonProperty("updateman")
     private String updateman;
-    /**
-     * 更新时间
-     */
-    @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
-    @TableField(value = "`updatedate`")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
-    @JSONField(name = "updatedate", format = "yyyy-MM-dd HH:mm:ss")
-    @JsonProperty("updatedate")
-    private Timestamp updatedate;
     /**
      * 数据对象标识
      */
@@ -108,21 +98,31 @@ public class IbzFavorites extends EntityMP implements Serializable {
     @JsonProperty("account")
     private String account;
     /**
-     * 类型
+     * 收藏名称
      */
-    @TableField(value = "`type`")
-    @JSONField(name = "type")
-    @JsonProperty("type")
-    private String type;
+    @DEField(name = "ibz_favoritesname")
+    @TableField(value = "`ibz_favoritesname`")
+    @JSONField(name = "ibzfavoritesname")
+    @JsonProperty("ibzfavoritesname")
+    private String ibzfavoritesname;
+    /**
+     * 更新时间
+     */
+    @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
+    @TableField(value = "`updatedate`")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "updatedate", format = "yyyy-MM-dd HH:mm:ss")
+    @JsonProperty("updatedate")
+    private Timestamp updatedate;
 
 
 
     /**
-     * 设置 [收藏名称]
+     * 设置 [类型]
      */
-    public void setIbzfavoritesname(String ibzfavoritesname) {
-        this.ibzfavoritesname = ibzfavoritesname;
-        this.modify("ibz_favoritesname", ibzfavoritesname);
+    public void setType(String type) {
+        this.type = type;
+        this.modify("type", type);
     }
 
     /**
@@ -142,11 +142,11 @@ public class IbzFavorites extends EntityMP implements Serializable {
     }
 
     /**
-     * 设置 [类型]
+     * 设置 [收藏名称]
      */
-    public void setType(String type) {
-        this.type = type;
-        this.modify("type", type);
+    public void setIbzfavoritesname(String ibzfavoritesname) {
+        this.ibzfavoritesname = ibzfavoritesname;
+        this.modify("ibz_favoritesname", ibzfavoritesname);
     }
 
 

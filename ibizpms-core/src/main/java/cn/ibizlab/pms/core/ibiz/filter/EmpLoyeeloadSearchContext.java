@@ -34,32 +34,25 @@ public class EmpLoyeeloadSearchContext extends QueryWrapperContext<EmpLoyeeload>
             this.getSearchCond().like("`name`", n_name_like);
         }
     }
-	private Long n_project_eq;//[项目编号]
-	public void setN_project_eq(Long n_project_eq) {
-        this.n_project_eq = n_project_eq;
-        if(!ObjectUtils.isEmpty(this.n_project_eq)){
-            this.getSearchCond().eq("`project`", n_project_eq);
-        }
-    }
-	private String n_projectname_eq;//[项目]
-	public void setN_projectname_eq(String n_projectname_eq) {
-        this.n_projectname_eq = n_projectname_eq;
-        if(!ObjectUtils.isEmpty(this.n_projectname_eq)){
-            this.getSearchCond().eq("`projectname`", n_projectname_eq);
-        }
-    }
-	private String n_projectname_like;//[项目]
-	public void setN_projectname_like(String n_projectname_like) {
-        this.n_projectname_like = n_projectname_like;
-        if(!ObjectUtils.isEmpty(this.n_projectname_like)){
-            this.getSearchCond().like("`projectname`", n_projectname_like);
-        }
-    }
 	private String n_dept_eq;//[部门]
 	public void setN_dept_eq(String n_dept_eq) {
         this.n_dept_eq = n_dept_eq;
         if(!ObjectUtils.isEmpty(this.n_dept_eq)){
             this.getSearchCond().eq("`dept`", n_dept_eq);
+        }
+    }
+	private Integer n_workday_eq;//[工作日天数]
+	public void setN_workday_eq(Integer n_workday_eq) {
+        this.n_workday_eq = n_workday_eq;
+        if(!ObjectUtils.isEmpty(this.n_workday_eq)){
+            this.getSearchCond().eq("`workday`", n_workday_eq);
+        }
+    }
+	private String n_assign_eq;//[是否指派]
+	public void setN_assign_eq(String n_assign_eq) {
+        this.n_assign_eq = n_assign_eq;
+        if(!ObjectUtils.isEmpty(this.n_assign_eq)){
+            this.getSearchCond().eq("`assign`", n_assign_eq);
         }
     }
     @JsonFormat(pattern="yyyy-MM-dd", timezone="GMT+8")
@@ -80,18 +73,25 @@ public class EmpLoyeeloadSearchContext extends QueryWrapperContext<EmpLoyeeload>
             this.getSearchCond().ge("`end`", n_end_gtandeq);
         }
     }
-	private Integer n_workday_eq;//[工作日天数]
-	public void setN_workday_eq(Integer n_workday_eq) {
-        this.n_workday_eq = n_workday_eq;
-        if(!ObjectUtils.isEmpty(this.n_workday_eq)){
-            this.getSearchCond().eq("`workday`", n_workday_eq);
+	private String n_projectname_eq;//[项目]
+	public void setN_projectname_eq(String n_projectname_eq) {
+        this.n_projectname_eq = n_projectname_eq;
+        if(!ObjectUtils.isEmpty(this.n_projectname_eq)){
+            this.getSearchCond().eq("`projectname`", n_projectname_eq);
         }
     }
-	private String n_assign_eq;//[是否指派]
-	public void setN_assign_eq(String n_assign_eq) {
-        this.n_assign_eq = n_assign_eq;
-        if(!ObjectUtils.isEmpty(this.n_assign_eq)){
-            this.getSearchCond().eq("`assign`", n_assign_eq);
+	private String n_projectname_like;//[项目]
+	public void setN_projectname_like(String n_projectname_like) {
+        this.n_projectname_like = n_projectname_like;
+        if(!ObjectUtils.isEmpty(this.n_projectname_like)){
+            this.getSearchCond().like("`projectname`", n_projectname_like);
+        }
+    }
+	private Long n_project_eq;//[项目编号]
+	public void setN_project_eq(Long n_project_eq) {
+        this.n_project_eq = n_project_eq;
+        if(!ObjectUtils.isEmpty(this.n_project_eq)){
+            this.getSearchCond().eq("`project`", n_project_eq);
         }
     }
 

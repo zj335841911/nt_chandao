@@ -34,6 +34,13 @@ public class ReleaseSearchContext extends QueryWrapperContext<Release> {
             this.getSearchCond().eq("`marker`", n_marker_eq);
         }
     }
+	private Integer n_rebuild_eq;//[重新构建]
+	public void setN_rebuild_eq(Integer n_rebuild_eq) {
+        this.n_rebuild_eq = n_rebuild_eq;
+        if(!ObjectUtils.isEmpty(this.n_rebuild_eq)){
+            this.getSearchCond().eq("`rebuild`", n_rebuild_eq);
+        }
+    }
 	private String n_name_like;//[发布名称]
 	public void setN_name_like(String n_name_like) {
         this.n_name_like = n_name_like;
@@ -55,6 +62,27 @@ public class ReleaseSearchContext extends QueryWrapperContext<Release> {
         this.n_status_eq = n_status_eq;
         if(!ObjectUtils.isEmpty(this.n_status_eq)){
             this.getSearchCond().eq("`status`", n_status_eq);
+        }
+    }
+	private String n_releasetype_eq;//[运行模式]
+	public void setN_releasetype_eq(String n_releasetype_eq) {
+        this.n_releasetype_eq = n_releasetype_eq;
+        if(!ObjectUtils.isEmpty(this.n_releasetype_eq)){
+            this.getSearchCond().eq("`releasetype`", n_releasetype_eq);
+        }
+    }
+	private String n_productname_eq;//[产品名称]
+	public void setN_productname_eq(String n_productname_eq) {
+        this.n_productname_eq = n_productname_eq;
+        if(!ObjectUtils.isEmpty(this.n_productname_eq)){
+            this.getSearchCond().eq("`productname`", n_productname_eq);
+        }
+    }
+	private String n_productname_like;//[产品名称]
+	public void setN_productname_like(String n_productname_like) {
+        this.n_productname_like = n_productname_like;
+        if(!ObjectUtils.isEmpty(this.n_productname_like)){
+            this.getSearchCond().like("`productname`", n_productname_like);
         }
     }
 	private String n_buildname_eq;//[版本]
@@ -90,34 +118,6 @@ public class ReleaseSearchContext extends QueryWrapperContext<Release> {
         this.n_branch_eq = n_branch_eq;
         if(!ObjectUtils.isEmpty(this.n_branch_eq)){
             this.getSearchCond().eq("`branch`", n_branch_eq);
-        }
-    }
-	private String n_productname_eq;//[产品名称]
-	public void setN_productname_eq(String n_productname_eq) {
-        this.n_productname_eq = n_productname_eq;
-        if(!ObjectUtils.isEmpty(this.n_productname_eq)){
-            this.getSearchCond().eq("`productname`", n_productname_eq);
-        }
-    }
-	private String n_productname_like;//[产品名称]
-	public void setN_productname_like(String n_productname_like) {
-        this.n_productname_like = n_productname_like;
-        if(!ObjectUtils.isEmpty(this.n_productname_like)){
-            this.getSearchCond().like("`productname`", n_productname_like);
-        }
-    }
-	private Integer n_rebuild_eq;//[重新构建]
-	public void setN_rebuild_eq(Integer n_rebuild_eq) {
-        this.n_rebuild_eq = n_rebuild_eq;
-        if(!ObjectUtils.isEmpty(this.n_rebuild_eq)){
-            this.getSearchCond().eq("`rebuild`", n_rebuild_eq);
-        }
-    }
-	private String n_releasetype_eq;//[运行模式]
-	public void setN_releasetype_eq(String n_releasetype_eq) {
-        this.n_releasetype_eq = n_releasetype_eq;
-        if(!ObjectUtils.isEmpty(this.n_releasetype_eq)){
-            this.getSearchCond().eq("`releasetype`", n_releasetype_eq);
         }
     }
 

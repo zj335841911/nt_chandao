@@ -39,6 +39,13 @@ public class PSSysReqModule extends EntityClient implements Serializable {
     }
 
     /**
+     * 模块标记2
+     */
+    @JSONField(name = "moduletag2")
+    @JsonProperty("moduletag2")
+    private String moduletag2;
+
+    /**
      * 系统需求模块名称
      */
     @JSONField(name = "pssysreqmodulename")
@@ -55,51 +62,18 @@ public class PSSysReqModule extends EntityClient implements Serializable {
     private Timestamp createdate;
 
     /**
-     * 系统需求模块标识
+     * 用户标记2
      */
-    @DEField(isKeyField = true)
-    @JSONField(name = "pssysreqmoduleid")
-    @JsonProperty("pssysreqmoduleid")
-    private String pssysreqmoduleid;
+    @JSONField(name = "usertag2")
+    @JsonProperty("usertag2")
+    private String usertag2;
 
     /**
-     * 建立人
+     * 模块标记4
      */
-    @DEField(preType = DEPredefinedFieldType.CREATEMAN)
-    @JSONField(name = "createman")
-    @JsonProperty("createman")
-    private String createman;
-
-    /**
-     * 更新人
-     */
-    @DEField(preType = DEPredefinedFieldType.UPDATEMAN)
-    @JSONField(name = "updateman")
-    @JsonProperty("updateman")
-    private String updateman;
-
-    /**
-     * 更新时间
-     */
-    @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
-    @JSONField(name = "updatedate" , format = "yyyy-MM-dd HH:mm:ss")
-    @JsonProperty("updatedate")
-    private Timestamp updatedate;
-
-    /**
-     * 内容
-     */
-    @JSONField(name = "content")
-    @JsonProperty("content")
-    private String content;
-
-    /**
-     * 代码标识
-     */
-    @JSONField(name = "codename")
-    @JsonProperty("codename")
-    private String codename;
+    @JSONField(name = "moduletag4")
+    @JsonProperty("moduletag4")
+    private String moduletag4;
 
     /**
      * 备注
@@ -107,6 +81,20 @@ public class PSSysReqModule extends EntityClient implements Serializable {
     @JSONField(name = "memo")
     @JsonProperty("memo")
     private String memo;
+
+    /**
+     * 模块标记3
+     */
+    @JSONField(name = "moduletag3")
+    @JsonProperty("moduletag3")
+    private String moduletag3;
+
+    /**
+     * 用户分类
+     */
+    @JSONField(name = "usercat")
+    @JsonProperty("usercat")
+    private String usercat;
 
     /**
      * 模块标记
@@ -123,32 +111,25 @@ public class PSSysReqModule extends EntityClient implements Serializable {
     private String modulesn;
 
     /**
-     * 模块标记2
+     * 系统
      */
-    @JSONField(name = "moduletag2")
-    @JsonProperty("moduletag2")
-    private String moduletag2;
+    @JSONField(name = "pssystemid")
+    @JsonProperty("pssystemid")
+    private String pssystemid;
 
     /**
-     * 模块标记3
+     * 用户标记3
      */
-    @JSONField(name = "moduletag3")
-    @JsonProperty("moduletag3")
-    private String moduletag3;
+    @JSONField(name = "usertag3")
+    @JsonProperty("usertag3")
+    private String usertag3;
 
     /**
-     * 模块标记4
+     * 用户标记
      */
-    @JSONField(name = "moduletag4")
-    @JsonProperty("moduletag4")
-    private String moduletag4;
-
-    /**
-     * 用户分类
-     */
-    @JSONField(name = "usercat")
-    @JsonProperty("usercat")
-    private String usercat;
+    @JSONField(name = "usertag")
+    @JsonProperty("usertag")
+    private String usertag;
 
     /**
      * 排序值
@@ -159,25 +140,11 @@ public class PSSysReqModule extends EntityClient implements Serializable {
     private Integer ordervalue;
 
     /**
-     * 用户标记2
+     * 系统
      */
-    @JSONField(name = "usertag2")
-    @JsonProperty("usertag2")
-    private String usertag2;
-
-    /**
-     * 用户标记
-     */
-    @JSONField(name = "usertag")
-    @JsonProperty("usertag")
-    private String usertag;
-
-    /**
-     * 用户标记3
-     */
-    @JSONField(name = "usertag3")
-    @JsonProperty("usertag3")
-    private String usertag3;
+    @JSONField(name = "pssystemname")
+    @JsonProperty("pssystemname")
+    private String pssystemname;
 
     /**
      * 用户标记4
@@ -187,25 +154,58 @@ public class PSSysReqModule extends EntityClient implements Serializable {
     private String usertag4;
 
     /**
-     * 系统
+     * 系统需求模块标识
      */
-    @JSONField(name = "pssystemid")
-    @JsonProperty("pssystemid")
-    private String pssystemid;
+    @DEField(isKeyField = true)
+    @JSONField(name = "pssysreqmoduleid")
+    @JsonProperty("pssysreqmoduleid")
+    private String pssysreqmoduleid;
 
     /**
-     * 系统
+     * 更新人
      */
-    @JSONField(name = "pssystemname")
-    @JsonProperty("pssystemname")
-    private String pssystemname;
+    @DEField(preType = DEPredefinedFieldType.UPDATEMAN)
+    @JSONField(name = "updateman")
+    @JsonProperty("updateman")
+    private String updateman;
 
     /**
-     * 父需求模块
+     * 内容
      */
-    @JSONField(name = "ppssysreqmoduleid")
-    @JsonProperty("ppssysreqmoduleid")
-    private String ppssysreqmoduleid;
+    @JSONField(name = "content")
+    @JsonProperty("content")
+    private String content;
+
+    /**
+     * 更新时间
+     */
+    @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "updatedate" , format = "yyyy-MM-dd HH:mm:ss")
+    @JsonProperty("updatedate")
+    private Timestamp updatedate;
+
+    /**
+     * 代码标识
+     */
+    @JSONField(name = "codename")
+    @JsonProperty("codename")
+    private String codename;
+
+    /**
+     * 建立人
+     */
+    @DEField(preType = DEPredefinedFieldType.CREATEMAN)
+    @JSONField(name = "createman")
+    @JsonProperty("createman")
+    private String createman;
+
+    /**
+     * 系统模块
+     */
+    @JSONField(name = "psmodulename")
+    @JsonProperty("psmodulename")
+    private String psmodulename;
 
     /**
      * 父需求模块
@@ -215,18 +215,18 @@ public class PSSysReqModule extends EntityClient implements Serializable {
     private String ppssysreqmodulename;
 
     /**
+     * 父需求模块
+     */
+    @JSONField(name = "ppssysreqmoduleid")
+    @JsonProperty("ppssysreqmoduleid")
+    private String ppssysreqmoduleid;
+
+    /**
      * 系统模块
      */
     @JSONField(name = "psmoduleid")
     @JsonProperty("psmoduleid")
     private String psmoduleid;
-
-    /**
-     * 系统模块
-     */
-    @JSONField(name = "psmodulename")
-    @JsonProperty("psmodulename")
-    private String psmodulename;
 
 
     /**
@@ -247,6 +247,14 @@ public class PSSysReqModule extends EntityClient implements Serializable {
 
 
     /**
+     * 设置 [模块标记2]
+     */
+    public void setModuletag2(String moduletag2) {
+        this.moduletag2 = moduletag2 ;
+        this.modify("moduletag2", moduletag2);
+    }
+
+    /**
      * 设置 [系统需求模块名称]
      */
     public void setPssysreqmodulename(String pssysreqmodulename) {
@@ -255,19 +263,19 @@ public class PSSysReqModule extends EntityClient implements Serializable {
     }
 
     /**
-     * 设置 [内容]
+     * 设置 [用户标记2]
      */
-    public void setContent(String content) {
-        this.content = content ;
-        this.modify("content", content);
+    public void setUsertag2(String usertag2) {
+        this.usertag2 = usertag2 ;
+        this.modify("usertag2", usertag2);
     }
 
     /**
-     * 设置 [代码标识]
+     * 设置 [模块标记4]
      */
-    public void setCodename(String codename) {
-        this.codename = codename ;
-        this.modify("codename", codename);
+    public void setModuletag4(String moduletag4) {
+        this.moduletag4 = moduletag4 ;
+        this.modify("moduletag4", moduletag4);
     }
 
     /**
@@ -276,6 +284,22 @@ public class PSSysReqModule extends EntityClient implements Serializable {
     public void setMemo(String memo) {
         this.memo = memo ;
         this.modify("memo", memo);
+    }
+
+    /**
+     * 设置 [模块标记3]
+     */
+    public void setModuletag3(String moduletag3) {
+        this.moduletag3 = moduletag3 ;
+        this.modify("moduletag3", moduletag3);
+    }
+
+    /**
+     * 设置 [用户分类]
+     */
+    public void setUsercat(String usercat) {
+        this.usercat = usercat ;
+        this.modify("usercat", usercat);
     }
 
     /**
@@ -295,51 +319,11 @@ public class PSSysReqModule extends EntityClient implements Serializable {
     }
 
     /**
-     * 设置 [模块标记2]
+     * 设置 [系统]
      */
-    public void setModuletag2(String moduletag2) {
-        this.moduletag2 = moduletag2 ;
-        this.modify("moduletag2", moduletag2);
-    }
-
-    /**
-     * 设置 [模块标记3]
-     */
-    public void setModuletag3(String moduletag3) {
-        this.moduletag3 = moduletag3 ;
-        this.modify("moduletag3", moduletag3);
-    }
-
-    /**
-     * 设置 [模块标记4]
-     */
-    public void setModuletag4(String moduletag4) {
-        this.moduletag4 = moduletag4 ;
-        this.modify("moduletag4", moduletag4);
-    }
-
-    /**
-     * 设置 [用户分类]
-     */
-    public void setUsercat(String usercat) {
-        this.usercat = usercat ;
-        this.modify("usercat", usercat);
-    }
-
-    /**
-     * 设置 [用户标记2]
-     */
-    public void setUsertag2(String usertag2) {
-        this.usertag2 = usertag2 ;
-        this.modify("usertag2", usertag2);
-    }
-
-    /**
-     * 设置 [用户标记]
-     */
-    public void setUsertag(String usertag) {
-        this.usertag = usertag ;
-        this.modify("usertag", usertag);
+    public void setPssystemid(String pssystemid) {
+        this.pssystemid = pssystemid ;
+        this.modify("pssystemid", pssystemid);
     }
 
     /**
@@ -351,19 +335,11 @@ public class PSSysReqModule extends EntityClient implements Serializable {
     }
 
     /**
-     * 设置 [用户标记4]
+     * 设置 [用户标记]
      */
-    public void setUsertag4(String usertag4) {
-        this.usertag4 = usertag4 ;
-        this.modify("usertag4", usertag4);
-    }
-
-    /**
-     * 设置 [系统]
-     */
-    public void setPssystemid(String pssystemid) {
-        this.pssystemid = pssystemid ;
-        this.modify("pssystemid", pssystemid);
+    public void setUsertag(String usertag) {
+        this.usertag = usertag ;
+        this.modify("usertag", usertag);
     }
 
     /**
@@ -372,6 +348,30 @@ public class PSSysReqModule extends EntityClient implements Serializable {
     public void setPssystemname(String pssystemname) {
         this.pssystemname = pssystemname ;
         this.modify("pssystemname", pssystemname);
+    }
+
+    /**
+     * 设置 [用户标记4]
+     */
+    public void setUsertag4(String usertag4) {
+        this.usertag4 = usertag4 ;
+        this.modify("usertag4", usertag4);
+    }
+
+    /**
+     * 设置 [内容]
+     */
+    public void setContent(String content) {
+        this.content = content ;
+        this.modify("content", content);
+    }
+
+    /**
+     * 设置 [代码标识]
+     */
+    public void setCodename(String codename) {
+        this.codename = codename ;
+        this.modify("codename", codename);
     }
 
     /**

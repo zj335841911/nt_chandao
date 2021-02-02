@@ -92,7 +92,7 @@ export class TestResultMEditView9Base extends MEditView9Base {
      * @type {string}
      * @memberof TestResultMEditView9Base
      */
-	protected viewtag: string = '136cd30bd141450ecd9e7791215733e6';
+	protected viewtag: string = 'e01d5c7f0080afdcf4e9c9ee9924abef';
 
     /**
      * 视图名称

@@ -162,7 +162,7 @@ export class StoryActiviteViewBase extends OptionViewBase {
      * @type {string}
      * @memberof StoryActiviteViewBase
      */
-	protected viewtag: string = 'e6797f4a1585954f5bb2f682880fa9d6';
+	protected viewtag: string = '9fb9c6b9baf7e8e9647041b8d7e13dd4';
 
     /**
      * 视图名称

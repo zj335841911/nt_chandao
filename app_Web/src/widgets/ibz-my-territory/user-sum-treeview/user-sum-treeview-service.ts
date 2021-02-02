@@ -64,15 +64,6 @@ export default class UserSumService extends ControlService {
     public TREENODE_SEPARATOR: string = ';';
 
     /**
-     * 用户完成任务汇总表节点分隔符号
-     *
-     * @public
-     * @type {string}
-     * @memberof UserSumService
-     */
-	public TREENODE_USERFINASHTASKSUM: string = 'UserFinashTaskSum';
-
-    /**
      * 默认根节点节点分隔符号
      *
      * @public
@@ -80,6 +71,15 @@ export default class UserSumService extends ControlService {
      * @memberof UserSumService
      */
 	public TREENODE_ROOT: string = 'ROOT';
+
+    /**
+     * 用户完成任务汇总表节点分隔符号
+     *
+     * @public
+     * @type {string}
+     * @memberof UserSumService
+     */
+	public TREENODE_USERFINASHTASKSUM: string = 'UserFinashTaskSum';
 
     /**
      * 获取节点数据
@@ -155,75 +155,16 @@ export default class UserSumService extends ControlService {
             }
         }
 
-        if (Object.is(strNodeType, this.TREENODE_USERFINASHTASKSUM)) {
-            await this.fillUserfinashtasksumNodeChilds(context,filter, list);
-            return Promise.resolve({ status: 200, data: list });
-        }
         if (Object.is(strNodeType, this.TREENODE_ROOT)) {
             await this.fillRootNodeChilds(context,filter, list);
             return Promise.resolve({ status: 200, data: list });
         }
+        if (Object.is(strNodeType, this.TREENODE_USERFINASHTASKSUM)) {
+            await this.fillUserfinashtasksumNodeChilds(context,filter, list);
+            return Promise.resolve({ status: 200, data: list });
+        }
         return Promise.resolve({ status: 500, data: { title: '失败', message: `树节点${strTreeNodeId}标识无效` } });
     }
-
-    /**
-     * 填充 树视图节点[用户完成任务汇总表]
-     *
-     * @public
-     * @param {any{}} context     
-     * @param {*} filter
-     * @param {any[]} list
-     * @param {*} rsNavContext   
-     * @param {*} rsNavParams
-     * @param {*} rsParams
-     * @returns {Promise<any>}
-     * @memberof UserSumService
-     */
-    @Errorlog
-    public fillUserfinashtasksumNodes(context:any={},filter: any, list: any[],rsNavContext?:any,rsNavParams?:any,rsParams?:any): Promise<any> {
-        context = this.handleResNavContext(context,filter,rsNavContext);
-        filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
-        return new Promise((resolve:any,reject:any) =>{
-            let treeNode: any = {};
-            Object.assign(treeNode, { text: i18n.t('entities.ibzmyterritory.usersum_treeview.nodes.userfinashtasksum') });
-            Object.assign(treeNode, { isUseLangRes: true });
-            Object.assign(treeNode,{srfappctx:context});
-            Object.assign(treeNode, { srfmajortext: treeNode.text });
-            let strNodeId: string = 'UserFinashTaskSum';
-
-            // 没有指定节点值，直接使用父节点值
-            Object.assign(treeNode, { srfkey: filter.strRealNodeId });
-            strNodeId += this.TREENODE_SEPARATOR;
-            strNodeId += filter.strRealNodeId;
-
-            Object.assign(treeNode, { id: strNodeId });
-
-            Object.assign(treeNode, { expanded: filter.isAutoexpand });
-            Object.assign(treeNode, { leaf: true });
-            Object.assign(treeNode, { nodeid: treeNode.srfkey });
-            Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
-            Object.assign(treeNode, { nodeType: "STATIC" });
-            list.push(treeNode);
-            resolve(list);
-        });
-	}
-
-    /**
-     * 填充 树视图节点[用户完成任务汇总表]子节点
-     *
-     * @public
-     * @param {any{}} context         
-     * @param {*} filter
-     * @param {any[]} list
-     * @returns {Promise<any>}
-     * @memberof UserSumService
-     */
-    @Errorlog
-    public async fillUserfinashtasksumNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
-		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
-		} else {
-		}
-	}
 
     /**
      * 填充 树视图节点[默认根节点]
@@ -290,6 +231,65 @@ export default class UserSumService extends ControlService {
             let UserfinashtasksumRsNavParams:any = {};
             let UserfinashtasksumRsParams:any = {};
 			await this.fillUserfinashtasksumNodes(context, filter, list ,UserfinashtasksumRsNavContext,UserfinashtasksumRsNavParams,UserfinashtasksumRsParams);
+		}
+	}
+
+    /**
+     * 填充 树视图节点[用户完成任务汇总表]
+     *
+     * @public
+     * @param {any{}} context     
+     * @param {*} filter
+     * @param {any[]} list
+     * @param {*} rsNavContext   
+     * @param {*} rsNavParams
+     * @param {*} rsParams
+     * @returns {Promise<any>}
+     * @memberof UserSumService
+     */
+    @Errorlog
+    public fillUserfinashtasksumNodes(context:any={},filter: any, list: any[],rsNavContext?:any,rsNavParams?:any,rsParams?:any): Promise<any> {
+        context = this.handleResNavContext(context,filter,rsNavContext);
+        filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
+        return new Promise((resolve:any,reject:any) =>{
+            let treeNode: any = {};
+            Object.assign(treeNode, { text: i18n.t('entities.ibzmyterritory.usersum_treeview.nodes.userfinashtasksum') });
+            Object.assign(treeNode, { isUseLangRes: true });
+            Object.assign(treeNode,{srfappctx:context});
+            Object.assign(treeNode, { srfmajortext: treeNode.text });
+            let strNodeId: string = 'UserFinashTaskSum';
+
+            // 没有指定节点值，直接使用父节点值
+            Object.assign(treeNode, { srfkey: filter.strRealNodeId });
+            strNodeId += this.TREENODE_SEPARATOR;
+            strNodeId += filter.strRealNodeId;
+
+            Object.assign(treeNode, { id: strNodeId });
+
+            Object.assign(treeNode, { expanded: filter.isAutoexpand });
+            Object.assign(treeNode, { leaf: true });
+            Object.assign(treeNode, { nodeid: treeNode.srfkey });
+            Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+            Object.assign(treeNode, { nodeType: "STATIC" });
+            list.push(treeNode);
+            resolve(list);
+        });
+	}
+
+    /**
+     * 填充 树视图节点[用户完成任务汇总表]子节点
+     *
+     * @public
+     * @param {any{}} context         
+     * @param {*} filter
+     * @param {any[]} list
+     * @returns {Promise<any>}
+     * @memberof UserSumService
+     */
+    @Errorlog
+    public async fillUserfinashtasksumNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
+		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
+		} else {
 		}
 	}
 

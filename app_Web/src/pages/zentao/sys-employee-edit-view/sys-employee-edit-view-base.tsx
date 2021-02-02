@@ -109,7 +109,7 @@ export class SysEmployeeEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof SysEmployeeEditViewBase
      */
-	protected viewtag: string = '57a23ead04eda866c6326f0705f595e3';
+	protected viewtag: string = '119fe650e7efd26bd14bd413cae37ded';
 
     /**
      * 视图名称

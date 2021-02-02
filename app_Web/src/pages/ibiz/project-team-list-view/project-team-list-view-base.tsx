@@ -123,7 +123,7 @@ export class ProjectTeamListViewBase extends ListViewBase {
      * @type {string}
      * @memberof ProjectTeamListViewBase
      */
-	protected viewtag: string = 'a03214a97c7b57f1681defbdecd07f9d';
+	protected viewtag: string = '753d59ea09ed63ba3e2aebe7d463abe7';
 
     /**
      * 视图名称

@@ -150,7 +150,7 @@ export class StoryMPickupView3Base extends MPickupViewBase {
      * @type {string}
      * @memberof StoryMPickupView3Base
      */
-	protected viewtag: string = '2419b3758d42fb7e5a590153d28bd945';
+	protected viewtag: string = '82bee6f0e3c563cc77e6e915c3c30336';
 
     /**
      * 视图名称

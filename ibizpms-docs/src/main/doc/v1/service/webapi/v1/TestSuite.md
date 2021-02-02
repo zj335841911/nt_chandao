@@ -575,9 +575,9 @@ POST
 | 6 | type | String | 允许 | 类型 |
 | 7 | lastediteddate | Timestamp | 允许 | 最后编辑时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
 | 8 | addedby | String | 允许 | 由谁创建 |
-| 9 | desc | String | 允许 | 描述 |
-| 10 | product | Long | 允许 | 所属产品 |
-| 11 | casecnt | Integer | 允许 | 用例数 |
+| 9 | casecnt | Integer | 允许 | 用例数 |
+| 10 | desc | String | 允许 | 描述 |
+| 11 | product | Long | 允许 | 所属产品 |
 | 12 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### TestSuiteSearchContext

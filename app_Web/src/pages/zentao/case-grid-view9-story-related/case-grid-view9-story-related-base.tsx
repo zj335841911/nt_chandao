@@ -105,7 +105,7 @@ export class CaseGridView9_StoryRelatedBase extends GridView9Base {
      * @type {string}
      * @memberof CaseGridView9_StoryRelatedBase
      */
-	protected viewtag: string = '5d3b1d4c90b8b3a2013ccd3f3a9d5f17';
+	protected viewtag: string = '578d2fd4888ee9b9a2d87ff640e786cd';
 
     /**
      * 视图名称

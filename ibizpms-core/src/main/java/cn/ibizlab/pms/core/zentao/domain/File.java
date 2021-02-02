@@ -58,6 +58,20 @@ public class File extends EntityMP implements Serializable {
     @JsonProperty("objectid")
     private Long objectid;
     /**
+     * 显示大小
+     */
+    @TableField(exist = false)
+    @JSONField(name = "strsize")
+    @JsonProperty("strsize")
+    private String strsize;
+    /**
+     * 文档类型
+     */
+    @TableField(exist = false)
+    @JSONField(name = "doclibtype")
+    @JsonProperty("doclibtype")
+    private String doclibtype;
+    /**
      * 已删除
      */
     @DEField(defaultValue = "0", preType = DEPredefinedFieldType.LOGICVALID, logicval = "0", logicdelval = "1")
@@ -135,20 +149,6 @@ public class File extends EntityMP implements Serializable {
     @JSONField(name = "extra")
     @JsonProperty("extra")
     private String extra;
-    /**
-     * 显示大小
-     */
-    @TableField(exist = false)
-    @JSONField(name = "strsize")
-    @JsonProperty("strsize")
-    private String strsize;
-    /**
-     * 文档类型
-     */
-    @TableField(exist = false)
-    @JSONField(name = "doclibtype")
-    @JsonProperty("doclibtype")
-    private String doclibtype;
 
 
 

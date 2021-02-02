@@ -105,7 +105,7 @@ export class CaseGridView9_StoryaffectBase extends GridView9Base {
      * @type {string}
      * @memberof CaseGridView9_StoryaffectBase
      */
-	protected viewtag: string = '3458603afa6fef36eda88e9f794840f5';
+	protected viewtag: string = '8e459cffb6ebdb4d255f59fb72be4470';
 
     /**
      * 视图名称

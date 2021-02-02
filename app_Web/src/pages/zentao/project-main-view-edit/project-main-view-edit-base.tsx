@@ -125,7 +125,7 @@ export class ProjectMainView_EditBase extends EditViewBase {
      * @type {string}
      * @memberof ProjectMainView_EditBase
      */
-	protected viewtag: string = '5b7c1b586dc5e23998a2765d235eaa7e';
+	protected viewtag: string = 'd5700c9e8b9e0d9eba56c81a052ed438';
 
     /**
      * 视图名称

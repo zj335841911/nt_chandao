@@ -15,44 +15,44 @@ hide members
 
 | 属性名称        |    中文名称    | 类型     |  备注  |
 | --------   |------------| -----   |  -------- | 
-|类型（task）|TYPE|TEXT|&nbsp;|
-|collector|COLLECTOR|LONGTEXT|&nbsp;|
-|id|ID|ACID|&nbsp;|
-|逻辑删除标志|DELETED|TEXT|&nbsp;|
-|叶子模块|ISLEAF|TEXT|&nbsp;|
-|path|PATH|TEXT|&nbsp;|
-|owner|OWNER|TEXT|&nbsp;|
 |简称|SHORT|TEXT|&nbsp;|
+|叶子模块|ISLEAF|TEXT|&nbsp;|
+|类型（task）|TYPE|TEXT|&nbsp;|
+|数据选择排序|ORDERPK|TEXT|&nbsp;|
 |名称|NAME|TEXT|&nbsp;|
-|grade|GRADE|INT|&nbsp;|
 |排序值|ORDER|INT|&nbsp;|
+|collector|COLLECTOR|LONGTEXT|&nbsp;|
+|grade|GRADE|INT|&nbsp;|
 |branch|BRANCH|INT|&nbsp;|
-|id|PARENT|PICKUP|&nbsp;|
-|项目|ROOT|PICKUP|&nbsp;|
+|path|PATH|TEXT|&nbsp;|
+|id|ID|ACID|&nbsp;|
+|owner|OWNER|TEXT|&nbsp;|
+|逻辑删除标志|DELETED|TEXT|&nbsp;|
 |所属项目|ROOTNAME|PICKUPTEXT|&nbsp;|
 |上级模块|PARENTNAME|PICKUPTEXT|&nbsp;|
-|数据选择排序|ORDERPK|TEXT|&nbsp;|
+|项目|ROOT|PICKUP|&nbsp;|
+|id|PARENT|PICKUP|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
 | --------   |------------| ----- | 
-|类型（task）|默认规则|内容长度必须小于等于[30]|
-|collector|默认规则|内容长度必须小于等于[65535]|
-|id|默认规则|默认规则|
-|逻辑删除标志|默认规则|内容长度必须小于等于[1]|
-|叶子模块|默认规则|内容长度必须小于等于[200]|
-|path|默认规则|内容长度必须小于等于[255]|
-|owner|默认规则|内容长度必须小于等于[30]|
 |简称|默认规则|内容长度必须小于等于[30]|
+|叶子模块|默认规则|内容长度必须小于等于[200]|
+|类型（task）|默认规则|内容长度必须小于等于[30]|
+|数据选择排序|默认规则|内容长度必须小于等于[100]|
 |名称|默认规则|内容长度必须小于等于[60]|
-|grade|默认规则|默认规则|
 |排序值|默认规则|默认规则|
+|collector|默认规则|内容长度必须小于等于[65535]|
+|grade|默认规则|默认规则|
 |branch|默认规则|默认规则|
+|path|默认规则|内容长度必须小于等于[255]|
 |id|默认规则|默认规则|
-|项目|默认规则|默认规则|
+|owner|默认规则|内容长度必须小于等于[30]|
+|逻辑删除标志|默认规则|内容长度必须小于等于[1]|
 |所属项目|默认规则|内容长度必须小于等于[90]|
 |上级模块|默认规则|内容长度必须小于等于[60]|
-|数据选择排序|默认规则|内容长度必须小于等于[100]|
+|项目|默认规则|默认规则|
+|id|默认规则|默认规则|
 
 ## 状态控制
 
@@ -80,15 +80,15 @@ hide members
 {% plantuml %}
 hide footbox
 
-任务模块 -> 模块: 执行重建模块路径行为
 任务模块 -> 任务模块: 准备参数
+任务模块 -> 模块: 执行重建模块路径行为
 {% endplantuml %}
 
 | 步骤       | 操作        |
 | --------   | --------   |
-|1|执行重建模块路径行为 |
-|1|开始 | 
-|2|准备参数 |
+|0|开始 | 
+|1|准备参数 |
+|2|执行重建模块路径行为 |
 <center>重建模块路径</center>
 * 删除模块 (RemoveModule)
   
@@ -140,12 +140,12 @@ hide footbox
 | --------   |------------|
 |类型（task）(TYPE)|EQ|
 |名称(NAME)|LIKE|
-|id(PARENT)|EQ|
-|项目(ROOT)|EQ|
 |所属项目(ROOTNAME)|EQ|
 |所属项目(ROOTNAME)|LIKE|
 |上级模块(PARENTNAME)|EQ|
 |上级模块(PARENTNAME)|LIKE|
+|项目(ROOT)|EQ|
+|id(PARENT)|EQ|
 
 ## 导入模式
 无

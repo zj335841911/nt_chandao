@@ -57,15 +57,6 @@ public class SysUserDTO extends DTOBase implements Serializable {
     private String personname;
 
     /**
-     * 属性 [PASSWORD]
-     *
-     */
-    @JSONField(name = "password")
-    @JsonProperty("password")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String password;
-
-    /**
      * 属性 [USERCODE]
      *
      */
@@ -74,6 +65,15 @@ public class SysUserDTO extends DTOBase implements Serializable {
     @NotBlank(message = "[用户工号]不允许为空!")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String usercode;
+
+    /**
+     * 属性 [PASSWORD]
+     *
+     */
+    @JSONField(name = "password")
+    @JsonProperty("password")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String password;
 
     /**
      * 属性 [LOGINNAME]
@@ -363,19 +363,19 @@ public class SysUserDTO extends DTOBase implements Serializable {
     }
 
     /**
-     * 设置 [PASSWORD]
-     */
-    public void setPassword(String  password){
-        this.password = password ;
-        this.modify("password",password);
-    }
-
-    /**
      * 设置 [USERCODE]
      */
     public void setUsercode(String  usercode){
         this.usercode = usercode ;
         this.modify("usercode",usercode);
+    }
+
+    /**
+     * 设置 [PASSWORD]
+     */
+    public void setPassword(String  password){
+        this.password = password ;
+        this.modify("password",password);
     }
 
     /**

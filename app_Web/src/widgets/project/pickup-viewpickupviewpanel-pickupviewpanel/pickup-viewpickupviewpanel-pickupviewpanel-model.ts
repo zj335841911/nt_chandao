@@ -21,16 +21,55 @@ export default class PickupViewpickupviewpanelModel {
         name: 'begin',
       },
       {
+        name: 'hours',
+      },
+      {
+        name: 'pmseeprojectinfo',
+      },
+      {
         name: 'acl',
       },
       {
         name: 'deleted',
       },
       {
+        name: 'totalconsumed',
+      },
+      {
+        name: 'products',
+      },
+      {
+        name: 'ycompletetaskcnt',
+      },
+      {
+        name: 'plans',
+      },
+      {
         name: 'desc',
       },
       {
+        name: 'temptaskcnt',
+      },
+      {
+        name: 'doclibcnt',
+      },
+      {
+        name: 'mycompletetaskcnt',
+      },
+      {
+        name: 'istop',
+      },
+      {
+        name: 'uncompletetaskcnt',
+      },
+      {
+        name: 'teamcnt',
+      },
+      {
         name: 'pm',
+      },
+      {
+        name: 'dept',
       },
       {
         name: 'project',
@@ -43,13 +82,37 @@ export default class PickupViewpickupviewpanelModel {
         name: 'substatus',
       },
       {
+        name: 'role',
+      },
+      {
         name: 'order',
+      },
+      {
+        name: 'bugcnt',
       },
       {
         name: 'rd',
       },
       {
+        name: 'managemembers',
+      },
+      {
+        name: 'ystarttaskcnt',
+      },
+      {
         name: 'whitelist',
+      },
+      {
+        name: 'mobimage',
+      },
+      {
+        name: 'totalwh',
+      },
+      {
+        name: 'projectteams',
+      },
+      {
+        name: 'totalhours',
       },
       {
         name: 'pri',
@@ -61,13 +124,64 @@ export default class PickupViewpickupviewpanelModel {
         name: 'canceleddate',
       },
       {
+        name: 'plantaskcnt',
+      },
+      {
+        name: 'join',
+      },
+      {
+        name: 'totalestimate',
+      },
+      {
+        name: 'mdeptid',
+      },
+      {
+        name: 'totalleft',
+      },
+      {
+        name: 'srfarray',
+      },
+      {
         name: 'code',
+      },
+      {
+        name: 'period',
+      },
+      {
+        name: 'closetaskcnt',
+      },
+      {
+        name: 'branchs',
       },
       {
         name: 'catid',
       },
       {
+        name: 'orgid',
+      },
+      {
+        name: 'unstarttaskcnt',
+      },
+      {
+        name: 'accounts',
+      },
+      {
+        name: 'noticeusers',
+      },
+      {
         name: 'statge',
+      },
+      {
+        name: 'canceltaskcnt',
+      },
+      {
+        name: 'taskcnt',
+      },
+      {
+        name: 'alltaskcnt',
+      },
+      {
+        name: 'supproreport',
       },
       {
         name: 'canceledby',
@@ -79,19 +193,43 @@ export default class PickupViewpickupviewpanelModel {
         name: 'openeddate',
       },
       {
+        name: 'unclosetaskcnt',
+      },
+      {
+        name: 'storychangecnt',
+      },
+      {
         name: 'closedby',
       },
       {
         name: 'type',
       },
       {
+        name: 'buildcnt',
+      },
+      {
+        name: 'account',
+      },
+      {
         name: 'po',
+      },
+      {
+        name: 'asstomytaskcnt',
+      },
+      {
+        name: 'order1',
       },
       {
         name: 'status',
       },
       {
+        name: 'moretaskcnt',
+      },
+      {
         name: 'days',
+      },
+      {
+        name: 'cycletaskcnt',
       },
       {
         name: 'team',
@@ -100,7 +238,13 @@ export default class PickupViewpickupviewpanelModel {
         name: 'closeddate',
       },
       {
+        name: 'comment',
+      },
+      {
         name: 'openedby',
+      },
+      {
+        name: 'storycnt',
       },
       {
         name: 'qd',
@@ -110,150 +254,6 @@ export default class PickupViewpickupviewpanelModel {
       },
       {
         name: 'parent',
-      },
-      {
-        name: 'taskcnt',
-      },
-      {
-        name: 'bugcnt',
-      },
-      {
-        name: 'storycnt',
-      },
-      {
-        name: 'products',
-      },
-      {
-        name: 'branchs',
-      },
-      {
-        name: 'plans',
-      },
-      {
-        name: 'srfarray',
-      },
-      {
-        name: 'comment',
-      },
-      {
-        name: 'period',
-      },
-      {
-        name: 'account',
-      },
-      {
-        name: 'join',
-      },
-      {
-        name: 'hours',
-      },
-      {
-        name: 'role',
-      },
-      {
-        name: 'totalconsumed',
-      },
-      {
-        name: 'totalwh',
-      },
-      {
-        name: 'totalleft',
-      },
-      {
-        name: 'totalestimate',
-      },
-      {
-        name: 'totalhours',
-      },
-      {
-        name: 'mobimage',
-      },
-      {
-        name: 'accounts',
-      },
-      {
-        name: 'order1',
-      },
-      {
-        name: 'istop',
-      },
-      {
-        name: 'dept',
-      },
-      {
-        name: 'managemembers',
-      },
-      {
-        name: 'buildcnt',
-      },
-      {
-        name: 'teamcnt',
-      },
-      {
-        name: 'alltaskcnt',
-      },
-      {
-        name: 'unclosetaskcnt',
-      },
-      {
-        name: 'asstomytaskcnt',
-      },
-      {
-        name: 'unstarttaskcnt',
-      },
-      {
-        name: 'moretaskcnt',
-      },
-      {
-        name: 'ystarttaskcnt',
-      },
-      {
-        name: 'uncompletetaskcnt',
-      },
-      {
-        name: 'ycompletetaskcnt',
-      },
-      {
-        name: 'mycompletetaskcnt',
-      },
-      {
-        name: 'closetaskcnt',
-      },
-      {
-        name: 'canceltaskcnt',
-      },
-      {
-        name: 'storychangecnt',
-      },
-      {
-        name: 'noticeusers',
-      },
-      {
-        name: 'doclibcnt',
-      },
-      {
-        name: 'orgid',
-      },
-      {
-        name: 'mdeptid',
-      },
-      {
-        name: 'projectteams',
-      },
-      {
-        name: 'supproreport',
-      },
-      {
-        name: 'pmseeprojectinfo',
-      },
-      {
-        name: 'temptaskcnt',
-      },
-      {
-        name: 'cycletaskcnt',
-      },
-      {
-        name: 'plantaskcnt',
       },
     ]
   }

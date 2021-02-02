@@ -528,29 +528,29 @@ POST
 #### IbzLibModuleDTO
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
-| 1 | branch | Integer | 允许 | branch |
-| 2 | ibizshort | String | 允许 | 简称 |
-| 3 | grade | Integer | 允许 | grade |
-| 4 | order | Integer | 允许 | 排序值 |
+| 1 | deleted | String | 允许 | 逻辑删除标志 |
+| 2 | id | Long | 不可 | id |
+| 3 | branch | Integer | 允许 | branch |
+| 4 | isleaf | String | 允许 | 叶子模块 |
 | 5 | type | String | 允许 | 类型（story） |
-| 6 | collector | String | 允许 | collector |
-| 7 | id | Long | 不可 | id |
-| 8 | isleaf | String | 允许 | 叶子模块 |
-| 9 | owner | String | 允许 | owner |
+| 6 | ibizshort | String | 允许 | 简称 |
+| 7 | grade | Integer | 允许 | grade |
+| 8 | collector | String | 允许 | collector |
+| 9 | path | String | 允许 | path |
 | 10 | name | String | 不可 | 名称 |
-| 11 | deleted | String | 允许 | 逻辑删除标志 |
-| 12 | path | String | 允许 | path |
-| 13 | parent | Long | 允许 | id |
-| 14 | parentname | String | 允许 | 上级模块 |
-| 15 | root | Long | 允许 | 编号 |
+| 11 | owner | String | 允许 | owner |
+| 12 | order | Integer | 允许 | 排序值 |
+| 13 | parentname | String | 允许 | 上级模块 |
+| 14 | root | Long | 允许 | 编号 |
+| 15 | parent | Long | 允许 | id |
 | 16 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### IbzLibModuleSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
 | 1 | n_name_like | String | 允许 | 条件字段：name<br>条件组合方式：`%like%` |
-| 2 | n_parent_eq | Long | 允许 | 条件字段：parent<br>条件组合方式：`=` |
-| 3 | n_root_eq | Long | 允许 | 条件字段：root<br>条件组合方式：`=` |
+| 2 | n_root_eq | Long | 允许 | 条件字段：root<br>条件组合方式：`=` |
+| 3 | n_parent_eq | Long | 允许 | 条件字段：parent<br>条件组合方式：`=` |
 | 4 | customcond | String | 允许 | 自定义查询条件 |
 | 5 | customparams | String | 允许 | 自定义查询参数 |
 | 6 | query | String | 允许 | 快速搜索 |

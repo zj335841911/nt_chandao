@@ -105,7 +105,7 @@ export class IbzproProductUserTaskProductDailyPartGridViewBase extends GridView9
      * @type {string}
      * @memberof IbzproProductUserTaskProductDailyPartGridViewBase
      */
-	protected viewtag: string = 'f24328f024ca560f1d741035e0e2ffd8';
+	protected viewtag: string = 'b3328135c614fd3d2a68b8eb01d3e008';
 
     /**
      * 视图名称

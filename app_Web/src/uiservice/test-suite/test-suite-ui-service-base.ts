@@ -197,7 +197,7 @@ export default class TestSuiteUIServiceBase extends UIService {
     }
 
     /**
-     * 关联用例
+     * 编辑
      *
      * @param {any[]} args 当前数据
      * @param {any} context 行为附加上下文
@@ -208,14 +208,12 @@ export default class TestSuiteUIServiceBase extends UIService {
      * @param {*} [srfParentDeName] 父实体名称
      * @returns {Promise<any>}
      */
-    public async TestSuite_linkCaseDash(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    public async TestSuite_EditsuiteDash(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
     
         let data: any = {};
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
-        Object.assign(context,{SUITE:"%testsuite%"});
-        Object.assign(params,{suite:"%testsuite%"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(context, { testsuite: '%testsuite%' });
@@ -240,7 +238,7 @@ export default class TestSuiteUIServiceBase extends UIService {
             ]
         }
         const parameters: any[] = [
-            { pathName: 'cases', parameterName: 'case' },
+            { pathName: 'testsuites', parameterName: 'testsuite' },
         ];
             const openDrawer = (view: any, data: any) => {
                 let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
@@ -252,15 +250,16 @@ export default class TestSuiteUIServiceBase extends UIService {
                     if (xData && xData.refresh && xData.refresh instanceof Function) {
                         xData.refresh(args);
                     }
+                    _this.closeView(null);
                     return result.datas;
                 });
             }
             const view: any = {
-                viewname: 'casesuite-link-case-grid-view', 
+                viewname: 'test-suite-edit-view', 
                 height: 0, 
                 width: 0,  
-                title: actionContext.$t('entities.case.views.suitelinkcasegridview.title'),
-                placement: 'DRAWER_TOP',
+                title: actionContext.$t('entities.testsuite.views.editview.title'),
+                placement: 'DRAWER_RIGHT',
             };
             openDrawer(view, data);
     }
@@ -349,7 +348,7 @@ export default class TestSuiteUIServiceBase extends UIService {
     }
 
     /**
-     * 编辑
+     * 关联用例
      *
      * @param {any[]} args 当前数据
      * @param {any} context 行为附加上下文
@@ -360,12 +359,14 @@ export default class TestSuiteUIServiceBase extends UIService {
      * @param {*} [srfParentDeName] 父实体名称
      * @returns {Promise<any>}
      */
-    public async TestSuite_EditsuiteDash(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    public async TestSuite_linkCaseDash(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
     
         let data: any = {};
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
+        Object.assign(context,{SUITE:"%testsuite%"});
+        Object.assign(params,{suite:"%testsuite%"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(context, { testsuite: '%testsuite%' });
@@ -390,7 +391,7 @@ export default class TestSuiteUIServiceBase extends UIService {
             ]
         }
         const parameters: any[] = [
-            { pathName: 'testsuites', parameterName: 'testsuite' },
+            { pathName: 'cases', parameterName: 'case' },
         ];
             const openDrawer = (view: any, data: any) => {
                 let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
@@ -402,16 +403,15 @@ export default class TestSuiteUIServiceBase extends UIService {
                     if (xData && xData.refresh && xData.refresh instanceof Function) {
                         xData.refresh(args);
                     }
-                    _this.closeView(null);
                     return result.datas;
                 });
             }
             const view: any = {
-                viewname: 'test-suite-edit-view', 
+                viewname: 'casesuite-link-case-grid-view', 
                 height: 0, 
                 width: 0,  
-                title: actionContext.$t('entities.testsuite.views.editview.title'),
-                placement: 'DRAWER_RIGHT',
+                title: actionContext.$t('entities.case.views.suitelinkcasegridview.title'),
+                placement: 'DRAWER_TOP',
             };
             openDrawer(view, data);
     }

@@ -60,6 +60,21 @@ public class IbzReportRoleConfig extends EntityMP implements Serializable {
     @JsonProperty("ibzreportroleconfigid")
     private String ibzreportroleconfigid;
     /**
+     * 角色
+     */
+    @DEField(name = "report_role")
+    @TableField(value = "`report_role`")
+    @JSONField(name = "report_role")
+    @JsonProperty("report_role")
+    private String reportRole;
+    /**
+     * 类型
+     */
+    @TableField(value = "`type`")
+    @JSONField(name = "type")
+    @JsonProperty("type")
+    private String type;
+    /**
      * 建立时间
      */
     @DEField(preType = DEPredefinedFieldType.CREATEDATE)
@@ -68,6 +83,15 @@ public class IbzReportRoleConfig extends EntityMP implements Serializable {
     @JSONField(name = "createdate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createdate")
     private Timestamp createdate;
+    /**
+     * 更新时间
+     */
+    @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
+    @TableField(value = "`updatedate`")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "updatedate", format = "yyyy-MM-dd HH:mm:ss")
+    @JsonProperty("updatedate")
+    private Timestamp updatedate;
     /**
      * 建立人
      */
@@ -84,30 +108,6 @@ public class IbzReportRoleConfig extends EntityMP implements Serializable {
     @JSONField(name = "updateman")
     @JsonProperty("updateman")
     private String updateman;
-    /**
-     * 更新时间
-     */
-    @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
-    @TableField(value = "`updatedate`")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
-    @JSONField(name = "updatedate", format = "yyyy-MM-dd HH:mm:ss")
-    @JsonProperty("updatedate")
-    private Timestamp updatedate;
-    /**
-     * 角色
-     */
-    @DEField(name = "report_role")
-    @TableField(value = "`report_role`")
-    @JSONField(name = "report_role")
-    @JsonProperty("report_role")
-    private String reportRole;
-    /**
-     * 类型
-     */
-    @TableField(value = "`type`")
-    @JSONField(name = "type")
-    @JsonProperty("type")
-    private String type;
 
 
 

@@ -33,15 +33,15 @@ public class SysTeamMemberSearchContext extends SearchContextBase {
 
 	private String n_postname_like;//[岗位]
 
-	private String n_userid_eq;//[用户标识]
-
-	private String n_teamid_eq;//[组标识]
-
-	private String n_postid_eq;//[岗位标识]
-
 	private String n_personname_eq;//[姓名]
 
 	private String n_personname_like;//[姓名]
+
+	private String n_postid_eq;//[岗位标识]
+
+	private String n_teamid_eq;//[组标识]
+
+	private String n_userid_eq;//[用户标识]
 
 }
 

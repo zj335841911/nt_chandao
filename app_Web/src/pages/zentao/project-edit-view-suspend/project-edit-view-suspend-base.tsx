@@ -125,7 +125,7 @@ export class ProjectEditView_SuspendBase extends EditViewBase {
      * @type {string}
      * @memberof ProjectEditView_SuspendBase
      */
-	protected viewtag: string = 'edd664c8fc682d166b3a027dd08bbd8b';
+	protected viewtag: string = '9669d3f350b532bb8acd60be74038748';
 
     /**
      * 视图名称

@@ -151,7 +151,7 @@ export class TestTaskEditView_commitTestBase extends EditViewBase {
      * @type {string}
      * @memberof TestTaskEditView_commitTestBase
      */
-	protected viewtag: string = '4d32793fc57ec1ae930a18608526d00e';
+	protected viewtag: string = 'f9491d4c2ef8e5263adeb7c8be5b66f9';
 
     /**
      * 视图名称

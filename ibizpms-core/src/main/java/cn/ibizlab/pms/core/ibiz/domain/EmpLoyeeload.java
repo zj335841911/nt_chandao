@@ -44,14 +44,6 @@ public class EmpLoyeeload extends EntityMP implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
-     * 主键
-     */
-    @DEField(isKeyField = true)
-    @TableId(value = "id", type = IdType.AUTO)
-    @JSONField(name = "id")
-    @JsonProperty("id")
-    private Long id;
-    /**
      * 任务名
      */
     @TableField(value = "`name`")
@@ -66,19 +58,27 @@ public class EmpLoyeeload extends EntityMP implements Serializable {
     @JsonProperty("taskcnt")
     private Integer taskcnt;
     /**
-     * 项目编号
-     */
-    @TableField(value = "`project`")
-    @JSONField(name = "project")
-    @JsonProperty("project")
-    private Long project;
-    /**
-     * 项目
+     * 部门
      */
     @TableField(exist = false)
-    @JSONField(name = "projectname")
-    @JsonProperty("projectname")
-    private String projectname;
+    @JSONField(name = "dept")
+    @JsonProperty("dept")
+    private String dept;
+    /**
+     * 主键
+     */
+    @DEField(isKeyField = true)
+    @TableId(value = "id", type = IdType.AUTO)
+    @JSONField(name = "id")
+    @JsonProperty("id")
+    private Long id;
+    /**
+     * 工作日天数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "workday")
+    @JsonProperty("workday")
+    private Integer workday;
     /**
      * 总任务数
      */
@@ -87,12 +87,12 @@ public class EmpLoyeeload extends EntityMP implements Serializable {
     @JsonProperty("totaltaskcnt")
     private Integer totaltaskcnt;
     /**
-     * 总工时
+     * 指派给
      */
-    @TableField(exist = false)
-    @JSONField(name = "totalleft")
-    @JsonProperty("totalleft")
-    private Integer totalleft;
+    @TableField(value = "`assignedto`")
+    @JSONField(name = "assignedto")
+    @JsonProperty("assignedto")
+    private String assignedto;
     /**
      * 剩余工时
      */
@@ -101,26 +101,12 @@ public class EmpLoyeeload extends EntityMP implements Serializable {
     @JsonProperty("left")
     private Integer left;
     /**
-     * 工作负载
+     * 是否指派
      */
-    @TableField(exist = false)
-    @JSONField(name = "workload")
-    @JsonProperty("workload")
-    private String workload;
-    /**
-     * 指派给
-     */
-    @TableField(value = "`assignedto`")
-    @JSONField(name = "assignedto")
-    @JsonProperty("assignedto")
-    private String assignedto;
-    /**
-     * 部门
-     */
-    @TableField(exist = false)
-    @JSONField(name = "dept")
-    @JsonProperty("dept")
-    private String dept;
+    @TableField(value = "`assign`")
+    @JSONField(name = "assign")
+    @JsonProperty("assign")
+    private String assign;
     /**
      * 属性
      */
@@ -130,6 +116,20 @@ public class EmpLoyeeload extends EntityMP implements Serializable {
     @JsonProperty("begin")
     private Timestamp begin;
     /**
+     * 总工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "totalleft")
+    @JsonProperty("totalleft")
+    private Integer totalleft;
+    /**
+     * 工作负载
+     */
+    @TableField(exist = false)
+    @JSONField(name = "workload")
+    @JsonProperty("workload")
+    private String workload;
+    /**
      * 结束
      */
     @TableField(exist = false)
@@ -138,19 +138,19 @@ public class EmpLoyeeload extends EntityMP implements Serializable {
     @JsonProperty("end")
     private Timestamp end;
     /**
-     * 工作日天数
+     * 项目
      */
     @TableField(exist = false)
-    @JSONField(name = "workday")
-    @JsonProperty("workday")
-    private Integer workday;
+    @JSONField(name = "projectname")
+    @JsonProperty("projectname")
+    private String projectname;
     /**
-     * 是否指派
+     * 项目编号
      */
-    @TableField(value = "`assign`")
-    @JSONField(name = "assign")
-    @JsonProperty("assign")
-    private String assign;
+    @TableField(value = "`project`")
+    @JSONField(name = "project")
+    @JsonProperty("project")
+    private Long project;
 
     /**
      * 项目
@@ -171,14 +171,6 @@ public class EmpLoyeeload extends EntityMP implements Serializable {
     }
 
     /**
-     * 设置 [项目编号]
-     */
-    public void setProject(Long project) {
-        this.project = project;
-        this.modify("project", project);
-    }
-
-    /**
      * 设置 [指派给]
      */
     public void setAssignedto(String assignedto) {
@@ -192,6 +184,14 @@ public class EmpLoyeeload extends EntityMP implements Serializable {
     public void setAssign(String assign) {
         this.assign = assign;
         this.modify("assign", assign);
+    }
+
+    /**
+     * 设置 [项目编号]
+     */
+    public void setProject(Long project) {
+        this.project = project;
+        this.modify("project", project);
     }
 
 

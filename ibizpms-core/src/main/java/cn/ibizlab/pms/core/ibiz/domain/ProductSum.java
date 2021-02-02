@@ -44,62 +44,12 @@ public class ProductSum extends EntityMP implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
-     * 主键标识
-     */
-    @DEField(isKeyField = true)
-    @TableId(value = "id", type = IdType.AUTO)
-    @JSONField(name = "id")
-    @JsonProperty("id")
-    private Long id;
-    /**
-     * 产品名称
-     */
-    @TableField(value = "`name`")
-    @JSONField(name = "name")
-    @JsonProperty("name")
-    private String name;
-    /**
-     * 产品负责人
-     */
-    @TableField(value = "`po`")
-    @JSONField(name = "po")
-    @JsonProperty("po")
-    private String po;
-    /**
-     * 计划
+     * 设计缺陷
      */
     @TableField(exist = false)
-    @JSONField(name = "plan")
-    @JsonProperty("plan")
-    private Long plan;
-    /**
-     * 开始日期
-     */
-    @TableField(exist = false)
-    @JSONField(name = "begin")
-    @JsonProperty("begin")
-    private String begin;
-    /**
-     * 结束日期
-     */
-    @TableField(exist = false)
-    @JSONField(name = "end")
-    @JsonProperty("end")
-    private String end;
-    /**
-     * 草稿
-     */
-    @TableField(exist = false)
-    @JSONField(name = "waitstorycnt")
-    @JsonProperty("waitstorycnt")
-    private Integer waitstorycnt;
-    /**
-     * 激活
-     */
-    @TableField(exist = false)
-    @JSONField(name = "activestorycnt")
-    @JsonProperty("activestorycnt")
-    private Integer activestorycnt;
+    @JSONField(name = "designdefect")
+    @JsonProperty("designdefect")
+    private Integer designdefect;
     /**
      * 已变更
      */
@@ -108,12 +58,12 @@ public class ProductSum extends EntityMP implements Serializable {
     @JsonProperty("changedstorycnt")
     private Integer changedstorycnt;
     /**
-     * 已关闭
+     * 研发中阶段需求工时
      */
     @TableField(exist = false)
-    @JSONField(name = "closedstorycnt")
-    @JsonProperty("closedstorycnt")
-    private Integer closedstorycnt;
+    @JSONField(name = "developingstagestoryhours")
+    @JsonProperty("developingstagestoryhours")
+    private Integer developingstagestoryhours;
     /**
      * 总计
      */
@@ -121,6 +71,147 @@ public class ProductSum extends EntityMP implements Serializable {
     @JSONField(name = "storycnt")
     @JsonProperty("storycnt")
     private Integer storycnt;
+    /**
+     * 其他
+     */
+    @TableField(exist = false)
+    @JSONField(name = "others")
+    @JsonProperty("others")
+    private Integer others;
+    /**
+     * 配置相关
+     */
+    @TableField(exist = false)
+    @JSONField(name = "config")
+    @JsonProperty("config")
+    private Integer config;
+    /**
+     * 代码错误
+     */
+    @TableField(exist = false)
+    @JSONField(name = "codeerror")
+    @JsonProperty("codeerror")
+    private Integer codeerror;
+    /**
+     * bug总计
+     */
+    @TableField(exist = false)
+    @JSONField(name = "bugsum")
+    @JsonProperty("bugsum")
+    private Integer bugsum;
+    /**
+     * 性能问题
+     */
+    @TableField(exist = false)
+    @JSONField(name = "performance")
+    @JsonProperty("performance")
+    private Integer performance;
+    /**
+     * 结束日期
+     */
+    @TableField(exist = false)
+    @JSONField(name = "end")
+    @JsonProperty("end")
+    private String end;
+    /**
+     * 已关闭
+     */
+    @TableField(exist = false)
+    @JSONField(name = "closedstorycnt")
+    @JsonProperty("closedstorycnt")
+    private Integer closedstorycnt;
+    /**
+     * 已关闭阶段需求工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "closedstagestoryhours")
+    @JsonProperty("closedstagestoryhours")
+    private Integer closedstagestoryhours;
+    /**
+     * 测试完毕阶段需求工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "testedstagestoryhours")
+    @JsonProperty("testedstagestoryhours")
+    private Integer testedstagestoryhours;
+    /**
+     * 未开始阶段需求工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "waitstagestoryhours")
+    @JsonProperty("waitstagestoryhours")
+    private Integer waitstagestoryhours;
+    /**
+     * 产品负责人
+     */
+    @TableField(value = "`po`")
+    @JSONField(name = "po")
+    @JsonProperty("po")
+    private String po;
+    /**
+     * 测试中阶段需求工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "testingstagestoryhours")
+    @JsonProperty("testingstagestoryhours")
+    private Integer testingstagestoryhours;
+    /**
+     * 已立项阶段需求工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "projectedstagestoryhours")
+    @JsonProperty("projectedstagestoryhours")
+    private Integer projectedstagestoryhours;
+    /**
+     * 已立项阶段需求数量
+     */
+    @TableField(exist = false)
+    @JSONField(name = "projectedstagestorycnt")
+    @JsonProperty("projectedstagestorycnt")
+    private Integer projectedstagestorycnt;
+    /**
+     * 已验收阶段需求数量
+     */
+    @TableField(exist = false)
+    @JSONField(name = "verifiedstagestorycnt")
+    @JsonProperty("verifiedstagestorycnt")
+    private Integer verifiedstagestorycnt;
+    /**
+     * 主键标识
+     */
+    @DEField(isKeyField = true)
+    @TableId(value = "id", type = IdType.AUTO)
+    @JSONField(name = "id")
+    @JsonProperty("id")
+    private Long id;
+    /**
+     * 总工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "totalhours")
+    @JsonProperty("totalhours")
+    private Integer totalhours;
+    /**
+     * 已计划阶段需求数量
+     */
+    @TableField(exist = false)
+    @JSONField(name = "planedstagestorycnt")
+    @JsonProperty("planedstagestorycnt")
+    private Integer planedstagestorycnt;
+    /**
+     * 研发中阶段需求数量
+     */
+    @TableField(exist = false)
+    @JSONField(name = "developingstagestorycnt")
+    @JsonProperty("developingstagestorycnt")
+    private Integer developingstagestorycnt;
+    /**
+     * 激活
+     */
+    @TableField(exist = false)
+    @JSONField(name = "activestorycnt")
+    @JsonProperty("activestorycnt")
+    private Integer activestorycnt;
     /**
      * Bug数
      */
@@ -136,33 +227,19 @@ public class ProductSum extends EntityMP implements Serializable {
     @JsonProperty("waitstagestorycnt")
     private Integer waitstagestorycnt;
     /**
-     * 已计划阶段需求数量
+     * 已验收阶段需求工时
      */
     @TableField(exist = false)
-    @JSONField(name = "planedstagestorycnt")
-    @JsonProperty("planedstagestorycnt")
-    private Integer planedstagestorycnt;
+    @JSONField(name = "verifiedstagestoryhours")
+    @JsonProperty("verifiedstagestoryhours")
+    private Integer verifiedstagestoryhours;
     /**
-     * 已立项阶段需求数量
+     * 草稿
      */
     @TableField(exist = false)
-    @JSONField(name = "projectedstagestorycnt")
-    @JsonProperty("projectedstagestorycnt")
-    private Integer projectedstagestorycnt;
-    /**
-     * 研发中阶段需求数量
-     */
-    @TableField(exist = false)
-    @JSONField(name = "developingstagestorycnt")
-    @JsonProperty("developingstagestorycnt")
-    private Integer developingstagestorycnt;
-    /**
-     * 研发完毕阶段需求数量
-     */
-    @TableField(exist = false)
-    @JSONField(name = "developedstagestorycnt")
-    @JsonProperty("developedstagestorycnt")
-    private Integer developedstagestorycnt;
+    @JSONField(name = "waitstorycnt")
+    @JsonProperty("waitstorycnt")
+    private Integer waitstorycnt;
     /**
      * 测试中阶段需求数量
      */
@@ -171,47 +248,19 @@ public class ProductSum extends EntityMP implements Serializable {
     @JsonProperty("testingstagestorycnt")
     private Integer testingstagestorycnt;
     /**
-     * 测试完毕阶段需求数量
+     * 开始日期
      */
     @TableField(exist = false)
-    @JSONField(name = "testedstagestorycnt")
-    @JsonProperty("testedstagestorycnt")
-    private Integer testedstagestorycnt;
+    @JSONField(name = "begin")
+    @JsonProperty("begin")
+    private String begin;
     /**
-     * 已验收阶段需求数量
+     * 计划
      */
     @TableField(exist = false)
-    @JSONField(name = "verifiedstagestorycnt")
-    @JsonProperty("verifiedstagestorycnt")
-    private Integer verifiedstagestorycnt;
-    /**
-     * 已发布阶段需求数量
-     */
-    @TableField(exist = false)
-    @JSONField(name = "releasedstagestorycnt")
-    @JsonProperty("releasedstagestorycnt")
-    private Integer releasedstagestorycnt;
-    /**
-     * 已关闭阶段需求数量
-     */
-    @TableField(exist = false)
-    @JSONField(name = "closedstagestorycnt")
-    @JsonProperty("closedstagestorycnt")
-    private Integer closedstagestorycnt;
-    /**
-     * 未开始阶段需求工时
-     */
-    @TableField(exist = false)
-    @JSONField(name = "waitstagestoryhours")
-    @JsonProperty("waitstagestoryhours")
-    private Integer waitstagestoryhours;
-    /**
-     * 已关闭阶段需求工时
-     */
-    @TableField(exist = false)
-    @JSONField(name = "closedstagestoryhours")
-    @JsonProperty("closedstagestoryhours")
-    private Integer closedstagestoryhours;
+    @JSONField(name = "plan")
+    @JsonProperty("plan")
+    private Long plan;
     /**
      * 已发布阶段需求工时
      */
@@ -220,27 +269,6 @@ public class ProductSum extends EntityMP implements Serializable {
     @JsonProperty("releasedstagestoryhours")
     private Integer releasedstagestoryhours;
     /**
-     * 已验收阶段需求工时
-     */
-    @TableField(exist = false)
-    @JSONField(name = "verifiedstagestoryhours")
-    @JsonProperty("verifiedstagestoryhours")
-    private Integer verifiedstagestoryhours;
-    /**
-     * 测试完毕阶段需求工时
-     */
-    @TableField(exist = false)
-    @JSONField(name = "testedstagestoryhours")
-    @JsonProperty("testedstagestoryhours")
-    private Integer testedstagestoryhours;
-    /**
-     * 测试中阶段需求工时
-     */
-    @TableField(exist = false)
-    @JSONField(name = "testingstagestoryhours")
-    @JsonProperty("testingstagestoryhours")
-    private Integer testingstagestoryhours;
-    /**
      * 研发完毕阶段需求工时
      */
     @TableField(exist = false)
@@ -248,19 +276,26 @@ public class ProductSum extends EntityMP implements Serializable {
     @JsonProperty("developedstagestoryhours")
     private Integer developedstagestoryhours;
     /**
-     * 研发中阶段需求工时
+     * 产品名称
      */
-    @TableField(exist = false)
-    @JSONField(name = "developingstagestoryhours")
-    @JsonProperty("developingstagestoryhours")
-    private Integer developingstagestoryhours;
+    @TableField(value = "`name`")
+    @JSONField(name = "name")
+    @JsonProperty("name")
+    private String name;
     /**
-     * 已立项阶段需求工时
+     * 研发完毕阶段需求数量
      */
     @TableField(exist = false)
-    @JSONField(name = "projectedstagestoryhours")
-    @JsonProperty("projectedstagestoryhours")
-    private Integer projectedstagestoryhours;
+    @JSONField(name = "developedstagestorycnt")
+    @JsonProperty("developedstagestorycnt")
+    private Integer developedstagestorycnt;
+    /**
+     * 测试脚本
+     */
+    @TableField(exist = false)
+    @JSONField(name = "automation")
+    @JsonProperty("automation")
+    private Integer automation;
     /**
      * 已计划阶段需求工时
      */
@@ -268,27 +303,6 @@ public class ProductSum extends EntityMP implements Serializable {
     @JSONField(name = "planedstagestoryhours")
     @JsonProperty("planedstagestoryhours")
     private Integer planedstagestoryhours;
-    /**
-     * 总工时
-     */
-    @TableField(exist = false)
-    @JSONField(name = "totalhours")
-    @JsonProperty("totalhours")
-    private Integer totalhours;
-    /**
-     * 代码错误
-     */
-    @TableField(exist = false)
-    @JSONField(name = "codeerror")
-    @JsonProperty("codeerror")
-    private Integer codeerror;
-    /**
-     * 配置相关
-     */
-    @TableField(exist = false)
-    @JSONField(name = "config")
-    @JsonProperty("config")
-    private Integer config;
     /**
      * 安装部署
      */
@@ -304,12 +318,19 @@ public class ProductSum extends EntityMP implements Serializable {
     @JsonProperty("security")
     private Integer security;
     /**
-     * 性能问题
+     * 已发布阶段需求数量
      */
     @TableField(exist = false)
-    @JSONField(name = "performance")
-    @JsonProperty("performance")
-    private Integer performance;
+    @JSONField(name = "releasedstagestorycnt")
+    @JsonProperty("releasedstagestorycnt")
+    private Integer releasedstagestorycnt;
+    /**
+     * 测试完毕阶段需求数量
+     */
+    @TableField(exist = false)
+    @JSONField(name = "testedstagestorycnt")
+    @JsonProperty("testedstagestorycnt")
+    private Integer testedstagestorycnt;
     /**
      * 标准规范
      */
@@ -318,43 +339,14 @@ public class ProductSum extends EntityMP implements Serializable {
     @JsonProperty("standard")
     private Integer standard;
     /**
-     * 测试脚本
+     * 已关闭阶段需求数量
      */
     @TableField(exist = false)
-    @JSONField(name = "automation")
-    @JsonProperty("automation")
-    private Integer automation;
-    /**
-     * 设计缺陷
-     */
-    @TableField(exist = false)
-    @JSONField(name = "designdefect")
-    @JsonProperty("designdefect")
-    private Integer designdefect;
-    /**
-     * 其他
-     */
-    @TableField(exist = false)
-    @JSONField(name = "others")
-    @JsonProperty("others")
-    private Integer others;
-    /**
-     * bug总计
-     */
-    @TableField(exist = false)
-    @JSONField(name = "bugsum")
-    @JsonProperty("bugsum")
-    private Integer bugsum;
+    @JSONField(name = "closedstagestorycnt")
+    @JsonProperty("closedstagestorycnt")
+    private Integer closedstagestorycnt;
 
 
-
-    /**
-     * 设置 [产品名称]
-     */
-    public void setName(String name) {
-        this.name = name;
-        this.modify("name", name);
-    }
 
     /**
      * 设置 [产品负责人]
@@ -362,6 +354,14 @@ public class ProductSum extends EntityMP implements Serializable {
     public void setPo(String po) {
         this.po = po;
         this.modify("po", po);
+    }
+
+    /**
+     * 设置 [产品名称]
+     */
+    public void setName(String name) {
+        this.name = name;
+        this.modify("name", name);
     }
 
 

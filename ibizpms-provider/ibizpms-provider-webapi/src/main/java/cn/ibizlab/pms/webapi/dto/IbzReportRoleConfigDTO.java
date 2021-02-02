@@ -48,6 +48,24 @@ public class IbzReportRoleConfigDTO extends DTOBase implements Serializable {
     private String ibzreportroleconfigid;
 
     /**
+     * 属性 [REPORT_ROLE]
+     *
+     */
+    @JSONField(name = "report_role")
+    @JsonProperty("report_role")
+    @Size(min = 0, max = 2000, message = "内容长度必须小于等于[2000]")
+    private String reportRole;
+
+    /**
+     * 属性 [TYPE]
+     *
+     */
+    @JSONField(name = "type")
+    @JsonProperty("type")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    private String type;
+
+    /**
      * 属性 [CREATEDATE]
      *
      */
@@ -55,6 +73,15 @@ public class IbzReportRoleConfigDTO extends DTOBase implements Serializable {
     @JSONField(name = "createdate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createdate")
     private Timestamp createdate;
+
+    /**
+     * 属性 [UPDATEDATE]
+     *
+     */
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "updatedate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonProperty("updatedate")
+    private Timestamp updatedate;
 
     /**
      * 属性 [CREATEMAN]
@@ -73,33 +100,6 @@ public class IbzReportRoleConfigDTO extends DTOBase implements Serializable {
     @JsonProperty("updateman")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
     private String updateman;
-
-    /**
-     * 属性 [UPDATEDATE]
-     *
-     */
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "updatedate" , format="yyyy-MM-dd HH:mm:ss")
-    @JsonProperty("updatedate")
-    private Timestamp updatedate;
-
-    /**
-     * 属性 [REPORT_ROLE]
-     *
-     */
-    @JSONField(name = "report_role")
-    @JsonProperty("report_role")
-    @Size(min = 0, max = 2000, message = "内容长度必须小于等于[2000]")
-    private String reportRole;
-
-    /**
-     * 属性 [TYPE]
-     *
-     */
-    @JSONField(name = "type")
-    @JsonProperty("type")
-    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
-    private String type;
 
 
     /**

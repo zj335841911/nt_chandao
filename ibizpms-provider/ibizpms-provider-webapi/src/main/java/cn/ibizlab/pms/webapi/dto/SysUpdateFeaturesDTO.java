@@ -39,13 +39,13 @@ public class SysUpdateFeaturesDTO extends DTOBase implements Serializable {
     private String sysupdatefeaturesname;
 
     /**
-     * 属性 [SYS_UPDATE_FEATURESID]
+     * 属性 [UPDATEDATE]
      *
      */
-    @JSONField(name = "sysupdatefeaturesid")
-    @JsonProperty("sysupdatefeaturesid")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String sysupdatefeaturesid;
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "updatedate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonProperty("updatedate")
+    private Timestamp updatedate;
 
     /**
      * 属性 [CREATEMAN]
@@ -66,6 +66,15 @@ public class SysUpdateFeaturesDTO extends DTOBase implements Serializable {
     private String updateman;
 
     /**
+     * 属性 [TYPE]
+     *
+     */
+    @JSONField(name = "type")
+    @JsonProperty("type")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    private String type;
+
+    /**
      * 属性 [CREATEDATE]
      *
      */
@@ -73,33 +82,6 @@ public class SysUpdateFeaturesDTO extends DTOBase implements Serializable {
     @JSONField(name = "createdate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createdate")
     private Timestamp createdate;
-
-    /**
-     * 属性 [UPDATEDATE]
-     *
-     */
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "updatedate" , format="yyyy-MM-dd HH:mm:ss")
-    @JsonProperty("updatedate")
-    private Timestamp updatedate;
-
-    /**
-     * 属性 [SYS_UPDATE_LOGID]
-     *
-     */
-    @JSONField(name = "sysupdatelogid")
-    @JsonProperty("sysupdatelogid")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String sysupdatelogid;
-
-    /**
-     * 属性 [SYS_UPDATE_LOGNAME]
-     *
-     */
-    @JSONField(name = "sysupdatelogname")
-    @JsonProperty("sysupdatelogname")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String sysupdatelogname;
 
     /**
      * 属性 [UPFEATURES]
@@ -111,6 +93,23 @@ public class SysUpdateFeaturesDTO extends DTOBase implements Serializable {
     private String upfeatures;
 
     /**
+     * 属性 [SYS_UPDATE_FEATURESID]
+     *
+     */
+    @JSONField(name = "sysupdatefeaturesid")
+    @JsonProperty("sysupdatefeaturesid")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String sysupdatefeaturesid;
+
+    /**
+     * 属性 [DISPLAYORDER]
+     *
+     */
+    @JSONField(name = "displayorder")
+    @JsonProperty("displayorder")
+    private Integer displayorder;
+
+    /**
      * 属性 [FEATURESDESC]
      *
      */
@@ -120,21 +119,22 @@ public class SysUpdateFeaturesDTO extends DTOBase implements Serializable {
     private String featuresdesc;
 
     /**
-     * 属性 [TYPE]
+     * 属性 [SYS_UPDATE_LOGNAME]
      *
      */
-    @JSONField(name = "type")
-    @JsonProperty("type")
-    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
-    private String type;
+    @JSONField(name = "sysupdatelogname")
+    @JsonProperty("sysupdatelogname")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String sysupdatelogname;
 
     /**
-     * 属性 [DISPLAYORDER]
+     * 属性 [SYS_UPDATE_LOGID]
      *
      */
-    @JSONField(name = "displayorder")
-    @JsonProperty("displayorder")
-    private Integer displayorder;
+    @JSONField(name = "sysupdatelogid")
+    @JsonProperty("sysupdatelogid")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String sysupdatelogid;
 
 
     /**
@@ -146,11 +146,11 @@ public class SysUpdateFeaturesDTO extends DTOBase implements Serializable {
     }
 
     /**
-     * 设置 [SYS_UPDATE_LOGID]
+     * 设置 [TYPE]
      */
-    public void setSysupdatelogid(String  sysupdatelogid){
-        this.sysupdatelogid = sysupdatelogid ;
-        this.modify("sys_update_logid",sysupdatelogid);
+    public void setType(String  type){
+        this.type = type ;
+        this.modify("type",type);
     }
 
     /**
@@ -162,6 +162,14 @@ public class SysUpdateFeaturesDTO extends DTOBase implements Serializable {
     }
 
     /**
+     * 设置 [DISPLAYORDER]
+     */
+    public void setDisplayorder(Integer  displayorder){
+        this.displayorder = displayorder ;
+        this.modify("displayorder",displayorder);
+    }
+
+    /**
      * 设置 [FEATURESDESC]
      */
     public void setFeaturesdesc(String  featuresdesc){
@@ -170,19 +178,11 @@ public class SysUpdateFeaturesDTO extends DTOBase implements Serializable {
     }
 
     /**
-     * 设置 [TYPE]
+     * 设置 [SYS_UPDATE_LOGID]
      */
-    public void setType(String  type){
-        this.type = type ;
-        this.modify("type",type);
-    }
-
-    /**
-     * 设置 [DISPLAYORDER]
-     */
-    public void setDisplayorder(Integer  displayorder){
-        this.displayorder = displayorder ;
-        this.modify("displayorder",displayorder);
+    public void setSysupdatelogid(String  sysupdatelogid){
+        this.sysupdatelogid = sysupdatelogid ;
+        this.modify("sys_update_logid",sysupdatelogid);
     }
 
 

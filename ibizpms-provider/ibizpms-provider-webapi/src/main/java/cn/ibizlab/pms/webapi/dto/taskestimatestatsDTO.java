@@ -30,15 +30,6 @@ public class taskestimatestatsDTO extends DTOBase implements Serializable {
 	private static final long serialVersionUID = 1L;
 
     /**
-     * 属性 [ACCOUNT]
-     *
-     */
-    @JSONField(name = "account")
-    @JsonProperty("account")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String account;
-
-    /**
      * 属性 [DATE]
      *
      */
@@ -48,12 +39,13 @@ public class taskestimatestatsDTO extends DTOBase implements Serializable {
     private String date;
 
     /**
-     * 属性 [TASKCNT]
+     * 属性 [YEAR]
      *
      */
-    @JSONField(name = "taskcnt")
-    @JsonProperty("taskcnt")
-    private Integer taskcnt;
+    @JSONField(name = "year")
+    @JsonProperty("year")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String year;
 
     /**
      * 属性 [CONSUMED]
@@ -62,6 +54,24 @@ public class taskestimatestatsDTO extends DTOBase implements Serializable {
     @JSONField(name = "consumed")
     @JsonProperty("consumed")
     private Double consumed;
+
+    /**
+     * 属性 [EVALUATIONSTATUS]
+     *
+     */
+    @JSONField(name = "evaluationstatus")
+    @JsonProperty("evaluationstatus")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String evaluationstatus;
+
+    /**
+     * 属性 [ACCOUNT]
+     *
+     */
+    @JSONField(name = "account")
+    @JsonProperty("account")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String account;
 
     /**
      * 属性 [ID]
@@ -73,6 +83,15 @@ public class taskestimatestatsDTO extends DTOBase implements Serializable {
     private Long id;
 
     /**
+     * 属性 [MONTHNAME]
+     *
+     */
+    @JSONField(name = "monthname")
+    @JsonProperty("monthname")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String monthname;
+
+    /**
      * 属性 [NAME]
      *
      */
@@ -82,12 +101,13 @@ public class taskestimatestatsDTO extends DTOBase implements Serializable {
     private String name;
 
     /**
-     * 属性 [INPUTCOST]
+     * 属性 [YEARNAME]
      *
      */
-    @JSONField(name = "inputcost")
-    @JsonProperty("inputcost")
-    private Double inputcost;
+    @JSONField(name = "yearname")
+    @JsonProperty("yearname")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String yearname;
 
     /**
      * 属性 [EVALUATIONTIME]
@@ -106,31 +126,12 @@ public class taskestimatestatsDTO extends DTOBase implements Serializable {
     private Double evaluationcost;
 
     /**
-     * 属性 [EVALUATIONSTATUS]
+     * 属性 [INPUTCOST]
      *
      */
-    @JSONField(name = "evaluationstatus")
-    @JsonProperty("evaluationstatus")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String evaluationstatus;
-
-    /**
-     * 属性 [YEAR]
-     *
-     */
-    @JSONField(name = "year")
-    @JsonProperty("year")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String year;
-
-    /**
-     * 属性 [YEARNAME]
-     *
-     */
-    @JSONField(name = "yearname")
-    @JsonProperty("yearname")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String yearname;
+    @JSONField(name = "inputcost")
+    @JsonProperty("inputcost")
+    private Double inputcost;
 
     /**
      * 属性 [MONTH]
@@ -142,22 +143,13 @@ public class taskestimatestatsDTO extends DTOBase implements Serializable {
     private String month;
 
     /**
-     * 属性 [MONTHNAME]
+     * 属性 [TASKCNT]
      *
      */
-    @JSONField(name = "monthname")
-    @JsonProperty("monthname")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String monthname;
+    @JSONField(name = "taskcnt")
+    @JsonProperty("taskcnt")
+    private Integer taskcnt;
 
-
-    /**
-     * 设置 [ACCOUNT]
-     */
-    public void setAccount(String  account){
-        this.account = account ;
-        this.modify("account",account);
-    }
 
     /**
      * 设置 [DATE]
@@ -168,11 +160,27 @@ public class taskestimatestatsDTO extends DTOBase implements Serializable {
     }
 
     /**
-     * 设置 [INPUTCOST]
+     * 设置 [EVALUATIONSTATUS]
      */
-    public void setInputcost(Double  inputcost){
-        this.inputcost = inputcost ;
-        this.modify("inputcost",inputcost);
+    public void setEvaluationstatus(String  evaluationstatus){
+        this.evaluationstatus = evaluationstatus ;
+        this.modify("evaluationstatus",evaluationstatus);
+    }
+
+    /**
+     * 设置 [ACCOUNT]
+     */
+    public void setAccount(String  account){
+        this.account = account ;
+        this.modify("account",account);
+    }
+
+    /**
+     * 设置 [MONTHNAME]
+     */
+    public void setMonthname(String  monthname){
+        this.monthname = monthname ;
+        this.modify("monthname",monthname);
     }
 
     /**
@@ -192,19 +200,11 @@ public class taskestimatestatsDTO extends DTOBase implements Serializable {
     }
 
     /**
-     * 设置 [EVALUATIONSTATUS]
+     * 设置 [INPUTCOST]
      */
-    public void setEvaluationstatus(String  evaluationstatus){
-        this.evaluationstatus = evaluationstatus ;
-        this.modify("evaluationstatus",evaluationstatus);
-    }
-
-    /**
-     * 设置 [MONTHNAME]
-     */
-    public void setMonthname(String  monthname){
-        this.monthname = monthname ;
-        this.modify("monthname",monthname);
+    public void setInputcost(Double  inputcost){
+        this.inputcost = inputcost ;
+        this.modify("inputcost",inputcost);
     }
 
 

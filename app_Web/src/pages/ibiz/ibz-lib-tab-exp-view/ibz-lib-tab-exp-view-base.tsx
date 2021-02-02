@@ -100,7 +100,7 @@ export class IbzLibTabExpViewBase extends TabExpViewBase {
      * @type {string}
      * @memberof IbzLibTabExpViewBase
      */
-	protected viewtag: string = 'ebf8f4c62f92ff24ff740558f12f7303';
+	protected viewtag: string = '331707f1067ca2792a78285e48607a5d';
 
     /**
      * 视图名称

@@ -44,20 +44,12 @@ public class IbzProjectMember extends EntityMP implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
-     * 编号
+     * 团队成员（二）
      */
-    @DEField(isKeyField = true)
-    @TableId(value = "id", type = IdType.AUTO)
-    @JSONField(name = "id")
-    @JsonProperty("id")
-    private Long id;
-    /**
-     * 项目名称
-     */
-    @TableField(value = "`name`")
-    @JSONField(name = "name")
-    @JsonProperty("name")
-    private String name;
+    @TableField(exist = false)
+    @JSONField(name = "secondmember")
+    @JsonProperty("secondmember")
+    private String secondmember;
     /**
      * 发布负责人
      */
@@ -66,20 +58,6 @@ public class IbzProjectMember extends EntityMP implements Serializable {
     @JsonProperty("rd")
     private String rd;
     /**
-     * 产品负责人
-     */
-    @TableField(exist = false)
-    @JSONField(name = "po")
-    @JsonProperty("po")
-    private String po;
-    /**
-     * 项目负责人
-     */
-    @TableField(exist = false)
-    @JSONField(name = "pm")
-    @JsonProperty("pm")
-    private String pm;
-    /**
      * 测试负责人
      */
     @TableField(exist = false)
@@ -87,19 +65,12 @@ public class IbzProjectMember extends EntityMP implements Serializable {
     @JsonProperty("qd")
     private String qd;
     /**
-     * 团队成员（一）
+     * 全部成员
      */
     @TableField(exist = false)
-    @JSONField(name = "fristmember")
-    @JsonProperty("fristmember")
-    private String fristmember;
-    /**
-     * 团队成员（二）
-     */
-    @TableField(exist = false)
-    @JSONField(name = "secondmember")
-    @JsonProperty("secondmember")
-    private String secondmember;
+    @JSONField(name = "teamembers")
+    @JsonProperty("teamembers")
+    private String teamembers;
     /**
      * 团队成员（三）
      */
@@ -108,12 +79,41 @@ public class IbzProjectMember extends EntityMP implements Serializable {
     @JsonProperty("thirdmember")
     private String thirdmember;
     /**
+     * 编号
+     */
+    @DEField(isKeyField = true)
+    @TableId(value = "id", type = IdType.AUTO)
+    @JSONField(name = "id")
+    @JsonProperty("id")
+    private Long id;
+    /**
+     * 团队成员（一）
+     */
+    @TableField(exist = false)
+    @JSONField(name = "fristmember")
+    @JsonProperty("fristmember")
+    private String fristmember;
+    /**
+     * 产品负责人
+     */
+    @TableField(exist = false)
+    @JSONField(name = "po")
+    @JsonProperty("po")
+    private String po;
+    /**
      * 团队成员（四）
      */
     @TableField(exist = false)
     @JSONField(name = "fourthmember")
     @JsonProperty("fourthmember")
     private String fourthmember;
+    /**
+     * 项目负责人
+     */
+    @TableField(exist = false)
+    @JSONField(name = "pm")
+    @JsonProperty("pm")
+    private String pm;
     /**
      * 团队成员（五）
      */
@@ -129,12 +129,12 @@ public class IbzProjectMember extends EntityMP implements Serializable {
     @JsonProperty("sixthmember")
     private String sixthmember;
     /**
-     * 全部成员
+     * 项目名称
      */
-    @TableField(exist = false)
-    @JSONField(name = "teamembers")
-    @JsonProperty("teamembers")
-    private String teamembers;
+    @TableField(value = "`name`")
+    @JSONField(name = "name")
+    @JsonProperty("name")
+    private String name;
 
 
 

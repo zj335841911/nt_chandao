@@ -14,42 +14,42 @@ hide members
 
 | 属性名称        |    中文名称    | 类型     |  备注  |
 | --------   |------------| -----   |  -------- | 
-|path|PATH|TEXT|&nbsp;|
-|逻辑删除标志|DELETED|TEXT|&nbsp;|
-|名称|NAME|TEXT|&nbsp;|
-|排序值|ORDER|INT|&nbsp;|
-|branch|BRANCH|INT|&nbsp;|
-|简称|SHORT|TEXT|&nbsp;|
-|grade|GRADE|INT|&nbsp;|
 |类型（story）|TYPE|TEXT|&nbsp;|
+|path|PATH|TEXT|&nbsp;|
 |owner|OWNER|TEXT|&nbsp;|
+|排序值|ORDER|INT|&nbsp;|
+|逻辑删除标志|DELETED|TEXT|&nbsp;|
+|branch|BRANCH|INT|&nbsp;|
+|collector|COLLECTOR|LONGTEXT|&nbsp;|
 |id|ID|ACID|&nbsp;|
 |叶子模块|ISLEAF|TEXT|&nbsp;|
-|collector|COLLECTOR|LONGTEXT|&nbsp;|
-|id|PARENT|PICKUP|&nbsp;|
+|名称|NAME|TEXT|&nbsp;|
+|简称|SHORT|TEXT|&nbsp;|
+|grade|GRADE|INT|&nbsp;|
 |上级模块|PARENTNAME|PICKUPTEXT|&nbsp;|
-|编号|ROOT|PICKUP|&nbsp;|
 |测试|ROOTNAME|PICKUPTEXT|&nbsp;|
+|编号|ROOT|PICKUP|&nbsp;|
+|id|PARENT|PICKUP|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
 | --------   |------------| ----- | 
-|path|默认规则|内容长度必须小于等于[255]|
-|逻辑删除标志|默认规则|内容长度必须小于等于[1]|
-|名称|默认规则|内容长度必须小于等于[60]|
-|排序值|默认规则|默认规则|
-|branch|默认规则|默认规则|
-|简称|默认规则|内容长度必须小于等于[30]|
-|grade|默认规则|默认规则|
 |类型（story）|默认规则|内容长度必须小于等于[30]|
+|path|默认规则|内容长度必须小于等于[255]|
 |owner|默认规则|内容长度必须小于等于[30]|
-|id|默认规则|默认规则|
-|叶子模块|默认规则|内容长度必须小于等于[200]|
+|排序值|默认规则|默认规则|
+|逻辑删除标志|默认规则|内容长度必须小于等于[1]|
+|branch|默认规则|默认规则|
 |collector|默认规则|内容长度必须小于等于[65535]|
 |id|默认规则|默认规则|
+|叶子模块|默认规则|内容长度必须小于等于[200]|
+|名称|默认规则|内容长度必须小于等于[60]|
+|简称|默认规则|内容长度必须小于等于[30]|
+|grade|默认规则|默认规则|
 |上级模块|默认规则|内容长度必须小于等于[60]|
-|编号|默认规则|默认规则|
 |测试|默认规则|内容长度必须小于等于[90]|
+|编号|默认规则|默认规则|
+|id|默认规则|默认规则|
 
 ## 状态控制
 
@@ -133,14 +133,14 @@ hide footbox
 ## 查询模式
 | 属性      |    搜索模式     |
 | --------   |------------|
-|名称(NAME)|LIKE|
 |branch(BRANCH)|EQ|
-|id(PARENT)|EQ|
+|名称(NAME)|LIKE|
 |上级模块(PARENTNAME)|EQ|
 |上级模块(PARENTNAME)|LIKE|
-|编号(ROOT)|EQ|
 |测试(ROOTNAME)|EQ|
 |测试(ROOTNAME)|LIKE|
+|编号(ROOT)|EQ|
+|id(PARENT)|EQ|
 
 ## 导入模式
 无

@@ -57,6 +57,15 @@ public class ReleaseDTO extends DTOBase implements Serializable {
     private Long id;
 
     /**
+     * 属性 [SQLID]
+     *
+     */
+    @JSONField(name = "sqlid")
+    @JsonProperty("sqlid")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String sqlid;
+
+    /**
      * 属性 [LEFTBUGS]
      *
      */
@@ -82,6 +91,23 @@ public class ReleaseDTO extends DTOBase implements Serializable {
     @JsonProperty("deleted")
     @Size(min = 0, max = 1, message = "内容长度必须小于等于[1]")
     private String deleted;
+
+    /**
+     * 属性 [NOTICEUSERS]
+     *
+     */
+    @JSONField(name = "noticeusers")
+    @JsonProperty("noticeusers")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String noticeusers;
+
+    /**
+     * 属性 [REBUILD]
+     *
+     */
+    @JSONField(name = "rebuild")
+    @JsonProperty("rebuild")
+    private Integer rebuild;
 
     /**
      * 属性 [NAME]
@@ -112,6 +138,15 @@ public class ReleaseDTO extends DTOBase implements Serializable {
     private String status;
 
     /**
+     * 属性 [RELEASETYPE]
+     *
+     */
+    @JSONField(name = "releasetype")
+    @JsonProperty("releasetype")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String releasetype;
+
+    /**
      * 属性 [SUBSTATUS]
      *
      */
@@ -119,6 +154,15 @@ public class ReleaseDTO extends DTOBase implements Serializable {
     @JsonProperty("substatus")
     @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
     private String substatus;
+
+    /**
+     * 属性 [BACKGROUNDID]
+     *
+     */
+    @JSONField(name = "backgroundid")
+    @JsonProperty("backgroundid")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String backgroundid;
 
     /**
      * 属性 [DESC]
@@ -130,6 +174,42 @@ public class ReleaseDTO extends DTOBase implements Serializable {
     private String desc;
 
     /**
+     * 属性 [FILES]
+     *
+     */
+    @JSONField(name = "files")
+    @JsonProperty("files")
+    @Size(min = 0, max = 1000, message = "内容长度必须小于等于[1000]")
+    private String files;
+
+    /**
+     * 属性 [FRONTAPPLICATION]
+     *
+     */
+    @JSONField(name = "frontapplication")
+    @JsonProperty("frontapplication")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String frontapplication;
+
+    /**
+     * 属性 [PRODUCTNAME]
+     *
+     */
+    @JSONField(name = "productname")
+    @JsonProperty("productname")
+    @Size(min = 0, max = 8, message = "内容长度必须小于等于[8]")
+    private String productname;
+
+    /**
+     * 属性 [BUILDER]
+     *
+     */
+    @JSONField(name = "builder")
+    @JsonProperty("builder")
+    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
+    private String builder;
+
+    /**
      * 属性 [BUILDNAME]
      *
      */
@@ -137,6 +217,15 @@ public class ReleaseDTO extends DTOBase implements Serializable {
     @JsonProperty("buildname")
     @Size(min = 0, max = 150, message = "内容长度必须小于等于[150]")
     private String buildname;
+
+    /**
+     * 属性 [BUILDDATE]
+     *
+     */
+    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "builddate" , format="yyyy-MM-dd")
+    @JsonProperty("builddate")
+    private Timestamp builddate;
 
     /**
      * 属性 [PRODUCT]
@@ -164,95 +253,6 @@ public class ReleaseDTO extends DTOBase implements Serializable {
     @JsonProperty("branch")
     @JsonSerialize(using = ToStringSerializer.class)
     private Long branch;
-
-    /**
-     * 属性 [PRODUCTNAME]
-     *
-     */
-    @JSONField(name = "productname")
-    @JsonProperty("productname")
-    @Size(min = 0, max = 8, message = "内容长度必须小于等于[8]")
-    private String productname;
-
-    /**
-     * 属性 [FILES]
-     *
-     */
-    @JSONField(name = "files")
-    @JsonProperty("files")
-    @Size(min = 0, max = 1000, message = "内容长度必须小于等于[1000]")
-    private String files;
-
-    /**
-     * 属性 [BACKGROUNDID]
-     *
-     */
-    @JSONField(name = "backgroundid")
-    @JsonProperty("backgroundid")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String backgroundid;
-
-    /**
-     * 属性 [SQLID]
-     *
-     */
-    @JSONField(name = "sqlid")
-    @JsonProperty("sqlid")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String sqlid;
-
-    /**
-     * 属性 [FRONTAPPLICATION]
-     *
-     */
-    @JSONField(name = "frontapplication")
-    @JsonProperty("frontapplication")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String frontapplication;
-
-    /**
-     * 属性 [REBUILD]
-     *
-     */
-    @JSONField(name = "rebuild")
-    @JsonProperty("rebuild")
-    private Integer rebuild;
-
-    /**
-     * 属性 [RELEASETYPE]
-     *
-     */
-    @JSONField(name = "releasetype")
-    @JsonProperty("releasetype")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String releasetype;
-
-    /**
-     * 属性 [BUILDER]
-     *
-     */
-    @JSONField(name = "builder")
-    @JsonProperty("builder")
-    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
-    private String builder;
-
-    /**
-     * 属性 [BUILDDATE]
-     *
-     */
-    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "builddate" , format="yyyy-MM-dd")
-    @JsonProperty("builddate")
-    private Timestamp builddate;
-
-    /**
-     * 属性 [NOTICEUSERS]
-     *
-     */
-    @JSONField(name = "noticeusers")
-    @JsonProperty("noticeusers")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String noticeusers;
 
 
     /**

@@ -162,7 +162,7 @@ export class TaskAssignTaskViewBase extends OptionViewBase {
      * @type {string}
      * @memberof TaskAssignTaskViewBase
      */
-	protected viewtag: string = '12661bdb476cd339554799b417c6ea48';
+	protected viewtag: string = '3891a34dcc372c6c8fe45dc7941cf290';
 
     /**
      * 视图名称

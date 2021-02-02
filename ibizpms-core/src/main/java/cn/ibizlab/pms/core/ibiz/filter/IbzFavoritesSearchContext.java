@@ -27,11 +27,11 @@ import cn.ibizlab.pms.core.ibiz.domain.IbzFavorites;
 @Data
 public class IbzFavoritesSearchContext extends QueryWrapperContext<IbzFavorites> {
 
-	private String n_ibz_favoritesname_like;//[收藏名称]
-	public void setN_ibz_favoritesname_like(String n_ibz_favoritesname_like) {
-        this.n_ibz_favoritesname_like = n_ibz_favoritesname_like;
-        if(!ObjectUtils.isEmpty(this.n_ibz_favoritesname_like)){
-            this.getSearchCond().like("`ibz_favoritesname`", n_ibz_favoritesname_like);
+	private String n_type_eq;//[类型]
+	public void setN_type_eq(String n_type_eq) {
+        this.n_type_eq = n_type_eq;
+        if(!ObjectUtils.isEmpty(this.n_type_eq)){
+            this.getSearchCond().eq("`type`", n_type_eq);
         }
     }
 	private Long n_objectid_eq;//[数据对象标识]
@@ -48,11 +48,11 @@ public class IbzFavoritesSearchContext extends QueryWrapperContext<IbzFavorites>
             this.getSearchCond().eq("`account`", n_account_eq);
         }
     }
-	private String n_type_eq;//[类型]
-	public void setN_type_eq(String n_type_eq) {
-        this.n_type_eq = n_type_eq;
-        if(!ObjectUtils.isEmpty(this.n_type_eq)){
-            this.getSearchCond().eq("`type`", n_type_eq);
+	private String n_ibz_favoritesname_like;//[收藏名称]
+	public void setN_ibz_favoritesname_like(String n_ibz_favoritesname_like) {
+        this.n_ibz_favoritesname_like = n_ibz_favoritesname_like;
+        if(!ObjectUtils.isEmpty(this.n_ibz_favoritesname_like)){
+            this.getSearchCond().like("`ibz_favoritesname`", n_ibz_favoritesname_like);
         }
     }
 

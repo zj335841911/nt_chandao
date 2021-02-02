@@ -125,7 +125,7 @@ export class ProjectEditView_CloseBase extends EditViewBase {
      * @type {string}
      * @memberof ProjectEditView_CloseBase
      */
-	protected viewtag: string = '9a8c28c2365d7dc8bb5619f39576b558';
+	protected viewtag: string = '765ac84633091fcfae4526324ff4ebac';
 
     /**
      * 视图名称

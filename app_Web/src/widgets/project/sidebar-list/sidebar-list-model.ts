@@ -15,33 +15,33 @@ export default class SidebarModel {
 	public getDataItems(): any[] {
 		return [
 			{
+				name: 'code',
+			},
+			{
 				name: 'type',
         codelist:{tag:'Project__type',codelistType:'STATIC'},
+			},
+			{
+				name: 'bugcnt',
 			},
 			{
 				name: 'taskcnt',
 			},
 			{
-				name: 'code',
+				name: 'istop',
 			},
 			{
-				name: 'bugcnt',
+				name: 'id',
+			},
+			{
+				name: 'name',
 			},
 			{
 				name: 'status',
         codelist:{tag:'Project__status',codelistType:'STATIC'},
 			},
 			{
-				name: 'name',
-			},
-			{
 				name: 'storycnt',
-			},
-			{
-				name: 'id',
-			},
-			{
-				name: 'istop',
 			},
 			{
 				name: 'srfkey',

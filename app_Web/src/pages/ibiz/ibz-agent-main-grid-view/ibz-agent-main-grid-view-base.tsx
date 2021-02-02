@@ -139,7 +139,7 @@ export class IbzAgentMainGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof IbzAgentMainGridViewBase
      */
-	protected viewtag: string = '95b5793bf8fc4bcf4cee37dcef6627cc';
+	protected viewtag: string = 'b5017ec4e41b5f494f6613b7a3bd43f3';
 
     /**
      * 视图名称

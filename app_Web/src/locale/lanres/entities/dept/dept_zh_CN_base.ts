@@ -4,6 +4,7 @@ function getLocaleResourceBase(){
 		appdename: commonLogic.appcommonhandle("部门", null),
 		fields: {
 			manager: commonLogic.appcommonhandle("负责人",null),
+			isleaf: commonLogic.appcommonhandle("无子部门",null),
 			grade: commonLogic.appcommonhandle("grade",null),
 			function: commonLogic.appcommonhandle("function",null),
 			order: commonLogic.appcommonhandle("order",null),
@@ -13,16 +14,11 @@ function getLocaleResourceBase(){
 			name: commonLogic.appcommonhandle("部门名称",null),
 			parentname: commonLogic.appcommonhandle("上级部门",null),
 			parent: commonLogic.appcommonhandle("parent",null),
-			isleaf: commonLogic.appcommonhandle("无子部门",null),
 		},
 			views: {
 				pickupview: {
 					caption: commonLogic.appcommonhandle("部门",null),
 					title: commonLogic.appcommonhandle("部门数据选择视图",null),
-				},
-				maingridview: {
-					caption: commonLogic.appcommonhandle("部门",null),
-					title: commonLogic.appcommonhandle("部门",null),
 				},
 				infoeditview: {
 					caption: commonLogic.appcommonhandle("部门信息",null),
@@ -31,6 +27,10 @@ function getLocaleResourceBase(){
 				editview: {
 					caption: commonLogic.appcommonhandle("部门信息",null),
 					title: commonLogic.appcommonhandle("部门编辑视图",null),
+				},
+				maingridview: {
+					caption: commonLogic.appcommonhandle("部门",null),
+					title: commonLogic.appcommonhandle("部门",null),
 				},
 				pickupgridview: {
 					caption: commonLogic.appcommonhandle("部门",null),

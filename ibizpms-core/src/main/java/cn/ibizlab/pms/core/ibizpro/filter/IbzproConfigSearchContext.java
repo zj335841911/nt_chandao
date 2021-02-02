@@ -34,13 +34,6 @@ public class IbzproConfigSearchContext extends QueryWrapperContext<IbzproConfig>
             this.getSearchCond().like("`ibzpro_configname`", n_ibzpro_configname_like);
         }
     }
-	private String n_vaild_eq;//[是否启用]
-	public void setN_vaild_eq(String n_vaild_eq) {
-        this.n_vaild_eq = n_vaild_eq;
-        if(!ObjectUtils.isEmpty(this.n_vaild_eq)){
-            this.getSearchCond().eq("`vaild`", n_vaild_eq);
-        }
-    }
 	private String n_type_eq;//[类型]
 	public void setN_type_eq(String n_type_eq) {
         this.n_type_eq = n_type_eq;
@@ -53,6 +46,13 @@ public class IbzproConfigSearchContext extends QueryWrapperContext<IbzproConfig>
         this.n_managementstatus_eq = n_managementstatus_eq;
         if(!ObjectUtils.isEmpty(this.n_managementstatus_eq)){
             this.getSearchCond().eq("`managementstatus`", n_managementstatus_eq);
+        }
+    }
+	private String n_vaild_eq;//[是否启用]
+	public void setN_vaild_eq(String n_vaild_eq) {
+        this.n_vaild_eq = n_vaild_eq;
+        if(!ObjectUtils.isEmpty(this.n_vaild_eq)){
+            this.getSearchCond().eq("`vaild`", n_vaild_eq);
         }
     }
 

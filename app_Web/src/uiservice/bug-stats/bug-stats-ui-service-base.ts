@@ -96,21 +96,21 @@ export default class BugStatsUIServiceBase extends UIService {
      * @memberof  BugStatsUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set('EDITVIEW:', {
-            viewname: 'editview',
-            srfappde: 'bugstats',
-            component: 'bug-stats-edit-view',
-            openmode: '',
-            title: 'Bug统计',
-            width: 0,
-            height: 0
-        });
         this.allViewMap.set('MDATAVIEW:', {
             viewname: 'gridview',
             srfappde: 'bugstats',
             component: 'bug-stats-grid-view',
             openmode: '',
             title: 'Bug创建表',
+            width: 0,
+            height: 0
+        });
+        this.allViewMap.set('EDITVIEW:', {
+            viewname: 'editview',
+            srfappde: 'bugstats',
+            component: 'bug-stats-edit-view',
+            openmode: '',
+            title: 'Bug统计',
             width: 0,
             height: 0
         });

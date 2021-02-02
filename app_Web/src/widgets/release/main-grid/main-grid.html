@@ -137,14 +137,14 @@
                                 <i class="fa fa-bug"></i>
                                 
                             </a>
-                            <divider v-show="scope.row.active.visible" type="vertical"></divider>
-                            <a v-show="scope.row.active.visible" :disabled="scope.row.active.disabled" @click="uiAction(scope.row, 'active', $event)" :title="$t('entities.release.main_grid.uiactions.release_active')">
-                                <i class="fa fa-play"></i>
-                                
-                            </a>
                             <divider v-show="scope.row.terminal.visible" type="vertical"></divider>
                             <a v-show="scope.row.terminal.visible" :disabled="scope.row.terminal.disabled" @click="uiAction(scope.row, 'terminal', $event)" :title="$t('entities.release.main_grid.uiactions.release_terminal')">
                                 <i class="fa fa-pause"></i>
+                                
+                            </a>
+                            <divider v-show="scope.row.active.visible" type="vertical"></divider>
+                            <a v-show="scope.row.active.visible" :disabled="scope.row.active.disabled" @click="uiAction(scope.row, 'active', $event)" :title="$t('entities.release.main_grid.uiactions.release_active')">
+                                <i class="fa fa-play"></i>
                                 
                             </a>
                             <divider v-show="scope.row.quickEdit.visible" type="vertical"></divider>

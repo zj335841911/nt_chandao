@@ -74,7 +74,7 @@ export class Main_BuildSubGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u5f3af70_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_uf192c0e_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -102,7 +102,7 @@ export class Main_BuildSubGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u424511e_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u2ab948e_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -130,7 +130,7 @@ export class Main_BuildSubGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u13bca5a_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u0d5407b_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -158,7 +158,7 @@ export class Main_BuildSubGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_udb5e3af_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u657f0aa_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -185,7 +185,7 @@ export class Main_BuildSubGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_uea0faba_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u28714d1_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -214,7 +214,7 @@ export class Main_BuildSubGridBase extends GridControlBase {
      * @param {*} [$event] 事件源
      * @param {*} [xData]  执行行为所需当前部件
      * @param {*} [actionContext]  执行行为上下文
-     * @memberof BugBuildSubGridView_New_9212Base
+     * @memberof BugBuildSubGridView_NewBase
      */
     public Copy(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
         if (args.length === 0) {
@@ -640,19 +640,19 @@ export class Main_BuildSubGridBase extends GridControlBase {
 	public uiAction(row: any, tag: any, $event: any): void {
         $event.stopPropagation();
         if(Object.is('ConfirmBug', tag)) {
-            this.grid_uagridcolumn1_u5f3af70_click(row, tag, $event);
+            this.grid_uagridcolumn1_uf192c0e_click(row, tag, $event);
         }
         if(Object.is('ResolveBug', tag)) {
-            this.grid_uagridcolumn1_u424511e_click(row, tag, $event);
+            this.grid_uagridcolumn1_u2ab948e_click(row, tag, $event);
         }
         if(Object.is('CloseBug', tag)) {
-            this.grid_uagridcolumn1_u13bca5a_click(row, tag, $event);
+            this.grid_uagridcolumn1_u0d5407b_click(row, tag, $event);
         }
         if(Object.is('Copy', tag)) {
-            this.grid_uagridcolumn1_udb5e3af_click(row, tag, $event);
+            this.grid_uagridcolumn1_u657f0aa_click(row, tag, $event);
         }
         if(Object.is('MainEdit', tag)) {
-            this.grid_uagridcolumn1_uea0faba_click(row, tag, $event);
+            this.grid_uagridcolumn1_u28714d1_click(row, tag, $event);
         }
     }
 

@@ -39,13 +39,13 @@ public class IbzLibDTO extends DTOBase implements Serializable {
     private String desc;
 
     /**
-     * 属性 [LASTEDITEDDATE]
+     * 属性 [PRODUCT]
      *
      */
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "lastediteddate" , format="yyyy-MM-dd HH:mm:ss")
-    @JsonProperty("lastediteddate")
-    private Timestamp lastediteddate;
+    @JSONField(name = "product")
+    @JsonProperty("product")
+    @JsonSerialize(using = ToStringSerializer.class)
+    private Long product;
 
     /**
      * 属性 [ADDEDDATE]
@@ -64,6 +64,24 @@ public class IbzLibDTO extends DTOBase implements Serializable {
     @JsonProperty("id")
     @JsonSerialize(using = ToStringSerializer.class)
     private Long id;
+
+    /**
+     * 属性 [LASTEDITEDDATE]
+     *
+     */
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "lastediteddate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonProperty("lastediteddate")
+    private Timestamp lastediteddate;
+
+    /**
+     * 属性 [ADDEDBY]
+     *
+     */
+    @JSONField(name = "addedby")
+    @JsonProperty("addedby")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    private String addedby;
 
     /**
      * 属性 [DELETED]
@@ -94,15 +112,6 @@ public class IbzLibDTO extends DTOBase implements Serializable {
     private String type;
 
     /**
-     * 属性 [ADDEDBY]
-     *
-     */
-    @JSONField(name = "addedby")
-    @JsonProperty("addedby")
-    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
-    private String addedby;
-
-    /**
      * 属性 [LASTEDITEDBY]
      *
      */
@@ -111,15 +120,6 @@ public class IbzLibDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
     private String lasteditedby;
 
-    /**
-     * 属性 [PRODUCT]
-     *
-     */
-    @JSONField(name = "product")
-    @JsonProperty("product")
-    @JsonSerialize(using = ToStringSerializer.class)
-    private Long product;
-
 
     /**
      * 设置 [DESC]
@@ -127,6 +127,14 @@ public class IbzLibDTO extends DTOBase implements Serializable {
     public void setDesc(String  desc){
         this.desc = desc ;
         this.modify("desc",desc);
+    }
+
+    /**
+     * 设置 [PRODUCT]
+     */
+    public void setProduct(Long  product){
+        this.product = product ;
+        this.modify("product",product);
     }
 
     /**
@@ -143,14 +151,6 @@ public class IbzLibDTO extends DTOBase implements Serializable {
     public void setType(String  type){
         this.type = type ;
         this.modify("type",type);
-    }
-
-    /**
-     * 设置 [PRODUCT]
-     */
-    public void setProduct(Long  product){
-        this.product = product ;
-        this.modify("product",product);
     }
 
 

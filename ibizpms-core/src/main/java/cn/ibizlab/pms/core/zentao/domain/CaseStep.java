@@ -44,6 +44,27 @@ public class CaseStep extends EntityMP implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
+     * 用例步骤编号
+     */
+    @TableField(exist = false)
+    @JSONField(name = "casestepid")
+    @JsonProperty("casestepid")
+    private Long casestepid;
+    /**
+     * 实际情况
+     */
+    @TableField(exist = false)
+    @JSONField(name = "reals")
+    @JsonProperty("reals")
+    private String reals;
+    /**
+     * 测试结果
+     */
+    @TableField(exist = false)
+    @JSONField(name = "steps")
+    @JsonProperty("steps")
+    private String steps;
+    /**
      * 用例步骤类型
      */
     @DEField(defaultValue = "step")
@@ -76,6 +97,20 @@ public class CaseStep extends EntityMP implements Serializable {
     @JsonProperty("expect")
     private String expect;
     /**
+     * 附件
+     */
+    @TableField(exist = false)
+    @JSONField(name = "files")
+    @JsonProperty("files")
+    private String files;
+    /**
+     * 执行编号
+     */
+    @TableField(exist = false)
+    @JSONField(name = "runid")
+    @JsonProperty("runid")
+    private Integer runid;
+    /**
      * 用例版本
      */
     @DEField(defaultValue = "0")
@@ -99,41 +134,6 @@ public class CaseStep extends EntityMP implements Serializable {
     @JSONField(name = "parent")
     @JsonProperty("parent")
     private Long parent;
-    /**
-     * 实际情况
-     */
-    @TableField(exist = false)
-    @JSONField(name = "reals")
-    @JsonProperty("reals")
-    private String reals;
-    /**
-     * 测试结果
-     */
-    @TableField(exist = false)
-    @JSONField(name = "steps")
-    @JsonProperty("steps")
-    private String steps;
-    /**
-     * 附件
-     */
-    @TableField(exist = false)
-    @JSONField(name = "files")
-    @JsonProperty("files")
-    private String files;
-    /**
-     * 执行编号
-     */
-    @TableField(exist = false)
-    @JSONField(name = "runid")
-    @JsonProperty("runid")
-    private Integer runid;
-    /**
-     * 用例步骤编号
-     */
-    @TableField(exist = false)
-    @JSONField(name = "casestepid")
-    @JsonProperty("casestepid")
-    private Long casestepid;
 
     /**
      * 

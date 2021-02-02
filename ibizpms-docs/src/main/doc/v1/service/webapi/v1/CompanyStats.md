@@ -261,27 +261,27 @@ POST
 #### CompanyStatsDTO
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
-| 1 | id | Long | 允许 | 标识 |
-| 2 | comment | String | 允许 | 备注 |
+| 1 | logincnt | Integer | 允许 | 登录次数 |
+| 2 | openedstorycnt | Integer | 允许 | 新增需求数 |
 | 3 | ztdate | Timestamp | 允许 | 日期<br>时间格式：yyyy-MM-dd |
-| 4 | logincnt | Integer | 允许 | 登录次数 |
-| 5 | loghours | Integer | 允许 | 日志工时 |
-| 6 | openedstorycnt | Integer | 允许 | 新增需求数 |
-| 7 | closedstorycnt | Integer | 允许 | 关闭需求数 |
-| 8 | openedtaskcnt | Integer | 允许 | 新增任务数 |
+| 4 | date | Timestamp | 允许 | 日志日期<br>时间格式：yyyy-MM-dd |
+| 5 | closedstorycnt | Integer | 允许 | 关闭需求数 |
+| 6 | openedbugcnt | Integer | 允许 | 新增Bug数 |
+| 7 | loghours | Integer | 允许 | 日志工时 |
+| 8 | dynamiccnt | Integer | 允许 | 动态数 |
 | 9 | finishedtaskcnt | Integer | 允许 | 完成任务数 |
-| 10 | openedbugcnt | Integer | 允许 | 新增Bug数 |
-| 11 | resolvedbugcnt | Integer | 允许 | 解决Bug数 |
-| 12 | dynamiccnt | Integer | 允许 | 动态数 |
-| 13 | date | Timestamp | 允许 | 日志日期<br>时间格式：yyyy-MM-dd |
+| 10 | resolvedbugcnt | Integer | 允许 | 解决Bug数 |
+| 11 | comment | String | 允许 | 备注 |
+| 12 | openedtaskcnt | Integer | 允许 | 新增任务数 |
+| 13 | id | Long | 允许 | 标识 |
 | 14 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### CompanyStatsSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
-| 1 | n_comment_like | String | 允许 | 条件字段：comment<br>条件组合方式：`%like%` |
-| 2 | n_date_gtandeq | Timestamp | 允许 | 条件字段：date<br>条件组合方式：`>=`<br>时间格式：yyyy-MM-dd |
-| 3 | n_date_ltandeq | Timestamp | 允许 | 条件字段：date<br>条件组合方式：`<=`<br>时间格式：yyyy-MM-dd |
+| 1 | n_date_gtandeq | Timestamp | 允许 | 条件字段：date<br>条件组合方式：`>=`<br>时间格式：yyyy-MM-dd |
+| 2 | n_date_ltandeq | Timestamp | 允许 | 条件字段：date<br>条件组合方式：`<=`<br>时间格式：yyyy-MM-dd |
+| 3 | n_comment_like | String | 允许 | 条件字段：comment<br>条件组合方式：`%like%` |
 | 4 | customcond | String | 允许 | 自定义查询条件 |
 | 5 | customparams | String | 允许 | 自定义查询参数 |
 | 6 | query | String | 允许 | 快速搜索 |

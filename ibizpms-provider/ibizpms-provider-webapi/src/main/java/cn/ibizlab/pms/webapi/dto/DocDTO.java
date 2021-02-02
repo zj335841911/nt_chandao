@@ -39,6 +39,24 @@ public class DocDTO extends DTOBase implements Serializable {
     private String groups;
 
     /**
+     * 属性 [CONTENT]
+     *
+     */
+    @JSONField(name = "content")
+    @JsonProperty("content")
+    @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
+    private String content;
+
+    /**
+     * 属性 [DOCQTYPE]
+     *
+     */
+    @JSONField(name = "docqtype")
+    @JsonProperty("docqtype")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String docqtype;
+
+    /**
      * 属性 [EDITEDDATE]
      *
      */
@@ -101,6 +119,14 @@ public class DocDTO extends DTOBase implements Serializable {
     private String deleted;
 
     /**
+     * 属性 [RECENTUPDATECNT]
+     *
+     */
+    @JSONField(name = "recentupdatecnt")
+    @JsonProperty("recentupdatecnt")
+    private Integer recentupdatecnt;
+
+    /**
      * 属性 [TYPE]
      *
      */
@@ -108,6 +134,14 @@ public class DocDTO extends DTOBase implements Serializable {
     @JsonProperty("type")
     @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
     private String type;
+
+    /**
+     * 属性 [ALLDOCCNT]
+     *
+     */
+    @JSONField(name = "alldoccnt")
+    @JsonProperty("alldoccnt")
+    private Integer alldoccnt;
 
     /**
      * 属性 [ADDEDDATE]
@@ -128,6 +162,39 @@ public class DocDTO extends DTOBase implements Serializable {
     private String acl;
 
     /**
+     * 属性 [MYDOCCNT]
+     *
+     */
+    @JSONField(name = "mydoccnt")
+    @JsonProperty("mydoccnt")
+    private Integer mydoccnt;
+
+    /**
+     * 属性 [URL]
+     *
+     */
+    @JSONField(name = "url")
+    @JsonProperty("url")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String url;
+
+    /**
+     * 属性 [DOCCNT]
+     *
+     */
+    @JSONField(name = "doccnt")
+    @JsonProperty("doccnt")
+    private Integer doccnt;
+
+    /**
+     * 属性 [MYFAVOURITECNT]
+     *
+     */
+    @JSONField(name = "myfavouritecnt")
+    @JsonProperty("myfavouritecnt")
+    private Integer myfavouritecnt;
+
+    /**
      * 属性 [USERS]
      *
      */
@@ -137,6 +204,14 @@ public class DocDTO extends DTOBase implements Serializable {
     private String users;
 
     /**
+     * 属性 [RECENTADDCNT]
+     *
+     */
+    @JSONField(name = "recentaddcnt")
+    @JsonProperty("recentaddcnt")
+    private Integer recentaddcnt;
+
+    /**
      * 属性 [KEYWORDS]
      *
      */
@@ -144,6 +219,15 @@ public class DocDTO extends DTOBase implements Serializable {
     @JsonProperty("keywords")
     @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
     private String keywords;
+
+    /**
+     * 属性 [ISFAVOURITES]
+     *
+     */
+    @JSONField(name = "isfavourites")
+    @JsonProperty("isfavourites")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String isfavourites;
 
     /**
      * 属性 [COLLECTOR]
@@ -162,6 +246,59 @@ public class DocDTO extends DTOBase implements Serializable {
     @JsonProperty("addedby")
     @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
     private String addedby;
+
+    /**
+     * 属性 [TODAYUPDATECNT]
+     *
+     */
+    @JSONField(name = "todayupdatecnt")
+    @JsonProperty("todayupdatecnt")
+    private Integer todayupdatecnt;
+
+    /**
+     * 属性 [FILES]
+     *
+     */
+    @JSONField(name = "files")
+    @JsonProperty("files")
+    @Size(min = 0, max = 1000, message = "内容长度必须小于等于[1000]")
+    private String files;
+
+    /**
+     * 属性 [PRODUCTNAME]
+     *
+     */
+    @JSONField(name = "productname")
+    @JsonProperty("productname")
+    @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
+    private String productname;
+
+    /**
+     * 属性 [PROJECTNAME]
+     *
+     */
+    @JSONField(name = "projectname")
+    @JsonProperty("projectname")
+    @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
+    private String projectname;
+
+    /**
+     * 属性 [LIBNAME]
+     *
+     */
+    @JSONField(name = "libname")
+    @JsonProperty("libname")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    private String libname;
+
+    /**
+     * 属性 [MODULENAME]
+     *
+     */
+    @JSONField(name = "modulename")
+    @JsonProperty("modulename")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    private String modulename;
 
     /**
      * 属性 [LIB]
@@ -198,143 +335,6 @@ public class DocDTO extends DTOBase implements Serializable {
     @JsonProperty("module")
     @JsonSerialize(using = ToStringSerializer.class)
     private Long module;
-
-    /**
-     * 属性 [PROJECTNAME]
-     *
-     */
-    @JSONField(name = "projectname")
-    @JsonProperty("projectname")
-    @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
-    private String projectname;
-
-    /**
-     * 属性 [PRODUCTNAME]
-     *
-     */
-    @JSONField(name = "productname")
-    @JsonProperty("productname")
-    @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
-    private String productname;
-
-    /**
-     * 属性 [LIBNAME]
-     *
-     */
-    @JSONField(name = "libname")
-    @JsonProperty("libname")
-    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
-    private String libname;
-
-    /**
-     * 属性 [MODULENAME]
-     *
-     */
-    @JSONField(name = "modulename")
-    @JsonProperty("modulename")
-    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
-    private String modulename;
-
-    /**
-     * 属性 [CONTENT]
-     *
-     */
-    @JSONField(name = "content")
-    @JsonProperty("content")
-    @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
-    private String content;
-
-    /**
-     * 属性 [FILES]
-     *
-     */
-    @JSONField(name = "files")
-    @JsonProperty("files")
-    @Size(min = 0, max = 1000, message = "内容长度必须小于等于[1000]")
-    private String files;
-
-    /**
-     * 属性 [URL]
-     *
-     */
-    @JSONField(name = "url")
-    @JsonProperty("url")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String url;
-
-    /**
-     * 属性 [DOCQTYPE]
-     *
-     */
-    @JSONField(name = "docqtype")
-    @JsonProperty("docqtype")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String docqtype;
-
-    /**
-     * 属性 [ISFAVOURITES]
-     *
-     */
-    @JSONField(name = "isfavourites")
-    @JsonProperty("isfavourites")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String isfavourites;
-
-    /**
-     * 属性 [ALLDOCCNT]
-     *
-     */
-    @JSONField(name = "alldoccnt")
-    @JsonProperty("alldoccnt")
-    private Integer alldoccnt;
-
-    /**
-     * 属性 [RECENTUPDATECNT]
-     *
-     */
-    @JSONField(name = "recentupdatecnt")
-    @JsonProperty("recentupdatecnt")
-    private Integer recentupdatecnt;
-
-    /**
-     * 属性 [TODAYUPDATECNT]
-     *
-     */
-    @JSONField(name = "todayupdatecnt")
-    @JsonProperty("todayupdatecnt")
-    private Integer todayupdatecnt;
-
-    /**
-     * 属性 [RECENTADDCNT]
-     *
-     */
-    @JSONField(name = "recentaddcnt")
-    @JsonProperty("recentaddcnt")
-    private Integer recentaddcnt;
-
-    /**
-     * 属性 [MYDOCCNT]
-     *
-     */
-    @JSONField(name = "mydoccnt")
-    @JsonProperty("mydoccnt")
-    private Integer mydoccnt;
-
-    /**
-     * 属性 [MYFAVOURITECNT]
-     *
-     */
-    @JSONField(name = "myfavouritecnt")
-    @JsonProperty("myfavouritecnt")
-    private Integer myfavouritecnt;
-
-    /**
-     * 属性 [DOCCNT]
-     *
-     */
-    @JSONField(name = "doccnt")
-    @JsonProperty("doccnt")
-    private Integer doccnt;
 
 
     /**

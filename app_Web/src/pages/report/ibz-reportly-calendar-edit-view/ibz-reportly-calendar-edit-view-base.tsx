@@ -127,7 +127,7 @@ export class IbzReportlyCalendarEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof IbzReportlyCalendarEditViewBase
      */
-	protected viewtag: string = '2c91cdea9417e94544a5d73ac68cd78d';
+	protected viewtag: string = 'da1e5d81fc6839e5d3862946971b9eb5';
 
     /**
      * 视图名称

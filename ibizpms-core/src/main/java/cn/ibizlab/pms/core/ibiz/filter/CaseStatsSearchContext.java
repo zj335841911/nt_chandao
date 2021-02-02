@@ -34,13 +34,6 @@ public class CaseStatsSearchContext extends QueryWrapperContext<CaseStats> {
             this.getSearchCond().like("`title`", n_title_like);
         }
     }
-	private Long n_module_eq;//[模块]
-	public void setN_module_eq(Long n_module_eq) {
-        this.n_module_eq = n_module_eq;
-        if(!ObjectUtils.isEmpty(this.n_module_eq)){
-            this.getSearchCond().eq("`module`", n_module_eq);
-        }
-    }
 	private String n_modulename_eq;//[模块名称]
 	public void setN_modulename_eq(String n_modulename_eq) {
         this.n_modulename_eq = n_modulename_eq;
@@ -60,6 +53,13 @@ public class CaseStatsSearchContext extends QueryWrapperContext<CaseStats> {
         this.n_product_eq = n_product_eq;
         if(!ObjectUtils.isEmpty(this.n_product_eq)){
             this.getSearchCond().eq("`product`", n_product_eq);
+        }
+    }
+	private Long n_module_eq;//[模块]
+	public void setN_module_eq(Long n_module_eq) {
+        this.n_module_eq = n_module_eq;
+        if(!ObjectUtils.isEmpty(this.n_module_eq)){
+            this.getSearchCond().eq("`module`", n_module_eq);
         }
     }
 

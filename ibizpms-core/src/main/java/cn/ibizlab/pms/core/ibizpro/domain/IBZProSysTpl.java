@@ -44,13 +44,12 @@ public class IBZProSysTpl extends EntityMP implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
-     * 系统模板标识
+     * 模板内容
      */
-    @DEField(name = "ibzpro_systplid", isKeyField = true)
-    @TableId(value = "ibzpro_systplid", type = IdType.ASSIGN_UUID)
-    @JSONField(name = "ibzprosystplid")
-    @JsonProperty("ibzprosystplid")
-    private String ibzprosystplid;
+    @TableField(value = "`content`")
+    @JSONField(name = "content")
+    @JsonProperty("content")
+    private String content;
     /**
      * 建立人
      */
@@ -59,6 +58,14 @@ public class IBZProSysTpl extends EntityMP implements Serializable {
     @JSONField(name = "createman")
     @JsonProperty("createman")
     private String createman;
+    /**
+     * 系统模板标识
+     */
+    @DEField(name = "ibzpro_systplid", isKeyField = true)
+    @TableId(value = "ibzpro_systplid", type = IdType.ASSIGN_UUID)
+    @JSONField(name = "ibzprosystplid")
+    @JsonProperty("ibzprosystplid")
+    private String ibzprosystplid;
     /**
      * 建立时间
      */
@@ -69,13 +76,13 @@ public class IBZProSysTpl extends EntityMP implements Serializable {
     @JsonProperty("createdate")
     private Timestamp createdate;
     /**
-     * 系统模板名称
+     * 是否公开
      */
-    @DEField(name = "ibzpro_systplname")
-    @TableField(value = "`ibzpro_systplname`")
-    @JSONField(name = "ibzprosystplname")
-    @JsonProperty("ibzprosystplname")
-    private String ibzprosystplname;
+    @DEField(defaultValue = "0")
+    @TableField(value = "`public`")
+    @JSONField(name = "ibizpublic")
+    @JsonProperty("ibizpublic")
+    private String ibizpublic;
     /**
      * 更新人
      */
@@ -94,28 +101,13 @@ public class IBZProSysTpl extends EntityMP implements Serializable {
     @JsonProperty("updatedate")
     private Timestamp updatedate;
     /**
-     * 是否公开
+     * 系统模板名称
      */
-    @DEField(defaultValue = "0")
-    @TableField(value = "`public`")
-    @JSONField(name = "ibizpublic")
-    @JsonProperty("ibizpublic")
-    private String ibizpublic;
-    /**
-     * 来源对象
-     */
-    @DEField(name = "ibiz_sourceobject")
-    @TableField(value = "`ibiz_sourceobject`")
-    @JSONField(name = "ibiz_sourceobject")
-    @JsonProperty("ibiz_sourceobject")
-    private String ibizSourceobject;
-    /**
-     * 模板内容
-     */
-    @TableField(value = "`content`")
-    @JSONField(name = "content")
-    @JsonProperty("content")
-    private String content;
+    @DEField(name = "ibzpro_systplname")
+    @TableField(value = "`ibzpro_systplname`")
+    @JSONField(name = "ibzprosystplname")
+    @JsonProperty("ibzprosystplname")
+    private String ibzprosystplname;
     /**
      * IBIZ模板类型
      */
@@ -124,6 +116,14 @@ public class IBZProSysTpl extends EntityMP implements Serializable {
     @JSONField(name = "tpltype")
     @JsonProperty("tpltype")
     private String tpltype;
+    /**
+     * 来源对象
+     */
+    @DEField(name = "ibiz_sourceobject")
+    @TableField(value = "`ibiz_sourceobject`")
+    @JSONField(name = "ibiz_sourceobject")
+    @JsonProperty("ibiz_sourceobject")
+    private String ibizSourceobject;
     /**
      * id
      */
@@ -143,11 +143,11 @@ public class IBZProSysTpl extends EntityMP implements Serializable {
 
 
     /**
-     * 设置 [系统模板名称]
+     * 设置 [模板内容]
      */
-    public void setIbzprosystplname(String ibzprosystplname) {
-        this.ibzprosystplname = ibzprosystplname;
-        this.modify("ibzpro_systplname", ibzprosystplname);
+    public void setContent(String content) {
+        this.content = content;
+        this.modify("content", content);
     }
 
     /**
@@ -159,19 +159,11 @@ public class IBZProSysTpl extends EntityMP implements Serializable {
     }
 
     /**
-     * 设置 [来源对象]
+     * 设置 [系统模板名称]
      */
-    public void setIbizSourceobject(String ibizSourceobject) {
-        this.ibizSourceobject = ibizSourceobject;
-        this.modify("ibiz_sourceobject", ibizSourceobject);
-    }
-
-    /**
-     * 设置 [模板内容]
-     */
-    public void setContent(String content) {
-        this.content = content;
-        this.modify("content", content);
+    public void setIbzprosystplname(String ibzprosystplname) {
+        this.ibzprosystplname = ibzprosystplname;
+        this.modify("ibzpro_systplname", ibzprosystplname);
     }
 
     /**
@@ -180,6 +172,14 @@ public class IBZProSysTpl extends EntityMP implements Serializable {
     public void setTpltype(String tpltype) {
         this.tpltype = tpltype;
         this.modify("tpltype", tpltype);
+    }
+
+    /**
+     * 设置 [来源对象]
+     */
+    public void setIbizSourceobject(String ibizSourceobject) {
+        this.ibizSourceobject = ibizSourceobject;
+        this.modify("ibiz_sourceobject", ibizSourceobject);
     }
 
     /**

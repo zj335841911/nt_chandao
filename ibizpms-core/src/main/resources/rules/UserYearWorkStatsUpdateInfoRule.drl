@@ -13,6 +13,15 @@ global cn.ibizlab.pms.util.security.AuthenticationUser curuser;
 
 no-loop
 
+//逻辑处理节点[获取测试用户信息]
+rule "deaction3"
+ruleflow-group "useryearworkstatsupdateinfodeaction3"
+    when
+    then
+    useryearworkstatsservice.getQaInfomation(useryearworkstatsupdateinfodefault);
+    update(useryearworkstatsupdateinfodefault);//更新fact中变量值
+    end
+
 //逻辑处理节点[开始]
 rule "begin"
 ruleflow-group "useryearworkstatsupdateinfobegin"
@@ -20,12 +29,12 @@ ruleflow-group "useryearworkstatsupdateinfobegin"
     then
     end
 
-//逻辑处理节点[获取测试用户信息]
-rule "deaction3"
-ruleflow-group "useryearworkstatsupdateinfodeaction3"
+//逻辑处理节点[获取研发用户信息]
+rule "deaction2"
+ruleflow-group "useryearworkstatsupdateinfodeaction2"
     when
     then
-    useryearworkstatsservice.getQaInfomation(useryearworkstatsupdateinfodefault);
+    useryearworkstatsservice.getDevInfomation(useryearworkstatsupdateinfodefault);
     update(useryearworkstatsupdateinfodefault);//更新fact中变量值
     end
 
@@ -54,15 +63,6 @@ ruleflow-group "useryearworkstatsupdateinforawsqlcall1"
             useryearworkstatsupdateinfodefault.set(String.valueOf(entry.getKey()),entry.getValue());
         }
     }
-    update(useryearworkstatsupdateinfodefault);//更新fact中变量值
-    end
-
-//逻辑处理节点[获取研发用户信息]
-rule "deaction2"
-ruleflow-group "useryearworkstatsupdateinfodeaction2"
-    when
-    then
-    useryearworkstatsservice.getDevInfomation(useryearworkstatsupdateinfodefault);
     update(useryearworkstatsupdateinfodefault);//更新fact中变量值
     end
 

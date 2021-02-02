@@ -175,7 +175,7 @@ export class TestReportProjectGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof TestReportProjectGridViewBase
      */
-	protected viewtag: string = '038fb7788a6add9cc268fe8dd67e6262';
+	protected viewtag: string = '1342a35f73e4fc60b094784cf18338cb';
 
     /**
      * 视图名称

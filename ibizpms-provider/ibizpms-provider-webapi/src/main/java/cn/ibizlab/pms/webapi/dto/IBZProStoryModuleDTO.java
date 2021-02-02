@@ -30,6 +30,41 @@ public class IBZProStoryModuleDTO extends DTOBase implements Serializable {
 	private static final long serialVersionUID = 1L;
 
     /**
+     * 属性 [GRADE]
+     *
+     */
+    @JSONField(name = "grade")
+    @JsonProperty("grade")
+    private Integer grade;
+
+    /**
+     * 属性 [COLLECTOR]
+     *
+     */
+    @JSONField(name = "collector")
+    @JsonProperty("collector")
+    @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
+    private String collector;
+
+    /**
+     * 属性 [OWNER]
+     *
+     */
+    @JSONField(name = "owner")
+    @JsonProperty("owner")
+    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
+    private String owner;
+
+    /**
+     * 属性 [IBIZ_STORYTYPE]
+     *
+     */
+    @JSONField(name = "ibiz_storytype")
+    @JsonProperty("ibiz_storytype")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    private String ibizStorytype;
+
+    /**
      * 属性 [ID]
      *
      */
@@ -37,6 +72,24 @@ public class IBZProStoryModuleDTO extends DTOBase implements Serializable {
     @JsonProperty("id")
     @JsonSerialize(using = ToStringSerializer.class)
     private Long id;
+
+    /**
+     * 属性 [TYPE]
+     *
+     */
+    @JSONField(name = "type")
+    @JsonProperty("type")
+    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
+    private String type;
+
+    /**
+     * 属性 [SHORT]
+     *
+     */
+    @JSONField(name = "ibizshort")
+    @JsonProperty("ibizshort")
+    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
+    private String ibizshort;
 
     /**
      * 属性 [NAME]
@@ -49,39 +102,13 @@ public class IBZProStoryModuleDTO extends DTOBase implements Serializable {
     private String name;
 
     /**
-     * 属性 [ROOT]
+     * 属性 [DELETED]
      *
      */
-    @JSONField(name = "root")
-    @JsonProperty("root")
-    @JsonSerialize(using = ToStringSerializer.class)
-    private Long root;
-
-    /**
-     * 属性 [IBIZ_ID]
-     *
-     */
-    @JSONField(name = "ibizid")
-    @JsonProperty("ibizid")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String ibizid;
-
-    /**
-     * 属性 [TYPE]
-     *
-     */
-    @JSONField(name = "type")
-    @JsonProperty("type")
-    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
-    private String type;
-
-    /**
-     * 属性 [GRADE]
-     *
-     */
-    @JSONField(name = "grade")
-    @JsonProperty("grade")
-    private Integer grade;
+    @JSONField(name = "deleted")
+    @JsonProperty("deleted")
+    @Size(min = 0, max = 1, message = "内容长度必须小于等于[1]")
+    private String deleted;
 
     /**
      * 属性 [PATH]
@@ -93,22 +120,13 @@ public class IBZProStoryModuleDTO extends DTOBase implements Serializable {
     private String path;
 
     /**
-     * 属性 [SHORT]
+     * 属性 [IBIZ_ID]
      *
      */
-    @JSONField(name = "ibizshort")
-    @JsonProperty("ibizshort")
-    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
-    private String ibizshort;
-
-    /**
-     * 属性 [PARENT]
-     *
-     */
-    @JSONField(name = "parent")
-    @JsonProperty("parent")
-    @JsonSerialize(using = ToStringSerializer.class)
-    private Long parent;
+    @JSONField(name = "ibizid")
+    @JsonProperty("ibizid")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String ibizid;
 
     /**
      * 属性 [PRODUCTNAME]
@@ -120,73 +138,23 @@ public class IBZProStoryModuleDTO extends DTOBase implements Serializable {
     private String productname;
 
     /**
-     * 属性 [OWNER]
+     * 属性 [ROOT]
      *
      */
-    @JSONField(name = "owner")
-    @JsonProperty("owner")
-    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
-    private String owner;
+    @JSONField(name = "root")
+    @JsonProperty("root")
+    @JsonSerialize(using = ToStringSerializer.class)
+    private Long root;
 
     /**
-     * 属性 [COLLECTOR]
+     * 属性 [PARENT]
      *
      */
-    @JSONField(name = "collector")
-    @JsonProperty("collector")
-    @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
-    private String collector;
+    @JSONField(name = "parent")
+    @JsonProperty("parent")
+    @JsonSerialize(using = ToStringSerializer.class)
+    private Long parent;
 
-    /**
-     * 属性 [DELETED]
-     *
-     */
-    @JSONField(name = "deleted")
-    @JsonProperty("deleted")
-    @Size(min = 0, max = 1, message = "内容长度必须小于等于[1]")
-    private String deleted;
-
-    /**
-     * 属性 [IBIZ_STORYTYPE]
-     *
-     */
-    @JSONField(name = "ibiz_storytype")
-    @JsonProperty("ibiz_storytype")
-    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
-    private String ibizStorytype;
-
-
-    /**
-     * 设置 [NAME]
-     */
-    public void setName(String  name){
-        this.name = name ;
-        this.modify("name",name);
-    }
-
-    /**
-     * 设置 [ROOT]
-     */
-    public void setRoot(Long  root){
-        this.root = root ;
-        this.modify("root",root);
-    }
-
-    /**
-     * 设置 [IBIZ_ID]
-     */
-    public void setIbizid(String  ibizid){
-        this.ibizid = ibizid ;
-        this.modify("ibiz_id",ibizid);
-    }
-
-    /**
-     * 设置 [TYPE]
-     */
-    public void setType(String  type){
-        this.type = type ;
-        this.modify("type",type);
-    }
 
     /**
      * 设置 [GRADE]
@@ -194,38 +162,6 @@ public class IBZProStoryModuleDTO extends DTOBase implements Serializable {
     public void setGrade(Integer  grade){
         this.grade = grade ;
         this.modify("grade",grade);
-    }
-
-    /**
-     * 设置 [PATH]
-     */
-    public void setPath(String  path){
-        this.path = path ;
-        this.modify("path",path);
-    }
-
-    /**
-     * 设置 [SHORT]
-     */
-    public void setIbizshort(String  ibizshort){
-        this.ibizshort = ibizshort ;
-        this.modify("short",ibizshort);
-    }
-
-    /**
-     * 设置 [PARENT]
-     */
-    public void setParent(Long  parent){
-        this.parent = parent ;
-        this.modify("parent",parent);
-    }
-
-    /**
-     * 设置 [OWNER]
-     */
-    public void setOwner(String  owner){
-        this.owner = owner ;
-        this.modify("owner",owner);
     }
 
     /**
@@ -237,11 +173,75 @@ public class IBZProStoryModuleDTO extends DTOBase implements Serializable {
     }
 
     /**
+     * 设置 [OWNER]
+     */
+    public void setOwner(String  owner){
+        this.owner = owner ;
+        this.modify("owner",owner);
+    }
+
+    /**
      * 设置 [IBIZ_STORYTYPE]
      */
     public void setIbizStorytype(String  ibizStorytype){
         this.ibizStorytype = ibizStorytype ;
         this.modify("ibiz_storytype",ibizStorytype);
+    }
+
+    /**
+     * 设置 [TYPE]
+     */
+    public void setType(String  type){
+        this.type = type ;
+        this.modify("type",type);
+    }
+
+    /**
+     * 设置 [SHORT]
+     */
+    public void setIbizshort(String  ibizshort){
+        this.ibizshort = ibizshort ;
+        this.modify("short",ibizshort);
+    }
+
+    /**
+     * 设置 [NAME]
+     */
+    public void setName(String  name){
+        this.name = name ;
+        this.modify("name",name);
+    }
+
+    /**
+     * 设置 [PATH]
+     */
+    public void setPath(String  path){
+        this.path = path ;
+        this.modify("path",path);
+    }
+
+    /**
+     * 设置 [IBIZ_ID]
+     */
+    public void setIbizid(String  ibizid){
+        this.ibizid = ibizid ;
+        this.modify("ibiz_id",ibizid);
+    }
+
+    /**
+     * 设置 [ROOT]
+     */
+    public void setRoot(Long  root){
+        this.root = root ;
+        this.modify("root",root);
+    }
+
+    /**
+     * 设置 [PARENT]
+     */
+    public void setParent(Long  parent){
+        this.parent = parent ;
+        this.modify("parent",parent);
     }
 
 

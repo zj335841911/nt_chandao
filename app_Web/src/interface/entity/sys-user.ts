@@ -31,20 +31,20 @@ export interface SysUser {
     personname?: any;
 
     /**
-     * 密码
-     *
-     * @returns {*}
-     * @memberof SysUser
-     */
-    password?: any;
-
-    /**
      * 用户工号
      *
      * @returns {*}
      * @memberof SysUser
      */
     usercode?: any;
+
+    /**
+     * 密码
+     *
+     * @returns {*}
+     * @memberof SysUser
+     */
+    password?: any;
 
     /**
      * 登录名

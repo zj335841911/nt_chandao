@@ -125,7 +125,7 @@ export class ProjectStatsUsr2GridViewTaskTypeCountBase extends GridViewBase {
      * @type {string}
      * @memberof ProjectStatsUsr2GridViewTaskTypeCountBase
      */
-	protected viewtag: string = 'a638e2a7d3b05b2f279ad28d14f5a85f';
+	protected viewtag: string = '0628ebe722ec3a5dd70928a0df4b1b20';
 
     /**
      * 视图名称

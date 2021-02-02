@@ -125,7 +125,7 @@ export class ProductSumGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof ProductSumGridViewBase
      */
-	protected viewtag: string = '3989c98a31e037a67b27cdf7acb1f7cd';
+	protected viewtag: string = '33d0e4e9cc6cec4a3ec66805c0e85c1a';
 
     /**
      * 视图名称

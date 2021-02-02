@@ -30,6 +30,14 @@ public class IBIZProPluginDTO extends DTOBase implements Serializable {
 	private static final long serialVersionUID = 1L;
 
     /**
+     * 属性 [VERSION]
+     *
+     */
+    @JSONField(name = "version")
+    @JsonProperty("version")
+    private Integer version;
+
+    /**
      * 属性 [TYPE]
      *
      */
@@ -39,20 +47,13 @@ public class IBIZProPluginDTO extends DTOBase implements Serializable {
     private String type;
 
     /**
-     * 属性 [SCORE]
+     * 属性 [CREATEMAN]
      *
      */
-    @JSONField(name = "score")
-    @JsonProperty("score")
-    private Integer score;
-
-    /**
-     * 属性 [COMMENTCOUNT]
-     *
-     */
-    @JSONField(name = "commentcount")
-    @JsonProperty("commentcount")
-    private Integer commentcount;
+    @JSONField(name = "createman")
+    @JsonProperty("createman")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    private String createman;
 
     /**
      * 属性 [DOWNLOADCOUNT]
@@ -61,68 +62,6 @@ public class IBIZProPluginDTO extends DTOBase implements Serializable {
     @JSONField(name = "downloadcount")
     @JsonProperty("downloadcount")
     private Integer downloadcount;
-
-    /**
-     * 属性 [DOWNLOADURL]
-     *
-     */
-    @JSONField(name = "downloadurl")
-    @JsonProperty("downloadurl")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String downloadurl;
-
-    /**
-     * 属性 [TAG]
-     *
-     */
-    @JSONField(name = "tag")
-    @JsonProperty("tag")
-    @Size(min = 0, max = 2000, message = "内容长度必须小于等于[2000]")
-    private String tag;
-
-    /**
-     * 属性 [KEYWORD]
-     *
-     */
-    @JSONField(name = "keyword")
-    @JsonProperty("keyword")
-    @Size(min = 0, max = 2000, message = "内容长度必须小于等于[2000]")
-    private String keyword;
-
-    /**
-     * 属性 [VERSION]
-     *
-     */
-    @JSONField(name = "version")
-    @JsonProperty("version")
-    private Integer version;
-
-    /**
-     * 属性 [UPDATEDATE]
-     *
-     */
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "updatedate" , format="yyyy-MM-dd HH:mm:ss")
-    @JsonProperty("updatedate")
-    private Timestamp updatedate;
-
-    /**
-     * 属性 [IBIZPRO_PLUGINNAME]
-     *
-     */
-    @JSONField(name = "ibizpropluginname")
-    @JsonProperty("ibizpropluginname")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String ibizpropluginname;
-
-    /**
-     * 属性 [UPDATEMAN]
-     *
-     */
-    @JSONField(name = "updateman")
-    @JsonProperty("updateman")
-    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
-    private String updateman;
 
     /**
      * 属性 [CREATEDATE]
@@ -134,6 +73,50 @@ public class IBIZProPluginDTO extends DTOBase implements Serializable {
     private Timestamp createdate;
 
     /**
+     * 属性 [DOWNLOADURL]
+     *
+     */
+    @JSONField(name = "downloadurl")
+    @JsonProperty("downloadurl")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String downloadurl;
+
+    /**
+     * 属性 [UPDATEDATE]
+     *
+     */
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "updatedate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonProperty("updatedate")
+    private Timestamp updatedate;
+
+    /**
+     * 属性 [TAG]
+     *
+     */
+    @JSONField(name = "tag")
+    @JsonProperty("tag")
+    @Size(min = 0, max = 2000, message = "内容长度必须小于等于[2000]")
+    private String tag;
+
+    /**
+     * 属性 [SCORE]
+     *
+     */
+    @JSONField(name = "score")
+    @JsonProperty("score")
+    private Integer score;
+
+    /**
+     * 属性 [IBIZPRO_PLUGINNAME]
+     *
+     */
+    @JSONField(name = "ibizpropluginname")
+    @JsonProperty("ibizpropluginname")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String ibizpropluginname;
+
+    /**
      * 属性 [IBIZPRO_PLUGINID]
      *
      */
@@ -143,14 +126,39 @@ public class IBIZProPluginDTO extends DTOBase implements Serializable {
     private String ibizpropluginid;
 
     /**
-     * 属性 [CREATEMAN]
+     * 属性 [KEYWORD]
      *
      */
-    @JSONField(name = "createman")
-    @JsonProperty("createman")
-    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
-    private String createman;
+    @JSONField(name = "keyword")
+    @JsonProperty("keyword")
+    @Size(min = 0, max = 2000, message = "内容长度必须小于等于[2000]")
+    private String keyword;
 
+    /**
+     * 属性 [UPDATEMAN]
+     *
+     */
+    @JSONField(name = "updateman")
+    @JsonProperty("updateman")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    private String updateman;
+
+    /**
+     * 属性 [COMMENTCOUNT]
+     *
+     */
+    @JSONField(name = "commentcount")
+    @JsonProperty("commentcount")
+    private Integer commentcount;
+
+
+    /**
+     * 设置 [VERSION]
+     */
+    public void setVersion(Integer  version){
+        this.version = version ;
+        this.modify("version",version);
+    }
 
     /**
      * 设置 [TYPE]
@@ -177,27 +185,19 @@ public class IBIZProPluginDTO extends DTOBase implements Serializable {
     }
 
     /**
-     * 设置 [KEYWORD]
-     */
-    public void setKeyword(String  keyword){
-        this.keyword = keyword ;
-        this.modify("keyword",keyword);
-    }
-
-    /**
-     * 设置 [VERSION]
-     */
-    public void setVersion(Integer  version){
-        this.version = version ;
-        this.modify("version",version);
-    }
-
-    /**
      * 设置 [IBIZPRO_PLUGINNAME]
      */
     public void setIbizpropluginname(String  ibizpropluginname){
         this.ibizpropluginname = ibizpropluginname ;
         this.modify("ibizpro_pluginname",ibizpropluginname);
+    }
+
+    /**
+     * 设置 [KEYWORD]
+     */
+    public void setKeyword(String  keyword){
+        this.keyword = keyword ;
+        this.modify("keyword",keyword);
     }
 
 

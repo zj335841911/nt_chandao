@@ -105,7 +105,7 @@ export class IbzproProductUserTaskProductMonthlyPartGridViewBase extends GridVie
      * @type {string}
      * @memberof IbzproProductUserTaskProductMonthlyPartGridViewBase
      */
-	protected viewtag: string = 'c081204d4555873a491a8034c6c44316';
+	protected viewtag: string = 'b79e544c576248b65fc915ac23b2b960';
 
     /**
      * 视图名称

@@ -44,14 +44,6 @@ public class IbizproProjectDaily extends EntityMP implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
-     * 项目日报标识
-     */
-    @DEField(name = "ibizpro_projectdailyid", isKeyField = true)
-    @TableId(value = "ibizpro_projectdailyid", type = IdType.ASSIGN_UUID)
-    @JSONField(name = "ibizproprojectdailyid")
-    @JsonProperty("ibizproprojectdailyid")
-    private String ibizproprojectdailyid;
-    /**
      * 项目日报名称
      */
     @DEField(name = "ibizpro_projectdailyname")
@@ -59,6 +51,21 @@ public class IbizproProjectDaily extends EntityMP implements Serializable {
     @JSONField(name = "ibizproprojectdailyname")
     @JsonProperty("ibizproprojectdailyname")
     private String ibizproprojectdailyname;
+    /**
+     * 任务
+     */
+    @TableField(value = "`tasks`")
+    @JSONField(name = "tasks")
+    @JsonProperty("tasks")
+    private String tasks;
+    /**
+     * 开始日期
+     */
+    @TableField(value = "`begin`")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "begin", format = "yyyy-MM-dd")
+    @JsonProperty("begin")
+    private Timestamp begin;
     /**
      * 建立时间
      */
@@ -69,6 +76,14 @@ public class IbizproProjectDaily extends EntityMP implements Serializable {
     @JsonProperty("createdate")
     private Timestamp createdate;
     /**
+     * 结束日期
+     */
+    @TableField(value = "`end`")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "end", format = "yyyy-MM-dd")
+    @JsonProperty("end")
+    private Timestamp end;
+    /**
      * 建立人
      */
     @DEField(preType = DEPredefinedFieldType.CREATEMAN)
@@ -77,6 +92,21 @@ public class IbizproProjectDaily extends EntityMP implements Serializable {
     @JsonProperty("createman")
     private String createman;
     /**
+     * 日期
+     */
+    @TableField(value = "`date`")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "date", format = "yyyy-MM-dd")
+    @JsonProperty("date")
+    private Timestamp date;
+    /**
+     * 总工时
+     */
+    @TableField(value = "`totalestimates`")
+    @JSONField(name = "totalestimates")
+    @JsonProperty("totalestimates")
+    private Double totalestimates;
+    /**
      * 更新人
      */
     @DEField(preType = DEPredefinedFieldType.UPDATEMAN)
@@ -84,6 +114,13 @@ public class IbizproProjectDaily extends EntityMP implements Serializable {
     @JSONField(name = "updateman")
     @JsonProperty("updateman")
     private String updateman;
+    /**
+     * 项目负责人
+     */
+    @TableField(value = "`pm`")
+    @JSONField(name = "pm")
+    @JsonProperty("pm")
+    private String pm;
     /**
      * 更新时间
      */
@@ -94,12 +131,13 @@ public class IbizproProjectDaily extends EntityMP implements Serializable {
     @JsonProperty("updatedate")
     private Timestamp updatedate;
     /**
-     * 项目编号
+     * 项目日报标识
      */
-    @TableField(value = "`project`")
-    @JSONField(name = "project")
-    @JsonProperty("project")
-    private Long project;
+    @DEField(name = "ibizpro_projectdailyid", isKeyField = true)
+    @TableId(value = "ibizpro_projectdailyid", type = IdType.ASSIGN_UUID)
+    @JSONField(name = "ibizproprojectdailyid")
+    @JsonProperty("ibizproprojectdailyid")
+    private String ibizproprojectdailyid;
     /**
      * 项目名称
      */
@@ -108,50 +146,12 @@ public class IbizproProjectDaily extends EntityMP implements Serializable {
     @JsonProperty("projectname")
     private String projectname;
     /**
-     * 日期
+     * 项目编号
      */
-    @TableField(value = "`date`")
-    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
-    @JSONField(name = "date", format = "yyyy-MM-dd")
-    @JsonProperty("date")
-    private Timestamp date;
-    /**
-     * 任务
-     */
-    @TableField(value = "`tasks`")
-    @JSONField(name = "tasks")
-    @JsonProperty("tasks")
-    private String tasks;
-    /**
-     * 总工时
-     */
-    @TableField(value = "`totalestimates`")
-    @JSONField(name = "totalestimates")
-    @JsonProperty("totalestimates")
-    private Double totalestimates;
-    /**
-     * 项目负责人
-     */
-    @TableField(value = "`pm`")
-    @JSONField(name = "pm")
-    @JsonProperty("pm")
-    private String pm;
-    /**
-     * 开始日期
-     */
-    @TableField(value = "`begin`")
-    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
-    @JSONField(name = "begin", format = "yyyy-MM-dd")
-    @JsonProperty("begin")
-    private Timestamp begin;
-    /**
-     * 结束日期
-     */
-    @TableField(value = "`end`")
-    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
-    @JSONField(name = "end", format = "yyyy-MM-dd")
-    @JsonProperty("end")
-    private Timestamp end;
+    @TableField(value = "`project`")
+    @JSONField(name = "project")
+    @JsonProperty("project")
+    private Long project;
 
     /**
      * 项目
@@ -172,53 +172,11 @@ public class IbizproProjectDaily extends EntityMP implements Serializable {
     }
 
     /**
-     * 设置 [项目编号]
-     */
-    public void setProject(Long project) {
-        this.project = project;
-        this.modify("project", project);
-    }
-
-    /**
-     * 设置 [日期]
-     */
-    public void setDate(Timestamp date) {
-        this.date = date;
-        this.modify("date", date);
-    }
-
-    /**
-     * 格式化日期 [日期]
-     */
-    public String formatDate() {
-        if (this.date == null) {
-            return null;
-        }
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        return sdf.format(date);
-    }
-    /**
      * 设置 [任务]
      */
     public void setTasks(String tasks) {
         this.tasks = tasks;
         this.modify("tasks", tasks);
-    }
-
-    /**
-     * 设置 [总工时]
-     */
-    public void setTotalestimates(Double totalestimates) {
-        this.totalestimates = totalestimates;
-        this.modify("totalestimates", totalestimates);
-    }
-
-    /**
-     * 设置 [项目负责人]
-     */
-    public void setPm(String pm) {
-        this.pm = pm;
-        this.modify("pm", pm);
     }
 
     /**
@@ -257,6 +215,48 @@ public class IbizproProjectDaily extends EntityMP implements Serializable {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         return sdf.format(end);
     }
+    /**
+     * 设置 [日期]
+     */
+    public void setDate(Timestamp date) {
+        this.date = date;
+        this.modify("date", date);
+    }
+
+    /**
+     * 格式化日期 [日期]
+     */
+    public String formatDate() {
+        if (this.date == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return sdf.format(date);
+    }
+    /**
+     * 设置 [总工时]
+     */
+    public void setTotalestimates(Double totalestimates) {
+        this.totalestimates = totalestimates;
+        this.modify("totalestimates", totalestimates);
+    }
+
+    /**
+     * 设置 [项目负责人]
+     */
+    public void setPm(String pm) {
+        this.pm = pm;
+        this.modify("pm", pm);
+    }
+
+    /**
+     * 设置 [项目编号]
+     */
+    public void setProject(Long project) {
+        this.project = project;
+        this.modify("project", project);
+    }
+
 
     /**
      * 复制当前对象数据到目标对象(粘贴重置)

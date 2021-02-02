@@ -100,7 +100,7 @@ export class DocLibProductTreeExpViewBase extends TreeExpViewBase {
      * @type {string}
      * @memberof DocLibProductTreeExpViewBase
      */
-	protected viewtag: string = '22dcf6656e1b870d0427a450cdbd7d20';
+	protected viewtag: string = 'ea1c50ed94209eae6a5cbd3ffa5a8d17';
 
     /**
      * 视图名称

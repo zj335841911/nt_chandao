@@ -7,20 +7,20 @@
 export interface IbzReportly {
 
     /**
-     * 汇报标识
+     * 附件
      *
      * @returns {*}
      * @memberof IbzReportly
      */
-    ibzreportlyid?: any;
+    files?: any;
 
     /**
-     * 汇报名称
+     * 用户
      *
      * @returns {*}
      * @memberof IbzReportly
      */
-    ibzreportlyname?: any;
+    account?: any;
 
     /**
      * 更新人
@@ -39,12 +39,76 @@ export interface IbzReportly {
     createdate?: any;
 
     /**
+     * 抄送给
+     *
+     * @returns {*}
+     * @memberof IbzReportly
+     */
+    mailto?: any;
+
+    /**
+     * 汇报标识
+     *
+     * @returns {*}
+     * @memberof IbzReportly
+     */
+    ibzreportlyid?: any;
+
+    /**
+     * 汇报名称
+     *
+     * @returns {*}
+     * @memberof IbzReportly
+     */
+    ibzreportlyname?: any;
+
+    /**
+     * 状态
+     *
+     * @returns {*}
+     * @memberof IbzReportly
+     */
+    reportstatus?: any;
+
+    /**
+     * 提交时间
+     *
+     * @returns {*}
+     * @memberof IbzReportly
+     */
+    submittime?: any;
+
+    /**
+     * 汇报给（选择）
+     *
+     * @returns {*}
+     * @memberof IbzReportly
+     */
+    reporttopk?: any;
+
+    /**
+     * 汇报给
+     *
+     * @returns {*}
+     * @memberof IbzReportly
+     */
+    reportto?: any;
+
+    /**
      * 建立人
      *
      * @returns {*}
      * @memberof IbzReportly
      */
     createman?: any;
+
+    /**
+     * 是否提交
+     *
+     * @returns {*}
+     * @memberof IbzReportly
+     */
+    issubmit?: any;
 
     /**
      * 更新时间
@@ -63,76 +127,12 @@ export interface IbzReportly {
     content?: any;
 
     /**
-     * 附件
-     *
-     * @returns {*}
-     * @memberof IbzReportly
-     */
-    files?: any;
-
-    /**
-     * 汇报给
-     *
-     * @returns {*}
-     * @memberof IbzReportly
-     */
-    reportto?: any;
-
-    /**
-     * 抄送给
-     *
-     * @returns {*}
-     * @memberof IbzReportly
-     */
-    mailto?: any;
-
-    /**
      * 汇报日期
      *
      * @returns {*}
      * @memberof IbzReportly
      */
     date?: any;
-
-    /**
-     * 是否提交
-     *
-     * @returns {*}
-     * @memberof IbzReportly
-     */
-    issubmit?: any;
-
-    /**
-     * 提交时间
-     *
-     * @returns {*}
-     * @memberof IbzReportly
-     */
-    submittime?: any;
-
-    /**
-     * 用户
-     *
-     * @returns {*}
-     * @memberof IbzReportly
-     */
-    account?: any;
-
-    /**
-     * 状态
-     *
-     * @returns {*}
-     * @memberof IbzReportly
-     */
-    reportstatus?: any;
-
-    /**
-     * 汇报给（选择）
-     *
-     * @returns {*}
-     * @memberof IbzReportly
-     */
-    reporttopk?: any;
 
     /**
      * 抄送给（选择）

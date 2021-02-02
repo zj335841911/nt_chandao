@@ -29,39 +29,73 @@ hide members
 | 属性名称        |    中文名称    | 类型     |  备注  |
 | --------   |------------| -----   |  -------- | 
 |指派给|ASSIGNEDTO|TEXT|&nbsp;|
+|所属模块名称|MODULENAME1|TEXT|&nbsp;|
+|附件|FILES|TEXT|&nbsp;|
 |细分需求|CHILDSTORIES|SMCODELIST|&nbsp;|
+|IBIZ标识|IBIZ_ID|TEXT|&nbsp;|
 |所属计划|PLAN|LONGTEXT|&nbsp;|
 |版本号|VERSION|INT|&nbsp;每次更新内容，会自动加1（只有真正更新数据才会更新，例如打开编辑/变更需求，没有进行任何修改点击保存，是不会更新该笔数据）|
 |指派日期|ASSIGNEDDATE|DATETIME|&nbsp;|
+|故事点|STORYPOINTS|SSCODELIST|&nbsp;|
+|来源对象名称|SOURCENAME|TEXT|&nbsp;|
+|需求提供时间|STORYPROVIDEDATE|DATE|&nbsp;|
+|是否子需求|ISLEAF|TEXT|&nbsp;|
 |优先级|PRI|NSCODELIST|&nbsp;|
+|来源对象标识|SOURCEID|TEXT|&nbsp;|
 |相关需求|LINKSTORIES|SMCODELIST|&nbsp;|
+|评审结果|ASSESSRESULT|SSCODELIST|&nbsp;|
 |当前状态|STATUS|SSCODELIST|&nbsp;|
+|抄送给|MAILTOPK|SMCODELIST|&nbsp;|
 |预计工时|ESTIMATE|FLOAT|&nbsp;|
+|消息通知用户|NOTICEUSERS|TEXT|&nbsp;|
 |评审时间|REVIEWEDDATE|DATE|&nbsp;|
 |需求名称|TITLE|TEXT|&nbsp;|
+|联系人|MAILTOCONACT|TEXT|&nbsp;|
 |来源备注|SOURCENOTE|TEXT|&nbsp;|
+|版本号|VERSIONC|TEXT|&nbsp;|
 |由谁评审|REVIEWEDBY|SMCODELIST|&nbsp;|
 |子状态|SUBSTATUS|TEXT|&nbsp;|
 |设置阶段者|STAGEDBY|SSCODELIST|&nbsp;|
 |由谁创建|OPENEDBY|SSCODELIST|&nbsp;|
 |创建日期|OPENEDDATE|DATETIME|&nbsp;|
 |编号|ID|ACID|&nbsp;|
+|来源对象|IBIZ_SOURCEOBJECT|TEXT|&nbsp;|
 |需求来源|SOURCE|SSCODELIST|&nbsp;|
+|需求最晚完成时间|STORYLATESTFINISHEDDATE|DATE|&nbsp;|
+|不需要评审|NEEDNOTREVIEW|SMCODELIST|&nbsp;|
+|是否可以细分|ISCHILD|TEXT|&nbsp;|
 |关闭原因|CLOSEDREASON|SSCODELIST|&nbsp;|
 |标题颜色|COLOR|SSCODELIST|&nbsp;|
+|orgid|ORGID|TEXT|&nbsp;|
 |抄送给|MAILTO|SMCODELIST|&nbsp;|
+|是否收藏|ISFAVORITES|TEXT|&nbsp;|
+|来源对象|SOURCEOBJECT|TEXT|&nbsp;|
 |已删除|DELETED|TEXT|&nbsp;|
 |关键词|KEYWORDS|TEXT|&nbsp;|
 |最后修改|LASTEDITEDBY|SSCODELIST|&nbsp;|
 |所处阶段|STAGE|SSCODELIST|&nbsp;|
+|项目|PROJECT|BIGINT|&nbsp;|
 |关闭日期	|CLOSEDDATE|DATETIME|&nbsp;|
+|需求描述|SPEC|HTMLTEXT|&nbsp;|
+|来源对象名称|IBIZ_SOURCENAME|TEXT|&nbsp;|
+|指派给（选择）|ASSIGNEDTOPK|TEXT|&nbsp;|
+|备注|COMMENT|HTMLTEXT|&nbsp;|
+|acllist|ACLLIST|TEXT|&nbsp;|
+|验收标准|VERIFY|LONGTEXT|&nbsp;|
 |由谁关闭|CLOSEDBY|SSCODELIST|&nbsp;|
+|acl|ACL|TEXT|&nbsp;|
+|评审结果|RESULT|SSCODELIST|&nbsp;|
 |需求类型|TYPE|SSCODELIST|&nbsp;|
 |最后修改日期|LASTEDITEDDATE|DATETIME|&nbsp;|
+|来源对象标识|IBIZ_SOURCEID|TEXT|&nbsp;|
+|之前的版本|PREVERSION|INT|&nbsp;|
+|需求提供人|STORYPROVIDER|TEXT|&nbsp;|
+|MDEPTID|MDEPTID|TEXT|&nbsp;|
 |模块路径|PATH|PICKUPDATA|&nbsp;|
 |父需求名称|PARENTNAME|PICKUPTEXT|&nbsp;|
 |所属模块名称|MODULENAME|PICKUPTEXT|&nbsp;|
 |产品名称|PRODOCTNAME|PICKUPTEXT|&nbsp;|
+|平台/分支|BRANCHNAME|PICKUPTEXT|&nbsp;|
 |来源Bug|FROMBUG|PICKUP|&nbsp;|
 |父需求|PARENT|PICKUP|&nbsp;|
 |所属模块|MODULE|PICKUP|&nbsp;|
@@ -69,78 +103,78 @@ hide members
 |重复需求ID|DUPLICATESTORY|PICKUP|&nbsp;|
 |平台/分支|BRANCH|PICKUP|&nbsp;|
 |转Bug|TOBUG|PICKUP|&nbsp;暂时没找到使用地方（页面操作了从需求转Bug也没有更新该字段）|
-|需求描述|SPEC|HTMLTEXT|&nbsp;|
-|验收标准|VERIFY|LONGTEXT|&nbsp;|
-|评审结果|RESULT|SSCODELIST|&nbsp;|
-|备注|COMMENT|HTMLTEXT|&nbsp;|
-|是否子需求|ISLEAF|TEXT|&nbsp;|
-|附件|FILES|TEXT|&nbsp;|
-|平台/分支|BRANCHNAME|PICKUPTEXT|&nbsp;|
-|版本号|VERSIONC|TEXT|&nbsp;|
-|所属模块名称|MODULENAME1|TEXT|&nbsp;|
-|项目|PROJECT|BIGINT|&nbsp;|
-|之前的版本|PREVERSION|INT|&nbsp;|
-|不需要评审|NEEDNOTREVIEW|SMCODELIST|&nbsp;|
-|是否收藏|ISFAVORITES|TEXT|&nbsp;|
-|是否可以细分|ISCHILD|TEXT|&nbsp;|
-|联系人|MAILTOCONACT|TEXT|&nbsp;|
-|抄送给|MAILTOPK|SMCODELIST|&nbsp;|
-|指派给（选择）|ASSIGNEDTOPK|TEXT|&nbsp;|
-|消息通知用户|NOTICEUSERS|TEXT|&nbsp;|
-|来源对象|IBIZ_SOURCEOBJECT|TEXT|&nbsp;|
-|来源对象|SOURCEOBJECT|TEXT|&nbsp;|
-|IBIZ标识|IBIZ_ID|TEXT|&nbsp;|
-|来源对象名称|SOURCENAME|TEXT|&nbsp;|
-|来源对象标识|SOURCEID|TEXT|&nbsp;|
-|来源对象标识|IBIZ_SOURCEID|TEXT|&nbsp;|
-|来源对象名称|IBIZ_SOURCENAME|TEXT|&nbsp;|
-|故事点|STORYPOINTS|SSCODELIST|&nbsp;|
-|评审结果|ASSESSRESULT|SSCODELIST|&nbsp;|
-|orgid|ORGID|TEXT|&nbsp;|
-|acl|ACL|TEXT|&nbsp;|
-|acllist|ACLLIST|TEXT|&nbsp;|
-|MDEPTID|MDEPTID|TEXT|&nbsp;|
-|需求最晚完成时间|STORYLATESTFINISHEDDATE|DATE|&nbsp;|
-|需求提供时间|STORYPROVIDEDATE|DATE|&nbsp;|
-|需求提供人|STORYPROVIDER|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
 | --------   |------------| ----- | 
 |指派给|默认规则|内容长度必须小于等于[30]|
+|所属模块名称|默认规则|内容长度必须小于等于[200]|
+|附件|默认规则|内容长度必须小于等于[1000]|
 |细分需求|默认规则|内容长度必须小于等于[255]|
+|IBIZ标识|默认规则|内容长度必须小于等于[100]|
 |所属计划|默认规则|内容长度必须小于等于[1048576]|
 |版本号|默认规则|默认规则|
 |指派日期|默认规则|默认规则|
+|故事点|默认规则|内容长度必须小于等于[60]|
+|来源对象名称|默认规则|内容长度必须小于等于[100]|
+|需求提供时间|默认规则|默认规则|
+|是否子需求|默认规则|内容长度必须小于等于[200]|
 |优先级|默认规则|默认规则|
+|来源对象标识|默认规则|内容长度必须小于等于[100]|
 |相关需求|默认规则|内容长度必须小于等于[255]|
+|评审结果|默认规则|内容长度必须小于等于[200]|
 |当前状态|默认规则|内容长度必须小于等于[200]|
+|抄送给|默认规则|内容长度必须小于等于[65535]|
 |预计工时|默认规则|默认规则|
+|消息通知用户|默认规则|内容长度必须小于等于[100]|
 |评审时间|默认规则|默认规则|
 |需求名称|默认规则|内容长度必须小于等于[255]|
+|联系人|默认规则|内容长度必须小于等于[100]|
 |来源备注|默认规则|内容长度必须小于等于[255]|
+|版本号|默认规则|内容长度必须小于等于[200]|
 |由谁评审|默认规则|内容长度必须小于等于[255]|
 |子状态|默认规则|内容长度必须小于等于[30]|
 |设置阶段者|默认规则|内容长度必须小于等于[200]|
 |由谁创建|默认规则|内容长度必须小于等于[200]|
 |创建日期|默认规则|默认规则|
 |编号|默认规则|默认规则|
+|来源对象|默认规则|内容长度必须小于等于[100]|
 |需求来源|默认规则|内容长度必须小于等于[20]|
+|需求最晚完成时间|默认规则|默认规则|
+|不需要评审|默认规则|内容长度必须小于等于[4000]|
+|是否可以细分|默认规则|内容长度必须小于等于[200]|
 |关闭原因|默认规则|内容长度必须小于等于[30]|
 |标题颜色|默认规则|内容长度必须小于等于[7]|
+|orgid|默认规则|内容长度必须小于等于[100]|
 |抄送给|默认规则|内容长度必须小于等于[65535]|
+|是否收藏|默认规则|内容长度必须小于等于[200]|
+|来源对象|默认规则|内容长度必须小于等于[100]|
 |已删除|默认规则|内容长度必须小于等于[1]|
 |关键词|默认规则|内容长度必须小于等于[255]|
 |最后修改|默认规则|内容长度必须小于等于[200]|
 |所处阶段|默认规则|内容长度必须小于等于[200]|
+|项目|默认规则|默认规则|
 |关闭日期	|默认规则|默认规则|
+|需求描述|默认规则|内容长度必须小于等于[1048576]|
+|来源对象名称|默认规则|内容长度必须小于等于[100]|
+|指派给（选择）|默认规则|内容长度必须小于等于[200]|
+|备注|默认规则|内容长度必须小于等于[1048576]|
+|acllist|默认规则|内容长度必须小于等于[100]|
+|验收标准|默认规则|内容长度必须小于等于[1048576]|
 |由谁关闭|默认规则|内容长度必须小于等于[200]|
+|acl|默认规则|内容长度必须小于等于[100]|
+|评审结果|默认规则|内容长度必须小于等于[200]|
 |需求类型|默认规则|内容长度必须小于等于[30]|
 |最后修改日期|默认规则|默认规则|
+|来源对象标识|默认规则|内容长度必须小于等于[100]|
+|之前的版本|默认规则|默认规则|
+|需求提供人|默认规则|内容长度必须小于等于[100]|
+|MDEPTID|默认规则|内容长度必须小于等于[100]|
 |模块路径|默认规则|内容长度必须小于等于[255]|
 |父需求名称|默认规则|内容长度必须小于等于[255]|
 |所属模块名称|默认规则|内容长度必须小于等于[60]|
 |产品名称|默认规则|内容长度必须小于等于[90]|
+|平台/分支|默认规则|内容长度必须小于等于[255]|
 |来源Bug|默认规则|默认规则|
 |父需求|默认规则|默认规则|
 |所属模块|默认规则|默认规则|
@@ -148,68 +182,34 @@ hide members
 |重复需求ID|默认规则|默认规则|
 |平台/分支|默认规则|默认规则|
 |转Bug|默认规则|默认规则|
-|需求描述|默认规则|内容长度必须小于等于[1048576]|
-|验收标准|默认规则|内容长度必须小于等于[1048576]|
-|评审结果|默认规则|内容长度必须小于等于[200]|
-|备注|默认规则|内容长度必须小于等于[1048576]|
-|是否子需求|默认规则|内容长度必须小于等于[200]|
-|附件|默认规则|内容长度必须小于等于[1000]|
-|平台/分支|默认规则|内容长度必须小于等于[255]|
-|版本号|默认规则|内容长度必须小于等于[200]|
-|所属模块名称|默认规则|内容长度必须小于等于[200]|
-|项目|默认规则|默认规则|
-|之前的版本|默认规则|默认规则|
-|不需要评审|默认规则|内容长度必须小于等于[4000]|
-|是否收藏|默认规则|内容长度必须小于等于[200]|
-|是否可以细分|默认规则|内容长度必须小于等于[200]|
-|联系人|默认规则|内容长度必须小于等于[100]|
-|抄送给|默认规则|内容长度必须小于等于[65535]|
-|指派给（选择）|默认规则|内容长度必须小于等于[200]|
-|消息通知用户|默认规则|内容长度必须小于等于[100]|
-|来源对象|默认规则|内容长度必须小于等于[100]|
-|来源对象|默认规则|内容长度必须小于等于[100]|
-|IBIZ标识|默认规则|内容长度必须小于等于[100]|
-|来源对象名称|默认规则|内容长度必须小于等于[100]|
-|来源对象标识|默认规则|内容长度必须小于等于[100]|
-|来源对象标识|默认规则|内容长度必须小于等于[100]|
-|来源对象名称|默认规则|内容长度必须小于等于[100]|
-|故事点|默认规则|内容长度必须小于等于[60]|
-|评审结果|默认规则|内容长度必须小于等于[200]|
-|orgid|默认规则|内容长度必须小于等于[100]|
-|acl|默认规则|内容长度必须小于等于[100]|
-|acllist|默认规则|内容长度必须小于等于[100]|
-|MDEPTID|默认规则|内容长度必须小于等于[100]|
-|需求最晚完成时间|默认规则|默认规则|
-|需求提供时间|默认规则|默认规则|
-|需求提供人|默认规则|内容长度必须小于等于[100]|
 
 ## 状态控制
 
 |当前状态||是否收藏||是否可以细分|行为控制模式| 控制行为 | 操作标识控制模式 | 控制操作 |
 | --------   || --------   || --------   | ------------|------------|------------|------------|
-|Value||Value2||Value3| 允许| 变更<br>版本解除关联需求<br>Get<br>发布批量解除关联需求<br>指派<br>发布解除关联需求<br>Remove<br>关闭<br>评审<br>Update<br>计划关联需求<br>项目批量解除关联需求<br>Save<br>计划解除关联需求<br>项目解除关联需求<br>项目关联需求-按计划关联<br>发布关联需求<br>项目关联需求<br>版本批量解除关联需求<br>计划批量解除关联需求<br>项目关联需求<br> | 不允许 | SRFUR__STORY_REVIEW_BUT<br>SRFUR__STORY_FAVOR_BUT<br>SRFUR__STORY_XQXF_BUT<br>SRFUR__STORY_ACTIVE_BUT<br> |
+|Value||Value2||Value3| 允许| 关闭<br>Save<br>项目批量解除关联需求<br>版本解除关联需求<br>评审<br>发布批量解除关联需求<br>计划批量解除关联需求<br>Update<br>变更<br>Remove<br>项目解除关联需求<br>项目关联需求-按计划关联<br>项目关联需求<br>计划关联需求<br>Get<br>指派<br>发布解除关联需求<br>版本批量解除关联需求<br>项目关联需求<br>发布关联需求<br>计划解除关联需求<br> | 不允许 | SRFUR__STORY_REVIEW_BUT<br>SRFUR__STORY_XQXF_BUT<br>SRFUR__STORY_ACTIVE_BUT<br>SRFUR__STORY_FAVOR_BUT<br> |
 |Value||Value2||Value3| 允许|  | 不允许 | SRFUR__STORY_FAVOR_BUT<br>SRFUR__STORY_ASS_BUT<br>SRFUR__STORY_REVIEW_BUT<br>SRFUR__STORY_ACTIVE_BUT<br>SRFUR__STORY_CCASE_BUT<br>SRFUR__STORY_DELETE_BUT<br>SRFUR__STORY_CHANGED_BUT<br>SRFUR__STORY_CLOSED_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__STORY_FAVOR_BUT<br>SRFUR__STORY_ACTIVE_BUT<br>SRFUR__STORY_REVIEW_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__STORY_XQXF_BUT<br>SRFUR__STORY_REVIEW_BUT<br>SRFUR__STORY_NFAVOR_BUT<br>SRFUR__STORY_ACTIVE_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__STORY_CHANGED_BUT<br>SRFUR__STORY_NFAVOR_BUT<br>SRFUR__STORY_ACTIVE_BUT<br>SRFUR__STORY_CLOSED_BUT<br>SRFUR__STORY_DELETE_BUT<br>SRFUR__STORY_ASS_BUT<br>SRFUR__STORY_REVIEW_BUT<br>SRFUR__STORY_CCASE_BUT<br> |
+|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__STORY_ACTIVE_BUT<br>SRFUR__STORY_REVIEW_BUT<br>SRFUR__STORY_FAVOR_BUT<br> |
+|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__STORY_ACTIVE_BUT<br>SRFUR__STORY_NFAVOR_BUT<br>SRFUR__STORY_REVIEW_BUT<br>SRFUR__STORY_XQXF_BUT<br> |
+|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__STORY_CHANGED_BUT<br>SRFUR__STORY_NFAVOR_BUT<br>SRFUR__STORY_CLOSED_BUT<br>SRFUR__STORY_DELETE_BUT<br>SRFUR__STORY_ASS_BUT<br>SRFUR__STORY_ACTIVE_BUT<br>SRFUR__STORY_REVIEW_BUT<br>SRFUR__STORY_CCASE_BUT<br> |
 |Value||Value2||Value3| 允许|  | 不允许 | SRFUR__STORY_REVIEW_BUT<br>SRFUR__STORY_ACTIVE_BUT<br>SRFUR__STORY_NFAVOR_BUT<br> |
-|Value||Value2||Value3| 允许| Remove<br>评审<br>指派<br>项目关联需求<br>Get<br>项目解除关联需求<br>关闭<br>项目关联需求<br>发布解除关联需求<br>Save<br>项目批量解除关联需求<br>Update<br>项目关联需求-按计划关联<br>发布关联需求<br>计划关联需求<br>变更<br>发布批量解除关联需求<br>计划批量解除关联需求<br>版本解除关联需求<br>计划解除关联需求<br>版本批量解除关联需求<br> | 不允许 | SRFUR__STORY_XQXF_BUT<br>SRFUR__STORY_ACTIVE_BUT<br>SRFUR__STORY_FAVOR_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__STORY_CHANGED_BUT<br>SRFUR__STORY_ASS_BUT<br>SRFUR__STORY_CCASE_BUT<br>SRFUR__STORY_ACTIVE_BUT<br>SRFUR__STORY_FAVOR_BUT<br>SRFUR__STORY_REVIEW_BUT<br>SRFUR__STORY_CLOSED_BUT<br>SRFUR__STORY_DELETE_BUT<br>SRFUR__STORY_XQXF_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__STORY_FAVOR_BUT<br>SRFUR__STORY_ACTIVE_BUT<br>SRFUR__STORY_XQXF_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__STORY_NFAVOR_BUT<br>SRFUR__STORY_XQXF_BUT<br>SRFUR__STORY_ACTIVE_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__STORY_ASS_BUT<br>SRFUR__STORY_ACTIVE_BUT<br>SRFUR__STORY_DELETE_BUT<br>SRFUR__STORY_REVIEW_BUT<br>SRFUR__STORY_CCASE_BUT<br>SRFUR__STORY_CHANGED_BUT<br>SRFUR__STORY_NFAVOR_BUT<br>SRFUR__STORY_XQXF_BUT<br>SRFUR__STORY_CLOSED_BUT<br> |
+|Value||Value2||Value3| 允许| 计划关联需求<br>Update<br>版本批量解除关联需求<br>关闭<br>项目关联需求<br>指派<br>Remove<br>项目关联需求-按计划关联<br>项目关联需求<br>发布关联需求<br>Save<br>评审<br>版本解除关联需求<br>计划解除关联需求<br>变更<br>计划批量解除关联需求<br>发布批量解除关联需求<br>项目批量解除关联需求<br>Get<br>发布解除关联需求<br>项目解除关联需求<br> | 不允许 | SRFUR__STORY_XQXF_BUT<br>SRFUR__STORY_FAVOR_BUT<br>SRFUR__STORY_ACTIVE_BUT<br> |
+|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__STORY_ACTIVE_BUT<br>SRFUR__STORY_CHANGED_BUT<br>SRFUR__STORY_ASS_BUT<br>SRFUR__STORY_CCASE_BUT<br>SRFUR__STORY_FAVOR_BUT<br>SRFUR__STORY_REVIEW_BUT<br>SRFUR__STORY_CLOSED_BUT<br>SRFUR__STORY_DELETE_BUT<br>SRFUR__STORY_XQXF_BUT<br> |
+|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__STORY_ACTIVE_BUT<br>SRFUR__STORY_FAVOR_BUT<br>SRFUR__STORY_XQXF_BUT<br> |
 |Value||Value2||Value3| 允许|  | 不允许 | SRFUR__STORY_XQXF_BUT<br>SRFUR__STORY_ACTIVE_BUT<br>SRFUR__STORY_NFAVOR_BUT<br> |
-|Value||Value2||Value3| 允许| 项目关联需求<br>项目批量解除关联需求<br>激活<br>发布批量解除关联需求<br>指派<br>Get<br>计划解除关联需求<br>项目关联需求<br>发布解除关联需求<br>版本批量解除关联需求<br>项目解除关联需求<br>计划关联需求<br>Update<br>计划批量解除关联需求<br>Remove<br>版本解除关联需求<br>项目关联需求-按计划关联<br>Save<br>发布关联需求<br> | 不允许 | SRFUR__STORY_REVIEW_BUT<br>SRFUR__STORY_CHANGED_BUT<br>SRFUR__STORY_ASS_BUT<br>SRFUR__STORY_CLOSED_BUT<br>SRFUR__STORY_FAVOR_BUT<br>SRFUR__STORY_XQXF_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__STORY_DELETE_BUT<br>SRFUR__STORY_CHANGED_BUT<br>SRFUR__STORY_FAVOR_BUT<br>SRFUR__STORY_ASS_BUT<br>SRFUR__STORY_REVIEW_BUT<br>SRFUR__STORY_ACTIVE_BUT<br>SRFUR__STORY_XQXF_BUT<br>SRFUR__STORY_CLOSED_BUT<br>SRFUR__STORY_CCASE_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__STORY_CLOSED_BUT<br>SRFUR__STORY_REVIEW_BUT<br>SRFUR__STORY_FAVOR_BUT<br>SRFUR__STORY_ASS_BUT<br>SRFUR__STORY_CHANGED_BUT<br>SRFUR__STORY_ACTIVE_BUT<br>SRFUR__STORY_XQXF_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__STORY_NFAVOR_BUT<br>SRFUR__STORY_XQXF_BUT<br>SRFUR__STORY_CHANGED_BUT<br>SRFUR__STORY_ASS_BUT<br>SRFUR__STORY_REVIEW_BUT<br>SRFUR__STORY_CLOSED_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__STORY_REVIEW_BUT<br>SRFUR__STORY_CHANGED_BUT<br>SRFUR__STORY_XQXF_BUT<br>SRFUR__STORY_ASS_BUT<br>SRFUR__STORY_ACTIVE_BUT<br>SRFUR__STORY_CLOSED_BUT<br>SRFUR__STORY_NFAVOR_BUT<br>SRFUR__STORY_DELETE_BUT<br>SRFUR__STORY_CCASE_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__STORY_ACTIVE_BUT<br>SRFUR__STORY_REVIEW_BUT<br>SRFUR__STORY_CLOSED_BUT<br>SRFUR__STORY_ASS_BUT<br>SRFUR__STORY_NFAVOR_BUT<br>SRFUR__STORY_CHANGED_BUT<br>SRFUR__STORY_XQXF_BUT<br> |
-|Value||Value2||Value3| 允许| 发布解除关联需求<br>计划关联需求<br>计划批量解除关联需求<br>项目关联需求<br>项目关联需求<br>Get<br>激活<br>版本解除关联需求<br>项目关联需求-按计划关联<br>项目批量解除关联需求<br>Update<br>发布关联需求<br>项目解除关联需求<br>Save<br>指派<br>评审<br>Remove<br>变更<br>发布批量解除关联需求<br>计划解除关联需求<br>版本批量解除关联需求<br>关闭<br> | 不允许 | SRFUR__STORY_XQXF_BUT<br>SRFUR__STORY_FAVOR_BUT<br>SRFUR__STORY_ACTIVE_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__STORY_FAVOR_BUT<br>SRFUR__STORY_CCASE_BUT<br>SRFUR__STORY_ASS_BUT<br>SRFUR__STORY_CLOSED_BUT<br>SRFUR__STORY_XQXF_BUT<br>SRFUR__STORY_REVIEW_BUT<br>SRFUR__STORY_DELETE_BUT<br>SRFUR__STORY_ACTIVE_BUT<br>SRFUR__STORY_CHANGED_BUT<br> |
+|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__STORY_ASS_BUT<br>SRFUR__STORY_DELETE_BUT<br>SRFUR__STORY_REVIEW_BUT<br>SRFUR__STORY_CCASE_BUT<br>SRFUR__STORY_CHANGED_BUT<br>SRFUR__STORY_NFAVOR_BUT<br>SRFUR__STORY_ACTIVE_BUT<br>SRFUR__STORY_XQXF_BUT<br>SRFUR__STORY_CLOSED_BUT<br> |
+|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__STORY_XQXF_BUT<br>SRFUR__STORY_ACTIVE_BUT<br>SRFUR__STORY_NFAVOR_BUT<br> |
+|Value||Value2||Value3| 允许| 发布批量解除关联需求<br>Update<br>项目批量解除关联需求<br>计划解除关联需求<br>发布解除关联需求<br>指派<br>项目关联需求-按计划关联<br>Remove<br>Save<br>项目关联需求<br>计划批量解除关联需求<br>项目关联需求<br>版本解除关联需求<br>发布关联需求<br>Get<br>激活<br>计划关联需求<br>项目解除关联需求<br>版本批量解除关联需求<br> | 不允许 | SRFUR__STORY_ASS_BUT<br>SRFUR__STORY_XQXF_BUT<br>SRFUR__STORY_FAVOR_BUT<br>SRFUR__STORY_REVIEW_BUT<br>SRFUR__STORY_CHANGED_BUT<br>SRFUR__STORY_CLOSED_BUT<br> |
+|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__STORY_DELETE_BUT<br>SRFUR__STORY_CHANGED_BUT<br>SRFUR__STORY_ACTIVE_BUT<br>SRFUR__STORY_FAVOR_BUT<br>SRFUR__STORY_ASS_BUT<br>SRFUR__STORY_REVIEW_BUT<br>SRFUR__STORY_XQXF_BUT<br>SRFUR__STORY_CLOSED_BUT<br>SRFUR__STORY_CCASE_BUT<br> |
+|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__STORY_CLOSED_BUT<br>SRFUR__STORY_REVIEW_BUT<br>SRFUR__STORY_ACTIVE_BUT<br>SRFUR__STORY_FAVOR_BUT<br>SRFUR__STORY_ASS_BUT<br>SRFUR__STORY_CHANGED_BUT<br>SRFUR__STORY_XQXF_BUT<br> |
+|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__STORY_CHANGED_BUT<br>SRFUR__STORY_CLOSED_BUT<br>SRFUR__STORY_ASS_BUT<br>SRFUR__STORY_NFAVOR_BUT<br>SRFUR__STORY_REVIEW_BUT<br>SRFUR__STORY_XQXF_BUT<br> |
+|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__STORY_REVIEW_BUT<br>SRFUR__STORY_CHANGED_BUT<br>SRFUR__STORY_XQXF_BUT<br>SRFUR__STORY_ASS_BUT<br>SRFUR__STORY_CLOSED_BUT<br>SRFUR__STORY_NFAVOR_BUT<br>SRFUR__STORY_DELETE_BUT<br>SRFUR__STORY_ACTIVE_BUT<br>SRFUR__STORY_CCASE_BUT<br> |
+|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__STORY_REVIEW_BUT<br>SRFUR__STORY_CLOSED_BUT<br>SRFUR__STORY_ASS_BUT<br>SRFUR__STORY_NFAVOR_BUT<br>SRFUR__STORY_ACTIVE_BUT<br>SRFUR__STORY_CHANGED_BUT<br>SRFUR__STORY_XQXF_BUT<br> |
+|Value||Value2||Value3| 允许| 计划批量解除关联需求<br>发布解除关联需求<br>Remove<br>版本解除关联需求<br>Get<br>项目关联需求<br>变更<br>项目解除关联需求<br>关闭<br>评审<br>版本批量解除关联需求<br>项目关联需求-按计划关联<br>发布批量解除关联需求<br>指派<br>计划解除关联需求<br>项目批量解除关联需求<br>项目关联需求<br>发布关联需求<br>Save<br>计划关联需求<br>Update<br>激活<br> | 不允许 | SRFUR__STORY_FAVOR_BUT<br>SRFUR__STORY_ACTIVE_BUT<br>SRFUR__STORY_XQXF_BUT<br> |
+|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__STORY_FAVOR_BUT<br>SRFUR__STORY_CCASE_BUT<br>SRFUR__STORY_ASS_BUT<br>SRFUR__STORY_CLOSED_BUT<br>SRFUR__STORY_XQXF_BUT<br>SRFUR__STORY_REVIEW_BUT<br>SRFUR__STORY_ACTIVE_BUT<br>SRFUR__STORY_DELETE_BUT<br>SRFUR__STORY_CHANGED_BUT<br> |
 |Value||Value2||Value3| 允许|  | 不允许 | SRFUR__STORY_XQXF_BUT<br>SRFUR__STORY_FAVOR_BUT<br>SRFUR__STORY_ACTIVE_BUT<br> |
-|Value||Value2||Value3| 允许| 版本解除关联需求<br>项目解除关联需求<br>发布关联需求<br>关闭<br>计划解除关联需求<br>Get<br>Update<br>Remove<br>激活<br>项目解除关联需求<br>变更<br>Save<br>指派<br>项目关联需求<br>项目关联需求<br>计划关联需求<br>发布解除关联需求<br>版本解除关联需求<br>评审<br> | 不允许 | SRFUR__STORY_ACTIVE_BUT<br>SRFUR__STORY_XQXF_BUT<br>SRFUR__STORY_NFAVOR_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__STORY_DELETE_BUT<br>SRFUR__STORY_CHANGED_BUT<br>SRFUR__STORY_CCASE_BUT<br>SRFUR__STORY_XQXF_BUT<br>SRFUR__STORY_REVIEW_BUT<br>SRFUR__STORY_ACTIVE_BUT<br>SRFUR__STORY_NFAVOR_BUT<br>SRFUR__STORY_CLOSED_BUT<br>SRFUR__STORY_ASS_BUT<br> |
+|Value||Value2||Value3| 允许| 评审<br>Get<br>版本解除关联需求<br>变更<br>计划关联需求<br>Remove<br>激活<br>发布解除关联需求<br>项目关联需求<br>项目解除关联需求<br>项目关联需求<br>项目解除关联需求<br>Save<br>指派<br>计划解除关联需求<br>发布关联需求<br>关闭<br>版本解除关联需求<br>Update<br> | 不允许 | SRFUR__STORY_ACTIVE_BUT<br>SRFUR__STORY_NFAVOR_BUT<br>SRFUR__STORY_XQXF_BUT<br> |
+|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__STORY_DELETE_BUT<br>SRFUR__STORY_CHANGED_BUT<br>SRFUR__STORY_CCASE_BUT<br>SRFUR__STORY_XQXF_BUT<br>SRFUR__STORY_ACTIVE_BUT<br>SRFUR__STORY_REVIEW_BUT<br>SRFUR__STORY_NFAVOR_BUT<br>SRFUR__STORY_CLOSED_BUT<br>SRFUR__STORY_ASS_BUT<br> |
 |Value||Value2||Value3| 允许|  | 不允许 | SRFUR__STORY_ACTIVE_BUT<br>SRFUR__STORY_NFAVOR_BUT<br>SRFUR__STORY_XQXF_BUT<br> |
 
 当前状态
@@ -302,16 +302,16 @@ hide footbox
 hide footbox
 
 需求 -> 需求: 获取数据
-需求 -> 需求: 处理
 需求 -> 需求: 参数
+需求 -> 需求: 处理
 {% endplantuml %}
 
 | 步骤       | 操作        |
 | --------   | --------   |
 |0|开始 | 
 |1|获取数据 |
-|2|处理 |
-|3|参数 |
+|2|参数 |
+|3|处理 |
 <center>GetStorySpecs</center>
 * 需求收藏 (StoryFavorites)
   
@@ -320,15 +320,15 @@ hide footbox
 {% plantuml %}
 hide footbox
 
-需求 -> 需求: 设置收藏参数
 需求 -> 收藏: 创建收藏信息
+需求 -> 需求: 设置收藏参数
 {% endplantuml %}
 
 | 步骤       | 操作        |
 | --------   | --------   |
-|0|开始 | 
-|1|设置收藏参数 |
-|2|创建收藏信息 |
+|1|创建收藏信息 |
+|1|开始 | 
+|2|设置收藏参数 |
 <center>需求收藏</center>
 * 需求取消收藏 (StoryNFavorites)
   
@@ -352,15 +352,15 @@ hide footbox
 {% plantuml %}
 hide footbox
 
-需求 -> 需求: 处理
 需求 -> 需求: 参数
+需求 -> 需求: 处理
 {% endplantuml %}
 
 | 步骤       | 操作        |
 | --------   | --------   |
-|1|处理 |
-|1|开始 | 
-|2|参数 |
+|0|开始 | 
+|1|参数 |
+|2|处理 |
 <center>buildUnlinkStorys</center>
 * projectUnlinkStorys (projectUnlinkStorys)
   
@@ -479,9 +479,11 @@ hide footbox
 |指派给(ASSIGNEDTO)|EQ|
 |所属计划(PLAN)|EQ|
 |所属计划(PLAN)|NOTEQ|
+|故事点(STORYPOINTS)|EQ|
 |优先级(PRI)|EQ|
 |优先级(PRI)|GTANDEQ|
 |优先级(PRI)|LTANDEQ|
+|评审结果(ASSESSRESULT)|EQ|
 |当前状态(STATUS)|EQ|
 |当前状态(STATUS)|NOTEQ|
 |需求名称(TITLE)|LIKE|
@@ -498,7 +500,9 @@ hide footbox
 |所处阶段(STAGE)|EQ|
 |所处阶段(STAGE)|NOTEQ|
 |由谁关闭(CLOSEDBY)|EQ|
+|评审结果(RESULT)|EQ|
 |需求类型(TYPE)|EQ|
+|之前的版本(PREVERSION)|EQ|
 |模块路径(PATH)|LIKE|
 |父需求名称(PARENTNAME)|EQ|
 |父需求名称(PARENTNAME)|LIKE|
@@ -506,6 +510,8 @@ hide footbox
 |所属模块名称(MODULENAME)|LIKE|
 |产品名称(PRODOCTNAME)|EQ|
 |产品名称(PRODOCTNAME)|LIKE|
+|平台/分支(BRANCHNAME)|EQ|
+|平台/分支(BRANCHNAME)|LIKE|
 |来源Bug(FROMBUG)|EQ|
 |父需求(PARENT)|EQ|
 |父需求(PARENT)|GTANDEQ|
@@ -514,12 +520,6 @@ hide footbox
 |重复需求ID(DUPLICATESTORY)|EQ|
 |平台/分支(BRANCH)|EQ|
 |转Bug(TOBUG)|EQ|
-|评审结果(RESULT)|EQ|
-|平台/分支(BRANCHNAME)|EQ|
-|平台/分支(BRANCHNAME)|LIKE|
-|之前的版本(PREVERSION)|EQ|
-|故事点(STORYPOINTS)|EQ|
-|评审结果(ASSESSRESULT)|EQ|
 
 ## 导入模式
 无

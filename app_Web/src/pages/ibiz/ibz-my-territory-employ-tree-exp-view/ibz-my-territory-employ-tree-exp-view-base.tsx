@@ -100,7 +100,7 @@ export class IbzMyTerritoryEmployTreeExpViewBase extends TreeExpViewBase {
      * @type {string}
      * @memberof IbzMyTerritoryEmployTreeExpViewBase
      */
-	protected viewtag: string = 'cef6e71f89bb0007d341328d455f6da0';
+	protected viewtag: string = 'f7c85815755a8e1ab174b1214a0ea7cf';
 
     /**
      * 视图名称

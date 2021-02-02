@@ -27,6 +27,13 @@ import cn.ibizlab.pms.core.ibizpro.domain.ProjectTaskestimate;
 @Data
 public class ProjectTaskestimateSearchContext extends QueryWrapperContext<ProjectTaskestimate> {
 
+	private String n_project_in;//[项目标识]
+	public void setN_project_in(String n_project_in) {
+        this.n_project_in = n_project_in;
+        if(!ObjectUtils.isEmpty(this.n_project_in)){
+			this.getSearchCond().in("`project`",this.n_project_in.split(";"));
+        }
+    }
 	private String n_month_eq;//[月]
 	public void setN_month_eq(String n_month_eq) {
         this.n_month_eq = n_month_eq;
@@ -43,11 +50,11 @@ public class ProjectTaskestimateSearchContext extends QueryWrapperContext<Projec
             this.getSearchCond().eq("`date`", n_date_eq);
         }
     }
-	private String n_project_in;//[项目标识]
-	public void setN_project_in(String n_project_in) {
-        this.n_project_in = n_project_in;
-        if(!ObjectUtils.isEmpty(this.n_project_in)){
-			this.getSearchCond().in("`project`",this.n_project_in.split(";"));
+	private String n_account_eq;//[用户]
+	public void setN_account_eq(String n_account_eq) {
+        this.n_account_eq = n_account_eq;
+        if(!ObjectUtils.isEmpty(this.n_account_eq)){
+            this.getSearchCond().eq("`account`", n_account_eq);
         }
     }
 	private String n_year_eq;//[年]
@@ -55,13 +62,6 @@ public class ProjectTaskestimateSearchContext extends QueryWrapperContext<Projec
         this.n_year_eq = n_year_eq;
         if(!ObjectUtils.isEmpty(this.n_year_eq)){
             this.getSearchCond().eq("`year`", n_year_eq);
-        }
-    }
-	private String n_account_eq;//[用户]
-	public void setN_account_eq(String n_account_eq) {
-        this.n_account_eq = n_account_eq;
-        if(!ObjectUtils.isEmpty(this.n_account_eq)){
-            this.getSearchCond().eq("`account`", n_account_eq);
         }
     }
 

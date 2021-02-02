@@ -153,7 +153,7 @@ export class CaseCurSuitGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof CaseCurSuitGridViewBase
      */
-	protected viewtag: string = '74e206764fd747fa31467bd5a9f371df';
+	protected viewtag: string = '138b5a87f88e5bacc7b1629267d44086';
 
     /**
      * 视图名称

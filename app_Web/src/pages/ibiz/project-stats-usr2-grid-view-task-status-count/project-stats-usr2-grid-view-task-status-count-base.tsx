@@ -109,7 +109,7 @@ export class ProjectStatsUsr2GridViewTaskStatusCountBase extends GridViewBase {
      * @type {string}
      * @memberof ProjectStatsUsr2GridViewTaskStatusCountBase
      */
-	protected viewtag: string = '09ec3280dedaeac7260c00f3f923d20e';
+	protected viewtag: string = '9c9b61019d1d14a1e56cd9ed0af85640';
 
     /**
      * 视图名称

@@ -162,7 +162,7 @@ export class TaskOpenTaskViewBase extends OptionViewBase {
      * @type {string}
      * @memberof TaskOpenTaskViewBase
      */
-	protected viewtag: string = 'abca63015fc84466991c6479f955f6d0';
+	protected viewtag: string = 'ba8ec48472c6227a226844baee25ae28';
 
     /**
      * 视图名称

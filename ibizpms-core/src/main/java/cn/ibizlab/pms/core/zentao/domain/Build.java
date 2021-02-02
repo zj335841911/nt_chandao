@@ -44,12 +44,26 @@ public class Build extends EntityMP implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
+     * Bug版本健值
+     */
+    @TableField(exist = false)
+    @JSONField(name = "ids")
+    @JsonProperty("ids")
+    private String ids;
+    /**
      * 名称编号
      */
     @TableField(value = "`name`")
     @JSONField(name = "name")
     @JsonProperty("name")
     private String name;
+    /**
+     * 后台体系
+     */
+    @TableField(exist = false)
+    @JSONField(name = "backgroundid")
+    @JsonProperty("backgroundid")
+    private String backgroundid;
     /**
      * 构建者
      */
@@ -58,6 +72,34 @@ public class Build extends EntityMP implements Serializable {
     @JSONField(name = "builder")
     @JsonProperty("builder")
     private String builder;
+    /**
+     * 附件
+     */
+    @TableField(exist = false)
+    @JSONField(name = "files")
+    @JsonProperty("files")
+    private String files;
+    /**
+     * 运行模式
+     */
+    @TableField(exist = false)
+    @JSONField(name = "releasetype")
+    @JsonProperty("releasetype")
+    private String releasetype;
+    /**
+     * 构建者（选择）
+     */
+    @TableField(exist = false)
+    @JSONField(name = "builderpk")
+    @JsonProperty("builderpk")
+    private String builderpk;
+    /**
+     * 重新构建
+     */
+    @TableField(exist = false)
+    @JSONField(name = "rebuild")
+    @JsonProperty("rebuild")
+    private Integer rebuild;
     /**
      * 描述
      */
@@ -84,6 +126,13 @@ public class Build extends EntityMP implements Serializable {
     @JsonProperty("deleted")
     private String deleted;
     /**
+     * 运行数据库
+     */
+    @TableField(exist = false)
+    @JSONField(name = "sqlid")
+    @JsonProperty("sqlid")
+    private String sqlid;
+    /**
      * 源代码地址
      */
     @DEField(defaultValue = "#EMPTY")
@@ -99,6 +148,13 @@ public class Build extends EntityMP implements Serializable {
     @JSONField(name = "filepath")
     @JsonProperty("filepath")
     private String filepath;
+    /**
+     * 产生的bug
+     */
+    @TableField(exist = false)
+    @JSONField(name = "createbugcnt")
+    @JsonProperty("createbugcnt")
+    private String createbugcnt;
     /**
      * 完成的需求
      */
@@ -116,6 +172,20 @@ public class Build extends EntityMP implements Serializable {
     @JsonProperty("bugs")
     private String bugs;
     /**
+     * 系统应用
+     */
+    @TableField(exist = false)
+    @JSONField(name = "frontapplication")
+    @JsonProperty("frontapplication")
+    private String frontapplication;
+    /**
+     * 消息通知用户
+     */
+    @TableField(exist = false)
+    @JSONField(name = "noticeusers")
+    @JsonProperty("noticeusers")
+    private String noticeusers;
+    /**
      * 打包日期
      */
     @TableField(value = "`date`")
@@ -123,6 +193,13 @@ public class Build extends EntityMP implements Serializable {
     @JSONField(name = "date", format = "yyyy-MM-dd")
     @JsonProperty("date")
     private Timestamp date;
+    /**
+     * 产品名称
+     */
+    @TableField(exist = false)
+    @JSONField(name = "productname")
+    @JsonProperty("productname")
+    private String productname;
     /**
      * 产品
      */
@@ -147,83 +224,6 @@ public class Build extends EntityMP implements Serializable {
     @JSONField(name = "project")
     @JsonProperty("project")
     private Long project;
-    /**
-     * 产品名称
-     */
-    @TableField(exist = false)
-    @JSONField(name = "productname")
-    @JsonProperty("productname")
-    private String productname;
-    /**
-     * Bug版本健值
-     */
-    @TableField(exist = false)
-    @JSONField(name = "ids")
-    @JsonProperty("ids")
-    private String ids;
-    /**
-     * 附件
-     */
-    @TableField(exist = false)
-    @JSONField(name = "files")
-    @JsonProperty("files")
-    private String files;
-    /**
-     * 重新构建
-     */
-    @TableField(exist = false)
-    @JSONField(name = "rebuild")
-    @JsonProperty("rebuild")
-    private Integer rebuild;
-    /**
-     * 运行模式
-     */
-    @TableField(exist = false)
-    @JSONField(name = "releasetype")
-    @JsonProperty("releasetype")
-    private String releasetype;
-    /**
-     * 系统应用
-     */
-    @TableField(exist = false)
-    @JSONField(name = "frontapplication")
-    @JsonProperty("frontapplication")
-    private String frontapplication;
-    /**
-     * 后台体系
-     */
-    @TableField(exist = false)
-    @JSONField(name = "backgroundid")
-    @JsonProperty("backgroundid")
-    private String backgroundid;
-    /**
-     * 运行数据库
-     */
-    @TableField(exist = false)
-    @JSONField(name = "sqlid")
-    @JsonProperty("sqlid")
-    private String sqlid;
-    /**
-     * 产生的bug
-     */
-    @TableField(exist = false)
-    @JSONField(name = "createbugcnt")
-    @JsonProperty("createbugcnt")
-    private String createbugcnt;
-    /**
-     * 构建者（选择）
-     */
-    @TableField(exist = false)
-    @JSONField(name = "builderpk")
-    @JsonProperty("builderpk")
-    private String builderpk;
-    /**
-     * 消息通知用户
-     */
-    @TableField(exist = false)
-    @JSONField(name = "noticeusers")
-    @JsonProperty("noticeusers")
-    private String noticeusers;
 
     /**
      * 

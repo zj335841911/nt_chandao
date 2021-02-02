@@ -102,7 +102,7 @@ export class DocDocSumEditView9Base extends EditView9Base {
      * @type {string}
      * @memberof DocDocSumEditView9Base
      */
-	protected viewtag: string = '89c6b10a2c65ecc0a6c8ea97c7c2b25a';
+	protected viewtag: string = '9c8008d7bfae29c3af0c64991337b7f8';
 
     /**
      * 视图名称

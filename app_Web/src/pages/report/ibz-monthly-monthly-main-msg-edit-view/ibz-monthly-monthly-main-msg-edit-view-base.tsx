@@ -109,7 +109,7 @@ export class IbzMonthlyMonthlyMainMsgEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof IbzMonthlyMonthlyMainMsgEditViewBase
      */
-	protected viewtag: string = '8caddd30a10ec08a95cd804fa2524e14';
+	protected viewtag: string = '310d769f7a26cde669e0d1bc0c614319';
 
     /**
      * 视图名称

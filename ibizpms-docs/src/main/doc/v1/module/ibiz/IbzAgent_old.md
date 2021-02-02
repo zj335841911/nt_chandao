@@ -9,30 +9,30 @@
 
 | 属性名称        |    中文名称    | 类型     |  备注  |
 | --------   |------------| -----   |  -------- | 
+|更新人|UPDATEMAN|TEXT|&nbsp;|
+|创建人姓名|CREATEMANNAME|TEXT|&nbsp;|
+|代理结束日期|AGENTEND|DATE|&nbsp;|
 |代理标识|IBZ_AGENTID|ACID|&nbsp;|
 |建立人|CREATEMAN|TEXT|&nbsp;|
-|建立时间|CREATEDATE|DATETIME|&nbsp;|
-|代理名称|IBZ_AGENTNAME|TEXT|&nbsp;|
-|更新人|UPDATEMAN|TEXT|&nbsp;|
 |更新时间|UPDATEDATE|DATETIME|&nbsp;|
 |代理用户|AGENTUSER|TEXT|&nbsp;|
+|建立时间|CREATEDATE|DATETIME|&nbsp;|
 |代理开始日期|AGENTBEGIN|DATE|&nbsp;|
-|代理结束日期|AGENTEND|DATE|&nbsp;|
-|创建人姓名|CREATEMANNAME|TEXT|&nbsp;|
+|代理名称|IBZ_AGENTNAME|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
 | --------   |------------| ----- | 
+|更新人|默认规则|内容长度必须小于等于[60]|
+|创建人姓名|默认规则|内容长度必须小于等于[100]|
+|代理结束日期|默认规则|默认规则|
 |代理标识|默认规则|默认规则|
 |建立人|默认规则|内容长度必须小于等于[60]|
-|建立时间|默认规则|默认规则|
-|代理名称|默认规则|内容长度必须小于等于[200]|
-|更新人|默认规则|内容长度必须小于等于[60]|
 |更新时间|默认规则|默认规则|
 |代理用户|默认规则|内容长度必须小于等于[100]|
+|建立时间|默认规则|默认规则|
 |代理开始日期|默认规则|默认规则|
-|代理结束日期|默认规则|默认规则|
-|创建人姓名|默认规则|内容长度必须小于等于[100]|
+|代理名称|默认规则|内容长度必须小于等于[200]|
 
 ## 状态控制
 
@@ -71,8 +71,8 @@
 ## 查询模式
 | 属性      |    搜索模式     |
 | --------   |------------|
-|代理名称(IBZ_AGENTNAME)|LIKE|
 |创建人姓名(CREATEMANNAME)|EQ|
+|代理名称(IBZ_AGENTNAME)|LIKE|
 
 ## 导入模式
 无

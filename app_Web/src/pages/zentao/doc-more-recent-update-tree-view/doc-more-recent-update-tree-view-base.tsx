@@ -116,7 +116,7 @@ export class DocMoreRecentUpdateTreeViewBase extends TreeViewBase {
      * @type {string}
      * @memberof DocMoreRecentUpdateTreeViewBase
      */
-	protected viewtag: string = 'bd1aede12f9d691fb88402d7aa4c07db';
+	protected viewtag: string = 'f5fdf8a3d702d4080d12a764737533c4';
 
     /**
      * 视图名称

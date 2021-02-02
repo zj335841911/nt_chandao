@@ -44,13 +44,6 @@ public class TaskEstimateStats extends EntityMP implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
-     * 用户
-     */
-    @TableField(value = "`account`")
-    @JSONField(name = "account")
-    @JsonProperty("account")
-    private String account;
-    /**
      * 日期
      */
     @TableField(value = "`date`")
@@ -58,12 +51,12 @@ public class TaskEstimateStats extends EntityMP implements Serializable {
     @JsonProperty("date")
     private String date;
     /**
-     * 任务数
+     * 年
      */
     @TableField(exist = false)
-    @JSONField(name = "taskcnt")
-    @JsonProperty("taskcnt")
-    private Integer taskcnt;
+    @JSONField(name = "year")
+    @JsonProperty("year")
+    private String year;
     /**
      * 消耗的工时
      */
@@ -71,6 +64,20 @@ public class TaskEstimateStats extends EntityMP implements Serializable {
     @JSONField(name = "consumed")
     @JsonProperty("consumed")
     private Double consumed;
+    /**
+     * 评估状态
+     */
+    @TableField(value = "`evaluationstatus`")
+    @JSONField(name = "evaluationstatus")
+    @JsonProperty("evaluationstatus")
+    private String evaluationstatus;
+    /**
+     * 用户
+     */
+    @TableField(value = "`account`")
+    @JSONField(name = "account")
+    @JsonProperty("account")
+    private String account;
     /**
      * 编号
      */
@@ -80,6 +87,13 @@ public class TaskEstimateStats extends EntityMP implements Serializable {
     @JsonProperty("id")
     private Long id;
     /**
+     * 月（显示）
+     */
+    @TableField(value = "`monthname`")
+    @JSONField(name = "monthname")
+    @JsonProperty("monthname")
+    private String monthname;
+    /**
      * 项目名称
      */
     @TableField(exist = false)
@@ -87,12 +101,12 @@ public class TaskEstimateStats extends EntityMP implements Serializable {
     @JsonProperty("name")
     private String name;
     /**
-     * 投入成本
+     * 年（显示）
      */
-    @TableField(value = "`inputcost`")
-    @JSONField(name = "inputcost")
-    @JsonProperty("inputcost")
-    private Double inputcost;
+    @TableField(exist = false)
+    @JSONField(name = "yearname")
+    @JsonProperty("yearname")
+    private String yearname;
     /**
      * 评估工时
      */
@@ -108,26 +122,12 @@ public class TaskEstimateStats extends EntityMP implements Serializable {
     @JsonProperty("evaluationcost")
     private Double evaluationcost;
     /**
-     * 评估状态
+     * 投入成本
      */
-    @TableField(value = "`evaluationstatus`")
-    @JSONField(name = "evaluationstatus")
-    @JsonProperty("evaluationstatus")
-    private String evaluationstatus;
-    /**
-     * 年
-     */
-    @TableField(exist = false)
-    @JSONField(name = "year")
-    @JsonProperty("year")
-    private String year;
-    /**
-     * 年（显示）
-     */
-    @TableField(exist = false)
-    @JSONField(name = "yearname")
-    @JsonProperty("yearname")
-    private String yearname;
+    @TableField(value = "`inputcost`")
+    @JSONField(name = "inputcost")
+    @JsonProperty("inputcost")
+    private Double inputcost;
     /**
      * 月
      */
@@ -136,22 +136,14 @@ public class TaskEstimateStats extends EntityMP implements Serializable {
     @JsonProperty("month")
     private String month;
     /**
-     * 月（显示）
+     * 任务数
      */
-    @TableField(value = "`monthname`")
-    @JSONField(name = "monthname")
-    @JsonProperty("monthname")
-    private String monthname;
+    @TableField(exist = false)
+    @JSONField(name = "taskcnt")
+    @JsonProperty("taskcnt")
+    private Integer taskcnt;
 
 
-
-    /**
-     * 设置 [用户]
-     */
-    public void setAccount(String account) {
-        this.account = account;
-        this.modify("account", account);
-    }
 
     /**
      * 设置 [日期]
@@ -162,11 +154,27 @@ public class TaskEstimateStats extends EntityMP implements Serializable {
     }
 
     /**
-     * 设置 [投入成本]
+     * 设置 [评估状态]
      */
-    public void setInputcost(Double inputcost) {
-        this.inputcost = inputcost;
-        this.modify("inputcost", inputcost);
+    public void setEvaluationstatus(String evaluationstatus) {
+        this.evaluationstatus = evaluationstatus;
+        this.modify("evaluationstatus", evaluationstatus);
+    }
+
+    /**
+     * 设置 [用户]
+     */
+    public void setAccount(String account) {
+        this.account = account;
+        this.modify("account", account);
+    }
+
+    /**
+     * 设置 [月（显示）]
+     */
+    public void setMonthname(String monthname) {
+        this.monthname = monthname;
+        this.modify("monthname", monthname);
     }
 
     /**
@@ -186,19 +194,11 @@ public class TaskEstimateStats extends EntityMP implements Serializable {
     }
 
     /**
-     * 设置 [评估状态]
+     * 设置 [投入成本]
      */
-    public void setEvaluationstatus(String evaluationstatus) {
-        this.evaluationstatus = evaluationstatus;
-        this.modify("evaluationstatus", evaluationstatus);
-    }
-
-    /**
-     * 设置 [月（显示）]
-     */
-    public void setMonthname(String monthname) {
-        this.monthname = monthname;
-        this.modify("monthname", monthname);
+    public void setInputcost(Double inputcost) {
+        this.inputcost = inputcost;
+        this.modify("inputcost", inputcost);
     }
 
 

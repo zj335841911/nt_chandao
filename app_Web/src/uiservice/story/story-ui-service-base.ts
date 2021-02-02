@@ -154,30 +154,731 @@ export default class StoryUIServiceBase extends UIService {
      * @memberof  StoryUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
-        this.allDeMainStateOPPrivsMap.set('active__0__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_FAVOR_BUT':0,'SRFUR__STORY_XQXF_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('active__0__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_XQXF_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_FAVOR_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('active__0__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_FAVOR_BUT':0,'SRFUR__STORY_ASS_BUT':0,'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_CCASE_BUT':0,'SRFUR__STORY_DELETE_BUT':0,'SRFUR__STORY_CHANGED_BUT':0,'SRFUR__STORY_CLOSED_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('active__0__2',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_FAVOR_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_REVIEW_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('active__1__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_XQXF_BUT':0,'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_NFAVOR_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('active__1__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_CHANGED_BUT':0,'SRFUR__STORY_NFAVOR_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_CLOSED_BUT':0,'SRFUR__STORY_DELETE_BUT':0,'SRFUR__STORY_ASS_BUT':0,'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_CCASE_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('active__0__2',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_FAVOR_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('active__1__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_NFAVOR_BUT':0,'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_XQXF_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('active__1__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_CHANGED_BUT':0,'SRFUR__STORY_NFAVOR_BUT':0,'SRFUR__STORY_CLOSED_BUT':0,'SRFUR__STORY_DELETE_BUT':0,'SRFUR__STORY_ASS_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_CCASE_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('active__1__2',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_NFAVOR_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('changed__0__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_XQXF_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_FAVOR_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('changed__0__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_CHANGED_BUT':0,'SRFUR__STORY_ASS_BUT':0,'SRFUR__STORY_CCASE_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_FAVOR_BUT':0,'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_CLOSED_BUT':0,'SRFUR__STORY_DELETE_BUT':0,'SRFUR__STORY_XQXF_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('changed__0__2',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_FAVOR_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_XQXF_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('changed__1__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_NFAVOR_BUT':0,'SRFUR__STORY_XQXF_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('changed__1__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_ASS_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_DELETE_BUT':0,'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_CCASE_BUT':0,'SRFUR__STORY_CHANGED_BUT':0,'SRFUR__STORY_NFAVOR_BUT':0,'SRFUR__STORY_XQXF_BUT':0,'SRFUR__STORY_CLOSED_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('changed__0__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_XQXF_BUT':0,'SRFUR__STORY_FAVOR_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('changed__0__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_CHANGED_BUT':0,'SRFUR__STORY_ASS_BUT':0,'SRFUR__STORY_CCASE_BUT':0,'SRFUR__STORY_FAVOR_BUT':0,'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_CLOSED_BUT':0,'SRFUR__STORY_DELETE_BUT':0,'SRFUR__STORY_XQXF_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('changed__0__2',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_FAVOR_BUT':0,'SRFUR__STORY_XQXF_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('changed__1__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_XQXF_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_NFAVOR_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('changed__1__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_ASS_BUT':0,'SRFUR__STORY_DELETE_BUT':0,'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_CCASE_BUT':0,'SRFUR__STORY_CHANGED_BUT':0,'SRFUR__STORY_NFAVOR_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_XQXF_BUT':0,'SRFUR__STORY_CLOSED_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('changed__1__2',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_XQXF_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_NFAVOR_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('closed__0__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_CHANGED_BUT':0,'SRFUR__STORY_ASS_BUT':0,'SRFUR__STORY_CLOSED_BUT':0,'SRFUR__STORY_FAVOR_BUT':0,'SRFUR__STORY_XQXF_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('closed__0__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_DELETE_BUT':0,'SRFUR__STORY_CHANGED_BUT':0,'SRFUR__STORY_FAVOR_BUT':0,'SRFUR__STORY_ASS_BUT':0,'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_XQXF_BUT':0,'SRFUR__STORY_CLOSED_BUT':0,'SRFUR__STORY_CCASE_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('closed__0__2',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_CLOSED_BUT':0,'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_FAVOR_BUT':0,'SRFUR__STORY_ASS_BUT':0,'SRFUR__STORY_CHANGED_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_XQXF_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('closed__1__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_NFAVOR_BUT':0,'SRFUR__STORY_XQXF_BUT':0,'SRFUR__STORY_CHANGED_BUT':0,'SRFUR__STORY_ASS_BUT':0,'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_CLOSED_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('closed__1__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_CHANGED_BUT':0,'SRFUR__STORY_XQXF_BUT':0,'SRFUR__STORY_ASS_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_CLOSED_BUT':0,'SRFUR__STORY_NFAVOR_BUT':0,'SRFUR__STORY_DELETE_BUT':0,'SRFUR__STORY_CCASE_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('closed__1__2',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_CLOSED_BUT':0,'SRFUR__STORY_ASS_BUT':0,'SRFUR__STORY_NFAVOR_BUT':0,'SRFUR__STORY_CHANGED_BUT':0,'SRFUR__STORY_XQXF_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('draft__0__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_XQXF_BUT':0,'SRFUR__STORY_FAVOR_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('draft__0__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_FAVOR_BUT':0,'SRFUR__STORY_CCASE_BUT':0,'SRFUR__STORY_ASS_BUT':0,'SRFUR__STORY_CLOSED_BUT':0,'SRFUR__STORY_XQXF_BUT':0,'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_DELETE_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_CHANGED_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('closed__0__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_ASS_BUT':0,'SRFUR__STORY_XQXF_BUT':0,'SRFUR__STORY_FAVOR_BUT':0,'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_CHANGED_BUT':0,'SRFUR__STORY_CLOSED_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('closed__0__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_DELETE_BUT':0,'SRFUR__STORY_CHANGED_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_FAVOR_BUT':0,'SRFUR__STORY_ASS_BUT':0,'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_XQXF_BUT':0,'SRFUR__STORY_CLOSED_BUT':0,'SRFUR__STORY_CCASE_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('closed__0__2',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_CLOSED_BUT':0,'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_FAVOR_BUT':0,'SRFUR__STORY_ASS_BUT':0,'SRFUR__STORY_CHANGED_BUT':0,'SRFUR__STORY_XQXF_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('closed__1__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_CHANGED_BUT':0,'SRFUR__STORY_CLOSED_BUT':0,'SRFUR__STORY_ASS_BUT':0,'SRFUR__STORY_NFAVOR_BUT':0,'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_XQXF_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('closed__1__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_CHANGED_BUT':0,'SRFUR__STORY_XQXF_BUT':0,'SRFUR__STORY_ASS_BUT':0,'SRFUR__STORY_CLOSED_BUT':0,'SRFUR__STORY_NFAVOR_BUT':0,'SRFUR__STORY_DELETE_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_CCASE_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('closed__1__2',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_CLOSED_BUT':0,'SRFUR__STORY_ASS_BUT':0,'SRFUR__STORY_NFAVOR_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_CHANGED_BUT':0,'SRFUR__STORY_XQXF_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('draft__0__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_FAVOR_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_XQXF_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('draft__0__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_FAVOR_BUT':0,'SRFUR__STORY_CCASE_BUT':0,'SRFUR__STORY_ASS_BUT':0,'SRFUR__STORY_CLOSED_BUT':0,'SRFUR__STORY_XQXF_BUT':0,'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_DELETE_BUT':0,'SRFUR__STORY_CHANGED_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('draft__0__2',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_XQXF_BUT':0,'SRFUR__STORY_FAVOR_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('draft__1__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_XQXF_BUT':0,'SRFUR__STORY_NFAVOR_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('draft__1__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_DELETE_BUT':0,'SRFUR__STORY_CHANGED_BUT':0,'SRFUR__STORY_CCASE_BUT':0,'SRFUR__STORY_XQXF_BUT':0,'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_NFAVOR_BUT':0,'SRFUR__STORY_CLOSED_BUT':0,'SRFUR__STORY_ASS_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('draft__1__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_NFAVOR_BUT':0,'SRFUR__STORY_XQXF_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('draft__1__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_DELETE_BUT':0,'SRFUR__STORY_CHANGED_BUT':0,'SRFUR__STORY_CCASE_BUT':0,'SRFUR__STORY_XQXF_BUT':0,'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_REVIEW_BUT':0,'SRFUR__STORY_NFAVOR_BUT':0,'SRFUR__STORY_CLOSED_BUT':0,'SRFUR__STORY_ASS_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('draft__1__2',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_ACTIVE_BUT':0,'SRFUR__STORY_NFAVOR_BUT':0,'SRFUR__STORY_XQXF_BUT':0,}));
+    }
+
+    /**
+     * 批量分解
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Story_BatchBreakdowntasks(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        Object.assign(context,{CURPROJECT:"%project%",PROJECT:"%project%",MODULE:"%module%",MODULENAME:"%modulename%",TITLE:"%title%"});
+        Object.assign(params,{modulename:"%modulename%",project:"%project%",story:"%id%",module:"%module%",title:"%title%",curproject:"%project%"});
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { story: '%story%' });
+        Object.assign(params, { id: '%story%' });
+        Object.assign(params, { title: '%title%' });
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        if(context.projectmodule && true){
+            deResParameters = [
+            { pathName: 'projectmodules', parameterName: 'projectmodule' },
+            ]
+        }
+        const parameters: any[] = [
+            { pathName: 'tasks', parameterName: 'task' },
+        ];
+            const openDrawer = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    if (xData && xData.refresh && xData.refresh instanceof Function) {
+                        xData.refresh(args);
+                    }
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'task-story-sub-task-new-view', 
+                height: 0, 
+                width: 0,  
+                title: actionContext.$t('entities.task.views.storysubtasknewview.title'),
+                placement: 'DRAWER_TOP',
+            };
+            openDrawer(view, data);
+    }
+
+    /**
+     * 关闭
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Story_CloseStoryDash(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { story: '%story%' });
+        Object.assign(params, { id: '%story%' });
+        Object.assign(params, { title: '%title%' });
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        if(context.product && true){
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+        const parameters: any[] = [
+            { pathName: 'stories', parameterName: 'story' },
+        ];
+            const openPopupModal = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appmodal.openModal(view, context, data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    if (xData && xData.refresh && xData.refresh instanceof Function) {
+                        xData.refresh(args);
+                    }
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'story-close-view', 
+                height: 600, 
+                width: 800,  
+                title: actionContext.$t('entities.story.views.closeview.title'),
+            };
+            openPopupModal(view, data);
+    }
+
+    /**
+     * 需求细分
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Story_SubStory(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        Object.assign(context,{MODULE:"%module%",PRODUCT:"%product%"});
+        Object.assign(params,{product:"%product%",module:"%module%"});
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { story: '%story%' });
+        Object.assign(params, { id: '%story%' });
+        Object.assign(params, { title: '%title%' });
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        if(context.story && true){
+            deResParameters = [
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        const parameters: any[] = [
+            { pathName: 'substories', parameterName: 'substory' },
+        ];
+            const openDrawer = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    if (xData && xData.refresh && xData.refresh instanceof Function) {
+                        xData.refresh(args);
+                    }
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'story-sub-grid-view', 
+                height: 0, 
+                width: 0,  
+                title: actionContext.$t('entities.substory.views.subgridview.title'),
+                placement: 'DRAWER_TOP',
+            };
+            openDrawer(view, data);
+    }
+
+    /**
+     * 提缺陷
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Story_StoryToBug(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        Object.assign(context,{ASSIGNEDTO:"%assignedto%",STORY:"%story%",PROJECT:"%project%",MODULE:"%module%",MODULENAME:"%modulename%",PRODUCT:"%product%",BRANCH:"%branch%",TITLE:"%title%"});
+        Object.assign(params,{product:"%product%",modulename:"%modulename%",project:"%project%",assignedto:"%assignedto%",story:"%story%",module:"%module%",title:"%title%",branch:"%branch%"});
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { story: '%story%' });
+        Object.assign(params, { id: '%story%' });
+        Object.assign(params, { title: '%title%' });
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        if(context.product && true){
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+        const parameters: any[] = [
+            { pathName: 'bugs', parameterName: 'bug' },
+        ];
+            const openDrawer = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'bug-story-tobug-edit-view', 
+                height: 0, 
+                width: 0,  
+                title: actionContext.$t('entities.bug.views.storytobugeditview.title'),
+                placement: 'DRAWER_RIGHT',
+            };
+            openDrawer(view, data);
+    }
+
+    /**
+     * 变更
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Story_ChangeStoryDetail(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { story: '%story%' });
+        Object.assign(params, { id: '%story%' });
+        Object.assign(params, { title: '%title%' });
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        if(context.product && true){
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+        const parameters: any[] = [
+            { pathName: 'stories', parameterName: 'story' },
+        ];
+            const openDrawer = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'story-edit-view-story-change', 
+                height: 0, 
+                width: 0,  
+                title: actionContext.$t('entities.story.views.editview_storychange.title'),
+                placement: 'DRAWER_TOP',
+            };
+            openDrawer(view, data);
+    }
+
+    /**
+     * 激活
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Story_ActiviteDash(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { story: '%story%' });
+        Object.assign(params, { id: '%story%' });
+        Object.assign(params, { title: '%title%' });
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        if(context.product && true){
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+        const parameters: any[] = [
+            { pathName: 'stories', parameterName: 'story' },
+        ];
+            const openPopupModal = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appmodal.openModal(view, context, data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'story-activite-view', 
+                height: 600, 
+                width: 800,  
+                title: actionContext.$t('entities.story.views.activiteview.title'),
+            };
+            openPopupModal(view, data);
+    }
+
+    /**
+     * 关联需求
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Story_PlanRelationStory(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        Object.assign(context,{STORY:"0"});
+        Object.assign(params,{productplan:"%productplan%"});
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'NONE';
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        // 直接调实体服务需要转换的数据
+        if(context && context.srfsessionid){
+          context.srfsessionkey = context.srfsessionid;
+            delete context.srfsessionid;
+        }
+        
+        const backend = () => {
+            const curService:StoryService =  new StoryService();
+            curService.LinkStory(context,data, true).then((response: any) => {
+                if (!response || response.status !== 200) {
+                    actionContext.$Notice.error({ title: '错误', desc: response.message });
+                    return;
+                }
+                actionContext.$Notice.success({ title: '成功', desc: '关联需求成功！' });
+                const _this: any = actionContext;
+                if (xData && xData.refresh && xData.refresh instanceof Function) {
+                    xData.refresh(args);
+                }
+                return response;
+            }).catch((response: any) => {
+                if (!response || !response.status || !response.data) {
+                    actionContext.$Notice.error({ title: '错误', desc: '系统异常！' });
+                    return;
+                }
+                if (response && response.data) {
+                    actionContext.$Notice.error({ title: '错误', desc: response.data.message });
+                    return;
+                }
+                if (response.status === 401) {
+                    return;
+                }
+                return response;
+            });
+        };
+        const view: any = {
+            viewname: 'story-mpickup-view',
+            title: actionContext.$t('entities.story.views.mpickupview.title'),
+            height: 0,
+            width: 0,
+            placement: 'DRAWER_TOP'
+        };
+        const appdrawer = actionContext.$appdrawer.openDrawer(view,context,data);
+        appdrawer.subscribe((result: any) => {
+            if (result && Object.is(result.ret, 'OK')) {
+                Object.assign(data, { srfactionparam: result.datas });
+                backend();
+            }
+        });
+    }
+
+    /**
+     * 收藏
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Story_StoryFavorites(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { story: '%story%' });
+        Object.assign(params, { id: '%story%' });
+        Object.assign(params, { title: '%title%' });
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        // 直接调实体服务需要转换的数据
+        if(context && context.srfsessionid){
+          context.srfsessionkey = context.srfsessionid;
+            delete context.srfsessionid;
+        }
+        
+        const backend = () => {
+            const curService:StoryService =  new StoryService();
+            curService.StoryFavorites(context,data, true).then((response: any) => {
+                if (!response || response.status !== 200) {
+                    actionContext.$Notice.error({ title: '错误', desc: response.message });
+                    return;
+                }
+                actionContext.$Notice.success({ title: '成功', desc: '收藏成功！' });
+                const _this: any = actionContext;
+                if (xData && xData.refresh && xData.refresh instanceof Function) {
+                    xData.refresh(args);
+                }
+                return response;
+            }).catch((response: any) => {
+                if (!response || !response.status || !response.data) {
+                    actionContext.$Notice.error({ title: '错误', desc: '系统异常！' });
+                    return;
+                }
+                if (response && response.data) {
+                    actionContext.$Notice.error({ title: '错误', desc: response.data.message });
+                    return;
+                }
+                if (response.status === 401) {
+                    return;
+                }
+                return response;
+            });
+        };
+        backend();
+    }
+
+    /**
+     * 编辑
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Story_OpenBaseInfoEditView(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { story: '%story%' });
+        Object.assign(params, { id: '%story%' });
+        Object.assign(params, { title: '%title%' });
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        if(context.product && true){
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+        const parameters: any[] = [
+            { pathName: 'stories', parameterName: 'story' },
+        ];
+            const openDrawer = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    if (xData && xData.refresh && xData.refresh instanceof Function) {
+                        xData.refresh(args);
+                    }
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'story-main-view9-edit-mode', 
+                height: 0, 
+                width: 0,  
+                title: actionContext.$t('entities.story.views.mainview9_editmode.title'),
+                placement: 'DRAWER_TOP',
+            };
+            openDrawer(view, data);
+    }
+
+    /**
+     * 关联需求
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Story_buildLinkStories(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        Object.assign(context,{BUILD:"%build%",STORY:"0",PROJECT:"%project%",PRODUCT:"%product%"});
+        Object.assign(params,{product:"%product%",project:"%project%",build:"%build%"});
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'NONE';
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        // 直接调实体服务需要转换的数据
+        if(context && context.srfsessionid){
+          context.srfsessionkey = context.srfsessionid;
+            delete context.srfsessionid;
+        }
+        
+        const backend = () => {
+            const curService:StoryService =  new StoryService();
+            curService.BuildLinkStory(context,data, true).then((response: any) => {
+                if (!response || response.status !== 200) {
+                    actionContext.$Notice.error({ title: '错误', desc: response.message });
+                    return;
+                }
+                actionContext.$Notice.success({ title: '成功', desc: '关联需求成功！' });
+                const _this: any = actionContext;
+                if (xData && xData.refresh && xData.refresh instanceof Function) {
+                    xData.refresh(args);
+                }
+                return response;
+            }).catch((response: any) => {
+                if (!response || !response.status || !response.data) {
+                    actionContext.$Notice.error({ title: '错误', desc: '系统异常！' });
+                    return;
+                }
+                if (response && response.data) {
+                    actionContext.$Notice.error({ title: '错误', desc: response.data.message });
+                    return;
+                }
+                if (response.status === 401) {
+                    return;
+                }
+                return response;
+            });
+        };
+        const view: any = {
+            viewname: 'story-mpickup-view3',
+            title: actionContext.$t('entities.story.views.mpickupview3.title'),
+            height: 0,
+            width: 0,
+            placement: 'DRAWER_TOP'
+        };
+        const appdrawer = actionContext.$appdrawer.openDrawer(view,context,data);
+        appdrawer.subscribe((result: any) => {
+            if (result && Object.is(result.ret, 'OK')) {
+                Object.assign(data, { srfactionparam: result.datas });
+                backend();
+            }
+        });
     }
 
     /**
@@ -247,7 +948,7 @@ export default class StoryUIServiceBase extends UIService {
     }
 
     /**
-     * 评审
+     * 变更
      *
      * @param {any[]} args 当前数据
      * @param {any} context 行为附加上下文
@@ -258,7 +959,7 @@ export default class StoryUIServiceBase extends UIService {
      * @param {*} [srfParentDeName] 父实体名称
      * @returns {Promise<any>}
      */
-    public async Story_ReviewStory(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    public async Story_ChangeStoryDetailDash(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
     
         let data: any = {};
         let parentContext:any = {};
@@ -301,17 +1002,17 @@ export default class StoryUIServiceBase extends UIService {
                 });
             }
             const view: any = {
-                viewname: 'story-rev-iew-view', 
+                viewname: 'story-edit-view-story-change', 
                 height: 0, 
                 width: 0,  
-                title: actionContext.$t('entities.story.views.reviewview.title'),
-                placement: 'DRAWER_RIGHT',
+                title: actionContext.$t('entities.story.views.editview_storychange.title'),
+                placement: 'DRAWER_TOP',
             };
             openDrawer(view, data);
     }
 
     /**
-     * 按照计划关联
+     * 指派
      *
      * @param {any[]} args 当前数据
      * @param {any} context 行为附加上下文
@@ -322,14 +1023,78 @@ export default class StoryUIServiceBase extends UIService {
      * @param {*} [srfParentDeName] 父实体名称
      * @returns {Promise<any>}
      */
-    public async Story_ProjecPlanLink(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    public async Story_AssignTo(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
     
         let data: any = {};
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
-        Object.assign(context,{PROJECT:"%project%"});
-        Object.assign(params,{project:"%project%"});
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { story: '%story%' });
+        Object.assign(params, { id: '%story%' });
+        Object.assign(params, { title: '%title%' });
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        if(context.product && true){
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+        const parameters: any[] = [
+            { pathName: 'stories', parameterName: 'story' },
+        ];
+            const openPopupModal = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appmodal.openModal(view, context, data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    if (xData && xData.refresh && xData.refresh instanceof Function) {
+                        xData.refresh(args);
+                    }
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'story-assign-to-view', 
+                height: 600, 
+                width: 800,  
+                title: actionContext.$t('entities.story.views.assigntoview.title'),
+            };
+            openPopupModal(view, data);
+    }
+
+    /**
+     * MORE
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Story_More(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'NONE';
         if(_this.context){
@@ -352,31 +1117,18 @@ export default class StoryUIServiceBase extends UIService {
         }
         const parameters: any[] = [
             { pathName: 'stories', parameterName: 'story' },
+            { pathName: 'mainmygridview', parameterName: 'mainmygridview' },
         ];
-            const openPopupModal = (view: any, data: any) => {
-                let container: Subject<any> = actionContext.$appmodal.openModal(view, context, data);
-                container.subscribe((result: any) => {
-                    if (!result || !Object.is(result.ret, 'OK')) {
-                        return;
-                    }
-                    const _this: any = actionContext;
-                    if (xData && xData.refresh && xData.refresh instanceof Function) {
-                        xData.refresh(args);
-                    }
-                    return result.datas;
-                });
-            }
-            const view: any = {
-                viewname: 'story-project-plan-view', 
-                height: 170, 
-                width: 600,  
-                title: actionContext.$t('entities.story.views.projectplanview.title'),
-            };
-            openPopupModal(view, data);
+        const openIndexViewTab = (data: any) => {
+            const routePath = actionContext.$viewTool.buildUpRoutePath(actionContext.$route, context, deResParameters, parameters, _args, data);
+            actionContext.$router.push(routePath);
+            return null;
+        }
+        openIndexViewTab(data);
     }
 
     /**
-     * 细分
+     * 移除关联
      *
      * @param {any[]} args 当前数据
      * @param {any} context 行为附加上下文
@@ -387,14 +1139,24 @@ export default class StoryUIServiceBase extends UIService {
      * @param {*} [srfParentDeName] 父实体名称
      * @returns {Promise<any>}
      */
-    public async Story_SubStoryCz(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-    
+    public async Story_UnlinkStory(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
+        let confirmResult:boolean = await new Promise((resolve: any, reject: any) => {
+          actionContext.$Modal.confirm({
+              title: '警告',
+              content: '是否移除需求关联',
+              onOk: () => {resolve(true);},
+              onCancel: () => {resolve(false);}
+          });
+        });
+        if(!confirmResult){
+            return;
+        }
         let data: any = {};
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
-        Object.assign(context,{MODULE:"%module%",PRODUCT:"%product%"});
-        Object.assign(params,{product:"%product%",module:"%module%"});
+        Object.assign(context,{STORY:"0"});
+        Object.assign(params,{productplan:"%productplan%"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(context, { story: '%story%' });
@@ -412,102 +1174,41 @@ export default class StoryUIServiceBase extends UIService {
         let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
         Object.assign(data,parentObj);
         Object.assign(context,parentObj);
-        let deResParameters: any[] = [];
-        if(context.story && true){
-            deResParameters = [
-            { pathName: 'stories', parameterName: 'story' },
-            ]
+        // 直接调实体服务需要转换的数据
+        if(context && context.srfsessionid){
+          context.srfsessionkey = context.srfsessionid;
+            delete context.srfsessionid;
         }
-        const parameters: any[] = [
-            { pathName: 'substories', parameterName: 'substory' },
-        ];
-            const openDrawer = (view: any, data: any) => {
-                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
-                container.subscribe((result: any) => {
-                    if (!result || !Object.is(result.ret, 'OK')) {
-                        return;
-                    }
-                    const _this: any = actionContext;
-                    if (xData && xData.refresh && xData.refresh instanceof Function) {
-                        xData.refresh(args);
-                    }
-                    return result.datas;
-                });
-            }
-            const view: any = {
-                viewname: 'story-sub-grid-view', 
-                height: 0, 
-                width: 0,  
-                title: actionContext.$t('entities.substory.views.subgridview.title'),
-                placement: 'DRAWER_TOP',
-            };
-            openDrawer(view, data);
-    }
-
-    /**
-     * 关闭
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} context 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @param {*} [srfParentDeName] 父实体名称
-     * @returns {Promise<any>}
-     */
-    public async Story_CloseStory(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-    
-        let data: any = {};
-        let parentContext:any = {};
-        let parentViewParam:any = {};
-        const _this: any = actionContext;
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(context, { story: '%story%' });
-        Object.assign(params, { id: '%story%' });
-        Object.assign(params, { title: '%title%' });
-        if(_this.context){
-            parentContext = _this.context;
-        }
-        if(_this.viewparams){
-            parentViewParam = _this.viewparams;
-        }
-        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
-        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
-        context = Object.assign({},actionContext.context,context);
-        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
-        Object.assign(data,parentObj);
-        Object.assign(context,parentObj);
-        let deResParameters: any[] = [];
-        if(context.product && true){
-            deResParameters = [
-            { pathName: 'products', parameterName: 'product' },
-            ]
-        }
-        const parameters: any[] = [
-            { pathName: 'stories', parameterName: 'story' },
-        ];
-            const openPopupModal = (view: any, data: any) => {
-                let container: Subject<any> = actionContext.$appmodal.openModal(view, context, data);
-                container.subscribe((result: any) => {
-                    if (!result || !Object.is(result.ret, 'OK')) {
-                        return;
-                    }
-                    const _this: any = actionContext;
-                    if (xData && xData.refresh && xData.refresh instanceof Function) {
-                        xData.refresh(args);
-                    }
-                    return result.datas;
-                });
-            }
-            const view: any = {
-                viewname: 'story-close-view', 
-                height: 600, 
-                width: 800,  
-                title: actionContext.$t('entities.story.views.closeview.title'),
-            };
-            openPopupModal(view, data);
+        
+        const backend = () => {
+            const curService:StoryService =  new StoryService();
+            curService.UnlinkStory(context,data, true).then((response: any) => {
+                if (!response || response.status !== 200) {
+                    actionContext.$Notice.error({ title: '错误', desc: response.message });
+                    return;
+                }
+                actionContext.$Notice.success({ title: '成功', desc: '移除成功' });
+                const _this: any = actionContext;
+                if (xData && xData.refresh && xData.refresh instanceof Function) {
+                    xData.refresh(args);
+                }
+                return response;
+            }).catch((response: any) => {
+                if (!response || !response.status || !response.data) {
+                    actionContext.$Notice.error({ title: '错误', desc: '系统异常！' });
+                    return;
+                }
+                if (response && response.data) {
+                    actionContext.$Notice.error({ title: '错误', desc: response.data.message });
+                    return;
+                }
+                if (response.status === 401) {
+                    return;
+                }
+                return response;
+            });
+        };
+        backend();
     }
 
     /**
@@ -591,6 +1292,856 @@ export default class StoryUIServiceBase extends UIService {
                 backend();
             }
         });
+    }
+
+    /**
+     * 下载
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Story_BatchDownload(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { story: '%story%' });
+        Object.assign(params, { id: '%story%' });
+        Object.assign(params, { title: '%title%' });
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+            // 自定义实体界面行为
+            actionContext.$Notice.warning({ title: '错误', desc: '下载 未实现' });
+
+    }
+
+    /**
+     * 退出
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Story_ReturnEdit(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { story: '%story%' });
+        Object.assign(params, { id: '%story%' });
+        Object.assign(params, { title: '%title%' });
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+    }
+
+    /**
+     * 编辑
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Story_OpenBaseInfoC(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { story: '%story%' });
+        Object.assign(params, { id: '%story%' });
+        Object.assign(params, { title: '%title%' });
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        if(context.product && true){
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+        const parameters: any[] = [
+            { pathName: 'stories', parameterName: 'story' },
+        ];
+            const openDrawer = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    if (xData && xData.refresh && xData.refresh instanceof Function) {
+                        xData.refresh(args);
+                    }
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'story-main-view9-edit-mode', 
+                height: 0, 
+                width: 0,  
+                title: actionContext.$t('entities.story.views.mainview9_editmode.title'),
+                placement: 'DRAWER_TOP',
+            };
+            openDrawer(view, data);
+    }
+
+    /**
+     * 关联需求
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Story_releaseLinkStories(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        Object.assign(context,{STORY:"0",RELEASE:"%srfparentkey%",PRODUCT:"%product%"});
+        Object.assign(params,{product:"%product%",story:"0",release:"%srfparentkey%"});
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'NONE';
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        // 直接调实体服务需要转换的数据
+        if(context && context.srfsessionid){
+          context.srfsessionkey = context.srfsessionid;
+            delete context.srfsessionid;
+        }
+        
+        const backend = () => {
+            const curService:StoryService =  new StoryService();
+            curService.ReleaseLinkStory(context,data, true).then((response: any) => {
+                if (!response || response.status !== 200) {
+                    actionContext.$Notice.error({ title: '错误', desc: response.message });
+                    return;
+                }
+                actionContext.$Notice.success({ title: '成功', desc: '关联需求成功！' });
+                const _this: any = actionContext;
+                if (xData && xData.refresh && xData.refresh instanceof Function) {
+                    xData.refresh(args);
+                }
+                return response;
+            }).catch((response: any) => {
+                if (!response || !response.status || !response.data) {
+                    actionContext.$Notice.error({ title: '错误', desc: '系统异常！' });
+                    return;
+                }
+                if (response && response.data) {
+                    actionContext.$Notice.error({ title: '错误', desc: response.data.message });
+                    return;
+                }
+                if (response.status === 401) {
+                    return;
+                }
+                return response;
+            });
+        };
+        const view: any = {
+            viewname: 'story-usr2-mpickup-view',
+            title: actionContext.$t('entities.story.views.usr2mpickupview.title'),
+            height: 0,
+            width: 0,
+            placement: 'DRAWER_TOP'
+        };
+        const appdrawer = actionContext.$appdrawer.openDrawer(view,context,data);
+        appdrawer.subscribe((result: any) => {
+            if (result && Object.is(result.ret, 'OK')) {
+                Object.assign(data, { srfactionparam: result.datas });
+                backend();
+            }
+        });
+    }
+
+    /**
+     * 新建需求
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Story_CreatePlan(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        Object.assign(context,{PLAN:"%plan%"});
+        Object.assign(params,{plan:"%plan%"});
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'NONE';
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        if(context.product && true){
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+        const parameters: any[] = [
+            { pathName: 'stories', parameterName: 'story' },
+        ];
+            const openDrawer = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    if (xData && xData.refresh && xData.refresh instanceof Function) {
+                        xData.refresh(args);
+                    }
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'story-plan-edit-view', 
+                height: 0, 
+                width: 0,  
+                title: actionContext.$t('entities.story.views.planeditview.title'),
+                placement: 'DRAWER_RIGHT',
+            };
+            openDrawer(view, data);
+    }
+
+    /**
+     * 关闭
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Story_CloseStory(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { story: '%story%' });
+        Object.assign(params, { id: '%story%' });
+        Object.assign(params, { title: '%title%' });
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        if(context.product && true){
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+        const parameters: any[] = [
+            { pathName: 'stories', parameterName: 'story' },
+        ];
+            const openPopupModal = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appmodal.openModal(view, context, data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    if (xData && xData.refresh && xData.refresh instanceof Function) {
+                        xData.refresh(args);
+                    }
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'story-close-view', 
+                height: 600, 
+                width: 800,  
+                title: actionContext.$t('entities.story.views.closeview.title'),
+            };
+            openPopupModal(view, data);
+    }
+
+    /**
+     * 评审
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Story_ReviewStoryDash(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { story: '%story%' });
+        Object.assign(params, { id: '%story%' });
+        Object.assign(params, { title: '%title%' });
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        if(context.product && true){
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+        const parameters: any[] = [
+            { pathName: 'stories', parameterName: 'story' },
+        ];
+            const openDrawer = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'story-rev-iew-view', 
+                height: 0, 
+                width: 0,  
+                title: actionContext.$t('entities.story.views.reviewview.title'),
+                placement: 'DRAWER_RIGHT',
+            };
+            openDrawer(view, data);
+    }
+
+    /**
+     * 细分
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Story_SubStoryCz(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        Object.assign(context,{MODULE:"%module%",PRODUCT:"%product%"});
+        Object.assign(params,{product:"%product%",module:"%module%"});
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { story: '%story%' });
+        Object.assign(params, { id: '%story%' });
+        Object.assign(params, { title: '%title%' });
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        if(context.story && true){
+            deResParameters = [
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        const parameters: any[] = [
+            { pathName: 'substories', parameterName: 'substory' },
+        ];
+            const openDrawer = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    if (xData && xData.refresh && xData.refresh instanceof Function) {
+                        xData.refresh(args);
+                    }
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'story-sub-grid-view', 
+                height: 0, 
+                width: 0,  
+                title: actionContext.$t('entities.substory.views.subgridview.title'),
+                placement: 'DRAWER_TOP',
+            };
+            openDrawer(view, data);
+    }
+
+    /**
+     * 建用例
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Story_OpenCaseCreateView(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        Object.assign(context,{PRODUCTMODULE:"%module%",PRODUCT:"%product%"});
+        Object.assign(params,{product:"%product%",productmodule:"%module%"});
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { story: '%story%' });
+        Object.assign(params, { id: '%story%' });
+        Object.assign(params, { title: '%title%' });
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        if(context.product && true){
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+        const parameters: any[] = [
+            { pathName: 'cases', parameterName: 'case' },
+        ];
+            const openDrawer = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'case-main-new-view', 
+                height: 0, 
+                width: 0,  
+                title: actionContext.$t('entities.case.views.mainnewview.title'),
+                placement: 'DRAWER_RIGHT',
+            };
+            openDrawer(view, data);
+    }
+
+    /**
+     * 分解任务
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Story_Breakdowntasks(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        Object.assign(context,{CURPROJECT:"%project%",PROJECT:"%project%",MODULE:"%module%",MODULENAME:"%modulename%",TITLE:"%title%"});
+        Object.assign(params,{modulename:"%modulename%",project:"%project%",story:"%id%",module:"%module%",title:"%title%",curproject:"%project%"});
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { story: '%story%' });
+        Object.assign(params, { id: '%story%' });
+        Object.assign(params, { title: '%title%' });
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        if(context.projectmodule && true){
+            deResParameters = [
+            { pathName: 'projectmodules', parameterName: 'projectmodule' },
+            ]
+        }
+        const parameters: any[] = [
+            { pathName: 'tasks', parameterName: 'task' },
+        ];
+            const openDrawer = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    if (xData && xData.refresh && xData.refresh instanceof Function) {
+                        xData.refresh(args);
+                    }
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'task-story-new-edit-view', 
+                height: 0, 
+                width: 0,  
+                title: actionContext.$t('entities.task.views.storyneweditview.title'),
+                placement: 'DRAWER_RIGHT',
+            };
+            openDrawer(view, data);
+    }
+
+    /**
+     * 移除关联
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Story_releaseUnlinkStory(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        Object.assign(context,{RELEASE:"%release%"});
+        Object.assign(params,{release:"%release%"});
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { story: '%story%' });
+        Object.assign(params, { id: '%story%' });
+        Object.assign(params, { title: '%title%' });
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        // 直接调实体服务需要转换的数据
+        if(context && context.srfsessionid){
+          context.srfsessionkey = context.srfsessionid;
+            delete context.srfsessionid;
+        }
+        
+        const backend = () => {
+            const curService:StoryService =  new StoryService();
+            curService.ReleaseUnlinkStory(context,data, true).then((response: any) => {
+                if (!response || response.status !== 200) {
+                    actionContext.$Notice.error({ title: '错误', desc: response.message });
+                    return;
+                }
+                actionContext.$Notice.success({ title: '成功', desc: '移除关联成功！' });
+                const _this: any = actionContext;
+                if (xData && xData.refresh && xData.refresh instanceof Function) {
+                    xData.refresh(args);
+                }
+                return response;
+            }).catch((response: any) => {
+                if (!response || !response.status || !response.data) {
+                    actionContext.$Notice.error({ title: '错误', desc: '系统异常！' });
+                    return;
+                }
+                if (response && response.data) {
+                    actionContext.$Notice.error({ title: '错误', desc: response.data.message });
+                    return;
+                }
+                if (response.status === 401) {
+                    return;
+                }
+                return response;
+            });
+        };
+        backend();
+    }
+
+    /**
+     * 新建
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Story_ProjectCreateView(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        Object.assign(context,{PROJECT:"%project%",SRFPARENTDENAME:"Project"});
+        Object.assign(params,{srfparentdename:"Project",project:"%project%"});
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'NONE';
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        if(context.product && true){
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+        const parameters: any[] = [
+            { pathName: 'stories', parameterName: 'story' },
+        ];
+            const openDrawer = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    if (xData && xData.refresh && xData.refresh instanceof Function) {
+                        xData.refresh(args);
+                    }
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'story-project-edit-view', 
+                height: 0, 
+                width: 0,  
+                title: actionContext.$t('entities.story.views.projecteditview.title'),
+                placement: 'DRAWER_RIGHT',
+            };
+            openDrawer(view, data);
+    }
+
+    /**
+     * 解绑需求
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Story_buildUnlinkStory(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
+        let confirmResult:boolean = await new Promise((resolve: any, reject: any) => {
+          actionContext.$Modal.confirm({
+              title: '警告',
+              content: '您确认移除该需求吗？',
+              onOk: () => {resolve(true);},
+              onCancel: () => {resolve(false);}
+          });
+        });
+        if(!confirmResult){
+            return;
+        }
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        Object.assign(context,{BUILD:"%build%"});
+        Object.assign(params,{build:"%build%"});
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { story: '%story%' });
+        Object.assign(params, { id: '%story%' });
+        Object.assign(params, { title: '%title%' });
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        // 直接调实体服务需要转换的数据
+        if(context && context.srfsessionid){
+          context.srfsessionkey = context.srfsessionid;
+            delete context.srfsessionid;
+        }
+        
+        const backend = () => {
+            const curService:StoryService =  new StoryService();
+            curService.BuildUnlinkStory(context,data, true).then((response: any) => {
+                if (!response || response.status !== 200) {
+                    actionContext.$Notice.error({ title: '错误', desc: response.message });
+                    return;
+                }
+                actionContext.$Notice.success({ title: '成功', desc: '解绑需求成功！' });
+                const _this: any = actionContext;
+                if (xData && xData.refresh && xData.refresh instanceof Function) {
+                    xData.refresh(args);
+                }
+                return response;
+            }).catch((response: any) => {
+                if (!response || !response.status || !response.data) {
+                    actionContext.$Notice.error({ title: '错误', desc: '系统异常！' });
+                    return;
+                }
+                if (response && response.data) {
+                    actionContext.$Notice.error({ title: '错误', desc: response.data.message });
+                    return;
+                }
+                if (response.status === 401) {
+                    return;
+                }
+                return response;
+            });
+        };
+        backend();
     }
 
     /**
@@ -678,7 +2229,7 @@ export default class StoryUIServiceBase extends UIService {
     }
 
     /**
-     * 关闭
+     * 评审
      *
      * @param {any[]} args 当前数据
      * @param {any} context 行为附加上下文
@@ -689,73 +2240,7 @@ export default class StoryUIServiceBase extends UIService {
      * @param {*} [srfParentDeName] 父实体名称
      * @returns {Promise<any>}
      */
-    public async Story_CloseStoryDash(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-    
-        let data: any = {};
-        let parentContext:any = {};
-        let parentViewParam:any = {};
-        const _this: any = actionContext;
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(context, { story: '%story%' });
-        Object.assign(params, { id: '%story%' });
-        Object.assign(params, { title: '%title%' });
-        if(_this.context){
-            parentContext = _this.context;
-        }
-        if(_this.viewparams){
-            parentViewParam = _this.viewparams;
-        }
-        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
-        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
-        context = Object.assign({},actionContext.context,context);
-        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
-        Object.assign(data,parentObj);
-        Object.assign(context,parentObj);
-        let deResParameters: any[] = [];
-        if(context.product && true){
-            deResParameters = [
-            { pathName: 'products', parameterName: 'product' },
-            ]
-        }
-        const parameters: any[] = [
-            { pathName: 'stories', parameterName: 'story' },
-        ];
-            const openPopupModal = (view: any, data: any) => {
-                let container: Subject<any> = actionContext.$appmodal.openModal(view, context, data);
-                container.subscribe((result: any) => {
-                    if (!result || !Object.is(result.ret, 'OK')) {
-                        return;
-                    }
-                    const _this: any = actionContext;
-                    if (xData && xData.refresh && xData.refresh instanceof Function) {
-                        xData.refresh(args);
-                    }
-                    return result.datas;
-                });
-            }
-            const view: any = {
-                viewname: 'story-close-view', 
-                height: 600, 
-                width: 800,  
-                title: actionContext.$t('entities.story.views.closeview.title'),
-            };
-            openPopupModal(view, data);
-    }
-
-    /**
-     * 编辑
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} context 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @param {*} [srfParentDeName] 父实体名称
-     * @returns {Promise<any>}
-     */
-    public async Story_OpenBaseInfoEditView(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    public async Story_ReviewStory(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
     
         let data: any = {};
         let parentContext:any = {};
@@ -794,24 +2279,21 @@ export default class StoryUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
-                    if (xData && xData.refresh && xData.refresh instanceof Function) {
-                        xData.refresh(args);
-                    }
                     return result.datas;
                 });
             }
             const view: any = {
-                viewname: 'story-main-view9-edit-mode', 
+                viewname: 'story-rev-iew-view', 
                 height: 0, 
                 width: 0,  
-                title: actionContext.$t('entities.story.views.mainview9_editmode.title'),
-                placement: 'DRAWER_TOP',
+                title: actionContext.$t('entities.story.views.reviewview.title'),
+                placement: 'DRAWER_RIGHT',
             };
             openDrawer(view, data);
     }
 
     /**
-     * 激活
+     * 新建需求
      *
      * @param {any[]} args 当前数据
      * @param {any} context 行为附加上下文
@@ -822,17 +2304,80 @@ export default class StoryUIServiceBase extends UIService {
      * @param {*} [srfParentDeName] 父实体名称
      * @returns {Promise<any>}
      */
-    public async Story_ActiviteDash(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    public async Story_Create(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
     
         let data: any = {};
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
         const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(context, { story: '%story%' });
-        Object.assign(params, { id: '%story%' });
-        Object.assign(params, { title: '%title%' });
+        const actionTarget: string | null = 'NONE';
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        if(context.product && true){
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+        const parameters: any[] = [
+            { pathName: 'stories', parameterName: 'story' },
+        ];
+            const openDrawer = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    if (xData && xData.refresh && xData.refresh instanceof Function) {
+                        xData.refresh(args);
+                    }
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'story-edit-view', 
+                height: 0, 
+                width: 0,  
+                title: actionContext.$t('entities.story.views.editview.title'),
+                placement: 'DRAWER_RIGHT',
+            };
+            openDrawer(view, data);
+    }
+
+    /**
+     * 按照计划关联
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Story_ProjecPlanLink(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        Object.assign(context,{PROJECT:"%project%"});
+        Object.assign(params,{project:"%project%"});
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'NONE';
         if(_this.context){
             parentContext = _this.context;
         }
@@ -861,71 +2406,6 @@ export default class StoryUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
-                    return result.datas;
-                });
-            }
-            const view: any = {
-                viewname: 'story-activite-view', 
-                height: 600, 
-                width: 800,  
-                title: actionContext.$t('entities.story.views.activiteview.title'),
-            };
-            openPopupModal(view, data);
-    }
-
-    /**
-     * 批量分解
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} context 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @param {*} [srfParentDeName] 父实体名称
-     * @returns {Promise<any>}
-     */
-    public async Story_BatchBreakdowntasks(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-    
-        let data: any = {};
-        let parentContext:any = {};
-        let parentViewParam:any = {};
-        const _this: any = actionContext;
-        Object.assign(context,{CURPROJECT:"%project%",PROJECT:"%project%",MODULE:"%module%",MODULENAME:"%modulename%",TITLE:"%title%"});
-        Object.assign(params,{modulename:"%modulename%",project:"%project%",story:"%id%",module:"%module%",title:"%title%",curproject:"%project%"});
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(context, { story: '%story%' });
-        Object.assign(params, { id: '%story%' });
-        Object.assign(params, { title: '%title%' });
-        if(_this.context){
-            parentContext = _this.context;
-        }
-        if(_this.viewparams){
-            parentViewParam = _this.viewparams;
-        }
-        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
-        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
-        context = Object.assign({},actionContext.context,context);
-        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
-        Object.assign(data,parentObj);
-        Object.assign(context,parentObj);
-        let deResParameters: any[] = [];
-        if(context.projectmodule && true){
-            deResParameters = [
-            { pathName: 'projectmodules', parameterName: 'projectmodule' },
-            ]
-        }
-        const parameters: any[] = [
-            { pathName: 'tasks', parameterName: 'task' },
-        ];
-            const openDrawer = (view: any, data: any) => {
-                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
-                container.subscribe((result: any) => {
-                    if (!result || !Object.is(result.ret, 'OK')) {
-                        return;
-                    }
-                    const _this: any = actionContext;
                     if (xData && xData.refresh && xData.refresh instanceof Function) {
                         xData.refresh(args);
                     }
@@ -933,13 +2413,12 @@ export default class StoryUIServiceBase extends UIService {
                 });
             }
             const view: any = {
-                viewname: 'task-story-sub-task-new-view', 
-                height: 0, 
-                width: 0,  
-                title: actionContext.$t('entities.task.views.storysubtasknewview.title'),
-                placement: 'DRAWER_TOP',
+                viewname: 'story-project-plan-view', 
+                height: 170, 
+                width: 600,  
+                title: actionContext.$t('entities.story.views.projectplanview.title'),
             };
-            openDrawer(view, data);
+            openPopupModal(view, data);
     }
 
     /**
@@ -1038,46 +2517,6 @@ export default class StoryUIServiceBase extends UIService {
     }
 
     /**
-     * 下载
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} context 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @param {*} [srfParentDeName] 父实体名称
-     * @returns {Promise<any>}
-     */
-    public async Story_BatchDownload(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-    
-        let data: any = {};
-        let parentContext:any = {};
-        let parentViewParam:any = {};
-        const _this: any = actionContext;
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(context, { story: '%story%' });
-        Object.assign(params, { id: '%story%' });
-        Object.assign(params, { title: '%title%' });
-        if(_this.context){
-            parentContext = _this.context;
-        }
-        if(_this.viewparams){
-            parentViewParam = _this.viewparams;
-        }
-        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
-        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
-        context = Object.assign({},actionContext.context,context);
-        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
-        Object.assign(data,parentObj);
-        Object.assign(context,parentObj);
-            // 自定义实体界面行为
-            actionContext.$Notice.warning({ title: '错误', desc: '下载 未实现' });
-
-    }
-
-    /**
      * 取消收藏
      *
      * @param {any[]} args 当前数据
@@ -1125,1445 +2564,6 @@ export default class StoryUIServiceBase extends UIService {
                     return;
                 }
                 actionContext.$Notice.success({ title: '成功', desc: '取消收藏成功！' });
-                const _this: any = actionContext;
-                if (xData && xData.refresh && xData.refresh instanceof Function) {
-                    xData.refresh(args);
-                }
-                return response;
-            }).catch((response: any) => {
-                if (!response || !response.status || !response.data) {
-                    actionContext.$Notice.error({ title: '错误', desc: '系统异常！' });
-                    return;
-                }
-                if (response && response.data) {
-                    actionContext.$Notice.error({ title: '错误', desc: response.data.message });
-                    return;
-                }
-                if (response.status === 401) {
-                    return;
-                }
-                return response;
-            });
-        };
-        backend();
-    }
-
-    /**
-     * 移除关联
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} context 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @param {*} [srfParentDeName] 父实体名称
-     * @returns {Promise<any>}
-     */
-    public async Story_releaseUnlinkStory(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
-        let data: any = {};
-        let parentContext:any = {};
-        let parentViewParam:any = {};
-        const _this: any = actionContext;
-        Object.assign(context,{RELEASE:"%release%"});
-        Object.assign(params,{release:"%release%"});
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(context, { story: '%story%' });
-        Object.assign(params, { id: '%story%' });
-        Object.assign(params, { title: '%title%' });
-        if(_this.context){
-            parentContext = _this.context;
-        }
-        if(_this.viewparams){
-            parentViewParam = _this.viewparams;
-        }
-        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
-        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
-        context = Object.assign({},actionContext.context,context);
-        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
-        Object.assign(data,parentObj);
-        Object.assign(context,parentObj);
-        // 直接调实体服务需要转换的数据
-        if(context && context.srfsessionid){
-          context.srfsessionkey = context.srfsessionid;
-            delete context.srfsessionid;
-        }
-        
-        const backend = () => {
-            const curService:StoryService =  new StoryService();
-            curService.ReleaseUnlinkStory(context,data, true).then((response: any) => {
-                if (!response || response.status !== 200) {
-                    actionContext.$Notice.error({ title: '错误', desc: response.message });
-                    return;
-                }
-                actionContext.$Notice.success({ title: '成功', desc: '移除关联成功！' });
-                const _this: any = actionContext;
-                if (xData && xData.refresh && xData.refresh instanceof Function) {
-                    xData.refresh(args);
-                }
-                return response;
-            }).catch((response: any) => {
-                if (!response || !response.status || !response.data) {
-                    actionContext.$Notice.error({ title: '错误', desc: '系统异常！' });
-                    return;
-                }
-                if (response && response.data) {
-                    actionContext.$Notice.error({ title: '错误', desc: response.data.message });
-                    return;
-                }
-                if (response.status === 401) {
-                    return;
-                }
-                return response;
-            });
-        };
-        backend();
-    }
-
-    /**
-     * 建用例
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} context 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @param {*} [srfParentDeName] 父实体名称
-     * @returns {Promise<any>}
-     */
-    public async Story_OpenCaseCreateView(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-    
-        let data: any = {};
-        let parentContext:any = {};
-        let parentViewParam:any = {};
-        const _this: any = actionContext;
-        Object.assign(context,{PRODUCTMODULE:"%module%",PRODUCT:"%product%"});
-        Object.assign(params,{product:"%product%",productmodule:"%module%"});
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(context, { story: '%story%' });
-        Object.assign(params, { id: '%story%' });
-        Object.assign(params, { title: '%title%' });
-        if(_this.context){
-            parentContext = _this.context;
-        }
-        if(_this.viewparams){
-            parentViewParam = _this.viewparams;
-        }
-        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
-        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
-        context = Object.assign({},actionContext.context,context);
-        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
-        Object.assign(data,parentObj);
-        Object.assign(context,parentObj);
-        let deResParameters: any[] = [];
-        if(context.product && true){
-            deResParameters = [
-            { pathName: 'products', parameterName: 'product' },
-            ]
-        }
-        const parameters: any[] = [
-            { pathName: 'cases', parameterName: 'case' },
-        ];
-            const openDrawer = (view: any, data: any) => {
-                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
-                container.subscribe((result: any) => {
-                    if (!result || !Object.is(result.ret, 'OK')) {
-                        return;
-                    }
-                    const _this: any = actionContext;
-                    return result.datas;
-                });
-            }
-            const view: any = {
-                viewname: 'case-main-new-view', 
-                height: 0, 
-                width: 0,  
-                title: actionContext.$t('entities.case.views.mainnewview.title'),
-                placement: 'DRAWER_RIGHT',
-            };
-            openDrawer(view, data);
-    }
-
-    /**
-     * 新建需求
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} context 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @param {*} [srfParentDeName] 父实体名称
-     * @returns {Promise<any>}
-     */
-    public async Story_Create(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-    
-        let data: any = {};
-        let parentContext:any = {};
-        let parentViewParam:any = {};
-        const _this: any = actionContext;
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'NONE';
-        if(_this.context){
-            parentContext = _this.context;
-        }
-        if(_this.viewparams){
-            parentViewParam = _this.viewparams;
-        }
-        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
-        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
-        context = Object.assign({},actionContext.context,context);
-        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
-        Object.assign(data,parentObj);
-        Object.assign(context,parentObj);
-        let deResParameters: any[] = [];
-        if(context.product && true){
-            deResParameters = [
-            { pathName: 'products', parameterName: 'product' },
-            ]
-        }
-        const parameters: any[] = [
-            { pathName: 'stories', parameterName: 'story' },
-        ];
-            const openDrawer = (view: any, data: any) => {
-                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
-                container.subscribe((result: any) => {
-                    if (!result || !Object.is(result.ret, 'OK')) {
-                        return;
-                    }
-                    const _this: any = actionContext;
-                    if (xData && xData.refresh && xData.refresh instanceof Function) {
-                        xData.refresh(args);
-                    }
-                    return result.datas;
-                });
-            }
-            const view: any = {
-                viewname: 'story-edit-view', 
-                height: 0, 
-                width: 0,  
-                title: actionContext.$t('entities.story.views.editview.title'),
-                placement: 'DRAWER_RIGHT',
-            };
-            openDrawer(view, data);
-    }
-
-    /**
-     * 新建需求
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} context 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @param {*} [srfParentDeName] 父实体名称
-     * @returns {Promise<any>}
-     */
-    public async Story_CreatePlan(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-    
-        let data: any = {};
-        let parentContext:any = {};
-        let parentViewParam:any = {};
-        const _this: any = actionContext;
-        Object.assign(context,{PLAN:"%plan%"});
-        Object.assign(params,{plan:"%plan%"});
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'NONE';
-        if(_this.context){
-            parentContext = _this.context;
-        }
-        if(_this.viewparams){
-            parentViewParam = _this.viewparams;
-        }
-        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
-        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
-        context = Object.assign({},actionContext.context,context);
-        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
-        Object.assign(data,parentObj);
-        Object.assign(context,parentObj);
-        let deResParameters: any[] = [];
-        if(context.product && true){
-            deResParameters = [
-            { pathName: 'products', parameterName: 'product' },
-            ]
-        }
-        const parameters: any[] = [
-            { pathName: 'stories', parameterName: 'story' },
-        ];
-            const openDrawer = (view: any, data: any) => {
-                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
-                container.subscribe((result: any) => {
-                    if (!result || !Object.is(result.ret, 'OK')) {
-                        return;
-                    }
-                    const _this: any = actionContext;
-                    if (xData && xData.refresh && xData.refresh instanceof Function) {
-                        xData.refresh(args);
-                    }
-                    return result.datas;
-                });
-            }
-            const view: any = {
-                viewname: 'story-plan-edit-view', 
-                height: 0, 
-                width: 0,  
-                title: actionContext.$t('entities.story.views.planeditview.title'),
-                placement: 'DRAWER_RIGHT',
-            };
-            openDrawer(view, data);
-    }
-
-    /**
-     * 退出
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} context 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @param {*} [srfParentDeName] 父实体名称
-     * @returns {Promise<any>}
-     */
-    public async Story_ReturnEdit(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-    
-        let data: any = {};
-        let parentContext:any = {};
-        let parentViewParam:any = {};
-        const _this: any = actionContext;
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(context, { story: '%story%' });
-        Object.assign(params, { id: '%story%' });
-        Object.assign(params, { title: '%title%' });
-        if(_this.context){
-            parentContext = _this.context;
-        }
-        if(_this.viewparams){
-            parentViewParam = _this.viewparams;
-        }
-        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
-        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
-        context = Object.assign({},actionContext.context,context);
-        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
-        Object.assign(data,parentObj);
-        Object.assign(context,parentObj);
-    }
-
-    /**
-     * 关联需求
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} context 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @param {*} [srfParentDeName] 父实体名称
-     * @returns {Promise<any>}
-     */
-    public async Story_buildLinkStories(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
-        let data: any = {};
-        let parentContext:any = {};
-        let parentViewParam:any = {};
-        const _this: any = actionContext;
-        Object.assign(context,{BUILD:"%build%",STORY:"0",PROJECT:"%project%",PRODUCT:"%product%"});
-        Object.assign(params,{product:"%product%",project:"%project%",build:"%build%"});
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'NONE';
-        if(_this.context){
-            parentContext = _this.context;
-        }
-        if(_this.viewparams){
-            parentViewParam = _this.viewparams;
-        }
-        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
-        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
-        context = Object.assign({},actionContext.context,context);
-        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
-        Object.assign(data,parentObj);
-        Object.assign(context,parentObj);
-        // 直接调实体服务需要转换的数据
-        if(context && context.srfsessionid){
-          context.srfsessionkey = context.srfsessionid;
-            delete context.srfsessionid;
-        }
-        
-        const backend = () => {
-            const curService:StoryService =  new StoryService();
-            curService.BuildLinkStory(context,data, true).then((response: any) => {
-                if (!response || response.status !== 200) {
-                    actionContext.$Notice.error({ title: '错误', desc: response.message });
-                    return;
-                }
-                actionContext.$Notice.success({ title: '成功', desc: '关联需求成功！' });
-                const _this: any = actionContext;
-                if (xData && xData.refresh && xData.refresh instanceof Function) {
-                    xData.refresh(args);
-                }
-                return response;
-            }).catch((response: any) => {
-                if (!response || !response.status || !response.data) {
-                    actionContext.$Notice.error({ title: '错误', desc: '系统异常！' });
-                    return;
-                }
-                if (response && response.data) {
-                    actionContext.$Notice.error({ title: '错误', desc: response.data.message });
-                    return;
-                }
-                if (response.status === 401) {
-                    return;
-                }
-                return response;
-            });
-        };
-        const view: any = {
-            viewname: 'story-mpickup-view3',
-            title: actionContext.$t('entities.story.views.mpickupview3.title'),
-            height: 0,
-            width: 0,
-            placement: 'DRAWER_TOP'
-        };
-        const appdrawer = actionContext.$appdrawer.openDrawer(view,context,data);
-        appdrawer.subscribe((result: any) => {
-            if (result && Object.is(result.ret, 'OK')) {
-                Object.assign(data, { srfactionparam: result.datas });
-                backend();
-            }
-        });
-    }
-
-    /**
-     * 评审
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} context 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @param {*} [srfParentDeName] 父实体名称
-     * @returns {Promise<any>}
-     */
-    public async Story_ReviewStoryDash(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-    
-        let data: any = {};
-        let parentContext:any = {};
-        let parentViewParam:any = {};
-        const _this: any = actionContext;
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(context, { story: '%story%' });
-        Object.assign(params, { id: '%story%' });
-        Object.assign(params, { title: '%title%' });
-        if(_this.context){
-            parentContext = _this.context;
-        }
-        if(_this.viewparams){
-            parentViewParam = _this.viewparams;
-        }
-        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
-        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
-        context = Object.assign({},actionContext.context,context);
-        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
-        Object.assign(data,parentObj);
-        Object.assign(context,parentObj);
-        let deResParameters: any[] = [];
-        if(context.product && true){
-            deResParameters = [
-            { pathName: 'products', parameterName: 'product' },
-            ]
-        }
-        const parameters: any[] = [
-            { pathName: 'stories', parameterName: 'story' },
-        ];
-            const openDrawer = (view: any, data: any) => {
-                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
-                container.subscribe((result: any) => {
-                    if (!result || !Object.is(result.ret, 'OK')) {
-                        return;
-                    }
-                    const _this: any = actionContext;
-                    return result.datas;
-                });
-            }
-            const view: any = {
-                viewname: 'story-rev-iew-view', 
-                height: 0, 
-                width: 0,  
-                title: actionContext.$t('entities.story.views.reviewview.title'),
-                placement: 'DRAWER_RIGHT',
-            };
-            openDrawer(view, data);
-    }
-
-    /**
-     * 提缺陷
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} context 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @param {*} [srfParentDeName] 父实体名称
-     * @returns {Promise<any>}
-     */
-    public async Story_StoryToBug(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-    
-        let data: any = {};
-        let parentContext:any = {};
-        let parentViewParam:any = {};
-        const _this: any = actionContext;
-        Object.assign(context,{ASSIGNEDTO:"%assignedto%",STORY:"%story%",PROJECT:"%project%",MODULE:"%module%",MODULENAME:"%modulename%",PRODUCT:"%product%",BRANCH:"%branch%",TITLE:"%title%"});
-        Object.assign(params,{product:"%product%",modulename:"%modulename%",project:"%project%",assignedto:"%assignedto%",story:"%story%",module:"%module%",title:"%title%",branch:"%branch%"});
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(context, { story: '%story%' });
-        Object.assign(params, { id: '%story%' });
-        Object.assign(params, { title: '%title%' });
-        if(_this.context){
-            parentContext = _this.context;
-        }
-        if(_this.viewparams){
-            parentViewParam = _this.viewparams;
-        }
-        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
-        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
-        context = Object.assign({},actionContext.context,context);
-        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
-        Object.assign(data,parentObj);
-        Object.assign(context,parentObj);
-        let deResParameters: any[] = [];
-        if(context.product && true){
-            deResParameters = [
-            { pathName: 'products', parameterName: 'product' },
-            ]
-        }
-        const parameters: any[] = [
-            { pathName: 'bugs', parameterName: 'bug' },
-        ];
-            const openDrawer = (view: any, data: any) => {
-                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
-                container.subscribe((result: any) => {
-                    if (!result || !Object.is(result.ret, 'OK')) {
-                        return;
-                    }
-                    const _this: any = actionContext;
-                    return result.datas;
-                });
-            }
-            const view: any = {
-                viewname: 'bug-story-tobug-edit-view', 
-                height: 0, 
-                width: 0,  
-                title: actionContext.$t('entities.bug.views.storytobugeditview.title'),
-                placement: 'DRAWER_RIGHT',
-            };
-            openDrawer(view, data);
-    }
-
-    /**
-     * 关联需求
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} context 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @param {*} [srfParentDeName] 父实体名称
-     * @returns {Promise<any>}
-     */
-    public async Story_PlanRelationStory(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
-        let data: any = {};
-        let parentContext:any = {};
-        let parentViewParam:any = {};
-        const _this: any = actionContext;
-        Object.assign(context,{STORY:"0"});
-        Object.assign(params,{productplan:"%productplan%"});
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'NONE';
-        if(_this.context){
-            parentContext = _this.context;
-        }
-        if(_this.viewparams){
-            parentViewParam = _this.viewparams;
-        }
-        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
-        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
-        context = Object.assign({},actionContext.context,context);
-        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
-        Object.assign(data,parentObj);
-        Object.assign(context,parentObj);
-        // 直接调实体服务需要转换的数据
-        if(context && context.srfsessionid){
-          context.srfsessionkey = context.srfsessionid;
-            delete context.srfsessionid;
-        }
-        
-        const backend = () => {
-            const curService:StoryService =  new StoryService();
-            curService.LinkStory(context,data, true).then((response: any) => {
-                if (!response || response.status !== 200) {
-                    actionContext.$Notice.error({ title: '错误', desc: response.message });
-                    return;
-                }
-                actionContext.$Notice.success({ title: '成功', desc: '关联需求成功！' });
-                const _this: any = actionContext;
-                if (xData && xData.refresh && xData.refresh instanceof Function) {
-                    xData.refresh(args);
-                }
-                return response;
-            }).catch((response: any) => {
-                if (!response || !response.status || !response.data) {
-                    actionContext.$Notice.error({ title: '错误', desc: '系统异常！' });
-                    return;
-                }
-                if (response && response.data) {
-                    actionContext.$Notice.error({ title: '错误', desc: response.data.message });
-                    return;
-                }
-                if (response.status === 401) {
-                    return;
-                }
-                return response;
-            });
-        };
-        const view: any = {
-            viewname: 'story-mpickup-view',
-            title: actionContext.$t('entities.story.views.mpickupview.title'),
-            height: 0,
-            width: 0,
-            placement: 'DRAWER_TOP'
-        };
-        const appdrawer = actionContext.$appdrawer.openDrawer(view,context,data);
-        appdrawer.subscribe((result: any) => {
-            if (result && Object.is(result.ret, 'OK')) {
-                Object.assign(data, { srfactionparam: result.datas });
-                backend();
-            }
-        });
-    }
-
-    /**
-     * 解绑需求
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} context 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @param {*} [srfParentDeName] 父实体名称
-     * @returns {Promise<any>}
-     */
-    public async Story_buildUnlinkStory(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
-        let confirmResult:boolean = await new Promise((resolve: any, reject: any) => {
-          actionContext.$Modal.confirm({
-              title: '警告',
-              content: '您确认移除该需求吗？',
-              onOk: () => {resolve(true);},
-              onCancel: () => {resolve(false);}
-          });
-        });
-        if(!confirmResult){
-            return;
-        }
-        let data: any = {};
-        let parentContext:any = {};
-        let parentViewParam:any = {};
-        const _this: any = actionContext;
-        Object.assign(context,{BUILD:"%build%"});
-        Object.assign(params,{build:"%build%"});
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(context, { story: '%story%' });
-        Object.assign(params, { id: '%story%' });
-        Object.assign(params, { title: '%title%' });
-        if(_this.context){
-            parentContext = _this.context;
-        }
-        if(_this.viewparams){
-            parentViewParam = _this.viewparams;
-        }
-        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
-        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
-        context = Object.assign({},actionContext.context,context);
-        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
-        Object.assign(data,parentObj);
-        Object.assign(context,parentObj);
-        // 直接调实体服务需要转换的数据
-        if(context && context.srfsessionid){
-          context.srfsessionkey = context.srfsessionid;
-            delete context.srfsessionid;
-        }
-        
-        const backend = () => {
-            const curService:StoryService =  new StoryService();
-            curService.BuildUnlinkStory(context,data, true).then((response: any) => {
-                if (!response || response.status !== 200) {
-                    actionContext.$Notice.error({ title: '错误', desc: response.message });
-                    return;
-                }
-                actionContext.$Notice.success({ title: '成功', desc: '解绑需求成功！' });
-                const _this: any = actionContext;
-                if (xData && xData.refresh && xData.refresh instanceof Function) {
-                    xData.refresh(args);
-                }
-                return response;
-            }).catch((response: any) => {
-                if (!response || !response.status || !response.data) {
-                    actionContext.$Notice.error({ title: '错误', desc: '系统异常！' });
-                    return;
-                }
-                if (response && response.data) {
-                    actionContext.$Notice.error({ title: '错误', desc: response.data.message });
-                    return;
-                }
-                if (response.status === 401) {
-                    return;
-                }
-                return response;
-            });
-        };
-        backend();
-    }
-
-    /**
-     * 需求细分
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} context 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @param {*} [srfParentDeName] 父实体名称
-     * @returns {Promise<any>}
-     */
-    public async Story_SubStory(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-    
-        let data: any = {};
-        let parentContext:any = {};
-        let parentViewParam:any = {};
-        const _this: any = actionContext;
-        Object.assign(context,{MODULE:"%module%",PRODUCT:"%product%"});
-        Object.assign(params,{product:"%product%",module:"%module%"});
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(context, { story: '%story%' });
-        Object.assign(params, { id: '%story%' });
-        Object.assign(params, { title: '%title%' });
-        if(_this.context){
-            parentContext = _this.context;
-        }
-        if(_this.viewparams){
-            parentViewParam = _this.viewparams;
-        }
-        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
-        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
-        context = Object.assign({},actionContext.context,context);
-        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
-        Object.assign(data,parentObj);
-        Object.assign(context,parentObj);
-        let deResParameters: any[] = [];
-        if(context.story && true){
-            deResParameters = [
-            { pathName: 'stories', parameterName: 'story' },
-            ]
-        }
-        const parameters: any[] = [
-            { pathName: 'substories', parameterName: 'substory' },
-        ];
-            const openDrawer = (view: any, data: any) => {
-                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
-                container.subscribe((result: any) => {
-                    if (!result || !Object.is(result.ret, 'OK')) {
-                        return;
-                    }
-                    const _this: any = actionContext;
-                    if (xData && xData.refresh && xData.refresh instanceof Function) {
-                        xData.refresh(args);
-                    }
-                    return result.datas;
-                });
-            }
-            const view: any = {
-                viewname: 'story-sub-grid-view', 
-                height: 0, 
-                width: 0,  
-                title: actionContext.$t('entities.substory.views.subgridview.title'),
-                placement: 'DRAWER_TOP',
-            };
-            openDrawer(view, data);
-    }
-
-    /**
-     * 变更
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} context 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @param {*} [srfParentDeName] 父实体名称
-     * @returns {Promise<any>}
-     */
-    public async Story_ChangeStoryDetail(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-    
-        let data: any = {};
-        let parentContext:any = {};
-        let parentViewParam:any = {};
-        const _this: any = actionContext;
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(context, { story: '%story%' });
-        Object.assign(params, { id: '%story%' });
-        Object.assign(params, { title: '%title%' });
-        if(_this.context){
-            parentContext = _this.context;
-        }
-        if(_this.viewparams){
-            parentViewParam = _this.viewparams;
-        }
-        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
-        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
-        context = Object.assign({},actionContext.context,context);
-        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
-        Object.assign(data,parentObj);
-        Object.assign(context,parentObj);
-        let deResParameters: any[] = [];
-        if(context.product && true){
-            deResParameters = [
-            { pathName: 'products', parameterName: 'product' },
-            ]
-        }
-        const parameters: any[] = [
-            { pathName: 'stories', parameterName: 'story' },
-        ];
-            const openDrawer = (view: any, data: any) => {
-                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
-                container.subscribe((result: any) => {
-                    if (!result || !Object.is(result.ret, 'OK')) {
-                        return;
-                    }
-                    const _this: any = actionContext;
-                    return result.datas;
-                });
-            }
-            const view: any = {
-                viewname: 'story-edit-view-story-change', 
-                height: 0, 
-                width: 0,  
-                title: actionContext.$t('entities.story.views.editview_storychange.title'),
-                placement: 'DRAWER_TOP',
-            };
-            openDrawer(view, data);
-    }
-
-    /**
-     * 变更
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} context 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @param {*} [srfParentDeName] 父实体名称
-     * @returns {Promise<any>}
-     */
-    public async Story_ChangeStoryDetailDash(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-    
-        let data: any = {};
-        let parentContext:any = {};
-        let parentViewParam:any = {};
-        const _this: any = actionContext;
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(context, { story: '%story%' });
-        Object.assign(params, { id: '%story%' });
-        Object.assign(params, { title: '%title%' });
-        if(_this.context){
-            parentContext = _this.context;
-        }
-        if(_this.viewparams){
-            parentViewParam = _this.viewparams;
-        }
-        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
-        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
-        context = Object.assign({},actionContext.context,context);
-        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
-        Object.assign(data,parentObj);
-        Object.assign(context,parentObj);
-        let deResParameters: any[] = [];
-        if(context.product && true){
-            deResParameters = [
-            { pathName: 'products', parameterName: 'product' },
-            ]
-        }
-        const parameters: any[] = [
-            { pathName: 'stories', parameterName: 'story' },
-        ];
-            const openDrawer = (view: any, data: any) => {
-                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
-                container.subscribe((result: any) => {
-                    if (!result || !Object.is(result.ret, 'OK')) {
-                        return;
-                    }
-                    const _this: any = actionContext;
-                    return result.datas;
-                });
-            }
-            const view: any = {
-                viewname: 'story-edit-view-story-change', 
-                height: 0, 
-                width: 0,  
-                title: actionContext.$t('entities.story.views.editview_storychange.title'),
-                placement: 'DRAWER_TOP',
-            };
-            openDrawer(view, data);
-    }
-
-    /**
-     * 关联需求
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} context 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @param {*} [srfParentDeName] 父实体名称
-     * @returns {Promise<any>}
-     */
-    public async Story_releaseLinkStories(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
-        let data: any = {};
-        let parentContext:any = {};
-        let parentViewParam:any = {};
-        const _this: any = actionContext;
-        Object.assign(context,{STORY:"0",RELEASE:"%srfparentkey%",PRODUCT:"%product%"});
-        Object.assign(params,{product:"%product%",story:"0",release:"%srfparentkey%"});
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'NONE';
-        if(_this.context){
-            parentContext = _this.context;
-        }
-        if(_this.viewparams){
-            parentViewParam = _this.viewparams;
-        }
-        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
-        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
-        context = Object.assign({},actionContext.context,context);
-        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
-        Object.assign(data,parentObj);
-        Object.assign(context,parentObj);
-        // 直接调实体服务需要转换的数据
-        if(context && context.srfsessionid){
-          context.srfsessionkey = context.srfsessionid;
-            delete context.srfsessionid;
-        }
-        
-        const backend = () => {
-            const curService:StoryService =  new StoryService();
-            curService.ReleaseLinkStory(context,data, true).then((response: any) => {
-                if (!response || response.status !== 200) {
-                    actionContext.$Notice.error({ title: '错误', desc: response.message });
-                    return;
-                }
-                actionContext.$Notice.success({ title: '成功', desc: '关联需求成功！' });
-                const _this: any = actionContext;
-                if (xData && xData.refresh && xData.refresh instanceof Function) {
-                    xData.refresh(args);
-                }
-                return response;
-            }).catch((response: any) => {
-                if (!response || !response.status || !response.data) {
-                    actionContext.$Notice.error({ title: '错误', desc: '系统异常！' });
-                    return;
-                }
-                if (response && response.data) {
-                    actionContext.$Notice.error({ title: '错误', desc: response.data.message });
-                    return;
-                }
-                if (response.status === 401) {
-                    return;
-                }
-                return response;
-            });
-        };
-        const view: any = {
-            viewname: 'story-usr2-mpickup-view',
-            title: actionContext.$t('entities.story.views.usr2mpickupview.title'),
-            height: 0,
-            width: 0,
-            placement: 'DRAWER_TOP'
-        };
-        const appdrawer = actionContext.$appdrawer.openDrawer(view,context,data);
-        appdrawer.subscribe((result: any) => {
-            if (result && Object.is(result.ret, 'OK')) {
-                Object.assign(data, { srfactionparam: result.datas });
-                backend();
-            }
-        });
-    }
-
-    /**
-     * 新建
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} context 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @param {*} [srfParentDeName] 父实体名称
-     * @returns {Promise<any>}
-     */
-    public async Story_ProjectCreateView(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-    
-        let data: any = {};
-        let parentContext:any = {};
-        let parentViewParam:any = {};
-        const _this: any = actionContext;
-        Object.assign(context,{PROJECT:"%project%",SRFPARENTDENAME:"Project"});
-        Object.assign(params,{srfparentdename:"Project",project:"%project%"});
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'NONE';
-        if(_this.context){
-            parentContext = _this.context;
-        }
-        if(_this.viewparams){
-            parentViewParam = _this.viewparams;
-        }
-        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
-        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
-        context = Object.assign({},actionContext.context,context);
-        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
-        Object.assign(data,parentObj);
-        Object.assign(context,parentObj);
-        let deResParameters: any[] = [];
-        if(context.product && true){
-            deResParameters = [
-            { pathName: 'products', parameterName: 'product' },
-            ]
-        }
-        const parameters: any[] = [
-            { pathName: 'stories', parameterName: 'story' },
-        ];
-            const openDrawer = (view: any, data: any) => {
-                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
-                container.subscribe((result: any) => {
-                    if (!result || !Object.is(result.ret, 'OK')) {
-                        return;
-                    }
-                    const _this: any = actionContext;
-                    if (xData && xData.refresh && xData.refresh instanceof Function) {
-                        xData.refresh(args);
-                    }
-                    return result.datas;
-                });
-            }
-            const view: any = {
-                viewname: 'story-project-edit-view', 
-                height: 0, 
-                width: 0,  
-                title: actionContext.$t('entities.story.views.projecteditview.title'),
-                placement: 'DRAWER_RIGHT',
-            };
-            openDrawer(view, data);
-    }
-
-    /**
-     * MORE
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} context 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @param {*} [srfParentDeName] 父实体名称
-     * @returns {Promise<any>}
-     */
-    public async Story_More(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-    
-        let data: any = {};
-        let parentContext:any = {};
-        let parentViewParam:any = {};
-        const _this: any = actionContext;
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'NONE';
-        if(_this.context){
-            parentContext = _this.context;
-        }
-        if(_this.viewparams){
-            parentViewParam = _this.viewparams;
-        }
-        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
-        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
-        context = Object.assign({},actionContext.context,context);
-        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
-        Object.assign(data,parentObj);
-        Object.assign(context,parentObj);
-        let deResParameters: any[] = [];
-        if(context.product && true){
-            deResParameters = [
-            { pathName: 'products', parameterName: 'product' },
-            ]
-        }
-        const parameters: any[] = [
-            { pathName: 'stories', parameterName: 'story' },
-            { pathName: 'mainmygridview', parameterName: 'mainmygridview' },
-        ];
-        const openIndexViewTab = (data: any) => {
-            const routePath = actionContext.$viewTool.buildUpRoutePath(actionContext.$route, context, deResParameters, parameters, _args, data);
-            actionContext.$router.push(routePath);
-            return null;
-        }
-        openIndexViewTab(data);
-    }
-
-    /**
-     * 收藏
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} context 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @param {*} [srfParentDeName] 父实体名称
-     * @returns {Promise<any>}
-     */
-    public async Story_StoryFavorites(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
-        let data: any = {};
-        let parentContext:any = {};
-        let parentViewParam:any = {};
-        const _this: any = actionContext;
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(context, { story: '%story%' });
-        Object.assign(params, { id: '%story%' });
-        Object.assign(params, { title: '%title%' });
-        if(_this.context){
-            parentContext = _this.context;
-        }
-        if(_this.viewparams){
-            parentViewParam = _this.viewparams;
-        }
-        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
-        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
-        context = Object.assign({},actionContext.context,context);
-        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
-        Object.assign(data,parentObj);
-        Object.assign(context,parentObj);
-        // 直接调实体服务需要转换的数据
-        if(context && context.srfsessionid){
-          context.srfsessionkey = context.srfsessionid;
-            delete context.srfsessionid;
-        }
-        
-        const backend = () => {
-            const curService:StoryService =  new StoryService();
-            curService.StoryFavorites(context,data, true).then((response: any) => {
-                if (!response || response.status !== 200) {
-                    actionContext.$Notice.error({ title: '错误', desc: response.message });
-                    return;
-                }
-                actionContext.$Notice.success({ title: '成功', desc: '收藏成功！' });
-                const _this: any = actionContext;
-                if (xData && xData.refresh && xData.refresh instanceof Function) {
-                    xData.refresh(args);
-                }
-                return response;
-            }).catch((response: any) => {
-                if (!response || !response.status || !response.data) {
-                    actionContext.$Notice.error({ title: '错误', desc: '系统异常！' });
-                    return;
-                }
-                if (response && response.data) {
-                    actionContext.$Notice.error({ title: '错误', desc: response.data.message });
-                    return;
-                }
-                if (response.status === 401) {
-                    return;
-                }
-                return response;
-            });
-        };
-        backend();
-    }
-
-    /**
-     * 分解任务
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} context 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @param {*} [srfParentDeName] 父实体名称
-     * @returns {Promise<any>}
-     */
-    public async Story_Breakdowntasks(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-    
-        let data: any = {};
-        let parentContext:any = {};
-        let parentViewParam:any = {};
-        const _this: any = actionContext;
-        Object.assign(context,{CURPROJECT:"%project%",PROJECT:"%project%",MODULE:"%module%",MODULENAME:"%modulename%",TITLE:"%title%"});
-        Object.assign(params,{modulename:"%modulename%",project:"%project%",story:"%id%",module:"%module%",title:"%title%",curproject:"%project%"});
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(context, { story: '%story%' });
-        Object.assign(params, { id: '%story%' });
-        Object.assign(params, { title: '%title%' });
-        if(_this.context){
-            parentContext = _this.context;
-        }
-        if(_this.viewparams){
-            parentViewParam = _this.viewparams;
-        }
-        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
-        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
-        context = Object.assign({},actionContext.context,context);
-        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
-        Object.assign(data,parentObj);
-        Object.assign(context,parentObj);
-        let deResParameters: any[] = [];
-        if(context.projectmodule && true){
-            deResParameters = [
-            { pathName: 'projectmodules', parameterName: 'projectmodule' },
-            ]
-        }
-        const parameters: any[] = [
-            { pathName: 'tasks', parameterName: 'task' },
-        ];
-            const openDrawer = (view: any, data: any) => {
-                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
-                container.subscribe((result: any) => {
-                    if (!result || !Object.is(result.ret, 'OK')) {
-                        return;
-                    }
-                    const _this: any = actionContext;
-                    if (xData && xData.refresh && xData.refresh instanceof Function) {
-                        xData.refresh(args);
-                    }
-                    return result.datas;
-                });
-            }
-            const view: any = {
-                viewname: 'task-story-new-edit-view', 
-                height: 0, 
-                width: 0,  
-                title: actionContext.$t('entities.task.views.storyneweditview.title'),
-                placement: 'DRAWER_RIGHT',
-            };
-            openDrawer(view, data);
-    }
-
-    /**
-     * 编辑
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} context 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @param {*} [srfParentDeName] 父实体名称
-     * @returns {Promise<any>}
-     */
-    public async Story_OpenBaseInfoC(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-    
-        let data: any = {};
-        let parentContext:any = {};
-        let parentViewParam:any = {};
-        const _this: any = actionContext;
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(context, { story: '%story%' });
-        Object.assign(params, { id: '%story%' });
-        Object.assign(params, { title: '%title%' });
-        if(_this.context){
-            parentContext = _this.context;
-        }
-        if(_this.viewparams){
-            parentViewParam = _this.viewparams;
-        }
-        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
-        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
-        context = Object.assign({},actionContext.context,context);
-        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
-        Object.assign(data,parentObj);
-        Object.assign(context,parentObj);
-        let deResParameters: any[] = [];
-        if(context.product && true){
-            deResParameters = [
-            { pathName: 'products', parameterName: 'product' },
-            ]
-        }
-        const parameters: any[] = [
-            { pathName: 'stories', parameterName: 'story' },
-        ];
-            const openDrawer = (view: any, data: any) => {
-                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
-                container.subscribe((result: any) => {
-                    if (!result || !Object.is(result.ret, 'OK')) {
-                        return;
-                    }
-                    const _this: any = actionContext;
-                    if (xData && xData.refresh && xData.refresh instanceof Function) {
-                        xData.refresh(args);
-                    }
-                    return result.datas;
-                });
-            }
-            const view: any = {
-                viewname: 'story-main-view9-edit-mode', 
-                height: 0, 
-                width: 0,  
-                title: actionContext.$t('entities.story.views.mainview9_editmode.title'),
-                placement: 'DRAWER_TOP',
-            };
-            openDrawer(view, data);
-    }
-
-    /**
-     * 指派
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} context 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @param {*} [srfParentDeName] 父实体名称
-     * @returns {Promise<any>}
-     */
-    public async Story_AssignTo(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-    
-        let data: any = {};
-        let parentContext:any = {};
-        let parentViewParam:any = {};
-        const _this: any = actionContext;
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(context, { story: '%story%' });
-        Object.assign(params, { id: '%story%' });
-        Object.assign(params, { title: '%title%' });
-        if(_this.context){
-            parentContext = _this.context;
-        }
-        if(_this.viewparams){
-            parentViewParam = _this.viewparams;
-        }
-        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
-        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
-        context = Object.assign({},actionContext.context,context);
-        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
-        Object.assign(data,parentObj);
-        Object.assign(context,parentObj);
-        let deResParameters: any[] = [];
-        if(context.product && true){
-            deResParameters = [
-            { pathName: 'products', parameterName: 'product' },
-            ]
-        }
-        const parameters: any[] = [
-            { pathName: 'stories', parameterName: 'story' },
-        ];
-            const openPopupModal = (view: any, data: any) => {
-                let container: Subject<any> = actionContext.$appmodal.openModal(view, context, data);
-                container.subscribe((result: any) => {
-                    if (!result || !Object.is(result.ret, 'OK')) {
-                        return;
-                    }
-                    const _this: any = actionContext;
-                    if (xData && xData.refresh && xData.refresh instanceof Function) {
-                        xData.refresh(args);
-                    }
-                    return result.datas;
-                });
-            }
-            const view: any = {
-                viewname: 'story-assign-to-view', 
-                height: 600, 
-                width: 800,  
-                title: actionContext.$t('entities.story.views.assigntoview.title'),
-            };
-            openPopupModal(view, data);
-    }
-
-    /**
-     * 移除关联
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} context 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @param {*} [srfParentDeName] 父实体名称
-     * @returns {Promise<any>}
-     */
-    public async Story_UnlinkStory(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
-        let confirmResult:boolean = await new Promise((resolve: any, reject: any) => {
-          actionContext.$Modal.confirm({
-              title: '警告',
-              content: '是否移除需求关联',
-              onOk: () => {resolve(true);},
-              onCancel: () => {resolve(false);}
-          });
-        });
-        if(!confirmResult){
-            return;
-        }
-        let data: any = {};
-        let parentContext:any = {};
-        let parentViewParam:any = {};
-        const _this: any = actionContext;
-        Object.assign(context,{STORY:"0"});
-        Object.assign(params,{productplan:"%productplan%"});
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(context, { story: '%story%' });
-        Object.assign(params, { id: '%story%' });
-        Object.assign(params, { title: '%title%' });
-        if(_this.context){
-            parentContext = _this.context;
-        }
-        if(_this.viewparams){
-            parentViewParam = _this.viewparams;
-        }
-        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
-        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
-        context = Object.assign({},actionContext.context,context);
-        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
-        Object.assign(data,parentObj);
-        Object.assign(context,parentObj);
-        // 直接调实体服务需要转换的数据
-        if(context && context.srfsessionid){
-          context.srfsessionkey = context.srfsessionid;
-            delete context.srfsessionid;
-        }
-        
-        const backend = () => {
-            const curService:StoryService =  new StoryService();
-            curService.UnlinkStory(context,data, true).then((response: any) => {
-                if (!response || response.status !== 200) {
-                    actionContext.$Notice.error({ title: '错误', desc: response.message });
-                    return;
-                }
-                actionContext.$Notice.success({ title: '成功', desc: '移除成功' });
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);

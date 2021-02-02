@@ -125,7 +125,7 @@ export class DocCreateEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof DocCreateEditViewBase
      */
-	protected viewtag: string = '7b8d03598e32aa0f535758927a17b98e';
+	protected viewtag: string = 'e79942d4fd1d908a92701bc85e0810af';
 
     /**
      * 视图名称

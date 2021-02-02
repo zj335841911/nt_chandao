@@ -30,6 +30,33 @@ public class CaseStepDTO extends DTOBase implements Serializable {
 	private static final long serialVersionUID = 1L;
 
     /**
+     * 属性 [CASESTEPID]
+     *
+     */
+    @JSONField(name = "casestepid")
+    @JsonProperty("casestepid")
+    @JsonSerialize(using = ToStringSerializer.class)
+    private Long casestepid;
+
+    /**
+     * 属性 [REALS]
+     *
+     */
+    @JSONField(name = "reals")
+    @JsonProperty("reals")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String reals;
+
+    /**
+     * 属性 [STEPS]
+     *
+     */
+    @JSONField(name = "steps")
+    @JsonProperty("steps")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String steps;
+
+    /**
      * 属性 [TYPE]
      *
      */
@@ -66,6 +93,23 @@ public class CaseStepDTO extends DTOBase implements Serializable {
     private String expect;
 
     /**
+     * 属性 [FILES]
+     *
+     */
+    @JSONField(name = "files")
+    @JsonProperty("files")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String files;
+
+    /**
+     * 属性 [RUNID]
+     *
+     */
+    @JSONField(name = "runid")
+    @JsonProperty("runid")
+    private Integer runid;
+
+    /**
      * 属性 [VERSION]
      *
      */
@@ -90,50 +134,6 @@ public class CaseStepDTO extends DTOBase implements Serializable {
     @JsonProperty("parent")
     @JsonSerialize(using = ToStringSerializer.class)
     private Long parent;
-
-    /**
-     * 属性 [REALS]
-     *
-     */
-    @JSONField(name = "reals")
-    @JsonProperty("reals")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String reals;
-
-    /**
-     * 属性 [STEPS]
-     *
-     */
-    @JSONField(name = "steps")
-    @JsonProperty("steps")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String steps;
-
-    /**
-     * 属性 [FILES]
-     *
-     */
-    @JSONField(name = "files")
-    @JsonProperty("files")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String files;
-
-    /**
-     * 属性 [RUNID]
-     *
-     */
-    @JSONField(name = "runid")
-    @JsonProperty("runid")
-    private Integer runid;
-
-    /**
-     * 属性 [CASESTEPID]
-     *
-     */
-    @JSONField(name = "casestepid")
-    @JsonProperty("casestepid")
-    @JsonSerialize(using = ToStringSerializer.class)
-    private Long casestepid;
 
 
     /**

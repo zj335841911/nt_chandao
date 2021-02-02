@@ -13,15 +13,15 @@
         <tns:global identifier="ibzweeklyremove__msdenydefault" type="cn.ibizlab.pms.core.report.domain.IbzWeekly" />
         <tns:global identifier="ibzweeklyremove__msdenytemp" type="cn.ibizlab.pms.core.report.domain.IbzWeekly" />
         </extensionElements>
-     <startEvent id="begin" isInterrupting="true"/>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ibzweeklyremove__msdenydenybysubmit" id="denybysubmit" implementation="http://www.jboss.org/drools/rule" name="状态[已提交]拒绝[Remove]操作"/>
-     <endEvent id="denybysubmit_end" name="end"/>
-     <sequenceFlow id="denybysubmit_end_line" sourceRef="denybysubmit" targetRef="denybysubmit_end"/>
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ibzweeklyremove__msdenypreparetemp" id="preparetemp" implementation="http://www.jboss.org/drools/rule" name="准备临时参数"/>
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ibzweeklyremove__msdenyget" id="get" implementation="http://www.jboss.org/drools/rule" name="获取数据"/>
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ibzweeklyremove__msdenydenybynsunbmit" id="denybynsunbmit" implementation="http://www.jboss.org/drools/rule" name="状态[未提交]拒绝[Remove]操作"/>
      <endEvent id="denybynsunbmit_end" name="end"/>
      <sequenceFlow id="denybynsunbmit_end_line" sourceRef="denybynsunbmit" targetRef="denybynsunbmit_end"/>
+     <startEvent id="begin" isInterrupting="true"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="ibzweeklyremove__msdenydenybysubmit" id="denybysubmit" implementation="http://www.jboss.org/drools/rule" name="状态[已提交]拒绝[Remove]操作"/>
+     <endEvent id="denybysubmit_end" name="end"/>
+     <sequenceFlow id="denybysubmit_end_line" sourceRef="denybysubmit" targetRef="denybysubmit_end"/>
      <sequenceFlow id="begin_preparetemp" sourceRef="begin" targetRef="preparetemp">
      </sequenceFlow>
      <sequenceFlow id="preparetemp_get" sourceRef="preparetemp" targetRef="get">

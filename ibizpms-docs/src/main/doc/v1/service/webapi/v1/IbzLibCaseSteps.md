@@ -466,25 +466,25 @@ POST
 #### IbzLibCaseStepsDTO
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
-| 1 | version | Integer | 允许 | 版本 |
-| 2 | ibizcase | Long | 允许 | 用例编号 |
-| 3 | expect | String | 允许 | 预期 |
+| 1 | reals | String | 允许 | 实际情况 |
+| 2 | expect | String | 允许 | 预期 |
+| 3 | desc | String | 允许 | 步骤 |
 | 4 | files | String | 允许 | 附件 |
 | 5 | id | Long | 不可 | 编号 |
-| 6 | reals | String | 允许 | 实际情况 |
-| 7 | desc | String | 允许 | 步骤 |
+| 6 | type | String | 允许 | 类型 |
+| 7 | version | Integer | 允许 | 版本 |
 | 8 | parent | Long | 允许 | 编号 |
-| 9 | type | String | 允许 | 类型 |
+| 9 | ibizcase | Long | 允许 | 用例编号 |
 | 10 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### IbzLibCaseStepsSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
-| 1 | n_version_eq | Integer | 允许 | 条件字段：version<br>条件组合方式：`=` |
-| 2 | n_case_eq | Long | 允许 | 条件字段：case<br>条件组合方式：`=` |
-| 3 | n_expect_like | String | 允许 | 条件字段：expect<br>条件组合方式：`%like%` |
+| 1 | n_expect_like | String | 允许 | 条件字段：expect<br>条件组合方式：`%like%` |
+| 2 | n_type_eq | String | 允许 | 条件字段：type<br>条件组合方式：`=` |
+| 3 | n_version_eq | Integer | 允许 | 条件字段：version<br>条件组合方式：`=` |
 | 4 | n_parent_eq | Long | 允许 | 条件字段：parent<br>条件组合方式：`=` |
-| 5 | n_type_eq | String | 允许 | 条件字段：type<br>条件组合方式：`=` |
+| 5 | n_case_eq | Long | 允许 | 条件字段：case<br>条件组合方式：`=` |
 | 6 | customcond | String | 允许 | 自定义查询条件 |
 | 7 | customparams | String | 允许 | 自定义查询参数 |
 | 8 | query | String | 允许 | 快速搜索 |

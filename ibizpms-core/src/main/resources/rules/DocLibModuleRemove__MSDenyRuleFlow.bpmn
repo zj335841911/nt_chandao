@@ -5,41 +5,41 @@
             <tns:import name="java.util.Map" />
             <tns:import name="org.springframework.util.StringUtils"/>
             <tns:import name="cn.ibizlab.pms.util.helper.RuleUtils"/>
-            <tns:metaData express="new cn.ibizlab.pms.core.ibiz.domain.DocLibModule()" name="doclibmoduleremove__msdenytemp" type="refentity"/>
             <tns:metaData express="" name="doclibmoduleremove__msdenydefault" type="entity"/>
+            <tns:metaData express="new cn.ibizlab.pms.core.ibiz.domain.DocLibModule()" name="doclibmoduleremove__msdenytemp" type="refentity"/>
             <tns:metaData express="T(cn.ibizlab.pms.util.security.SpringContextHolder).getBean(T(cn.ibizlab.pms.core.ibiz.service.IDocLibModuleService))" name="doclibmoduleservice" type="service"/>
             <tns:metaData express="T(cn.ibizlab.pms.util.security.SpringContextHolder).getBean(T(cn.ibizlab.pms.core.ibiz.service.IDocLibModuleService))" name="iBzSysDoclibmoduleDefaultService" type="service"/>
             <tns:metaData express="T(cn.ibizlab.pms.util.security.AuthenticationUser).getAuthenticationUser()" name="curuser" type="session"/>
-        <tns:global identifier="doclibmoduleremove__msdenytemp" type="cn.ibizlab.pms.core.ibiz.domain.DocLibModule" />
         <tns:global identifier="doclibmoduleremove__msdenydefault" type="cn.ibizlab.pms.core.ibiz.domain.DocLibModule" />
+        <tns:global identifier="doclibmoduleremove__msdenytemp" type="cn.ibizlab.pms.core.ibiz.domain.DocLibModule" />
         </extensionElements>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="doclibmoduleremove__msdenypreparetemp" id="preparetemp" implementation="http://www.jboss.org/drools/rule" name="准备临时参数"/>
+     <startEvent id="begin" isInterrupting="true"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="doclibmoduleremove__msdenydenybymodule_0" id="denybymodule_0" implementation="http://www.jboss.org/drools/rule" name="状态[模块_未收藏]拒绝[Remove]操作"/>
+     <endEvent id="denybymodule_0_end" name="end"/>
+     <sequenceFlow id="denybymodule_0_end_line" sourceRef="denybymodule_0" targetRef="denybymodule_0_end"/>
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="doclibmoduleremove__msdenydenybymodule_1" id="denybymodule_1" implementation="http://www.jboss.org/drools/rule" name="状态[模块_已收藏]拒绝[Remove]操作"/>
      <endEvent id="denybymodule_1_end" name="end"/>
      <sequenceFlow id="denybymodule_1_end_line" sourceRef="denybymodule_1" targetRef="denybymodule_1_end"/>
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="doclibmoduleremove__msdenyget" id="get" implementation="http://www.jboss.org/drools/rule" name="获取数据"/>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="doclibmoduleremove__msdenypreparetemp" id="preparetemp" implementation="http://www.jboss.org/drools/rule" name="准备临时参数"/>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="doclibmoduleremove__msdenydenybymodule_0" id="denybymodule_0" implementation="http://www.jboss.org/drools/rule" name="状态[模块_未收藏]拒绝[Remove]操作"/>
-     <endEvent id="denybymodule_0_end" name="end"/>
-     <sequenceFlow id="denybymodule_0_end_line" sourceRef="denybymodule_0" targetRef="denybymodule_0_end"/>
-     <startEvent id="begin" isInterrupting="true"/>
      <sequenceFlow id="begin_preparetemp" sourceRef="begin" targetRef="preparetemp">
      </sequenceFlow>
      <sequenceFlow id="preparetemp_get" sourceRef="preparetemp" targetRef="get">
      </sequenceFlow>
      <sequenceFlow id="gateway-get_denybymodule_0" sourceRef="gateway-get" targetRef="denybymodule_0">
             <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
-            $doclibmoduleremove__msdenytemp:DocLibModule();
             $doclibmoduleremove__msdenydefault:DocLibModule();
-            eval($doclibmoduleremove__msdenytemp==doclibmoduleremove__msdenytemp && $doclibmoduleremove__msdenydefault==doclibmoduleremove__msdenydefault);
+            $doclibmoduleremove__msdenytemp:DocLibModule();
+            eval($doclibmoduleremove__msdenydefault==doclibmoduleremove__msdenydefault && $doclibmoduleremove__msdenytemp==doclibmoduleremove__msdenytemp);
                 eval((RuleUtils.test($doclibmoduleremove__msdenytemp.get("docqtype"),"EQ","module"))&&(RuleUtils.test($doclibmoduleremove__msdenytemp.get("isfavourites"),"EQ","0")))
                 ]]>
             </conditionExpression>
      </sequenceFlow>
      <sequenceFlow id="gateway-get_denybymodule_1" sourceRef="gateway-get" targetRef="denybymodule_1">
             <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
-            $doclibmoduleremove__msdenytemp:DocLibModule();
             $doclibmoduleremove__msdenydefault:DocLibModule();
-            eval($doclibmoduleremove__msdenytemp==doclibmoduleremove__msdenytemp && $doclibmoduleremove__msdenydefault==doclibmoduleremove__msdenydefault);
+            $doclibmoduleremove__msdenytemp:DocLibModule();
+            eval($doclibmoduleremove__msdenydefault==doclibmoduleremove__msdenydefault && $doclibmoduleremove__msdenytemp==doclibmoduleremove__msdenytemp);
                 eval((RuleUtils.test($doclibmoduleremove__msdenytemp.get("docqtype"),"EQ","module"))&&(RuleUtils.test($doclibmoduleremove__msdenytemp.get("isfavourites"),"EQ","1")))
                 ]]>
             </conditionExpression>

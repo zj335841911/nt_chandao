@@ -15,13 +15,10 @@ export default class ProductTeamModel {
 	public getDataItems(): any[] {
 		return [
 			{
-				name: 'hours',
+				name: 'join',
 			},
 			{
-				name: 'days',
-			},
-			{
-				name: 'role',
+				name: 'estimate',
 			},
 			{
 				name: 'root',
@@ -30,16 +27,14 @@ export default class ProductTeamModel {
 				name: 'consumed',
 			},
 			{
-				name: 'left',
+				name: 'days',
 			},
 			{
-				name: 'total',
+				name: 'account',
+        codelist:{tag:'UserRealName_Gird',codelistType:'DYNAMIC'},
 			},
 			{
-				name: 'estimate',
-			},
-			{
-				name: 'join',
+				name: 'hours',
 			},
 			{
 				name: 'type',
@@ -49,8 +44,13 @@ export default class ProductTeamModel {
 				name: 'id',
 			},
 			{
-				name: 'account',
-        codelist:{tag:'UserRealName_Gird',codelistType:'DYNAMIC'},
+				name: 'left',
+			},
+			{
+				name: 'role',
+			},
+			{
+				name: 'total',
 			},
 			{
 				name: 'srfkey',

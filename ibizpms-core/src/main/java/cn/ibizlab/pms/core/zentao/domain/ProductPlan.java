@@ -44,12 +44,40 @@ public class ProductPlan extends EntityMP implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
+     * 总任务数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "taskscnt")
+    @JsonProperty("taskscnt")
+    private Integer taskscnt;
+    /**
+     * 工时数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "estimatecnt")
+    @JsonProperty("estimatecnt")
+    private Integer estimatecnt;
+    /**
      * 名称
      */
     @TableField(value = "`title`")
     @JSONField(name = "title")
     @JsonProperty("title")
     private String title;
+    /**
+     * 延迟任务数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "delaytaskscnt")
+    @JsonProperty("delaytaskscnt")
+    private Integer delaytaskscnt;
+    /**
+     * 上一次计划名称
+     */
+    @TableField(exist = false)
+    @JSONField(name = "oldtitle")
+    @JsonProperty("oldtitle")
+    private String oldtitle;
     /**
      * 编号
      */
@@ -67,6 +95,13 @@ public class ProductPlan extends EntityMP implements Serializable {
     @JsonProperty("begin")
     private Timestamp begin;
     /**
+     * 状态
+     */
+    @TableField(exist = false)
+    @JSONField(name = "statuss")
+    @JsonProperty("statuss")
+    private String statuss;
+    /**
      * 描述
      */
     @DEField(defaultValue = "#EMPTY")
@@ -82,6 +117,48 @@ public class ProductPlan extends EntityMP implements Serializable {
     @JSONField(name = "end", format = "yyyy-MM-dd")
     @JsonProperty("end")
     private Timestamp end;
+    /**
+     * 持续时间
+     */
+    @TableField(exist = false)
+    @JSONField(name = "duration")
+    @JsonProperty("duration")
+    private String duration;
+    /**
+     * 开始日期
+     */
+    @TableField(exist = false)
+    @JSONField(name = "beginstr")
+    @JsonProperty("beginstr")
+    private String beginstr;
+    /**
+     * 计划模板
+     */
+    @TableField(exist = false)
+    @JSONField(name = "plantemplet")
+    @JsonProperty("plantemplet")
+    private String plantemplet;
+    /**
+     * 未完成任务数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "unfinishedtaskscnt")
+    @JsonProperty("unfinishedtaskscnt")
+    private Integer unfinishedtaskscnt;
+    /**
+     * 结束日期
+     */
+    @TableField(exist = false)
+    @JSONField(name = "endstr")
+    @JsonProperty("endstr")
+    private String endstr;
+    /**
+     * 是否过期
+     */
+    @TableField(exist = false)
+    @JSONField(name = "isexpired")
+    @JsonProperty("isexpired")
+    private String isexpired;
     /**
      * 已删除
      */
@@ -99,6 +176,41 @@ public class ProductPlan extends EntityMP implements Serializable {
     @JSONField(name = "order")
     @JsonProperty("order")
     private String order;
+    /**
+     * 待定
+     */
+    @TableField(exist = false)
+    @JSONField(name = "future")
+    @JsonProperty("future")
+    private String future;
+    /**
+     * 需求数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "storycnt")
+    @JsonProperty("storycnt")
+    private Integer storycnt;
+    /**
+     * 周期
+     */
+    @TableField(exist = false)
+    @JSONField(name = "delta")
+    @JsonProperty("delta")
+    private String delta;
+    /**
+     * 完成任务数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "finishedtaskscnt")
+    @JsonProperty("finishedtaskscnt")
+    private Integer finishedtaskscnt;
+    /**
+     * bug数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "bugcnt")
+    @JsonProperty("bugcnt")
+    private Integer bugcnt;
     /**
      * 父计划名称
      */
@@ -130,118 +242,6 @@ public class ProductPlan extends EntityMP implements Serializable {
     @JSONField(name = "product")
     @JsonProperty("product")
     private Long product;
-    /**
-     * 状态
-     */
-    @TableField(exist = false)
-    @JSONField(name = "statuss")
-    @JsonProperty("statuss")
-    private String statuss;
-    /**
-     * 待定
-     */
-    @TableField(exist = false)
-    @JSONField(name = "future")
-    @JsonProperty("future")
-    private String future;
-    /**
-     * 周期
-     */
-    @TableField(exist = false)
-    @JSONField(name = "delta")
-    @JsonProperty("delta")
-    private String delta;
-    /**
-     * 上一次计划名称
-     */
-    @TableField(exist = false)
-    @JSONField(name = "oldtitle")
-    @JsonProperty("oldtitle")
-    private String oldtitle;
-    /**
-     * 需求数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "storycnt")
-    @JsonProperty("storycnt")
-    private Integer storycnt;
-    /**
-     * bug数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "bugcnt")
-    @JsonProperty("bugcnt")
-    private Integer bugcnt;
-    /**
-     * 是否过期
-     */
-    @TableField(exist = false)
-    @JSONField(name = "isexpired")
-    @JsonProperty("isexpired")
-    private String isexpired;
-    /**
-     * 工时数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "estimatecnt")
-    @JsonProperty("estimatecnt")
-    private Integer estimatecnt;
-    /**
-     * 开始日期
-     */
-    @TableField(exist = false)
-    @JSONField(name = "beginstr")
-    @JsonProperty("beginstr")
-    private String beginstr;
-    /**
-     * 结束日期
-     */
-    @TableField(exist = false)
-    @JSONField(name = "endstr")
-    @JsonProperty("endstr")
-    private String endstr;
-    /**
-     * 计划模板
-     */
-    @TableField(exist = false)
-    @JSONField(name = "plantemplet")
-    @JsonProperty("plantemplet")
-    private String plantemplet;
-    /**
-     * 延迟任务数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "delaytaskscnt")
-    @JsonProperty("delaytaskscnt")
-    private Integer delaytaskscnt;
-    /**
-     * 未完成任务数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "unfinishedtaskscnt")
-    @JsonProperty("unfinishedtaskscnt")
-    private Integer unfinishedtaskscnt;
-    /**
-     * 完成任务数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "finishedtaskscnt")
-    @JsonProperty("finishedtaskscnt")
-    private Integer finishedtaskscnt;
-    /**
-     * 总任务数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "taskscnt")
-    @JsonProperty("taskscnt")
-    private Integer taskscnt;
-    /**
-     * 持续时间
-     */
-    @TableField(exist = false)
-    @JSONField(name = "duration")
-    @JsonProperty("duration")
-    private String duration;
 
     /**
      * 

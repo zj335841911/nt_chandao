@@ -100,7 +100,7 @@ export class DocLibDashboardViewBase extends DashboardViewBase {
      * @type {string}
      * @memberof DocLibDashboardViewBase
      */
-	protected viewtag: string = 'ec35bfd0c7d043d531053eac7775a40b';
+	protected viewtag: string = '17cfdc6c0116cf67d29eb46f73a25706';
 
     /**
      * 视图名称

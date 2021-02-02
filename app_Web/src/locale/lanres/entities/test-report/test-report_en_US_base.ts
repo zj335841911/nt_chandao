@@ -3,12 +3,16 @@ import commonLogic from '@/locale/logic/common/common-logic';
 function getLocaleResourceBase(){
 	const data:any = {
 		fields: {
+			productcnt: commonLogic.appcommonhandle("项目报告产品数",null),
+			overviews: commonLogic.appcommonhandle("概况",null),
 			objectid: commonLogic.appcommonhandle("所属对象",null),
 			cases: commonLogic.appcommonhandle("用例",null),
 			members: commonLogic.appcommonhandle("参与人员",null),
 			bugs: commonLogic.appcommonhandle("测试的Bug",null),
 			createdby: commonLogic.appcommonhandle("由谁创建",null),
 			stories: commonLogic.appcommonhandle("测试的需求",null),
+			files: commonLogic.appcommonhandle("附件",null),
+			comment: commonLogic.appcommonhandle("备注",null),
 			tasks: commonLogic.appcommonhandle("测试单",null),
 			title: commonLogic.appcommonhandle("标题",null),
 			begin: commonLogic.appcommonhandle("开始时间",null),
@@ -20,23 +24,15 @@ function getLocaleResourceBase(){
 			id: commonLogic.appcommonhandle("编号",null),
 			owner: commonLogic.appcommonhandle("负责人",null),
 			deleted: commonLogic.appcommonhandle("已删除",null),
+			projectname: commonLogic.appcommonhandle("所属项目",null),
+			productname: commonLogic.appcommonhandle("所属产品",null),
 			product: commonLogic.appcommonhandle("所属产品",null),
 			project: commonLogic.appcommonhandle("所属项目",null),
-			productname: commonLogic.appcommonhandle("所属产品",null),
-			projectname: commonLogic.appcommonhandle("所属项目",null),
-			comment: commonLogic.appcommonhandle("备注",null),
-			overviews: commonLogic.appcommonhandle("概况",null),
-			files: commonLogic.appcommonhandle("附件",null),
-			productcnt: commonLogic.appcommonhandle("项目报告产品数",null),
 		},
 			views: {
 				projectgridview: {
 					caption: commonLogic.appcommonhandle("项目报告",null),
 					title: commonLogic.appcommonhandle("测试报告表格视图",null),
-				},
-				projectmaininfoview: {
-					caption: commonLogic.appcommonhandle("测试报告",null),
-					title: commonLogic.appcommonhandle("测试报告编辑视图",null),
 				},
 				mainediteditview: {
 					caption: commonLogic.appcommonhandle("测试报告",null),
@@ -46,7 +42,19 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("项目报告",null),
 					title: commonLogic.appcommonhandle("测试报告分页导航视图",null),
 				},
-				maininfoview: {
+				gridview: {
+					caption: commonLogic.appcommonhandle("测试报告",null),
+					title: commonLogic.appcommonhandle("测试报告表格视图",null),
+				},
+				editview_r: {
+					caption: commonLogic.appcommonhandle("测试报告",null),
+					title: commonLogic.appcommonhandle("测试报告编辑视图",null),
+				},
+				editview_testrange: {
+					caption: commonLogic.appcommonhandle("测试报告",null),
+					title: commonLogic.appcommonhandle("测试报告编辑视图",null),
+				},
+				projectmainediteditview: {
 					caption: commonLogic.appcommonhandle("测试报告",null),
 					title: commonLogic.appcommonhandle("测试报告编辑视图",null),
 				},
@@ -54,27 +62,23 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("测试报告",null),
 					title: commonLogic.appcommonhandle("测试报告数据看板视图",null),
 				},
-				gridview: {
+				maintabexpview: {
 					caption: commonLogic.appcommonhandle("测试报告",null),
-					title: commonLogic.appcommonhandle("测试报告表格视图",null),
+					title: commonLogic.appcommonhandle("测试报告分页导航视图",null),
 				},
-				projectmainediteditview: {
+				editview_tosumup: {
 					caption: commonLogic.appcommonhandle("测试报告",null),
 					title: commonLogic.appcommonhandle("测试报告编辑视图",null),
 				},
-				editview_r: {
-					caption: commonLogic.appcommonhandle("测试报告",null),
-					title: commonLogic.appcommonhandle("测试报告编辑视图",null),
+				projectdashboardview: {
+					caption: commonLogic.appcommonhandle("项目报告",null),
+					title: commonLogic.appcommonhandle("测试报告数据看板视图",null),
 				},
 				editview_testtasks: {
 					caption: commonLogic.appcommonhandle("测试报告",null),
 					title: commonLogic.appcommonhandle("测试报告编辑视图",null),
 				},
-				actioneditview: {
-					caption: commonLogic.appcommonhandle("历史记录",null),
-					title: commonLogic.appcommonhandle("测试报告编辑视图（历史记录）",null),
-				},
-				editview_tosumup: {
+				maininfoview: {
 					caption: commonLogic.appcommonhandle("测试报告",null),
 					title: commonLogic.appcommonhandle("测试报告编辑视图",null),
 				},
@@ -82,23 +86,19 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("测试报告",null),
 					title: commonLogic.appcommonhandle("测试报告编辑视图",null),
 				},
-				editview_project: {
-					caption: commonLogic.appcommonhandle("测试报告",null),
-					title: commonLogic.appcommonhandle("测试报告编辑视图",null),
-				},
-				maintabexpview: {
-					caption: commonLogic.appcommonhandle("测试报告",null),
-					title: commonLogic.appcommonhandle("测试报告分页导航视图",null),
-				},
-				projectdashboardview: {
-					caption: commonLogic.appcommonhandle("项目报告",null),
-					title: commonLogic.appcommonhandle("测试报告数据看板视图",null),
+				actioneditview: {
+					caption: commonLogic.appcommonhandle("历史记录",null),
+					title: commonLogic.appcommonhandle("测试报告编辑视图（历史记录）",null),
 				},
 				editview: {
 					caption: commonLogic.appcommonhandle("测试报告",null),
 					title: commonLogic.appcommonhandle("测试报告编辑视图",null),
 				},
-				editview_testrange: {
+				editview_project: {
+					caption: commonLogic.appcommonhandle("测试报告",null),
+					title: commonLogic.appcommonhandle("测试报告编辑视图",null),
+				},
+				projectmaininfoview: {
 					caption: commonLogic.appcommonhandle("测试报告",null),
 					title: commonLogic.appcommonhandle("测试报告编辑视图",null),
 				},

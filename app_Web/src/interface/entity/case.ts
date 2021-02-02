@@ -55,12 +55,36 @@ export interface Case {
     lastrunresult?: any;
 
     /**
+     * 模块名称
+     *
+     * @returns {*}
+     * @memberof Case
+     */
+    modulename1?: any;
+
+    /**
      * 相关用例
      *
      * @returns {*}
      * @memberof Case
      */
     linkcase?: any;
+
+    /**
+     * 用例步骤集合
+     *
+     * @returns {*}
+     * @memberof Case
+     */
+    casesteps?: any;
+
+    /**
+     * 属性
+     *
+     * @returns {*}
+     * @memberof Case
+     */
+    task?: any;
 
     /**
      * 排序
@@ -77,6 +101,22 @@ export interface Case {
      * @memberof Case
      */
     howrun?: any;
+
+    /**
+     * 测试结果数
+     *
+     * @returns {*}
+     * @memberof Case
+     */
+    resultcnt?: any;
+
+    /**
+     * 消息通知用户
+     *
+     * @returns {*}
+     * @memberof Case
+     */
+    noticeusers?: any;
 
     /**
      * 用例版本
@@ -111,6 +151,14 @@ export interface Case {
     type?: any;
 
     /**
+     * 测试失败数
+     *
+     * @returns {*}
+     * @memberof Case
+     */
+    resultfalicnt?: any;
+
+    /**
      * 用例状态
      *
      * @returns {*}
@@ -119,12 +167,28 @@ export interface Case {
     status?: any;
 
     /**
+     * 备注
+     *
+     * @returns {*}
+     * @memberof Case
+     */
+    comment?: any;
+
+    /**
      * auto
      *
      * @returns {*}
      * @memberof Case
      */
     auto?: any;
+
+    /**
+     * 是否收藏
+     *
+     * @returns {*}
+     * @memberof Case
+     */
+    isfavorites?: any;
 
     /**
      * frequency
@@ -157,6 +221,30 @@ export interface Case {
      * @memberof Case
      */
     reviewedby?: any;
+
+    /**
+     * 附件
+     *
+     * @returns {*}
+     * @memberof Case
+     */
+    files?: any;
+
+    /**
+     * 转bug数
+     *
+     * @returns {*}
+     * @memberof Case
+     */
+    tobugcnt?: any;
+
+    /**
+     * 指派给
+     *
+     * @returns {*}
+     * @memberof Case
+     */
+    assignedto?: any;
 
     /**
      * 已删除
@@ -199,6 +287,14 @@ export interface Case {
     scriptlocation?: any;
 
     /**
+     * 用例状态
+     *
+     * @returns {*}
+     * @memberof Case
+     */
+    status1?: any;
+
+    /**
      * 执行时间
      *
      * @returns {*}
@@ -229,6 +325,22 @@ export interface Case {
      * @memberof Case
      */
     frame?: any;
+
+    /**
+     * 测试用例结果
+     *
+     * @returns {*}
+     * @memberof Case
+     */
+    lastrunresult1?: any;
+
+    /**
+     * 用例步骤数
+     *
+     * @returns {*}
+     * @memberof Case
+     */
+    stepcnt?: any;
 
     /**
      * 子状态
@@ -263,6 +375,14 @@ export interface Case {
     lastrunner?: any;
 
     /**
+     * 用例库
+     *
+     * @returns {*}
+     * @memberof Case
+     */
+    libname?: any;
+
+    /**
      * 来源用例版本
      *
      * @returns {*}
@@ -271,12 +391,36 @@ export interface Case {
     fromcaseversion?: any;
 
     /**
+     * 需求名称
+     *
+     * @returns {*}
+     * @memberof Case
+     */
+    storyname?: any;
+
+    /**
+     * 模块名称
+     *
+     * @returns {*}
+     * @memberof Case
+     */
+    modulename?: any;
+
+    /**
      * 需求版本
      *
      * @returns {*}
      * @memberof Case
      */
     storyversion?: any;
+
+    /**
+     * 产品名称
+     *
+     * @returns {*}
+     * @memberof Case
+     */
+    productname?: any;
 
     /**
      * 来源用例
@@ -333,148 +477,4 @@ export interface Case {
      * @memberof Case
      */
     module?: any;
-
-    /**
-     * 模块名称
-     *
-     * @returns {*}
-     * @memberof Case
-     */
-    modulename?: any;
-
-    /**
-     * 需求名称
-     *
-     * @returns {*}
-     * @memberof Case
-     */
-    storyname?: any;
-
-    /**
-     * 产品名称
-     *
-     * @returns {*}
-     * @memberof Case
-     */
-    productname?: any;
-
-    /**
-     * 用例步骤集合
-     *
-     * @returns {*}
-     * @memberof Case
-     */
-    casesteps?: any;
-
-    /**
-     * 转bug数
-     *
-     * @returns {*}
-     * @memberof Case
-     */
-    tobugcnt?: any;
-
-    /**
-     * 测试结果数
-     *
-     * @returns {*}
-     * @memberof Case
-     */
-    resultcnt?: any;
-
-    /**
-     * 用例步骤数
-     *
-     * @returns {*}
-     * @memberof Case
-     */
-    stepcnt?: any;
-
-    /**
-     * 备注
-     *
-     * @returns {*}
-     * @memberof Case
-     */
-    comment?: any;
-
-    /**
-     * 测试失败数
-     *
-     * @returns {*}
-     * @memberof Case
-     */
-    resultfalicnt?: any;
-
-    /**
-     * 用例状态
-     *
-     * @returns {*}
-     * @memberof Case
-     */
-    status1?: any;
-
-    /**
-     * 指派给
-     *
-     * @returns {*}
-     * @memberof Case
-     */
-    assignedto?: any;
-
-    /**
-     * 属性
-     *
-     * @returns {*}
-     * @memberof Case
-     */
-    task?: any;
-
-    /**
-     * 用例库
-     *
-     * @returns {*}
-     * @memberof Case
-     */
-    libname?: any;
-
-    /**
-     * 测试用例结果
-     *
-     * @returns {*}
-     * @memberof Case
-     */
-    lastrunresult1?: any;
-
-    /**
-     * 是否收藏
-     *
-     * @returns {*}
-     * @memberof Case
-     */
-    isfavorites?: any;
-
-    /**
-     * 模块名称
-     *
-     * @returns {*}
-     * @memberof Case
-     */
-    modulename1?: any;
-
-    /**
-     * 附件
-     *
-     * @returns {*}
-     * @memberof Case
-     */
-    files?: any;
-
-    /**
-     * 消息通知用户
-     *
-     * @returns {*}
-     * @memberof Case
-     */
-    noticeusers?: any;
 }

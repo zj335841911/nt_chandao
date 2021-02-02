@@ -44,37 +44,34 @@ public class ProjectTeam extends EntityMP implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
-     * 加盟日
+     * 角色
      */
-    @DEField(defaultValue = "0000-00-00")
-    @TableField(value = "`join`")
-    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
-    @JSONField(name = "join", format = "yyyy-MM-dd")
-    @JsonProperty("join")
-    private Timestamp join;
+    @TableField(value = "`role`")
+    @JSONField(name = "role")
+    @JsonProperty("role")
+    private String role;
+    /**
+     * 受限用户
+     */
+    @DEField(defaultValue = "no")
+    @TableField(value = "`limited`")
+    @JSONField(name = "limited")
+    @JsonProperty("limited")
+    private String limited;
+    /**
+     * 总计可用
+     */
+    @TableField(exist = false)
+    @JSONField(name = "total")
+    @JsonProperty("total")
+    private Integer total;
     /**
      * 用户
      */
-    @TableField(value = "`account`")
-    @JSONField(name = "account")
-    @JsonProperty("account")
-    private String account;
-    /**
-     * 可用工时/天
-     */
-    @DEField(defaultValue = "0.0")
-    @TableField(value = "`hours`")
-    @JSONField(name = "hours")
-    @JsonProperty("hours")
-    private Double hours;
-    /**
-     * 预计剩余
-     */
-    @DEField(defaultValue = "0.00")
-    @TableField(value = "`left`")
-    @JSONField(name = "left")
-    @JsonProperty("left")
-    private Double left;
+    @TableField(exist = false)
+    @JSONField(name = "username")
+    @JsonProperty("username")
+    private String username;
     /**
      * 可用工日
      */
@@ -83,6 +80,30 @@ public class ProjectTeam extends EntityMP implements Serializable {
     @JSONField(name = "days")
     @JsonProperty("days")
     private Integer days;
+    /**
+     * 退场时间
+     */
+    @TableField(exist = false)
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "exitdate", format = "yyyy-MM-dd")
+    @JsonProperty("exitdate")
+    private Timestamp exitdate;
+    /**
+     * 团队类型
+     */
+    @DEField(defaultValue = "project")
+    @TableField(value = "`type`")
+    @JSONField(name = "type")
+    @JsonProperty("type")
+    private String type;
+    /**
+     * 排序
+     */
+    @DEField(defaultValue = "0")
+    @TableField(value = "`order`")
+    @JSONField(name = "order")
+    @JsonProperty("order")
+    private Integer order;
     /**
      * 编号
      */
@@ -100,13 +121,12 @@ public class ProjectTeam extends EntityMP implements Serializable {
     @JsonProperty("consumed")
     private Double consumed;
     /**
-     * 排序
+     * 用户
      */
-    @DEField(defaultValue = "0")
-    @TableField(value = "`order`")
-    @JSONField(name = "order")
-    @JsonProperty("order")
-    private Integer order;
+    @TableField(value = "`account`")
+    @JSONField(name = "account")
+    @JsonProperty("account")
+    private String account;
     /**
      * 最初预计
      */
@@ -116,49 +136,22 @@ public class ProjectTeam extends EntityMP implements Serializable {
     @JsonProperty("estimate")
     private Double estimate;
     /**
-     * 受限用户
+     * 加盟日
      */
-    @DEField(defaultValue = "no")
-    @TableField(value = "`limited`")
-    @JSONField(name = "limited")
-    @JsonProperty("limited")
-    private String limited;
+    @DEField(defaultValue = "0000-00-00")
+    @TableField(value = "`join`")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "join", format = "yyyy-MM-dd")
+    @JsonProperty("join")
+    private Timestamp join;
     /**
-     * 角色
+     * 可用工时/天
      */
-    @TableField(value = "`role`")
-    @JSONField(name = "role")
-    @JsonProperty("role")
-    private String role;
-    /**
-     * 团队类型
-     */
-    @DEField(defaultValue = "project")
-    @TableField(value = "`type`")
-    @JSONField(name = "type")
-    @JsonProperty("type")
-    private String type;
-    /**
-     * 总计可用
-     */
-    @TableField(exist = false)
-    @JSONField(name = "total")
-    @JsonProperty("total")
-    private Integer total;
-    /**
-     * 项目编号
-     */
-    @TableField(value = "`root`")
-    @JSONField(name = "root")
-    @JsonProperty("root")
-    private Long root;
-    /**
-     * 用户
-     */
-    @TableField(exist = false)
-    @JSONField(name = "username")
-    @JsonProperty("username")
-    private String username;
+    @DEField(defaultValue = "0.0")
+    @TableField(value = "`hours`")
+    @JSONField(name = "hours")
+    @JsonProperty("hours")
+    private Double hours;
     /**
      * 任务数
      */
@@ -166,6 +159,14 @@ public class ProjectTeam extends EntityMP implements Serializable {
     @JSONField(name = "taskcnt")
     @JsonProperty("taskcnt")
     private Integer taskcnt;
+    /**
+     * 预计剩余
+     */
+    @DEField(defaultValue = "0.00")
+    @TableField(value = "`left`")
+    @JSONField(name = "left")
+    @JsonProperty("left")
+    private Double left;
     /**
      * 项目经理
      */
@@ -181,13 +182,12 @@ public class ProjectTeam extends EntityMP implements Serializable {
     @JsonProperty("projectname")
     private String projectname;
     /**
-     * 退场时间
+     * 项目编号
      */
-    @TableField(exist = false)
-    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
-    @JSONField(name = "exitdate", format = "yyyy-MM-dd")
-    @JsonProperty("exitdate")
-    private Timestamp exitdate;
+    @TableField(value = "`root`")
+    @JSONField(name = "root")
+    @JsonProperty("root")
+    private Long root;
 
     /**
      * 
@@ -198,6 +198,70 @@ public class ProjectTeam extends EntityMP implements Serializable {
     private cn.ibizlab.pms.core.zentao.domain.Project projectteam;
 
 
+
+    /**
+     * 设置 [角色]
+     */
+    public void setRole(String role) {
+        this.role = role;
+        this.modify("role", role);
+    }
+
+    /**
+     * 设置 [受限用户]
+     */
+    public void setLimited(String limited) {
+        this.limited = limited;
+        this.modify("limited", limited);
+    }
+
+    /**
+     * 设置 [可用工日]
+     */
+    public void setDays(Integer days) {
+        this.days = days;
+        this.modify("days", days);
+    }
+
+    /**
+     * 设置 [团队类型]
+     */
+    public void setType(String type) {
+        this.type = type;
+        this.modify("type", type);
+    }
+
+    /**
+     * 设置 [排序]
+     */
+    public void setOrder(Integer order) {
+        this.order = order;
+        this.modify("order", order);
+    }
+
+    /**
+     * 设置 [总计消耗]
+     */
+    public void setConsumed(Double consumed) {
+        this.consumed = consumed;
+        this.modify("consumed", consumed);
+    }
+
+    /**
+     * 设置 [用户]
+     */
+    public void setAccount(String account) {
+        this.account = account;
+        this.modify("account", account);
+    }
+
+    /**
+     * 设置 [最初预计]
+     */
+    public void setEstimate(Double estimate) {
+        this.estimate = estimate;
+        this.modify("estimate", estimate);
+    }
 
     /**
      * 设置 [加盟日]
@@ -218,14 +282,6 @@ public class ProjectTeam extends EntityMP implements Serializable {
         return sdf.format(join);
     }
     /**
-     * 设置 [用户]
-     */
-    public void setAccount(String account) {
-        this.account = account;
-        this.modify("account", account);
-    }
-
-    /**
      * 设置 [可用工时/天]
      */
     public void setHours(Double hours) {
@@ -239,62 +295,6 @@ public class ProjectTeam extends EntityMP implements Serializable {
     public void setLeft(Double left) {
         this.left = left;
         this.modify("left", left);
-    }
-
-    /**
-     * 设置 [可用工日]
-     */
-    public void setDays(Integer days) {
-        this.days = days;
-        this.modify("days", days);
-    }
-
-    /**
-     * 设置 [总计消耗]
-     */
-    public void setConsumed(Double consumed) {
-        this.consumed = consumed;
-        this.modify("consumed", consumed);
-    }
-
-    /**
-     * 设置 [排序]
-     */
-    public void setOrder(Integer order) {
-        this.order = order;
-        this.modify("order", order);
-    }
-
-    /**
-     * 设置 [最初预计]
-     */
-    public void setEstimate(Double estimate) {
-        this.estimate = estimate;
-        this.modify("estimate", estimate);
-    }
-
-    /**
-     * 设置 [受限用户]
-     */
-    public void setLimited(String limited) {
-        this.limited = limited;
-        this.modify("limited", limited);
-    }
-
-    /**
-     * 设置 [角色]
-     */
-    public void setRole(String role) {
-        this.role = role;
-        this.modify("role", role);
-    }
-
-    /**
-     * 设置 [团队类型]
-     */
-    public void setType(String type) {
-        this.type = type;
-        this.modify("type", type);
     }
 
     /**

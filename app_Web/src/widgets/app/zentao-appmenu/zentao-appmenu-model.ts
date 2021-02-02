@@ -146,7 +146,7 @@ export default class ZentaoModel {
                 }
                 ,
                 		        {
-                	id: 'CC6C6D64-B2D5-4E49-AE4F-996AA44C8685',
+                	id: '14f6f7ccec75782b74ec9838005815cc',
                 	name: 'menuitem16',
                 	text: '文档',
                 	type: 'MENUITEM',
@@ -168,7 +168,7 @@ export default class ZentaoModel {
                 }
                 ,
                 		        {
-                	id: '61D98BC4-BCF2-4CD0-AF45-6693EF3CCC72',
+                	id: '15ba5f98334e576909fe37497f03f4a9',
                 	name: 'menuitem23',
                 	text: '计划模板',
                 	type: 'MENUITEM',
@@ -190,7 +190,7 @@ export default class ZentaoModel {
                 }
                 ,
                 		        {
-                	id: '832B4ECF-B32B-48DD-B1EE-CE25A5A11DD7',
+                	id: '5d26bcc47f6fc152de01aa2e95449428',
                 	name: 'menuitem22',
                 	text: '统计',
                 	type: 'MENUITEM',
@@ -212,7 +212,7 @@ export default class ZentaoModel {
                 }
                 ,
                 		        {
-                	id: '2A5D7A95-FD8A-46D2-829A-B297A1CE6207',
+                	id: '05995e93cb281b232231b5f332ff5520',
                 	name: 'menuitem25',
                 	text: '年度统计',
                 	type: 'MENUITEM',
@@ -256,7 +256,7 @@ export default class ZentaoModel {
                 }
                 ,
                 		        {
-                	id: '1CC661E6-9593-4C82-98B5-01496AE8D80C',
+                	id: 'a35e4a4ea6fefcf9131ccac6f123f4d3',
                 	name: 'menuitem26',
                 	text: '通讯录',
                 	type: 'MENUITEM',
@@ -278,7 +278,7 @@ export default class ZentaoModel {
                 }
                 ,
                 		        {
-                	id: '1A933810-32D7-43CE-A664-5ABF5C5735A0',
+                	id: '19bc3aa07a822b1a07832f145e438686',
                 	name: 'menuitem27',
                 	text: '全文检索',
                 	type: 'MENUITEM',
@@ -300,7 +300,7 @@ export default class ZentaoModel {
                 }
                 ,
                 		        {
-                	id: '50D22ECD-CF16-4313-856A-645B1E837DE7',
+                	id: '3158d179fb23b4edddd5af69bd3e21c5',
                 	name: 'menuitem24',
                 	text: '系统管理',
                 	type: 'MENUITEM',
@@ -319,7 +319,7 @@ export default class ZentaoModel {
                 	localetag: 'app.menus.zentao.menuitem24',
                 	items: [
                         		        {
-                        	id: 'dd9b338bb75db00a0974af4a4669e432',
+                        	id: '52cd9880b7fc15e4d8b1c7910fc041df',
                         	name: 'menuitem11',
                         	text: '用户',
                         	type: 'MENUITEM',
@@ -340,7 +340,7 @@ export default class ZentaoModel {
                         }
                         ,
                         		        {
-                        	id: '28e753fc0b33a6fadf12f5f37150bb5a',
+                        	id: '8e70defb821f9fe5749d024bbe843085',
                         	name: 'menuitem10',
                         	text: '用例库',
                         	type: 'MENUITEM',
@@ -362,7 +362,7 @@ export default class ZentaoModel {
                         }
                         ,
                         		        {
-                        	id: 'DCD81E08-ABA8-4E86-9C77-FB1DC04A51A8',
+                        	id: '5880e7271c300548ee7338f42532dd44',
                         	name: 'menuitem21',
                         	text: '系统配置',
                         	type: 'MENUITEM',
@@ -384,7 +384,7 @@ export default class ZentaoModel {
                         }
                         ,
                         		        {
-                        	id: '80D6A552-4F24-4273-B535-1685F0A22CBF',
+                        	id: '0c3ef56f5716386446262261961ec24c',
                         	name: 'menuitem19',
                         	text: '汇报角色角色',
                         	type: 'MENUITEM',
@@ -406,7 +406,7 @@ export default class ZentaoModel {
                         }
                         ,
                         		        {
-                        	id: 'C2324D75-EADF-4116-8EF3-2C62A3C8AB18',
+                        	id: 'acd3c33a446ff012e482fd85a5062f4c',
                         	name: 'menuitem17',
                         	text: '插件管理',
                         	type: 'MENUITEM',
@@ -428,7 +428,7 @@ export default class ZentaoModel {
                         }
                         ,
                         		        {
-                        	id: '5AC6121D-1379-4944-8C3F-E7A2BAA9C7B3',
+                        	id: '1a18d640fc30433a139e45c4aaa27f06',
                         	name: 'menuitem8',
                         	text: '更新日志',
                         	type: 'MENUITEM',
@@ -705,98 +705,15 @@ export default class ZentaoModel {
 	 */
 	private funcs: any[] = [
         {
-            appfunctag: 'AppFunc',
+            appfunctag: 'AppFunc4',
             appfunctype: 'APPVIEW',
             openmode: '',
-            codename: 'ibzmyterritorystatstabexpview',
+            codename: 'docliblibtabexpview',
             deResParameters: [],
-            routepath: '/ibizpms/:ibizpms?/ibzmyterritories/:ibzmyterritory?/statstabexpview/:statstabexpview?',
+            routepath: '/ibizpms/:ibizpms?/doclibs/:doclib?/libtabexpview/:libtabexpview?',
             parameters: [
-                { pathName: 'ibzmyterritories', parameterName: 'ibzmyterritory' },
-                { pathName: 'statstabexpview', parameterName: 'statstabexpview' },
-            ],
-        },
-        {
-            appfunctag: 'Auto8',
-            appfunctype: 'APPVIEW',
-            openmode: '',
-            codename: 'producthtmlview',
-            deResParameters: [],
-            routepath: '/ibizpms/:ibizpms?/products/:product?/htmlview/:htmlview?',
-            parameters: [
-                { pathName: 'products', parameterName: 'product' },
-                { pathName: 'htmlview', parameterName: 'htmlview' },
-            ],
-        },
-        {
-            appfunctag: 'Auto2',
-            appfunctype: 'APPVIEW',
-            openmode: '',
-            codename: 'productleftsidebarlistview',
-            deResParameters: [],
-            routepath: '/ibizpms/:ibizpms?/products/:product?/leftsidebarlistview/:leftsidebarlistview?',
-            parameters: [
-                { pathName: 'products', parameterName: 'product' },
-                { pathName: 'leftsidebarlistview', parameterName: 'leftsidebarlistview' },
-            ],
-        },
-        {
-            appfunctag: 'AppFunc6',
-            appfunctype: 'APPVIEW',
-            openmode: '',
-            codename: 'ibzproconfiggridview',
-            deResParameters: [],
-            routepath: '/ibizpms/:ibizpms?/ibzproconfigs/:ibzproconfig?/gridview/:gridview?',
-            parameters: [
-                { pathName: 'ibzproconfigs', parameterName: 'ibzproconfig' },
-                { pathName: 'gridview', parameterName: 'gridview' },
-            ],
-        },
-        {
-            appfunctag: 'Auto6',
-            appfunctype: 'APPVIEW',
-            openmode: '',
-            codename: 'projectportalview',
-            deResParameters: [],
-            routepath: '/ibizpms/:ibizpms?/projectportalview/:projectportalview?',
-            parameters: [
-                { pathName: 'projectportalview', parameterName: 'projectportalview' },
-            ],
-        },
-        {
-            appfunctag: 'AppFunc3',
-            appfunctype: 'APPVIEW',
-            openmode: '',
-            codename: 'sysupdateloggridview',
-            deResParameters: [],
-            routepath: '/ibizpms/:ibizpms?/sysupdatelogs/:sysupdatelog?/gridview/:gridview?',
-            parameters: [
-                { pathName: 'sysupdatelogs', parameterName: 'sysupdatelog' },
-                { pathName: 'gridview', parameterName: 'gridview' },
-            ],
-        },
-        {
-            appfunctag: 'Auto27',
-            appfunctype: 'APPVIEW',
-            openmode: 'INDEXVIEWTAB',
-            codename: 'taskmaindashboardview_link',
-            deResParameters: [],
-            routepath: '/ibizpms/:ibizpms?/tasks/:task?/maindashboardview_link/:maindashboardview_link?',
-            parameters: [
-                { pathName: 'tasks', parameterName: 'task' },
-                { pathName: 'maindashboardview_link', parameterName: 'maindashboardview_link' },
-            ],
-        },
-        {
-            appfunctag: 'Auto10',
-            appfunctype: 'APPVIEW',
-            openmode: '',
-            codename: 'ibzmyterritorytabexpview',
-            deResParameters: [],
-            routepath: '/ibizpms/:ibizpms?/ibzmyterritories/:ibzmyterritory?/tabexpview/:tabexpview?',
-            parameters: [
-                { pathName: 'ibzmyterritories', parameterName: 'ibzmyterritory' },
-                { pathName: 'tabexpview', parameterName: 'tabexpview' },
+                { pathName: 'doclibs', parameterName: 'doclib' },
+                { pathName: 'libtabexpview', parameterName: 'libtabexpview' },
             ],
         },
         {
@@ -812,113 +729,39 @@ export default class ZentaoModel {
             ],
         },
         {
-            appfunctag: 'Auto1',
+            appfunctag: 'Auto2',
             appfunctype: 'APPVIEW',
             openmode: '',
-            codename: 'productportalview',
+            codename: 'productleftsidebarlistview',
             deResParameters: [],
-            routepath: '/ibizpms/:ibizpms?/productportalview/:productportalview?',
+            routepath: '/ibizpms/:ibizpms?/products/:product?/leftsidebarlistview/:leftsidebarlistview?',
             parameters: [
-                { pathName: 'productportalview', parameterName: 'productportalview' },
-            ],
-        },
-        {
-            appfunctag: 'Auto26',
-            appfunctype: 'APPVIEW',
-            openmode: 'INDEXVIEWTAB',
-            codename: 'bugmaindashboardview_link',
-            deResParameters: [],
-            routepath: '/ibizpms/:ibizpms?/bugs/:bug?/maindashboardview_link/:maindashboardview_link?',
-            parameters: [
-                { pathName: 'bugs', parameterName: 'bug' },
-                { pathName: 'maindashboardview_link', parameterName: 'maindashboardview_link' },
-            ],
-        },
-        {
-            appfunctag: 'AppFunc9',
-            appfunctype: 'APPVIEW',
-            openmode: '',
-            codename: 'ibizproindexlistview',
-            deResParameters: [],
-            routepath: '/ibizpms/:ibizpms?/ibizproindices/:ibizproindex?/listview/:listview?',
-            parameters: [
-                { pathName: 'ibizproindices', parameterName: 'ibizproindex' },
-                { pathName: 'listview', parameterName: 'listview' },
-            ],
-        },
-        {
-            appfunctag: 'PluginManagement',
-            appfunctype: 'APPVIEW',
-            openmode: '',
-            codename: 'ibzmyterritoryusr3tabexpview',
-            deResParameters: [],
-            routepath: '/ibizpms/:ibizpms?/ibzmyterritories/:ibzmyterritory?/usr3tabexpview/:usr3tabexpview?',
-            parameters: [
-                { pathName: 'ibzmyterritories', parameterName: 'ibzmyterritory' },
-                { pathName: 'usr3tabexpview', parameterName: 'usr3tabexpview' },
-            ],
-        },
-        {
-            appfunctag: 'Auto5',
-            appfunctype: 'APPVIEW',
-            openmode: '',
-            codename: 'projectleftsidebarlistview',
-            deResParameters: [],
-            routepath: '/ibizpms/:ibizpms?/projects/:project?/leftsidebarlistview/:leftsidebarlistview?',
-            parameters: [
-                { pathName: 'projects', parameterName: 'project' },
+                { pathName: 'products', parameterName: 'product' },
                 { pathName: 'leftsidebarlistview', parameterName: 'leftsidebarlistview' },
             ],
         },
         {
-            appfunctag: 'Auto29',
+            appfunctag: 'Auto10',
+            appfunctype: 'APPVIEW',
+            openmode: '',
+            codename: 'ibzmyterritorytabexpview',
+            deResParameters: [],
+            routepath: '/ibizpms/:ibizpms?/ibzmyterritories/:ibzmyterritory?/tabexpview/:tabexpview?',
+            parameters: [
+                { pathName: 'ibzmyterritories', parameterName: 'ibzmyterritory' },
+                { pathName: 'tabexpview', parameterName: 'tabexpview' },
+            ],
+        },
+        {
+            appfunctag: 'Auto27',
             appfunctype: 'APPVIEW',
             openmode: 'INDEXVIEWTAB',
-            codename: 'todomaindashboardview_link',
+            codename: 'taskmaindashboardview_link',
             deResParameters: [],
-            routepath: '/ibizpms/:ibizpms?/todos/:todo?/maindashboardview_link/:maindashboardview_link?',
+            routepath: '/ibizpms/:ibizpms?/tasks/:task?/maindashboardview_link/:maindashboardview_link?',
             parameters: [
-                { pathName: 'todos', parameterName: 'todo' },
+                { pathName: 'tasks', parameterName: 'task' },
                 { pathName: 'maindashboardview_link', parameterName: 'maindashboardview_link' },
-            ],
-        },
-        {
-            appfunctag: 'Auto9',
-            appfunctype: 'APPVIEW',
-            openmode: '',
-            codename: 'testportalview',
-            deResParameters: [],
-            routepath: '/ibizpms/:ibizpms?/testportalview/:testportalview?',
-            parameters: [
-                { pathName: 'testportalview', parameterName: 'testportalview' },
-            ],
-        },
-        {
-            appfunctag: 'AppFunc2',
-            appfunctype: 'OPENHTMLPAGE',
-        },
-        {
-            appfunctag: 'Auto11',
-            appfunctype: 'APPVIEW',
-            openmode: '',
-            codename: 'producttestleftsidebarlistview',
-            deResParameters: [],
-            routepath: '/ibizpms/:ibizpms?/products/:product?/testleftsidebarlistview/:testleftsidebarlistview?',
-            parameters: [
-                { pathName: 'products', parameterName: 'product' },
-                { pathName: 'testleftsidebarlistview', parameterName: 'testleftsidebarlistview' },
-            ],
-        },
-        {
-            appfunctag: 'AppFunc8',
-            appfunctype: 'APPVIEW',
-            openmode: '',
-            codename: 'sysemployeetreeexpview',
-            deResParameters: [],
-            routepath: '/ibizpms/:ibizpms?/sysemployees/:sysemployee?/treeexpview/:treeexpview?',
-            parameters: [
-                { pathName: 'sysemployees', parameterName: 'sysemployee' },
-                { pathName: 'treeexpview', parameterName: 'treeexpview' },
             ],
         },
         {
@@ -930,30 +773,6 @@ export default class ZentaoModel {
             routepath: '/ibizpms/:ibizpms?/ibzplantemplets/:ibzplantemplet?/gridview/:gridview?',
             parameters: [
                 { pathName: 'ibzplantemplets', parameterName: 'ibzplantemplet' },
-                { pathName: 'gridview', parameterName: 'gridview' },
-            ],
-        },
-        {
-            appfunctag: 'Auto23',
-            appfunctype: 'APPVIEW',
-            openmode: '',
-            codename: 'ibzfavoritestabexpview',
-            deResParameters: [],
-            routepath: '/ibizpms/:ibizpms?/ibzfavorites/:ibzfavorites?/tabexpview/:tabexpview?',
-            parameters: [
-                { pathName: 'ibzfavorites', parameterName: 'ibzfavorites' },
-                { pathName: 'tabexpview', parameterName: 'tabexpview' },
-            ],
-        },
-        {
-            appfunctag: 'Auto15',
-            appfunctype: 'APPVIEW',
-            openmode: '',
-            codename: 'ibzlibgridview',
-            deResParameters: [],
-            routepath: '/ibizpms/:ibizpms?/ibzlibs/:ibzlib?/gridview/:gridview?',
-            parameters: [
-                { pathName: 'ibzlibs', parameterName: 'ibzlib' },
                 { pathName: 'gridview', parameterName: 'gridview' },
             ],
         },
@@ -970,15 +789,27 @@ export default class ZentaoModel {
             ],
         },
         {
-            appfunctag: 'AppFunc4',
+            appfunctag: 'AppFunc8',
             appfunctype: 'APPVIEW',
             openmode: '',
-            codename: 'docliblibtabexpview',
+            codename: 'sysemployeetreeexpview',
             deResParameters: [],
-            routepath: '/ibizpms/:ibizpms?/doclibs/:doclib?/libtabexpview/:libtabexpview?',
+            routepath: '/ibizpms/:ibizpms?/sysemployees/:sysemployee?/treeexpview/:treeexpview?',
             parameters: [
-                { pathName: 'doclibs', parameterName: 'doclib' },
-                { pathName: 'libtabexpview', parameterName: 'libtabexpview' },
+                { pathName: 'sysemployees', parameterName: 'sysemployee' },
+                { pathName: 'treeexpview', parameterName: 'treeexpview' },
+            ],
+        },
+        {
+            appfunctag: 'Auto15',
+            appfunctype: 'APPVIEW',
+            openmode: '',
+            codename: 'ibzlibgridview',
+            deResParameters: [],
+            routepath: '/ibizpms/:ibizpms?/ibzlibs/:ibzlib?/gridview/:gridview?',
+            parameters: [
+                { pathName: 'ibzlibs', parameterName: 'ibzlib' },
+                { pathName: 'gridview', parameterName: 'gridview' },
             ],
         },
         {
@@ -991,6 +822,175 @@ export default class ZentaoModel {
             parameters: [
                 { pathName: 'useryearworkstats', parameterName: 'useryearworkstats' },
                 { pathName: 'editview', parameterName: 'editview' },
+            ],
+        },
+        {
+            appfunctag: 'Auto6',
+            appfunctype: 'APPVIEW',
+            openmode: '',
+            codename: 'projectportalview',
+            deResParameters: [],
+            routepath: '/ibizpms/:ibizpms?/projectportalview/:projectportalview?',
+            parameters: [
+                { pathName: 'projectportalview', parameterName: 'projectportalview' },
+            ],
+        },
+        {
+            appfunctag: 'Auto23',
+            appfunctype: 'APPVIEW',
+            openmode: '',
+            codename: 'ibzfavoritestabexpview',
+            deResParameters: [],
+            routepath: '/ibizpms/:ibizpms?/ibzfavorites/:ibzfavorites?/tabexpview/:tabexpview?',
+            parameters: [
+                { pathName: 'ibzfavorites', parameterName: 'ibzfavorites' },
+                { pathName: 'tabexpview', parameterName: 'tabexpview' },
+            ],
+        },
+        {
+            appfunctag: 'Auto1',
+            appfunctype: 'APPVIEW',
+            openmode: '',
+            codename: 'productportalview',
+            deResParameters: [],
+            routepath: '/ibizpms/:ibizpms?/productportalview/:productportalview?',
+            parameters: [
+                { pathName: 'productportalview', parameterName: 'productportalview' },
+            ],
+        },
+        {
+            appfunctag: 'Auto9',
+            appfunctype: 'APPVIEW',
+            openmode: '',
+            codename: 'testportalview',
+            deResParameters: [],
+            routepath: '/ibizpms/:ibizpms?/testportalview/:testportalview?',
+            parameters: [
+                { pathName: 'testportalview', parameterName: 'testportalview' },
+            ],
+        },
+        {
+            appfunctag: 'AppFunc9',
+            appfunctype: 'APPVIEW',
+            openmode: '',
+            codename: 'ibizproindexlistview',
+            deResParameters: [],
+            routepath: '/ibizpms/:ibizpms?/ibizproindices/:ibizproindex?/listview/:listview?',
+            parameters: [
+                { pathName: 'ibizproindices', parameterName: 'ibizproindex' },
+                { pathName: 'listview', parameterName: 'listview' },
+            ],
+        },
+        {
+            appfunctag: 'Auto5',
+            appfunctype: 'APPVIEW',
+            openmode: '',
+            codename: 'projectleftsidebarlistview',
+            deResParameters: [],
+            routepath: '/ibizpms/:ibizpms?/projects/:project?/leftsidebarlistview/:leftsidebarlistview?',
+            parameters: [
+                { pathName: 'projects', parameterName: 'project' },
+                { pathName: 'leftsidebarlistview', parameterName: 'leftsidebarlistview' },
+            ],
+        },
+        {
+            appfunctag: 'AppFunc3',
+            appfunctype: 'APPVIEW',
+            openmode: '',
+            codename: 'sysupdateloggridview',
+            deResParameters: [],
+            routepath: '/ibizpms/:ibizpms?/sysupdatelogs/:sysupdatelog?/gridview/:gridview?',
+            parameters: [
+                { pathName: 'sysupdatelogs', parameterName: 'sysupdatelog' },
+                { pathName: 'gridview', parameterName: 'gridview' },
+            ],
+        },
+        {
+            appfunctag: 'PluginManagement',
+            appfunctype: 'APPVIEW',
+            openmode: '',
+            codename: 'ibzmyterritoryusr3tabexpview',
+            deResParameters: [],
+            routepath: '/ibizpms/:ibizpms?/ibzmyterritories/:ibzmyterritory?/usr3tabexpview/:usr3tabexpview?',
+            parameters: [
+                { pathName: 'ibzmyterritories', parameterName: 'ibzmyterritory' },
+                { pathName: 'usr3tabexpview', parameterName: 'usr3tabexpview' },
+            ],
+        },
+        {
+            appfunctag: 'AppFunc2',
+            appfunctype: 'OPENHTMLPAGE',
+        },
+        {
+            appfunctag: 'Auto29',
+            appfunctype: 'APPVIEW',
+            openmode: 'INDEXVIEWTAB',
+            codename: 'todomaindashboardview_link',
+            deResParameters: [],
+            routepath: '/ibizpms/:ibizpms?/todos/:todo?/maindashboardview_link/:maindashboardview_link?',
+            parameters: [
+                { pathName: 'todos', parameterName: 'todo' },
+                { pathName: 'maindashboardview_link', parameterName: 'maindashboardview_link' },
+            ],
+        },
+        {
+            appfunctag: 'Auto8',
+            appfunctype: 'APPVIEW',
+            openmode: '',
+            codename: 'producthtmlview',
+            deResParameters: [],
+            routepath: '/ibizpms/:ibizpms?/products/:product?/htmlview/:htmlview?',
+            parameters: [
+                { pathName: 'products', parameterName: 'product' },
+                { pathName: 'htmlview', parameterName: 'htmlview' },
+            ],
+        },
+        {
+            appfunctag: 'Auto26',
+            appfunctype: 'APPVIEW',
+            openmode: 'INDEXVIEWTAB',
+            codename: 'bugmaindashboardview_link',
+            deResParameters: [],
+            routepath: '/ibizpms/:ibizpms?/bugs/:bug?/maindashboardview_link/:maindashboardview_link?',
+            parameters: [
+                { pathName: 'bugs', parameterName: 'bug' },
+                { pathName: 'maindashboardview_link', parameterName: 'maindashboardview_link' },
+            ],
+        },
+        {
+            appfunctag: 'Auto11',
+            appfunctype: 'APPVIEW',
+            openmode: '',
+            codename: 'producttestleftsidebarlistview',
+            deResParameters: [],
+            routepath: '/ibizpms/:ibizpms?/products/:product?/testleftsidebarlistview/:testleftsidebarlistview?',
+            parameters: [
+                { pathName: 'products', parameterName: 'product' },
+                { pathName: 'testleftsidebarlistview', parameterName: 'testleftsidebarlistview' },
+            ],
+        },
+        {
+            appfunctag: 'AppFunc6',
+            appfunctype: 'APPVIEW',
+            openmode: '',
+            codename: 'ibzproconfiggridview',
+            deResParameters: [],
+            routepath: '/ibizpms/:ibizpms?/ibzproconfigs/:ibzproconfig?/gridview/:gridview?',
+            parameters: [
+                { pathName: 'ibzproconfigs', parameterName: 'ibzproconfig' },
+                { pathName: 'gridview', parameterName: 'gridview' },
+            ],
+        },
+        {
+            appfunctag: 'AppFunc',
+            appfunctype: 'APPVIEW',
+            openmode: '',
+            codename: 'ibzmyterritorystatstabexpview',
+            deResParameters: [],
+            routepath: '/ibizpms/:ibizpms?/ibzmyterritories/:ibzmyterritory?/statstabexpview/:statstabexpview?',
+            parameters: [
+                { pathName: 'ibzmyterritories', parameterName: 'ibzmyterritory' },
+                { pathName: 'statstabexpview', parameterName: 'statstabexpview' },
             ],
         },
 	];

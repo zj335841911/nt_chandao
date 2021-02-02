@@ -12,15 +12,15 @@ global cn.ibizlab.pms.util.security.AuthenticationUser curuser;
 
 no-loop
 
-//逻辑处理节点[获取周期任务]
-rule "rawsqlcall2"
-ruleflow-group "projectpmseeprojecttodotaskcountrawsqlcall2"
+//逻辑处理节点[获取临时任务]
+rule "rawsqlcall1"
+ruleflow-group "projectpmseeprojecttodotaskcountrawsqlcall1"
     when
     then
     Map param =new HashMap();
     param.put("param0",projectpmseeprojecttodotaskcountdefault.get("srfcurproject"));
     param.put("param1",curuser.getSessionParams().get("srfloginname"));
-    String strSql="select count(*) as cycle  from zt_task t1 where t1.deleted = '0' and t1.project in (#{et.param0}) and t1.taskspecies = 'cycle' and ( t1.assignedTo = #{et.param1}  )";
+    String strSql="select count(*) as temp  from zt_task t1 where t1.deleted = '0' and t1.project in (#{et.param0}) and taskspecies = 'temp' and ( t1.assignedTo = #{et.param1}  )";
     java.util.List<JSONObject> entities=iBzSysProjectDefaultService.select(strSql,param);//SQL调用
     if(entities.size()>0){
         JSONObject entity=entities.get(0);
@@ -31,22 +31,15 @@ ruleflow-group "projectpmseeprojecttodotaskcountrawsqlcall2"
     update(projectpmseeprojecttodotaskcountdefault);//更新fact中变量值
     end
 
-//逻辑处理节点[开始]
-rule "begin"
-ruleflow-group "projectpmseeprojecttodotaskcountbegin"
-    when
-    then
-    end
-
-//逻辑处理节点[获取临时任务]
-rule "rawsqlcall1"
-ruleflow-group "projectpmseeprojecttodotaskcountrawsqlcall1"
+//逻辑处理节点[获取周期任务]
+rule "rawsqlcall2"
+ruleflow-group "projectpmseeprojecttodotaskcountrawsqlcall2"
     when
     then
     Map param =new HashMap();
     param.put("param0",projectpmseeprojecttodotaskcountdefault.get("srfcurproject"));
     param.put("param1",curuser.getSessionParams().get("srfloginname"));
-    String strSql="select count(*) as temp  from zt_task t1 where t1.deleted = '0' and t1.project in (#{et.param0}) and taskspecies = 'temp' and ( t1.assignedTo = #{et.param1}  )";
+    String strSql="select count(*) as cycle  from zt_task t1 where t1.deleted = '0' and t1.project in (#{et.param0}) and t1.taskspecies = 'cycle' and ( t1.assignedTo = #{et.param1}  )";
     java.util.List<JSONObject> entities=iBzSysProjectDefaultService.select(strSql,param);//SQL调用
     if(entities.size()>0){
         JSONObject entity=entities.get(0);
@@ -74,6 +67,13 @@ ruleflow-group "projectpmseeprojecttodotaskcountrawsqlcall4"
         }
     }
     update(projectpmseeprojecttodotaskcountdefault);//更新fact中变量值
+    end
+
+//逻辑处理节点[开始]
+rule "begin"
+ruleflow-group "projectpmseeprojecttodotaskcountbegin"
+    when
+    then
     end
 
 //逻辑处理节点[获取计划任务]

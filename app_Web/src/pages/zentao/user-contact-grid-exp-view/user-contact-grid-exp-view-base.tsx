@@ -100,7 +100,7 @@ export class UserContactGridExpViewBase extends GridExpViewBase {
      * @type {string}
      * @memberof UserContactGridExpViewBase
      */
-	protected viewtag: string = '4b2fac9ffaccd974c1ba4c24508197af';
+	protected viewtag: string = '4a012e784384c1f4ec3b0150e0885018';
 
     /**
      * 视图名称

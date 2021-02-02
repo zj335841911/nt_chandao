@@ -15,31 +15,25 @@ export default class ModuleExpModel {
   public getDataItems(): any[] {
     return [
       {
+        name: 'type',
+      },
+      {
         name: 'path',
       },
       {
-        name: 'deleted',
-      },
-      {
-        name: 'name',
+        name: 'owner',
       },
       {
         name: 'order',
       },
       {
+        name: 'deleted',
+      },
+      {
         name: 'branch',
       },
       {
-        name: 'ibizshort',
-      },
-      {
-        name: 'grade',
-      },
-      {
-        name: 'type',
-      },
-      {
-        name: 'owner',
+        name: 'collector',
       },
       {
         name: 'testmodule',
@@ -49,19 +43,25 @@ export default class ModuleExpModel {
         name: 'isleaf',
       },
       {
-        name: 'collector',
+        name: 'name',
       },
       {
-        name: 'parent',
+        name: 'ibizshort',
+      },
+      {
+        name: 'grade',
       },
       {
         name: 'parentname',
       },
       {
+        name: 'rootname',
+      },
+      {
         name: 'root',
       },
       {
-        name: 'rootname',
+        name: 'parent',
       },
     ]
   }

@@ -76,11 +76,25 @@ public class CaseSearchContext extends QueryWrapperContext<Case> {
             this.getSearchCond().like("`title`", n_title_like);
         }
     }
+	private String n_assignedto_eq;//[指派给]
+	public void setN_assignedto_eq(String n_assignedto_eq) {
+        this.n_assignedto_eq = n_assignedto_eq;
+        if(!ObjectUtils.isEmpty(this.n_assignedto_eq)){
+            this.getSearchCond().eq("`assignedto`", n_assignedto_eq);
+        }
+    }
 	private Integer n_pri_eq;//[优先级]
 	public void setN_pri_eq(Integer n_pri_eq) {
         this.n_pri_eq = n_pri_eq;
         if(!ObjectUtils.isEmpty(this.n_pri_eq)){
             this.getSearchCond().eq("`pri`", n_pri_eq);
+        }
+    }
+	private String n_status1_eq;//[用例状态]
+	public void setN_status1_eq(String n_status1_eq) {
+        this.n_status1_eq = n_status1_eq;
+        if(!ObjectUtils.isEmpty(this.n_status1_eq)){
+            this.getSearchCond().eq("`status1`", n_status1_eq);
         }
     }
 	private String n_frame_eq;//[工具/框架]
@@ -90,11 +104,74 @@ public class CaseSearchContext extends QueryWrapperContext<Case> {
             this.getSearchCond().eq("`frame`", n_frame_eq);
         }
     }
+	private String n_lastrunresult1_eq;//[测试用例结果]
+	public void setN_lastrunresult1_eq(String n_lastrunresult1_eq) {
+        this.n_lastrunresult1_eq = n_lastrunresult1_eq;
+        if(!ObjectUtils.isEmpty(this.n_lastrunresult1_eq)){
+            this.getSearchCond().eq("`lastrunresult1`", n_lastrunresult1_eq);
+        }
+    }
 	private String n_lastrunner_eq;//[执行人]
 	public void setN_lastrunner_eq(String n_lastrunner_eq) {
         this.n_lastrunner_eq = n_lastrunner_eq;
         if(!ObjectUtils.isEmpty(this.n_lastrunner_eq)){
             this.getSearchCond().eq("`lastrunner`", n_lastrunner_eq);
+        }
+    }
+	private String n_libname_eq;//[用例库]
+	public void setN_libname_eq(String n_libname_eq) {
+        this.n_libname_eq = n_libname_eq;
+        if(!ObjectUtils.isEmpty(this.n_libname_eq)){
+            this.getSearchCond().eq("`libname`", n_libname_eq);
+        }
+    }
+	private String n_libname_like;//[用例库]
+	public void setN_libname_like(String n_libname_like) {
+        this.n_libname_like = n_libname_like;
+        if(!ObjectUtils.isEmpty(this.n_libname_like)){
+            this.getSearchCond().like("`libname`", n_libname_like);
+        }
+    }
+	private String n_storyname_eq;//[需求名称]
+	public void setN_storyname_eq(String n_storyname_eq) {
+        this.n_storyname_eq = n_storyname_eq;
+        if(!ObjectUtils.isEmpty(this.n_storyname_eq)){
+            this.getSearchCond().eq("`storyname`", n_storyname_eq);
+        }
+    }
+	private String n_storyname_like;//[需求名称]
+	public void setN_storyname_like(String n_storyname_like) {
+        this.n_storyname_like = n_storyname_like;
+        if(!ObjectUtils.isEmpty(this.n_storyname_like)){
+            this.getSearchCond().like("`storyname`", n_storyname_like);
+        }
+    }
+	private String n_modulename_eq;//[模块名称]
+	public void setN_modulename_eq(String n_modulename_eq) {
+        this.n_modulename_eq = n_modulename_eq;
+        if(!ObjectUtils.isEmpty(this.n_modulename_eq)){
+            this.getSearchCond().eq("`modulename`", n_modulename_eq);
+        }
+    }
+	private String n_modulename_like;//[模块名称]
+	public void setN_modulename_like(String n_modulename_like) {
+        this.n_modulename_like = n_modulename_like;
+        if(!ObjectUtils.isEmpty(this.n_modulename_like)){
+            this.getSearchCond().like("`modulename`", n_modulename_like);
+        }
+    }
+	private String n_productname_eq;//[产品名称]
+	public void setN_productname_eq(String n_productname_eq) {
+        this.n_productname_eq = n_productname_eq;
+        if(!ObjectUtils.isEmpty(this.n_productname_eq)){
+            this.getSearchCond().eq("`productname`", n_productname_eq);
+        }
+    }
+	private String n_productname_like;//[产品名称]
+	public void setN_productname_like(String n_productname_like) {
+        this.n_productname_like = n_productname_like;
+        if(!ObjectUtils.isEmpty(this.n_productname_like)){
+            this.getSearchCond().like("`productname`", n_productname_like);
         }
     }
 	private Long n_fromcaseid_eq;//[来源用例]
@@ -144,83 +221,6 @@ public class CaseSearchContext extends QueryWrapperContext<Case> {
         this.n_module_eq = n_module_eq;
         if(!ObjectUtils.isEmpty(this.n_module_eq)){
             this.getSearchCond().eq("`module`", n_module_eq);
-        }
-    }
-	private String n_modulename_eq;//[模块名称]
-	public void setN_modulename_eq(String n_modulename_eq) {
-        this.n_modulename_eq = n_modulename_eq;
-        if(!ObjectUtils.isEmpty(this.n_modulename_eq)){
-            this.getSearchCond().eq("`modulename`", n_modulename_eq);
-        }
-    }
-	private String n_modulename_like;//[模块名称]
-	public void setN_modulename_like(String n_modulename_like) {
-        this.n_modulename_like = n_modulename_like;
-        if(!ObjectUtils.isEmpty(this.n_modulename_like)){
-            this.getSearchCond().like("`modulename`", n_modulename_like);
-        }
-    }
-	private String n_storyname_eq;//[需求名称]
-	public void setN_storyname_eq(String n_storyname_eq) {
-        this.n_storyname_eq = n_storyname_eq;
-        if(!ObjectUtils.isEmpty(this.n_storyname_eq)){
-            this.getSearchCond().eq("`storyname`", n_storyname_eq);
-        }
-    }
-	private String n_storyname_like;//[需求名称]
-	public void setN_storyname_like(String n_storyname_like) {
-        this.n_storyname_like = n_storyname_like;
-        if(!ObjectUtils.isEmpty(this.n_storyname_like)){
-            this.getSearchCond().like("`storyname`", n_storyname_like);
-        }
-    }
-	private String n_productname_eq;//[产品名称]
-	public void setN_productname_eq(String n_productname_eq) {
-        this.n_productname_eq = n_productname_eq;
-        if(!ObjectUtils.isEmpty(this.n_productname_eq)){
-            this.getSearchCond().eq("`productname`", n_productname_eq);
-        }
-    }
-	private String n_productname_like;//[产品名称]
-	public void setN_productname_like(String n_productname_like) {
-        this.n_productname_like = n_productname_like;
-        if(!ObjectUtils.isEmpty(this.n_productname_like)){
-            this.getSearchCond().like("`productname`", n_productname_like);
-        }
-    }
-	private String n_status1_eq;//[用例状态]
-	public void setN_status1_eq(String n_status1_eq) {
-        this.n_status1_eq = n_status1_eq;
-        if(!ObjectUtils.isEmpty(this.n_status1_eq)){
-            this.getSearchCond().eq("`status1`", n_status1_eq);
-        }
-    }
-	private String n_assignedto_eq;//[指派给]
-	public void setN_assignedto_eq(String n_assignedto_eq) {
-        this.n_assignedto_eq = n_assignedto_eq;
-        if(!ObjectUtils.isEmpty(this.n_assignedto_eq)){
-            this.getSearchCond().eq("`assignedto`", n_assignedto_eq);
-        }
-    }
-	private String n_libname_eq;//[用例库]
-	public void setN_libname_eq(String n_libname_eq) {
-        this.n_libname_eq = n_libname_eq;
-        if(!ObjectUtils.isEmpty(this.n_libname_eq)){
-            this.getSearchCond().eq("`libname`", n_libname_eq);
-        }
-    }
-	private String n_libname_like;//[用例库]
-	public void setN_libname_like(String n_libname_like) {
-        this.n_libname_like = n_libname_like;
-        if(!ObjectUtils.isEmpty(this.n_libname_like)){
-            this.getSearchCond().like("`libname`", n_libname_like);
-        }
-    }
-	private String n_lastrunresult1_eq;//[测试用例结果]
-	public void setN_lastrunresult1_eq(String n_lastrunresult1_eq) {
-        this.n_lastrunresult1_eq = n_lastrunresult1_eq;
-        if(!ObjectUtils.isEmpty(this.n_lastrunresult1_eq)){
-            this.getSearchCond().eq("`lastrunresult1`", n_lastrunresult1_eq);
         }
     }
 

@@ -3,19 +3,23 @@ import commonLogic from '@/locale/logic/common/common-logic';
 function getLocaleResourceBase(){
 	const data:any = {
 		fields: {
-			ibzplantempletid: commonLogic.appcommonhandle("产品计划模板标识",null),
-			ibzplantempletname: commonLogic.appcommonhandle("模板名称",null),
-			createman: commonLogic.appcommonhandle("建立人",null),
 			createdate: commonLogic.appcommonhandle("建立时间",null),
-			updateman: commonLogic.appcommonhandle("更新人",null),
-			updatedate: commonLogic.appcommonhandle("更新时间",null),
 			plans: commonLogic.appcommonhandle("计划",null),
-			product: commonLogic.appcommonhandle("产品",null),
-			plantempletdetail: commonLogic.appcommonhandle("计划项",null),
 			acl: commonLogic.appcommonhandle("权限",null),
 			createmanname: commonLogic.appcommonhandle("创建人姓名",null),
+			product: commonLogic.appcommonhandle("产品",null),
+			ibzplantempletid: commonLogic.appcommonhandle("产品计划模板标识",null),
+			plantempletdetail: commonLogic.appcommonhandle("计划项",null),
+			updateman: commonLogic.appcommonhandle("更新人",null),
+			ibzplantempletname: commonLogic.appcommonhandle("模板名称",null),
+			updatedate: commonLogic.appcommonhandle("更新时间",null),
+			createman: commonLogic.appcommonhandle("建立人",null),
 		},
 			views: {
+				optionview: {
+					caption: commonLogic.appcommonhandle("计划模板",null),
+					title: commonLogic.appcommonhandle("产品计划模板选项操作视图",null),
+				},
 				editview: {
 					caption: commonLogic.appcommonhandle("计划模板",null),
 					title: commonLogic.appcommonhandle("产品计划模板编辑视图",null),
@@ -23,10 +27,6 @@ function getLocaleResourceBase(){
 				gridview: {
 					caption: commonLogic.appcommonhandle("计划模板",null),
 					title: commonLogic.appcommonhandle("产品计划模板表格视图",null),
-				},
-				optionview: {
-					caption: commonLogic.appcommonhandle("计划模板",null),
-					title: commonLogic.appcommonhandle("产品计划模板选项操作视图",null),
 				},
 			},
 			main_form: {
@@ -71,12 +71,6 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
-			editviewtoolbar_toolbar: {
-				deuiaction1: {
-					caption: commonLogic.appcommonhandle("Save And Close",null),
-					tip: commonLogic.appcommonhandle("Save And Close Window",null),
-				},
-			},
 			gridviewtoolbar_toolbar: {
 				deuiaction1: {
 					caption: commonLogic.appcommonhandle("New",null),
@@ -109,6 +103,12 @@ function getLocaleResourceBase(){
 				deuiaction7: {
 					caption: commonLogic.appcommonhandle("Filter",null),
 					tip: commonLogic.appcommonhandle("Filter",null),
+				},
+			},
+			editviewtoolbar_toolbar: {
+				deuiaction1: {
+					caption: commonLogic.appcommonhandle("Save And Close",null),
+					tip: commonLogic.appcommonhandle("Save And Close Window",null),
 				},
 			},
 		};

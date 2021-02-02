@@ -3,20 +3,20 @@ import commonLogic from '@/locale/logic/common/common-logic';
 function getLocaleResourceBase(){
 	const data:any = {
 		fields: {
-			type: commonLogic.appcommonhandle("类型",null),
-			score: commonLogic.appcommonhandle("总评分",null),
-			commentcount: commonLogic.appcommonhandle("总评论数",null),
-			downloadcount: commonLogic.appcommonhandle("总下载量",null),
-			downloadurl: commonLogic.appcommonhandle("最新版本下载地址",null),
-			tag: commonLogic.appcommonhandle("标签",null),
-			keyword: commonLogic.appcommonhandle("关键字",null),
 			version: commonLogic.appcommonhandle("版本",null),
-			updatedate: commonLogic.appcommonhandle("更新时间",null),
-			ibizpropluginname: commonLogic.appcommonhandle("系统插件名称",null),
-			updateman: commonLogic.appcommonhandle("更新人",null),
-			createdate: commonLogic.appcommonhandle("建立时间",null),
-			ibizpropluginid: commonLogic.appcommonhandle("系统插件标识",null),
+			type: commonLogic.appcommonhandle("类型",null),
 			createman: commonLogic.appcommonhandle("建立人",null),
+			downloadcount: commonLogic.appcommonhandle("总下载量",null),
+			createdate: commonLogic.appcommonhandle("建立时间",null),
+			downloadurl: commonLogic.appcommonhandle("最新版本下载地址",null),
+			updatedate: commonLogic.appcommonhandle("更新时间",null),
+			tag: commonLogic.appcommonhandle("标签",null),
+			score: commonLogic.appcommonhandle("总评分",null),
+			ibizpropluginname: commonLogic.appcommonhandle("系统插件名称",null),
+			ibizpropluginid: commonLogic.appcommonhandle("系统插件标识",null),
+			keyword: commonLogic.appcommonhandle("关键字",null),
+			updateman: commonLogic.appcommonhandle("更新人",null),
+			commentcount: commonLogic.appcommonhandle("总评论数",null),
 		},
 			views: {
 				editview: {

@@ -109,7 +109,7 @@ export class TestReportActionEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof TestReportActionEditViewBase
      */
-	protected viewtag: string = 'ba3ac5351ca273bb889ffcb52ec7217b';
+	protected viewtag: string = 'ea118a30ed33a3579e4e45d879385123';
 
     /**
      * 视图名称

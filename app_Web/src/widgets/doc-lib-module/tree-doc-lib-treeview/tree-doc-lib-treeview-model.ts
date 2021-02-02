@@ -15,62 +15,62 @@ export default class TreeDocLibModel {
   public getDataItems(): any[] {
     return [
       {
-        name: 'isleaf',
-      },
-      {
-        name: 'name',
-      },
-      {
-        name: 'ibizshort',
+        name: 'isfavourites',
       },
       {
         name: 'grade',
       },
       {
-        name: 'collector',
+        name: 'path',
+      },
+      {
+        name: 'order',
+      },
+      {
+        name: 'name',
+      },
+      {
+        name: 'docqtype',
+      },
+      {
+        name: 'owner',
       },
       {
         name: 'branch',
+      },
+      {
+        name: 'isleaf',
+      },
+      {
+        name: 'type',
+      },
+      {
+        name: 'ibizshort',
+      },
+      {
+        name: 'doccnt',
+      },
+      {
+        name: 'collector',
       },
       {
         name: 'doclibmodule',
         prop: 'id',
       },
       {
-        name: 'order',
-      },
-      {
         name: 'deleted',
-      },
-      {
-        name: 'path',
-      },
-      {
-        name: 'owner',
-      },
-      {
-        name: 'type',
-      },
-      {
-        name: 'root',
-      },
-      {
-        name: 'parent',
-      },
-      {
-        name: 'doclibname',
       },
       {
         name: 'modulename',
       },
       {
-        name: 'docqtype',
+        name: 'doclibname',
       },
       {
-        name: 'isfavourites',
+        name: 'parent',
       },
       {
-        name: 'doccnt',
+        name: 'root',
       },
     ]
   }

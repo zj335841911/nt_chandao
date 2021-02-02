@@ -10,33 +10,33 @@ function getLocaleResourceBase(){
 			order: commonLogic.appcommonhandle("排序",null),
 			owner: commonLogic.appcommonhandle("负责人",null),
 			id: commonLogic.appcommonhandle("id",null),
+			orderpk: commonLogic.appcommonhandle("数据选择排序",null),
 			collector: commonLogic.appcommonhandle("收藏者",null),
 			ibizshort: commonLogic.appcommonhandle("简称",null),
 			path: commonLogic.appcommonhandle("路径",null),
+			mdeptid: commonLogic.appcommonhandle("部门标识",null),
+			orgid: commonLogic.appcommonhandle("组织标识",null),
 			deleted: commonLogic.appcommonhandle("已删除",null),
 			parentname: commonLogic.appcommonhandle("上级模块",null),
 			branch: commonLogic.appcommonhandle("平台/分支",null),
 			parent: commonLogic.appcommonhandle("上级模块",null),
-			mdeptid: commonLogic.appcommonhandle("部门标识",null),
-			orgid: commonLogic.appcommonhandle("组织标识",null),
-			orderpk: commonLogic.appcommonhandle("数据选择排序",null),
 		},
 			views: {
+				linegridview: {
+					caption: commonLogic.appcommonhandle("产品线",null),
+					title: commonLogic.appcommonhandle("产品线",null),
+				},
 				editview: {
+					caption: commonLogic.appcommonhandle("模块",null),
+					title: commonLogic.appcommonhandle("模块",null),
+				},
+				gridview: {
 					caption: commonLogic.appcommonhandle("模块",null),
 					title: commonLogic.appcommonhandle("模块",null),
 				},
 				treeexpview: {
 					caption: commonLogic.appcommonhandle("所有产品",null),
 					title: commonLogic.appcommonhandle("所有产品",null),
-				},
-				gridview: {
-					caption: commonLogic.appcommonhandle("模块",null),
-					title: commonLogic.appcommonhandle("模块",null),
-				},
-				linegridview: {
-					caption: commonLogic.appcommonhandle("产品线",null),
-					title: commonLogic.appcommonhandle("产品线",null),
 				},
 				pickupgridview: {
 					caption: commonLogic.appcommonhandle("模块",null),
@@ -133,8 +133,8 @@ function getLocaleResourceBase(){
 			productline_treeview: {
 				nodata:commonLogic.appcommonhandle("",null),
 				nodes: {
-					root: commonLogic.appcommonhandle("默认根节点",null),
 					all: commonLogic.appcommonhandle("所有产品",null),
+					root: commonLogic.appcommonhandle("默认根节点",null),
 				},
 				uiactions: {
 					module_seline: commonLogic.appcommonhandle("维护产品线",null),

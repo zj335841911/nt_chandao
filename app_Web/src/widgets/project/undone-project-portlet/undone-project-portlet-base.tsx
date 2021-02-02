@@ -75,7 +75,7 @@ export class UndoneProjectPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet2_u825ff1b_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet2_ue80481e_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -251,8 +251,8 @@ export class UndoneProjectPortletBase extends MainControlBase {
      * @memberof UndoneProjectBase
      */
     public uiAction(tag:string,event:any){
-        if(Object.is(tag,'u825ff1b')){
-            this.dashboard_sysportlet2_u825ff1b_click(null,tag,event);
+        if(Object.is(tag,'ue80481e')){
+            this.dashboard_sysportlet2_ue80481e_click(null,tag,event);
         }
     }
 

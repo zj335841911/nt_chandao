@@ -30,25 +30,6 @@ public class IBZProProductDTO extends DTOBase implements Serializable {
 	private static final long serialVersionUID = 1L;
 
     /**
-     * 属性 [ID]
-     *
-     */
-    @JSONField(name = "id")
-    @JsonProperty("id")
-    @JsonSerialize(using = ToStringSerializer.class)
-    private Long id;
-
-    /**
-     * 属性 [NAME]
-     *
-     */
-    @JSONField(name = "name")
-    @JsonProperty("name")
-    @NotBlank(message = "[产品名称]不允许为空!")
-    @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
-    private String name;
-
-    /**
      * 属性 [IBIZ_ID]
      *
      */
@@ -66,14 +47,25 @@ public class IBZProProductDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 45, message = "内容长度必须小于等于[45]")
     private String code;
 
+    /**
+     * 属性 [NAME]
+     *
+     */
+    @JSONField(name = "name")
+    @JsonProperty("name")
+    @NotBlank(message = "[产品名称]不允许为空!")
+    @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
+    private String name;
 
     /**
-     * 设置 [NAME]
+     * 属性 [ID]
+     *
      */
-    public void setName(String  name){
-        this.name = name ;
-        this.modify("name",name);
-    }
+    @JSONField(name = "id")
+    @JsonProperty("id")
+    @JsonSerialize(using = ToStringSerializer.class)
+    private Long id;
+
 
     /**
      * 设置 [IBIZ_ID]
@@ -89,6 +81,14 @@ public class IBZProProductDTO extends DTOBase implements Serializable {
     public void setCode(String  code){
         this.code = code ;
         this.modify("code",code);
+    }
+
+    /**
+     * 设置 [NAME]
+     */
+    public void setName(String  name){
+        this.name = name ;
+        this.modify("name",name);
     }
 
 

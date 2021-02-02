@@ -34,55 +34,6 @@ import cn.ibizlab.pms.util.domain.EntityClient;
 public class IBIZProPlugin extends EntityClient implements Serializable {
 
     /**
-     * 类型
-     */
-    @JSONField(name = "type")
-    @JsonProperty("type")
-    private String type;
-
-    /**
-     * 总评分
-     */
-    @JSONField(name = "score")
-    @JsonProperty("score")
-    private Integer score;
-
-    /**
-     * 总评论数
-     */
-    @JSONField(name = "commentcount")
-    @JsonProperty("commentcount")
-    private Integer commentcount;
-
-    /**
-     * 总下载量
-     */
-    @JSONField(name = "downloadcount")
-    @JsonProperty("downloadcount")
-    private Integer downloadcount;
-
-    /**
-     * 最新版本下载地址
-     */
-    @JSONField(name = "downloadurl")
-    @JsonProperty("downloadurl")
-    private String downloadurl;
-
-    /**
-     * 标签
-     */
-    @JSONField(name = "tag")
-    @JsonProperty("tag")
-    private String tag;
-
-    /**
-     * 关键字
-     */
-    @JSONField(name = "keyword")
-    @JsonProperty("keyword")
-    private String keyword;
-
-    /**
      * 版本
      */
     @DEField(defaultValue = "1")
@@ -91,29 +42,26 @@ public class IBIZProPlugin extends EntityClient implements Serializable {
     private Integer version;
 
     /**
-     * 更新时间
+     * 类型
      */
-    @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
-    @JSONField(name = "updatedate" , format = "yyyy-MM-dd HH:mm:ss")
-    @JsonProperty("updatedate")
-    private Timestamp updatedate;
+    @JSONField(name = "type")
+    @JsonProperty("type")
+    private String type;
 
     /**
-     * 系统插件名称
+     * 建立人
      */
-    @DEField(name = "ibizpro_pluginname")
-    @JSONField(name = "ibizpropluginname")
-    @JsonProperty("ibizpropluginname")
-    private String ibizpropluginname;
+    @DEField(preType = DEPredefinedFieldType.CREATEMAN)
+    @JSONField(name = "createman")
+    @JsonProperty("createman")
+    private String createman;
 
     /**
-     * 更新人
+     * 总下载量
      */
-    @DEField(preType = DEPredefinedFieldType.UPDATEMAN)
-    @JSONField(name = "updateman")
-    @JsonProperty("updateman")
-    private String updateman;
+    @JSONField(name = "downloadcount")
+    @JsonProperty("downloadcount")
+    private Integer downloadcount;
 
     /**
      * 建立时间
@@ -125,6 +73,44 @@ public class IBIZProPlugin extends EntityClient implements Serializable {
     private Timestamp createdate;
 
     /**
+     * 最新版本下载地址
+     */
+    @JSONField(name = "downloadurl")
+    @JsonProperty("downloadurl")
+    private String downloadurl;
+
+    /**
+     * 更新时间
+     */
+    @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "updatedate" , format = "yyyy-MM-dd HH:mm:ss")
+    @JsonProperty("updatedate")
+    private Timestamp updatedate;
+
+    /**
+     * 标签
+     */
+    @JSONField(name = "tag")
+    @JsonProperty("tag")
+    private String tag;
+
+    /**
+     * 总评分
+     */
+    @JSONField(name = "score")
+    @JsonProperty("score")
+    private Integer score;
+
+    /**
+     * 系统插件名称
+     */
+    @DEField(name = "ibizpro_pluginname")
+    @JSONField(name = "ibizpropluginname")
+    @JsonProperty("ibizpropluginname")
+    private String ibizpropluginname;
+
+    /**
      * 系统插件标识
      */
     @DEField(name = "ibizpro_pluginid" , isKeyField = true)
@@ -133,16 +119,38 @@ public class IBIZProPlugin extends EntityClient implements Serializable {
     private String ibizpropluginid;
 
     /**
-     * 建立人
+     * 关键字
      */
-    @DEField(preType = DEPredefinedFieldType.CREATEMAN)
-    @JSONField(name = "createman")
-    @JsonProperty("createman")
-    private String createman;
+    @JSONField(name = "keyword")
+    @JsonProperty("keyword")
+    private String keyword;
+
+    /**
+     * 更新人
+     */
+    @DEField(preType = DEPredefinedFieldType.UPDATEMAN)
+    @JSONField(name = "updateman")
+    @JsonProperty("updateman")
+    private String updateman;
+
+    /**
+     * 总评论数
+     */
+    @JSONField(name = "commentcount")
+    @JsonProperty("commentcount")
+    private Integer commentcount;
 
 
 
 
+
+    /**
+     * 设置 [版本]
+     */
+    public void setVersion(Integer version) {
+        this.version = version ;
+        this.modify("version", version);
+    }
 
     /**
      * 设置 [类型]
@@ -169,27 +177,19 @@ public class IBIZProPlugin extends EntityClient implements Serializable {
     }
 
     /**
-     * 设置 [关键字]
-     */
-    public void setKeyword(String keyword) {
-        this.keyword = keyword ;
-        this.modify("keyword", keyword);
-    }
-
-    /**
-     * 设置 [版本]
-     */
-    public void setVersion(Integer version) {
-        this.version = version ;
-        this.modify("version", version);
-    }
-
-    /**
      * 设置 [系统插件名称]
      */
     public void setIbizpropluginname(String ibizpropluginname) {
         this.ibizpropluginname = ibizpropluginname ;
         this.modify("ibizpro_pluginname", ibizpropluginname);
+    }
+
+    /**
+     * 设置 [关键字]
+     */
+    public void setKeyword(String keyword) {
+        this.keyword = keyword ;
+        this.modify("keyword", keyword);
     }
 
     /**

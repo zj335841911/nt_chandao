@@ -27,6 +27,13 @@ import cn.ibizlab.pms.core.zentao.domain.Product;
 @Data
 public class ProductSearchContext extends QueryWrapperContext<Product> {
 
+	private String n_productclass_eq;//[产品分类]
+	public void setN_productclass_eq(String n_productclass_eq) {
+        this.n_productclass_eq = n_productclass_eq;
+        if(!ObjectUtils.isEmpty(this.n_productclass_eq)){
+            this.getSearchCond().eq("`productclass`", n_productclass_eq);
+        }
+    }
 	private String n_acl_eq;//[访问控制]
 	public void setN_acl_eq(String n_acl_eq) {
         this.n_acl_eq = n_acl_eq;
@@ -104,13 +111,6 @@ public class ProductSearchContext extends QueryWrapperContext<Product> {
         this.n_line_eq = n_line_eq;
         if(!ObjectUtils.isEmpty(this.n_line_eq)){
             this.getSearchCond().eq("`line`", n_line_eq);
-        }
-    }
-	private String n_productclass_eq;//[产品分类]
-	public void setN_productclass_eq(String n_productclass_eq) {
-        this.n_productclass_eq = n_productclass_eq;
-        if(!ObjectUtils.isEmpty(this.n_productclass_eq)){
-            this.getSearchCond().eq("`productclass`", n_productclass_eq);
         }
     }
 

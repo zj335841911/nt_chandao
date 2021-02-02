@@ -125,7 +125,7 @@ export class IbzCaseNewEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof IbzCaseNewEditViewBase
      */
-	protected viewtag: string = 'e049cdde7095f179bf786984cb497fe5';
+	protected viewtag: string = '2e7fdbe63e181be017c6eb46dc8a9832';
 
     /**
      * 视图名称

@@ -102,7 +102,7 @@ export class DocBasicEditView9Base extends EditView9Base {
      * @type {string}
      * @memberof DocBasicEditView9Base
      */
-	protected viewtag: string = '08055fc34b36d97c0e0487b4703d363a';
+	protected viewtag: string = '00d6c7c0b8629ec81c0016d542d0f097';
 
     /**
      * 视图名称

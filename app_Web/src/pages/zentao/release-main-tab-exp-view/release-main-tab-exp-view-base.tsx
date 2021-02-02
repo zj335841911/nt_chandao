@@ -100,7 +100,7 @@ export class ReleaseMainTabExpViewBase extends TabExpViewBase {
      * @type {string}
      * @memberof ReleaseMainTabExpViewBase
      */
-	protected viewtag: string = 'ceb630b252aac50781a373e0bef90eb2';
+	protected viewtag: string = '9ffdec79c2fcb400382cc454c396e918';
 
     /**
      * 视图名称

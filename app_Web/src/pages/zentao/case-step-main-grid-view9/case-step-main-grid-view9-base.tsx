@@ -123,7 +123,7 @@ export class CaseStepMainGridView9Base extends GridView9Base {
      * @type {string}
      * @memberof CaseStepMainGridView9Base
      */
-	protected viewtag: string = 'f592519df78de708bd8199a52e5f584d';
+	protected viewtag: string = 'f69bb8c09dbc7ce369c3c3806007b1d1';
 
     /**
      * 视图名称

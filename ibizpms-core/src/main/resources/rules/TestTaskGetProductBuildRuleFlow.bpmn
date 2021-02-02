@@ -10,11 +10,11 @@
             <tns:metaData express="T(cn.ibizlab.pms.util.security.AuthenticationUser).getAuthenticationUser()" name="curuser" type="session"/>
         <tns:global identifier="testtaskgetproductbuilddefault" type="cn.ibizlab.pms.core.zentao.domain.TestTask" />
         </extensionElements>
-     <startEvent id="begin" isInterrupting="true"/>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="testtaskgetproductbuildrawsqlcall1" id="rawsqlcall1" implementation="http://www.jboss.org/drools/rule" name="获取产品"/>
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="testtaskgetproductbuildrawsqlcall2" id="rawsqlcall2" implementation="http://www.jboss.org/drools/rule" name="获取版本"/>
      <endEvent id="rawsqlcall2_end" name="end"/>
      <sequenceFlow id="rawsqlcall2_end_line" sourceRef="rawsqlcall2" targetRef="rawsqlcall2_end"/>
+     <startEvent id="begin" isInterrupting="true"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="testtaskgetproductbuildrawsqlcall1" id="rawsqlcall1" implementation="http://www.jboss.org/drools/rule" name="获取产品"/>
      <sequenceFlow id="gateway-rawsqlcall1_rawsqlcall2" sourceRef="gateway-rawsqlcall1" targetRef="rawsqlcall2">
             <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
             $testtaskgetproductbuilddefault:TestTask();

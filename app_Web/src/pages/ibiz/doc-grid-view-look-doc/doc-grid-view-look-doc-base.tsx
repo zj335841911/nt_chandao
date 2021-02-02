@@ -167,7 +167,7 @@ export class DocGridViewLookDocBase extends GridViewBase {
      * @type {string}
      * @memberof DocGridViewLookDocBase
      */
-	protected viewtag: string = 'a501a42f3adfa826e382e4cbc134a4fc';
+	protected viewtag: string = 'a05f7dc942dc1a26c4d20a8c5da75f21';
 
     /**
      * 视图名称

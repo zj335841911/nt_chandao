@@ -30,6 +30,24 @@ public class IbzWeeklyDTO extends DTOBase implements Serializable {
 	private static final long serialVersionUID = 1L;
 
     /**
+     * 属性 [ISSUBMIT]
+     *
+     */
+    @JSONField(name = "issubmit")
+    @JsonProperty("issubmit")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    private String issubmit;
+
+    /**
+     * 属性 [PLANNEXTWEEK]
+     *
+     */
+    @JSONField(name = "plannextweek")
+    @JsonProperty("plannextweek")
+    @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
+    private String plannextweek;
+
+    /**
      * 属性 [IBZ_WEEKLYNAME]
      *
      */
@@ -37,60 +55,6 @@ public class IbzWeeklyDTO extends DTOBase implements Serializable {
     @JsonProperty("ibzweeklyname")
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
     private String ibzweeklyname;
-
-    /**
-     * 属性 [IBZ_WEEKLYID]
-     *
-     */
-    @JSONField(name = "ibzweeklyid")
-    @JsonProperty("ibzweeklyid")
-    @JsonSerialize(using = ToStringSerializer.class)
-    private Long ibzweeklyid;
-
-    /**
-     * 属性 [CREATEMAN]
-     *
-     */
-    @JSONField(name = "createman")
-    @JsonProperty("createman")
-    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
-    private String createman;
-
-    /**
-     * 属性 [CREATEDATE]
-     *
-     */
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "createdate" , format="yyyy-MM-dd HH:mm:ss")
-    @JsonProperty("createdate")
-    private Timestamp createdate;
-
-    /**
-     * 属性 [UPDATEMAN]
-     *
-     */
-    @JSONField(name = "updateman")
-    @JsonProperty("updateman")
-    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
-    private String updateman;
-
-    /**
-     * 属性 [UPDATEDATE]
-     *
-     */
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "updatedate" , format="yyyy-MM-dd HH:mm:ss")
-    @JsonProperty("updatedate")
-    private Timestamp updatedate;
-
-    /**
-     * 属性 [ACCOUNT]
-     *
-     */
-    @JSONField(name = "account")
-    @JsonProperty("account")
-    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
-    private String account;
 
     /**
      * 属性 [MAILTO]
@@ -102,6 +66,69 @@ public class IbzWeeklyDTO extends DTOBase implements Serializable {
     private String mailto;
 
     /**
+     * 属性 [REPORTTOPK]
+     *
+     */
+    @JSONField(name = "reporttopk")
+    @JsonProperty("reporttopk")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String reporttopk;
+
+    /**
+     * 属性 [NEXTWEEKTASK]
+     *
+     */
+    @JSONField(name = "nextweektask")
+    @JsonProperty("nextweektask")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String nextweektask;
+
+    /**
+     * 属性 [IBZ_WEEKLYID]
+     *
+     */
+    @JSONField(name = "ibzweeklyid")
+    @JsonProperty("ibzweeklyid")
+    @JsonSerialize(using = ToStringSerializer.class)
+    private Long ibzweeklyid;
+
+    /**
+     * 属性 [SUBMITTIME]
+     *
+     */
+    @JsonFormat(pattern="HH:mm:ss", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "submittime" , format="HH:mm:ss")
+    @JsonProperty("submittime")
+    private Timestamp submittime;
+
+    /**
+     * 属性 [MAILTOPK]
+     *
+     */
+    @JSONField(name = "mailtopk")
+    @JsonProperty("mailtopk")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String mailtopk;
+
+    /**
+     * 属性 [CREATEMAN]
+     *
+     */
+    @JSONField(name = "createman")
+    @JsonProperty("createman")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    private String createman;
+
+    /**
+     * 属性 [REPORTSTATUS]
+     *
+     */
+    @JSONField(name = "reportstatus")
+    @JsonProperty("reportstatus")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    private String reportstatus;
+
+    /**
      * 属性 [FILES]
      *
      */
@@ -111,13 +138,13 @@ public class IbzWeeklyDTO extends DTOBase implements Serializable {
     private String files;
 
     /**
-     * 属性 [ISSUBMIT]
+     * 属性 [WORKTHISWEEK]
      *
      */
-    @JSONField(name = "issubmit")
-    @JsonProperty("issubmit")
-    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
-    private String issubmit;
+    @JSONField(name = "workthisweek")
+    @JsonProperty("workthisweek")
+    @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
+    private String workthisweek;
 
     /**
      * 属性 [REPORTTO]
@@ -127,6 +154,33 @@ public class IbzWeeklyDTO extends DTOBase implements Serializable {
     @JsonProperty("reportto")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
     private String reportto;
+
+    /**
+     * 属性 [UPDATEMANNAME]
+     *
+     */
+    @JSONField(name = "updatemanname")
+    @JsonProperty("updatemanname")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    private String updatemanname;
+
+    /**
+     * 属性 [ACCOUNT]
+     *
+     */
+    @JSONField(name = "account")
+    @JsonProperty("account")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    private String account;
+
+    /**
+     * 属性 [THISWEEKTASK]
+     *
+     */
+    @JSONField(name = "thisweektask")
+    @JsonProperty("thisweektask")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String thisweektask;
 
     /**
      * 属性 [COMMENT]
@@ -147,49 +201,13 @@ public class IbzWeeklyDTO extends DTOBase implements Serializable {
     private Timestamp date;
 
     /**
-     * 属性 [WORKTHISWEEK]
+     * 属性 [UPDATEMAN]
      *
      */
-    @JSONField(name = "workthisweek")
-    @JsonProperty("workthisweek")
-    @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
-    private String workthisweek;
-
-    /**
-     * 属性 [PLANNEXTWEEK]
-     *
-     */
-    @JSONField(name = "plannextweek")
-    @JsonProperty("plannextweek")
-    @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
-    private String plannextweek;
-
-    /**
-     * 属性 [THISWEEKTASK]
-     *
-     */
-    @JSONField(name = "thisweektask")
-    @JsonProperty("thisweektask")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String thisweektask;
-
-    /**
-     * 属性 [NEXTWEEKTASK]
-     *
-     */
-    @JSONField(name = "nextweektask")
-    @JsonProperty("nextweektask")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String nextweektask;
-
-    /**
-     * 属性 [UPDATEMANNAME]
-     *
-     */
-    @JSONField(name = "updatemanname")
-    @JsonProperty("updatemanname")
+    @JSONField(name = "updateman")
+    @JsonProperty("updateman")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
-    private String updatemanname;
+    private String updateman;
 
     /**
      * 属性 [CREATEMANNAME]
@@ -201,41 +219,39 @@ public class IbzWeeklyDTO extends DTOBase implements Serializable {
     private String createmanname;
 
     /**
-     * 属性 [REPORTSTATUS]
+     * 属性 [CREATEDATE]
      *
      */
-    @JSONField(name = "reportstatus")
-    @JsonProperty("reportstatus")
-    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
-    private String reportstatus;
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "createdate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonProperty("createdate")
+    private Timestamp createdate;
 
     /**
-     * 属性 [SUBMITTIME]
+     * 属性 [UPDATEDATE]
      *
      */
-    @JsonFormat(pattern="HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "submittime" , format="HH:mm:ss")
-    @JsonProperty("submittime")
-    private Timestamp submittime;
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "updatedate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonProperty("updatedate")
+    private Timestamp updatedate;
+
 
     /**
-     * 属性 [REPORTTOPK]
-     *
+     * 设置 [ISSUBMIT]
      */
-    @JSONField(name = "reporttopk")
-    @JsonProperty("reporttopk")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String reporttopk;
+    public void setIssubmit(String  issubmit){
+        this.issubmit = issubmit ;
+        this.modify("issubmit",issubmit);
+    }
 
     /**
-     * 属性 [MAILTOPK]
-     *
+     * 设置 [PLANNEXTWEEK]
      */
-    @JSONField(name = "mailtopk")
-    @JsonProperty("mailtopk")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String mailtopk;
-
+    public void setPlannextweek(String  plannextweek){
+        this.plannextweek = plannextweek ;
+        this.modify("plannextweek",plannextweek);
+    }
 
     /**
      * 设置 [IBZ_WEEKLYNAME]
@@ -243,14 +259,6 @@ public class IbzWeeklyDTO extends DTOBase implements Serializable {
     public void setIbzweeklyname(String  ibzweeklyname){
         this.ibzweeklyname = ibzweeklyname ;
         this.modify("ibz_weeklyname",ibzweeklyname);
-    }
-
-    /**
-     * 设置 [ACCOUNT]
-     */
-    public void setAccount(String  account){
-        this.account = account ;
-        this.modify("account",account);
     }
 
     /**
@@ -262,11 +270,35 @@ public class IbzWeeklyDTO extends DTOBase implements Serializable {
     }
 
     /**
-     * 设置 [ISSUBMIT]
+     * 设置 [NEXTWEEKTASK]
      */
-    public void setIssubmit(String  issubmit){
-        this.issubmit = issubmit ;
-        this.modify("issubmit",issubmit);
+    public void setNextweektask(String  nextweektask){
+        this.nextweektask = nextweektask ;
+        this.modify("nextweektask",nextweektask);
+    }
+
+    /**
+     * 设置 [SUBMITTIME]
+     */
+    public void setSubmittime(Timestamp  submittime){
+        this.submittime = submittime ;
+        this.modify("submittime",submittime);
+    }
+
+    /**
+     * 设置 [REPORTSTATUS]
+     */
+    public void setReportstatus(String  reportstatus){
+        this.reportstatus = reportstatus ;
+        this.modify("reportstatus",reportstatus);
+    }
+
+    /**
+     * 设置 [WORKTHISWEEK]
+     */
+    public void setWorkthisweek(String  workthisweek){
+        this.workthisweek = workthisweek ;
+        this.modify("workthisweek",workthisweek);
     }
 
     /**
@@ -275,6 +307,22 @@ public class IbzWeeklyDTO extends DTOBase implements Serializable {
     public void setReportto(String  reportto){
         this.reportto = reportto ;
         this.modify("reportto",reportto);
+    }
+
+    /**
+     * 设置 [ACCOUNT]
+     */
+    public void setAccount(String  account){
+        this.account = account ;
+        this.modify("account",account);
+    }
+
+    /**
+     * 设置 [THISWEEKTASK]
+     */
+    public void setThisweektask(String  thisweektask){
+        this.thisweektask = thisweektask ;
+        this.modify("thisweektask",thisweektask);
     }
 
     /**
@@ -291,54 +339,6 @@ public class IbzWeeklyDTO extends DTOBase implements Serializable {
     public void setDate(Timestamp  date){
         this.date = date ;
         this.modify("date",date);
-    }
-
-    /**
-     * 设置 [WORKTHISWEEK]
-     */
-    public void setWorkthisweek(String  workthisweek){
-        this.workthisweek = workthisweek ;
-        this.modify("workthisweek",workthisweek);
-    }
-
-    /**
-     * 设置 [PLANNEXTWEEK]
-     */
-    public void setPlannextweek(String  plannextweek){
-        this.plannextweek = plannextweek ;
-        this.modify("plannextweek",plannextweek);
-    }
-
-    /**
-     * 设置 [THISWEEKTASK]
-     */
-    public void setThisweektask(String  thisweektask){
-        this.thisweektask = thisweektask ;
-        this.modify("thisweektask",thisweektask);
-    }
-
-    /**
-     * 设置 [NEXTWEEKTASK]
-     */
-    public void setNextweektask(String  nextweektask){
-        this.nextweektask = nextweektask ;
-        this.modify("nextweektask",nextweektask);
-    }
-
-    /**
-     * 设置 [REPORTSTATUS]
-     */
-    public void setReportstatus(String  reportstatus){
-        this.reportstatus = reportstatus ;
-        this.modify("reportstatus",reportstatus);
-    }
-
-    /**
-     * 设置 [SUBMITTIME]
-     */
-    public void setSubmittime(Timestamp  submittime){
-        this.submittime = submittime ;
-        this.modify("submittime",submittime);
     }
 
 

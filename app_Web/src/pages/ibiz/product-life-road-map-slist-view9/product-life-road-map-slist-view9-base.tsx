@@ -123,7 +123,7 @@ export class ProductLifeRoadMapSListView9Base extends ListView9Base {
      * @type {string}
      * @memberof ProductLifeRoadMapSListView9Base
      */
-	protected viewtag: string = 'fae08b50e13943a0678a96d852e8808d';
+	protected viewtag: string = 'd1b3f6d9d0ca781020cf5e4665461fbf';
 
     /**
      * 视图名称

@@ -3,76 +3,76 @@ import commonLogic from '@/locale/logic/common/common-logic';
 function getLocaleResourceBase(){
 	const data:any = {
 		fields: {
+			code: commonLogic.appcommonhandle("产品代号",null),
 			id: commonLogic.appcommonhandle("产品编号",null),
+			finishedstorycnt: commonLogic.appcommonhandle("已完成的需求数",null),
+			releasedstorycnt: commonLogic.appcommonhandle("已发布需求数",null),
+			importantbugpercent: commonLogic.appcommonhandle("严重bug比",null),
+			undoneresprojectcnt: commonLogic.appcommonhandle("未完成关联项目数",null),
+			assigntomebugcnt: commonLogic.appcommonhandle("指派给我的Bug数",null),
 			deleted: commonLogic.appcommonhandle("已删除",null),
+			istop: commonLogic.appcommonhandle("是否置顶",null),
+			resprojectcnt: commonLogic.appcommonhandle("关联项目数",null),
+			bugcnt: commonLogic.appcommonhandle("所有Bug数",null),
+			haveconsumed: commonLogic.appcommonhandle("已消耗工时",null),
+			type: commonLogic.appcommonhandle("产品类型",null),
+			waitstorycnt: commonLogic.appcommonhandle("未开始需求数",null),
+			bugstory: commonLogic.appcommonhandle("需求所提bug数",null),
 			storycnt: commonLogic.appcommonhandle("需求总数",null),
+			name: commonLogic.appcommonhandle("产品名称",null),
+			importantbugcnt: commonLogic.appcommonhandle("重要的Bug数",null),
+			yesterdayclosedbugcnt: commonLogic.appcommonhandle("昨天关闭Bug数",null),
+			status: commonLogic.appcommonhandle("状态",null),
+			yesterdayresolvedbugcnt: commonLogic.appcommonhandle("昨天解决Bug数",null),
+			developingstorycnt: commonLogic.appcommonhandle("开发中需求数",null),
+			activestorycnt: commonLogic.appcommonhandle("激活需求数",null),
+			notclosedbugcnt: commonLogic.appcommonhandle("未关闭Bug数",null),
+			normalreleasecnt: commonLogic.appcommonhandle("维护中发布数",null),
+			order1: commonLogic.appcommonhandle("产品排序",null),
+			currproject: commonLogic.appcommonhandle("当前项目",null),
+			testingstorycnt: commonLogic.appcommonhandle("测试中需求数",null),
 			productplancnt: commonLogic.appcommonhandle("计划总数",null),
 			releasecnt: commonLogic.appcommonhandle("发布总数",null),
-			waitstorycnt: commonLogic.appcommonhandle("未开始需求数",null),
-			plannedstorycnt: commonLogic.appcommonhandle("已计划需求数",null),
-			developingstorycnt: commonLogic.appcommonhandle("开发中需求数",null),
-			testingstorycnt: commonLogic.appcommonhandle("测试中需求数",null),
-			releasedstorycnt: commonLogic.appcommonhandle("已发布需求数",null),
-			unendproductplancnt: commonLogic.appcommonhandle("未过期计划数",null),
-			resprojectcnt: commonLogic.appcommonhandle("关联项目数",null),
-			undoneresprojectcnt: commonLogic.appcommonhandle("未完成关联项目数",null),
-			normalreleasecnt: commonLogic.appcommonhandle("维护中发布数",null),
-			activestorycnt: commonLogic.appcommonhandle("激活需求数",null),
-			activebugcnt: commonLogic.appcommonhandle("未解决Bug数",null),
-			name: commonLogic.appcommonhandle("产品名称",null),
-			assigntomebugcnt: commonLogic.appcommonhandle("指派给我的Bug数",null),
-			notclosedbugcnt: commonLogic.appcommonhandle("未关闭Bug数",null),
-			bugcnt: commonLogic.appcommonhandle("所有Bug数",null),
-			unconfirmbugcnt: commonLogic.appcommonhandle("未确认Bug数",null),
-			yesterdayclosedbugcnt: commonLogic.appcommonhandle("昨天关闭Bug数",null),
 			yesterdayconfirmbugcnt: commonLogic.appcommonhandle("昨天确认Bug数",null),
-			yesterdayresolvedbugcnt: commonLogic.appcommonhandle("昨天解决Bug数",null),
 			postponedprojectcnt: commonLogic.appcommonhandle("已延期",null),
-			currproject: commonLogic.appcommonhandle("当前项目",null),
-			status: commonLogic.appcommonhandle("状态",null),
-			code: commonLogic.appcommonhandle("产品代号",null),
-			type: commonLogic.appcommonhandle("产品类型",null),
-			order1: commonLogic.appcommonhandle("产品排序",null),
-			istop: commonLogic.appcommonhandle("是否置顶",null),
-			finishedstorycnt: commonLogic.appcommonhandle("已完成的需求数",null),
+			unendproductplancnt: commonLogic.appcommonhandle("未过期计划数",null),
 			resolvedbugcnt: commonLogic.appcommonhandle("解决Bug数",null),
-			importantbugcnt: commonLogic.appcommonhandle("重要的Bug数",null),
-			bugstory: commonLogic.appcommonhandle("需求所提bug数",null),
-			importantbugpercent: commonLogic.appcommonhandle("严重bug比",null),
-			haveconsumed: commonLogic.appcommonhandle("已消耗工时",null),
+			plannedstorycnt: commonLogic.appcommonhandle("已计划需求数",null),
+			unconfirmbugcnt: commonLogic.appcommonhandle("未确认Bug数",null),
+			activebugcnt: commonLogic.appcommonhandle("未解决Bug数",null),
 		},
 			views: {
-				editview: {
-					caption: commonLogic.appcommonhandle("产品统计",null),
-					title: commonLogic.appcommonhandle("产品统计编辑视图",null),
-				},
 				allgridview: {
 					caption: commonLogic.appcommonhandle("所有产品",null),
 					title: commonLogic.appcommonhandle("所有产品",null),
-				},
-				testeditview9: {
-					caption: commonLogic.appcommonhandle("产品统计",null),
-					title: commonLogic.appcommonhandle("产品统计编辑视图",null),
-				},
-				gridviewproducntinputtable: {
-					caption: commonLogic.appcommonhandle("产品统计",null),
-					title: commonLogic.appcommonhandle("产品统计表格视图",null),
 				},
 				usr2gridviewproductcomplete: {
 					caption: commonLogic.appcommonhandle("产品统计",null),
 					title: commonLogic.appcommonhandle("产品统计表格视图",null),
 				},
-				editview9: {
-					caption: commonLogic.appcommonhandle("产品统计",null),
-					title: commonLogic.appcommonhandle("产品统计编辑视图",null),
-				},
 				gridview9: {
+					caption: commonLogic.appcommonhandle("产品统计",null),
+					title: commonLogic.appcommonhandle("产品统计表格视图",null),
+				},
+				gridviewproducntinputtable: {
 					caption: commonLogic.appcommonhandle("产品统计",null),
 					title: commonLogic.appcommonhandle("产品统计表格视图",null),
 				},
 				gridview: {
 					caption: commonLogic.appcommonhandle("产品统计",null),
 					title: commonLogic.appcommonhandle("产品统计表格视图",null),
+				},
+				editview: {
+					caption: commonLogic.appcommonhandle("产品统计",null),
+					title: commonLogic.appcommonhandle("产品统计编辑视图",null),
+				},
+				editview9: {
+					caption: commonLogic.appcommonhandle("产品统计",null),
+					title: commonLogic.appcommonhandle("产品统计编辑视图",null),
+				},
+				testeditview9: {
+					caption: commonLogic.appcommonhandle("产品统计",null),
+					title: commonLogic.appcommonhandle("产品统计编辑视图",null),
 				},
 			},
 			main_form: {
@@ -205,32 +205,6 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
-			allproduct_grid: {
-				columns: {
-					name: commonLogic.appcommonhandle("产品名称",null),
-					currproject: commonLogic.appcommonhandle("当前项目",null),
-					productplancnt: commonLogic.appcommonhandle("计划数",null),
-					releasecnt: commonLogic.appcommonhandle("发布数",null),
-					activestorycnt: commonLogic.appcommonhandle("激活需求",null),
-					activebugcnt: commonLogic.appcommonhandle("未解决Bug",null),
-				},
-				nodata:commonLogic.appcommonhandle("",null),
-				uiactions: {
-				},
-			},
-			openitems_grid: {
-				columns: {
-					name: commonLogic.appcommonhandle("产品名称",null),
-					currproject: commonLogic.appcommonhandle("当前项目",null),
-					productplancnt: commonLogic.appcommonhandle("计划数",null),
-					releasecnt: commonLogic.appcommonhandle("发布数",null),
-					activestorycnt: commonLogic.appcommonhandle("激活需求",null),
-					activebugcnt: commonLogic.appcommonhandle("未解决Bug",null),
-				},
-				nodata:commonLogic.appcommonhandle("",null),
-				uiactions: {
-				},
-			},
 			productinputtable_grid: {
 				columns: {
 					name: commonLogic.appcommonhandle("产品名称",null),
@@ -267,6 +241,38 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
+			allproduct_grid: {
+				columns: {
+					name: commonLogic.appcommonhandle("产品名称",null),
+					currproject: commonLogic.appcommonhandle("当前项目",null),
+					productplancnt: commonLogic.appcommonhandle("计划数",null),
+					releasecnt: commonLogic.appcommonhandle("发布数",null),
+					activestorycnt: commonLogic.appcommonhandle("激活需求",null),
+					activebugcnt: commonLogic.appcommonhandle("未解决Bug",null),
+				},
+				nodata:commonLogic.appcommonhandle("",null),
+				uiactions: {
+				},
+			},
+			openitems_grid: {
+				columns: {
+					name: commonLogic.appcommonhandle("产品名称",null),
+					currproject: commonLogic.appcommonhandle("当前项目",null),
+					productplancnt: commonLogic.appcommonhandle("计划数",null),
+					releasecnt: commonLogic.appcommonhandle("发布数",null),
+					activestorycnt: commonLogic.appcommonhandle("激活需求",null),
+					activebugcnt: commonLogic.appcommonhandle("未解决Bug",null),
+				},
+				nodata:commonLogic.appcommonhandle("",null),
+				uiactions: {
+				},
+			},
+			gridviewproducntinputtabletoolbar_toolbar: {
+				deuiaction1: {
+					caption: commonLogic.appcommonhandle("Export",null),
+					tip: commonLogic.appcommonhandle("Export {0} Data To Excel",null),
+				},
+			},
 			editviewtoolbar_toolbar: {
 				tbitem3: {
 					caption: commonLogic.appcommonhandle("Save",null),
@@ -285,6 +291,14 @@ function getLocaleResourceBase(){
 					tip: commonLogic.appcommonhandle("Remove And Close Window",null),
 				},
 			},
+			gridviewtoolbar_toolbar: {
+				deuiaction1: {
+					caption: commonLogic.appcommonhandle("Export",null),
+					tip: commonLogic.appcommonhandle("Export {0} Data To Excel",null),
+				},
+			},
+			usr2gridviewproductcompletetoolbar_toolbar: {
+			},
 			allgridviewtoolbar_toolbar: {
 				deuiaction3_addproduct: {
 					caption: commonLogic.appcommonhandle("添加产品",null),
@@ -302,20 +316,6 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("Filter",null),
 					tip: commonLogic.appcommonhandle("Filter",null),
 				},
-			},
-			gridviewproducntinputtabletoolbar_toolbar: {
-				deuiaction1: {
-					caption: commonLogic.appcommonhandle("Export",null),
-					tip: commonLogic.appcommonhandle("Export {0} Data To Excel",null),
-				},
-			},
-			gridviewtoolbar_toolbar: {
-				deuiaction1: {
-					caption: commonLogic.appcommonhandle("Export",null),
-					tip: commonLogic.appcommonhandle("Export {0} Data To Excel",null),
-				},
-			},
-			usr2gridviewproductcompletetoolbar_toolbar: {
 			},
 		};
 		return data;

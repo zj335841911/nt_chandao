@@ -173,15 +173,6 @@ public class SysDepartmentDTO extends DTOBase implements Serializable {
     private Integer enable;
 
     /**
-     * 属性 [CREATEMAN]
-     *
-     */
-    @JSONField(name = "createman")
-    @JsonProperty("createman")
-    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
-    private String createman;
-
-    /**
      * 属性 [UPDATEMAN]
      *
      */
@@ -198,6 +189,15 @@ public class SysDepartmentDTO extends DTOBase implements Serializable {
     @JSONField(name = "updatedate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("updatedate")
     private Timestamp updatedate;
+
+    /**
+     * 属性 [CREATEMAN]
+     *
+     */
+    @JSONField(name = "createman")
+    @JsonProperty("createman")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    private String createman;
 
 
     /**

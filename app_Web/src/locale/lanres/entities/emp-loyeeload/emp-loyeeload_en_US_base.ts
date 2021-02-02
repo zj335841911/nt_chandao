@@ -3,21 +3,21 @@ import commonLogic from '@/locale/logic/common/common-logic';
 function getLocaleResourceBase(){
 	const data:any = {
 		fields: {
-			id: commonLogic.appcommonhandle("主键",null),
 			name: commonLogic.appcommonhandle("任务名",null),
 			taskcnt: commonLogic.appcommonhandle("任务数",null),
-			project: commonLogic.appcommonhandle("项目编号",null),
-			projectname: commonLogic.appcommonhandle("项目",null),
-			totaltaskcnt: commonLogic.appcommonhandle("总任务数",null),
-			totalleft: commonLogic.appcommonhandle("总工时",null),
-			left: commonLogic.appcommonhandle("剩余工时",null),
-			workload: commonLogic.appcommonhandle("工作负载",null),
-			assignedto: commonLogic.appcommonhandle("指派给",null),
 			dept: commonLogic.appcommonhandle("部门",null),
-			begin: commonLogic.appcommonhandle("属性",null),
-			end: commonLogic.appcommonhandle("结束",null),
+			id: commonLogic.appcommonhandle("主键",null),
 			workday: commonLogic.appcommonhandle("工作日天数",null),
+			totaltaskcnt: commonLogic.appcommonhandle("总任务数",null),
+			assignedto: commonLogic.appcommonhandle("指派给",null),
+			left: commonLogic.appcommonhandle("剩余工时",null),
 			assign: commonLogic.appcommonhandle("是否指派",null),
+			begin: commonLogic.appcommonhandle("属性",null),
+			totalleft: commonLogic.appcommonhandle("总工时",null),
+			workload: commonLogic.appcommonhandle("工作负载",null),
+			end: commonLogic.appcommonhandle("结束",null),
+			projectname: commonLogic.appcommonhandle("项目",null),
+			project: commonLogic.appcommonhandle("项目编号",null),
 		},
 			views: {
 				editview: {

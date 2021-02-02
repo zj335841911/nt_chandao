@@ -143,7 +143,7 @@ export class TestTaskMyDGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof TestTaskMyDGridViewBase
      */
-	protected viewtag: string = '30c07c840301a6ba07383d123bf9bba1';
+	protected viewtag: string = 'b63655c51b126d38d1f021c528f664ad';
 
     /**
      * 视图名称

@@ -44,13 +44,12 @@ public class IbzproProductUserTask extends EntityMP implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
-     * 编号
+     * 任务类型
      */
-    @DEField(isKeyField = true)
-    @TableId(value = "id", type = IdType.AUTO)
-    @JSONField(name = "id")
-    @JsonProperty("id")
-    private Long id;
+    @TableField(exist = false)
+    @JSONField(name = "tasktype")
+    @JsonProperty("tasktype")
+    private String tasktype;
     /**
      * 用户
      */
@@ -60,14 +59,6 @@ public class IbzproProductUserTask extends EntityMP implements Serializable {
     @JsonProperty("account")
     private String account;
     /**
-     * 日期
-     */
-    @TableField(value = "`date`")
-    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
-    @JSONField(name = "date", format = "yyyy-MM-dd")
-    @JsonProperty("date")
-    private Timestamp date;
-    /**
      * 总计消耗
      */
     @DEField(defaultValue = "0")
@@ -76,20 +67,13 @@ public class IbzproProductUserTask extends EntityMP implements Serializable {
     @JsonProperty("consumed")
     private Double consumed;
     /**
-     * 预计剩余
+     * 编号
      */
-    @DEField(defaultValue = "0")
-    @TableField(value = "`left`")
-    @JSONField(name = "left")
-    @JsonProperty("left")
-    private Double left;
-    /**
-     * 任务
-     */
-    @TableField(value = "`task`")
-    @JSONField(name = "task")
-    @JsonProperty("task")
-    private Long task;
+    @DEField(isKeyField = true)
+    @TableId(value = "id", type = IdType.AUTO)
+    @JSONField(name = "id")
+    @JsonProperty("id")
+    private Long id;
     /**
      * 任务名称
      */
@@ -98,26 +82,12 @@ public class IbzproProductUserTask extends EntityMP implements Serializable {
     @JsonProperty("taskname")
     private String taskname;
     /**
-     * 任务类型
-     */
-    @TableField(exist = false)
-    @JSONField(name = "tasktype")
-    @JsonProperty("tasktype")
-    private String tasktype;
-    /**
      * 进度
      */
     @TableField(exist = false)
     @JSONField(name = "progressrate")
     @JsonProperty("progressrate")
     private String progressrate;
-    /**
-     * 延期天数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "delaydays")
-    @JsonProperty("delaydays")
-    private String delaydays;
     /**
      * 预计开始
      */
@@ -126,6 +96,36 @@ public class IbzproProductUserTask extends EntityMP implements Serializable {
     @JSONField(name = "eststarted", format = "yyyy-MM-dd")
     @JsonProperty("eststarted")
     private Timestamp eststarted;
+    /**
+     * 日期
+     */
+    @TableField(value = "`date`")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "date", format = "yyyy-MM-dd")
+    @JsonProperty("date")
+    private Timestamp date;
+    /**
+     * 延期天数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "delaydays")
+    @JsonProperty("delaydays")
+    private String delaydays;
+    /**
+     * 任务
+     */
+    @TableField(value = "`task`")
+    @JSONField(name = "task")
+    @JsonProperty("task")
+    private Long task;
+    /**
+     * 预计剩余
+     */
+    @DEField(defaultValue = "0")
+    @TableField(value = "`left`")
+    @JSONField(name = "left")
+    @JsonProperty("left")
+    private Double left;
     /**
      * 截止日期
      */
@@ -143,6 +143,14 @@ public class IbzproProductUserTask extends EntityMP implements Serializable {
     public void setAccount(String account) {
         this.account = account;
         this.modify("account", account);
+    }
+
+    /**
+     * 设置 [总计消耗]
+     */
+    public void setConsumed(Double consumed) {
+        this.consumed = consumed;
+        this.modify("consumed", consumed);
     }
 
     /**
@@ -164,11 +172,11 @@ public class IbzproProductUserTask extends EntityMP implements Serializable {
         return sdf.format(date);
     }
     /**
-     * 设置 [总计消耗]
+     * 设置 [任务]
      */
-    public void setConsumed(Double consumed) {
-        this.consumed = consumed;
-        this.modify("consumed", consumed);
+    public void setTask(Long task) {
+        this.task = task;
+        this.modify("task", task);
     }
 
     /**
@@ -177,14 +185,6 @@ public class IbzproProductUserTask extends EntityMP implements Serializable {
     public void setLeft(Double left) {
         this.left = left;
         this.modify("left", left);
-    }
-
-    /**
-     * 设置 [任务]
-     */
-    public void setTask(Long task) {
-        this.task = task;
-        this.modify("task", task);
     }
 
 

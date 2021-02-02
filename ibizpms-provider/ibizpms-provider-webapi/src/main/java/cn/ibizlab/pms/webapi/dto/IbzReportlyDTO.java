@@ -30,22 +30,22 @@ public class IbzReportlyDTO extends DTOBase implements Serializable {
 	private static final long serialVersionUID = 1L;
 
     /**
-     * 属性 [IBZ_REPORTLYID]
+     * 属性 [FILES]
      *
      */
-    @JSONField(name = "ibzreportlyid")
-    @JsonProperty("ibzreportlyid")
-    @JsonSerialize(using = ToStringSerializer.class)
-    private Long ibzreportlyid;
+    @JSONField(name = "files")
+    @JsonProperty("files")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String files;
 
     /**
-     * 属性 [IBZ_REPORTLYNAME]
+     * 属性 [ACCOUNT]
      *
      */
-    @JSONField(name = "ibzreportlyname")
-    @JsonProperty("ibzreportlyname")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String ibzreportlyname;
+    @JSONField(name = "account")
+    @JsonProperty("account")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    private String account;
 
     /**
      * 属性 [UPDATEMAN]
@@ -66,6 +66,69 @@ public class IbzReportlyDTO extends DTOBase implements Serializable {
     private Timestamp createdate;
 
     /**
+     * 属性 [MAILTO]
+     *
+     */
+    @JSONField(name = "mailto")
+    @JsonProperty("mailto")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String mailto;
+
+    /**
+     * 属性 [IBZ_REPORTLYID]
+     *
+     */
+    @JSONField(name = "ibzreportlyid")
+    @JsonProperty("ibzreportlyid")
+    @JsonSerialize(using = ToStringSerializer.class)
+    private Long ibzreportlyid;
+
+    /**
+     * 属性 [IBZ_REPORTLYNAME]
+     *
+     */
+    @JSONField(name = "ibzreportlyname")
+    @JsonProperty("ibzreportlyname")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String ibzreportlyname;
+
+    /**
+     * 属性 [REPORTSTATUS]
+     *
+     */
+    @JSONField(name = "reportstatus")
+    @JsonProperty("reportstatus")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String reportstatus;
+
+    /**
+     * 属性 [SUBMITTIME]
+     *
+     */
+    @JsonFormat(pattern="HH:mm:ss", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "submittime" , format="HH:mm:ss")
+    @JsonProperty("submittime")
+    private Timestamp submittime;
+
+    /**
+     * 属性 [REPORTTOPK]
+     *
+     */
+    @JSONField(name = "reporttopk")
+    @JsonProperty("reporttopk")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String reporttopk;
+
+    /**
+     * 属性 [REPORTTO]
+     *
+     */
+    @JSONField(name = "reportto")
+    @JsonProperty("reportto")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String reportto;
+
+    /**
      * 属性 [CREATEMAN]
      *
      */
@@ -73,6 +136,15 @@ public class IbzReportlyDTO extends DTOBase implements Serializable {
     @JsonProperty("createman")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
     private String createman;
+
+    /**
+     * 属性 [ISSUBMIT]
+     *
+     */
+    @JSONField(name = "issubmit")
+    @JsonProperty("issubmit")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String issubmit;
 
     /**
      * 属性 [UPDATEDATE]
@@ -93,33 +165,6 @@ public class IbzReportlyDTO extends DTOBase implements Serializable {
     private String content;
 
     /**
-     * 属性 [FILES]
-     *
-     */
-    @JSONField(name = "files")
-    @JsonProperty("files")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String files;
-
-    /**
-     * 属性 [REPORTTO]
-     *
-     */
-    @JSONField(name = "reportto")
-    @JsonProperty("reportto")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String reportto;
-
-    /**
-     * 属性 [MAILTO]
-     *
-     */
-    @JSONField(name = "mailto")
-    @JsonProperty("mailto")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String mailto;
-
-    /**
      * 属性 [DATE]
      *
      */
@@ -127,51 +172,6 @@ public class IbzReportlyDTO extends DTOBase implements Serializable {
     @JSONField(name = "date" , format="yyyy-MM-dd")
     @JsonProperty("date")
     private Timestamp date;
-
-    /**
-     * 属性 [ISSUBMIT]
-     *
-     */
-    @JSONField(name = "issubmit")
-    @JsonProperty("issubmit")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String issubmit;
-
-    /**
-     * 属性 [SUBMITTIME]
-     *
-     */
-    @JsonFormat(pattern="HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "submittime" , format="HH:mm:ss")
-    @JsonProperty("submittime")
-    private Timestamp submittime;
-
-    /**
-     * 属性 [ACCOUNT]
-     *
-     */
-    @JSONField(name = "account")
-    @JsonProperty("account")
-    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
-    private String account;
-
-    /**
-     * 属性 [REPORTSTATUS]
-     *
-     */
-    @JSONField(name = "reportstatus")
-    @JsonProperty("reportstatus")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String reportstatus;
-
-    /**
-     * 属性 [REPORTTOPK]
-     *
-     */
-    @JSONField(name = "reporttopk")
-    @JsonProperty("reporttopk")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String reporttopk;
 
     /**
      * 属性 [MAILTOPK]
@@ -184,27 +184,11 @@ public class IbzReportlyDTO extends DTOBase implements Serializable {
 
 
     /**
-     * 设置 [IBZ_REPORTLYNAME]
+     * 设置 [ACCOUNT]
      */
-    public void setIbzreportlyname(String  ibzreportlyname){
-        this.ibzreportlyname = ibzreportlyname ;
-        this.modify("ibz_reportlyname",ibzreportlyname);
-    }
-
-    /**
-     * 设置 [CONTENT]
-     */
-    public void setContent(String  content){
-        this.content = content ;
-        this.modify("content",content);
-    }
-
-    /**
-     * 设置 [REPORTTO]
-     */
-    public void setReportto(String  reportto){
-        this.reportto = reportto ;
-        this.modify("reportto",reportto);
+    public void setAccount(String  account){
+        this.account = account ;
+        this.modify("account",account);
     }
 
     /**
@@ -216,19 +200,19 @@ public class IbzReportlyDTO extends DTOBase implements Serializable {
     }
 
     /**
-     * 设置 [DATE]
+     * 设置 [IBZ_REPORTLYNAME]
      */
-    public void setDate(Timestamp  date){
-        this.date = date ;
-        this.modify("date",date);
+    public void setIbzreportlyname(String  ibzreportlyname){
+        this.ibzreportlyname = ibzreportlyname ;
+        this.modify("ibz_reportlyname",ibzreportlyname);
     }
 
     /**
-     * 设置 [ISSUBMIT]
+     * 设置 [REPORTSTATUS]
      */
-    public void setIssubmit(String  issubmit){
-        this.issubmit = issubmit ;
-        this.modify("issubmit",issubmit);
+    public void setReportstatus(String  reportstatus){
+        this.reportstatus = reportstatus ;
+        this.modify("reportstatus",reportstatus);
     }
 
     /**
@@ -240,19 +224,35 @@ public class IbzReportlyDTO extends DTOBase implements Serializable {
     }
 
     /**
-     * 设置 [ACCOUNT]
+     * 设置 [REPORTTO]
      */
-    public void setAccount(String  account){
-        this.account = account ;
-        this.modify("account",account);
+    public void setReportto(String  reportto){
+        this.reportto = reportto ;
+        this.modify("reportto",reportto);
     }
 
     /**
-     * 设置 [REPORTSTATUS]
+     * 设置 [ISSUBMIT]
      */
-    public void setReportstatus(String  reportstatus){
-        this.reportstatus = reportstatus ;
-        this.modify("reportstatus",reportstatus);
+    public void setIssubmit(String  issubmit){
+        this.issubmit = issubmit ;
+        this.modify("issubmit",issubmit);
+    }
+
+    /**
+     * 设置 [CONTENT]
+     */
+    public void setContent(String  content){
+        this.content = content ;
+        this.modify("content",content);
+    }
+
+    /**
+     * 设置 [DATE]
+     */
+    public void setDate(Timestamp  date){
+        this.date = date ;
+        this.modify("date",date);
     }
 
 

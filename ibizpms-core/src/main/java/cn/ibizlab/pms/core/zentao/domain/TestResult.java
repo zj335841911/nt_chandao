@@ -75,6 +75,13 @@ public class TestResult extends EntityMP implements Serializable {
     @JsonProperty("xml")
     private String xml;
     /**
+     * 属性
+     */
+    @TableField(exist = false)
+    @JSONField(name = "task")
+    @JsonProperty("task")
+    private String task;
+    /**
      * 持续时间
      */
     @DEField(defaultValue = "0")
@@ -105,6 +112,48 @@ public class TestResult extends EntityMP implements Serializable {
     @JSONField(name = "version")
     @JsonProperty("version")
     private Integer version;
+    /**
+     * 相关需求
+     */
+    @TableField(exist = false)
+    @JSONField(name = "story")
+    @JsonProperty("story")
+    private Long story;
+    /**
+     * 用例名称
+     */
+    @TableField(exist = false)
+    @JSONField(name = "title")
+    @JsonProperty("title")
+    private String title;
+    /**
+     * 所属模块
+     */
+    @TableField(exist = false)
+    @JSONField(name = "modulename")
+    @JsonProperty("modulename")
+    private String modulename;
+    /**
+     * 所属模块
+     */
+    @TableField(exist = false)
+    @JSONField(name = "module")
+    @JsonProperty("module")
+    private Long module;
+    /**
+     * 前置条件
+     */
+    @TableField(exist = false)
+    @JSONField(name = "precondition")
+    @JsonProperty("precondition")
+    private String precondition;
+    /**
+     * 所属产品
+     */
+    @TableField(exist = false)
+    @JSONField(name = "product")
+    @JsonProperty("product")
+    private Long product;
     /**
      * 构建任务
      */
@@ -137,55 +186,6 @@ public class TestResult extends EntityMP implements Serializable {
     @JSONField(name = "compile")
     @JsonProperty("compile")
     private Long compile;
-    /**
-     * 属性
-     */
-    @TableField(exist = false)
-    @JSONField(name = "task")
-    @JsonProperty("task")
-    private String task;
-    /**
-     * 用例名称
-     */
-    @TableField(exist = false)
-    @JSONField(name = "title")
-    @JsonProperty("title")
-    private String title;
-    /**
-     * 相关需求
-     */
-    @TableField(exist = false)
-    @JSONField(name = "story")
-    @JsonProperty("story")
-    private Long story;
-    /**
-     * 所属模块
-     */
-    @TableField(exist = false)
-    @JSONField(name = "module")
-    @JsonProperty("module")
-    private Long module;
-    /**
-     * 所属产品
-     */
-    @TableField(exist = false)
-    @JSONField(name = "product")
-    @JsonProperty("product")
-    private Long product;
-    /**
-     * 前置条件
-     */
-    @TableField(exist = false)
-    @JSONField(name = "precondition")
-    @JsonProperty("precondition")
-    private String precondition;
-    /**
-     * 所属模块
-     */
-    @TableField(exist = false)
-    @JSONField(name = "modulename")
-    @JsonProperty("modulename")
-    private String modulename;
 
     /**
      * 

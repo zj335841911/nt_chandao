@@ -75,7 +75,7 @@ export class TestDashboardQuickActionPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet4_uf5ce99d_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet4_u4bdfefd_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -102,7 +102,7 @@ export class TestDashboardQuickActionPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet4_u3c66854_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet4_u26afeb4_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -130,7 +130,7 @@ export class TestDashboardQuickActionPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet4_u20add63_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet4_uaee554d_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -158,7 +158,7 @@ export class TestDashboardQuickActionPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet4_u75d5960_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet4_u2cd191b_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -186,7 +186,7 @@ export class TestDashboardQuickActionPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet4_u4bcdc26_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet4_ub5e46cc_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -290,7 +290,7 @@ export class TestDashboardQuickActionPortletBase extends MainControlBase {
      * @memberof TestDashboardQuickActionBase
      */
     public actionBarModelData:any[] =[
-        { viewlogicname:"dashboard_sysportlet4_uf5ce99d_click",
+        { viewlogicname:"dashboard_sysportlet4_u4bdfefd_click",
         text: "返回",
         iconcls: "fa fa-sign-out",
         icon: "",
@@ -299,7 +299,7 @@ export class TestDashboardQuickActionPortletBase extends MainControlBase {
         visible:true,
         disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet4_u3c66854_click",
+        { viewlogicname:"dashboard_sysportlet4_u26afeb4_click",
         text: "执行",
         iconcls: "fa fa-play-circle-o",
         icon: "",
@@ -309,7 +309,7 @@ export class TestDashboardQuickActionPortletBase extends MainControlBase {
         visible:true,
         disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet4_u20add63_click",
+        { viewlogicname:"dashboard_sysportlet4_uaee554d_click",
         text: "结果",
         iconcls: "fa fa-stack-overflow",
         icon: "",
@@ -319,7 +319,7 @@ export class TestDashboardQuickActionPortletBase extends MainControlBase {
         visible:true,
         disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet4_u75d5960_click",
+        { viewlogicname:"dashboard_sysportlet4_u2cd191b_click",
         text: "编辑",
         iconcls: null,
         icon: null,
@@ -329,7 +329,7 @@ export class TestDashboardQuickActionPortletBase extends MainControlBase {
         visible:true,
         disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet4_u4bcdc26_click",
+        { viewlogicname:"dashboard_sysportlet4_ub5e46cc_click",
         text: "删除",
         iconcls: "fa fa-remove",
         icon: "",
@@ -347,20 +347,20 @@ export class TestDashboardQuickActionPortletBase extends MainControlBase {
      * @memberof TestDashboardQuickActionBase
      */
     public handleItemClick($event:any){
-        if(Object.is($event,'dashboard_sysportlet4_uf5ce99d_click')){
-            this.dashboard_sysportlet4_uf5ce99d_click(null);
+        if(Object.is($event,'dashboard_sysportlet4_u4bdfefd_click')){
+            this.dashboard_sysportlet4_u4bdfefd_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet4_u3c66854_click')){
-            this.dashboard_sysportlet4_u3c66854_click(null);
+        if(Object.is($event,'dashboard_sysportlet4_u26afeb4_click')){
+            this.dashboard_sysportlet4_u26afeb4_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet4_u20add63_click')){
-            this.dashboard_sysportlet4_u20add63_click(null);
+        if(Object.is($event,'dashboard_sysportlet4_uaee554d_click')){
+            this.dashboard_sysportlet4_uaee554d_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet4_u75d5960_click')){
-            this.dashboard_sysportlet4_u75d5960_click(null);
+        if(Object.is($event,'dashboard_sysportlet4_u2cd191b_click')){
+            this.dashboard_sysportlet4_u2cd191b_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet4_u4bcdc26_click')){
-            this.dashboard_sysportlet4_u4bcdc26_click(null);
+        if(Object.is($event,'dashboard_sysportlet4_ub5e46cc_click')){
+            this.dashboard_sysportlet4_ub5e46cc_click(null);
         }
     }
 

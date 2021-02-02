@@ -44,6 +44,13 @@ public class Burn extends EntityMP implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
+     * 周末
+     */
+    @TableField(exist = false)
+    @JSONField(name = "isweekend")
+    @JsonProperty("isweekend")
+    private String isweekend;
+    /**
      * 日期
      */
     @TableField(value = "`date`")
@@ -94,13 +101,6 @@ public class Burn extends EntityMP implements Serializable {
     @JSONField(name = "task")
     @JsonProperty("task")
     private Long task;
-    /**
-     * 周末
-     */
-    @TableField(exist = false)
-    @JSONField(name = "isweekend")
-    @JsonProperty("isweekend")
-    private String isweekend;
 
     /**
      * 

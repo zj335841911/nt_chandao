@@ -9,56 +9,56 @@
 
 | 属性名称        |    中文名称    | 类型     |  备注  |
 | --------   |------------| -----   |  -------- | 
-|周报名称|IBZ_WEEKLYNAME|TEXT|&nbsp;|
-|周报标识|IBZ_WEEKLYID|ACID|&nbsp;|
-|建立人|CREATEMAN|TEXT|&nbsp;|
-|建立时间|CREATEDATE|DATETIME|&nbsp;|
-|更新人|UPDATEMAN|TEXT|&nbsp;|
-|更新时间|UPDATEDATE|DATETIME|&nbsp;|
-|用户|ACCOUNT|SSCODELIST|&nbsp;|
-|抄送给|MAILTO|SMCODELIST|&nbsp;|
-|附件|FILES|TEXT|&nbsp;|
 |是否提交|ISSUBMIT|SSCODELIST|&nbsp;|
+|下周计划|PLANNEXTWEEK|HTMLTEXT|&nbsp;|
+|周报名称|IBZ_WEEKLYNAME|TEXT|&nbsp;|
+|抄送给|MAILTO|SMCODELIST|&nbsp;|
+|汇报给(选择)|REPORTTOPK|TEXT|&nbsp;|
+|下周计划任务|NEXTWEEKTASK|SMCODELIST|&nbsp;|
+|周报标识|IBZ_WEEKLYID|ACID|&nbsp;|
+|提交时间|SUBMITTIME|TIME|&nbsp;|
+|抄送给(选择)|MAILTOPK|TEXT|&nbsp;|
+|建立人|CREATEMAN|TEXT|&nbsp;|
+|状态|REPORTSTATUS|SSCODELIST|&nbsp;|
+|附件|FILES|TEXT|&nbsp;|
+|本周工作|WORKTHISWEEK|HTMLTEXT|&nbsp;|
 |汇报给|REPORTTO|SSCODELIST|&nbsp;|
+|更新人名称|UPDATEMANNAME|TEXT|&nbsp;|
+|用户|ACCOUNT|SSCODELIST|&nbsp;|
+|本周完成任务|THISWEEKTASK|SMCODELIST|&nbsp;|
 |其他事项|COMMENT|HTMLTEXT|&nbsp;|
 |日期|DATE|DATE|&nbsp;|
-|本周工作|WORKTHISWEEK|HTMLTEXT|&nbsp;|
-|下周计划|PLANNEXTWEEK|HTMLTEXT|&nbsp;|
-|本周完成任务|THISWEEKTASK|SMCODELIST|&nbsp;|
-|下周计划任务|NEXTWEEKTASK|SMCODELIST|&nbsp;|
-|更新人名称|UPDATEMANNAME|TEXT|&nbsp;|
+|更新人|UPDATEMAN|TEXT|&nbsp;|
 |建立人名称|CREATEMANNAME|TEXT|&nbsp;|
-|状态|REPORTSTATUS|SSCODELIST|&nbsp;|
-|提交时间|SUBMITTIME|TIME|&nbsp;|
-|汇报给(选择)|REPORTTOPK|TEXT|&nbsp;|
-|抄送给(选择)|MAILTOPK|TEXT|&nbsp;|
+|建立时间|CREATEDATE|DATETIME|&nbsp;|
+|更新时间|UPDATEDATE|DATETIME|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
 | --------   |------------| ----- | 
-|周报名称|默认规则|内容长度必须小于等于[200]|
-|周报标识|默认规则|默认规则|
-|建立人|默认规则|内容长度必须小于等于[60]|
-|建立时间|默认规则|默认规则|
-|更新人|默认规则|内容长度必须小于等于[60]|
-|更新时间|默认规则|默认规则|
-|用户|默认规则|内容长度必须小于等于[60]|
-|抄送给|默认规则|内容长度必须小于等于[2000]|
-|附件|默认规则|内容长度必须小于等于[100]|
 |是否提交|默认规则|内容长度必须小于等于[60]|
+|下周计划|默认规则|内容长度必须小于等于[1048576]|
+|周报名称|默认规则|内容长度必须小于等于[200]|
+|抄送给|默认规则|内容长度必须小于等于[2000]|
+|汇报给(选择)|默认规则|内容长度必须小于等于[200]|
+|下周计划任务|默认规则|内容长度必须小于等于[100]|
+|周报标识|默认规则|默认规则|
+|提交时间|默认规则|默认规则|
+|抄送给(选择)|默认规则|内容长度必须小于等于[200]|
+|建立人|默认规则|内容长度必须小于等于[60]|
+|状态|默认规则|内容长度必须小于等于[60]|
+|附件|默认规则|内容长度必须小于等于[100]|
+|本周工作|默认规则|内容长度必须小于等于[1048576]|
 |汇报给|默认规则|内容长度必须小于等于[60]|
+|更新人名称|默认规则|内容长度必须小于等于[60]|
+|用户|默认规则|内容长度必须小于等于[60]|
+|本周完成任务|默认规则|内容长度必须小于等于[100]|
 |其他事项|默认规则|内容长度必须小于等于[1048576]|
 |日期|默认规则|默认规则|
-|本周工作|默认规则|内容长度必须小于等于[1048576]|
-|下周计划|默认规则|内容长度必须小于等于[1048576]|
-|本周完成任务|默认规则|内容长度必须小于等于[100]|
-|下周计划任务|默认规则|内容长度必须小于等于[100]|
-|更新人名称|默认规则|内容长度必须小于等于[60]|
+|更新人|默认规则|内容长度必须小于等于[60]|
 |建立人名称|默认规则|内容长度必须小于等于[60]|
-|状态|默认规则|内容长度必须小于等于[60]|
-|提交时间|默认规则|默认规则|
-|汇报给(选择)|默认规则|内容长度必须小于等于[200]|
-|抄送给(选择)|默认规则|内容长度必须小于等于[200]|
+|建立时间|默认规则|默认规则|
+|更新时间|默认规则|默认规则|
 
 ## 状态控制
 
@@ -162,11 +162,11 @@ hide footbox
 ## 查询模式
 | 属性      |    搜索模式     |
 | --------   |------------|
-|周报名称(IBZ_WEEKLYNAME)|LIKE|
-|用户(ACCOUNT)|EQ|
 |是否提交(ISSUBMIT)|EQ|
-|汇报给(REPORTTO)|EQ|
+|周报名称(IBZ_WEEKLYNAME)|LIKE|
 |状态(REPORTSTATUS)|EQ|
+|汇报给(REPORTTO)|EQ|
+|用户(ACCOUNT)|EQ|
 
 ## 导入模式
 无

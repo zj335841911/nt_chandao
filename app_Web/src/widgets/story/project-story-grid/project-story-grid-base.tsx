@@ -74,7 +74,7 @@ export class ProjectStoryGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u44590b9_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_ucdd2824_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -102,7 +102,7 @@ export class ProjectStoryGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u74aaa3d_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u2fdcaeb_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -130,7 +130,7 @@ export class ProjectStoryGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_ucdf692f_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u247f69c_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -519,13 +519,13 @@ export class ProjectStoryGridBase extends GridControlBase {
 	public uiAction(row: any, tag: any, $event: any): void {
         $event.stopPropagation();
         if(Object.is('Breakdowntasks', tag)) {
-            this.grid_uagridcolumn1_u44590b9_click(row, tag, $event);
+            this.grid_uagridcolumn1_ucdd2824_click(row, tag, $event);
         }
         if(Object.is('BatchBreakdowntasks', tag)) {
-            this.grid_uagridcolumn1_u74aaa3d_click(row, tag, $event);
+            this.grid_uagridcolumn1_u2fdcaeb_click(row, tag, $event);
         }
         if(Object.is('ProjectUnlinkStory', tag)) {
-            this.grid_uagridcolumn1_ucdf692f_click(row, tag, $event);
+            this.grid_uagridcolumn1_u247f69c_click(row, tag, $event);
         }
     }
 

@@ -39,27 +39,67 @@ public class PSDEField extends EntityClient implements Serializable {
     }
 
     /**
-     * 实体属性标识
+     * 自定义参数
      */
-    @DEField(isKeyField = true)
-    @JSONField(name = "psdefieldid")
-    @JsonProperty("psdefieldid")
-    private String psdefieldid;
+    @JSONField(name = "userparams")
+    @JsonProperty("userparams")
+    private String userparams;
 
     /**
-     * 实体属性名称
+     * 支持链接属性回写
      */
-    @JSONField(name = "psdefieldname")
-    @JsonProperty("psdefieldname")
-    private String psdefieldname;
+    @JSONField(name = "enawriteback")
+    @JsonProperty("enawriteback")
+    private Integer enawriteback;
 
     /**
-     * 建立人
+     * 视图列级别
      */
-    @DEField(preType = DEPredefinedFieldType.CREATEMAN)
-    @JSONField(name = "createman")
-    @JsonProperty("createman")
-    private String createman;
+    @JSONField(name = "viewcollevel")
+    @JsonProperty("viewcollevel")
+    private Integer viewcollevel;
+
+    /**
+     * 服务代码名称
+     */
+    @JSONField(name = "servicecodename")
+    @JsonProperty("servicecodename")
+    private String servicecodename;
+
+    /**
+     * 重复值检查
+     */
+    @JSONField(name = "dupcheckmode")
+    @JsonProperty("dupcheckmode")
+    private String dupcheckmode;
+
+    /**
+     * 用户标记3
+     */
+    @JSONField(name = "usertag3")
+    @JsonProperty("usertag3")
+    private String usertag3;
+
+    /**
+     * 更新旧值回填
+     */
+    @JSONField(name = "updateovmode")
+    @JsonProperty("updateovmode")
+    private String updateovmode;
+
+    /**
+     * 单位宽度
+     */
+    @JSONField(name = "unitwidth")
+    @JsonProperty("unitwidth")
+    private Integer unitwidth;
+
+    /**
+     * 数据库更新值模式
+     */
+    @JSONField(name = "dbvaluemode")
+    @JsonProperty("dbvaluemode")
+    private String dbvaluemode;
 
     /**
      * 更新时间
@@ -71,43 +111,83 @@ public class PSDEField extends EntityClient implements Serializable {
     private Timestamp updatedate;
 
     /**
-     * 更新人
+     * 默认测试值
      */
-    @DEField(preType = DEPredefinedFieldType.UPDATEMAN)
-    @JSONField(name = "updateman")
-    @JsonProperty("updateman")
-    private String updateman;
+    @JSONField(name = "testdata")
+    @JsonProperty("testdata")
+    private String testdata;
 
     /**
-     * 建立时间
+     * 主状态属性
      */
-    @DEField(preType = DEPredefinedFieldType.CREATEDATE)
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
-    @JSONField(name = "createdate" , format = "yyyy-MM-dd HH:mm:ss")
-    @JsonProperty("createdate")
-    private Timestamp createdate;
+    @JSONField(name = "statefield")
+    @JsonProperty("statefield")
+    private String statefield;
 
     /**
-     * 业务标记
+     * 逻辑属性参数
      */
-    @JSONField(name = "biztag")
-    @JsonProperty("biztag")
-    private String biztag;
+    @JSONField(name = "formulafields")
+    @JsonProperty("formulafields")
+    private String formulafields;
 
     /**
-     * 允许为空
+     * 系统
      */
-    @DEField(defaultValue = "1")
-    @JSONField(name = "allowempty")
-    @JsonProperty("allowempty")
-    private Integer allowempty;
+    @JSONField(name = "pssystemname")
+    @JsonProperty("pssystemname")
+    private String pssystemname;
 
     /**
-     * 审计信息格式
+     * 单位
      */
-    @JSONField(name = "auditinfoformat")
-    @JsonProperty("auditinfoformat")
-    private String auditinfoformat;
+    @JSONField(name = "unit")
+    @JsonProperty("unit")
+    private String unit;
+
+    /**
+     * 多表单识别属性
+     */
+    @JSONField(name = "multiformfield")
+    @JsonProperty("multiformfield")
+    private Integer multiformfield;
+
+    /**
+     * 索引类型属性
+     */
+    @JSONField(name = "indextype")
+    @JsonProperty("indextype")
+    private Integer indextype;
+
+    /**
+     * 检查值范围
+     */
+    @JSONField(name = "dupcheckvalues")
+    @JsonProperty("dupcheckvalues")
+    private String dupcheckvalues;
+
+    /**
+     * 用户标记4
+     */
+    @JSONField(name = "usertag4")
+    @JsonProperty("usertag4")
+    private String usertag4;
+
+    /**
+     * 默认用户行为
+     */
+    @DEField(defaultValue = "3")
+    @JSONField(name = "enableuserinput")
+    @JsonProperty("enableuserinput")
+    private Integer enableuserinput;
+
+    /**
+     * 默认值类型
+     */
+    @DEField(name = "dvt")
+    @JSONField(name = "defaultvaluetype")
+    @JsonProperty("defaultvaluetype")
+    private String defaultvaluetype;
 
     /**
      * 检查递归
@@ -117,6 +197,172 @@ public class PSDEField extends EntityClient implements Serializable {
     private Integer checkrecursion;
 
     /**
+     * 查询扩展选项
+     */
+    @JSONField(name = "querycs")
+    @JsonProperty("querycs")
+    private String querycs;
+
+    /**
+     * 扩展模式
+     */
+    @JSONField(name = "extendmode")
+    @JsonProperty("extendmode")
+    private Integer extendmode;
+
+    /**
+     * 启用审计
+     */
+    @JSONField(name = "enableaudit")
+    @JsonProperty("enableaudit")
+    private Integer enableaudit;
+
+    /**
+     * 值格式化
+     */
+    @JSONField(name = "valueformat")
+    @JsonProperty("valueformat")
+    private String valueformat;
+
+    /**
+     * 排序值
+     */
+    @DEField(preType = DEPredefinedFieldType.ORDERVALUE)
+    @JSONField(name = "ordervalue")
+    @JsonProperty("ordervalue")
+    private Integer ordervalue;
+
+    /**
+     * 长度
+     */
+    @JSONField(name = "length")
+    @JsonProperty("length")
+    private Integer length;
+
+    /**
+     * 数据导入标识
+     */
+    @JSONField(name = "importtag")
+    @JsonProperty("importtag")
+    private String importtag;
+
+    /**
+     * 数据导入识别
+     */
+    @JSONField(name = "importkey")
+    @JsonProperty("importkey")
+    private Integer importkey;
+
+    /**
+     * 业务标记
+     */
+    @JSONField(name = "biztag")
+    @JsonProperty("biztag")
+    private String biztag;
+
+    /**
+     * 是否启用
+     */
+    @DEField(defaultValue = "1")
+    @JSONField(name = "validflag")
+    @JsonProperty("validflag")
+    private Integer validflag;
+
+    /**
+     * 用户标记
+     */
+    @JSONField(name = "usertag")
+    @JsonProperty("usertag")
+    private String usertag;
+
+    /**
+     * 数据类型
+     */
+    @JSONField(name = "psdatatypename")
+    @JsonProperty("psdatatypename")
+    private String psdatatypename;
+
+    /**
+     * 表名称
+     */
+    @JSONField(name = "tablename")
+    @JsonProperty("tablename")
+    private String tablename;
+
+    /**
+     * 用户标记2
+     */
+    @JSONField(name = "usertag2")
+    @JsonProperty("usertag2")
+    private String usertag2;
+
+    /**
+     * 主信息属性
+     */
+    @DEField(defaultValue = "0")
+    @JSONField(name = "majorfield")
+    @JsonProperty("majorfield")
+    private Integer majorfield;
+
+    /**
+     * 实体属性标识
+     */
+    @DEField(isKeyField = true)
+    @JSONField(name = "psdefieldid")
+    @JsonProperty("psdefieldid")
+    private String psdefieldid;
+
+    /**
+     * 数据导入次序
+     */
+    @JSONField(name = "importorder")
+    @JsonProperty("importorder")
+    private Integer importorder;
+
+    /**
+     * 联合键值
+     */
+    @JSONField(name = "unionkeyvalue")
+    @JsonProperty("unionkeyvalue")
+    private String unionkeyvalue;
+
+    /**
+     * 更新人
+     */
+    @DEField(preType = DEPredefinedFieldType.UPDATEMAN)
+    @JSONField(name = "updateman")
+    @JsonProperty("updateman")
+    private String updateman;
+
+    /**
+     * 实体属性名称
+     */
+    @JSONField(name = "psdefieldname")
+    @JsonProperty("psdefieldname")
+    private String psdefieldname;
+
+    /**
+     * 双字节字符
+     */
+    @JSONField(name = "unicodechar")
+    @JsonProperty("unicodechar")
+    private Integer unicodechar;
+
+    /**
+     * 物理化属性
+     */
+    @JSONField(name = "physicalfield")
+    @JsonProperty("physicalfield")
+    private Integer physicalfield;
+
+    /**
+     * 用户分类
+     */
+    @JSONField(name = "usercat")
+    @JsonProperty("usercat")
+    private String usercat;
+
+    /**
      * 代码名称
      */
     @JSONField(name = "codename")
@@ -124,25 +370,11 @@ public class PSDEField extends EntityClient implements Serializable {
     private String codename;
 
     /**
-     * 数据库更新值模式
+     * 字符长度
      */
-    @JSONField(name = "dbvaluemode")
-    @JsonProperty("dbvaluemode")
-    private String dbvaluemode;
-
-    /**
-     * 自定义导出范围
-     */
-    @JSONField(name = "customexportscope")
-    @JsonProperty("customexportscope")
-    private Integer customexportscope;
-
-    /**
-     * 数据库新建值模式
-     */
-    @JSONField(name = "dbvaluemode2")
-    @JsonProperty("dbvaluemode2")
-    private String dbvaluemode2;
+    @JSONField(name = "strlength")
+    @JsonProperty("strlength")
+    private Integer strlength;
 
     /**
      * 属性类型
@@ -159,97 +391,11 @@ public class PSDEField extends EntityClient implements Serializable {
     private String defaultvalue;
 
     /**
-     * 重复值检查
+     * 空值排序
      */
-    @JSONField(name = "dupcheckmode")
-    @JsonProperty("dupcheckmode")
-    private String dupcheckmode;
-
-    /**
-     * 检查值范围
-     */
-    @JSONField(name = "dupcheckvalues")
-    @JsonProperty("dupcheckvalues")
-    private String dupcheckvalues;
-
-    /**
-     * 默认值类型
-     */
-    @DEField(name = "dvt")
-    @JSONField(name = "defaultvaluetype")
-    @JsonProperty("defaultvaluetype")
-    private String defaultvaluetype;
-
-    /**
-     * 启用审计
-     */
-    @JSONField(name = "enableaudit")
-    @JsonProperty("enableaudit")
-    private Integer enableaudit;
-
-    /**
-     * 动态模型类型
-     */
-    @JSONField(name = "dynamodelflag")
-    @JsonProperty("dynamodelflag")
-    private Integer dynamodelflag;
-
-    /**
-     * 启用快速搜索
-     */
-    @JSONField(name = "enableqs")
-    @JsonProperty("enableqs")
-    private Integer enableqs;
-
-    /**
-     * 启用列权限控制
-     */
-    @JSONField(name = "enablecolpriv")
-    @JsonProperty("enablecolpriv")
-    private Integer enablecolpriv;
-
-    /**
-     * 支持链接属性回写
-     */
-    @JSONField(name = "enawriteback")
-    @JsonProperty("enawriteback")
-    private Integer enawriteback;
-
-    /**
-     * 默认用户行为
-     */
-    @DEField(defaultValue = "3")
-    @JSONField(name = "enableuserinput")
-    @JsonProperty("enableuserinput")
-    private Integer enableuserinput;
-
-    /**
-     * 支持临时数据
-     */
-    @JSONField(name = "enabletempdata")
-    @JsonProperty("enabletempdata")
-    private Integer enabletempdata;
-
-    /**
-     * 扩展模式
-     */
-    @JSONField(name = "extendmode")
-    @JsonProperty("extendmode")
-    private Integer extendmode;
-
-    /**
-     * 导出范围
-     */
-    @JSONField(name = "exportscope")
-    @JsonProperty("exportscope")
-    private Integer exportscope;
-
-    /**
-     * 逻辑属性参数
-     */
-    @JSONField(name = "formulafields")
-    @JsonProperty("formulafields")
-    private String formulafields;
+    @JSONField(name = "nullvalorder")
+    @JsonProperty("nullvalorder")
+    private String nullvalorder;
 
     /**
      * 外键属性
@@ -267,104 +413,11 @@ public class PSDEField extends EntityClient implements Serializable {
     private String formulaformat;
 
     /**
-     * 数据导入识别
-     */
-    @JSONField(name = "importkey")
-    @JsonProperty("importkey")
-    private Integer importkey;
-
-    /**
-     * 数据导入次序
-     */
-    @JSONField(name = "importorder")
-    @JsonProperty("importorder")
-    private Integer importorder;
-
-    /**
-     * 索引类型属性
-     */
-    @JSONField(name = "indextype")
-    @JsonProperty("indextype")
-    private Integer indextype;
-
-    /**
-     * 长度
-     */
-    @JSONField(name = "length")
-    @JsonProperty("length")
-    private Integer length;
-
-    /**
-     * 数据导入标识
-     */
-    @JSONField(name = "importtag")
-    @JsonProperty("importtag")
-    private String importtag;
-
-    /**
-     * 模型锁模式
-     */
-    @JSONField(name = "lockflag")
-    @JsonProperty("lockflag")
-    private Integer lockflag;
-
-    /**
-     * 中文名称
-     */
-    @JSONField(name = "logicname")
-    @JsonProperty("logicname")
-    private String logicname;
-
-    /**
-     * 多表单识别属性
-     */
-    @JSONField(name = "multiformfield")
-    @JsonProperty("multiformfield")
-    private Integer multiformfield;
-
-    /**
-     * 主信息属性
-     */
-    @DEField(defaultValue = "0")
-    @JSONField(name = "majorfield")
-    @JsonProperty("majorfield")
-    private Integer majorfield;
-
-    /**
      * 备注
      */
     @JSONField(name = "memo")
     @JsonProperty("memo")
     private String memo;
-
-    /**
-     * 排序值
-     */
-    @DEField(preType = DEPredefinedFieldType.ORDERVALUE)
-    @JSONField(name = "ordervalue")
-    @JsonProperty("ordervalue")
-    private Integer ordervalue;
-
-    /**
-     * 空值排序
-     */
-    @JSONField(name = "nullvalorder")
-    @JsonProperty("nullvalorder")
-    private String nullvalorder;
-
-    /**
-     * 粘帖重置
-     */
-    @JSONField(name = "pastereset")
-    @JsonProperty("pastereset")
-    private Integer pastereset;
-
-    /**
-     * 物理化属性
-     */
-    @JSONField(name = "physicalfield")
-    @JsonProperty("physicalfield")
-    private Integer physicalfield;
 
     /**
      * 主键属性
@@ -389,13 +442,6 @@ public class PSDEField extends EntityClient implements Serializable {
     private String predefinetype;
 
     /**
-     * 数据类型
-     */
-    @JSONField(name = "psdatatypename")
-    @JsonProperty("psdatatypename")
-    private String psdatatypename;
-
-    /**
      * 查询输出
      */
     @JSONField(name = "querycolumn")
@@ -403,39 +449,34 @@ public class PSDEField extends EntityClient implements Serializable {
     private Integer querycolumn;
 
     /**
-     * 数据类型
+     * 支持临时数据
      */
-    @JSONField(name = "psdatatypeid")
-    @JsonProperty("psdatatypeid")
-    private String psdatatypeid;
+    @JSONField(name = "enabletempdata")
+    @JsonProperty("enabletempdata")
+    private Integer enabletempdata;
 
     /**
-     * 服务代码名称
+     * 建立时间
      */
-    @JSONField(name = "servicecodename")
-    @JsonProperty("servicecodename")
-    private String servicecodename;
+    @DEField(preType = DEPredefinedFieldType.CREATEDATE)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "createdate" , format = "yyyy-MM-dd HH:mm:ss")
+    @JsonProperty("createdate")
+    private Timestamp createdate;
 
     /**
-     * 主状态属性
+     * 粘帖重置
      */
-    @JSONField(name = "statefield")
-    @JsonProperty("statefield")
-    private String statefield;
+    @JSONField(name = "pastereset")
+    @JsonProperty("pastereset")
+    private Integer pastereset;
 
     /**
-     * 查询扩展选项
+     * 模型锁模式
      */
-    @JSONField(name = "querycs")
-    @JsonProperty("querycs")
-    private String querycs;
-
-    /**
-     * 字符长度
-     */
-    @JSONField(name = "strlength")
-    @JsonProperty("strlength")
-    private Integer strlength;
+    @JSONField(name = "lockflag")
+    @JsonProperty("lockflag")
+    private Integer lockflag;
 
     /**
      * 字符转换
@@ -445,117 +486,105 @@ public class PSDEField extends EntityClient implements Serializable {
     private String stringcase;
 
     /**
-     * 默认测试值
+     * 启用快速搜索
      */
-    @JSONField(name = "testdata")
-    @JsonProperty("testdata")
-    private String testdata;
+    @JSONField(name = "enableqs")
+    @JsonProperty("enableqs")
+    private Integer enableqs;
 
     /**
-     * 表名称
+     * 启用列权限控制
      */
-    @JSONField(name = "tablename")
-    @JsonProperty("tablename")
-    private String tablename;
+    @JSONField(name = "enablecolpriv")
+    @JsonProperty("enablecolpriv")
+    private Integer enablecolpriv;
 
     /**
-     * 双字节字符
+     * 中文名称
      */
-    @JSONField(name = "unicodechar")
-    @JsonProperty("unicodechar")
-    private Integer unicodechar;
+    @JSONField(name = "logicname")
+    @JsonProperty("logicname")
+    private String logicname;
 
     /**
-     * 单位
+     * 建立人
      */
-    @JSONField(name = "unit")
-    @JsonProperty("unit")
-    private String unit;
+    @DEField(preType = DEPredefinedFieldType.CREATEMAN)
+    @JSONField(name = "createman")
+    @JsonProperty("createman")
+    private String createman;
 
     /**
-     * 联合键值
+     * 系统
      */
-    @JSONField(name = "unionkeyvalue")
-    @JsonProperty("unionkeyvalue")
-    private String unionkeyvalue;
+    @JSONField(name = "pssystemid")
+    @JsonProperty("pssystemid")
+    private String pssystemid;
 
     /**
-     * 更新旧值回填
-     */
-    @JSONField(name = "updateovmode")
-    @JsonProperty("updateovmode")
-    private String updateovmode;
-
-    /**
-     * 单位宽度
-     */
-    @JSONField(name = "unitwidth")
-    @JsonProperty("unitwidth")
-    private Integer unitwidth;
-
-    /**
-     * 自定义参数
-     */
-    @JSONField(name = "userparams")
-    @JsonProperty("userparams")
-    private String userparams;
-
-    /**
-     * 用户标记
-     */
-    @JSONField(name = "usertag")
-    @JsonProperty("usertag")
-    private String usertag;
-
-    /**
-     * 用户分类
-     */
-    @JSONField(name = "usercat")
-    @JsonProperty("usercat")
-    private String usercat;
-
-    /**
-     * 用户标记3
-     */
-    @JSONField(name = "usertag3")
-    @JsonProperty("usertag3")
-    private String usertag3;
-
-    /**
-     * 用户标记4
-     */
-    @JSONField(name = "usertag4")
-    @JsonProperty("usertag4")
-    private String usertag4;
-
-    /**
-     * 用户标记2
-     */
-    @JSONField(name = "usertag2")
-    @JsonProperty("usertag2")
-    private String usertag2;
-
-    /**
-     * 是否启用
+     * 允许为空
      */
     @DEField(defaultValue = "1")
-    @JSONField(name = "validflag")
-    @JsonProperty("validflag")
-    private Integer validflag;
+    @JSONField(name = "allowempty")
+    @JsonProperty("allowempty")
+    private Integer allowempty;
 
     /**
-     * 视图列级别
+     * 自定义导出范围
      */
-    @JSONField(name = "viewcollevel")
-    @JsonProperty("viewcollevel")
-    private Integer viewcollevel;
+    @JSONField(name = "customexportscope")
+    @JsonProperty("customexportscope")
+    private Integer customexportscope;
 
     /**
-     * 值格式化
+     * 动态模型类型
      */
-    @JSONField(name = "valueformat")
-    @JsonProperty("valueformat")
-    private String valueformat;
+    @JSONField(name = "dynamodelflag")
+    @JsonProperty("dynamodelflag")
+    private Integer dynamodelflag;
+
+    /**
+     * 导出范围
+     */
+    @JSONField(name = "exportscope")
+    @JsonProperty("exportscope")
+    private Integer exportscope;
+
+    /**
+     * 审计信息格式
+     */
+    @JSONField(name = "auditinfoformat")
+    @JsonProperty("auditinfoformat")
+    private String auditinfoformat;
+
+    /**
+     * 数据库新建值模式
+     */
+    @JSONField(name = "dbvaluemode2")
+    @JsonProperty("dbvaluemode2")
+    private String dbvaluemode2;
+
+    /**
+     * 数据类型
+     */
+    @JSONField(name = "psdatatypeid")
+    @JsonProperty("psdatatypeid")
+    private String psdatatypeid;
+
+    /**
+     * 值项属性
+     */
+    @JSONField(name = "valuepsdefname")
+    @JsonProperty("valuepsdefname")
+    private String valuepsdefname;
+
+    /**
+     * 范围属性
+     */
+    @DEField(name = "dupchkpsdefname")
+    @JSONField(name = "dupcheckpsdefname")
+    @JsonProperty("dupcheckpsdefname")
+    private String dupcheckpsdefname;
 
     /**
      * 范围属性2
@@ -565,11 +594,11 @@ public class PSDEField extends EntityClient implements Serializable {
     private String no2dupchkpsdefname;
 
     /**
-     * 范围属性2
+     * 关系属性
      */
-    @JSONField(name = "no2dupchkpsdefid")
-    @JsonProperty("no2dupchkpsdefid")
-    private String no2dupchkpsdefid;
+    @JSONField(name = "derpsdefname")
+    @JsonProperty("derpsdefname")
+    private String derpsdefname;
 
     /**
      * 范围属性3
@@ -579,18 +608,40 @@ public class PSDEField extends EntityClient implements Serializable {
     private String no3dupchkpsdefname;
 
     /**
-     * 范围属性3
+     * 实体
      */
-    @JSONField(name = "no3dupchkpsdefid")
-    @JsonProperty("no3dupchkpsdefid")
-    private String no3dupchkpsdefid;
+    @JSONField(name = "psdename")
+    @JsonProperty("psdename")
+    private String psdename;
 
     /**
-     * 值项属性
+     * PSSUBSYSSADEID
      */
-    @JSONField(name = "valuepsdefname")
-    @JsonProperty("valuepsdefname")
-    private String valuepsdefname;
+    @JSONField(name = "pssubsyssadeid")
+    @JsonProperty("pssubsyssadeid")
+    private String pssubsyssadeid;
+
+    /**
+     * 实体
+     */
+    @JSONField(name = "psdeid")
+    @JsonProperty("psdeid")
+    private String psdeid;
+
+    /**
+     * 范围属性2
+     */
+    @JSONField(name = "no2dupchkpsdefid")
+    @JsonProperty("no2dupchkpsdefid")
+    private String no2dupchkpsdefid;
+
+    /**
+     * 范围属性
+     */
+    @DEField(name = "dupchkpsdefid")
+    @JSONField(name = "dupcheckpsdefid")
+    @JsonProperty("dupcheckpsdefid")
+    private String dupcheckpsdefid;
 
     /**
      * 值项属性
@@ -602,67 +653,16 @@ public class PSDEField extends EntityClient implements Serializable {
     /**
      * 关系属性
      */
-    @JSONField(name = "derpsdefname")
-    @JsonProperty("derpsdefname")
-    private String derpsdefname;
-
-    /**
-     * 范围属性
-     */
-    @DEField(name = "dupchkpsdefid")
-    @JSONField(name = "dupcheckpsdefid")
-    @JsonProperty("dupcheckpsdefid")
-    private String dupcheckpsdefid;
-
-    /**
-     * 关系属性
-     */
     @JSONField(name = "derpsdefid")
     @JsonProperty("derpsdefid")
     private String derpsdefid;
 
     /**
-     * 范围属性
+     * 范围属性3
      */
-    @DEField(name = "dupchkpsdefname")
-    @JSONField(name = "dupcheckpsdefname")
-    @JsonProperty("dupcheckpsdefname")
-    private String dupcheckpsdefname;
-
-    /**
-     * 实体
-     */
-    @JSONField(name = "psdename")
-    @JsonProperty("psdename")
-    private String psdename;
-
-    /**
-     * 实体
-     */
-    @JSONField(name = "psdeid")
-    @JsonProperty("psdeid")
-    private String psdeid;
-
-    /**
-     * PSSUBSYSSADEID
-     */
-    @JSONField(name = "pssubsyssadeid")
-    @JsonProperty("pssubsyssadeid")
-    private String pssubsyssadeid;
-
-    /**
-     * 系统
-     */
-    @JSONField(name = "pssystemid")
-    @JsonProperty("pssystemid")
-    private String pssystemid;
-
-    /**
-     * 系统
-     */
-    @JSONField(name = "pssystemname")
-    @JsonProperty("pssystemname")
-    private String pssystemname;
+    @JSONField(name = "no3dupchkpsdefid")
+    @JsonProperty("no3dupchkpsdefid")
+    private String no3dupchkpsdefid;
 
 
     /**
@@ -711,147 +711,11 @@ public class PSDEField extends EntityClient implements Serializable {
 
 
     /**
-     * 设置 [实体属性名称]
+     * 设置 [自定义参数]
      */
-    public void setPsdefieldname(String psdefieldname) {
-        this.psdefieldname = psdefieldname ;
-        this.modify("psdefieldname", psdefieldname);
-    }
-
-    /**
-     * 设置 [业务标记]
-     */
-    public void setBiztag(String biztag) {
-        this.biztag = biztag ;
-        this.modify("biztag", biztag);
-    }
-
-    /**
-     * 设置 [允许为空]
-     */
-    public void setAllowempty(Integer allowempty) {
-        this.allowempty = allowempty ;
-        this.modify("allowempty", allowempty);
-    }
-
-    /**
-     * 设置 [审计信息格式]
-     */
-    public void setAuditinfoformat(String auditinfoformat) {
-        this.auditinfoformat = auditinfoformat ;
-        this.modify("auditinfoformat", auditinfoformat);
-    }
-
-    /**
-     * 设置 [检查递归]
-     */
-    public void setCheckrecursion(Integer checkrecursion) {
-        this.checkrecursion = checkrecursion ;
-        this.modify("checkrecursion", checkrecursion);
-    }
-
-    /**
-     * 设置 [代码名称]
-     */
-    public void setCodename(String codename) {
-        this.codename = codename ;
-        this.modify("codename", codename);
-    }
-
-    /**
-     * 设置 [数据库更新值模式]
-     */
-    public void setDbvaluemode(String dbvaluemode) {
-        this.dbvaluemode = dbvaluemode ;
-        this.modify("dbvaluemode", dbvaluemode);
-    }
-
-    /**
-     * 设置 [自定义导出范围]
-     */
-    public void setCustomexportscope(Integer customexportscope) {
-        this.customexportscope = customexportscope ;
-        this.modify("customexportscope", customexportscope);
-    }
-
-    /**
-     * 设置 [数据库新建值模式]
-     */
-    public void setDbvaluemode2(String dbvaluemode2) {
-        this.dbvaluemode2 = dbvaluemode2 ;
-        this.modify("dbvaluemode2", dbvaluemode2);
-    }
-
-    /**
-     * 设置 [属性类型]
-     */
-    public void setDeftype(Integer deftype) {
-        this.deftype = deftype ;
-        this.modify("deftype", deftype);
-    }
-
-    /**
-     * 设置 [属性默认值]
-     */
-    public void setDefaultvalue(String defaultvalue) {
-        this.defaultvalue = defaultvalue ;
-        this.modify("defaultvalue", defaultvalue);
-    }
-
-    /**
-     * 设置 [重复值检查]
-     */
-    public void setDupcheckmode(String dupcheckmode) {
-        this.dupcheckmode = dupcheckmode ;
-        this.modify("dupcheckmode", dupcheckmode);
-    }
-
-    /**
-     * 设置 [检查值范围]
-     */
-    public void setDupcheckvalues(String dupcheckvalues) {
-        this.dupcheckvalues = dupcheckvalues ;
-        this.modify("dupcheckvalues", dupcheckvalues);
-    }
-
-    /**
-     * 设置 [默认值类型]
-     */
-    public void setDefaultvaluetype(String defaultvaluetype) {
-        this.defaultvaluetype = defaultvaluetype ;
-        this.modify("dvt", defaultvaluetype);
-    }
-
-    /**
-     * 设置 [启用审计]
-     */
-    public void setEnableaudit(Integer enableaudit) {
-        this.enableaudit = enableaudit ;
-        this.modify("enableaudit", enableaudit);
-    }
-
-    /**
-     * 设置 [动态模型类型]
-     */
-    public void setDynamodelflag(Integer dynamodelflag) {
-        this.dynamodelflag = dynamodelflag ;
-        this.modify("dynamodelflag", dynamodelflag);
-    }
-
-    /**
-     * 设置 [启用快速搜索]
-     */
-    public void setEnableqs(Integer enableqs) {
-        this.enableqs = enableqs ;
-        this.modify("enableqs", enableqs);
-    }
-
-    /**
-     * 设置 [启用列权限控制]
-     */
-    public void setEnablecolpriv(Integer enablecolpriv) {
-        this.enablecolpriv = enablecolpriv ;
-        this.modify("enablecolpriv", enablecolpriv);
+    public void setUserparams(String userparams) {
+        this.userparams = userparams ;
+        this.modify("userparams", userparams);
     }
 
     /**
@@ -863,35 +727,75 @@ public class PSDEField extends EntityClient implements Serializable {
     }
 
     /**
-     * 设置 [默认用户行为]
+     * 设置 [视图列级别]
      */
-    public void setEnableuserinput(Integer enableuserinput) {
-        this.enableuserinput = enableuserinput ;
-        this.modify("enableuserinput", enableuserinput);
+    public void setViewcollevel(Integer viewcollevel) {
+        this.viewcollevel = viewcollevel ;
+        this.modify("viewcollevel", viewcollevel);
     }
 
     /**
-     * 设置 [支持临时数据]
+     * 设置 [服务代码名称]
      */
-    public void setEnabletempdata(Integer enabletempdata) {
-        this.enabletempdata = enabletempdata ;
-        this.modify("enabletempdata", enabletempdata);
+    public void setServicecodename(String servicecodename) {
+        this.servicecodename = servicecodename ;
+        this.modify("servicecodename", servicecodename);
     }
 
     /**
-     * 设置 [扩展模式]
+     * 设置 [重复值检查]
      */
-    public void setExtendmode(Integer extendmode) {
-        this.extendmode = extendmode ;
-        this.modify("extendmode", extendmode);
+    public void setDupcheckmode(String dupcheckmode) {
+        this.dupcheckmode = dupcheckmode ;
+        this.modify("dupcheckmode", dupcheckmode);
     }
 
     /**
-     * 设置 [导出范围]
+     * 设置 [用户标记3]
      */
-    public void setExportscope(Integer exportscope) {
-        this.exportscope = exportscope ;
-        this.modify("exportscope", exportscope);
+    public void setUsertag3(String usertag3) {
+        this.usertag3 = usertag3 ;
+        this.modify("usertag3", usertag3);
+    }
+
+    /**
+     * 设置 [更新旧值回填]
+     */
+    public void setUpdateovmode(String updateovmode) {
+        this.updateovmode = updateovmode ;
+        this.modify("updateovmode", updateovmode);
+    }
+
+    /**
+     * 设置 [单位宽度]
+     */
+    public void setUnitwidth(Integer unitwidth) {
+        this.unitwidth = unitwidth ;
+        this.modify("unitwidth", unitwidth);
+    }
+
+    /**
+     * 设置 [数据库更新值模式]
+     */
+    public void setDbvaluemode(String dbvaluemode) {
+        this.dbvaluemode = dbvaluemode ;
+        this.modify("dbvaluemode", dbvaluemode);
+    }
+
+    /**
+     * 设置 [默认测试值]
+     */
+    public void setTestdata(String testdata) {
+        this.testdata = testdata ;
+        this.modify("testdata", testdata);
+    }
+
+    /**
+     * 设置 [主状态属性]
+     */
+    public void setStatefield(String statefield) {
+        this.statefield = statefield ;
+        this.modify("statefield", statefield);
     }
 
     /**
@@ -903,35 +807,27 @@ public class PSDEField extends EntityClient implements Serializable {
     }
 
     /**
-     * 设置 [外键属性]
+     * 设置 [系统]
      */
-    public void setFkey(Integer fkey) {
-        this.fkey = fkey ;
-        this.modify("fkey", fkey);
+    public void setPssystemname(String pssystemname) {
+        this.pssystemname = pssystemname ;
+        this.modify("pssystemname", pssystemname);
     }
 
     /**
-     * 设置 [逻辑字段格式]
+     * 设置 [单位]
      */
-    public void setFormulaformat(String formulaformat) {
-        this.formulaformat = formulaformat ;
-        this.modify("formulaformat", formulaformat);
+    public void setUnit(String unit) {
+        this.unit = unit ;
+        this.modify("unit", unit);
     }
 
     /**
-     * 设置 [数据导入识别]
+     * 设置 [多表单识别属性]
      */
-    public void setImportkey(Integer importkey) {
-        this.importkey = importkey ;
-        this.modify("importkey", importkey);
-    }
-
-    /**
-     * 设置 [数据导入次序]
-     */
-    public void setImportorder(Integer importorder) {
-        this.importorder = importorder ;
-        this.modify("importorder", importorder);
+    public void setMultiformfield(Integer multiformfield) {
+        this.multiformfield = multiformfield ;
+        this.modify("multiformfield", multiformfield);
     }
 
     /**
@@ -940,6 +836,78 @@ public class PSDEField extends EntityClient implements Serializable {
     public void setIndextype(Integer indextype) {
         this.indextype = indextype ;
         this.modify("indextype", indextype);
+    }
+
+    /**
+     * 设置 [检查值范围]
+     */
+    public void setDupcheckvalues(String dupcheckvalues) {
+        this.dupcheckvalues = dupcheckvalues ;
+        this.modify("dupcheckvalues", dupcheckvalues);
+    }
+
+    /**
+     * 设置 [用户标记4]
+     */
+    public void setUsertag4(String usertag4) {
+        this.usertag4 = usertag4 ;
+        this.modify("usertag4", usertag4);
+    }
+
+    /**
+     * 设置 [默认用户行为]
+     */
+    public void setEnableuserinput(Integer enableuserinput) {
+        this.enableuserinput = enableuserinput ;
+        this.modify("enableuserinput", enableuserinput);
+    }
+
+    /**
+     * 设置 [默认值类型]
+     */
+    public void setDefaultvaluetype(String defaultvaluetype) {
+        this.defaultvaluetype = defaultvaluetype ;
+        this.modify("dvt", defaultvaluetype);
+    }
+
+    /**
+     * 设置 [检查递归]
+     */
+    public void setCheckrecursion(Integer checkrecursion) {
+        this.checkrecursion = checkrecursion ;
+        this.modify("checkrecursion", checkrecursion);
+    }
+
+    /**
+     * 设置 [查询扩展选项]
+     */
+    public void setQuerycs(String querycs) {
+        this.querycs = querycs ;
+        this.modify("querycs", querycs);
+    }
+
+    /**
+     * 设置 [扩展模式]
+     */
+    public void setExtendmode(Integer extendmode) {
+        this.extendmode = extendmode ;
+        this.modify("extendmode", extendmode);
+    }
+
+    /**
+     * 设置 [启用审计]
+     */
+    public void setEnableaudit(Integer enableaudit) {
+        this.enableaudit = enableaudit ;
+        this.modify("enableaudit", enableaudit);
+    }
+
+    /**
+     * 设置 [值格式化]
+     */
+    public void setValueformat(String valueformat) {
+        this.valueformat = valueformat ;
+        this.modify("valueformat", valueformat);
     }
 
     /**
@@ -959,27 +927,59 @@ public class PSDEField extends EntityClient implements Serializable {
     }
 
     /**
-     * 设置 [模型锁模式]
+     * 设置 [数据导入识别]
      */
-    public void setLockflag(Integer lockflag) {
-        this.lockflag = lockflag ;
-        this.modify("lockflag", lockflag);
+    public void setImportkey(Integer importkey) {
+        this.importkey = importkey ;
+        this.modify("importkey", importkey);
     }
 
     /**
-     * 设置 [中文名称]
+     * 设置 [业务标记]
      */
-    public void setLogicname(String logicname) {
-        this.logicname = logicname ;
-        this.modify("logicname", logicname);
+    public void setBiztag(String biztag) {
+        this.biztag = biztag ;
+        this.modify("biztag", biztag);
     }
 
     /**
-     * 设置 [多表单识别属性]
+     * 设置 [是否启用]
      */
-    public void setMultiformfield(Integer multiformfield) {
-        this.multiformfield = multiformfield ;
-        this.modify("multiformfield", multiformfield);
+    public void setValidflag(Integer validflag) {
+        this.validflag = validflag ;
+        this.modify("validflag", validflag);
+    }
+
+    /**
+     * 设置 [用户标记]
+     */
+    public void setUsertag(String usertag) {
+        this.usertag = usertag ;
+        this.modify("usertag", usertag);
+    }
+
+    /**
+     * 设置 [数据类型]
+     */
+    public void setPsdatatypename(String psdatatypename) {
+        this.psdatatypename = psdatatypename ;
+        this.modify("psdatatypename", psdatatypename);
+    }
+
+    /**
+     * 设置 [表名称]
+     */
+    public void setTablename(String tablename) {
+        this.tablename = tablename ;
+        this.modify("tablename", tablename);
+    }
+
+    /**
+     * 设置 [用户标记2]
+     */
+    public void setUsertag2(String usertag2) {
+        this.usertag2 = usertag2 ;
+        this.modify("usertag2", usertag2);
     }
 
     /**
@@ -991,11 +991,83 @@ public class PSDEField extends EntityClient implements Serializable {
     }
 
     /**
-     * 设置 [备注]
+     * 设置 [数据导入次序]
      */
-    public void setMemo(String memo) {
-        this.memo = memo ;
-        this.modify("memo", memo);
+    public void setImportorder(Integer importorder) {
+        this.importorder = importorder ;
+        this.modify("importorder", importorder);
+    }
+
+    /**
+     * 设置 [联合键值]
+     */
+    public void setUnionkeyvalue(String unionkeyvalue) {
+        this.unionkeyvalue = unionkeyvalue ;
+        this.modify("unionkeyvalue", unionkeyvalue);
+    }
+
+    /**
+     * 设置 [实体属性名称]
+     */
+    public void setPsdefieldname(String psdefieldname) {
+        this.psdefieldname = psdefieldname ;
+        this.modify("psdefieldname", psdefieldname);
+    }
+
+    /**
+     * 设置 [双字节字符]
+     */
+    public void setUnicodechar(Integer unicodechar) {
+        this.unicodechar = unicodechar ;
+        this.modify("unicodechar", unicodechar);
+    }
+
+    /**
+     * 设置 [物理化属性]
+     */
+    public void setPhysicalfield(Integer physicalfield) {
+        this.physicalfield = physicalfield ;
+        this.modify("physicalfield", physicalfield);
+    }
+
+    /**
+     * 设置 [用户分类]
+     */
+    public void setUsercat(String usercat) {
+        this.usercat = usercat ;
+        this.modify("usercat", usercat);
+    }
+
+    /**
+     * 设置 [代码名称]
+     */
+    public void setCodename(String codename) {
+        this.codename = codename ;
+        this.modify("codename", codename);
+    }
+
+    /**
+     * 设置 [字符长度]
+     */
+    public void setStrlength(Integer strlength) {
+        this.strlength = strlength ;
+        this.modify("strlength", strlength);
+    }
+
+    /**
+     * 设置 [属性类型]
+     */
+    public void setDeftype(Integer deftype) {
+        this.deftype = deftype ;
+        this.modify("deftype", deftype);
+    }
+
+    /**
+     * 设置 [属性默认值]
+     */
+    public void setDefaultvalue(String defaultvalue) {
+        this.defaultvalue = defaultvalue ;
+        this.modify("defaultvalue", defaultvalue);
     }
 
     /**
@@ -1007,19 +1079,27 @@ public class PSDEField extends EntityClient implements Serializable {
     }
 
     /**
-     * 设置 [粘帖重置]
+     * 设置 [外键属性]
      */
-    public void setPastereset(Integer pastereset) {
-        this.pastereset = pastereset ;
-        this.modify("pastereset", pastereset);
+    public void setFkey(Integer fkey) {
+        this.fkey = fkey ;
+        this.modify("fkey", fkey);
     }
 
     /**
-     * 设置 [物理化属性]
+     * 设置 [逻辑字段格式]
      */
-    public void setPhysicalfield(Integer physicalfield) {
-        this.physicalfield = physicalfield ;
-        this.modify("physicalfield", physicalfield);
+    public void setFormulaformat(String formulaformat) {
+        this.formulaformat = formulaformat ;
+        this.modify("formulaformat", formulaformat);
+    }
+
+    /**
+     * 设置 [备注]
+     */
+    public void setMemo(String memo) {
+        this.memo = memo ;
+        this.modify("memo", memo);
     }
 
     /**
@@ -1047,14 +1127,6 @@ public class PSDEField extends EntityClient implements Serializable {
     }
 
     /**
-     * 设置 [数据类型]
-     */
-    public void setPsdatatypename(String psdatatypename) {
-        this.psdatatypename = psdatatypename ;
-        this.modify("psdatatypename", psdatatypename);
-    }
-
-    /**
      * 设置 [查询输出]
      */
     public void setQuerycolumn(Integer querycolumn) {
@@ -1063,43 +1135,27 @@ public class PSDEField extends EntityClient implements Serializable {
     }
 
     /**
-     * 设置 [数据类型]
+     * 设置 [支持临时数据]
      */
-    public void setPsdatatypeid(String psdatatypeid) {
-        this.psdatatypeid = psdatatypeid ;
-        this.modify("psdatatypeid", psdatatypeid);
+    public void setEnabletempdata(Integer enabletempdata) {
+        this.enabletempdata = enabletempdata ;
+        this.modify("enabletempdata", enabletempdata);
     }
 
     /**
-     * 设置 [服务代码名称]
+     * 设置 [粘帖重置]
      */
-    public void setServicecodename(String servicecodename) {
-        this.servicecodename = servicecodename ;
-        this.modify("servicecodename", servicecodename);
+    public void setPastereset(Integer pastereset) {
+        this.pastereset = pastereset ;
+        this.modify("pastereset", pastereset);
     }
 
     /**
-     * 设置 [主状态属性]
+     * 设置 [模型锁模式]
      */
-    public void setStatefield(String statefield) {
-        this.statefield = statefield ;
-        this.modify("statefield", statefield);
-    }
-
-    /**
-     * 设置 [查询扩展选项]
-     */
-    public void setQuerycs(String querycs) {
-        this.querycs = querycs ;
-        this.modify("querycs", querycs);
-    }
-
-    /**
-     * 设置 [字符长度]
-     */
-    public void setStrlength(Integer strlength) {
-        this.strlength = strlength ;
-        this.modify("strlength", strlength);
+    public void setLockflag(Integer lockflag) {
+        this.lockflag = lockflag ;
+        this.modify("lockflag", lockflag);
     }
 
     /**
@@ -1111,163 +1167,91 @@ public class PSDEField extends EntityClient implements Serializable {
     }
 
     /**
-     * 设置 [默认测试值]
+     * 设置 [启用快速搜索]
      */
-    public void setTestdata(String testdata) {
-        this.testdata = testdata ;
-        this.modify("testdata", testdata);
+    public void setEnableqs(Integer enableqs) {
+        this.enableqs = enableqs ;
+        this.modify("enableqs", enableqs);
     }
 
     /**
-     * 设置 [表名称]
+     * 设置 [启用列权限控制]
      */
-    public void setTablename(String tablename) {
-        this.tablename = tablename ;
-        this.modify("tablename", tablename);
+    public void setEnablecolpriv(Integer enablecolpriv) {
+        this.enablecolpriv = enablecolpriv ;
+        this.modify("enablecolpriv", enablecolpriv);
     }
 
     /**
-     * 设置 [双字节字符]
+     * 设置 [中文名称]
      */
-    public void setUnicodechar(Integer unicodechar) {
-        this.unicodechar = unicodechar ;
-        this.modify("unicodechar", unicodechar);
+    public void setLogicname(String logicname) {
+        this.logicname = logicname ;
+        this.modify("logicname", logicname);
     }
 
     /**
-     * 设置 [单位]
+     * 设置 [系统]
      */
-    public void setUnit(String unit) {
-        this.unit = unit ;
-        this.modify("unit", unit);
+    public void setPssystemid(String pssystemid) {
+        this.pssystemid = pssystemid ;
+        this.modify("pssystemid", pssystemid);
     }
 
     /**
-     * 设置 [联合键值]
+     * 设置 [允许为空]
      */
-    public void setUnionkeyvalue(String unionkeyvalue) {
-        this.unionkeyvalue = unionkeyvalue ;
-        this.modify("unionkeyvalue", unionkeyvalue);
+    public void setAllowempty(Integer allowempty) {
+        this.allowempty = allowempty ;
+        this.modify("allowempty", allowempty);
     }
 
     /**
-     * 设置 [更新旧值回填]
+     * 设置 [自定义导出范围]
      */
-    public void setUpdateovmode(String updateovmode) {
-        this.updateovmode = updateovmode ;
-        this.modify("updateovmode", updateovmode);
+    public void setCustomexportscope(Integer customexportscope) {
+        this.customexportscope = customexportscope ;
+        this.modify("customexportscope", customexportscope);
     }
 
     /**
-     * 设置 [单位宽度]
+     * 设置 [动态模型类型]
      */
-    public void setUnitwidth(Integer unitwidth) {
-        this.unitwidth = unitwidth ;
-        this.modify("unitwidth", unitwidth);
+    public void setDynamodelflag(Integer dynamodelflag) {
+        this.dynamodelflag = dynamodelflag ;
+        this.modify("dynamodelflag", dynamodelflag);
     }
 
     /**
-     * 设置 [自定义参数]
+     * 设置 [导出范围]
      */
-    public void setUserparams(String userparams) {
-        this.userparams = userparams ;
-        this.modify("userparams", userparams);
+    public void setExportscope(Integer exportscope) {
+        this.exportscope = exportscope ;
+        this.modify("exportscope", exportscope);
     }
 
     /**
-     * 设置 [用户标记]
+     * 设置 [审计信息格式]
      */
-    public void setUsertag(String usertag) {
-        this.usertag = usertag ;
-        this.modify("usertag", usertag);
+    public void setAuditinfoformat(String auditinfoformat) {
+        this.auditinfoformat = auditinfoformat ;
+        this.modify("auditinfoformat", auditinfoformat);
     }
 
     /**
-     * 设置 [用户分类]
+     * 设置 [数据库新建值模式]
      */
-    public void setUsercat(String usercat) {
-        this.usercat = usercat ;
-        this.modify("usercat", usercat);
+    public void setDbvaluemode2(String dbvaluemode2) {
+        this.dbvaluemode2 = dbvaluemode2 ;
+        this.modify("dbvaluemode2", dbvaluemode2);
     }
 
     /**
-     * 设置 [用户标记3]
+     * 设置 [数据类型]
      */
-    public void setUsertag3(String usertag3) {
-        this.usertag3 = usertag3 ;
-        this.modify("usertag3", usertag3);
-    }
-
-    /**
-     * 设置 [用户标记4]
-     */
-    public void setUsertag4(String usertag4) {
-        this.usertag4 = usertag4 ;
-        this.modify("usertag4", usertag4);
-    }
-
-    /**
-     * 设置 [用户标记2]
-     */
-    public void setUsertag2(String usertag2) {
-        this.usertag2 = usertag2 ;
-        this.modify("usertag2", usertag2);
-    }
-
-    /**
-     * 设置 [是否启用]
-     */
-    public void setValidflag(Integer validflag) {
-        this.validflag = validflag ;
-        this.modify("validflag", validflag);
-    }
-
-    /**
-     * 设置 [视图列级别]
-     */
-    public void setViewcollevel(Integer viewcollevel) {
-        this.viewcollevel = viewcollevel ;
-        this.modify("viewcollevel", viewcollevel);
-    }
-
-    /**
-     * 设置 [值格式化]
-     */
-    public void setValueformat(String valueformat) {
-        this.valueformat = valueformat ;
-        this.modify("valueformat", valueformat);
-    }
-
-    /**
-     * 设置 [范围属性2]
-     */
-    public void setNo2dupchkpsdefname(String no2dupchkpsdefname) {
-        this.no2dupchkpsdefname = no2dupchkpsdefname ;
-        this.modify("no2dupchkpsdefname", no2dupchkpsdefname);
-    }
-
-    /**
-     * 设置 [范围属性2]
-     */
-    public void setNo2dupchkpsdefid(String no2dupchkpsdefid) {
-        this.no2dupchkpsdefid = no2dupchkpsdefid ;
-        this.modify("no2dupchkpsdefid", no2dupchkpsdefid);
-    }
-
-    /**
-     * 设置 [范围属性3]
-     */
-    public void setNo3dupchkpsdefname(String no3dupchkpsdefname) {
-        this.no3dupchkpsdefname = no3dupchkpsdefname ;
-        this.modify("no3dupchkpsdefname", no3dupchkpsdefname);
-    }
-
-    /**
-     * 设置 [范围属性3]
-     */
-    public void setNo3dupchkpsdefid(String no3dupchkpsdefid) {
-        this.no3dupchkpsdefid = no3dupchkpsdefid ;
-        this.modify("no3dupchkpsdefid", no3dupchkpsdefid);
+    public void setPsdatatypeid(String psdatatypeid) {
+        this.psdatatypeid = psdatatypeid ;
+        this.modify("psdatatypeid", psdatatypeid);
     }
 
     /**
@@ -1279,11 +1263,19 @@ public class PSDEField extends EntityClient implements Serializable {
     }
 
     /**
-     * 设置 [值项属性]
+     * 设置 [范围属性]
      */
-    public void setValuepsdefid(String valuepsdefid) {
-        this.valuepsdefid = valuepsdefid ;
-        this.modify("valuepsdefid", valuepsdefid);
+    public void setDupcheckpsdefname(String dupcheckpsdefname) {
+        this.dupcheckpsdefname = dupcheckpsdefname ;
+        this.modify("dupchkpsdefname", dupcheckpsdefname);
+    }
+
+    /**
+     * 设置 [范围属性2]
+     */
+    public void setNo2dupchkpsdefname(String no2dupchkpsdefname) {
+        this.no2dupchkpsdefname = no2dupchkpsdefname ;
+        this.modify("no2dupchkpsdefname", no2dupchkpsdefname);
     }
 
     /**
@@ -1295,27 +1287,11 @@ public class PSDEField extends EntityClient implements Serializable {
     }
 
     /**
-     * 设置 [范围属性]
+     * 设置 [范围属性3]
      */
-    public void setDupcheckpsdefid(String dupcheckpsdefid) {
-        this.dupcheckpsdefid = dupcheckpsdefid ;
-        this.modify("dupchkpsdefid", dupcheckpsdefid);
-    }
-
-    /**
-     * 设置 [关系属性]
-     */
-    public void setDerpsdefid(String derpsdefid) {
-        this.derpsdefid = derpsdefid ;
-        this.modify("derpsdefid", derpsdefid);
-    }
-
-    /**
-     * 设置 [范围属性]
-     */
-    public void setDupcheckpsdefname(String dupcheckpsdefname) {
-        this.dupcheckpsdefname = dupcheckpsdefname ;
-        this.modify("dupchkpsdefname", dupcheckpsdefname);
+    public void setNo3dupchkpsdefname(String no3dupchkpsdefname) {
+        this.no3dupchkpsdefname = no3dupchkpsdefname ;
+        this.modify("no3dupchkpsdefname", no3dupchkpsdefname);
     }
 
     /**
@@ -1335,19 +1311,43 @@ public class PSDEField extends EntityClient implements Serializable {
     }
 
     /**
-     * 设置 [系统]
+     * 设置 [范围属性2]
      */
-    public void setPssystemid(String pssystemid) {
-        this.pssystemid = pssystemid ;
-        this.modify("pssystemid", pssystemid);
+    public void setNo2dupchkpsdefid(String no2dupchkpsdefid) {
+        this.no2dupchkpsdefid = no2dupchkpsdefid ;
+        this.modify("no2dupchkpsdefid", no2dupchkpsdefid);
     }
 
     /**
-     * 设置 [系统]
+     * 设置 [范围属性]
      */
-    public void setPssystemname(String pssystemname) {
-        this.pssystemname = pssystemname ;
-        this.modify("pssystemname", pssystemname);
+    public void setDupcheckpsdefid(String dupcheckpsdefid) {
+        this.dupcheckpsdefid = dupcheckpsdefid ;
+        this.modify("dupchkpsdefid", dupcheckpsdefid);
+    }
+
+    /**
+     * 设置 [值项属性]
+     */
+    public void setValuepsdefid(String valuepsdefid) {
+        this.valuepsdefid = valuepsdefid ;
+        this.modify("valuepsdefid", valuepsdefid);
+    }
+
+    /**
+     * 设置 [关系属性]
+     */
+    public void setDerpsdefid(String derpsdefid) {
+        this.derpsdefid = derpsdefid ;
+        this.modify("derpsdefid", derpsdefid);
+    }
+
+    /**
+     * 设置 [范围属性3]
+     */
+    public void setNo3dupchkpsdefid(String no3dupchkpsdefid) {
+        this.no3dupchkpsdefid = no3dupchkpsdefid ;
+        this.modify("no3dupchkpsdefid", no3dupchkpsdefid);
     }
 
     /**

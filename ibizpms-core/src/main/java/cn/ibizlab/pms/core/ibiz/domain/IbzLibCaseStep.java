@@ -44,21 +44,6 @@ public class IbzLibCaseStep extends EntityMP implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
-     * 编号
-     */
-    @DEField(isKeyField = true)
-    @TableId(value = "id", type = IdType.AUTO)
-    @JSONField(name = "id")
-    @JsonProperty("id")
-    private Long id;
-    /**
-     * 实际情况
-     */
-    @TableField(exist = false)
-    @JSONField(name = "reals")
-    @JsonProperty("reals")
-    private String reals;
-    /**
      * 预期
      */
     @TableField(value = "`expect`")
@@ -66,12 +51,12 @@ public class IbzLibCaseStep extends EntityMP implements Serializable {
     @JsonProperty("expect")
     private String expect;
     /**
-     * 步骤
+     * 类型
      */
-    @TableField(value = "`desc`")
-    @JSONField(name = "desc")
-    @JsonProperty("desc")
-    private String desc;
+    @TableField(value = "`type`")
+    @JSONField(name = "type")
+    @JsonProperty("type")
+    private String type;
     /**
      * 附件
      */
@@ -80,12 +65,27 @@ public class IbzLibCaseStep extends EntityMP implements Serializable {
     @JsonProperty("files")
     private String files;
     /**
-     * 类型
+     * 编号
      */
-    @TableField(value = "`type`")
-    @JSONField(name = "type")
-    @JsonProperty("type")
-    private String type;
+    @DEField(isKeyField = true)
+    @TableId(value = "id", type = IdType.AUTO)
+    @JSONField(name = "id")
+    @JsonProperty("id")
+    private Long id;
+    /**
+     * 步骤
+     */
+    @TableField(value = "`desc`")
+    @JSONField(name = "desc")
+    @JsonProperty("desc")
+    private String desc;
+    /**
+     * 实际情况
+     */
+    @TableField(exist = false)
+    @JSONField(name = "reals")
+    @JsonProperty("reals")
+    private String reals;
 
 
 
@@ -98,19 +98,19 @@ public class IbzLibCaseStep extends EntityMP implements Serializable {
     }
 
     /**
-     * 设置 [步骤]
-     */
-    public void setDesc(String desc) {
-        this.desc = desc;
-        this.modify("desc", desc);
-    }
-
-    /**
      * 设置 [类型]
      */
     public void setType(String type) {
         this.type = type;
         this.modify("type", type);
+    }
+
+    /**
+     * 设置 [步骤]
+     */
+    public void setDesc(String desc) {
+        this.desc = desc;
+        this.modify("desc", desc);
     }
 
 

@@ -7,68 +7,12 @@
 export interface IbizproProductDaily {
 
     /**
-     * 产品日报名称
+     * 结束日期
      *
      * @returns {*}
      * @memberof IbizproProductDaily
      */
-    ibizproproductdailyname?: any;
-
-    /**
-     * 产品日报标识
-     *
-     * @returns {*}
-     * @memberof IbizproProductDaily
-     */
-    ibizproproductdailyid?: any;
-
-    /**
-     * 建立人
-     *
-     * @returns {*}
-     * @memberof IbizproProductDaily
-     */
-    createman?: any;
-
-    /**
-     * 建立时间
-     *
-     * @returns {*}
-     * @memberof IbizproProductDaily
-     */
-    createdate?: any;
-
-    /**
-     * 更新时间
-     *
-     * @returns {*}
-     * @memberof IbizproProductDaily
-     */
-    updatedate?: any;
-
-    /**
-     * 更新人
-     *
-     * @returns {*}
-     * @memberof IbizproProductDaily
-     */
-    updateman?: any;
-
-    /**
-     * 产品负责人
-     *
-     * @returns {*}
-     * @memberof IbizproProductDaily
-     */
-    po?: any;
-
-    /**
-     * 产品
-     *
-     * @returns {*}
-     * @memberof IbizproProductDaily
-     */
-    product?: any;
+    end?: any;
 
     /**
      * 日期
@@ -79,12 +23,60 @@ export interface IbizproProductDaily {
     date?: any;
 
     /**
+     * 更新时间
+     *
+     * @returns {*}
+     * @memberof IbizproProductDaily
+     */
+    updatedate?: any;
+
+    /**
+     * 产品日报名称
+     *
+     * @returns {*}
+     * @memberof IbizproProductDaily
+     */
+    ibizproproductdailyname?: any;
+
+    /**
+     * 更新人
+     *
+     * @returns {*}
+     * @memberof IbizproProductDaily
+     */
+    updateman?: any;
+
+    /**
+     * 建立人
+     *
+     * @returns {*}
+     * @memberof IbizproProductDaily
+     */
+    createman?: any;
+
+    /**
      * 任务
      *
      * @returns {*}
      * @memberof IbizproProductDaily
      */
     tasks?: any;
+
+    /**
+     * 建立时间
+     *
+     * @returns {*}
+     * @memberof IbizproProductDaily
+     */
+    createdate?: any;
+
+    /**
+     * 产品日报标识
+     *
+     * @returns {*}
+     * @memberof IbizproProductDaily
+     */
+    ibizproproductdailyid?: any;
 
     /**
      * 总工时
@@ -95,14 +87,6 @@ export interface IbizproProductDaily {
     totalestimates?: any;
 
     /**
-     * 产品名称
-     *
-     * @returns {*}
-     * @memberof IbizproProductDaily
-     */
-    productname?: any;
-
-    /**
      * 开始日期
      *
      * @returns {*}
@@ -111,10 +95,26 @@ export interface IbizproProductDaily {
     begin?: any;
 
     /**
-     * 结束日期
+     * 产品负责人
      *
      * @returns {*}
      * @memberof IbizproProductDaily
      */
-    end?: any;
+    po?: any;
+
+    /**
+     * 产品名称
+     *
+     * @returns {*}
+     * @memberof IbizproProductDaily
+     */
+    productname?: any;
+
+    /**
+     * 产品
+     *
+     * @returns {*}
+     * @memberof IbizproProductDaily
+     */
+    product?: any;
 }

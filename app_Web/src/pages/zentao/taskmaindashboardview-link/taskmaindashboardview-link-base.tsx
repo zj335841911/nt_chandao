@@ -118,7 +118,7 @@ export class Taskmaindashboardview_linkBase extends DashboardViewBase {
      * @type {string}
      * @memberof Taskmaindashboardview_linkBase
      */
-	protected viewtag: string = '4fcd2a15ff88a97425e1ab1cadc5eb9f';
+	protected viewtag: string = 'a6e14baa45e0c99165384f7ef510d605';
 
     /**
      * 视图名称

@@ -157,7 +157,7 @@ export class BugProjectBugsGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof BugProjectBugsGridViewBase
      */
-	protected viewtag: string = 'd9cf190662d0781bee34acdfd9d1c6d2';
+	protected viewtag: string = 'a6d0c7cd71bd7d0878151cb7635e7967';
 
     /**
      * 视图名称

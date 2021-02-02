@@ -15,24 +15,6 @@ export default class GetRoadmapModel {
 	public getDataItems(): any[] {
 		return [
 			{
-				name: 'product',
-			},
-			{
-				name: 'year',
-			},
-			{
-				name: 'parent',
-			},
-			{
-				name: 'productlifeid',
-			},
-			{
-				name: 'type',
-			},
-			{
-				name: 'end',
-			},
-			{
 				name: 'begin',
 			},
 			{
@@ -40,10 +22,28 @@ export default class GetRoadmapModel {
         codelist:{tag:'YesNo3',codelistType:'STATIC'},
 			},
 			{
-				name: 'branch',
+				name: 'type',
+			},
+			{
+				name: 'product',
+			},
+			{
+				name: 'parent',
+			},
+			{
+				name: 'year',
+			},
+			{
+				name: 'end',
 			},
 			{
 				name: 'productlifename',
+			},
+			{
+				name: 'productlifeid',
+			},
+			{
+				name: 'branch',
 			},
       {
         name:'size',

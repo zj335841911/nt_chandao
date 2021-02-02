@@ -3,38 +3,38 @@ import commonLogic from '@/locale/logic/common/common-logic';
 function getLocaleResourceBase(){
 	const data:any = {
 		fields: {
+			deleted: commonLogic.appcommonhandle("逻辑删除标志",null),
+			id: commonLogic.appcommonhandle("id",null),
 			branch: commonLogic.appcommonhandle("branch",null),
+			isleaf: commonLogic.appcommonhandle("叶子模块",null),
+			type: commonLogic.appcommonhandle("类型（story）",null),
 			ibizshort: commonLogic.appcommonhandle("简称",null),
 			grade: commonLogic.appcommonhandle("grade",null),
-			order: commonLogic.appcommonhandle("排序值",null),
-			type: commonLogic.appcommonhandle("类型（story）",null),
 			collector: commonLogic.appcommonhandle("collector",null),
-			id: commonLogic.appcommonhandle("id",null),
-			isleaf: commonLogic.appcommonhandle("叶子模块",null),
-			owner: commonLogic.appcommonhandle("owner",null),
-			name: commonLogic.appcommonhandle("名称",null),
-			deleted: commonLogic.appcommonhandle("逻辑删除标志",null),
 			path: commonLogic.appcommonhandle("path",null),
-			parent: commonLogic.appcommonhandle("id",null),
+			name: commonLogic.appcommonhandle("名称",null),
+			owner: commonLogic.appcommonhandle("owner",null),
+			order: commonLogic.appcommonhandle("排序值",null),
 			parentname: commonLogic.appcommonhandle("上级模块",null),
 			root: commonLogic.appcommonhandle("编号",null),
+			parent: commonLogic.appcommonhandle("id",null),
 		},
 			views: {
-				treeexpview: {
-					caption: commonLogic.appcommonhandle("模块维护",null),
-					title: commonLogic.appcommonhandle("模块维护",null),
+				gridview: {
+					caption: commonLogic.appcommonhandle("用例库模块",null),
+					title: commonLogic.appcommonhandle("用例库模块表格视图",null),
 				},
 				casetreeexpview: {
 					caption: commonLogic.appcommonhandle("用例",null),
 					title: commonLogic.appcommonhandle("用例",null),
 				},
+				treeexpview: {
+					caption: commonLogic.appcommonhandle("模块维护",null),
+					title: commonLogic.appcommonhandle("模块维护",null),
+				},
 				editview: {
 					caption: commonLogic.appcommonhandle("用例库模块",null),
 					title: commonLogic.appcommonhandle("用例库模块编辑视图",null),
-				},
-				gridview: {
-					caption: commonLogic.appcommonhandle("用例库模块",null),
-					title: commonLogic.appcommonhandle("用例库模块表格视图",null),
 				},
 			},
 			main_form: {
@@ -93,8 +93,8 @@ function getLocaleResourceBase(){
 			treelibexp_treeview: {
 				nodata:commonLogic.appcommonhandle("",null),
 				nodes: {
-					all: commonLogic.appcommonhandle("所有模板",null),
 					root: commonLogic.appcommonhandle("默认根节点",null),
+					all: commonLogic.appcommonhandle("所有模板",null),
 				},
 				uiactions: {
 				},

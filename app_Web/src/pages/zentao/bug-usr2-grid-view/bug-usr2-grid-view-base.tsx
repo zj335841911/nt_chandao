@@ -149,7 +149,7 @@ export class BugUsr2GridViewBase extends GridViewBase {
      * @type {string}
      * @memberof BugUsr2GridViewBase
      */
-	protected viewtag: string = '8af65044ab1633eb5b68d99478e9350f';
+	protected viewtag: string = '39207f363dc5118f65d22eeef4c59883';
 
     /**
      * 视图名称

@@ -44,6 +44,28 @@ public class Product extends EntityMP implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
+     * 组织标识
+     */
+    @DEField(preType = DEPredefinedFieldType.ORGID)
+    @TableField(value = "`orgid`")
+    @JSONField(name = "orgid")
+    @JsonProperty("orgid")
+    private String orgid;
+    /**
+     * 是否置顶
+     */
+    @TableField(exist = false)
+    @JSONField(name = "istop")
+    @JsonProperty("istop")
+    private Integer istop;
+    /**
+     * 备注
+     */
+    @TableField(exist = false)
+    @JSONField(name = "comment")
+    @JsonProperty("comment")
+    private String comment;
+    /**
      * 测试负责人
      */
     @DEField(defaultValue = "#EMPTY")
@@ -51,6 +73,20 @@ public class Product extends EntityMP implements Serializable {
     @JSONField(name = "qd")
     @JsonProperty("qd")
     private String qd;
+    /**
+     * 产品分类
+     */
+    @TableField(value = "`productclass`")
+    @JSONField(name = "productclass")
+    @JsonProperty("productclass")
+    private String productclass;
+    /**
+     * 未确认Bug数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "unconfirmbugcnt")
+    @JsonProperty("unconfirmbugcnt")
+    private Integer unconfirmbugcnt;
     /**
      * 访问控制
      */
@@ -66,6 +102,34 @@ public class Product extends EntityMP implements Serializable {
     @JSONField(name = "name")
     @JsonProperty("name")
     private String name;
+    /**
+     * 移动端图片
+     */
+    @TableField(exist = false)
+    @JSONField(name = "mobimage")
+    @JsonProperty("mobimage")
+    private String mobimage;
+    /**
+     * 测试单数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "testtaskcnt")
+    @JsonProperty("testtaskcnt")
+    private Integer testtaskcnt;
+    /**
+     * 套件数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "testsuitecnt")
+    @JsonProperty("testsuitecnt")
+    private Integer testsuitecnt;
+    /**
+     * 计划总数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "productplancnt")
+    @JsonProperty("productplancnt")
+    private Integer productplancnt;
     /**
      * 编号
      */
@@ -84,6 +148,20 @@ public class Product extends EntityMP implements Serializable {
     @JsonProperty("deleted")
     private String deleted;
     /**
+     * 已关闭需求
+     */
+    @TableField(exist = false)
+    @JSONField(name = "closedstorycnt")
+    @JsonProperty("closedstorycnt")
+    private Integer closedstorycnt;
+    /**
+     * 相关Bug数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "relatedbugcnt")
+    @JsonProperty("relatedbugcnt")
+    private Integer relatedbugcnt;
+    /**
      * 分组白名单
      */
     @DEField(defaultValue = "#EMPTY")
@@ -92,6 +170,21 @@ public class Product extends EntityMP implements Serializable {
     @JsonProperty("whitelist")
     private String whitelist;
     /**
+     * 部门标识
+     */
+    @DEField(preType = DEPredefinedFieldType.ORGSECTORID)
+    @TableField(value = "`mdeptid`")
+    @JSONField(name = "mdeptid")
+    @JsonProperty("mdeptid")
+    private String mdeptid;
+    /**
+     * 发布总数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "releasecnt")
+    @JsonProperty("releasecnt")
+    private Integer releasecnt;
+    /**
      * 发布负责人
      */
     @DEField(defaultValue = "#EMPTY")
@@ -99,6 +192,27 @@ public class Product extends EntityMP implements Serializable {
     @JSONField(name = "rd")
     @JsonProperty("rd")
     private String rd;
+    /**
+     * 产品负责人（选择）
+     */
+    @TableField(exist = false)
+    @JSONField(name = "popk")
+    @JsonProperty("popk")
+    private String popk;
+    /**
+     * 未关闭Bug数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "notclosedbugcnt")
+    @JsonProperty("notclosedbugcnt")
+    private Integer notclosedbugcnt;
+    /**
+     * 支持产品汇报
+     */
+    @TableField(value = "`supproreport`")
+    @JSONField(name = "supproreport")
+    @JsonProperty("supproreport")
+    private String supproreport;
     /**
      * 排序
      */
@@ -124,6 +238,13 @@ public class Product extends EntityMP implements Serializable {
     @JsonProperty("po")
     private String po;
     /**
+     * 测试负责人（选择）
+     */
+    @TableField(exist = false)
+    @JSONField(name = "qdpk")
+    @JsonProperty("qdpk")
+    private String qdpk;
+    /**
      * 产品描述	
      */
     @DEField(defaultValue = "#EMPTY")
@@ -140,6 +261,20 @@ public class Product extends EntityMP implements Serializable {
     @JsonProperty("status")
     private String status;
     /**
+     * 已变更需求
+     */
+    @TableField(exist = false)
+    @JSONField(name = "changedstorycnt")
+    @JsonProperty("changedstorycnt")
+    private Integer changedstorycnt;
+    /**
+     * 未解决Bug数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "activebugcnt")
+    @JsonProperty("activebugcnt")
+    private Integer activebugcnt;
+    /**
      * 由谁创建
      */
     @DEField(preType = DEPredefinedFieldType.CREATEMANNAME)
@@ -148,6 +283,13 @@ public class Product extends EntityMP implements Serializable {
     @JsonProperty("createdby")
     private String createdby;
     /**
+     * 发布负责人（选择）
+     */
+    @TableField(exist = false)
+    @JSONField(name = "rdpk")
+    @JsonProperty("rdpk")
+    private String rdpk;
+    /**
      * 当前系统版本
      */
     @DEField(defaultValue = "#EMPTY")
@@ -155,6 +297,42 @@ public class Product extends EntityMP implements Serializable {
     @JSONField(name = "createdversion")
     @JsonProperty("createdversion")
     private String createdversion;
+    /**
+     * 草稿需求
+     */
+    @TableField(exist = false)
+    @JSONField(name = "draftstorycnt")
+    @JsonProperty("draftstorycnt")
+    private Integer draftstorycnt;
+    /**
+     * 文档数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "doccnt")
+    @JsonProperty("doccnt")
+    private Integer doccnt;
+    /**
+     * 用例数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "casecnt")
+    @JsonProperty("casecnt")
+    private Integer casecnt;
+    /**
+     * 关联项目数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "relatedprojects")
+    @JsonProperty("relatedprojects")
+    private Integer relatedprojects;
+    /**
+     * IBIZ标识
+     */
+    @DEField(name = "ibiz_id")
+    @TableField(value = "`ibiz_id`")
+    @JSONField(name = "ibiz_id")
+    @JsonProperty("ibiz_id")
+    private String ibizId;
     /**
      * 子状态
      */
@@ -170,6 +348,27 @@ public class Product extends EntityMP implements Serializable {
     @JsonProperty("code")
     private String code;
     /**
+     * 属性
+     */
+    @TableField(exist = false)
+    @JSONField(name = "srfcount")
+    @JsonProperty("srfcount")
+    private Integer srfcount;
+    /**
+     * 排序
+     */
+    @TableField(exist = false)
+    @JSONField(name = "order1")
+    @JsonProperty("order1")
+    private Integer order1;
+    /**
+     * BUILD数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "buildcnt")
+    @JsonProperty("buildcnt")
+    private Integer buildcnt;
+    /**
      * 创建日期
      */
     @DEField(preType = DEPredefinedFieldType.CREATEDATE)
@@ -178,6 +377,20 @@ public class Product extends EntityMP implements Serializable {
     @JSONField(name = "createddate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createddate")
     private Timestamp createddate;
+    /**
+     * 消息通知用户
+     */
+    @TableField(exist = false)
+    @JSONField(name = "noticeusers")
+    @JsonProperty("noticeusers")
+    private String noticeusers;
+    /**
+     * 激活需求数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "activestorycnt")
+    @JsonProperty("activestorycnt")
+    private Integer activestorycnt;
     /**
      * 产品线
      */
@@ -193,219 +406,6 @@ public class Product extends EntityMP implements Serializable {
     @JSONField(name = "line")
     @JsonProperty("line")
     private Long line;
-    /**
-     * 未解决Bug数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "activebugcnt")
-    @JsonProperty("activebugcnt")
-    private Integer activebugcnt;
-    /**
-     * 计划总数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "productplancnt")
-    @JsonProperty("productplancnt")
-    private Integer productplancnt;
-    /**
-     * 发布总数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "releasecnt")
-    @JsonProperty("releasecnt")
-    private Integer releasecnt;
-    /**
-     * 激活需求数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "activestorycnt")
-    @JsonProperty("activestorycnt")
-    private Integer activestorycnt;
-    /**
-     * 未确认Bug数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "unconfirmbugcnt")
-    @JsonProperty("unconfirmbugcnt")
-    private Integer unconfirmbugcnt;
-    /**
-     * 未关闭Bug数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "notclosedbugcnt")
-    @JsonProperty("notclosedbugcnt")
-    private Integer notclosedbugcnt;
-    /**
-     * 备注
-     */
-    @TableField(exist = false)
-    @JSONField(name = "comment")
-    @JsonProperty("comment")
-    private String comment;
-    /**
-     * 相关Bug数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "relatedbugcnt")
-    @JsonProperty("relatedbugcnt")
-    private Integer relatedbugcnt;
-    /**
-     * 已变更需求
-     */
-    @TableField(exist = false)
-    @JSONField(name = "changedstorycnt")
-    @JsonProperty("changedstorycnt")
-    private Integer changedstorycnt;
-    /**
-     * 草稿需求
-     */
-    @TableField(exist = false)
-    @JSONField(name = "draftstorycnt")
-    @JsonProperty("draftstorycnt")
-    private Integer draftstorycnt;
-    /**
-     * 已关闭需求
-     */
-    @TableField(exist = false)
-    @JSONField(name = "closedstorycnt")
-    @JsonProperty("closedstorycnt")
-    private Integer closedstorycnt;
-    /**
-     * 关联项目数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "relatedprojects")
-    @JsonProperty("relatedprojects")
-    private Integer relatedprojects;
-    /**
-     * 文档数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "doccnt")
-    @JsonProperty("doccnt")
-    private Integer doccnt;
-    /**
-     * BUILD数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "buildcnt")
-    @JsonProperty("buildcnt")
-    private Integer buildcnt;
-    /**
-     * 用例数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "casecnt")
-    @JsonProperty("casecnt")
-    private Integer casecnt;
-    /**
-     * 属性
-     */
-    @TableField(exist = false)
-    @JSONField(name = "srfcount")
-    @JsonProperty("srfcount")
-    private Integer srfcount;
-    /**
-     * 移动端图片
-     */
-    @TableField(exist = false)
-    @JSONField(name = "mobimage")
-    @JsonProperty("mobimage")
-    private String mobimage;
-    /**
-     * 排序
-     */
-    @TableField(exist = false)
-    @JSONField(name = "order1")
-    @JsonProperty("order1")
-    private Integer order1;
-    /**
-     * 是否置顶
-     */
-    @TableField(exist = false)
-    @JSONField(name = "istop")
-    @JsonProperty("istop")
-    private Integer istop;
-    /**
-     * 测试单数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "testtaskcnt")
-    @JsonProperty("testtaskcnt")
-    private Integer testtaskcnt;
-    /**
-     * 套件数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "testsuitecnt")
-    @JsonProperty("testsuitecnt")
-    private Integer testsuitecnt;
-    /**
-     * 产品负责人（选择）
-     */
-    @TableField(exist = false)
-    @JSONField(name = "popk")
-    @JsonProperty("popk")
-    private String popk;
-    /**
-     * 测试负责人（选择）
-     */
-    @TableField(exist = false)
-    @JSONField(name = "qdpk")
-    @JsonProperty("qdpk")
-    private String qdpk;
-    /**
-     * 发布负责人（选择）
-     */
-    @TableField(exist = false)
-    @JSONField(name = "rdpk")
-    @JsonProperty("rdpk")
-    private String rdpk;
-    /**
-     * 消息通知用户
-     */
-    @TableField(exist = false)
-    @JSONField(name = "noticeusers")
-    @JsonProperty("noticeusers")
-    private String noticeusers;
-    /**
-     * 组织标识
-     */
-    @DEField(preType = DEPredefinedFieldType.ORGID)
-    @TableField(value = "`orgid`")
-    @JSONField(name = "orgid")
-    @JsonProperty("orgid")
-    private String orgid;
-    /**
-     * 部门标识
-     */
-    @DEField(preType = DEPredefinedFieldType.ORGSECTORID)
-    @TableField(value = "`mdeptid`")
-    @JSONField(name = "mdeptid")
-    @JsonProperty("mdeptid")
-    private String mdeptid;
-    /**
-     * IBIZ标识
-     */
-    @DEField(name = "ibiz_id")
-    @TableField(value = "`ibiz_id`")
-    @JSONField(name = "ibiz_id")
-    @JsonProperty("ibiz_id")
-    private String ibizId;
-    /**
-     * 支持产品汇报
-     */
-    @TableField(value = "`supproreport`")
-    @JSONField(name = "supproreport")
-    @JsonProperty("supproreport")
-    private String supproreport;
-    /**
-     * 产品分类
-     */
-    @TableField(value = "`productclass`")
-    @JSONField(name = "productclass")
-    @JsonProperty("productclass")
-    private String productclass;
 
     /**
      * 产品线
@@ -431,6 +431,14 @@ public class Product extends EntityMP implements Serializable {
     public void setQd(String qd) {
         this.qd = qd;
         this.modify("qd", qd);
+    }
+
+    /**
+     * 设置 [产品分类]
+     */
+    public void setProductclass(String productclass) {
+        this.productclass = productclass;
+        this.modify("productclass", productclass);
     }
 
     /**
@@ -463,6 +471,14 @@ public class Product extends EntityMP implements Serializable {
     public void setRd(String rd) {
         this.rd = rd;
         this.modify("rd", rd);
+    }
+
+    /**
+     * 设置 [支持产品汇报]
+     */
+    public void setSupproreport(String supproreport) {
+        this.supproreport = supproreport;
+        this.modify("supproreport", supproreport);
     }
 
     /**
@@ -514,6 +530,14 @@ public class Product extends EntityMP implements Serializable {
     }
 
     /**
+     * 设置 [IBIZ标识]
+     */
+    public void setIbizId(String ibizId) {
+        this.ibizId = ibizId;
+        this.modify("ibiz_id", ibizId);
+    }
+
+    /**
      * 设置 [子状态]
      */
     public void setSubstatus(String substatus) {
@@ -535,30 +559,6 @@ public class Product extends EntityMP implements Serializable {
     public void setLine(Long line) {
         this.line = line;
         this.modify("line", line);
-    }
-
-    /**
-     * 设置 [IBIZ标识]
-     */
-    public void setIbizId(String ibizId) {
-        this.ibizId = ibizId;
-        this.modify("ibiz_id", ibizId);
-    }
-
-    /**
-     * 设置 [支持产品汇报]
-     */
-    public void setSupproreport(String supproreport) {
-        this.supproreport = supproreport;
-        this.modify("supproreport", supproreport);
-    }
-
-    /**
-     * 设置 [产品分类]
-     */
-    public void setProductclass(String productclass) {
-        this.productclass = productclass;
-        this.modify("productclass", productclass);
     }
 
 

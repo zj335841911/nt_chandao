@@ -7,44 +7,12 @@
 export interface CompanyStats {
 
     /**
-     * 标识
-     *
-     * @returns {*}
-     * @memberof CompanyStats
-     */
-    id?: any;
-
-    /**
-     * 备注
-     *
-     * @returns {*}
-     * @memberof CompanyStats
-     */
-    comment?: any;
-
-    /**
-     * 日期
-     *
-     * @returns {*}
-     * @memberof CompanyStats
-     */
-    ztdate?: any;
-
-    /**
      * 登录次数
      *
      * @returns {*}
      * @memberof CompanyStats
      */
     logincnt?: any;
-
-    /**
-     * 日志工时
-     *
-     * @returns {*}
-     * @memberof CompanyStats
-     */
-    loghours?: any;
 
     /**
      * 新增需求数
@@ -55,28 +23,28 @@ export interface CompanyStats {
     openedstorycnt?: any;
 
     /**
+     * 日期
+     *
+     * @returns {*}
+     * @memberof CompanyStats
+     */
+    ztdate?: any;
+
+    /**
+     * 日志日期
+     *
+     * @returns {*}
+     * @memberof CompanyStats
+     */
+    date?: any;
+
+    /**
      * 关闭需求数
      *
      * @returns {*}
      * @memberof CompanyStats
      */
     closedstorycnt?: any;
-
-    /**
-     * 新增任务数
-     *
-     * @returns {*}
-     * @memberof CompanyStats
-     */
-    openedtaskcnt?: any;
-
-    /**
-     * 完成任务数
-     *
-     * @returns {*}
-     * @memberof CompanyStats
-     */
-    finishedtaskcnt?: any;
 
     /**
      * 新增Bug数
@@ -87,12 +55,12 @@ export interface CompanyStats {
     openedbugcnt?: any;
 
     /**
-     * 解决Bug数
+     * 日志工时
      *
      * @returns {*}
      * @memberof CompanyStats
      */
-    resolvedbugcnt?: any;
+    loghours?: any;
 
     /**
      * 动态数
@@ -103,10 +71,42 @@ export interface CompanyStats {
     dynamiccnt?: any;
 
     /**
-     * 日志日期
+     * 完成任务数
      *
      * @returns {*}
      * @memberof CompanyStats
      */
-    date?: any;
+    finishedtaskcnt?: any;
+
+    /**
+     * 解决Bug数
+     *
+     * @returns {*}
+     * @memberof CompanyStats
+     */
+    resolvedbugcnt?: any;
+
+    /**
+     * 备注
+     *
+     * @returns {*}
+     * @memberof CompanyStats
+     */
+    comment?: any;
+
+    /**
+     * 新增任务数
+     *
+     * @returns {*}
+     * @memberof CompanyStats
+     */
+    openedtaskcnt?: any;
+
+    /**
+     * 标识
+     *
+     * @returns {*}
+     * @memberof CompanyStats
+     */
+    id?: any;
 }

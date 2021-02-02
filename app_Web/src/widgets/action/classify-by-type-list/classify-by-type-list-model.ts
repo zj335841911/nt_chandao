@@ -15,7 +15,28 @@ export default class ClassifyByTypeModel {
 	public getDataItems(): any[] {
 		return [
 			{
+				name: 'objecttype',
+			},
+			{
 				name: 'date',
+			},
+			{
+				name: 'isactorss',
+			},
+			{
+				name: 'product',
+			},
+			{
+				name: 'project',
+			},
+			{
+				name: 'extra',
+			},
+			{
+				name: 'id',
+			},
+			{
+				name: 'objectid',
 			},
 			{
 				name: 'actiontype',
@@ -23,36 +44,15 @@ export default class ClassifyByTypeModel {
 				dataType: 'SSCODELIST',
 			},
 			{
-				name: 'isactorss',
-			},
-			{
-				name: 'actor',
-        codelist:{tag:'UserRealName',codelistType:'DYNAMIC'},
-			},
-			{
-				name: 'product',
-			},
-			{
 				name: 'comment',
-			},
-			{
-				name: 'project',
-			},
-			{
-				name: 'objecttype',
-			},
-			{
-				name: 'extra',
-			},
-			{
-				name: 'objectid',
-			},
-			{
-				name: 'id',
 			},
 			{
 				name: 'actionmanner',
         codelist:{tag:'ActionManner',codelistType:'STATIC'},
+			},
+			{
+				name: 'actor',
+        codelist:{tag:'UserRealName',codelistType:'DYNAMIC'},
 			},
 			{
 				name: 'srfkey',

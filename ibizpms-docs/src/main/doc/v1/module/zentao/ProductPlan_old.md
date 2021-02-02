@@ -18,64 +18,64 @@ hide members
 
 | 属性名称        |    中文名称    | 类型     |  备注  |
 | --------   |------------| -----   |  -------- | 
+|总任务数|TASKSCNT|INT|&nbsp;|
+|工时数|ESTIMATECNT|INT|&nbsp;|
 |名称|TITLE|TEXT|&nbsp;|
+|延迟任务数|DELAYTASKSCNT|INT|&nbsp;|
+|上一次计划名称|OLDTITLE|TEXT|&nbsp;|
 |编号|ID|ACID|&nbsp;|
 |开始日期|BEGIN|DATE|&nbsp;|
+|状态|STATUSS|TEXT|&nbsp;|
 |描述|DESC|LONGTEXT|&nbsp;|
 |结束日期|END|DATE|&nbsp;|
+|持续时间|DURATION|TEXT|&nbsp;|
+|开始日期|BEGINSTR|TEXT|&nbsp;|
+|计划模板|PLANTEMPLET|SSCODELIST|&nbsp;|
+|未完成任务数|UNFINISHEDTASKSCNT|INT|&nbsp;|
+|结束日期|ENDSTR|TEXT|&nbsp;|
+|是否过期|ISEXPIRED|YESNO|&nbsp;|
 |已删除|DELETED|TEXT|&nbsp;|
 |排序|ORDER|LONGTEXT|&nbsp;|
+|待定|FUTURE|SSCODELIST|&nbsp;|
+|需求数|STORYCNT|INT|&nbsp;|
+|周期|DELTA|SSCODELIST|&nbsp;|
+|完成任务数|FINISHEDTASKSCNT|INT|&nbsp;|
+|bug数|BUGCNT|INT|&nbsp;|
 |父计划名称|PARENTNAME|PICKUPTEXT|&nbsp;|
 |平台/分支|BRANCH|PICKUP|&nbsp;|
 |父计划|PARENT|PICKUP|&nbsp;|
 |产品|PRODUCT|PICKUP|&nbsp;|
-|状态|STATUSS|TEXT|&nbsp;|
-|待定|FUTURE|SSCODELIST|&nbsp;|
-|周期|DELTA|SSCODELIST|&nbsp;|
-|上一次计划名称|OLDTITLE|TEXT|&nbsp;|
-|需求数|STORYCNT|INT|&nbsp;|
-|bug数|BUGCNT|INT|&nbsp;|
-|是否过期|ISEXPIRED|YESNO|&nbsp;|
-|工时数|ESTIMATECNT|INT|&nbsp;|
-|开始日期|BEGINSTR|TEXT|&nbsp;|
-|结束日期|ENDSTR|TEXT|&nbsp;|
-|计划模板|PLANTEMPLET|SSCODELIST|&nbsp;|
-|延迟任务数|DELAYTASKSCNT|INT|&nbsp;|
-|未完成任务数|UNFINISHEDTASKSCNT|INT|&nbsp;|
-|完成任务数|FINISHEDTASKSCNT|INT|&nbsp;|
-|总任务数|TASKSCNT|INT|&nbsp;|
-|持续时间|DURATION|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
 | --------   |------------| ----- | 
+|总任务数|默认规则|默认规则|
+|工时数|默认规则|默认规则|
 |名称|默认规则|内容长度必须小于等于[90]|
+|延迟任务数|默认规则|默认规则|
+|上一次计划名称|默认规则|内容长度必须小于等于[100]|
 |编号|默认规则|默认规则|
 |开始日期|默认规则|默认规则|
+|状态|默认规则|内容长度必须小于等于[200]|
 |描述|默认规则|内容长度必须小于等于[65535]|
 |结束日期|默认规则|默认规则|
+|持续时间|默认规则|内容长度必须小于等于[200]|
+|开始日期|默认规则|内容长度必须小于等于[200]|
+|计划模板|默认规则|内容长度必须小于等于[200]|
+|未完成任务数|默认规则|默认规则|
+|结束日期|默认规则|内容长度必须小于等于[200]|
+|是否过期|默认规则|内容长度必须小于等于[200]|
 |已删除|默认规则|内容长度必须小于等于[1]|
 |排序|默认规则|内容长度必须小于等于[65535]|
+|待定|默认规则|内容长度必须小于等于[200]|
+|需求数|默认规则|默认规则|
+|周期|默认规则|内容长度必须小于等于[200]|
+|完成任务数|默认规则|默认规则|
+|bug数|默认规则|默认规则|
 |父计划名称|默认规则|内容长度必须小于等于[90]|
 |平台/分支|默认规则|默认规则|
 |父计划|默认规则|默认规则|
 |产品|默认规则|默认规则|
-|状态|默认规则|内容长度必须小于等于[200]|
-|待定|默认规则|内容长度必须小于等于[200]|
-|周期|默认规则|内容长度必须小于等于[200]|
-|上一次计划名称|默认规则|内容长度必须小于等于[100]|
-|需求数|默认规则|默认规则|
-|bug数|默认规则|默认规则|
-|是否过期|默认规则|内容长度必须小于等于[200]|
-|工时数|默认规则|默认规则|
-|开始日期|默认规则|内容长度必须小于等于[200]|
-|结束日期|默认规则|内容长度必须小于等于[200]|
-|计划模板|默认规则|内容长度必须小于等于[200]|
-|延迟任务数|默认规则|默认规则|
-|未完成任务数|默认规则|默认规则|
-|完成任务数|默认规则|默认规则|
-|总任务数|默认规则|默认规则|
-|持续时间|默认规则|内容长度必须小于等于[200]|
 
 ## 状态控制
 
@@ -148,15 +148,15 @@ hide footbox
 {% plantuml %}
 hide footbox
 
-产品计划 -> 产品计划: 获取bug数
 产品计划 -> 产品计划: 获取需求数
+产品计划 -> 产品计划: 获取bug数
 {% endplantuml %}
 
 | 步骤       | 操作        |
 | --------   | --------   |
-|1|获取bug数 |
-|1|开始 | 
-|2|获取需求数 |
+|0|开始 | 
+|1|获取需求数 |
+|2|获取bug数 |
 <center>移动端产品计划计数器</center>
 
 ## 查询集合
@@ -198,15 +198,15 @@ hide footbox
 |名称(TITLE)|LIKE|
 |开始日期(BEGIN)|GTANDEQ|
 |结束日期(END)|LTANDEQ|
+|计划模板(PLANTEMPLET)|EQ|
+|是否过期(ISEXPIRED)|EQ|
+|待定(FUTURE)|EQ|
+|周期(DELTA)|EQ|
 |父计划名称(PARENTNAME)|EQ|
 |父计划名称(PARENTNAME)|LIKE|
 |平台/分支(BRANCH)|EQ|
 |父计划(PARENT)|EQ|
 |产品(PRODUCT)|EQ|
-|待定(FUTURE)|EQ|
-|周期(DELTA)|EQ|
-|是否过期(ISEXPIRED)|EQ|
-|计划模板(PLANTEMPLET)|EQ|
 
 ## 导入模式
 无

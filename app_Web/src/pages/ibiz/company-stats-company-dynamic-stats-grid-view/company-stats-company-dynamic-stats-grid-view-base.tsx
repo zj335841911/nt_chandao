@@ -125,7 +125,7 @@ export class CompanyStatsCompanyDynamicStatsGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof CompanyStatsCompanyDynamicStatsGridViewBase
      */
-	protected viewtag: string = '59c85c1053657b4fea02d5bd53e305d8';
+	protected viewtag: string = '711be2d831ff79f103294323c3389346';
 
     /**
      * 视图名称

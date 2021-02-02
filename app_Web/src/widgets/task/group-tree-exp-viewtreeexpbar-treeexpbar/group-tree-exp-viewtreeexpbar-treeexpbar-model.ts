@@ -18,10 +18,28 @@ export default class GroupTreeExpViewtreeexpbarModel {
         name: 'canceledby',
       },
       {
+        name: 'configtype',
+      },
+      {
+        name: 'taskteams',
+      },
+      {
         name: 'left',
       },
       {
+        name: 'isfavorites',
+      },
+      {
+        name: 'configend',
+      },
+      {
+        name: 'hasdetail',
+      },
+      {
         name: 'openeddate',
+      },
+      {
+        name: 'assign',
       },
       {
         name: 'color',
@@ -34,13 +52,46 @@ export default class GroupTreeExpViewtreeexpbarModel {
         name: 'finishedby',
       },
       {
+        name: 'mytotaltime',
+      },
+      {
+        name: 'mailtopk',
+      },
+      {
         name: 'finishedlist',
+      },
+      {
+        name: 'modulename1',
+      },
+      {
+        name: 'isleaf',
       },
       {
         name: 'realstarted',
       },
       {
+        name: 'status1',
+      },
+      {
+        name: 'replycount',
+      },
+      {
+        name: 'configbegin',
+      },
+      {
+        name: 'updatedate',
+      },
+      {
+        name: 'noticeusers',
+      },
+      {
         name: 'closedby',
+      },
+      {
+        name: 'currentconsumed',
+      },
+      {
+        name: 'files',
       },
       {
         name: 'substatus',
@@ -49,7 +100,13 @@ export default class GroupTreeExpViewtreeexpbarModel {
         name: 'closedreason',
       },
       {
+        name: 'taskspecies',
+      },
+      {
         name: 'lastediteddate',
+      },
+      {
+        name: 'configday',
       },
       {
         name: 'assigneddate',
@@ -61,7 +118,13 @@ export default class GroupTreeExpViewtreeexpbarModel {
         name: 'lasteditedby',
       },
       {
+        name: 'idvalue',
+      },
+      {
         name: 'status',
+      },
+      {
+        name: 'multiple',
       },
       {
         name: 'name',
@@ -70,10 +133,22 @@ export default class GroupTreeExpViewtreeexpbarModel {
         name: 'closeddate',
       },
       {
+        name: 'inputcost',
+      },
+      {
+        name: 'totaltime',
+      },
+      {
         name: 'type',
       },
       {
         name: 'assignedto',
+      },
+      {
+        name: 'ibztaskestimates',
+      },
+      {
+        name: 'delay',
       },
       {
         name: 'desc',
@@ -85,7 +160,16 @@ export default class GroupTreeExpViewtreeexpbarModel {
         name: 'deadline',
       },
       {
+        name: 'statusorder',
+      },
+      {
+        name: 'mailtoconact',
+      },
+      {
         name: 'deleted',
+      },
+      {
+        name: 'cycle',
       },
       {
         name: 'mailto',
@@ -100,16 +184,58 @@ export default class GroupTreeExpViewtreeexpbarModel {
         name: 'openedby',
       },
       {
+        name: 'isfinished',
+      },
+      {
         name: 'canceleddate',
       },
       {
+        name: 'configmonth',
+      },
+      {
+        name: 'comment',
+      },
+      {
+        name: 'duration',
+      },
+      {
+        name: 'assignedtozj',
+      },
+      {
+        name: 'usernames',
+      },
+      {
+        name: 'myconsumed',
+      },
+      {
+        name: 'configweek',
+      },
+      {
+        name: 'tasktype',
+      },
+      {
+        name: 'allmodules',
+      },
+      {
+        name: 'configbeforedays',
+      },
+      {
         name: 'finisheddate',
+      },
+      {
+        name: 'progressrate',
       },
       {
         name: 'modulename',
       },
       {
         name: 'storyname',
+      },
+      {
+        name: 'path',
+      },
+      {
+        name: 'planname',
       },
       {
         name: 'projectname',
@@ -130,6 +256,12 @@ export default class GroupTreeExpViewtreeexpbarModel {
         name: 'project',
       },
       {
+        name: 'plan',
+      },
+      {
+        name: 'module',
+      },
+      {
         name: 'story',
       },
       {
@@ -137,138 +269,6 @@ export default class GroupTreeExpViewtreeexpbarModel {
       },
       {
         name: 'frombug',
-      },
-      {
-        name: 'duration',
-      },
-      {
-        name: 'module',
-      },
-      {
-        name: 'path',
-      },
-      {
-        name: 'comment',
-      },
-      {
-        name: 'currentconsumed',
-      },
-      {
-        name: 'totaltime',
-      },
-      {
-        name: 'isleaf',
-      },
-      {
-        name: 'allmodules',
-      },
-      {
-        name: 'multiple',
-      },
-      {
-        name: 'taskteams',
-      },
-      {
-        name: 'modulename1',
-      },
-      {
-        name: 'ibztaskestimates',
-      },
-      {
-        name: 'isfavorites',
-      },
-      {
-        name: 'status1',
-      },
-      {
-        name: 'tasktype',
-      },
-      {
-        name: 'files',
-      },
-      {
-        name: 'usernames',
-      },
-      {
-        name: 'isfinished',
-      },
-      {
-        name: 'replycount',
-      },
-      {
-        name: 'hasdetail',
-      },
-      {
-        name: 'updatedate',
-      },
-      {
-        name: 'noticeusers',
-      },
-      {
-        name: 'progressrate',
-      },
-      {
-        name: 'delay',
-      },
-      {
-        name: 'mailtopk',
-      },
-      {
-        name: 'mailtoconact',
-      },
-      {
-        name: 'statusorder',
-      },
-      {
-        name: 'myconsumed',
-      },
-      {
-        name: 'mytotaltime',
-      },
-      {
-        name: 'assignedtozj',
-      },
-      {
-        name: 'plan',
-      },
-      {
-        name: 'taskspecies',
-      },
-      {
-        name: 'configweek',
-      },
-      {
-        name: 'configmonth',
-      },
-      {
-        name: 'configtype',
-      },
-      {
-        name: 'configbeforedays',
-      },
-      {
-        name: 'configday',
-      },
-      {
-        name: 'configend',
-      },
-      {
-        name: 'configbegin',
-      },
-      {
-        name: 'planname',
-      },
-      {
-        name: 'idvalue',
-      },
-      {
-        name: 'cycle',
-      },
-      {
-        name: 'assign',
-      },
-      {
-        name: 'inputcost',
       },
     ]
   }

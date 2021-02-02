@@ -125,7 +125,7 @@ export class DocLibUsr2EditViewBase extends EditViewBase {
      * @type {string}
      * @memberof DocLibUsr2EditViewBase
      */
-	protected viewtag: string = '73fbcf0e3685096f63587bcff234f958';
+	protected viewtag: string = '80df4b7b0e149f1b3d38d4cf9df1b81c';
 
     /**
      * 视图名称

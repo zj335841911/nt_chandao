@@ -51,14 +51,13 @@ public class IbzLib extends EntityMP implements Serializable {
     @JsonProperty("desc")
     private String desc;
     /**
-     * 最后编辑时间
+     * 产品
      */
-    @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
-    @TableField(value = "`lastediteddate`")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
-    @JSONField(name = "lastediteddate", format = "yyyy-MM-dd HH:mm:ss")
-    @JsonProperty("lastediteddate")
-    private Timestamp lastediteddate;
+    @DEField(defaultValue = "0")
+    @TableField(value = "`product`")
+    @JSONField(name = "product")
+    @JsonProperty("product")
+    private Long product;
     /**
      * 创建时间
      */
@@ -76,6 +75,23 @@ public class IbzLib extends EntityMP implements Serializable {
     @JSONField(name = "id")
     @JsonProperty("id")
     private Long id;
+    /**
+     * 最后编辑时间
+     */
+    @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
+    @TableField(value = "`lastediteddate`")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "lastediteddate", format = "yyyy-MM-dd HH:mm:ss")
+    @JsonProperty("lastediteddate")
+    private Timestamp lastediteddate;
+    /**
+     * 由谁创建
+     */
+    @DEField(preType = DEPredefinedFieldType.CREATEMANNAME)
+    @TableField(value = "`addedby`")
+    @JSONField(name = "addedby")
+    @JsonProperty("addedby")
+    private String addedby;
     /**
      * 已删除
      */
@@ -100,14 +116,6 @@ public class IbzLib extends EntityMP implements Serializable {
     @JsonProperty("type")
     private String type;
     /**
-     * 由谁创建
-     */
-    @DEField(preType = DEPredefinedFieldType.CREATEMANNAME)
-    @TableField(value = "`addedby`")
-    @JSONField(name = "addedby")
-    @JsonProperty("addedby")
-    private String addedby;
-    /**
      * 最后编辑人
      */
     @DEField(preType = DEPredefinedFieldType.UPDATEMANNAME)
@@ -115,14 +123,6 @@ public class IbzLib extends EntityMP implements Serializable {
     @JSONField(name = "lasteditedby")
     @JsonProperty("lasteditedby")
     private String lasteditedby;
-    /**
-     * 产品
-     */
-    @DEField(defaultValue = "0")
-    @TableField(value = "`product`")
-    @JSONField(name = "product")
-    @JsonProperty("product")
-    private Long product;
 
 
 
@@ -132,6 +132,14 @@ public class IbzLib extends EntityMP implements Serializable {
     public void setDesc(String desc) {
         this.desc = desc;
         this.modify("desc", desc);
+    }
+
+    /**
+     * 设置 [产品]
+     */
+    public void setProduct(Long product) {
+        this.product = product;
+        this.modify("product", product);
     }
 
     /**
@@ -148,14 +156,6 @@ public class IbzLib extends EntityMP implements Serializable {
     public void setType(String type) {
         this.type = type;
         this.modify("type", type);
-    }
-
-    /**
-     * 设置 [产品]
-     */
-    public void setProduct(Long product) {
-        this.product = product;
-        this.modify("product", product);
     }
 
 

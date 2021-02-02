@@ -3,35 +3,31 @@ import commonLogic from '@/locale/logic/common/common-logic';
 function getLocaleResourceBase(){
 	const data:any = {
 		fields: {
-			ibzmonthlyid: commonLogic.appcommonhandle("月报标识",null),
 			createman: commonLogic.appcommonhandle("建立人",null),
-			updateman: commonLogic.appcommonhandle("更新人",null),
-			createdate: commonLogic.appcommonhandle("建立时间",null),
-			ibzmonthlyname: commonLogic.appcommonhandle("月报名称",null),
-			updatedate: commonLogic.appcommonhandle("更新时间",null),
-			date: commonLogic.appcommonhandle("日期",null),
-			account: commonLogic.appcommonhandle("用户",null),
-			workthismonth: commonLogic.appcommonhandle("本月工作",null),
-			plansnextmonth: commonLogic.appcommonhandle("下月计划",null),
-			reportto: commonLogic.appcommonhandle("汇报给",null),
-			mailto: commonLogic.appcommonhandle("抄送给",null),
-			comment: commonLogic.appcommonhandle("其他事项",null),
-			thismonthtask: commonLogic.appcommonhandle("本月完成任务",null),
-			nextmonthplanstask: commonLogic.appcommonhandle("下月计划任务",null),
-			files: commonLogic.appcommonhandle("附件",null),
-			issubmit: commonLogic.appcommonhandle("是否提交",null),
-			updatemanname: commonLogic.appcommonhandle("更新人名称",null),
 			reportstatus: commonLogic.appcommonhandle("状态",null),
-			createmanname: commonLogic.appcommonhandle("建立人名称",null),
-			submittime: commonLogic.appcommonhandle("提交时间",null),
+			updatedate: commonLogic.appcommonhandle("更新时间",null),
+			plansnextmonth: commonLogic.appcommonhandle("下月计划",null),
 			reporttopk: commonLogic.appcommonhandle("汇报给（选择）",null),
+			issubmit: commonLogic.appcommonhandle("是否提交",null),
 			mailtopk: commonLogic.appcommonhandle("抄送给（选择）",null),
+			updatemanname: commonLogic.appcommonhandle("更新人名称",null),
+			updateman: commonLogic.appcommonhandle("更新人",null),
+			date: commonLogic.appcommonhandle("日期",null),
+			submittime: commonLogic.appcommonhandle("提交时间",null),
+			createdate: commonLogic.appcommonhandle("建立时间",null),
+			createmanname: commonLogic.appcommonhandle("建立人名称",null),
+			files: commonLogic.appcommonhandle("附件",null),
+			ibzmonthlyid: commonLogic.appcommonhandle("月报标识",null),
+			account: commonLogic.appcommonhandle("用户",null),
+			nextmonthplanstask: commonLogic.appcommonhandle("下月计划任务",null),
+			thismonthtask: commonLogic.appcommonhandle("本月完成任务",null),
+			workthismonth: commonLogic.appcommonhandle("本月工作",null),
+			reportto: commonLogic.appcommonhandle("汇报给",null),
+			ibzmonthlyname: commonLogic.appcommonhandle("月报名称",null),
+			comment: commonLogic.appcommonhandle("其他事项",null),
+			mailto: commonLogic.appcommonhandle("抄送给",null),
 		},
 			views: {
-				projectmonthlygridview_: {
-					caption: commonLogic.appcommonhandle("月报",null),
-					title: commonLogic.appcommonhandle("月报表格视图",null),
-				},
 				editmonthlyeditview: {
 					caption: commonLogic.appcommonhandle("月报",null),
 					title: commonLogic.appcommonhandle("月报编辑视图",null),
@@ -49,6 +45,10 @@ function getLocaleResourceBase(){
 					title: commonLogic.appcommonhandle("月报编辑视图",null),
 				},
 				mainmonthlygridview: {
+					caption: commonLogic.appcommonhandle("月报",null),
+					title: commonLogic.appcommonhandle("月报表格视图",null),
+				},
+				projectmonthlygridview_: {
 					caption: commonLogic.appcommonhandle("月报",null),
 					title: commonLogic.appcommonhandle("月报表格视图",null),
 				},
@@ -127,6 +127,30 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
+			monthmain_grid: {
+				columns: {
+					ibz_monthlyname: commonLogic.appcommonhandle("月报名称",null),
+					account: commonLogic.appcommonhandle("用户",null),
+					date: commonLogic.appcommonhandle("日期",null),
+					reportto: commonLogic.appcommonhandle("汇报给",null),
+				},
+				nodata:commonLogic.appcommonhandle("",null),
+				uiactions: {
+				ibzmonthly_projectmonthly: commonLogic.appcommonhandle("项目月报查看详情",null),
+				},
+			},
+			productmonthlymain_grid: {
+				columns: {
+					ibz_monthlyname: commonLogic.appcommonhandle("月报名称",null),
+					account: commonLogic.appcommonhandle("用户",null),
+					date: commonLogic.appcommonhandle("日期",null),
+					reportto: commonLogic.appcommonhandle("汇报给",null),
+				},
+				nodata:commonLogic.appcommonhandle("",null),
+				uiactions: {
+				ibzmonthly_projectmonthly: commonLogic.appcommonhandle("项目月报查看详情",null),
+				},
+			},
 			myreceived_grid: {
 				columns: {
 					ibz_monthlyid: commonLogic.appcommonhandle("编号",null),
@@ -161,30 +185,6 @@ function getLocaleResourceBase(){
 				uiactions: {
 				ibzmonthly_edit: commonLogic.appcommonhandle("修改",null),
 				ibzmonthly_submit: commonLogic.appcommonhandle("提交",null),
-				},
-			},
-			monthmain_grid: {
-				columns: {
-					ibz_monthlyname: commonLogic.appcommonhandle("月报名称",null),
-					account: commonLogic.appcommonhandle("用户",null),
-					date: commonLogic.appcommonhandle("日期",null),
-					reportto: commonLogic.appcommonhandle("汇报给",null),
-				},
-				nodata:commonLogic.appcommonhandle("",null),
-				uiactions: {
-				ibzmonthly_projectmonthly: commonLogic.appcommonhandle("项目月报查看详情",null),
-				},
-			},
-			productmonthlymain_grid: {
-				columns: {
-					ibz_monthlyname: commonLogic.appcommonhandle("月报名称",null),
-					account: commonLogic.appcommonhandle("用户",null),
-					date: commonLogic.appcommonhandle("日期",null),
-					reportto: commonLogic.appcommonhandle("汇报给",null),
-				},
-				nodata:commonLogic.appcommonhandle("",null),
-				uiactions: {
-				ibzmonthly_projectmonthly: commonLogic.appcommonhandle("项目月报查看详情",null),
 				},
 			},
 			default_searchform: {

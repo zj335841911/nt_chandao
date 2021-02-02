@@ -139,7 +139,7 @@ export class BuildEditFormEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof BuildEditFormEditViewBase
      */
-	protected viewtag: string = '68f49a558ebf0e2566be65fc74f13fdd';
+	protected viewtag: string = 'a975d49b15bcfdfade2a8b537c0b6763';
 
     /**
      * 视图名称

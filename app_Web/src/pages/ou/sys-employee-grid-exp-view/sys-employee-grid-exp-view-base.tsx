@@ -100,7 +100,7 @@ export class SysEmployeeGridExpViewBase extends GridExpViewBase {
      * @type {string}
      * @memberof SysEmployeeGridExpViewBase
      */
-	protected viewtag: string = '745687df2b5a067c15598debbcba1fe2';
+	protected viewtag: string = '8d065762f9a42000dcacecc196aabb7b';
 
     /**
      * 视图名称

@@ -27,13 +27,6 @@ import cn.ibizlab.pms.core.ibiz.domain.ProjectStats;
 @Data
 public class ProjectStatsSearchContext extends QueryWrapperContext<ProjectStats> {
 
-	private String n_name_like;//[项目名称]
-	public void setN_name_like(String n_name_like) {
-        this.n_name_like = n_name_like;
-        if(!ObjectUtils.isEmpty(this.n_name_like)){
-            this.getSearchCond().like("`name`", n_name_like);
-        }
-    }
     @JsonFormat(pattern="yyyy-MM-dd", timezone="GMT+8")
     @JSONField(format="yyyy-MM-dd")
 	private Timestamp n_end_ltandeq;//[截止日期]
@@ -41,6 +34,15 @@ public class ProjectStatsSearchContext extends QueryWrapperContext<ProjectStats>
         this.n_end_ltandeq = n_end_ltandeq;
         if(!ObjectUtils.isEmpty(this.n_end_ltandeq)){
             this.getSearchCond().le("`end`", n_end_ltandeq);
+        }
+    }
+    @JsonFormat(pattern="yyyy-MM-dd", timezone="GMT+8")
+    @JSONField(format="yyyy-MM-dd")
+	private Timestamp n_begin_gtandeq;//[开始时间]
+	public void setN_begin_gtandeq(Timestamp n_begin_gtandeq) {
+        this.n_begin_gtandeq = n_begin_gtandeq;
+        if(!ObjectUtils.isEmpty(this.n_begin_gtandeq)){
+            this.getSearchCond().ge("`begin`", n_begin_gtandeq);
         }
     }
 	private String n_status_eq;//[状态]
@@ -57,13 +59,11 @@ public class ProjectStatsSearchContext extends QueryWrapperContext<ProjectStats>
             this.getSearchCond().ne("`status`", n_status_noteq);
         }
     }
-    @JsonFormat(pattern="yyyy-MM-dd", timezone="GMT+8")
-    @JSONField(format="yyyy-MM-dd")
-	private Timestamp n_begin_gtandeq;//[开始时间]
-	public void setN_begin_gtandeq(Timestamp n_begin_gtandeq) {
-        this.n_begin_gtandeq = n_begin_gtandeq;
-        if(!ObjectUtils.isEmpty(this.n_begin_gtandeq)){
-            this.getSearchCond().ge("`begin`", n_begin_gtandeq);
+	private String n_name_like;//[项目名称]
+	public void setN_name_like(String n_name_like) {
+        this.n_name_like = n_name_like;
+        if(!ObjectUtils.isEmpty(this.n_name_like)){
+            this.getSearchCond().like("`name`", n_name_like);
         }
     }
 

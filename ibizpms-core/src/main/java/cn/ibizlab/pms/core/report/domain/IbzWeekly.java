@@ -44,6 +44,20 @@ public class IbzWeekly extends EntityMP implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
+     * 是否提交
+     */
+    @TableField(value = "`issubmit`")
+    @JSONField(name = "issubmit")
+    @JsonProperty("issubmit")
+    private String issubmit;
+    /**
+     * 下周计划
+     */
+    @TableField(value = "`plannextweek`")
+    @JSONField(name = "plannextweek")
+    @JsonProperty("plannextweek")
+    private String plannextweek;
+    /**
      * 周报名称
      */
     @DEField(name = "ibz_weeklyname")
@@ -51,6 +65,27 @@ public class IbzWeekly extends EntityMP implements Serializable {
     @JSONField(name = "ibzweeklyname")
     @JsonProperty("ibzweeklyname")
     private String ibzweeklyname;
+    /**
+     * 抄送给
+     */
+    @TableField(value = "`mailto`")
+    @JSONField(name = "mailto")
+    @JsonProperty("mailto")
+    private String mailto;
+    /**
+     * 汇报给(选择)
+     */
+    @TableField(exist = false)
+    @JSONField(name = "reporttopk")
+    @JsonProperty("reporttopk")
+    private String reporttopk;
+    /**
+     * 下周计划任务
+     */
+    @TableField(value = "`nextweektask`")
+    @JSONField(name = "nextweektask")
+    @JsonProperty("nextweektask")
+    private String nextweektask;
     /**
      * 周报标识
      */
@@ -60,6 +95,21 @@ public class IbzWeekly extends EntityMP implements Serializable {
     @JsonProperty("ibzweeklyid")
     private Long ibzweeklyid;
     /**
+     * 提交时间
+     */
+    @TableField(value = "`submittime`")
+    @JsonFormat(pattern = "HH:mm:ss", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "submittime", format = "HH:mm:ss")
+    @JsonProperty("submittime")
+    private Timestamp submittime;
+    /**
+     * 抄送给(选择)
+     */
+    @TableField(exist = false)
+    @JSONField(name = "mailtopk")
+    @JsonProperty("mailtopk")
+    private String mailtopk;
+    /**
      * 建立人
      */
     @DEField(preType = DEPredefinedFieldType.CREATEMAN)
@@ -68,45 +118,13 @@ public class IbzWeekly extends EntityMP implements Serializable {
     @JsonProperty("createman")
     private String createman;
     /**
-     * 建立时间
+     * 状态
      */
-    @DEField(preType = DEPredefinedFieldType.CREATEDATE)
-    @TableField(value = "`createdate`", fill = FieldFill.INSERT)
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
-    @JSONField(name = "createdate", format = "yyyy-MM-dd HH:mm:ss")
-    @JsonProperty("createdate")
-    private Timestamp createdate;
-    /**
-     * 更新人
-     */
-    @DEField(preType = DEPredefinedFieldType.UPDATEMAN)
-    @TableField(value = "`updateman`")
-    @JSONField(name = "updateman")
-    @JsonProperty("updateman")
-    private String updateman;
-    /**
-     * 更新时间
-     */
-    @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
-    @TableField(value = "`updatedate`")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
-    @JSONField(name = "updatedate", format = "yyyy-MM-dd HH:mm:ss")
-    @JsonProperty("updatedate")
-    private Timestamp updatedate;
-    /**
-     * 用户
-     */
-    @TableField(value = "`account`")
-    @JSONField(name = "account")
-    @JsonProperty("account")
-    private String account;
-    /**
-     * 抄送给
-     */
-    @TableField(value = "`mailto`")
-    @JSONField(name = "mailto")
-    @JsonProperty("mailto")
-    private String mailto;
+    @DEField(defaultValue = "0")
+    @TableField(value = "`reportstatus`")
+    @JSONField(name = "reportstatus")
+    @JsonProperty("reportstatus")
+    private String reportstatus;
     /**
      * 附件
      */
@@ -115,12 +133,12 @@ public class IbzWeekly extends EntityMP implements Serializable {
     @JsonProperty("files")
     private String files;
     /**
-     * 是否提交
+     * 本周工作
      */
-    @TableField(value = "`issubmit`")
-    @JSONField(name = "issubmit")
-    @JsonProperty("issubmit")
-    private String issubmit;
+    @TableField(value = "`workthisweek`")
+    @JSONField(name = "workthisweek")
+    @JsonProperty("workthisweek")
+    private String workthisweek;
     /**
      * 汇报给
      */
@@ -128,6 +146,28 @@ public class IbzWeekly extends EntityMP implements Serializable {
     @JSONField(name = "reportto")
     @JsonProperty("reportto")
     private String reportto;
+    /**
+     * 更新人名称
+     */
+    @DEField(preType = DEPredefinedFieldType.UPDATEMANNAME)
+    @TableField(value = "`updatemanname`")
+    @JSONField(name = "updatemanname")
+    @JsonProperty("updatemanname")
+    private String updatemanname;
+    /**
+     * 用户
+     */
+    @TableField(value = "`account`")
+    @JSONField(name = "account")
+    @JsonProperty("account")
+    private String account;
+    /**
+     * 本周完成任务
+     */
+    @TableField(value = "`thisweektask`")
+    @JSONField(name = "thisweektask")
+    @JsonProperty("thisweektask")
+    private String thisweektask;
     /**
      * 其他事项
      */
@@ -144,41 +184,13 @@ public class IbzWeekly extends EntityMP implements Serializable {
     @JsonProperty("date")
     private Timestamp date;
     /**
-     * 本周工作
+     * 更新人
      */
-    @TableField(value = "`workthisweek`")
-    @JSONField(name = "workthisweek")
-    @JsonProperty("workthisweek")
-    private String workthisweek;
-    /**
-     * 下周计划
-     */
-    @TableField(value = "`plannextweek`")
-    @JSONField(name = "plannextweek")
-    @JsonProperty("plannextweek")
-    private String plannextweek;
-    /**
-     * 本周完成任务
-     */
-    @TableField(value = "`thisweektask`")
-    @JSONField(name = "thisweektask")
-    @JsonProperty("thisweektask")
-    private String thisweektask;
-    /**
-     * 下周计划任务
-     */
-    @TableField(value = "`nextweektask`")
-    @JSONField(name = "nextweektask")
-    @JsonProperty("nextweektask")
-    private String nextweektask;
-    /**
-     * 更新人名称
-     */
-    @DEField(preType = DEPredefinedFieldType.UPDATEMANNAME)
-    @TableField(value = "`updatemanname`")
-    @JSONField(name = "updatemanname")
-    @JsonProperty("updatemanname")
-    private String updatemanname;
+    @DEField(preType = DEPredefinedFieldType.UPDATEMAN)
+    @TableField(value = "`updateman`")
+    @JSONField(name = "updateman")
+    @JsonProperty("updateman")
+    private String updateman;
     /**
      * 建立人名称
      */
@@ -188,37 +200,41 @@ public class IbzWeekly extends EntityMP implements Serializable {
     @JsonProperty("createmanname")
     private String createmanname;
     /**
-     * 状态
+     * 建立时间
      */
-    @DEField(defaultValue = "0")
-    @TableField(value = "`reportstatus`")
-    @JSONField(name = "reportstatus")
-    @JsonProperty("reportstatus")
-    private String reportstatus;
+    @DEField(preType = DEPredefinedFieldType.CREATEDATE)
+    @TableField(value = "`createdate`", fill = FieldFill.INSERT)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "createdate", format = "yyyy-MM-dd HH:mm:ss")
+    @JsonProperty("createdate")
+    private Timestamp createdate;
     /**
-     * 提交时间
+     * 更新时间
      */
-    @TableField(value = "`submittime`")
-    @JsonFormat(pattern = "HH:mm:ss", locale = "zh", timezone = "GMT+8")
-    @JSONField(name = "submittime", format = "HH:mm:ss")
-    @JsonProperty("submittime")
-    private Timestamp submittime;
-    /**
-     * 汇报给(选择)
-     */
-    @TableField(exist = false)
-    @JSONField(name = "reporttopk")
-    @JsonProperty("reporttopk")
-    private String reporttopk;
-    /**
-     * 抄送给(选择)
-     */
-    @TableField(exist = false)
-    @JSONField(name = "mailtopk")
-    @JsonProperty("mailtopk")
-    private String mailtopk;
+    @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
+    @TableField(value = "`updatedate`")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "updatedate", format = "yyyy-MM-dd HH:mm:ss")
+    @JsonProperty("updatedate")
+    private Timestamp updatedate;
 
 
+
+    /**
+     * 设置 [是否提交]
+     */
+    public void setIssubmit(String issubmit) {
+        this.issubmit = issubmit;
+        this.modify("issubmit", issubmit);
+    }
+
+    /**
+     * 设置 [下周计划]
+     */
+    public void setPlannextweek(String plannextweek) {
+        this.plannextweek = plannextweek;
+        this.modify("plannextweek", plannextweek);
+    }
 
     /**
      * 设置 [周报名称]
@@ -226,14 +242,6 @@ public class IbzWeekly extends EntityMP implements Serializable {
     public void setIbzweeklyname(String ibzweeklyname) {
         this.ibzweeklyname = ibzweeklyname;
         this.modify("ibz_weeklyname", ibzweeklyname);
-    }
-
-    /**
-     * 设置 [用户]
-     */
-    public void setAccount(String account) {
-        this.account = account;
-        this.modify("account", account);
     }
 
     /**
@@ -245,11 +253,45 @@ public class IbzWeekly extends EntityMP implements Serializable {
     }
 
     /**
-     * 设置 [是否提交]
+     * 设置 [下周计划任务]
      */
-    public void setIssubmit(String issubmit) {
-        this.issubmit = issubmit;
-        this.modify("issubmit", issubmit);
+    public void setNextweektask(String nextweektask) {
+        this.nextweektask = nextweektask;
+        this.modify("nextweektask", nextweektask);
+    }
+
+    /**
+     * 设置 [提交时间]
+     */
+    public void setSubmittime(Timestamp submittime) {
+        this.submittime = submittime;
+        this.modify("submittime", submittime);
+    }
+
+    /**
+     * 格式化日期 [提交时间]
+     */
+    public String formatSubmittime() {
+        if (this.submittime == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+        return sdf.format(submittime);
+    }
+    /**
+     * 设置 [状态]
+     */
+    public void setReportstatus(String reportstatus) {
+        this.reportstatus = reportstatus;
+        this.modify("reportstatus", reportstatus);
+    }
+
+    /**
+     * 设置 [本周工作]
+     */
+    public void setWorkthisweek(String workthisweek) {
+        this.workthisweek = workthisweek;
+        this.modify("workthisweek", workthisweek);
     }
 
     /**
@@ -258,6 +300,22 @@ public class IbzWeekly extends EntityMP implements Serializable {
     public void setReportto(String reportto) {
         this.reportto = reportto;
         this.modify("reportto", reportto);
+    }
+
+    /**
+     * 设置 [用户]
+     */
+    public void setAccount(String account) {
+        this.account = account;
+        this.modify("account", account);
+    }
+
+    /**
+     * 设置 [本周完成任务]
+     */
+    public void setThisweektask(String thisweektask) {
+        this.thisweektask = thisweektask;
+        this.modify("thisweektask", thisweektask);
     }
 
     /**
@@ -285,64 +343,6 @@ public class IbzWeekly extends EntityMP implements Serializable {
         }
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         return sdf.format(date);
-    }
-    /**
-     * 设置 [本周工作]
-     */
-    public void setWorkthisweek(String workthisweek) {
-        this.workthisweek = workthisweek;
-        this.modify("workthisweek", workthisweek);
-    }
-
-    /**
-     * 设置 [下周计划]
-     */
-    public void setPlannextweek(String plannextweek) {
-        this.plannextweek = plannextweek;
-        this.modify("plannextweek", plannextweek);
-    }
-
-    /**
-     * 设置 [本周完成任务]
-     */
-    public void setThisweektask(String thisweektask) {
-        this.thisweektask = thisweektask;
-        this.modify("thisweektask", thisweektask);
-    }
-
-    /**
-     * 设置 [下周计划任务]
-     */
-    public void setNextweektask(String nextweektask) {
-        this.nextweektask = nextweektask;
-        this.modify("nextweektask", nextweektask);
-    }
-
-    /**
-     * 设置 [状态]
-     */
-    public void setReportstatus(String reportstatus) {
-        this.reportstatus = reportstatus;
-        this.modify("reportstatus", reportstatus);
-    }
-
-    /**
-     * 设置 [提交时间]
-     */
-    public void setSubmittime(Timestamp submittime) {
-        this.submittime = submittime;
-        this.modify("submittime", submittime);
-    }
-
-    /**
-     * 格式化日期 [提交时间]
-     */
-    public String formatSubmittime() {
-        if (this.submittime == null) {
-            return null;
-        }
-        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
-        return sdf.format(submittime);
     }
 
     @Override

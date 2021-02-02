@@ -21,7 +21,7 @@ export default class ProductTopLogicBase {
      * 
      * @memberof  ProductTopLogicBase
      */
-    private id:string = "A062E59A-5E49-4CD8-A1D9-07301EA2C693";
+    private id:string = "ad18e21e640af45ff0c06576d4195a0a";
 
     /**
      * 默认参数名称
@@ -98,6 +98,18 @@ export default class ProductTopLogicBase {
 
 
     /**
+    * 获取置顶最大排序值
+    * 
+    * @param context 应用上下文
+    * @param params 传入参数
+    */
+    private async executeRawsqlcall1(context:any,params:any,isloading:boolean){
+        // RAWSQLCALL暂未支持
+        console.log("RAWSQLCALL暂未支持");
+        return this.paramsMap.get(this.defaultParamName).data;
+    }
+
+    /**
     * save置顶
     * 
     * @param context 应用上下文
@@ -105,6 +117,18 @@ export default class ProductTopLogicBase {
     */
     private async executeDeaction1(context:any,params:any,isloading:boolean){
         // 行为处理节点
+    }
+
+    /**
+    * 开始
+    * 
+    * @param params 传入参数
+    */
+    private async executeBegin(context:any,params:any,isloading:boolean){
+        //开始节点
+        if(this.compute1Cond(params)){
+            return this.executeRawsqlcall1(context,params,isloading);   
+        }
     }
 
     /**
@@ -127,33 +151,9 @@ export default class ProductTopLogicBase {
     let tempDstParam2Data:any = this.paramsMap.get('ibzTop').data?this.paramsMap.get('ibzTop').data:{};
     Object.assign(tempDstParam2Data,{type:"product"});
     this.paramsMap.set('ibzTop',{data:tempDstParam2Data,context:tempDstParam2Context});
-        if(this.compute2Cond(params)){
+        if(this.compute0Cond(params)){
             return this.executeDeaction1(context,params,isloading);   
         }
-    }
-
-    /**
-    * 开始
-    * 
-    * @param params 传入参数
-    */
-    private async executeBegin(context:any,params:any,isloading:boolean){
-        //开始节点
-        if(this.compute1Cond(params)){
-            return this.executeRawsqlcall1(context,params,isloading);   
-        }
-    }
-
-    /**
-    * 获取置顶最大排序值
-    * 
-    * @param context 应用上下文
-    * @param params 传入参数
-    */
-    private async executeRawsqlcall1(context:any,params:any,isloading:boolean){
-        // RAWSQLCALL暂未支持
-        console.log("RAWSQLCALL暂未支持");
-        return this.paramsMap.get(this.defaultParamName).data;
     }
 
 

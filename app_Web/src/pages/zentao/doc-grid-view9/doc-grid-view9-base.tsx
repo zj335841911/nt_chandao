@@ -119,7 +119,7 @@ export class DocGridView9Base extends GridView9Base {
      * @type {string}
      * @memberof DocGridView9Base
      */
-	protected viewtag: string = 'b79b6d8cb0dcb2ac867f3ea1aa6d4cb2';
+	protected viewtag: string = 'c497466bcf53f80ce1a8a16860bff528';
 
     /**
      * 视图名称

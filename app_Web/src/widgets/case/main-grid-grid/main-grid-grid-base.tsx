@@ -74,7 +74,7 @@ export class MainGridGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u82280f9_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u89ab0d2_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -102,7 +102,7 @@ export class MainGridGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u333b640_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u3c342d8_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -130,7 +130,7 @@ export class MainGridGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_ufc5dbb7_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u18be210_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -158,7 +158,7 @@ export class MainGridGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u5c4f2da_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u8063cdc_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -186,7 +186,7 @@ export class MainGridGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_uc64fb7f_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_ub990a3a_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -214,7 +214,7 @@ export class MainGridGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_ud3f2f43_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u5e1a676_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -241,7 +241,7 @@ export class MainGridGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u8403ebe_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_udbf86ab_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -269,7 +269,7 @@ export class MainGridGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u57243e1_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u9a18214_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -298,7 +298,7 @@ export class MainGridGridBase extends GridControlBase {
      * @param {*} [$event] 事件源
      * @param {*} [xData]  执行行为所需当前部件
      * @param {*} [actionContext]  执行行为上下文
-     * @memberof CaseMainMyGridViewBase
+     * @memberof CaseMainGridViewBase
      */
     public Refresh(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
         const _this: any = this;
@@ -318,7 +318,7 @@ export class MainGridGridBase extends GridControlBase {
      * @param {*} [$event] 事件源
      * @param {*} [xData]  执行行为所需当前部件
      * @param {*} [actionContext]  执行行为上下文
-     * @memberof CaseMainMyGridViewBase
+     * @memberof CaseMainGridViewBase
      */
     public Copy(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
         if (args.length === 0) {
@@ -906,28 +906,28 @@ export class MainGridGridBase extends GridControlBase {
 	public uiAction(row: any, tag: any, $event: any): void {
         $event.stopPropagation();
         if(Object.is('confirmstorychange', tag)) {
-            this.grid_uagridcolumn1_u82280f9_click(row, tag, $event);
+            this.grid_uagridcolumn1_u89ab0d2_click(row, tag, $event);
         }
         if(Object.is('OpenTestRunResultView', tag)) {
-            this.grid_uagridcolumn1_u333b640_click(row, tag, $event);
+            this.grid_uagridcolumn1_u3c342d8_click(row, tag, $event);
         }
         if(Object.is('Execute', tag)) {
-            this.grid_uagridcolumn1_ufc5dbb7_click(row, tag, $event);
+            this.grid_uagridcolumn1_u18be210_click(row, tag, $event);
         }
         if(Object.is('MainEdit', tag)) {
-            this.grid_uagridcolumn1_u5c4f2da_click(row, tag, $event);
+            this.grid_uagridcolumn1_u8063cdc_click(row, tag, $event);
         }
         if(Object.is('NewBugByCaseResult', tag)) {
-            this.grid_uagridcolumn1_uc64fb7f_click(row, tag, $event);
+            this.grid_uagridcolumn1_ub990a3a_click(row, tag, $event);
         }
         if(Object.is('Copy', tag)) {
-            this.grid_uagridcolumn1_ud3f2f43_click(row, tag, $event);
+            this.grid_uagridcolumn1_u5e1a676_click(row, tag, $event);
         }
         if(Object.is('caseFavorite', tag)) {
-            this.grid_uagridcolumn1_u8403ebe_click(row, tag, $event);
+            this.grid_uagridcolumn1_udbf86ab_click(row, tag, $event);
         }
         if(Object.is('CaseNFavorite', tag)) {
-            this.grid_uagridcolumn1_u57243e1_click(row, tag, $event);
+            this.grid_uagridcolumn1_u9a18214_click(row, tag, $event);
         }
     }
 

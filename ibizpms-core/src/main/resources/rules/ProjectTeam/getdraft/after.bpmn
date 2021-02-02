@@ -9,8 +9,8 @@
         </extensionElements>
             <startEvent id="begin" isInterrupting="true"/>
             <endEvent id="prepareparam1_end" name="end"/>
-           <callActivity activiti:exclusive="true" calledElement="cn.ibizlab.pms.core.ibiz.service.logic.projectteamgetprojectdays" id="903F1903-227A-4FE7-B054-D52CEDC31135" name="ProjectTeamGetProjectDaysRuleFlow.bpmn"/>
-           <sequenceFlow id="begin_903F1903-227A-4FE7-B054-D52CEDC31135" sourceRef="begin" targetRef="903F1903-227A-4FE7-B054-D52CEDC31135"/>
-           <sequenceFlow id="903F1903-227A-4FE7-B054-D52CEDC31135_prepareparam1_end" sourceRef="903F1903-227A-4FE7-B054-D52CEDC31135" targetRef="prepareparam1_end"/>
+           <callActivity activiti:exclusive="true" calledElement="cn.ibizlab.pms.core.ibiz.service.logic.projectteamgetprojectdays" id="ed23ead65d6211ce548de622cec590b5" name="ProjectTeamGetProjectDaysRuleFlow.bpmn"/>
+           <sequenceFlow id="begin_ed23ead65d6211ce548de622cec590b5" sourceRef="begin" targetRef="ed23ead65d6211ce548de622cec590b5"/>
+           <sequenceFlow id="ed23ead65d6211ce548de622cec590b5_prepareparam1_end" sourceRef="ed23ead65d6211ce548de622cec590b5" targetRef="prepareparam1_end"/>
     </process>
 </definitions>

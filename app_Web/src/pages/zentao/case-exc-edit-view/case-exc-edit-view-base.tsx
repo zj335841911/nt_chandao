@@ -109,7 +109,7 @@ export class CaseExcEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof CaseExcEditViewBase
      */
-	protected viewtag: string = '6ca0081833718834ca4bbd9ebbf1ccce';
+	protected viewtag: string = '41f6cc75f6e3b4419a448eebe69aa6ac';
 
     /**
      * 视图名称

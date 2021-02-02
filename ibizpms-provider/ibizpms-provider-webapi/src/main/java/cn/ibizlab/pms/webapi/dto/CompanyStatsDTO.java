@@ -30,22 +30,20 @@ public class CompanyStatsDTO extends DTOBase implements Serializable {
 	private static final long serialVersionUID = 1L;
 
     /**
-     * 属性 [ID]
+     * 属性 [LOGINCNT]
      *
      */
-    @JSONField(name = "id")
-    @JsonProperty("id")
-    @JsonSerialize(using = ToStringSerializer.class)
-    private Long id;
+    @JSONField(name = "logincnt")
+    @JsonProperty("logincnt")
+    private Integer logincnt;
 
     /**
-     * 属性 [COMMENT]
+     * 属性 [OPENEDSTORYCNT]
      *
      */
-    @JSONField(name = "comment")
-    @JsonProperty("comment")
-    @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
-    private String comment;
+    @JSONField(name = "openedstorycnt")
+    @JsonProperty("openedstorycnt")
+    private Integer openedstorycnt;
 
     /**
      * 属性 [ZTDATE]
@@ -57,28 +55,13 @@ public class CompanyStatsDTO extends DTOBase implements Serializable {
     private Timestamp ztdate;
 
     /**
-     * 属性 [LOGINCNT]
+     * 属性 [DATE]
      *
      */
-    @JSONField(name = "logincnt")
-    @JsonProperty("logincnt")
-    private Integer logincnt;
-
-    /**
-     * 属性 [LOGHOURS]
-     *
-     */
-    @JSONField(name = "loghours")
-    @JsonProperty("loghours")
-    private Integer loghours;
-
-    /**
-     * 属性 [OPENEDSTORYCNT]
-     *
-     */
-    @JSONField(name = "openedstorycnt")
-    @JsonProperty("openedstorycnt")
-    private Integer openedstorycnt;
+    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "date" , format="yyyy-MM-dd")
+    @JsonProperty("date")
+    private Timestamp date;
 
     /**
      * 属性 [CLOSEDSTORYCNT]
@@ -89,22 +72,6 @@ public class CompanyStatsDTO extends DTOBase implements Serializable {
     private Integer closedstorycnt;
 
     /**
-     * 属性 [OPENEDTASKCNT]
-     *
-     */
-    @JSONField(name = "openedtaskcnt")
-    @JsonProperty("openedtaskcnt")
-    private Integer openedtaskcnt;
-
-    /**
-     * 属性 [FINISHEDTASKCNT]
-     *
-     */
-    @JSONField(name = "finishedtaskcnt")
-    @JsonProperty("finishedtaskcnt")
-    private Integer finishedtaskcnt;
-
-    /**
      * 属性 [OPENEDBUGCNT]
      *
      */
@@ -113,12 +80,12 @@ public class CompanyStatsDTO extends DTOBase implements Serializable {
     private Integer openedbugcnt;
 
     /**
-     * 属性 [RESOLVEDBUGCNT]
+     * 属性 [LOGHOURS]
      *
      */
-    @JSONField(name = "resolvedbugcnt")
-    @JsonProperty("resolvedbugcnt")
-    private Integer resolvedbugcnt;
+    @JSONField(name = "loghours")
+    @JsonProperty("loghours")
+    private Integer loghours;
 
     /**
      * 属性 [DYNAMICCNT]
@@ -129,22 +96,47 @@ public class CompanyStatsDTO extends DTOBase implements Serializable {
     private Integer dynamiccnt;
 
     /**
-     * 属性 [DATE]
+     * 属性 [FINISHEDTASKCNT]
      *
      */
-    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "date" , format="yyyy-MM-dd")
-    @JsonProperty("date")
-    private Timestamp date;
-
+    @JSONField(name = "finishedtaskcnt")
+    @JsonProperty("finishedtaskcnt")
+    private Integer finishedtaskcnt;
 
     /**
-     * 设置 [COMMENT]
+     * 属性 [RESOLVEDBUGCNT]
+     *
      */
-    public void setComment(String  comment){
-        this.comment = comment ;
-        this.modify("comment",comment);
-    }
+    @JSONField(name = "resolvedbugcnt")
+    @JsonProperty("resolvedbugcnt")
+    private Integer resolvedbugcnt;
+
+    /**
+     * 属性 [COMMENT]
+     *
+     */
+    @JSONField(name = "comment")
+    @JsonProperty("comment")
+    @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
+    private String comment;
+
+    /**
+     * 属性 [OPENEDTASKCNT]
+     *
+     */
+    @JSONField(name = "openedtaskcnt")
+    @JsonProperty("openedtaskcnt")
+    private Integer openedtaskcnt;
+
+    /**
+     * 属性 [ID]
+     *
+     */
+    @JSONField(name = "id")
+    @JsonProperty("id")
+    @JsonSerialize(using = ToStringSerializer.class)
+    private Long id;
+
 
     /**
      * 设置 [DATE]
@@ -152,6 +144,14 @@ public class CompanyStatsDTO extends DTOBase implements Serializable {
     public void setDate(Timestamp  date){
         this.date = date ;
         this.modify("date",date);
+    }
+
+    /**
+     * 设置 [COMMENT]
+     */
+    public void setComment(String  comment){
+        this.comment = comment ;
+        this.modify("comment",comment);
     }
 
 

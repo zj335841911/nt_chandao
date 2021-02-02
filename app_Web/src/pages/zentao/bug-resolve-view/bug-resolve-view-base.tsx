@@ -162,7 +162,7 @@ export class BugResolveViewBase extends OptionViewBase {
      * @type {string}
      * @memberof BugResolveViewBase
      */
-	protected viewtag: string = 'c1e9611b6972b1877b75fa5d2c67aad6';
+	protected viewtag: string = '84a5000983bdbd576fba530e78e8f50d';
 
     /**
      * 视图名称

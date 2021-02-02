@@ -128,7 +128,7 @@ export class TestReportprojectDashboardViewBase extends DashboardViewBase {
      * @type {string}
      * @memberof TestReportprojectDashboardViewBase
      */
-	protected viewtag: string = 'ea7b1f6631cb623ea079455b374ef9d4';
+	protected viewtag: string = 'ae03acf710d901c5b781d7b9615c2dc4';
 
     /**
      * 视图名称

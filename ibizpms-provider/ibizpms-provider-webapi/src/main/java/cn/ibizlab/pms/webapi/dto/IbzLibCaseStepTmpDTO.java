@@ -30,21 +30,13 @@ public class IbzLibCaseStepTmpDTO extends DTOBase implements Serializable {
 	private static final long serialVersionUID = 1L;
 
     /**
-     * 属性 [VERSION]
+     * 属性 [REALS]
      *
      */
-    @JSONField(name = "version")
-    @JsonProperty("version")
-    private Integer version;
-
-    /**
-     * 属性 [CASE]
-     *
-     */
-    @JSONField(name = "ibizcase")
-    @JsonProperty("ibizcase")
-    @JsonSerialize(using = ToStringSerializer.class)
-    private Long ibizcase;
+    @JSONField(name = "reals")
+    @JsonProperty("reals")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String reals;
 
     /**
      * 属性 [EXPECT]
@@ -54,6 +46,15 @@ public class IbzLibCaseStepTmpDTO extends DTOBase implements Serializable {
     @JsonProperty("expect")
     @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
     private String expect;
+
+    /**
+     * 属性 [DESC]
+     *
+     */
+    @JSONField(name = "desc")
+    @JsonProperty("desc")
+    @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
+    private String desc;
 
     /**
      * 属性 [FILES]
@@ -74,22 +75,21 @@ public class IbzLibCaseStepTmpDTO extends DTOBase implements Serializable {
     private Long id;
 
     /**
-     * 属性 [REALS]
+     * 属性 [TYPE]
      *
      */
-    @JSONField(name = "reals")
-    @JsonProperty("reals")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String reals;
+    @JSONField(name = "type")
+    @JsonProperty("type")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    private String type;
 
     /**
-     * 属性 [DESC]
+     * 属性 [VERSION]
      *
      */
-    @JSONField(name = "desc")
-    @JsonProperty("desc")
-    @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
-    private String desc;
+    @JSONField(name = "version")
+    @JsonProperty("version")
+    private Integer version;
 
     /**
      * 属性 [PARENT]
@@ -101,22 +101,14 @@ public class IbzLibCaseStepTmpDTO extends DTOBase implements Serializable {
     private Long parent;
 
     /**
-     * 属性 [TYPE]
+     * 属性 [CASE]
      *
      */
-    @JSONField(name = "type")
-    @JsonProperty("type")
-    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
-    private String type;
+    @JSONField(name = "ibizcase")
+    @JsonProperty("ibizcase")
+    @JsonSerialize(using = ToStringSerializer.class)
+    private Long ibizcase;
 
-
-    /**
-     * 设置 [CASE]
-     */
-    public void setIbizcase(Long  ibizcase){
-        this.ibizcase = ibizcase ;
-        this.modify("case",ibizcase);
-    }
 
     /**
      * 设置 [EXPECT]
@@ -135,6 +127,14 @@ public class IbzLibCaseStepTmpDTO extends DTOBase implements Serializable {
     }
 
     /**
+     * 设置 [TYPE]
+     */
+    public void setType(String  type){
+        this.type = type ;
+        this.modify("type",type);
+    }
+
+    /**
      * 设置 [PARENT]
      */
     public void setParent(Long  parent){
@@ -143,11 +143,11 @@ public class IbzLibCaseStepTmpDTO extends DTOBase implements Serializable {
     }
 
     /**
-     * 设置 [TYPE]
+     * 设置 [CASE]
      */
-    public void setType(String  type){
-        this.type = type ;
-        this.modify("type",type);
+    public void setIbizcase(Long  ibizcase){
+        this.ibizcase = ibizcase ;
+        this.modify("case",ibizcase);
     }
 
 

@@ -131,7 +131,7 @@ export class IbzproProjectUserTaskEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof IbzproProjectUserTaskEditViewBase
      */
-	protected viewtag: string = '9c16791b436de259a12aa770fc3e260b';
+	protected viewtag: string = 'b92ece30dcfe04edd190f452807e350d';
 
     /**
      * 视图名称

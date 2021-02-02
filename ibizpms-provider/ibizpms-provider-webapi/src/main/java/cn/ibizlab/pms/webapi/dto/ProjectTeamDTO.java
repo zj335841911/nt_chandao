@@ -30,38 +30,39 @@ public class ProjectTeamDTO extends DTOBase implements Serializable {
 	private static final long serialVersionUID = 1L;
 
     /**
-     * 属性 [JOIN]
+     * 属性 [ROLE]
      *
      */
-    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "join" , format="yyyy-MM-dd")
-    @JsonProperty("join")
-    private Timestamp join;
-
-    /**
-     * 属性 [ACCOUNT]
-     *
-     */
-    @JSONField(name = "account")
-    @JsonProperty("account")
+    @JSONField(name = "role")
+    @JsonProperty("role")
     @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
-    private String account;
+    private String role;
 
     /**
-     * 属性 [HOURS]
+     * 属性 [LIMITED]
      *
      */
-    @JSONField(name = "hours")
-    @JsonProperty("hours")
-    private Double hours;
+    @JSONField(name = "limited")
+    @JsonProperty("limited")
+    @Size(min = 0, max = 8, message = "内容长度必须小于等于[8]")
+    private String limited;
 
     /**
-     * 属性 [LEFT]
+     * 属性 [TOTAL]
      *
      */
-    @JSONField(name = "left")
-    @JsonProperty("left")
-    private Double left;
+    @JSONField(name = "total")
+    @JsonProperty("total")
+    private Integer total;
+
+    /**
+     * 属性 [USERNAME]
+     *
+     */
+    @JSONField(name = "username")
+    @JsonProperty("username")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String username;
 
     /**
      * 属性 [DAYS]
@@ -70,6 +71,32 @@ public class ProjectTeamDTO extends DTOBase implements Serializable {
     @JSONField(name = "days")
     @JsonProperty("days")
     private Integer days;
+
+    /**
+     * 属性 [EXITDATE]
+     *
+     */
+    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "exitdate" , format="yyyy-MM-dd")
+    @JsonProperty("exitdate")
+    private Timestamp exitdate;
+
+    /**
+     * 属性 [TYPE]
+     *
+     */
+    @JSONField(name = "type")
+    @JsonProperty("type")
+    @Size(min = 0, max = 7, message = "内容长度必须小于等于[7]")
+    private String type;
+
+    /**
+     * 属性 [ORDER]
+     *
+     */
+    @JSONField(name = "order")
+    @JsonProperty("order")
+    private Integer order;
 
     /**
      * 属性 [ID]
@@ -89,12 +116,13 @@ public class ProjectTeamDTO extends DTOBase implements Serializable {
     private Double consumed;
 
     /**
-     * 属性 [ORDER]
+     * 属性 [ACCOUNT]
      *
      */
-    @JSONField(name = "order")
-    @JsonProperty("order")
-    private Integer order;
+    @JSONField(name = "account")
+    @JsonProperty("account")
+    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
+    private String account;
 
     /**
      * 属性 [ESTIMATE]
@@ -105,57 +133,21 @@ public class ProjectTeamDTO extends DTOBase implements Serializable {
     private Double estimate;
 
     /**
-     * 属性 [LIMITED]
+     * 属性 [JOIN]
      *
      */
-    @JSONField(name = "limited")
-    @JsonProperty("limited")
-    @Size(min = 0, max = 8, message = "内容长度必须小于等于[8]")
-    private String limited;
+    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "join" , format="yyyy-MM-dd")
+    @JsonProperty("join")
+    private Timestamp join;
 
     /**
-     * 属性 [ROLE]
+     * 属性 [HOURS]
      *
      */
-    @JSONField(name = "role")
-    @JsonProperty("role")
-    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
-    private String role;
-
-    /**
-     * 属性 [TYPE]
-     *
-     */
-    @JSONField(name = "type")
-    @JsonProperty("type")
-    @Size(min = 0, max = 7, message = "内容长度必须小于等于[7]")
-    private String type;
-
-    /**
-     * 属性 [TOTAL]
-     *
-     */
-    @JSONField(name = "total")
-    @JsonProperty("total")
-    private Integer total;
-
-    /**
-     * 属性 [ROOT]
-     *
-     */
-    @JSONField(name = "root")
-    @JsonProperty("root")
-    @JsonSerialize(using = ToStringSerializer.class)
-    private Long root;
-
-    /**
-     * 属性 [USERNAME]
-     *
-     */
-    @JSONField(name = "username")
-    @JsonProperty("username")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String username;
+    @JSONField(name = "hours")
+    @JsonProperty("hours")
+    private Double hours;
 
     /**
      * 属性 [TASKCNT]
@@ -164,6 +156,14 @@ public class ProjectTeamDTO extends DTOBase implements Serializable {
     @JSONField(name = "taskcnt")
     @JsonProperty("taskcnt")
     private Integer taskcnt;
+
+    /**
+     * 属性 [LEFT]
+     *
+     */
+    @JSONField(name = "left")
+    @JsonProperty("left")
+    private Double left;
 
     /**
      * 属性 [PM]
@@ -184,21 +184,61 @@ public class ProjectTeamDTO extends DTOBase implements Serializable {
     private String projectname;
 
     /**
-     * 属性 [EXITDATE]
+     * 属性 [ROOT]
      *
      */
-    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "exitdate" , format="yyyy-MM-dd")
-    @JsonProperty("exitdate")
-    private Timestamp exitdate;
+    @JSONField(name = "root")
+    @JsonProperty("root")
+    @JsonSerialize(using = ToStringSerializer.class)
+    private Long root;
 
 
     /**
-     * 设置 [JOIN]
+     * 设置 [ROLE]
      */
-    public void setJoin(Timestamp  join){
-        this.join = join ;
-        this.modify("join",join);
+    public void setRole(String  role){
+        this.role = role ;
+        this.modify("role",role);
+    }
+
+    /**
+     * 设置 [LIMITED]
+     */
+    public void setLimited(String  limited){
+        this.limited = limited ;
+        this.modify("limited",limited);
+    }
+
+    /**
+     * 设置 [DAYS]
+     */
+    public void setDays(Integer  days){
+        this.days = days ;
+        this.modify("days",days);
+    }
+
+    /**
+     * 设置 [TYPE]
+     */
+    public void setType(String  type){
+        this.type = type ;
+        this.modify("type",type);
+    }
+
+    /**
+     * 设置 [ORDER]
+     */
+    public void setOrder(Integer  order){
+        this.order = order ;
+        this.modify("order",order);
+    }
+
+    /**
+     * 设置 [CONSUMED]
+     */
+    public void setConsumed(Double  consumed){
+        this.consumed = consumed ;
+        this.modify("consumed",consumed);
     }
 
     /**
@@ -207,6 +247,22 @@ public class ProjectTeamDTO extends DTOBase implements Serializable {
     public void setAccount(String  account){
         this.account = account ;
         this.modify("account",account);
+    }
+
+    /**
+     * 设置 [ESTIMATE]
+     */
+    public void setEstimate(Double  estimate){
+        this.estimate = estimate ;
+        this.modify("estimate",estimate);
+    }
+
+    /**
+     * 设置 [JOIN]
+     */
+    public void setJoin(Timestamp  join){
+        this.join = join ;
+        this.modify("join",join);
     }
 
     /**
@@ -223,62 +279,6 @@ public class ProjectTeamDTO extends DTOBase implements Serializable {
     public void setLeft(Double  left){
         this.left = left ;
         this.modify("left",left);
-    }
-
-    /**
-     * 设置 [DAYS]
-     */
-    public void setDays(Integer  days){
-        this.days = days ;
-        this.modify("days",days);
-    }
-
-    /**
-     * 设置 [CONSUMED]
-     */
-    public void setConsumed(Double  consumed){
-        this.consumed = consumed ;
-        this.modify("consumed",consumed);
-    }
-
-    /**
-     * 设置 [ORDER]
-     */
-    public void setOrder(Integer  order){
-        this.order = order ;
-        this.modify("order",order);
-    }
-
-    /**
-     * 设置 [ESTIMATE]
-     */
-    public void setEstimate(Double  estimate){
-        this.estimate = estimate ;
-        this.modify("estimate",estimate);
-    }
-
-    /**
-     * 设置 [LIMITED]
-     */
-    public void setLimited(String  limited){
-        this.limited = limited ;
-        this.modify("limited",limited);
-    }
-
-    /**
-     * 设置 [ROLE]
-     */
-    public void setRole(String  role){
-        this.role = role ;
-        this.modify("role",role);
-    }
-
-    /**
-     * 设置 [TYPE]
-     */
-    public void setType(String  type){
-        this.type = type ;
-        this.modify("type",type);
     }
 
     /**

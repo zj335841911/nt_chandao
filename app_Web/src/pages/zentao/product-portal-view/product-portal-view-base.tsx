@@ -47,7 +47,7 @@ export class ProductPortalViewBase extends PortalViewBase {
      * @type {string}
      * @memberof ProductPortalViewBase
      */
-	protected viewtag: string = 'A49E5FD9-FC90-434B-9E13-192873F6F2AC';
+	protected viewtag: string = '305a8f8ecf4dfa714d2e3cbc2e0eecf5';
 
     /**
      * 视图名称

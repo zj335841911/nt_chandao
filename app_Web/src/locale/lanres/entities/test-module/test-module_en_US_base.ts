@@ -3,55 +3,55 @@ import commonLogic from '@/locale/logic/common/common-logic';
 function getLocaleResourceBase(){
 	const data:any = {
 		fields: {
-			path: commonLogic.appcommonhandle("path",null),
-			deleted: commonLogic.appcommonhandle("逻辑删除标志",null),
-			name: commonLogic.appcommonhandle("名称",null),
-			order: commonLogic.appcommonhandle("排序值",null),
-			branch: commonLogic.appcommonhandle("branch",null),
-			ibizshort: commonLogic.appcommonhandle("简称",null),
-			grade: commonLogic.appcommonhandle("grade",null),
 			type: commonLogic.appcommonhandle("类型（story）",null),
+			path: commonLogic.appcommonhandle("path",null),
 			owner: commonLogic.appcommonhandle("owner",null),
+			order: commonLogic.appcommonhandle("排序值",null),
+			deleted: commonLogic.appcommonhandle("逻辑删除标志",null),
+			branch: commonLogic.appcommonhandle("branch",null),
+			collector: commonLogic.appcommonhandle("collector",null),
 			id: commonLogic.appcommonhandle("id",null),
 			isleaf: commonLogic.appcommonhandle("叶子模块",null),
-			collector: commonLogic.appcommonhandle("collector",null),
-			parent: commonLogic.appcommonhandle("id",null),
+			name: commonLogic.appcommonhandle("名称",null),
+			ibizshort: commonLogic.appcommonhandle("简称",null),
+			grade: commonLogic.appcommonhandle("grade",null),
 			parentname: commonLogic.appcommonhandle("上级模块",null),
-			root: commonLogic.appcommonhandle("编号",null),
 			rootname: commonLogic.appcommonhandle("测试",null),
+			root: commonLogic.appcommonhandle("编号",null),
+			parent: commonLogic.appcommonhandle("id",null),
 		},
 			views: {
-				editview: {
-					caption: commonLogic.appcommonhandle("测试模块",null),
-					title: commonLogic.appcommonhandle("测试模块编辑视图",null),
-				},
-				pickupgridview: {
-					caption: commonLogic.appcommonhandle("测试模块",null),
-					title: commonLogic.appcommonhandle("测试模块选择表格视图",null),
-				},
 				gridview: {
 					caption: commonLogic.appcommonhandle("测试模块",null),
 					title: commonLogic.appcommonhandle("测试模块表格视图",null),
 				},
-				gridviewbranch: {
+				pickupview: {
 					caption: commonLogic.appcommonhandle("测试模块",null),
-					title: commonLogic.appcommonhandle("产品模块表格视图",null),
-				},
-				gridviewmain: {
-					caption: commonLogic.appcommonhandle("测试模块",null),
-					title: commonLogic.appcommonhandle("产品模块表格视图",null),
+					title: commonLogic.appcommonhandle("测试模块数据选择视图",null),
 				},
 				treeexpview: {
 					caption: commonLogic.appcommonhandle("测试模块",null),
 					title: commonLogic.appcommonhandle("测试模块树导航视图",null),
 				},
+				editview: {
+					caption: commonLogic.appcommonhandle("测试模块",null),
+					title: commonLogic.appcommonhandle("测试模块编辑视图",null),
+				},
+				gridviewbranch: {
+					caption: commonLogic.appcommonhandle("测试模块",null),
+					title: commonLogic.appcommonhandle("产品模块表格视图",null),
+				},
+				pickupgridview: {
+					caption: commonLogic.appcommonhandle("测试模块",null),
+					title: commonLogic.appcommonhandle("测试模块选择表格视图",null),
+				},
 				quickcfgview: {
 					caption: commonLogic.appcommonhandle("测试模块",null),
 					title: commonLogic.appcommonhandle("需求模块",null),
 				},
-				pickupview: {
+				gridviewmain: {
 					caption: commonLogic.appcommonhandle("测试模块",null),
-					title: commonLogic.appcommonhandle("测试模块数据选择视图",null),
+					title: commonLogic.appcommonhandle("产品模块表格视图",null),
 				},
 			},
 			main_form: {
@@ -79,7 +79,7 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
-			mainbranch_grid: {
+			mainrow_grid: {
 				columns: {
 					name: commonLogic.appcommonhandle("名称",null),
 					branch: commonLogic.appcommonhandle("平台",null),
@@ -92,7 +92,7 @@ function getLocaleResourceBase(){
 				remove: commonLogic.appcommonhandle("Remove",null),
 				},
 			},
-			mainrow_grid: {
+			mainbranch_grid: {
 				columns: {
 					name: commonLogic.appcommonhandle("名称",null),
 					branch: commonLogic.appcommonhandle("平台",null),
@@ -119,6 +119,16 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
+			gridviewmaintoolbar_toolbar: {
+				deuiaction2: {
+					caption: commonLogic.appcommonhandle("新建行",null),
+					tip: commonLogic.appcommonhandle("新建行",null),
+				},
+				deuiaction3: {
+					caption: commonLogic.appcommonhandle("保存行",null),
+					tip: commonLogic.appcommonhandle("保存行",null),
+				},
+			},
 			gridviewbranchtoolbar_toolbar: {
 				deuiaction2: {
 					caption: commonLogic.appcommonhandle("新建行",null),
@@ -129,7 +139,7 @@ function getLocaleResourceBase(){
 					tip: commonLogic.appcommonhandle("保存行",null),
 				},
 			},
-			gridviewmaintoolbar_toolbar: {
+			gridviewtoolbar_toolbar: {
 				deuiaction2: {
 					caption: commonLogic.appcommonhandle("新建行",null),
 					tip: commonLogic.appcommonhandle("新建行",null),
@@ -145,27 +155,17 @@ function getLocaleResourceBase(){
 					tip: commonLogic.appcommonhandle("Save And Close Window",null),
 				},
 			},
-			gridviewtoolbar_toolbar: {
-				deuiaction2: {
-					caption: commonLogic.appcommonhandle("新建行",null),
-					tip: commonLogic.appcommonhandle("新建行",null),
-				},
-				deuiaction3: {
-					caption: commonLogic.appcommonhandle("保存行",null),
-					tip: commonLogic.appcommonhandle("保存行",null),
-				},
-			},
 			moduleexp_treeview: {
 				nodata:commonLogic.appcommonhandle("",null),
 				nodes: {
 					root: commonLogic.appcommonhandle("默认根节点",null),
-					all: commonLogic.appcommonhandle("所有模块",null),
 					branch: commonLogic.appcommonhandle("平台",null),
+					all: commonLogic.appcommonhandle("所有模块",null),
 				},
 				uiactions: {
-				refreshparent: commonLogic.appcommonhandle("刷新",null),
 				testmodule_openquickcfgview: commonLogic.appcommonhandle("编辑",null),
 				refreshall: commonLogic.appcommonhandle("刷新",null),
+				refreshparent: commonLogic.appcommonhandle("刷新",null),
 				},
 			},
 		};

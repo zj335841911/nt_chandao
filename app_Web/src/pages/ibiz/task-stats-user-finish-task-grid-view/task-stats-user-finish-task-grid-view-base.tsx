@@ -125,7 +125,7 @@ export class TaskStatsUserFinishTaskGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof TaskStatsUserFinishTaskGridViewBase
      */
-	protected viewtag: string = '7ef19995ea97ed70642551457b6e9ac4';
+	protected viewtag: string = '8582ea1e2990a679847b6933cc5211eb';
 
     /**
      * 视图名称

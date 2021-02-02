@@ -121,7 +121,7 @@ export class IbzPlanTempletDetailGridView9Base extends GridView9Base {
      * @type {string}
      * @memberof IbzPlanTempletDetailGridView9Base
      */
-	protected viewtag: string = '06f1f232ce217863bf45ddc1b727d0a8';
+	protected viewtag: string = '323665023d61b39a6173f364869fd214';
 
     /**
      * 视图名称

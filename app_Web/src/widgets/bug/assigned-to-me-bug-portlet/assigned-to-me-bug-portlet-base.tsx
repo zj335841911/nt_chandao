@@ -75,7 +75,7 @@ export class AssignedToMeBugPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet4_ubc43135_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet4_u9f43be6_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -251,8 +251,8 @@ export class AssignedToMeBugPortletBase extends MainControlBase {
      * @memberof AssignedToMeBugBase
      */
     public uiAction(tag:string,event:any){
-        if(Object.is(tag,'ubc43135')){
-            this.dashboard_sysportlet4_ubc43135_click(null,tag,event);
+        if(Object.is(tag,'u9f43be6')){
+            this.dashboard_sysportlet4_u9f43be6_click(null,tag,event);
         }
     }
 

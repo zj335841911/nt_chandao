@@ -34,6 +34,13 @@ public class TodoSearchContext extends QueryWrapperContext<Todo> {
             this.getSearchCond().eq("`account`", n_account_eq);
         }
     }
+	private String n_config_type_eq;//[周期类型]
+	public void setN_config_type_eq(String n_config_type_eq) {
+        this.n_config_type_eq = n_config_type_eq;
+        if(!ObjectUtils.isEmpty(this.n_config_type_eq)){
+            this.getSearchCond().eq("`config_type`", n_config_type_eq);
+        }
+    }
 	private String n_type_eq;//[类型]
 	public void setN_type_eq(String n_type_eq) {
         this.n_type_eq = n_type_eq;
@@ -131,13 +138,6 @@ public class TodoSearchContext extends QueryWrapperContext<Todo> {
         this.n_private_eq = n_private_eq;
         if(!ObjectUtils.isEmpty(this.n_private_eq)){
             this.getSearchCond().eq("`private`", n_private_eq);
-        }
-    }
-	private String n_config_type_eq;//[周期类型]
-	public void setN_config_type_eq(String n_config_type_eq) {
-        this.n_config_type_eq = n_config_type_eq;
-        if(!ObjectUtils.isEmpty(this.n_config_type_eq)){
-            this.getSearchCond().eq("`config_type`", n_config_type_eq);
         }
     }
 

@@ -74,7 +74,7 @@ export class MainEditGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_ud0fe979_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u68709de_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -102,7 +102,7 @@ export class MainEditGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u1f5fe3c_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u53c485b_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -459,10 +459,10 @@ export class MainEditGridBase extends GridControlBase {
 	public uiAction(row: any, tag: any, $event: any): void {
         $event.stopPropagation();
         if(Object.is('Edit', tag)) {
-            this.grid_uagridcolumn1_ud0fe979_click(row, tag, $event);
+            this.grid_uagridcolumn1_u68709de_click(row, tag, $event);
         }
         if(Object.is('Remove', tag)) {
-            this.grid_uagridcolumn1_u1f5fe3c_click(row, tag, $event);
+            this.grid_uagridcolumn1_u53c485b_click(row, tag, $event);
         }
     }
 

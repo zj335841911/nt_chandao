@@ -18,6 +18,12 @@ export default class MoreMyFavouritesTreeModel {
         name: 'groups',
       },
       {
+        name: 'content',
+      },
+      {
+        name: 'docqtype',
+      },
+      {
         name: 'editeddate',
       },
       {
@@ -40,7 +46,13 @@ export default class MoreMyFavouritesTreeModel {
         name: 'deleted',
       },
       {
+        name: 'recentupdatecnt',
+      },
+      {
         name: 'type',
+      },
+      {
+        name: 'alldoccnt',
       },
       {
         name: 'addeddate',
@@ -49,16 +61,52 @@ export default class MoreMyFavouritesTreeModel {
         name: 'acl',
       },
       {
+        name: 'mydoccnt',
+      },
+      {
+        name: 'url',
+      },
+      {
+        name: 'doccnt',
+      },
+      {
+        name: 'myfavouritecnt',
+      },
+      {
         name: 'users',
       },
       {
+        name: 'recentaddcnt',
+      },
+      {
         name: 'keywords',
+      },
+      {
+        name: 'isfavourites',
       },
       {
         name: 'collector',
       },
       {
         name: 'addedby',
+      },
+      {
+        name: 'todayupdatecnt',
+      },
+      {
+        name: 'files',
+      },
+      {
+        name: 'productname',
+      },
+      {
+        name: 'projectname',
+      },
+      {
+        name: 'libname',
+      },
+      {
+        name: 'modulename',
       },
       {
         name: 'lib',
@@ -71,54 +119,6 @@ export default class MoreMyFavouritesTreeModel {
       },
       {
         name: 'module',
-      },
-      {
-        name: 'projectname',
-      },
-      {
-        name: 'productname',
-      },
-      {
-        name: 'libname',
-      },
-      {
-        name: 'modulename',
-      },
-      {
-        name: 'content',
-      },
-      {
-        name: 'files',
-      },
-      {
-        name: 'url',
-      },
-      {
-        name: 'docqtype',
-      },
-      {
-        name: 'isfavourites',
-      },
-      {
-        name: 'alldoccnt',
-      },
-      {
-        name: 'recentupdatecnt',
-      },
-      {
-        name: 'todayupdatecnt',
-      },
-      {
-        name: 'recentaddcnt',
-      },
-      {
-        name: 'mydoccnt',
-      },
-      {
-        name: 'myfavouritecnt',
-      },
-      {
-        name: 'doccnt',
       },
     ]
   }

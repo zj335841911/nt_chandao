@@ -100,7 +100,7 @@ export class IbzLibModuleCaseTreeExpViewBase extends TreeExpViewBase {
      * @type {string}
      * @memberof IbzLibModuleCaseTreeExpViewBase
      */
-	protected viewtag: string = '99b83386d61eab84cd7d65a445def4ed';
+	protected viewtag: string = '870bc0de83b0395b5977daca546eed1e';
 
     /**
      * 视图名称

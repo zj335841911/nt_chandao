@@ -165,7 +165,7 @@ export class CaseMainNewViewBase extends EditViewBase {
      * @type {string}
      * @memberof CaseMainNewViewBase
      */
-	protected viewtag: string = '5890a810365fec51e801d2cffce44fde';
+	protected viewtag: string = '6e8645d9fed039c0d242e50504074fb8';
 
     /**
      * 视图名称

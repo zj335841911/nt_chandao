@@ -141,7 +141,7 @@ export class IBIZProKeywordGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof IBIZProKeywordGridViewBase
      */
-	protected viewtag: string = '910a15d245455b5b6c4dc58fd36aa315';
+	protected viewtag: string = '031f322348f44c7fd48538bd1b66cd28';
 
     /**
      * 视图名称

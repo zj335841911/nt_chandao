@@ -127,7 +127,7 @@ export class TestTaskCalendarEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof TestTaskCalendarEditViewBase
      */
-	protected viewtag: string = '7f46287768fb888f84467e285f960323';
+	protected viewtag: string = '4ca62d1d57870e4f290ae66f0eff59ac';
 
     /**
      * 视图名称

@@ -94,6 +94,13 @@ public class Case extends EntityMP implements Serializable {
     @JsonProperty("lastrunresult")
     private String lastrunresult;
     /**
+     * 模块名称
+     */
+    @TableField(exist = false)
+    @JSONField(name = "modulename1")
+    @JsonProperty("modulename1")
+    private String modulename1;
+    /**
      * 相关用例
      */
     @DEField(defaultValue = "#EMPTY")
@@ -101,6 +108,13 @@ public class Case extends EntityMP implements Serializable {
     @JSONField(name = "linkcase")
     @JsonProperty("linkcase")
     private String linkcase;
+    /**
+     * 属性
+     */
+    @TableField(exist = false)
+    @JSONField(name = "task")
+    @JsonProperty("task")
+    private String task;
     /**
      * 排序
      */
@@ -117,6 +131,20 @@ public class Case extends EntityMP implements Serializable {
     @JSONField(name = "howrun")
     @JsonProperty("howrun")
     private String howrun;
+    /**
+     * 测试结果数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "resultcnt")
+    @JsonProperty("resultcnt")
+    private Integer resultcnt;
+    /**
+     * 消息通知用户
+     */
+    @TableField(exist = false)
+    @JSONField(name = "noticeusers")
+    @JsonProperty("noticeusers")
+    private String noticeusers;
     /**
      * 用例版本
      */
@@ -150,6 +178,13 @@ public class Case extends EntityMP implements Serializable {
     @JsonProperty("type")
     private String type;
     /**
+     * 测试失败数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "resultfalicnt")
+    @JsonProperty("resultfalicnt")
+    private Integer resultfalicnt;
+    /**
      * 用例状态
      */
     @DEField(defaultValue = "normal")
@@ -158,6 +193,13 @@ public class Case extends EntityMP implements Serializable {
     @JsonProperty("status")
     private String status;
     /**
+     * 备注
+     */
+    @TableField(exist = false)
+    @JSONField(name = "comment")
+    @JsonProperty("comment")
+    private String comment;
+    /**
      * auto
      */
     @DEField(defaultValue = "no")
@@ -165,6 +207,13 @@ public class Case extends EntityMP implements Serializable {
     @JSONField(name = "auto")
     @JsonProperty("auto")
     private String auto;
+    /**
+     * 是否收藏
+     */
+    @TableField(exist = false)
+    @JSONField(name = "isfavorites")
+    @JsonProperty("isfavorites")
+    private String isfavorites;
     /**
      * frequency
      */
@@ -196,6 +245,27 @@ public class Case extends EntityMP implements Serializable {
     @JSONField(name = "reviewedby")
     @JsonProperty("reviewedby")
     private String reviewedby;
+    /**
+     * 附件
+     */
+    @TableField(exist = false)
+    @JSONField(name = "files")
+    @JsonProperty("files")
+    private String files;
+    /**
+     * 转bug数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "tobugcnt")
+    @JsonProperty("tobugcnt")
+    private Integer tobugcnt;
+    /**
+     * 指派给
+     */
+    @TableField(exist = false)
+    @JSONField(name = "assignedto")
+    @JsonProperty("assignedto")
+    private String assignedto;
     /**
      * 已删除
      */
@@ -238,6 +308,13 @@ public class Case extends EntityMP implements Serializable {
     @JsonProperty("scriptlocation")
     private String scriptlocation;
     /**
+     * 用例状态
+     */
+    @TableField(exist = false)
+    @JSONField(name = "status1")
+    @JsonProperty("status1")
+    private String status1;
+    /**
      * 执行时间
      */
     @TableField(value = "`lastrundate`")
@@ -269,6 +346,20 @@ public class Case extends EntityMP implements Serializable {
     @JSONField(name = "frame")
     @JsonProperty("frame")
     private String frame;
+    /**
+     * 测试用例结果
+     */
+    @TableField(exist = false)
+    @JSONField(name = "lastrunresult1")
+    @JsonProperty("lastrunresult1")
+    private String lastrunresult1;
+    /**
+     * 用例步骤数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "stepcnt")
+    @JsonProperty("stepcnt")
+    private Integer stepcnt;
     /**
      * 子状态
      */
@@ -302,6 +393,13 @@ public class Case extends EntityMP implements Serializable {
     @JsonProperty("lastrunner")
     private String lastrunner;
     /**
+     * 用例库
+     */
+    @TableField(exist = false)
+    @JSONField(name = "libname")
+    @JsonProperty("libname")
+    private String libname;
+    /**
      * 来源用例版本
      */
     @DEField(defaultValue = "0")
@@ -310,6 +408,20 @@ public class Case extends EntityMP implements Serializable {
     @JsonProperty("fromcaseversion")
     private Integer fromcaseversion;
     /**
+     * 需求名称
+     */
+    @TableField(exist = false)
+    @JSONField(name = "storyname")
+    @JsonProperty("storyname")
+    private String storyname;
+    /**
+     * 模块名称
+     */
+    @TableField(exist = false)
+    @JSONField(name = "modulename")
+    @JsonProperty("modulename")
+    private String modulename;
+    /**
      * 需求版本
      */
     @DEField(defaultValue = "1")
@@ -317,6 +429,13 @@ public class Case extends EntityMP implements Serializable {
     @JSONField(name = "storyversion")
     @JsonProperty("storyversion")
     private Integer storyversion;
+    /**
+     * 产品名称
+     */
+    @TableField(exist = false)
+    @JSONField(name = "productname")
+    @JsonProperty("productname")
+    private String productname;
     /**
      * 来源用例
      */
@@ -373,125 +492,6 @@ public class Case extends EntityMP implements Serializable {
     @JSONField(name = "module")
     @JsonProperty("module")
     private Long module;
-    /**
-     * 模块名称
-     */
-    @TableField(exist = false)
-    @JSONField(name = "modulename")
-    @JsonProperty("modulename")
-    private String modulename;
-    /**
-     * 需求名称
-     */
-    @TableField(exist = false)
-    @JSONField(name = "storyname")
-    @JsonProperty("storyname")
-    private String storyname;
-    /**
-     * 产品名称
-     */
-    @TableField(exist = false)
-    @JSONField(name = "productname")
-    @JsonProperty("productname")
-    private String productname;
-    /**
-     * 转bug数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "tobugcnt")
-    @JsonProperty("tobugcnt")
-    private Integer tobugcnt;
-    /**
-     * 测试结果数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "resultcnt")
-    @JsonProperty("resultcnt")
-    private Integer resultcnt;
-    /**
-     * 用例步骤数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "stepcnt")
-    @JsonProperty("stepcnt")
-    private Integer stepcnt;
-    /**
-     * 备注
-     */
-    @TableField(exist = false)
-    @JSONField(name = "comment")
-    @JsonProperty("comment")
-    private String comment;
-    /**
-     * 测试失败数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "resultfalicnt")
-    @JsonProperty("resultfalicnt")
-    private Integer resultfalicnt;
-    /**
-     * 用例状态
-     */
-    @TableField(exist = false)
-    @JSONField(name = "status1")
-    @JsonProperty("status1")
-    private String status1;
-    /**
-     * 指派给
-     */
-    @TableField(exist = false)
-    @JSONField(name = "assignedto")
-    @JsonProperty("assignedto")
-    private String assignedto;
-    /**
-     * 属性
-     */
-    @TableField(exist = false)
-    @JSONField(name = "task")
-    @JsonProperty("task")
-    private String task;
-    /**
-     * 用例库
-     */
-    @TableField(exist = false)
-    @JSONField(name = "libname")
-    @JsonProperty("libname")
-    private String libname;
-    /**
-     * 测试用例结果
-     */
-    @TableField(exist = false)
-    @JSONField(name = "lastrunresult1")
-    @JsonProperty("lastrunresult1")
-    private String lastrunresult1;
-    /**
-     * 是否收藏
-     */
-    @TableField(exist = false)
-    @JSONField(name = "isfavorites")
-    @JsonProperty("isfavorites")
-    private String isfavorites;
-    /**
-     * 模块名称
-     */
-    @TableField(exist = false)
-    @JSONField(name = "modulename1")
-    @JsonProperty("modulename1")
-    private String modulename1;
-    /**
-     * 附件
-     */
-    @TableField(exist = false)
-    @JSONField(name = "files")
-    @JsonProperty("files")
-    private String files;
-    /**
-     * 消息通知用户
-     */
-    @TableField(exist = false)
-    @JSONField(name = "noticeusers")
-    @JsonProperty("noticeusers")
-    private String noticeusers;
 
     /**
      * 

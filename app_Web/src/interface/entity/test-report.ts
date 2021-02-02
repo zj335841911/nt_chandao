@@ -7,6 +7,22 @@
 export interface TestReport {
 
     /**
+     * 项目报告产品数
+     *
+     * @returns {*}
+     * @memberof TestReport
+     */
+    productcnt?: any;
+
+    /**
+     * 概况
+     *
+     * @returns {*}
+     * @memberof TestReport
+     */
+    overviews?: any;
+
+    /**
      * 所属对象
      *
      * @returns {*}
@@ -53,6 +69,22 @@ export interface TestReport {
      * @memberof TestReport
      */
     stories?: any;
+
+    /**
+     * 附件
+     *
+     * @returns {*}
+     * @memberof TestReport
+     */
+    files?: any;
+
+    /**
+     * 备注
+     *
+     * @returns {*}
+     * @memberof TestReport
+     */
+    comment?: any;
 
     /**
      * 测试单
@@ -143,6 +175,22 @@ export interface TestReport {
     deleted?: any;
 
     /**
+     * 所属项目
+     *
+     * @returns {*}
+     * @memberof TestReport
+     */
+    projectname?: any;
+
+    /**
+     * 所属产品
+     *
+     * @returns {*}
+     * @memberof TestReport
+     */
+    productname?: any;
+
+    /**
      * 所属产品
      *
      * @returns {*}
@@ -157,52 +205,4 @@ export interface TestReport {
      * @memberof TestReport
      */
     project?: any;
-
-    /**
-     * 所属产品
-     *
-     * @returns {*}
-     * @memberof TestReport
-     */
-    productname?: any;
-
-    /**
-     * 所属项目
-     *
-     * @returns {*}
-     * @memberof TestReport
-     */
-    projectname?: any;
-
-    /**
-     * 备注
-     *
-     * @returns {*}
-     * @memberof TestReport
-     */
-    comment?: any;
-
-    /**
-     * 概况
-     *
-     * @returns {*}
-     * @memberof TestReport
-     */
-    overviews?: any;
-
-    /**
-     * 附件
-     *
-     * @returns {*}
-     * @memberof TestReport
-     */
-    files?: any;
-
-    /**
-     * 项目报告产品数
-     *
-     * @returns {*}
-     * @memberof TestReport
-     */
-    productcnt?: any;
 }

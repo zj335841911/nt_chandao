@@ -144,7 +144,7 @@ export class TodoCloseViewBase extends OptionViewBase {
      * @type {string}
      * @memberof TodoCloseViewBase
      */
-	protected viewtag: string = '734c2c8a05995eaad9f9a0028e9b9def';
+	protected viewtag: string = '350eb8ac832890ae0f531aadd6689dc5';
 
     /**
      * 视图名称

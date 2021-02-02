@@ -105,7 +105,7 @@ export class IbzMyTerritoryListView9PersonInfoBase extends ListView9Base {
      * @type {string}
      * @memberof IbzMyTerritoryListView9PersonInfoBase
      */
-	protected viewtag: string = '4d673563cfae3bd7ff908401e877f4bc';
+	protected viewtag: string = '12b93621cdf2d44e4bf3d664c17adb44';
 
     /**
      * 视图名称

@@ -162,7 +162,7 @@ export class TaskForwardViewBase extends OptionViewBase {
      * @type {string}
      * @memberof TaskForwardViewBase
      */
-	protected viewtag: string = 'f27febc6ab4d30f9e419caf1e6930a94';
+	protected viewtag: string = 'c52533db80ff130d23150b9bb3c3ae0b';
 
     /**
      * 视图名称

@@ -712,8 +712,8 @@ public class CaseServiceImpl extends ServiceImpl<CaseMapper, Case> implements IC
                 et.setZtstory(majorEntity);
                 ztstory = majorEntity;
             }
-            et.setStoryversion(ztstory.getVersion());
             et.setStoryname(ztstory.getTitle());
+            et.setStoryversion(ztstory.getVersion());
         }
         //实体关系[DER1N_ZT_CASE_ZT_TESTSUITE_LIB]
         if (!ObjectUtils.isEmpty(et.getLib())) {

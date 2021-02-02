@@ -39,12 +39,19 @@ public class PSSubSysSADE extends EntityClient implements Serializable {
     }
 
     /**
-     * 外部接口实体标识
+     * 同步模型模式
      */
-    @DEField(isKeyField = true)
-    @JSONField(name = "pssubsyssadeid")
-    @JsonProperty("pssubsyssadeid")
-    private String pssubsyssadeid;
+    @DEField(defaultValue = "0")
+    @JSONField(name = "syncmodelmode")
+    @JsonProperty("syncmodelmode")
+    private String syncmodelmode;
+
+    /**
+     * 代码名称2
+     */
+    @JSONField(name = "codename2")
+    @JsonProperty("codename2")
+    private String codename2;
 
     /**
      * 建立人
@@ -55,20 +62,19 @@ public class PSSubSysSADE extends EntityClient implements Serializable {
     private String createman;
 
     /**
-     * 外部接口实体名称
+     * 外部接口实体标识
      */
-    @JSONField(name = "pssubsyssadename")
-    @JsonProperty("pssubsyssadename")
-    private String pssubsyssadename;
+    @DEField(isKeyField = true)
+    @JSONField(name = "pssubsyssadeid")
+    @JsonProperty("pssubsyssadeid")
+    private String pssubsyssadeid;
 
     /**
-     * 建立时间
+     * 用户标记
      */
-    @DEField(preType = DEPredefinedFieldType.CREATEDATE)
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
-    @JSONField(name = "createdate" , format = "yyyy-MM-dd HH:mm:ss")
-    @JsonProperty("createdate")
-    private Timestamp createdate;
+    @JSONField(name = "usertag")
+    @JsonProperty("usertag")
+    private String usertag;
 
     /**
      * 更新人
@@ -77,43 +83,6 @@ public class PSSubSysSADE extends EntityClient implements Serializable {
     @JSONField(name = "updateman")
     @JsonProperty("updateman")
     private String updateman;
-
-    /**
-     * 更新时间
-     */
-    @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
-    @JSONField(name = "updatedate" , format = "yyyy-MM-dd HH:mm:ss")
-    @JsonProperty("updatedate")
-    private Timestamp updatedate;
-
-    /**
-     * 代码名称2
-     */
-    @JSONField(name = "codename2")
-    @JsonProperty("codename2")
-    private String codename2;
-
-    /**
-     * 代码名称
-     */
-    @JSONField(name = "codename")
-    @JsonProperty("codename")
-    private String codename;
-
-    /**
-     * 实体标记
-     */
-    @JSONField(name = "detag")
-    @JsonProperty("detag")
-    private String detag;
-
-    /**
-     * 实体标记2
-     */
-    @JSONField(name = "detag2")
-    @JsonProperty("detag2")
-    private String detag2;
 
     /**
      * 备注
@@ -131,47 +100,11 @@ public class PSSubSysSADE extends EntityClient implements Serializable {
     private Integer majorflag;
 
     /**
-     * 逻辑名称
+     * 实体标记
      */
-    @JSONField(name = "logicname")
-    @JsonProperty("logicname")
-    private String logicname;
-
-    /**
-     * 同步模型模式
-     */
-    @DEField(defaultValue = "0")
-    @JSONField(name = "syncmodelmode")
-    @JsonProperty("syncmodelmode")
-    private String syncmodelmode;
-
-    /**
-     * 用户分类
-     */
-    @JSONField(name = "usercat")
-    @JsonProperty("usercat")
-    private String usercat;
-
-    /**
-     * 用户标记
-     */
-    @JSONField(name = "usertag")
-    @JsonProperty("usertag")
-    private String usertag;
-
-    /**
-     * 用户标记2
-     */
-    @JSONField(name = "usertag2")
-    @JsonProperty("usertag2")
-    private String usertag2;
-
-    /**
-     * 用户标记3
-     */
-    @JSONField(name = "usertag3")
-    @JsonProperty("usertag3")
-    private String usertag3;
+    @JSONField(name = "detag")
+    @JsonProperty("detag")
+    private String detag;
 
     /**
      * 用户标记4
@@ -181,12 +114,79 @@ public class PSSubSysSADE extends EntityClient implements Serializable {
     private String usertag4;
 
     /**
+     * 用户标记2
+     */
+    @JSONField(name = "usertag2")
+    @JsonProperty("usertag2")
+    private String usertag2;
+
+    /**
+     * 用户分类
+     */
+    @JSONField(name = "usercat")
+    @JsonProperty("usercat")
+    private String usercat;
+
+    /**
      * 是否启用
      */
     @DEField(defaultValue = "1")
     @JSONField(name = "validflag")
     @JsonProperty("validflag")
     private Integer validflag;
+
+    /**
+     * 外部接口实体名称
+     */
+    @JSONField(name = "pssubsyssadename")
+    @JsonProperty("pssubsyssadename")
+    private String pssubsyssadename;
+
+    /**
+     * 用户标记3
+     */
+    @JSONField(name = "usertag3")
+    @JsonProperty("usertag3")
+    private String usertag3;
+
+    /**
+     * 实体标记2
+     */
+    @JSONField(name = "detag2")
+    @JsonProperty("detag2")
+    private String detag2;
+
+    /**
+     * 逻辑名称
+     */
+    @JSONField(name = "logicname")
+    @JsonProperty("logicname")
+    private String logicname;
+
+    /**
+     * 更新时间
+     */
+    @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "updatedate" , format = "yyyy-MM-dd HH:mm:ss")
+    @JsonProperty("updatedate")
+    private Timestamp updatedate;
+
+    /**
+     * 代码名称
+     */
+    @JSONField(name = "codename")
+    @JsonProperty("codename")
+    private String codename;
+
+    /**
+     * 建立时间
+     */
+    @DEField(preType = DEPredefinedFieldType.CREATEDATE)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "createdate" , format = "yyyy-MM-dd HH:mm:ss")
+    @JsonProperty("createdate")
+    private Timestamp createdate;
 
     /**
      * 子系统接口
@@ -214,11 +214,11 @@ public class PSSubSysSADE extends EntityClient implements Serializable {
 
 
     /**
-     * 设置 [外部接口实体名称]
+     * 设置 [同步模型模式]
      */
-    public void setPssubsyssadename(String pssubsyssadename) {
-        this.pssubsyssadename = pssubsyssadename ;
-        this.modify("pssubsyssadename", pssubsyssadename);
+    public void setSyncmodelmode(String syncmodelmode) {
+        this.syncmodelmode = syncmodelmode ;
+        this.modify("syncmodelmode", syncmodelmode);
     }
 
     /**
@@ -230,27 +230,11 @@ public class PSSubSysSADE extends EntityClient implements Serializable {
     }
 
     /**
-     * 设置 [代码名称]
+     * 设置 [用户标记]
      */
-    public void setCodename(String codename) {
-        this.codename = codename ;
-        this.modify("codename", codename);
-    }
-
-    /**
-     * 设置 [实体标记]
-     */
-    public void setDetag(String detag) {
-        this.detag = detag ;
-        this.modify("detag", detag);
-    }
-
-    /**
-     * 设置 [实体标记2]
-     */
-    public void setDetag2(String detag2) {
-        this.detag2 = detag2 ;
-        this.modify("detag2", detag2);
+    public void setUsertag(String usertag) {
+        this.usertag = usertag ;
+        this.modify("usertag", usertag);
     }
 
     /**
@@ -270,51 +254,11 @@ public class PSSubSysSADE extends EntityClient implements Serializable {
     }
 
     /**
-     * 设置 [逻辑名称]
+     * 设置 [实体标记]
      */
-    public void setLogicname(String logicname) {
-        this.logicname = logicname ;
-        this.modify("logicname", logicname);
-    }
-
-    /**
-     * 设置 [同步模型模式]
-     */
-    public void setSyncmodelmode(String syncmodelmode) {
-        this.syncmodelmode = syncmodelmode ;
-        this.modify("syncmodelmode", syncmodelmode);
-    }
-
-    /**
-     * 设置 [用户分类]
-     */
-    public void setUsercat(String usercat) {
-        this.usercat = usercat ;
-        this.modify("usercat", usercat);
-    }
-
-    /**
-     * 设置 [用户标记]
-     */
-    public void setUsertag(String usertag) {
-        this.usertag = usertag ;
-        this.modify("usertag", usertag);
-    }
-
-    /**
-     * 设置 [用户标记2]
-     */
-    public void setUsertag2(String usertag2) {
-        this.usertag2 = usertag2 ;
-        this.modify("usertag2", usertag2);
-    }
-
-    /**
-     * 设置 [用户标记3]
-     */
-    public void setUsertag3(String usertag3) {
-        this.usertag3 = usertag3 ;
-        this.modify("usertag3", usertag3);
+    public void setDetag(String detag) {
+        this.detag = detag ;
+        this.modify("detag", detag);
     }
 
     /**
@@ -326,11 +270,67 @@ public class PSSubSysSADE extends EntityClient implements Serializable {
     }
 
     /**
+     * 设置 [用户标记2]
+     */
+    public void setUsertag2(String usertag2) {
+        this.usertag2 = usertag2 ;
+        this.modify("usertag2", usertag2);
+    }
+
+    /**
+     * 设置 [用户分类]
+     */
+    public void setUsercat(String usercat) {
+        this.usercat = usercat ;
+        this.modify("usercat", usercat);
+    }
+
+    /**
      * 设置 [是否启用]
      */
     public void setValidflag(Integer validflag) {
         this.validflag = validflag ;
         this.modify("validflag", validflag);
+    }
+
+    /**
+     * 设置 [外部接口实体名称]
+     */
+    public void setPssubsyssadename(String pssubsyssadename) {
+        this.pssubsyssadename = pssubsyssadename ;
+        this.modify("pssubsyssadename", pssubsyssadename);
+    }
+
+    /**
+     * 设置 [用户标记3]
+     */
+    public void setUsertag3(String usertag3) {
+        this.usertag3 = usertag3 ;
+        this.modify("usertag3", usertag3);
+    }
+
+    /**
+     * 设置 [实体标记2]
+     */
+    public void setDetag2(String detag2) {
+        this.detag2 = detag2 ;
+        this.modify("detag2", detag2);
+    }
+
+    /**
+     * 设置 [逻辑名称]
+     */
+    public void setLogicname(String logicname) {
+        this.logicname = logicname ;
+        this.modify("logicname", logicname);
+    }
+
+    /**
+     * 设置 [代码名称]
+     */
+    public void setCodename(String codename) {
+        this.codename = codename ;
+        this.modify("codename", codename);
     }
 
     /**

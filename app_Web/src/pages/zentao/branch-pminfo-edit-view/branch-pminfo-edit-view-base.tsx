@@ -123,7 +123,7 @@ export class BranchPMInfoEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof BranchPMInfoEditViewBase
      */
-	protected viewtag: string = 'e1a0e6c29939260ead53dcd3beb8b736';
+	protected viewtag: string = 'b281875cc25dc5ace73c1fe5bf383ad0';
 
     /**
      * 视图名称

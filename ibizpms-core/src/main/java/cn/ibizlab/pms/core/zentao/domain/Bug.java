@@ -60,6 +60,13 @@ public class Bug extends EntityMP implements Serializable {
     @JsonProperty("storyversion")
     private Integer storyversion;
     /**
+     * 版本名称
+     */
+    @TableField(exist = false)
+    @JSONField(name = "buildname")
+    @JsonProperty("buildname")
+    private String buildname;
+    /**
      * 相关Bug
      */
     @DEField(defaultValue = "#EMPTY")
@@ -75,6 +82,20 @@ public class Bug extends EntityMP implements Serializable {
     @JSONField(name = "activateddate", format = "yyyy-MM-dd")
     @JsonProperty("activateddate")
     private Timestamp activateddate;
+    /**
+     * 过期天数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "overduebugs")
+    @JsonProperty("overduebugs")
+    private Integer overduebugs;
+    /**
+     * 创建版本
+     */
+    @TableField(exist = false)
+    @JSONField(name = "createbuild")
+    @JsonProperty("createbuild")
+    private Integer createbuild;
     /**
      * 指派给
      */
@@ -101,6 +122,13 @@ public class Bug extends EntityMP implements Serializable {
     @JsonProperty("lastediteddate")
     private Timestamp lastediteddate;
     /**
+     * 移动端图片
+     */
+    @TableField(exist = false)
+    @JSONField(name = "mobimage")
+    @JsonProperty("mobimage")
+    private String mobimage;
+    /**
      * result
      */
     @DEField(defaultValue = "0")
@@ -117,6 +145,20 @@ public class Bug extends EntityMP implements Serializable {
     @JsonProperty("keywords")
     private String keywords;
     /**
+     * 是否收藏
+     */
+    @TableField(exist = false)
+    @JSONField(name = "isfavorites")
+    @JsonProperty("isfavorites")
+    private String isfavorites;
+    /**
+     * 模块名称
+     */
+    @TableField(exist = false)
+    @JSONField(name = "modulename1")
+    @JsonProperty("modulename1")
+    private String modulename1;
+    /**
      * 由谁关闭
      */
     @DEField(defaultValue = "#EMPTY")
@@ -132,6 +174,13 @@ public class Bug extends EntityMP implements Serializable {
     @JSONField(name = "browser")
     @JsonProperty("browser")
     private String browser;
+    /**
+     * 消息通知用户
+     */
+    @TableField(exist = false)
+    @JSONField(name = "noticeusers")
+    @JsonProperty("noticeusers")
+    private String noticeusers;
     /**
      * 重现步骤
      */
@@ -156,6 +205,13 @@ public class Bug extends EntityMP implements Serializable {
     @JSONField(name = "confirmed")
     @JsonProperty("confirmed")
     private Integer confirmed;
+    /**
+     * 联系人
+     */
+    @TableField(exist = false)
+    @JSONField(name = "mailtoconact")
+    @JsonProperty("mailtoconact")
+    private String mailtoconact;
     /**
      * 由谁创建
      */
@@ -222,6 +278,13 @@ public class Bug extends EntityMP implements Serializable {
     @JsonProperty("color")
     private String color;
     /**
+     * 备注
+     */
+    @TableField(exist = false)
+    @JSONField(name = "comment")
+    @JsonProperty("comment")
+    private String comment;
+    /**
      * 解决日期
      */
     @TableField(value = "`resolveddate`")
@@ -253,6 +316,27 @@ public class Bug extends EntityMP implements Serializable {
     @JSONField(name = "openedbuild")
     @JsonProperty("openedbuild")
     private String openedbuild;
+    /**
+     * 延期解决
+     */
+    @TableField(exist = false)
+    @JSONField(name = "delayresolve")
+    @JsonProperty("delayresolve")
+    private String delayresolve;
+    /**
+     * 附件
+     */
+    @TableField(exist = false)
+    @JSONField(name = "files")
+    @JsonProperty("files")
+    private String files;
+    /**
+     * 抄送给
+     */
+    @TableField(exist = false)
+    @JSONField(name = "mailtopk")
+    @JsonProperty("mailtopk")
+    private String mailtopk;
     /**
      * v1
      */
@@ -287,6 +371,13 @@ public class Bug extends EntityMP implements Serializable {
     @JsonProperty("substatus")
     private String substatus;
     /**
+     * 版本项目
+     */
+    @TableField(exist = false)
+    @JSONField(name = "buildproject")
+    @JsonProperty("buildproject")
+    private String buildproject;
+    /**
      * Bug编号
      */
     @DEField(isKeyField = true)
@@ -294,6 +385,13 @@ public class Bug extends EntityMP implements Serializable {
     @JSONField(name = "id")
     @JsonProperty("id")
     private Long id;
+    /**
+     * 延期
+     */
+    @TableField(exist = false)
+    @JSONField(name = "delay")
+    @JsonProperty("delay")
+    private String delay;
     /**
      * found
      */
@@ -365,6 +463,27 @@ public class Bug extends EntityMP implements Serializable {
     @JsonProperty("productname")
     private String productname;
     /**
+     * 平台/分支
+     */
+    @TableField(exist = false)
+    @JSONField(name = "branchname")
+    @JsonProperty("branchname")
+    private String branchname;
+    /**
+     * 相关任务
+     */
+    @TableField(exist = false)
+    @JSONField(name = "taskname")
+    @JsonProperty("taskname")
+    private String taskname;
+    /**
+     * 相关用例
+     */
+    @TableField(exist = false)
+    @JSONField(name = "casename")
+    @JsonProperty("casename")
+    private String casename;
+    /**
      * 项目
      */
     @TableField(exist = false)
@@ -393,6 +512,13 @@ public class Bug extends EntityMP implements Serializable {
     @JSONField(name = "repotype")
     @JsonProperty("repotype")
     private String repotype;
+    /**
+     * 模块名称
+     */
+    @TableField(exist = false)
+    @JSONField(name = "modulename")
+    @JsonProperty("modulename")
+    private String modulename;
     /**
      * 转需求
      */
@@ -505,132 +631,6 @@ public class Bug extends EntityMP implements Serializable {
     @JSONField(name = "testtask")
     @JsonProperty("testtask")
     private Long testtask;
-    /**
-     * 备注
-     */
-    @TableField(exist = false)
-    @JSONField(name = "comment")
-    @JsonProperty("comment")
-    private String comment;
-    /**
-     * 相关任务
-     */
-    @TableField(exist = false)
-    @JSONField(name = "taskname")
-    @JsonProperty("taskname")
-    private String taskname;
-    /**
-     * 模块名称
-     */
-    @TableField(exist = false)
-    @JSONField(name = "modulename")
-    @JsonProperty("modulename")
-    private String modulename;
-    /**
-     * 平台/分支
-     */
-    @TableField(exist = false)
-    @JSONField(name = "branchname")
-    @JsonProperty("branchname")
-    private String branchname;
-    /**
-     * 模块名称
-     */
-    @TableField(exist = false)
-    @JSONField(name = "modulename1")
-    @JsonProperty("modulename1")
-    private String modulename1;
-    /**
-     * 附件
-     */
-    @TableField(exist = false)
-    @JSONField(name = "files")
-    @JsonProperty("files")
-    private String files;
-    /**
-     * 移动端图片
-     */
-    @TableField(exist = false)
-    @JSONField(name = "mobimage")
-    @JsonProperty("mobimage")
-    private String mobimage;
-    /**
-     * 是否收藏
-     */
-    @TableField(exist = false)
-    @JSONField(name = "isfavorites")
-    @JsonProperty("isfavorites")
-    private String isfavorites;
-    /**
-     * 版本名称
-     */
-    @TableField(exist = false)
-    @JSONField(name = "buildname")
-    @JsonProperty("buildname")
-    private String buildname;
-    /**
-     * 版本项目
-     */
-    @TableField(exist = false)
-    @JSONField(name = "buildproject")
-    @JsonProperty("buildproject")
-    private String buildproject;
-    /**
-     * 创建版本
-     */
-    @TableField(exist = false)
-    @JSONField(name = "createbuild")
-    @JsonProperty("createbuild")
-    private Integer createbuild;
-    /**
-     * 过期天数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "overduebugs")
-    @JsonProperty("overduebugs")
-    private Integer overduebugs;
-    /**
-     * 相关用例
-     */
-    @TableField(exist = false)
-    @JSONField(name = "casename")
-    @JsonProperty("casename")
-    private String casename;
-    /**
-     * 延期
-     */
-    @TableField(exist = false)
-    @JSONField(name = "delay")
-    @JsonProperty("delay")
-    private String delay;
-    /**
-     * 消息通知用户
-     */
-    @TableField(exist = false)
-    @JSONField(name = "noticeusers")
-    @JsonProperty("noticeusers")
-    private String noticeusers;
-    /**
-     * 抄送给
-     */
-    @TableField(exist = false)
-    @JSONField(name = "mailtopk")
-    @JsonProperty("mailtopk")
-    private String mailtopk;
-    /**
-     * 联系人
-     */
-    @TableField(exist = false)
-    @JSONField(name = "mailtoconact")
-    @JsonProperty("mailtoconact")
-    private String mailtoconact;
-    /**
-     * 延期解决
-     */
-    @TableField(exist = false)
-    @JSONField(name = "delayresolve")
-    @JsonProperty("delayresolve")
-    private String delayresolve;
 
     /**
      * 

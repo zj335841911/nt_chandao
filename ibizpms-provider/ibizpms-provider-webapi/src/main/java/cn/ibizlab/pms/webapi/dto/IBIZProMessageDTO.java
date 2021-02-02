@@ -30,12 +30,98 @@ public class IBIZProMessageDTO extends DTOBase implements Serializable {
 	private static final long serialVersionUID = 1L;
 
     /**
+     * 属性 [SENDPROXYID]
+     *
+     */
+    @JSONField(name = "sendproxyid")
+    @JsonProperty("sendproxyid")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String sendproxyid;
+
+    /**
+     * 属性 [IBIZPRO_MESSAGENAME]
+     *
+     */
+    @JSONField(name = "ibizpromessagename")
+    @JsonProperty("ibizpromessagename")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String ibizpromessagename;
+
+    /**
+     * 属性 [ISLINK]
+     *
+     */
+    @JSONField(name = "islink")
+    @JsonProperty("islink")
+    private Integer islink;
+
+    /**
+     * 属性 [SUBJECT]
+     *
+     */
+    @JSONField(name = "subject")
+    @JsonProperty("subject")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String subject;
+
+    /**
+     * 属性 [RETRYINTERVALTIME]
+     *
+     */
+    @JSONField(name = "retryintervaltime")
+    @JsonProperty("retryintervaltime")
+    private Integer retryintervaltime;
+
+    /**
+     * 属性 [BCC]
+     *
+     */
+    @JSONField(name = "bcc")
+    @JsonProperty("bcc")
+    @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
+    private String bcc;
+
+    /**
+     * 属性 [ISDONE]
+     *
+     */
+    @JSONField(name = "isdone")
+    @JsonProperty("isdone")
+    private Integer isdone;
+
+    /**
+     * 属性 [PARAM]
+     *
+     */
+    @JSONField(name = "param")
+    @JsonProperty("param")
+    @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
+    private String param;
+
+    /**
+     * 属性 [IBIZPRO_MESSAGEID]
+     *
+     */
+    @JSONField(name = "ibizpromessageid")
+    @JsonProperty("ibizpromessageid")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String ibizpromessageid;
+
+    /**
      * 属性 [RETRYTIMES]
      *
      */
     @JSONField(name = "retrytimes")
     @JsonProperty("retrytimes")
     private Integer retrytimes;
+
+    /**
+     * 属性 [ISSYNC]
+     *
+     */
+    @JSONField(name = "issync")
+    @JsonProperty("issync")
+    private Integer issync;
 
     /**
      * 属性 [FROM]
@@ -56,13 +142,13 @@ public class IBIZProMessageDTO extends DTOBase implements Serializable {
     private String cc;
 
     /**
-     * 属性 [TO]
+     * 属性 [SENDTIME]
      *
      */
-    @JSONField(name = "to")
-    @JsonProperty("to")
-    @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
-    private String to;
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "sendtime" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonProperty("sendtime")
+    private Timestamp sendtime;
 
     /**
      * 属性 [CONTENT]
@@ -74,48 +160,29 @@ public class IBIZProMessageDTO extends DTOBase implements Serializable {
     private String content;
 
     /**
-     * 属性 [BCC]
+     * 属性 [LINKURL]
      *
      */
-    @JSONField(name = "bcc")
-    @JsonProperty("bcc")
-    @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
-    private String bcc;
-
-    /**
-     * 属性 [PARAM]
-     *
-     */
-    @JSONField(name = "param")
-    @JsonProperty("param")
-    @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
-    private String param;
-
-    /**
-     * 属性 [IBIZPRO_MESSAGENAME]
-     *
-     */
-    @JSONField(name = "ibizpromessagename")
-    @JsonProperty("ibizpromessagename")
+    @JSONField(name = "linkurl")
+    @JsonProperty("linkurl")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String ibizpromessagename;
+    private String linkurl;
 
     /**
-     * 属性 [SUBJECT]
+     * 属性 [ISREAD]
      *
      */
-    @JSONField(name = "subject")
-    @JsonProperty("subject")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String subject;
+    @JSONField(name = "isread")
+    @JsonProperty("isread")
+    private Integer isread;
 
     /**
-     * 属性 [RETRYINTERVALTIME]
+     * 属性 [ISRETRY]
      *
      */
-    @JSONField(name = "retryintervaltime")
-    @JsonProperty("retryintervaltime")
-    private Integer retryintervaltime;
+    @JSONField(name = "isretry")
+    @JsonProperty("isretry")
+    private Integer isretry;
 
     /**
      * 属性 [TYPE]
@@ -127,137 +194,14 @@ public class IBIZProMessageDTO extends DTOBase implements Serializable {
     private String type;
 
     /**
-     * 属性 [ISSYNC]
+     * 属性 [TO]
      *
      */
-    @JSONField(name = "issync")
-    @JsonProperty("issync")
-    private Integer issync;
+    @JSONField(name = "to")
+    @JsonProperty("to")
+    @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
+    private String to;
 
-    /**
-     * 属性 [ISRETRY]
-     *
-     */
-    @JSONField(name = "isretry")
-    @JsonProperty("isretry")
-    private Integer isretry;
-
-    /**
-     * 属性 [ISLINK]
-     *
-     */
-    @JSONField(name = "islink")
-    @JsonProperty("islink")
-    private Integer islink;
-
-    /**
-     * 属性 [IBIZPRO_MESSAGEID]
-     *
-     */
-    @JSONField(name = "ibizpromessageid")
-    @JsonProperty("ibizpromessageid")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String ibizpromessageid;
-
-    /**
-     * 属性 [LINKURL]
-     *
-     */
-    @JSONField(name = "linkurl")
-    @JsonProperty("linkurl")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String linkurl;
-
-    /**
-     * 属性 [ISDONE]
-     *
-     */
-    @JSONField(name = "isdone")
-    @JsonProperty("isdone")
-    private Integer isdone;
-
-    /**
-     * 属性 [ISREAD]
-     *
-     */
-    @JSONField(name = "isread")
-    @JsonProperty("isread")
-    private Integer isread;
-
-    /**
-     * 属性 [SENDPROXYID]
-     *
-     */
-    @JSONField(name = "sendproxyid")
-    @JsonProperty("sendproxyid")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String sendproxyid;
-
-    /**
-     * 属性 [SENDTIME]
-     *
-     */
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "sendtime" , format="yyyy-MM-dd HH:mm:ss")
-    @JsonProperty("sendtime")
-    private Timestamp sendtime;
-
-
-    /**
-     * 设置 [RETRYTIMES]
-     */
-    public void setRetrytimes(Integer  retrytimes){
-        this.retrytimes = retrytimes ;
-        this.modify("retrytimes",retrytimes);
-    }
-
-    /**
-     * 设置 [FROM]
-     */
-    public void setFrom(String  from){
-        this.from = from ;
-        this.modify("from",from);
-    }
-
-    /**
-     * 设置 [CC]
-     */
-    public void setCc(String  cc){
-        this.cc = cc ;
-        this.modify("cc",cc);
-    }
-
-    /**
-     * 设置 [TO]
-     */
-    public void setTo(String  to){
-        this.to = to ;
-        this.modify("to",to);
-    }
-
-    /**
-     * 设置 [CONTENT]
-     */
-    public void setContent(String  content){
-        this.content = content ;
-        this.modify("content",content);
-    }
-
-    /**
-     * 设置 [BCC]
-     */
-    public void setBcc(String  bcc){
-        this.bcc = bcc ;
-        this.modify("bcc",bcc);
-    }
-
-    /**
-     * 设置 [PARAM]
-     */
-    public void setParam(String  param){
-        this.param = param ;
-        this.modify("param",param);
-    }
 
     /**
      * 设置 [IBIZPRO_MESSAGENAME]
@@ -265,6 +209,14 @@ public class IBIZProMessageDTO extends DTOBase implements Serializable {
     public void setIbizpromessagename(String  ibizpromessagename){
         this.ibizpromessagename = ibizpromessagename ;
         this.modify("ibizpro_messagename",ibizpromessagename);
+    }
+
+    /**
+     * 设置 [ISLINK]
+     */
+    public void setIslink(Integer  islink){
+        this.islink = islink ;
+        this.modify("islink",islink);
     }
 
     /**
@@ -284,11 +236,27 @@ public class IBIZProMessageDTO extends DTOBase implements Serializable {
     }
 
     /**
-     * 设置 [TYPE]
+     * 设置 [BCC]
      */
-    public void setType(String  type){
-        this.type = type ;
-        this.modify("type",type);
+    public void setBcc(String  bcc){
+        this.bcc = bcc ;
+        this.modify("bcc",bcc);
+    }
+
+    /**
+     * 设置 [PARAM]
+     */
+    public void setParam(String  param){
+        this.param = param ;
+        this.modify("param",param);
+    }
+
+    /**
+     * 设置 [RETRYTIMES]
+     */
+    public void setRetrytimes(Integer  retrytimes){
+        this.retrytimes = retrytimes ;
+        this.modify("retrytimes",retrytimes);
     }
 
     /**
@@ -300,19 +268,27 @@ public class IBIZProMessageDTO extends DTOBase implements Serializable {
     }
 
     /**
-     * 设置 [ISRETRY]
+     * 设置 [FROM]
      */
-    public void setIsretry(Integer  isretry){
-        this.isretry = isretry ;
-        this.modify("isretry",isretry);
+    public void setFrom(String  from){
+        this.from = from ;
+        this.modify("from",from);
     }
 
     /**
-     * 设置 [ISLINK]
+     * 设置 [CC]
      */
-    public void setIslink(Integer  islink){
-        this.islink = islink ;
-        this.modify("islink",islink);
+    public void setCc(String  cc){
+        this.cc = cc ;
+        this.modify("cc",cc);
+    }
+
+    /**
+     * 设置 [CONTENT]
+     */
+    public void setContent(String  content){
+        this.content = content ;
+        this.modify("content",content);
     }
 
     /**
@@ -321,6 +297,30 @@ public class IBIZProMessageDTO extends DTOBase implements Serializable {
     public void setLinkurl(String  linkurl){
         this.linkurl = linkurl ;
         this.modify("linkurl",linkurl);
+    }
+
+    /**
+     * 设置 [ISRETRY]
+     */
+    public void setIsretry(Integer  isretry){
+        this.isretry = isretry ;
+        this.modify("isretry",isretry);
+    }
+
+    /**
+     * 设置 [TYPE]
+     */
+    public void setType(String  type){
+        this.type = type ;
+        this.modify("type",type);
+    }
+
+    /**
+     * 设置 [TO]
+     */
+    public void setTo(String  to){
+        this.to = to ;
+        this.modify("to",to);
     }
 
 

@@ -88,7 +88,7 @@ export class IBizPMSBase extends Vue {
    * @type {string}
    * @memberof IBizPMSBase
    */
-  protected viewtag: string = '1ed8a475f4c185fc99c487900bbcf69e';
+  protected viewtag: string = '09b9ef8ce803717761b940cf3fd0173f';
 
   /**
    * 视图模型数据

@@ -5,41 +5,77 @@ function getLocaleResourceBase(){
 		fields: {
 			end: commonLogic.appcommonhandle("结束日期",null),
 			begin: commonLogic.appcommonhandle("开始日期",null),
+			ownerpk: commonLogic.appcommonhandle("负责人（选择）",null),
 			mailto: commonLogic.appcommonhandle("抄送给",null),
+			casecnt: commonLogic.appcommonhandle("用例数",null),
+			mailtopk: commonLogic.appcommonhandle("抄送给",null),
 			pri: commonLogic.appcommonhandle("优先级",null),
+			comment: commonLogic.appcommonhandle("备注",null),
 			substatus: commonLogic.appcommonhandle("子状态",null),
 			report: commonLogic.appcommonhandle("report",null),
 			desc: commonLogic.appcommonhandle("描述",null),
 			id: commonLogic.appcommonhandle("编号",null),
 			status: commonLogic.appcommonhandle("当前状态",null),
+			mailtoconact: commonLogic.appcommonhandle("联系人",null),
 			owner: commonLogic.appcommonhandle("负责人",null),
 			deleted: commonLogic.appcommonhandle("已删除",null),
 			auto: commonLogic.appcommonhandle("auto",null),
 			name: commonLogic.appcommonhandle("名称",null),
+			buildname: commonLogic.appcommonhandle("版本",null),
+			productname: commonLogic.appcommonhandle("产品",null),
+			projecttname: commonLogic.appcommonhandle("项目",null),
 			product: commonLogic.appcommonhandle("所属产品",null),
 			build: commonLogic.appcommonhandle("版本",null),
 			project: commonLogic.appcommonhandle("所属项目",null),
-			productname: commonLogic.appcommonhandle("产品",null),
-			projecttname: commonLogic.appcommonhandle("项目",null),
-			buildname: commonLogic.appcommonhandle("版本",null),
-			comment: commonLogic.appcommonhandle("备注",null),
-			casecnt: commonLogic.appcommonhandle("用例数",null),
-			ownerpk: commonLogic.appcommonhandle("负责人（选择）",null),
-			mailtoconact: commonLogic.appcommonhandle("联系人",null),
-			mailtopk: commonLogic.appcommonhandle("抄送给",null),
 		},
 			views: {
+				editview_edit: {
+					caption: commonLogic.appcommonhandle("测试版本",null),
+					title: commonLogic.appcommonhandle("测试单编辑视图",null),
+				},
+				calendareditview: {
+					caption: commonLogic.appcommonhandle("日历导航",null),
+					title: commonLogic.appcommonhandle("测试版本编辑视图（日历导航）",null),
+				},
+				maintabexpview: {
+					caption: commonLogic.appcommonhandle("测试版本",null),
+					title: commonLogic.appcommonhandle("测试版本分页导航视图",null),
+				},
+				maindashboardview: {
+					caption: commonLogic.appcommonhandle("测试版本",null),
+					title: commonLogic.appcommonhandle("测试版本数据看板视图",null),
+				},
+				activiteoptionview: {
+					caption: commonLogic.appcommonhandle("激活",null),
+					title: commonLogic.appcommonhandle("激活",null),
+				},
+				startoptionview: {
+					caption: commonLogic.appcommonhandle("开始",null),
+					title: commonLogic.appcommonhandle("开始",null),
+				},
+				editview: {
+					caption: commonLogic.appcommonhandle("测试版本",null),
+					title: commonLogic.appcommonhandle("测试单编辑视图",null),
+				},
+				projectgridview: {
+					caption: commonLogic.appcommonhandle("项目",null),
+					title: commonLogic.appcommonhandle("测试单表格视图（项目）",null),
+				},
+				projectneweditview: {
+					caption: commonLogic.appcommonhandle("提交测试",null),
+					title: commonLogic.appcommonhandle("测试单编辑视图",null),
+				},
+				editview9_info: {
+					caption: commonLogic.appcommonhandle("测试版本",null),
+					title: commonLogic.appcommonhandle("测试版本编辑视图",null),
+				},
 				myygridview: {
 					caption: commonLogic.appcommonhandle("测试版本",null),
 					title: commonLogic.appcommonhandle("测试单表格视图",null),
 				},
-				gridview9_untested: {
-					caption: commonLogic.appcommonhandle("测试版本",null),
-					title: commonLogic.appcommonhandle("测试版本表格视图",null),
-				},
-				mydgridview: {
-					caption: commonLogic.appcommonhandle("测试版本",null),
-					title: commonLogic.appcommonhandle("测试单表格视图",null),
+				closeoptionview: {
+					caption: commonLogic.appcommonhandle("关闭",null),
+					title: commonLogic.appcommonhandle("关闭",null),
 				},
 				blockoptionview: {
 					caption: commonLogic.appcommonhandle("阻塞",null),
@@ -49,57 +85,21 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("测试版本",null),
 					title: commonLogic.appcommonhandle("测试版本编辑视图",null),
 				},
-				editview_committest: {
-					caption: commonLogic.appcommonhandle("测试版本",null),
-					title: commonLogic.appcommonhandle("提交测试",null),
-				},
-				projectneweditview: {
-					caption: commonLogic.appcommonhandle("提交测试",null),
-					title: commonLogic.appcommonhandle("测试单编辑视图",null),
-				},
-				maintabexpview: {
-					caption: commonLogic.appcommonhandle("测试版本",null),
-					title: commonLogic.appcommonhandle("测试版本分页导航视图",null),
-				},
-				editview: {
-					caption: commonLogic.appcommonhandle("测试版本",null),
-					title: commonLogic.appcommonhandle("测试单编辑视图",null),
-				},
-				editview9_info: {
-					caption: commonLogic.appcommonhandle("测试版本",null),
-					title: commonLogic.appcommonhandle("测试版本编辑视图",null),
-				},
-				projectgridview: {
-					caption: commonLogic.appcommonhandle("项目",null),
-					title: commonLogic.appcommonhandle("测试单表格视图（项目）",null),
-				},
-				maindashboardview: {
-					caption: commonLogic.appcommonhandle("测试版本",null),
-					title: commonLogic.appcommonhandle("测试版本数据看板视图",null),
-				},
-				calendareditview: {
-					caption: commonLogic.appcommonhandle("日历导航",null),
-					title: commonLogic.appcommonhandle("测试版本编辑视图（日历导航）",null),
-				},
-				activiteoptionview: {
-					caption: commonLogic.appcommonhandle("激活",null),
-					title: commonLogic.appcommonhandle("激活",null),
-				},
 				gridview: {
 					caption: commonLogic.appcommonhandle("测试版本",null),
 					title: commonLogic.appcommonhandle("测试单表格视图",null),
 				},
-				closeoptionview: {
-					caption: commonLogic.appcommonhandle("关闭",null),
-					title: commonLogic.appcommonhandle("关闭",null),
-				},
-				startoptionview: {
-					caption: commonLogic.appcommonhandle("开始",null),
-					title: commonLogic.appcommonhandle("开始",null),
-				},
-				editview_edit: {
+				mydgridview: {
 					caption: commonLogic.appcommonhandle("测试版本",null),
-					title: commonLogic.appcommonhandle("测试单编辑视图",null),
+					title: commonLogic.appcommonhandle("测试单表格视图",null),
+				},
+				editview_committest: {
+					caption: commonLogic.appcommonhandle("测试版本",null),
+					title: commonLogic.appcommonhandle("提交测试",null),
+				},
+				gridview9_untested: {
+					caption: commonLogic.appcommonhandle("测试版本",null),
+					title: commonLogic.appcommonhandle("测试版本表格视图",null),
 				},
 			},
 			buildsubmit_form: {

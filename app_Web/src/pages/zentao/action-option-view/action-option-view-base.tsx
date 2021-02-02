@@ -176,7 +176,7 @@ export class ActionOptionViewBase extends OptionViewBase {
      * @type {string}
      * @memberof ActionOptionViewBase
      */
-	protected viewtag: string = 'af6f4065b0510b7994c3cd2bc6074440';
+	protected viewtag: string = 'd393b56053431c45eb3c8026e4bb2ca1';
 
     /**
      * 视图名称

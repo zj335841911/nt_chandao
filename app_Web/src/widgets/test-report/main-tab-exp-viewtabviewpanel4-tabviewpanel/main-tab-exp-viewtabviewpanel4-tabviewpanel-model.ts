@@ -15,6 +15,12 @@ export default class MainTabExpViewtabviewpanel4Model {
   public getDataItems(): any[] {
     return [
       {
+        name: 'productcnt',
+      },
+      {
+        name: 'overviews',
+      },
+      {
         name: 'objectid',
       },
       {
@@ -31,6 +37,12 @@ export default class MainTabExpViewtabviewpanel4Model {
       },
       {
         name: 'stories',
+      },
+      {
+        name: 'files',
+      },
+      {
+        name: 'comment',
       },
       {
         name: 'tasks',
@@ -67,28 +79,16 @@ export default class MainTabExpViewtabviewpanel4Model {
         name: 'deleted',
       },
       {
-        name: 'product',
-      },
-      {
-        name: 'project',
+        name: 'projectname',
       },
       {
         name: 'productname',
       },
       {
-        name: 'projectname',
+        name: 'product',
       },
       {
-        name: 'comment',
-      },
-      {
-        name: 'overviews',
-      },
-      {
-        name: 'files',
-      },
-      {
-        name: 'productcnt',
+        name: 'project',
       },
     ]
   }

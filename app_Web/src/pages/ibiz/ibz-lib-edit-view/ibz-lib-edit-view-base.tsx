@@ -125,7 +125,7 @@ export class IbzLibEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof IbzLibEditViewBase
      */
-	protected viewtag: string = '76f07b59aab6db4512723cd3d24ee84e';
+	protected viewtag: string = 'd4205baa91f50b3608df636281c73c20';
 
     /**
      * 视图名称

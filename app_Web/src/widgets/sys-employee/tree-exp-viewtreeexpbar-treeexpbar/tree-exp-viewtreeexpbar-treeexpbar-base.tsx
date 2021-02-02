@@ -164,13 +164,6 @@ export class TreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarControlBase {
                 deKeyField:'systeam'
 			};
         }
-        if (Object.is(expmode, 'PROJECT')) {
-            return {  
-                viewname: 'project-grid-exp-view', 
-                parentdata: {},
-                deKeyField:'project'
-			};
-        }
         if (Object.is(expmode, 'CONCATLIST')) {
             return {  
                 viewname: 'user-contact-grid-exp-view', 
@@ -183,6 +176,13 @@ export class TreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarControlBase {
                 viewname: 'sys-employee-grid-exp-view-dept', 
                 parentdata: {},
                 deKeyField:'sysemployee'
+			};
+        }
+        if (Object.is(expmode, 'PROJECT')) {
+            return {  
+                viewname: 'project-grid-exp-view', 
+                parentdata: {},
+                deKeyField:'project'
 			};
         }
         return null;

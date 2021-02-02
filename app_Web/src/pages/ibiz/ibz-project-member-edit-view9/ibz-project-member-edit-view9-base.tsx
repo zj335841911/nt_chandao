@@ -138,7 +138,7 @@ export class IbzProjectMemberEditView9Base extends EditView9Base {
      * @type {string}
      * @memberof IbzProjectMemberEditView9Base
      */
-	protected viewtag: string = '24f12a249a654cadf0a0f9e132221c10';
+	protected viewtag: string = '322b17905b7ba95289eab32f7d4ae4d0';
 
     /**
      * 视图名称

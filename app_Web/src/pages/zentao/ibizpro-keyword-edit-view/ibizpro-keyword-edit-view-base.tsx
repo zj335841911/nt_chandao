@@ -123,7 +123,7 @@ export class IBIZProKeywordEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof IBIZProKeywordEditViewBase
      */
-	protected viewtag: string = '2f5aac4204863167d65dd820720f621f';
+	protected viewtag: string = '2ecaa5fe641c4ba59086980bf0aacdd7';
 
     /**
      * 视图名称

@@ -118,7 +118,7 @@ export class IbzLibOpenLibViewBase extends DashboardViewBase {
      * @type {string}
      * @memberof IbzLibOpenLibViewBase
      */
-	protected viewtag: string = '4a9b92e583e055d7081125b3e19079a6';
+	protected viewtag: string = '90b86f20a267e8dc7352eff044a34691';
 
     /**
      * 视图名称

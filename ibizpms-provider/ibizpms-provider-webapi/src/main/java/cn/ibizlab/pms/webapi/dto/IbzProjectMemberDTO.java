@@ -30,22 +30,13 @@ public class IbzProjectMemberDTO extends DTOBase implements Serializable {
 	private static final long serialVersionUID = 1L;
 
     /**
-     * 属性 [ID]
+     * 属性 [SECONDMEMBER]
      *
      */
-    @JSONField(name = "id")
-    @JsonProperty("id")
-    @JsonSerialize(using = ToStringSerializer.class)
-    private Long id;
-
-    /**
-     * 属性 [NAME]
-     *
-     */
-    @JSONField(name = "name")
-    @JsonProperty("name")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String name;
+    @JSONField(name = "secondmember")
+    @JsonProperty("secondmember")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String secondmember;
 
     /**
      * 属性 [RD]
@@ -57,24 +48,6 @@ public class IbzProjectMemberDTO extends DTOBase implements Serializable {
     private String rd;
 
     /**
-     * 属性 [PO]
-     *
-     */
-    @JSONField(name = "po")
-    @JsonProperty("po")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String po;
-
-    /**
-     * 属性 [PM]
-     *
-     */
-    @JSONField(name = "pm")
-    @JsonProperty("pm")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String pm;
-
-    /**
      * 属性 [QD]
      *
      */
@@ -84,22 +57,13 @@ public class IbzProjectMemberDTO extends DTOBase implements Serializable {
     private String qd;
 
     /**
-     * 属性 [FRISTMEMBER]
+     * 属性 [TEAMEMBERS]
      *
      */
-    @JSONField(name = "fristmember")
-    @JsonProperty("fristmember")
+    @JSONField(name = "teamembers")
+    @JsonProperty("teamembers")
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String fristmember;
-
-    /**
-     * 属性 [SECONDMEMBER]
-     *
-     */
-    @JSONField(name = "secondmember")
-    @JsonProperty("secondmember")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String secondmember;
+    private String teamembers;
 
     /**
      * 属性 [THIRDMEMBER]
@@ -111,6 +75,33 @@ public class IbzProjectMemberDTO extends DTOBase implements Serializable {
     private String thirdmember;
 
     /**
+     * 属性 [ID]
+     *
+     */
+    @JSONField(name = "id")
+    @JsonProperty("id")
+    @JsonSerialize(using = ToStringSerializer.class)
+    private Long id;
+
+    /**
+     * 属性 [FRISTMEMBER]
+     *
+     */
+    @JSONField(name = "fristmember")
+    @JsonProperty("fristmember")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String fristmember;
+
+    /**
+     * 属性 [PO]
+     *
+     */
+    @JSONField(name = "po")
+    @JsonProperty("po")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String po;
+
+    /**
      * 属性 [FOURTHMEMBER]
      *
      */
@@ -118,6 +109,15 @@ public class IbzProjectMemberDTO extends DTOBase implements Serializable {
     @JsonProperty("fourthmember")
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
     private String fourthmember;
+
+    /**
+     * 属性 [PM]
+     *
+     */
+    @JSONField(name = "pm")
+    @JsonProperty("pm")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String pm;
 
     /**
      * 属性 [FIFTHMEMBER]
@@ -138,13 +138,13 @@ public class IbzProjectMemberDTO extends DTOBase implements Serializable {
     private String sixthmember;
 
     /**
-     * 属性 [TEAMEMBERS]
+     * 属性 [NAME]
      *
      */
-    @JSONField(name = "teamembers")
-    @JsonProperty("teamembers")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String teamembers;
+    @JSONField(name = "name")
+    @JsonProperty("name")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String name;
 
 
     /**

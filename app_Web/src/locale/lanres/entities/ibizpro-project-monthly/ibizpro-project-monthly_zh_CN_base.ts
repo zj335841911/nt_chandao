@@ -3,28 +3,28 @@ function getLocaleResourceBase(){
 	const data:any = {
 		appdename: commonLogic.appcommonhandle("项目月报", null),
 		fields: {
-			ibizproprojectmonthlyid: commonLogic.appcommonhandle("项目月报标识",null),
 			ibizproprojectmonthlyname: commonLogic.appcommonhandle("项目月报名称",null),
-			createman: commonLogic.appcommonhandle("建立人",null),
 			createdate: commonLogic.appcommonhandle("建立时间",null),
-			updateman: commonLogic.appcommonhandle("更新人",null),
-			updatedate: commonLogic.appcommonhandle("更新时间",null),
-			project: commonLogic.appcommonhandle("项目编号",null),
-			projectname: commonLogic.appcommonhandle("项目名称",null),
-			pm: commonLogic.appcommonhandle("项目负责人",null),
+			yearmonth: commonLogic.appcommonhandle("年月",null),
 			totalestimates: commonLogic.appcommonhandle("总工时",null),
+			updateman: commonLogic.appcommonhandle("更新人",null),
 			tasks: commonLogic.appcommonhandle("任务",null),
 			date: commonLogic.appcommonhandle("日期",null),
-			yearmonth: commonLogic.appcommonhandle("年月",null),
+			ibizproprojectmonthlyid: commonLogic.appcommonhandle("项目月报标识",null),
+			updatedate: commonLogic.appcommonhandle("更新时间",null),
+			createman: commonLogic.appcommonhandle("建立人",null),
+			pm: commonLogic.appcommonhandle("项目负责人",null),
+			projectname: commonLogic.appcommonhandle("项目名称",null),
+			project: commonLogic.appcommonhandle("项目编号",null),
 		},
 			views: {
-				editview: {
-					caption: commonLogic.appcommonhandle("项目月报",null),
-					title: commonLogic.appcommonhandle("项目月报编辑视图",null),
-				},
 				gridview: {
 					caption: commonLogic.appcommonhandle("项目月报",null),
 					title: commonLogic.appcommonhandle("项目月报表格视图",null),
+				},
+				editview: {
+					caption: commonLogic.appcommonhandle("项目月报",null),
+					title: commonLogic.appcommonhandle("项目月报编辑视图",null),
 				},
 			},
 			main_form: {

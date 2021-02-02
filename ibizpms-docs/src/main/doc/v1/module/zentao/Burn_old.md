@@ -13,6 +13,7 @@ hide members
 
 | 属性名称        |    中文名称    | 类型     |  备注  |
 | --------   |------------| -----   |  -------- | 
+|周末|ISWEEKEND|TEXT|&nbsp;|
 |日期|DATE|DATE|&nbsp;定时任务，每天一个有task的project对应一个图，也可手动刷新|
 |虚拟主键|ID|TEXT|&nbsp;|
 |总计消耗|CONSUMED|PICKUPDATA|&nbsp;|
@@ -20,11 +21,11 @@ hide members
 |最初预计|ESTIMATE|PICKUPDATA|&nbsp;|
 |所属项目|PROJECT|PICKUP|&nbsp;|
 |任务|TASK|PICKUP|&nbsp;|
-|周末|ISWEEKEND|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
 | --------   |------------| ----- | 
+|周末|默认规则|内容长度必须小于等于[200]|
 |日期|默认规则|默认规则|
 |虚拟主键|默认规则|内容长度必须小于等于[200]|
 |总计消耗|默认规则|默认规则|
@@ -32,7 +33,6 @@ hide members
 |最初预计|默认规则|默认规则|
 |所属项目|默认规则|默认规则|
 |任务|默认规则|默认规则|
-|周末|默认规则|内容长度必须小于等于[200]|
 
 ## 状态控制
 
@@ -74,10 +74,10 @@ hide members
 ## 查询模式
 | 属性      |    搜索模式     |
 | --------   |------------|
-|所属项目(PROJECT)|EQ|
-|任务(TASK)|EQ|
 |周末(ISWEEKEND)|EQ|
 |周末(ISWEEKEND)|IN|
+|所属项目(PROJECT)|EQ|
+|任务(TASK)|EQ|
 
 ## 导入模式
 无

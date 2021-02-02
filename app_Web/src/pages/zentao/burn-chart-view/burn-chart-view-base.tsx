@@ -113,7 +113,7 @@ export class BurnChartViewBase extends ChartViewBase {
      * @type {string}
      * @memberof BurnChartViewBase
      */
-	protected viewtag: string = '441544d65ca067ea5ea625645b70e610';
+	protected viewtag: string = 'bba3204a7f64b5eafe512a6b63658910';
 
     /**
      * 视图名称

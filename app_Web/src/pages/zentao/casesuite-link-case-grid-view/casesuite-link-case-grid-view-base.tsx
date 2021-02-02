@@ -160,7 +160,7 @@ export class CasesuiteLinkCaseGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof CasesuiteLinkCaseGridViewBase
      */
-	protected viewtag: string = 'e53ca619c1e2592cff68b05a9a64ff0f';
+	protected viewtag: string = '947384eec213c6134ff26412515d0938';
 
     /**
      * 视图名称

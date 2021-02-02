@@ -18,7 +18,7 @@ export default class IbzLibMainModel {
         name: 'desc',
       },
       {
-        name: 'lastediteddate',
+        name: 'product',
       },
       {
         name: 'addeddate',
@@ -26,6 +26,12 @@ export default class IbzLibMainModel {
       {
         name: 'ibzlib',
         prop: 'id',
+      },
+      {
+        name: 'lastediteddate',
+      },
+      {
+        name: 'addedby',
       },
       {
         name: 'deleted',
@@ -37,13 +43,7 @@ export default class IbzLibMainModel {
         name: 'type',
       },
       {
-        name: 'addedby',
-      },
-      {
         name: 'lasteditedby',
-      },
-      {
-        name: 'product',
       },
     ]
   }

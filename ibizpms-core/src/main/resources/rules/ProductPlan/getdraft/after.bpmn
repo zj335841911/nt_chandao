@@ -9,8 +9,8 @@
         </extensionElements>
             <startEvent id="begin" isInterrupting="true"/>
             <endEvent id="prepareparam1_end" name="end"/>
-           <callActivity activiti:exclusive="true" calledElement="cn.ibizlab.pms.core.zentao.service.logic.productplangetoldplanname" id="F6548905-2ED1-4F0F-9206-108D8085139F" name="ProductPlanGetOldPlanNameRuleFlow.bpmn"/>
-           <sequenceFlow id="begin_F6548905-2ED1-4F0F-9206-108D8085139F" sourceRef="begin" targetRef="F6548905-2ED1-4F0F-9206-108D8085139F"/>
-           <sequenceFlow id="F6548905-2ED1-4F0F-9206-108D8085139F_prepareparam1_end" sourceRef="F6548905-2ED1-4F0F-9206-108D8085139F" targetRef="prepareparam1_end"/>
+           <callActivity activiti:exclusive="true" calledElement="cn.ibizlab.pms.core.zentao.service.logic.productplangetoldplanname" id="29e6f9f3cf9fae63634b1766d0d0d88d" name="ProductPlanGetOldPlanNameRuleFlow.bpmn"/>
+           <sequenceFlow id="begin_29e6f9f3cf9fae63634b1766d0d0d88d" sourceRef="begin" targetRef="29e6f9f3cf9fae63634b1766d0d0d88d"/>
+           <sequenceFlow id="29e6f9f3cf9fae63634b1766d0d0d88d_prepareparam1_end" sourceRef="29e6f9f3cf9fae63634b1766d0d0d88d" targetRef="prepareparam1_end"/>
     </process>
 </definitions>

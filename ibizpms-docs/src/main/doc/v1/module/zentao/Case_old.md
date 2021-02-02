@@ -31,34 +31,52 @@ hide members
 |path|PATH|INT|&nbsp;|
 |创建日期|OPENEDDATE|DATETIME|&nbsp;|
 |结果|LASTRUNRESULT|SSCODELIST|&nbsp;|
+|模块名称|MODULENAME1|TEXT|&nbsp;|
 |相关用例|LINKCASE|TEXT|&nbsp;|
+|用例步骤集合|CASESTEPS|ONE2MANYDATA|&nbsp;|
+|属性|TASK|TEXT|&nbsp;|
 |排序|ORDER|INT|&nbsp;|
 |howRun|HOWRUN|TEXT|&nbsp;应该是预留后期使用的字段|
+|测试结果数|RESULTCNT|INT|&nbsp;|
+|消息通知用户|NOTICEUSERS|TEXT|&nbsp;|
 |用例版本|VERSION|INT|&nbsp;|
 |scriptedBy|SCRIPTEDBY|TEXT|&nbsp;应该是预留后期使用的字段|
 |由谁创建|OPENEDBY|TEXT|&nbsp;|
 |用例类型|TYPE|SSCODELIST|&nbsp;|
+|测试失败数|RESULTFALICNT|INT|&nbsp;|
 |用例状态|STATUS|SSCODELIST|&nbsp;|
+|备注|COMMENT|HTMLTEXT|&nbsp;|
 |auto|AUTO|TEXT|&nbsp;推测应该是自动测试的flag，代码中值unit、func、no|
+|是否收藏|ISFAVORITES|TEXT|&nbsp;|
 |frequency|FREQUENCY|SSCODELIST|&nbsp;|
 |用例标题|TITLE|TEXT|&nbsp;|
 |最后修改者|LASTEDITEDBY|TEXT|&nbsp;|
 |由谁评审|REVIEWEDBY|TEXT|&nbsp;|
+|附件|FILES|TEXT|&nbsp;|
+|转bug数|TOBUGCNT|INT|&nbsp;|
+|指派给|ASSIGNEDTO|SSCODELIST|&nbsp;|
 |已删除|DELETED|TEXT|&nbsp;|
 |评审时间|REVIEWEDDATE|DATE|&nbsp;|
 |优先级|PRI|NSCODELIST|&nbsp;|
 |适用阶段|STAGE|SMCODELIST|&nbsp;|
 |scriptLocation|SCRIPTLOCATION|TEXT|&nbsp;应该是预留后期使用的字段|
+|用例状态|STATUS1|SSCODELIST|&nbsp;|
 |执行时间|LASTRUNDATE|DATETIME|&nbsp;|
 |关键词|KEYWORDS|TEXT|&nbsp;|
 |scriptStatus|SCRIPTSTATUS|TEXT|&nbsp;应该是预留后期使用的字段|
 |工具/框架|FRAME|SSCODELIST|&nbsp;|
+|测试用例结果|LASTRUNRESULT1|SSCODELIST|&nbsp;|
+|用例步骤数|STEPCNT|INT|&nbsp;|
 |子状态|SUBSTATUS|TEXT|&nbsp;|
 |用例编号|ID|ACID|&nbsp;|
 |前置条件|PRECONDITION|LONGTEXT|&nbsp;|
 |执行人|LASTRUNNER|TEXT|&nbsp;|
+|用例库|LIBNAME|PICKUPTEXT|&nbsp;|
 |来源用例版本|FROMCASEVERSION|PICKUPDATA|&nbsp;|
+|需求名称|STORYNAME|PICKUPTEXT|&nbsp;|
+|模块名称|MODULENAME|PICKUPTEXT|&nbsp;|
 |需求版本|STORYVERSION|PICKUPDATA|&nbsp;|
+|产品名称|PRODUCTNAME|PICKUPTEXT|&nbsp;|
 |来源用例|FROMCASEID|PICKUP|&nbsp;|
 |平台/分支|BRANCH|PICKUP|&nbsp;|
 |来源Bug|FROMBUG|PICKUP|&nbsp;|
@@ -66,24 +84,6 @@ hide members
 |所属产品|PRODUCT|PICKUP|&nbsp;|
 |所属库|LIB|PICKUP|&nbsp;|
 |所属模块|MODULE|PICKUP|&nbsp;|
-|模块名称|MODULENAME|PICKUPTEXT|&nbsp;|
-|需求名称|STORYNAME|PICKUPTEXT|&nbsp;|
-|产品名称|PRODUCTNAME|PICKUPTEXT|&nbsp;|
-|用例步骤集合|CASESTEPS|ONE2MANYDATA|&nbsp;|
-|转bug数|TOBUGCNT|INT|&nbsp;|
-|测试结果数|RESULTCNT|INT|&nbsp;|
-|用例步骤数|STEPCNT|INT|&nbsp;|
-|备注|COMMENT|HTMLTEXT|&nbsp;|
-|测试失败数|RESULTFALICNT|INT|&nbsp;|
-|用例状态|STATUS1|SSCODELIST|&nbsp;|
-|指派给|ASSIGNEDTO|SSCODELIST|&nbsp;|
-|属性|TASK|TEXT|&nbsp;|
-|用例库|LIBNAME|PICKUPTEXT|&nbsp;|
-|测试用例结果|LASTRUNRESULT1|SSCODELIST|&nbsp;|
-|是否收藏|ISFAVORITES|TEXT|&nbsp;|
-|模块名称|MODULENAME1|TEXT|&nbsp;|
-|附件|FILES|TEXT|&nbsp;|
-|消息通知用户|NOTICEUSERS|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -94,34 +94,52 @@ hide members
 |path|默认规则|默认规则|
 |创建日期|默认规则|默认规则|
 |结果|默认规则|内容长度必须小于等于[30]|
+|模块名称|默认规则|内容长度必须小于等于[200]|
 |相关用例|默认规则|内容长度必须小于等于[255]|
+|用例步骤集合|默认规则|内容长度必须小于等于[1048576]|
+|属性|默认规则|内容长度必须小于等于[100]|
 |排序|默认规则|默认规则|
 |howRun|默认规则|内容长度必须小于等于[30]|
+|测试结果数|默认规则|默认规则|
+|消息通知用户|默认规则|内容长度必须小于等于[100]|
 |用例版本|默认规则|默认规则|
 |scriptedBy|默认规则|内容长度必须小于等于[30]|
 |由谁创建|默认规则|内容长度必须小于等于[30]|
 |用例类型|默认规则|内容长度必须小于等于[30]|
+|测试失败数|默认规则|默认规则|
 |用例状态|默认规则|内容长度必须小于等于[30]|
+|备注|默认规则|内容长度必须小于等于[1048576]|
 |auto|默认规则|内容长度必须小于等于[10]|
+|是否收藏|默认规则|内容长度必须小于等于[200]|
 |frequency|默认规则|内容长度必须小于等于[1]|
 |用例标题|默认规则|内容长度必须小于等于[255]|
 |最后修改者|默认规则|内容长度必须小于等于[30]|
 |由谁评审|默认规则|内容长度必须小于等于[255]|
+|附件|默认规则|内容长度必须小于等于[1000]|
+|转bug数|默认规则|默认规则|
+|指派给|默认规则|内容长度必须小于等于[200]|
 |已删除|默认规则|内容长度必须小于等于[1]|
 |评审时间|默认规则|默认规则|
 |优先级|默认规则|默认规则|
 |适用阶段|默认规则|内容长度必须小于等于[255]|
 |scriptLocation|默认规则|内容长度必须小于等于[255]|
+|用例状态|默认规则|内容长度必须小于等于[200]|
 |执行时间|默认规则|默认规则|
 |关键词|默认规则|内容长度必须小于等于[255]|
 |scriptStatus|默认规则|内容长度必须小于等于[30]|
 |工具/框架|默认规则|内容长度必须小于等于[10]|
+|测试用例结果|默认规则|内容长度必须小于等于[200]|
+|用例步骤数|默认规则|默认规则|
 |子状态|默认规则|内容长度必须小于等于[30]|
 |用例编号|默认规则|默认规则|
 |前置条件|默认规则|内容长度必须小于等于[65535]|
 |执行人|默认规则|内容长度必须小于等于[30]|
+|用例库|默认规则|内容长度必须小于等于[255]|
 |来源用例版本|默认规则|默认规则|
+|需求名称|默认规则|内容长度必须小于等于[255]|
+|模块名称|默认规则|内容长度必须小于等于[60]|
 |需求版本|默认规则|默认规则|
+|产品名称|默认规则|内容长度必须小于等于[90]|
 |来源用例|默认规则|默认规则|
 |平台/分支|默认规则|默认规则|
 |来源Bug|默认规则|默认规则|
@@ -129,98 +147,80 @@ hide members
 |所属产品|默认规则|默认规则|
 |所属库|默认规则|默认规则|
 |所属模块|默认规则|默认规则|
-|模块名称|默认规则|内容长度必须小于等于[60]|
-|需求名称|默认规则|内容长度必须小于等于[255]|
-|产品名称|默认规则|内容长度必须小于等于[90]|
-|用例步骤集合|默认规则|内容长度必须小于等于[1048576]|
-|转bug数|默认规则|默认规则|
-|测试结果数|默认规则|默认规则|
-|用例步骤数|默认规则|默认规则|
-|备注|默认规则|内容长度必须小于等于[1048576]|
-|测试失败数|默认规则|默认规则|
-|用例状态|默认规则|内容长度必须小于等于[200]|
-|指派给|默认规则|内容长度必须小于等于[200]|
-|属性|默认规则|内容长度必须小于等于[100]|
-|用例库|默认规则|内容长度必须小于等于[255]|
-|测试用例结果|默认规则|内容长度必须小于等于[200]|
-|是否收藏|默认规则|内容长度必须小于等于[200]|
-|模块名称|默认规则|内容长度必须小于等于[200]|
-|附件|默认规则|内容长度必须小于等于[1000]|
-|消息通知用户|默认规则|内容长度必须小于等于[100]|
 
 ## 状态控制
 
 |用例状态||测试用例结果||是否收藏|行为控制模式| 控制行为 | 操作标识控制模式 | 控制操作 |
 | --------   || --------   || --------   | ------------|------------|------------|------------|
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_FAVOR_BUT<br>SRFUR__CASE_CONFIRM_BUT<br> |
+|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_FAVOR_BUT<br>SRFUR__CASE_CONFIRM_BUT<br> |
 |Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_NFAVOR_BUT<br>SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_CONFIRM_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_FAVOR_BUT<br>SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_CONFIRM_BUT<br> |
+|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_FAVOR_BUT<br>SRFUR__CASE_CONFIRM_BUT<br> |
 |Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_NFAVOR_BUT<br>SRFUR__CASE_CONFIRM_BUT<br>SRFUR__CASE_CASECOF_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_CONFIRM_BUT<br>SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_FAVOR_BUT<br> |
+|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_FAVOR_BUT<br>SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_CONFIRM_BUT<br> |
 |Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_NFAVOR_BUT<br>SRFUR__CASE_CONFIRM_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_FAVOR_BUT<br>SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_CONFIRM_BUT<br> |
+|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_CONFIRM_BUT<br>SRFUR__CASE_FAVOR_BUT<br>SRFUR__CASE_TOBUG_BUT<br> |
 |Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_NFAVOR_BUT<br>SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_CONFIRM_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_FAVOR_BUT<br>SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_CONFIRM_BUT<br> |
+|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_CONFIRM_BUT<br>SRFUR__CASE_FAVOR_BUT<br>SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_CASECOF_BUT<br> |
 |Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_NFAVOR_BUT<br>SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_CONFIRM_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_CASERUN_BUT<br>SRFUR__CASE_EDIT_BUT<br>SRFUR__CASE_UNLINK_BUT<br>SRFUR__CASE_FAVOR_BUT<br>SRFUR__CASE_RUN_BUT<br>SRFUR__CASE_RESULT_BUT<br>SRFUR__CASE_CONFIRM_BUT<br>SRFUR__CASE_CASERESULT_BUT<br>SRFUR__CASE_CASETOBUG_BUT<br>SRFUR__CASE_DELETE_BUT<br> |
+|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_FAVOR_BUT<br>SRFUR__CASE_EDIT_BUT<br>SRFUR__CASE_CASERESULT_BUT<br>SRFUR__CASE_UNLINK_BUT<br>SRFUR__CASE_CONFIRM_BUT<br>SRFUR__CASE_RESULT_BUT<br>SRFUR__CASE_DELETE_BUT<br>SRFUR__CASE_CASERUN_BUT<br>SRFUR__CASE_CASETOBUG_BUT<br>SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_RUN_BUT<br> |
 |Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_EDIT_BUT<br>SRFUR__CASE_UNLINK_BUT<br>SRFUR__CASE_CASETOBUG_BUT<br>SRFUR__CASE_CASERESULT_BUT<br>SRFUR__CASE_RUN_BUT<br>SRFUR__CASE_DELETE_BUT<br>SRFUR__CASE_NFAVOR_BUT<br>SRFUR__CASE_CONFIRM_BUT<br>SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_RESULT_BUT<br>SRFUR__CASE_CASERUN_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_CASERUN_BUT<br>SRFUR__CASE_UNLINK_BUT<br>SRFUR__CASE_RUN_BUT<br>SRFUR__CASE_CASETOBUG_BUT<br>SRFUR__CASE_FAVOR_BUT<br>SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_CASERESULT_BUT<br>SRFUR__CASE_RESULT_BUT<br>SRFUR__CASE_EDIT_BUT<br>SRFUR__CASE_CONFIRM_BUT<br> |
+|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_CASERUN_BUT<br>SRFUR__CASE_CASERESULT_BUT<br>SRFUR__CASE_UNLINK_BUT<br>SRFUR__CASE_CONFIRM_BUT<br>SRFUR__CASE_RUN_BUT<br>SRFUR__CASE_CASETOBUG_BUT<br>SRFUR__CASE_EDIT_BUT<br>SRFUR__CASE_RESULT_BUT<br>SRFUR__CASE_FAVOR_BUT<br> |
 |Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_RUN_BUT<br>SRFUR__CASE_EDIT_BUT<br>SRFUR__CASE_CASERESULT_BUT<br>SRFUR__CASE_CASETOBUG_BUT<br>SRFUR__CASE_CASERUN_BUT<br>SRFUR__CASE_RESULT_BUT<br>SRFUR__CASE_NFAVOR_BUT<br>SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_UNLINK_BUT<br>SRFUR__CASE_CONFIRM_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_EDIT_BUT<br>SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_UNLINK_BUT<br>SRFUR__CASE_RESULT_BUT<br>SRFUR__CASE_FAVOR_BUT<br>SRFUR__CASE_CASERESULT_BUT<br>SRFUR__CASE_CONFIRM_BUT<br>SRFUR__CASE_RUN_BUT<br>SRFUR__CASE_CASETOBUG_BUT<br>SRFUR__CASE_CASERUN_BUT<br> |
+|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_CASERUN_BUT<br>SRFUR__CASE_CONFIRM_BUT<br>SRFUR__CASE_EDIT_BUT<br>SRFUR__CASE_RUN_BUT<br>SRFUR__CASE_FAVOR_BUT<br>SRFUR__CASE_CASERESULT_BUT<br>SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_UNLINK_BUT<br>SRFUR__CASE_CASETOBUG_BUT<br>SRFUR__CASE_RESULT_BUT<br> |
 |Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_RESULT_BUT<br>SRFUR__CASE_EDIT_BUT<br>SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_NFAVOR_BUT<br>SRFUR__CASE_UNLINK_BUT<br>SRFUR__CASE_CASETOBUG_BUT<br>SRFUR__CASE_RUN_BUT<br>SRFUR__CASE_CASERESULT_BUT<br>SRFUR__CASE_CONFIRM_BUT<br>SRFUR__CASE_CASERUN_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_CASETOBUG_BUT<br>SRFUR__CASE_CASERUN_BUT<br>SRFUR__CASE_FAVOR_BUT<br>SRFUR__CASE_EDIT_BUT<br>SRFUR__CASE_CASERESULT_BUT<br>SRFUR__CASE_DELETE_BUT<br>SRFUR__CASE_RUN_BUT<br>SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_RESULT_BUT<br>SRFUR__CASE_CONFIRM_BUT<br>SRFUR__CASE_UNLINK_BUT<br> |
+|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_RESULT_BUT<br>SRFUR__CASE_RUN_BUT<br>SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_CASETOBUG_BUT<br>SRFUR__CASE_FAVOR_BUT<br>SRFUR__CASE_DELETE_BUT<br>SRFUR__CASE_CONFIRM_BUT<br>SRFUR__CASE_CASERESULT_BUT<br>SRFUR__CASE_UNLINK_BUT<br>SRFUR__CASE_CASERUN_BUT<br>SRFUR__CASE_EDIT_BUT<br> |
 |Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_CONFIRM_BUT<br>SRFUR__CASE_NFAVOR_BUT<br>SRFUR__CASE_DELETE_BUT<br>SRFUR__CASE_EDIT_BUT<br>SRFUR__CASE_CASERUN_BUT<br>SRFUR__CASE_RUN_BUT<br>SRFUR__CASE_UNLINK_BUT<br>SRFUR__CASE_RESULT_BUT<br>SRFUR__CASE_CASERESULT_BUT<br>SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_CASETOBUG_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_RESULT_BUT<br>SRFUR__CASE_UNLINK_BUT<br>SRFUR__CASE_CASERUN_BUT<br>SRFUR__CASE_EDIT_BUT<br>SRFUR__CASE_CASETOBUG_BUT<br>SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_CASERESULT_BUT<br>SRFUR__CASE_CONFIRM_BUT<br>SRFUR__CASE_FAVOR_BUT<br>SRFUR__CASE_RUN_BUT<br> |
+|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_CASETOBUG_BUT<br>SRFUR__CASE_EDIT_BUT<br>SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_CONFIRM_BUT<br>SRFUR__CASE_CASERUN_BUT<br>SRFUR__CASE_RESULT_BUT<br>SRFUR__CASE_UNLINK_BUT<br>SRFUR__CASE_FAVOR_BUT<br>SRFUR__CASE_RUN_BUT<br>SRFUR__CASE_CASERESULT_BUT<br> |
 |Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_RUN_BUT<br>SRFUR__CASE_NFAVOR_BUT<br>SRFUR__CASE_CASETOBUG_BUT<br>SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_EDIT_BUT<br>SRFUR__CASE_CASERUN_BUT<br>SRFUR__CASE_CASERESULT_BUT<br>SRFUR__CASE_UNLINK_BUT<br>SRFUR__CASE_CONFIRM_BUT<br>SRFUR__CASE_RESULT_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_FAVOR_BUT<br>SRFUR__CASE_CONFIRM_BUT<br>SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_TOBUG_BUT<br> |
+|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_CONFIRM_BUT<br>SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_FAVOR_BUT<br> |
 |Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_NFAVOR_BUT<br>SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_CONFIRM_BUT<br>SRFUR__CASE_TOBUG_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_FAVOR_BUT<br>SRFUR__CASE_CONFIRM_BUT<br>SRFUR__CASE_CASECOF_BUT<br> |
+|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_CONFIRM_BUT<br>SRFUR__CASE_FAVOR_BUT<br>SRFUR__CASE_CASECOF_BUT<br> |
 |Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_NFAVOR_BUT<br>SRFUR__CASE_CONFIRM_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_CONFIRM_BUT<br>SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_FAVOR_BUT<br> |
+|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_FAVOR_BUT<br>SRFUR__CASE_CONFIRM_BUT<br>SRFUR__CASE_CASECOF_BUT<br> |
 |Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_NFAVOR_BUT<br>SRFUR__CASE_CONFIRM_BUT<br>SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_CASECOF_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_CONFIRM_BUT<br>SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_FAVOR_BUT<br> |
+|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_FAVOR_BUT<br>SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_CONFIRM_BUT<br> |
 |Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_CONFIRM_BUT<br>SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_NFAVOR_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_CONFIRM_BUT<br>SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_FAVOR_BUT<br> |
+|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_FAVOR_BUT<br>SRFUR__CASE_CONFIRM_BUT<br> |
 |Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_CONFIRM_BUT<br>SRFUR__CASE_NFAVOR_BUT<br>SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_CASECOF_BUT<br> |
-|Value||Value2||Value3| 允许|  | 允许 | SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_FAVOR_BUT<br>SRFUR__CASE_CONFIRM_BUT<br> |
+|Value||Value2||Value3| 允许|  | 允许 | SRFUR__CASE_FAVOR_BUT<br>SRFUR__CASE_CONFIRM_BUT<br>SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_TOBUG_BUT<br> |
 |Value||Value2||Value3| 允许|  | 允许 | SRFUR__CASE_NFAVOR_BUT<br>SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_CONFIRM_BUT<br> |
 |Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_CONFIRM_BUT<br>SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_FAVOR_BUT<br> |
 |Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_NFAVOR_BUT<br>SRFUR__CASE_CONFIRM_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_CONFIRM_BUT<br>SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_FAVOR_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_CONFIRM_BUT<br>SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_NFAVOR_BUT<br>SRFUR__CASE_TOBUG_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_CONFIRM_BUT<br>SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_FAVOR_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_CONFIRM_BUT<br>SRFUR__CASE_NFAVOR_BUT<br>SRFUR__CASE_TOBUG_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_CONFIRM_BUT<br>SRFUR__CASE_FAVOR_BUT<br>SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_CASECOF_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_CONFIRM_BUT<br>SRFUR__CASE_NFAVOR_BUT<br>SRFUR__CASE_TOBUG_BUT<br> |
 |Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_FAVOR_BUT<br>SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_CONFIRM_BUT<br>SRFUR__CASE_CASECOF_BUT<br> |
+|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_CONFIRM_BUT<br>SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_NFAVOR_BUT<br>SRFUR__CASE_TOBUG_BUT<br> |
+|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_CONFIRM_BUT<br>SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_FAVOR_BUT<br>SRFUR__CASE_TOBUG_BUT<br> |
+|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_CONFIRM_BUT<br>SRFUR__CASE_NFAVOR_BUT<br>SRFUR__CASE_TOBUG_BUT<br> |
+|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_FAVOR_BUT<br>SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_CONFIRM_BUT<br> |
+|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_CONFIRM_BUT<br>SRFUR__CASE_NFAVOR_BUT<br>SRFUR__CASE_TOBUG_BUT<br> |
+|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_CONFIRM_BUT<br>SRFUR__CASE_FAVOR_BUT<br>SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_TOBUG_BUT<br> |
+|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_CONFIRM_BUT<br>SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_NFAVOR_BUT<br> |
+|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_CONFIRM_BUT<br>SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_FAVOR_BUT<br> |
+|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_CONFIRM_BUT<br>SRFUR__CASE_NFAVOR_BUT<br>SRFUR__CASE_CASECOF_BUT<br> |
+|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_FAVOR_BUT<br>SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_CONFIRM_BUT<br> |
+|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_NFAVOR_BUT<br>SRFUR__CASE_CONFIRM_BUT<br>SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_TOBUG_BUT<br> |
+|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_FAVOR_BUT<br>SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_CONFIRM_BUT<br> |
+|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_CONFIRM_BUT<br>SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_NFAVOR_BUT<br> |
+|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_FAVOR_BUT<br>SRFUR__CASE_CONFIRM_BUT<br>SRFUR__CASE_CASECOF_BUT<br> |
+|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_NFAVOR_BUT<br>SRFUR__CASE_CONFIRM_BUT<br> |
+|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_CASERUN_BUT<br>SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_FAVOR_BUT<br>SRFUR__CASE_EDIT_BUT<br>SRFUR__CASE_UNLINK_BUT<br>SRFUR__CASE_RUN_BUT<br>SRFUR__CASE_CASERESULT_BUT<br>SRFUR__CASE_RESULT_BUT<br>SRFUR__CASE_CASETOBUG_BUT<br> |
+|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_EDIT_BUT<br>SRFUR__CASE_RESULT_BUT<br>SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_NFAVOR_BUT<br>SRFUR__CASE_CASERUN_BUT<br>SRFUR__CASE_RUN_BUT<br>SRFUR__CASE_CASERESULT_BUT<br>SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_UNLINK_BUT<br>SRFUR__CASE_CASETOBUG_BUT<br> |
+|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_RUN_BUT<br>SRFUR__CASE_UNLINK_BUT<br>SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_RESULT_BUT<br>SRFUR__CASE_CASETOBUG_BUT<br>SRFUR__CASE_CASERUN_BUT<br>SRFUR__CASE_FAVOR_BUT<br>SRFUR__CASE_CASERESULT_BUT<br>SRFUR__CASE_CONFIRM_BUT<br>SRFUR__CASE_EDIT_BUT<br> |
+|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_NFAVOR_BUT<br>SRFUR__CASE_CASERUN_BUT<br>SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_CASETOBUG_BUT<br>SRFUR__CASE_RESULT_BUT<br>SRFUR__CASE_EDIT_BUT<br>SRFUR__CASE_RUN_BUT<br>SRFUR__CASE_CASERESULT_BUT<br>SRFUR__CASE_UNLINK_BUT<br> |
+|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_CASERESULT_BUT<br>SRFUR__CASE_CASERUN_BUT<br>SRFUR__CASE_CASETOBUG_BUT<br>SRFUR__CASE_UNLINK_BUT<br>SRFUR__CASE_EDIT_BUT<br>SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_FAVOR_BUT<br>SRFUR__CASE_RESULT_BUT<br>SRFUR__CASE_RUN_BUT<br> |
+|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_CASERESULT_BUT<br>SRFUR__CASE_UNLINK_BUT<br>SRFUR__CASE_CASERUN_BUT<br>SRFUR__CASE_RESULT_BUT<br>SRFUR__CASE_NFAVOR_BUT<br>SRFUR__CASE_CASETOBUG_BUT<br>SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_EDIT_BUT<br>SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_RUN_BUT<br> |
+|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_RESULT_BUT<br>SRFUR__CASE_RUN_BUT<br>SRFUR__CASE_CASERESULT_BUT<br>SRFUR__CASE_UNLINK_BUT<br>SRFUR__CASE_CASETOBUG_BUT<br>SRFUR__CASE_CASERUN_BUT<br>SRFUR__CASE_EDIT_BUT<br>SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_FAVOR_BUT<br>SRFUR__CASE_TOBUG_BUT<br> |
+|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_CASETOBUG_BUT<br>SRFUR__CASE_RESULT_BUT<br>SRFUR__CASE_NFAVOR_BUT<br>SRFUR__CASE_UNLINK_BUT<br>SRFUR__CASE_RUN_BUT<br>SRFUR__CASE_EDIT_BUT<br>SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_CASERESULT_BUT<br>SRFUR__CASE_CASERUN_BUT<br>SRFUR__CASE_TOBUG_BUT<br> |
+|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_CASERUN_BUT<br>SRFUR__CASE_RESULT_BUT<br>SRFUR__CASE_UNLINK_BUT<br>SRFUR__CASE_FAVOR_BUT<br>SRFUR__CASE_CASERESULT_BUT<br>SRFUR__CASE_CASETOBUG_BUT<br>SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_EDIT_BUT<br>SRFUR__CASE_RUN_BUT<br> |
+|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_UNLINK_BUT<br>SRFUR__CASE_CASERESULT_BUT<br>SRFUR__CASE_RESULT_BUT<br>SRFUR__CASE_CASERUN_BUT<br>SRFUR__CASE_CASETOBUG_BUT<br>SRFUR__CASE_NFAVOR_BUT<br>SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_RUN_BUT<br>SRFUR__CASE_EDIT_BUT<br> |
+|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_FAVOR_BUT<br>SRFUR__CASE_CONFIRM_BUT<br>SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_CASECOF_BUT<br> |
 |Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_CONFIRM_BUT<br>SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_NFAVOR_BUT<br> |
 |Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_CONFIRM_BUT<br>SRFUR__CASE_FAVOR_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_CONFIRM_BUT<br>SRFUR__CASE_NFAVOR_BUT<br>SRFUR__CASE_CASECOF_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_FAVOR_BUT<br>SRFUR__CASE_CONFIRM_BUT<br>SRFUR__CASE_TOBUG_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_NFAVOR_BUT<br>SRFUR__CASE_CONFIRM_BUT<br>SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_TOBUG_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_CONFIRM_BUT<br>SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_FAVOR_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_CONFIRM_BUT<br>SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_NFAVOR_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_CONFIRM_BUT<br>SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_FAVOR_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_NFAVOR_BUT<br>SRFUR__CASE_CONFIRM_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_UNLINK_BUT<br>SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_CASERUN_BUT<br>SRFUR__CASE_EDIT_BUT<br>SRFUR__CASE_CASERESULT_BUT<br>SRFUR__CASE_CASETOBUG_BUT<br>SRFUR__CASE_RUN_BUT<br>SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_FAVOR_BUT<br>SRFUR__CASE_RESULT_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_EDIT_BUT<br>SRFUR__CASE_RESULT_BUT<br>SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_NFAVOR_BUT<br>SRFUR__CASE_CASERUN_BUT<br>SRFUR__CASE_RUN_BUT<br>SRFUR__CASE_CASERESULT_BUT<br>SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_UNLINK_BUT<br>SRFUR__CASE_CASETOBUG_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_CASETOBUG_BUT<br>SRFUR__CASE_CASERESULT_BUT<br>SRFUR__CASE_UNLINK_BUT<br>SRFUR__CASE_CONFIRM_BUT<br>SRFUR__CASE_RUN_BUT<br>SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_CASERUN_BUT<br>SRFUR__CASE_EDIT_BUT<br>SRFUR__CASE_RESULT_BUT<br>SRFUR__CASE_FAVOR_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_NFAVOR_BUT<br>SRFUR__CASE_CASERUN_BUT<br>SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_CASETOBUG_BUT<br>SRFUR__CASE_RESULT_BUT<br>SRFUR__CASE_EDIT_BUT<br>SRFUR__CASE_RUN_BUT<br>SRFUR__CASE_CASERESULT_BUT<br>SRFUR__CASE_UNLINK_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_RESULT_BUT<br>SRFUR__CASE_FAVOR_BUT<br>SRFUR__CASE_CASERESULT_BUT<br>SRFUR__CASE_CASETOBUG_BUT<br>SRFUR__CASE_RUN_BUT<br>SRFUR__CASE_UNLINK_BUT<br>SRFUR__CASE_CASERUN_BUT<br>SRFUR__CASE_EDIT_BUT<br>SRFUR__CASE_CASECOF_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_CASERESULT_BUT<br>SRFUR__CASE_UNLINK_BUT<br>SRFUR__CASE_CASERUN_BUT<br>SRFUR__CASE_RESULT_BUT<br>SRFUR__CASE_NFAVOR_BUT<br>SRFUR__CASE_CASETOBUG_BUT<br>SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_EDIT_BUT<br>SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_RUN_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_RUN_BUT<br>SRFUR__CASE_CASERESULT_BUT<br>SRFUR__CASE_RESULT_BUT<br>SRFUR__CASE_CASETOBUG_BUT<br>SRFUR__CASE_FAVOR_BUT<br>SRFUR__CASE_CASERUN_BUT<br>SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_EDIT_BUT<br>SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_UNLINK_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_CASETOBUG_BUT<br>SRFUR__CASE_RESULT_BUT<br>SRFUR__CASE_NFAVOR_BUT<br>SRFUR__CASE_UNLINK_BUT<br>SRFUR__CASE_RUN_BUT<br>SRFUR__CASE_EDIT_BUT<br>SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_CASERESULT_BUT<br>SRFUR__CASE_CASERUN_BUT<br>SRFUR__CASE_TOBUG_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_CASERUN_BUT<br>SRFUR__CASE_RESULT_BUT<br>SRFUR__CASE_RUN_BUT<br>SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_FAVOR_BUT<br>SRFUR__CASE_CASETOBUG_BUT<br>SRFUR__CASE_EDIT_BUT<br>SRFUR__CASE_CASERESULT_BUT<br>SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_UNLINK_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_UNLINK_BUT<br>SRFUR__CASE_CASERESULT_BUT<br>SRFUR__CASE_RESULT_BUT<br>SRFUR__CASE_CASERUN_BUT<br>SRFUR__CASE_CASETOBUG_BUT<br>SRFUR__CASE_NFAVOR_BUT<br>SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_RUN_BUT<br>SRFUR__CASE_EDIT_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_FAVOR_BUT<br>SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_CONFIRM_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_CONFIRM_BUT<br>SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_NFAVOR_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_FAVOR_BUT<br>SRFUR__CASE_CONFIRM_BUT<br>SRFUR__CASE_CASECOF_BUT<br> |
 |Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_NFAVOR_BUT<br>SRFUR__CASE_CONFIRM_BUT<br>SRFUR__CASE_CASECOF_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_CONFIRM_BUT<br>SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_FAVOR_BUT<br>SRFUR__CASE_CASECOF_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_NFAVOR_BUT<br>SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_CONFIRM_BUT<br> |
 |Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_CONFIRM_BUT<br>SRFUR__CASE_FAVOR_BUT<br>SRFUR__CASE_TOBUG_BUT<br> |
+|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_NFAVOR_BUT<br>SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_CONFIRM_BUT<br> |
+|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_FAVOR_BUT<br>SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_CONFIRM_BUT<br> |
 |Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_NFAVOR_BUT<br>SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_CONFIRM_BUT<br>SRFUR__CASE_CASECOF_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_CONFIRM_BUT<br>SRFUR__CASE_FAVOR_BUT<br>SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_CASECOF_BUT<br> |
+|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_CONFIRM_BUT<br>SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_CASECOF_BUT<br>SRFUR__CASE_FAVOR_BUT<br> |
 |Value||Value2||Value3| 允许|  | 不允许 | SRFUR__CASE_TOBUG_BUT<br>SRFUR__CASE_CONFIRM_BUT<br>SRFUR__CASE_NFAVOR_BUT<br>SRFUR__CASE_CASECOF_BUT<br> |
 
 用例状态
@@ -339,15 +339,15 @@ hide footbox
 {% plantuml %}
 hide footbox
 
-测试用例 -> 测试用例: 准备参数
 测试用例 -> 测试用例: 执行测试
+测试用例 -> 测试用例: 准备参数
 {% endplantuml %}
 
 | 步骤       | 操作        |
 | --------   | --------   |
-|0|开始 | 
-|1|准备参数 |
-|2|执行测试 |
+|1|执行测试 |
+|1|开始 | 
+|2|准备参数 |
 <center>runCases</center>
 * testRunCases (testRunCases)
   
@@ -356,17 +356,17 @@ hide footbox
 {% plantuml %}
 hide footbox
 
+测试用例 -> 测试用例: 执行测试
 测试用例 -> 测试用例: 重置ID
 测试用例 -> 测试用例: 获取数据
-测试用例 -> 测试用例: 执行测试
 {% endplantuml %}
 
 | 步骤       | 操作        |
 | --------   | --------   |
-|1|重置ID |
-|1|开始 | 
-|2|获取数据 |
-|3|执行测试 |
+|1|执行测试 |
+|2|重置ID |
+|2|开始 | 
+|3|获取数据 |
 <center>testRunCases</center>
 * unlinkCases (unlinkCases)
   
@@ -375,17 +375,17 @@ hide footbox
 {% plantuml %}
 hide footbox
 
-测试用例 -> 测试用例: 获取数据
 测试用例 -> 测试用例: 重置ID
 测试用例 -> 测试用例: 处理移除接口
+测试用例 -> 测试用例: 获取数据
 {% endplantuml %}
 
 | 步骤       | 操作        |
 | --------   | --------   |
-|0|开始 | 
-|1|获取数据 |
-|2|重置ID |
-|3|处理移除接口 |
+|1|重置ID |
+|2|处理移除接口 |
+|2|开始 | 
+|3|获取数据 |
 <center>unlinkCases</center>
 * unlinkSuiteCases (unlinkSuiteCases)
   
@@ -394,15 +394,15 @@ hide footbox
 {% plantuml %}
 hide footbox
 
-测试用例 -> 测试用例: 准备参数
 测试用例 -> 测试用例: 移除用例
+测试用例 -> 测试用例: 准备参数
 {% endplantuml %}
 
 | 步骤       | 操作        |
 | --------   | --------   |
-|0|开始 | 
-|1|准备参数 |
-|2|移除用例 |
+|1|移除用例 |
+|1|开始 | 
+|2|准备参数 |
 <center>unlinkSuiteCases</center>
 
 ## 查询集合
@@ -472,9 +472,20 @@ hide footbox
 |用例状态(STATUS)|EQ|
 |frequency(FREQUENCY)|EQ|
 |用例标题(TITLE)|LIKE|
+|指派给(ASSIGNEDTO)|EQ|
 |优先级(PRI)|EQ|
+|用例状态(STATUS1)|EQ|
 |工具/框架(FRAME)|EQ|
+|测试用例结果(LASTRUNRESULT1)|EQ|
 |执行人(LASTRUNNER)|EQ|
+|用例库(LIBNAME)|EQ|
+|用例库(LIBNAME)|LIKE|
+|需求名称(STORYNAME)|EQ|
+|需求名称(STORYNAME)|LIKE|
+|模块名称(MODULENAME)|EQ|
+|模块名称(MODULENAME)|LIKE|
+|产品名称(PRODUCTNAME)|EQ|
+|产品名称(PRODUCTNAME)|LIKE|
 |来源用例(FROMCASEID)|EQ|
 |平台/分支(BRANCH)|EQ|
 |来源Bug(FROMBUG)|EQ|
@@ -482,17 +493,6 @@ hide footbox
 |所属产品(PRODUCT)|EQ|
 |所属库(LIB)|EQ|
 |所属模块(MODULE)|EQ|
-|模块名称(MODULENAME)|EQ|
-|模块名称(MODULENAME)|LIKE|
-|需求名称(STORYNAME)|EQ|
-|需求名称(STORYNAME)|LIKE|
-|产品名称(PRODUCTNAME)|EQ|
-|产品名称(PRODUCTNAME)|LIKE|
-|用例状态(STATUS1)|EQ|
-|指派给(ASSIGNEDTO)|EQ|
-|用例库(LIBNAME)|EQ|
-|用例库(LIBNAME)|LIKE|
-|测试用例结果(LASTRUNRESULT1)|EQ|
 
 ## 导入模式
 无

@@ -44,6 +44,22 @@ public class IbzLibModule extends EntityMP implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
+     * 逻辑删除标志
+     */
+    @DEField(defaultValue = "0", preType = DEPredefinedFieldType.LOGICVALID)
+    @TableField(value = "`deleted`")
+    @JSONField(name = "deleted")
+    @JsonProperty("deleted")
+    private String deleted;
+    /**
+     * id
+     */
+    @DEField(isKeyField = true)
+    @TableId(value = "id", type = IdType.AUTO)
+    @JSONField(name = "id")
+    @JsonProperty("id")
+    private Long id;
+    /**
      * branch
      */
     @DEField(defaultValue = "0")
@@ -51,6 +67,21 @@ public class IbzLibModule extends EntityMP implements Serializable {
     @JSONField(name = "branch")
     @JsonProperty("branch")
     private Integer branch;
+    /**
+     * 叶子模块
+     */
+    @TableField(exist = false)
+    @JSONField(name = "isleaf")
+    @JsonProperty("isleaf")
+    private String isleaf;
+    /**
+     * 类型（story）
+     */
+    @DEField(defaultValue = "story")
+    @TableField(value = "`type`")
+    @JSONField(name = "type")
+    @JsonProperty("type")
+    private String type;
     /**
      * 简称
      */
@@ -68,22 +99,6 @@ public class IbzLibModule extends EntityMP implements Serializable {
     @JsonProperty("grade")
     private Integer grade;
     /**
-     * 排序值
-     */
-    @DEField(defaultValue = "0")
-    @TableField(value = "`order`")
-    @JSONField(name = "order")
-    @JsonProperty("order")
-    private Integer order;
-    /**
-     * 类型（story）
-     */
-    @DEField(defaultValue = "story")
-    @TableField(value = "`type`")
-    @JSONField(name = "type")
-    @JsonProperty("type")
-    private String type;
-    /**
      * collector
      */
     @DEField(defaultValue = "/")
@@ -91,44 +106,6 @@ public class IbzLibModule extends EntityMP implements Serializable {
     @JSONField(name = "collector")
     @JsonProperty("collector")
     private String collector;
-    /**
-     * id
-     */
-    @DEField(isKeyField = true)
-    @TableId(value = "id", type = IdType.AUTO)
-    @JSONField(name = "id")
-    @JsonProperty("id")
-    private Long id;
-    /**
-     * 叶子模块
-     */
-    @TableField(exist = false)
-    @JSONField(name = "isleaf")
-    @JsonProperty("isleaf")
-    private String isleaf;
-    /**
-     * owner
-     */
-    @DEField(defaultValue = "/")
-    @TableField(value = "`owner`")
-    @JSONField(name = "owner")
-    @JsonProperty("owner")
-    private String owner;
-    /**
-     * 名称
-     */
-    @TableField(value = "`name`")
-    @JSONField(name = "name")
-    @JsonProperty("name")
-    private String name;
-    /**
-     * 逻辑删除标志
-     */
-    @DEField(defaultValue = "0", preType = DEPredefinedFieldType.LOGICVALID)
-    @TableField(value = "`deleted`")
-    @JSONField(name = "deleted")
-    @JsonProperty("deleted")
-    private String deleted;
     /**
      * path
      */
@@ -138,12 +115,28 @@ public class IbzLibModule extends EntityMP implements Serializable {
     @JsonProperty("path")
     private String path;
     /**
-     * id
+     * 名称
      */
-    @TableField(value = "`parent`")
-    @JSONField(name = "parent")
-    @JsonProperty("parent")
-    private Long parent;
+    @TableField(value = "`name`")
+    @JSONField(name = "name")
+    @JsonProperty("name")
+    private String name;
+    /**
+     * owner
+     */
+    @DEField(defaultValue = "/")
+    @TableField(value = "`owner`")
+    @JSONField(name = "owner")
+    @JsonProperty("owner")
+    private String owner;
+    /**
+     * 排序值
+     */
+    @DEField(defaultValue = "0")
+    @TableField(value = "`order`")
+    @JSONField(name = "order")
+    @JsonProperty("order")
+    private Integer order;
     /**
      * 上级模块
      */
@@ -158,6 +151,13 @@ public class IbzLibModule extends EntityMP implements Serializable {
     @JSONField(name = "root")
     @JsonProperty("root")
     private Long root;
+    /**
+     * id
+     */
+    @TableField(value = "`parent`")
+    @JSONField(name = "parent")
+    @JsonProperty("parent")
+    private Long parent;
 
     /**
      * 父节点
@@ -186,6 +186,14 @@ public class IbzLibModule extends EntityMP implements Serializable {
     }
 
     /**
+     * 设置 [类型（story）]
+     */
+    public void setType(String type) {
+        this.type = type;
+        this.modify("type", type);
+    }
+
+    /**
      * 设置 [简称]
      */
     public void setIbizshort(String ibizshort) {
@@ -202,43 +210,11 @@ public class IbzLibModule extends EntityMP implements Serializable {
     }
 
     /**
-     * 设置 [排序值]
-     */
-    public void setOrder(Integer order) {
-        this.order = order;
-        this.modify("order", order);
-    }
-
-    /**
-     * 设置 [类型（story）]
-     */
-    public void setType(String type) {
-        this.type = type;
-        this.modify("type", type);
-    }
-
-    /**
      * 设置 [collector]
      */
     public void setCollector(String collector) {
         this.collector = collector;
         this.modify("collector", collector);
-    }
-
-    /**
-     * 设置 [owner]
-     */
-    public void setOwner(String owner) {
-        this.owner = owner;
-        this.modify("owner", owner);
-    }
-
-    /**
-     * 设置 [名称]
-     */
-    public void setName(String name) {
-        this.name = name;
-        this.modify("name", name);
     }
 
     /**
@@ -250,11 +226,27 @@ public class IbzLibModule extends EntityMP implements Serializable {
     }
 
     /**
-     * 设置 [id]
+     * 设置 [名称]
      */
-    public void setParent(Long parent) {
-        this.parent = parent;
-        this.modify("parent", parent);
+    public void setName(String name) {
+        this.name = name;
+        this.modify("name", name);
+    }
+
+    /**
+     * 设置 [owner]
+     */
+    public void setOwner(String owner) {
+        this.owner = owner;
+        this.modify("owner", owner);
+    }
+
+    /**
+     * 设置 [排序值]
+     */
+    public void setOrder(Integer order) {
+        this.order = order;
+        this.modify("order", order);
     }
 
     /**
@@ -263,6 +255,14 @@ public class IbzLibModule extends EntityMP implements Serializable {
     public void setRoot(Long root) {
         this.root = root;
         this.modify("root", root);
+    }
+
+    /**
+     * 设置 [id]
+     */
+    public void setParent(Long parent) {
+        this.parent = parent;
+        this.modify("parent", parent);
     }
 
 

@@ -139,7 +139,7 @@ export class IbizproProductDailyGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof IbizproProductDailyGridViewBase
      */
-	protected viewtag: string = 'dc4682bba4f9a504532ea1e10d4b11b5';
+	protected viewtag: string = '8a56ab62d6ae84149615df43ea132fcb';
 
     /**
      * 视图名称

@@ -128,7 +128,7 @@ export class StoryUsr2MPickupViewBase extends MPickupViewBase {
      * @type {string}
      * @memberof StoryUsr2MPickupViewBase
      */
-	protected viewtag: string = '0bfc1d5ae45c2a74d3b58739784ec7f7';
+	protected viewtag: string = '75ae15f558d6ead18f9a0ec0a86ac74c';
 
     /**
      * 视图名称

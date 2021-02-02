@@ -133,7 +133,7 @@ export class CaseMainGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof CaseMainGridViewBase
      */
-	protected viewtag: string = '417541fa331fc089b84936b8359403fa';
+	protected viewtag: string = '67e563d0c1aa847ce14c4bb6be664dbb';
 
     /**
      * 视图名称

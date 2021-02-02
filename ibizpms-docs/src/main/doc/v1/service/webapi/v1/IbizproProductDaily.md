@@ -299,20 +299,20 @@ POST
 #### IbizproProductDailyDTO
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
-| 1 | ibizproproductdailyname | String | 允许 | 产品日报名称 |
-| 2 | ibizproproductdailyid | Long | 不可 | 产品日报标识 |
-| 3 | createman | String | 不可 | 建立人 |
-| 4 | createdate | Timestamp | 不可 | 建立时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
-| 5 | updatedate | Timestamp | 不可 | 更新时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
-| 6 | updateman | String | 不可 | 更新人 |
-| 7 | po | String | 允许 | 产品负责人 |
-| 8 | product | Long | 允许 | 产品 |
-| 9 | date | Timestamp | 允许 | 日期<br>时间格式：yyyy-MM-dd |
-| 10 | tasks | String | 允许 | 任务 |
-| 11 | totalestimates | Double | 允许 | 总工时 |
-| 12 | productname | String | 允许 | 产品名称 |
-| 13 | begin | Timestamp | 允许 | 开始日期<br>时间格式：yyyy-MM-dd |
-| 14 | end | Timestamp | 允许 | 结束日期<br>时间格式：yyyy-MM-dd |
+| 1 | end | Timestamp | 允许 | 结束日期<br>时间格式：yyyy-MM-dd |
+| 2 | date | Timestamp | 允许 | 日期<br>时间格式：yyyy-MM-dd |
+| 3 | updatedate | Timestamp | 不可 | 更新时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
+| 4 | ibizproproductdailyname | String | 允许 | 产品日报名称 |
+| 5 | updateman | String | 不可 | 更新人 |
+| 6 | createman | String | 不可 | 建立人 |
+| 7 | tasks | String | 允许 | 任务 |
+| 8 | createdate | Timestamp | 不可 | 建立时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
+| 9 | ibizproproductdailyid | Long | 不可 | 产品日报标识 |
+| 10 | totalestimates | Double | 允许 | 总工时 |
+| 11 | begin | Timestamp | 允许 | 开始日期<br>时间格式：yyyy-MM-dd |
+| 12 | po | String | 允许 | 产品负责人 |
+| 13 | productname | String | 允许 | 产品名称 |
+| 14 | product | Long | 允许 | 产品 |
 | 15 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### IbizproProductDailySearchContext
@@ -320,9 +320,9 @@ POST
 | ---- | ---- | ---- | ---- | ---- |
 | 1 | n_ibizpro_productdailyname_like | String | 允许 | 条件字段：ibizpro_productdailyname<br>条件组合方式：`%like%` |
 | 2 | n_po_eq | String | 允许 | 条件字段：po<br>条件组合方式：`=` |
-| 3 | n_product_eq | Long | 允许 | 条件字段：product<br>条件组合方式：`=` |
-| 4 | n_productname_eq | String | 允许 | 条件字段：productname<br>条件组合方式：`=` |
-| 5 | n_productname_like | String | 允许 | 条件字段：productname<br>条件组合方式：`%like%` |
+| 3 | n_productname_eq | String | 允许 | 条件字段：productname<br>条件组合方式：`=` |
+| 4 | n_productname_like | String | 允许 | 条件字段：productname<br>条件组合方式：`%like%` |
+| 5 | n_product_eq | Long | 允许 | 条件字段：product<br>条件组合方式：`=` |
 | 6 | customcond | String | 允许 | 自定义查询条件 |
 | 7 | customparams | String | 允许 | 自定义查询参数 |
 | 8 | query | String | 允许 | 快速搜索 |

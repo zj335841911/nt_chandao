@@ -125,7 +125,7 @@ export class BugStatsBugResolvedByGridViewZuZhiBase extends GridViewBase {
      * @type {string}
      * @memberof BugStatsBugResolvedByGridViewZuZhiBase
      */
-	protected viewtag: string = 'd5d237bd6a57b89a912bcff2a13f1ff4';
+	protected viewtag: string = '838418f4bdaceeadc25d9d2bd45e68c1';
 
     /**
      * 视图名称

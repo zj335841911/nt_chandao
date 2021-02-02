@@ -261,41 +261,41 @@ POST
 #### PSSysSFPubDTO
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
-| 1 | pssyssfpubname | String | 允许 | 后台服务架构名称 |
-| 2 | pssyssfpubid | String | 不可 | 后台服务架构标识 |
-| 3 | createman | String | 不可 | 建立人 |
-| 4 | updateman | String | 不可 | 更新人 |
-| 5 | createdate | Timestamp | 不可 | 建立时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
-| 6 | updatedate | Timestamp | 不可 | 更新时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
-| 7 | codename | String | 允许 | 代码名称 |
-| 8 | baseclspkgcodename | String | 允许 | 基类代码包名 |
-| 9 | contenttype | String | 允许 | 发布内容类型 |
+| 1 | usertag | String | 允许 | 用户标记 |
+| 2 | pssystemid | String | 允许 | 系统 |
+| 3 | pubfolder | String | 允许 | 服务目录 |
+| 4 | pssfstyleverid | String | 允许 | 服务框架扩展 |
+| 5 | usertag4 | String | 允许 | 用户标记4 |
+| 6 | pubtag4 | String | 允许 | 发布标记4 |
+| 7 | pssfstyleid | String | 允许 | 服务框架 |
+| 8 | removeflag | Integer | 允许 | 删除模式 |
+| 9 | subsyspkgflag | Integer | 允许 | 引用系统组件 |
 | 10 | defaultpub | Integer | 允许 | 默认后台服务 |
-| 11 | docpssfstyleid | String | 允许 | 文档模板样式 |
-| 12 | docpssfstylename | String | 允许 | 文档模板样式 |
-| 13 | memo | String | 允许 | 备注 |
-| 14 | pssfstyleid | String | 允许 | 服务框架 |
-| 15 | pssfstyleparamid | String | 允许 | 服务框架参数 |
-| 16 | pkgcodename | String | 允许 | 代码包名 |
-| 17 | pssfstyleverid | String | 允许 | 服务框架扩展 |
-| 18 | pssfstyleparamname | String | 允许 | 服务框架参数 |
-| 19 | pubfolder | String | 允许 | 服务目录 |
-| 20 | pubtag | String | 允许 | 发布标记 |
-| 21 | pubtag3 | String | 允许 | 发布标记3 |
-| 22 | pubtag2 | String | 允许 | 发布标记2 |
-| 23 | pubtag4 | String | 允许 | 发布标记4 |
-| 24 | removeflag | Integer | 允许 | 删除模式 |
-| 25 | styleparams | String | 允许 | 服务框架参数 |
-| 26 | subsyspkgflag | Integer | 允许 | 引用系统组件 |
-| 27 | usercat | String | 允许 | 用户分类 |
-| 28 | usertag | String | 允许 | 用户标记 |
-| 29 | usertag2 | String | 允许 | 用户标记2 |
-| 30 | usertag4 | String | 允许 | 用户标记4 |
-| 31 | usertag3 | String | 允许 | 用户标记3 |
-| 32 | verstr | String | 允许 | 版本号 |
-| 33 | ppssyssfpubid | String | 允许 | 父后台服务体系 |
-| 34 | ppssyssfpubname | String | 允许 | 父后台服务体系 |
-| 35 | pssystemid | String | 允许 | 系统 |
-| 36 | pssystemname | String | 允许 | 系统 |
+| 11 | docpssfstylename | String | 允许 | 文档模板样式 |
+| 12 | usertag3 | String | 允许 | 用户标记3 |
+| 13 | pssfstyleparamname | String | 允许 | 服务框架参数 |
+| 14 | createman | String | 不可 | 建立人 |
+| 15 | codename | String | 允许 | 代码名称 |
+| 16 | usertag2 | String | 允许 | 用户标记2 |
+| 17 | pssyssfpubname | String | 允许 | 后台服务架构名称 |
+| 18 | updateman | String | 不可 | 更新人 |
+| 19 | pubtag | String | 允许 | 发布标记 |
+| 20 | baseclspkgcodename | String | 允许 | 基类代码包名 |
+| 21 | verstr | String | 允许 | 版本号 |
+| 22 | createdate | Timestamp | 不可 | 建立时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
+| 23 | pubtag3 | String | 允许 | 发布标记3 |
+| 24 | pssfstyleparamid | String | 允许 | 服务框架参数 |
+| 25 | docpssfstyleid | String | 允许 | 文档模板样式 |
+| 26 | memo | String | 允许 | 备注 |
+| 27 | pkgcodename | String | 允许 | 代码包名 |
+| 28 | pssyssfpubid | String | 不可 | 后台服务架构标识 |
+| 29 | pssystemname | String | 允许 | 系统 |
+| 30 | contenttype | String | 允许 | 发布内容类型 |
+| 31 | usercat | String | 允许 | 用户分类 |
+| 32 | pubtag2 | String | 允许 | 发布标记2 |
+| 33 | updatedate | Timestamp | 不可 | 更新时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
+| 34 | styleparams | String | 允许 | 服务框架参数 |
+| 35 | ppssyssfpubname | String | 允许 | 父后台服务体系 |
+| 36 | ppssyssfpubid | String | 允许 | 父后台服务体系 |
 | 37 | <动态属性> | Object | 允许 | 支持动态属性 |
 

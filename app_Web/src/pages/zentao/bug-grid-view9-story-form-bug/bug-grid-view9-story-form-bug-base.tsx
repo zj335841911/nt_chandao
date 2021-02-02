@@ -141,7 +141,7 @@ export class BugGridView9_StoryFormBugBase extends GridView9Base {
      * @type {string}
      * @memberof BugGridView9_StoryFormBugBase
      */
-	protected viewtag: string = '723d3aebb532563a44fb34172cd502f0';
+	protected viewtag: string = '58c48ed7c9b66ea86309ed8ef86a7cc6';
 
     /**
      * 视图名称

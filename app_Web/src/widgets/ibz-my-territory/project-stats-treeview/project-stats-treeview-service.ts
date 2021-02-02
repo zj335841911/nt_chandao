@@ -64,6 +64,15 @@ export default class ProjectStatsService extends ControlService {
     public TREENODE_SEPARATOR: string = ';';
 
     /**
+     * bug类型统计节点分隔符号
+     *
+     * @public
+     * @type {string}
+     * @memberof ProjectStatsService
+     */
+	public TREENODE_BUGTYPE: string = 'BugType';
+
+    /**
      * 任务类型统计节点分隔符号
      *
      * @public
@@ -71,6 +80,24 @@ export default class ProjectStatsService extends ControlService {
      * @memberof ProjectStatsService
      */
 	public TREENODE_TASKTYPECOUNT: string = 'TaskTypeCount';
+
+    /**
+     * bug状态统计节点分隔符号
+     *
+     * @public
+     * @type {string}
+     * @memberof ProjectStatsService
+     */
+	public TREENODE_BUGSTATUSCOUNT: string = 'BugStatusCount';
+
+    /**
+     * 任务状态统计节点分隔符号
+     *
+     * @public
+     * @type {string}
+     * @memberof ProjectStatsService
+     */
+	public TREENODE_TASKSTATUSCOUNT: string = 'TaskStatusCount';
 
     /**
      * 项目质量表节点分隔符号
@@ -91,22 +118,13 @@ export default class ProjectStatsService extends ControlService {
 	public TREENODE_PROJECTSTORYSTAGESTATS: string = 'ProjectStoryStageStats';
 
     /**
-     * bug解决方案统计节点分隔符号
+     * 项目投入统计表节点分隔符号
      *
      * @public
      * @type {string}
      * @memberof ProjectStatsService
      */
-	public TREENODE_BUGRESOLUTIONCOUNT: string = 'BugResolutionCount';
-
-    /**
-     * bug类型统计节点分隔符号
-     *
-     * @public
-     * @type {string}
-     * @memberof ProjectStatsService
-     */
-	public TREENODE_BUGTYPE: string = 'BugType';
+	public TREENODE_PROJECTINPUTSTATS: string = 'ProjectInputStats';
 
     /**
      * 项目进展表节点分隔符号
@@ -118,24 +136,6 @@ export default class ProjectStatsService extends ControlService {
 	public TREENODE_PROJECTPROGRESS: string = 'ProjectProgress';
 
     /**
-     * bug状态统计节点分隔符号
-     *
-     * @public
-     * @type {string}
-     * @memberof ProjectStatsService
-     */
-	public TREENODE_BUGSTATUSCOUNT: string = 'BugStatusCount';
-
-    /**
-     * 项目投入统计表节点分隔符号
-     *
-     * @public
-     * @type {string}
-     * @memberof ProjectStatsService
-     */
-	public TREENODE_PROJECTINPUTSTATS: string = 'ProjectInputStats';
-
-    /**
      * 默认根节点节点分隔符号
      *
      * @public
@@ -145,6 +145,15 @@ export default class ProjectStatsService extends ControlService {
 	public TREENODE_ROOT: string = 'ROOT';
 
     /**
+     * bug解决方案统计节点分隔符号
+     *
+     * @public
+     * @type {string}
+     * @memberof ProjectStatsService
+     */
+	public TREENODE_BUGRESOLUTIONCOUNT: string = 'BugResolutionCount';
+
+    /**
      * 项目需求状态分布表节点分隔符号
      *
      * @public
@@ -152,15 +161,6 @@ export default class ProjectStatsService extends ControlService {
      * @memberof ProjectStatsService
      */
 	public TREENODE_PROJECTSTORYSTATUSSTATS: string = 'ProjectStoryStatusStats';
-
-    /**
-     * 任务状态统计节点分隔符号
-     *
-     * @public
-     * @type {string}
-     * @memberof ProjectStatsService
-     */
-	public TREENODE_TASKSTATUSCOUNT: string = 'TaskStatusCount';
 
     /**
      * 获取节点数据
@@ -236,8 +236,20 @@ export default class ProjectStatsService extends ControlService {
             }
         }
 
+        if (Object.is(strNodeType, this.TREENODE_BUGTYPE)) {
+            await this.fillBugtypeNodeChilds(context,filter, list);
+            return Promise.resolve({ status: 200, data: list });
+        }
         if (Object.is(strNodeType, this.TREENODE_TASKTYPECOUNT)) {
             await this.fillTasktypecountNodeChilds(context,filter, list);
+            return Promise.resolve({ status: 200, data: list });
+        }
+        if (Object.is(strNodeType, this.TREENODE_BUGSTATUSCOUNT)) {
+            await this.fillBugstatuscountNodeChilds(context,filter, list);
+            return Promise.resolve({ status: 200, data: list });
+        }
+        if (Object.is(strNodeType, this.TREENODE_TASKSTATUSCOUNT)) {
+            await this.fillTaskstatuscountNodeChilds(context,filter, list);
             return Promise.resolve({ status: 200, data: list });
         }
         if (Object.is(strNodeType, this.TREENODE_PROJECTQUALITY)) {
@@ -248,40 +260,87 @@ export default class ProjectStatsService extends ControlService {
             await this.fillProjectstorystagestatsNodeChilds(context,filter, list);
             return Promise.resolve({ status: 200, data: list });
         }
-        if (Object.is(strNodeType, this.TREENODE_BUGRESOLUTIONCOUNT)) {
-            await this.fillBugresolutioncountNodeChilds(context,filter, list);
-            return Promise.resolve({ status: 200, data: list });
-        }
-        if (Object.is(strNodeType, this.TREENODE_BUGTYPE)) {
-            await this.fillBugtypeNodeChilds(context,filter, list);
+        if (Object.is(strNodeType, this.TREENODE_PROJECTINPUTSTATS)) {
+            await this.fillProjectinputstatsNodeChilds(context,filter, list);
             return Promise.resolve({ status: 200, data: list });
         }
         if (Object.is(strNodeType, this.TREENODE_PROJECTPROGRESS)) {
             await this.fillProjectprogressNodeChilds(context,filter, list);
             return Promise.resolve({ status: 200, data: list });
         }
-        if (Object.is(strNodeType, this.TREENODE_BUGSTATUSCOUNT)) {
-            await this.fillBugstatuscountNodeChilds(context,filter, list);
-            return Promise.resolve({ status: 200, data: list });
-        }
-        if (Object.is(strNodeType, this.TREENODE_PROJECTINPUTSTATS)) {
-            await this.fillProjectinputstatsNodeChilds(context,filter, list);
-            return Promise.resolve({ status: 200, data: list });
-        }
         if (Object.is(strNodeType, this.TREENODE_ROOT)) {
             await this.fillRootNodeChilds(context,filter, list);
+            return Promise.resolve({ status: 200, data: list });
+        }
+        if (Object.is(strNodeType, this.TREENODE_BUGRESOLUTIONCOUNT)) {
+            await this.fillBugresolutioncountNodeChilds(context,filter, list);
             return Promise.resolve({ status: 200, data: list });
         }
         if (Object.is(strNodeType, this.TREENODE_PROJECTSTORYSTATUSSTATS)) {
             await this.fillProjectstorystatusstatsNodeChilds(context,filter, list);
             return Promise.resolve({ status: 200, data: list });
         }
-        if (Object.is(strNodeType, this.TREENODE_TASKSTATUSCOUNT)) {
-            await this.fillTaskstatuscountNodeChilds(context,filter, list);
-            return Promise.resolve({ status: 200, data: list });
-        }
         return Promise.resolve({ status: 500, data: { title: '失败', message: `树节点${strTreeNodeId}标识无效` } });
     }
+
+    /**
+     * 填充 树视图节点[bug类型统计]
+     *
+     * @public
+     * @param {any{}} context     
+     * @param {*} filter
+     * @param {any[]} list
+     * @param {*} rsNavContext   
+     * @param {*} rsNavParams
+     * @param {*} rsParams
+     * @returns {Promise<any>}
+     * @memberof ProjectStatsService
+     */
+    @Errorlog
+    public fillBugtypeNodes(context:any={},filter: any, list: any[],rsNavContext?:any,rsNavParams?:any,rsParams?:any): Promise<any> {
+        context = this.handleResNavContext(context,filter,rsNavContext);
+        filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
+        return new Promise((resolve:any,reject:any) =>{
+            let treeNode: any = {};
+            Object.assign(treeNode, { text: i18n.t('entities.ibzmyterritory.projectstats_treeview.nodes.bugtype') });
+            Object.assign(treeNode, { isUseLangRes: true });
+            Object.assign(treeNode,{srfappctx:context});
+            Object.assign(treeNode, { srfmajortext: treeNode.text });
+            let strNodeId: string = 'BugType';
+
+            // 没有指定节点值，直接使用父节点值
+            Object.assign(treeNode, { srfkey: filter.strRealNodeId });
+            strNodeId += this.TREENODE_SEPARATOR;
+            strNodeId += filter.strRealNodeId;
+
+            Object.assign(treeNode, { id: strNodeId });
+
+            Object.assign(treeNode, { expanded: filter.isAutoexpand });
+            Object.assign(treeNode, { leaf: true });
+            Object.assign(treeNode, { nodeid: treeNode.srfkey });
+            Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+            Object.assign(treeNode, { nodeType: "STATIC" });
+            list.push(treeNode);
+            resolve(list);
+        });
+	}
+
+    /**
+     * 填充 树视图节点[bug类型统计]子节点
+     *
+     * @public
+     * @param {any{}} context         
+     * @param {*} filter
+     * @param {any[]} list
+     * @returns {Promise<any>}
+     * @memberof ProjectStatsService
+     */
+    @Errorlog
+    public async fillBugtypeNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
+		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
+		} else {
+		}
+	}
 
     /**
      * 填充 树视图节点[任务类型统计]
@@ -337,6 +396,124 @@ export default class ProjectStatsService extends ControlService {
      */
     @Errorlog
     public async fillTasktypecountNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
+		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
+		} else {
+		}
+	}
+
+    /**
+     * 填充 树视图节点[bug状态统计]
+     *
+     * @public
+     * @param {any{}} context     
+     * @param {*} filter
+     * @param {any[]} list
+     * @param {*} rsNavContext   
+     * @param {*} rsNavParams
+     * @param {*} rsParams
+     * @returns {Promise<any>}
+     * @memberof ProjectStatsService
+     */
+    @Errorlog
+    public fillBugstatuscountNodes(context:any={},filter: any, list: any[],rsNavContext?:any,rsNavParams?:any,rsParams?:any): Promise<any> {
+        context = this.handleResNavContext(context,filter,rsNavContext);
+        filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
+        return new Promise((resolve:any,reject:any) =>{
+            let treeNode: any = {};
+            Object.assign(treeNode, { text: i18n.t('entities.ibzmyterritory.projectstats_treeview.nodes.bugstatuscount') });
+            Object.assign(treeNode, { isUseLangRes: true });
+            Object.assign(treeNode,{srfappctx:context});
+            Object.assign(treeNode, { srfmajortext: treeNode.text });
+            let strNodeId: string = 'BugStatusCount';
+
+            // 没有指定节点值，直接使用父节点值
+            Object.assign(treeNode, { srfkey: filter.strRealNodeId });
+            strNodeId += this.TREENODE_SEPARATOR;
+            strNodeId += filter.strRealNodeId;
+
+            Object.assign(treeNode, { id: strNodeId });
+
+            Object.assign(treeNode, { expanded: filter.isAutoexpand });
+            Object.assign(treeNode, { leaf: true });
+            Object.assign(treeNode, { nodeid: treeNode.srfkey });
+            Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+            Object.assign(treeNode, { nodeType: "STATIC" });
+            list.push(treeNode);
+            resolve(list);
+        });
+	}
+
+    /**
+     * 填充 树视图节点[bug状态统计]子节点
+     *
+     * @public
+     * @param {any{}} context         
+     * @param {*} filter
+     * @param {any[]} list
+     * @returns {Promise<any>}
+     * @memberof ProjectStatsService
+     */
+    @Errorlog
+    public async fillBugstatuscountNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
+		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
+		} else {
+		}
+	}
+
+    /**
+     * 填充 树视图节点[任务状态统计]
+     *
+     * @public
+     * @param {any{}} context     
+     * @param {*} filter
+     * @param {any[]} list
+     * @param {*} rsNavContext   
+     * @param {*} rsNavParams
+     * @param {*} rsParams
+     * @returns {Promise<any>}
+     * @memberof ProjectStatsService
+     */
+    @Errorlog
+    public fillTaskstatuscountNodes(context:any={},filter: any, list: any[],rsNavContext?:any,rsNavParams?:any,rsParams?:any): Promise<any> {
+        context = this.handleResNavContext(context,filter,rsNavContext);
+        filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
+        return new Promise((resolve:any,reject:any) =>{
+            let treeNode: any = {};
+            Object.assign(treeNode, { text: i18n.t('entities.ibzmyterritory.projectstats_treeview.nodes.taskstatuscount') });
+            Object.assign(treeNode, { isUseLangRes: true });
+            Object.assign(treeNode,{srfappctx:context});
+            Object.assign(treeNode, { srfmajortext: treeNode.text });
+            let strNodeId: string = 'TaskStatusCount';
+
+            // 没有指定节点值，直接使用父节点值
+            Object.assign(treeNode, { srfkey: filter.strRealNodeId });
+            strNodeId += this.TREENODE_SEPARATOR;
+            strNodeId += filter.strRealNodeId;
+
+            Object.assign(treeNode, { id: strNodeId });
+
+            Object.assign(treeNode, { expanded: filter.isAutoexpand });
+            Object.assign(treeNode, { leaf: true });
+            Object.assign(treeNode, { nodeid: treeNode.srfkey });
+            Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+            Object.assign(treeNode, { nodeType: "STATIC" });
+            list.push(treeNode);
+            resolve(list);
+        });
+	}
+
+    /**
+     * 填充 树视图节点[任务状态统计]子节点
+     *
+     * @public
+     * @param {any{}} context         
+     * @param {*} filter
+     * @param {any[]} list
+     * @returns {Promise<any>}
+     * @memberof ProjectStatsService
+     */
+    @Errorlog
+    public async fillTaskstatuscountNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
 		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
 		} else {
 		}
@@ -461,7 +638,7 @@ export default class ProjectStatsService extends ControlService {
 	}
 
     /**
-     * 填充 树视图节点[bug解决方案统计]
+     * 填充 树视图节点[项目投入统计表]
      *
      * @public
      * @param {any{}} context     
@@ -474,16 +651,16 @@ export default class ProjectStatsService extends ControlService {
      * @memberof ProjectStatsService
      */
     @Errorlog
-    public fillBugresolutioncountNodes(context:any={},filter: any, list: any[],rsNavContext?:any,rsNavParams?:any,rsParams?:any): Promise<any> {
+    public fillProjectinputstatsNodes(context:any={},filter: any, list: any[],rsNavContext?:any,rsNavParams?:any,rsParams?:any): Promise<any> {
         context = this.handleResNavContext(context,filter,rsNavContext);
         filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
         return new Promise((resolve:any,reject:any) =>{
             let treeNode: any = {};
-            Object.assign(treeNode, { text: i18n.t('entities.ibzmyterritory.projectstats_treeview.nodes.bugresolutioncount') });
+            Object.assign(treeNode, { text: i18n.t('entities.ibzmyterritory.projectstats_treeview.nodes.projectinputstats') });
             Object.assign(treeNode, { isUseLangRes: true });
             Object.assign(treeNode,{srfappctx:context});
             Object.assign(treeNode, { srfmajortext: treeNode.text });
-            let strNodeId: string = 'BugResolutionCount';
+            let strNodeId: string = 'ProjectInputStats';
 
             // 没有指定节点值，直接使用父节点值
             Object.assign(treeNode, { srfkey: filter.strRealNodeId });
@@ -503,7 +680,7 @@ export default class ProjectStatsService extends ControlService {
 	}
 
     /**
-     * 填充 树视图节点[bug解决方案统计]子节点
+     * 填充 树视图节点[项目投入统计表]子节点
      *
      * @public
      * @param {any{}} context         
@@ -513,66 +690,7 @@ export default class ProjectStatsService extends ControlService {
      * @memberof ProjectStatsService
      */
     @Errorlog
-    public async fillBugresolutioncountNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
-		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
-		} else {
-		}
-	}
-
-    /**
-     * 填充 树视图节点[bug类型统计]
-     *
-     * @public
-     * @param {any{}} context     
-     * @param {*} filter
-     * @param {any[]} list
-     * @param {*} rsNavContext   
-     * @param {*} rsNavParams
-     * @param {*} rsParams
-     * @returns {Promise<any>}
-     * @memberof ProjectStatsService
-     */
-    @Errorlog
-    public fillBugtypeNodes(context:any={},filter: any, list: any[],rsNavContext?:any,rsNavParams?:any,rsParams?:any): Promise<any> {
-        context = this.handleResNavContext(context,filter,rsNavContext);
-        filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
-        return new Promise((resolve:any,reject:any) =>{
-            let treeNode: any = {};
-            Object.assign(treeNode, { text: i18n.t('entities.ibzmyterritory.projectstats_treeview.nodes.bugtype') });
-            Object.assign(treeNode, { isUseLangRes: true });
-            Object.assign(treeNode,{srfappctx:context});
-            Object.assign(treeNode, { srfmajortext: treeNode.text });
-            let strNodeId: string = 'BugType';
-
-            // 没有指定节点值，直接使用父节点值
-            Object.assign(treeNode, { srfkey: filter.strRealNodeId });
-            strNodeId += this.TREENODE_SEPARATOR;
-            strNodeId += filter.strRealNodeId;
-
-            Object.assign(treeNode, { id: strNodeId });
-
-            Object.assign(treeNode, { expanded: filter.isAutoexpand });
-            Object.assign(treeNode, { leaf: true });
-            Object.assign(treeNode, { nodeid: treeNode.srfkey });
-            Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
-            Object.assign(treeNode, { nodeType: "STATIC" });
-            list.push(treeNode);
-            resolve(list);
-        });
-	}
-
-    /**
-     * 填充 树视图节点[bug类型统计]子节点
-     *
-     * @public
-     * @param {any{}} context         
-     * @param {*} filter
-     * @param {any[]} list
-     * @returns {Promise<any>}
-     * @memberof ProjectStatsService
-     */
-    @Errorlog
-    public async fillBugtypeNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
+    public async fillProjectinputstatsNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
 		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
 		} else {
 		}
@@ -632,124 +750,6 @@ export default class ProjectStatsService extends ControlService {
      */
     @Errorlog
     public async fillProjectprogressNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
-		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
-		} else {
-		}
-	}
-
-    /**
-     * 填充 树视图节点[bug状态统计]
-     *
-     * @public
-     * @param {any{}} context     
-     * @param {*} filter
-     * @param {any[]} list
-     * @param {*} rsNavContext   
-     * @param {*} rsNavParams
-     * @param {*} rsParams
-     * @returns {Promise<any>}
-     * @memberof ProjectStatsService
-     */
-    @Errorlog
-    public fillBugstatuscountNodes(context:any={},filter: any, list: any[],rsNavContext?:any,rsNavParams?:any,rsParams?:any): Promise<any> {
-        context = this.handleResNavContext(context,filter,rsNavContext);
-        filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
-        return new Promise((resolve:any,reject:any) =>{
-            let treeNode: any = {};
-            Object.assign(treeNode, { text: i18n.t('entities.ibzmyterritory.projectstats_treeview.nodes.bugstatuscount') });
-            Object.assign(treeNode, { isUseLangRes: true });
-            Object.assign(treeNode,{srfappctx:context});
-            Object.assign(treeNode, { srfmajortext: treeNode.text });
-            let strNodeId: string = 'BugStatusCount';
-
-            // 没有指定节点值，直接使用父节点值
-            Object.assign(treeNode, { srfkey: filter.strRealNodeId });
-            strNodeId += this.TREENODE_SEPARATOR;
-            strNodeId += filter.strRealNodeId;
-
-            Object.assign(treeNode, { id: strNodeId });
-
-            Object.assign(treeNode, { expanded: filter.isAutoexpand });
-            Object.assign(treeNode, { leaf: true });
-            Object.assign(treeNode, { nodeid: treeNode.srfkey });
-            Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
-            Object.assign(treeNode, { nodeType: "STATIC" });
-            list.push(treeNode);
-            resolve(list);
-        });
-	}
-
-    /**
-     * 填充 树视图节点[bug状态统计]子节点
-     *
-     * @public
-     * @param {any{}} context         
-     * @param {*} filter
-     * @param {any[]} list
-     * @returns {Promise<any>}
-     * @memberof ProjectStatsService
-     */
-    @Errorlog
-    public async fillBugstatuscountNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
-		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
-		} else {
-		}
-	}
-
-    /**
-     * 填充 树视图节点[项目投入统计表]
-     *
-     * @public
-     * @param {any{}} context     
-     * @param {*} filter
-     * @param {any[]} list
-     * @param {*} rsNavContext   
-     * @param {*} rsNavParams
-     * @param {*} rsParams
-     * @returns {Promise<any>}
-     * @memberof ProjectStatsService
-     */
-    @Errorlog
-    public fillProjectinputstatsNodes(context:any={},filter: any, list: any[],rsNavContext?:any,rsNavParams?:any,rsParams?:any): Promise<any> {
-        context = this.handleResNavContext(context,filter,rsNavContext);
-        filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
-        return new Promise((resolve:any,reject:any) =>{
-            let treeNode: any = {};
-            Object.assign(treeNode, { text: i18n.t('entities.ibzmyterritory.projectstats_treeview.nodes.projectinputstats') });
-            Object.assign(treeNode, { isUseLangRes: true });
-            Object.assign(treeNode,{srfappctx:context});
-            Object.assign(treeNode, { srfmajortext: treeNode.text });
-            let strNodeId: string = 'ProjectInputStats';
-
-            // 没有指定节点值，直接使用父节点值
-            Object.assign(treeNode, { srfkey: filter.strRealNodeId });
-            strNodeId += this.TREENODE_SEPARATOR;
-            strNodeId += filter.strRealNodeId;
-
-            Object.assign(treeNode, { id: strNodeId });
-
-            Object.assign(treeNode, { expanded: filter.isAutoexpand });
-            Object.assign(treeNode, { leaf: true });
-            Object.assign(treeNode, { nodeid: treeNode.srfkey });
-            Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
-            Object.assign(treeNode, { nodeType: "STATIC" });
-            list.push(treeNode);
-            resolve(list);
-        });
-	}
-
-    /**
-     * 填充 树视图节点[项目投入统计表]子节点
-     *
-     * @public
-     * @param {any{}} context         
-     * @param {*} filter
-     * @param {any[]} list
-     * @returns {Promise<any>}
-     * @memberof ProjectStatsService
-     */
-    @Errorlog
-    public async fillProjectinputstatsNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
 		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
 		} else {
 		}
@@ -914,6 +914,65 @@ export default class ProjectStatsService extends ControlService {
 	}
 
     /**
+     * 填充 树视图节点[bug解决方案统计]
+     *
+     * @public
+     * @param {any{}} context     
+     * @param {*} filter
+     * @param {any[]} list
+     * @param {*} rsNavContext   
+     * @param {*} rsNavParams
+     * @param {*} rsParams
+     * @returns {Promise<any>}
+     * @memberof ProjectStatsService
+     */
+    @Errorlog
+    public fillBugresolutioncountNodes(context:any={},filter: any, list: any[],rsNavContext?:any,rsNavParams?:any,rsParams?:any): Promise<any> {
+        context = this.handleResNavContext(context,filter,rsNavContext);
+        filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
+        return new Promise((resolve:any,reject:any) =>{
+            let treeNode: any = {};
+            Object.assign(treeNode, { text: i18n.t('entities.ibzmyterritory.projectstats_treeview.nodes.bugresolutioncount') });
+            Object.assign(treeNode, { isUseLangRes: true });
+            Object.assign(treeNode,{srfappctx:context});
+            Object.assign(treeNode, { srfmajortext: treeNode.text });
+            let strNodeId: string = 'BugResolutionCount';
+
+            // 没有指定节点值，直接使用父节点值
+            Object.assign(treeNode, { srfkey: filter.strRealNodeId });
+            strNodeId += this.TREENODE_SEPARATOR;
+            strNodeId += filter.strRealNodeId;
+
+            Object.assign(treeNode, { id: strNodeId });
+
+            Object.assign(treeNode, { expanded: filter.isAutoexpand });
+            Object.assign(treeNode, { leaf: true });
+            Object.assign(treeNode, { nodeid: treeNode.srfkey });
+            Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+            Object.assign(treeNode, { nodeType: "STATIC" });
+            list.push(treeNode);
+            resolve(list);
+        });
+	}
+
+    /**
+     * 填充 树视图节点[bug解决方案统计]子节点
+     *
+     * @public
+     * @param {any{}} context         
+     * @param {*} filter
+     * @param {any[]} list
+     * @returns {Promise<any>}
+     * @memberof ProjectStatsService
+     */
+    @Errorlog
+    public async fillBugresolutioncountNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
+		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
+		} else {
+		}
+	}
+
+    /**
      * 填充 树视图节点[项目需求状态分布表]
      *
      * @public
@@ -967,65 +1026,6 @@ export default class ProjectStatsService extends ControlService {
      */
     @Errorlog
     public async fillProjectstorystatusstatsNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
-		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
-		} else {
-		}
-	}
-
-    /**
-     * 填充 树视图节点[任务状态统计]
-     *
-     * @public
-     * @param {any{}} context     
-     * @param {*} filter
-     * @param {any[]} list
-     * @param {*} rsNavContext   
-     * @param {*} rsNavParams
-     * @param {*} rsParams
-     * @returns {Promise<any>}
-     * @memberof ProjectStatsService
-     */
-    @Errorlog
-    public fillTaskstatuscountNodes(context:any={},filter: any, list: any[],rsNavContext?:any,rsNavParams?:any,rsParams?:any): Promise<any> {
-        context = this.handleResNavContext(context,filter,rsNavContext);
-        filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
-        return new Promise((resolve:any,reject:any) =>{
-            let treeNode: any = {};
-            Object.assign(treeNode, { text: i18n.t('entities.ibzmyterritory.projectstats_treeview.nodes.taskstatuscount') });
-            Object.assign(treeNode, { isUseLangRes: true });
-            Object.assign(treeNode,{srfappctx:context});
-            Object.assign(treeNode, { srfmajortext: treeNode.text });
-            let strNodeId: string = 'TaskStatusCount';
-
-            // 没有指定节点值，直接使用父节点值
-            Object.assign(treeNode, { srfkey: filter.strRealNodeId });
-            strNodeId += this.TREENODE_SEPARATOR;
-            strNodeId += filter.strRealNodeId;
-
-            Object.assign(treeNode, { id: strNodeId });
-
-            Object.assign(treeNode, { expanded: filter.isAutoexpand });
-            Object.assign(treeNode, { leaf: true });
-            Object.assign(treeNode, { nodeid: treeNode.srfkey });
-            Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
-            Object.assign(treeNode, { nodeType: "STATIC" });
-            list.push(treeNode);
-            resolve(list);
-        });
-	}
-
-    /**
-     * 填充 树视图节点[任务状态统计]子节点
-     *
-     * @public
-     * @param {any{}} context         
-     * @param {*} filter
-     * @param {any[]} list
-     * @returns {Promise<any>}
-     * @memberof ProjectStatsService
-     */
-    @Errorlog
-    public async fillTaskstatuscountNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
 		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
 		} else {
 		}

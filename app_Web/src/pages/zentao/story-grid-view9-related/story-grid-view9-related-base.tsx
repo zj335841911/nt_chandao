@@ -119,7 +119,7 @@ export class StoryGridView9_RelatedBase extends GridView9Base {
      * @type {string}
      * @memberof StoryGridView9_RelatedBase
      */
-	protected viewtag: string = 'a0f93007d7102bd236dc8f50ac4042ea';
+	protected viewtag: string = '78095af71f8ae9c432f8a6f3656f90b9';
 
     /**
      * 视图名称

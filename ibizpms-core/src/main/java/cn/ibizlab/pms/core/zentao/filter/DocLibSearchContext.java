@@ -34,6 +34,13 @@ public class DocLibSearchContext extends QueryWrapperContext<DocLib> {
             this.getSearchCond().eq("`type`", n_type_eq);
         }
     }
+	private String n_doclibtype_eq;//[文件库类型]
+	public void setN_doclibtype_eq(String n_doclibtype_eq) {
+        this.n_doclibtype_eq = n_doclibtype_eq;
+        if(!ObjectUtils.isEmpty(this.n_doclibtype_eq)){
+            this.getSearchCond().eq("`doclibtype`", n_doclibtype_eq);
+        }
+    }
 	private String n_acl_eq;//[权限]
 	public void setN_acl_eq(String n_acl_eq) {
         this.n_acl_eq = n_acl_eq;
@@ -55,25 +62,18 @@ public class DocLibSearchContext extends QueryWrapperContext<DocLib> {
             this.getSearchCond().like("`name`", n_name_like);
         }
     }
-	private Long n_project_eq;//[项目库]
-	public void setN_project_eq(Long n_project_eq) {
-        this.n_project_eq = n_project_eq;
-        if(!ObjectUtils.isEmpty(this.n_project_eq)){
-            this.getSearchCond().eq("`project`", n_project_eq);
+	private String n_productname_eq;//[所属产品]
+	public void setN_productname_eq(String n_productname_eq) {
+        this.n_productname_eq = n_productname_eq;
+        if(!ObjectUtils.isEmpty(this.n_productname_eq)){
+            this.getSearchCond().eq("`productname`", n_productname_eq);
         }
     }
-	private Long n_product_eq;//[产品库]
-	public void setN_product_eq(Long n_product_eq) {
-        this.n_product_eq = n_product_eq;
-        if(!ObjectUtils.isEmpty(this.n_product_eq)){
-            this.getSearchCond().eq("`product`", n_product_eq);
-        }
-    }
-	private String n_doclibtype_eq;//[文件库类型]
-	public void setN_doclibtype_eq(String n_doclibtype_eq) {
-        this.n_doclibtype_eq = n_doclibtype_eq;
-        if(!ObjectUtils.isEmpty(this.n_doclibtype_eq)){
-            this.getSearchCond().eq("`doclibtype`", n_doclibtype_eq);
+	private String n_productname_like;//[所属产品]
+	public void setN_productname_like(String n_productname_like) {
+        this.n_productname_like = n_productname_like;
+        if(!ObjectUtils.isEmpty(this.n_productname_like)){
+            this.getSearchCond().like("`productname`", n_productname_like);
         }
     }
 	private String n_projectname_eq;//[所属项目]
@@ -90,18 +90,18 @@ public class DocLibSearchContext extends QueryWrapperContext<DocLib> {
             this.getSearchCond().like("`projectname`", n_projectname_like);
         }
     }
-	private String n_productname_eq;//[所属产品]
-	public void setN_productname_eq(String n_productname_eq) {
-        this.n_productname_eq = n_productname_eq;
-        if(!ObjectUtils.isEmpty(this.n_productname_eq)){
-            this.getSearchCond().eq("`productname`", n_productname_eq);
+	private Long n_project_eq;//[项目库]
+	public void setN_project_eq(Long n_project_eq) {
+        this.n_project_eq = n_project_eq;
+        if(!ObjectUtils.isEmpty(this.n_project_eq)){
+            this.getSearchCond().eq("`project`", n_project_eq);
         }
     }
-	private String n_productname_like;//[所属产品]
-	public void setN_productname_like(String n_productname_like) {
-        this.n_productname_like = n_productname_like;
-        if(!ObjectUtils.isEmpty(this.n_productname_like)){
-            this.getSearchCond().like("`productname`", n_productname_like);
+	private Long n_product_eq;//[产品库]
+	public void setN_product_eq(Long n_product_eq) {
+        this.n_product_eq = n_product_eq;
+        if(!ObjectUtils.isEmpty(this.n_product_eq)){
+            this.getSearchCond().eq("`product`", n_product_eq);
         }
     }
 

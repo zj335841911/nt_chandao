@@ -37,6 +37,9 @@ export default class PickupViewpickupviewpanelModel {
         prop: 'id',
       },
       {
+        name: 'orderpk',
+      },
+      {
         name: 'collector',
       },
       {
@@ -44,6 +47,12 @@ export default class PickupViewpickupviewpanelModel {
       },
       {
         name: 'path',
+      },
+      {
+        name: 'mdeptid',
+      },
+      {
+        name: 'orgid',
       },
       {
         name: 'deleted',
@@ -56,15 +65,6 @@ export default class PickupViewpickupviewpanelModel {
       },
       {
         name: 'parent',
-      },
-      {
-        name: 'mdeptid',
-      },
-      {
-        name: 'orgid',
-      },
-      {
-        name: 'orderpk',
       },
     ]
   }

@@ -119,7 +119,7 @@ export class TaskDailyCompleteZsGridViewBase extends GridView9Base {
      * @type {string}
      * @memberof TaskDailyCompleteZsGridViewBase
      */
-	protected viewtag: string = 'c5bd098c86809d2a2934bdf16b3d25f7';
+	protected viewtag: string = '0235121fc2b0c27f0be0e06953580a3d';
 
     /**
      * 视图名称

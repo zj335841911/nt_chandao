@@ -127,7 +127,7 @@ export class TaskTreeEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof TaskTreeEditViewBase
      */
-	protected viewtag: string = '47d1f969efd9c8e4eb6a593de45d78d6';
+	protected viewtag: string = 'f1ee6f1e2f66e3c27b6eddb3d5d526f9';
 
     /**
      * 视图名称

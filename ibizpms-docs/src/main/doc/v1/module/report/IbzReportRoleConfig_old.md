@@ -11,24 +11,24 @@
 | --------   |------------| -----   |  -------- | 
 |汇报角色配置名称|IBZ_REPORT_ROLE_CONFIGNAME|TEXT|&nbsp;|
 |汇报角色配置标识|IBZ_REPORT_ROLE_CONFIGID|GUID|&nbsp;|
-|建立时间|CREATEDATE|DATETIME|&nbsp;|
-|建立人|CREATEMAN|TEXT|&nbsp;|
-|更新人|UPDATEMAN|TEXT|&nbsp;|
-|更新时间|UPDATEDATE|DATETIME|&nbsp;|
 |角色|REPORT_ROLE|SMCODELIST|&nbsp;|
 |类型|TYPE|SSCODELIST|&nbsp;|
+|建立时间|CREATEDATE|DATETIME|&nbsp;|
+|更新时间|UPDATEDATE|DATETIME|&nbsp;|
+|建立人|CREATEMAN|TEXT|&nbsp;|
+|更新人|UPDATEMAN|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
 | --------   |------------| ----- | 
 |汇报角色配置名称|默认规则|内容长度必须小于等于[200]|
 |汇报角色配置标识|默认规则|内容长度必须小于等于[100]|
-|建立时间|默认规则|默认规则|
-|建立人|默认规则|内容长度必须小于等于[60]|
-|更新人|默认规则|内容长度必须小于等于[60]|
-|更新时间|默认规则|默认规则|
 |角色|默认规则|内容长度必须小于等于[2000]|
 |类型|默认规则|内容长度必须小于等于[60]|
+|建立时间|默认规则|默认规则|
+|更新时间|默认规则|默认规则|
+|建立人|默认规则|内容长度必须小于等于[60]|
+|更新人|默认规则|内容长度必须小于等于[60]|
 
 ## 状态控制
 

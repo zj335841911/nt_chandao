@@ -135,14 +135,6 @@ export interface SysDepartment {
     enable?: any;
 
     /**
-     * 建立人
-     *
-     * @returns {*}
-     * @memberof SysDepartment
-     */
-    createman?: any;
-
-    /**
      * 更新人
      *
      * @returns {*}
@@ -157,4 +149,12 @@ export interface SysDepartment {
      * @memberof SysDepartment
      */
     updatedate?: any;
+
+    /**
+     * 建立人
+     *
+     * @returns {*}
+     * @memberof SysDepartment
+     */
+    createman?: any;
 }

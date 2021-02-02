@@ -23,6 +23,22 @@ export interface File {
     objectid?: any;
 
     /**
+     * 显示大小
+     *
+     * @returns {*}
+     * @memberof File
+     */
+    strsize?: any;
+
+    /**
+     * 文档类型
+     *
+     * @returns {*}
+     * @memberof File
+     */
+    doclibtype?: any;
+
+    /**
      * 已删除
      *
      * @returns {*}
@@ -101,20 +117,4 @@ export interface File {
      * @memberof File
      */
     extra?: any;
-
-    /**
-     * 显示大小
-     *
-     * @returns {*}
-     * @memberof File
-     */
-    strsize?: any;
-
-    /**
-     * 文档类型
-     *
-     * @returns {*}
-     * @memberof File
-     */
-    doclibtype?: any;
 }

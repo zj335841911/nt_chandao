@@ -49,6 +49,23 @@ public class ProjectDTO extends DTOBase implements Serializable {
     private Timestamp begin;
 
     /**
+     * 属性 [HOURS]
+     *
+     */
+    @JSONField(name = "hours")
+    @JsonProperty("hours")
+    private BigDecimal hours;
+
+    /**
+     * 属性 [PMSEEPROJECTINFO]
+     *
+     */
+    @JSONField(name = "pmseeprojectinfo")
+    @JsonProperty("pmseeprojectinfo")
+    @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
+    private String pmseeprojectinfo;
+
+    /**
      * 属性 [ACL]
      *
      */
@@ -67,6 +84,40 @@ public class ProjectDTO extends DTOBase implements Serializable {
     private String deleted;
 
     /**
+     * 属性 [TOTALCONSUMED]
+     *
+     */
+    @JSONField(name = "totalconsumed")
+    @JsonProperty("totalconsumed")
+    private Double totalconsumed;
+
+    /**
+     * 属性 [PRODUCTS]
+     *
+     */
+    @JSONField(name = "products")
+    @JsonProperty("products")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String products;
+
+    /**
+     * 属性 [YCOMPLETETASKCNT]
+     *
+     */
+    @JSONField(name = "ycompletetaskcnt")
+    @JsonProperty("ycompletetaskcnt")
+    private Integer ycompletetaskcnt;
+
+    /**
+     * 属性 [PLANS]
+     *
+     */
+    @JSONField(name = "plans")
+    @JsonProperty("plans")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String plans;
+
+    /**
      * 属性 [DESC]
      *
      */
@@ -76,6 +127,54 @@ public class ProjectDTO extends DTOBase implements Serializable {
     private String desc;
 
     /**
+     * 属性 [TEMPTASKCNT]
+     *
+     */
+    @JSONField(name = "temptaskcnt")
+    @JsonProperty("temptaskcnt")
+    private Integer temptaskcnt;
+
+    /**
+     * 属性 [DOCLIBCNT]
+     *
+     */
+    @JSONField(name = "doclibcnt")
+    @JsonProperty("doclibcnt")
+    private Integer doclibcnt;
+
+    /**
+     * 属性 [MYCOMPLETETASKCNT]
+     *
+     */
+    @JSONField(name = "mycompletetaskcnt")
+    @JsonProperty("mycompletetaskcnt")
+    private Integer mycompletetaskcnt;
+
+    /**
+     * 属性 [ISTOP]
+     *
+     */
+    @JSONField(name = "istop")
+    @JsonProperty("istop")
+    private Integer istop;
+
+    /**
+     * 属性 [UNCOMPLETETASKCNT]
+     *
+     */
+    @JSONField(name = "uncompletetaskcnt")
+    @JsonProperty("uncompletetaskcnt")
+    private Integer uncompletetaskcnt;
+
+    /**
+     * 属性 [TEAMCNT]
+     *
+     */
+    @JSONField(name = "teamcnt")
+    @JsonProperty("teamcnt")
+    private Integer teamcnt;
+
+    /**
      * 属性 [PM]
      *
      */
@@ -83,6 +182,15 @@ public class ProjectDTO extends DTOBase implements Serializable {
     @JsonProperty("pm")
     @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
     private String pm;
+
+    /**
+     * 属性 [DEPT]
+     *
+     */
+    @JSONField(name = "dept")
+    @JsonProperty("dept")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String dept;
 
     /**
      * 属性 [ID]
@@ -113,12 +221,29 @@ public class ProjectDTO extends DTOBase implements Serializable {
     private String substatus;
 
     /**
+     * 属性 [ROLE]
+     *
+     */
+    @JSONField(name = "role")
+    @JsonProperty("role")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String role;
+
+    /**
      * 属性 [ORDER]
      *
      */
     @JSONField(name = "order")
     @JsonProperty("order")
     private Integer order;
+
+    /**
+     * 属性 [BUGCNT]
+     *
+     */
+    @JSONField(name = "bugcnt")
+    @JsonProperty("bugcnt")
+    private Integer bugcnt;
 
     /**
      * 属性 [RD]
@@ -130,6 +255,23 @@ public class ProjectDTO extends DTOBase implements Serializable {
     private String rd;
 
     /**
+     * 属性 [MANAGEMEMBERS]
+     *
+     */
+    @JSONField(name = "managemembers")
+    @JsonProperty("managemembers")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String managemembers;
+
+    /**
+     * 属性 [YSTARTASKCNT]
+     *
+     */
+    @JSONField(name = "ystarttaskcnt")
+    @JsonProperty("ystarttaskcnt")
+    private Integer ystarttaskcnt;
+
+    /**
      * 属性 [WHITELIST]
      *
      */
@@ -137,6 +279,31 @@ public class ProjectDTO extends DTOBase implements Serializable {
     @JsonProperty("whitelist")
     @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
     private String whitelist;
+
+    /**
+     * 属性 [MOBIMAGE]
+     *
+     */
+    @JSONField(name = "mobimage")
+    @JsonProperty("mobimage")
+    @Size(min = 0, max = 4000, message = "内容长度必须小于等于[4000]")
+    private String mobimage;
+
+    /**
+     * 属性 [TOTALWH]
+     *
+     */
+    @JSONField(name = "totalwh")
+    @JsonProperty("totalwh")
+    private Integer totalwh;
+
+    /**
+     * 属性 [TOTALHOURS]
+     *
+     */
+    @JSONField(name = "totalhours")
+    @JsonProperty("totalhours")
+    private BigDecimal totalhours;
 
     /**
      * 属性 [PRI]
@@ -167,6 +334,57 @@ public class ProjectDTO extends DTOBase implements Serializable {
     private Timestamp canceleddate;
 
     /**
+     * 属性 [PLANTASKCNT]
+     *
+     */
+    @JSONField(name = "plantaskcnt")
+    @JsonProperty("plantaskcnt")
+    private Integer plantaskcnt;
+
+    /**
+     * 属性 [JOIN]
+     *
+     */
+    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "join" , format="yyyy-MM-dd")
+    @JsonProperty("join")
+    private Timestamp join;
+
+    /**
+     * 属性 [TOTALESTIMATE]
+     *
+     */
+    @JSONField(name = "totalestimate")
+    @JsonProperty("totalestimate")
+    private Double totalestimate;
+
+    /**
+     * 属性 [MDEPTID]
+     *
+     */
+    @JSONField(name = "mdeptid")
+    @JsonProperty("mdeptid")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String mdeptid;
+
+    /**
+     * 属性 [TOTALLEFT]
+     *
+     */
+    @JSONField(name = "totalleft")
+    @JsonProperty("totalleft")
+    private Double totalleft;
+
+    /**
+     * 属性 [SRFARRAY]
+     *
+     */
+    @JSONField(name = "srfarray")
+    @JsonProperty("srfarray")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String srfarray;
+
+    /**
      * 属性 [CODE]
      *
      */
@@ -174,6 +392,32 @@ public class ProjectDTO extends DTOBase implements Serializable {
     @JsonProperty("code")
     @Size(min = 0, max = 45, message = "内容长度必须小于等于[45]")
     private String code;
+
+    /**
+     * 属性 [PERIOD]
+     *
+     */
+    @JSONField(name = "period")
+    @JsonProperty("period")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String period;
+
+    /**
+     * 属性 [CLOSETASKCNT]
+     *
+     */
+    @JSONField(name = "closetaskcnt")
+    @JsonProperty("closetaskcnt")
+    private Integer closetaskcnt;
+
+    /**
+     * 属性 [BRANCHS]
+     *
+     */
+    @JSONField(name = "branchs")
+    @JsonProperty("branchs")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String branchs;
 
     /**
      * 属性 [CATID]
@@ -184,6 +428,41 @@ public class ProjectDTO extends DTOBase implements Serializable {
     private Integer catid;
 
     /**
+     * 属性 [ORGID]
+     *
+     */
+    @JSONField(name = "orgid")
+    @JsonProperty("orgid")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String orgid;
+
+    /**
+     * 属性 [UNSTARTTASKCNT]
+     *
+     */
+    @JSONField(name = "unstarttaskcnt")
+    @JsonProperty("unstarttaskcnt")
+    private Integer unstarttaskcnt;
+
+    /**
+     * 属性 [ACCOUNTS]
+     *
+     */
+    @JSONField(name = "accounts")
+    @JsonProperty("accounts")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String accounts;
+
+    /**
+     * 属性 [NOTICEUSERS]
+     *
+     */
+    @JSONField(name = "noticeusers")
+    @JsonProperty("noticeusers")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String noticeusers;
+
+    /**
      * 属性 [STATGE]
      *
      */
@@ -191,6 +470,39 @@ public class ProjectDTO extends DTOBase implements Serializable {
     @JsonProperty("statge")
     @Size(min = 0, max = 1, message = "内容长度必须小于等于[1]")
     private String statge;
+
+    /**
+     * 属性 [CANCELTASKCNT]
+     *
+     */
+    @JSONField(name = "canceltaskcnt")
+    @JsonProperty("canceltaskcnt")
+    private Integer canceltaskcnt;
+
+    /**
+     * 属性 [TASKCNT]
+     *
+     */
+    @JSONField(name = "taskcnt")
+    @JsonProperty("taskcnt")
+    private Integer taskcnt;
+
+    /**
+     * 属性 [ALLTASKCNT]
+     *
+     */
+    @JSONField(name = "alltaskcnt")
+    @JsonProperty("alltaskcnt")
+    private Integer alltaskcnt;
+
+    /**
+     * 属性 [SUPPROREPORT]
+     *
+     */
+    @JSONField(name = "supproreport")
+    @JsonProperty("supproreport")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    private String supproreport;
 
     /**
      * 属性 [CANCELEDBY]
@@ -220,6 +532,22 @@ public class ProjectDTO extends DTOBase implements Serializable {
     private Timestamp openeddate;
 
     /**
+     * 属性 [UNCLOSETASKCNT]
+     *
+     */
+    @JSONField(name = "unclosetaskcnt")
+    @JsonProperty("unclosetaskcnt")
+    private Integer unclosetaskcnt;
+
+    /**
+     * 属性 [STORYCHANGECNT]
+     *
+     */
+    @JSONField(name = "storychangecnt")
+    @JsonProperty("storychangecnt")
+    private Integer storychangecnt;
+
+    /**
      * 属性 [CLOSEDBY]
      *
      */
@@ -238,6 +566,23 @@ public class ProjectDTO extends DTOBase implements Serializable {
     private String type;
 
     /**
+     * 属性 [BUILDCNT]
+     *
+     */
+    @JSONField(name = "buildcnt")
+    @JsonProperty("buildcnt")
+    private Integer buildcnt;
+
+    /**
+     * 属性 [ACCOUNT]
+     *
+     */
+    @JSONField(name = "account")
+    @JsonProperty("account")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String account;
+
+    /**
      * 属性 [PO]
      *
      */
@@ -245,6 +590,22 @@ public class ProjectDTO extends DTOBase implements Serializable {
     @JsonProperty("po")
     @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
     private String po;
+
+    /**
+     * 属性 [ASSTOMYTASKCNT]
+     *
+     */
+    @JSONField(name = "asstomytaskcnt")
+    @JsonProperty("asstomytaskcnt")
+    private Integer asstomytaskcnt;
+
+    /**
+     * 属性 [ORDER1]
+     *
+     */
+    @JSONField(name = "order1")
+    @JsonProperty("order1")
+    private Integer order1;
 
     /**
      * 属性 [STATUS]
@@ -256,12 +617,28 @@ public class ProjectDTO extends DTOBase implements Serializable {
     private String status;
 
     /**
+     * 属性 [MORETASKCNT]
+     *
+     */
+    @JSONField(name = "moretaskcnt")
+    @JsonProperty("moretaskcnt")
+    private Integer moretaskcnt;
+
+    /**
      * 属性 [DAYS]
      *
      */
     @JSONField(name = "days")
     @JsonProperty("days")
     private Integer days;
+
+    /**
+     * 属性 [CYCLETASKCNT]
+     *
+     */
+    @JSONField(name = "cycletaskcnt")
+    @JsonProperty("cycletaskcnt")
+    private Integer cycletaskcnt;
 
     /**
      * 属性 [TEAM]
@@ -282,6 +659,15 @@ public class ProjectDTO extends DTOBase implements Serializable {
     private Timestamp closeddate;
 
     /**
+     * 属性 [COMMENT]
+     *
+     */
+    @JSONField(name = "comment")
+    @JsonProperty("comment")
+    @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
+    private String comment;
+
+    /**
      * 属性 [OPENEDBY]
      *
      */
@@ -289,6 +675,14 @@ public class ProjectDTO extends DTOBase implements Serializable {
     @JsonProperty("openedby")
     @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
     private String openedby;
+
+    /**
+     * 属性 [STORYCNT]
+     *
+     */
+    @JSONField(name = "storycnt")
+    @JsonProperty("storycnt")
+    private Integer storycnt;
 
     /**
      * 属性 [QD]
@@ -317,400 +711,6 @@ public class ProjectDTO extends DTOBase implements Serializable {
     @JsonSerialize(using = ToStringSerializer.class)
     private Long parent;
 
-    /**
-     * 属性 [TASKCNT]
-     *
-     */
-    @JSONField(name = "taskcnt")
-    @JsonProperty("taskcnt")
-    private Integer taskcnt;
-
-    /**
-     * 属性 [BUGCNT]
-     *
-     */
-    @JSONField(name = "bugcnt")
-    @JsonProperty("bugcnt")
-    private Integer bugcnt;
-
-    /**
-     * 属性 [STORYCNT]
-     *
-     */
-    @JSONField(name = "storycnt")
-    @JsonProperty("storycnt")
-    private Integer storycnt;
-
-    /**
-     * 属性 [PRODUCTS]
-     *
-     */
-    @JSONField(name = "products")
-    @JsonProperty("products")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String products;
-
-    /**
-     * 属性 [BRANCHS]
-     *
-     */
-    @JSONField(name = "branchs")
-    @JsonProperty("branchs")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String branchs;
-
-    /**
-     * 属性 [PLANS]
-     *
-     */
-    @JSONField(name = "plans")
-    @JsonProperty("plans")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String plans;
-
-    /**
-     * 属性 [SRFARRAY]
-     *
-     */
-    @JSONField(name = "srfarray")
-    @JsonProperty("srfarray")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String srfarray;
-
-    /**
-     * 属性 [COMMENT]
-     *
-     */
-    @JSONField(name = "comment")
-    @JsonProperty("comment")
-    @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
-    private String comment;
-
-    /**
-     * 属性 [PERIOD]
-     *
-     */
-    @JSONField(name = "period")
-    @JsonProperty("period")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String period;
-
-    /**
-     * 属性 [ACCOUNT]
-     *
-     */
-    @JSONField(name = "account")
-    @JsonProperty("account")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String account;
-
-    /**
-     * 属性 [JOIN]
-     *
-     */
-    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "join" , format="yyyy-MM-dd")
-    @JsonProperty("join")
-    private Timestamp join;
-
-    /**
-     * 属性 [HOURS]
-     *
-     */
-    @JSONField(name = "hours")
-    @JsonProperty("hours")
-    private BigDecimal hours;
-
-    /**
-     * 属性 [ROLE]
-     *
-     */
-    @JSONField(name = "role")
-    @JsonProperty("role")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String role;
-
-    /**
-     * 属性 [TOTALCONSUMED]
-     *
-     */
-    @JSONField(name = "totalconsumed")
-    @JsonProperty("totalconsumed")
-    private Double totalconsumed;
-
-    /**
-     * 属性 [TOTALWH]
-     *
-     */
-    @JSONField(name = "totalwh")
-    @JsonProperty("totalwh")
-    private Integer totalwh;
-
-    /**
-     * 属性 [TOTALLEFT]
-     *
-     */
-    @JSONField(name = "totalleft")
-    @JsonProperty("totalleft")
-    private Double totalleft;
-
-    /**
-     * 属性 [TOTALESTIMATE]
-     *
-     */
-    @JSONField(name = "totalestimate")
-    @JsonProperty("totalestimate")
-    private Double totalestimate;
-
-    /**
-     * 属性 [TOTALHOURS]
-     *
-     */
-    @JSONField(name = "totalhours")
-    @JsonProperty("totalhours")
-    private BigDecimal totalhours;
-
-    /**
-     * 属性 [MOBIMAGE]
-     *
-     */
-    @JSONField(name = "mobimage")
-    @JsonProperty("mobimage")
-    @Size(min = 0, max = 4000, message = "内容长度必须小于等于[4000]")
-    private String mobimage;
-
-    /**
-     * 属性 [ACCOUNTS]
-     *
-     */
-    @JSONField(name = "accounts")
-    @JsonProperty("accounts")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String accounts;
-
-    /**
-     * 属性 [ORDER1]
-     *
-     */
-    @JSONField(name = "order1")
-    @JsonProperty("order1")
-    private Integer order1;
-
-    /**
-     * 属性 [ISTOP]
-     *
-     */
-    @JSONField(name = "istop")
-    @JsonProperty("istop")
-    private Integer istop;
-
-    /**
-     * 属性 [DEPT]
-     *
-     */
-    @JSONField(name = "dept")
-    @JsonProperty("dept")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String dept;
-
-    /**
-     * 属性 [MANAGEMEMBERS]
-     *
-     */
-    @JSONField(name = "managemembers")
-    @JsonProperty("managemembers")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String managemembers;
-
-    /**
-     * 属性 [BUILDCNT]
-     *
-     */
-    @JSONField(name = "buildcnt")
-    @JsonProperty("buildcnt")
-    private Integer buildcnt;
-
-    /**
-     * 属性 [TEAMCNT]
-     *
-     */
-    @JSONField(name = "teamcnt")
-    @JsonProperty("teamcnt")
-    private Integer teamcnt;
-
-    /**
-     * 属性 [ALLTASKCNT]
-     *
-     */
-    @JSONField(name = "alltaskcnt")
-    @JsonProperty("alltaskcnt")
-    private Integer alltaskcnt;
-
-    /**
-     * 属性 [UNCLOSETASKCNT]
-     *
-     */
-    @JSONField(name = "unclosetaskcnt")
-    @JsonProperty("unclosetaskcnt")
-    private Integer unclosetaskcnt;
-
-    /**
-     * 属性 [ASSTOMYTASKCNT]
-     *
-     */
-    @JSONField(name = "asstomytaskcnt")
-    @JsonProperty("asstomytaskcnt")
-    private Integer asstomytaskcnt;
-
-    /**
-     * 属性 [UNSTARTTASKCNT]
-     *
-     */
-    @JSONField(name = "unstarttaskcnt")
-    @JsonProperty("unstarttaskcnt")
-    private Integer unstarttaskcnt;
-
-    /**
-     * 属性 [MORETASKCNT]
-     *
-     */
-    @JSONField(name = "moretaskcnt")
-    @JsonProperty("moretaskcnt")
-    private Integer moretaskcnt;
-
-    /**
-     * 属性 [YSTARTASKCNT]
-     *
-     */
-    @JSONField(name = "ystarttaskcnt")
-    @JsonProperty("ystarttaskcnt")
-    private Integer ystarttaskcnt;
-
-    /**
-     * 属性 [UNCOMPLETETASKCNT]
-     *
-     */
-    @JSONField(name = "uncompletetaskcnt")
-    @JsonProperty("uncompletetaskcnt")
-    private Integer uncompletetaskcnt;
-
-    /**
-     * 属性 [YCOMPLETETASKCNT]
-     *
-     */
-    @JSONField(name = "ycompletetaskcnt")
-    @JsonProperty("ycompletetaskcnt")
-    private Integer ycompletetaskcnt;
-
-    /**
-     * 属性 [MYCOMPLETETASKCNT]
-     *
-     */
-    @JSONField(name = "mycompletetaskcnt")
-    @JsonProperty("mycompletetaskcnt")
-    private Integer mycompletetaskcnt;
-
-    /**
-     * 属性 [CLOSETASKCNT]
-     *
-     */
-    @JSONField(name = "closetaskcnt")
-    @JsonProperty("closetaskcnt")
-    private Integer closetaskcnt;
-
-    /**
-     * 属性 [CANCELTASKCNT]
-     *
-     */
-    @JSONField(name = "canceltaskcnt")
-    @JsonProperty("canceltaskcnt")
-    private Integer canceltaskcnt;
-
-    /**
-     * 属性 [STORYCHANGECNT]
-     *
-     */
-    @JSONField(name = "storychangecnt")
-    @JsonProperty("storychangecnt")
-    private Integer storychangecnt;
-
-    /**
-     * 属性 [NOTICEUSERS]
-     *
-     */
-    @JSONField(name = "noticeusers")
-    @JsonProperty("noticeusers")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String noticeusers;
-
-    /**
-     * 属性 [DOCLIBCNT]
-     *
-     */
-    @JSONField(name = "doclibcnt")
-    @JsonProperty("doclibcnt")
-    private Integer doclibcnt;
-
-    /**
-     * 属性 [ORGID]
-     *
-     */
-    @JSONField(name = "orgid")
-    @JsonProperty("orgid")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String orgid;
-
-    /**
-     * 属性 [MDEPTID]
-     *
-     */
-    @JSONField(name = "mdeptid")
-    @JsonProperty("mdeptid")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String mdeptid;
-
-    /**
-     * 属性 [SUPPROREPORT]
-     *
-     */
-    @JSONField(name = "supproreport")
-    @JsonProperty("supproreport")
-    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
-    private String supproreport;
-
-    /**
-     * 属性 [PMSEEPROJECTINFO]
-     *
-     */
-    @JSONField(name = "pmseeprojectinfo")
-    @JsonProperty("pmseeprojectinfo")
-    @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
-    private String pmseeprojectinfo;
-
-    /**
-     * 属性 [TEMPTASKCNT]
-     *
-     */
-    @JSONField(name = "temptaskcnt")
-    @JsonProperty("temptaskcnt")
-    private Integer temptaskcnt;
-
-    /**
-     * 属性 [CYCLETASKCNT]
-     *
-     */
-    @JSONField(name = "cycletaskcnt")
-    @JsonProperty("cycletaskcnt")
-    private Integer cycletaskcnt;
-
-    /**
-     * 属性 [PLANTASKCNT]
-     *
-     */
-    @JSONField(name = "plantaskcnt")
-    @JsonProperty("plantaskcnt")
-    private Integer plantaskcnt;
-
 
     /**
      * 设置 [OPENEDVERSION]
@@ -726,6 +726,14 @@ public class ProjectDTO extends DTOBase implements Serializable {
     public void setBegin(Timestamp  begin){
         this.begin = begin ;
         this.modify("begin",begin);
+    }
+
+    /**
+     * 设置 [PMSEEPROJECTINFO]
+     */
+    public void setPmseeprojectinfo(String  pmseeprojectinfo){
+        this.pmseeprojectinfo = pmseeprojectinfo ;
+        this.modify("pmseeprojectinfo",pmseeprojectinfo);
     }
 
     /**
@@ -841,6 +849,14 @@ public class ProjectDTO extends DTOBase implements Serializable {
     }
 
     /**
+     * 设置 [SUPPROREPORT]
+     */
+    public void setSupproreport(String  supproreport){
+        this.supproreport = supproreport ;
+        this.modify("supproreport",supproreport);
+    }
+
+    /**
      * 设置 [CANCELEDBY]
      */
     public void setCanceledby(String  canceledby){
@@ -926,22 +942,6 @@ public class ProjectDTO extends DTOBase implements Serializable {
     public void setParent(Long  parent){
         this.parent = parent ;
         this.modify("parent",parent);
-    }
-
-    /**
-     * 设置 [SUPPROREPORT]
-     */
-    public void setSupproreport(String  supproreport){
-        this.supproreport = supproreport ;
-        this.modify("supproreport",supproreport);
-    }
-
-    /**
-     * 设置 [PMSEEPROJECTINFO]
-     */
-    public void setPmseeprojectinfo(String  pmseeprojectinfo){
-        this.pmseeprojectinfo = pmseeprojectinfo ;
-        this.modify("pmseeprojectinfo",pmseeprojectinfo);
     }
 
 

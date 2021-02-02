@@ -141,7 +141,7 @@ export class FileProjectGridViewFileBase extends GridViewBase {
      * @type {string}
      * @memberof FileProjectGridViewFileBase
      */
-	protected viewtag: string = '007d984e6319843d935a48b30587ab1b';
+	protected viewtag: string = '7ef300c01cce979e53218b74c8243d2a';
 
     /**
      * 视图名称

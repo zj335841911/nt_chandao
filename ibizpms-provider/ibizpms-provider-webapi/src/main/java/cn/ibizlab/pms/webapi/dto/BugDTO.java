@@ -46,6 +46,15 @@ public class BugDTO extends DTOBase implements Serializable {
     private Integer storyversion;
 
     /**
+     * 属性 [BUILDNAME]
+     *
+     */
+    @JSONField(name = "buildname")
+    @JsonProperty("buildname")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String buildname;
+
+    /**
      * 属性 [LINKBUG]
      *
      */
@@ -62,6 +71,22 @@ public class BugDTO extends DTOBase implements Serializable {
     @JSONField(name = "activateddate" , format="yyyy-MM-dd")
     @JsonProperty("activateddate")
     private Timestamp activateddate;
+
+    /**
+     * 属性 [OVERDUEBUGS]
+     *
+     */
+    @JSONField(name = "overduebugs")
+    @JsonProperty("overduebugs")
+    private Integer overduebugs;
+
+    /**
+     * 属性 [CREATEBUILD]
+     *
+     */
+    @JSONField(name = "createbuild")
+    @JsonProperty("createbuild")
+    private Integer createbuild;
 
     /**
      * 属性 [ASSIGNEDTO]
@@ -91,6 +116,15 @@ public class BugDTO extends DTOBase implements Serializable {
     private Timestamp lastediteddate;
 
     /**
+     * 属性 [MOBIMAGE]
+     *
+     */
+    @JSONField(name = "mobimage")
+    @JsonProperty("mobimage")
+    @Size(min = 0, max = 4000, message = "内容长度必须小于等于[4000]")
+    private String mobimage;
+
+    /**
      * 属性 [RESULT]
      *
      */
@@ -106,6 +140,24 @@ public class BugDTO extends DTOBase implements Serializable {
     @JsonProperty("keywords")
     @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
     private String keywords;
+
+    /**
+     * 属性 [ISFAVORITES]
+     *
+     */
+    @JSONField(name = "isfavorites")
+    @JsonProperty("isfavorites")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String isfavorites;
+
+    /**
+     * 属性 [MODULENAME1]
+     *
+     */
+    @JSONField(name = "modulename1")
+    @JsonProperty("modulename1")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String modulename1;
 
     /**
      * 属性 [CLOSEDBY]
@@ -124,6 +176,15 @@ public class BugDTO extends DTOBase implements Serializable {
     @JsonProperty("browser")
     @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
     private String browser;
+
+    /**
+     * 属性 [NOTICEUSERS]
+     *
+     */
+    @JSONField(name = "noticeusers")
+    @JsonProperty("noticeusers")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String noticeusers;
 
     /**
      * 属性 [STEPS]
@@ -150,6 +211,15 @@ public class BugDTO extends DTOBase implements Serializable {
     @JSONField(name = "confirmed")
     @JsonProperty("confirmed")
     private Integer confirmed;
+
+    /**
+     * 属性 [MAILTOCONACT]
+     *
+     */
+    @JSONField(name = "mailtoconact")
+    @JsonProperty("mailtoconact")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String mailtoconact;
 
     /**
      * 属性 [OPENEDBY]
@@ -223,6 +293,15 @@ public class BugDTO extends DTOBase implements Serializable {
     private String color;
 
     /**
+     * 属性 [COMMENT]
+     *
+     */
+    @JSONField(name = "comment")
+    @JsonProperty("comment")
+    @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
+    private String comment;
+
+    /**
      * 属性 [RESOLVEDDATE]
      *
      */
@@ -257,6 +336,33 @@ public class BugDTO extends DTOBase implements Serializable {
     @JsonProperty("openedbuild")
     @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
     private String openedbuild;
+
+    /**
+     * 属性 [DELAYRESOLVE]
+     *
+     */
+    @JSONField(name = "delayresolve")
+    @JsonProperty("delayresolve")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String delayresolve;
+
+    /**
+     * 属性 [FILES]
+     *
+     */
+    @JSONField(name = "files")
+    @JsonProperty("files")
+    @Size(min = 0, max = 1000, message = "内容长度必须小于等于[1000]")
+    private String files;
+
+    /**
+     * 属性 [MAILTOPK]
+     *
+     */
+    @JSONField(name = "mailtopk")
+    @JsonProperty("mailtopk")
+    @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
+    private String mailtopk;
 
     /**
      * 属性 [V1]
@@ -295,6 +401,15 @@ public class BugDTO extends DTOBase implements Serializable {
     private String substatus;
 
     /**
+     * 属性 [BUILDPROJECT]
+     *
+     */
+    @JSONField(name = "buildproject")
+    @JsonProperty("buildproject")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String buildproject;
+
+    /**
      * 属性 [ID]
      *
      */
@@ -302,6 +417,15 @@ public class BugDTO extends DTOBase implements Serializable {
     @JsonProperty("id")
     @JsonSerialize(using = ToStringSerializer.class)
     private Long id;
+
+    /**
+     * 属性 [DELAY]
+     *
+     */
+    @JSONField(name = "delay")
+    @JsonProperty("delay")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String delay;
 
     /**
      * 属性 [FOUND]
@@ -385,6 +509,33 @@ public class BugDTO extends DTOBase implements Serializable {
     private String productname;
 
     /**
+     * 属性 [BRANCHNAME]
+     *
+     */
+    @JSONField(name = "branchname")
+    @JsonProperty("branchname")
+    @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
+    private String branchname;
+
+    /**
+     * 属性 [TASKNAME]
+     *
+     */
+    @JSONField(name = "taskname")
+    @JsonProperty("taskname")
+    @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
+    private String taskname;
+
+    /**
+     * 属性 [CASENAME]
+     *
+     */
+    @JSONField(name = "casename")
+    @JsonProperty("casename")
+    @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
+    private String casename;
+
+    /**
      * 属性 [PROJECTNAME]
      *
      */
@@ -418,6 +569,15 @@ public class BugDTO extends DTOBase implements Serializable {
     @JsonProperty("repotype")
     @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
     private String repotype;
+
+    /**
+     * 属性 [MODULENAME]
+     *
+     */
+    @JSONField(name = "modulename")
+    @JsonProperty("modulename")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    private String modulename;
 
     /**
      * 属性 [TOSTORY]
@@ -544,166 +704,6 @@ public class BugDTO extends DTOBase implements Serializable {
     @JsonProperty("testtask")
     @JsonSerialize(using = ToStringSerializer.class)
     private Long testtask;
-
-    /**
-     * 属性 [COMMENT]
-     *
-     */
-    @JSONField(name = "comment")
-    @JsonProperty("comment")
-    @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
-    private String comment;
-
-    /**
-     * 属性 [TASKNAME]
-     *
-     */
-    @JSONField(name = "taskname")
-    @JsonProperty("taskname")
-    @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
-    private String taskname;
-
-    /**
-     * 属性 [MODULENAME]
-     *
-     */
-    @JSONField(name = "modulename")
-    @JsonProperty("modulename")
-    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
-    private String modulename;
-
-    /**
-     * 属性 [BRANCHNAME]
-     *
-     */
-    @JSONField(name = "branchname")
-    @JsonProperty("branchname")
-    @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
-    private String branchname;
-
-    /**
-     * 属性 [MODULENAME1]
-     *
-     */
-    @JSONField(name = "modulename1")
-    @JsonProperty("modulename1")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String modulename1;
-
-    /**
-     * 属性 [FILES]
-     *
-     */
-    @JSONField(name = "files")
-    @JsonProperty("files")
-    @Size(min = 0, max = 1000, message = "内容长度必须小于等于[1000]")
-    private String files;
-
-    /**
-     * 属性 [MOBIMAGE]
-     *
-     */
-    @JSONField(name = "mobimage")
-    @JsonProperty("mobimage")
-    @Size(min = 0, max = 4000, message = "内容长度必须小于等于[4000]")
-    private String mobimage;
-
-    /**
-     * 属性 [ISFAVORITES]
-     *
-     */
-    @JSONField(name = "isfavorites")
-    @JsonProperty("isfavorites")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String isfavorites;
-
-    /**
-     * 属性 [BUILDNAME]
-     *
-     */
-    @JSONField(name = "buildname")
-    @JsonProperty("buildname")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String buildname;
-
-    /**
-     * 属性 [BUILDPROJECT]
-     *
-     */
-    @JSONField(name = "buildproject")
-    @JsonProperty("buildproject")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String buildproject;
-
-    /**
-     * 属性 [CREATEBUILD]
-     *
-     */
-    @JSONField(name = "createbuild")
-    @JsonProperty("createbuild")
-    private Integer createbuild;
-
-    /**
-     * 属性 [OVERDUEBUGS]
-     *
-     */
-    @JSONField(name = "overduebugs")
-    @JsonProperty("overduebugs")
-    private Integer overduebugs;
-
-    /**
-     * 属性 [CASENAME]
-     *
-     */
-    @JSONField(name = "casename")
-    @JsonProperty("casename")
-    @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
-    private String casename;
-
-    /**
-     * 属性 [DELAY]
-     *
-     */
-    @JSONField(name = "delay")
-    @JsonProperty("delay")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String delay;
-
-    /**
-     * 属性 [NOTICEUSERS]
-     *
-     */
-    @JSONField(name = "noticeusers")
-    @JsonProperty("noticeusers")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String noticeusers;
-
-    /**
-     * 属性 [MAILTOPK]
-     *
-     */
-    @JSONField(name = "mailtopk")
-    @JsonProperty("mailtopk")
-    @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
-    private String mailtopk;
-
-    /**
-     * 属性 [MAILTOCONACT]
-     *
-     */
-    @JSONField(name = "mailtoconact")
-    @JsonProperty("mailtoconact")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String mailtoconact;
-
-    /**
-     * 属性 [DELAYRESOLVE]
-     *
-     */
-    @JSONField(name = "delayresolve")
-    @JsonProperty("delayresolve")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String delayresolve;
 
 
     /**

@@ -118,7 +118,7 @@ export class IbzCaseDashboardViewBase extends DashboardViewBase {
      * @type {string}
      * @memberof IbzCaseDashboardViewBase
      */
-	protected viewtag: string = 'd211890c5a2b8d62649bc26c32ef40ec';
+	protected viewtag: string = 'cbb71f998dc532ef4a5ff32525a46284';
 
     /**
      * 视图名称

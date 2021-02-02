@@ -15,95 +15,121 @@ export default class TabExpViewtabviewpanel15Model {
   public getDataItems(): any[] {
     return [
       {
-        name: 'fails',
-      },
-      {
-        name: 'address',
-      },
-      {
-        name: 'password',
-      },
-      {
-        name: 'weixin',
-      },
-      {
-        name: 'dingding',
-      },
-      {
-        name: 'account',
-      },
-      {
-        name: 'ranzhi',
-      },
-      {
-        name: 'slack',
-      },
-      {
-        name: 'realname',
-      },
-      {
-        name: 'locked',
-      },
-      {
-        name: 'scorelevel',
-      },
-      {
-        name: 'avatar',
-      },
-      {
-        name: 'zipcode',
-      },
-      {
-        name: 'dept',
-      },
-      {
-        name: 'commiter',
-      },
-      {
-        name: 'deleted',
-      },
-      {
-        name: 'last',
-      },
-      {
-        name: 'skype',
-      },
-      {
-        name: 'score',
-      },
-      {
-        name: 'whatsapp',
-      },
-      {
-        name: 'visits',
-      },
-      {
-        name: 'mobile',
-      },
-      {
-        name: 'clientlang',
-      },
-      {
-        name: 'join',
-      },
-      {
-        name: 'ip',
-      },
-      {
-        name: 'email',
+        name: 'myebugs',
       },
       {
         name: 'nickname',
       },
       {
+        name: 'fails',
+      },
+      {
+        name: 'visits',
+      },
+      {
         name: 'phone',
       },
       {
-        name: 'birthday',
+        name: 'mytodocnt',
       },
       {
-        name: 'ibzmyterritory',
-        prop: 'id',
+        name: 'myterritorycnt',
+      },
+      {
+        name: 'mybugs',
+      },
+      {
+        name: 'role',
+      },
+      {
+        name: 'realname',
+      },
+      {
+        name: 'clientstatus',
+      },
+      {
+        name: 'last',
+      },
+      {
+        name: 'zipcode',
+      },
+      {
+        name: 'skype',
+      },
+      {
+        name: 'myfavoritebugs',
+      },
+      {
+        name: 'join',
+      },
+      {
+        name: 'score',
+      },
+      {
+        name: 'dept',
+      },
+      {
+        name: 'account',
+      },
+      {
+        name: 'myfavorites',
+      },
+      {
+        name: 'mystorys',
+      },
+      {
+        name: 'commiter',
+      },
+      {
+        name: 'mobile',
+      },
+      {
+        name: 'locked',
+      },
+      {
+        name: 'projectteamcnt',
+      },
+      {
+        name: 'address',
+      },
+      {
+        name: 'mytasks',
+      },
+      {
+        name: 'scorelevel',
+      },
+      {
+        name: 'password',
+      },
+      {
+        name: 'leftlcbjzcnt',
+      },
+      {
+        name: 'ranzhi',
+      },
+      {
+        name: 'mytodocntjz',
+      },
+      {
+        name: 'projects',
+      },
+      {
+        name: 'slack',
+      },
+      {
+        name: 'products',
+      },
+      {
+        name: 'weixin',
+      },
+      {
+        name: 'myetasks',
+      },
+      {
+        name: 'eprojects',
+      },
+      {
+        name: 'whatsapp',
       },
       {
         name: 'qq',
@@ -112,64 +138,38 @@ export default class TabExpViewtabviewpanel15Model {
         name: 'gender',
       },
       {
-        name: 'role',
+        name: 'clientlang',
       },
       {
-        name: 'clientstatus',
-      },
-      {
-        name: 'mytasks',
-      },
-      {
-        name: 'mybugs',
-      },
-      {
-        name: 'myebugs',
-      },
-      {
-        name: 'mystorys',
-      },
-      {
-        name: 'products',
-      },
-      {
-        name: 'eprojects',
-      },
-      {
-        name: 'projects',
-      },
-      {
-        name: 'myetasks',
-      },
-      {
-        name: 'mytodocnt',
-      },
-      {
-        name: 'myfavoritestorys',
-      },
-      {
-        name: 'myfavoritebugs',
+        name: 'deleted',
       },
       {
         name: 'myfavoritetasks',
       },
       {
-        name: 'myfavorites',
+        name: 'birthday',
       },
       {
-        name: 'myterritorycnt',
+        name: 'ip',
       },
       {
-        name: 'mytodocntjz',
+        name: 'myfavoritestorys',
+      },
+      {
+        name: 'email',
+      },
+      {
+        name: 'dingding',
+      },
+      {
+        name: 'avatar',
+      },
+      {
+        name: 'ibzmyterritory',
+        prop: 'id',
       },
       {
         name: 'leftlcbcnt',
-      },
-      {
-        name: 'leftlcbjzcnt',
-      },
-      {
-        name: 'projectteamcnt',
       },
       {
         name: 'projectteamjzcnt',

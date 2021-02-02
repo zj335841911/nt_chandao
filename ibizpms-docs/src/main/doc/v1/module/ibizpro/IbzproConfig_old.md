@@ -9,32 +9,32 @@
 
 | 属性名称        |    中文名称    | 类型     |  备注  |
 | --------   |------------| -----   |  -------- | 
-|系统配置表名称|IBZPRO_CONFIGNAME|TEXT|&nbsp;|
-|系统配置表标识|IBZPRO_CONFIGID|GUID|&nbsp;|
 |更新人|UPDATEMAN|TEXT|&nbsp;|
+|系统配置表名称|IBZPRO_CONFIGNAME|TEXT|&nbsp;|
+|描述|MEMO|TEXT|&nbsp;|
 |更新时间|UPDATEDATE|DATETIME|&nbsp;|
 |建立时间|CREATEDATE|DATETIME|&nbsp;|
-|建立人|CREATEMAN|TEXT|&nbsp;|
+|系统配置表标识|IBZPRO_CONFIGID|GUID|&nbsp;|
 |范围|SCOPE|SSCODELIST|&nbsp;|
-|是否启用|VAILD|SSCODELIST|&nbsp;|
-|描述|MEMO|TEXT|&nbsp;|
 |类型|TYPE|SSCODELIST|&nbsp;|
 |管理现状|MANAGEMENTSTATUS|SSCODELIST|&nbsp;|
+|是否启用|VAILD|SSCODELIST|&nbsp;|
+|建立人|CREATEMAN|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
 | --------   |------------| ----- | 
-|系统配置表名称|默认规则|内容长度必须小于等于[200]|
-|系统配置表标识|默认规则|内容长度必须小于等于[100]|
 |更新人|默认规则|内容长度必须小于等于[60]|
+|系统配置表名称|默认规则|内容长度必须小于等于[200]|
+|描述|默认规则|内容长度必须小于等于[100]|
 |更新时间|默认规则|默认规则|
 |建立时间|默认规则|默认规则|
-|建立人|默认规则|内容长度必须小于等于[60]|
+|系统配置表标识|默认规则|内容长度必须小于等于[100]|
 |范围|默认规则|内容长度必须小于等于[2000]|
-|是否启用|默认规则|内容长度必须小于等于[60]|
-|描述|默认规则|内容长度必须小于等于[100]|
 |类型|默认规则|内容长度必须小于等于[60]|
 |管理现状|默认规则|内容长度必须小于等于[60]|
+|是否启用|默认规则|内容长度必须小于等于[60]|
+|建立人|默认规则|内容长度必须小于等于[60]|
 
 ## 状态控制
 
@@ -75,9 +75,9 @@
 | 属性      |    搜索模式     |
 | --------   |------------|
 |系统配置表名称(IBZPRO_CONFIGNAME)|LIKE|
-|是否启用(VAILD)|EQ|
 |类型(TYPE)|EQ|
 |管理现状(MANAGEMENTSTATUS)|EQ|
+|是否启用(VAILD)|EQ|
 
 ## 导入模式
 无

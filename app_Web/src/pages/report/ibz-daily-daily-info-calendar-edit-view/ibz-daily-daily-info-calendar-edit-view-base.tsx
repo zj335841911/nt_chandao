@@ -141,7 +141,7 @@ export class IbzDailyDailyInfoCalendarEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof IbzDailyDailyInfoCalendarEditViewBase
      */
-	protected viewtag: string = 'adae3758bed4c09c5e283b69603ba8e7';
+	protected viewtag: string = '76003f5bfdaf10f360db4f5931c37916';
 
     /**
      * 视图名称

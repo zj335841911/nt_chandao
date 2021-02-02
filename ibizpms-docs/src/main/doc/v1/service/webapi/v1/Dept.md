@@ -262,16 +262,16 @@ POST
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
 | 1 | manager | String | 允许 | 负责人 |
-| 2 | grade | Integer | 允许 | grade |
-| 3 | function | String | 允许 | function |
-| 4 | order | Integer | 允许 | order |
-| 5 | path | String | 允许 | path |
-| 6 | position | String | 允许 | position |
-| 7 | id | Long | 不可 | id |
-| 8 | name | String | 不可 | 部门名称 |
-| 9 | parentname | String | 允许 | 上级部门 |
-| 10 | parent | Long | 允许 | parent |
-| 11 | isleaf | String | 允许 | 无子部门 |
+| 2 | isleaf | String | 允许 | 无子部门 |
+| 3 | grade | Integer | 允许 | grade |
+| 4 | function | String | 允许 | function |
+| 5 | order | Integer | 允许 | order |
+| 6 | path | String | 允许 | path |
+| 7 | position | String | 允许 | position |
+| 8 | id | Long | 不可 | id |
+| 9 | name | String | 不可 | 部门名称 |
+| 10 | parentname | String | 允许 | 上级部门 |
+| 11 | parent | Long | 允许 | parent |
 | 12 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### DeptSearchContext

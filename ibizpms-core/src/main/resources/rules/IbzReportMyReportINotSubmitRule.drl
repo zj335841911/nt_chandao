@@ -30,6 +30,24 @@ ruleflow-group "ibzreportmyreportinotsubmitrawsqlcall4"
     update(ibzreportmyreportinotsubmitdefault);//更新fact中变量值
     end
 
+//逻辑处理节点[统计我未提交的周报]
+rule "rawsqlcall2"
+ruleflow-group "ibzreportmyreportinotsubmitrawsqlcall2"
+    when
+    then
+    Map param =new HashMap();
+    param.put("param0",curuser.getSessionParams().get("srfloginname"));
+    String strSql="select count(1) as weeklycnt from `t_ibz_weekly` t1 where t1.issubmit = '0' and t1.account = #{et.param0}";
+    java.util.List<JSONObject> entities=iBzSysIbzreportDefaultService.select(strSql,param);//SQL调用
+    if(entities.size()>0){
+        JSONObject entity=entities.get(0);
+        for (Map.Entry entry : entity.entrySet()) {
+            ibzreportmyreportinotsubmitdefault.set(String.valueOf(entry.getKey()),entry.getValue());
+        }
+    }
+    update(ibzreportmyreportinotsubmitdefault);//更新fact中变量值
+    end
+
 //逻辑处理节点[统计我收到的（未读）]
 rule "myunreadcnt"
 ruleflow-group "ibzreportmyreportinotsubmitmyunreadcnt"
@@ -79,24 +97,6 @@ ruleflow-group "ibzreportmyreportinotsubmitrawsqlcall1"
     Map param =new HashMap();
     param.put("param0",curuser.getSessionParams().get("srfloginname"));
     String strSql="SELECT COUNT(1) as dailycnt FROM `t_ibz_daily` t1 where (t1.ACCOUNT = #{et.param0} ) and t1.ISSUBMIT = '0'";
-    java.util.List<JSONObject> entities=iBzSysIbzreportDefaultService.select(strSql,param);//SQL调用
-    if(entities.size()>0){
-        JSONObject entity=entities.get(0);
-        for (Map.Entry entry : entity.entrySet()) {
-            ibzreportmyreportinotsubmitdefault.set(String.valueOf(entry.getKey()),entry.getValue());
-        }
-    }
-    update(ibzreportmyreportinotsubmitdefault);//更新fact中变量值
-    end
-
-//逻辑处理节点[统计我未提交的周报]
-rule "rawsqlcall2"
-ruleflow-group "ibzreportmyreportinotsubmitrawsqlcall2"
-    when
-    then
-    Map param =new HashMap();
-    param.put("param0",curuser.getSessionParams().get("srfloginname"));
-    String strSql="select count(1) as weeklycnt from `t_ibz_weekly` t1 where t1.issubmit = '0' and t1.account = #{et.param0}";
     java.util.List<JSONObject> entities=iBzSysIbzreportDefaultService.select(strSql,param);//SQL调用
     if(entities.size()>0){
         JSONObject entity=entities.get(0);

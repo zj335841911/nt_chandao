@@ -25,33 +25,33 @@ import cn.ibizlab.pms.util.filter.SearchContextBase;
 @Slf4j
 @Data
 public class PSSysServiceAPISearchContext extends SearchContextBase {
-	private String n_pssysserviceapiname_like;//[系统服务接口名称]
-
 	private Integer n_apimode_eq;//[接口模式]
 
-	private String n_apitype_eq;//[接口类型]
-
-	private String n_authmode_eq;//[认证模式]
-
-	private String n_defdeactionreqmethod_eq;//[默认实体行为请求方式]
+	private String n_predefinedtype_eq;//[平台预定义类型]
 
 	private Integer n_lockflag_eq;//[模型锁标志]
 
 	private String n_defselectreqmethod_eq;//[默认查询请求方式]
 
-	private String n_defdedatasetreqmethod_eq;//[默认结果集请求方式]
+	private String n_usercat_eq;//[用户分类]
 
-	private String n_predefinedtype_eq;//[平台预定义类型]
+	private String n_authmode_eq;//[认证模式]
+
+	private String n_apitype_eq;//[接口类型]
+
+	private String n_defdedatasetreqmethod_eq;//[默认结果集请求方式]
 
 	private String n_servicetype_eq;//[服务类型]
 
-	private String n_usercat_eq;//[用户分类]
+	private String n_pssysserviceapiname_like;//[系统服务接口名称]
 
-	private String n_psmoduleid_eq;//[系统模块]
+	private String n_defdeactionreqmethod_eq;//[默认实体行为请求方式]
 
 	private String n_psmodulename_eq;//[系统模块]
 
 	private String n_psmodulename_like;//[系统模块]
+
+	private String n_psmoduleid_eq;//[系统模块]
 
 }
 

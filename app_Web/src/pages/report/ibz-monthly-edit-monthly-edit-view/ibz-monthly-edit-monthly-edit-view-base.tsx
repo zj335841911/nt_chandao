@@ -125,7 +125,7 @@ export class IbzMonthlyEditMonthlyEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof IbzMonthlyEditMonthlyEditViewBase
      */
-	protected viewtag: string = '842deef249d7032308b365d16cb61440';
+	protected viewtag: string = '01c7a883016bed2ddb813c580d3d2e0e';
 
     /**
      * 视图名称

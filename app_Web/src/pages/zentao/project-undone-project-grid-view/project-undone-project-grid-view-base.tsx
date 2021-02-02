@@ -123,7 +123,7 @@ export class ProjectUndoneProjectGridViewBase extends GridView9Base {
      * @type {string}
      * @memberof ProjectUndoneProjectGridViewBase
      */
-	protected viewtag: string = 'd290709d6a36e20e79d60e873047ec0d';
+	protected viewtag: string = 'aa9214c2a8a4216cc83f9f24c106f41c';
 
     /**
      * 视图名称

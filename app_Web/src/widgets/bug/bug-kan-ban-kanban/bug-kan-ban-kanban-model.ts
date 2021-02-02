@@ -25,14 +25,14 @@ export default class BugKanBanModel {
 				dataType: 'PICKUP',
 			},
 			{
-				name: 'resolution',
-				prop: 'resolution',
-				dataType: 'SSCODELIST',
-			},
-			{
 				name: 'closeddate',
 				prop: 'closeddate',
 				dataType: 'DATETIME',
+			},
+			{
+				name: 'resolution',
+				prop: 'resolution',
+				dataType: 'SSCODELIST',
 			},
 			{
 				name: 'srfmstag',

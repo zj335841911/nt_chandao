@@ -102,7 +102,7 @@ export class TestSuiteEditView9Base extends EditView9Base {
      * @type {string}
      * @memberof TestSuiteEditView9Base
      */
-	protected viewtag: string = '0d5db9e736e4556dcfc45c455888a1a6';
+	protected viewtag: string = 'e89b0906815ccabb03d421a31e94bc4a';
 
     /**
      * 视图名称

@@ -150,7 +150,7 @@ export class IbzPlanTempletGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof IbzPlanTempletGridViewBase
      */
-	protected viewtag: string = '5df2233b712eaa394f21be39b5807181';
+	protected viewtag: string = 'd378b177dcd91bb7920c5dc7a12175fa';
 
     /**
      * 视图名称

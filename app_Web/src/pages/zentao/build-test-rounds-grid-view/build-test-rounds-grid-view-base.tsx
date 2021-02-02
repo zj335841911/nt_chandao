@@ -125,7 +125,7 @@ export class BuildTestRoundsGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof BuildTestRoundsGridViewBase
      */
-	protected viewtag: string = '9a2fd7bf8e74f4b95bd5a24d8ffb1643';
+	protected viewtag: string = '33eb075a8e7a871bfcb7da61bdccb1a2';
 
     /**
      * 视图名称

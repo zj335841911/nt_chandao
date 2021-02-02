@@ -44,21 +44,6 @@ public class IBZProProduct extends EntityMP implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
-     * 编号
-     */
-    @DEField(isKeyField = true)
-    @TableId(value = "id", type = IdType.AUTO)
-    @JSONField(name = "id")
-    @JsonProperty("id")
-    private Long id;
-    /**
-     * 产品名称
-     */
-    @TableField(value = "`name`")
-    @JSONField(name = "name")
-    @JsonProperty("name")
-    private String name;
-    /**
      * IBIZ标识
      */
     @DEField(name = "ibiz_id")
@@ -73,16 +58,23 @@ public class IBZProProduct extends EntityMP implements Serializable {
     @JSONField(name = "code")
     @JsonProperty("code")
     private String code;
-
-
-
     /**
-     * 设置 [产品名称]
+     * 产品名称
      */
-    public void setName(String name) {
-        this.name = name;
-        this.modify("name", name);
-    }
+    @TableField(value = "`name`")
+    @JSONField(name = "name")
+    @JsonProperty("name")
+    private String name;
+    /**
+     * 编号
+     */
+    @DEField(isKeyField = true)
+    @TableId(value = "id", type = IdType.AUTO)
+    @JSONField(name = "id")
+    @JsonProperty("id")
+    private Long id;
+
+
 
     /**
      * 设置 [IBIZ标识]
@@ -98,6 +90,14 @@ public class IBZProProduct extends EntityMP implements Serializable {
     public void setCode(String code) {
         this.code = code;
         this.modify("code", code);
+    }
+
+    /**
+     * 设置 [产品名称]
+     */
+    public void setName(String name) {
+        this.name = name;
+        this.modify("name", name);
     }
 
 

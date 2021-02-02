@@ -136,7 +136,7 @@ export class IbzReportRoleConfigGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof IbzReportRoleConfigGridViewBase
      */
-	protected viewtag: string = 'd03a65f09905f6286e89671dfcfaed4a';
+	protected viewtag: string = '356dfaec96b208208e3a9febae855a65';
 
     /**
      * 视图名称

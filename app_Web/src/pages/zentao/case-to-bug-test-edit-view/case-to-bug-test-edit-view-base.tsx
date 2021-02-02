@@ -137,7 +137,7 @@ export class CaseToBugTestEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof CaseToBugTestEditViewBase
      */
-	protected viewtag: string = 'c6ed1cb45c6623407556630270d57976';
+	protected viewtag: string = '2438a896b23dbe05214711a290d0e8e7';
 
     /**
      * 视图名称

@@ -9,8 +9,8 @@
         </extensionElements>
             <startEvent id="begin" isInterrupting="true"/>
             <endEvent id="prepareparam1_end" name="end"/>
-           <callActivity activiti:exclusive="true" calledElement="cn.ibizlab.pms.core.ibiz.service.logic.productstatsgetcuruserbugcnt" id="8D567A05-1E36-4CB0-AB82-FDE04CB60EFC" name="ProductStatsGetCurUserBugCntRuleFlow.bpmn"/>
-           <sequenceFlow id="begin_8D567A05-1E36-4CB0-AB82-FDE04CB60EFC" sourceRef="begin" targetRef="8D567A05-1E36-4CB0-AB82-FDE04CB60EFC"/>
-           <sequenceFlow id="8D567A05-1E36-4CB0-AB82-FDE04CB60EFC_prepareparam1_end" sourceRef="8D567A05-1E36-4CB0-AB82-FDE04CB60EFC" targetRef="prepareparam1_end"/>
+           <callActivity activiti:exclusive="true" calledElement="cn.ibizlab.pms.core.ibiz.service.logic.productstatsgetcuruserbugcnt" id="8cd2cc8001a7cda842ed64e117f7c37f" name="ProductStatsGetCurUserBugCntRuleFlow.bpmn"/>
+           <sequenceFlow id="begin_8cd2cc8001a7cda842ed64e117f7c37f" sourceRef="begin" targetRef="8cd2cc8001a7cda842ed64e117f7c37f"/>
+           <sequenceFlow id="8cd2cc8001a7cda842ed64e117f7c37f_prepareparam1_end" sourceRef="8cd2cc8001a7cda842ed64e117f7c37f" targetRef="prepareparam1_end"/>
     </process>
 </definitions>

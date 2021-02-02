@@ -131,7 +131,7 @@ export class ProductStatsEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof ProductStatsEditViewBase
      */
-	protected viewtag: string = '00ad158575544b05271d9502c47918a8';
+	protected viewtag: string = 'b8aa2b91fff3152c42b9e6fd679be2bc';
 
     /**
      * 视图名称

@@ -39,6 +39,24 @@ public class SubStoryDTO extends DTOBase implements Serializable {
     private String assignedto;
 
     /**
+     * 属性 [MODULENAME1]
+     *
+     */
+    @JSONField(name = "modulename1")
+    @JsonProperty("modulename1")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String modulename1;
+
+    /**
+     * 属性 [FILES]
+     *
+     */
+    @JSONField(name = "files")
+    @JsonProperty("files")
+    @Size(min = 0, max = 1000, message = "内容长度必须小于等于[1000]")
+    private String files;
+
+    /**
      * 属性 [CHILDSTORIES]
      *
      */
@@ -46,6 +64,15 @@ public class SubStoryDTO extends DTOBase implements Serializable {
     @JsonProperty("childstories")
     @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
     private String childstories;
+
+    /**
+     * 属性 [IBIZ_ID]
+     *
+     */
+    @JSONField(name = "ibiz_id")
+    @JsonProperty("ibiz_id")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String ibizId;
 
     /**
      * 属性 [PLAN]
@@ -74,12 +101,57 @@ public class SubStoryDTO extends DTOBase implements Serializable {
     private Timestamp assigneddate;
 
     /**
+     * 属性 [STORYPOINTS]
+     *
+     */
+    @JSONField(name = "storypoints")
+    @JsonProperty("storypoints")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    private String storypoints;
+
+    /**
+     * 属性 [SOURCENAME]
+     *
+     */
+    @JSONField(name = "sourcename")
+    @JsonProperty("sourcename")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String sourcename;
+
+    /**
+     * 属性 [STORYPROVIDEDATE]
+     *
+     */
+    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "storyprovidedate" , format="yyyy-MM-dd")
+    @JsonProperty("storyprovidedate")
+    private Timestamp storyprovidedate;
+
+    /**
+     * 属性 [ISLEAF]
+     *
+     */
+    @JSONField(name = "isleaf")
+    @JsonProperty("isleaf")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String isleaf;
+
+    /**
      * 属性 [PRI]
      *
      */
     @JSONField(name = "pri")
     @JsonProperty("pri")
     private Integer pri;
+
+    /**
+     * 属性 [SOURCEID]
+     *
+     */
+    @JSONField(name = "sourceid")
+    @JsonProperty("sourceid")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String sourceid;
 
     /**
      * 属性 [LINKSTORIES]
@@ -91,6 +163,15 @@ public class SubStoryDTO extends DTOBase implements Serializable {
     private String linkstories;
 
     /**
+     * 属性 [ASSESSRESULT]
+     *
+     */
+    @JSONField(name = "assessresult")
+    @JsonProperty("assessresult")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String assessresult;
+
+    /**
      * 属性 [STATUS]
      *
      */
@@ -100,12 +181,30 @@ public class SubStoryDTO extends DTOBase implements Serializable {
     private String status;
 
     /**
+     * 属性 [MAILTOPK]
+     *
+     */
+    @JSONField(name = "mailtopk")
+    @JsonProperty("mailtopk")
+    @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
+    private String mailtopk;
+
+    /**
      * 属性 [ESTIMATE]
      *
      */
     @JSONField(name = "estimate")
     @JsonProperty("estimate")
     private Double estimate;
+
+    /**
+     * 属性 [NOTICEUSERS]
+     *
+     */
+    @JSONField(name = "noticeusers")
+    @JsonProperty("noticeusers")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String noticeusers;
 
     /**
      * 属性 [REVIEWEDDATE]
@@ -127,6 +226,15 @@ public class SubStoryDTO extends DTOBase implements Serializable {
     private String title;
 
     /**
+     * 属性 [MAILTOCONACT]
+     *
+     */
+    @JSONField(name = "mailtoconact")
+    @JsonProperty("mailtoconact")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String mailtoconact;
+
+    /**
      * 属性 [SOURCENOTE]
      *
      */
@@ -134,6 +242,15 @@ public class SubStoryDTO extends DTOBase implements Serializable {
     @JsonProperty("sourcenote")
     @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
     private String sourcenote;
+
+    /**
+     * 属性 [VERSIONC]
+     *
+     */
+    @JSONField(name = "versionc")
+    @JsonProperty("versionc")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String versionc;
 
     /**
      * 属性 [REVIEWEDBY]
@@ -190,6 +307,15 @@ public class SubStoryDTO extends DTOBase implements Serializable {
     private Long id;
 
     /**
+     * 属性 [IBIZ_SOURCEOBJECT]
+     *
+     */
+    @JSONField(name = "ibiz_sourceobject")
+    @JsonProperty("ibiz_sourceobject")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String ibizSourceobject;
+
+    /**
      * 属性 [SOURCE]
      *
      */
@@ -197,6 +323,33 @@ public class SubStoryDTO extends DTOBase implements Serializable {
     @JsonProperty("source")
     @Size(min = 0, max = 20, message = "内容长度必须小于等于[20]")
     private String source;
+
+    /**
+     * 属性 [STORYLATESTFINISHEDDATE]
+     *
+     */
+    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "storylatestfinisheddate" , format="yyyy-MM-dd")
+    @JsonProperty("storylatestfinisheddate")
+    private Timestamp storylatestfinisheddate;
+
+    /**
+     * 属性 [NEEDNOTREVIEW]
+     *
+     */
+    @JSONField(name = "neednotreview")
+    @JsonProperty("neednotreview")
+    @Size(min = 0, max = 4000, message = "内容长度必须小于等于[4000]")
+    private String neednotreview;
+
+    /**
+     * 属性 [ISCHILD]
+     *
+     */
+    @JSONField(name = "ischild")
+    @JsonProperty("ischild")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String ischild;
 
     /**
      * 属性 [CLOSEDREASON]
@@ -217,6 +370,15 @@ public class SubStoryDTO extends DTOBase implements Serializable {
     private String color;
 
     /**
+     * 属性 [ORGID]
+     *
+     */
+    @JSONField(name = "orgid")
+    @JsonProperty("orgid")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String orgid;
+
+    /**
      * 属性 [MAILTO]
      *
      */
@@ -224,6 +386,24 @@ public class SubStoryDTO extends DTOBase implements Serializable {
     @JsonProperty("mailto")
     @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
     private String mailto;
+
+    /**
+     * 属性 [ISFAVORITES]
+     *
+     */
+    @JSONField(name = "isfavorites")
+    @JsonProperty("isfavorites")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String isfavorites;
+
+    /**
+     * 属性 [SOURCEOBJECT]
+     *
+     */
+    @JSONField(name = "sourceobject")
+    @JsonProperty("sourceobject")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String sourceobject;
 
     /**
      * 属性 [DELETED]
@@ -262,6 +442,15 @@ public class SubStoryDTO extends DTOBase implements Serializable {
     private String stage;
 
     /**
+     * 属性 [PROJECT]
+     *
+     */
+    @JSONField(name = "project")
+    @JsonProperty("project")
+    @JsonSerialize(using = ToStringSerializer.class)
+    private Long project;
+
+    /**
      * 属性 [CLOSEDDATE]
      *
      */
@@ -271,6 +460,60 @@ public class SubStoryDTO extends DTOBase implements Serializable {
     private Timestamp closeddate;
 
     /**
+     * 属性 [SPEC]
+     *
+     */
+    @JSONField(name = "spec")
+    @JsonProperty("spec")
+    @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
+    private String spec;
+
+    /**
+     * 属性 [IBIZ_SOURCENAME]
+     *
+     */
+    @JSONField(name = "ibiz_sourcename")
+    @JsonProperty("ibiz_sourcename")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String ibizSourcename;
+
+    /**
+     * 属性 [ASSIGNEDTOPK]
+     *
+     */
+    @JSONField(name = "assignedtopk")
+    @JsonProperty("assignedtopk")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String assignedtopk;
+
+    /**
+     * 属性 [COMMENT]
+     *
+     */
+    @JSONField(name = "comment")
+    @JsonProperty("comment")
+    @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
+    private String comment;
+
+    /**
+     * 属性 [ACLLIST]
+     *
+     */
+    @JSONField(name = "acllist")
+    @JsonProperty("acllist")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String acllist;
+
+    /**
+     * 属性 [VERIFY]
+     *
+     */
+    @JSONField(name = "verify")
+    @JsonProperty("verify")
+    @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
+    private String verify;
+
+    /**
      * 属性 [CLOSEDBY]
      *
      */
@@ -278,6 +521,24 @@ public class SubStoryDTO extends DTOBase implements Serializable {
     @JsonProperty("closedby")
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
     private String closedby;
+
+    /**
+     * 属性 [ACL]
+     *
+     */
+    @JSONField(name = "acl")
+    @JsonProperty("acl")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String acl;
+
+    /**
+     * 属性 [RESULT]
+     *
+     */
+    @JSONField(name = "result")
+    @JsonProperty("result")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String result;
 
     /**
      * 属性 [TYPE]
@@ -296,6 +557,41 @@ public class SubStoryDTO extends DTOBase implements Serializable {
     @JSONField(name = "lastediteddate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("lastediteddate")
     private Timestamp lastediteddate;
+
+    /**
+     * 属性 [IBIZ_SOURCEID]
+     *
+     */
+    @JSONField(name = "ibiz_sourceid")
+    @JsonProperty("ibiz_sourceid")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String ibizSourceid;
+
+    /**
+     * 属性 [PREVERSION]
+     *
+     */
+    @JSONField(name = "preversion")
+    @JsonProperty("preversion")
+    private Integer preversion;
+
+    /**
+     * 属性 [STORYPROVIDER]
+     *
+     */
+    @JSONField(name = "storyprovider")
+    @JsonProperty("storyprovider")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String storyprovider;
+
+    /**
+     * 属性 [MDEPTID]
+     *
+     */
+    @JSONField(name = "mdeptid")
+    @JsonProperty("mdeptid")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String mdeptid;
 
     /**
      * 属性 [PATH]
@@ -332,6 +628,15 @@ public class SubStoryDTO extends DTOBase implements Serializable {
     @JsonProperty("productname")
     @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
     private String productname;
+
+    /**
+     * 属性 [BRANCHNAME]
+     *
+     */
+    @JSONField(name = "branchname")
+    @JsonProperty("branchname")
+    @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
+    private String branchname;
 
     /**
      * 属性 [FROMBUG]
@@ -396,311 +701,6 @@ public class SubStoryDTO extends DTOBase implements Serializable {
     @JsonSerialize(using = ToStringSerializer.class)
     private Long tobug;
 
-    /**
-     * 属性 [SPEC]
-     *
-     */
-    @JSONField(name = "spec")
-    @JsonProperty("spec")
-    @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
-    private String spec;
-
-    /**
-     * 属性 [VERIFY]
-     *
-     */
-    @JSONField(name = "verify")
-    @JsonProperty("verify")
-    @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
-    private String verify;
-
-    /**
-     * 属性 [RESULT]
-     *
-     */
-    @JSONField(name = "result")
-    @JsonProperty("result")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String result;
-
-    /**
-     * 属性 [COMMENT]
-     *
-     */
-    @JSONField(name = "comment")
-    @JsonProperty("comment")
-    @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
-    private String comment;
-
-    /**
-     * 属性 [ISLEAF]
-     *
-     */
-    @JSONField(name = "isleaf")
-    @JsonProperty("isleaf")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String isleaf;
-
-    /**
-     * 属性 [FILES]
-     *
-     */
-    @JSONField(name = "files")
-    @JsonProperty("files")
-    @Size(min = 0, max = 1000, message = "内容长度必须小于等于[1000]")
-    private String files;
-
-    /**
-     * 属性 [BRANCHNAME]
-     *
-     */
-    @JSONField(name = "branchname")
-    @JsonProperty("branchname")
-    @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
-    private String branchname;
-
-    /**
-     * 属性 [VERSIONC]
-     *
-     */
-    @JSONField(name = "versionc")
-    @JsonProperty("versionc")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String versionc;
-
-    /**
-     * 属性 [MODULENAME1]
-     *
-     */
-    @JSONField(name = "modulename1")
-    @JsonProperty("modulename1")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String modulename1;
-
-    /**
-     * 属性 [PROJECT]
-     *
-     */
-    @JSONField(name = "project")
-    @JsonProperty("project")
-    @JsonSerialize(using = ToStringSerializer.class)
-    private Long project;
-
-    /**
-     * 属性 [PREVERSION]
-     *
-     */
-    @JSONField(name = "preversion")
-    @JsonProperty("preversion")
-    private Integer preversion;
-
-    /**
-     * 属性 [NEEDNOTREVIEW]
-     *
-     */
-    @JSONField(name = "neednotreview")
-    @JsonProperty("neednotreview")
-    @Size(min = 0, max = 4000, message = "内容长度必须小于等于[4000]")
-    private String neednotreview;
-
-    /**
-     * 属性 [ISFAVORITES]
-     *
-     */
-    @JSONField(name = "isfavorites")
-    @JsonProperty("isfavorites")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String isfavorites;
-
-    /**
-     * 属性 [ISCHILD]
-     *
-     */
-    @JSONField(name = "ischild")
-    @JsonProperty("ischild")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String ischild;
-
-    /**
-     * 属性 [MAILTOCONACT]
-     *
-     */
-    @JSONField(name = "mailtoconact")
-    @JsonProperty("mailtoconact")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String mailtoconact;
-
-    /**
-     * 属性 [MAILTOPK]
-     *
-     */
-    @JSONField(name = "mailtopk")
-    @JsonProperty("mailtopk")
-    @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
-    private String mailtopk;
-
-    /**
-     * 属性 [ASSIGNEDTOPK]
-     *
-     */
-    @JSONField(name = "assignedtopk")
-    @JsonProperty("assignedtopk")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String assignedtopk;
-
-    /**
-     * 属性 [NOTICEUSERS]
-     *
-     */
-    @JSONField(name = "noticeusers")
-    @JsonProperty("noticeusers")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String noticeusers;
-
-    /**
-     * 属性 [IBIZ_SOURCEOBJECT]
-     *
-     */
-    @JSONField(name = "ibiz_sourceobject")
-    @JsonProperty("ibiz_sourceobject")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String ibizSourceobject;
-
-    /**
-     * 属性 [SOURCEOBJECT]
-     *
-     */
-    @JSONField(name = "sourceobject")
-    @JsonProperty("sourceobject")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String sourceobject;
-
-    /**
-     * 属性 [IBIZ_ID]
-     *
-     */
-    @JSONField(name = "ibiz_id")
-    @JsonProperty("ibiz_id")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String ibizId;
-
-    /**
-     * 属性 [SOURCENAME]
-     *
-     */
-    @JSONField(name = "sourcename")
-    @JsonProperty("sourcename")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String sourcename;
-
-    /**
-     * 属性 [SOURCEID]
-     *
-     */
-    @JSONField(name = "sourceid")
-    @JsonProperty("sourceid")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String sourceid;
-
-    /**
-     * 属性 [IBIZ_SOURCEID]
-     *
-     */
-    @JSONField(name = "ibiz_sourceid")
-    @JsonProperty("ibiz_sourceid")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String ibizSourceid;
-
-    /**
-     * 属性 [IBIZ_SOURCENAME]
-     *
-     */
-    @JSONField(name = "ibiz_sourcename")
-    @JsonProperty("ibiz_sourcename")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String ibizSourcename;
-
-    /**
-     * 属性 [STORYPOINTS]
-     *
-     */
-    @JSONField(name = "storypoints")
-    @JsonProperty("storypoints")
-    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
-    private String storypoints;
-
-    /**
-     * 属性 [ASSESSRESULT]
-     *
-     */
-    @JSONField(name = "assessresult")
-    @JsonProperty("assessresult")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String assessresult;
-
-    /**
-     * 属性 [ORGID]
-     *
-     */
-    @JSONField(name = "orgid")
-    @JsonProperty("orgid")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String orgid;
-
-    /**
-     * 属性 [ACL]
-     *
-     */
-    @JSONField(name = "acl")
-    @JsonProperty("acl")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String acl;
-
-    /**
-     * 属性 [ACLLIST]
-     *
-     */
-    @JSONField(name = "acllist")
-    @JsonProperty("acllist")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String acllist;
-
-    /**
-     * 属性 [MDEPTID]
-     *
-     */
-    @JSONField(name = "mdeptid")
-    @JsonProperty("mdeptid")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String mdeptid;
-
-    /**
-     * 属性 [STORYLATESTFINISHEDDATE]
-     *
-     */
-    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "storylatestfinisheddate" , format="yyyy-MM-dd")
-    @JsonProperty("storylatestfinisheddate")
-    private Timestamp storylatestfinisheddate;
-
-    /**
-     * 属性 [STORYPROVIDEDATE]
-     *
-     */
-    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "storyprovidedate" , format="yyyy-MM-dd")
-    @JsonProperty("storyprovidedate")
-    private Timestamp storyprovidedate;
-
-    /**
-     * 属性 [STORYPROVIDER]
-     *
-     */
-    @JSONField(name = "storyprovider")
-    @JsonProperty("storyprovider")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String storyprovider;
-
 
     /**
      * 设置 [ASSIGNEDTO]
@@ -716,6 +716,14 @@ public class SubStoryDTO extends DTOBase implements Serializable {
     public void setChildstories(String  childstories){
         this.childstories = childstories ;
         this.modify("childstories",childstories);
+    }
+
+    /**
+     * 设置 [IBIZ_ID]
+     */
+    public void setIbizId(String  ibizId){
+        this.ibizId = ibizId ;
+        this.modify("ibiz_id",ibizId);
     }
 
     /**
@@ -743,11 +751,43 @@ public class SubStoryDTO extends DTOBase implements Serializable {
     }
 
     /**
+     * 设置 [STORYPOINTS]
+     */
+    public void setStorypoints(String  storypoints){
+        this.storypoints = storypoints ;
+        this.modify("storypoints",storypoints);
+    }
+
+    /**
+     * 设置 [SOURCENAME]
+     */
+    public void setSourcename(String  sourcename){
+        this.sourcename = sourcename ;
+        this.modify("sourcename",sourcename);
+    }
+
+    /**
+     * 设置 [STORYPROVIDEDATE]
+     */
+    public void setStoryprovidedate(Timestamp  storyprovidedate){
+        this.storyprovidedate = storyprovidedate ;
+        this.modify("storyprovidedate",storyprovidedate);
+    }
+
+    /**
      * 设置 [PRI]
      */
     public void setPri(Integer  pri){
         this.pri = pri ;
         this.modify("pri",pri);
+    }
+
+    /**
+     * 设置 [SOURCEID]
+     */
+    public void setSourceid(String  sourceid){
+        this.sourceid = sourceid ;
+        this.modify("sourceid",sourceid);
     }
 
     /**
@@ -823,11 +863,27 @@ public class SubStoryDTO extends DTOBase implements Serializable {
     }
 
     /**
+     * 设置 [IBIZ_SOURCEOBJECT]
+     */
+    public void setIbizSourceobject(String  ibizSourceobject){
+        this.ibizSourceobject = ibizSourceobject ;
+        this.modify("ibiz_sourceobject",ibizSourceobject);
+    }
+
+    /**
      * 设置 [SOURCE]
      */
     public void setSource(String  source){
         this.source = source ;
         this.modify("source",source);
+    }
+
+    /**
+     * 设置 [STORYLATESTFINISHEDDATE]
+     */
+    public void setStorylatestfinisheddate(Timestamp  storylatestfinisheddate){
+        this.storylatestfinisheddate = storylatestfinisheddate ;
+        this.modify("storylatestfinisheddate",storylatestfinisheddate);
     }
 
     /**
@@ -855,6 +911,14 @@ public class SubStoryDTO extends DTOBase implements Serializable {
     }
 
     /**
+     * 设置 [SOURCEOBJECT]
+     */
+    public void setSourceobject(String  sourceobject){
+        this.sourceobject = sourceobject ;
+        this.modify("sourceobject",sourceobject);
+    }
+
+    /**
      * 设置 [KEYWORDS]
      */
     public void setKeywords(String  keywords){
@@ -879,6 +943,14 @@ public class SubStoryDTO extends DTOBase implements Serializable {
     }
 
     /**
+     * 设置 [IBIZ_SOURCENAME]
+     */
+    public void setIbizSourcename(String  ibizSourcename){
+        this.ibizSourcename = ibizSourcename ;
+        this.modify("ibiz_sourcename",ibizSourcename);
+    }
+
+    /**
      * 设置 [CLOSEDBY]
      */
     public void setClosedby(String  closedby){
@@ -892,6 +964,22 @@ public class SubStoryDTO extends DTOBase implements Serializable {
     public void setType(String  type){
         this.type = type ;
         this.modify("type",type);
+    }
+
+    /**
+     * 设置 [IBIZ_SOURCEID]
+     */
+    public void setIbizSourceid(String  ibizSourceid){
+        this.ibizSourceid = ibizSourceid ;
+        this.modify("ibiz_sourceid",ibizSourceid);
+    }
+
+    /**
+     * 设置 [STORYPROVIDER]
+     */
+    public void setStoryprovider(String  storyprovider){
+        this.storyprovider = storyprovider ;
+        this.modify("storyprovider",storyprovider);
     }
 
     /**
@@ -948,94 +1036,6 @@ public class SubStoryDTO extends DTOBase implements Serializable {
     public void setTobug(Long  tobug){
         this.tobug = tobug ;
         this.modify("tobug",tobug);
-    }
-
-    /**
-     * 设置 [IBIZ_SOURCEOBJECT]
-     */
-    public void setIbizSourceobject(String  ibizSourceobject){
-        this.ibizSourceobject = ibizSourceobject ;
-        this.modify("ibiz_sourceobject",ibizSourceobject);
-    }
-
-    /**
-     * 设置 [SOURCEOBJECT]
-     */
-    public void setSourceobject(String  sourceobject){
-        this.sourceobject = sourceobject ;
-        this.modify("sourceobject",sourceobject);
-    }
-
-    /**
-     * 设置 [IBIZ_ID]
-     */
-    public void setIbizId(String  ibizId){
-        this.ibizId = ibizId ;
-        this.modify("ibiz_id",ibizId);
-    }
-
-    /**
-     * 设置 [SOURCENAME]
-     */
-    public void setSourcename(String  sourcename){
-        this.sourcename = sourcename ;
-        this.modify("sourcename",sourcename);
-    }
-
-    /**
-     * 设置 [SOURCEID]
-     */
-    public void setSourceid(String  sourceid){
-        this.sourceid = sourceid ;
-        this.modify("sourceid",sourceid);
-    }
-
-    /**
-     * 设置 [IBIZ_SOURCEID]
-     */
-    public void setIbizSourceid(String  ibizSourceid){
-        this.ibizSourceid = ibizSourceid ;
-        this.modify("ibiz_sourceid",ibizSourceid);
-    }
-
-    /**
-     * 设置 [IBIZ_SOURCENAME]
-     */
-    public void setIbizSourcename(String  ibizSourcename){
-        this.ibizSourcename = ibizSourcename ;
-        this.modify("ibiz_sourcename",ibizSourcename);
-    }
-
-    /**
-     * 设置 [STORYPOINTS]
-     */
-    public void setStorypoints(String  storypoints){
-        this.storypoints = storypoints ;
-        this.modify("storypoints",storypoints);
-    }
-
-    /**
-     * 设置 [STORYLATESTFINISHEDDATE]
-     */
-    public void setStorylatestfinisheddate(Timestamp  storylatestfinisheddate){
-        this.storylatestfinisheddate = storylatestfinisheddate ;
-        this.modify("storylatestfinisheddate",storylatestfinisheddate);
-    }
-
-    /**
-     * 设置 [STORYPROVIDEDATE]
-     */
-    public void setStoryprovidedate(Timestamp  storyprovidedate){
-        this.storyprovidedate = storyprovidedate ;
-        this.modify("storyprovidedate",storyprovidedate);
-    }
-
-    /**
-     * 设置 [STORYPROVIDER]
-     */
-    public void setStoryprovider(String  storyprovider){
-        this.storyprovider = storyprovider ;
-        this.modify("storyprovider",storyprovider);
     }
 
 

@@ -567,23 +567,23 @@ POST
 #### BurnDTO
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
-| 1 | date | Timestamp | 允许 | 日期<br>时间格式：yyyy-MM-dd |
-| 2 | id | String | 不可 | 虚拟主键 |
-| 3 | consumed | Double | 允许 | 总计消耗 |
-| 4 | left | Double | 允许 | 预计剩余 |
-| 5 | estimate | Double | 允许 | 最初预计 |
-| 6 | project | Long | 允许 | 所属项目 |
-| 7 | task | Long | 允许 | 任务 |
-| 8 | isweekend | String | 允许 | 周末 |
+| 1 | isweekend | String | 允许 | 周末 |
+| 2 | date | Timestamp | 允许 | 日期<br>时间格式：yyyy-MM-dd |
+| 3 | id | String | 不可 | 虚拟主键 |
+| 4 | consumed | Double | 允许 | 总计消耗 |
+| 5 | left | Double | 允许 | 预计剩余 |
+| 6 | estimate | Double | 允许 | 最初预计 |
+| 7 | project | Long | 允许 | 所属项目 |
+| 8 | task | Long | 允许 | 任务 |
 | 9 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### BurnSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
-| 1 | n_project_eq | Long | 允许 | 条件字段：project<br>条件组合方式：`=` |
-| 2 | n_task_eq | Long | 允许 | 条件字段：task<br>条件组合方式：`=` |
-| 3 | n_isweekend_eq | String | 允许 | 条件字段：isweekend<br>条件组合方式：`=` |
-| 4 | n_isweekend_in | String | 允许 | 条件字段：isweekend<br>条件组合方式：`in(...)` |
+| 1 | n_isweekend_eq | String | 允许 | 条件字段：isweekend<br>条件组合方式：`=` |
+| 2 | n_isweekend_in | String | 允许 | 条件字段：isweekend<br>条件组合方式：`in(...)` |
+| 3 | n_project_eq | Long | 允许 | 条件字段：project<br>条件组合方式：`=` |
+| 4 | n_task_eq | Long | 允许 | 条件字段：task<br>条件组合方式：`=` |
 | 5 | customcond | String | 允许 | 自定义查询条件 |
 | 6 | customparams | String | 允许 | 自定义查询参数 |
 | 7 | query | String | 允许 | 快速搜索 |

@@ -121,7 +121,7 @@ export class ProjectChartView9Base extends ChartView9Base {
      * @type {string}
      * @memberof ProjectChartView9Base
      */
-	protected viewtag: string = '3e8a8e6a89e8550bc64a2a8bbae01f15';
+	protected viewtag: string = 'd3faf41f12df89727a6f18eca8b7a117';
 
     /**
      * 视图名称

@@ -105,7 +105,7 @@ export class ActionMyTrendsListViewBase extends ListViewBase {
      * @type {string}
      * @memberof ActionMyTrendsListViewBase
      */
-	protected viewtag: string = '96ed1661161ecbd9adbb979fddb405a5';
+	protected viewtag: string = 'cd6e8d183f33115b00fbaef1afbbd1dc';
 
     /**
      * 视图名称

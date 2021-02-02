@@ -19,11 +19,11 @@
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="productmobproducttestcounterrawsqlcall3" id="rawsqlcall3" implementation="http://www.jboss.org/drools/rule" name="测试单数"/>
      <sequenceFlow id="rawsqlcall1_rawsqlcall2" sourceRef="rawsqlcall1" targetRef="rawsqlcall2">
      </sequenceFlow>
-     <sequenceFlow id="begin_rawsqlcall1" sourceRef="begin" targetRef="rawsqlcall1">
+     <sequenceFlow id="rawsqlcall2_rawsqlcall3" sourceRef="rawsqlcall2" targetRef="rawsqlcall3">
      </sequenceFlow>
      <sequenceFlow id="rawsqlcall3_rawsqlcall4" sourceRef="rawsqlcall3" targetRef="rawsqlcall4">
      </sequenceFlow>
-     <sequenceFlow id="rawsqlcall2_rawsqlcall3" sourceRef="rawsqlcall2" targetRef="rawsqlcall3">
+     <sequenceFlow id="begin_rawsqlcall1" sourceRef="begin" targetRef="rawsqlcall1">
      </sequenceFlow>
     </process>
 </definitions>

@@ -136,7 +136,7 @@ export class TaskChildMoreGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof TaskChildMoreGridViewBase
      */
-	protected viewtag: string = 'cc1f1d0cc16dddbdb7e9f9fd9aa443fa';
+	protected viewtag: string = 'f90755fad872031d4484f3c6791d6973';
 
     /**
      * 视图名称

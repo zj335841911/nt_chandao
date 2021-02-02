@@ -3,40 +3,32 @@ function getLocaleResourceBase(){
 	const data:any = {
 		appdename: commonLogic.appcommonhandle("build", null),
 		fields: {
+			ids: commonLogic.appcommonhandle("Bug版本健值",null),
 			name: commonLogic.appcommonhandle("名称编号",null),
+			backgroundid: commonLogic.appcommonhandle("后台体系",null),
 			builder: commonLogic.appcommonhandle("构建者",null),
+			files: commonLogic.appcommonhandle("附件",null),
+			releasetype: commonLogic.appcommonhandle("运行模式",null),
+			builderpk: commonLogic.appcommonhandle("构建者（选择）",null),
+			rebuild: commonLogic.appcommonhandle("重新构建",null),
 			desc: commonLogic.appcommonhandle("描述",null),
 			id: commonLogic.appcommonhandle("id",null),
 			deleted: commonLogic.appcommonhandle("已删除",null),
+			sqlid: commonLogic.appcommonhandle("运行数据库",null),
 			scmpath: commonLogic.appcommonhandle("源代码地址",null),
 			filepath: commonLogic.appcommonhandle("下载地址",null),
+			createbugcnt: commonLogic.appcommonhandle("产生的bug",null),
 			stories: commonLogic.appcommonhandle("完成的需求",null),
 			bugs: commonLogic.appcommonhandle("解决的Bug",null),
+			frontapplication: commonLogic.appcommonhandle("系统应用",null),
+			noticeusers: commonLogic.appcommonhandle("消息通知用户",null),
 			date: commonLogic.appcommonhandle("打包日期",null),
+			productname: commonLogic.appcommonhandle("产品名称",null),
 			product: commonLogic.appcommonhandle("产品",null),
 			branch: commonLogic.appcommonhandle("平台/分支",null),
 			project: commonLogic.appcommonhandle("所属项目",null),
-			productname: commonLogic.appcommonhandle("产品名称",null),
-			ids: commonLogic.appcommonhandle("Bug版本健值",null),
-			files: commonLogic.appcommonhandle("附件",null),
-			rebuild: commonLogic.appcommonhandle("重新构建",null),
-			releasetype: commonLogic.appcommonhandle("运行模式",null),
-			frontapplication: commonLogic.appcommonhandle("系统应用",null),
-			backgroundid: commonLogic.appcommonhandle("后台体系",null),
-			sqlid: commonLogic.appcommonhandle("运行数据库",null),
-			createbugcnt: commonLogic.appcommonhandle("产生的bug",null),
-			builderpk: commonLogic.appcommonhandle("构建者（选择）",null),
-			noticeusers: commonLogic.appcommonhandle("消息通知用户",null),
 		},
 			views: {
-				optionview: {
-					caption: commonLogic.appcommonhandle("版本",null),
-					title: commonLogic.appcommonhandle("版本选项操作视图",null),
-				},
-				editformeditview: {
-					caption: commonLogic.appcommonhandle("版本",null),
-					title: commonLogic.appcommonhandle("版本编辑视图",null),
-				},
 				maingridview: {
 					caption: commonLogic.appcommonhandle("版本",null),
 					title: commonLogic.appcommonhandle("版本表格视图",null),
@@ -45,17 +37,25 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("轮次",null),
 					title: commonLogic.appcommonhandle("版本表格视图（轮次）",null),
 				},
-				mainview: {
+				optionview: {
 					caption: commonLogic.appcommonhandle("版本",null),
-					title: commonLogic.appcommonhandle("版本编辑视图",null),
+					title: commonLogic.appcommonhandle("版本选项操作视图",null),
 				},
-				editview: {
+				mainview: {
 					caption: commonLogic.appcommonhandle("版本",null),
 					title: commonLogic.appcommonhandle("版本编辑视图",null),
 				},
 				maintabexpview: {
 					caption: commonLogic.appcommonhandle("版本",null),
 					title: commonLogic.appcommonhandle("版本分页导航视图",null),
+				},
+				editformeditview: {
+					caption: commonLogic.appcommonhandle("版本",null),
+					title: commonLogic.appcommonhandle("版本编辑视图",null),
+				},
+				editview: {
+					caption: commonLogic.appcommonhandle("版本",null),
+					title: commonLogic.appcommonhandle("版本编辑视图",null),
 				},
 			},
 			main_form: {

@@ -9,10 +9,10 @@
         </extensionElements>
             <startEvent id="begin" isInterrupting="true"/>
             <endEvent id="prepareparam1_end" name="end"/>
-           <callActivity activiti:exclusive="true" calledElement="cn.ibizlab.pms.core.zentao.service.logic.todogettodotitle" id="0E97D7D9-F9A8-4C64-AFA0-3DF7E42330FB" name="TodoGetTODOTitleRuleFlow.bpmn"/>
-           <sequenceFlow id="begin_0E97D7D9-F9A8-4C64-AFA0-3DF7E42330FB" sourceRef="begin" targetRef="0E97D7D9-F9A8-4C64-AFA0-3DF7E42330FB"/>
-           <callActivity activiti:exclusive="true" calledElement="cn.ibizlab.pms.core.zentao.service.logic.todoresetbeginend" id="D8316500-A539-4070-B39C-46AC15739ACB" name="TodoResetBeginEndRuleFlow.bpmn"/>
-           <sequenceFlow id="0E97D7D9-F9A8-4C64-AFA0-3DF7E42330FB_D8316500-A539-4070-B39C-46AC15739ACB" sourceRef="0E97D7D9-F9A8-4C64-AFA0-3DF7E42330FB" targetRef="D8316500-A539-4070-B39C-46AC15739ACB"/>
-           <sequenceFlow id="D8316500-A539-4070-B39C-46AC15739ACB_prepareparam1_end" sourceRef="D8316500-A539-4070-B39C-46AC15739ACB" targetRef="prepareparam1_end"/>
+           <callActivity activiti:exclusive="true" calledElement="cn.ibizlab.pms.core.zentao.service.logic.todogettodotitle" id="32c3f8c48873394472d2533d67c7cf9b" name="TodoGetTODOTitleRuleFlow.bpmn"/>
+           <sequenceFlow id="begin_32c3f8c48873394472d2533d67c7cf9b" sourceRef="begin" targetRef="32c3f8c48873394472d2533d67c7cf9b"/>
+           <callActivity activiti:exclusive="true" calledElement="cn.ibizlab.pms.core.zentao.service.logic.todoresetbeginend" id="3faf884edfb43c50bab5a67977570126" name="TodoResetBeginEndRuleFlow.bpmn"/>
+           <sequenceFlow id="32c3f8c48873394472d2533d67c7cf9b_3faf884edfb43c50bab5a67977570126" sourceRef="32c3f8c48873394472d2533d67c7cf9b" targetRef="3faf884edfb43c50bab5a67977570126"/>
+           <sequenceFlow id="3faf884edfb43c50bab5a67977570126_prepareparam1_end" sourceRef="3faf884edfb43c50bab5a67977570126" targetRef="prepareparam1_end"/>
     </process>
 </definitions>

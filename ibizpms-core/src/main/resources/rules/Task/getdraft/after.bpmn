@@ -9,8 +9,8 @@
         </extensionElements>
             <startEvent id="begin" isInterrupting="true"/>
             <endEvent id="prepareparam1_end" name="end"/>
-           <callActivity activiti:exclusive="true" calledElement="cn.ibizlab.pms.core.zentao.service.logic.taskgetprojectbyplan" id="C5E6EDC7-70A6-40D5-A517-9FE41B4E4EE9" name="TaskgetProjectByPlanRuleFlow.bpmn"/>
-           <sequenceFlow id="begin_C5E6EDC7-70A6-40D5-A517-9FE41B4E4EE9" sourceRef="begin" targetRef="C5E6EDC7-70A6-40D5-A517-9FE41B4E4EE9"/>
-           <sequenceFlow id="C5E6EDC7-70A6-40D5-A517-9FE41B4E4EE9_prepareparam1_end" sourceRef="C5E6EDC7-70A6-40D5-A517-9FE41B4E4EE9" targetRef="prepareparam1_end"/>
+           <callActivity activiti:exclusive="true" calledElement="cn.ibizlab.pms.core.zentao.service.logic.taskgetprojectbyplan" id="3de3e1bf835c27c04247219ddfbfaf1c" name="TaskgetProjectByPlanRuleFlow.bpmn"/>
+           <sequenceFlow id="begin_3de3e1bf835c27c04247219ddfbfaf1c" sourceRef="begin" targetRef="3de3e1bf835c27c04247219ddfbfaf1c"/>
+           <sequenceFlow id="3de3e1bf835c27c04247219ddfbfaf1c_prepareparam1_end" sourceRef="3de3e1bf835c27c04247219ddfbfaf1c" targetRef="prepareparam1_end"/>
     </process>
 </definitions>

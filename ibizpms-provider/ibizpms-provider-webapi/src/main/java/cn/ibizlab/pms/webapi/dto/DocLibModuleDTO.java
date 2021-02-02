@@ -30,13 +30,38 @@ public class DocLibModuleDTO extends DTOBase implements Serializable {
 	private static final long serialVersionUID = 1L;
 
     /**
-     * 属性 [ISLEAF]
+     * 属性 [ISFAVOURITES]
      *
      */
-    @JSONField(name = "isleaf")
-    @JsonProperty("isleaf")
+    @JSONField(name = "isfavourites")
+    @JsonProperty("isfavourites")
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String isleaf;
+    private String isfavourites;
+
+    /**
+     * 属性 [GRADE]
+     *
+     */
+    @JSONField(name = "grade")
+    @JsonProperty("grade")
+    private Integer grade;
+
+    /**
+     * 属性 [PATH]
+     *
+     */
+    @JSONField(name = "path")
+    @JsonProperty("path")
+    @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
+    private String path;
+
+    /**
+     * 属性 [ORDER]
+     *
+     */
+    @JSONField(name = "order")
+    @JsonProperty("order")
+    private Integer order;
 
     /**
      * 属性 [NAME]
@@ -49,73 +74,13 @@ public class DocLibModuleDTO extends DTOBase implements Serializable {
     private String name;
 
     /**
-     * 属性 [SHORT]
+     * 属性 [DOCQTYPE]
      *
      */
-    @JSONField(name = "ibizshort")
-    @JsonProperty("ibizshort")
-    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
-    private String ibizshort;
-
-    /**
-     * 属性 [GRADE]
-     *
-     */
-    @JSONField(name = "grade")
-    @JsonProperty("grade")
-    private Integer grade;
-
-    /**
-     * 属性 [COLLECTOR]
-     *
-     */
-    @JSONField(name = "collector")
-    @JsonProperty("collector")
-    @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
-    private String collector;
-
-    /**
-     * 属性 [BRANCH]
-     *
-     */
-    @JSONField(name = "branch")
-    @JsonProperty("branch")
-    private Integer branch;
-
-    /**
-     * 属性 [ID]
-     *
-     */
-    @JSONField(name = "id")
-    @JsonProperty("id")
-    @JsonSerialize(using = ToStringSerializer.class)
-    private Long id;
-
-    /**
-     * 属性 [ORDER]
-     *
-     */
-    @JSONField(name = "order")
-    @JsonProperty("order")
-    private Integer order;
-
-    /**
-     * 属性 [DELETED]
-     *
-     */
-    @JSONField(name = "deleted")
-    @JsonProperty("deleted")
-    @Size(min = 0, max = 1, message = "内容长度必须小于等于[1]")
-    private String deleted;
-
-    /**
-     * 属性 [PATH]
-     *
-     */
-    @JSONField(name = "path")
-    @JsonProperty("path")
-    @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
-    private String path;
+    @JSONField(name = "docqtype")
+    @JsonProperty("docqtype")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String docqtype;
 
     /**
      * 属性 [OWNER]
@@ -127,6 +92,23 @@ public class DocLibModuleDTO extends DTOBase implements Serializable {
     private String owner;
 
     /**
+     * 属性 [BRANCH]
+     *
+     */
+    @JSONField(name = "branch")
+    @JsonProperty("branch")
+    private Integer branch;
+
+    /**
+     * 属性 [ISLEAF]
+     *
+     */
+    @JSONField(name = "isleaf")
+    @JsonProperty("isleaf")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String isleaf;
+
+    /**
      * 属性 [TYPE]
      *
      */
@@ -136,31 +118,48 @@ public class DocLibModuleDTO extends DTOBase implements Serializable {
     private String type;
 
     /**
-     * 属性 [ROOT]
+     * 属性 [SHORT]
      *
      */
-    @JSONField(name = "root")
-    @JsonProperty("root")
-    @JsonSerialize(using = ToStringSerializer.class)
-    private Long root;
+    @JSONField(name = "ibizshort")
+    @JsonProperty("ibizshort")
+    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
+    private String ibizshort;
 
     /**
-     * 属性 [PARENT]
+     * 属性 [DOCCNT]
      *
      */
-    @JSONField(name = "parent")
-    @JsonProperty("parent")
-    @JsonSerialize(using = ToStringSerializer.class)
-    private Long parent;
+    @JSONField(name = "doccnt")
+    @JsonProperty("doccnt")
+    private Integer doccnt;
 
     /**
-     * 属性 [DOCLIBNAME]
+     * 属性 [COLLECTOR]
      *
      */
-    @JSONField(name = "doclibname")
-    @JsonProperty("doclibname")
-    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
-    private String doclibname;
+    @JSONField(name = "collector")
+    @JsonProperty("collector")
+    @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
+    private String collector;
+
+    /**
+     * 属性 [ID]
+     *
+     */
+    @JSONField(name = "id")
+    @JsonProperty("id")
+    @JsonSerialize(using = ToStringSerializer.class)
+    private Long id;
+
+    /**
+     * 属性 [DELETED]
+     *
+     */
+    @JSONField(name = "deleted")
+    @JsonProperty("deleted")
+    @Size(min = 0, max = 1, message = "内容长度必须小于等于[1]")
+    private String deleted;
 
     /**
      * 属性 [MODULENAME]
@@ -172,47 +171,32 @@ public class DocLibModuleDTO extends DTOBase implements Serializable {
     private String modulename;
 
     /**
-     * 属性 [DOCQTYPE]
+     * 属性 [DOCLIBNAME]
      *
      */
-    @JSONField(name = "docqtype")
-    @JsonProperty("docqtype")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String docqtype;
+    @JSONField(name = "doclibname")
+    @JsonProperty("doclibname")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    private String doclibname;
 
     /**
-     * 属性 [ISFAVOURITES]
+     * 属性 [PARENT]
      *
      */
-    @JSONField(name = "isfavourites")
-    @JsonProperty("isfavourites")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String isfavourites;
+    @JSONField(name = "parent")
+    @JsonProperty("parent")
+    @JsonSerialize(using = ToStringSerializer.class)
+    private Long parent;
 
     /**
-     * 属性 [DOCCNT]
+     * 属性 [ROOT]
      *
      */
-    @JSONField(name = "doccnt")
-    @JsonProperty("doccnt")
-    private Integer doccnt;
+    @JSONField(name = "root")
+    @JsonProperty("root")
+    @JsonSerialize(using = ToStringSerializer.class)
+    private Long root;
 
-
-    /**
-     * 设置 [NAME]
-     */
-    public void setName(String  name){
-        this.name = name ;
-        this.modify("name",name);
-    }
-
-    /**
-     * 设置 [SHORT]
-     */
-    public void setIbizshort(String  ibizshort){
-        this.ibizshort = ibizshort ;
-        this.modify("short",ibizshort);
-    }
 
     /**
      * 设置 [GRADE]
@@ -220,30 +204,6 @@ public class DocLibModuleDTO extends DTOBase implements Serializable {
     public void setGrade(Integer  grade){
         this.grade = grade ;
         this.modify("grade",grade);
-    }
-
-    /**
-     * 设置 [COLLECTOR]
-     */
-    public void setCollector(String  collector){
-        this.collector = collector ;
-        this.modify("collector",collector);
-    }
-
-    /**
-     * 设置 [BRANCH]
-     */
-    public void setBranch(Integer  branch){
-        this.branch = branch ;
-        this.modify("branch",branch);
-    }
-
-    /**
-     * 设置 [ORDER]
-     */
-    public void setOrder(Integer  order){
-        this.order = order ;
-        this.modify("order",order);
     }
 
     /**
@@ -255,11 +215,35 @@ public class DocLibModuleDTO extends DTOBase implements Serializable {
     }
 
     /**
+     * 设置 [ORDER]
+     */
+    public void setOrder(Integer  order){
+        this.order = order ;
+        this.modify("order",order);
+    }
+
+    /**
+     * 设置 [NAME]
+     */
+    public void setName(String  name){
+        this.name = name ;
+        this.modify("name",name);
+    }
+
+    /**
      * 设置 [OWNER]
      */
     public void setOwner(String  owner){
         this.owner = owner ;
         this.modify("owner",owner);
+    }
+
+    /**
+     * 设置 [BRANCH]
+     */
+    public void setBranch(Integer  branch){
+        this.branch = branch ;
+        this.modify("branch",branch);
     }
 
     /**
@@ -271,11 +255,19 @@ public class DocLibModuleDTO extends DTOBase implements Serializable {
     }
 
     /**
-     * 设置 [ROOT]
+     * 设置 [SHORT]
      */
-    public void setRoot(Long  root){
-        this.root = root ;
-        this.modify("root",root);
+    public void setIbizshort(String  ibizshort){
+        this.ibizshort = ibizshort ;
+        this.modify("short",ibizshort);
+    }
+
+    /**
+     * 设置 [COLLECTOR]
+     */
+    public void setCollector(String  collector){
+        this.collector = collector ;
+        this.modify("collector",collector);
     }
 
     /**
@@ -284,6 +276,14 @@ public class DocLibModuleDTO extends DTOBase implements Serializable {
     public void setParent(Long  parent){
         this.parent = parent ;
         this.modify("parent",parent);
+    }
+
+    /**
+     * 设置 [ROOT]
+     */
+    public void setRoot(Long  root){
+        this.root = root ;
+        this.modify("root",root);
     }
 
 

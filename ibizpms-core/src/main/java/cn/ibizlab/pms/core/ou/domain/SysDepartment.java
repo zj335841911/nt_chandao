@@ -152,14 +152,6 @@ public class SysDepartment extends EntityClient implements Serializable {
     private Integer enable;
 
     /**
-     * 建立人
-     */
-    @DEField(preType = DEPredefinedFieldType.CREATEMAN)
-    @JSONField(name = "createman")
-    @JsonProperty("createman")
-    private String createman;
-
-    /**
      * 更新人
      */
     @DEField(preType = DEPredefinedFieldType.UPDATEMAN)
@@ -175,6 +167,14 @@ public class SysDepartment extends EntityClient implements Serializable {
     @JSONField(name = "updatedate" , format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("updatedate")
     private Timestamp updatedate;
+
+    /**
+     * 建立人
+     */
+    @DEField(preType = DEPredefinedFieldType.CREATEMAN)
+    @JSONField(name = "createman")
+    @JsonProperty("createman")
+    private String createman;
 
 
     /**

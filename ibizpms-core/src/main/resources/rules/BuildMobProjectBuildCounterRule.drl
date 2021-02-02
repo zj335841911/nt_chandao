@@ -12,6 +12,13 @@ global cn.ibizlab.pms.util.security.AuthenticationUser curuser;
 
 no-loop
 
+//逻辑处理节点[开始]
+rule "begin"
+ruleflow-group "buildmobprojectbuildcounterbegin"
+    when
+    then
+    end
+
 //逻辑处理节点[获取完成的需求数]
 rule "rawsqlcall1"
 ruleflow-group "buildmobprojectbuildcounterrawsqlcall1"
@@ -64,12 +71,5 @@ ruleflow-group "buildmobprojectbuildcounterrawsqlcall2"
         }
     }
     update(buildmobprojectbuildcounterdefault);//更新fact中变量值
-    end
-
-//逻辑处理节点[开始]
-rule "begin"
-ruleflow-group "buildmobprojectbuildcounterbegin"
-    when
-    then
     end
 

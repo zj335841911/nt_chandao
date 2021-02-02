@@ -123,7 +123,7 @@ export class TaskTodoEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof TaskTodoEditViewBase
      */
-	protected viewtag: string = '3a8aaf8bc175455ca2be6ace38f821a1';
+	protected viewtag: string = '4f94ec3ac2a019aeeca8a8fee6fda464';
 
     /**
      * 视图名称

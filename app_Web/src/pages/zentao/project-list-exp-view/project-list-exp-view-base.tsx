@@ -100,7 +100,7 @@ export class ProjectListExpViewBase extends ListExpViewBase {
      * @type {string}
      * @memberof ProjectListExpViewBase
      */
-	protected viewtag: string = '3aafb12bb0db2be013c0f5ced8c7dc50';
+	protected viewtag: string = 'd1de7b1c3f0c14ee93de65e6b1045786';
 
     /**
      * 视图名称

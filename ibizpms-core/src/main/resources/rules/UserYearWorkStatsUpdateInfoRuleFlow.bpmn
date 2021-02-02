@@ -11,17 +11,17 @@
             <tns:metaData express="T(cn.ibizlab.pms.util.security.AuthenticationUser).getAuthenticationUser()" name="curuser" type="session"/>
         <tns:global identifier="useryearworkstatsupdateinfodefault" type="cn.ibizlab.pms.core.ibiz.domain.UserYearWorkStats" />
         </extensionElements>
-     <startEvent id="begin" isInterrupting="true"/>
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="useryearworkstatsupdateinfodeaction3" id="deaction3" implementation="http://www.jboss.org/drools/rule" name="获取测试用户信息"/>
      <endEvent id="deaction3_end" name="end"/>
      <sequenceFlow id="deaction3_end_line" sourceRef="deaction3" targetRef="deaction3_end"/>
+     <startEvent id="begin" isInterrupting="true"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="useryearworkstatsupdateinfodeaction2" id="deaction2" implementation="http://www.jboss.org/drools/rule" name="获取研发用户信息"/>
+     <endEvent id="deaction2_end" name="end"/>
+     <sequenceFlow id="deaction2_end_line" sourceRef="deaction2" targetRef="deaction2_end"/>
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="useryearworkstatsupdateinfodeaction4" id="deaction4" implementation="http://www.jboss.org/drools/rule" name="获取产品经理信息"/>
      <endEvent id="deaction4_end" name="end"/>
      <sequenceFlow id="deaction4_end_line" sourceRef="deaction4" targetRef="deaction4_end"/>
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="useryearworkstatsupdateinforawsqlcall1" id="rawsqlcall1" implementation="http://www.jboss.org/drools/rule" name="获取标题"/>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="useryearworkstatsupdateinfodeaction2" id="deaction2" implementation="http://www.jboss.org/drools/rule" name="获取研发用户信息"/>
-     <endEvent id="deaction2_end" name="end"/>
-     <sequenceFlow id="deaction2_end_line" sourceRef="deaction2" targetRef="deaction2_end"/>
      <sequenceFlow id="gateway-rawsqlcall1_deaction3" sourceRef="gateway-rawsqlcall1" targetRef="deaction3">
             <conditionExpression  language="http://www.jboss.org/drools/rule" ><![CDATA[
             $useryearworkstatsupdateinfodefault:UserYearWorkStats();

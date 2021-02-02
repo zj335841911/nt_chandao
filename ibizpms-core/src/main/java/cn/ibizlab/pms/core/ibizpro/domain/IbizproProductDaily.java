@@ -44,38 +44,21 @@ public class IbizproProductDaily extends EntityMP implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
-     * 产品日报名称
+     * 结束日期
      */
-    @DEField(name = "ibizpro_productdailyname")
-    @TableField(value = "`ibizpro_productdailyname`")
-    @JSONField(name = "ibizproproductdailyname")
-    @JsonProperty("ibizproproductdailyname")
-    private String ibizproproductdailyname;
+    @TableField(value = "`end`")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "end", format = "yyyy-MM-dd")
+    @JsonProperty("end")
+    private Timestamp end;
     /**
-     * 产品日报标识
+     * 日期
      */
-    @DEField(name = "ibizpro_productdailyid", isKeyField = true)
-    @TableId(value = "ibizpro_productdailyid", type = IdType.AUTO)
-    @JSONField(name = "ibizproproductdailyid")
-    @JsonProperty("ibizproproductdailyid")
-    private Long ibizproproductdailyid;
-    /**
-     * 建立人
-     */
-    @DEField(preType = DEPredefinedFieldType.CREATEMAN)
-    @TableField(value = "`createman`", fill = FieldFill.INSERT)
-    @JSONField(name = "createman")
-    @JsonProperty("createman")
-    private String createman;
-    /**
-     * 建立时间
-     */
-    @DEField(preType = DEPredefinedFieldType.CREATEDATE)
-    @TableField(value = "`createdate`", fill = FieldFill.INSERT)
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
-    @JSONField(name = "createdate", format = "yyyy-MM-dd HH:mm:ss")
-    @JsonProperty("createdate")
-    private Timestamp createdate;
+    @TableField(value = "`date`")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "date", format = "yyyy-MM-dd")
+    @JsonProperty("date")
+    private Timestamp date;
     /**
      * 更新时间
      */
@@ -86,6 +69,14 @@ public class IbizproProductDaily extends EntityMP implements Serializable {
     @JsonProperty("updatedate")
     private Timestamp updatedate;
     /**
+     * 产品日报名称
+     */
+    @DEField(name = "ibizpro_productdailyname")
+    @TableField(value = "`ibizpro_productdailyname`")
+    @JSONField(name = "ibizproproductdailyname")
+    @JsonProperty("ibizproproductdailyname")
+    private String ibizproproductdailyname;
+    /**
      * 更新人
      */
     @DEField(preType = DEPredefinedFieldType.UPDATEMAN)
@@ -94,27 +85,13 @@ public class IbizproProductDaily extends EntityMP implements Serializable {
     @JsonProperty("updateman")
     private String updateman;
     /**
-     * 产品负责人
+     * 建立人
      */
-    @TableField(value = "`po`")
-    @JSONField(name = "po")
-    @JsonProperty("po")
-    private String po;
-    /**
-     * 产品
-     */
-    @TableField(value = "`product`")
-    @JSONField(name = "product")
-    @JsonProperty("product")
-    private Long product;
-    /**
-     * 日期
-     */
-    @TableField(value = "`date`")
-    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
-    @JSONField(name = "date", format = "yyyy-MM-dd")
-    @JsonProperty("date")
-    private Timestamp date;
+    @DEField(preType = DEPredefinedFieldType.CREATEMAN)
+    @TableField(value = "`createman`", fill = FieldFill.INSERT)
+    @JSONField(name = "createman")
+    @JsonProperty("createman")
+    private String createman;
     /**
      * 任务
      */
@@ -123,19 +100,29 @@ public class IbizproProductDaily extends EntityMP implements Serializable {
     @JsonProperty("tasks")
     private String tasks;
     /**
+     * 建立时间
+     */
+    @DEField(preType = DEPredefinedFieldType.CREATEDATE)
+    @TableField(value = "`createdate`", fill = FieldFill.INSERT)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "createdate", format = "yyyy-MM-dd HH:mm:ss")
+    @JsonProperty("createdate")
+    private Timestamp createdate;
+    /**
+     * 产品日报标识
+     */
+    @DEField(name = "ibizpro_productdailyid", isKeyField = true)
+    @TableId(value = "ibizpro_productdailyid", type = IdType.AUTO)
+    @JSONField(name = "ibizproproductdailyid")
+    @JsonProperty("ibizproproductdailyid")
+    private Long ibizproproductdailyid;
+    /**
      * 总工时
      */
     @TableField(value = "`totalestimates`")
     @JSONField(name = "totalestimates")
     @JsonProperty("totalestimates")
     private Double totalestimates;
-    /**
-     * 产品名称
-     */
-    @TableField(exist = false)
-    @JSONField(name = "productname")
-    @JsonProperty("productname")
-    private String productname;
     /**
      * 开始日期
      */
@@ -145,13 +132,26 @@ public class IbizproProductDaily extends EntityMP implements Serializable {
     @JsonProperty("begin")
     private Timestamp begin;
     /**
-     * 结束日期
+     * 产品负责人
      */
-    @TableField(value = "`end`")
-    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
-    @JSONField(name = "end", format = "yyyy-MM-dd")
-    @JsonProperty("end")
-    private Timestamp end;
+    @TableField(value = "`po`")
+    @JSONField(name = "po")
+    @JsonProperty("po")
+    private String po;
+    /**
+     * 产品名称
+     */
+    @TableField(exist = false)
+    @JSONField(name = "productname")
+    @JsonProperty("productname")
+    private String productname;
+    /**
+     * 产品
+     */
+    @TableField(value = "`product`")
+    @JSONField(name = "product")
+    @JsonProperty("product")
+    private Long product;
 
     /**
      * 产品
@@ -164,29 +164,23 @@ public class IbizproProductDaily extends EntityMP implements Serializable {
 
 
     /**
-     * 设置 [产品日报名称]
+     * 设置 [结束日期]
      */
-    public void setIbizproproductdailyname(String ibizproproductdailyname) {
-        this.ibizproproductdailyname = ibizproproductdailyname;
-        this.modify("ibizpro_productdailyname", ibizproproductdailyname);
+    public void setEnd(Timestamp end) {
+        this.end = end;
+        this.modify("end", end);
     }
 
     /**
-     * 设置 [产品负责人]
+     * 格式化日期 [结束日期]
      */
-    public void setPo(String po) {
-        this.po = po;
-        this.modify("po", po);
+    public String formatEnd() {
+        if (this.end == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return sdf.format(end);
     }
-
-    /**
-     * 设置 [产品]
-     */
-    public void setProduct(Long product) {
-        this.product = product;
-        this.modify("product", product);
-    }
-
     /**
      * 设置 [日期]
      */
@@ -205,6 +199,14 @@ public class IbizproProductDaily extends EntityMP implements Serializable {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         return sdf.format(date);
     }
+    /**
+     * 设置 [产品日报名称]
+     */
+    public void setIbizproproductdailyname(String ibizproproductdailyname) {
+        this.ibizproproductdailyname = ibizproproductdailyname;
+        this.modify("ibizpro_productdailyname", ibizproproductdailyname);
+    }
+
     /**
      * 设置 [任务]
      */
@@ -240,23 +242,21 @@ public class IbizproProductDaily extends EntityMP implements Serializable {
         return sdf.format(begin);
     }
     /**
-     * 设置 [结束日期]
+     * 设置 [产品负责人]
      */
-    public void setEnd(Timestamp end) {
-        this.end = end;
-        this.modify("end", end);
+    public void setPo(String po) {
+        this.po = po;
+        this.modify("po", po);
     }
 
     /**
-     * 格式化日期 [结束日期]
+     * 设置 [产品]
      */
-    public String formatEnd() {
-        if (this.end == null) {
-            return null;
-        }
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        return sdf.format(end);
+    public void setProduct(Long product) {
+        this.product = product;
+        this.modify("product", product);
     }
+
 
     @Override
     public Serializable getDefaultKey(boolean gen) {

@@ -141,7 +141,7 @@ export class ProjectModuleMainGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof ProjectModuleMainGridViewBase
      */
-	protected viewtag: string = '41dab4e36aef71df5c66acca4db7d045';
+	protected viewtag: string = '95320a98383e165118979cd27997f20e';
 
     /**
      * 视图名称

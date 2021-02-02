@@ -48,6 +48,24 @@ public class FileDTO extends DTOBase implements Serializable {
     private Long objectid;
 
     /**
+     * 属性 [STRSIZE]
+     *
+     */
+    @JSONField(name = "strsize")
+    @JsonProperty("strsize")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String strsize;
+
+    /**
+     * 属性 [DOCLIBTYPE]
+     *
+     */
+    @JSONField(name = "doclibtype")
+    @JsonProperty("doclibtype")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String doclibtype;
+
+    /**
      * 属性 [DELETED]
      *
      */
@@ -135,24 +153,6 @@ public class FileDTO extends DTOBase implements Serializable {
     @JsonProperty("extra")
     @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
     private String extra;
-
-    /**
-     * 属性 [STRSIZE]
-     *
-     */
-    @JSONField(name = "strsize")
-    @JsonProperty("strsize")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String strsize;
-
-    /**
-     * 属性 [DOCLIBTYPE]
-     *
-     */
-    @JSONField(name = "doclibtype")
-    @JsonProperty("doclibtype")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String doclibtype;
 
 
     /**

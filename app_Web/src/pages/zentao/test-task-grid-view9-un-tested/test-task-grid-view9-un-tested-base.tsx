@@ -119,7 +119,7 @@ export class TestTaskGridView9_UnTestedBase extends GridView9Base {
      * @type {string}
      * @memberof TestTaskGridView9_UnTestedBase
      */
-	protected viewtag: string = '3091670967914b91fb4b6f46751dcd7e';
+	protected viewtag: string = 'fe6c2d81a15a946d67c798e5af01f6ae';
 
     /**
      * 视图名称

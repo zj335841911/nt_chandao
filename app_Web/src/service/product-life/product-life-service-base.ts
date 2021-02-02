@@ -40,35 +40,6 @@ export default class ProductLifeServiceBase extends EntityService {
 // 实体接口
 
     /**
-     * FetchGetRoadmap接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @param {boolean} [isloading]
-     * @returns {Promise<any>}
-     * @memberof ProductLifeServiceBase
-     */
-    public async FetchGetRoadmap(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/productlives/fetchgetroadmap`,tempData,isloading);
-        return res;
-    }
-
-    /**
-     * searchGetRoadmap接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @param {boolean} [isloading]
-     * @returns {Promise<any>}
-     * @memberof ProductLifeServiceBase
-     */
-    public async searchGetRoadmap(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let tempData:any = JSON.parse(JSON.stringify(data));
-        return await Http.getInstance().post(`/productlives/searchgetroadmap`,tempData,isloading);
-    }
-
-    /**
      * FetchRoadMapYear接口方法
      *
      * @param {*} [context={}]
@@ -124,6 +95,35 @@ export default class ProductLifeServiceBase extends EntityService {
     public async searchGetRoadmapS(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
         return await Http.getInstance().post(`/productlives/searchgetroadmaps`,tempData,isloading);
+    }
+
+    /**
+     * FetchGetRoadmap接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductLifeServiceBase
+     */
+    public async FetchGetRoadmap(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/productlives/fetchgetroadmap`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * searchGetRoadmap接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductLifeServiceBase
+     */
+    public async searchGetRoadmap(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/productlives/searchgetroadmap`,tempData,isloading);
     }
 
     /**

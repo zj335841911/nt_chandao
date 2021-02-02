@@ -75,7 +75,7 @@ export class ProductMainToolbarPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet5_ua3abd8c_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet5_ub8a0b43_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -103,7 +103,7 @@ export class ProductMainToolbarPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet5_u993e8bf_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet5_u7de7460_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -131,7 +131,7 @@ export class ProductMainToolbarPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet5_u0828b1d_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet5_u68f0e17_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -194,7 +194,7 @@ export class ProductMainToolbarPortletBase extends MainControlBase {
      * @memberof ProductMainToolbarBase
      */
     public actionBarModelData:any[] =[
-        { viewlogicname:"dashboard_sysportlet5_ua3abd8c_click",
+        { viewlogicname:"dashboard_sysportlet5_ub8a0b43_click",
         text: "关闭",
         iconcls: "power",
         icon: "",
@@ -204,7 +204,7 @@ export class ProductMainToolbarPortletBase extends MainControlBase {
         visible:true,
         disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet5_u993e8bf_click",
+        { viewlogicname:"dashboard_sysportlet5_u7de7460_click",
         text: "编辑",
         iconcls: "fa fa-edit",
         icon: "",
@@ -214,7 +214,7 @@ export class ProductMainToolbarPortletBase extends MainControlBase {
         visible:true,
         disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet5_u0828b1d_click",
+        { viewlogicname:"dashboard_sysportlet5_u68f0e17_click",
         text: "删除",
         iconcls: "fa fa-remove",
         icon: "",
@@ -232,14 +232,14 @@ export class ProductMainToolbarPortletBase extends MainControlBase {
      * @memberof ProductMainToolbarBase
      */
     public handleItemClick($event:any){
-        if(Object.is($event,'dashboard_sysportlet5_ua3abd8c_click')){
-            this.dashboard_sysportlet5_ua3abd8c_click(null);
+        if(Object.is($event,'dashboard_sysportlet5_ub8a0b43_click')){
+            this.dashboard_sysportlet5_ub8a0b43_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet5_u993e8bf_click')){
-            this.dashboard_sysportlet5_u993e8bf_click(null);
+        if(Object.is($event,'dashboard_sysportlet5_u7de7460_click')){
+            this.dashboard_sysportlet5_u7de7460_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet5_u0828b1d_click')){
-            this.dashboard_sysportlet5_u0828b1d_click(null);
+        if(Object.is($event,'dashboard_sysportlet5_u68f0e17_click')){
+            this.dashboard_sysportlet5_u68f0e17_click(null);
         }
     }
 

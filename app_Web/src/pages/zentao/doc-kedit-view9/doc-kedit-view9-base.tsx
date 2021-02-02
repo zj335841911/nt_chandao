@@ -102,7 +102,7 @@ export class DocKEditView9Base extends EditView9Base {
      * @type {string}
      * @memberof DocKEditView9Base
      */
-	protected viewtag: string = 'eb67eecdc733d1716683188c485f52ab';
+	protected viewtag: string = '82c6ad02ac6082c71d742df0460a93e2';
 
     /**
      * 视图名称

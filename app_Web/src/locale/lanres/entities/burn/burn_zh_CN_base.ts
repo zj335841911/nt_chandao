@@ -3,6 +3,7 @@ function getLocaleResourceBase(){
 	const data:any = {
 		appdename: commonLogic.appcommonhandle("burn", null),
 		fields: {
+			isweekend: commonLogic.appcommonhandle("周末",null),
 			date: commonLogic.appcommonhandle("日期",null),
 			id: commonLogic.appcommonhandle("虚拟主键",null),
 			consumed: commonLogic.appcommonhandle("总计消耗",null),
@@ -10,7 +11,6 @@ function getLocaleResourceBase(){
 			estimate: commonLogic.appcommonhandle("最初预计",null),
 			project: commonLogic.appcommonhandle("所属项目",null),
 			task: commonLogic.appcommonhandle("任务",null),
-			isweekend: commonLogic.appcommonhandle("周末",null),
 		},
 			views: {
 				chartview: {

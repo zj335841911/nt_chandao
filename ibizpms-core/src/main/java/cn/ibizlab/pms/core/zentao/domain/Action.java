@@ -44,12 +44,68 @@ public class Action extends EntityMP implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
+     * 本月
+     */
+    @TableField(exist = false)
+    @JSONField(name = "thismonth")
+    @JsonProperty("thismonth")
+    private String thismonth;
+    /**
+     * 昨天
+     */
+    @TableField(exist = false)
+    @JSONField(name = "yesterday")
+    @JsonProperty("yesterday")
+    private String yesterday;
+    /**
      * 附加值
      */
     @TableField(value = "`extra`")
     @JSONField(name = "extra")
     @JsonProperty("extra")
     private String extra;
+    /**
+     * 文件
+     */
+    @TableField(exist = false)
+    @JSONField(name = "files")
+    @JsonProperty("files")
+    private String files;
+    /**
+     * 上月
+     */
+    @TableField(exist = false)
+    @JSONField(name = "lastmonth")
+    @JsonProperty("lastmonth")
+    private String lastmonth;
+    /**
+     * 当前用户
+     */
+    @TableField(exist = false)
+    @JSONField(name = "isactorss")
+    @JsonProperty("isactorss")
+    private Long isactorss;
+    /**
+     * 本周
+     */
+    @TableField(exist = false)
+    @JSONField(name = "thisweek")
+    @JsonProperty("thisweek")
+    private String thisweek;
+    /**
+     * 今天
+     */
+    @TableField(exist = false)
+    @JSONField(name = "today")
+    @JsonProperty("today")
+    private String today;
+    /**
+     * 显示日期
+     */
+    @TableField(exist = false)
+    @JSONField(name = "date1")
+    @JsonProperty("date1")
+    private String date1;
     /**
      * 对象类型
      */
@@ -65,6 +121,13 @@ public class Action extends EntityMP implements Serializable {
     @JSONField(name = "id")
     @JsonProperty("id")
     private Long id;
+    /**
+     * 消息通知用户
+     */
+    @TableField(exist = false)
+    @JSONField(name = "noticeusers")
+    @JsonProperty("noticeusers")
+    private String noticeusers;
     /**
      * 备注
      */
@@ -104,6 +167,34 @@ public class Action extends EntityMP implements Serializable {
     @JsonProperty("product")
     private String product;
     /**
+     * 备注
+     */
+    @TableField(exist = false)
+    @JSONField(name = "lastcomment")
+    @JsonProperty("lastcomment")
+    private String lastcomment;
+    /**
+     * 前端键值
+     */
+    @TableField(exist = false)
+    @JSONField(name = "srfkey")
+    @JsonProperty("srfkey")
+    private Long srfkey;
+    /**
+     * 操作方式
+     */
+    @TableField(exist = false)
+    @JSONField(name = "actionmanner")
+    @JsonProperty("actionmanner")
+    private String actionmanner;
+    /**
+     * 上周
+     */
+    @TableField(exist = false)
+    @JSONField(name = "lastweek")
+    @JsonProperty("lastweek")
+    private String lastweek;
+    /**
      * 对象ID
      */
     @DEField(defaultValue = "0")
@@ -125,97 +216,6 @@ public class Action extends EntityMP implements Serializable {
     @JSONField(name = "project")
     @JsonProperty("project")
     private Long project;
-    /**
-     * 备注
-     */
-    @TableField(exist = false)
-    @JSONField(name = "lastcomment")
-    @JsonProperty("lastcomment")
-    private String lastcomment;
-    /**
-     * 操作方式
-     */
-    @TableField(exist = false)
-    @JSONField(name = "actionmanner")
-    @JsonProperty("actionmanner")
-    private String actionmanner;
-    /**
-     * 当前用户
-     */
-    @TableField(exist = false)
-    @JSONField(name = "isactorss")
-    @JsonProperty("isactorss")
-    private Long isactorss;
-    /**
-     * 显示日期
-     */
-    @TableField(exist = false)
-    @JSONField(name = "date1")
-    @JsonProperty("date1")
-    private String date1;
-    /**
-     * 今天
-     */
-    @TableField(exist = false)
-    @JSONField(name = "today")
-    @JsonProperty("today")
-    private String today;
-    /**
-     * 昨天
-     */
-    @TableField(exist = false)
-    @JSONField(name = "yesterday")
-    @JsonProperty("yesterday")
-    private String yesterday;
-    /**
-     * 本周
-     */
-    @TableField(exist = false)
-    @JSONField(name = "thisweek")
-    @JsonProperty("thisweek")
-    private String thisweek;
-    /**
-     * 上周
-     */
-    @TableField(exist = false)
-    @JSONField(name = "lastweek")
-    @JsonProperty("lastweek")
-    private String lastweek;
-    /**
-     * 本月
-     */
-    @TableField(exist = false)
-    @JSONField(name = "thismonth")
-    @JsonProperty("thismonth")
-    private String thismonth;
-    /**
-     * 上月
-     */
-    @TableField(exist = false)
-    @JSONField(name = "lastmonth")
-    @JsonProperty("lastmonth")
-    private String lastmonth;
-    /**
-     * 前端键值
-     */
-    @TableField(exist = false)
-    @JSONField(name = "srfkey")
-    @JsonProperty("srfkey")
-    private Long srfkey;
-    /**
-     * 消息通知用户
-     */
-    @TableField(exist = false)
-    @JSONField(name = "noticeusers")
-    @JsonProperty("noticeusers")
-    private String noticeusers;
-    /**
-     * 文件
-     */
-    @TableField(exist = false)
-    @JSONField(name = "files")
-    @JsonProperty("files")
-    private String files;
 
     /**
      * 项目

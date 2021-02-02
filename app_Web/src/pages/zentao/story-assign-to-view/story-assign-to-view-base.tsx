@@ -162,7 +162,7 @@ export class StoryAssignToViewBase extends OptionViewBase {
      * @type {string}
      * @memberof StoryAssignToViewBase
      */
-	protected viewtag: string = '90d6a9dc6032a7a7e19fee6ac22fccc0';
+	protected viewtag: string = '6c8c8b96f11e8906ae6b5ab3e029f5d4';
 
     /**
      * 视图名称

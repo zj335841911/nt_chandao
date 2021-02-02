@@ -15,12 +15,36 @@ export interface SubStory {
     assignedto?: any;
 
     /**
+     * 所属模块名称
+     *
+     * @returns {*}
+     * @memberof SubStory
+     */
+    modulename1?: any;
+
+    /**
+     * 附件
+     *
+     * @returns {*}
+     * @memberof SubStory
+     */
+    files?: any;
+
+    /**
      * 细分需求
      *
      * @returns {*}
      * @memberof SubStory
      */
     childstories?: any;
+
+    /**
+     * IBIZ标识
+     *
+     * @returns {*}
+     * @memberof SubStory
+     */
+    ibiz_id?: any;
 
     /**
      * 所属计划
@@ -47,12 +71,52 @@ export interface SubStory {
     assigneddate?: any;
 
     /**
+     * 故事点
+     *
+     * @returns {*}
+     * @memberof SubStory
+     */
+    storypoints?: any;
+
+    /**
+     * 来源对象名称
+     *
+     * @returns {*}
+     * @memberof SubStory
+     */
+    sourcename?: any;
+
+    /**
+     * 需求提供时间
+     *
+     * @returns {*}
+     * @memberof SubStory
+     */
+    storyprovidedate?: any;
+
+    /**
+     * 是否子需求
+     *
+     * @returns {*}
+     * @memberof SubStory
+     */
+    isleaf?: any;
+
+    /**
      * 优先级
      *
      * @returns {*}
      * @memberof SubStory
      */
     pri?: any;
+
+    /**
+     * 来源对象标识
+     *
+     * @returns {*}
+     * @memberof SubStory
+     */
+    sourceid?: any;
 
     /**
      * 相关需求
@@ -63,6 +127,14 @@ export interface SubStory {
     linkstories?: any;
 
     /**
+     * 评审结果
+     *
+     * @returns {*}
+     * @memberof SubStory
+     */
+    assessresult?: any;
+
+    /**
      * 当前状态
      *
      * @returns {*}
@@ -71,12 +143,28 @@ export interface SubStory {
     status?: any;
 
     /**
+     * 抄送给
+     *
+     * @returns {*}
+     * @memberof SubStory
+     */
+    mailtopk?: any;
+
+    /**
      * 预计工时
      *
      * @returns {*}
      * @memberof SubStory
      */
     estimate?: any;
+
+    /**
+     * 消息通知用户
+     *
+     * @returns {*}
+     * @memberof SubStory
+     */
+    noticeusers?: any;
 
     /**
      * 评审时间
@@ -95,12 +183,28 @@ export interface SubStory {
     title?: any;
 
     /**
+     * 联系人
+     *
+     * @returns {*}
+     * @memberof SubStory
+     */
+    mailtoconact?: any;
+
+    /**
      * 来源备注
      *
      * @returns {*}
      * @memberof SubStory
      */
     sourcenote?: any;
+
+    /**
+     * 版本号
+     *
+     * @returns {*}
+     * @memberof SubStory
+     */
+    versionc?: any;
 
     /**
      * 由谁评审
@@ -151,12 +255,44 @@ export interface SubStory {
     id?: any;
 
     /**
+     * 来源对象
+     *
+     * @returns {*}
+     * @memberof SubStory
+     */
+    ibiz_sourceobject?: any;
+
+    /**
      * 需求来源
      *
      * @returns {*}
      * @memberof SubStory
      */
     source?: any;
+
+    /**
+     * 需求最晚完成时间
+     *
+     * @returns {*}
+     * @memberof SubStory
+     */
+    storylatestfinisheddate?: any;
+
+    /**
+     * 不需要评审
+     *
+     * @returns {*}
+     * @memberof SubStory
+     */
+    neednotreview?: any;
+
+    /**
+     * 是否可以细分
+     *
+     * @returns {*}
+     * @memberof SubStory
+     */
+    ischild?: any;
 
     /**
      * 关闭原因
@@ -175,12 +311,36 @@ export interface SubStory {
     color?: any;
 
     /**
+     * orgid
+     *
+     * @returns {*}
+     * @memberof SubStory
+     */
+    orgid?: any;
+
+    /**
      * 抄送给
      *
      * @returns {*}
      * @memberof SubStory
      */
     mailto?: any;
+
+    /**
+     * 是否收藏
+     *
+     * @returns {*}
+     * @memberof SubStory
+     */
+    isfavorites?: any;
+
+    /**
+     * 来源对象
+     *
+     * @returns {*}
+     * @memberof SubStory
+     */
+    sourceobject?: any;
 
     /**
      * 已删除
@@ -215,6 +375,14 @@ export interface SubStory {
     stage?: any;
 
     /**
+     * 项目
+     *
+     * @returns {*}
+     * @memberof SubStory
+     */
+    project?: any;
+
+    /**
      * 关闭日期	
      *
      * @returns {*}
@@ -223,12 +391,76 @@ export interface SubStory {
     closeddate?: any;
 
     /**
+     * 需求描述
+     *
+     * @returns {*}
+     * @memberof SubStory
+     */
+    spec?: any;
+
+    /**
+     * 来源对象名称
+     *
+     * @returns {*}
+     * @memberof SubStory
+     */
+    ibiz_sourcename?: any;
+
+    /**
+     * 指派给（选择）
+     *
+     * @returns {*}
+     * @memberof SubStory
+     */
+    assignedtopk?: any;
+
+    /**
+     * 备注
+     *
+     * @returns {*}
+     * @memberof SubStory
+     */
+    comment?: any;
+
+    /**
+     * acllist
+     *
+     * @returns {*}
+     * @memberof SubStory
+     */
+    acllist?: any;
+
+    /**
+     * 验收标准
+     *
+     * @returns {*}
+     * @memberof SubStory
+     */
+    verify?: any;
+
+    /**
      * 由谁关闭
      *
      * @returns {*}
      * @memberof SubStory
      */
     closedby?: any;
+
+    /**
+     * acl
+     *
+     * @returns {*}
+     * @memberof SubStory
+     */
+    acl?: any;
+
+    /**
+     * 评审结果
+     *
+     * @returns {*}
+     * @memberof SubStory
+     */
+    result?: any;
 
     /**
      * 需求类型
@@ -245,6 +477,38 @@ export interface SubStory {
      * @memberof SubStory
      */
     lastediteddate?: any;
+
+    /**
+     * 来源对象标识
+     *
+     * @returns {*}
+     * @memberof SubStory
+     */
+    ibiz_sourceid?: any;
+
+    /**
+     * 之前的版本
+     *
+     * @returns {*}
+     * @memberof SubStory
+     */
+    preversion?: any;
+
+    /**
+     * 需求提供人
+     *
+     * @returns {*}
+     * @memberof SubStory
+     */
+    storyprovider?: any;
+
+    /**
+     * MDEPTID
+     *
+     * @returns {*}
+     * @memberof SubStory
+     */
+    mdeptid?: any;
 
     /**
      * 模块路径
@@ -277,6 +541,14 @@ export interface SubStory {
      * @memberof SubStory
      */
     productname?: any;
+
+    /**
+     * 平台/分支
+     *
+     * @returns {*}
+     * @memberof SubStory
+     */
+    branchname?: any;
 
     /**
      * 来源Bug
@@ -333,276 +605,4 @@ export interface SubStory {
      * @memberof SubStory
      */
     tobug?: any;
-
-    /**
-     * 需求描述
-     *
-     * @returns {*}
-     * @memberof SubStory
-     */
-    spec?: any;
-
-    /**
-     * 验收标准
-     *
-     * @returns {*}
-     * @memberof SubStory
-     */
-    verify?: any;
-
-    /**
-     * 评审结果
-     *
-     * @returns {*}
-     * @memberof SubStory
-     */
-    result?: any;
-
-    /**
-     * 备注
-     *
-     * @returns {*}
-     * @memberof SubStory
-     */
-    comment?: any;
-
-    /**
-     * 是否子需求
-     *
-     * @returns {*}
-     * @memberof SubStory
-     */
-    isleaf?: any;
-
-    /**
-     * 附件
-     *
-     * @returns {*}
-     * @memberof SubStory
-     */
-    files?: any;
-
-    /**
-     * 平台/分支
-     *
-     * @returns {*}
-     * @memberof SubStory
-     */
-    branchname?: any;
-
-    /**
-     * 版本号
-     *
-     * @returns {*}
-     * @memberof SubStory
-     */
-    versionc?: any;
-
-    /**
-     * 所属模块名称
-     *
-     * @returns {*}
-     * @memberof SubStory
-     */
-    modulename1?: any;
-
-    /**
-     * 项目
-     *
-     * @returns {*}
-     * @memberof SubStory
-     */
-    project?: any;
-
-    /**
-     * 之前的版本
-     *
-     * @returns {*}
-     * @memberof SubStory
-     */
-    preversion?: any;
-
-    /**
-     * 不需要评审
-     *
-     * @returns {*}
-     * @memberof SubStory
-     */
-    neednotreview?: any;
-
-    /**
-     * 是否收藏
-     *
-     * @returns {*}
-     * @memberof SubStory
-     */
-    isfavorites?: any;
-
-    /**
-     * 是否可以细分
-     *
-     * @returns {*}
-     * @memberof SubStory
-     */
-    ischild?: any;
-
-    /**
-     * 联系人
-     *
-     * @returns {*}
-     * @memberof SubStory
-     */
-    mailtoconact?: any;
-
-    /**
-     * 抄送给
-     *
-     * @returns {*}
-     * @memberof SubStory
-     */
-    mailtopk?: any;
-
-    /**
-     * 指派给（选择）
-     *
-     * @returns {*}
-     * @memberof SubStory
-     */
-    assignedtopk?: any;
-
-    /**
-     * 消息通知用户
-     *
-     * @returns {*}
-     * @memberof SubStory
-     */
-    noticeusers?: any;
-
-    /**
-     * 来源对象
-     *
-     * @returns {*}
-     * @memberof SubStory
-     */
-    ibiz_sourceobject?: any;
-
-    /**
-     * 来源对象
-     *
-     * @returns {*}
-     * @memberof SubStory
-     */
-    sourceobject?: any;
-
-    /**
-     * IBIZ标识
-     *
-     * @returns {*}
-     * @memberof SubStory
-     */
-    ibiz_id?: any;
-
-    /**
-     * 来源对象名称
-     *
-     * @returns {*}
-     * @memberof SubStory
-     */
-    sourcename?: any;
-
-    /**
-     * 来源对象标识
-     *
-     * @returns {*}
-     * @memberof SubStory
-     */
-    sourceid?: any;
-
-    /**
-     * 来源对象标识
-     *
-     * @returns {*}
-     * @memberof SubStory
-     */
-    ibiz_sourceid?: any;
-
-    /**
-     * 来源对象名称
-     *
-     * @returns {*}
-     * @memberof SubStory
-     */
-    ibiz_sourcename?: any;
-
-    /**
-     * 故事点
-     *
-     * @returns {*}
-     * @memberof SubStory
-     */
-    storypoints?: any;
-
-    /**
-     * 评审结果
-     *
-     * @returns {*}
-     * @memberof SubStory
-     */
-    assessresult?: any;
-
-    /**
-     * orgid
-     *
-     * @returns {*}
-     * @memberof SubStory
-     */
-    orgid?: any;
-
-    /**
-     * acl
-     *
-     * @returns {*}
-     * @memberof SubStory
-     */
-    acl?: any;
-
-    /**
-     * acllist
-     *
-     * @returns {*}
-     * @memberof SubStory
-     */
-    acllist?: any;
-
-    /**
-     * MDEPTID
-     *
-     * @returns {*}
-     * @memberof SubStory
-     */
-    mdeptid?: any;
-
-    /**
-     * 需求最晚完成时间
-     *
-     * @returns {*}
-     * @memberof SubStory
-     */
-    storylatestfinisheddate?: any;
-
-    /**
-     * 需求提供时间
-     *
-     * @returns {*}
-     * @memberof SubStory
-     */
-    storyprovidedate?: any;
-
-    /**
-     * 需求提供人
-     *
-     * @returns {*}
-     * @memberof SubStory
-     */
-    storyprovider?: any;
 }

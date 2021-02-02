@@ -100,13 +100,13 @@ export default class TreeExpViewtreeexpbarModel {
         name: 'createdate',
       },
       {
+        name: 'updatedate',
+      },
+      {
         name: 'updateman',
       },
       {
         name: 'createman',
-      },
-      {
-        name: 'updatedate',
       },
     ]
   }

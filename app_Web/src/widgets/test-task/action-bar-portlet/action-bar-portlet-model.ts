@@ -21,10 +21,22 @@ export default class ActionBarModel {
         name: 'begin',
       },
       {
+        name: 'ownerpk',
+      },
+      {
         name: 'mailto',
       },
       {
+        name: 'casecnt',
+      },
+      {
+        name: 'mailtopk',
+      },
+      {
         name: 'pri',
+      },
+      {
+        name: 'comment',
       },
       {
         name: 'substatus',
@@ -43,6 +55,9 @@ export default class ActionBarModel {
         name: 'status',
       },
       {
+        name: 'mailtoconact',
+      },
+      {
         name: 'owner',
       },
       {
@@ -55,13 +70,7 @@ export default class ActionBarModel {
         name: 'name',
       },
       {
-        name: 'product',
-      },
-      {
-        name: 'build',
-      },
-      {
-        name: 'project',
+        name: 'buildname',
       },
       {
         name: 'productname',
@@ -70,22 +79,13 @@ export default class ActionBarModel {
         name: 'projecttname',
       },
       {
-        name: 'buildname',
+        name: 'product',
       },
       {
-        name: 'comment',
+        name: 'build',
       },
       {
-        name: 'casecnt',
-      },
-      {
-        name: 'ownerpk',
-      },
-      {
-        name: 'mailtoconact',
-      },
-      {
-        name: 'mailtopk',
+        name: 'project',
       },
     ]
   }

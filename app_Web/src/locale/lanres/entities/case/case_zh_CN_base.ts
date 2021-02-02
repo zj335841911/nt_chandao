@@ -9,34 +9,52 @@ function getLocaleResourceBase(){
 			path: commonLogic.appcommonhandle("path",null),
 			openeddate: commonLogic.appcommonhandle("创建日期",null),
 			lastrunresult: commonLogic.appcommonhandle("结果",null),
+			modulename1: commonLogic.appcommonhandle("模块名称",null),
 			linkcase: commonLogic.appcommonhandle("相关用例",null),
+			casesteps: commonLogic.appcommonhandle("用例步骤集合",null),
+			task: commonLogic.appcommonhandle("属性",null),
 			order: commonLogic.appcommonhandle("排序",null),
 			howrun: commonLogic.appcommonhandle("howRun",null),
+			resultcnt: commonLogic.appcommonhandle("测试结果数",null),
+			noticeusers: commonLogic.appcommonhandle("消息通知用户",null),
 			version: commonLogic.appcommonhandle("用例版本",null),
 			scriptedby: commonLogic.appcommonhandle("scriptedBy",null),
 			openedby: commonLogic.appcommonhandle("由谁创建",null),
 			type: commonLogic.appcommonhandle("用例类型",null),
+			resultfalicnt: commonLogic.appcommonhandle("测试失败数",null),
 			status: commonLogic.appcommonhandle("用例状态",null),
+			comment: commonLogic.appcommonhandle("备注",null),
 			auto: commonLogic.appcommonhandle("auto",null),
+			isfavorites: commonLogic.appcommonhandle("是否收藏",null),
 			frequency: commonLogic.appcommonhandle("frequency",null),
 			title: commonLogic.appcommonhandle("用例标题",null),
 			lasteditedby: commonLogic.appcommonhandle("最后修改者",null),
 			reviewedby: commonLogic.appcommonhandle("由谁评审",null),
+			files: commonLogic.appcommonhandle("附件",null),
+			tobugcnt: commonLogic.appcommonhandle("转bug数",null),
+			assignedto: commonLogic.appcommonhandle("指派给",null),
 			deleted: commonLogic.appcommonhandle("已删除",null),
 			revieweddate: commonLogic.appcommonhandle("评审时间",null),
 			pri: commonLogic.appcommonhandle("优先级",null),
 			stage: commonLogic.appcommonhandle("适用阶段",null),
 			scriptlocation: commonLogic.appcommonhandle("scriptLocation",null),
+			status1: commonLogic.appcommonhandle("用例状态",null),
 			lastrundate: commonLogic.appcommonhandle("执行时间",null),
 			keywords: commonLogic.appcommonhandle("关键词",null),
 			scriptstatus: commonLogic.appcommonhandle("scriptStatus",null),
 			frame: commonLogic.appcommonhandle("工具/框架",null),
+			lastrunresult1: commonLogic.appcommonhandle("测试用例结果",null),
+			stepcnt: commonLogic.appcommonhandle("用例步骤数",null),
 			substatus: commonLogic.appcommonhandle("子状态",null),
 			id: commonLogic.appcommonhandle("用例编号",null),
 			precondition: commonLogic.appcommonhandle("前置条件",null),
 			lastrunner: commonLogic.appcommonhandle("执行人",null),
+			libname: commonLogic.appcommonhandle("用例库",null),
 			fromcaseversion: commonLogic.appcommonhandle("来源用例版本",null),
+			storyname: commonLogic.appcommonhandle("需求名称",null),
+			modulename: commonLogic.appcommonhandle("模块名称",null),
 			storyversion: commonLogic.appcommonhandle("需求版本",null),
+			productname: commonLogic.appcommonhandle("产品名称",null),
 			fromcaseid: commonLogic.appcommonhandle("来源用例",null),
 			branch: commonLogic.appcommonhandle("平台/分支",null),
 			frombug: commonLogic.appcommonhandle("来源Bug",null),
@@ -44,65 +62,59 @@ function getLocaleResourceBase(){
 			product: commonLogic.appcommonhandle("所属产品",null),
 			lib: commonLogic.appcommonhandle("所属库",null),
 			module: commonLogic.appcommonhandle("所属模块",null),
-			modulename: commonLogic.appcommonhandle("模块名称",null),
-			storyname: commonLogic.appcommonhandle("需求名称",null),
-			productname: commonLogic.appcommonhandle("产品名称",null),
-			casesteps: commonLogic.appcommonhandle("用例步骤集合",null),
-			tobugcnt: commonLogic.appcommonhandle("转bug数",null),
-			resultcnt: commonLogic.appcommonhandle("测试结果数",null),
-			stepcnt: commonLogic.appcommonhandle("用例步骤数",null),
-			comment: commonLogic.appcommonhandle("备注",null),
-			resultfalicnt: commonLogic.appcommonhandle("测试失败数",null),
-			status1: commonLogic.appcommonhandle("用例状态",null),
-			assignedto: commonLogic.appcommonhandle("指派给",null),
-			task: commonLogic.appcommonhandle("属性",null),
-			libname: commonLogic.appcommonhandle("用例库",null),
-			lastrunresult1: commonLogic.appcommonhandle("测试用例结果",null),
-			isfavorites: commonLogic.appcommonhandle("是否收藏",null),
-			modulename1: commonLogic.appcommonhandle("模块名称",null),
-			files: commonLogic.appcommonhandle("附件",null),
-			noticeusers: commonLogic.appcommonhandle("消息通知用户",null),
 		},
 			views: {
 				editview: {
 					caption: commonLogic.appcommonhandle("测试用例",null),
 					title: commonLogic.appcommonhandle("功能测试编辑视图",null),
 				},
-				moduleentrygridview: {
-					caption: commonLogic.appcommonhandle("测试结果条目",null),
-					title: commonLogic.appcommonhandle("测试用例表格视图（测试结果条目）",null),
-				},
-				casefavorite: {
+				maineditview: {
 					caption: commonLogic.appcommonhandle("测试用例",null),
-					title: commonLogic.appcommonhandle("case我得收藏",null),
+					title: commonLogic.appcommonhandle("测试用例",null),
 				},
-				linkcasegridview: {
-					caption: commonLogic.appcommonhandle("关联用例",null),
-					title: commonLogic.appcommonhandle("测试用例表格视图（关联用例）",null),
+				cursuitgridview: {
+					caption: commonLogic.appcommonhandle("功能测试",null),
+					title: commonLogic.appcommonhandle("功能测试",null),
 				},
-				reportlinkgridview: {
-					caption: commonLogic.appcommonhandle("关联用例",null),
-					title: commonLogic.appcommonhandle("测试用例表格视图（报告关联用例）",null),
-				},
-				typeentrygridview: {
-					caption: commonLogic.appcommonhandle("测试结果条目",null),
-					title: commonLogic.appcommonhandle("测试用例表格视图（测试结果条目）",null),
-				},
-				optionview: {
-					caption: commonLogic.appcommonhandle("执行",null),
-					title: commonLogic.appcommonhandle("执行",null),
-				},
-				gridview9_my: {
-					caption: commonLogic.appcommonhandle("测试用例",null),
-					title: commonLogic.appcommonhandle("测试用例表格视图",null),
-				},
-				gridview9_storyaffect: {
-					caption: commonLogic.appcommonhandle("相关用例",null),
-					title: commonLogic.appcommonhandle("相关用例",null),
+				mainmygridview: {
+					caption: commonLogic.appcommonhandle("功能测试",null),
+					title: commonLogic.appcommonhandle("功能测试",null),
 				},
 				curtesttaskgridview: {
 					caption: commonLogic.appcommonhandle("功能测试",null),
 					title: commonLogic.appcommonhandle("功能测试",null),
+				},
+				tobugtesteditview: {
+					caption: commonLogic.appcommonhandle("转BUG",null),
+					title: commonLogic.appcommonhandle("转BUG",null),
+				},
+				mainmynewgridview: {
+					caption: commonLogic.appcommonhandle("功能测试",null),
+					title: commonLogic.appcommonhandle("功能测试",null),
+				},
+				moduleentrygridview: {
+					caption: commonLogic.appcommonhandle("测试结果条目",null),
+					title: commonLogic.appcommonhandle("测试用例表格视图（测试结果条目）",null),
+				},
+				casetypechartview9: {
+					caption: commonLogic.appcommonhandle("测试类型",null),
+					title: commonLogic.appcommonhandle("测试用例图表视图（测试类型）",null),
+				},
+				exceditview: {
+					caption: commonLogic.appcommonhandle("执行结果",null),
+					title: commonLogic.appcommonhandle("执行结果",null),
+				},
+				modulechartview9: {
+					caption: commonLogic.appcommonhandle("模块",null),
+					title: commonLogic.appcommonhandle("测试用例图表视图（模块）",null),
+				},
+				gridview9_storyrelated: {
+					caption: commonLogic.appcommonhandle("相关用例",null),
+					title: commonLogic.appcommonhandle("相关用例",null),
+				},
+				casefavorite: {
+					caption: commonLogic.appcommonhandle("测试用例",null),
+					title: commonLogic.appcommonhandle("case我得收藏",null),
 				},
 				tobugeditview: {
 					caption: commonLogic.appcommonhandle("转BUG",null),
@@ -112,11 +124,63 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("功能测试",null),
 					title: commonLogic.appcommonhandle("功能测试",null),
 				},
-				totalopenedcasechartview9: {
-					caption: commonLogic.appcommonhandle("累计创建用例",null),
-					title: commonLogic.appcommonhandle("测试用例图表视图（累计创建用例）",null),
+				testoptionview: {
+					caption: commonLogic.appcommonhandle("执行",null),
+					title: commonLogic.appcommonhandle("执行",null),
+				},
+				mainnewview: {
+					caption: commonLogic.appcommonhandle("功能测试",null),
+					title: commonLogic.appcommonhandle("功能测试",null),
+				},
+				linkcasegridview: {
+					caption: commonLogic.appcommonhandle("关联用例",null),
+					title: commonLogic.appcommonhandle("测试用例表格视图（关联用例）",null),
+				},
+				runerentrygridview: {
+					caption: commonLogic.appcommonhandle("测试结果条目",null),
+					title: commonLogic.appcommonhandle("测试用例表格视图（测试结果条目）",null),
+				},
+				resultentrygridview: {
+					caption: commonLogic.appcommonhandle("测试结果条目",null),
+					title: commonLogic.appcommonhandle("测试用例表格视图（测试结果条目）",null),
+				},
+				testmaindetaileditview9: {
+					caption: commonLogic.appcommonhandle("测试用例",null),
+					title: commonLogic.appcommonhandle("测试用例编辑视图",null),
+				},
+				gridview9_storyaffect: {
+					caption: commonLogic.appcommonhandle("相关用例",null),
+					title: commonLogic.appcommonhandle("相关用例",null),
+				},
+				testtaskexceditview: {
+					caption: commonLogic.appcommonhandle("执行结果",null),
+					title: commonLogic.appcommonhandle("执行结果",null),
+				},
+				suitelinkcasegridview: {
+					caption: commonLogic.appcommonhandle("关联用例",null),
+					title: commonLogic.appcommonhandle("测试用例表格视图（关联用例）",null),
+				},
+				typeentrygridview: {
+					caption: commonLogic.appcommonhandle("测试结果条目",null),
+					title: commonLogic.appcommonhandle("测试用例表格视图（测试结果条目）",null),
+				},
+				projectreportlinkgridview: {
+					caption: commonLogic.appcommonhandle("关联用例",null),
+					title: commonLogic.appcommonhandle("测试用例表格视图（报告关联用例）",null),
 				},
 				testmaindashboardview: {
+					caption: commonLogic.appcommonhandle("功能测试",null),
+					title: commonLogic.appcommonhandle("功能测试",null),
+				},
+				optionview: {
+					caption: commonLogic.appcommonhandle("执行",null),
+					title: commonLogic.appcommonhandle("执行",null),
+				},
+				batchnewgridview: {
+					caption: commonLogic.appcommonhandle("测试用例",null),
+					title: commonLogic.appcommonhandle("测试用例",null),
+				},
+				maindashboardview: {
 					caption: commonLogic.appcommonhandle("功能测试",null),
 					title: commonLogic.appcommonhandle("功能测试",null),
 				},
@@ -124,97 +188,33 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("测试用例",null),
 					title: commonLogic.appcommonhandle("测试用例编辑视图",null),
 				},
-				testmaindetaileditview9: {
-					caption: commonLogic.appcommonhandle("测试用例",null),
-					title: commonLogic.appcommonhandle("测试用例编辑视图",null),
+				totalopenedcasechartview9: {
+					caption: commonLogic.appcommonhandle("累计创建用例",null),
+					title: commonLogic.appcommonhandle("测试用例图表视图（累计创建用例）",null),
 				},
-				mainnewview: {
-					caption: commonLogic.appcommonhandle("功能测试",null),
-					title: commonLogic.appcommonhandle("功能测试",null),
-				},
-				gridview9_storyrelated: {
-					caption: commonLogic.appcommonhandle("相关用例",null),
-					title: commonLogic.appcommonhandle("相关用例",null),
-				},
-				batchnewgridview: {
-					caption: commonLogic.appcommonhandle("测试用例",null),
-					title: commonLogic.appcommonhandle("测试用例",null),
-				},
-				testoptionview: {
-					caption: commonLogic.appcommonhandle("执行",null),
-					title: commonLogic.appcommonhandle("执行",null),
-				},
-				exceditview: {
-					caption: commonLogic.appcommonhandle("执行结果",null),
-					title: commonLogic.appcommonhandle("执行结果",null),
-				},
-				maindashboardview: {
-					caption: commonLogic.appcommonhandle("功能测试",null),
-					title: commonLogic.appcommonhandle("功能测试",null),
-				},
-				cursuitgridview: {
-					caption: commonLogic.appcommonhandle("功能测试",null),
-					title: commonLogic.appcommonhandle("功能测试",null),
-				},
-				gridview9: {
+				gridview9_my: {
 					caption: commonLogic.appcommonhandle("测试用例",null),
 					title: commonLogic.appcommonhandle("测试用例表格视图",null),
-				},
-				projectreportlinkgridview: {
-					caption: commonLogic.appcommonhandle("关联用例",null),
-					title: commonLogic.appcommonhandle("测试用例表格视图（报告关联用例）",null),
-				},
-				casetypechartview9: {
-					caption: commonLogic.appcommonhandle("测试类型",null),
-					title: commonLogic.appcommonhandle("测试用例图表视图（测试类型）",null),
-				},
-				resultentrygridview: {
-					caption: commonLogic.appcommonhandle("测试结果条目",null),
-					title: commonLogic.appcommonhandle("测试用例表格视图（测试结果条目）",null),
-				},
-				maineditview: {
-					caption: commonLogic.appcommonhandle("测试用例",null),
-					title: commonLogic.appcommonhandle("测试用例",null),
-				},
-				runresultchartview9: {
-					caption: commonLogic.appcommonhandle("执行结果",null),
-					title: commonLogic.appcommonhandle("测试用例图表视图（执行结果）",null),
-				},
-				modulechartview9: {
-					caption: commonLogic.appcommonhandle("模块",null),
-					title: commonLogic.appcommonhandle("测试用例图表视图（模块）",null),
-				},
-				mainmynewgridview: {
-					caption: commonLogic.appcommonhandle("功能测试",null),
-					title: commonLogic.appcommonhandle("功能测试",null),
 				},
 				maindetaileditview9: {
 					caption: commonLogic.appcommonhandle("测试用例",null),
 					title: commonLogic.appcommonhandle("测试用例编辑视图",null),
 				},
+				gridview9: {
+					caption: commonLogic.appcommonhandle("测试用例",null),
+					title: commonLogic.appcommonhandle("测试用例表格视图",null),
+				},
+				runresultchartview9: {
+					caption: commonLogic.appcommonhandle("执行结果",null),
+					title: commonLogic.appcommonhandle("测试用例图表视图（执行结果）",null),
+				},
 				gridview9_mecretae: {
 					caption: commonLogic.appcommonhandle("测试用例",null),
 					title: commonLogic.appcommonhandle("测试用例表格视图",null),
 				},
-				tobugtesteditview: {
-					caption: commonLogic.appcommonhandle("转BUG",null),
-					title: commonLogic.appcommonhandle("转BUG",null),
-				},
-				runerentrygridview: {
-					caption: commonLogic.appcommonhandle("测试结果条目",null),
-					title: commonLogic.appcommonhandle("测试用例表格视图（测试结果条目）",null),
-				},
-				mainmygridview: {
-					caption: commonLogic.appcommonhandle("功能测试",null),
-					title: commonLogic.appcommonhandle("功能测试",null),
-				},
-				suitelinkcasegridview: {
+				reportlinkgridview: {
 					caption: commonLogic.appcommonhandle("关联用例",null),
-					title: commonLogic.appcommonhandle("测试用例表格视图（关联用例）",null),
-				},
-				testtaskexceditview: {
-					caption: commonLogic.appcommonhandle("执行结果",null),
-					title: commonLogic.appcommonhandle("执行结果",null),
+					title: commonLogic.appcommonhandle("测试用例表格视图（报告关联用例）",null),
 				},
 				gridview: {
 					caption: commonLogic.appcommonhandle("测试用例",null),
@@ -746,21 +746,21 @@ function getLocaleResourceBase(){
 					case_execute: commonLogic.appcommonhandle("执行",null),
 				},
 			},
-			caseresultentry_grid: {
-				columns: {
-					lastrunresult1: commonLogic.appcommonhandle("条目",null),
-					resultcnt: commonLogic.appcommonhandle("值",null),
-					task: commonLogic.appcommonhandle("百分比",null),
-				},
-				nodata:commonLogic.appcommonhandle("",null),
-				uiactions: {
-				},
-			},
 			main2_grid: {
 				columns: {
 					pri: commonLogic.appcommonhandle("P",null),
 					title: commonLogic.appcommonhandle("用例标题",null),
 					status1: commonLogic.appcommonhandle("状态",null),
+				},
+				nodata:commonLogic.appcommonhandle("",null),
+				uiactions: {
+				},
+			},
+			caseresultentry_grid: {
+				columns: {
+					lastrunresult1: commonLogic.appcommonhandle("条目",null),
+					resultcnt: commonLogic.appcommonhandle("值",null),
+					task: commonLogic.appcommonhandle("百分比",null),
 				},
 				nodata:commonLogic.appcommonhandle("",null),
 				uiactions: {
@@ -1104,16 +1104,16 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
-			mecreatecase_portlet: {
-				mecreatecase: {
-					title: commonLogic.appcommonhandle("由我创建的用例", null)
+			totalcuropenedcase_portlet: {
+				totalcuropenedcase: {
+					title: commonLogic.appcommonhandle("累计创建用例", null)
 				},
 				uiactions: {
 				},
 			},
-			totalcuropenedcase_portlet: {
-				totalcuropenedcase: {
-					title: commonLogic.appcommonhandle("累计创建用例", null)
+			mecreatecase_portlet: {
+				mecreatecase: {
+					title: commonLogic.appcommonhandle("由我创建的用例", null)
 				},
 				uiactions: {
 				},

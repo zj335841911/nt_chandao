@@ -125,7 +125,7 @@ export class IBIZProPluginEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof IBIZProPluginEditViewBase
      */
-	protected viewtag: string = '2fe124188a5da06e3e641c7e1e1e76d6';
+	protected viewtag: string = '2430e10125e60af35cccff589382f71f';
 
     /**
      * 视图名称

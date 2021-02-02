@@ -158,7 +158,7 @@ export class TestTaskActiviteOptionViewBase extends OptionViewBase {
      * @type {string}
      * @memberof TestTaskActiviteOptionViewBase
      */
-	protected viewtag: string = '81ca65108f3533b513676d2c95b50096';
+	protected viewtag: string = '57c9e45f8ccb4c4622a567a88e779182';
 
     /**
      * 视图名称

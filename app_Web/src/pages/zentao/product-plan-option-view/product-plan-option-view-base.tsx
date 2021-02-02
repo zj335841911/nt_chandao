@@ -144,7 +144,7 @@ export class ProductPlanOptionViewBase extends OptionViewBase {
      * @type {string}
      * @memberof ProductPlanOptionViewBase
      */
-	protected viewtag: string = 'e4e450c40addd5d706151ea60dbe7826';
+	protected viewtag: string = '3a8c3a9bd689ed17ac4d40e679d383d2';
 
     /**
      * 视图名称

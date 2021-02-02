@@ -100,7 +100,7 @@ export class TestTaskMainTabExpViewBase extends TabExpViewBase {
      * @type {string}
      * @memberof TestTaskMainTabExpViewBase
      */
-	protected viewtag: string = '5273dc442a49b8c4d37ba9ff008531e7';
+	protected viewtag: string = '4e229fd1de7c3b68c2a18a3d16916d61';
 
     /**
      * 视图名称

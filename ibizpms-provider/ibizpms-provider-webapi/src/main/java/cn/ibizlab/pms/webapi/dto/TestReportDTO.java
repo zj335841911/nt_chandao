@@ -30,6 +30,23 @@ public class TestReportDTO extends DTOBase implements Serializable {
 	private static final long serialVersionUID = 1L;
 
     /**
+     * 属性 [PRODUCTCNT]
+     *
+     */
+    @JSONField(name = "productcnt")
+    @JsonProperty("productcnt")
+    private Integer productcnt;
+
+    /**
+     * 属性 [OVERVIEWS]
+     *
+     */
+    @JSONField(name = "overviews")
+    @JsonProperty("overviews")
+    @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
+    private String overviews;
+
+    /**
      * 属性 [OBJECTID]
      *
      */
@@ -81,6 +98,24 @@ public class TestReportDTO extends DTOBase implements Serializable {
     @JsonProperty("stories")
     @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
     private String stories;
+
+    /**
+     * 属性 [FILES]
+     *
+     */
+    @JSONField(name = "files")
+    @JsonProperty("files")
+    @Size(min = 0, max = 1000, message = "内容长度必须小于等于[1000]")
+    private String files;
+
+    /**
+     * 属性 [COMMENT]
+     *
+     */
+    @JSONField(name = "comment")
+    @JsonProperty("comment")
+    @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
+    private String comment;
 
     /**
      * 属性 [TASKS]
@@ -185,6 +220,24 @@ public class TestReportDTO extends DTOBase implements Serializable {
     private String deleted;
 
     /**
+     * 属性 [PROJECTNAME]
+     *
+     */
+    @JSONField(name = "projectname")
+    @JsonProperty("projectname")
+    @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
+    private String projectname;
+
+    /**
+     * 属性 [PRODUCTNAME]
+     *
+     */
+    @JSONField(name = "productname")
+    @JsonProperty("productname")
+    @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
+    private String productname;
+
+    /**
      * 属性 [PRODUCT]
      *
      */
@@ -201,59 +254,6 @@ public class TestReportDTO extends DTOBase implements Serializable {
     @JsonProperty("project")
     @JsonSerialize(using = ToStringSerializer.class)
     private Long project;
-
-    /**
-     * 属性 [PRODUCTNAME]
-     *
-     */
-    @JSONField(name = "productname")
-    @JsonProperty("productname")
-    @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
-    private String productname;
-
-    /**
-     * 属性 [PROJECTNAME]
-     *
-     */
-    @JSONField(name = "projectname")
-    @JsonProperty("projectname")
-    @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
-    private String projectname;
-
-    /**
-     * 属性 [COMMENT]
-     *
-     */
-    @JSONField(name = "comment")
-    @JsonProperty("comment")
-    @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
-    private String comment;
-
-    /**
-     * 属性 [OVERVIEWS]
-     *
-     */
-    @JSONField(name = "overviews")
-    @JsonProperty("overviews")
-    @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
-    private String overviews;
-
-    /**
-     * 属性 [FILES]
-     *
-     */
-    @JSONField(name = "files")
-    @JsonProperty("files")
-    @Size(min = 0, max = 1000, message = "内容长度必须小于等于[1000]")
-    private String files;
-
-    /**
-     * 属性 [PRODUCTCNT]
-     *
-     */
-    @JSONField(name = "productcnt")
-    @JsonProperty("productcnt")
-    private Integer productcnt;
 
 
     /**

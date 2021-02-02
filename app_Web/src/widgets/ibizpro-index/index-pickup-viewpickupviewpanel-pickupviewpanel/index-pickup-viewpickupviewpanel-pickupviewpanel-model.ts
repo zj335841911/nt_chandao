@@ -15,35 +15,8 @@ export default class IndexPickupViewpickupviewpanelModel {
   public getDataItems(): any[] {
     return [
       {
-        name: 'indextype',
-      },
-      {
         name: 'ibizproindex',
         prop: 'indexid',
-      },
-      {
-        name: 'indexname',
-      },
-      {
-        name: 'deleted',
-      },
-      {
-        name: 'orgid',
-      },
-      {
-        name: 'mdeptid',
-      },
-      {
-        name: 'indexdesc',
-      },
-      {
-        name: 'color',
-      },
-      {
-        name: 'project',
-      },
-      {
-        name: 'acllist',
       },
       {
         name: 'acl',
@@ -52,7 +25,34 @@ export default class IndexPickupViewpickupviewpanelModel {
         name: 'docid',
       },
       {
+        name: 'indexname',
+      },
+      {
+        name: 'color',
+      },
+      {
+        name: 'deleted',
+      },
+      {
+        name: 'acllist',
+      },
+      {
+        name: 'indexdesc',
+      },
+      {
         name: 'product',
+      },
+      {
+        name: 'indextype',
+      },
+      {
+        name: 'mdeptid',
+      },
+      {
+        name: 'project',
+      },
+      {
+        name: 'orgid',
       },
     ]
   }

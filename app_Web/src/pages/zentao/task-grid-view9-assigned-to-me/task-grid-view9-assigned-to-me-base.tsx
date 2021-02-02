@@ -123,7 +123,7 @@ export class TaskGridView9_AssignedToMeBase extends GridView9Base {
      * @type {string}
      * @memberof TaskGridView9_AssignedToMeBase
      */
-	protected viewtag: string = '79b3a14f0431747becc48f5b9f3aa990';
+	protected viewtag: string = 'f20fe6d7aa45a13c1e7343fbe4c0caaf';
 
     /**
      * 视图名称

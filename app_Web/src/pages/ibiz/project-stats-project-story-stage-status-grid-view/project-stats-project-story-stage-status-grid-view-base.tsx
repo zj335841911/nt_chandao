@@ -125,7 +125,7 @@ export class ProjectStatsProjectStoryStageStatusGridViewBase extends GridViewBas
      * @type {string}
      * @memberof ProjectStatsProjectStoryStageStatusGridViewBase
      */
-	protected viewtag: string = '16ddc45f2ef8c888e3143d72c076b457';
+	protected viewtag: string = '4996bbd9b7bd9c0e80dfdf952308bf9c';
 
     /**
      * 视图名称

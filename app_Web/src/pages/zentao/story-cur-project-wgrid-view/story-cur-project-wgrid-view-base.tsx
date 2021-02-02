@@ -163,7 +163,7 @@ export class StoryCurProjectWGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof StoryCurProjectWGridViewBase
      */
-	protected viewtag: string = '427e28cc5267cfc2a6d6da6fde36ef9f';
+	protected viewtag: string = '8263c5b2f9a9e0cbbbdf2f72e194a5a8';
 
     /**
      * 视图名称

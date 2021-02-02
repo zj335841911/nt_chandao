@@ -225,24 +225,24 @@ POST
 #### IbzTopDTO
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
-| 1 | ibztopid | String | 不可 | 标识 |
-| 2 | createdate | Timestamp | 不可 | 建立时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
-| 3 | updateman | String | 不可 | 更新人 |
-| 4 | ibztopname | String | 允许 | 置顶名称 |
-| 5 | createman | String | 不可 | 建立人 |
-| 6 | updatedate | Timestamp | 不可 | 更新时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
-| 7 | type | String | 允许 | 类型 |
-| 8 | objectid | Integer | 允许 | 数据对象标识 |
-| 9 | objectorder | Integer | 允许 | 排序 |
-| 10 | account | String | 允许 | 置顶用户 |
+| 1 | createdate | Timestamp | 不可 | 建立时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
+| 2 | updateman | String | 不可 | 更新人 |
+| 3 | objectorder | Integer | 允许 | 排序 |
+| 4 | ibztopid | String | 不可 | 标识 |
+| 5 | objectid | Integer | 允许 | 数据对象标识 |
+| 6 | ibztopname | String | 允许 | 置顶名称 |
+| 7 | updatedate | Timestamp | 不可 | 更新时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
+| 8 | createman | String | 不可 | 建立人 |
+| 9 | account | String | 允许 | 置顶用户 |
+| 10 | type | String | 允许 | 类型 |
 | 11 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### IbzTopSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
 | 1 | n_ibz_topname_like | String | 允许 | 条件字段：ibz_topname<br>条件组合方式：`%like%` |
-| 2 | n_type_eq | String | 允许 | 条件字段：type<br>条件组合方式：`=` |
-| 3 | n_account_eq | String | 允许 | 条件字段：account<br>条件组合方式：`=` |
+| 2 | n_account_eq | String | 允许 | 条件字段：account<br>条件组合方式：`=` |
+| 3 | n_type_eq | String | 允许 | 条件字段：type<br>条件组合方式：`=` |
 | 4 | customcond | String | 允许 | 自定义查询条件 |
 | 5 | customparams | String | 允许 | 自定义查询参数 |
 | 6 | query | String | 允许 | 快速搜索 |

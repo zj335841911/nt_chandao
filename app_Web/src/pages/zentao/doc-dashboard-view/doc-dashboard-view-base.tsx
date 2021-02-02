@@ -118,7 +118,7 @@ export class DocDashboardViewBase extends DashboardViewBase {
      * @type {string}
      * @memberof DocDashboardViewBase
      */
-	protected viewtag: string = '23cc93d7fdddff5077a7952d26802a7b';
+	protected viewtag: string = '86e1fc6d46d804998a58ab21982c2874';
 
     /**
      * 视图名称

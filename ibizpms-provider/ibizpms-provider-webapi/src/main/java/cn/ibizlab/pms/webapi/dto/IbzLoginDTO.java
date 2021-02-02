@@ -57,15 +57,6 @@ public class IbzLoginDTO extends DTOBase implements Serializable {
     private String account;
 
     /**
-     * 属性 [COMMITER]
-     *
-     */
-    @JSONField(name = "commiter")
-    @JsonProperty("commiter")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String commiter;
-
-    /**
      * 属性 [TOKEN]
      *
      */
@@ -73,6 +64,15 @@ public class IbzLoginDTO extends DTOBase implements Serializable {
     @JsonProperty("token")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String token;
+
+    /**
+     * 属性 [COMMITER]
+     *
+     */
+    @JSONField(name = "commiter")
+    @JsonProperty("commiter")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String commiter;
 
 
     /**

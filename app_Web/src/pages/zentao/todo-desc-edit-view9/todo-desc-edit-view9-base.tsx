@@ -102,7 +102,7 @@ export class TodoDescEditView9Base extends EditView9Base {
      * @type {string}
      * @memberof TodoDescEditView9Base
      */
-	protected viewtag: string = '7c7a1fdf074c475a128c920a952762fa';
+	protected viewtag: string = 'f1b6682890513f1e91a45927d4cd6efa';
 
     /**
      * 视图名称

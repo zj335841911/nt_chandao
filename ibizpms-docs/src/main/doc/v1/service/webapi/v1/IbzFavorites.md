@@ -225,24 +225,24 @@ POST
 #### IbzFavoritesDTO
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
-| 1 | createman | String | 不可 | 建立人 |
-| 2 | ibzfavoritesid | String | 不可 | 收藏标识 |
-| 3 | createdate | Timestamp | 不可 | 建立时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
-| 4 | ibzfavoritesname | String | 允许 | 收藏名称 |
+| 1 | type | String | 允许 | 类型 |
+| 2 | createman | String | 不可 | 建立人 |
+| 3 | ibzfavoritesid | String | 不可 | 收藏标识 |
+| 4 | createdate | Timestamp | 不可 | 建立时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
 | 5 | updateman | String | 不可 | 更新人 |
-| 6 | updatedate | Timestamp | 不可 | 更新时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
-| 7 | objectid | Long | 允许 | 数据对象标识 |
-| 8 | account | String | 允许 | 收藏用户 |
-| 9 | type | String | 允许 | 类型 |
+| 6 | objectid | Long | 允许 | 数据对象标识 |
+| 7 | account | String | 允许 | 收藏用户 |
+| 8 | ibzfavoritesname | String | 允许 | 收藏名称 |
+| 9 | updatedate | Timestamp | 不可 | 更新时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
 | 10 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### IbzFavoritesSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
-| 1 | n_ibz_favoritesname_like | String | 允许 | 条件字段：ibz_favoritesname<br>条件组合方式：`%like%` |
+| 1 | n_type_eq | String | 允许 | 条件字段：type<br>条件组合方式：`=` |
 | 2 | n_objectid_eq | Long | 允许 | 条件字段：objectid<br>条件组合方式：`=` |
 | 3 | n_account_eq | String | 允许 | 条件字段：account<br>条件组合方式：`=` |
-| 4 | n_type_eq | String | 允许 | 条件字段：type<br>条件组合方式：`=` |
+| 4 | n_ibz_favoritesname_like | String | 允许 | 条件字段：ibz_favoritesname<br>条件组合方式：`%like%` |
 | 5 | customcond | String | 允许 | 自定义查询条件 |
 | 6 | customparams | String | 允许 | 自定义查询参数 |
 | 7 | query | String | 允许 | 快速搜索 |

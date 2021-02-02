@@ -54,14 +54,6 @@ public class PSSubSysServiceAPI extends EntityClient implements Serializable {
     private String createman;
 
     /**
-     * 外部服务接口标识
-     */
-    @DEField(isKeyField = true)
-    @JSONField(name = "pssubsysserviceapiid")
-    @JsonProperty("pssubsysserviceapiid")
-    private String pssubsysserviceapiid;
-
-    /**
      * 建立时间
      */
     @DEField(preType = DEPredefinedFieldType.CREATEDATE)
@@ -69,6 +61,21 @@ public class PSSubSysServiceAPI extends EntityClient implements Serializable {
     @JSONField(name = "createdate" , format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createdate")
     private Timestamp createdate;
+
+    /**
+     * 系统
+     */
+    @JSONField(name = "pssystemid")
+    @JsonProperty("pssystemid")
+    private String pssystemid;
+
+    /**
+     * 外部服务接口标识
+     */
+    @DEField(isKeyField = true)
+    @JSONField(name = "pssubsysserviceapiid")
+    @JsonProperty("pssubsysserviceapiid")
+    private String pssubsysserviceapiid;
 
     /**
      * 更新时间
@@ -88,6 +95,20 @@ public class PSSubSysServiceAPI extends EntityClient implements Serializable {
     private String updateman;
 
     /**
+     * 系统
+     */
+    @JSONField(name = "pssystemname")
+    @JsonProperty("pssystemname")
+    private String pssystemname;
+
+    /**
+     * 系统服务接口
+     */
+    @JSONField(name = "pssysserviceapiname")
+    @JsonProperty("pssysserviceapiname")
+    private String pssysserviceapiname;
+
+    /**
      * 系统模块
      */
     @JSONField(name = "psmodulename")
@@ -104,30 +125,9 @@ public class PSSubSysServiceAPI extends EntityClient implements Serializable {
     /**
      * 系统服务接口
      */
-    @JSONField(name = "pssysserviceapiname")
-    @JsonProperty("pssysserviceapiname")
-    private String pssysserviceapiname;
-
-    /**
-     * 系统服务接口
-     */
     @JSONField(name = "pssysserviceapiid")
     @JsonProperty("pssysserviceapiid")
     private String pssysserviceapiid;
-
-    /**
-     * 系统
-     */
-    @JSONField(name = "pssystemid")
-    @JsonProperty("pssystemid")
-    private String pssystemid;
-
-    /**
-     * 系统
-     */
-    @JSONField(name = "pssystemname")
-    @JsonProperty("pssystemname")
-    private String pssystemname;
 
 
     /**
@@ -156,22 +156,6 @@ public class PSSubSysServiceAPI extends EntityClient implements Serializable {
     }
 
     /**
-     * 设置 [系统模块]
-     */
-    public void setPsmoduleid(String psmoduleid) {
-        this.psmoduleid = psmoduleid ;
-        this.modify("psmoduleid", psmoduleid);
-    }
-
-    /**
-     * 设置 [系统服务接口]
-     */
-    public void setPssysserviceapiid(String pssysserviceapiid) {
-        this.pssysserviceapiid = pssysserviceapiid ;
-        this.modify("pssysserviceapiid", pssysserviceapiid);
-    }
-
-    /**
      * 设置 [系统]
      */
     public void setPssystemid(String pssystemid) {
@@ -185,6 +169,22 @@ public class PSSubSysServiceAPI extends EntityClient implements Serializable {
     public void setPssystemname(String pssystemname) {
         this.pssystemname = pssystemname ;
         this.modify("pssystemname", pssystemname);
+    }
+
+    /**
+     * 设置 [系统模块]
+     */
+    public void setPsmoduleid(String psmoduleid) {
+        this.psmoduleid = psmoduleid ;
+        this.modify("psmoduleid", psmoduleid);
+    }
+
+    /**
+     * 设置 [系统服务接口]
+     */
+    public void setPssysserviceapiid(String pssysserviceapiid) {
+        this.pssysserviceapiid = pssysserviceapiid ;
+        this.modify("pssysserviceapiid", pssysserviceapiid);
     }
 
     /**

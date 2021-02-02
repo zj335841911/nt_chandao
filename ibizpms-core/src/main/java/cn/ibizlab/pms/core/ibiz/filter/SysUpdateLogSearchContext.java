@@ -27,6 +27,13 @@ import cn.ibizlab.pms.core.ibiz.domain.SysUpdateLog;
 @Data
 public class SysUpdateLogSearchContext extends QueryWrapperContext<SysUpdateLog> {
 
+	private String n_updatebranch_eq;//[更新平台]
+	public void setN_updatebranch_eq(String n_updatebranch_eq) {
+        this.n_updatebranch_eq = n_updatebranch_eq;
+        if(!ObjectUtils.isEmpty(this.n_updatebranch_eq)){
+            this.getSearchCond().eq("`updatebranch`", n_updatebranch_eq);
+        }
+    }
 	private String n_sys_update_logname_like;//[更新名称]
 	public void setN_sys_update_logname_like(String n_sys_update_logname_like) {
         this.n_sys_update_logname_like = n_sys_update_logname_like;
@@ -39,13 +46,6 @@ public class SysUpdateLogSearchContext extends QueryWrapperContext<SysUpdateLog>
         this.n_latestupdate_eq = n_latestupdate_eq;
         if(!ObjectUtils.isEmpty(this.n_latestupdate_eq)){
             this.getSearchCond().eq("`latestupdate`", n_latestupdate_eq);
-        }
-    }
-	private String n_updatebranch_eq;//[更新平台]
-	public void setN_updatebranch_eq(String n_updatebranch_eq) {
-        this.n_updatebranch_eq = n_updatebranch_eq;
-        if(!ObjectUtils.isEmpty(this.n_updatebranch_eq)){
-            this.getSearchCond().eq("`updatebranch`", n_updatebranch_eq);
         }
     }
 

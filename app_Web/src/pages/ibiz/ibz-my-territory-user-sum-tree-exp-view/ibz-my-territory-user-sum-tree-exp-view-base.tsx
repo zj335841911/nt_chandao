@@ -100,7 +100,7 @@ export class IbzMyTerritoryUserSumTreeExpViewBase extends TreeExpViewBase {
      * @type {string}
      * @memberof IbzMyTerritoryUserSumTreeExpViewBase
      */
-	protected viewtag: string = '9ab6d468419797c4a00ff658e4f626b1';
+	protected viewtag: string = '754505eb2d18f5f8cfa4e41911ce79ef';
 
     /**
      * 视图名称

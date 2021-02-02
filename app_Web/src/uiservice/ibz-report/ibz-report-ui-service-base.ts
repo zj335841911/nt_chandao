@@ -116,10 +116,10 @@ export default class IbzReportUIServiceBase extends UIService {
      * @memberof  IbzReportUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
-        this.allDeMainStateOPPrivsMap.set('daily',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'WEEKLY':0,'REPORTLY':0,'MONTHLY':0,}));
-        this.allDeMainStateOPPrivsMap.set('monthly',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'REPORTLY':0,'DAILY':0,'WEEKLY':0,}));
-        this.allDeMainStateOPPrivsMap.set('reportly',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'MONTHLY':0,'WEEKLY':0,'DAILY':0,}));
-        this.allDeMainStateOPPrivsMap.set('weekly',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'DAILY':0,'REPORTLY':0,'MONTHLY':0,}));
+        this.allDeMainStateOPPrivsMap.set('daily',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'MONTHLY':0,'WEEKLY':0,'REPORTLY':0,}));
+        this.allDeMainStateOPPrivsMap.set('monthly',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'WEEKLY':0,'REPORTLY':0,'DAILY':0,}));
+        this.allDeMainStateOPPrivsMap.set('reportly',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'DAILY':0,'MONTHLY':0,'WEEKLY':0,}));
+        this.allDeMainStateOPPrivsMap.set('weekly',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'REPORTLY':0,'MONTHLY':0,'DAILY':0,}));
     }
 
 

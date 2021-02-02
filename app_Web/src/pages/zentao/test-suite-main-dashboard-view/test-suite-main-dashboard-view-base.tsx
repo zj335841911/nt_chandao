@@ -118,7 +118,7 @@ export class TestSuiteMainDashboardViewBase extends DashboardViewBase {
      * @type {string}
      * @memberof TestSuiteMainDashboardViewBase
      */
-	protected viewtag: string = 'c2e4200fb7c9760b4931b43561289980';
+	protected viewtag: string = '1992dba2ce6fc9c7457c3a075575f337';
 
     /**
      * 视图名称

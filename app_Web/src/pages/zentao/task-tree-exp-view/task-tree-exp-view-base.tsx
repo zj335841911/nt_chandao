@@ -100,7 +100,7 @@ export class TaskTreeExpViewBase extends TreeExpViewBase {
      * @type {string}
      * @memberof TaskTreeExpViewBase
      */
-	protected viewtag: string = '143e97f1ddaf50560e1602118613f0f0';
+	protected viewtag: string = 'b7d214b8cee231d989382f37ef2e8e27';
 
     /**
      * 视图名称

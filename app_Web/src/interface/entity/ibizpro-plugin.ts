@@ -7,6 +7,14 @@
 export interface IBIZProPlugin {
 
     /**
+     * 版本
+     *
+     * @returns {*}
+     * @memberof IBIZProPlugin
+     */
+    version?: any;
+
+    /**
      * 类型
      *
      * @returns {*}
@@ -15,20 +23,12 @@ export interface IBIZProPlugin {
     type?: any;
 
     /**
-     * 总评分
+     * 建立人
      *
      * @returns {*}
      * @memberof IBIZProPlugin
      */
-    score?: any;
-
-    /**
-     * 总评论数
-     *
-     * @returns {*}
-     * @memberof IBIZProPlugin
-     */
-    commentcount?: any;
+    createman?: any;
 
     /**
      * 总下载量
@@ -39,36 +39,20 @@ export interface IBIZProPlugin {
     downloadcount?: any;
 
     /**
+     * 建立时间
+     *
+     * @returns {*}
+     * @memberof IBIZProPlugin
+     */
+    createdate?: any;
+
+    /**
      * 最新版本下载地址
      *
      * @returns {*}
      * @memberof IBIZProPlugin
      */
     downloadurl?: any;
-
-    /**
-     * 标签
-     *
-     * @returns {*}
-     * @memberof IBIZProPlugin
-     */
-    tag?: any;
-
-    /**
-     * 关键字
-     *
-     * @returns {*}
-     * @memberof IBIZProPlugin
-     */
-    keyword?: any;
-
-    /**
-     * 版本
-     *
-     * @returns {*}
-     * @memberof IBIZProPlugin
-     */
-    version?: any;
 
     /**
      * 更新时间
@@ -79,28 +63,28 @@ export interface IBIZProPlugin {
     updatedate?: any;
 
     /**
+     * 标签
+     *
+     * @returns {*}
+     * @memberof IBIZProPlugin
+     */
+    tag?: any;
+
+    /**
+     * 总评分
+     *
+     * @returns {*}
+     * @memberof IBIZProPlugin
+     */
+    score?: any;
+
+    /**
      * 系统插件名称
      *
      * @returns {*}
      * @memberof IBIZProPlugin
      */
     ibizpropluginname?: any;
-
-    /**
-     * 更新人
-     *
-     * @returns {*}
-     * @memberof IBIZProPlugin
-     */
-    updateman?: any;
-
-    /**
-     * 建立时间
-     *
-     * @returns {*}
-     * @memberof IBIZProPlugin
-     */
-    createdate?: any;
 
     /**
      * 系统插件标识
@@ -111,10 +95,26 @@ export interface IBIZProPlugin {
     ibizpropluginid?: any;
 
     /**
-     * 建立人
+     * 关键字
      *
      * @returns {*}
      * @memberof IBIZProPlugin
      */
-    createman?: any;
+    keyword?: any;
+
+    /**
+     * 更新人
+     *
+     * @returns {*}
+     * @memberof IBIZProPlugin
+     */
+    updateman?: any;
+
+    /**
+     * 总评论数
+     *
+     * @returns {*}
+     * @memberof IBIZProPlugin
+     */
+    commentcount?: any;
 }

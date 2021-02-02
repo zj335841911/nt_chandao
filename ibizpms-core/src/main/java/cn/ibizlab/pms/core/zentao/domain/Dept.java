@@ -51,6 +51,13 @@ public class Dept extends EntityMP implements Serializable {
     @JsonProperty("manager")
     private String manager;
     /**
+     * 无子部门
+     */
+    @TableField(exist = false)
+    @JSONField(name = "isleaf")
+    @JsonProperty("isleaf")
+    private String isleaf;
+    /**
      * grade
      */
     @DEField(defaultValue = "0")
@@ -116,13 +123,6 @@ public class Dept extends EntityMP implements Serializable {
     @JSONField(name = "parent")
     @JsonProperty("parent")
     private Long parent;
-    /**
-     * 无子部门
-     */
-    @TableField(exist = false)
-    @JSONField(name = "isleaf")
-    @JsonProperty("isleaf")
-    private String isleaf;
 
     /**
      * 

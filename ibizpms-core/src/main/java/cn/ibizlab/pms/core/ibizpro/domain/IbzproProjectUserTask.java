@@ -44,6 +44,21 @@ public class IbzproProjectUserTask extends EntityMP implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
+     * work
+     */
+    @DEField(defaultValue = "#EMPTY")
+    @TableField(value = "`work`")
+    @JSONField(name = "work")
+    @JsonProperty("work")
+    private String work;
+    /**
+     * 任务类型
+     */
+    @TableField(exist = false)
+    @JSONField(name = "tasktype")
+    @JsonProperty("tasktype")
+    private String tasktype;
+    /**
      * 用户
      */
     @DEField(defaultValue = "#EMPTY")
@@ -51,14 +66,6 @@ public class IbzproProjectUserTask extends EntityMP implements Serializable {
     @JSONField(name = "account")
     @JsonProperty("account")
     private String account;
-    /**
-     * 编号
-     */
-    @DEField(isKeyField = true)
-    @TableId(value = "id", type = IdType.AUTO)
-    @JSONField(name = "id")
-    @JsonProperty("id")
-    private Long id;
     /**
      * 总计消耗
      */
@@ -76,42 +83,20 @@ public class IbzproProjectUserTask extends EntityMP implements Serializable {
     @JsonProperty("date")
     private Timestamp date;
     /**
-     * 预计剩余
-     */
-    @DEField(defaultValue = "0")
-    @TableField(value = "`left`")
-    @JSONField(name = "left")
-    @JsonProperty("left")
-    private Double left;
-    /**
-     * work
-     */
-    @DEField(defaultValue = "#EMPTY")
-    @TableField(value = "`work`")
-    @JSONField(name = "work")
-    @JsonProperty("work")
-    private String work;
-    /**
-     * 任务
-     */
-    @TableField(value = "`task`")
-    @JSONField(name = "task")
-    @JsonProperty("task")
-    private Long task;
-    /**
-     * 任务名称
+     * 延期天数
      */
     @TableField(exist = false)
-    @JSONField(name = "taskname")
-    @JsonProperty("taskname")
-    private String taskname;
+    @JSONField(name = "delaydays")
+    @JsonProperty("delaydays")
+    private String delaydays;
     /**
-     * 任务类型
+     * 编号
      */
-    @TableField(exist = false)
-    @JSONField(name = "tasktype")
-    @JsonProperty("tasktype")
-    private String tasktype;
+    @DEField(isKeyField = true)
+    @TableId(value = "id", type = IdType.AUTO)
+    @JSONField(name = "id")
+    @JsonProperty("id")
+    private Long id;
     /**
      * 进度
      */
@@ -119,13 +104,6 @@ public class IbzproProjectUserTask extends EntityMP implements Serializable {
     @JSONField(name = "progressrate")
     @JsonProperty("progressrate")
     private String progressrate;
-    /**
-     * 延期天数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "delaydays")
-    @JsonProperty("delaydays")
-    private String delaydays;
     /**
      * 预计开始
      */
@@ -142,8 +120,38 @@ public class IbzproProjectUserTask extends EntityMP implements Serializable {
     @JSONField(name = "deadline", format = "yyyy-MM-dd")
     @JsonProperty("deadline")
     private Timestamp deadline;
+    /**
+     * 任务
+     */
+    @TableField(value = "`task`")
+    @JSONField(name = "task")
+    @JsonProperty("task")
+    private Long task;
+    /**
+     * 预计剩余
+     */
+    @DEField(defaultValue = "0")
+    @TableField(value = "`left`")
+    @JSONField(name = "left")
+    @JsonProperty("left")
+    private Double left;
+    /**
+     * 任务名称
+     */
+    @TableField(exist = false)
+    @JSONField(name = "taskname")
+    @JsonProperty("taskname")
+    private String taskname;
 
 
+
+    /**
+     * 设置 [work]
+     */
+    public void setWork(String work) {
+        this.work = work;
+        this.modify("work", work);
+    }
 
     /**
      * 设置 [用户]
@@ -180,27 +188,19 @@ public class IbzproProjectUserTask extends EntityMP implements Serializable {
         return sdf.format(date);
     }
     /**
-     * 设置 [预计剩余]
-     */
-    public void setLeft(Double left) {
-        this.left = left;
-        this.modify("left", left);
-    }
-
-    /**
-     * 设置 [work]
-     */
-    public void setWork(String work) {
-        this.work = work;
-        this.modify("work", work);
-    }
-
-    /**
      * 设置 [任务]
      */
     public void setTask(Long task) {
         this.task = task;
         this.modify("task", task);
+    }
+
+    /**
+     * 设置 [预计剩余]
+     */
+    public void setLeft(Double left) {
+        this.left = left;
+        this.modify("left", left);
     }
 
 

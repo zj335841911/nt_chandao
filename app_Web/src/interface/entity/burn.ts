@@ -7,6 +7,14 @@
 export interface Burn {
 
     /**
+     * 周末
+     *
+     * @returns {*}
+     * @memberof Burn
+     */
+    isweekend?: any;
+
+    /**
      * 日期
      *
      * @returns {*}
@@ -61,12 +69,4 @@ export interface Burn {
      * @memberof Burn
      */
     task?: any;
-
-    /**
-     * 周末
-     *
-     * @returns {*}
-     * @memberof Burn
-     */
-    isweekend?: any;
 }

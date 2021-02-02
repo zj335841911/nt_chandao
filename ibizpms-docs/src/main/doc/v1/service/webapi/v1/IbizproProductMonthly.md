@@ -263,29 +263,29 @@ POST
 #### IbizproProductMonthlyDTO
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
-| 1 | ibizproproductmonthlyid | Long | 不可 | 产品月报标识 |
-| 2 | ibizproproductmonthlyname | String | 允许 | 产品月报名称 |
-| 3 | createdate | Timestamp | 不可 | 建立时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
-| 4 | createman | String | 不可 | 建立人 |
-| 5 | updateman | String | 不可 | 更新人 |
+| 1 | tasks | String | 允许 | 任务 |
+| 2 | date | Timestamp | 允许 | 日期<br>时间格式：yyyy-MM-dd |
+| 3 | updateman | String | 不可 | 更新人 |
+| 4 | totalestimates | Double | 允许 | 总工时 |
+| 5 | createdate | Timestamp | 不可 | 建立时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
 | 6 | updatedate | Timestamp | 不可 | 更新时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
-| 7 | product | Long | 允许 | 产品编号 |
-| 8 | productname | String | 允许 | 产品名称 |
-| 9 | po | String | 允许 | 产品负责人 |
-| 10 | totalestimates | Double | 允许 | 总工时 |
-| 11 | tasks | String | 允许 | 任务 |
-| 12 | date | Timestamp | 允许 | 日期<br>时间格式：yyyy-MM-dd |
-| 13 | yearmonth | String | 允许 | 年月 |
+| 7 | yearmonth | String | 允许 | 年月 |
+| 8 | ibizproproductmonthlyid | Long | 不可 | 产品月报标识 |
+| 9 | ibizproproductmonthlyname | String | 允许 | 产品月报名称 |
+| 10 | createman | String | 不可 | 建立人 |
+| 11 | po | String | 允许 | 产品负责人 |
+| 12 | productname | String | 允许 | 产品名称 |
+| 13 | product | Long | 允许 | 产品编号 |
 | 14 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### IbizproProductMonthlySearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
 | 1 | n_ibizpro_productmonthlyname_like | String | 允许 | 条件字段：ibizpro_productmonthlyname<br>条件组合方式：`%like%` |
-| 2 | n_product_eq | Long | 允许 | 条件字段：product<br>条件组合方式：`=` |
+| 2 | n_po_eq | String | 允许 | 条件字段：po<br>条件组合方式：`=` |
 | 3 | n_productname_eq | String | 允许 | 条件字段：productname<br>条件组合方式：`=` |
 | 4 | n_productname_like | String | 允许 | 条件字段：productname<br>条件组合方式：`%like%` |
-| 5 | n_po_eq | String | 允许 | 条件字段：po<br>条件组合方式：`=` |
+| 5 | n_product_eq | Long | 允许 | 条件字段：product<br>条件组合方式：`=` |
 | 6 | customcond | String | 允许 | 自定义查询条件 |
 | 7 | customparams | String | 允许 | 自定义查询参数 |
 | 8 | query | String | 允许 | 快速搜索 |

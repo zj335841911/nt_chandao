@@ -44,20 +44,12 @@ public class IbzLibCaseSteps extends EntityMP implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
-     * 版本
+     * 实际情况
      */
     @TableField(exist = false)
-    @JSONField(name = "version")
-    @JsonProperty("version")
-    private Integer version;
-    /**
-     * 用例编号
-     */
-    @DEField(name = "case")
-    @TableField(value = "`case`")
-    @JSONField(name = "ibizcase")
-    @JsonProperty("ibizcase")
-    private Long ibizcase;
+    @JSONField(name = "reals")
+    @JsonProperty("reals")
+    private String reals;
     /**
      * 预期
      */
@@ -65,6 +57,13 @@ public class IbzLibCaseSteps extends EntityMP implements Serializable {
     @JSONField(name = "expect")
     @JsonProperty("expect")
     private String expect;
+    /**
+     * 步骤
+     */
+    @TableField(value = "`desc`")
+    @JSONField(name = "desc")
+    @JsonProperty("desc")
+    private String desc;
     /**
      * 附件
      */
@@ -81,19 +80,19 @@ public class IbzLibCaseSteps extends EntityMP implements Serializable {
     @JsonProperty("id")
     private Long id;
     /**
-     * 实际情况
+     * 类型
+     */
+    @TableField(value = "`type`")
+    @JSONField(name = "type")
+    @JsonProperty("type")
+    private String type;
+    /**
+     * 版本
      */
     @TableField(exist = false)
-    @JSONField(name = "reals")
-    @JsonProperty("reals")
-    private String reals;
-    /**
-     * 步骤
-     */
-    @TableField(value = "`desc`")
-    @JSONField(name = "desc")
-    @JsonProperty("desc")
-    private String desc;
+    @JSONField(name = "version")
+    @JsonProperty("version")
+    private Integer version;
     /**
      * 编号
      */
@@ -102,12 +101,13 @@ public class IbzLibCaseSteps extends EntityMP implements Serializable {
     @JsonProperty("parent")
     private Long parent;
     /**
-     * 类型
+     * 用例编号
      */
-    @TableField(value = "`type`")
-    @JSONField(name = "type")
-    @JsonProperty("type")
-    private String type;
+    @DEField(name = "case")
+    @TableField(value = "`case`")
+    @JSONField(name = "ibizcase")
+    @JsonProperty("ibizcase")
+    private Long ibizcase;
 
     /**
      * 用例
@@ -136,14 +136,6 @@ public class IbzLibCaseSteps extends EntityMP implements Serializable {
 
 
     /**
-     * 设置 [用例编号]
-     */
-    public void setIbizcase(Long ibizcase) {
-        this.ibizcase = ibizcase;
-        this.modify("case", ibizcase);
-    }
-
-    /**
      * 设置 [预期]
      */
     public void setExpect(String expect) {
@@ -160,6 +152,14 @@ public class IbzLibCaseSteps extends EntityMP implements Serializable {
     }
 
     /**
+     * 设置 [类型]
+     */
+    public void setType(String type) {
+        this.type = type;
+        this.modify("type", type);
+    }
+
+    /**
      * 设置 [编号]
      */
     public void setParent(Long parent) {
@@ -168,11 +168,11 @@ public class IbzLibCaseSteps extends EntityMP implements Serializable {
     }
 
     /**
-     * 设置 [类型]
+     * 设置 [用例编号]
      */
-    public void setType(String type) {
-        this.type = type;
-        this.modify("type", type);
+    public void setIbizcase(Long ibizcase) {
+        this.ibizcase = ibizcase;
+        this.modify("case", ibizcase);
     }
 
 

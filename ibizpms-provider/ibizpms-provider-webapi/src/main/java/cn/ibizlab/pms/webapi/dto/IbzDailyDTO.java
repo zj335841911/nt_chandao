@@ -30,33 +30,6 @@ public class IbzDailyDTO extends DTOBase implements Serializable {
 	private static final long serialVersionUID = 1L;
 
     /**
-     * 属性 [CREATEMAN]
-     *
-     */
-    @JSONField(name = "createman")
-    @JsonProperty("createman")
-    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
-    private String createman;
-
-    /**
-     * 属性 [IBZ_DAILYID]
-     *
-     */
-    @JSONField(name = "ibzdailyid")
-    @JsonProperty("ibzdailyid")
-    @JsonSerialize(using = ToStringSerializer.class)
-    private Long ibzdailyid;
-
-    /**
-     * 属性 [IBZ_DAILYNAME]
-     *
-     */
-    @JSONField(name = "ibzdailyname")
-    @JsonProperty("ibzdailyname")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String ibzdailyname;
-
-    /**
      * 属性 [UPDATEDATE]
      *
      */
@@ -66,67 +39,13 @@ public class IbzDailyDTO extends DTOBase implements Serializable {
     private Timestamp updatedate;
 
     /**
-     * 属性 [CREATEDATE]
+     * 属性 [SUBMITTIME]
      *
      */
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "createdate" , format="yyyy-MM-dd HH:mm:ss")
-    @JsonProperty("createdate")
-    private Timestamp createdate;
-
-    /**
-     * 属性 [UPDATEMAN]
-     *
-     */
-    @JSONField(name = "updateman")
-    @JsonProperty("updateman")
-    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
-    private String updateman;
-
-    /**
-     * 属性 [DATE]
-     *
-     */
-    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "date" , format="yyyy-MM-dd")
-    @JsonProperty("date")
-    private Timestamp date;
-
-    /**
-     * 属性 [ACCOUNT]
-     *
-     */
-    @JSONField(name = "account")
-    @JsonProperty("account")
-    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
-    private String account;
-
-    /**
-     * 属性 [WORKTODAY]
-     *
-     */
-    @JSONField(name = "worktoday")
-    @JsonProperty("worktoday")
-    @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
-    private String worktoday;
-
-    /**
-     * 属性 [MAILTO]
-     *
-     */
-    @JSONField(name = "mailto")
-    @JsonProperty("mailto")
-    @Size(min = 0, max = 2000, message = "内容长度必须小于等于[2000]")
-    private String mailto;
-
-    /**
-     * 属性 [FILES]
-     *
-     */
-    @JSONField(name = "files")
-    @JsonProperty("files")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String files;
+    @JsonFormat(pattern="HH:mm:ss", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "submittime" , format="HH:mm:ss")
+    @JsonProperty("submittime")
+    private Timestamp submittime;
 
     /**
      * 属性 [TODAYTASK]
@@ -138,22 +57,13 @@ public class IbzDailyDTO extends DTOBase implements Serializable {
     private String todaytask;
 
     /**
-     * 属性 [ISSUBMIT]
+     * 属性 [WORKTODAY]
      *
      */
-    @JSONField(name = "issubmit")
-    @JsonProperty("issubmit")
-    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
-    private String issubmit;
-
-    /**
-     * 属性 [PLANSTOMORROW]
-     *
-     */
-    @JSONField(name = "planstomorrow")
-    @JsonProperty("planstomorrow")
+    @JSONField(name = "worktoday")
+    @JsonProperty("worktoday")
     @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
-    private String planstomorrow;
+    private String worktoday;
 
     /**
      * 属性 [TOMORROWPLANSTASK]
@@ -174,22 +84,49 @@ public class IbzDailyDTO extends DTOBase implements Serializable {
     private String reportto;
 
     /**
-     * 属性 [COMMENT]
+     * 属性 [CREATEMAN]
      *
      */
-    @JSONField(name = "comment")
-    @JsonProperty("comment")
-    @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
-    private String comment;
+    @JSONField(name = "createman")
+    @JsonProperty("createman")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    private String createman;
 
     /**
-     * 属性 [CREATEMANNAME]
+     * 属性 [CREATEDATE]
      *
      */
-    @JSONField(name = "createmanname")
-    @JsonProperty("createmanname")
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "createdate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonProperty("createdate")
+    private Timestamp createdate;
+
+    /**
+     * 属性 [ISSUBMIT]
+     *
+     */
+    @JSONField(name = "issubmit")
+    @JsonProperty("issubmit")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
-    private String createmanname;
+    private String issubmit;
+
+    /**
+     * 属性 [DATE]
+     *
+     */
+    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "date" , format="yyyy-MM-dd")
+    @JsonProperty("date")
+    private Timestamp date;
+
+    /**
+     * 属性 [FILES]
+     *
+     */
+    @JSONField(name = "files")
+    @JsonProperty("files")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String files;
 
     /**
      * 属性 [UPDATEMANNAME]
@@ -201,6 +138,15 @@ public class IbzDailyDTO extends DTOBase implements Serializable {
     private String updatemanname;
 
     /**
+     * 属性 [MAILTOPK]
+     *
+     */
+    @JSONField(name = "mailtopk")
+    @JsonProperty("mailtopk")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String mailtopk;
+
+    /**
      * 属性 [REPORTSTATUS]
      *
      */
@@ -210,13 +156,58 @@ public class IbzDailyDTO extends DTOBase implements Serializable {
     private String reportstatus;
 
     /**
-     * 属性 [SUBMITTIME]
+     * 属性 [COMMENT]
      *
      */
-    @JsonFormat(pattern="HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "submittime" , format="HH:mm:ss")
-    @JsonProperty("submittime")
-    private Timestamp submittime;
+    @JSONField(name = "comment")
+    @JsonProperty("comment")
+    @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
+    private String comment;
+
+    /**
+     * 属性 [UPDATEMAN]
+     *
+     */
+    @JSONField(name = "updateman")
+    @JsonProperty("updateman")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    private String updateman;
+
+    /**
+     * 属性 [PLANSTOMORROW]
+     *
+     */
+    @JSONField(name = "planstomorrow")
+    @JsonProperty("planstomorrow")
+    @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
+    private String planstomorrow;
+
+    /**
+     * 属性 [MAILTO]
+     *
+     */
+    @JSONField(name = "mailto")
+    @JsonProperty("mailto")
+    @Size(min = 0, max = 2000, message = "内容长度必须小于等于[2000]")
+    private String mailto;
+
+    /**
+     * 属性 [IBZ_DAILYID]
+     *
+     */
+    @JSONField(name = "ibzdailyid")
+    @JsonProperty("ibzdailyid")
+    @JsonSerialize(using = ToStringSerializer.class)
+    private Long ibzdailyid;
+
+    /**
+     * 属性 [ACCOUNT]
+     *
+     */
+    @JSONField(name = "account")
+    @JsonProperty("account")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    private String account;
 
     /**
      * 属性 [REPORTTOPK]
@@ -228,53 +219,30 @@ public class IbzDailyDTO extends DTOBase implements Serializable {
     private String reporttopk;
 
     /**
-     * 属性 [MAILTOPK]
+     * 属性 [CREATEMANNAME]
      *
      */
-    @JSONField(name = "mailtopk")
-    @JsonProperty("mailtopk")
+    @JSONField(name = "createmanname")
+    @JsonProperty("createmanname")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    private String createmanname;
+
+    /**
+     * 属性 [IBZ_DAILYNAME]
+     *
+     */
+    @JSONField(name = "ibzdailyname")
+    @JsonProperty("ibzdailyname")
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String mailtopk;
+    private String ibzdailyname;
 
 
     /**
-     * 设置 [IBZ_DAILYNAME]
+     * 设置 [SUBMITTIME]
      */
-    public void setIbzdailyname(String  ibzdailyname){
-        this.ibzdailyname = ibzdailyname ;
-        this.modify("ibz_dailyname",ibzdailyname);
-    }
-
-    /**
-     * 设置 [DATE]
-     */
-    public void setDate(Timestamp  date){
-        this.date = date ;
-        this.modify("date",date);
-    }
-
-    /**
-     * 设置 [ACCOUNT]
-     */
-    public void setAccount(String  account){
-        this.account = account ;
-        this.modify("account",account);
-    }
-
-    /**
-     * 设置 [WORKTODAY]
-     */
-    public void setWorktoday(String  worktoday){
-        this.worktoday = worktoday ;
-        this.modify("worktoday",worktoday);
-    }
-
-    /**
-     * 设置 [MAILTO]
-     */
-    public void setMailto(String  mailto){
-        this.mailto = mailto ;
-        this.modify("mailto",mailto);
+    public void setSubmittime(Timestamp  submittime){
+        this.submittime = submittime ;
+        this.modify("submittime",submittime);
     }
 
     /**
@@ -286,19 +254,11 @@ public class IbzDailyDTO extends DTOBase implements Serializable {
     }
 
     /**
-     * 设置 [ISSUBMIT]
+     * 设置 [WORKTODAY]
      */
-    public void setIssubmit(String  issubmit){
-        this.issubmit = issubmit ;
-        this.modify("issubmit",issubmit);
-    }
-
-    /**
-     * 设置 [PLANSTOMORROW]
-     */
-    public void setPlanstomorrow(String  planstomorrow){
-        this.planstomorrow = planstomorrow ;
-        this.modify("planstomorrow",planstomorrow);
+    public void setWorktoday(String  worktoday){
+        this.worktoday = worktoday ;
+        this.modify("worktoday",worktoday);
     }
 
     /**
@@ -318,11 +278,19 @@ public class IbzDailyDTO extends DTOBase implements Serializable {
     }
 
     /**
-     * 设置 [COMMENT]
+     * 设置 [ISSUBMIT]
      */
-    public void setComment(String  comment){
-        this.comment = comment ;
-        this.modify("comment",comment);
+    public void setIssubmit(String  issubmit){
+        this.issubmit = issubmit ;
+        this.modify("issubmit",issubmit);
+    }
+
+    /**
+     * 设置 [DATE]
+     */
+    public void setDate(Timestamp  date){
+        this.date = date ;
+        this.modify("date",date);
     }
 
     /**
@@ -334,11 +302,43 @@ public class IbzDailyDTO extends DTOBase implements Serializable {
     }
 
     /**
-     * 设置 [SUBMITTIME]
+     * 设置 [COMMENT]
      */
-    public void setSubmittime(Timestamp  submittime){
-        this.submittime = submittime ;
-        this.modify("submittime",submittime);
+    public void setComment(String  comment){
+        this.comment = comment ;
+        this.modify("comment",comment);
+    }
+
+    /**
+     * 设置 [PLANSTOMORROW]
+     */
+    public void setPlanstomorrow(String  planstomorrow){
+        this.planstomorrow = planstomorrow ;
+        this.modify("planstomorrow",planstomorrow);
+    }
+
+    /**
+     * 设置 [MAILTO]
+     */
+    public void setMailto(String  mailto){
+        this.mailto = mailto ;
+        this.modify("mailto",mailto);
+    }
+
+    /**
+     * 设置 [ACCOUNT]
+     */
+    public void setAccount(String  account){
+        this.account = account ;
+        this.modify("account",account);
+    }
+
+    /**
+     * 设置 [IBZ_DAILYNAME]
+     */
+    public void setIbzdailyname(String  ibzdailyname){
+        this.ibzdailyname = ibzdailyname ;
+        this.modify("ibz_dailyname",ibzdailyname);
     }
 
 

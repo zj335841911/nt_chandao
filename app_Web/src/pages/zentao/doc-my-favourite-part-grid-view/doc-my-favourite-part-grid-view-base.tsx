@@ -119,7 +119,7 @@ export class DocMyFavouritePartGridViewBase extends GridView9Base {
      * @type {string}
      * @memberof DocMyFavouritePartGridViewBase
      */
-	protected viewtag: string = '4dad74488a4fd446ed9ef787e05206bc';
+	protected viewtag: string = '24690692d976c87e9e6948f81497ff23';
 
     /**
      * 视图名称

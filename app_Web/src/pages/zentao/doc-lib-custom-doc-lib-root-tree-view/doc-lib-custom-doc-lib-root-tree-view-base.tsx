@@ -116,7 +116,7 @@ export class DocLibCustomDocLibRootTreeViewBase extends TreeViewBase {
      * @type {string}
      * @memberof DocLibCustomDocLibRootTreeViewBase
      */
-	protected viewtag: string = '69aed44649019bd0215c246d524cfc24';
+	protected viewtag: string = '5a24e720bd90bc9d623958f13ffff4d8';
 
     /**
      * 视图名称

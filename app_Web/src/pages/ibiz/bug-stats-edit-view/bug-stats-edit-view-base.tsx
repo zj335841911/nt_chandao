@@ -131,7 +131,7 @@ export class BugStatsEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof BugStatsEditViewBase
      */
-	protected viewtag: string = '0174d3383dadc0878991e5c90bd5eaa3';
+	protected viewtag: string = 'da5ec2a7fba9f4847d1fdc135daddd0d';
 
     /**
      * 视图名称

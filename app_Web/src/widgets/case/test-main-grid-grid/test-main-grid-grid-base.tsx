@@ -102,7 +102,7 @@ export class TestMainGridGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u5414985_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_uf5bb958_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -130,7 +130,7 @@ export class TestMainGridGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_uda623f7_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_ue54667e_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -158,7 +158,7 @@ export class TestMainGridGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u38f3657_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u33ef635_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -186,7 +186,7 @@ export class TestMainGridGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u292efe3_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u8afa84b_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -214,7 +214,7 @@ export class TestMainGridGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u84b598d_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u5da14f5_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -812,19 +812,19 @@ export class TestMainGridGridBase extends GridControlBase {
             this.grid_title_click(row, tag, $event);
         }
         if(Object.is('confirmChange', tag)) {
-            this.grid_uagridcolumn1_u5414985_click(row, tag, $event);
+            this.grid_uagridcolumn1_uf5bb958_click(row, tag, $event);
         }
         if(Object.is('NewBugByTestCaseResult', tag)) {
-            this.grid_uagridcolumn1_uda623f7_click(row, tag, $event);
+            this.grid_uagridcolumn1_ue54667e_click(row, tag, $event);
         }
         if(Object.is('CASEOpenTestRunResultView', tag)) {
-            this.grid_uagridcolumn1_u38f3657_click(row, tag, $event);
+            this.grid_uagridcolumn1_u33ef635_click(row, tag, $event);
         }
         if(Object.is('CaseExecute', tag)) {
-            this.grid_uagridcolumn1_u292efe3_click(row, tag, $event);
+            this.grid_uagridcolumn1_u8afa84b_click(row, tag, $event);
         }
         if(Object.is('unlinkCase', tag)) {
-            this.grid_uagridcolumn1_u84b598d_click(row, tag, $event);
+            this.grid_uagridcolumn1_u5da14f5_click(row, tag, $event);
         }
     }
 

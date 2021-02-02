@@ -105,7 +105,7 @@ export class CaseStepCarryOutEditModeBase extends GridView9Base {
      * @type {string}
      * @memberof CaseStepCarryOutEditModeBase
      */
-	protected viewtag: string = 'a694d988e3134a33bb5a99e6e07246f6';
+	protected viewtag: string = '5547049c1d6358d5b318c5034e1fef13';
 
     /**
      * 视图名称

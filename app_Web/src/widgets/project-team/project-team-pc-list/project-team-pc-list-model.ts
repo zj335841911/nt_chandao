@@ -15,10 +15,13 @@ export default class ProjectTeamPcModel {
 	public getDataItems(): any[] {
 		return [
 			{
-				name: 'role',
+				name: 'id',
 			},
 			{
-				name: 'left',
+				name: 'days',
+			},
+			{
+				name: 'role',
 			},
 			{
 				name: 'total',
@@ -27,16 +30,10 @@ export default class ProjectTeamPcModel {
 				name: 'consumed',
 			},
 			{
-				name: 'id',
-			},
-			{
 				name: 'join',
 			},
 			{
-				name: 'hours',
-			},
-			{
-				name: 'estimate',
+				name: 'root',
 			},
 			{
 				name: 'type',
@@ -47,10 +44,13 @@ export default class ProjectTeamPcModel {
         codelist:{tag:'UserRealName',codelistType:'DYNAMIC'},
 			},
 			{
-				name: 'days',
+				name: 'left',
 			},
 			{
-				name: 'root',
+				name: 'hours',
+			},
+			{
+				name: 'estimate',
 			},
 			{
 				name: 'srfkey',

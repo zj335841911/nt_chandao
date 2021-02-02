@@ -102,7 +102,7 @@ export class MainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u83c9087_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_ud6acdb1_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -130,7 +130,7 @@ export class MainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u8cfb23b_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u02e7012_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -158,7 +158,7 @@ export class MainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u4dfe94d_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u907ac33_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -186,7 +186,7 @@ export class MainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_ud4fc77d_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u0bb60a8_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -527,16 +527,16 @@ export class MainGridBase extends GridControlBase {
             this.grid_title_click(row, tag, $event);
         }
         if(Object.is('Edit', tag)) {
-            this.grid_uagridcolumn1_u83c9087_click(row, tag, $event);
+            this.grid_uagridcolumn1_ud6acdb1_click(row, tag, $event);
         }
         if(Object.is('Delete', tag)) {
-            this.grid_uagridcolumn1_u8cfb23b_click(row, tag, $event);
+            this.grid_uagridcolumn1_u02e7012_click(row, tag, $event);
         }
         if(Object.is('Collect', tag)) {
-            this.grid_uagridcolumn1_u4dfe94d_click(row, tag, $event);
+            this.grid_uagridcolumn1_u907ac33_click(row, tag, $event);
         }
         if(Object.is('UnCollect', tag)) {
-            this.grid_uagridcolumn1_ud4fc77d_click(row, tag, $event);
+            this.grid_uagridcolumn1_u0bb60a8_click(row, tag, $event);
         }
     }
 

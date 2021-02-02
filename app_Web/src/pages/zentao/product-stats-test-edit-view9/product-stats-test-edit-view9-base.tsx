@@ -130,7 +130,7 @@ export class ProductStatsTestEditView9Base extends EditView9Base {
      * @type {string}
      * @memberof ProductStatsTestEditView9Base
      */
-	protected viewtag: string = '2ae3586b0dd0f70c261ba6f24adb99df';
+	protected viewtag: string = 'ca19b98324385ce8ab457a006b9f0289';
 
     /**
      * 视图名称

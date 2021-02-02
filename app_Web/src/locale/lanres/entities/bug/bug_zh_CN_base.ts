@@ -5,18 +5,26 @@ function getLocaleResourceBase(){
 		fields: {
 			severity: commonLogic.appcommonhandle("严重程度",null),
 			storyversion: commonLogic.appcommonhandle("需求版本",null),
+			buildname: commonLogic.appcommonhandle("版本名称",null),
 			linkbug: commonLogic.appcommonhandle("相关Bug",null),
 			activateddate: commonLogic.appcommonhandle("激活日期",null),
+			overduebugs: commonLogic.appcommonhandle("过期天数",null),
+			createbuild: commonLogic.appcommonhandle("创建版本",null),
 			assignedto: commonLogic.appcommonhandle("指派给",null),
 			resolution: commonLogic.appcommonhandle("解决方案",null),
 			lastediteddate: commonLogic.appcommonhandle("修改日期",null),
+			mobimage: commonLogic.appcommonhandle("移动端图片",null),
 			result: commonLogic.appcommonhandle("result",null),
 			keywords: commonLogic.appcommonhandle("关键词",null),
+			isfavorites: commonLogic.appcommonhandle("是否收藏",null),
+			modulename1: commonLogic.appcommonhandle("模块名称",null),
 			closedby: commonLogic.appcommonhandle("由谁关闭",null),
 			browser: commonLogic.appcommonhandle("浏览器",null),
+			noticeusers: commonLogic.appcommonhandle("消息通知用户",null),
 			steps: commonLogic.appcommonhandle("重现步骤",null),
 			v2: commonLogic.appcommonhandle("v2",null),
 			confirmed: commonLogic.appcommonhandle("是否确认",null),
+			mailtoconact: commonLogic.appcommonhandle("联系人",null),
 			openedby: commonLogic.appcommonhandle("由谁创建",null),
 			activatedcount: commonLogic.appcommonhandle("激活次数",null),
 			openeddate: commonLogic.appcommonhandle("创建日期",null),
@@ -25,15 +33,21 @@ function getLocaleResourceBase(){
 			assigneddate: commonLogic.appcommonhandle("指派日期",null),
 			deadline: commonLogic.appcommonhandle("截止日期",null),
 			color: commonLogic.appcommonhandle("标题颜色",null),
+			comment: commonLogic.appcommonhandle("备注",null),
 			resolveddate: commonLogic.appcommonhandle("解决日期",null),
 			type: commonLogic.appcommonhandle("Bug类型",null),
 			status: commonLogic.appcommonhandle("Bug状态",null),
 			openedbuild: commonLogic.appcommonhandle("影响版本",null),
+			delayresolve: commonLogic.appcommonhandle("延期解决",null),
+			files: commonLogic.appcommonhandle("附件",null),
+			mailtopk: commonLogic.appcommonhandle("抄送给",null),
 			v1: commonLogic.appcommonhandle("v1",null),
 			deleted: commonLogic.appcommonhandle("已删除",null),
 			lines: commonLogic.appcommonhandle("lines",null),
 			substatus: commonLogic.appcommonhandle("子状态",null),
+			buildproject: commonLogic.appcommonhandle("版本项目",null),
 			id: commonLogic.appcommonhandle("Bug编号",null),
+			delay: commonLogic.appcommonhandle("延期",null),
 			found: commonLogic.appcommonhandle("found",null),
 			resolvedby: commonLogic.appcommonhandle("解决者",null),
 			resolvedbuild: commonLogic.appcommonhandle("解决版本",null),
@@ -43,10 +57,14 @@ function getLocaleResourceBase(){
 			lasteditedby: commonLogic.appcommonhandle("最后修改者",null),
 			title: commonLogic.appcommonhandle("Bug标题",null),
 			productname: commonLogic.appcommonhandle("产品",null),
+			branchname: commonLogic.appcommonhandle("平台/分支",null),
+			taskname: commonLogic.appcommonhandle("相关任务",null),
+			casename: commonLogic.appcommonhandle("相关用例",null),
 			projectname: commonLogic.appcommonhandle("项目",null),
 			storyname: commonLogic.appcommonhandle("相关需求",null),
 			caseversion: commonLogic.appcommonhandle("用例版本",null),
 			repotype: commonLogic.appcommonhandle("代码类型",null),
+			modulename: commonLogic.appcommonhandle("模块名称",null),
 			tostory: commonLogic.appcommonhandle("转需求",null),
 			entry: commonLogic.appcommonhandle("应用",null),
 			product: commonLogic.appcommonhandle("所属产品",null),
@@ -61,147 +79,169 @@ function getLocaleResourceBase(){
 			project: commonLogic.appcommonhandle("所属项目",null),
 			task: commonLogic.appcommonhandle("相关任务",null),
 			testtask: commonLogic.appcommonhandle("测试单",null),
-			comment: commonLogic.appcommonhandle("备注",null),
-			taskname: commonLogic.appcommonhandle("相关任务",null),
-			modulename: commonLogic.appcommonhandle("模块名称",null),
-			branchname: commonLogic.appcommonhandle("平台/分支",null),
-			modulename1: commonLogic.appcommonhandle("模块名称",null),
-			files: commonLogic.appcommonhandle("附件",null),
-			mobimage: commonLogic.appcommonhandle("移动端图片",null),
-			isfavorites: commonLogic.appcommonhandle("是否收藏",null),
-			buildname: commonLogic.appcommonhandle("版本名称",null),
-			buildproject: commonLogic.appcommonhandle("版本项目",null),
-			createbuild: commonLogic.appcommonhandle("创建版本",null),
-			overduebugs: commonLogic.appcommonhandle("过期天数",null),
-			casename: commonLogic.appcommonhandle("相关用例",null),
-			delay: commonLogic.appcommonhandle("延期",null),
-			noticeusers: commonLogic.appcommonhandle("消息通知用户",null),
-			mailtopk: commonLogic.appcommonhandle("抄送给",null),
-			mailtoconact: commonLogic.appcommonhandle("联系人",null),
-			delayresolve: commonLogic.appcommonhandle("延期解决",null),
 		},
 			views: {
-				plansubgridview: {
+				testbugsgridview: {
 					caption: commonLogic.appcommonhandle("Bug",null),
-					title: commonLogic.appcommonhandle("Bug",null),
+					title: commonLogic.appcommonhandle("Bug表格视图(遗留的bug)",null),
 				},
-				buildsubgridview_new: {
-					caption: commonLogic.appcommonhandle("Bug",null),
-					title: commonLogic.appcommonhandle("bug表格视图",null),
-				},
-				mpickupview4: {
-					caption: commonLogic.appcommonhandle("关联Bug",null),
-					title: commonLogic.appcommonhandle("关联Bug",null),
-				},
-				maineditview: {
-					caption: commonLogic.appcommonhandle("Bug编辑",null),
-					title: commonLogic.appcommonhandle("Bug编辑",null),
-				},
-				myfavoritegridview: {
-					caption: commonLogic.appcommonhandle("Bug",null),
-					title: commonLogic.appcommonhandle("bug表格视图",null),
-				},
-				maindashboardview: {
-					caption: commonLogic.appcommonhandle("Bug",null),
-					title: commonLogic.appcommonhandle("Bug数据看板视图",null),
-				},
-				gridview9_storyaffect: {
-					caption: commonLogic.appcommonhandle("相关Bug",null),
-					title: commonLogic.appcommonhandle("相关Bug",null),
-				},
-				pickupgridview4: {
-					caption: commonLogic.appcommonhandle("Bug",null),
-					title: commonLogic.appcommonhandle("bug选择表格视图",null),
-				},
-				pickupgridview: {
-					caption: commonLogic.appcommonhandle("Bug",null),
-					title: commonLogic.appcommonhandle("bug选择表格视图",null),
-				},
-				mpickupview: {
-					caption: commonLogic.appcommonhandle("关联Bug",null),
-					title: commonLogic.appcommonhandle("关联Bug",null),
-				},
-				activationview: {
-					caption: commonLogic.appcommonhandle("激活Bug",null),
-					title: commonLogic.appcommonhandle("激活Bug",null),
-				},
-				buildsubgridview_new_9212: {
-					caption: commonLogic.appcommonhandle("Bug",null),
-					title: commonLogic.appcommonhandle("bug表格视图",null),
-				},
-				buglifeeditview9: {
-					caption: commonLogic.appcommonhandle("Bug",null),
-					title: commonLogic.appcommonhandle("Bug的一生",null),
-				},
-				editview: {
-					caption: commonLogic.appcommonhandle("Bug",null),
-					title: commonLogic.appcommonhandle("Bug",null),
-				},
-				mpickupview2: {
-					caption: commonLogic.appcommonhandle("关联Bug",null),
-					title: commonLogic.appcommonhandle("关联Bug",null),
-				},
-				editview_1162: {
-					caption: commonLogic.appcommonhandle("Bug",null),
-					title: commonLogic.appcommonhandle("Bug",null),
-				},
-				testreportsubgridview: {
-					caption: commonLogic.appcommonhandle("Bug",null),
-					title: commonLogic.appcommonhandle("bug表格视图",null),
-				},
-				releasesubgridview_done: {
-					caption: commonLogic.appcommonhandle("Bug",null),
-					title: commonLogic.appcommonhandle("bug表格视图",null),
-				},
-				storytobugeditview: {
-					caption: commonLogic.appcommonhandle("Bug",null),
-					title: commonLogic.appcommonhandle("Bug",null),
-				},
-				stepsinfoeditview: {
-					caption: commonLogic.appcommonhandle("重现步骤",null),
-					title: commonLogic.appcommonhandle("Bug编辑视图",null),
-				},
-				bugkanbanview: {
-					caption: commonLogic.appcommonhandle("Bug实体看板视图",null),
-					title: commonLogic.appcommonhandle("Bug看板视图",null),
-				},
-				gridview9_storyformbug: {
-					caption: commonLogic.appcommonhandle("来源Bug",null),
-					title: commonLogic.appcommonhandle("来源Bug",null),
-				},
-				confirmview: {
-					caption: commonLogic.appcommonhandle("确认Bug",null),
-					title: commonLogic.appcommonhandle("确认Bug",null),
-				},
-				gridview9_assignedtome: {
-					caption: commonLogic.appcommonhandle("Bug",null),
-					title: commonLogic.appcommonhandle("Bug表格视图",null),
-				},
-				usr2gridview: {
-					caption: commonLogic.appcommonhandle("Bug",null),
-					title: commonLogic.appcommonhandle("Bug表格视图",null),
+				assingtoview: {
+					caption: commonLogic.appcommonhandle("指派Bug",null),
+					title: commonLogic.appcommonhandle("指派Bug",null),
 				},
 				maindashboardview_link: {
 					caption: commonLogic.appcommonhandle("Bug",null),
 					title: commonLogic.appcommonhandle("Bug数据看板视图",null),
 				},
-				gridview9_taskrelated: {
-					caption: commonLogic.appcommonhandle("相关Bug",null),
-					title: commonLogic.appcommonhandle("相关Bug",null),
+				mpickupview5: {
+					caption: commonLogic.appcommonhandle("关联Bug",null),
+					title: commonLogic.appcommonhandle("关联Bug",null),
 				},
 				editview_4791: {
 					caption: commonLogic.appcommonhandle("Bug",null),
 					title: commonLogic.appcommonhandle("Bug",null),
 				},
+				buglifeeditview9: {
+					caption: commonLogic.appcommonhandle("Bug",null),
+					title: commonLogic.appcommonhandle("Bug的一生",null),
+				},
+				maindashboardview: {
+					caption: commonLogic.appcommonhandle("Bug",null),
+					title: commonLogic.appcommonhandle("Bug数据看板视图",null),
+				},
+				pickupgridview5: {
+					caption: commonLogic.appcommonhandle("Bug",null),
+					title: commonLogic.appcommonhandle("bug选择表格视图",null),
+				},
+				buildsubgridview_new_9212: {
+					caption: commonLogic.appcommonhandle("Bug",null),
+					title: commonLogic.appcommonhandle("bug表格视图",null),
+				},
+				pickupgridview: {
+					caption: commonLogic.appcommonhandle("Bug",null),
+					title: commonLogic.appcommonhandle("bug选择表格视图",null),
+				},
+				releasesubgridview_done: {
+					caption: commonLogic.appcommonhandle("Bug",null),
+					title: commonLogic.appcommonhandle("bug表格视图",null),
+				},
+				mpickupview: {
+					caption: commonLogic.appcommonhandle("关联Bug",null),
+					title: commonLogic.appcommonhandle("关联Bug",null),
+				},
+				calendareditview: {
+					caption: commonLogic.appcommonhandle("日历导航",null),
+					title: commonLogic.appcommonhandle("Bug编辑视图（日历导航）",null),
+				},
+				maineditview: {
+					caption: commonLogic.appcommonhandle("Bug编辑",null),
+					title: commonLogic.appcommonhandle("Bug编辑",null),
+				},
+				resolvechartview: {
+					caption: commonLogic.appcommonhandle("解决Bug",null),
+					title: commonLogic.appcommonhandle("Bug图表视图（解决Bug）",null),
+				},
+				usr2gridview: {
+					caption: commonLogic.appcommonhandle("Bug",null),
+					title: commonLogic.appcommonhandle("Bug表格视图",null),
+				},
+				gridview9_taskrelated: {
+					caption: commonLogic.appcommonhandle("相关Bug",null),
+					title: commonLogic.appcommonhandle("相关Bug",null),
+				},
+				mpickupview4: {
+					caption: commonLogic.appcommonhandle("关联Bug",null),
+					title: commonLogic.appcommonhandle("关联Bug",null),
+				},
+				editview: {
+					caption: commonLogic.appcommonhandle("Bug",null),
+					title: commonLogic.appcommonhandle("Bug",null),
+				},
+				plansubgridview: {
+					caption: commonLogic.appcommonhandle("Bug",null),
+					title: commonLogic.appcommonhandle("Bug",null),
+				},
+				closeview: {
+					caption: commonLogic.appcommonhandle("关闭Bug",null),
+					title: commonLogic.appcommonhandle("关闭Bug",null),
+				},
+				bugkanbanview: {
+					caption: commonLogic.appcommonhandle("Bug实体看板视图",null),
+					title: commonLogic.appcommonhandle("Bug看板视图",null),
+				},
+				tasktobugeditview: {
+					caption: commonLogic.appcommonhandle("Bug",null),
+					title: commonLogic.appcommonhandle("Bug",null),
+				},
+				activationview: {
+					caption: commonLogic.appcommonhandle("激活Bug",null),
+					title: commonLogic.appcommonhandle("激活Bug",null),
+				},
+				gridview9_storyformbug: {
+					caption: commonLogic.appcommonhandle("来源Bug",null),
+					title: commonLogic.appcommonhandle("来源Bug",null),
+				},
+				gridview9_storyaffect: {
+					caption: commonLogic.appcommonhandle("相关Bug",null),
+					title: commonLogic.appcommonhandle("相关Bug",null),
+				},
+				myfavoritegridview: {
+					caption: commonLogic.appcommonhandle("Bug",null),
+					title: commonLogic.appcommonhandle("bug表格视图",null),
+				},
+				releasesubgridview_undone: {
+					caption: commonLogic.appcommonhandle("Bug",null),
+					title: commonLogic.appcommonhandle("bug表格视图",null),
+				},
+				stepsinfoeditview: {
+					caption: commonLogic.appcommonhandle("重现步骤",null),
+					title: commonLogic.appcommonhandle("Bug编辑视图",null),
+				},
+				testreportsubgridview: {
+					caption: commonLogic.appcommonhandle("Bug",null),
+					title: commonLogic.appcommonhandle("bug表格视图",null),
+				},
+				resolveview: {
+					caption: commonLogic.appcommonhandle("解决Bug",null),
+					title: commonLogic.appcommonhandle("解决Bug",null),
+				},
+				pickupgridview4: {
+					caption: commonLogic.appcommonhandle("Bug",null),
+					title: commonLogic.appcommonhandle("bug选择表格视图",null),
+				},
+				gridview9_myassignedtome: {
+					caption: commonLogic.appcommonhandle("Bug",null),
+					title: commonLogic.appcommonhandle("Bug表格视图",null),
+				},
 				projectgridview: {
 					caption: commonLogic.appcommonhandle("项目",null),
 					title: commonLogic.appcommonhandle("bug表格视图（项目）",null),
+				},
+				casetobugeditview: {
+					caption: commonLogic.appcommonhandle("Bug",null),
+					title: commonLogic.appcommonhandle("Bug",null),
+				},
+				buildsubgridview_done: {
+					caption: commonLogic.appcommonhandle("Bug",null),
+					title: commonLogic.appcommonhandle("bug表格视图",null),
+				},
+				projectbugsgridview: {
+					caption: commonLogic.appcommonhandle("Bug",null),
+					title: commonLogic.appcommonhandle("Bug实体表格视图(项目遗留得Bug)",null),
+				},
+				confirmview: {
+					caption: commonLogic.appcommonhandle("确认Bug",null),
+					title: commonLogic.appcommonhandle("确认Bug",null),
+				},
+				dashboardmaineditview9: {
+					caption: commonLogic.appcommonhandle("Bug",null),
+					title: commonLogic.appcommonhandle("主信息",null),
 				},
 				pickupgridview_buildlinkresolvedbugs: {
 					caption: commonLogic.appcommonhandle("Bug",null),
 					title: commonLogic.appcommonhandle("bug选择表格视图",null),
 				},
-				releasesubgridview_undone: {
+				buildsubgridview_new: {
 					caption: commonLogic.appcommonhandle("Bug",null),
 					title: commonLogic.appcommonhandle("bug表格视图",null),
 				},
@@ -209,75 +249,35 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("待办提交",null),
 					title: commonLogic.appcommonhandle("待办提交",null),
 				},
-				pickupgridview5: {
-					caption: commonLogic.appcommonhandle("Bug",null),
-					title: commonLogic.appcommonhandle("bug选择表格视图",null),
-				},
-				resolveview: {
-					caption: commonLogic.appcommonhandle("解决Bug",null),
-					title: commonLogic.appcommonhandle("解决Bug",null),
-				},
-				resolvechartview: {
-					caption: commonLogic.appcommonhandle("解决Bug",null),
-					title: commonLogic.appcommonhandle("Bug图表视图（解决Bug）",null),
-				},
 				gridview: {
 					caption: commonLogic.appcommonhandle("Bug",null),
 					title: commonLogic.appcommonhandle("bug表格视图",null),
+				},
+				mpickupview2: {
+					caption: commonLogic.appcommonhandle("关联Bug",null),
+					title: commonLogic.appcommonhandle("关联Bug",null),
 				},
 				gridview9_storyrelated: {
 					caption: commonLogic.appcommonhandle("相关Bug",null),
 					title: commonLogic.appcommonhandle("相关Bug",null),
 				},
-				gridview9_myassignedtome: {
+				gridview9_assignedtome: {
 					caption: commonLogic.appcommonhandle("Bug",null),
 					title: commonLogic.appcommonhandle("Bug表格视图",null),
 				},
-				tasktobugeditview: {
+				editview_1162: {
 					caption: commonLogic.appcommonhandle("Bug",null),
 					title: commonLogic.appcommonhandle("Bug",null),
 				},
-				mainmygridview: {
-					caption: commonLogic.appcommonhandle("Bug",null),
-					title: commonLogic.appcommonhandle("bug表格视图",null),
-				},
-				casetobugeditview: {
+				storytobugeditview: {
 					caption: commonLogic.appcommonhandle("Bug",null),
 					title: commonLogic.appcommonhandle("Bug",null),
-				},
-				projectbugsgridview: {
-					caption: commonLogic.appcommonhandle("Bug",null),
-					title: commonLogic.appcommonhandle("Bug实体表格视图(项目遗留得Bug)",null),
 				},
 				totalopenedchartview: {
 					caption: commonLogic.appcommonhandle("累计创建Bug",null),
 					title: commonLogic.appcommonhandle("Bug图表视图（累计创建Bug）",null),
 				},
-				testbugsgridview: {
-					caption: commonLogic.appcommonhandle("Bug",null),
-					title: commonLogic.appcommonhandle("Bug表格视图(遗留的bug)",null),
-				},
-				calendareditview: {
-					caption: commonLogic.appcommonhandle("日历导航",null),
-					title: commonLogic.appcommonhandle("Bug编辑视图（日历导航）",null),
-				},
-				closeview: {
-					caption: commonLogic.appcommonhandle("关闭Bug",null),
-					title: commonLogic.appcommonhandle("关闭Bug",null),
-				},
-				assingtoview: {
-					caption: commonLogic.appcommonhandle("指派Bug",null),
-					title: commonLogic.appcommonhandle("指派Bug",null),
-				},
-				dashboardmaineditview9: {
-					caption: commonLogic.appcommonhandle("Bug",null),
-					title: commonLogic.appcommonhandle("主信息",null),
-				},
-				mpickupview5: {
-					caption: commonLogic.appcommonhandle("关联Bug",null),
-					title: commonLogic.appcommonhandle("关联Bug",null),
-				},
-				buildsubgridview_done: {
+				mainmygridview: {
 					caption: commonLogic.appcommonhandle("Bug",null),
 					title: commonLogic.appcommonhandle("bug表格视图",null),
 				},
@@ -1385,10 +1385,10 @@ function getLocaleResourceBase(){
 			bugresolvedby_chart: {
 				nodata:commonLogic.appcommonhandle("无",null),
 			},
-			curuseropenedbug_chart: {
+			curuserresolvebug_chart: {
 				nodata:commonLogic.appcommonhandle("无",null),
 			},
-			curuserresolvebug_chart: {
+			curuseropenedbug_chart: {
 				nodata:commonLogic.appcommonhandle("无",null),
 			},
 			bugkanban_kanban: {
@@ -1781,14 +1781,6 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
-			assignedtomebug_portlet: {
-				assignedtomebug: {
-					title: commonLogic.appcommonhandle("指派bug", null)
-				},
-				uiactions: {
-					bug_more: commonLogic.appcommonhandle("MORE",null),
-				},
-			},
 			maindashboardview_linkdashboard_container1_portlet: {
 				uiactions: {
 				},
@@ -1805,6 +1797,13 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
+			curuserresolvebug_portlet: {
+				curuserresolvebug: {
+					title: commonLogic.appcommonhandle("解决的Bug", null)
+				},
+				uiactions: {
+				},
+			},
 			totalcuropenedbug_portlet: {
 				totalcuropenedbug: {
 					title: commonLogic.appcommonhandle("累计创建的Bug", null)
@@ -1812,11 +1811,12 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
-			curuserresolvebug_portlet: {
-				curuserresolvebug: {
-					title: commonLogic.appcommonhandle("解决的Bug", null)
+			assignedtomebug_portlet: {
+				assignedtomebug: {
+					title: commonLogic.appcommonhandle("指派bug", null)
 				},
 				uiactions: {
+					bug_more: commonLogic.appcommonhandle("MORE",null),
 				},
 			},
 		};

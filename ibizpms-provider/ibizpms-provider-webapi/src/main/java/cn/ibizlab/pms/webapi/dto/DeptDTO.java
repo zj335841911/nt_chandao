@@ -39,6 +39,15 @@ public class DeptDTO extends DTOBase implements Serializable {
     private String manager;
 
     /**
+     * 属性 [ISLEAF]
+     *
+     */
+    @JSONField(name = "isleaf")
+    @JsonProperty("isleaf")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String isleaf;
+
+    /**
      * 属性 [GRADE]
      *
      */
@@ -117,15 +126,6 @@ public class DeptDTO extends DTOBase implements Serializable {
     @JsonProperty("parent")
     @JsonSerialize(using = ToStringSerializer.class)
     private Long parent;
-
-    /**
-     * 属性 [ISLEAF]
-     *
-     */
-    @JSONField(name = "isleaf")
-    @JsonProperty("isleaf")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String isleaf;
 
 
     /**

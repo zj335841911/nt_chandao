@@ -25,19 +25,19 @@ import cn.ibizlab.pms.util.filter.SearchContextBase;
 @Slf4j
 @Data
 public class IBIZProMessageSearchContext extends SearchContextBase {
+	private String n_sendproxyid_eq;//[发送代理标识]
+
 	private String n_ibizpro_messagename_like;//[消息名称]
-
-	private String n_type_eq;//[消息类型]
-
-	private Integer n_issync_eq;//[是否同步]
-
-	private Integer n_isretry_eq;//[是否重发]
 
 	private Integer n_islink_eq;//[是否是链接消息]
 
 	private String n_ibizpro_messageid_eq;//[消息标识]
 
-	private String n_sendproxyid_eq;//[发送代理标识]
+	private Integer n_issync_eq;//[是否同步]
+
+	private Integer n_isretry_eq;//[是否重发]
+
+	private String n_type_eq;//[消息类型]
 
 }
 

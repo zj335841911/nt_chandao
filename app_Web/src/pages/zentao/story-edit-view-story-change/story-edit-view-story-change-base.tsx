@@ -125,7 +125,7 @@ export class StoryEditView_StoryChangeBase extends EditViewBase {
      * @type {string}
      * @memberof StoryEditView_StoryChangeBase
      */
-	protected viewtag: string = 'e54598b1e6d38d7c6ce8231b531b46bd';
+	protected viewtag: string = '93f8d8d0a5d396d446a454490c33b9b4';
 
     /**
      * 视图名称

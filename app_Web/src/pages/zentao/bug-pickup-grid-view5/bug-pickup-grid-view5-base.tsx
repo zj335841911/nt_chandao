@@ -102,7 +102,7 @@ export class BugPickupGridView5Base extends PickupGridViewBase {
      * @type {string}
      * @memberof BugPickupGridView5Base
      */
-	protected viewtag: string = 'becbcfda999bc9082dd51a7629f00dd7';
+	protected viewtag: string = '17d21dba3426cc5aeb87a177f798cfc5';
 
     /**
      * 视图名称

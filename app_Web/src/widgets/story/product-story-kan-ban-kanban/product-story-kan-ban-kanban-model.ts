@@ -38,12 +38,12 @@ export default class ProductStoryKanBanModel {
 				name: 'srfmstag',
 			},
 			{
-				name: 'estimate',
-			},
-			{
 				name: 'stage',
 				prop: 'stage',
 				dataType: 'SSCODELIST',
+			},
+			{
+				name: 'estimate',
 			},
 			{
 				name: 'tobug',
@@ -69,12 +69,12 @@ export default class ProductStoryKanBanModel {
 				name: 'id',
 			},
 			{
-				name: 'pri',
-			},
-			{
 				name: 'title',
 				prop: 'title',
 				dataType: 'TEXT',
+			},
+			{
+				name: 'pri',
 			},
 			{
 				name: 'branch',

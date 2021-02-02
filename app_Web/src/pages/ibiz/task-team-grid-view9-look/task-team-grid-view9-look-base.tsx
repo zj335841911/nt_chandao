@@ -105,7 +105,7 @@ export class TaskTeamGridView9_LookBase extends GridView9Base {
      * @type {string}
      * @memberof TaskTeamGridView9_LookBase
      */
-	protected viewtag: string = '97f38c5fa6f63f69e18299306eae9077';
+	protected viewtag: string = '9d6b43cf5d65cb414cbccc84237178b7';
 
     /**
      * 视图名称

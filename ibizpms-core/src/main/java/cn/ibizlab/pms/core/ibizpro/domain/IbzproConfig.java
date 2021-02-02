@@ -44,6 +44,14 @@ public class IbzproConfig extends EntityMP implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
+     * 更新人
+     */
+    @DEField(preType = DEPredefinedFieldType.UPDATEMAN)
+    @TableField(value = "`updateman`")
+    @JSONField(name = "updateman")
+    @JsonProperty("updateman")
+    private String updateman;
+    /**
      * 系统配置表名称
      */
     @DEField(name = "ibzpro_configname")
@@ -52,21 +60,12 @@ public class IbzproConfig extends EntityMP implements Serializable {
     @JsonProperty("ibzproconfigname")
     private String ibzproconfigname;
     /**
-     * 系统配置表标识
+     * 描述
      */
-    @DEField(name = "ibzpro_configid", isKeyField = true)
-    @TableId(value = "ibzpro_configid", type = IdType.ASSIGN_UUID)
-    @JSONField(name = "ibzproconfigid")
-    @JsonProperty("ibzproconfigid")
-    private String ibzproconfigid;
-    /**
-     * 更新人
-     */
-    @DEField(preType = DEPredefinedFieldType.UPDATEMAN)
-    @TableField(value = "`updateman`")
-    @JSONField(name = "updateman")
-    @JsonProperty("updateman")
-    private String updateman;
+    @TableField(value = "`memo`")
+    @JSONField(name = "memo")
+    @JsonProperty("memo")
+    private String memo;
     /**
      * 更新时间
      */
@@ -86,13 +85,13 @@ public class IbzproConfig extends EntityMP implements Serializable {
     @JsonProperty("createdate")
     private Timestamp createdate;
     /**
-     * 建立人
+     * 系统配置表标识
      */
-    @DEField(preType = DEPredefinedFieldType.CREATEMAN)
-    @TableField(value = "`createman`", fill = FieldFill.INSERT)
-    @JSONField(name = "createman")
-    @JsonProperty("createman")
-    private String createman;
+    @DEField(name = "ibzpro_configid", isKeyField = true)
+    @TableId(value = "ibzpro_configid", type = IdType.ASSIGN_UUID)
+    @JSONField(name = "ibzproconfigid")
+    @JsonProperty("ibzproconfigid")
+    private String ibzproconfigid;
     /**
      * 范围
      */
@@ -100,20 +99,6 @@ public class IbzproConfig extends EntityMP implements Serializable {
     @JSONField(name = "scope")
     @JsonProperty("scope")
     private String scope;
-    /**
-     * 是否启用
-     */
-    @TableField(value = "`vaild`")
-    @JSONField(name = "vaild")
-    @JsonProperty("vaild")
-    private String vaild;
-    /**
-     * 描述
-     */
-    @TableField(value = "`memo`")
-    @JSONField(name = "memo")
-    @JsonProperty("memo")
-    private String memo;
     /**
      * 类型
      */
@@ -128,6 +113,21 @@ public class IbzproConfig extends EntityMP implements Serializable {
     @JSONField(name = "managementstatus")
     @JsonProperty("managementstatus")
     private String managementstatus;
+    /**
+     * 是否启用
+     */
+    @TableField(value = "`vaild`")
+    @JSONField(name = "vaild")
+    @JsonProperty("vaild")
+    private String vaild;
+    /**
+     * 建立人
+     */
+    @DEField(preType = DEPredefinedFieldType.CREATEMAN)
+    @TableField(value = "`createman`", fill = FieldFill.INSERT)
+    @JSONField(name = "createman")
+    @JsonProperty("createman")
+    private String createman;
 
 
 
@@ -140,27 +140,19 @@ public class IbzproConfig extends EntityMP implements Serializable {
     }
 
     /**
-     * 设置 [范围]
-     */
-    public void setScope(String scope) {
-        this.scope = scope;
-        this.modify("scope", scope);
-    }
-
-    /**
-     * 设置 [是否启用]
-     */
-    public void setVaild(String vaild) {
-        this.vaild = vaild;
-        this.modify("vaild", vaild);
-    }
-
-    /**
      * 设置 [描述]
      */
     public void setMemo(String memo) {
         this.memo = memo;
         this.modify("memo", memo);
+    }
+
+    /**
+     * 设置 [范围]
+     */
+    public void setScope(String scope) {
+        this.scope = scope;
+        this.modify("scope", scope);
     }
 
     /**
@@ -177,6 +169,14 @@ public class IbzproConfig extends EntityMP implements Serializable {
     public void setManagementstatus(String managementstatus) {
         this.managementstatus = managementstatus;
         this.modify("managementstatus", managementstatus);
+    }
+
+    /**
+     * 设置 [是否启用]
+     */
+    public void setVaild(String vaild) {
+        this.vaild = vaild;
+        this.modify("vaild", vaild);
     }
 
 

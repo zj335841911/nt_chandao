@@ -128,7 +128,7 @@ export class DocLibLibTabExpViewBase extends TabExpViewBase {
      * @type {string}
      * @memberof DocLibLibTabExpViewBase
      */
-	protected viewtag: string = '7f0821e7efe42bbf91090b525b05c96d';
+	protected viewtag: string = '7cfc48856417e4a8740c3d82334f88c9';
 
     /**
      * 视图名称

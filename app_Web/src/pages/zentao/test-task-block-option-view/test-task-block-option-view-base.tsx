@@ -158,7 +158,7 @@ export class TestTaskBlockOptionViewBase extends OptionViewBase {
      * @type {string}
      * @memberof TestTaskBlockOptionViewBase
      */
-	protected viewtag: string = '383716f2bcf137ecae2d212f2380246a';
+	protected viewtag: string = '8c583872d1a8ff04bcde60d303eb0786';
 
     /**
      * 视图名称

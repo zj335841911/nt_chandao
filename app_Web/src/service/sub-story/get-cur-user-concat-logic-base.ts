@@ -21,7 +21,7 @@ export default class GetCurUserConcatLogicBase {
      * 
      * @memberof  GetCurUserConcatLogicBase
      */
-    private id:string = "843A1354-AF09-4DC0-8C6F-69C2E20E64CF";
+    private id:string = "3068881e404a417a135759f2846fd37b";
 
     /**
      * 默认参数名称

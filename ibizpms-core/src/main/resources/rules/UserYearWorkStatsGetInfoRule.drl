@@ -13,13 +13,11 @@ global cn.ibizlab.pms.util.security.AuthenticationUser curuser;
 
 no-loop
 
-//逻辑处理节点[获取研发用户信息]
-rule "deaction2"
-ruleflow-group "useryearworkstatsgetinfodeaction2"
+//逻辑处理节点[开始]
+rule "begin"
+ruleflow-group "useryearworkstatsgetinfobegin"
     when
     then
-    useryearworkstatsservice.getDevInfomation(useryearworkstatsgetinfodefault);
-    update(useryearworkstatsgetinfodefault);//更新fact中变量值
     end
 
 //逻辑处理节点[获取产品经理信息]
@@ -31,6 +29,15 @@ ruleflow-group "useryearworkstatsgetinfodeaction4"
     update(useryearworkstatsgetinfodefault);//更新fact中变量值
     end
 
+//逻辑处理节点[获取研发用户信息]
+rule "deaction2"
+ruleflow-group "useryearworkstatsgetinfodeaction2"
+    when
+    then
+    useryearworkstatsservice.getDevInfomation(useryearworkstatsgetinfodefault);
+    update(useryearworkstatsgetinfodefault);//更新fact中变量值
+    end
+
 //逻辑处理节点[获取用户信息]
 rule "deaction1"
 ruleflow-group "useryearworkstatsgetinfodeaction1"
@@ -38,13 +45,6 @@ ruleflow-group "useryearworkstatsgetinfodeaction1"
     then
     cn.ibizlab.pms.util.helper.CachedBeanCopier.copy(useryearworkstatsservice.get(useryearworkstatsgetinfodefault.getId()),useryearworkstatsgetinfodefault);
     update(useryearworkstatsgetinfodefault);//更新fact中变量值
-    end
-
-//逻辑处理节点[开始]
-rule "begin"
-ruleflow-group "useryearworkstatsgetinfobegin"
-    when
-    then
     end
 
 //逻辑处理节点[获取测试用户信息]

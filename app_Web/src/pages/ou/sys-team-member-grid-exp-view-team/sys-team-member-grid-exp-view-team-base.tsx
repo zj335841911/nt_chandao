@@ -106,7 +106,7 @@ export class SysTeamMemberGridExpViewTeamBase extends GridExpViewBase {
      * @type {string}
      * @memberof SysTeamMemberGridExpViewTeamBase
      */
-	protected viewtag: string = '137cbf2ebd888dcdd6eff40271481f04';
+	protected viewtag: string = 'f5d633f92a5353687cbb187a7dc9bf31';
 
     /**
      * 视图名称

@@ -44,381 +44,6 @@ public class ProjectStats extends EntityMP implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
-     * 项目编号
-     */
-    @DEField(isKeyField = true)
-    @TableId(value = "id", type = IdType.AUTO)
-    @JSONField(name = "id")
-    @JsonProperty("id")
-    private Long id;
-    /**
-     * 需求总数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "storycnt")
-    @JsonProperty("storycnt")
-    private Integer storycnt;
-    /**
-     * 任务总数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "taskcnt")
-    @JsonProperty("taskcnt")
-    private Integer taskcnt;
-    /**
-     * 任务最初预计总工时
-     */
-    @TableField(exist = false)
-    @JSONField(name = "totalestimate")
-    @JsonProperty("totalestimate")
-    private Double totalestimate;
-    /**
-     * 任务消耗总工时
-     */
-    @TableField(exist = false)
-    @JSONField(name = "totalconsumed")
-    @JsonProperty("totalconsumed")
-    private Double totalconsumed;
-    /**
-     * 任务预计剩余总工时
-     */
-    @TableField(exist = false)
-    @JSONField(name = "totalleft")
-    @JsonProperty("totalleft")
-    private Double totalleft;
-    /**
-     * 未完成任务总数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "undonetaskcnt")
-    @JsonProperty("undonetaskcnt")
-    private Integer undonetaskcnt;
-    /**
-     * 关闭需求总数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "closedstorycnt")
-    @JsonProperty("closedstorycnt")
-    private Integer closedstorycnt;
-    /**
-     * Bug总数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "bugcnt")
-    @JsonProperty("bugcnt")
-    private Integer bugcnt;
-    /**
-     * 未解决Bug总数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "activebugcnt")
-    @JsonProperty("activebugcnt")
-    private Integer activebugcnt;
-    /**
-     * 未关闭需求总数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "unclosedstorycnt")
-    @JsonProperty("unclosedstorycnt")
-    private Integer unclosedstorycnt;
-    /**
-     * 已结束任务总数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "finishtaskcnt")
-    @JsonProperty("finishtaskcnt")
-    private Integer finishtaskcnt;
-    /**
-     * 已解决Bug总数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "finishbugcnt")
-    @JsonProperty("finishbugcnt")
-    private Integer finishbugcnt;
-    /**
-     * 已删除
-     */
-    @DEField(defaultValue = "0", preType = DEPredefinedFieldType.LOGICVALID, logicval = "0", logicdelval = "1")
-    @TableLogic(value = "0", delval = "1")
-    @TableField(value = "`deleted`")
-    @JSONField(name = "deleted")
-    @JsonProperty("deleted")
-    private String deleted;
-    /**
-     * 工时
-     */
-    @TableField(exist = false)
-    @JSONField(name = "time")
-    @JsonProperty("time")
-    private Double time;
-    /**
-     * 工时类型
-     */
-    @TableField(exist = false)
-    @JSONField(name = "type")
-    @JsonProperty("type")
-    private String type;
-    /**
-     * 项目名称
-     */
-    @TableField(value = "`name`")
-    @JSONField(name = "name")
-    @JsonProperty("name")
-    private String name;
-    /**
-     * 未确认Bug总数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "unconfirmedbugcnt")
-    @JsonProperty("unconfirmedbugcnt")
-    private Integer unconfirmedbugcnt;
-    /**
-     * 未关闭Bug总数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "unclosedbugcnt")
-    @JsonProperty("unclosedbugcnt")
-    private Integer unclosedbugcnt;
-    /**
-     * 总工时
-     */
-    @TableField(exist = false)
-    @JSONField(name = "totalwh")
-    @JsonProperty("totalwh")
-    private Integer totalwh;
-    /**
-     * 已发布需求数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "releasedstorycnt")
-    @JsonProperty("releasedstorycnt")
-    private Integer releasedstorycnt;
-    /**
-     * 昨日完成任务数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "yesterdayctaskcnt")
-    @JsonProperty("yesterdayctaskcnt")
-    private Integer yesterdayctaskcnt;
-    /**
-     * 昨天解决Bug数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "yesterdayrbugcnt")
-    @JsonProperty("yesterdayrbugcnt")
-    private Integer yesterdayrbugcnt;
-    /**
-     * 截止日期
-     */
-    @TableField(value = "`end`")
-    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
-    @JSONField(name = "end", format = "yyyy-MM-dd")
-    @JsonProperty("end")
-    private Timestamp end;
-    /**
-     * 状态
-     */
-    @TableField(value = "`status`")
-    @JSONField(name = "status")
-    @JsonProperty("status")
-    private String status;
-    /**
-     * 项目排序
-     */
-    @TableField(exist = false)
-    @JSONField(name = "order1")
-    @JsonProperty("order1")
-    private Integer order1;
-    /**
-     * 是否置顶
-     */
-    @TableField(exist = false)
-    @JSONField(name = "istop")
-    @JsonProperty("istop")
-    private Integer istop;
-    /**
-     * 已关闭任务数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "closedtaskcnt")
-    @JsonProperty("closedtaskcnt")
-    private Integer closedtaskcnt;
-    /**
-     * 已取消任务数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "canceltaskcnt")
-    @JsonProperty("canceltaskcnt")
-    private Integer canceltaskcnt;
-    /**
-     * 已暂停任务数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "pausetaskcnt")
-    @JsonProperty("pausetaskcnt")
-    private Integer pausetaskcnt;
-    /**
-     * 未开始任务数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "waittaskcnt")
-    @JsonProperty("waittaskcnt")
-    private Integer waittaskcnt;
-    /**
-     * 进行中任务数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "doingtaskcnt")
-    @JsonProperty("doingtaskcnt")
-    private Integer doingtaskcnt;
-    /**
-     * 已完成任务数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "donetaskcnt")
-    @JsonProperty("donetaskcnt")
-    private Integer donetaskcnt;
-    /**
-     * 设计类型任务
-     */
-    @TableField(exist = false)
-    @JSONField(name = "designtaskcnt")
-    @JsonProperty("designtaskcnt")
-    private Integer designtaskcnt;
-    /**
-     * 讨论类型任务
-     */
-    @TableField(exist = false)
-    @JSONField(name = "discusstaskcnt")
-    @JsonProperty("discusstaskcnt")
-    private Integer discusstaskcnt;
-    /**
-     * 研究类型任务
-     */
-    @TableField(exist = false)
-    @JSONField(name = "studytaskcnt")
-    @JsonProperty("studytaskcnt")
-    private Integer studytaskcnt;
-    /**
-     * 界面类型任务
-     */
-    @TableField(exist = false)
-    @JSONField(name = "uitaskcnt")
-    @JsonProperty("uitaskcnt")
-    private Integer uitaskcnt;
-    /**
-     * 测试类型任务
-     */
-    @TableField(exist = false)
-    @JSONField(name = "testtaskcnt")
-    @JsonProperty("testtaskcnt")
-    private Integer testtaskcnt;
-    /**
-     * 服务类型任务
-     */
-    @TableField(exist = false)
-    @JSONField(name = "servetaskcnt")
-    @JsonProperty("servetaskcnt")
-    private Integer servetaskcnt;
-    /**
-     * 开发类型任务
-     */
-    @TableField(exist = false)
-    @JSONField(name = "develtaskcnt")
-    @JsonProperty("develtaskcnt")
-    private Integer develtaskcnt;
-    /**
-     * 其他类型任务
-     */
-    @TableField(exist = false)
-    @JSONField(name = "misctaskcnt")
-    @JsonProperty("misctaskcnt")
-    private Integer misctaskcnt;
-    /**
-     * 事务类型任务
-     */
-    @TableField(exist = false)
-    @JSONField(name = "affairtaskcnt")
-    @JsonProperty("affairtaskcnt")
-    private Integer affairtaskcnt;
-    /**
-     * 完成需求数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "completestorycnt")
-    @JsonProperty("completestorycnt")
-    private Integer completestorycnt;
-    /**
-     * 完成任务数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "completetaskcnt")
-    @JsonProperty("completetaskcnt")
-    private Integer completetaskcnt;
-    /**
-     * Bug/完成需求
-     */
-    @TableField(exist = false)
-    @JSONField(name = "bugstory")
-    @JsonProperty("bugstory")
-    private Integer bugstory;
-    /**
-     * Bug/完成任务
-     */
-    @TableField(exist = false)
-    @JSONField(name = "bugtask")
-    @JsonProperty("bugtask")
-    private Integer bugtask;
-    /**
-     * 重要Bug数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "importantbugcnt")
-    @JsonProperty("importantbugcnt")
-    private Integer importantbugcnt;
-    /**
-     * 严重Bug比率
-     */
-    @TableField(exist = false)
-    @JSONField(name = "seriousbugproportion")
-    @JsonProperty("seriousbugproportion")
-    private String seriousbugproportion;
-    /**
-     * 代码错误
-     */
-    @TableField(exist = false)
-    @JSONField(name = "codeerror")
-    @JsonProperty("codeerror")
-    private Integer codeerror;
-    /**
-     * 配置相关
-     */
-    @TableField(exist = false)
-    @JSONField(name = "config")
-    @JsonProperty("config")
-    private Integer config;
-    /**
-     * 安装部署
-     */
-    @TableField(exist = false)
-    @JSONField(name = "install")
-    @JsonProperty("install")
-    private Integer install;
-    /**
-     * 安全相关
-     */
-    @TableField(exist = false)
-    @JSONField(name = "security")
-    @JsonProperty("security")
-    private Integer security;
-    /**
-     * 性能问题
-     */
-    @TableField(exist = false)
-    @JSONField(name = "performance")
-    @JsonProperty("performance")
-    private Integer performance;
-    /**
      * 标准规范
      */
     @TableField(exist = false)
@@ -426,54 +51,12 @@ public class ProjectStats extends EntityMP implements Serializable {
     @JsonProperty("standard")
     private Integer standard;
     /**
-     * 测试脚本
+     * 工时类型
      */
     @TableField(exist = false)
-    @JSONField(name = "automation")
-    @JsonProperty("automation")
-    private Integer automation;
-    /**
-     * 人数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "membercnt")
-    @JsonProperty("membercnt")
-    private Integer membercnt;
-    /**
-     * 设计缺陷
-     */
-    @TableField(exist = false)
-    @JSONField(name = "designdefect")
-    @JsonProperty("designdefect")
-    private Integer designdefect;
-    /**
-     * 其他
-     */
-    @TableField(exist = false)
-    @JSONField(name = "others")
-    @JsonProperty("others")
-    private Integer others;
-    /**
-     * 项目消耗总工时
-     */
-    @TableField(exist = false)
-    @JSONField(name = "projecttotalconsumed")
-    @JsonProperty("projecttotalconsumed")
-    private Double projecttotalconsumed;
-    /**
-     * 工期
-     */
-    @TableField(exist = false)
-    @JSONField(name = "timescale")
-    @JsonProperty("timescale")
-    private String timescale;
-    /**
-     * 剩余需求数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "leftstorycnt")
-    @JsonProperty("leftstorycnt")
-    private Integer leftstorycnt;
+    @JSONField(name = "type")
+    @JsonProperty("type")
+    private String type;
     /**
      * 空需求
      */
@@ -489,26 +72,119 @@ public class ProjectStats extends EntityMP implements Serializable {
     @JsonProperty("draftstory")
     private Integer draftstory;
     /**
-     * 激活需求
+     * 截止日期
      */
-    @TableField(exist = false)
-    @JSONField(name = "activestory")
-    @JsonProperty("activestory")
-    private Integer activestory;
+    @TableField(value = "`end`")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "end", format = "yyyy-MM-dd")
+    @JsonProperty("end")
+    private Timestamp end;
     /**
-     * 已关闭需求
+     * 已发布阶段需求数
      */
     @TableField(exist = false)
-    @JSONField(name = "closedstory")
-    @JsonProperty("closedstory")
-    private Integer closedstory;
+    @JSONField(name = "releasedstagestorycnt")
+    @JsonProperty("releasedstagestorycnt")
+    private Integer releasedstagestorycnt;
     /**
-     * 已变更需求
+     * 重要Bug数
      */
     @TableField(exist = false)
-    @JSONField(name = "changedstory")
-    @JsonProperty("changedstory")
-    private Integer changedstory;
+    @JSONField(name = "importantbugcnt")
+    @JsonProperty("importantbugcnt")
+    private Integer importantbugcnt;
+    /**
+     * 已取消任务数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "canceltaskcnt")
+    @JsonProperty("canceltaskcnt")
+    private Integer canceltaskcnt;
+    /**
+     * 开始时间
+     */
+    @TableField(value = "`begin`")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "begin", format = "yyyy-MM-dd")
+    @JsonProperty("begin")
+    private Timestamp begin;
+    /**
+     * 状态
+     */
+    @TableField(value = "`status`")
+    @JSONField(name = "status")
+    @JsonProperty("status")
+    private String status;
+    /**
+     * 严重Bug比率
+     */
+    @TableField(exist = false)
+    @JSONField(name = "seriousbugproportion")
+    @JsonProperty("seriousbugproportion")
+    private String seriousbugproportion;
+    /**
+     * 进行中任务数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "doingtaskcnt")
+    @JsonProperty("doingtaskcnt")
+    private Integer doingtaskcnt;
+    /**
+     * 未完成任务总数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "undonetaskcnt")
+    @JsonProperty("undonetaskcnt")
+    private Integer undonetaskcnt;
+    /**
+     * 服务类型任务
+     */
+    @TableField(exist = false)
+    @JSONField(name = "servetaskcnt")
+    @JsonProperty("servetaskcnt")
+    private Integer servetaskcnt;
+    /**
+     * 已完成任务数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "donetaskcnt")
+    @JsonProperty("donetaskcnt")
+    private Integer donetaskcnt;
+    /**
+     * 总工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "totalwh")
+    @JsonProperty("totalwh")
+    private Integer totalwh;
+    /**
+     * 未关闭需求总数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "unclosedstorycnt")
+    @JsonProperty("unclosedstorycnt")
+    private Integer unclosedstorycnt;
+    /**
+     * 其他类型任务
+     */
+    @TableField(exist = false)
+    @JSONField(name = "misctaskcnt")
+    @JsonProperty("misctaskcnt")
+    private Integer misctaskcnt;
+    /**
+     * 剩余需求数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "leftstorycnt")
+    @JsonProperty("leftstorycnt")
+    private Integer leftstorycnt;
+    /**
+     * 性能问题
+     */
+    @TableField(exist = false)
+    @JSONField(name = "performance")
+    @JsonProperty("performance")
+    private Integer performance;
     /**
      * 空阶段需求数
      */
@@ -524,12 +200,49 @@ public class ProjectStats extends EntityMP implements Serializable {
     @JsonProperty("waitstagestorycnt")
     private Integer waitstagestorycnt;
     /**
-     * 已计划阶段需求数
+     * 研发中阶段需求数
      */
     @TableField(exist = false)
-    @JSONField(name = "plannedstagestorycnt")
-    @JsonProperty("plannedstagestorycnt")
-    private Integer plannedstagestorycnt;
+    @JSONField(name = "developingstagestorycnt")
+    @JsonProperty("developingstagestorycnt")
+    private Integer developingstagestorycnt;
+    /**
+     * 是否置顶
+     */
+    @TableField(exist = false)
+    @JSONField(name = "istop")
+    @JsonProperty("istop")
+    private Integer istop;
+    /**
+     * 完成需求数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "completestorycnt")
+    @JsonProperty("completestorycnt")
+    private Integer completestorycnt;
+    /**
+     * 测试类型任务
+     */
+    @TableField(exist = false)
+    @JSONField(name = "testtaskcnt")
+    @JsonProperty("testtaskcnt")
+    private Integer testtaskcnt;
+    /**
+     * 已删除
+     */
+    @DEField(defaultValue = "0", preType = DEPredefinedFieldType.LOGICVALID, logicval = "0", logicdelval = "1")
+    @TableLogic(value = "0", delval = "1")
+    @TableField(value = "`deleted`")
+    @JSONField(name = "deleted")
+    @JsonProperty("deleted")
+    private String deleted;
+    /**
+     * 需求总数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "storycnt")
+    @JsonProperty("storycnt")
+    private Integer storycnt;
     /**
      * 已立项阶段需求数
      */
@@ -538,12 +251,202 @@ public class ProjectStats extends EntityMP implements Serializable {
     @JsonProperty("projectedstagestorycnt")
     private Integer projectedstagestorycnt;
     /**
-     * 研发中阶段需求数
+     * 讨论类型任务
      */
     @TableField(exist = false)
-    @JSONField(name = "developingstagestorycnt")
-    @JsonProperty("developingstagestorycnt")
-    private Integer developingstagestorycnt;
+    @JSONField(name = "discusstaskcnt")
+    @JsonProperty("discusstaskcnt")
+    private Integer discusstaskcnt;
+    /**
+     * 完成任务数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "completetaskcnt")
+    @JsonProperty("completetaskcnt")
+    private Integer completetaskcnt;
+    /**
+     * 已计划阶段需求数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "plannedstagestorycnt")
+    @JsonProperty("plannedstagestorycnt")
+    private Integer plannedstagestorycnt;
+    /**
+     * 测试完毕阶段需求数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "testedstagestorycnt")
+    @JsonProperty("testedstagestorycnt")
+    private Integer testedstagestorycnt;
+    /**
+     * 项目名称
+     */
+    @TableField(value = "`name`")
+    @JSONField(name = "name")
+    @JsonProperty("name")
+    private String name;
+    /**
+     * 任务总数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "taskcnt")
+    @JsonProperty("taskcnt")
+    private Integer taskcnt;
+    /**
+     * 任务预计剩余总工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "totalleft")
+    @JsonProperty("totalleft")
+    private Double totalleft;
+    /**
+     * 工期
+     */
+    @TableField(exist = false)
+    @JSONField(name = "timescale")
+    @JsonProperty("timescale")
+    private String timescale;
+    /**
+     * 激活需求
+     */
+    @TableField(exist = false)
+    @JSONField(name = "activestory")
+    @JsonProperty("activestory")
+    private Integer activestory;
+    /**
+     * 项目排序
+     */
+    @TableField(exist = false)
+    @JSONField(name = "order1")
+    @JsonProperty("order1")
+    private Integer order1;
+    /**
+     * 未解决Bug总数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "activebugcnt")
+    @JsonProperty("activebugcnt")
+    private Integer activebugcnt;
+    /**
+     * 设计缺陷
+     */
+    @TableField(exist = false)
+    @JSONField(name = "designdefect")
+    @JsonProperty("designdefect")
+    private Integer designdefect;
+    /**
+     * 未开始任务数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "waittaskcnt")
+    @JsonProperty("waittaskcnt")
+    private Integer waittaskcnt;
+    /**
+     * 已暂停任务数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "pausetaskcnt")
+    @JsonProperty("pausetaskcnt")
+    private Integer pausetaskcnt;
+    /**
+     * 已关闭阶段需求数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "closedstagestorycnt")
+    @JsonProperty("closedstagestorycnt")
+    private Integer closedstagestorycnt;
+    /**
+     * 任务最初预计总工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "totalestimate")
+    @JsonProperty("totalestimate")
+    private Double totalestimate;
+    /**
+     * 已验收阶段需求数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "verifiedstagestorycnt")
+    @JsonProperty("verifiedstagestorycnt")
+    private Integer verifiedstagestorycnt;
+    /**
+     * 安装部署
+     */
+    @TableField(exist = false)
+    @JSONField(name = "install")
+    @JsonProperty("install")
+    private Integer install;
+    /**
+     * 项目编号
+     */
+    @DEField(isKeyField = true)
+    @TableId(value = "id", type = IdType.AUTO)
+    @JSONField(name = "id")
+    @JsonProperty("id")
+    private Long id;
+    /**
+     * 设计类型任务
+     */
+    @TableField(exist = false)
+    @JSONField(name = "designtaskcnt")
+    @JsonProperty("designtaskcnt")
+    private Integer designtaskcnt;
+    /**
+     * 安全相关
+     */
+    @TableField(exist = false)
+    @JSONField(name = "security")
+    @JsonProperty("security")
+    private Integer security;
+    /**
+     * 其他
+     */
+    @TableField(exist = false)
+    @JSONField(name = "others")
+    @JsonProperty("others")
+    private Integer others;
+    /**
+     * Bug总数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "bugcnt")
+    @JsonProperty("bugcnt")
+    private Integer bugcnt;
+    /**
+     * 未关闭Bug总数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "unclosedbugcnt")
+    @JsonProperty("unclosedbugcnt")
+    private Integer unclosedbugcnt;
+    /**
+     * 昨日完成任务数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "yesterdayctaskcnt")
+    @JsonProperty("yesterdayctaskcnt")
+    private Integer yesterdayctaskcnt;
+    /**
+     * 工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "time")
+    @JsonProperty("time")
+    private Double time;
+    /**
+     * 测试脚本
+     */
+    @TableField(exist = false)
+    @JSONField(name = "automation")
+    @JsonProperty("automation")
+    private Integer automation;
+    /**
+     * 未确认Bug总数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "unconfirmedbugcnt")
+    @JsonProperty("unconfirmedbugcnt")
+    private Integer unconfirmedbugcnt;
     /**
      * 研发完毕阶段需求数
      */
@@ -559,33 +462,131 @@ public class ProjectStats extends EntityMP implements Serializable {
     @JsonProperty("testingstagestorycnt")
     private Integer testingstagestorycnt;
     /**
-     * 测试完毕阶段需求数
+     * 已结束任务总数
      */
     @TableField(exist = false)
-    @JSONField(name = "testedstagestorycnt")
-    @JsonProperty("testedstagestorycnt")
-    private Integer testedstagestorycnt;
+    @JSONField(name = "finishtaskcnt")
+    @JsonProperty("finishtaskcnt")
+    private Integer finishtaskcnt;
     /**
-     * 已验收阶段需求数
+     * 配置相关
      */
     @TableField(exist = false)
-    @JSONField(name = "verifiedstagestorycnt")
-    @JsonProperty("verifiedstagestorycnt")
-    private Integer verifiedstagestorycnt;
+    @JSONField(name = "config")
+    @JsonProperty("config")
+    private Integer config;
     /**
-     * 已发布阶段需求数
+     * 任务消耗总工时
      */
     @TableField(exist = false)
-    @JSONField(name = "releasedstagestorycnt")
-    @JsonProperty("releasedstagestorycnt")
-    private Integer releasedstagestorycnt;
+    @JSONField(name = "totalconsumed")
+    @JsonProperty("totalconsumed")
+    private Double totalconsumed;
     /**
-     * 已关闭阶段需求数
+     * 事务类型任务
      */
     @TableField(exist = false)
-    @JSONField(name = "closedstagestorycnt")
-    @JsonProperty("closedstagestorycnt")
-    private Integer closedstagestorycnt;
+    @JSONField(name = "affairtaskcnt")
+    @JsonProperty("affairtaskcnt")
+    private Integer affairtaskcnt;
+    /**
+     * 项目消耗总工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "projecttotalconsumed")
+    @JsonProperty("projecttotalconsumed")
+    private Double projecttotalconsumed;
+    /**
+     * 界面类型任务
+     */
+    @TableField(exist = false)
+    @JSONField(name = "uitaskcnt")
+    @JsonProperty("uitaskcnt")
+    private Integer uitaskcnt;
+    /**
+     * Bug/完成需求
+     */
+    @TableField(exist = false)
+    @JSONField(name = "bugstory")
+    @JsonProperty("bugstory")
+    private Integer bugstory;
+    /**
+     * 已关闭需求
+     */
+    @TableField(exist = false)
+    @JSONField(name = "closedstory")
+    @JsonProperty("closedstory")
+    private Integer closedstory;
+    /**
+     * Bug/完成任务
+     */
+    @TableField(exist = false)
+    @JSONField(name = "bugtask")
+    @JsonProperty("bugtask")
+    private Integer bugtask;
+    /**
+     * 已发布需求数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "releasedstorycnt")
+    @JsonProperty("releasedstorycnt")
+    private Integer releasedstorycnt;
+    /**
+     * 研究类型任务
+     */
+    @TableField(exist = false)
+    @JSONField(name = "studytaskcnt")
+    @JsonProperty("studytaskcnt")
+    private Integer studytaskcnt;
+    /**
+     * 已关闭任务数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "closedtaskcnt")
+    @JsonProperty("closedtaskcnt")
+    private Integer closedtaskcnt;
+    /**
+     * 代码错误
+     */
+    @TableField(exist = false)
+    @JSONField(name = "codeerror")
+    @JsonProperty("codeerror")
+    private Integer codeerror;
+    /**
+     * 关闭需求总数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "closedstorycnt")
+    @JsonProperty("closedstorycnt")
+    private Integer closedstorycnt;
+    /**
+     * 已解决Bug总数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "finishbugcnt")
+    @JsonProperty("finishbugcnt")
+    private Integer finishbugcnt;
+    /**
+     * 已变更需求
+     */
+    @TableField(exist = false)
+    @JSONField(name = "changedstory")
+    @JsonProperty("changedstory")
+    private Integer changedstory;
+    /**
+     * 开发类型任务
+     */
+    @TableField(exist = false)
+    @JSONField(name = "develtaskcnt")
+    @JsonProperty("develtaskcnt")
+    private Integer develtaskcnt;
+    /**
+     * 人数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "membercnt")
+    @JsonProperty("membercnt")
+    private Integer membercnt;
     /**
      * 进度
      */
@@ -594,23 +595,14 @@ public class ProjectStats extends EntityMP implements Serializable {
     @JsonProperty("progress")
     private String progress;
     /**
-     * 开始时间
+     * 昨天解决Bug数
      */
-    @TableField(value = "`begin`")
-    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
-    @JSONField(name = "begin", format = "yyyy-MM-dd")
-    @JsonProperty("begin")
-    private Timestamp begin;
+    @TableField(exist = false)
+    @JSONField(name = "yesterdayrbugcnt")
+    @JsonProperty("yesterdayrbugcnt")
+    private Integer yesterdayrbugcnt;
 
 
-
-    /**
-     * 设置 [项目名称]
-     */
-    public void setName(String name) {
-        this.name = name;
-        this.modify("name", name);
-    }
 
     /**
      * 设置 [截止日期]
@@ -631,14 +623,6 @@ public class ProjectStats extends EntityMP implements Serializable {
         return sdf.format(end);
     }
     /**
-     * 设置 [状态]
-     */
-    public void setStatus(String status) {
-        this.status = status;
-        this.modify("status", status);
-    }
-
-    /**
      * 设置 [开始时间]
      */
     public void setBegin(Timestamp begin) {
@@ -656,6 +640,22 @@ public class ProjectStats extends EntityMP implements Serializable {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         return sdf.format(begin);
     }
+    /**
+     * 设置 [状态]
+     */
+    public void setStatus(String status) {
+        this.status = status;
+        this.modify("status", status);
+    }
+
+    /**
+     * 设置 [项目名称]
+     */
+    public void setName(String name) {
+        this.name = name;
+        this.modify("name", name);
+    }
+
 
     @Override
     public Serializable getDefaultKey(boolean gen) {

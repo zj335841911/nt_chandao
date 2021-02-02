@@ -125,7 +125,7 @@ export class ProjectStatsProjectProgressUsr2GridViewBase extends GridViewBase {
      * @type {string}
      * @memberof ProjectStatsProjectProgressUsr2GridViewBase
      */
-	protected viewtag: string = 'dabb076d51462709eafcea3fed743469';
+	protected viewtag: string = '595377d5c94799083b6ba5d33f2dfcee';
 
     /**
      * 视图名称

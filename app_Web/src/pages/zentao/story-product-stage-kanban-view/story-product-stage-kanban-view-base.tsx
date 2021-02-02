@@ -122,7 +122,7 @@ export class StoryProductStageKanbanViewBase extends KanBanViewBase {
      * @type {string}
      * @memberof StoryProductStageKanbanViewBase
      */
-	protected viewtag: string = '1340907d0c403b48b0ca086331cd2083';
+	protected viewtag: string = 'bfa6b267c1c868a41b419be350e681e9';
 
     /**
      * 视图名称

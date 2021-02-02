@@ -60,14 +60,6 @@ public class IBZProSystem extends EntityMP implements Serializable {
     @JsonProperty("ibzprosystemname")
     private String ibzprosystemname;
     /**
-     * 建立人
-     */
-    @DEField(preType = DEPredefinedFieldType.CREATEMAN)
-    @TableField(value = "`createman`", fill = FieldFill.INSERT)
-    @JSONField(name = "createman")
-    @JsonProperty("createman")
-    private String createman;
-    /**
      * 更新人
      */
     @DEField(preType = DEPredefinedFieldType.UPDATEMAN)
@@ -75,6 +67,14 @@ public class IBZProSystem extends EntityMP implements Serializable {
     @JSONField(name = "updateman")
     @JsonProperty("updateman")
     private String updateman;
+    /**
+     * 建立人
+     */
+    @DEField(preType = DEPredefinedFieldType.CREATEMAN)
+    @TableField(value = "`createman`", fill = FieldFill.INSERT)
+    @JSONField(name = "createman")
+    @JsonProperty("createman")
+    private String createman;
     /**
      * 建立时间
      */

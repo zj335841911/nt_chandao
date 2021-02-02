@@ -109,7 +109,7 @@ export class TestReportEditView_tosumupBase extends EditViewBase {
      * @type {string}
      * @memberof TestReportEditView_tosumupBase
      */
-	protected viewtag: string = 'c47c534ae15c1fd1a04b5ad78d174841';
+	protected viewtag: string = '93df0cb379fd2c516ae1ee95901b5eb2';
 
     /**
      * 视图名称

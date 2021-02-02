@@ -34,18 +34,18 @@ public class DocLibModuleSearchContext extends QueryWrapperContext<DocLibModule>
             this.getSearchCond().like("`name`", n_name_like);
         }
     }
-	private Long n_root_eq;//[编号]
-	public void setN_root_eq(Long n_root_eq) {
-        this.n_root_eq = n_root_eq;
-        if(!ObjectUtils.isEmpty(this.n_root_eq)){
-            this.getSearchCond().eq("`root`", n_root_eq);
+	private String n_modulename_eq;//[上级模块]
+	public void setN_modulename_eq(String n_modulename_eq) {
+        this.n_modulename_eq = n_modulename_eq;
+        if(!ObjectUtils.isEmpty(this.n_modulename_eq)){
+            this.getSearchCond().eq("`modulename`", n_modulename_eq);
         }
     }
-	private Long n_parent_eq;//[id]
-	public void setN_parent_eq(Long n_parent_eq) {
-        this.n_parent_eq = n_parent_eq;
-        if(!ObjectUtils.isEmpty(this.n_parent_eq)){
-            this.getSearchCond().eq("`parent`", n_parent_eq);
+	private String n_modulename_like;//[上级模块]
+	public void setN_modulename_like(String n_modulename_like) {
+        this.n_modulename_like = n_modulename_like;
+        if(!ObjectUtils.isEmpty(this.n_modulename_like)){
+            this.getSearchCond().like("`modulename`", n_modulename_like);
         }
     }
 	private String n_doclibname_eq;//[所属文档库]
@@ -62,18 +62,18 @@ public class DocLibModuleSearchContext extends QueryWrapperContext<DocLibModule>
             this.getSearchCond().like("`doclibname`", n_doclibname_like);
         }
     }
-	private String n_modulename_eq;//[上级模块]
-	public void setN_modulename_eq(String n_modulename_eq) {
-        this.n_modulename_eq = n_modulename_eq;
-        if(!ObjectUtils.isEmpty(this.n_modulename_eq)){
-            this.getSearchCond().eq("`modulename`", n_modulename_eq);
+	private Long n_parent_eq;//[id]
+	public void setN_parent_eq(Long n_parent_eq) {
+        this.n_parent_eq = n_parent_eq;
+        if(!ObjectUtils.isEmpty(this.n_parent_eq)){
+            this.getSearchCond().eq("`parent`", n_parent_eq);
         }
     }
-	private String n_modulename_like;//[上级模块]
-	public void setN_modulename_like(String n_modulename_like) {
-        this.n_modulename_like = n_modulename_like;
-        if(!ObjectUtils.isEmpty(this.n_modulename_like)){
-            this.getSearchCond().like("`modulename`", n_modulename_like);
+	private Long n_root_eq;//[编号]
+	public void setN_root_eq(Long n_root_eq) {
+        this.n_root_eq = n_root_eq;
+        if(!ObjectUtils.isEmpty(this.n_root_eq)){
+            this.getSearchCond().eq("`root`", n_root_eq);
         }
     }
 

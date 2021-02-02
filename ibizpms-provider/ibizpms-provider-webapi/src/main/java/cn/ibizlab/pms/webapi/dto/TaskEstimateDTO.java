@@ -30,6 +30,24 @@ public class TaskEstimateDTO extends DTOBase implements Serializable {
 	private static final long serialVersionUID = 1L;
 
     /**
+     * 属性 [MONTHNAME]
+     *
+     */
+    @JSONField(name = "monthname")
+    @JsonProperty("monthname")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String monthname;
+
+    /**
+     * 属性 [YEAR]
+     *
+     */
+    @JSONField(name = "year")
+    @JsonProperty("year")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String year;
+
+    /**
      * 属性 [ACCOUNT]
      *
      */
@@ -55,172 +73,12 @@ public class TaskEstimateDTO extends DTOBase implements Serializable {
     private Double consumed;
 
     /**
-     * 属性 [ID]
-     *
-     */
-    @JSONField(name = "id")
-    @JsonProperty("id")
-    @JsonSerialize(using = ToStringSerializer.class)
-    private Long id;
-
-    /**
-     * 属性 [DATE]
-     *
-     */
-    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "date" , format="yyyy-MM-dd")
-    @JsonProperty("date")
-    private Timestamp date;
-
-    /**
-     * 属性 [WORK]
-     *
-     */
-    @JSONField(name = "work")
-    @JsonProperty("work")
-    @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
-    private String work;
-
-    /**
-     * 属性 [TASK]
-     *
-     */
-    @JSONField(name = "task")
-    @JsonProperty("task")
-    @JsonSerialize(using = ToStringSerializer.class)
-    private Long task;
-
-    /**
-     * 属性 [DATES]
-     *
-     */
-    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "dates" , format="yyyy-MM-dd")
-    @JsonProperty("dates")
-    private Timestamp dates;
-
-    /**
-     * 属性 [EVALUATIONSTATUS]
-     *
-     */
-    @JSONField(name = "evaluationstatus")
-    @JsonProperty("evaluationstatus")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String evaluationstatus;
-
-    /**
      * 属性 [EVALUATIONCOST]
      *
      */
     @JSONField(name = "evaluationcost")
     @JsonProperty("evaluationcost")
     private Double evaluationcost;
-
-    /**
-     * 属性 [EVALUATIONTIME]
-     *
-     */
-    @JSONField(name = "evaluationtime")
-    @JsonProperty("evaluationtime")
-    private Double evaluationtime;
-
-    /**
-     * 属性 [INPUTCOST]
-     *
-     */
-    @JSONField(name = "inputcost")
-    @JsonProperty("inputcost")
-    private Double inputcost;
-
-    /**
-     * 属性 [EVALUATIONDESC]
-     *
-     */
-    @JSONField(name = "evaluationdesc")
-    @JsonProperty("evaluationdesc")
-    @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
-    private String evaluationdesc;
-
-    /**
-     * 属性 [TASKNAME]
-     *
-     */
-    @JSONField(name = "taskname")
-    @JsonProperty("taskname")
-    @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
-    private String taskname;
-
-    /**
-     * 属性 [PROJECT]
-     *
-     */
-    @JSONField(name = "project")
-    @JsonProperty("project")
-    @JsonSerialize(using = ToStringSerializer.class)
-    private Long project;
-
-    /**
-     * 属性 [PROJECTNAME]
-     *
-     */
-    @JSONField(name = "projectname")
-    @JsonProperty("projectname")
-    @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
-    private String projectname;
-
-    /**
-     * 属性 [TASKSPECIES]
-     *
-     */
-    @JSONField(name = "taskspecies")
-    @JsonProperty("taskspecies")
-    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
-    private String taskspecies;
-
-    /**
-     * 属性 [TYPE]
-     *
-     */
-    @JSONField(name = "type")
-    @JsonProperty("type")
-    @Size(min = 0, max = 20, message = "内容长度必须小于等于[20]")
-    private String type;
-
-    /**
-     * 属性 [YEAR]
-     *
-     */
-    @JSONField(name = "year")
-    @JsonProperty("year")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String year;
-
-    /**
-     * 属性 [YEARNAME]
-     *
-     */
-    @JSONField(name = "yearname")
-    @JsonProperty("yearname")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String yearname;
-
-    /**
-     * 属性 [MONTH]
-     *
-     */
-    @JSONField(name = "month")
-    @JsonProperty("month")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String month;
-
-    /**
-     * 属性 [MONTHNAME]
-     *
-     */
-    @JSONField(name = "monthname")
-    @JsonProperty("monthname")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String monthname;
 
     /**
      * 属性 [MONTHORDER]
@@ -240,6 +98,130 @@ public class TaskEstimateDTO extends DTOBase implements Serializable {
     private String files;
 
     /**
+     * 属性 [ID]
+     *
+     */
+    @JSONField(name = "id")
+    @JsonProperty("id")
+    @JsonSerialize(using = ToStringSerializer.class)
+    private Long id;
+
+    /**
+     * 属性 [EVALUATIONSTATUS]
+     *
+     */
+    @JSONField(name = "evaluationstatus")
+    @JsonProperty("evaluationstatus")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String evaluationstatus;
+
+    /**
+     * 属性 [YEARNAME]
+     *
+     */
+    @JSONField(name = "yearname")
+    @JsonProperty("yearname")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String yearname;
+
+    /**
+     * 属性 [DATE]
+     *
+     */
+    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "date" , format="yyyy-MM-dd")
+    @JsonProperty("date")
+    private Timestamp date;
+
+    /**
+     * 属性 [EVALUATIONTIME]
+     *
+     */
+    @JSONField(name = "evaluationtime")
+    @JsonProperty("evaluationtime")
+    private Double evaluationtime;
+
+    /**
+     * 属性 [INPUTCOST]
+     *
+     */
+    @JSONField(name = "inputcost")
+    @JsonProperty("inputcost")
+    private Double inputcost;
+
+    /**
+     * 属性 [DATES]
+     *
+     */
+    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "dates" , format="yyyy-MM-dd")
+    @JsonProperty("dates")
+    private Timestamp dates;
+
+    /**
+     * 属性 [MONTH]
+     *
+     */
+    @JSONField(name = "month")
+    @JsonProperty("month")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String month;
+
+    /**
+     * 属性 [WORK]
+     *
+     */
+    @JSONField(name = "work")
+    @JsonProperty("work")
+    @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
+    private String work;
+
+    /**
+     * 属性 [EVALUATIONDESC]
+     *
+     */
+    @JSONField(name = "evaluationdesc")
+    @JsonProperty("evaluationdesc")
+    @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
+    private String evaluationdesc;
+
+    /**
+     * 属性 [TASKSPECIES]
+     *
+     */
+    @JSONField(name = "taskspecies")
+    @JsonProperty("taskspecies")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    private String taskspecies;
+
+    /**
+     * 属性 [TASKNAME]
+     *
+     */
+    @JSONField(name = "taskname")
+    @JsonProperty("taskname")
+    @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
+    private String taskname;
+
+    /**
+     * 属性 [PROJECTNAME]
+     *
+     */
+    @JSONField(name = "projectname")
+    @JsonProperty("projectname")
+    @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
+    private String projectname;
+
+    /**
+     * 属性 [TYPE]
+     *
+     */
+    @JSONField(name = "type")
+    @JsonProperty("type")
+    @Size(min = 0, max = 20, message = "内容长度必须小于等于[20]")
+    private String type;
+
+    /**
      * 属性 [DELETED]
      *
      */
@@ -248,6 +230,32 @@ public class TaskEstimateDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 1, message = "内容长度必须小于等于[1]")
     private String deleted;
 
+    /**
+     * 属性 [PROJECT]
+     *
+     */
+    @JSONField(name = "project")
+    @JsonProperty("project")
+    @JsonSerialize(using = ToStringSerializer.class)
+    private Long project;
+
+    /**
+     * 属性 [TASK]
+     *
+     */
+    @JSONField(name = "task")
+    @JsonProperty("task")
+    @JsonSerialize(using = ToStringSerializer.class)
+    private Long task;
+
+
+    /**
+     * 设置 [MONTHNAME]
+     */
+    public void setMonthname(String  monthname){
+        this.monthname = monthname ;
+        this.modify("monthname",monthname);
+    }
 
     /**
      * 设置 [ACCOUNT]
@@ -274,27 +282,19 @@ public class TaskEstimateDTO extends DTOBase implements Serializable {
     }
 
     /**
-     * 设置 [DATE]
+     * 设置 [EVALUATIONCOST]
      */
-    public void setDate(Timestamp  date){
-        this.date = date ;
-        this.modify("date",date);
+    public void setEvaluationcost(Double  evaluationcost){
+        this.evaluationcost = evaluationcost ;
+        this.modify("evaluationcost",evaluationcost);
     }
 
     /**
-     * 设置 [WORK]
+     * 设置 [FILES]
      */
-    public void setWork(String  work){
-        this.work = work ;
-        this.modify("work",work);
-    }
-
-    /**
-     * 设置 [TASK]
-     */
-    public void setTask(Long  task){
-        this.task = task ;
-        this.modify("task",task);
+    public void setFiles(String  files){
+        this.files = files ;
+        this.modify("files",files);
     }
 
     /**
@@ -306,11 +306,11 @@ public class TaskEstimateDTO extends DTOBase implements Serializable {
     }
 
     /**
-     * 设置 [EVALUATIONCOST]
+     * 设置 [DATE]
      */
-    public void setEvaluationcost(Double  evaluationcost){
-        this.evaluationcost = evaluationcost ;
-        this.modify("evaluationcost",evaluationcost);
+    public void setDate(Timestamp  date){
+        this.date = date ;
+        this.modify("date",date);
     }
 
     /**
@@ -330,6 +330,14 @@ public class TaskEstimateDTO extends DTOBase implements Serializable {
     }
 
     /**
+     * 设置 [WORK]
+     */
+    public void setWork(String  work){
+        this.work = work ;
+        this.modify("work",work);
+    }
+
+    /**
      * 设置 [EVALUATIONDESC]
      */
     public void setEvaluationdesc(String  evaluationdesc){
@@ -338,19 +346,11 @@ public class TaskEstimateDTO extends DTOBase implements Serializable {
     }
 
     /**
-     * 设置 [MONTHNAME]
+     * 设置 [TASK]
      */
-    public void setMonthname(String  monthname){
-        this.monthname = monthname ;
-        this.modify("monthname",monthname);
-    }
-
-    /**
-     * 设置 [FILES]
-     */
-    public void setFiles(String  files){
-        this.files = files ;
-        this.modify("files",files);
+    public void setTask(Long  task){
+        this.task = task ;
+        this.modify("task",task);
     }
 
 

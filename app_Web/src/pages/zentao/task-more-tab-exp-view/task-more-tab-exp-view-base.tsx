@@ -100,7 +100,7 @@ export class TaskMoreTabExpViewBase extends TabExpViewBase {
      * @type {string}
      * @memberof TaskMoreTabExpViewBase
      */
-	protected viewtag: string = '9c96a98b291c9cbe420f7a519091212f';
+	protected viewtag: string = 'c85d9b5e8fda56f19059573f794d31c6';
 
     /**
      * 视图名称

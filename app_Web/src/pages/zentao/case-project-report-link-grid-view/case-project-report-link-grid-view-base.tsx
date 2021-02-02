@@ -125,7 +125,7 @@ export class CaseProjectReportLinkGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof CaseProjectReportLinkGridViewBase
      */
-	protected viewtag: string = '8761916619d520c6cca7053b358e3a40';
+	protected viewtag: string = '9702df74499bfcf7b127558ebe7f1779';
 
     /**
      * 视图名称

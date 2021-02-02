@@ -30,39 +30,12 @@ public class IBZTaskTeamDTO extends DTOBase implements Serializable {
 	private static final long serialVersionUID = 1L;
 
     /**
-     * 属性 [ROLE]
+     * 属性 [ESTIMATE]
      *
      */
-    @JSONField(name = "role")
-    @JsonProperty("role")
-    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
-    private String role;
-
-    /**
-     * 属性 [ROOT]
-     *
-     */
-    @JSONField(name = "root")
-    @JsonProperty("root")
-    @JsonSerialize(using = ToStringSerializer.class)
-    private Long root;
-
-    /**
-     * 属性 [LIMITED]
-     *
-     */
-    @JSONField(name = "limited")
-    @JsonProperty("limited")
-    @Size(min = 0, max = 8, message = "内容长度必须小于等于[8]")
-    private String limited;
-
-    /**
-     * 属性 [TOTAL]
-     *
-     */
-    @JSONField(name = "total")
-    @JsonProperty("total")
-    private Integer total;
+    @JSONField(name = "estimate")
+    @JsonProperty("estimate")
+    private Double estimate;
 
     /**
      * 属性 [USERNAME]
@@ -72,65 +45,6 @@ public class IBZTaskTeamDTO extends DTOBase implements Serializable {
     @JsonProperty("username")
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
     private String username;
-
-    /**
-     * 属性 [ORDER]
-     *
-     */
-    @JSONField(name = "order")
-    @JsonProperty("order")
-    private Integer order;
-
-    /**
-     * 属性 [DAYS]
-     *
-     */
-    @JSONField(name = "days")
-    @JsonProperty("days")
-    private Integer days;
-
-    /**
-     * 属性 [TYPE]
-     *
-     */
-    @JSONField(name = "type")
-    @JsonProperty("type")
-    @Size(min = 0, max = 7, message = "内容长度必须小于等于[7]")
-    private String type;
-
-    /**
-     * 属性 [ESTIMATE]
-     *
-     */
-    @JSONField(name = "estimate")
-    @JsonProperty("estimate")
-    private Double estimate;
-
-    /**
-     * 属性 [ACCOUNT]
-     *
-     */
-    @JSONField(name = "account")
-    @JsonProperty("account")
-    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
-    private String account;
-
-    /**
-     * 属性 [CONSUMED]
-     *
-     */
-    @JSONField(name = "consumed")
-    @JsonProperty("consumed")
-    private Double consumed;
-
-    /**
-     * 属性 [ID]
-     *
-     */
-    @JSONField(name = "id")
-    @JsonProperty("id")
-    @JsonSerialize(using = ToStringSerializer.class)
-    private Long id;
 
     /**
      * 属性 [JOIN]
@@ -150,6 +64,23 @@ public class IBZTaskTeamDTO extends DTOBase implements Serializable {
     private Double hours;
 
     /**
+     * 属性 [ACCOUNT]
+     *
+     */
+    @JSONField(name = "account")
+    @JsonProperty("account")
+    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
+    private String account;
+
+    /**
+     * 属性 [ORDER]
+     *
+     */
+    @JSONField(name = "order")
+    @JsonProperty("order")
+    private Integer order;
+
+    /**
      * 属性 [LEFT]
      *
      */
@@ -157,54 +88,75 @@ public class IBZTaskTeamDTO extends DTOBase implements Serializable {
     @JsonProperty("left")
     private Double left;
 
+    /**
+     * 属性 [CONSUMED]
+     *
+     */
+    @JSONField(name = "consumed")
+    @JsonProperty("consumed")
+    private Double consumed;
 
     /**
-     * 设置 [ROLE]
+     * 属性 [LIMITED]
+     *
      */
-    public void setRole(String  role){
-        this.role = role ;
-        this.modify("role",role);
-    }
+    @JSONField(name = "limited")
+    @JsonProperty("limited")
+    @Size(min = 0, max = 8, message = "内容长度必须小于等于[8]")
+    private String limited;
 
     /**
-     * 设置 [ROOT]
+     * 属性 [ROLE]
+     *
      */
-    public void setRoot(Long  root){
-        this.root = root ;
-        this.modify("root",root);
-    }
+    @JSONField(name = "role")
+    @JsonProperty("role")
+    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
+    private String role;
 
     /**
-     * 设置 [LIMITED]
+     * 属性 [ID]
+     *
      */
-    public void setLimited(String  limited){
-        this.limited = limited ;
-        this.modify("limited",limited);
-    }
+    @JSONField(name = "id")
+    @JsonProperty("id")
+    @JsonSerialize(using = ToStringSerializer.class)
+    private Long id;
 
     /**
-     * 设置 [ORDER]
+     * 属性 [DAYS]
+     *
      */
-    public void setOrder(Integer  order){
-        this.order = order ;
-        this.modify("order",order);
-    }
+    @JSONField(name = "days")
+    @JsonProperty("days")
+    private Integer days;
 
     /**
-     * 设置 [DAYS]
+     * 属性 [TOTAL]
+     *
      */
-    public void setDays(Integer  days){
-        this.days = days ;
-        this.modify("days",days);
-    }
+    @JSONField(name = "total")
+    @JsonProperty("total")
+    private Integer total;
 
     /**
-     * 设置 [TYPE]
+     * 属性 [TYPE]
+     *
      */
-    public void setType(String  type){
-        this.type = type ;
-        this.modify("type",type);
-    }
+    @JSONField(name = "type")
+    @JsonProperty("type")
+    @Size(min = 0, max = 7, message = "内容长度必须小于等于[7]")
+    private String type;
+
+    /**
+     * 属性 [ROOT]
+     *
+     */
+    @JSONField(name = "root")
+    @JsonProperty("root")
+    @JsonSerialize(using = ToStringSerializer.class)
+    private Long root;
+
 
     /**
      * 设置 [ESTIMATE]
@@ -212,22 +164,6 @@ public class IBZTaskTeamDTO extends DTOBase implements Serializable {
     public void setEstimate(Double  estimate){
         this.estimate = estimate ;
         this.modify("estimate",estimate);
-    }
-
-    /**
-     * 设置 [ACCOUNT]
-     */
-    public void setAccount(String  account){
-        this.account = account ;
-        this.modify("account",account);
-    }
-
-    /**
-     * 设置 [CONSUMED]
-     */
-    public void setConsumed(Double  consumed){
-        this.consumed = consumed ;
-        this.modify("consumed",consumed);
     }
 
     /**
@@ -247,11 +183,75 @@ public class IBZTaskTeamDTO extends DTOBase implements Serializable {
     }
 
     /**
+     * 设置 [ACCOUNT]
+     */
+    public void setAccount(String  account){
+        this.account = account ;
+        this.modify("account",account);
+    }
+
+    /**
+     * 设置 [ORDER]
+     */
+    public void setOrder(Integer  order){
+        this.order = order ;
+        this.modify("order",order);
+    }
+
+    /**
      * 设置 [LEFT]
      */
     public void setLeft(Double  left){
         this.left = left ;
         this.modify("left",left);
+    }
+
+    /**
+     * 设置 [CONSUMED]
+     */
+    public void setConsumed(Double  consumed){
+        this.consumed = consumed ;
+        this.modify("consumed",consumed);
+    }
+
+    /**
+     * 设置 [LIMITED]
+     */
+    public void setLimited(String  limited){
+        this.limited = limited ;
+        this.modify("limited",limited);
+    }
+
+    /**
+     * 设置 [ROLE]
+     */
+    public void setRole(String  role){
+        this.role = role ;
+        this.modify("role",role);
+    }
+
+    /**
+     * 设置 [DAYS]
+     */
+    public void setDays(Integer  days){
+        this.days = days ;
+        this.modify("days",days);
+    }
+
+    /**
+     * 设置 [TYPE]
+     */
+    public void setType(String  type){
+        this.type = type ;
+        this.modify("type",type);
+    }
+
+    /**
+     * 设置 [ROOT]
+     */
+    public void setRoot(Long  root){
+        this.root = root ;
+        this.modify("root",root);
     }
 
 

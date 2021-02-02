@@ -162,7 +162,7 @@ export class StoryCloseViewBase extends OptionViewBase {
      * @type {string}
      * @memberof StoryCloseViewBase
      */
-	protected viewtag: string = 'e0fbca7627cdd68765e173028b07f687';
+	protected viewtag: string = '5d15dd63b8e4c48a6d5e7cca6b5308cc';
 
     /**
      * 视图名称

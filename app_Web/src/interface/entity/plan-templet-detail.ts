@@ -7,6 +7,38 @@
 export interface PlanTempletDetail {
 
     /**
+     * 类型
+     *
+     * @returns {*}
+     * @memberof PlanTempletDetail
+     */
+    type?: any;
+
+    /**
+     * 计划编号
+     *
+     * @returns {*}
+     * @memberof PlanTempletDetail
+     */
+    plancode?: any;
+
+    /**
+     * 计划名称
+     *
+     * @returns {*}
+     * @memberof PlanTempletDetail
+     */
+    desc?: any;
+
+    /**
+     * 排序
+     *
+     * @returns {*}
+     * @memberof PlanTempletDetail
+     */
+    order?: any;
+
+    /**
      * 计划模板详情标识
      *
      * @returns {*}
@@ -47,6 +79,14 @@ export interface PlanTempletDetail {
     updateman?: any;
 
     /**
+     * 描述
+     *
+     * @returns {*}
+     * @memberof PlanTempletDetail
+     */
+    expect?: any;
+
+    /**
      * 更新时间
      *
      * @returns {*}
@@ -61,44 +101,4 @@ export interface PlanTempletDetail {
      * @memberof PlanTempletDetail
      */
     plantempletid?: any;
-
-    /**
-     * 计划编号
-     *
-     * @returns {*}
-     * @memberof PlanTempletDetail
-     */
-    plancode?: any;
-
-    /**
-     * 排序
-     *
-     * @returns {*}
-     * @memberof PlanTempletDetail
-     */
-    order?: any;
-
-    /**
-     * 计划名称
-     *
-     * @returns {*}
-     * @memberof PlanTempletDetail
-     */
-    desc?: any;
-
-    /**
-     * 描述
-     *
-     * @returns {*}
-     * @memberof PlanTempletDetail
-     */
-    expect?: any;
-
-    /**
-     * 类型
-     *
-     * @returns {*}
-     * @memberof PlanTempletDetail
-     */
-    type?: any;
 }

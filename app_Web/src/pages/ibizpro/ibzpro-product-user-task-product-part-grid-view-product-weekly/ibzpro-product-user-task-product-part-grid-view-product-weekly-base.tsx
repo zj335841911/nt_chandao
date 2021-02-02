@@ -105,7 +105,7 @@ export class IbzproProductUserTaskProductPartGridViewProductWeeklyBase extends G
      * @type {string}
      * @memberof IbzproProductUserTaskProductPartGridViewProductWeeklyBase
      */
-	protected viewtag: string = 'b0858b3700cc6146837e0f3a1bf949e9';
+	protected viewtag: string = '9c05690154dbe71f2c7505c22ec8419c';
 
     /**
      * 视图名称

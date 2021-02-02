@@ -51,6 +51,20 @@ public class Doc extends EntityMP implements Serializable {
     @JsonProperty("groups")
     private String groups;
     /**
+     * 文档正文
+     */
+    @TableField(exist = false)
+    @JSONField(name = "content")
+    @JsonProperty("content")
+    private String content;
+    /**
+     * 文档查询类型
+     */
+    @TableField(exist = false)
+    @JSONField(name = "docqtype")
+    @JsonProperty("docqtype")
+    private String docqtype;
+    /**
      * 更新时间
      */
     @TableField(value = "`editeddate`")
@@ -105,12 +119,26 @@ public class Doc extends EntityMP implements Serializable {
     @JsonProperty("deleted")
     private String deleted;
     /**
+     * 最近更新数量
+     */
+    @TableField(exist = false)
+    @JSONField(name = "recentupdatecnt")
+    @JsonProperty("recentupdatecnt")
+    private Integer recentupdatecnt;
+    /**
      * 文档类型
      */
     @TableField(value = "`type`")
     @JSONField(name = "type")
     @JsonProperty("type")
     private String type;
+    /**
+     * 所有文档数量
+     */
+    @TableField(exist = false)
+    @JSONField(name = "alldoccnt")
+    @JsonProperty("alldoccnt")
+    private Integer alldoccnt;
     /**
      * 添加时间
      */
@@ -129,6 +157,34 @@ public class Doc extends EntityMP implements Serializable {
     @JsonProperty("acl")
     private String acl;
     /**
+     * 我的文档数量
+     */
+    @TableField(exist = false)
+    @JSONField(name = "mydoccnt")
+    @JsonProperty("mydoccnt")
+    private Integer mydoccnt;
+    /**
+     * 文档链接
+     */
+    @TableField(exist = false)
+    @JSONField(name = "url")
+    @JsonProperty("url")
+    private String url;
+    /**
+     * 文档数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "doccnt")
+    @JsonProperty("doccnt")
+    private Integer doccnt;
+    /**
+     * 我的收藏数量
+     */
+    @TableField(exist = false)
+    @JSONField(name = "myfavouritecnt")
+    @JsonProperty("myfavouritecnt")
+    private Integer myfavouritecnt;
+    /**
      * 用户
      */
     @TableField(value = "`users`")
@@ -136,12 +192,26 @@ public class Doc extends EntityMP implements Serializable {
     @JsonProperty("users")
     private String users;
     /**
+     * 最近添加数量
+     */
+    @TableField(exist = false)
+    @JSONField(name = "recentaddcnt")
+    @JsonProperty("recentaddcnt")
+    private Integer recentaddcnt;
+    /**
      * 关键字
      */
     @TableField(value = "`keywords`")
     @JSONField(name = "keywords")
     @JsonProperty("keywords")
     private String keywords;
+    /**
+     * 是否收藏
+     */
+    @TableField(exist = false)
+    @JSONField(name = "isfavourites")
+    @JsonProperty("isfavourites")
+    private String isfavourites;
     /**
      * 收藏者
      */
@@ -157,6 +227,48 @@ public class Doc extends EntityMP implements Serializable {
     @JSONField(name = "addedby")
     @JsonProperty("addedby")
     private String addedby;
+    /**
+     * 今日更新数量
+     */
+    @TableField(exist = false)
+    @JSONField(name = "todayupdatecnt")
+    @JsonProperty("todayupdatecnt")
+    private Integer todayupdatecnt;
+    /**
+     * 附件
+     */
+    @TableField(exist = false)
+    @JSONField(name = "files")
+    @JsonProperty("files")
+    private String files;
+    /**
+     * 所属产品
+     */
+    @TableField(exist = false)
+    @JSONField(name = "productname")
+    @JsonProperty("productname")
+    private String productname;
+    /**
+     * 所属项目
+     */
+    @TableField(exist = false)
+    @JSONField(name = "projectname")
+    @JsonProperty("projectname")
+    private String projectname;
+    /**
+     * 所属文档库
+     */
+    @TableField(exist = false)
+    @JSONField(name = "libname")
+    @JsonProperty("libname")
+    private String libname;
+    /**
+     * 模块分类
+     */
+    @TableField(exist = false)
+    @JSONField(name = "modulename")
+    @JsonProperty("modulename")
+    private String modulename;
     /**
      * 所属文档库
      */
@@ -188,118 +300,6 @@ public class Doc extends EntityMP implements Serializable {
     @JSONField(name = "module")
     @JsonProperty("module")
     private Long module;
-    /**
-     * 所属项目
-     */
-    @TableField(exist = false)
-    @JSONField(name = "projectname")
-    @JsonProperty("projectname")
-    private String projectname;
-    /**
-     * 所属产品
-     */
-    @TableField(exist = false)
-    @JSONField(name = "productname")
-    @JsonProperty("productname")
-    private String productname;
-    /**
-     * 所属文档库
-     */
-    @TableField(exist = false)
-    @JSONField(name = "libname")
-    @JsonProperty("libname")
-    private String libname;
-    /**
-     * 模块分类
-     */
-    @TableField(exist = false)
-    @JSONField(name = "modulename")
-    @JsonProperty("modulename")
-    private String modulename;
-    /**
-     * 文档正文
-     */
-    @TableField(exist = false)
-    @JSONField(name = "content")
-    @JsonProperty("content")
-    private String content;
-    /**
-     * 附件
-     */
-    @TableField(exist = false)
-    @JSONField(name = "files")
-    @JsonProperty("files")
-    private String files;
-    /**
-     * 文档链接
-     */
-    @TableField(exist = false)
-    @JSONField(name = "url")
-    @JsonProperty("url")
-    private String url;
-    /**
-     * 文档查询类型
-     */
-    @TableField(exist = false)
-    @JSONField(name = "docqtype")
-    @JsonProperty("docqtype")
-    private String docqtype;
-    /**
-     * 是否收藏
-     */
-    @TableField(exist = false)
-    @JSONField(name = "isfavourites")
-    @JsonProperty("isfavourites")
-    private String isfavourites;
-    /**
-     * 所有文档数量
-     */
-    @TableField(exist = false)
-    @JSONField(name = "alldoccnt")
-    @JsonProperty("alldoccnt")
-    private Integer alldoccnt;
-    /**
-     * 最近更新数量
-     */
-    @TableField(exist = false)
-    @JSONField(name = "recentupdatecnt")
-    @JsonProperty("recentupdatecnt")
-    private Integer recentupdatecnt;
-    /**
-     * 今日更新数量
-     */
-    @TableField(exist = false)
-    @JSONField(name = "todayupdatecnt")
-    @JsonProperty("todayupdatecnt")
-    private Integer todayupdatecnt;
-    /**
-     * 最近添加数量
-     */
-    @TableField(exist = false)
-    @JSONField(name = "recentaddcnt")
-    @JsonProperty("recentaddcnt")
-    private Integer recentaddcnt;
-    /**
-     * 我的文档数量
-     */
-    @TableField(exist = false)
-    @JSONField(name = "mydoccnt")
-    @JsonProperty("mydoccnt")
-    private Integer mydoccnt;
-    /**
-     * 我的收藏数量
-     */
-    @TableField(exist = false)
-    @JSONField(name = "myfavouritecnt")
-    @JsonProperty("myfavouritecnt")
-    private Integer myfavouritecnt;
-    /**
-     * 文档数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "doccnt")
-    @JsonProperty("doccnt")
-    private Integer doccnt;
 
     /**
      * 

@@ -144,7 +144,7 @@ export class CaseOptionViewBase extends OptionViewBase {
      * @type {string}
      * @memberof CaseOptionViewBase
      */
-	protected viewtag: string = '27e6b14e0243582fc67753b58a64066d';
+	protected viewtag: string = 'b61fe96397bb463004f549f334b7f363';
 
     /**
      * 视图名称

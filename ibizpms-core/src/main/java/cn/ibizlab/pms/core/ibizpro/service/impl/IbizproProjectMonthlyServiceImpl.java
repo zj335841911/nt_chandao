@@ -253,8 +253,8 @@ public class IbizproProjectMonthlyServiceImpl extends ServiceImpl<IbizproProject
                 et.setZtproject(majorEntity);
                 ztproject = majorEntity;
             }
-            et.setProjectname(ztproject.getName());
             et.setPm(ztproject.getPm());
+            et.setProjectname(ztproject.getName());
         }
     }
 

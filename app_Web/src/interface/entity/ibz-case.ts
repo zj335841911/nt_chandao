@@ -7,20 +7,28 @@
 export interface IbzCase {
 
     /**
-     * 排序
+     * 最后修改者
      *
      * @returns {*}
      * @memberof IbzCase
      */
-    order?: any;
+    lasteditedby?: any;
 
     /**
-     * howRun
+     * path
      *
      * @returns {*}
      * @memberof IbzCase
      */
-    howrun?: any;
+    path?: any;
+
+    /**
+     * 用例编号
+     *
+     * @returns {*}
+     * @memberof IbzCase
+     */
+    id?: any;
 
     /**
      * scriptedBy
@@ -31,12 +39,28 @@ export interface IbzCase {
     scriptedby?: any;
 
     /**
-     * path
+     * 用例类型
      *
      * @returns {*}
      * @memberof IbzCase
      */
-    path?: any;
+    type?: any;
+
+    /**
+     * scriptStatus
+     *
+     * @returns {*}
+     * @memberof IbzCase
+     */
+    scriptstatus?: any;
+
+    /**
+     * 适用阶段
+     *
+     * @returns {*}
+     * @memberof IbzCase
+     */
+    stage?: any;
 
     /**
      * 创建日期
@@ -55,22 +79,6 @@ export interface IbzCase {
     lastediteddate?: any;
 
     /**
-     * scriptedDate
-     *
-     * @returns {*}
-     * @memberof IbzCase
-     */
-    scripteddate?: any;
-
-    /**
-     * 备注
-     *
-     * @returns {*}
-     * @memberof IbzCase
-     */
-    comment?: any;
-
-    /**
      * auto
      *
      * @returns {*}
@@ -87,52 +95,12 @@ export interface IbzCase {
     title?: any;
 
     /**
-     * 已删除
+     * howRun
      *
      * @returns {*}
      * @memberof IbzCase
      */
-    deleted?: any;
-
-    /**
-     * scriptLocation
-     *
-     * @returns {*}
-     * @memberof IbzCase
-     */
-    scriptlocation?: any;
-
-    /**
-     * scriptStatus
-     *
-     * @returns {*}
-     * @memberof IbzCase
-     */
-    scriptstatus?: any;
-
-    /**
-     * 关键词
-     *
-     * @returns {*}
-     * @memberof IbzCase
-     */
-    keywords?: any;
-
-    /**
-     * 用例编号
-     *
-     * @returns {*}
-     * @memberof IbzCase
-     */
-    id?: any;
-
-    /**
-     * 前置条件
-     *
-     * @returns {*}
-     * @memberof IbzCase
-     */
-    precondition?: any;
+    howrun?: any;
 
     /**
      * 优先级
@@ -143,12 +111,36 @@ export interface IbzCase {
     pri?: any;
 
     /**
-     * 用例类型
+     * 备注
      *
      * @returns {*}
      * @memberof IbzCase
      */
-    type?: any;
+    comment?: any;
+
+    /**
+     * 关键词
+     *
+     * @returns {*}
+     * @memberof IbzCase
+     */
+    keywords?: any;
+
+    /**
+     * scriptLocation
+     *
+     * @returns {*}
+     * @memberof IbzCase
+     */
+    scriptlocation?: any;
+
+    /**
+     * 用例版本
+     *
+     * @returns {*}
+     * @memberof IbzCase
+     */
+    version?: any;
 
     /**
      * 状态
@@ -159,12 +151,28 @@ export interface IbzCase {
     status?: any;
 
     /**
-     * 适用阶段
+     * 前置条件
      *
      * @returns {*}
      * @memberof IbzCase
      */
-    stage?: any;
+    precondition?: any;
+
+    /**
+     * 已删除
+     *
+     * @returns {*}
+     * @memberof IbzCase
+     */
+    deleted?: any;
+
+    /**
+     * 排序
+     *
+     * @returns {*}
+     * @memberof IbzCase
+     */
+    order?: any;
 
     /**
      * 由谁创建
@@ -175,36 +183,12 @@ export interface IbzCase {
     openedby?: any;
 
     /**
-     * 最后修改者
+     * scriptedDate
      *
      * @returns {*}
      * @memberof IbzCase
      */
-    lasteditedby?: any;
-
-    /**
-     * 编号
-     *
-     * @returns {*}
-     * @memberof IbzCase
-     */
-    lib?: any;
-
-    /**
-     * id
-     *
-     * @returns {*}
-     * @memberof IbzCase
-     */
-    module?: any;
-
-    /**
-     * 所属模块
-     *
-     * @returns {*}
-     * @memberof IbzCase
-     */
-    modulename?: any;
+    scripteddate?: any;
 
     /**
      * 用例库
@@ -215,10 +199,26 @@ export interface IbzCase {
     libname?: any;
 
     /**
-     * 用例版本
+     * 所属模块
      *
      * @returns {*}
      * @memberof IbzCase
      */
-    version?: any;
+    modulename?: any;
+
+    /**
+     * id
+     *
+     * @returns {*}
+     * @memberof IbzCase
+     */
+    module?: any;
+
+    /**
+     * 编号
+     *
+     * @returns {*}
+     * @memberof IbzCase
+     */
+    lib?: any;
 }

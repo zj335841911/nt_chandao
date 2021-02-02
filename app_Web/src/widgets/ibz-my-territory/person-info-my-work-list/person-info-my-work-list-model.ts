@@ -15,7 +15,10 @@ export default class PersonInfoMyWorkModel {
 	public getDataItems(): any[] {
 		return [
 			{
-				name: 'mybugs',
+				name: 'mytasks',
+			},
+			{
+				name: 'myfavoritebugs',
 			},
 			{
 				name: 'mytodocnt',
@@ -24,10 +27,7 @@ export default class PersonInfoMyWorkModel {
 				name: 'mystorys',
 			},
 			{
-				name: 'myfavoritebugs',
-			},
-			{
-				name: 'mytasks',
+				name: 'mybugs',
 			},
 			{
 				name: 'srfkey',

@@ -125,7 +125,7 @@ export class ModuleLineGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof ModuleLineGridViewBase
      */
-	protected viewtag: string = '8eb13e4fe49406265e2ed5fb1e0a6b53';
+	protected viewtag: string = '060fd533b0e7eacaa8e008007d588630';
 
     /**
      * 视图名称

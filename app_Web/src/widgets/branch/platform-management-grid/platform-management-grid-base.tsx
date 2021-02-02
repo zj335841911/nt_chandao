@@ -74,7 +74,7 @@ export class PlatformManagementGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_ubc7e0b1_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u4a41350_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -102,7 +102,7 @@ export class PlatformManagementGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u7324c5a_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u2bf789e_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -443,10 +443,10 @@ export class PlatformManagementGridBase extends GridControlBase {
 	public uiAction(row: any, tag: any, $event: any): void {
         $event.stopPropagation();
         if(Object.is('Edit', tag)) {
-            this.grid_uagridcolumn1_ubc7e0b1_click(row, tag, $event);
+            this.grid_uagridcolumn1_u4a41350_click(row, tag, $event);
         }
         if(Object.is('Delete', tag)) {
-            this.grid_uagridcolumn1_u7324c5a_click(row, tag, $event);
+            this.grid_uagridcolumn1_u2bf789e_click(row, tag, $event);
         }
     }
 

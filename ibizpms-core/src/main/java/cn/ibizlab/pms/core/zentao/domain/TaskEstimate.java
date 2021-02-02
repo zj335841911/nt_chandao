@@ -44,6 +44,20 @@ public class TaskEstimate extends EntityMP implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
+     * 月（显示）
+     */
+    @TableField(value = "`monthname`")
+    @JSONField(name = "monthname")
+    @JsonProperty("monthname")
+    private String monthname;
+    /**
+     * 年
+     */
+    @TableField(exist = false)
+    @JSONField(name = "year")
+    @JsonProperty("year")
+    private String year;
+    /**
      * 用户
      */
     @DEField(defaultValue = "#EMPTY")
@@ -68,144 +82,12 @@ public class TaskEstimate extends EntityMP implements Serializable {
     @JsonProperty("consumed")
     private Double consumed;
     /**
-     * 编号
-     */
-    @DEField(isKeyField = true)
-    @TableId(value = "id", type = IdType.AUTO)
-    @JSONField(name = "id")
-    @JsonProperty("id")
-    private Long id;
-    /**
-     * 日期
-     */
-    @TableField(value = "`date`")
-    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
-    @JSONField(name = "date", format = "yyyy-MM-dd")
-    @JsonProperty("date")
-    private Timestamp date;
-    /**
-     * work
-     */
-    @DEField(defaultValue = "#EMPTY")
-    @TableField(value = "`work`")
-    @JSONField(name = "work")
-    @JsonProperty("work")
-    private String work;
-    /**
-     * 任务
-     */
-    @DEField(defaultValue = "0")
-    @TableField(value = "`task`")
-    @JSONField(name = "task")
-    @JsonProperty("task")
-    private Long task;
-    /**
-     * 日期
-     */
-    @TableField(exist = false)
-    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
-    @JSONField(name = "dates", format = "yyyy-MM-dd")
-    @JsonProperty("dates")
-    private Timestamp dates;
-    /**
-     * 评估状态
-     */
-    @DEField(defaultValue = "no")
-    @TableField(value = "`evaluationstatus`")
-    @JSONField(name = "evaluationstatus")
-    @JsonProperty("evaluationstatus")
-    private String evaluationstatus;
-    /**
      * 评估成本
      */
     @TableField(value = "`evaluationcost`")
     @JSONField(name = "evaluationcost")
     @JsonProperty("evaluationcost")
     private Double evaluationcost;
-    /**
-     * 评估工时
-     */
-    @TableField(value = "`evaluationtime`")
-    @JSONField(name = "evaluationtime")
-    @JsonProperty("evaluationtime")
-    private Double evaluationtime;
-    /**
-     * 投入成本
-     */
-    @TableField(value = "`inputcost`")
-    @JSONField(name = "inputcost")
-    @JsonProperty("inputcost")
-    private Double inputcost;
-    /**
-     * 评估说明
-     */
-    @TableField(value = "`evaluationdesc`")
-    @JSONField(name = "evaluationdesc")
-    @JsonProperty("evaluationdesc")
-    private String evaluationdesc;
-    /**
-     * 任务名称
-     */
-    @TableField(exist = false)
-    @JSONField(name = "taskname")
-    @JsonProperty("taskname")
-    private String taskname;
-    /**
-     * 项目
-     */
-    @TableField(exist = false)
-    @JSONField(name = "project")
-    @JsonProperty("project")
-    private Long project;
-    /**
-     * 所属项目
-     */
-    @TableField(exist = false)
-    @JSONField(name = "projectname")
-    @JsonProperty("projectname")
-    private String projectname;
-    /**
-     * 任务种别
-     */
-    @TableField(exist = false)
-    @JSONField(name = "taskspecies")
-    @JsonProperty("taskspecies")
-    private String taskspecies;
-    /**
-     * 任务类型
-     */
-    @TableField(exist = false)
-    @JSONField(name = "type")
-    @JsonProperty("type")
-    private String type;
-    /**
-     * 年
-     */
-    @TableField(exist = false)
-    @JSONField(name = "year")
-    @JsonProperty("year")
-    private String year;
-    /**
-     * 年（显示）
-     */
-    @TableField(exist = false)
-    @JSONField(name = "yearname")
-    @JsonProperty("yearname")
-    private String yearname;
-    /**
-     * 月
-     */
-    @TableField(exist = false)
-    @JSONField(name = "month")
-    @JsonProperty("month")
-    private String month;
-    /**
-     * 月（显示）
-     */
-    @TableField(value = "`monthname`")
-    @JSONField(name = "monthname")
-    @JsonProperty("monthname")
-    private String monthname;
     /**
      * 月（排序）
      */
@@ -221,12 +103,130 @@ public class TaskEstimate extends EntityMP implements Serializable {
     @JsonProperty("files")
     private String files;
     /**
+     * 编号
+     */
+    @DEField(isKeyField = true)
+    @TableId(value = "id", type = IdType.AUTO)
+    @JSONField(name = "id")
+    @JsonProperty("id")
+    private Long id;
+    /**
+     * 评估状态
+     */
+    @DEField(defaultValue = "no")
+    @TableField(value = "`evaluationstatus`")
+    @JSONField(name = "evaluationstatus")
+    @JsonProperty("evaluationstatus")
+    private String evaluationstatus;
+    /**
+     * 年（显示）
+     */
+    @TableField(exist = false)
+    @JSONField(name = "yearname")
+    @JsonProperty("yearname")
+    private String yearname;
+    /**
+     * 日期
+     */
+    @TableField(value = "`date`")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "date", format = "yyyy-MM-dd")
+    @JsonProperty("date")
+    private Timestamp date;
+    /**
+     * 评估工时
+     */
+    @TableField(value = "`evaluationtime`")
+    @JSONField(name = "evaluationtime")
+    @JsonProperty("evaluationtime")
+    private Double evaluationtime;
+    /**
+     * 投入成本
+     */
+    @TableField(value = "`inputcost`")
+    @JSONField(name = "inputcost")
+    @JsonProperty("inputcost")
+    private Double inputcost;
+    /**
+     * 日期
+     */
+    @TableField(exist = false)
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "dates", format = "yyyy-MM-dd")
+    @JsonProperty("dates")
+    private Timestamp dates;
+    /**
+     * 月
+     */
+    @TableField(exist = false)
+    @JSONField(name = "month")
+    @JsonProperty("month")
+    private String month;
+    /**
+     * work
+     */
+    @DEField(defaultValue = "#EMPTY")
+    @TableField(value = "`work`")
+    @JSONField(name = "work")
+    @JsonProperty("work")
+    private String work;
+    /**
+     * 评估说明
+     */
+    @TableField(value = "`evaluationdesc`")
+    @JSONField(name = "evaluationdesc")
+    @JsonProperty("evaluationdesc")
+    private String evaluationdesc;
+    /**
+     * 任务种别
+     */
+    @TableField(exist = false)
+    @JSONField(name = "taskspecies")
+    @JsonProperty("taskspecies")
+    private String taskspecies;
+    /**
+     * 任务名称
+     */
+    @TableField(exist = false)
+    @JSONField(name = "taskname")
+    @JsonProperty("taskname")
+    private String taskname;
+    /**
+     * 所属项目
+     */
+    @TableField(exist = false)
+    @JSONField(name = "projectname")
+    @JsonProperty("projectname")
+    private String projectname;
+    /**
+     * 任务类型
+     */
+    @TableField(exist = false)
+    @JSONField(name = "type")
+    @JsonProperty("type")
+    private String type;
+    /**
      * 任务删除标识
      */
     @TableField(exist = false)
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
     private String deleted;
+    /**
+     * 项目
+     */
+    @TableField(exist = false)
+    @JSONField(name = "project")
+    @JsonProperty("project")
+    private Long project;
+    /**
+     * 任务
+     */
+    @DEField(defaultValue = "0")
+    @TableField(value = "`task`")
+    @JSONField(name = "task")
+    @JsonProperty("task")
+    private Long task;
 
     /**
      * 
@@ -237,6 +237,14 @@ public class TaskEstimate extends EntityMP implements Serializable {
     private cn.ibizlab.pms.core.zentao.domain.Task zttask;
 
 
+
+    /**
+     * 设置 [月（显示）]
+     */
+    public void setMonthname(String monthname) {
+        this.monthname = monthname;
+        this.modify("monthname", monthname);
+    }
 
     /**
      * 设置 [用户]
@@ -263,6 +271,30 @@ public class TaskEstimate extends EntityMP implements Serializable {
     }
 
     /**
+     * 设置 [评估成本]
+     */
+    public void setEvaluationcost(Double evaluationcost) {
+        this.evaluationcost = evaluationcost;
+        this.modify("evaluationcost", evaluationcost);
+    }
+
+    /**
+     * 设置 [附件]
+     */
+    public void setFiles(String files) {
+        this.files = files;
+        this.modify("files", files);
+    }
+
+    /**
+     * 设置 [评估状态]
+     */
+    public void setEvaluationstatus(String evaluationstatus) {
+        this.evaluationstatus = evaluationstatus;
+        this.modify("evaluationstatus", evaluationstatus);
+    }
+
+    /**
      * 设置 [日期]
      */
     public void setDate(Timestamp date) {
@@ -281,38 +313,6 @@ public class TaskEstimate extends EntityMP implements Serializable {
         return sdf.format(date);
     }
     /**
-     * 设置 [work]
-     */
-    public void setWork(String work) {
-        this.work = work;
-        this.modify("work", work);
-    }
-
-    /**
-     * 设置 [任务]
-     */
-    public void setTask(Long task) {
-        this.task = task;
-        this.modify("task", task);
-    }
-
-    /**
-     * 设置 [评估状态]
-     */
-    public void setEvaluationstatus(String evaluationstatus) {
-        this.evaluationstatus = evaluationstatus;
-        this.modify("evaluationstatus", evaluationstatus);
-    }
-
-    /**
-     * 设置 [评估成本]
-     */
-    public void setEvaluationcost(Double evaluationcost) {
-        this.evaluationcost = evaluationcost;
-        this.modify("evaluationcost", evaluationcost);
-    }
-
-    /**
      * 设置 [评估工时]
      */
     public void setEvaluationtime(Double evaluationtime) {
@@ -329,6 +329,14 @@ public class TaskEstimate extends EntityMP implements Serializable {
     }
 
     /**
+     * 设置 [work]
+     */
+    public void setWork(String work) {
+        this.work = work;
+        this.modify("work", work);
+    }
+
+    /**
      * 设置 [评估说明]
      */
     public void setEvaluationdesc(String evaluationdesc) {
@@ -337,19 +345,11 @@ public class TaskEstimate extends EntityMP implements Serializable {
     }
 
     /**
-     * 设置 [月（显示）]
+     * 设置 [任务]
      */
-    public void setMonthname(String monthname) {
-        this.monthname = monthname;
-        this.modify("monthname", monthname);
-    }
-
-    /**
-     * 设置 [附件]
-     */
-    public void setFiles(String files) {
-        this.files = files;
-        this.modify("files", files);
+    public void setTask(Long task) {
+        this.task = task;
+        this.modify("task", task);
     }
 
 

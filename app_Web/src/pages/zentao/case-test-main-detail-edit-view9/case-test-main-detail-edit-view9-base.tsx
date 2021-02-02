@@ -102,7 +102,7 @@ export class CaseTestMainDetailEditView9Base extends EditView9Base {
      * @type {string}
      * @memberof CaseTestMainDetailEditView9Base
      */
-	protected viewtag: string = '507c88b3f8f66c00a44443748f68125d';
+	protected viewtag: string = '8135f7f81658710c74efc351f8d01237';
 
     /**
      * 视图名称

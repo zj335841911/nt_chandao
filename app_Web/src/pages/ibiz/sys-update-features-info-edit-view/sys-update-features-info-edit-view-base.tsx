@@ -109,7 +109,7 @@ export class SysUpdateFeaturesInfoEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof SysUpdateFeaturesInfoEditViewBase
      */
-	protected viewtag: string = 'd97806e4d30ee03bfd34d5df8f96b0a4';
+	protected viewtag: string = '69f603bbdaf1463452fe56bbd20aefcc';
 
     /**
      * 视图名称

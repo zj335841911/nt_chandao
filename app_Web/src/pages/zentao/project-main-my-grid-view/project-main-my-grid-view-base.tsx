@@ -167,7 +167,7 @@ export class ProjectMainMyGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof ProjectMainMyGridViewBase
      */
-	protected viewtag: string = '376e2623b256509cdf69e2de4c01d31b';
+	protected viewtag: string = '8a836afd6e08fa458fd83bb013fb0c7d';
 
     /**
      * 视图名称

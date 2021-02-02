@@ -18,7 +18,16 @@ export default class MainToolbarModel {
         name: 'assignedto',
       },
       {
+        name: 'modulename1',
+      },
+      {
+        name: 'files',
+      },
+      {
         name: 'childstories',
+      },
+      {
+        name: 'ibiz_id',
       },
       {
         name: 'plan',
@@ -30,16 +39,40 @@ export default class MainToolbarModel {
         name: 'assigneddate',
       },
       {
+        name: 'storypoints',
+      },
+      {
+        name: 'sourcename',
+      },
+      {
+        name: 'storyprovidedate',
+      },
+      {
+        name: 'isleaf',
+      },
+      {
         name: 'pri',
+      },
+      {
+        name: 'sourceid',
       },
       {
         name: 'linkstories',
       },
       {
+        name: 'assessresult',
+      },
+      {
         name: 'status',
       },
       {
+        name: 'mailtopk',
+      },
+      {
         name: 'estimate',
+      },
+      {
+        name: 'noticeusers',
       },
       {
         name: 'revieweddate',
@@ -48,7 +81,13 @@ export default class MainToolbarModel {
         name: 'title',
       },
       {
+        name: 'mailtoconact',
+      },
+      {
         name: 'sourcenote',
+      },
+      {
+        name: 'versionc',
       },
       {
         name: 'reviewedby',
@@ -70,7 +109,19 @@ export default class MainToolbarModel {
         prop: 'id',
       },
       {
+        name: 'ibiz_sourceobject',
+      },
+      {
         name: 'source',
+      },
+      {
+        name: 'storylatestfinisheddate',
+      },
+      {
+        name: 'neednotreview',
+      },
+      {
+        name: 'ischild',
       },
       {
         name: 'closedreason',
@@ -79,7 +130,16 @@ export default class MainToolbarModel {
         name: 'color',
       },
       {
+        name: 'orgid',
+      },
+      {
         name: 'mailto',
+      },
+      {
+        name: 'isfavorites',
+      },
+      {
+        name: 'sourceobject',
       },
       {
         name: 'deleted',
@@ -94,16 +154,55 @@ export default class MainToolbarModel {
         name: 'stage',
       },
       {
+        name: 'project',
+      },
+      {
         name: 'closeddate',
       },
       {
+        name: 'spec',
+      },
+      {
+        name: 'ibiz_sourcename',
+      },
+      {
+        name: 'assignedtopk',
+      },
+      {
+        name: 'comment',
+      },
+      {
+        name: 'acllist',
+      },
+      {
+        name: 'verify',
+      },
+      {
         name: 'closedby',
+      },
+      {
+        name: 'acl',
+      },
+      {
+        name: 'result',
       },
       {
         name: 'type',
       },
       {
         name: 'lastediteddate',
+      },
+      {
+        name: 'ibiz_sourceid',
+      },
+      {
+        name: 'preversion',
+      },
+      {
+        name: 'storyprovider',
+      },
+      {
+        name: 'mdeptid',
       },
       {
         name: 'path',
@@ -116,6 +215,9 @@ export default class MainToolbarModel {
       },
       {
         name: 'productname',
+      },
+      {
+        name: 'branchname',
       },
       {
         name: 'frombug',
@@ -137,108 +239,6 @@ export default class MainToolbarModel {
       },
       {
         name: 'tobug',
-      },
-      {
-        name: 'spec',
-      },
-      {
-        name: 'verify',
-      },
-      {
-        name: 'result',
-      },
-      {
-        name: 'comment',
-      },
-      {
-        name: 'isleaf',
-      },
-      {
-        name: 'files',
-      },
-      {
-        name: 'branchname',
-      },
-      {
-        name: 'versionc',
-      },
-      {
-        name: 'modulename1',
-      },
-      {
-        name: 'project',
-      },
-      {
-        name: 'preversion',
-      },
-      {
-        name: 'neednotreview',
-      },
-      {
-        name: 'isfavorites',
-      },
-      {
-        name: 'ischild',
-      },
-      {
-        name: 'mailtoconact',
-      },
-      {
-        name: 'mailtopk',
-      },
-      {
-        name: 'assignedtopk',
-      },
-      {
-        name: 'noticeusers',
-      },
-      {
-        name: 'ibiz_sourceobject',
-      },
-      {
-        name: 'sourceobject',
-      },
-      {
-        name: 'ibiz_id',
-      },
-      {
-        name: 'sourcename',
-      },
-      {
-        name: 'sourceid',
-      },
-      {
-        name: 'ibiz_sourceid',
-      },
-      {
-        name: 'ibiz_sourcename',
-      },
-      {
-        name: 'storypoints',
-      },
-      {
-        name: 'assessresult',
-      },
-      {
-        name: 'orgid',
-      },
-      {
-        name: 'acl',
-      },
-      {
-        name: 'acllist',
-      },
-      {
-        name: 'mdeptid',
-      },
-      {
-        name: 'storylatestfinisheddate',
-      },
-      {
-        name: 'storyprovidedate',
-      },
-      {
-        name: 'storyprovider',
       },
     ]
   }

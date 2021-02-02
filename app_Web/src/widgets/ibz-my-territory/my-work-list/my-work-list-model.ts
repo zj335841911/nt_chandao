@@ -15,34 +15,34 @@ export default class MyWorkModel {
 	public getDataItems(): any[] {
 		return [
 			{
-				name: 'projects',
-			},
-			{
-				name: 'mybugs',
-			},
-			{
-				name: 'myebugs',
-			},
-			{
-				name: 'myetasks',
+				name: 'realname',
 			},
 			{
 				name: 'account',
 			},
 			{
+				name: 'myebugs',
+			},
+			{
+				name: 'products',
+			},
+			{
 				name: 'mystorys',
 			},
 			{
-				name: 'eprojects',
+				name: 'mybugs',
 			},
 			{
-				name: 'realname',
+				name: 'projects',
 			},
 			{
 				name: 'mytasks',
 			},
 			{
-				name: 'products',
+				name: 'myetasks',
+			},
+			{
+				name: 'eprojects',
 			},
 			{
 				name: 'srfkey',

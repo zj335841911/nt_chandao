@@ -109,7 +109,7 @@ export class IbizproIndexListViewBase extends ListViewBase {
      * @type {string}
      * @memberof IbizproIndexListViewBase
      */
-	protected viewtag: string = '10aa6afcd73e77c44c698319a1b4edcd';
+	protected viewtag: string = '50f82495ceeaf8439cd7626c264176a4';
 
     /**
      * 视图名称

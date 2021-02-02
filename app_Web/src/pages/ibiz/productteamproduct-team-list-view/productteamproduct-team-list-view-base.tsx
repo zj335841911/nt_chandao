@@ -137,7 +137,7 @@ export class PRODUCTTEAMProductTeamListViewBase extends ListViewBase {
      * @type {string}
      * @memberof PRODUCTTEAMProductTeamListViewBase
      */
-	protected viewtag: string = '5adaf4d29de51f3f4c304ef50908925e';
+	protected viewtag: string = '256de1139e8adce86805c471e5de2db0';
 
     /**
      * 视图名称

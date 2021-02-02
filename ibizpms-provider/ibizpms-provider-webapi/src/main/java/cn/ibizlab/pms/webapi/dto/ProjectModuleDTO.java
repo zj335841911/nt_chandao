@@ -30,40 +30,13 @@ public class ProjectModuleDTO extends DTOBase implements Serializable {
 	private static final long serialVersionUID = 1L;
 
     /**
-     * 属性 [TYPE]
+     * 属性 [SHORT]
      *
      */
-    @JSONField(name = "type")
-    @JsonProperty("type")
+    @JSONField(name = "ibizshort")
+    @JsonProperty("ibizshort")
     @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
-    private String type;
-
-    /**
-     * 属性 [COLLECTOR]
-     *
-     */
-    @JSONField(name = "collector")
-    @JsonProperty("collector")
-    @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
-    private String collector;
-
-    /**
-     * 属性 [ID]
-     *
-     */
-    @JSONField(name = "id")
-    @JsonProperty("id")
-    @JsonSerialize(using = ToStringSerializer.class)
-    private Long id;
-
-    /**
-     * 属性 [DELETED]
-     *
-     */
-    @JSONField(name = "deleted")
-    @JsonProperty("deleted")
-    @Size(min = 0, max = 1, message = "内容长度必须小于等于[1]")
-    private String deleted;
+    private String ibizshort;
 
     /**
      * 属性 [ISLEAF]
@@ -75,31 +48,22 @@ public class ProjectModuleDTO extends DTOBase implements Serializable {
     private String isleaf;
 
     /**
-     * 属性 [PATH]
+     * 属性 [TYPE]
      *
      */
-    @JSONField(name = "path")
-    @JsonProperty("path")
-    @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
-    private String path;
+    @JSONField(name = "type")
+    @JsonProperty("type")
+    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
+    private String type;
 
     /**
-     * 属性 [OWNER]
+     * 属性 [ORDERPK]
      *
      */
-    @JSONField(name = "owner")
-    @JsonProperty("owner")
-    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
-    private String owner;
-
-    /**
-     * 属性 [SHORT]
-     *
-     */
-    @JSONField(name = "ibizshort")
-    @JsonProperty("ibizshort")
-    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
-    private String ibizshort;
+    @JSONField(name = "orderpk")
+    @JsonProperty("orderpk")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String orderpk;
 
     /**
      * 属性 [NAME]
@@ -112,20 +76,29 @@ public class ProjectModuleDTO extends DTOBase implements Serializable {
     private String name;
 
     /**
-     * 属性 [GRADE]
-     *
-     */
-    @JSONField(name = "grade")
-    @JsonProperty("grade")
-    private Integer grade;
-
-    /**
      * 属性 [ORDER]
      *
      */
     @JSONField(name = "order")
     @JsonProperty("order")
     private Integer order;
+
+    /**
+     * 属性 [COLLECTOR]
+     *
+     */
+    @JSONField(name = "collector")
+    @JsonProperty("collector")
+    @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
+    private String collector;
+
+    /**
+     * 属性 [GRADE]
+     *
+     */
+    @JSONField(name = "grade")
+    @JsonProperty("grade")
+    private Integer grade;
 
     /**
      * 属性 [BRANCH]
@@ -136,22 +109,40 @@ public class ProjectModuleDTO extends DTOBase implements Serializable {
     private Integer branch;
 
     /**
-     * 属性 [PARENT]
+     * 属性 [PATH]
      *
      */
-    @JSONField(name = "parent")
-    @JsonProperty("parent")
-    @JsonSerialize(using = ToStringSerializer.class)
-    private Long parent;
+    @JSONField(name = "path")
+    @JsonProperty("path")
+    @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
+    private String path;
 
     /**
-     * 属性 [ROOT]
+     * 属性 [ID]
      *
      */
-    @JSONField(name = "root")
-    @JsonProperty("root")
+    @JSONField(name = "id")
+    @JsonProperty("id")
     @JsonSerialize(using = ToStringSerializer.class)
-    private Long root;
+    private Long id;
+
+    /**
+     * 属性 [OWNER]
+     *
+     */
+    @JSONField(name = "owner")
+    @JsonProperty("owner")
+    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
+    private String owner;
+
+    /**
+     * 属性 [DELETED]
+     *
+     */
+    @JSONField(name = "deleted")
+    @JsonProperty("deleted")
+    @Size(min = 0, max = 1, message = "内容长度必须小于等于[1]")
+    private String deleted;
 
     /**
      * 属性 [ROOTNAME]
@@ -172,46 +163,23 @@ public class ProjectModuleDTO extends DTOBase implements Serializable {
     private String parentname;
 
     /**
-     * 属性 [ORDERPK]
+     * 属性 [ROOT]
      *
      */
-    @JSONField(name = "orderpk")
-    @JsonProperty("orderpk")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String orderpk;
-
-
-    /**
-     * 设置 [TYPE]
-     */
-    public void setType(String  type){
-        this.type = type ;
-        this.modify("type",type);
-    }
+    @JSONField(name = "root")
+    @JsonProperty("root")
+    @JsonSerialize(using = ToStringSerializer.class)
+    private Long root;
 
     /**
-     * 设置 [COLLECTOR]
+     * 属性 [PARENT]
+     *
      */
-    public void setCollector(String  collector){
-        this.collector = collector ;
-        this.modify("collector",collector);
-    }
+    @JSONField(name = "parent")
+    @JsonProperty("parent")
+    @JsonSerialize(using = ToStringSerializer.class)
+    private Long parent;
 
-    /**
-     * 设置 [PATH]
-     */
-    public void setPath(String  path){
-        this.path = path ;
-        this.modify("path",path);
-    }
-
-    /**
-     * 设置 [OWNER]
-     */
-    public void setOwner(String  owner){
-        this.owner = owner ;
-        this.modify("owner",owner);
-    }
 
     /**
      * 设置 [SHORT]
@@ -222,11 +190,27 @@ public class ProjectModuleDTO extends DTOBase implements Serializable {
     }
 
     /**
+     * 设置 [TYPE]
+     */
+    public void setType(String  type){
+        this.type = type ;
+        this.modify("type",type);
+    }
+
+    /**
      * 设置 [NAME]
      */
     public void setName(String  name){
         this.name = name ;
         this.modify("name",name);
+    }
+
+    /**
+     * 设置 [COLLECTOR]
+     */
+    public void setCollector(String  collector){
+        this.collector = collector ;
+        this.modify("collector",collector);
     }
 
     /**
@@ -246,11 +230,19 @@ public class ProjectModuleDTO extends DTOBase implements Serializable {
     }
 
     /**
-     * 设置 [PARENT]
+     * 设置 [PATH]
      */
-    public void setParent(Long  parent){
-        this.parent = parent ;
-        this.modify("parent",parent);
+    public void setPath(String  path){
+        this.path = path ;
+        this.modify("path",path);
+    }
+
+    /**
+     * 设置 [OWNER]
+     */
+    public void setOwner(String  owner){
+        this.owner = owner ;
+        this.modify("owner",owner);
     }
 
     /**
@@ -259,6 +251,14 @@ public class ProjectModuleDTO extends DTOBase implements Serializable {
     public void setRoot(Long  root){
         this.root = root ;
         this.modify("root",root);
+    }
+
+    /**
+     * 设置 [PARENT]
+     */
+    public void setParent(Long  parent){
+        this.parent = parent ;
+        this.modify("parent",parent);
     }
 
 

@@ -9,28 +9,28 @@
 
 | 属性名称        |    中文名称    | 类型     |  备注  |
 | --------   |------------| -----   |  -------- | 
+|类型|TYPE|SSCODELIST|&nbsp;|
 |建立人|CREATEMAN|TEXT|&nbsp;|
 |收藏标识|IBZ_FAVORITESID|GUID|&nbsp;|
 |建立时间|CREATEDATE|DATETIME|&nbsp;|
-|收藏名称|IBZ_FAVORITESNAME|TEXT|&nbsp;|
 |更新人|UPDATEMAN|TEXT|&nbsp;|
-|更新时间|UPDATEDATE|DATETIME|&nbsp;|
 |数据对象标识|OBJECTID|BIGINT|&nbsp;|
 |收藏用户|ACCOUNT|SSCODELIST|&nbsp;|
-|类型|TYPE|SSCODELIST|&nbsp;|
+|收藏名称|IBZ_FAVORITESNAME|TEXT|&nbsp;|
+|更新时间|UPDATEDATE|DATETIME|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
 | --------   |------------| ----- | 
+|类型|默认规则|内容长度必须小于等于[60]|
 |建立人|默认规则|内容长度必须小于等于[60]|
 |收藏标识|默认规则|内容长度必须小于等于[100]|
 |建立时间|默认规则|默认规则|
-|收藏名称|默认规则|内容长度必须小于等于[200]|
 |更新人|默认规则|内容长度必须小于等于[60]|
-|更新时间|默认规则|默认规则|
 |数据对象标识|默认规则|默认规则|
 |收藏用户|默认规则|内容长度必须小于等于[60]|
-|类型|默认规则|内容长度必须小于等于[60]|
+|收藏名称|默认规则|内容长度必须小于等于[200]|
+|更新时间|默认规则|默认规则|
 
 ## 状态控制
 
@@ -69,10 +69,10 @@
 ## 查询模式
 | 属性      |    搜索模式     |
 | --------   |------------|
-|收藏名称(IBZ_FAVORITESNAME)|LIKE|
+|类型(TYPE)|EQ|
 |数据对象标识(OBJECTID)|EQ|
 |收藏用户(ACCOUNT)|EQ|
-|类型(TYPE)|EQ|
+|收藏名称(IBZ_FAVORITESNAME)|LIKE|
 
 ## 导入模式
 无

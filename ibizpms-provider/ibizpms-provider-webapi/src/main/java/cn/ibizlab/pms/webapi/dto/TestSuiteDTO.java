@@ -103,6 +103,14 @@ public class TestSuiteDTO extends DTOBase implements Serializable {
     private String addedby;
 
     /**
+     * 属性 [CASECNT]
+     *
+     */
+    @JSONField(name = "casecnt")
+    @JsonProperty("casecnt")
+    private Integer casecnt;
+
+    /**
      * 属性 [DESC]
      *
      */
@@ -119,14 +127,6 @@ public class TestSuiteDTO extends DTOBase implements Serializable {
     @JsonProperty("product")
     @JsonSerialize(using = ToStringSerializer.class)
     private Long product;
-
-    /**
-     * 属性 [CASECNT]
-     *
-     */
-    @JSONField(name = "casecnt")
-    @JsonProperty("casecnt")
-    private Integer casecnt;
 
 
     /**

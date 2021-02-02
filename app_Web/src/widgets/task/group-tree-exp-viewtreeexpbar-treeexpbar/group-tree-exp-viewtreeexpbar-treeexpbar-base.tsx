@@ -115,16 +115,16 @@ export class GroupTreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarControlB
                 deKeyField:'task'
 			};
         }
-        if (Object.is(expmode, 'PRIGROUP')) {
+        if (Object.is(expmode, 'TYPEGROUP')) {
             return {  
-                viewname: 'task-pri-task-group-grid-view', 
+                viewname: 'task-type-task-group-grid-view', 
                 parentdata: {},
                 deKeyField:'task'
 			};
         }
-        if (Object.is(expmode, 'TYPEGROUP')) {
+        if (Object.is(expmode, 'PRIGROUP')) {
             return {  
-                viewname: 'task-type-task-group-grid-view', 
+                viewname: 'task-pri-task-group-grid-view', 
                 parentdata: {},
                 deKeyField:'task'
 			};

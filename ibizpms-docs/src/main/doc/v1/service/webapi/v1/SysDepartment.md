@@ -241,8 +241,8 @@ POST
 | 14 | parentdeptname | String | 允许 | 上级部门 |
 | 15 | createdate | Timestamp | 不可 | 建立时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
 | 16 | enable | Integer | 不可 | 逻辑有效标志 |
-| 17 | createman | String | 不可 | 建立人 |
-| 18 | updateman | String | 不可 | 更新人 |
-| 19 | updatedate | Timestamp | 不可 | 更新时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
+| 17 | updateman | String | 不可 | 更新人 |
+| 18 | updatedate | Timestamp | 不可 | 更新时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
+| 19 | createman | String | 不可 | 建立人 |
 | 20 | <动态属性> | Object | 允许 | 支持动态属性 |
 

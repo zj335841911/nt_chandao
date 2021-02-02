@@ -30,6 +30,15 @@ public class IbzFavoritesDTO extends DTOBase implements Serializable {
 	private static final long serialVersionUID = 1L;
 
     /**
+     * 属性 [TYPE]
+     *
+     */
+    @JSONField(name = "type")
+    @JsonProperty("type")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    private String type;
+
+    /**
      * 属性 [CREATEMAN]
      *
      */
@@ -57,15 +66,6 @@ public class IbzFavoritesDTO extends DTOBase implements Serializable {
     private Timestamp createdate;
 
     /**
-     * 属性 [IBZ_FAVORITESNAME]
-     *
-     */
-    @JSONField(name = "ibzfavoritesname")
-    @JsonProperty("ibzfavoritesname")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String ibzfavoritesname;
-
-    /**
      * 属性 [UPDATEMAN]
      *
      */
@@ -73,15 +73,6 @@ public class IbzFavoritesDTO extends DTOBase implements Serializable {
     @JsonProperty("updateman")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
     private String updateman;
-
-    /**
-     * 属性 [UPDATEDATE]
-     *
-     */
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "updatedate" , format="yyyy-MM-dd HH:mm:ss")
-    @JsonProperty("updatedate")
-    private Timestamp updatedate;
 
     /**
      * 属性 [OBJECTID]
@@ -102,21 +93,30 @@ public class IbzFavoritesDTO extends DTOBase implements Serializable {
     private String account;
 
     /**
-     * 属性 [TYPE]
+     * 属性 [IBZ_FAVORITESNAME]
      *
      */
-    @JSONField(name = "type")
-    @JsonProperty("type")
-    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
-    private String type;
+    @JSONField(name = "ibzfavoritesname")
+    @JsonProperty("ibzfavoritesname")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String ibzfavoritesname;
+
+    /**
+     * 属性 [UPDATEDATE]
+     *
+     */
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "updatedate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonProperty("updatedate")
+    private Timestamp updatedate;
 
 
     /**
-     * 设置 [IBZ_FAVORITESNAME]
+     * 设置 [TYPE]
      */
-    public void setIbzfavoritesname(String  ibzfavoritesname){
-        this.ibzfavoritesname = ibzfavoritesname ;
-        this.modify("ibz_favoritesname",ibzfavoritesname);
+    public void setType(String  type){
+        this.type = type ;
+        this.modify("type",type);
     }
 
     /**
@@ -136,11 +136,11 @@ public class IbzFavoritesDTO extends DTOBase implements Serializable {
     }
 
     /**
-     * 设置 [TYPE]
+     * 设置 [IBZ_FAVORITESNAME]
      */
-    public void setType(String  type){
-        this.type = type ;
-        this.modify("type",type);
+    public void setIbzfavoritesname(String  ibzfavoritesname){
+        this.ibzfavoritesname = ibzfavoritesname ;
+        this.modify("ibz_favoritesname",ibzfavoritesname);
     }
 
 

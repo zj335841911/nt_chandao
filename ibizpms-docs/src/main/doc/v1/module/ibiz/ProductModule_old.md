@@ -16,6 +16,7 @@ hide members
 | 属性名称        |    中文名称    | 类型     |  备注  |
 | --------   |------------| -----   |  -------- | 
 |path|PATH|TEXT|&nbsp;|
+|数据选择排序|ORDERPK|TEXT|&nbsp;|
 |逻辑删除标志|DELETED|TEXT|&nbsp;|
 |名称|NAME|TEXT|&nbsp;|
 |branch|BRANCH|INT|&nbsp;|
@@ -27,16 +28,16 @@ hide members
 |叶子模块|ISLEAF|TEXT|&nbsp;|
 |id|ID|ACID|&nbsp;|
 |collector|COLLECTOR|LONGTEXT|&nbsp;|
-|产品|ROOT|PICKUP|&nbsp;|
-|id|PARENT|PICKUP|&nbsp;|
 |所属产品|ROOTNAME|PICKUPTEXT|&nbsp;|
 |上级模块|PARENTNAME|PICKUPTEXT|&nbsp;|
-|数据选择排序|ORDERPK|TEXT|&nbsp;|
+|产品|ROOT|PICKUP|&nbsp;|
+|id|PARENT|PICKUP|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
 | --------   |------------| ----- | 
 |path|默认规则|内容长度必须小于等于[255]|
+|数据选择排序|默认规则|内容长度必须小于等于[100]|
 |逻辑删除标志|默认规则|内容长度必须小于等于[1]|
 |名称|默认规则|内容长度必须小于等于[60]|
 |branch|默认规则|默认规则|
@@ -48,11 +49,10 @@ hide members
 |叶子模块|默认规则|内容长度必须小于等于[200]|
 |id|默认规则|默认规则|
 |collector|默认规则|内容长度必须小于等于[65535]|
-|产品|默认规则|默认规则|
-|id|默认规则|默认规则|
 |所属产品|默认规则|内容长度必须小于等于[90]|
 |上级模块|默认规则|内容长度必须小于等于[60]|
-|数据选择排序|默认规则|内容长度必须小于等于[100]|
+|产品|默认规则|默认规则|
+|id|默认规则|默认规则|
 
 ## 状态控制
 
@@ -141,12 +141,12 @@ hide footbox
 |branch(BRANCH)|EQ|
 |branch(BRANCH)|NOTEQ|
 |类型（story）(TYPE)|EQ|
-|产品(ROOT)|EQ|
-|id(PARENT)|EQ|
 |所属产品(ROOTNAME)|EQ|
 |所属产品(ROOTNAME)|LIKE|
 |上级模块(PARENTNAME)|EQ|
 |上级模块(PARENTNAME)|LIKE|
+|产品(ROOT)|EQ|
+|id(PARENT)|EQ|
 
 ## 导入模式
 无

@@ -120,7 +120,7 @@ export class DocMoreMyDocTreeViewBase extends TreeViewBase {
      * @type {string}
      * @memberof DocMoreMyDocTreeViewBase
      */
-	protected viewtag: string = 'f9b214cbd7e74778eeeaf536de393f52';
+	protected viewtag: string = 'd5f2e9a6f7a981823a3327cba1c0b9d4';
 
     /**
      * 视图名称

@@ -23,6 +23,14 @@ export interface Bug {
     storyversion?: any;
 
     /**
+     * 版本名称
+     *
+     * @returns {*}
+     * @memberof Bug
+     */
+    buildname?: any;
+
+    /**
      * 相关Bug
      *
      * @returns {*}
@@ -37,6 +45,22 @@ export interface Bug {
      * @memberof Bug
      */
     activateddate?: any;
+
+    /**
+     * 过期天数
+     *
+     * @returns {*}
+     * @memberof Bug
+     */
+    overduebugs?: any;
+
+    /**
+     * 创建版本
+     *
+     * @returns {*}
+     * @memberof Bug
+     */
+    createbuild?: any;
 
     /**
      * 指派给
@@ -63,6 +87,14 @@ export interface Bug {
     lastediteddate?: any;
 
     /**
+     * 移动端图片
+     *
+     * @returns {*}
+     * @memberof Bug
+     */
+    mobimage?: any;
+
+    /**
      * result
      *
      * @returns {*}
@@ -79,6 +111,22 @@ export interface Bug {
     keywords?: any;
 
     /**
+     * 是否收藏
+     *
+     * @returns {*}
+     * @memberof Bug
+     */
+    isfavorites?: any;
+
+    /**
+     * 模块名称
+     *
+     * @returns {*}
+     * @memberof Bug
+     */
+    modulename1?: any;
+
+    /**
      * 由谁关闭
      *
      * @returns {*}
@@ -93,6 +141,14 @@ export interface Bug {
      * @memberof Bug
      */
     browser?: any;
+
+    /**
+     * 消息通知用户
+     *
+     * @returns {*}
+     * @memberof Bug
+     */
+    noticeusers?: any;
 
     /**
      * 重现步骤
@@ -117,6 +173,14 @@ export interface Bug {
      * @memberof Bug
      */
     confirmed?: any;
+
+    /**
+     * 联系人
+     *
+     * @returns {*}
+     * @memberof Bug
+     */
+    mailtoconact?: any;
 
     /**
      * 由谁创建
@@ -183,6 +247,14 @@ export interface Bug {
     color?: any;
 
     /**
+     * 备注
+     *
+     * @returns {*}
+     * @memberof Bug
+     */
+    comment?: any;
+
+    /**
      * 解决日期
      *
      * @returns {*}
@@ -213,6 +285,30 @@ export interface Bug {
      * @memberof Bug
      */
     openedbuild?: any;
+
+    /**
+     * 延期解决
+     *
+     * @returns {*}
+     * @memberof Bug
+     */
+    delayresolve?: any;
+
+    /**
+     * 附件
+     *
+     * @returns {*}
+     * @memberof Bug
+     */
+    files?: any;
+
+    /**
+     * 抄送给
+     *
+     * @returns {*}
+     * @memberof Bug
+     */
+    mailtopk?: any;
 
     /**
      * v1
@@ -247,12 +343,28 @@ export interface Bug {
     substatus?: any;
 
     /**
+     * 版本项目
+     *
+     * @returns {*}
+     * @memberof Bug
+     */
+    buildproject?: any;
+
+    /**
      * Bug编号
      *
      * @returns {*}
      * @memberof Bug
      */
     id?: any;
+
+    /**
+     * 延期
+     *
+     * @returns {*}
+     * @memberof Bug
+     */
+    delay?: any;
 
     /**
      * found
@@ -327,6 +439,30 @@ export interface Bug {
     productname?: any;
 
     /**
+     * 平台/分支
+     *
+     * @returns {*}
+     * @memberof Bug
+     */
+    branchname?: any;
+
+    /**
+     * 相关任务
+     *
+     * @returns {*}
+     * @memberof Bug
+     */
+    taskname?: any;
+
+    /**
+     * 相关用例
+     *
+     * @returns {*}
+     * @memberof Bug
+     */
+    casename?: any;
+
+    /**
      * 项目
      *
      * @returns {*}
@@ -357,6 +493,14 @@ export interface Bug {
      * @memberof Bug
      */
     repotype?: any;
+
+    /**
+     * 模块名称
+     *
+     * @returns {*}
+     * @memberof Bug
+     */
+    modulename?: any;
 
     /**
      * 转需求
@@ -469,148 +613,4 @@ export interface Bug {
      * @memberof Bug
      */
     testtask?: any;
-
-    /**
-     * 备注
-     *
-     * @returns {*}
-     * @memberof Bug
-     */
-    comment?: any;
-
-    /**
-     * 相关任务
-     *
-     * @returns {*}
-     * @memberof Bug
-     */
-    taskname?: any;
-
-    /**
-     * 模块名称
-     *
-     * @returns {*}
-     * @memberof Bug
-     */
-    modulename?: any;
-
-    /**
-     * 平台/分支
-     *
-     * @returns {*}
-     * @memberof Bug
-     */
-    branchname?: any;
-
-    /**
-     * 模块名称
-     *
-     * @returns {*}
-     * @memberof Bug
-     */
-    modulename1?: any;
-
-    /**
-     * 附件
-     *
-     * @returns {*}
-     * @memberof Bug
-     */
-    files?: any;
-
-    /**
-     * 移动端图片
-     *
-     * @returns {*}
-     * @memberof Bug
-     */
-    mobimage?: any;
-
-    /**
-     * 是否收藏
-     *
-     * @returns {*}
-     * @memberof Bug
-     */
-    isfavorites?: any;
-
-    /**
-     * 版本名称
-     *
-     * @returns {*}
-     * @memberof Bug
-     */
-    buildname?: any;
-
-    /**
-     * 版本项目
-     *
-     * @returns {*}
-     * @memberof Bug
-     */
-    buildproject?: any;
-
-    /**
-     * 创建版本
-     *
-     * @returns {*}
-     * @memberof Bug
-     */
-    createbuild?: any;
-
-    /**
-     * 过期天数
-     *
-     * @returns {*}
-     * @memberof Bug
-     */
-    overduebugs?: any;
-
-    /**
-     * 相关用例
-     *
-     * @returns {*}
-     * @memberof Bug
-     */
-    casename?: any;
-
-    /**
-     * 延期
-     *
-     * @returns {*}
-     * @memberof Bug
-     */
-    delay?: any;
-
-    /**
-     * 消息通知用户
-     *
-     * @returns {*}
-     * @memberof Bug
-     */
-    noticeusers?: any;
-
-    /**
-     * 抄送给
-     *
-     * @returns {*}
-     * @memberof Bug
-     */
-    mailtopk?: any;
-
-    /**
-     * 联系人
-     *
-     * @returns {*}
-     * @memberof Bug
-     */
-    mailtoconact?: any;
-
-    /**
-     * 延期解决
-     *
-     * @returns {*}
-     * @memberof Bug
-     */
-    delayresolve?: any;
 }

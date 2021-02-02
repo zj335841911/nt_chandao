@@ -132,7 +132,7 @@ export class TestReportMainTabExpViewBase extends TabExpViewBase {
      * @type {string}
      * @memberof TestReportMainTabExpViewBase
      */
-	protected viewtag: string = 'ea7a4f0ccc237a45f39ffb2e3df7e9fd';
+	protected viewtag: string = '75ed4f97abd716a65004e1e71eba3071';
 
     /**
      * 视图名称

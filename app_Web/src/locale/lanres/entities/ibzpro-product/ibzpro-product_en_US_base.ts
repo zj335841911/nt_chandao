@@ -3,19 +3,19 @@ import commonLogic from '@/locale/logic/common/common-logic';
 function getLocaleResourceBase(){
 	const data:any = {
 		fields: {
-			id: commonLogic.appcommonhandle("编号",null),
-			name: commonLogic.appcommonhandle("产品名称",null),
 			ibizid: commonLogic.appcommonhandle("IBIZ标识",null),
 			code: commonLogic.appcommonhandle("产品代号",null),
+			name: commonLogic.appcommonhandle("产品名称",null),
+			id: commonLogic.appcommonhandle("编号",null),
 		},
 			views: {
-				gridview: {
-					caption: commonLogic.appcommonhandle("平台产品",null),
-					title: commonLogic.appcommonhandle("平台产品表格视图",null),
-				},
 				editview: {
 					caption: commonLogic.appcommonhandle("平台产品",null),
 					title: commonLogic.appcommonhandle("平台产品编辑视图",null),
+				},
+				gridview: {
+					caption: commonLogic.appcommonhandle("平台产品",null),
+					title: commonLogic.appcommonhandle("平台产品表格视图",null),
 				},
 			},
 			main_form: {
@@ -52,6 +52,24 @@ function getLocaleResourceBase(){
 					formpage1: commonLogic.appcommonhandle("常规条件",null), 
 				},
 				uiactions: {
+				},
+			},
+			editviewtoolbar_toolbar: {
+				tbitem3: {
+					caption: commonLogic.appcommonhandle("Save",null),
+					tip: commonLogic.appcommonhandle("Save",null),
+				},
+				tbitem4: {
+					caption: commonLogic.appcommonhandle("Save And New",null),
+					tip: commonLogic.appcommonhandle("Save And New",null),
+				},
+				tbitem5: {
+					caption: commonLogic.appcommonhandle("Save And Close",null),
+					tip: commonLogic.appcommonhandle("Save And Close Window",null),
+				},
+				tbitem7: {
+					caption: commonLogic.appcommonhandle("Remove And Close",null),
+					tip: commonLogic.appcommonhandle("Remove And Close Window",null),
 				},
 			},
 			gridviewtoolbar_toolbar: {
@@ -110,24 +128,6 @@ function getLocaleResourceBase(){
 				tbitem18: {
 					caption: commonLogic.appcommonhandle("Help",null),
 					tip: commonLogic.appcommonhandle("Help",null),
-				},
-			},
-			editviewtoolbar_toolbar: {
-				tbitem3: {
-					caption: commonLogic.appcommonhandle("Save",null),
-					tip: commonLogic.appcommonhandle("Save",null),
-				},
-				tbitem4: {
-					caption: commonLogic.appcommonhandle("Save And New",null),
-					tip: commonLogic.appcommonhandle("Save And New",null),
-				},
-				tbitem5: {
-					caption: commonLogic.appcommonhandle("Save And Close",null),
-					tip: commonLogic.appcommonhandle("Save And Close Window",null),
-				},
-				tbitem7: {
-					caption: commonLogic.appcommonhandle("Remove And Close",null),
-					tip: commonLogic.appcommonhandle("Remove And Close Window",null),
 				},
 			},
 		};

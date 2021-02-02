@@ -39,6 +39,14 @@ export interface TestResult {
     xml?: any;
 
     /**
+     * 属性
+     *
+     * @returns {*}
+     * @memberof TestResult
+     */
+    task?: any;
+
+    /**
      * 持续时间
      *
      * @returns {*}
@@ -71,6 +79,54 @@ export interface TestResult {
     version?: any;
 
     /**
+     * 相关需求
+     *
+     * @returns {*}
+     * @memberof TestResult
+     */
+    story?: any;
+
+    /**
+     * 用例名称
+     *
+     * @returns {*}
+     * @memberof TestResult
+     */
+    title?: any;
+
+    /**
+     * 所属模块
+     *
+     * @returns {*}
+     * @memberof TestResult
+     */
+    modulename?: any;
+
+    /**
+     * 所属模块
+     *
+     * @returns {*}
+     * @memberof TestResult
+     */
+    module?: any;
+
+    /**
+     * 前置条件
+     *
+     * @returns {*}
+     * @memberof TestResult
+     */
+    precondition?: any;
+
+    /**
+     * 所属产品
+     *
+     * @returns {*}
+     * @memberof TestResult
+     */
+    product?: any;
+
+    /**
      * 构建任务
      *
      * @returns {*}
@@ -101,60 +157,4 @@ export interface TestResult {
      * @memberof TestResult
      */
     compile?: any;
-
-    /**
-     * 属性
-     *
-     * @returns {*}
-     * @memberof TestResult
-     */
-    task?: any;
-
-    /**
-     * 用例名称
-     *
-     * @returns {*}
-     * @memberof TestResult
-     */
-    title?: any;
-
-    /**
-     * 相关需求
-     *
-     * @returns {*}
-     * @memberof TestResult
-     */
-    story?: any;
-
-    /**
-     * 所属模块
-     *
-     * @returns {*}
-     * @memberof TestResult
-     */
-    module?: any;
-
-    /**
-     * 所属产品
-     *
-     * @returns {*}
-     * @memberof TestResult
-     */
-    product?: any;
-
-    /**
-     * 前置条件
-     *
-     * @returns {*}
-     * @memberof TestResult
-     */
-    precondition?: any;
-
-    /**
-     * 所属模块
-     *
-     * @returns {*}
-     * @memberof TestResult
-     */
-    modulename?: any;
 }

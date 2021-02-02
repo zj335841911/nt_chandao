@@ -15,13 +15,13 @@ export default class DEFAULTModel {
 	public getDataItems(): any[] {
 		return [
 			{
-				name: 'old',
-			},
-			{
 				name: 'ibiznew',
 			},
 			{
 				name: 'diff',
+			},
+			{
+				name: 'action',
 			},
 			{
 				name: 'id',
@@ -30,7 +30,7 @@ export default class DEFAULTModel {
 				name: 'field',
 			},
 			{
-				name: 'action',
+				name: 'old',
 			},
       {
         name:'size',

@@ -14,22 +14,6 @@ global cn.ibizlab.pms.util.security.AuthenticationUser curuser;
 
 no-loop
 
-//逻辑处理节点[开始]
-rule "begin"
-ruleflow-group "ibzweeklyremove__msdenybegin"
-    when
-    then
-    end
-
-//逻辑处理节点[状态[已提交]拒绝[remove]操作]
-rule "denybysubmit"
-ruleflow-group "ibzweeklyremove__msdenydenybysubmit"
-    when
-    then
-    update(ibzweeklyremove__msdenydefault);//更新fact中变量值
-    update(ibzweeklyremove__msdenytemp);//更新fact中变量值
-    end
-
 //逻辑处理节点[准备临时参数]
 rule "preparetemp"
 ruleflow-group "ibzweeklyremove__msdenypreparetemp"
@@ -53,6 +37,22 @@ ruleflow-group "ibzweeklyremove__msdenyget"
 //逻辑处理节点[状态[未提交]拒绝[remove]操作]
 rule "denybynsunbmit"
 ruleflow-group "ibzweeklyremove__msdenydenybynsunbmit"
+    when
+    then
+    update(ibzweeklyremove__msdenydefault);//更新fact中变量值
+    update(ibzweeklyremove__msdenytemp);//更新fact中变量值
+    end
+
+//逻辑处理节点[开始]
+rule "begin"
+ruleflow-group "ibzweeklyremove__msdenybegin"
+    when
+    then
+    end
+
+//逻辑处理节点[状态[已提交]拒绝[remove]操作]
+rule "denybysubmit"
+ruleflow-group "ibzweeklyremove__msdenydenybysubmit"
     when
     then
     update(ibzweeklyremove__msdenydefault);//更新fact中变量值

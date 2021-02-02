@@ -44,14 +44,6 @@ public class IbizproProjectMonthly extends EntityMP implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
-     * 项目月报标识
-     */
-    @DEField(name = "ibizpro_projectmonthlyid", isKeyField = true)
-    @TableId(value = "ibizpro_projectmonthlyid", type = IdType.ASSIGN_UUID)
-    @JSONField(name = "ibizproprojectmonthlyid")
-    @JsonProperty("ibizproprojectmonthlyid")
-    private String ibizproprojectmonthlyid;
-    /**
      * 项目月报名称
      */
     @DEField(name = "ibizpro_projectmonthlyname")
@@ -59,14 +51,6 @@ public class IbizproProjectMonthly extends EntityMP implements Serializable {
     @JSONField(name = "ibizproprojectmonthlyname")
     @JsonProperty("ibizproprojectmonthlyname")
     private String ibizproprojectmonthlyname;
-    /**
-     * 建立人
-     */
-    @DEField(preType = DEPredefinedFieldType.CREATEMAN)
-    @TableField(value = "`createman`", fill = FieldFill.INSERT)
-    @JSONField(name = "createman")
-    @JsonProperty("createman")
-    private String createman;
     /**
      * 建立时间
      */
@@ -77,43 +61,13 @@ public class IbizproProjectMonthly extends EntityMP implements Serializable {
     @JsonProperty("createdate")
     private Timestamp createdate;
     /**
-     * 更新人
+     * 年月
      */
-    @DEField(preType = DEPredefinedFieldType.UPDATEMAN)
-    @TableField(value = "`updateman`")
-    @JSONField(name = "updateman")
-    @JsonProperty("updateman")
-    private String updateman;
-    /**
-     * 更新时间
-     */
-    @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
-    @TableField(value = "`updatedate`")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
-    @JSONField(name = "updatedate", format = "yyyy-MM-dd HH:mm:ss")
-    @JsonProperty("updatedate")
-    private Timestamp updatedate;
-    /**
-     * 项目编号
-     */
-    @TableField(value = "`project`")
-    @JSONField(name = "project")
-    @JsonProperty("project")
-    private Long project;
-    /**
-     * 项目名称
-     */
-    @TableField(exist = false)
-    @JSONField(name = "projectname")
-    @JsonProperty("projectname")
-    private String projectname;
-    /**
-     * 项目负责人
-     */
-    @TableField(exist = false)
-    @JSONField(name = "pm")
-    @JsonProperty("pm")
-    private String pm;
+    @DEField(name = "year_month")
+    @TableField(value = "`year_month`")
+    @JSONField(name = "yearmonth")
+    @JsonProperty("yearmonth")
+    private String yearmonth;
     /**
      * 总工时
      */
@@ -121,6 +75,14 @@ public class IbizproProjectMonthly extends EntityMP implements Serializable {
     @JSONField(name = "totalestimates")
     @JsonProperty("totalestimates")
     private Double totalestimates;
+    /**
+     * 更新人
+     */
+    @DEField(preType = DEPredefinedFieldType.UPDATEMAN)
+    @TableField(value = "`updateman`")
+    @JSONField(name = "updateman")
+    @JsonProperty("updateman")
+    private String updateman;
     /**
      * 任务
      */
@@ -137,13 +99,51 @@ public class IbizproProjectMonthly extends EntityMP implements Serializable {
     @JsonProperty("date")
     private Timestamp date;
     /**
-     * 年月
+     * 项目月报标识
      */
-    @DEField(name = "year_month")
-    @TableField(value = "`year_month`")
-    @JSONField(name = "yearmonth")
-    @JsonProperty("yearmonth")
-    private String yearmonth;
+    @DEField(name = "ibizpro_projectmonthlyid", isKeyField = true)
+    @TableId(value = "ibizpro_projectmonthlyid", type = IdType.ASSIGN_UUID)
+    @JSONField(name = "ibizproprojectmonthlyid")
+    @JsonProperty("ibizproprojectmonthlyid")
+    private String ibizproprojectmonthlyid;
+    /**
+     * 更新时间
+     */
+    @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
+    @TableField(value = "`updatedate`")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "updatedate", format = "yyyy-MM-dd HH:mm:ss")
+    @JsonProperty("updatedate")
+    private Timestamp updatedate;
+    /**
+     * 建立人
+     */
+    @DEField(preType = DEPredefinedFieldType.CREATEMAN)
+    @TableField(value = "`createman`", fill = FieldFill.INSERT)
+    @JSONField(name = "createman")
+    @JsonProperty("createman")
+    private String createman;
+    /**
+     * 项目负责人
+     */
+    @TableField(exist = false)
+    @JSONField(name = "pm")
+    @JsonProperty("pm")
+    private String pm;
+    /**
+     * 项目名称
+     */
+    @TableField(exist = false)
+    @JSONField(name = "projectname")
+    @JsonProperty("projectname")
+    private String projectname;
+    /**
+     * 项目编号
+     */
+    @TableField(value = "`project`")
+    @JSONField(name = "project")
+    @JsonProperty("project")
+    private Long project;
 
     /**
      * 项目编号
@@ -164,11 +164,11 @@ public class IbizproProjectMonthly extends EntityMP implements Serializable {
     }
 
     /**
-     * 设置 [项目编号]
+     * 设置 [年月]
      */
-    public void setProject(Long project) {
-        this.project = project;
-        this.modify("project", project);
+    public void setYearmonth(String yearmonth) {
+        this.yearmonth = yearmonth;
+        this.modify("year_month", yearmonth);
     }
 
     /**
@@ -206,11 +206,11 @@ public class IbizproProjectMonthly extends EntityMP implements Serializable {
         return sdf.format(date);
     }
     /**
-     * 设置 [年月]
+     * 设置 [项目编号]
      */
-    public void setYearmonth(String yearmonth) {
-        this.yearmonth = yearmonth;
-        this.modify("year_month", yearmonth);
+    public void setProject(Long project) {
+        this.project = project;
+        this.modify("project", project);
     }
 
 

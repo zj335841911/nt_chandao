@@ -15,6 +15,14 @@ export interface ProductModule {
     path?: any;
 
     /**
+     * 数据选择排序
+     *
+     * @returns {*}
+     * @memberof ProductModule
+     */
+    orderpk?: any;
+
+    /**
      * 逻辑删除标志
      *
      * @returns {*}
@@ -103,22 +111,6 @@ export interface ProductModule {
     collector?: any;
 
     /**
-     * 产品
-     *
-     * @returns {*}
-     * @memberof ProductModule
-     */
-    root?: any;
-
-    /**
-     * id
-     *
-     * @returns {*}
-     * @memberof ProductModule
-     */
-    parent?: any;
-
-    /**
      * 所属产品
      *
      * @returns {*}
@@ -135,10 +127,18 @@ export interface ProductModule {
     parentname?: any;
 
     /**
-     * 数据选择排序
+     * 产品
      *
      * @returns {*}
      * @memberof ProductModule
      */
-    orderpk?: any;
+    root?: any;
+
+    /**
+     * id
+     *
+     * @returns {*}
+     * @memberof ProductModule
+     */
+    parent?: any;
 }

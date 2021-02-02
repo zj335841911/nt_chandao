@@ -66,19 +66,19 @@ public class IbiLogin extends EntityMP implements Serializable {
     @JsonProperty("account")
     private String account;
     /**
-     * 源代码账户
-     */
-    @TableField(value = "`commiter`")
-    @JSONField(name = "commiter")
-    @JsonProperty("commiter")
-    private String commiter;
-    /**
      * token
      */
     @TableField(exist = false)
     @JSONField(name = "token")
     @JsonProperty("token")
     private String token;
+    /**
+     * 源代码账户
+     */
+    @TableField(value = "`commiter`")
+    @JSONField(name = "commiter")
+    @JsonProperty("commiter")
+    private String commiter;
 
 
 

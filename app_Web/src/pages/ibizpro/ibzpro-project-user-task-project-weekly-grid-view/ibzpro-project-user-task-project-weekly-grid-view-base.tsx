@@ -105,7 +105,7 @@ export class IbzproProjectUserTaskProjectWeeklyGridViewBase extends GridViewBase
      * @type {string}
      * @memberof IbzproProjectUserTaskProjectWeeklyGridViewBase
      */
-	protected viewtag: string = 'dc67624c3f090fcbd2b405a393b38cd4';
+	protected viewtag: string = 'e288763f49b2c168996087e7b44084c4';
 
     /**
      * 视图名称

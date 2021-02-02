@@ -119,7 +119,7 @@ export class CaseGridView9_MeCretaeBase extends GridView9Base {
      * @type {string}
      * @memberof CaseGridView9_MeCretaeBase
      */
-	protected viewtag: string = 'c5b7fb7289325c348ca867eb86185986';
+	protected viewtag: string = 'ec0f9989926ab7fb4faf31f25b800d2d';
 
     /**
      * 视图名称

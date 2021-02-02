@@ -15,8 +15,8 @@ hide members
 |用户标识|USERID|TEXT|&nbsp;|
 |用户全局名|USERNAME|TEXT|&nbsp;|
 |用户姓名|PERSONNAME|TEXT|&nbsp;|
-|密码|PASSWORD|TEXT|&nbsp;|
 |用户工号|USERCODE|TEXT|&nbsp;|
+|密码|PASSWORD|TEXT|&nbsp;|
 |登录名|LOGINNAME|TEXT|&nbsp;|
 |区属|DOMAINS|TEXT|&nbsp;|
 |主部门|MDEPTID|TEXT|&nbsp;|
@@ -54,8 +54,8 @@ hide members
 |用户标识|默认规则|内容长度必须小于等于[100]|
 |用户全局名|默认规则|内容长度必须小于等于[200]|
 |用户姓名|默认规则|内容长度必须小于等于[100]|
-|密码|默认规则|内容长度必须小于等于[100]|
 |用户工号|默认规则|内容长度必须小于等于[100]|
+|密码|默认规则|内容长度必须小于等于[100]|
 |登录名|默认规则|内容长度必须小于等于[100]|
 |区属|默认规则|内容长度必须小于等于[100]|
 |主部门|默认规则|内容长度必须小于等于[100]|

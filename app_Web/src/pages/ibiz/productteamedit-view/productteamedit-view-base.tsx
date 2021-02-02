@@ -131,7 +131,7 @@ export class PRODUCTTEAMEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof PRODUCTTEAMEditViewBase
      */
-	protected viewtag: string = '24bd71cafa4143c58de671b37ce80b56';
+	protected viewtag: string = 'a139999da375ad637cf0b9d455734b21';
 
     /**
      * 视图名称

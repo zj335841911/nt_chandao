@@ -112,7 +112,7 @@ export class ProductListExpViewBase extends ListExpViewBase {
      * @type {string}
      * @memberof ProductListExpViewBase
      */
-	protected viewtag: string = 'e396b6f39451e3bf963aec602106adf0';
+	protected viewtag: string = 'a84a543c155b01389bc12eb1c27624b5';
 
     /**
      * 视图名称

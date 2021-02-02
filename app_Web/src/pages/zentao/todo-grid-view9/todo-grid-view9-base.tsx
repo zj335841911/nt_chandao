@@ -131,7 +131,7 @@ export class TodoGridView9Base extends GridView9Base {
      * @type {string}
      * @memberof TodoGridView9Base
      */
-	protected viewtag: string = 'c3f0a8956b863fa05a7d961df90a3975';
+	protected viewtag: string = 'bc2507cdd677c5e56d209fbab236dfc2';
 
     /**
      * 视图名称

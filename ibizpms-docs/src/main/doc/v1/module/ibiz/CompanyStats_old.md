@@ -9,36 +9,36 @@
 
 | 属性名称        |    中文名称    | 类型     |  备注  |
 | --------   |------------| -----   |  -------- | 
-|标识|ID|ACID|&nbsp;|
-|备注|COMMENT|LONGTEXT|&nbsp;|
-|日期|ZTDATE|DATE|&nbsp;|
 |登录次数|LOGINCNT|INT|&nbsp;|
-|日志工时|LOGHOURS|INT|&nbsp;|
 |新增需求数|OPENEDSTORYCNT|INT|&nbsp;|
-|关闭需求数|CLOSEDSTORYCNT|INT|&nbsp;|
-|新增任务数|OPENEDTASKCNT|INT|&nbsp;|
-|完成任务数|FINISHEDTASKCNT|INT|&nbsp;|
-|新增Bug数|OPENEDBUGCNT|INT|&nbsp;|
-|解决Bug数|RESOLVEDBUGCNT|INT|&nbsp;|
-|动态数|DYNAMICCNT|INT|&nbsp;|
+|日期|ZTDATE|DATE|&nbsp;|
 |日志日期|DATE|DATE|&nbsp;|
+|关闭需求数|CLOSEDSTORYCNT|INT|&nbsp;|
+|新增Bug数|OPENEDBUGCNT|INT|&nbsp;|
+|日志工时|LOGHOURS|INT|&nbsp;|
+|动态数|DYNAMICCNT|INT|&nbsp;|
+|完成任务数|FINISHEDTASKCNT|INT|&nbsp;|
+|解决Bug数|RESOLVEDBUGCNT|INT|&nbsp;|
+|备注|COMMENT|LONGTEXT|&nbsp;|
+|新增任务数|OPENEDTASKCNT|INT|&nbsp;|
+|标识|ID|ACID|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
 | --------   |------------| ----- | 
-|标识|默认规则|默认规则|
-|备注|默认规则|内容长度必须小于等于[65535]|
-|日期|默认规则|默认规则|
 |登录次数|默认规则|默认规则|
-|日志工时|默认规则|默认规则|
 |新增需求数|默认规则|默认规则|
-|关闭需求数|默认规则|默认规则|
-|新增任务数|默认规则|默认规则|
-|完成任务数|默认规则|默认规则|
-|新增Bug数|默认规则|默认规则|
-|解决Bug数|默认规则|默认规则|
-|动态数|默认规则|默认规则|
+|日期|默认规则|默认规则|
 |日志日期|默认规则|默认规则|
+|关闭需求数|默认规则|默认规则|
+|新增Bug数|默认规则|默认规则|
+|日志工时|默认规则|默认规则|
+|动态数|默认规则|默认规则|
+|完成任务数|默认规则|默认规则|
+|解决Bug数|默认规则|默认规则|
+|备注|默认规则|内容长度必须小于等于[65535]|
+|新增任务数|默认规则|默认规则|
+|标识|默认规则|默认规则|
 
 ## 状态控制
 
@@ -79,9 +79,9 @@
 ## 查询模式
 | 属性      |    搜索模式     |
 | --------   |------------|
-|备注(COMMENT)|LIKE|
 |日志日期(DATE)|GTANDEQ|
 |日志日期(DATE)|LTANDEQ|
+|备注(COMMENT)|LIKE|
 
 ## 导入模式
 无

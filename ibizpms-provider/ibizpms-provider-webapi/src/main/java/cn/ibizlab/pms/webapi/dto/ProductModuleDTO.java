@@ -39,6 +39,15 @@ public class ProductModuleDTO extends DTOBase implements Serializable {
     private String path;
 
     /**
+     * 属性 [ORDERPK]
+     *
+     */
+    @JSONField(name = "orderpk")
+    @JsonProperty("orderpk")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String orderpk;
+
+    /**
      * 属性 [DELETED]
      *
      */
@@ -136,24 +145,6 @@ public class ProductModuleDTO extends DTOBase implements Serializable {
     private String collector;
 
     /**
-     * 属性 [ROOT]
-     *
-     */
-    @JSONField(name = "root")
-    @JsonProperty("root")
-    @JsonSerialize(using = ToStringSerializer.class)
-    private Long root;
-
-    /**
-     * 属性 [PARENT]
-     *
-     */
-    @JSONField(name = "parent")
-    @JsonProperty("parent")
-    @JsonSerialize(using = ToStringSerializer.class)
-    private Long parent;
-
-    /**
      * 属性 [ROOTNAME]
      *
      */
@@ -172,13 +163,22 @@ public class ProductModuleDTO extends DTOBase implements Serializable {
     private String parentname;
 
     /**
-     * 属性 [ORDERPK]
+     * 属性 [ROOT]
      *
      */
-    @JSONField(name = "orderpk")
-    @JsonProperty("orderpk")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String orderpk;
+    @JSONField(name = "root")
+    @JsonProperty("root")
+    @JsonSerialize(using = ToStringSerializer.class)
+    private Long root;
+
+    /**
+     * 属性 [PARENT]
+     *
+     */
+    @JSONField(name = "parent")
+    @JsonProperty("parent")
+    @JsonSerialize(using = ToStringSerializer.class)
+    private Long parent;
 
 
     /**

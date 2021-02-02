@@ -3,33 +3,33 @@ function getLocaleResourceBase(){
 	const data:any = {
 		appdename: commonLogic.appcommonhandle("需求模块", null),
 		fields: {
-			id: commonLogic.appcommonhandle("id",null),
-			name: commonLogic.appcommonhandle("名称",null),
-			root: commonLogic.appcommonhandle("编号",null),
-			ibizid: commonLogic.appcommonhandle("IBIZ标识",null),
-			type: commonLogic.appcommonhandle("类型",null),
 			grade: commonLogic.appcommonhandle("级别",null),
-			path: commonLogic.appcommonhandle("路径",null),
-			ibizshort: commonLogic.appcommonhandle("简称",null),
-			parent: commonLogic.appcommonhandle("id",null),
-			productname: commonLogic.appcommonhandle("产品",null),
-			owner: commonLogic.appcommonhandle("owner",null),
 			collector: commonLogic.appcommonhandle("collector",null),
-			deleted: commonLogic.appcommonhandle("已删除",null),
+			owner: commonLogic.appcommonhandle("owner",null),
 			ibiz_storytype: commonLogic.appcommonhandle("需求模块类型",null),
+			id: commonLogic.appcommonhandle("id",null),
+			type: commonLogic.appcommonhandle("类型",null),
+			ibizshort: commonLogic.appcommonhandle("简称",null),
+			name: commonLogic.appcommonhandle("名称",null),
+			deleted: commonLogic.appcommonhandle("已删除",null),
+			path: commonLogic.appcommonhandle("路径",null),
+			ibizid: commonLogic.appcommonhandle("IBIZ标识",null),
+			productname: commonLogic.appcommonhandle("产品",null),
+			root: commonLogic.appcommonhandle("编号",null),
+			parent: commonLogic.appcommonhandle("id",null),
 		},
 			views: {
-				editview: {
+				gridview: {
 					caption: commonLogic.appcommonhandle("需求模块",null),
-					title: commonLogic.appcommonhandle("需求模块编辑视图",null),
+					title: commonLogic.appcommonhandle("需求模块表格视图",null),
 				},
 				optionview: {
 					caption: commonLogic.appcommonhandle("同步",null),
 					title: commonLogic.appcommonhandle("需求模块选项操作视图同步",null),
 				},
-				gridview: {
+				editview: {
 					caption: commonLogic.appcommonhandle("需求模块",null),
-					title: commonLogic.appcommonhandle("需求模块表格视图",null),
+					title: commonLogic.appcommonhandle("需求模块编辑视图",null),
 				},
 			},
 			sycfromibz_form: {

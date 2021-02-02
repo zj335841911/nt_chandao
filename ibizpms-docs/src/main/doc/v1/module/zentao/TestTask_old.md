@@ -18,28 +18,28 @@ hide members
 | --------   |------------| -----   |  -------- | 
 |结束日期|END|DATE|&nbsp;|
 |开始日期|BEGIN|DATE|&nbsp;|
+|负责人（选择）|OWNERPK|TEXT|&nbsp;|
 |抄送给|MAILTO|SMCODELIST|&nbsp;|
+|用例数|CASECNT|INT|&nbsp;|
+|抄送给|MAILTOPK|SMCODELIST|&nbsp;|
 |优先级|PRI|NSCODELIST|&nbsp;|
+|备注|COMMENT|HTMLTEXT|&nbsp;|
 |子状态|SUBSTATUS|TEXT|&nbsp;|
 |report|REPORT|LONGTEXT|&nbsp;|
 |描述|DESC|LONGTEXT|&nbsp;|
 |编号|ID|ACID|&nbsp;|
 |当前状态|STATUS|SSCODELIST|&nbsp;|
+|联系人|MAILTOCONACT|TEXT|&nbsp;|
 |负责人|OWNER|TEXT|&nbsp;|
 |已删除|DELETED|TEXT|&nbsp;|
 |auto|AUTO|TEXT|&nbsp;|
 |名称|NAME|TEXT|&nbsp;|
+|版本|BUILDNAME|PICKUPTEXT|&nbsp;|
+|产品|PRODUCTNAME|PICKUPTEXT|&nbsp;|
+|项目|PROJECTTNAME|PICKUPTEXT|&nbsp;|
 |所属产品|PRODUCT|PICKUP|&nbsp;|
 |版本|BUILD|PICKUP|&nbsp;|
 |所属项目|PROJECT|PICKUP|&nbsp;|
-|产品|PRODUCTNAME|PICKUPTEXT|&nbsp;|
-|项目|PROJECTTNAME|PICKUPTEXT|&nbsp;|
-|版本|BUILDNAME|PICKUPTEXT|&nbsp;|
-|备注|COMMENT|HTMLTEXT|&nbsp;|
-|用例数|CASECNT|INT|&nbsp;|
-|负责人（选择）|OWNERPK|TEXT|&nbsp;|
-|联系人|MAILTOCONACT|TEXT|&nbsp;|
-|抄送给|MAILTOPK|SMCODELIST|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -47,36 +47,36 @@ hide members
 |结束日期|结束日期必须大于等于开始日期|结束日期必须大于等于开始日期!|
 |结束日期|默认规则|默认规则|
 |开始日期|默认规则|默认规则|
+|负责人（选择）|默认规则|内容长度必须小于等于[200]|
+|抄送给|默认规则|内容长度必须小于等于[65535]|
+|用例数|默认规则|默认规则|
 |抄送给|默认规则|内容长度必须小于等于[65535]|
 |优先级|默认规则|默认规则|
+|备注|默认规则|内容长度必须小于等于[1048576]|
 |子状态|默认规则|内容长度必须小于等于[30]|
 |report|默认规则|内容长度必须小于等于[65535]|
 |描述|默认规则|内容长度必须小于等于[65535]|
 |编号|默认规则|默认规则|
 |当前状态|默认规则|内容长度必须小于等于[7]|
+|联系人|默认规则|内容长度必须小于等于[100]|
 |负责人|默认规则|内容长度必须小于等于[30]|
 |已删除|默认规则|内容长度必须小于等于[1]|
 |auto|默认规则|内容长度必须小于等于[10]|
 |名称|默认规则|内容长度必须小于等于[90]|
+|版本|默认规则|内容长度必须小于等于[150]|
+|产品|默认规则|内容长度必须小于等于[90]|
+|项目|默认规则|内容长度必须小于等于[90]|
 |所属产品|默认规则|默认规则|
 |版本|默认规则|默认规则|
 |所属项目|默认规则|默认规则|
-|产品|默认规则|内容长度必须小于等于[90]|
-|项目|默认规则|内容长度必须小于等于[90]|
-|版本|默认规则|内容长度必须小于等于[150]|
-|备注|默认规则|内容长度必须小于等于[1048576]|
-|用例数|默认规则|默认规则|
-|负责人（选择）|默认规则|内容长度必须小于等于[200]|
-|联系人|默认规则|内容长度必须小于等于[100]|
-|抄送给|默认规则|内容长度必须小于等于[65535]|
 
 ## 状态控制
 
 |当前状态|行为控制模式| 控制行为 | 操作标识控制模式 | 控制操作 |
 | --------   | ------------|------------|------------|------------|
-|Value| 允许|  | 不允许 | SRFUR__TESTT_BLOCK_BUT<br>SRFUR__TESTT_START_BUT<br> |
+|Value| 允许|  | 不允许 | SRFUR__TESTT_START_BUT<br>SRFUR__TESTT_BLOCK_BUT<br> |
 |Value| 允许|  | 不允许 | SRFUR__TESTT_ACTIVITE_BUT<br>SRFUR__TESTT_START_BUT<br> |
-|Value| 允许|  | 不允许 | SRFUR__TESTT_BLOCK_BUT<br>SRFUR__TESTT_CLOSED_BUT<br>SRFUR__TESTT_START_BUT<br> |
+|Value| 允许|  | 不允许 | SRFUR__TESTT_CLOSED_BUT<br>SRFUR__TESTT_START_BUT<br>SRFUR__TESTT_BLOCK_BUT<br> |
 |Value| 允许|  | 不允许 | SRFUR__TESTT_ACTIVITE_BUT<br> |
 
 当前状态
@@ -181,20 +181,20 @@ hide footbox
 |当前状态(STATUS)|NOTEQ|
 |负责人(OWNER)|EQ|
 |名称(NAME)|LIKE|
-|所属产品(PRODUCT)|EQ|
-|版本(BUILD)|EQ|
-|所属项目(PROJECT)|EQ|
+|版本(BUILDNAME)|EQ|
+|版本(BUILDNAME)|LIKE|
 |产品(PRODUCTNAME)|EQ|
 |产品(PRODUCTNAME)|LIKE|
 |项目(PROJECTTNAME)|EQ|
 |项目(PROJECTTNAME)|LIKE|
-|版本(BUILDNAME)|EQ|
-|版本(BUILDNAME)|LIKE|
+|所属产品(PRODUCT)|EQ|
+|版本(BUILD)|EQ|
+|所属项目(PROJECT)|EQ|
 
 ## 导入模式
 * 数据导入
 
-|名称|项目|子状态|开始日期|描述|抄送给|产品|report|结束日期|已删除|负责人|备注|所属产品|编号|优先级|版本|当前状态|版本|auto|所属项目|
+|auto|当前状态|子状态|优先级|所属项目|结束日期|描述|编号|抄送给|开始日期|负责人|名称|已删除|版本|项目|备注|版本|所属产品|report|产品|
 | :------: | :------: | :------: | :------: | :------: | :------: | :------: | :------: | :------: | :------: | :------: | :------: | :------: | :------: | :------: | :------: | :------: | :------: | :------: | :------: |
 | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - |
 

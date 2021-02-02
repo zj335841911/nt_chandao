@@ -5,6 +5,8 @@ function getLocaleResourceBase(){
 		fields: {
 			pathname: commonLogic.appcommonhandle("路径",null),
 			objectid: commonLogic.appcommonhandle("对象ID",null),
+			strsize: commonLogic.appcommonhandle("显示大小",null),
+			doclibtype: commonLogic.appcommonhandle("文档类型",null),
 			deleted: commonLogic.appcommonhandle("已删除",null),
 			extension: commonLogic.appcommonhandle("文件类型",null),
 			objecttype: commonLogic.appcommonhandle("对象类型",null),
@@ -15,25 +17,23 @@ function getLocaleResourceBase(){
 			size: commonLogic.appcommonhandle("大小",null),
 			id: commonLogic.appcommonhandle("id",null),
 			extra: commonLogic.appcommonhandle("备注",null),
-			strsize: commonLogic.appcommonhandle("显示大小",null),
-			doclibtype: commonLogic.appcommonhandle("文档类型",null),
 		},
 			views: {
-				projectgridviewfile: {
+				productgridview: {
 					caption: commonLogic.appcommonhandle("附件",null),
 					title: commonLogic.appcommonhandle("file表格视图",null),
 				},
-				listview9: {
-					caption: commonLogic.appcommonhandle("附件",null),
-					title: commonLogic.appcommonhandle("附件",null),
-				},
-				productgridview: {
+				projectgridviewfile: {
 					caption: commonLogic.appcommonhandle("附件",null),
 					title: commonLogic.appcommonhandle("file表格视图",null),
 				},
 				editview: {
 					caption: commonLogic.appcommonhandle("附件",null),
 					title: commonLogic.appcommonhandle("file编辑视图",null),
+				},
+				listview9: {
+					caption: commonLogic.appcommonhandle("附件",null),
+					title: commonLogic.appcommonhandle("附件",null),
 				},
 			},
 			main_form: {

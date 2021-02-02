@@ -121,7 +121,7 @@ export class ProductSumQaChartView9Base extends ChartView9Base {
      * @type {string}
      * @memberof ProductSumQaChartView9Base
      */
-	protected viewtag: string = 'e842d6d727d88c2c78b59c033fa27f34';
+	protected viewtag: string = '2e1e24a39d1f1969f411b507d49fc640';
 
     /**
      * 视图名称

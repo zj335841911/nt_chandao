@@ -144,7 +144,7 @@ export class ProductModuleQuickCfgViewBase extends OptionViewBase {
      * @type {string}
      * @memberof ProductModuleQuickCfgViewBase
      */
-	protected viewtag: string = 'a9be826f6c53b091270f492be52f2519';
+	protected viewtag: string = '8bcbd6c2b7e3d93270529da796425a5b';
 
     /**
      * 视图名称

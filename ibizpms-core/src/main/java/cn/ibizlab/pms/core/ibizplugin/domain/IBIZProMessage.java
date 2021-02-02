@@ -34,53 +34,11 @@ import cn.ibizlab.pms.util.domain.EntityClient;
 public class IBIZProMessage extends EntityClient implements Serializable {
 
     /**
-     * 重发次数
+     * 发送代理标识
      */
-    @JSONField(name = "retrytimes")
-    @JsonProperty("retrytimes")
-    private Integer retrytimes;
-
-    /**
-     * 发送方
-     */
-    @JSONField(name = "from")
-    @JsonProperty("from")
-    private String from;
-
-    /**
-     * 抄送方
-     */
-    @JSONField(name = "cc")
-    @JsonProperty("cc")
-    private String cc;
-
-    /**
-     * 接收方
-     */
-    @JSONField(name = "to")
-    @JsonProperty("to")
-    private String to;
-
-    /**
-     * 内容
-     */
-    @JSONField(name = "content")
-    @JsonProperty("content")
-    private String content;
-
-    /**
-     * 密件抄送方
-     */
-    @JSONField(name = "bcc")
-    @JsonProperty("bcc")
-    private String bcc;
-
-    /**
-     * 消息参数
-     */
-    @JSONField(name = "param")
-    @JsonProperty("param")
-    private String param;
+    @JSONField(name = "sendproxyid")
+    @JsonProperty("sendproxyid")
+    private String sendproxyid;
 
     /**
      * 消息名称
@@ -89,6 +47,13 @@ public class IBIZProMessage extends EntityClient implements Serializable {
     @JSONField(name = "ibizpromessagename")
     @JsonProperty("ibizpromessagename")
     private String ibizpromessagename;
+
+    /**
+     * 是否是链接消息
+     */
+    @JSONField(name = "islink")
+    @JsonProperty("islink")
+    private Integer islink;
 
     /**
      * 标题
@@ -105,32 +70,25 @@ public class IBIZProMessage extends EntityClient implements Serializable {
     private Integer retryintervaltime;
 
     /**
-     * 消息类型
+     * 密件抄送方
      */
-    @JSONField(name = "type")
-    @JsonProperty("type")
-    private String type;
+    @JSONField(name = "bcc")
+    @JsonProperty("bcc")
+    private String bcc;
 
     /**
-     * 是否同步
+     * 是否完成
      */
-    @JSONField(name = "issync")
-    @JsonProperty("issync")
-    private Integer issync;
+    @JSONField(name = "isdone")
+    @JsonProperty("isdone")
+    private Integer isdone;
 
     /**
-     * 是否重发
+     * 消息参数
      */
-    @JSONField(name = "isretry")
-    @JsonProperty("isretry")
-    private Integer isretry;
-
-    /**
-     * 是否是链接消息
-     */
-    @JSONField(name = "islink")
-    @JsonProperty("islink")
-    private Integer islink;
+    @JSONField(name = "param")
+    @JsonProperty("param")
+    private String param;
 
     /**
      * 消息标识
@@ -141,32 +99,32 @@ public class IBIZProMessage extends EntityClient implements Serializable {
     private String ibizpromessageid;
 
     /**
-     * 链接地址
+     * 重发次数
      */
-    @JSONField(name = "linkurl")
-    @JsonProperty("linkurl")
-    private String linkurl;
+    @JSONField(name = "retrytimes")
+    @JsonProperty("retrytimes")
+    private Integer retrytimes;
 
     /**
-     * 是否完成
+     * 是否同步
      */
-    @JSONField(name = "isdone")
-    @JsonProperty("isdone")
-    private Integer isdone;
+    @JSONField(name = "issync")
+    @JsonProperty("issync")
+    private Integer issync;
 
     /**
-     * 是否已读
+     * 发送方
      */
-    @JSONField(name = "isread")
-    @JsonProperty("isread")
-    private Integer isread;
+    @JSONField(name = "from")
+    @JsonProperty("from")
+    private String from;
 
     /**
-     * 发送代理标识
+     * 抄送方
      */
-    @JSONField(name = "sendproxyid")
-    @JsonProperty("sendproxyid")
-    private String sendproxyid;
+    @JSONField(name = "cc")
+    @JsonProperty("cc")
+    private String cc;
 
     /**
      * 发送时间
@@ -176,65 +134,51 @@ public class IBIZProMessage extends EntityClient implements Serializable {
     @JsonProperty("sendtime")
     private Timestamp sendtime;
 
-
-
-
+    /**
+     * 内容
+     */
+    @JSONField(name = "content")
+    @JsonProperty("content")
+    private String content;
 
     /**
-     * 设置 [重发次数]
+     * 链接地址
      */
-    public void setRetrytimes(Integer retrytimes) {
-        this.retrytimes = retrytimes ;
-        this.modify("retrytimes", retrytimes);
-    }
+    @JSONField(name = "linkurl")
+    @JsonProperty("linkurl")
+    private String linkurl;
 
     /**
-     * 设置 [发送方]
+     * 是否已读
      */
-    public void setFrom(String from) {
-        this.from = from ;
-        this.modify("from", from);
-    }
+    @JSONField(name = "isread")
+    @JsonProperty("isread")
+    private Integer isread;
 
     /**
-     * 设置 [抄送方]
+     * 是否重发
      */
-    public void setCc(String cc) {
-        this.cc = cc ;
-        this.modify("cc", cc);
-    }
+    @JSONField(name = "isretry")
+    @JsonProperty("isretry")
+    private Integer isretry;
 
     /**
-     * 设置 [接收方]
+     * 消息类型
      */
-    public void setTo(String to) {
-        this.to = to ;
-        this.modify("to", to);
-    }
+    @JSONField(name = "type")
+    @JsonProperty("type")
+    private String type;
 
     /**
-     * 设置 [内容]
+     * 接收方
      */
-    public void setContent(String content) {
-        this.content = content ;
-        this.modify("content", content);
-    }
+    @JSONField(name = "to")
+    @JsonProperty("to")
+    private String to;
 
-    /**
-     * 设置 [密件抄送方]
-     */
-    public void setBcc(String bcc) {
-        this.bcc = bcc ;
-        this.modify("bcc", bcc);
-    }
 
-    /**
-     * 设置 [消息参数]
-     */
-    public void setParam(String param) {
-        this.param = param ;
-        this.modify("param", param);
-    }
+
+
 
     /**
      * 设置 [消息名称]
@@ -242,6 +186,14 @@ public class IBIZProMessage extends EntityClient implements Serializable {
     public void setIbizpromessagename(String ibizpromessagename) {
         this.ibizpromessagename = ibizpromessagename ;
         this.modify("ibizpro_messagename", ibizpromessagename);
+    }
+
+    /**
+     * 设置 [是否是链接消息]
+     */
+    public void setIslink(Integer islink) {
+        this.islink = islink ;
+        this.modify("islink", islink);
     }
 
     /**
@@ -261,11 +213,27 @@ public class IBIZProMessage extends EntityClient implements Serializable {
     }
 
     /**
-     * 设置 [消息类型]
+     * 设置 [密件抄送方]
      */
-    public void setType(String type) {
-        this.type = type ;
-        this.modify("type", type);
+    public void setBcc(String bcc) {
+        this.bcc = bcc ;
+        this.modify("bcc", bcc);
+    }
+
+    /**
+     * 设置 [消息参数]
+     */
+    public void setParam(String param) {
+        this.param = param ;
+        this.modify("param", param);
+    }
+
+    /**
+     * 设置 [重发次数]
+     */
+    public void setRetrytimes(Integer retrytimes) {
+        this.retrytimes = retrytimes ;
+        this.modify("retrytimes", retrytimes);
     }
 
     /**
@@ -277,19 +245,27 @@ public class IBIZProMessage extends EntityClient implements Serializable {
     }
 
     /**
-     * 设置 [是否重发]
+     * 设置 [发送方]
      */
-    public void setIsretry(Integer isretry) {
-        this.isretry = isretry ;
-        this.modify("isretry", isretry);
+    public void setFrom(String from) {
+        this.from = from ;
+        this.modify("from", from);
     }
 
     /**
-     * 设置 [是否是链接消息]
+     * 设置 [抄送方]
      */
-    public void setIslink(Integer islink) {
-        this.islink = islink ;
-        this.modify("islink", islink);
+    public void setCc(String cc) {
+        this.cc = cc ;
+        this.modify("cc", cc);
+    }
+
+    /**
+     * 设置 [内容]
+     */
+    public void setContent(String content) {
+        this.content = content ;
+        this.modify("content", content);
     }
 
     /**
@@ -298,6 +274,30 @@ public class IBIZProMessage extends EntityClient implements Serializable {
     public void setLinkurl(String linkurl) {
         this.linkurl = linkurl ;
         this.modify("linkurl", linkurl);
+    }
+
+    /**
+     * 设置 [是否重发]
+     */
+    public void setIsretry(Integer isretry) {
+        this.isretry = isretry ;
+        this.modify("isretry", isretry);
+    }
+
+    /**
+     * 设置 [消息类型]
+     */
+    public void setType(String type) {
+        this.type = type ;
+        this.modify("type", type);
+    }
+
+    /**
+     * 设置 [接收方]
+     */
+    public void setTo(String to) {
+        this.to = to ;
+        this.modify("to", to);
     }
 
     /**

@@ -52,6 +52,13 @@ public class ProductModule extends EntityMP implements Serializable {
     @JsonProperty("path")
     private String path;
     /**
+     * 数据选择排序
+     */
+    @TableField(exist = false)
+    @JSONField(name = "orderpk")
+    @JsonProperty("orderpk")
+    private String orderpk;
+    /**
      * 逻辑删除标志
      */
     @DEField(defaultValue = "0", preType = DEPredefinedFieldType.LOGICVALID, logicval = "0", logicdelval = "1")
@@ -139,20 +146,6 @@ public class ProductModule extends EntityMP implements Serializable {
     @JsonProperty("collector")
     private String collector;
     /**
-     * 产品
-     */
-    @TableField(value = "`root`")
-    @JSONField(name = "root")
-    @JsonProperty("root")
-    private Long root;
-    /**
-     * id
-     */
-    @TableField(value = "`parent`")
-    @JSONField(name = "parent")
-    @JsonProperty("parent")
-    private Long parent;
-    /**
      * 所属产品
      */
     @TableField(exist = false)
@@ -167,12 +160,19 @@ public class ProductModule extends EntityMP implements Serializable {
     @JsonProperty("parentname")
     private String parentname;
     /**
-     * 数据选择排序
+     * 产品
      */
-    @TableField(exist = false)
-    @JSONField(name = "orderpk")
-    @JsonProperty("orderpk")
-    private String orderpk;
+    @TableField(value = "`root`")
+    @JSONField(name = "root")
+    @JsonProperty("root")
+    private Long root;
+    /**
+     * id
+     */
+    @TableField(value = "`parent`")
+    @JSONField(name = "parent")
+    @JsonProperty("parent")
+    private Long parent;
 
     /**
      * 

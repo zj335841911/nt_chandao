@@ -30,13 +30,13 @@ public class IbzproProductUserTaskDTO extends DTOBase implements Serializable {
 	private static final long serialVersionUID = 1L;
 
     /**
-     * 属性 [ID]
+     * 属性 [TASKTYPE]
      *
      */
-    @JSONField(name = "id")
-    @JsonProperty("id")
-    @JsonSerialize(using = ToStringSerializer.class)
-    private Long id;
+    @JSONField(name = "tasktype")
+    @JsonProperty("tasktype")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String tasktype;
 
     /**
      * 属性 [ACCOUNT]
@@ -48,15 +48,6 @@ public class IbzproProductUserTaskDTO extends DTOBase implements Serializable {
     private String account;
 
     /**
-     * 属性 [DATE]
-     *
-     */
-    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "date" , format="yyyy-MM-dd")
-    @JsonProperty("date")
-    private Timestamp date;
-
-    /**
      * 属性 [CONSUMED]
      *
      */
@@ -65,21 +56,13 @@ public class IbzproProductUserTaskDTO extends DTOBase implements Serializable {
     private Double consumed;
 
     /**
-     * 属性 [LEFT]
+     * 属性 [ID]
      *
      */
-    @JSONField(name = "left")
-    @JsonProperty("left")
-    private Double left;
-
-    /**
-     * 属性 [TASK]
-     *
-     */
-    @JSONField(name = "task")
-    @JsonProperty("task")
+    @JSONField(name = "id")
+    @JsonProperty("id")
     @JsonSerialize(using = ToStringSerializer.class)
-    private Long task;
+    private Long id;
 
     /**
      * 属性 [TASKNAME]
@@ -91,15 +74,6 @@ public class IbzproProductUserTaskDTO extends DTOBase implements Serializable {
     private String taskname;
 
     /**
-     * 属性 [TASKTYPE]
-     *
-     */
-    @JSONField(name = "tasktype")
-    @JsonProperty("tasktype")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String tasktype;
-
-    /**
      * 属性 [PROGRESSRATE]
      *
      */
@@ -107,6 +81,24 @@ public class IbzproProductUserTaskDTO extends DTOBase implements Serializable {
     @JsonProperty("progressrate")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
     private String progressrate;
+
+    /**
+     * 属性 [ESTSTARTED]
+     *
+     */
+    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "eststarted" , format="yyyy-MM-dd")
+    @JsonProperty("eststarted")
+    private Timestamp eststarted;
+
+    /**
+     * 属性 [DATE]
+     *
+     */
+    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "date" , format="yyyy-MM-dd")
+    @JsonProperty("date")
+    private Timestamp date;
 
     /**
      * 属性 [DELAYDAYS]
@@ -118,13 +110,21 @@ public class IbzproProductUserTaskDTO extends DTOBase implements Serializable {
     private String delaydays;
 
     /**
-     * 属性 [ESTSTARTED]
+     * 属性 [TASK]
      *
      */
-    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "eststarted" , format="yyyy-MM-dd")
-    @JsonProperty("eststarted")
-    private Timestamp eststarted;
+    @JSONField(name = "task")
+    @JsonProperty("task")
+    @JsonSerialize(using = ToStringSerializer.class)
+    private Long task;
+
+    /**
+     * 属性 [LEFT]
+     *
+     */
+    @JSONField(name = "left")
+    @JsonProperty("left")
+    private Double left;
 
     /**
      * 属性 [DEADLINE]
@@ -145,14 +145,6 @@ public class IbzproProductUserTaskDTO extends DTOBase implements Serializable {
     }
 
     /**
-     * 设置 [DATE]
-     */
-    public void setDate(Timestamp  date){
-        this.date = date ;
-        this.modify("date",date);
-    }
-
-    /**
      * 设置 [CONSUMED]
      */
     public void setConsumed(Double  consumed){
@@ -161,11 +153,11 @@ public class IbzproProductUserTaskDTO extends DTOBase implements Serializable {
     }
 
     /**
-     * 设置 [LEFT]
+     * 设置 [DATE]
      */
-    public void setLeft(Double  left){
-        this.left = left ;
-        this.modify("left",left);
+    public void setDate(Timestamp  date){
+        this.date = date ;
+        this.modify("date",date);
     }
 
     /**
@@ -174,6 +166,14 @@ public class IbzproProductUserTaskDTO extends DTOBase implements Serializable {
     public void setTask(Long  task){
         this.task = task ;
         this.modify("task",task);
+    }
+
+    /**
+     * 设置 [LEFT]
+     */
+    public void setLeft(Double  left){
+        this.left = left ;
+        this.modify("left",left);
     }
 
 

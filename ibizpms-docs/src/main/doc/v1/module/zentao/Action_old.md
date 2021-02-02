@@ -13,58 +13,58 @@ hide members
 
 | 属性名称        |    中文名称    | 类型     |  备注  |
 | --------   |------------| -----   |  -------- | 
+|本月|THISMONTH|TEXT|&nbsp;|
+|昨天|YESTERDAY|TEXT|&nbsp;|
 |附加值|EXTRA|LONGTEXT|&nbsp;细分需求、任务。任务再次分配|
+|文件|FILES|LONGTEXT|&nbsp;|
+|上月|LASTMONTH|TEXT|&nbsp;|
+|当前用户|ISACTORSS|BIGINT|&nbsp;|
+|本周|THISWEEK|TEXT|&nbsp;|
+|今天|TODAY|TEXT|&nbsp;|
+|显示日期|DATE1|TEXT|&nbsp;|
 |对象类型|OBJECTTYPE|SSCODELIST|&nbsp;|
 |id|ID|ACID|&nbsp;|
+|消息通知用户|NOTICEUSERS|TEXT|&nbsp;|
 |备注|COMMENT|LONGTEXT|&nbsp;|
 |已读|READ|SSCODELIST|&nbsp;发生变更之后的确认行为|
 |动作|ACTION|SSCODELIST|&nbsp;|
 |日期|DATE|DATETIME|&nbsp;|
 |产品|PRODUCT|TEXT|&nbsp;|
+|备注|LASTCOMMENT|HTMLTEXT|&nbsp;|
+|前端键值|SRFKEY|BIGINT|&nbsp;|
+|操作方式|ACTIONMANNER|SSCODELIST|&nbsp;|
+|上周|LASTWEEK|TEXT|&nbsp;|
 |对象ID|OBJECTID|BIGINT|&nbsp;|
 |操作者|ACTOR|TEXT|&nbsp;|
 |项目|PROJECT|PICKUP|&nbsp;|
-|备注|LASTCOMMENT|HTMLTEXT|&nbsp;|
-|操作方式|ACTIONMANNER|SSCODELIST|&nbsp;|
-|当前用户|ISACTORSS|BIGINT|&nbsp;|
-|显示日期|DATE1|TEXT|&nbsp;|
-|今天|TODAY|TEXT|&nbsp;|
-|昨天|YESTERDAY|TEXT|&nbsp;|
-|本周|THISWEEK|TEXT|&nbsp;|
-|上周|LASTWEEK|TEXT|&nbsp;|
-|本月|THISMONTH|TEXT|&nbsp;|
-|上月|LASTMONTH|TEXT|&nbsp;|
-|前端键值|SRFKEY|BIGINT|&nbsp;|
-|消息通知用户|NOTICEUSERS|TEXT|&nbsp;|
-|文件|FILES|LONGTEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
 | --------   |------------| ----- | 
+|本月|默认规则|内容长度必须小于等于[200]|
+|昨天|默认规则|内容长度必须小于等于[200]|
 |附加值|默认规则|内容长度必须小于等于[65535]|
+|文件|默认规则|内容长度必须小于等于[1048576]|
+|上月|默认规则|内容长度必须小于等于[200]|
+|当前用户|默认规则|默认规则|
+|本周|默认规则|内容长度必须小于等于[200]|
+|今天|默认规则|内容长度必须小于等于[200]|
+|显示日期|默认规则|内容长度必须小于等于[200]|
 |对象类型|默认规则|内容长度必须小于等于[30]|
 |id|默认规则|默认规则|
+|消息通知用户|默认规则|内容长度必须小于等于[100]|
 |备注|默认规则|内容长度必须小于等于[65535]|
 |已读|默认规则|内容长度必须小于等于[1]|
 |动作|默认规则|内容长度必须小于等于[30]|
 |日期|默认规则|默认规则|
 |产品|默认规则|内容长度必须小于等于[255]|
+|备注|默认规则|内容长度必须小于等于[200]|
+|前端键值|默认规则|默认规则|
+|操作方式|默认规则|内容长度必须小于等于[200]|
+|上周|默认规则|内容长度必须小于等于[200]|
 |对象ID|默认规则|默认规则|
 |操作者|默认规则|内容长度必须小于等于[100]|
 |项目|默认规则|默认规则|
-|备注|默认规则|内容长度必须小于等于[200]|
-|操作方式|默认规则|内容长度必须小于等于[200]|
-|当前用户|默认规则|默认规则|
-|显示日期|默认规则|内容长度必须小于等于[200]|
-|今天|默认规则|内容长度必须小于等于[200]|
-|昨天|默认规则|内容长度必须小于等于[200]|
-|本周|默认规则|内容长度必须小于等于[200]|
-|上周|默认规则|内容长度必须小于等于[200]|
-|本月|默认规则|内容长度必须小于等于[200]|
-|上月|默认规则|内容长度必须小于等于[200]|
-|前端键值|默认规则|默认规则|
-|消息通知用户|默认规则|内容长度必须小于等于[100]|
-|文件|默认规则|内容长度必须小于等于[1048576]|
 
 ## 状态控制
 
@@ -133,19 +133,19 @@ hide footbox
 ## 查询模式
 | 属性      |    搜索模式     |
 | --------   |------------|
+|本月(THISMONTH)|EQ|
+|昨天(YESTERDAY)|EQ|
+|上月(LASTMONTH)|EQ|
+|本周(THISWEEK)|EQ|
+|今天(TODAY)|EQ|
 |对象类型(OBJECTTYPE)|EQ|
 |备注(COMMENT)|LIKE|
 |已读(READ)|EQ|
 |动作(ACTION)|EQ|
+|操作方式(ACTIONMANNER)|EQ|
+|上周(LASTWEEK)|EQ|
 |对象ID(OBJECTID)|EQ|
 |项目(PROJECT)|EQ|
-|操作方式(ACTIONMANNER)|EQ|
-|今天(TODAY)|EQ|
-|昨天(YESTERDAY)|EQ|
-|本周(THISWEEK)|EQ|
-|上周(LASTWEEK)|EQ|
-|本月(THISMONTH)|EQ|
-|上月(LASTMONTH)|EQ|
 
 ## 导入模式
 无

@@ -57,13 +57,13 @@ export default class StoryRelatedModel {
           dataType: 'PICKUP',
         },
         {
-          name: 'plan',
-          prop: 'plan',
+          name: 'frombug',
+          prop: 'frombug',
           dataType: 'PICKUP',
         },
         {
-          name: 'frombug',
-          prop: 'frombug',
+          name: 'plan',
+          prop: 'plan',
           dataType: 'PICKUP',
         },
         {

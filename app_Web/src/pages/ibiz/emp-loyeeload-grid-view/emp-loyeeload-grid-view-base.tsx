@@ -109,7 +109,7 @@ export class EmpLoyeeloadGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof EmpLoyeeloadGridViewBase
      */
-	protected viewtag: string = 'e008123fe4c3014fac07b33dd79f6b13';
+	protected viewtag: string = 'fed7280032d303b9f49070bd3817d668';
 
     /**
      * 视图名称

@@ -27,11 +27,11 @@ import cn.ibizlab.pms.core.ibiz.domain.TaskTeam;
 @Data
 public class TaskTeamSearchContext extends QueryWrapperContext<TaskTeam> {
 
-	private Long n_root_eq;//[编号]
-	public void setN_root_eq(Long n_root_eq) {
-        this.n_root_eq = n_root_eq;
-        if(!ObjectUtils.isEmpty(this.n_root_eq)){
-            this.getSearchCond().eq("`root`", n_root_eq);
+	private String n_account_like;//[用户]
+	public void setN_account_like(String n_account_like) {
+        this.n_account_like = n_account_like;
+        if(!ObjectUtils.isEmpty(this.n_account_like)){
+            this.getSearchCond().like("`account`", n_account_like);
         }
     }
 	private String n_limited_eq;//[受限用户]
@@ -48,11 +48,11 @@ public class TaskTeamSearchContext extends QueryWrapperContext<TaskTeam> {
             this.getSearchCond().eq("`type`", n_type_eq);
         }
     }
-	private String n_account_like;//[用户]
-	public void setN_account_like(String n_account_like) {
-        this.n_account_like = n_account_like;
-        if(!ObjectUtils.isEmpty(this.n_account_like)){
-            this.getSearchCond().like("`account`", n_account_like);
+	private Long n_root_eq;//[编号]
+	public void setN_root_eq(Long n_root_eq) {
+        this.n_root_eq = n_root_eq;
+        if(!ObjectUtils.isEmpty(this.n_root_eq)){
+            this.getSearchCond().eq("`root`", n_root_eq);
         }
     }
 

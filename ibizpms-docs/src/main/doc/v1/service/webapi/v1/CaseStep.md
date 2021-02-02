@@ -2081,29 +2081,29 @@ POST
 #### CaseStepDTO
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
-| 1 | type | String | 允许 | 用例步骤类型 |
-| 2 | id | Long | 不可 | 编号 |
-| 3 | desc | String | 允许 | 步骤 |
-| 4 | expect | String | 允许 | 预期 |
-| 5 | version | Integer | 允许 | 用例版本 |
-| 6 | ibizcase | Long | 允许 | 用例 |
-| 7 | parent | Long | 允许 | 分组用例步骤的组编号 |
-| 8 | reals | String | 允许 | 实际情况 |
-| 9 | steps | String | 允许 | 测试结果 |
-| 10 | files | String | 允许 | 附件 |
-| 11 | runid | Integer | 允许 | 执行编号 |
-| 12 | casestepid | Long | 允许 | 用例步骤编号 |
+| 1 | casestepid | Long | 允许 | 用例步骤编号 |
+| 2 | reals | String | 允许 | 实际情况 |
+| 3 | steps | String | 允许 | 测试结果 |
+| 4 | type | String | 允许 | 用例步骤类型 |
+| 5 | id | Long | 不可 | 编号 |
+| 6 | desc | String | 允许 | 步骤 |
+| 7 | expect | String | 允许 | 预期 |
+| 8 | files | String | 允许 | 附件 |
+| 9 | runid | Integer | 允许 | 执行编号 |
+| 10 | version | Integer | 允许 | 用例版本 |
+| 11 | ibizcase | Long | 允许 | 用例 |
+| 12 | parent | Long | 允许 | 分组用例步骤的组编号 |
 | 13 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### CaseStepSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
-| 1 | n_type_eq | String | 允许 | 条件字段：type<br>条件组合方式：`=` |
-| 2 | n_expect_like | String | 允许 | 条件字段：expect<br>条件组合方式：`%like%` |
-| 3 | n_version_eq | Integer | 允许 | 条件字段：version<br>条件组合方式：`=` |
-| 4 | n_case_eq | Long | 允许 | 条件字段：case<br>条件组合方式：`=` |
-| 5 | n_parent_eq | Long | 允许 | 条件字段：parent<br>条件组合方式：`=` |
-| 6 | n_steps_eq | String | 允许 | 条件字段：steps<br>条件组合方式：`=` |
+| 1 | n_steps_eq | String | 允许 | 条件字段：steps<br>条件组合方式：`=` |
+| 2 | n_type_eq | String | 允许 | 条件字段：type<br>条件组合方式：`=` |
+| 3 | n_expect_like | String | 允许 | 条件字段：expect<br>条件组合方式：`%like%` |
+| 4 | n_version_eq | Integer | 允许 | 条件字段：version<br>条件组合方式：`=` |
+| 5 | n_case_eq | Long | 允许 | 条件字段：case<br>条件组合方式：`=` |
+| 6 | n_parent_eq | Long | 允许 | 条件字段：parent<br>条件组合方式：`=` |
 | 7 | customcond | String | 允许 | 自定义查询条件 |
 | 8 | customparams | String | 允许 | 自定义查询参数 |
 | 9 | query | String | 允许 | 快速搜索 |

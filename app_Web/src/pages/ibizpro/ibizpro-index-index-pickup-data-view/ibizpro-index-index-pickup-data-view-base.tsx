@@ -101,7 +101,7 @@ export class IbizproIndexIndexPickupDataViewBase extends IndexPickupDataViewBase
      * @type {string}
      * @memberof IbizproIndexIndexPickupDataViewBase
      */
-	protected viewtag: string = '92269965704a55f1342317470d86e5e3';
+	protected viewtag: string = 'b73c533bd0b7c0813dc5fa85f2b3549f';
 
     /**
      * 视图名称

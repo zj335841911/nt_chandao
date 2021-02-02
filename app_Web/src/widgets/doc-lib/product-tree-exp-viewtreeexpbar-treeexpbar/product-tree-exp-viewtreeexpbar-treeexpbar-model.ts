@@ -18,16 +18,34 @@ export default class ProductTreeExpViewtreeexpbarModel {
         name: 'type',
       },
       {
+        name: 'doclibtype',
+      },
+      {
+        name: 'isfavourites',
+      },
+      {
         name: 'collector',
       },
       {
+        name: 'mdeptid',
+      },
+      {
+        name: 'orgid',
+      },
+      {
         name: 'acl',
+      },
+      {
+        name: 'root',
       },
       {
         name: 'deleted',
       },
       {
         name: 'groups',
+      },
+      {
+        name: 'doccnt',
       },
       {
         name: 'doclib',
@@ -43,43 +61,25 @@ export default class ProductTreeExpViewtreeexpbarModel {
         name: 'name',
       },
       {
+        name: 'modulecnt',
+      },
+      {
+        name: 'openeddate',
+      },
+      {
         name: 'order',
+      },
+      {
+        name: 'productname',
+      },
+      {
+        name: 'projectname',
       },
       {
         name: 'project',
       },
       {
         name: 'product',
-      },
-      {
-        name: 'doccnt',
-      },
-      {
-        name: 'doclibtype',
-      },
-      {
-        name: 'projectname',
-      },
-      {
-        name: 'productname',
-      },
-      {
-        name: 'isfavourites',
-      },
-      {
-        name: 'orgid',
-      },
-      {
-        name: 'mdeptid',
-      },
-      {
-        name: 'root',
-      },
-      {
-        name: 'modulecnt',
-      },
-      {
-        name: 'openeddate',
       },
     ]
   }

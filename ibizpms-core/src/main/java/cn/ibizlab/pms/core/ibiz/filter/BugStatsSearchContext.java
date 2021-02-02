@@ -27,39 +27,11 @@ import cn.ibizlab.pms.core.ibiz.domain.BugStats;
 @Data
 public class BugStatsSearchContext extends QueryWrapperContext<BugStats> {
 
-	private String n_title_like;//[名称]
-	public void setN_title_like(String n_title_like) {
-        this.n_title_like = n_title_like;
-        if(!ObjectUtils.isEmpty(this.n_title_like)){
-            this.getSearchCond().like("`title`", n_title_like);
-        }
-    }
-	private String n_openedby_eq;//[由谁创建]
-	public void setN_openedby_eq(String n_openedby_eq) {
-        this.n_openedby_eq = n_openedby_eq;
-        if(!ObjectUtils.isEmpty(this.n_openedby_eq)){
-            this.getSearchCond().eq("`openedby`", n_openedby_eq);
-        }
-    }
 	private Integer n_bugwillnotfix_ltandeq;//[不予解决]
 	public void setN_bugwillnotfix_ltandeq(Integer n_bugwillnotfix_ltandeq) {
         this.n_bugwillnotfix_ltandeq = n_bugwillnotfix_ltandeq;
         if(!ObjectUtils.isEmpty(this.n_bugwillnotfix_ltandeq)){
             this.getSearchCond().le("`bugwillnotfix`", n_bugwillnotfix_ltandeq);
-        }
-    }
-	private Long n_product_eq;//[编号]
-	public void setN_product_eq(Long n_product_eq) {
-        this.n_product_eq = n_product_eq;
-        if(!ObjectUtils.isEmpty(this.n_product_eq)){
-            this.getSearchCond().eq("`product`", n_product_eq);
-        }
-    }
-	private String n_assignedto_eq;//[指派给]
-	public void setN_assignedto_eq(String n_assignedto_eq) {
-        this.n_assignedto_eq = n_assignedto_eq;
-        if(!ObjectUtils.isEmpty(this.n_assignedto_eq)){
-            this.getSearchCond().eq("`assignedto`", n_assignedto_eq);
         }
     }
 	private String n_resolvedby_eq;//[由谁解决]
@@ -69,11 +41,27 @@ public class BugStatsSearchContext extends QueryWrapperContext<BugStats> {
             this.getSearchCond().eq("`resolvedby`", n_resolvedby_eq);
         }
     }
-	private Long n_project_eq;//[项目编号]
-	public void setN_project_eq(Long n_project_eq) {
-        this.n_project_eq = n_project_eq;
-        if(!ObjectUtils.isEmpty(this.n_project_eq)){
-            this.getSearchCond().eq("`project`", n_project_eq);
+	private String n_dept_eq;//[部门]
+	public void setN_dept_eq(String n_dept_eq) {
+        this.n_dept_eq = n_dept_eq;
+        if(!ObjectUtils.isEmpty(this.n_dept_eq)){
+            this.getSearchCond().eq("`dept`", n_dept_eq);
+        }
+    }
+	private String n_assignedto_eq;//[指派给]
+	public void setN_assignedto_eq(String n_assignedto_eq) {
+        this.n_assignedto_eq = n_assignedto_eq;
+        if(!ObjectUtils.isEmpty(this.n_assignedto_eq)){
+            this.getSearchCond().eq("`assignedto`", n_assignedto_eq);
+        }
+    }
+    @JsonFormat(pattern="yyyy-MM-dd", timezone="GMT+8")
+    @JSONField(format="yyyy-MM-dd")
+	private Timestamp n_begin_gtandeq;//[开始]
+	public void setN_begin_gtandeq(Timestamp n_begin_gtandeq) {
+        this.n_begin_gtandeq = n_begin_gtandeq;
+        if(!ObjectUtils.isEmpty(this.n_begin_gtandeq)){
+            this.getSearchCond().ge("`begin`", n_begin_gtandeq);
         }
     }
     @JsonFormat(pattern="yyyy-MM-dd", timezone="GMT+8")
@@ -94,22 +82,6 @@ public class BugStatsSearchContext extends QueryWrapperContext<BugStats> {
             this.getSearchCond().le("`bugresolveddate`", n_bugresolveddate_ltandeq);
         }
     }
-	private String n_dept_eq;//[部门]
-	public void setN_dept_eq(String n_dept_eq) {
-        this.n_dept_eq = n_dept_eq;
-        if(!ObjectUtils.isEmpty(this.n_dept_eq)){
-            this.getSearchCond().eq("`dept`", n_dept_eq);
-        }
-    }
-    @JsonFormat(pattern="yyyy-MM-dd", timezone="GMT+8")
-    @JSONField(format="yyyy-MM-dd")
-	private Timestamp n_begin_gtandeq;//[开始]
-	public void setN_begin_gtandeq(Timestamp n_begin_gtandeq) {
-        this.n_begin_gtandeq = n_begin_gtandeq;
-        if(!ObjectUtils.isEmpty(this.n_begin_gtandeq)){
-            this.getSearchCond().ge("`begin`", n_begin_gtandeq);
-        }
-    }
     @JsonFormat(pattern="yyyy-MM-dd", timezone="GMT+8")
     @JSONField(format="yyyy-MM-dd")
 	private Timestamp n_end_ltandeq;//[结束]
@@ -117,6 +89,34 @@ public class BugStatsSearchContext extends QueryWrapperContext<BugStats> {
         this.n_end_ltandeq = n_end_ltandeq;
         if(!ObjectUtils.isEmpty(this.n_end_ltandeq)){
             this.getSearchCond().le("`end`", n_end_ltandeq);
+        }
+    }
+	private String n_title_like;//[名称]
+	public void setN_title_like(String n_title_like) {
+        this.n_title_like = n_title_like;
+        if(!ObjectUtils.isEmpty(this.n_title_like)){
+            this.getSearchCond().like("`title`", n_title_like);
+        }
+    }
+	private String n_openedby_eq;//[由谁创建]
+	public void setN_openedby_eq(String n_openedby_eq) {
+        this.n_openedby_eq = n_openedby_eq;
+        if(!ObjectUtils.isEmpty(this.n_openedby_eq)){
+            this.getSearchCond().eq("`openedby`", n_openedby_eq);
+        }
+    }
+	private Long n_product_eq;//[编号]
+	public void setN_product_eq(Long n_product_eq) {
+        this.n_product_eq = n_product_eq;
+        if(!ObjectUtils.isEmpty(this.n_product_eq)){
+            this.getSearchCond().eq("`product`", n_product_eq);
+        }
+    }
+	private Long n_project_eq;//[项目编号]
+	public void setN_project_eq(Long n_project_eq) {
+        this.n_project_eq = n_project_eq;
+        if(!ObjectUtils.isEmpty(this.n_project_eq)){
+            this.getSearchCond().eq("`project`", n_project_eq);
         }
     }
 

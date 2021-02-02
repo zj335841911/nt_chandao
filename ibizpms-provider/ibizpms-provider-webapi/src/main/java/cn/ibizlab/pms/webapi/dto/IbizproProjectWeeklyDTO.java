@@ -30,24 +30,6 @@ public class IbizproProjectWeeklyDTO extends DTOBase implements Serializable {
 	private static final long serialVersionUID = 1L;
 
     /**
-     * 属性 [IBZPRO_PROJECTWEEKLYNAME]
-     *
-     */
-    @JSONField(name = "projectweeklyname")
-    @JsonProperty("projectweeklyname")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String projectweeklyname;
-
-    /**
-     * 属性 [IBZPRO_PROJECTWEEKLYID]
-     *
-     */
-    @JSONField(name = "projectweeklyid")
-    @JsonProperty("projectweeklyid")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String projectweeklyid;
-
-    /**
      * 属性 [CREATEDATE]
      *
      */
@@ -66,6 +48,24 @@ public class IbizproProjectWeeklyDTO extends DTOBase implements Serializable {
     private String updateman;
 
     /**
+     * 属性 [YEAR]
+     *
+     */
+    @JSONField(name = "year")
+    @JsonProperty("year")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String year;
+
+    /**
+     * 属性 [ENDDATESTATS]
+     *
+     */
+    @JSONField(name = "enddatestats")
+    @JsonProperty("enddatestats")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String enddatestats;
+
+    /**
      * 属性 [CREATEMAN]
      *
      */
@@ -73,32 +73,6 @@ public class IbizproProjectWeeklyDTO extends DTOBase implements Serializable {
     @JsonProperty("createman")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
     private String createman;
-
-    /**
-     * 属性 [UPDATEDATE]
-     *
-     */
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "updatedate" , format="yyyy-MM-dd HH:mm:ss")
-    @JsonProperty("updatedate")
-    private Timestamp updatedate;
-
-    /**
-     * 属性 [PM]
-     *
-     */
-    @JSONField(name = "pm")
-    @JsonProperty("pm")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String pm;
-
-    /**
-     * 属性 [TOTALESTIMATES]
-     *
-     */
-    @JSONField(name = "totalestimates")
-    @JsonProperty("totalestimates")
-    private Double totalestimates;
 
     /**
      * 属性 [TASKS]
@@ -110,31 +84,13 @@ public class IbizproProjectWeeklyDTO extends DTOBase implements Serializable {
     private String tasks;
 
     /**
-     * 属性 [DATE]
+     * 属性 [IBZPRO_PROJECTWEEKLYNAME]
      *
      */
-    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "date" , format="yyyy-MM-dd")
-    @JsonProperty("date")
-    private Timestamp date;
-
-    /**
-     * 属性 [PROJECT]
-     *
-     */
-    @JSONField(name = "project")
-    @JsonProperty("project")
-    @JsonSerialize(using = ToStringSerializer.class)
-    private Long project;
-
-    /**
-     * 属性 [PROJECTNAME]
-     *
-     */
-    @JSONField(name = "projectname")
-    @JsonProperty("projectname")
-    @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
-    private String projectname;
+    @JSONField(name = "projectweeklyname")
+    @JsonProperty("projectweeklyname")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String projectweeklyname;
 
     /**
      * 属性 [WEEK]
@@ -146,22 +102,39 @@ public class IbizproProjectWeeklyDTO extends DTOBase implements Serializable {
     private String week;
 
     /**
-     * 属性 [YEAR]
+     * 属性 [IBZPRO_PROJECTWEEKLYID]
      *
      */
-    @JSONField(name = "year")
-    @JsonProperty("year")
+    @JSONField(name = "projectweeklyid")
+    @JsonProperty("projectweeklyid")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String year;
+    private String projectweeklyid;
 
     /**
-     * 属性 [MONTH]
+     * 属性 [PM]
      *
      */
-    @JSONField(name = "month")
-    @JsonProperty("month")
+    @JSONField(name = "pm")
+    @JsonProperty("pm")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String month;
+    private String pm;
+
+    /**
+     * 属性 [DATE]
+     *
+     */
+    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "date" , format="yyyy-MM-dd")
+    @JsonProperty("date")
+    private Timestamp date;
+
+    /**
+     * 属性 [TOTALESTIMATES]
+     *
+     */
+    @JSONField(name = "totalestimates")
+    @JsonProperty("totalestimates")
+    private Double totalestimates;
 
     /**
      * 属性 [BEGINDATESTATS]
@@ -173,37 +146,56 @@ public class IbizproProjectWeeklyDTO extends DTOBase implements Serializable {
     private String begindatestats;
 
     /**
-     * 属性 [ENDDATESTATS]
+     * 属性 [UPDATEDATE]
      *
      */
-    @JSONField(name = "enddatestats")
-    @JsonProperty("enddatestats")
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "updatedate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonProperty("updatedate")
+    private Timestamp updatedate;
+
+    /**
+     * 属性 [MONTH]
+     *
+     */
+    @JSONField(name = "month")
+    @JsonProperty("month")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String enddatestats;
+    private String month;
+
+    /**
+     * 属性 [PROJECTNAME]
+     *
+     */
+    @JSONField(name = "projectname")
+    @JsonProperty("projectname")
+    @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
+    private String projectname;
+
+    /**
+     * 属性 [PROJECT]
+     *
+     */
+    @JSONField(name = "project")
+    @JsonProperty("project")
+    @JsonSerialize(using = ToStringSerializer.class)
+    private Long project;
 
 
     /**
-     * 设置 [IBZPRO_PROJECTWEEKLYNAME]
+     * 设置 [YEAR]
      */
-    public void setProjectweeklyname(String  projectweeklyname){
-        this.projectweeklyname = projectweeklyname ;
-        this.modify("ibzpro_projectweeklyname",projectweeklyname);
+    public void setYear(String  year){
+        this.year = year ;
+        this.modify("year",year);
     }
 
     /**
-     * 设置 [PM]
+     * 设置 [ENDDATESTATS]
      */
-    public void setPm(String  pm){
-        this.pm = pm ;
-        this.modify("pm",pm);
-    }
-
-    /**
-     * 设置 [TOTALESTIMATES]
-     */
-    public void setTotalestimates(Double  totalestimates){
-        this.totalestimates = totalestimates ;
-        this.modify("totalestimates",totalestimates);
+    public void setEnddatestats(String  enddatestats){
+        this.enddatestats = enddatestats ;
+        this.modify("enddatestats",enddatestats);
     }
 
     /**
@@ -215,19 +207,11 @@ public class IbizproProjectWeeklyDTO extends DTOBase implements Serializable {
     }
 
     /**
-     * 设置 [DATE]
+     * 设置 [IBZPRO_PROJECTWEEKLYNAME]
      */
-    public void setDate(Timestamp  date){
-        this.date = date ;
-        this.modify("date",date);
-    }
-
-    /**
-     * 设置 [PROJECT]
-     */
-    public void setProject(Long  project){
-        this.project = project ;
-        this.modify("project",project);
+    public void setProjectweeklyname(String  projectweeklyname){
+        this.projectweeklyname = projectweeklyname ;
+        this.modify("ibzpro_projectweeklyname",projectweeklyname);
     }
 
     /**
@@ -239,19 +223,27 @@ public class IbizproProjectWeeklyDTO extends DTOBase implements Serializable {
     }
 
     /**
-     * 设置 [YEAR]
+     * 设置 [PM]
      */
-    public void setYear(String  year){
-        this.year = year ;
-        this.modify("year",year);
+    public void setPm(String  pm){
+        this.pm = pm ;
+        this.modify("pm",pm);
     }
 
     /**
-     * 设置 [MONTH]
+     * 设置 [DATE]
      */
-    public void setMonth(String  month){
-        this.month = month ;
-        this.modify("month",month);
+    public void setDate(Timestamp  date){
+        this.date = date ;
+        this.modify("date",date);
+    }
+
+    /**
+     * 设置 [TOTALESTIMATES]
+     */
+    public void setTotalestimates(Double  totalestimates){
+        this.totalestimates = totalestimates ;
+        this.modify("totalestimates",totalestimates);
     }
 
     /**
@@ -263,11 +255,19 @@ public class IbizproProjectWeeklyDTO extends DTOBase implements Serializable {
     }
 
     /**
-     * 设置 [ENDDATESTATS]
+     * 设置 [MONTH]
      */
-    public void setEnddatestats(String  enddatestats){
-        this.enddatestats = enddatestats ;
-        this.modify("enddatestats",enddatestats);
+    public void setMonth(String  month){
+        this.month = month ;
+        this.modify("month",month);
+    }
+
+    /**
+     * 设置 [PROJECT]
+     */
+    public void setProject(Long  project){
+        this.project = project ;
+        this.modify("project",project);
     }
 
 

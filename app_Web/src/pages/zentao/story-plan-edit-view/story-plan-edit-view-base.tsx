@@ -153,7 +153,7 @@ export class StoryPlanEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof StoryPlanEditViewBase
      */
-	protected viewtag: string = '901398a79547094cd0e9791cbe6e90ef';
+	protected viewtag: string = '978f3a4696f6fb43bd590afaa9fa8b90';
 
     /**
      * 视图名称

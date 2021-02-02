@@ -129,7 +129,7 @@ export class TaskMyFavoriteGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof TaskMyFavoriteGridViewBase
      */
-	protected viewtag: string = '82b045705ced7d1c938a0df4a58046ca';
+	protected viewtag: string = '3e64fd6ff52a743fc5861c88e4d2da35';
 
     /**
      * 视图名称

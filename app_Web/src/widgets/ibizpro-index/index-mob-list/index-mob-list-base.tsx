@@ -134,20 +134,6 @@ export class IndexMobListBase extends ListControlBase {
                 { pathName: 'dashboardview', parameterName: 'dashboardview' },
             ]
         })
-        this.allRedirectViewMap.set('EDITVIEW:PRODUCT', {
-            viewname: 'maintabexpview',
-            srfappde: 'product',
-            component: 'product-main-tab-exp-view',
-            openmode: '',
-            viewmodule: 'zentao',
-            title: '产品',
-            width: 1400,
-            height: 850,
-            parameters:[
-                { pathName: 'products', parameterName: 'product' },
-                { pathName: 'maintabexpview', parameterName: 'maintabexpview' },
-            ]
-        })
         this.allRedirectViewMap.set('EDITVIEW:TASK', {
             viewname: 'maindashboardview',
             srfappde: 'task',
@@ -160,6 +146,20 @@ export class IndexMobListBase extends ListControlBase {
             parameters:[
                 { pathName: 'tasks', parameterName: 'task' },
                 { pathName: 'maindashboardview', parameterName: 'maindashboardview' },
+            ]
+        })
+        this.allRedirectViewMap.set('EDITVIEW:PRODUCT', {
+            viewname: 'maintabexpview',
+            srfappde: 'product',
+            component: 'product-main-tab-exp-view',
+            openmode: '',
+            viewmodule: 'zentao',
+            title: '产品',
+            width: 1400,
+            height: 850,
+            parameters:[
+                { pathName: 'products', parameterName: 'product' },
+                { pathName: 'maintabexpview', parameterName: 'maintabexpview' },
             ]
         })
         this.allRedirectViewMap.set('EDITVIEW:PROJECT', {
@@ -190,20 +190,6 @@ export class IndexMobListBase extends ListControlBase {
                 { pathName: 'maindashboardview', parameterName: 'maindashboardview' },
             ]
         })
-        this.allRedirectViewMap.set('EDITVIEW:BUG', {
-            viewname: 'maindashboardview',
-            srfappde: 'bug',
-            component: 'bug-main-dashboard-view',
-            openmode: 'DRAWER_TOP',
-            viewmodule: 'zentao',
-            title: 'Bug',
-            width: 1400,
-            height: 850,
-            parameters:[
-                { pathName: 'bugs', parameterName: 'bug' },
-                { pathName: 'maindashboardview', parameterName: 'maindashboardview' },
-            ]
-        })
         this.allRedirectViewMap.set('EDITVIEW:STORY', {
             viewname: 'mainview',
             srfappde: 'story',
@@ -216,6 +202,20 @@ export class IndexMobListBase extends ListControlBase {
             parameters:[
                 { pathName: 'stories', parameterName: 'story' },
                 { pathName: 'mainview', parameterName: 'mainview' },
+            ]
+        })
+        this.allRedirectViewMap.set('EDITVIEW:BUG', {
+            viewname: 'maindashboardview',
+            srfappde: 'bug',
+            component: 'bug-main-dashboard-view',
+            openmode: 'DRAWER_TOP',
+            viewmodule: 'zentao',
+            title: 'Bug',
+            width: 1400,
+            height: 850,
+            parameters:[
+                { pathName: 'bugs', parameterName: 'bug' },
+                { pathName: 'maindashboardview', parameterName: 'maindashboardview' },
             ]
         })
     }

@@ -89,7 +89,7 @@ export class ProductHtmlViewBase extends ViewBase {
      * @type {string}
      * @memberof ProductHtmlViewBase
      */
-	protected viewtag: string = '0846a45e5ffdd4d8f857575cfa955dce';
+	protected viewtag: string = 'b6969f6aea9c131d0c2144d88472ba6a';
 
     /**
      * 视图名称

@@ -52,13 +52,14 @@ public class SysUpdateFeatures extends EntityMP implements Serializable {
     @JsonProperty("sysupdatefeaturesname")
     private String sysupdatefeaturesname;
     /**
-     * 系统更新功能标识
+     * 更新时间
      */
-    @DEField(name = "sys_update_featuresid", isKeyField = true)
-    @TableId(value = "sys_update_featuresid", type = IdType.ASSIGN_UUID)
-    @JSONField(name = "sysupdatefeaturesid")
-    @JsonProperty("sysupdatefeaturesid")
-    private String sysupdatefeaturesid;
+    @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
+    @TableField(value = "`updatedate`")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "updatedate", format = "yyyy-MM-dd HH:mm:ss")
+    @JsonProperty("updatedate")
+    private Timestamp updatedate;
     /**
      * 建立人
      */
@@ -76,6 +77,13 @@ public class SysUpdateFeatures extends EntityMP implements Serializable {
     @JsonProperty("updateman")
     private String updateman;
     /**
+     * 更新类型
+     */
+    @TableField(value = "`type`")
+    @JSONField(name = "type")
+    @JsonProperty("type")
+    private String type;
+    /**
      * 建立时间
      */
     @DEField(preType = DEPredefinedFieldType.CREATEDATE)
@@ -85,36 +93,27 @@ public class SysUpdateFeatures extends EntityMP implements Serializable {
     @JsonProperty("createdate")
     private Timestamp createdate;
     /**
-     * 更新时间
-     */
-    @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
-    @TableField(value = "`updatedate`")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
-    @JSONField(name = "updatedate", format = "yyyy-MM-dd HH:mm:ss")
-    @JsonProperty("updatedate")
-    private Timestamp updatedate;
-    /**
-     * 系统更新日志标识
-     */
-    @DEField(name = "sys_update_logid")
-    @TableField(value = "`sys_update_logid`")
-    @JSONField(name = "sysupdatelogid")
-    @JsonProperty("sysupdatelogid")
-    private String sysupdatelogid;
-    /**
-     * 所属更新
-     */
-    @TableField(exist = false)
-    @JSONField(name = "sysupdatelogname")
-    @JsonProperty("sysupdatelogname")
-    private String sysupdatelogname;
-    /**
      * 更新功能
      */
     @TableField(value = "`upfeatures`")
     @JSONField(name = "upfeatures")
     @JsonProperty("upfeatures")
     private String upfeatures;
+    /**
+     * 系统更新功能标识
+     */
+    @DEField(name = "sys_update_featuresid", isKeyField = true)
+    @TableId(value = "sys_update_featuresid", type = IdType.ASSIGN_UUID)
+    @JSONField(name = "sysupdatefeaturesid")
+    @JsonProperty("sysupdatefeaturesid")
+    private String sysupdatefeaturesid;
+    /**
+     * 展示顺序
+     */
+    @TableField(value = "`displayorder`")
+    @JSONField(name = "displayorder")
+    @JsonProperty("displayorder")
+    private Integer displayorder;
     /**
      * 功能描述
      */
@@ -123,19 +122,20 @@ public class SysUpdateFeatures extends EntityMP implements Serializable {
     @JsonProperty("featuresdesc")
     private String featuresdesc;
     /**
-     * 更新类型
+     * 所属更新
      */
-    @TableField(value = "`type`")
-    @JSONField(name = "type")
-    @JsonProperty("type")
-    private String type;
+    @TableField(exist = false)
+    @JSONField(name = "sysupdatelogname")
+    @JsonProperty("sysupdatelogname")
+    private String sysupdatelogname;
     /**
-     * 展示顺序
+     * 系统更新日志标识
      */
-    @TableField(value = "`displayorder`")
-    @JSONField(name = "displayorder")
-    @JsonProperty("displayorder")
-    private Integer displayorder;
+    @DEField(name = "sys_update_logid")
+    @TableField(value = "`sys_update_logid`")
+    @JSONField(name = "sysupdatelogid")
+    @JsonProperty("sysupdatelogid")
+    private String sysupdatelogid;
 
     /**
      * 
@@ -156,11 +156,11 @@ public class SysUpdateFeatures extends EntityMP implements Serializable {
     }
 
     /**
-     * 设置 [系统更新日志标识]
+     * 设置 [更新类型]
      */
-    public void setSysupdatelogid(String sysupdatelogid) {
-        this.sysupdatelogid = sysupdatelogid;
-        this.modify("sys_update_logid", sysupdatelogid);
+    public void setType(String type) {
+        this.type = type;
+        this.modify("type", type);
     }
 
     /**
@@ -172,6 +172,14 @@ public class SysUpdateFeatures extends EntityMP implements Serializable {
     }
 
     /**
+     * 设置 [展示顺序]
+     */
+    public void setDisplayorder(Integer displayorder) {
+        this.displayorder = displayorder;
+        this.modify("displayorder", displayorder);
+    }
+
+    /**
      * 设置 [功能描述]
      */
     public void setFeaturesdesc(String featuresdesc) {
@@ -180,19 +188,11 @@ public class SysUpdateFeatures extends EntityMP implements Serializable {
     }
 
     /**
-     * 设置 [更新类型]
+     * 设置 [系统更新日志标识]
      */
-    public void setType(String type) {
-        this.type = type;
-        this.modify("type", type);
-    }
-
-    /**
-     * 设置 [展示顺序]
-     */
-    public void setDisplayorder(Integer displayorder) {
-        this.displayorder = displayorder;
-        this.modify("displayorder", displayorder);
+    public void setSysupdatelogid(String sysupdatelogid) {
+        this.sysupdatelogid = sysupdatelogid;
+        this.modify("sys_update_logid", sysupdatelogid);
     }
 
 

@@ -44,14 +44,6 @@ public class IbzTop extends EntityMP implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
-     * 标识
-     */
-    @DEField(name = "ibz_topid", isKeyField = true)
-    @TableId(value = "ibz_topid", type = IdType.ASSIGN_UUID)
-    @JSONField(name = "ibztopid")
-    @JsonProperty("ibztopid")
-    private String ibztopid;
-    /**
      * 建立时间
      */
     @DEField(preType = DEPredefinedFieldType.CREATEDATE)
@@ -69,6 +61,28 @@ public class IbzTop extends EntityMP implements Serializable {
     @JsonProperty("updateman")
     private String updateman;
     /**
+     * 排序
+     */
+    @TableField(value = "`objectorder`")
+    @JSONField(name = "objectorder")
+    @JsonProperty("objectorder")
+    private Integer objectorder;
+    /**
+     * 标识
+     */
+    @DEField(name = "ibz_topid", isKeyField = true)
+    @TableId(value = "ibz_topid", type = IdType.ASSIGN_UUID)
+    @JSONField(name = "ibztopid")
+    @JsonProperty("ibztopid")
+    private String ibztopid;
+    /**
+     * 数据对象标识
+     */
+    @TableField(value = "`objectid`")
+    @JSONField(name = "objectid")
+    @JsonProperty("objectid")
+    private Integer objectid;
+    /**
      * 置顶名称
      */
     @DEField(name = "ibz_topname")
@@ -76,14 +90,6 @@ public class IbzTop extends EntityMP implements Serializable {
     @JSONField(name = "ibztopname")
     @JsonProperty("ibztopname")
     private String ibztopname;
-    /**
-     * 建立人
-     */
-    @DEField(preType = DEPredefinedFieldType.CREATEMAN)
-    @TableField(value = "`createman`", fill = FieldFill.INSERT)
-    @JSONField(name = "createman")
-    @JsonProperty("createman")
-    private String createman;
     /**
      * 更新时间
      */
@@ -94,26 +100,13 @@ public class IbzTop extends EntityMP implements Serializable {
     @JsonProperty("updatedate")
     private Timestamp updatedate;
     /**
-     * 类型
+     * 建立人
      */
-    @TableField(value = "`type`")
-    @JSONField(name = "type")
-    @JsonProperty("type")
-    private String type;
-    /**
-     * 数据对象标识
-     */
-    @TableField(value = "`objectid`")
-    @JSONField(name = "objectid")
-    @JsonProperty("objectid")
-    private Integer objectid;
-    /**
-     * 排序
-     */
-    @TableField(value = "`objectorder`")
-    @JSONField(name = "objectorder")
-    @JsonProperty("objectorder")
-    private Integer objectorder;
+    @DEField(preType = DEPredefinedFieldType.CREATEMAN)
+    @TableField(value = "`createman`", fill = FieldFill.INSERT)
+    @JSONField(name = "createman")
+    @JsonProperty("createman")
+    private String createman;
     /**
      * 置顶用户
      */
@@ -121,23 +114,22 @@ public class IbzTop extends EntityMP implements Serializable {
     @JSONField(name = "account")
     @JsonProperty("account")
     private String account;
+    /**
+     * 类型
+     */
+    @TableField(value = "`type`")
+    @JSONField(name = "type")
+    @JsonProperty("type")
+    private String type;
 
 
 
     /**
-     * 设置 [置顶名称]
+     * 设置 [排序]
      */
-    public void setIbztopname(String ibztopname) {
-        this.ibztopname = ibztopname;
-        this.modify("ibz_topname", ibztopname);
-    }
-
-    /**
-     * 设置 [类型]
-     */
-    public void setType(String type) {
-        this.type = type;
-        this.modify("type", type);
+    public void setObjectorder(Integer objectorder) {
+        this.objectorder = objectorder;
+        this.modify("objectorder", objectorder);
     }
 
     /**
@@ -149,11 +141,11 @@ public class IbzTop extends EntityMP implements Serializable {
     }
 
     /**
-     * 设置 [排序]
+     * 设置 [置顶名称]
      */
-    public void setObjectorder(Integer objectorder) {
-        this.objectorder = objectorder;
-        this.modify("objectorder", objectorder);
+    public void setIbztopname(String ibztopname) {
+        this.ibztopname = ibztopname;
+        this.modify("ibz_topname", ibztopname);
     }
 
     /**
@@ -162,6 +154,14 @@ public class IbzTop extends EntityMP implements Serializable {
     public void setAccount(String account) {
         this.account = account;
         this.modify("account", account);
+    }
+
+    /**
+     * 设置 [类型]
+     */
+    public void setType(String type) {
+        this.type = type;
+        this.modify("type", type);
     }
 
 

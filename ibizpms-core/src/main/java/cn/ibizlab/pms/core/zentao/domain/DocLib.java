@@ -51,6 +51,20 @@ public class DocLib extends EntityMP implements Serializable {
     @JsonProperty("type")
     private String type;
     /**
+     * 文件库类型
+     */
+    @TableField(exist = false)
+    @JSONField(name = "doclibtype")
+    @JsonProperty("doclibtype")
+    private String doclibtype;
+    /**
+     * 是否收藏
+     */
+    @TableField(exist = false)
+    @JSONField(name = "isfavourites")
+    @JsonProperty("isfavourites")
+    private String isfavourites;
+    /**
      * 收藏者
      */
     @DEField(defaultValue = "#EMPTY")
@@ -59,6 +73,22 @@ public class DocLib extends EntityMP implements Serializable {
     @JsonProperty("collector")
     private String collector;
     /**
+     * 部门标识
+     */
+    @DEField(preType = DEPredefinedFieldType.ORGSECTORID)
+    @TableField(value = "`mdeptid`")
+    @JSONField(name = "mdeptid")
+    @JsonProperty("mdeptid")
+    private String mdeptid;
+    /**
+     * 组织标识
+     */
+    @DEField(preType = DEPredefinedFieldType.ORGID)
+    @TableField(value = "`orgid`")
+    @JSONField(name = "orgid")
+    @JsonProperty("orgid")
+    private String orgid;
+    /**
      * 权限
      */
     @DEField(defaultValue = "default")
@@ -66,6 +96,13 @@ public class DocLib extends EntityMP implements Serializable {
     @JSONField(name = "acl")
     @JsonProperty("acl")
     private String acl;
+    /**
+     * Root
+     */
+    @TableField(exist = false)
+    @JSONField(name = "root")
+    @JsonProperty("root")
+    private String root;
     /**
      * 已删除
      */
@@ -83,6 +120,13 @@ public class DocLib extends EntityMP implements Serializable {
     @JSONField(name = "groups")
     @JsonProperty("groups")
     private String groups;
+    /**
+     * 文档数量
+     */
+    @TableField(exist = false)
+    @JSONField(name = "doccnt")
+    @JsonProperty("doccnt")
+    private Integer doccnt;
     /**
      * 编号
      */
@@ -115,6 +159,21 @@ public class DocLib extends EntityMP implements Serializable {
     @JsonProperty("name")
     private String name;
     /**
+     * 文件夹数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "modulecnt")
+    @JsonProperty("modulecnt")
+    private Integer modulecnt;
+    /**
+     * 创建时间
+     */
+    @TableField(exist = false)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "openeddate", format = "yyyy-MM-dd HH:mm:ss")
+    @JsonProperty("openeddate")
+    private Timestamp openeddate;
+    /**
      * 排序
      */
     @DEField(defaultValue = "0")
@@ -122,6 +181,20 @@ public class DocLib extends EntityMP implements Serializable {
     @JSONField(name = "order")
     @JsonProperty("order")
     private Integer order;
+    /**
+     * 所属产品
+     */
+    @TableField(exist = false)
+    @JSONField(name = "productname")
+    @JsonProperty("productname")
+    private String productname;
+    /**
+     * 所属项目
+     */
+    @TableField(exist = false)
+    @JSONField(name = "projectname")
+    @JsonProperty("projectname")
+    private String projectname;
     /**
      * 项目库
      */
@@ -138,79 +211,6 @@ public class DocLib extends EntityMP implements Serializable {
     @JSONField(name = "product")
     @JsonProperty("product")
     private Long product;
-    /**
-     * 文档数量
-     */
-    @TableField(exist = false)
-    @JSONField(name = "doccnt")
-    @JsonProperty("doccnt")
-    private Integer doccnt;
-    /**
-     * 文件库类型
-     */
-    @TableField(exist = false)
-    @JSONField(name = "doclibtype")
-    @JsonProperty("doclibtype")
-    private String doclibtype;
-    /**
-     * 所属项目
-     */
-    @TableField(exist = false)
-    @JSONField(name = "projectname")
-    @JsonProperty("projectname")
-    private String projectname;
-    /**
-     * 所属产品
-     */
-    @TableField(exist = false)
-    @JSONField(name = "productname")
-    @JsonProperty("productname")
-    private String productname;
-    /**
-     * 是否收藏
-     */
-    @TableField(exist = false)
-    @JSONField(name = "isfavourites")
-    @JsonProperty("isfavourites")
-    private String isfavourites;
-    /**
-     * 组织标识
-     */
-    @DEField(preType = DEPredefinedFieldType.ORGID)
-    @TableField(value = "`orgid`")
-    @JSONField(name = "orgid")
-    @JsonProperty("orgid")
-    private String orgid;
-    /**
-     * 部门标识
-     */
-    @DEField(preType = DEPredefinedFieldType.ORGSECTORID)
-    @TableField(value = "`mdeptid`")
-    @JSONField(name = "mdeptid")
-    @JsonProperty("mdeptid")
-    private String mdeptid;
-    /**
-     * Root
-     */
-    @TableField(exist = false)
-    @JSONField(name = "root")
-    @JsonProperty("root")
-    private String root;
-    /**
-     * 文件夹数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "modulecnt")
-    @JsonProperty("modulecnt")
-    private Integer modulecnt;
-    /**
-     * 创建时间
-     */
-    @TableField(exist = false)
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
-    @JSONField(name = "openeddate", format = "yyyy-MM-dd HH:mm:ss")
-    @JsonProperty("openeddate")
-    private Timestamp openeddate;
 
     /**
      * 

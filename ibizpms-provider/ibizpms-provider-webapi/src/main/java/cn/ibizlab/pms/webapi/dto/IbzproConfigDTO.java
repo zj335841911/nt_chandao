@@ -30,6 +30,15 @@ public class IbzproConfigDTO extends DTOBase implements Serializable {
 	private static final long serialVersionUID = 1L;
 
     /**
+     * 属性 [UPDATEMAN]
+     *
+     */
+    @JSONField(name = "updateman")
+    @JsonProperty("updateman")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    private String updateman;
+
+    /**
      * 属性 [IBZPRO_CONFIGNAME]
      *
      */
@@ -39,22 +48,13 @@ public class IbzproConfigDTO extends DTOBase implements Serializable {
     private String ibzproconfigname;
 
     /**
-     * 属性 [IBZPRO_CONFIGID]
+     * 属性 [MEMO]
      *
      */
-    @JSONField(name = "ibzproconfigid")
-    @JsonProperty("ibzproconfigid")
+    @JSONField(name = "memo")
+    @JsonProperty("memo")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String ibzproconfigid;
-
-    /**
-     * 属性 [UPDATEMAN]
-     *
-     */
-    @JSONField(name = "updateman")
-    @JsonProperty("updateman")
-    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
-    private String updateman;
+    private String memo;
 
     /**
      * 属性 [UPDATEDATE]
@@ -75,13 +75,13 @@ public class IbzproConfigDTO extends DTOBase implements Serializable {
     private Timestamp createdate;
 
     /**
-     * 属性 [CREATEMAN]
+     * 属性 [IBZPRO_CONFIGID]
      *
      */
-    @JSONField(name = "createman")
-    @JsonProperty("createman")
-    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
-    private String createman;
+    @JSONField(name = "ibzproconfigid")
+    @JsonProperty("ibzproconfigid")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String ibzproconfigid;
 
     /**
      * 属性 [SCOPE]
@@ -91,24 +91,6 @@ public class IbzproConfigDTO extends DTOBase implements Serializable {
     @JsonProperty("scope")
     @Size(min = 0, max = 2000, message = "内容长度必须小于等于[2000]")
     private String scope;
-
-    /**
-     * 属性 [VAILD]
-     *
-     */
-    @JSONField(name = "vaild")
-    @JsonProperty("vaild")
-    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
-    private String vaild;
-
-    /**
-     * 属性 [MEMO]
-     *
-     */
-    @JSONField(name = "memo")
-    @JsonProperty("memo")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String memo;
 
     /**
      * 属性 [TYPE]
@@ -128,6 +110,24 @@ public class IbzproConfigDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
     private String managementstatus;
 
+    /**
+     * 属性 [VAILD]
+     *
+     */
+    @JSONField(name = "vaild")
+    @JsonProperty("vaild")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    private String vaild;
+
+    /**
+     * 属性 [CREATEMAN]
+     *
+     */
+    @JSONField(name = "createman")
+    @JsonProperty("createman")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    private String createman;
+
 
     /**
      * 设置 [IBZPRO_CONFIGNAME]
@@ -138,27 +138,19 @@ public class IbzproConfigDTO extends DTOBase implements Serializable {
     }
 
     /**
-     * 设置 [SCOPE]
-     */
-    public void setScope(String  scope){
-        this.scope = scope ;
-        this.modify("scope",scope);
-    }
-
-    /**
-     * 设置 [VAILD]
-     */
-    public void setVaild(String  vaild){
-        this.vaild = vaild ;
-        this.modify("vaild",vaild);
-    }
-
-    /**
      * 设置 [MEMO]
      */
     public void setMemo(String  memo){
         this.memo = memo ;
         this.modify("memo",memo);
+    }
+
+    /**
+     * 设置 [SCOPE]
+     */
+    public void setScope(String  scope){
+        this.scope = scope ;
+        this.modify("scope",scope);
     }
 
     /**
@@ -175,6 +167,14 @@ public class IbzproConfigDTO extends DTOBase implements Serializable {
     public void setManagementstatus(String  managementstatus){
         this.managementstatus = managementstatus ;
         this.modify("managementstatus",managementstatus);
+    }
+
+    /**
+     * 设置 [VAILD]
+     */
+    public void setVaild(String  vaild){
+        this.vaild = vaild ;
+        this.modify("vaild",vaild);
     }
 
 

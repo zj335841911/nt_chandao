@@ -162,7 +162,7 @@ export class StoryProjectPlanViewBase extends OptionViewBase {
      * @type {string}
      * @memberof StoryProjectPlanViewBase
      */
-	protected viewtag: string = 'bd6f41c3367241b8eddd61eb6e80f029';
+	protected viewtag: string = '48cbb418a5d2a5597a66cd72581bd32c';
 
     /**
      * 视图名称

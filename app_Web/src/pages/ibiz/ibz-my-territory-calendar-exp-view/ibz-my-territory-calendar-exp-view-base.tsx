@@ -100,7 +100,7 @@ export class IbzMyTerritoryCalendarExpViewBase extends CalendarExpViewBase {
      * @type {string}
      * @memberof IbzMyTerritoryCalendarExpViewBase
      */
-	protected viewtag: string = '43d566a4567a5e337a73afa187dae97c';
+	protected viewtag: string = 'de099c7c4f5c1f66e518aab73595f15f';
 
     /**
      * 视图名称

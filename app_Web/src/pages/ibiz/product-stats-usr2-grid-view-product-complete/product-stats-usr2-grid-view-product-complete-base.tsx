@@ -119,7 +119,7 @@ export class ProductStatsUsr2GridViewPRoductCompleteBase extends GridViewBase {
      * @type {string}
      * @memberof ProductStatsUsr2GridViewPRoductCompleteBase
      */
-	protected viewtag: string = '456a90200a66a37616388b42a254eb67';
+	protected viewtag: string = '447e12e8af1b4093ba48f74d18d71c08';
 
     /**
      * 视图名称

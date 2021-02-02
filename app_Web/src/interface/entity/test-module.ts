@@ -7,6 +7,14 @@
 export interface TestModule {
 
     /**
+     * 类型（story）
+     *
+     * @returns {*}
+     * @memberof TestModule
+     */
+    type?: any;
+
+    /**
      * path
      *
      * @returns {*}
@@ -15,20 +23,12 @@ export interface TestModule {
     path?: any;
 
     /**
-     * 逻辑删除标志
+     * owner
      *
      * @returns {*}
      * @memberof TestModule
      */
-    deleted?: any;
-
-    /**
-     * 名称
-     *
-     * @returns {*}
-     * @memberof TestModule
-     */
-    name?: any;
+    owner?: any;
 
     /**
      * 排序值
@@ -39,6 +39,14 @@ export interface TestModule {
     order?: any;
 
     /**
+     * 逻辑删除标志
+     *
+     * @returns {*}
+     * @memberof TestModule
+     */
+    deleted?: any;
+
+    /**
      * branch
      *
      * @returns {*}
@@ -47,36 +55,12 @@ export interface TestModule {
     branch?: any;
 
     /**
-     * 简称
+     * collector
      *
      * @returns {*}
      * @memberof TestModule
      */
-    ibizshort?: any;
-
-    /**
-     * grade
-     *
-     * @returns {*}
-     * @memberof TestModule
-     */
-    grade?: any;
-
-    /**
-     * 类型（story）
-     *
-     * @returns {*}
-     * @memberof TestModule
-     */
-    type?: any;
-
-    /**
-     * owner
-     *
-     * @returns {*}
-     * @memberof TestModule
-     */
-    owner?: any;
+    collector?: any;
 
     /**
      * id
@@ -95,20 +79,28 @@ export interface TestModule {
     isleaf?: any;
 
     /**
-     * collector
+     * 名称
      *
      * @returns {*}
      * @memberof TestModule
      */
-    collector?: any;
+    name?: any;
 
     /**
-     * id
+     * 简称
      *
      * @returns {*}
      * @memberof TestModule
      */
-    parent?: any;
+    ibizshort?: any;
+
+    /**
+     * grade
+     *
+     * @returns {*}
+     * @memberof TestModule
+     */
+    grade?: any;
 
     /**
      * 上级模块
@@ -119,6 +111,14 @@ export interface TestModule {
     parentname?: any;
 
     /**
+     * 测试
+     *
+     * @returns {*}
+     * @memberof TestModule
+     */
+    rootname?: any;
+
+    /**
      * 编号
      *
      * @returns {*}
@@ -127,10 +127,10 @@ export interface TestModule {
     root?: any;
 
     /**
-     * 测试
+     * id
      *
      * @returns {*}
      * @memberof TestModule
      */
-    rootname?: any;
+    parent?: any;
 }

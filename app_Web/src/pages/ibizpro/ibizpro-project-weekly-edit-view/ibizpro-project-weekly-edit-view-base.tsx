@@ -109,7 +109,7 @@ export class IbizproProjectWeeklyEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof IbizproProjectWeeklyEditViewBase
      */
-	protected viewtag: string = '7fa0af8cedb3e2ffaa61062c37e51a97';
+	protected viewtag: string = 'fb9f2a7e4789eb949b4277e2602bb947';
 
     /**
      * 视图名称

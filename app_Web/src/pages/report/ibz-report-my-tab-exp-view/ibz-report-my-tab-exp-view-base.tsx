@@ -128,7 +128,7 @@ export class IbzReportMyTabExpViewBase extends TabExpViewBase {
      * @type {string}
      * @memberof IbzReportMyTabExpViewBase
      */
-	protected viewtag: string = 'cced9dfff799c2f6ed1012fd70161948';
+	protected viewtag: string = 'faea7e2d2427080c2bd6683de726ad8d';
 
     /**
      * 视图名称

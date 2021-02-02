@@ -9,8 +9,8 @@
         </extensionElements>
             <startEvent id="begin" isInterrupting="true"/>
             <endEvent id="prepareparam1_end" name="end"/>
-           <callActivity activiti:exclusive="true" calledElement="cn.ibizlab.pms.core.ibiz.service.logic.ibzlibmodulefixpath" id="0506329C-EDAB-47AF-98B9-61738F494E30" name="IbzLibModuleFixPathRuleFlow.bpmn"/>
-           <sequenceFlow id="begin_0506329C-EDAB-47AF-98B9-61738F494E30" sourceRef="begin" targetRef="0506329C-EDAB-47AF-98B9-61738F494E30"/>
-           <sequenceFlow id="0506329C-EDAB-47AF-98B9-61738F494E30_prepareparam1_end" sourceRef="0506329C-EDAB-47AF-98B9-61738F494E30" targetRef="prepareparam1_end"/>
+           <callActivity activiti:exclusive="true" calledElement="cn.ibizlab.pms.core.ibiz.service.logic.ibzlibmodulefixpath" id="f8a83c7909e1ef309373e1a997a45b31" name="IbzLibModuleFixPathRuleFlow.bpmn"/>
+           <sequenceFlow id="begin_f8a83c7909e1ef309373e1a997a45b31" sourceRef="begin" targetRef="f8a83c7909e1ef309373e1a997a45b31"/>
+           <sequenceFlow id="f8a83c7909e1ef309373e1a997a45b31_prepareparam1_end" sourceRef="f8a83c7909e1ef309373e1a997a45b31" targetRef="prepareparam1_end"/>
     </process>
 </definitions>

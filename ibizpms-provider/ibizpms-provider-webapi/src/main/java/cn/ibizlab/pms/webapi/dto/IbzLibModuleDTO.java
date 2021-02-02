@@ -30,12 +30,48 @@ public class IbzLibModuleDTO extends DTOBase implements Serializable {
 	private static final long serialVersionUID = 1L;
 
     /**
+     * 属性 [DELETED]
+     *
+     */
+    @JSONField(name = "deleted")
+    @JsonProperty("deleted")
+    @Size(min = 0, max = 1, message = "内容长度必须小于等于[1]")
+    private String deleted;
+
+    /**
+     * 属性 [ID]
+     *
+     */
+    @JSONField(name = "id")
+    @JsonProperty("id")
+    @JsonSerialize(using = ToStringSerializer.class)
+    private Long id;
+
+    /**
      * 属性 [BRANCH]
      *
      */
     @JSONField(name = "branch")
     @JsonProperty("branch")
     private Integer branch;
+
+    /**
+     * 属性 [ISLEAF]
+     *
+     */
+    @JSONField(name = "isleaf")
+    @JsonProperty("isleaf")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String isleaf;
+
+    /**
+     * 属性 [TYPE]
+     *
+     */
+    @JSONField(name = "type")
+    @JsonProperty("type")
+    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
+    private String type;
 
     /**
      * 属性 [SHORT]
@@ -55,23 +91,6 @@ public class IbzLibModuleDTO extends DTOBase implements Serializable {
     private Integer grade;
 
     /**
-     * 属性 [ORDER]
-     *
-     */
-    @JSONField(name = "order")
-    @JsonProperty("order")
-    private Integer order;
-
-    /**
-     * 属性 [TYPE]
-     *
-     */
-    @JSONField(name = "type")
-    @JsonProperty("type")
-    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
-    private String type;
-
-    /**
      * 属性 [COLLECTOR]
      *
      */
@@ -81,31 +100,13 @@ public class IbzLibModuleDTO extends DTOBase implements Serializable {
     private String collector;
 
     /**
-     * 属性 [ID]
+     * 属性 [PATH]
      *
      */
-    @JSONField(name = "id")
-    @JsonProperty("id")
-    @JsonSerialize(using = ToStringSerializer.class)
-    private Long id;
-
-    /**
-     * 属性 [ISLEAF]
-     *
-     */
-    @JSONField(name = "isleaf")
-    @JsonProperty("isleaf")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String isleaf;
-
-    /**
-     * 属性 [OWNER]
-     *
-     */
-    @JSONField(name = "owner")
-    @JsonProperty("owner")
-    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
-    private String owner;
+    @JSONField(name = "path")
+    @JsonProperty("path")
+    @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
+    private String path;
 
     /**
      * 属性 [NAME]
@@ -118,31 +119,21 @@ public class IbzLibModuleDTO extends DTOBase implements Serializable {
     private String name;
 
     /**
-     * 属性 [DELETED]
+     * 属性 [OWNER]
      *
      */
-    @JSONField(name = "deleted")
-    @JsonProperty("deleted")
-    @Size(min = 0, max = 1, message = "内容长度必须小于等于[1]")
-    private String deleted;
+    @JSONField(name = "owner")
+    @JsonProperty("owner")
+    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
+    private String owner;
 
     /**
-     * 属性 [PATH]
+     * 属性 [ORDER]
      *
      */
-    @JSONField(name = "path")
-    @JsonProperty("path")
-    @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
-    private String path;
-
-    /**
-     * 属性 [PARENT]
-     *
-     */
-    @JSONField(name = "parent")
-    @JsonProperty("parent")
-    @JsonSerialize(using = ToStringSerializer.class)
-    private Long parent;
+    @JSONField(name = "order")
+    @JsonProperty("order")
+    private Integer order;
 
     /**
      * 属性 [PARENTNAME]
@@ -162,6 +153,15 @@ public class IbzLibModuleDTO extends DTOBase implements Serializable {
     @JsonSerialize(using = ToStringSerializer.class)
     private Long root;
 
+    /**
+     * 属性 [PARENT]
+     *
+     */
+    @JSONField(name = "parent")
+    @JsonProperty("parent")
+    @JsonSerialize(using = ToStringSerializer.class)
+    private Long parent;
+
 
     /**
      * 设置 [BRANCH]
@@ -169,6 +169,14 @@ public class IbzLibModuleDTO extends DTOBase implements Serializable {
     public void setBranch(Integer  branch){
         this.branch = branch ;
         this.modify("branch",branch);
+    }
+
+    /**
+     * 设置 [TYPE]
+     */
+    public void setType(String  type){
+        this.type = type ;
+        this.modify("type",type);
     }
 
     /**
@@ -188,43 +196,11 @@ public class IbzLibModuleDTO extends DTOBase implements Serializable {
     }
 
     /**
-     * 设置 [ORDER]
-     */
-    public void setOrder(Integer  order){
-        this.order = order ;
-        this.modify("order",order);
-    }
-
-    /**
-     * 设置 [TYPE]
-     */
-    public void setType(String  type){
-        this.type = type ;
-        this.modify("type",type);
-    }
-
-    /**
      * 设置 [COLLECTOR]
      */
     public void setCollector(String  collector){
         this.collector = collector ;
         this.modify("collector",collector);
-    }
-
-    /**
-     * 设置 [OWNER]
-     */
-    public void setOwner(String  owner){
-        this.owner = owner ;
-        this.modify("owner",owner);
-    }
-
-    /**
-     * 设置 [NAME]
-     */
-    public void setName(String  name){
-        this.name = name ;
-        this.modify("name",name);
     }
 
     /**
@@ -236,11 +212,27 @@ public class IbzLibModuleDTO extends DTOBase implements Serializable {
     }
 
     /**
-     * 设置 [PARENT]
+     * 设置 [NAME]
      */
-    public void setParent(Long  parent){
-        this.parent = parent ;
-        this.modify("parent",parent);
+    public void setName(String  name){
+        this.name = name ;
+        this.modify("name",name);
+    }
+
+    /**
+     * 设置 [OWNER]
+     */
+    public void setOwner(String  owner){
+        this.owner = owner ;
+        this.modify("owner",owner);
+    }
+
+    /**
+     * 设置 [ORDER]
+     */
+    public void setOrder(Integer  order){
+        this.order = order ;
+        this.modify("order",order);
     }
 
     /**
@@ -249,6 +241,14 @@ public class IbzLibModuleDTO extends DTOBase implements Serializable {
     public void setRoot(Long  root){
         this.root = root ;
         this.modify("root",root);
+    }
+
+    /**
+     * 设置 [PARENT]
+     */
+    public void setParent(Long  parent){
+        this.parent = parent ;
+        this.modify("parent",parent);
     }
 
 

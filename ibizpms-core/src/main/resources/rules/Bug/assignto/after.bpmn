@@ -9,10 +9,10 @@
         </extensionElements>
             <startEvent id="begin" isInterrupting="true"/>
             <endEvent id="prepareparam1_end" name="end"/>
-           <callActivity activiti:exclusive="true" calledElement="cn.ibizlab.pms.core.zentao.service.logic.bugsendtodotask" id="6615ED5F-A7DC-424B-BA0E-A1D8695DEECF" name="BugsendTodoTaskRuleFlow.bpmn"/>
-           <sequenceFlow id="begin_6615ED5F-A7DC-424B-BA0E-A1D8695DEECF" sourceRef="begin" targetRef="6615ED5F-A7DC-424B-BA0E-A1D8695DEECF"/>
-           <callActivity activiti:exclusive="true" calledElement="cn.ibizlab.pms.core.zentao.service.logic.bugsendnotice" id="EF2E2D7C-489F-480C-A2E8-E39582CFDA63" name="BugsendNoticeRuleFlow.bpmn"/>
-           <sequenceFlow id="6615ED5F-A7DC-424B-BA0E-A1D8695DEECF_EF2E2D7C-489F-480C-A2E8-E39582CFDA63" sourceRef="6615ED5F-A7DC-424B-BA0E-A1D8695DEECF" targetRef="EF2E2D7C-489F-480C-A2E8-E39582CFDA63"/>
-           <sequenceFlow id="EF2E2D7C-489F-480C-A2E8-E39582CFDA63_prepareparam1_end" sourceRef="EF2E2D7C-489F-480C-A2E8-E39582CFDA63" targetRef="prepareparam1_end"/>
+           <callActivity activiti:exclusive="true" calledElement="cn.ibizlab.pms.core.zentao.service.logic.bugsendtodotask" id="014b5099826fe41076c3840354f6eb2e" name="BugsendTodoTaskRuleFlow.bpmn"/>
+           <sequenceFlow id="begin_014b5099826fe41076c3840354f6eb2e" sourceRef="begin" targetRef="014b5099826fe41076c3840354f6eb2e"/>
+           <callActivity activiti:exclusive="true" calledElement="cn.ibizlab.pms.core.zentao.service.logic.bugsendnotice" id="7ca9b735072ea0b3bcc8e6a39b32f30c" name="BugsendNoticeRuleFlow.bpmn"/>
+           <sequenceFlow id="014b5099826fe41076c3840354f6eb2e_7ca9b735072ea0b3bcc8e6a39b32f30c" sourceRef="014b5099826fe41076c3840354f6eb2e" targetRef="7ca9b735072ea0b3bcc8e6a39b32f30c"/>
+           <sequenceFlow id="7ca9b735072ea0b3bcc8e6a39b32f30c_prepareparam1_end" sourceRef="7ca9b735072ea0b3bcc8e6a39b32f30c" targetRef="prepareparam1_end"/>
     </process>
 </definitions>

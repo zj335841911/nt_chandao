@@ -47,7 +47,7 @@ export class TestPortalViewBase extends PortalViewBase {
      * @type {string}
      * @memberof TestPortalViewBase
      */
-	protected viewtag: string = 'D1283E46-401A-4CFD-A7A1-BF5B90197463';
+	protected viewtag: string = 'b127362083d624afe84ed1e8f674223e';
 
     /**
      * 视图名称

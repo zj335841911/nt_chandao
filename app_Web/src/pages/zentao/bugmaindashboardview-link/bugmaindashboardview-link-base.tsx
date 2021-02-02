@@ -118,7 +118,7 @@ export class Bugmaindashboardview_linkBase extends DashboardViewBase {
      * @type {string}
      * @memberof Bugmaindashboardview_linkBase
      */
-	protected viewtag: string = '8c8adbf0a7db27078e01a8b32716fa71';
+	protected viewtag: string = '05790021067211c1817c27dcb9c203df';
 
     /**
      * 视图名称

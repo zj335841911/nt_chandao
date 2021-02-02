@@ -30,6 +30,15 @@ public class TestModuleDTO extends DTOBase implements Serializable {
 	private static final long serialVersionUID = 1L;
 
     /**
+     * 属性 [TYPE]
+     *
+     */
+    @JSONField(name = "type")
+    @JsonProperty("type")
+    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
+    private String type;
+
+    /**
      * 属性 [PATH]
      *
      */
@@ -37,6 +46,23 @@ public class TestModuleDTO extends DTOBase implements Serializable {
     @JsonProperty("path")
     @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
     private String path;
+
+    /**
+     * 属性 [OWNER]
+     *
+     */
+    @JSONField(name = "owner")
+    @JsonProperty("owner")
+    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
+    private String owner;
+
+    /**
+     * 属性 [ORDER]
+     *
+     */
+    @JSONField(name = "order")
+    @JsonProperty("order")
+    private Integer order;
 
     /**
      * 属性 [DELETED]
@@ -48,24 +74,6 @@ public class TestModuleDTO extends DTOBase implements Serializable {
     private String deleted;
 
     /**
-     * 属性 [NAME]
-     *
-     */
-    @JSONField(name = "name")
-    @JsonProperty("name")
-    @NotBlank(message = "[名称]不允许为空!")
-    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
-    private String name;
-
-    /**
-     * 属性 [ORDER]
-     *
-     */
-    @JSONField(name = "order")
-    @JsonProperty("order")
-    private Integer order;
-
-    /**
      * 属性 [BRANCH]
      *
      */
@@ -74,39 +82,13 @@ public class TestModuleDTO extends DTOBase implements Serializable {
     private Integer branch;
 
     /**
-     * 属性 [SHORT]
+     * 属性 [COLLECTOR]
      *
      */
-    @JSONField(name = "ibizshort")
-    @JsonProperty("ibizshort")
-    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
-    private String ibizshort;
-
-    /**
-     * 属性 [GRADE]
-     *
-     */
-    @JSONField(name = "grade")
-    @JsonProperty("grade")
-    private Integer grade;
-
-    /**
-     * 属性 [TYPE]
-     *
-     */
-    @JSONField(name = "type")
-    @JsonProperty("type")
-    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
-    private String type;
-
-    /**
-     * 属性 [OWNER]
-     *
-     */
-    @JSONField(name = "owner")
-    @JsonProperty("owner")
-    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
-    private String owner;
+    @JSONField(name = "collector")
+    @JsonProperty("collector")
+    @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
+    private String collector;
 
     /**
      * 属性 [ID]
@@ -127,22 +109,31 @@ public class TestModuleDTO extends DTOBase implements Serializable {
     private String isleaf;
 
     /**
-     * 属性 [COLLECTOR]
+     * 属性 [NAME]
      *
      */
-    @JSONField(name = "collector")
-    @JsonProperty("collector")
-    @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
-    private String collector;
+    @JSONField(name = "name")
+    @JsonProperty("name")
+    @NotBlank(message = "[名称]不允许为空!")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    private String name;
 
     /**
-     * 属性 [PARENT]
+     * 属性 [SHORT]
      *
      */
-    @JSONField(name = "parent")
-    @JsonProperty("parent")
-    @JsonSerialize(using = ToStringSerializer.class)
-    private Long parent;
+    @JSONField(name = "ibizshort")
+    @JsonProperty("ibizshort")
+    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
+    private String ibizshort;
+
+    /**
+     * 属性 [GRADE]
+     *
+     */
+    @JSONField(name = "grade")
+    @JsonProperty("grade")
+    private Integer grade;
 
     /**
      * 属性 [PARENTNAME]
@@ -154,6 +145,15 @@ public class TestModuleDTO extends DTOBase implements Serializable {
     private String parentname;
 
     /**
+     * 属性 [ROOTNAME]
+     *
+     */
+    @JSONField(name = "rootname")
+    @JsonProperty("rootname")
+    @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
+    private String rootname;
+
+    /**
      * 属性 [ROOT]
      *
      */
@@ -163,14 +163,22 @@ public class TestModuleDTO extends DTOBase implements Serializable {
     private Long root;
 
     /**
-     * 属性 [ROOTNAME]
+     * 属性 [PARENT]
      *
      */
-    @JSONField(name = "rootname")
-    @JsonProperty("rootname")
-    @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
-    private String rootname;
+    @JSONField(name = "parent")
+    @JsonProperty("parent")
+    @JsonSerialize(using = ToStringSerializer.class)
+    private Long parent;
 
+
+    /**
+     * 设置 [TYPE]
+     */
+    public void setType(String  type){
+        this.type = type ;
+        this.modify("type",type);
+    }
 
     /**
      * 设置 [PATH]
@@ -181,11 +189,11 @@ public class TestModuleDTO extends DTOBase implements Serializable {
     }
 
     /**
-     * 设置 [NAME]
+     * 设置 [OWNER]
      */
-    public void setName(String  name){
-        this.name = name ;
-        this.modify("name",name);
+    public void setOwner(String  owner){
+        this.owner = owner ;
+        this.modify("owner",owner);
     }
 
     /**
@@ -205,6 +213,22 @@ public class TestModuleDTO extends DTOBase implements Serializable {
     }
 
     /**
+     * 设置 [COLLECTOR]
+     */
+    public void setCollector(String  collector){
+        this.collector = collector ;
+        this.modify("collector",collector);
+    }
+
+    /**
+     * 设置 [NAME]
+     */
+    public void setName(String  name){
+        this.name = name ;
+        this.modify("name",name);
+    }
+
+    /**
      * 设置 [SHORT]
      */
     public void setIbizshort(String  ibizshort){
@@ -221,27 +245,11 @@ public class TestModuleDTO extends DTOBase implements Serializable {
     }
 
     /**
-     * 设置 [TYPE]
+     * 设置 [ROOT]
      */
-    public void setType(String  type){
-        this.type = type ;
-        this.modify("type",type);
-    }
-
-    /**
-     * 设置 [OWNER]
-     */
-    public void setOwner(String  owner){
-        this.owner = owner ;
-        this.modify("owner",owner);
-    }
-
-    /**
-     * 设置 [COLLECTOR]
-     */
-    public void setCollector(String  collector){
-        this.collector = collector ;
-        this.modify("collector",collector);
+    public void setRoot(Long  root){
+        this.root = root ;
+        this.modify("root",root);
     }
 
     /**
@@ -250,14 +258,6 @@ public class TestModuleDTO extends DTOBase implements Serializable {
     public void setParent(Long  parent){
         this.parent = parent ;
         this.modify("parent",parent);
-    }
-
-    /**
-     * 设置 [ROOT]
-     */
-    public void setRoot(Long  root){
-        this.root = root ;
-        this.modify("root",root);
     }
 
 

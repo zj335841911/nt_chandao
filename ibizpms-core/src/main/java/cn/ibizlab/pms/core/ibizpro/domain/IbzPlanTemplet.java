@@ -44,30 +44,6 @@ public class IbzPlanTemplet extends EntityMP implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
-     * 产品计划模板标识
-     */
-    @DEField(name = "ibz_plantempletid", isKeyField = true)
-    @TableId(value = "ibz_plantempletid", type = IdType.ASSIGN_UUID)
-    @JSONField(name = "ibzplantempletid")
-    @JsonProperty("ibzplantempletid")
-    private String ibzplantempletid;
-    /**
-     * 模板名称
-     */
-    @DEField(name = "ibz_plantempletname")
-    @TableField(value = "`ibz_plantempletname`")
-    @JSONField(name = "ibzplantempletname")
-    @JsonProperty("ibzplantempletname")
-    private String ibzplantempletname;
-    /**
-     * 建立人
-     */
-    @DEField(preType = DEPredefinedFieldType.CREATEMAN)
-    @TableField(value = "`createman`", fill = FieldFill.INSERT)
-    @JSONField(name = "createman")
-    @JsonProperty("createman")
-    private String createman;
-    /**
      * 建立时间
      */
     @DEField(preType = DEPredefinedFieldType.CREATEDATE)
@@ -77,36 +53,12 @@ public class IbzPlanTemplet extends EntityMP implements Serializable {
     @JsonProperty("createdate")
     private Timestamp createdate;
     /**
-     * 更新人
-     */
-    @DEField(preType = DEPredefinedFieldType.UPDATEMAN)
-    @TableField(value = "`updateman`")
-    @JSONField(name = "updateman")
-    @JsonProperty("updateman")
-    private String updateman;
-    /**
-     * 更新时间
-     */
-    @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
-    @TableField(value = "`updatedate`")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
-    @JSONField(name = "updatedate", format = "yyyy-MM-dd HH:mm:ss")
-    @JsonProperty("updatedate")
-    private Timestamp updatedate;
-    /**
      * 计划
      */
     @TableField(value = "`plans`")
     @JSONField(name = "plans")
     @JsonProperty("plans")
     private String plans;
-    /**
-     * 产品
-     */
-    @TableField(value = "`product`")
-    @JSONField(name = "product")
-    @JsonProperty("product")
-    private Long product;
     /**
      * 权限
      */
@@ -122,6 +74,54 @@ public class IbzPlanTemplet extends EntityMP implements Serializable {
     @JSONField(name = "createmanname")
     @JsonProperty("createmanname")
     private String createmanname;
+    /**
+     * 产品
+     */
+    @TableField(value = "`product`")
+    @JSONField(name = "product")
+    @JsonProperty("product")
+    private Long product;
+    /**
+     * 产品计划模板标识
+     */
+    @DEField(name = "ibz_plantempletid", isKeyField = true)
+    @TableId(value = "ibz_plantempletid", type = IdType.ASSIGN_UUID)
+    @JSONField(name = "ibzplantempletid")
+    @JsonProperty("ibzplantempletid")
+    private String ibzplantempletid;
+    /**
+     * 更新人
+     */
+    @DEField(preType = DEPredefinedFieldType.UPDATEMAN)
+    @TableField(value = "`updateman`")
+    @JSONField(name = "updateman")
+    @JsonProperty("updateman")
+    private String updateman;
+    /**
+     * 模板名称
+     */
+    @DEField(name = "ibz_plantempletname")
+    @TableField(value = "`ibz_plantempletname`")
+    @JSONField(name = "ibzplantempletname")
+    @JsonProperty("ibzplantempletname")
+    private String ibzplantempletname;
+    /**
+     * 更新时间
+     */
+    @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
+    @TableField(value = "`updatedate`")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "updatedate", format = "yyyy-MM-dd HH:mm:ss")
+    @JsonProperty("updatedate")
+    private Timestamp updatedate;
+    /**
+     * 建立人
+     */
+    @DEField(preType = DEPredefinedFieldType.CREATEMAN)
+    @TableField(value = "`createman`", fill = FieldFill.INSERT)
+    @JSONField(name = "createman")
+    @JsonProperty("createman")
+    private String createman;
 
 
     /**
@@ -134,19 +134,19 @@ public class IbzPlanTemplet extends EntityMP implements Serializable {
 
 
     /**
-     * 设置 [模板名称]
-     */
-    public void setIbzplantempletname(String ibzplantempletname) {
-        this.ibzplantempletname = ibzplantempletname;
-        this.modify("ibz_plantempletname", ibzplantempletname);
-    }
-
-    /**
      * 设置 [计划]
      */
     public void setPlans(String plans) {
         this.plans = plans;
         this.modify("plans", plans);
+    }
+
+    /**
+     * 设置 [权限]
+     */
+    public void setAcl(String acl) {
+        this.acl = acl;
+        this.modify("acl", acl);
     }
 
     /**
@@ -158,11 +158,11 @@ public class IbzPlanTemplet extends EntityMP implements Serializable {
     }
 
     /**
-     * 设置 [权限]
+     * 设置 [模板名称]
      */
-    public void setAcl(String acl) {
-        this.acl = acl;
-        this.modify("acl", acl);
+    public void setIbzplantempletname(String ibzplantempletname) {
+        this.ibzplantempletname = ibzplantempletname;
+        this.modify("ibz_plantempletname", ibzplantempletname);
     }
 
 

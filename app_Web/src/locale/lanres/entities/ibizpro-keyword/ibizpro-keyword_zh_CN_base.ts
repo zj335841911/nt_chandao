@@ -6,13 +6,13 @@ function getLocaleResourceBase(){
 			id: commonLogic.appcommonhandle("ID",null),
 		},
 			views: {
-				editview: {
-					caption: commonLogic.appcommonhandle("关键字",null),
-					title: commonLogic.appcommonhandle("关键字编辑视图",null),
-				},
 				gridview: {
 					caption: commonLogic.appcommonhandle("关键字",null),
 					title: commonLogic.appcommonhandle("关键字表格视图",null),
+				},
+				editview: {
+					caption: commonLogic.appcommonhandle("关键字",null),
+					title: commonLogic.appcommonhandle("关键字编辑视图",null),
 				},
 			},
 			main_form: {

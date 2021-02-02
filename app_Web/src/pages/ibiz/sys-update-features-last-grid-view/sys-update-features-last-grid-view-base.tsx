@@ -109,7 +109,7 @@ export class SysUpdateFeaturesLastGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof SysUpdateFeaturesLastGridViewBase
      */
-	protected viewtag: string = '8c8f69657e164fbee50b48f760365fdb';
+	protected viewtag: string = '5b49b6ae358e53f7b16f6d431213aeb1';
 
     /**
      * 视图名称

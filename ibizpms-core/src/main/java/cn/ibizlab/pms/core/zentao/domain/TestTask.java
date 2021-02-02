@@ -60,6 +60,13 @@ public class TestTask extends EntityMP implements Serializable {
     @JsonProperty("begin")
     private Timestamp begin;
     /**
+     * 负责人（选择）
+     */
+    @TableField(exist = false)
+    @JSONField(name = "ownerpk")
+    @JsonProperty("ownerpk")
+    private String ownerpk;
+    /**
      * 抄送给
      */
     @DEField(defaultValue = "#EMPTY")
@@ -68,6 +75,20 @@ public class TestTask extends EntityMP implements Serializable {
     @JsonProperty("mailto")
     private String mailto;
     /**
+     * 用例数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "casecnt")
+    @JsonProperty("casecnt")
+    private Integer casecnt;
+    /**
+     * 抄送给
+     */
+    @TableField(exist = false)
+    @JSONField(name = "mailtopk")
+    @JsonProperty("mailtopk")
+    private String mailtopk;
+    /**
      * 优先级
      */
     @DEField(defaultValue = "3")
@@ -75,6 +96,13 @@ public class TestTask extends EntityMP implements Serializable {
     @JSONField(name = "pri")
     @JsonProperty("pri")
     private Integer pri;
+    /**
+     * 备注
+     */
+    @TableField(exist = false)
+    @JSONField(name = "comment")
+    @JsonProperty("comment")
+    private String comment;
     /**
      * 子状态
      */
@@ -116,6 +144,13 @@ public class TestTask extends EntityMP implements Serializable {
     @JsonProperty("status")
     private String status;
     /**
+     * 联系人
+     */
+    @TableField(exist = false)
+    @JSONField(name = "mailtoconact")
+    @JsonProperty("mailtoconact")
+    private String mailtoconact;
+    /**
      * 负责人
      */
     @DEField(defaultValue = "#EMPTY")
@@ -148,6 +183,27 @@ public class TestTask extends EntityMP implements Serializable {
     @JsonProperty("name")
     private String name;
     /**
+     * 版本
+     */
+    @TableField(exist = false)
+    @JSONField(name = "buildname")
+    @JsonProperty("buildname")
+    private String buildname;
+    /**
+     * 产品
+     */
+    @TableField(exist = false)
+    @JSONField(name = "productname")
+    @JsonProperty("productname")
+    private String productname;
+    /**
+     * 项目
+     */
+    @TableField(exist = false)
+    @JSONField(name = "projecttname")
+    @JsonProperty("projecttname")
+    private String projecttname;
+    /**
      * 所属产品
      */
     @DEField(defaultValue = "0")
@@ -171,62 +227,6 @@ public class TestTask extends EntityMP implements Serializable {
     @JSONField(name = "project")
     @JsonProperty("project")
     private Long project;
-    /**
-     * 产品
-     */
-    @TableField(exist = false)
-    @JSONField(name = "productname")
-    @JsonProperty("productname")
-    private String productname;
-    /**
-     * 项目
-     */
-    @TableField(exist = false)
-    @JSONField(name = "projecttname")
-    @JsonProperty("projecttname")
-    private String projecttname;
-    /**
-     * 版本
-     */
-    @TableField(exist = false)
-    @JSONField(name = "buildname")
-    @JsonProperty("buildname")
-    private String buildname;
-    /**
-     * 备注
-     */
-    @TableField(exist = false)
-    @JSONField(name = "comment")
-    @JsonProperty("comment")
-    private String comment;
-    /**
-     * 用例数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "casecnt")
-    @JsonProperty("casecnt")
-    private Integer casecnt;
-    /**
-     * 负责人（选择）
-     */
-    @TableField(exist = false)
-    @JSONField(name = "ownerpk")
-    @JsonProperty("ownerpk")
-    private String ownerpk;
-    /**
-     * 联系人
-     */
-    @TableField(exist = false)
-    @JSONField(name = "mailtoconact")
-    @JsonProperty("mailtoconact")
-    private String mailtoconact;
-    /**
-     * 抄送给
-     */
-    @TableField(exist = false)
-    @JSONField(name = "mailtopk")
-    @JsonProperty("mailtopk")
-    private String mailtopk;
 
     /**
      * 

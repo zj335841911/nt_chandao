@@ -44,6 +44,14 @@ public class TestModule extends EntityMP implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
+     * 类型（story）
+     */
+    @DEField(defaultValue = "story")
+    @TableField(value = "`type`")
+    @JSONField(name = "type")
+    @JsonProperty("type")
+    private String type;
+    /**
      * path
      */
     @DEField(defaultValue = ",")
@@ -51,6 +59,22 @@ public class TestModule extends EntityMP implements Serializable {
     @JSONField(name = "path")
     @JsonProperty("path")
     private String path;
+    /**
+     * owner
+     */
+    @DEField(defaultValue = "/")
+    @TableField(value = "`owner`")
+    @JSONField(name = "owner")
+    @JsonProperty("owner")
+    private String owner;
+    /**
+     * 排序值
+     */
+    @DEField(defaultValue = "0")
+    @TableField(value = "`order`")
+    @JSONField(name = "order")
+    @JsonProperty("order")
+    private Integer order;
     /**
      * 逻辑删除标志
      */
@@ -61,21 +85,6 @@ public class TestModule extends EntityMP implements Serializable {
     @JsonProperty("deleted")
     private String deleted;
     /**
-     * 名称
-     */
-    @TableField(value = "`name`")
-    @JSONField(name = "name")
-    @JsonProperty("name")
-    private String name;
-    /**
-     * 排序值
-     */
-    @DEField(defaultValue = "0")
-    @TableField(value = "`order`")
-    @JSONField(name = "order")
-    @JsonProperty("order")
-    private Integer order;
-    /**
      * branch
      */
     @DEField(defaultValue = "0")
@@ -83,6 +92,36 @@ public class TestModule extends EntityMP implements Serializable {
     @JSONField(name = "branch")
     @JsonProperty("branch")
     private Integer branch;
+    /**
+     * collector
+     */
+    @DEField(defaultValue = "/")
+    @TableField(value = "`collector`")
+    @JSONField(name = "collector")
+    @JsonProperty("collector")
+    private String collector;
+    /**
+     * id
+     */
+    @DEField(isKeyField = true)
+    @TableId(value = "id", type = IdType.AUTO)
+    @JSONField(name = "id")
+    @JsonProperty("id")
+    private Long id;
+    /**
+     * 叶子模块
+     */
+    @TableField(exist = false)
+    @JSONField(name = "isleaf")
+    @JsonProperty("isleaf")
+    private String isleaf;
+    /**
+     * 名称
+     */
+    @TableField(value = "`name`")
+    @JSONField(name = "name")
+    @JsonProperty("name")
+    private String name;
     /**
      * 简称
      */
@@ -100,59 +139,19 @@ public class TestModule extends EntityMP implements Serializable {
     @JsonProperty("grade")
     private Integer grade;
     /**
-     * 类型（story）
-     */
-    @DEField(defaultValue = "story")
-    @TableField(value = "`type`")
-    @JSONField(name = "type")
-    @JsonProperty("type")
-    private String type;
-    /**
-     * owner
-     */
-    @DEField(defaultValue = "/")
-    @TableField(value = "`owner`")
-    @JSONField(name = "owner")
-    @JsonProperty("owner")
-    private String owner;
-    /**
-     * id
-     */
-    @DEField(isKeyField = true)
-    @TableId(value = "id", type = IdType.AUTO)
-    @JSONField(name = "id")
-    @JsonProperty("id")
-    private Long id;
-    /**
-     * 叶子模块
-     */
-    @TableField(exist = false)
-    @JSONField(name = "isleaf")
-    @JsonProperty("isleaf")
-    private String isleaf;
-    /**
-     * collector
-     */
-    @DEField(defaultValue = "/")
-    @TableField(value = "`collector`")
-    @JSONField(name = "collector")
-    @JsonProperty("collector")
-    private String collector;
-    /**
-     * id
-     */
-    @DEField(defaultValue = "0")
-    @TableField(value = "`parent`")
-    @JSONField(name = "parent")
-    @JsonProperty("parent")
-    private Long parent;
-    /**
      * 上级模块
      */
     @TableField(exist = false)
     @JSONField(name = "parentname")
     @JsonProperty("parentname")
     private String parentname;
+    /**
+     * 测试
+     */
+    @TableField(exist = false)
+    @JSONField(name = "rootname")
+    @JsonProperty("rootname")
+    private String rootname;
     /**
      * 编号
      */
@@ -162,12 +161,13 @@ public class TestModule extends EntityMP implements Serializable {
     @JsonProperty("root")
     private Long root;
     /**
-     * 测试
+     * id
      */
-    @TableField(exist = false)
-    @JSONField(name = "rootname")
-    @JsonProperty("rootname")
-    private String rootname;
+    @DEField(defaultValue = "0")
+    @TableField(value = "`parent`")
+    @JSONField(name = "parent")
+    @JsonProperty("parent")
+    private Long parent;
 
     /**
      * 
@@ -188,6 +188,14 @@ public class TestModule extends EntityMP implements Serializable {
 
 
     /**
+     * 设置 [类型（story）]
+     */
+    public void setType(String type) {
+        this.type = type;
+        this.modify("type", type);
+    }
+
+    /**
      * 设置 [path]
      */
     public void setPath(String path) {
@@ -196,11 +204,11 @@ public class TestModule extends EntityMP implements Serializable {
     }
 
     /**
-     * 设置 [名称]
+     * 设置 [owner]
      */
-    public void setName(String name) {
-        this.name = name;
-        this.modify("name", name);
+    public void setOwner(String owner) {
+        this.owner = owner;
+        this.modify("owner", owner);
     }
 
     /**
@@ -220,6 +228,22 @@ public class TestModule extends EntityMP implements Serializable {
     }
 
     /**
+     * 设置 [collector]
+     */
+    public void setCollector(String collector) {
+        this.collector = collector;
+        this.modify("collector", collector);
+    }
+
+    /**
+     * 设置 [名称]
+     */
+    public void setName(String name) {
+        this.name = name;
+        this.modify("name", name);
+    }
+
+    /**
      * 设置 [简称]
      */
     public void setIbizshort(String ibizshort) {
@@ -236,27 +260,11 @@ public class TestModule extends EntityMP implements Serializable {
     }
 
     /**
-     * 设置 [类型（story）]
+     * 设置 [编号]
      */
-    public void setType(String type) {
-        this.type = type;
-        this.modify("type", type);
-    }
-
-    /**
-     * 设置 [owner]
-     */
-    public void setOwner(String owner) {
-        this.owner = owner;
-        this.modify("owner", owner);
-    }
-
-    /**
-     * 设置 [collector]
-     */
-    public void setCollector(String collector) {
-        this.collector = collector;
-        this.modify("collector", collector);
+    public void setRoot(Long root) {
+        this.root = root;
+        this.modify("root", root);
     }
 
     /**
@@ -265,14 +273,6 @@ public class TestModule extends EntityMP implements Serializable {
     public void setParent(Long parent) {
         this.parent = parent;
         this.modify("parent", parent);
-    }
-
-    /**
-     * 设置 [编号]
-     */
-    public void setRoot(Long root) {
-        this.root = root;
-        this.modify("root", root);
     }
 
 

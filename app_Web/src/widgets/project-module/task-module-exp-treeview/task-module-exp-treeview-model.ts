@@ -15,47 +15,44 @@ export default class TaskModuleExpModel {
   public getDataItems(): any[] {
     return [
       {
+        name: 'ibizshort',
+      },
+      {
+        name: 'isleaf',
+      },
+      {
         name: 'type',
       },
       {
+        name: 'orderpk',
+      },
+      {
+        name: 'name',
+      },
+      {
+        name: 'order',
+      },
+      {
         name: 'collector',
+      },
+      {
+        name: 'grade',
+      },
+      {
+        name: 'branch',
+      },
+      {
+        name: 'path',
       },
       {
         name: 'projectmodule',
         prop: 'id',
       },
       {
-        name: 'deleted',
-      },
-      {
-        name: 'isleaf',
-      },
-      {
-        name: 'path',
-      },
-      {
         name: 'owner',
       },
       {
-        name: 'ibizshort',
-      },
-      {
-        name: 'name',
-      },
-      {
-        name: 'grade',
-      },
-      {
-        name: 'order',
-      },
-      {
-        name: 'branch',
-      },
-      {
-        name: 'parent',
-      },
-      {
-        name: 'root',
+        name: 'deleted',
       },
       {
         name: 'rootname',
@@ -64,7 +61,10 @@ export default class TaskModuleExpModel {
         name: 'parentname',
       },
       {
-        name: 'orderpk',
+        name: 'root',
+      },
+      {
+        name: 'parent',
       },
     ]
   }

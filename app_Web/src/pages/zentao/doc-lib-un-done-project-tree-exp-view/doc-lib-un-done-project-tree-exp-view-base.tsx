@@ -100,7 +100,7 @@ export class DocLibUnDoneProjectTreeExpViewBase extends TreeExpViewBase {
      * @type {string}
      * @memberof DocLibUnDoneProjectTreeExpViewBase
      */
-	protected viewtag: string = '15ba586aa7dcfe6e62e768dd06f77415';
+	protected viewtag: string = '268235f326128db6498eb299243b47df';
 
     /**
      * 视图名称

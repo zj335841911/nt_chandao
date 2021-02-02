@@ -136,16 +136,16 @@ export default class DocUIServiceBase extends UIService {
      * @memberof  DocUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
-        this.allDeMainStateOPPrivsMap.set('doc__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'DOCLIB':0,'MODULE':0,'SRFUR__DOC_NFAVOUR_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('doc__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__DOC_FAVOUR_BUT':0,'MODULE':0,'DOCLIB':0,}));
-        this.allDeMainStateOPPrivsMap.set('doclib__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'DOC':0,'SRFUR__DOC_NFAVOUR_BUT':0,'MODULE':0,}));
+        this.allDeMainStateOPPrivsMap.set('doc__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'MODULE':0,'DOCLIB':0,'SRFUR__DOC_NFAVOUR_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('doc__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'MODULE':0,'SRFUR__DOC_FAVOUR_BUT':0,'DOCLIB':0,}));
+        this.allDeMainStateOPPrivsMap.set('doclib__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'DOC':0,'MODULE':0,'SRFUR__DOC_NFAVOUR_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('doclib__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__DOC_FAVOUR_BUT':0,'DOC':0,'MODULE':0,}));
-        this.allDeMainStateOPPrivsMap.set('module__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__DOC_NFAVOUR_BUT':0,'DOCLIB':0,'DOC':0,}));
+        this.allDeMainStateOPPrivsMap.set('module__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'DOCLIB':0,'DOC':0,'SRFUR__DOC_NFAVOUR_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('module__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'DOCLIB':0,'DOC':0,'SRFUR__DOC_FAVOUR_BUT':0,}));
     }
 
     /**
-     * 删除
+     * 取消收藏
      *
      * @param {any[]} args 当前数据
      * @param {any} context 行为附加上下文
@@ -156,18 +156,124 @@ export default class DocUIServiceBase extends UIService {
      * @param {*} [srfParentDeName] 父实体名称
      * @returns {Promise<any>}
      */
-    public async Doc_Delete(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
-        let confirmResult:boolean = await new Promise((resolve: any, reject: any) => {
-          actionContext.$Modal.confirm({
-              title: '警告',
-              content: '您确定删除该文档吗？',
-              onOk: () => {resolve(true);},
-              onCancel: () => {resolve(false);}
-          });
-        });
-        if(!confirmResult){
-            return;
+    public async Doc_UnCollect(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        Object.assign(params,{docqtype:"%docqtype%"});
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { doc: '%doc%' });
+        Object.assign(params, { id: '%doc%' });
+        Object.assign(params, { title: '%title%' });
+        if(_this.context){
+            parentContext = _this.context;
         }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        // 直接调实体服务需要转换的数据
+        if(context && context.srfsessionid){
+          context.srfsessionkey = context.srfsessionid;
+            delete context.srfsessionid;
+        }
+        
+        const backend = () => {
+            const curService:DocService =  new DocService();
+            curService.UnCollect(context,data, true).then((response: any) => {
+                if (!response || response.status !== 200) {
+                    actionContext.$Notice.error({ title: '错误', desc: response.message });
+                    return;
+                }
+                actionContext.$Notice.success({ title: '成功', desc: '取消收藏成功！' });
+                const _this: any = actionContext;
+                if (xData && xData.refresh && xData.refresh instanceof Function) {
+                    xData.refresh(args);
+                }
+                return response;
+            }).catch((response: any) => {
+                if (!response || !response.status || !response.data) {
+                    actionContext.$Notice.error({ title: '错误', desc: '系统异常！' });
+                    return;
+                }
+                if (response && response.data) {
+                    actionContext.$Notice.error({ title: '错误', desc: response.data.message });
+                    return;
+                }
+                if (response.status === 401) {
+                    return;
+                }
+                return response;
+            });
+        };
+        backend();
+    }
+
+    /**
+     * MORE
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Doc_MoreMyDoc(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'NONE';
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'docs', parameterName: 'doc' },
+            { pathName: 'moremydoctreeview', parameterName: 'moremydoctreeview' },
+        ];
+        const openIndexViewTab = (data: any) => {
+            const routePath = actionContext.$viewTool.buildUpRoutePath(actionContext.$route, context, deResParameters, parameters, _args, data);
+            actionContext.$router.push(routePath);
+            return null;
+        }
+        openIndexViewTab(data);
+    }
+
+    /**
+     * 取消收藏
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Doc_OnlyUnCollectDoc(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
         let data: any = {};
         let parentContext:any = {};
         let parentViewParam:any = {};
@@ -197,12 +303,12 @@ export default class DocUIServiceBase extends UIService {
         
         const backend = () => {
             const curService:DocService =  new DocService();
-            curService.Remove(context,data, true).then((response: any) => {
+            curService.OnlyUnCollectDoc(context,data, true).then((response: any) => {
                 if (!response || response.status !== 200) {
                     actionContext.$Notice.error({ title: '错误', desc: response.message });
                     return;
                 }
-                actionContext.$Notice.success({ title: '成功', desc: '删除成功！' });
+                actionContext.$Notice.success({ title: '成功', desc: '取消收藏成功！' });
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
@@ -286,122 +392,6 @@ export default class DocUIServiceBase extends UIService {
                 placement: 'DRAWER_TOP',
             };
             openDrawer(view, data);
-    }
-
-    /**
-     * MORE
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} context 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @param {*} [srfParentDeName] 父实体名称
-     * @returns {Promise<any>}
-     */
-    public async Doc_MoreMyDoc(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-    
-        let data: any = {};
-        let parentContext:any = {};
-        let parentViewParam:any = {};
-        const _this: any = actionContext;
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'NONE';
-        if(_this.context){
-            parentContext = _this.context;
-        }
-        if(_this.viewparams){
-            parentViewParam = _this.viewparams;
-        }
-        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
-        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
-        context = Object.assign({},actionContext.context,context);
-        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
-        Object.assign(data,parentObj);
-        Object.assign(context,parentObj);
-        let deResParameters: any[] = [];
-        const parameters: any[] = [
-            { pathName: 'docs', parameterName: 'doc' },
-            { pathName: 'moremydoctreeview', parameterName: 'moremydoctreeview' },
-        ];
-        const openIndexViewTab = (data: any) => {
-            const routePath = actionContext.$viewTool.buildUpRoutePath(actionContext.$route, context, deResParameters, parameters, _args, data);
-            actionContext.$router.push(routePath);
-            return null;
-        }
-        openIndexViewTab(data);
-    }
-
-    /**
-     * 收藏
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} context 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @param {*} [srfParentDeName] 父实体名称
-     * @returns {Promise<any>}
-     */
-    public async Doc_OnlyCollectDoc(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
-        let data: any = {};
-        let parentContext:any = {};
-        let parentViewParam:any = {};
-        const _this: any = actionContext;
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(context, { doc: '%doc%' });
-        Object.assign(params, { id: '%doc%' });
-        Object.assign(params, { title: '%title%' });
-        if(_this.context){
-            parentContext = _this.context;
-        }
-        if(_this.viewparams){
-            parentViewParam = _this.viewparams;
-        }
-        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
-        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
-        context = Object.assign({},actionContext.context,context);
-        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
-        Object.assign(data,parentObj);
-        Object.assign(context,parentObj);
-        // 直接调实体服务需要转换的数据
-        if(context && context.srfsessionid){
-          context.srfsessionkey = context.srfsessionid;
-            delete context.srfsessionid;
-        }
-        
-        const backend = () => {
-            const curService:DocService =  new DocService();
-            curService.OnlyCollectDoc(context,data, true).then((response: any) => {
-                if (!response || response.status !== 200) {
-                    actionContext.$Notice.error({ title: '错误', desc: response.message });
-                    return;
-                }
-                actionContext.$Notice.success({ title: '成功', desc: '收藏成功！' });
-                const _this: any = actionContext;
-                if (xData && xData.refresh && xData.refresh instanceof Function) {
-                    xData.refresh(args);
-                }
-                return response;
-            }).catch((response: any) => {
-                if (!response || !response.status || !response.data) {
-                    actionContext.$Notice.error({ title: '错误', desc: '系统异常！' });
-                    return;
-                }
-                if (response && response.data) {
-                    actionContext.$Notice.error({ title: '错误', desc: response.data.message });
-                    return;
-                }
-                if (response.status === 401) {
-                    return;
-                }
-                return response;
-            });
-        };
-        backend();
     }
 
     /**
@@ -547,7 +537,7 @@ export default class DocUIServiceBase extends UIService {
      * @param {*} [srfParentDeName] 父实体名称
      * @returns {Promise<any>}
      */
-    public async Doc_MoreRecentUpdate(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    public async Doc_MoreMyFavourite(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
     
         let data: any = {};
         let parentContext:any = {};
@@ -570,7 +560,7 @@ export default class DocUIServiceBase extends UIService {
         let deResParameters: any[] = [];
         const parameters: any[] = [
             { pathName: 'docs', parameterName: 'doc' },
-            { pathName: 'morerecentupdatetreeview', parameterName: 'morerecentupdatetreeview' },
+            { pathName: 'moremyfavouritestreeview', parameterName: 'moremyfavouritestreeview' },
         ];
         const openIndexViewTab = (data: any) => {
             const routePath = actionContext.$viewTool.buildUpRoutePath(actionContext.$route, context, deResParameters, parameters, _args, data);
@@ -581,7 +571,7 @@ export default class DocUIServiceBase extends UIService {
     }
 
     /**
-     * 取消收藏
+     * 收藏
      *
      * @param {any[]} args 当前数据
      * @param {any} context 行为附加上下文
@@ -592,12 +582,11 @@ export default class DocUIServiceBase extends UIService {
      * @param {*} [srfParentDeName] 父实体名称
      * @returns {Promise<any>}
      */
-    public async Doc_UnCollect(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
+    public async Doc_OnlyCollectDoc(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
         let data: any = {};
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
-        Object.assign(params,{docqtype:"%docqtype%"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(context, { doc: '%doc%' });
@@ -623,12 +612,12 @@ export default class DocUIServiceBase extends UIService {
         
         const backend = () => {
             const curService:DocService =  new DocService();
-            curService.UnCollect(context,data, true).then((response: any) => {
+            curService.OnlyCollectDoc(context,data, true).then((response: any) => {
                 if (!response || response.status !== 200) {
                     actionContext.$Notice.error({ title: '错误', desc: response.message });
                     return;
                 }
-                actionContext.$Notice.success({ title: '成功', desc: '取消收藏成功！' });
+                actionContext.$Notice.success({ title: '成功', desc: '收藏成功！' });
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
@@ -653,7 +642,7 @@ export default class DocUIServiceBase extends UIService {
     }
 
     /**
-     * 取消收藏
+     * 删除
      *
      * @param {any[]} args 当前数据
      * @param {any} context 行为附加上下文
@@ -664,7 +653,18 @@ export default class DocUIServiceBase extends UIService {
      * @param {*} [srfParentDeName] 父实体名称
      * @returns {Promise<any>}
      */
-    public async Doc_OnlyUnCollectDoc(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
+    public async Doc_Delete(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
+        let confirmResult:boolean = await new Promise((resolve: any, reject: any) => {
+          actionContext.$Modal.confirm({
+              title: '警告',
+              content: '您确定删除该文档吗？',
+              onOk: () => {resolve(true);},
+              onCancel: () => {resolve(false);}
+          });
+        });
+        if(!confirmResult){
+            return;
+        }
         let data: any = {};
         let parentContext:any = {};
         let parentViewParam:any = {};
@@ -694,12 +694,12 @@ export default class DocUIServiceBase extends UIService {
         
         const backend = () => {
             const curService:DocService =  new DocService();
-            curService.OnlyUnCollectDoc(context,data, true).then((response: any) => {
+            curService.Remove(context,data, true).then((response: any) => {
                 if (!response || response.status !== 200) {
                     actionContext.$Notice.error({ title: '错误', desc: response.message });
                     return;
                 }
-                actionContext.$Notice.success({ title: '成功', desc: '取消收藏成功！' });
+                actionContext.$Notice.success({ title: '成功', desc: '删除成功！' });
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
@@ -735,7 +735,7 @@ export default class DocUIServiceBase extends UIService {
      * @param {*} [srfParentDeName] 父实体名称
      * @returns {Promise<any>}
      */
-    public async Doc_MoreMyFavourite(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    public async Doc_MoreRecentUpdate(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
     
         let data: any = {};
         let parentContext:any = {};
@@ -758,7 +758,7 @@ export default class DocUIServiceBase extends UIService {
         let deResParameters: any[] = [];
         const parameters: any[] = [
             { pathName: 'docs', parameterName: 'doc' },
-            { pathName: 'moremyfavouritestreeview', parameterName: 'moremyfavouritestreeview' },
+            { pathName: 'morerecentupdatetreeview', parameterName: 'morerecentupdatetreeview' },
         ];
         const openIndexViewTab = (data: any) => {
             const routePath = actionContext.$viewTool.buildUpRoutePath(actionContext.$route, context, deResParameters, parameters, _args, data);

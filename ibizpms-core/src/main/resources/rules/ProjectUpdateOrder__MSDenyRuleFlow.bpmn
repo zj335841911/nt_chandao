@@ -13,21 +13,9 @@
         <tns:global identifier="projectupdateorder__msdenydefault" type="cn.ibizlab.pms.core.zentao.domain.Project" />
         <tns:global identifier="projectupdateorder__msdenytemp" type="cn.ibizlab.pms.core.zentao.domain.Project" />
         </extensionElements>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="projectupdateorder__msdenydenybywait_0" id="denybywait_0" implementation="http://www.jboss.org/drools/rule" name="状态[未开始_未置顶]拒绝[排序]操作"/>
-     <endEvent id="denybywait_0_end" name="end"/>
-     <sequenceFlow id="denybywait_0_end_line" sourceRef="denybywait_0" targetRef="denybywait_0_end"/>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="projectupdateorder__msdenydenybywait_1" id="denybywait_1" implementation="http://www.jboss.org/drools/rule" name="状态[未开始_已置顶]拒绝[排序]操作"/>
-     <endEvent id="denybywait_1_end" name="end"/>
-     <sequenceFlow id="denybywait_1_end_line" sourceRef="denybywait_1" targetRef="denybywait_1_end"/>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="projectupdateorder__msdenydenybyclosed_1" id="denybyclosed_1" implementation="http://www.jboss.org/drools/rule" name="状态[已关闭_已置顶]拒绝[排序]操作"/>
-     <endEvent id="denybyclosed_1_end" name="end"/>
-     <sequenceFlow id="denybyclosed_1_end_line" sourceRef="denybyclosed_1" targetRef="denybyclosed_1_end"/>
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="projectupdateorder__msdenydenybysuspended_1" id="denybysuspended_1" implementation="http://www.jboss.org/drools/rule" name="状态[已挂起_已置顶]拒绝[排序]操作"/>
      <endEvent id="denybysuspended_1_end" name="end"/>
      <sequenceFlow id="denybysuspended_1_end_line" sourceRef="denybysuspended_1" targetRef="denybysuspended_1_end"/>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="projectupdateorder__msdenydenybydoing_1" id="denybydoing_1" implementation="http://www.jboss.org/drools/rule" name="状态[进行中_已置顶]拒绝[排序]操作"/>
-     <endEvent id="denybydoing_1_end" name="end"/>
-     <sequenceFlow id="denybydoing_1_end_line" sourceRef="denybydoing_1" targetRef="denybydoing_1_end"/>
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="projectupdateorder__msdenydenybyclosed_0" id="denybyclosed_0" implementation="http://www.jboss.org/drools/rule" name="状态[已关闭_未置顶]拒绝[排序]操作"/>
      <endEvent id="denybyclosed_0_end" name="end"/>
      <sequenceFlow id="denybyclosed_0_end_line" sourceRef="denybyclosed_0" targetRef="denybyclosed_0_end"/>
@@ -35,11 +23,23 @@
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="projectupdateorder__msdenydenybysuspended_0" id="denybysuspended_0" implementation="http://www.jboss.org/drools/rule" name="状态[已挂起_未置顶]拒绝[排序]操作"/>
      <endEvent id="denybysuspended_0_end" name="end"/>
      <sequenceFlow id="denybysuspended_0_end_line" sourceRef="denybysuspended_0" targetRef="denybysuspended_0_end"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="projectupdateorder__msdenydenybyclosed_1" id="denybyclosed_1" implementation="http://www.jboss.org/drools/rule" name="状态[已关闭_已置顶]拒绝[排序]操作"/>
+     <endEvent id="denybyclosed_1_end" name="end"/>
+     <sequenceFlow id="denybyclosed_1_end_line" sourceRef="denybyclosed_1" targetRef="denybyclosed_1_end"/>
      <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="projectupdateorder__msdenydenybydoing_0" id="denybydoing_0" implementation="http://www.jboss.org/drools/rule" name="状态[进行中_未置顶]拒绝[排序]操作"/>
      <endEvent id="denybydoing_0_end" name="end"/>
      <sequenceFlow id="denybydoing_0_end_line" sourceRef="denybydoing_0" targetRef="denybydoing_0_end"/>
-     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="projectupdateorder__msdenyget" id="get" implementation="http://www.jboss.org/drools/rule" name="获取数据"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="projectupdateorder__msdenydenybydoing_1" id="denybydoing_1" implementation="http://www.jboss.org/drools/rule" name="状态[进行中_已置顶]拒绝[排序]操作"/>
+     <endEvent id="denybydoing_1_end" name="end"/>
+     <sequenceFlow id="denybydoing_1_end_line" sourceRef="denybydoing_1" targetRef="denybydoing_1_end"/>
      <startEvent id="begin" isInterrupting="true"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="projectupdateorder__msdenydenybywait_0" id="denybywait_0" implementation="http://www.jboss.org/drools/rule" name="状态[未开始_未置顶]拒绝[排序]操作"/>
+     <endEvent id="denybywait_0_end" name="end"/>
+     <sequenceFlow id="denybywait_0_end_line" sourceRef="denybywait_0" targetRef="denybywait_0_end"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="projectupdateorder__msdenydenybywait_1" id="denybywait_1" implementation="http://www.jboss.org/drools/rule" name="状态[未开始_已置顶]拒绝[排序]操作"/>
+     <endEvent id="denybywait_1_end" name="end"/>
+     <sequenceFlow id="denybywait_1_end_line" sourceRef="denybywait_1" targetRef="denybywait_1_end"/>
+     <businessRuleTask activiti:exclusive="true" g:ruleFlowGroup="projectupdateorder__msdenyget" id="get" implementation="http://www.jboss.org/drools/rule" name="获取数据"/>
      <sequenceFlow id="begin_preparetemp" sourceRef="begin" targetRef="preparetemp">
      </sequenceFlow>
      <sequenceFlow id="preparetemp_get" sourceRef="preparetemp" targetRef="get">
