@@ -9,6 +9,107 @@
 | INPUTCOST        | 投入成本  | DOUBLE      |   2   | &nbsp; |
 | EVALUATIONCOST        | 评估成本  | DOUBLE      |   2   | &nbsp; |
 | DATE        | 日期  | DATETIME      |   -1   | &nbsp; |
+| ID        | 主键  | VARCHAR      |   100   | 主键&nbsp; |
+| PROJECT        | 项目标识  |       |   -1   | &nbsp; |
+| PROJECTNAME        | 项目名称  | VARCHAR      |   100   | &nbsp; |
+| YEAR        | 年  | VARCHAR      |   100   | &nbsp; |
+| MONTH        | 月  | VARCHAR      |   100   | &nbsp; |
+| ACCOUNT        | 用户  | VARCHAR      |   100   | &nbsp; |
+| CONSUMED        | 工时  | DOUBLE      |   2   | &nbsp; |
+| EVALUATIONTIME        | 评估工时  | DOUBLE      |   2   | &nbsp; |
+| THIRTYONEEVALUATIONTIME        | 三十一号评估工时  | DOUBLE      |   2   | &nbsp; |
+| THIRTYEVALUATIONTIME        | 三十号评估工时  | DOUBLE      |   2   | &nbsp; |
+| TWENTYEIGHTEVALUATIONTIME        | 二十八号评估工时  | DOUBLE      |   2   | &nbsp; |
+| TWENTYNINEEVALUATIONTIME        | 二十九号评估工时  | DOUBLE      |   2   | &nbsp; |
+| TWENTYSEVENEVALUATIONTIME        | 二十七号评估工时  | DOUBLE      |   2   | &nbsp; |
+| TWENTYSIXEVALUATIONTIME        | 二十六号评估工时  | DOUBLE      |   2   | &nbsp; |
+| TWENTYFIVEEVALUATIONTIME        | 二十五号评估工时  | DOUBLE      |   2   | &nbsp; |
+| TWENTYFOUREVALUATIONTIME        | 二十四号评估工时  | DOUBLE      |   2   | &nbsp; |
+| TWENTYTHREEEVALUATIONTIME        | 二十三号评估工时  | DOUBLE      |   2   | &nbsp; |
+| TWENTYTWOEVALUATIONTIME        | 二十二号评估工时  | DOUBLE      |   2   | &nbsp; |
+| NINETEENEVALUATIONTIME        | 十九号评估工时  | DOUBLE      |   2   | &nbsp; |
+| TWENTYONEEVALUATIONTIME        | 二十一号评估工时  | DOUBLE      |   2   | &nbsp; |
+| TWENTYEVALUATIONTIME        | 二十号评估工时  | DOUBLE      |   2   | &nbsp; |
+| SEVENTEENEVALUATIONTIME        | 十七号评估工时  | DOUBLE      |   2   | &nbsp; |
+| EIGHTEENEVALUATIONTIME        | 十八号评估工时  | DOUBLE      |   2   | &nbsp; |
+| SIXTEENEVALUATIONTIME        | 十六号评估工时  | DOUBLE      |   2   | &nbsp; |
+| FIFTEENEVALUATIONTIME        | 十五号评估工时  | DOUBLE      |   2   | &nbsp; |
+| FOURTEENEVALUATIONTIME        | 十四号评估工时  | DOUBLE      |   2   | &nbsp; |
+| THIRTEENEVALUATIONTIME        | 十三号评估工时  | DOUBLE      |   2   | &nbsp; |
+| ELEVENEVALUATIONTIME        | 十一号评估工时  | DOUBLE      |   2   | &nbsp; |
+| NINEEVALUATIONTIME        | 九号评估工时  | DOUBLE      |   2   | &nbsp; |
+| TWELVEEVALUATIONTIME        | 十二号评估工时  | DOUBLE      |   2   | &nbsp; |
+| SEVENEVALUATIONTIME        | 七号评估工时  | DOUBLE      |   2   | &nbsp; |
+| TENEVALUATIONTIME        | 十号评估工时  | DOUBLE      |   2   | &nbsp; |
+| SIXEVALUATIONTIME        | 六号评估工时  | DOUBLE      |   2   | &nbsp; |
+| EIGHTEVALUATIONTIME        | 八号评估工时  | DOUBLE      |   2   | &nbsp; |
+| FIVEEVALUATIONTIME        | 五号评估工时  | DOUBLE      |   2   | &nbsp; |
+| ONEEVALUATIONTIME        | 一号评估工时  | DOUBLE      |   2   | &nbsp; |
+| THREEEVALUATIONTIME        | 三号评估工时  | DOUBLE      |   2   | &nbsp; |
+| FOUREVALUATIONTIME        | 四号评估工时  | DOUBLE      |   2   | &nbsp; |
+| TWOCONSUMED        | 二号工时  | DOUBLE      |   2   | &nbsp; |
+| TWOEVALUATIONTIME        | 二号评估工时  | DOUBLE      |   2   | &nbsp; |
+| ONECONSUMED        | 一号工时  | DOUBLE      |   2   | &nbsp; |
+| FOURONSUMED        | 四号工时  | DOUBLE      |   2   | &nbsp; |
+| FIVECONSUMED        | 五号工时  | DOUBLE      |   2   | &nbsp; |
+| THREECONSUMED        | 三号工时  | DOUBLE      |   2   | &nbsp; |
+| SEVENCONSUMED        | 七号工时  | DOUBLE      |   2   | &nbsp; |
+| NINECONSUMED        | 九号工时  | DOUBLE      |   2   | &nbsp; |
+| SIXCONSUMED        | 六号工时  | DOUBLE      |   2   | &nbsp; |
+| TENCONSUMED        | 十号工时  | DOUBLE      |   2   | &nbsp; |
+| EIGHTCONSUMED        | 八号工时  | DOUBLE      |   2   | &nbsp; |
+| THIRTEENCONSUMED        | 十三号工时  | DOUBLE      |   2   | &nbsp; |
+| ELEVENCONSUMED        | 十一号工时  | DOUBLE      |   2   | &nbsp; |
+| FOURTEENCONSUMED        | 十四号工时  | DOUBLE      |   2   | &nbsp; |
+| TWELVECONSUMED        | 十二号工时  | DOUBLE      |   2   | &nbsp; |
+| SEVENTEENCONSUMED        | 十七号工时  | DOUBLE      |   2   | &nbsp; |
+| FIFTEENCONSUMED        | 十五号工时  | DOUBLE      |   2   | &nbsp; |
+| EIGHTEENCONSUMED        | 十八号工时  | DOUBLE      |   2   | &nbsp; |
+| SIXTEENCONSUMED        | 十六号工时  | DOUBLE      |   2   | &nbsp; |
+| TWENTYCONSUMED        | 二十号工时  | DOUBLE      |   2   | &nbsp; |
+| TWENTYTWOCONSUMED        | 二十二号工时  | DOUBLE      |   2   | &nbsp; |
+| NINETEENCONSUMED        | 十九号工时  | DOUBLE      |   2   | &nbsp; |
+| TWENTYONECONSUMED        | 二十一号工时  | DOUBLE      |   2   | &nbsp; |
+| TWENTYTHREECONSUMED        | 二十三号工时  | DOUBLE      |   2   | &nbsp; |
+| TWENTYFOURCONSUMED        | 二十四号工时  | DOUBLE      |   2   | &nbsp; |
+| TWENTYSIXCONSUMED        | 二十六号工时  | DOUBLE      |   2   | &nbsp; |
+| TWENTYNINECONSUMED        | 二十九号工时  | DOUBLE      |   2   | &nbsp; |
+| TWENTYSEVENCONSUMED        | 二十七号工时  | DOUBLE      |   2   | &nbsp; |
+| TWENTYFIVECONSUMED        | 二十五号工时  | DOUBLE      |   2   | &nbsp; |
+| TWENTYEIGHTCONSUMED        | 二十八号工时  | DOUBLE      |   2   | &nbsp; |
+| THIRTYONECONSUMED        | 三十一号工时  | DOUBLE      |   2   | &nbsp; |
+| THIRTYCONSUMED        | 三十号工时  | DOUBLE      |   2   | &nbsp; |
+| THIRTYEVALUATIONCOST        | 三十号评估成本  | DOUBLE      |   2   | &nbsp; |
+| THIRTYONEEVALUATIONCOST        | 三十一号评估成本  | DOUBLE      |   2   | &nbsp; |
+| TWENTYSEVENEVALUATIONCOST        | 二十七号评估成本  | DOUBLE      |   2   | &nbsp; |
+| TWENTYNINEEVALUATIONCOST        | 二十九号评估成本  | DOUBLE      |   2   | &nbsp; |
+| TWENTYEIGHTEVALUATIONCOST        | 二十八号评估成本  | DOUBLE      |   2   | &nbsp; |
+| TWENTYSIXEVALUATIONCOST        | 二十六号评估成本  | DOUBLE      |   2   | &nbsp; |
+| TWENTYTHREEEVALUATIONCOST        | 二十三号评估成本  | DOUBLE      |   2   | &nbsp; |
+| TWENTYFOUREVALUATIONCOST        | 二十四号评估成本  | DOUBLE      |   2   | &nbsp; |
+| TWENTYTWOEVALUATIONCOST        | 二十二号评估成本  | DOUBLE      |   2   | &nbsp; |
+| TWENTYFIVEEVALUATIONCOST        | 二十五号评估成本  | DOUBLE      |   2   | &nbsp; |
+| NINETEENEVALUATIONCOST        | 十九号评估成本  | DOUBLE      |   2   | &nbsp; |
+| TWENTYONEEVALUATIONCOST        | 二十一号评估成本  | DOUBLE      |   2   | &nbsp; |
+| TWENTYEVALUATIONCOST        | 二十号评估成本  | DOUBLE      |   2   | &nbsp; |
+| EIGHTEENEVALUATIONCOST        | 十八号评估成本  | DOUBLE      |   2   | &nbsp; |
+| SEVENTEENEVALUATIONCOST        | 十七号评估成本  | DOUBLE      |   2   | &nbsp; |
+| FIFTEENEVALUATIONCOST        | 十五号评估成本  | DOUBLE      |   2   | &nbsp; |
+| SIXTEENEVALUATIONCOST        | 十六号评估成本  | DOUBLE      |   2   | &nbsp; |
+| FOURTEENEVALUATIONCOST        | 十四号评估成本  | DOUBLE      |   2   | &nbsp; |
+| THIRTEENEVALUATIONCOST        | 十三号评估成本  | DOUBLE      |   2   | &nbsp; |
+| TENEVALUATIONCOST        | 十号评估成本  | DOUBLE      |   2   | &nbsp; |
+| TWELVEEVALUATIONCOST        | 十二号评估成本  | DOUBLE      |   2   | &nbsp; |
+| ELEVENEVALUATIONCOST        | 十一号评估成本  | DOUBLE      |   2   | &nbsp; |
+| NINEEVALUATIONCOST        | 九号评估成本  | DOUBLE      |   2   | &nbsp; |
+| SIXEVALUATIONCOST        | 六号评估成本  | DOUBLE      |   2   | &nbsp; |
+| SEVENEVALUATIONCOST        | 七号评估成本  | DOUBLE      |   2   | &nbsp; |
+| FIVEEVALUATIONCOST        | 五号评估成本  | DOUBLE      |   2   | &nbsp; |
+| EIGHTEVALUATIONCOST        | 八号评估成本  | DOUBLE      |   2   | &nbsp; |
+| FOUREVALUATIONCOST        | 四号评估成本  | DOUBLE      |   2   | &nbsp; |
+| THREEEVALUATIONCOST        | 三号评估成本  | DOUBLE      |   2   | &nbsp; |
+| TWOEVALUATIONCOST        | 二号评估成本  | DOUBLE      |   2   | &nbsp; |
+| ONEEVALUATIONCOST        | 一号评估成本  | DOUBLE      |   2   | &nbsp; |
 
 
 
@@ -1485,6 +1586,8 @@ CREATE TABLE `zt_taskestimate`(
 | EXTRA        | 附加值  | CLOB      |   65,535   | &nbsp; |
 | LASTCOMMENT        | 备注  | VARCHAR      |   200   | &nbsp; |
 | TODAY        | 今天  | VARCHAR      |   200   | &nbsp; |
+| NOTICEUSERS        | 消息通知用户  | VARCHAR      |   100   | &nbsp; |
+| FILES        | 文件  | CLOB      |   1,048,576   | &nbsp; |
 
 
 
@@ -5933,6 +6036,14 @@ CREATE TABLE `zt_branch`(
 | OPENEDBY        | 由谁创建  | VARCHAR      |   200   | &nbsp; |
 | V2        | v2  | VARCHAR      |   40   | &nbsp; |
 | CASE        | 相关用例  |       |   8   | &nbsp; |
+| COMMENT        | 备注  | CLOB      |   1,048,576   | &nbsp; |
+| FILES        | 附件  | VARCHAR      |   1,000   | &nbsp; |
+| MOBIMAGE        | 移动端图片  | VARCHAR      |   4,000   | &nbsp; |
+| BUILDNAME        | 版本名称  | VARCHAR      |   100   | &nbsp; |
+| BUILDPROJECT        | 版本项目  | VARCHAR      |   200   | &nbsp; |
+| CREATEBUILD        | 创建版本  | INTEGER      |   -1   | &nbsp; |
+| NOTICEUSERS        | 消息通知用户  | VARCHAR      |   100   | &nbsp; |
+| MAILTOCONACT        | 联系人  | VARCHAR      |   100   | &nbsp; |
 
 
 
@@ -7460,6 +7571,22 @@ CREATE TABLE `zt_bug`(
 | BUGEFFICIENT        | 有效率  | VARCHAR      |   200   | &nbsp; |
 | ID        | 标识  |       |   20   | 主键&nbsp; |
 | PROJECTNAME        | 项目名称  | VARCHAR      |   100   | &nbsp; |
+| BUGACTIVE        | 激活Bug  | INTEGER      |   -1   | &nbsp; |
+| BUGRESOLVED        | 已解决Bug  | INTEGER      |   -1   | &nbsp; |
+| BUGCLOSED        | 已关闭Bug  | INTEGER      |   -1   | &nbsp; |
+| PROJECTNAME1        | 项目名称  | VARCHAR      |   100   | &nbsp; |
+| BUGRESOLUTION        | Bug解决方案  | VARCHAR      |   100   | &nbsp; |
+| BUGSTATUS        | Bug状态  | VARCHAR      |   100   | &nbsp; |
+| BUGID        | Bug编号  | INTEGER      |   -1   | &nbsp; |
+| BUGTITLE        | Bug标题  | VARCHAR      |   100   | &nbsp; |
+| BUGPRI        | Bug优先级  | INTEGER      |   -1   | &nbsp; |
+| BUGSEVERITY        | Bug严重程度  | INTEGER      |   -1   | &nbsp; |
+| BUGOPENEDBY        | bug创建人  | VARCHAR      |   100   | &nbsp; |
+| BUGOPENEDDATE        | Bug创建日期  | DATETIME      |   -1   | &nbsp; |
+| BUGRESOLVEDDATE        | bug解决日期  | DATETIME      |   -1   | &nbsp; |
+| DEPT        | 部门  | VARCHAR      |   200   | &nbsp; |
+| BEGIN        | 开始  | DATETIME      |   -1   | &nbsp; |
+| END        | 结束  | DATETIME      |   -1   | &nbsp; |
 
 
 
@@ -8933,6 +9060,15 @@ CREATE TABLE `zt_bug`(
 | STORIES        | 完成的需求  | CLOB      |   65,535   | &nbsp; |
 | BUILDERPK        | 构建者（选择）  | VARCHAR      |   200   | &nbsp; |
 | PROJECT        | 所属项目  |       |   8   | &nbsp; |
+| IDS        | Bug版本健值  | VARCHAR      |   100   | &nbsp; |
+| FILES        | 附件  | VARCHAR      |   1,000   | &nbsp; |
+| REBUILD        | 重新构建  | INTEGER      |   -1   | &nbsp; |
+| RELEASETYPE        | 运行模式  | VARCHAR      |   200   | &nbsp; |
+| FRONTAPPLICATION        | 系统应用  | VARCHAR      |   200   | &nbsp; |
+| BACKGROUNDID        | 后台体系  | VARCHAR      |   200   | &nbsp; |
+| SQLID        | 运行数据库  | VARCHAR      |   200   | &nbsp; |
+| CREATEBUGCNT        | 产生的bug  | CLOB      |   1,048,576   | &nbsp; |
+| NOTICEUSERS        | 消息通知用户  | VARCHAR      |   100   | &nbsp; |
 
 
 
@@ -11915,6 +12051,12 @@ CREATE TABLE `zt_burn`(
 | OPENEDDATE        | 创建日期  | DATETIME      |   -1   | &nbsp; |
 | MODULE        | 所属模块  |       |   -1   | &nbsp; |
 | STEPCNT        | 用例步骤数  | INTEGER      |   -1   | &nbsp; |
+| CASESTEPS        | 用例步骤集合  | CLOB      |   1,048,576   | &nbsp; |
+| COMMENT        | 备注  | CLOB      |   1,048,576   | &nbsp; |
+| ASSIGNEDTO        | 指派给  | VARCHAR      |   200   | &nbsp; |
+| TASK        | 属性  | VARCHAR      |   100   | &nbsp; |
+| FILES        | 附件  | VARCHAR      |   1,000   | &nbsp; |
+| NOTICEUSERS        | 消息通知用户  | VARCHAR      |   100   | &nbsp; |
 
 
 
@@ -13416,6 +13558,8 @@ CREATE TABLE `zt_case`(
 | PASSCASE        | 通过用例数  | INTEGER      |   -1   | &nbsp; |
 | FAILCASE        | 失败用例数  | INTEGER      |   -1   | &nbsp; |
 | ID        | 用例编号  |       |   20   | 主键&nbsp; |
+| MODULENAME        | 模块名称  | VARCHAR      |   60   | &nbsp; |
+| PASSRATE        | 用例通过率  | VARCHAR      |   100   | &nbsp; |
 
 
 
@@ -14879,6 +15023,10 @@ CREATE TABLE `zt_case`(
 | EXPECT        | 预期  | CLOB      |   65,535   | &nbsp; |
 | DESC        | 步骤  | CLOB      |   65,535   | &nbsp; |
 | CASESTEPID        | 用例步骤编号  |       |   -1   | &nbsp; |
+| REALS        | 实际情况  | VARCHAR      |   100   | &nbsp; |
+| STEPS        | 测试结果  | VARCHAR      |   200   | &nbsp; |
+| FILES        | 附件  | VARCHAR      |   100   | &nbsp; |
+| RUNID        | 执行编号  | INTEGER      |   -1   | &nbsp; |
 
 
 
@@ -17806,6 +17954,7 @@ CREATE TABLE `zt_casestep`(
 | ID        | 标识  |       |   20   | 主键&nbsp; |
 | OPENEDTASKCNT        | 新增任务数  | INTEGER      |   -1   | &nbsp; |
 | FINISHEDTASKCNT        | 完成任务数  | INTEGER      |   -1   | &nbsp; |
+| ZTDATE        | 日期  | DATETIME      |   -1   | &nbsp; |
 
 
 
@@ -25111,6 +25260,16 @@ CREATE TABLE `zt_action`(
 | PROJECT        | 所属项目  |       |   8   | &nbsp; |
 | LIB        | 所属文档库  |       |   30   | &nbsp; |
 | ADDEDBY        | 由谁添加  | VARCHAR      |   30   | &nbsp; |
+| CONTENT        | 文档正文  | CLOB      |   1,048,576   | &nbsp; |
+| FILES        | 附件  | VARCHAR      |   1,000   | &nbsp; |
+| URL        | 文档链接  | VARCHAR      |   100   | &nbsp; |
+| ALLDOCCNT        | 所有文档数量  | INTEGER      |   -1   | &nbsp; |
+| RECENTUPDATECNT        | 最近更新数量  | INTEGER      |   -1   | &nbsp; |
+| TODAYUPDATECNT        | 今日更新数量  | INTEGER      |   -1   | &nbsp; |
+| RECENTADDCNT        | 最近添加数量  | INTEGER      |   -1   | &nbsp; |
+| MYDOCCNT        | 我的文档数量  | INTEGER      |   -1   | &nbsp; |
+| MYFAVOURITECNT        | 我的收藏数量  | INTEGER      |   -1   | &nbsp; |
+| DOCCNT        | 文档数  | INTEGER      |   -1   | &nbsp; |
 
 
 
@@ -28068,6 +28227,8 @@ CREATE TABLE `zt_doccontent`(
 | DOCLIBTYPE        | 文件库类型  | VARCHAR      |   200   | &nbsp; |
 | ACL        | 权限  | VARCHAR      |   10   | &nbsp; |
 | ISFAVOURITES        | 是否收藏  | VARCHAR      |   200   | &nbsp; |
+| DOCCNT        | 文档数量  | INTEGER      |   -1   | &nbsp; |
+| ROOT        | Root  | VARCHAR      |   100   | &nbsp; |
 
 
 
@@ -29551,6 +29712,7 @@ CREATE TABLE `zt_doclib`(
 | PATH        | path  | VARCHAR      |   255   | &nbsp; |
 | OWNER        | owner  | VARCHAR      |   30   | &nbsp; |
 | ROOT        | 编号  |       |   8   | &nbsp; |
+| DOCQTYPE        | 查询类型  | VARCHAR      |   100   | &nbsp; |
 
 
 
@@ -33939,6 +34101,10 @@ CREATE TABLE `zt_module`(
 | NAME        | 任务名  | VARCHAR      |   100   | &nbsp; |
 | PROJECTNAME        | 项目  | VARCHAR      |   90   | &nbsp; |
 | LEFT        | 剩余工时  | INTEGER      |   -1   | &nbsp; |
+| DEPT        | 部门  | VARCHAR      |   200   | &nbsp; |
+| BEGIN        | 属性  | DATETIME      |   -1   | &nbsp; |
+| END        | 结束  | DATETIME      |   -1   | &nbsp; |
+| WORKDAY        | 工作日天数  | INTEGER      |   -1   | &nbsp; |
 
 
 
@@ -38329,6 +38495,7 @@ CREATE TABLE `ZT_TASK`(
 | ADDEDBY        | 由谁添加  | VARCHAR      |   30   | &nbsp; |
 | EXTENSION        | 文件类型  | VARCHAR      |   30   | &nbsp; |
 | DELETED        | 已删除  | VARCHAR      |   1   | &nbsp; |
+| DOCLIBTYPE        | 文档类型  | VARCHAR      |   100   | &nbsp; |
 
 
 
@@ -45619,6 +45786,10 @@ CREATE TABLE `zt_history`(
 | PARAM        | 消息参数  | CLOB      |   1,048,576   | &nbsp; |
 | BCC        | 密件抄送方  | CLOB      |   1,048,576   | &nbsp; |
 | TYPE        | 消息类型  | VARCHAR      |   60   | &nbsp; |
+| ISDONE        | 是否完成  | INTEGER      |   -1   | &nbsp; |
+| ISREAD        | 是否已读  | INTEGER      |   -1   | &nbsp; |
+| SENDPROXYID        | 发送代理标识  | VARCHAR      |   100   | &nbsp; |
+| SENDTIME        | 发送时间  | DATETIME      |   -1   | &nbsp; |
 
 
 
@@ -51470,6 +51641,10 @@ CREATE TABLE `zt_product`(
 | IBIZ_ID        | IBIZ标识  | VARCHAR      |   100   | &nbsp; |
 | VERSION        | 版本号  | INTEGER      |   6   | &nbsp; |
 | LASTEDITEDBY        | 最后修改者  | VARCHAR      |   100   | &nbsp; |
+| PROJECT        | 项目  | VARCHAR      |   100   | &nbsp; |
+| SPEC        | 需求描述  | VARCHAR      |   100   | &nbsp; |
+| VERIFY        | 验收标准  | VARCHAR      |   100   | &nbsp; |
+| COMMENT        | 备注  | CLOB      |   1,048,576   | &nbsp; |
 
 
 
@@ -58839,6 +59014,7 @@ CREATE TABLE `T_IBZPRO_SYSTEM`(
 | ID        | ID  |       |   20   | 主键&nbsp; |
 | COMMITER        | 源代码账户  | VARCHAR      |   100   | &nbsp; |
 | ACCOUNT        | 账户  | VARCHAR      |   30   | &nbsp; |
+| TOKEN        | token  | VARCHAR      |   100   | &nbsp; |
 
 
 
@@ -60305,6 +60481,8 @@ CREATE TABLE `zt_user`(
 | INDEXDESC        | 内容[需求、任务等]  | VARCHAR      |   200   | &nbsp; |
 | ORGID        | 组织标识  | VARCHAR      |   200   | &nbsp; |
 | PROJECT        | 项目  |       |   -1   | &nbsp; |
+| DOCID        | docid  | VARCHAR      |   100   | &nbsp; |
+| PRODUCT        | 产品  |       |   -1   | &nbsp; |
 
 
 
@@ -72116,6 +72294,7 @@ CREATE TABLE `T_IBZ_AGENT`(
 | STAGE        | 适用阶段  | VARCHAR      |   2,000   | &nbsp; |
 | SCRIPTEDDATE        | scriptedDate  | DATETIME      |   -1   | &nbsp; |
 | SCRIPTLOCATION        | scriptLocation  | VARCHAR      |   255   | &nbsp; |
+| COMMENT        | 备注  | CLOB      |   1,048,576   | &nbsp; |
 
 
 
@@ -73613,6 +73792,7 @@ CREATE TABLE `zt_case`(
 | CREATEMAN        | 建立人  | VARCHAR      |   60   | &nbsp; |
 | SUBMITTIME        | 提交时间  | DATETIME      |   -1   | &nbsp; |
 | MAILTOPK        | 抄送给（选择）  | VARCHAR      |   200   | &nbsp; |
+| FILES        | 附件  | VARCHAR      |   100   | &nbsp; |
 
 
 
@@ -78028,6 +78208,8 @@ CREATE TABLE `zt_testsuite`(
 | EXPECT        | 预期  | CLOB      |   65,535   | &nbsp; |
 | ID        | 编号  |       |   8   | 主键&nbsp; |
 | DESC        | 步骤  | CLOB      |   65,535   | &nbsp; |
+| REALS        | 实际情况  | VARCHAR      |   100   | &nbsp; |
+| FILES        | 附件  | VARCHAR      |   100   | &nbsp; |
 
 
 
@@ -79481,6 +79663,8 @@ CREATE TABLE `zt_testsuite`(
 | ID        | 编号  |       |   8   | 主键&nbsp; |
 | CASE        | 用例编号  |       |   8   | &nbsp; |
 | EXPECT        | 预期  | CLOB      |   65,535   | &nbsp; |
+| FILES        | 附件  | VARCHAR      |   100   | &nbsp; |
+| REALS        | 实际情况  | VARCHAR      |   100   | &nbsp; |
 
 
 
@@ -82410,6 +82594,7 @@ CREATE TABLE `zt_testsuite`(
 | UPDATEDATE        | 更新时间  | DATETIME      |   8   | &nbsp; |
 | UPDATEMAN        | 更新人  | VARCHAR      |   60   | &nbsp; |
 | REPORTTOPK        | 汇报给（选择）  | VARCHAR      |   200   | &nbsp; |
+| FILES        | 附件  | VARCHAR      |   100   | &nbsp; |
 
 
 
@@ -83915,6 +84100,25 @@ CREATE TABLE `T_IBZ_MONTHLY`(
 | BIRTHDAY        | birthday  | DATETIME      |   -1   | &nbsp; |
 | VISITS        | 访问次数  | INTEGER      |   -1   | &nbsp; |
 | COMMITER        | 源代码账户  | VARCHAR      |   100   | &nbsp; |
+| MYTASKS        | 我的任务  | INTEGER      |   -1   | &nbsp; |
+| MYBUGS        | 我的bugs  | INTEGER      |   -1   | &nbsp; |
+| MYEBUGS        | 我的过期bug数  | VARCHAR      |   100   | &nbsp; |
+| MYSTORYS        | 我的需求数  | INTEGER      |   -1   | &nbsp; |
+| PRODUCTS        | 未关闭产品数  | INTEGER      |   -1   | &nbsp; |
+| EPROJECTS        | 过期项目数  | VARCHAR      |   100   | &nbsp; |
+| PROJECTS        | 未关闭项目数  | INTEGER      |   -1   | &nbsp; |
+| MYETASKS        | 我的过期任务数  | VARCHAR      |   100   | &nbsp; |
+| MYTODOCNT        | 我的待办数  | INTEGER      |   -1   | &nbsp; |
+| MYFAVORITESTORYS        | 我收藏的需求数  | INTEGER      |   -1   | &nbsp; |
+| MYFAVORITEBUGS        | 我收藏的bugs  | INTEGER      |   -1   | &nbsp; |
+| MYFAVORITETASKS        | 我收藏的任务  | INTEGER      |   -1   | &nbsp; |
+| MYFAVORITES        | 我的收藏  | INTEGER      |   -1   | &nbsp; |
+| MYTERRITORYCNT        | 我的地盘  | INTEGER      |   -1   | &nbsp; |
+| MYTODOCNTJZ        | 今日截止待办  | VARCHAR      |   100   | &nbsp; |
+| LEFTLCBCNT        | 剩余里程碑  | INTEGER      |   -1   | &nbsp; |
+| LEFTLCBJZCNT        | 剩余里程碑（今日到期）  | VARCHAR      |   100   | &nbsp; |
+| PROJECTTEAMCNT        | 项目成员  | INTEGER      |   -1   | &nbsp; |
+| PROJECTTEAMJZCNT        | 项目成员（今日截止）  | VARCHAR      |   100   | &nbsp; |
 
 
 
@@ -85410,6 +85614,7 @@ CREATE TABLE `zt_user`(
 | CREATEMANNAME        | 创建人姓名  | VARCHAR      |   100   | &nbsp; |
 | UPDATEDATE        | 更新时间  | DATETIME      |   8   | &nbsp; |
 | PRODUCT        | 产品  |       |   20   | &nbsp; |
+| PLANTEMPLETDETAIL        | 计划项  | CLOB      |   1,048,576   | &nbsp; |
 
 
 
@@ -89831,6 +90036,12 @@ CREATE TABLE `zt_project`(
 | UPDATEMANNAME        | 更新人名称  | VARCHAR      |   60   | &nbsp; |
 | TOMORROWPLANSTASK        | 计划任务  | VARCHAR      |   2,000   | &nbsp; |
 | ACCOUNT        | 用户  | VARCHAR      |   60   | &nbsp; |
+| FILES        | 附件  | VARCHAR      |   100   | &nbsp; |
+| TYPE        | 类型  | VARCHAR      |   200   | &nbsp; |
+| DAILYCNT        | 未读日报数  | INTEGER      |   -1   | &nbsp; |
+| MONTHLYCNT        | 未读月报数  | INTEGER      |   -1   | &nbsp; |
+| SUBMITTIME        | 提交时间  | VARCHAR      |   100   | &nbsp; |
+| REPORTLYCNT        | 未读汇报数  | INTEGER      |   -1   | &nbsp; |
 
 
 
@@ -92784,6 +92995,7 @@ CREATE TABLE `T_IBZ_REPORT_ROLE_CONFIG`(
 | ACCOUNT        | 用户  | VARCHAR      |   60   | &nbsp; |
 | DATE        | 汇报日期  | DATETIME      |   -1   | &nbsp; |
 | REPORTTO        | 汇报给  | VARCHAR      |   100   | &nbsp; |
+| FILES        | 附件  | VARCHAR      |   100   | &nbsp; |
 
 
 
@@ -95742,6 +95954,7 @@ CREATE TABLE `T_IBZ_TOP`(
 | SUBMITTIME        | 提交时间  | DATETIME      |   -1   | &nbsp; |
 | ACCOUNT        | 用户  | VARCHAR      |   60   | &nbsp; |
 | REPORTSTATUS        | 状态  | VARCHAR      |   60   | &nbsp; |
+| FILES        | 附件  | VARCHAR      |   100   | &nbsp; |
 
 
 
@@ -98692,6 +98905,12 @@ CREATE TABLE `T_IBZPRO_CONFIG`(
 | TASK        | 任务  |       |   20   | &nbsp; |
 | LEFT        | 预计剩余  | DOUBLE      |   -1   | &nbsp; |
 | DATE        | 日期  | DATETIME      |   -1   | &nbsp; |
+| TASKNAME        | 任务名称  | VARCHAR      |   100   | &nbsp; |
+| TASKTYPE        | 任务类型  | VARCHAR      |   200   | &nbsp; |
+| PROGRESSRATE        | 进度  | VARCHAR      |   100   | &nbsp; |
+| DELAYDAYS        | 延期天数  | VARCHAR      |   100   | &nbsp; |
+| ESTSTARTED        | 预计开始  | DATETIME      |   -1   | &nbsp; |
+| DEADLINE        | 截止日期  | DATETIME      |   -1   | &nbsp; |
 
 
 
@@ -100156,6 +100375,12 @@ CREATE TABLE `zt_taskestimate`(
 | ID        | 编号  |       |   20   | 主键&nbsp; |
 | ACCOUNT        | 用户  | VARCHAR      |   30   | &nbsp; |
 | TASK        | 任务  |       |   20   | &nbsp; |
+| TASKNAME        | 任务名称  | VARCHAR      |   100   | &nbsp; |
+| TASKTYPE        | 任务类型  | VARCHAR      |   200   | &nbsp; |
+| PROGRESSRATE        | 进度  | VARCHAR      |   100   | &nbsp; |
+| DELAYDAYS        | 延期天数  | VARCHAR      |   100   | &nbsp; |
+| ESTSTARTED        | 预计开始  | DATETIME      |   -1   | &nbsp; |
+| DEADLINE        | 截止日期  | DATETIME      |   -1   | &nbsp; |
 
 
 
@@ -119208,6 +119433,7 @@ CREATE TABLE `zt_im_queue`(
 | ID        | id  |       |   -1   | 主键&nbsp; |
 | TYPE        | 类型  | VARCHAR      |   30   | &nbsp; |
 | BRANCH        | 平台/分支  |       |   8   | &nbsp; |
+| ORDERPK        | 数据选择排序  | VARCHAR      |   100   | &nbsp; |
 
 
 
@@ -122151,6 +122377,7 @@ CREATE TABLE `zt_module`(
 | TOTAL        | 总计可用  | INTEGER      |   -1   | &nbsp; |
 | LIMITED        | 受限用户  | VARCHAR      |   8   | &nbsp; |
 | HOURS        | 可用工时/天  | DOUBLE      |   -1   | &nbsp; |
+| TASKCNT        | 任务数  | INTEGER      |   -1   | &nbsp; |
 
 
 
@@ -141524,6 +141751,12 @@ CREATE TABLE `zt_team`(
 | DELETED        | 已删除  | VARCHAR      |   1   | &nbsp; |
 | LINE        | 产品线  |       |   8   | &nbsp; |
 | PRODUCTPLANCNT        | 计划总数  | INTEGER      |   -1   | &nbsp; |
+| COMMENT        | 备注  | CLOB      |   1,048,576   | &nbsp; |
+| SRFCOUNT        | 属性  | INTEGER      |   -1   | &nbsp; |
+| MOBIMAGE        | 移动端图片  | VARCHAR      |   4,000   | &nbsp; |
+| TESTTASKCNT        | 测试单数  | INTEGER      |   -1   | &nbsp; |
+| TESTSUITECNT        | 套件数  | INTEGER      |   -1   | &nbsp; |
+| NOTICEUSERS        | 消息通知用户  | VARCHAR      |   100   | &nbsp; |
 
 
 
@@ -145926,6 +146159,7 @@ CREATE TABLE `zt_product`(
 | TYPE        | 类型（story）  | VARCHAR      |   30   | &nbsp; |
 | OWNER        | owner  | VARCHAR      |   30   | &nbsp; |
 | BRANCH        | branch  | INTEGER      |   -1   | &nbsp; |
+| ORDERPK        | 数据选择排序  | VARCHAR      |   100   | &nbsp; |
 
 
 
@@ -147410,6 +147644,13 @@ CREATE TABLE `zt_module`(
 | ID        | 编号  |       |   8   | 主键&nbsp; |
 | ESTIMATECNT        | 工时数  | INTEGER      |   -1   | &nbsp; |
 | BEGIN        | 开始日期  | DATETIME      |   -1   | &nbsp; |
+| DELTA        | 周期  | VARCHAR      |   200   | &nbsp; |
+| OLDTITLE        | 上一次计划名称  | VARCHAR      |   100   | &nbsp; |
+| PLANTEMPLET        | 计划模板  | VARCHAR      |   200   | &nbsp; |
+| DELAYTASKSCNT        | 延迟任务数  | INTEGER      |   -1   | &nbsp; |
+| UNFINISHEDTASKSCNT        | 未完成任务数  | INTEGER      |   -1   | &nbsp; |
+| FINISHEDTASKSCNT        | 完成任务数  | INTEGER      |   -1   | &nbsp; |
+| TASKSCNT        | 总任务数  | INTEGER      |   -1   | &nbsp; |
 
 
 
@@ -148901,6 +149142,13 @@ CREATE TABLE `zt_productplan`(
 | RELEASEDSTORYCNT        | 已发布需求数  | INTEGER      |   -1   | &nbsp; |
 | BUGCNT        | 所有Bug数  | INTEGER      |   -1   | &nbsp; |
 | UNCONFIRMBUGCNT        | 未确认Bug数  | INTEGER      |   -1   | &nbsp; |
+| ISTOP        | 是否置顶  | INTEGER      |   -1   | &nbsp; |
+| FINISHEDSTORYCNT        | 已完成的需求数  | INTEGER      |   -1   | &nbsp; |
+| RESOLVEDBUGCNT        | 解决Bug数  | INTEGER      |   -1   | &nbsp; |
+| IMPORTANTBUGCNT        | 重要的Bug数  | INTEGER      |   -1   | &nbsp; |
+| BUGSTORY        | 需求所提bug数  | INTEGER      |   -1   | &nbsp; |
+| IMPORTANTBUGPERCENT        | 严重bug比  | VARCHAR      |   100   | &nbsp; |
+| HAVECONSUMED        | 已消耗工时  | DOUBLE      |   -1   | &nbsp; |
 
 
 
@@ -150389,6 +150637,18 @@ CREATE TABLE `zt_product`(
 | RELEASEDSTAGESTORYHOURS        | 已发布阶段需求工时  | INTEGER      |   -1   | &nbsp; |
 | CLOSEDSTORYCNT        | 已关闭  | INTEGER      |   -1   | &nbsp; |
 | CHANGEDSTORYCNT        | 已变更  | INTEGER      |   -1   | &nbsp; |
+| BEGIN        | 开始日期  | VARCHAR      |   100   | &nbsp; |
+| END        | 结束日期  | VARCHAR      |   100   | &nbsp; |
+| CODEERROR        | 代码错误  | INTEGER      |   -1   | &nbsp; |
+| CONFIG        | 配置相关  | INTEGER      |   -1   | &nbsp; |
+| INSTALL        | 安装部署  | INTEGER      |   -1   | &nbsp; |
+| SECURITY        | 安全相关  | INTEGER      |   -1   | &nbsp; |
+| PERFORMANCE        | 性能问题  | INTEGER      |   -1   | &nbsp; |
+| STANDARD        | 标准规范  | INTEGER      |   -1   | &nbsp; |
+| AUTOMATION        | 测试脚本  | INTEGER      |   -1   | &nbsp; |
+| DESIGNDEFECT        | 设计缺陷  | INTEGER      |   -1   | &nbsp; |
+| OTHERS        | 其他  | INTEGER      |   -1   | &nbsp; |
+| BUGSUM        | bug总计  | INTEGER      |   -1   | &nbsp; |
 
 
 
@@ -151889,6 +152149,40 @@ CREATE TABLE `zt_product`(
 | CODE        | 项目代号  | VARCHAR      |   45   | &nbsp; |
 | DESC        | 项目描述  | CLOB      |   65,535   | &nbsp; |
 | TASKCNT        | 任务总数  | INTEGER      |   -1   | &nbsp; |
+| PRODUCTS        | 关联产品  | VARCHAR      |   100   | &nbsp; |
+| BRANCHS        | 关联产品平台集合  | VARCHAR      |   100   | &nbsp; |
+| PLANS        | 关联计划  | VARCHAR      |   100   | &nbsp; |
+| SRFARRAY        | 关联数据数组  | VARCHAR      |   100   | &nbsp; |
+| COMMENT        | 备注  | CLOB      |   1,048,576   | &nbsp; |
+| PERIOD        | 时间段  | VARCHAR      |   200   | &nbsp; |
+| ACCOUNT        | 项目团队成员  | VARCHAR      |   200   | &nbsp; |
+| JOIN        | 加盟日  | DATETIME      |   -1   | &nbsp; |
+| HOURS        | 可用工时/天  |       |   -1   | &nbsp; |
+| ROLE        | 角色  | VARCHAR      |   100   | &nbsp; |
+| MOBIMAGE        | 移动端图片  | VARCHAR      |   4,000   | &nbsp; |
+| ACCOUNTS        | 项目团队相关成员  | VARCHAR      |   100   | &nbsp; |
+| DEPT        | 选择部门  | VARCHAR      |   200   | &nbsp; |
+| MANAGEMEMBERS        | 复制团队  | VARCHAR      |   200   | &nbsp; |
+| BUILDCNT        | 版本总数  | INTEGER      |   -1   | &nbsp; |
+| TEAMCNT        | 团队成员总数  | INTEGER      |   -1   | &nbsp; |
+| ALLTASKCNT        | 所有任务数  | INTEGER      |   -1   | &nbsp; |
+| UNCLOSETASKCNT        | 未关闭任务数  | INTEGER      |   -1   | &nbsp; |
+| ASSTOMYTASKCNT        | 指派给我任务数  | INTEGER      |   -1   | &nbsp; |
+| UNSTARTTASKCNT        | 未开始任务数  | INTEGER      |   -1   | &nbsp; |
+| MORETASKCNT        | 更多任务数  | INTEGER      |   -1   | &nbsp; |
+| YSTARTASKCNT        | 进行中任务数  | INTEGER      |   -1   | &nbsp; |
+| UNCOMPLETETASKCNT        | 未完成任务数  | INTEGER      |   -1   | &nbsp; |
+| YCOMPLETETASKCNT        | 已完成任务数  | INTEGER      |   -1   | &nbsp; |
+| MYCOMPLETETASKCNT        | 我完成任务数  | INTEGER      |   -1   | &nbsp; |
+| CLOSETASKCNT        | 关闭任务数  | INTEGER      |   -1   | &nbsp; |
+| CANCELTASKCNT        | 取消任务数  | INTEGER      |   -1   | &nbsp; |
+| STORYCHANGECNT        | 需求变更数  | INTEGER      |   -1   | &nbsp; |
+| NOTICEUSERS        | 消息通知用户  | VARCHAR      |   100   | &nbsp; |
+| DOCLIBCNT        | 文档数量  | INTEGER      |   -1   | &nbsp; |
+| PROJECTTEAMS        | 项目团队成员  | CLOB      |   1,048,576   | &nbsp; |
+| TEMPTASKCNT        | 临时任务数  | INTEGER      |   -1   | &nbsp; |
+| CYCLETASKCNT        | 周期任务数  | INTEGER      |   -1   | &nbsp; |
+| PLANTASKCNT        | 计划任务数  | INTEGER      |   -1   | &nbsp; |
 
 
 
@@ -153391,6 +153685,7 @@ CREATE TABLE `zt_project`(
 | PARENT        | id  |       |   20   | &nbsp; |
 | SHORT        | 简称  | VARCHAR      |   30   | &nbsp; |
 | ORDER        | 排序值  | INTEGER      |   -1   | &nbsp; |
+| ORDERPK        | 数据选择排序  | VARCHAR      |   100   | &nbsp; |
 
 
 
@@ -156353,6 +156648,41 @@ CREATE TABLE `zt_module`(
 | TOTALCONSUMED        | 任务消耗总工时  | DOUBLE      |   -1   | &nbsp; |
 | EMPTYSTORY        | 空需求  | INTEGER      |   -1   | &nbsp; |
 | WAITSTAGESTORYCNT        | 未开始阶段需求数  | INTEGER      |   -1   | &nbsp; |
+| TIME        | 工时  | DOUBLE      |   -1   | &nbsp; |
+| TYPE        | 工时类型  | VARCHAR      |   100   | &nbsp; |
+| ISTOP        | 是否置顶  | INTEGER      |   -1   | &nbsp; |
+| CLOSEDTASKCNT        | 已关闭任务数  | INTEGER      |   -1   | &nbsp; |
+| CANCELTASKCNT        | 已取消任务数  | INTEGER      |   -1   | &nbsp; |
+| PAUSETASKCNT        | 已暂停任务数  | INTEGER      |   -1   | &nbsp; |
+| WAITTASKCNT        | 未开始任务数  | INTEGER      |   -1   | &nbsp; |
+| DOINGTASKCNT        | 进行中任务数  | INTEGER      |   -1   | &nbsp; |
+| DONETASKCNT        | 已完成任务数  | INTEGER      |   -1   | &nbsp; |
+| DESIGNTASKCNT        | 设计类型任务  | INTEGER      |   -1   | &nbsp; |
+| DISCUSSTASKCNT        | 讨论类型任务  | INTEGER      |   -1   | &nbsp; |
+| STUDYTASKCNT        | 研究类型任务  | INTEGER      |   -1   | &nbsp; |
+| UITASKCNT        | 界面类型任务  | INTEGER      |   -1   | &nbsp; |
+| TESTTASKCNT        | 测试类型任务  | INTEGER      |   -1   | &nbsp; |
+| SERVETASKCNT        | 服务类型任务  | INTEGER      |   -1   | &nbsp; |
+| DEVELTASKCNT        | 开发类型任务  | INTEGER      |   -1   | &nbsp; |
+| MISCTASKCNT        | 其他类型任务  | INTEGER      |   -1   | &nbsp; |
+| AFFAIRTASKCNT        | 事务类型任务  | INTEGER      |   -1   | &nbsp; |
+| COMPLETESTORYCNT        | 完成需求数  | INTEGER      |   -1   | &nbsp; |
+| COMPLETETASKCNT        | 完成任务数  | INTEGER      |   -1   | &nbsp; |
+| BUGSTORY        | Bug/完成需求  | INTEGER      |   -1   | &nbsp; |
+| BUGTASK        | Bug/完成任务  | INTEGER      |   -1   | &nbsp; |
+| IMPORTANTBUGCNT        | 重要Bug数  | INTEGER      |   -1   | &nbsp; |
+| CODEERROR        | 代码错误  | INTEGER      |   -1   | &nbsp; |
+| CONFIG        | 配置相关  | INTEGER      |   -1   | &nbsp; |
+| INSTALL        | 安装部署  | INTEGER      |   -1   | &nbsp; |
+| SECURITY        | 安全相关  | INTEGER      |   -1   | &nbsp; |
+| PERFORMANCE        | 性能问题  | INTEGER      |   -1   | &nbsp; |
+| STANDARD        | 标准规范  | INTEGER      |   -1   | &nbsp; |
+| AUTOMATION        | 测试脚本  | INTEGER      |   -1   | &nbsp; |
+| DESIGNDEFECT        | 设计缺陷  | INTEGER      |   -1   | &nbsp; |
+| OTHERS        | 其他  | INTEGER      |   -1   | &nbsp; |
+| TIMESCALE        | 工期  | VARCHAR      |   100   | &nbsp; |
+| LEFTSTORYCNT        | 剩余需求数  | INTEGER      |   -1   | &nbsp; |
+| PROGRESS        | 进度  | VARCHAR      |   100   | &nbsp; |
 
 
 
@@ -159265,6 +159595,109 @@ CREATE TABLE `zt_project`(
 | DATE        | 日期  | DATETIME      |   -1   | &nbsp; |
 | INPUTCOST        | 投入成本  | DOUBLE      |   2   | &nbsp; |
 | EVALUATIONCOST        | 评估成本  | DOUBLE      |   2   | &nbsp; |
+| PROJECTNAME        | 项目名称  | VARCHAR      |   100   | &nbsp; |
+| EVALUATIONTIME        | 评估工时  | DOUBLE      |   2   | &nbsp; |
+| MONTH        | 月  | VARCHAR      |   100   | &nbsp; |
+| CONSUMED        | 工时  | DOUBLE      |   2   | &nbsp; |
+| ID        | 主键  | VARCHAR      |   100   | 主键&nbsp; |
+| PROJECT        | 项目标识  |       |   -1   | &nbsp; |
+| YEAR        | 年  | VARCHAR      |   100   | &nbsp; |
+| ACCOUNT        | 用户  | VARCHAR      |   100   | &nbsp; |
+| OTHERCONSUMED        | 其他项目工时  | DOUBLE      |   2   | &nbsp; |
+| OTHEREVALUATIONTIME        | 其他项目评估工时  | DOUBLE      |   2   | &nbsp; |
+| ONEEVALUATIONCOST        | 一号评估成本  | DOUBLE      |   2   | &nbsp; |
+| TWOEVALUATIONCOST        | 二号评估成本  | DOUBLE      |   2   | &nbsp; |
+| THREEEVALUATIONCOST        | 三号评估成本  | DOUBLE      |   2   | &nbsp; |
+| FOUREVALUATIONCOST        | 四号评估成本  | DOUBLE      |   2   | &nbsp; |
+| SIXEVALUATIONCOST        | 六号评估成本  | DOUBLE      |   2   | &nbsp; |
+| FIVEEVALUATIONCOST        | 五号评估成本  | DOUBLE      |   2   | &nbsp; |
+| EIGHTEVALUATIONCOST        | 八号评估成本  | DOUBLE      |   2   | &nbsp; |
+| SEVENEVALUATIONCOST        | 七号评估成本  | DOUBLE      |   2   | &nbsp; |
+| NINEEVALUATIONCOST        | 九号评估成本  | DOUBLE      |   2   | &nbsp; |
+| ELEVENEVALUATIONCOST        | 十一号评估成本  | DOUBLE      |   2   | &nbsp; |
+| TWELVEEVALUATIONCOST        | 十二号评估成本  | DOUBLE      |   2   | &nbsp; |
+| THIRTEENEVALUATIONCOST        | 十三号评估成本  | DOUBLE      |   2   | &nbsp; |
+| TENEVALUATIONCOST        | 十号评估成本  | DOUBLE      |   2   | &nbsp; |
+| FOURTEENEVALUATIONCOST        | 十四号评估成本  | DOUBLE      |   2   | &nbsp; |
+| FIFTEENEVALUATIONCOST        | 十五号评估成本  | DOUBLE      |   2   | &nbsp; |
+| SIXTEENEVALUATIONCOST        | 十六号评估成本  | DOUBLE      |   2   | &nbsp; |
+| EIGHTEENEVALUATIONCOST        | 十八号评估成本  | DOUBLE      |   2   | &nbsp; |
+| SEVENTEENEVALUATIONCOST        | 十七号评估成本  | DOUBLE      |   2   | &nbsp; |
+| TWENTYEVALUATIONCOST        | 二十号评估成本  | DOUBLE      |   2   | &nbsp; |
+| NINETEENEVALUATIONCOST        | 十九号评估成本  | DOUBLE      |   2   | &nbsp; |
+| TWENTYONEEVALUATIONCOST        | 二十一号评估成本  | DOUBLE      |   2   | &nbsp; |
+| TWENTYTWOEVALUATIONCOST        | 二十二号评估成本  | DOUBLE      |   2   | &nbsp; |
+| TWENTYFOUREVALUATIONCOST        | 二十四号评估成本  | DOUBLE      |   2   | &nbsp; |
+| TWENTYTHREEEVALUATIONCOST        | 二十三号评估成本  | DOUBLE      |   2   | &nbsp; |
+| TWENTYFIVEEVALUATIONCOST        | 二十五号评估成本  | DOUBLE      |   2   | &nbsp; |
+| TWENTYSIXEVALUATIONCOST        | 二十六号评估成本  | DOUBLE      |   2   | &nbsp; |
+| TWENTYEIGHTEVALUATIONCOST        | 二十八号评估成本  | DOUBLE      |   2   | &nbsp; |
+| TWENTYNINEEVALUATIONCOST        | 二十九号评估成本  | DOUBLE      |   2   | &nbsp; |
+| TWENTYSEVENEVALUATIONCOST        | 二十七号评估成本  | DOUBLE      |   2   | &nbsp; |
+| THIRTYEVALUATIONCOST        | 三十号评估成本  | DOUBLE      |   2   | &nbsp; |
+| THIRTYONEEVALUATIONCOST        | 三十一号评估成本  | DOUBLE      |   2   | &nbsp; |
+| THIRTYCONSUMED        | 三十号工时  | DOUBLE      |   2   | &nbsp; |
+| THIRTYONECONSUMED        | 三十一号工时  | DOUBLE      |   2   | &nbsp; |
+| TWENTYEIGHTCONSUMED        | 二十八号工时  | DOUBLE      |   2   | &nbsp; |
+| TWENTYNINECONSUMED        | 二十九号工时  | DOUBLE      |   2   | &nbsp; |
+| TWENTYFIVECONSUMED        | 二十五号工时  | DOUBLE      |   2   | &nbsp; |
+| TWENTYSEVENCONSUMED        | 二十七号工时  | DOUBLE      |   2   | &nbsp; |
+| TWENTYSIXCONSUMED        | 二十六号工时  | DOUBLE      |   2   | &nbsp; |
+| TWENTYFOURCONSUMED        | 二十四号工时  | DOUBLE      |   2   | &nbsp; |
+| TWENTYTHREECONSUMED        | 二十三号工时  | DOUBLE      |   2   | &nbsp; |
+| TWENTYONECONSUMED        | 二十一号工时  | DOUBLE      |   2   | &nbsp; |
+| TWENTYTWOCONSUMED        | 二十二号工时  | DOUBLE      |   2   | &nbsp; |
+| TWENTYCONSUMED        | 二十号工时  | DOUBLE      |   2   | &nbsp; |
+| NINETEENCONSUMED        | 十九号工时  | DOUBLE      |   2   | &nbsp; |
+| SEVENTEENCONSUMED        | 十七号工时  | DOUBLE      |   2   | &nbsp; |
+| SIXTEENCONSUMED        | 十六号工时  | DOUBLE      |   2   | &nbsp; |
+| EIGHTEENCONSUMED        | 十八号工时  | DOUBLE      |   2   | &nbsp; |
+| FOURTEENCONSUMED        | 十四号工时  | DOUBLE      |   2   | &nbsp; |
+| FIFTEENCONSUMED        | 十五号工时  | DOUBLE      |   2   | &nbsp; |
+| THIRTEENCONSUMED        | 十三号工时  | DOUBLE      |   2   | &nbsp; |
+| TWELVECONSUMED        | 十二号工时  | DOUBLE      |   2   | &nbsp; |
+| ELEVENCONSUMED        | 十一号工时  | DOUBLE      |   2   | &nbsp; |
+| TENCONSUMED        | 十号工时  | DOUBLE      |   2   | &nbsp; |
+| EIGHTCONSUMED        | 八号工时  | DOUBLE      |   2   | &nbsp; |
+| NINECONSUMED        | 九号工时  | DOUBLE      |   2   | &nbsp; |
+| SEVENCONSUMED        | 七号工时  | DOUBLE      |   2   | &nbsp; |
+| SIXCONSUMED        | 六号工时  | DOUBLE      |   2   | &nbsp; |
+| FIVECONSUMED        | 五号工时  | DOUBLE      |   2   | &nbsp; |
+| THREECONSUMED        | 三号工时  | DOUBLE      |   2   | &nbsp; |
+| FOURONSUMED        | 四号工时  | DOUBLE      |   2   | &nbsp; |
+| TWOCONSUMED        | 二号工时  | DOUBLE      |   2   | &nbsp; |
+| ONECONSUMED        | 一号工时  | DOUBLE      |   2   | &nbsp; |
+| TWOEVALUATIONTIME        | 二号评估工时  | DOUBLE      |   2   | &nbsp; |
+| FOUREVALUATIONTIME        | 四号评估工时  | DOUBLE      |   2   | &nbsp; |
+| ONEEVALUATIONTIME        | 一号评估工时  | DOUBLE      |   2   | &nbsp; |
+| THREEEVALUATIONTIME        | 三号评估工时  | DOUBLE      |   2   | &nbsp; |
+| EIGHTEVALUATIONTIME        | 八号评估工时  | DOUBLE      |   2   | &nbsp; |
+| SIXEVALUATIONTIME        | 六号评估工时  | DOUBLE      |   2   | &nbsp; |
+| FIVEEVALUATIONTIME        | 五号评估工时  | DOUBLE      |   2   | &nbsp; |
+| TENEVALUATIONTIME        | 十号评估工时  | DOUBLE      |   2   | &nbsp; |
+| SEVENEVALUATIONTIME        | 七号评估工时  | DOUBLE      |   2   | &nbsp; |
+| NINEEVALUATIONTIME        | 九号评估工时  | DOUBLE      |   2   | &nbsp; |
+| ELEVENEVALUATIONTIME        | 十一号评估工时  | DOUBLE      |   2   | &nbsp; |
+| FOURTEENEVALUATIONTIME        | 十四号评估工时  | DOUBLE      |   2   | &nbsp; |
+| TWELVEEVALUATIONTIME        | 十二号评估工时  | DOUBLE      |   2   | &nbsp; |
+| FIFTEENEVALUATIONTIME        | 十五号评估工时  | DOUBLE      |   2   | &nbsp; |
+| THIRTEENEVALUATIONTIME        | 十三号评估工时  | DOUBLE      |   2   | &nbsp; |
+| EIGHTEENEVALUATIONTIME        | 十八号评估工时  | DOUBLE      |   2   | &nbsp; |
+| SIXTEENEVALUATIONTIME        | 十六号评估工时  | DOUBLE      |   2   | &nbsp; |
+| TWENTYEVALUATIONTIME        | 二十号评估工时  | DOUBLE      |   2   | &nbsp; |
+| SEVENTEENEVALUATIONTIME        | 十七号评估工时  | DOUBLE      |   2   | &nbsp; |
+| NINETEENEVALUATIONTIME        | 十九号评估工时  | DOUBLE      |   2   | &nbsp; |
+| TWENTYONEEVALUATIONTIME        | 二十一号评估工时  | DOUBLE      |   2   | &nbsp; |
+| TWENTYTWOEVALUATIONTIME        | 二十二号评估工时  | DOUBLE      |   2   | &nbsp; |
+| TWENTYTHREEEVALUATIONTIME        | 二十三号评估工时  | DOUBLE      |   2   | &nbsp; |
+| TWENTYFIVEEVALUATIONTIME        | 二十五号评估工时  | DOUBLE      |   2   | &nbsp; |
+| TWENTYFOUREVALUATIONTIME        | 二十四号评估工时  | DOUBLE      |   2   | &nbsp; |
+| TWENTYSIXEVALUATIONTIME        | 二十六号评估工时  | DOUBLE      |   2   | &nbsp; |
+| TWENTYNINEEVALUATIONTIME        | 二十九号评估工时  | DOUBLE      |   2   | &nbsp; |
+| TWENTYSEVENEVALUATIONTIME        | 二十七号评估工时  | DOUBLE      |   2   | &nbsp; |
+| THIRTYEVALUATIONTIME        | 三十号评估工时  | DOUBLE      |   2   | &nbsp; |
+| TWENTYEIGHTEVALUATIONTIME        | 二十八号评估工时  | DOUBLE      |   2   | &nbsp; |
+| THIRTYONEEVALUATIONTIME        | 三十一号评估工时  | DOUBLE      |   2   | &nbsp; |
 
 
 
@@ -160737,6 +161170,7 @@ CREATE TABLE `zt_taskestimate`(
 | EXITDATE        | 退场时间  | DATETIME      |   -1   | &nbsp; |
 | PROJECTNAME        | 所属项目  | VARCHAR      |   90   | &nbsp; |
 | LIMITED        | 受限用户  | VARCHAR      |   8   | &nbsp; |
+| TASKCNT        | 任务数  | INTEGER      |   -1   | &nbsp; |
 
 
 
@@ -163677,6 +164111,13 @@ CREATE TABLE `zt_team`(
 | NAME        | 发布名称  | VARCHAR      |   255   | &nbsp; |
 | STATUS        | 状态  | VARCHAR      |   20   | &nbsp; |
 | BUILDNAME        | 版本  | VARCHAR      |   150   | &nbsp; |
+| FILES        | 附件  | VARCHAR      |   1,000   | &nbsp; |
+| BACKGROUNDID        | 后台体系  | VARCHAR      |   200   | &nbsp; |
+| SQLID        | 运行数据库  | VARCHAR      |   200   | &nbsp; |
+| FRONTAPPLICATION        | 系统应用  | VARCHAR      |   200   | &nbsp; |
+| REBUILD        | 重新构建  | INTEGER      |   -1   | &nbsp; |
+| RELEASETYPE        | 运行模式  | VARCHAR      |   200   | &nbsp; |
+| NOTICEUSERS        | 消息通知用户  | VARCHAR      |   100   | &nbsp; |
 
 
 
@@ -172475,6 +172916,21 @@ CREATE TABLE `zt_release`(
 | STATUS        | 当前状态  | VARCHAR      |   200   | &nbsp; |
 | BRANCHNAME        | 平台/分支  | VARCHAR      |   255   | &nbsp; |
 | STORYLATESTFINISHEDDATE        | 需求最晚完成时间  | DATETIME      |   -1   | &nbsp; |
+| SPEC        | 需求描述  | CLOB      |   1,048,576   | &nbsp; |
+| VERIFY        | 验收标准  | CLOB      |   1,048,576   | &nbsp; |
+| RESULT        | 评审结果  | VARCHAR      |   200   | &nbsp; |
+| COMMENT        | 备注  | CLOB      |   1,048,576   | &nbsp; |
+| FILES        | 附件  | VARCHAR      |   1,000   | &nbsp; |
+| PROJECT        | 项目  |       |   -1   | &nbsp; |
+| PREVERSION        | 之前的版本  | INTEGER      |   -1   | &nbsp; |
+| NEEDNOTREVIEW        | 不需要评审  | VARCHAR      |   4,000   | &nbsp; |
+| MAILTOCONACT        | 联系人  | VARCHAR      |   100   | &nbsp; |
+| NOTICEUSERS        | 消息通知用户  | VARCHAR      |   100   | &nbsp; |
+| ASSESSRESULT        | 评审结果  | VARCHAR      |   200   | &nbsp; |
+| ORGID        | orgid  | VARCHAR      |   100   | &nbsp; |
+| ACL        | acl  | VARCHAR      |   100   | &nbsp; |
+| ACLLIST        | acllist  | VARCHAR      |   100   | &nbsp; |
+| MDEPTID        | MDEPTID  | VARCHAR      |   100   | &nbsp; |
 
 
 
@@ -190043,6 +190499,7 @@ CREATE TABLE `T_SYS_UPDATE_FEATURES`(
 | CREATEMAN        | 建立人  | VARCHAR      |   60   | &nbsp; |
 | SYS_UPDATE_LOGID        | 系统更新日志标识  | VARCHAR      |   100   | 主键&nbsp; |
 | UPDATEBRANCH        | 更新平台  | VARCHAR      |   60   | &nbsp; |
+| UPDATEFEATURES        | 更新功能列表详情  | CLOB      |   1,048,576   | &nbsp; |
 
 
 
@@ -191536,6 +191993,9 @@ CREATE TABLE `T_SYS_UPDATE_LOG`(
 | USERICON        | 照片  | VARCHAR      |   255   | &nbsp; |
 | LOGINNAME        | 登录名  | VARCHAR      |   100   | &nbsp; |
 | RESERVER        | 保留  | VARCHAR      |   255   | &nbsp; |
+| ORIGINALPASSWORD        | 原密码  | VARCHAR      |   100   | &nbsp; |
+| NEWPASSWORD        | 新密码  | VARCHAR      |   100   | &nbsp; |
+| REPEATPASSWORD        | 重复密码  | VARCHAR      |   100   | &nbsp; |
 
 
 
@@ -194508,6 +194968,21 @@ CREATE TABLE `T_SYS_UPDATE_LOG`(
 | MYCONSUMED        | 之前消耗  | DOUBLE      |   -1   | &nbsp; |
 | NAME        | 任务名称  | VARCHAR      |   255   | &nbsp; |
 | TASKTYPE        | 任务类型  | VARCHAR      |   200   | &nbsp; |
+| COMMENT        | 备注  | CLOB      |   1,048,576   | &nbsp; |
+| CURRENTCONSUMED        | 本次消耗  | DOUBLE      |   -1   | &nbsp; |
+| TOTALTIME        | 总计耗时  | DOUBLE      |   -1   | &nbsp; |
+| ALLMODULES        | 所有模块  | VARCHAR      |   100   | &nbsp; |
+| TASKTEAMS        | 项目团队成员  | CLOB      |   1,048,576   | &nbsp; |
+| IBZTASKESTIMATES        | 工时  | CLOB      |   1,048,576   | &nbsp; |
+| FILES        | 附件  | VARCHAR      |   1,000   | &nbsp; |
+| USERNAMES        | 团队用户  | VARCHAR      |   100   | &nbsp; |
+| ISFINISHED        | 是否完成  | VARCHAR      |   100   | &nbsp; |
+| REPLYCOUNT        | 回复数量  | INTEGER      |   -1   | &nbsp; |
+| HASDETAIL        | 是否填写描述  | VARCHAR      |   100   | &nbsp; |
+| NOTICEUSERS        | 消息通知用户  | VARCHAR      |   100   | &nbsp; |
+| MAILTOCONACT        | 联系人  | VARCHAR      |   100   | &nbsp; |
+| MYTOTALTIME        | 我的总消耗  | DOUBLE      |   -1   | &nbsp; |
+| ASSIGNEDTOZJ        | 转交给  | VARCHAR      |   30   | &nbsp; |
 
 
 
@@ -196028,6 +196503,10 @@ CREATE TABLE `zt_task`(
 | DATES        | 日期  | DATETIME      |   -1   | &nbsp; |
 | WORK        | work  | CLOB      |   65,535   | &nbsp; |
 | EVALUATIONSTATUS        | 评估状态  | VARCHAR      |   100   | &nbsp; |
+| YEAR        | 年  | VARCHAR      |   100   | &nbsp; |
+| YEARNAME        | 年（显示）  | VARCHAR      |   100   | &nbsp; |
+| MONTH        | 月  | VARCHAR      |   100   | &nbsp; |
+| MONTHORDER        | 月（排序）  | INTEGER      |   -1   | &nbsp; |
 
 
 
@@ -197501,6 +197980,12 @@ CREATE TABLE `zt_taskestimate`(
 | ACCOUNT        | 用户  | VARCHAR      |   100   | &nbsp; |
 | ID        | 编号  |       |   20   | 主键&nbsp; |
 | EVALUATIONTIME        | 评估工时  | DOUBLE      |   2   | &nbsp; |
+| TASKCNT        | 任务数  | INTEGER      |   -1   | &nbsp; |
+| CONSUMED        | 消耗的工时  | DOUBLE      |   -1   | &nbsp; |
+| NAME        | 项目名称  | VARCHAR      |   100   | &nbsp; |
+| YEAR        | 年  | VARCHAR      |   100   | &nbsp; |
+| YEARNAME        | 年（显示）  | VARCHAR      |   100   | &nbsp; |
+| MONTH        | 月  | VARCHAR      |   100   | &nbsp; |
 
 
 
@@ -200443,6 +200928,24 @@ CREATE TABLE `T_TASKMSGRECORD`(
 | TASKEFFICIENT        | 效率  | VARCHAR      |   200   | &nbsp; |
 | ID        | 编号  |       |   20   | 主键&nbsp; |
 | TOTALESTIMATE        | 预计总工时  | INTEGER      |   -1   | &nbsp; |
+| PROJECTNAME        | 项目名称  | VARCHAR      |   100   | &nbsp; |
+| PROJECT        | 项目  | VARCHAR      |   100   | &nbsp; |
+| FINISHEDBY        | 完成者  | VARCHAR      |   100   | &nbsp; |
+| TASKID        | 任务编号  | INTEGER      |   -1   | &nbsp; |
+| TASKNAME        | 任务名称  | VARCHAR      |   100   | &nbsp; |
+| TASKPRI        | 任务优先级  | INTEGER      |   -1   | &nbsp; |
+| TASKESTIMATE        | 任务预计消耗  | INTEGER      |   -1   | &nbsp; |
+| TASKREALSTART        | 任务实际开始时间  | DATETIME      |   -1   | &nbsp; |
+| TASKDEADLINE        | 任务截至日期  | DATETIME      |   -1   | &nbsp; |
+| TASKFINISHEDDATE        | 任务实际完成日期  | DATETIME      |   -1   | &nbsp; |
+| TASKDELAY        | 任务延期  | VARCHAR      |   100   | &nbsp; |
+| TASKESTSTARTED        | 任务预计开始日期  | DATETIME      |   -1   | &nbsp; |
+| TASKCNT        | 总任务数  | INTEGER      |   -1   | &nbsp; |
+| PROJECTCONSUMED        | 项目总消耗  | INTEGER      |   -1   | &nbsp; |
+| USERCONSUMED        | 用户总消耗  | INTEGER      |   -1   | &nbsp; |
+| DEPT        | 部门  | VARCHAR      |   200   | &nbsp; |
+| END        | 结束  | DATETIME      |   -1   | &nbsp; |
+| BEGIN        | 属性  | DATETIME      |   -1   | &nbsp; |
 
 
 
@@ -206353,6 +206856,10 @@ CREATE TABLE `zt_module`(
 | BEGIN        | 开始时间  | DATETIME      |   -1   | &nbsp; |
 | ID        | 编号  |       |   8   | 主键&nbsp; |
 | BUGS        | 测试的Bug  | CLOB      |   65,535   | &nbsp; |
+| COMMENT        | 备注  | CLOB      |   1,048,576   | &nbsp; |
+| OVERVIEWS        | 概况  | CLOB      |   1,048,576   | &nbsp; |
+| FILES        | 附件  | VARCHAR      |   1,000   | &nbsp; |
+| PRODUCTCNT        | 项目报告产品数  | INTEGER      |   -1   | &nbsp; |
 
 
 
@@ -207840,6 +208347,8 @@ CREATE TABLE `zt_testreport`(
 | LASTRUNNER        | 最后执行人  | VARCHAR      |   30   | &nbsp; |
 | ID        | 编号  |       |   8   | 主键&nbsp; |
 | MODULE        | 所属模块  |       |   -1   | &nbsp; |
+| TASK        | 属性  | VARCHAR      |   100   | &nbsp; |
+| TITLE        | 用例名称  | VARCHAR      |   255   | &nbsp; |
 
 
 
@@ -212266,6 +212775,8 @@ CREATE TABLE `zt_testsuite`(
 | DESC        | 描述  | CLOB      |   65,535   | &nbsp; |
 | OWNERPK        | 负责人（选择）  | VARCHAR      |   200   | &nbsp; |
 | AUTO        | auto  | VARCHAR      |   10   | &nbsp; |
+| COMMENT        | 备注  | CLOB      |   1,048,576   | &nbsp; |
+| MAILTOCONACT        | 联系人  | VARCHAR      |   100   | &nbsp; |
 
 
 
@@ -213756,6 +214267,17 @@ CREATE TABLE `zt_testtask`(
 | PRIVATE        | 私人事务  | VARCHAR      |   4,000   | &nbsp; |
 | CLOSEDBY        | 由谁关闭  | VARCHAR      |   30   | &nbsp; |
 | CYCLE        | 周期  | INTEGER      |   3   | &nbsp; |
+| CONFIG_DAY        | 间隔天数  | INTEGER      |   -1   | &nbsp; |
+| CONFIG_BEFOREDAYS        | 提前  | INTEGER      |   -1   | &nbsp; |
+| CONFIG_WEEK        | 周期设置周几  | VARCHAR      |   4,000   | &nbsp; |
+| CONFIG_MONTH        | 周期设置月  | VARCHAR      |   4,000   | &nbsp; |
+| CONFIG_TYPE        | 周期类型  | VARCHAR      |   200   | &nbsp; |
+| CONFIG_END        | 过期时间  | DATETIME      |   -1   | &nbsp; |
+| BUG        | 待办名称  | VARCHAR      |   100   | &nbsp; |
+| TASK        | 待办名称  | VARCHAR      |   100   | &nbsp; |
+| STORY        | 待办名称  | VARCHAR      |   100   | &nbsp; |
+| DATE_DISABLE        | 待定  | VARCHAR      |   100   | &nbsp; |
+| NOTICEUSERS        | 消息通知用户  | VARCHAR      |   100   | &nbsp; |
 
 
 
