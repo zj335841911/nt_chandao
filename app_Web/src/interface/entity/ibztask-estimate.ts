@@ -197,4 +197,12 @@ export interface IBZTaskEstimate {
      * @memberof IBZTaskEstimate
      */
     files?: any;
+
+    /**
+     * 任务删除标识
+     *
+     * @returns {*}
+     * @memberof IBZTaskEstimate
+     */
+    deleted?: any;
 }

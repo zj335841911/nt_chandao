@@ -6,6 +6,7 @@ import cn.ibizlab.pms.util.domain.DELogic;
 import cn.ibizlab.pms.util.domain.EntityBase;
 import cn.ibizlab.pms.util.errors.BadRequestAlertException;
 import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -35,9 +36,9 @@ import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Method;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -253,7 +254,7 @@ public class DELogicAspect {
                 //自己 bpmn 及 drl
                 refFiles.add(bpmnFile);
                 File drlFile = getDrl(bpmnFile);
-                if (drlFile.exists()) {
+                if (drlFile != null && drlFile.exists()) {
                     refFiles.add(drlFile);
                 }
                 //子 bpmn 及 drl
@@ -359,7 +360,7 @@ public class DELogicAspect {
         }
     }
 
-    /**
+   /**
      * 本地逻辑
      *
      * @param entity
@@ -369,9 +370,8 @@ public class DELogicAspect {
      */
     private File getLocalModel(String entity, String action, LogicExecMode logicExecMode) {
         String logicName = String.format("%s.bpmn", logicExecMode.text);
-        String filePath = File.separator + "rules" + File.separator + entity.toLowerCase() + File.separator + action + File.separator + logicName;
-        URL url = this.getClass().getResource(filePath.replace("\\", "/"));
-        return ObjectUtils.isEmpty(url) ? null : new File(url.getPath());
+        String filePath = File.separator + "rules" + File.separator + entity + File.separator + action.toLowerCase() + File.separator + logicName;
+        return getBpmnFile(filePath);
     }
 
     /**
@@ -382,7 +382,7 @@ public class DELogicAspect {
      */
     private File getSubBpmn(String logicName) {
         String filePath = String.format("/rules/%s", logicName);
-        return ObjectUtils.isEmpty(this.getClass().getResource(filePath)) ? null : new File(this.getClass().getResource(filePath).getPath());
+        return getBpmnFile(filePath);
     }
 
     /**
@@ -393,10 +393,38 @@ public class DELogicAspect {
      */
     private File getDrl(File bpmn) {
         if (bpmn.getPath().endsWith("RuleFlow.bpmn")) {
-            return new File(bpmn.getPath().replace("RuleFlow.bpmn", "Rule.drl"));
+            return getBpmnFile(bpmn.getPath().replace("RuleFlow.bpmn", "Rule.drl"));
         } else {
-            return new File(bpmn.getPath().replace(".bpmn", ".drl"));
+            return getBpmnFile(bpmn.getPath().replace(".bpmn", ".drl"));
         }
+    }
+
+    /**
+     * 获取 bpmn
+     *
+     * @param filePath
+     * @return
+     */
+    private File getBpmnFile(String filePath) {
+        InputStream in = null;
+        File bpmn = null;
+        try {
+            in = this.getClass().getResourceAsStream(filePath.replace("\\", "/"));
+            if (in != null) {
+                bpmn = new File(filePath);
+                FileUtils.copyToFile(in, bpmn);
+            }
+        } catch (IOException e) {
+        } finally {
+            if (in != null) {
+                try {
+                    in.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return bpmn;
     }
 
     /**

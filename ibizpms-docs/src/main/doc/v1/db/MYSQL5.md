@@ -196024,6 +196024,7 @@ CREATE TABLE `zt_task`(
 | PROJECT        | 项目  |       |   8   | &nbsp; |
 | LEFT        | 预计剩余  | DOUBLE      |   -1   | &nbsp; |
 | ID        | 编号  |       |   -1   | 主键&nbsp; |
+| DELETED        | 任务删除标识  | VARCHAR      |   1   | &nbsp; |
 | DATE        | 日期  | DATETIME      |   -1   | &nbsp; |
 | DATES        | 日期  | DATETIME      |   -1   | &nbsp; |
 | WORK        | work  | CLOB      |   65,535   | &nbsp; |

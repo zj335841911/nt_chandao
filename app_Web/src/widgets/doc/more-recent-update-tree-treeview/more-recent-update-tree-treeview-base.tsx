@@ -412,7 +412,7 @@ export class MoreRecentUpdateTreeTreeBase extends MainControlBase {
         Doc_deuiaction4: {ctrlname: 'doc_cm',name:'deuiaction4',nodeOwner:'Doc',type: 'DEUIACTION', tag: 'Delete', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_DELETE_BUT', visible: true, disabled: false,imgclass: 'fa fa-remove',caption: '',title:'entities.doc.morerecentupdatetree_treeview.uiactions.doc_delete'},
         Doc_deuiaction2: {ctrlname: 'doc_cm',name:'deuiaction2',nodeOwner:'Doc',type: 'DEUIACTION', tag: 'OnlyCollectDoc', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_FAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star-o',caption: '',title:'entities.doc.morerecentupdatetree_treeview.uiactions.doc_onlycollectdoc'},
         Doc_deuiaction3: {ctrlname: 'doc_cm',name:'deuiaction3',nodeOwner:'Doc',type: 'DEUIACTION', tag: 'OnlyUnCollectDoc', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_NFAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star',caption: '',title:'entities.doc.morerecentupdatetree_treeview.uiactions.doc_onlyuncollectdoc'},
-        Doc_deuiaction5: {ctrlname: 'doc_cm',name:'deuiaction5',nodeOwner:'Doc',type: 'DEUIACTION', tag: 'DocInfo', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, visible: true, disabled: false,imgclass: 'eye',caption: '',title:'entities.doc.morerecentupdatetree_treeview.uiactions.doc_docinfo'},
+        Doc_deuiaction5: {ctrlname: 'doc_cm',name:'deuiaction5',nodeOwner:'Doc',type: 'DEUIACTION', tag: 'DocInfo', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, visible: true, disabled: false,imgclass: 'fa fa-eye',caption: '',title:'entities.doc.morerecentupdatetree_treeview.uiactions.doc_docinfo'},
     }
 
     /**

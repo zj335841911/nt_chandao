@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:g="http://www.jboss.org/drools/flow/gpd" xmlns:tns="http://www.jboss.org/drools" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.mvel.org/2.0" id="Definition" name="" targetNamespace="http://www.jboss.org/drools" typeLanguage="http://www.java.com/javaTypes">
+    <process id="cn.ibizlab.pms.core.zentao.todo.get.afterLogic" isClosed="false" isExecutable="true" name="zentao_todo_get_afterLogic" processType="Private" tns:packageName="cn.ibizlab.pms.core.zentao.todo.get.afterLogic">
+        <extensionElements>
+            <tns:import name="java.util.Map"/>
+            <tns:import name="org.springframework.util.StringUtils"/>
+            <tns:import name="cn.ibizlab.pms.util.helper.RuleUtils"/>
+            <tns:import name="cn.ibizlab.pms.core.zentao.domain.Todo"/>
+        </extensionElements>
+            <startEvent id="begin" isInterrupting="true"/>
+            <endEvent id="prepareparam1_end" name="end"/>
+           <callActivity activiti:exclusive="true" calledElement="cn.ibizlab.pms.core.zentao.service.logic.todogettodotitle" id="0E97D7D9-F9A8-4C64-AFA0-3DF7E42330FB" name="TodoGetTODOTitleRuleFlow.bpmn"/>
+           <sequenceFlow id="begin_0E97D7D9-F9A8-4C64-AFA0-3DF7E42330FB" sourceRef="begin" targetRef="0E97D7D9-F9A8-4C64-AFA0-3DF7E42330FB"/>
+           <callActivity activiti:exclusive="true" calledElement="cn.ibizlab.pms.core.zentao.service.logic.todoresetbeginend" id="D8316500-A539-4070-B39C-46AC15739ACB" name="TodoResetBeginEndRuleFlow.bpmn"/>
+           <sequenceFlow id="0E97D7D9-F9A8-4C64-AFA0-3DF7E42330FB_D8316500-A539-4070-B39C-46AC15739ACB" sourceRef="0E97D7D9-F9A8-4C64-AFA0-3DF7E42330FB" targetRef="D8316500-A539-4070-B39C-46AC15739ACB"/>
+           <sequenceFlow id="D8316500-A539-4070-B39C-46AC15739ACB_prepareparam1_end" sourceRef="D8316500-A539-4070-B39C-46AC15739ACB" targetRef="prepareparam1_end"/>
+    </process>
+</definitions>
