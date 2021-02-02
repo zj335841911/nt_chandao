@@ -117,7 +117,7 @@ FROM
 WHERE
 	t11.project IS NOT NULL 
 	AND t11.project <> '0' 
-	AND t1.date <> '0000-00-00' 
+	AND t1.date <> '0000-00-00'  and t11.deleted = '0'
 GROUP BY
 	t1.account,
 	t1.date 
@@ -239,7 +239,7 @@ FROM
 WHERE
 	t11.project IS NOT NULL 
 	AND t11.project <> '0' 
-	AND t1.date <> '0000-00-00' 
+	AND t1.date <> '0000-00-00'  and t11.deleted = '0'
 GROUP BY
 	t1.account,
 	t1.date 
@@ -16321,7 +16321,7 @@ FROM
 WHERE
 	t11.project IS NOT NULL 
 	AND t11.project <> '0' 
-	AND t1.date <> '0000-00-00' 
+	AND t1.date <> '0000-00-00'  and t11.deleted = '0'
 GROUP BY
 	t11.project,
 	t21.`name`,
@@ -16453,7 +16453,7 @@ FROM
 WHERE
 	t11.project IS NOT NULL 
 	AND t11.project <> '0' 
-	AND t1.date <> '0000-00-00' 
+	AND t1.date <> '0000-00-00'  and t11.deleted = '0'
 GROUP BY
 	t11.project,
 	t21.`name`,
@@ -20231,7 +20231,7 @@ FROM `zt_taskestimate` t1
 LEFT JOIN `zt_task` t11 ON t1.`TASK` = t11.`ID` 
 LEFT JOIN `zt_project` t21 ON t11.`PROJECT` = t21.`ID` 
 
-WHERE ( t11.`PROJECT` = ${srfwebcontext('project','{"defname":"PROJECT","dename":"ZT_TASKESTIMATE"}')} ) 
+WHERE ( t11.`PROJECT` = ${srfwebcontext('project','{"defname":"PROJECT","dename":"ZT_TASKESTIMATE"}')}  AND  t11.`DELETED` = '0' ) 
 
 ```
 ### 默认（全部数据）(VIEW)<div id="TaskEstimate_View"></div>
