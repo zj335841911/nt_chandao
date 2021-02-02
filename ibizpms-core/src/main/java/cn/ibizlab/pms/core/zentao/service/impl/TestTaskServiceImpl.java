@@ -64,14 +64,6 @@ public class TestTaskServiceImpl extends ServiceImpl<TestTaskMapper, TestTask> i
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.IProjectService projectService;
 
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.ITestTaskGetProductBuildLogic getproductbuildLogic;
-
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.ITestTaskMobTestTaskCounterLogic mobtesttaskcounterLogic;
-
     protected int batchSize = 500;
 
         @Override

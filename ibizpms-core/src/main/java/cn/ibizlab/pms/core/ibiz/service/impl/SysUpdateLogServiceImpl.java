@@ -52,10 +52,6 @@ public class SysUpdateLogServiceImpl extends ServiceImpl<SysUpdateLogMapper, Sys
     @Lazy
     protected cn.ibizlab.pms.core.ibiz.service.ISysUpdateFeaturesService sysupdatefeaturesService;
 
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.ibiz.service.logic.ISysUpdateLogUpdateLastedLogic updatelastedLogic;
-
     protected int batchSize = 500;
 
     @Override

@@ -61,10 +61,6 @@ public class DocLibServiceImpl extends ServiceImpl<DocLibMapper, DocLib> impleme
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.IProjectService projectService;
 
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.IDocLibCurUserIsFLogic curuserisfLogic;
-
     protected int batchSize = 500;
 
         @Override

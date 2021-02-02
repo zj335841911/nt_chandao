@@ -49,14 +49,6 @@ import org.springframework.util.StringUtils;
 public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements ITodoService {
 
 
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.ITodoGetTODOTitleLogic gettodotitleLogic;
-
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.ITodoResetBeginEndLogic resetbeginendLogic;
-
     protected int batchSize = 500;
 
         @Override

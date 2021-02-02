@@ -55,38 +55,6 @@ public class TestReportServiceImpl extends ServiceImpl<TestReportMapper, TestRep
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.IProjectService projectService;
 
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.ITestReportGetInfoTestTaskOvByTimeLogic getinfotesttaskovbytimeLogic;
-
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.ITestReportGetInfoTestTaskLogic getinfotesttaskLogic;
-
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.ITestReportGetInfoTestTaskOvProjectLogic getinfotesttaskovprojectLogic;
-
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.ITestReportGetInfoTestTaskProjectLogic getinfotesttaskprojectLogic;
-
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.ITestReportGetInfoTestTaskRLogic getinfotesttaskrLogic;
-
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.ITestReportGetInfoTestTaskSLogic getinfotesttasksLogic;
-
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.ITestReportGetTestReportBasicInfoLogic gettestreportbasicinfoLogic;
-
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.ITestReportGetTestReportProjectLogic gettestreportprojectLogic;
-
     protected int batchSize = 500;
 
         @Override

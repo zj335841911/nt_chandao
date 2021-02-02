@@ -64,10 +64,6 @@ public class DocServiceImpl extends ServiceImpl<DocMapper, Doc> implements IDocS
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.IProjectService projectService;
 
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.IDocCurUserIsFLogic curuserisfLogic;
-
     protected int batchSize = 500;
 
         @Override

@@ -33,79 +33,44 @@ import cn.ibizlab.pms.util.helper.CachedBeanCopier;
 import cn.ibizlab.pms.util.helper.DEFieldCacheMap;
 
 
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import cn.ibizlab.pms.core.ibizpro.mapper.IbizproIndexMapper;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
-import com.alibaba.fastjson.JSONObject;
-import org.springframework.util.StringUtils;
-
 /**
- * 实体[索引检索] 服务对象接口实现
+ * 实体[索引检索] 无存储服务对象接口实现
  */
 @Slf4j
-@Service("IbizproIndexServiceImpl")
-public class IbizproIndexServiceImpl extends ServiceImpl<IbizproIndexMapper, IbizproIndex> implements IIbizproIndexService {
+@Service
+public class IbizproIndexServiceImpl implements IIbizproIndexService {
 
-
-    protected int batchSize = 500;
 
     @Override
-    @Transactional
     public boolean create(IbizproIndex et) {
-        if (!this.retBool(this.baseMapper.insert(et))) {
-            return false;
-        }
-        CachedBeanCopier.copy(get(et.getIndexid()), et);
+        //代码实现
         return true;
     }
 
-    @Override
-    @Transactional
-    public void createBatch(List<IbizproIndex> list) {
-        this.saveBatch(list, batchSize);
+    public void createBatch(List<IbizproIndex> list){
     }
 
     @Override
-    @Transactional
     public boolean update(IbizproIndex et) {
-        if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("indexid", et.getIndexid()))) {
-            return false;
-        }
-        CachedBeanCopier.copy(get(et.getIndexid()), et);
+        //代码实现
         return true;
     }
 
-    @Override
-    @Transactional
-    public void updateBatch(List<IbizproIndex> list) {
-        updateBatchById(list, batchSize);
+    public void updateBatch(List<IbizproIndex> list){
     }
 
     @Override
-    @Transactional
     public boolean remove(Long key) {
-        boolean result = removeById(key);
-        return result;
+        return true;
+    }
+
+    public void removeBatch(Collection<Long> idList){
     }
 
     @Override
-    @Transactional
-    public void removeBatch(Collection<Long> idList) {
-        removeByIds(idList);
-    }
-
-    @Override
-    @Transactional
     public IbizproIndex get(Long key) {
-        IbizproIndex et = getById(key);
-        if (et == null) {
-            et = new IbizproIndex();
-            et.setIndexid(key);
-        }
-        else {
-        }
+        IbizproIndex et = new IbizproIndex();
+        et.setIndexid(key);
         return et;
     }
 
@@ -116,67 +81,20 @@ public class IbizproIndexServiceImpl extends ServiceImpl<IbizproIndexMapper, Ibi
 
     @Override
     public boolean checkKey(IbizproIndex et) {
-        return (!ObjectUtils.isEmpty(et.getIndexid())) && (!Objects.isNull(this.getById(et.getIndexid())));
+        return false;
     }
     @Override
     @Transactional
     public boolean save(IbizproIndex et) {
-        if (!saveOrUpdate(et)) {
-            return false;
-        }
+        //代码实现
         return true;
     }
 
     @Override
-    @Transactional
-    public boolean saveOrUpdate(IbizproIndex et) {
-        if (null == et) {
-            return false;
-        } else {
-            return checkKey(et) ? getProxyService().update(et) : getProxyService().create(et);
-        }
-    }
-
-    @Override
-    @Transactional
-    public boolean saveBatch(Collection<IbizproIndex> list) {
-        List<IbizproIndex> create = new ArrayList<>();
-        List<IbizproIndex> update = new ArrayList<>();
-        for (IbizproIndex et : list) {
-            if (ObjectUtils.isEmpty(et.getIndexid()) || ObjectUtils.isEmpty(getById(et.getIndexid()))) {
-                create.add(et);
-            } else {
-                update.add(et);
-            }
-        }
-        if (create.size() > 0) {
-            getProxyService().createBatch(create);
-        }
-        if (update.size() > 0) {
-            getProxyService().updateBatch(update);
-        }
-        return true;
-    }
-
-    @Override
-    @Transactional
     public void saveBatch(List<IbizproIndex> list) {
-        List<IbizproIndex> create = new ArrayList<>();
-        List<IbizproIndex> update = new ArrayList<>();
-        for (IbizproIndex et : list) {
-            if (ObjectUtils.isEmpty(et.getIndexid()) || ObjectUtils.isEmpty(getById(et.getIndexid()))) {
-                create.add(et);
-            } else {
-                update.add(et);
-            }
-        }
-        if (create.size() > 0) {
-            getProxyService().createBatch(create);
-        }
-        if (update.size() > 0) {
-            getProxyService().updateBatch(update);
-        }
     }
+
+
 
 
 
@@ -185,8 +103,7 @@ public class IbizproIndexServiceImpl extends ServiceImpl<IbizproIndexMapper, Ibi
      */
     @Override
     public Page<IbizproIndex> searchDefault(IbizproIndexSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbizproIndex> pages=baseMapper.searchDefault(context.getPages(), context, context.getSelectCond());
-        return new PageImpl<IbizproIndex>(pages.getRecords(), context.getPageable(), pages.getTotal());
+        return new PageImpl<IbizproIndex>(new ArrayList(), context.getPageable(), 0);
     }
 
     /**
@@ -194,8 +111,7 @@ public class IbizproIndexServiceImpl extends ServiceImpl<IbizproIndexMapper, Ibi
      */
     @Override
     public Page<IbizproIndex> searchESquery(IbizproIndexSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbizproIndex> pages=baseMapper.searchESquery(context.getPages(), context, context.getSelectCond());
-        return new PageImpl<IbizproIndex>(pages.getRecords(), context.getPageable(), pages.getTotal());
+        return new PageImpl<IbizproIndex>(new ArrayList(), context.getPageable(), 0);
     }
 
     /**
@@ -203,92 +119,9 @@ public class IbizproIndexServiceImpl extends ServiceImpl<IbizproIndexMapper, Ibi
      */
     @Override
     public Page<IbizproIndex> searchIndexDER(IbizproIndexSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbizproIndex> pages=baseMapper.searchIndexDER(context.getPages(), context, context.getSelectCond());
-        return new PageImpl<IbizproIndex>(pages.getRecords(), context.getPageable(), pages.getTotal());
+        return new PageImpl<IbizproIndex>(new ArrayList(), context.getPageable(), 0);
     }
 
 
-
-
-
-
-
-    @Override
-    public List<JSONObject> select(String sql, Map param) {
-        return this.baseMapper.selectBySQL(sql, param);
-    }
-
-    @Override
-    @Transactional
-    public boolean execute(String sql, Map param) {
-        if (sql == null || sql.isEmpty()) {
-            return false;
-        }
-        if (sql.toLowerCase().trim().startsWith("insert")) {
-            return this.baseMapper.insertBySQL(sql, param);
-        }
-        if (sql.toLowerCase().trim().startsWith("update")) {
-            return this.baseMapper.updateBySQL(sql, param);
-        }
-        if (sql.toLowerCase().trim().startsWith("delete")) {
-            return this.baseMapper.deleteBySQL(sql, param);
-        }
-        log.warn("暂未支持的SQL语法");
-        return true;
-    }
-
-    @Override
-    public List<IbizproIndex> getIbizproindexByIds(List<Long> ids) {
-         return this.listByIds(ids);
-    }
-
-    @Override
-    public List<IbizproIndex> getIbizproindexByEntities(List<IbizproIndex> entities) {
-        List ids =new ArrayList();
-        for(IbizproIndex entity : entities){
-            Serializable id=entity.getIndexid();
-            if (!ObjectUtils.isEmpty(id)) {
-                ids.add(id);
-            }
-        }
-        if (ids.size() > 0) {
-            return this.listByIds(ids);
-        }
-        else {
-            return entities;
-        }
-    }
-
-
-
-    @Autowired
-    @Lazy
-    cn.ibizlab.pms.core.es.service.IIbizproIndexESService esService;
-
-    @Autowired
-    @Lazy
-    cn.ibizlab.pms.core.ibizpro.mapping.IbizproIndexESMapping esMapping;
-
-    /**
-     * 获取es service
-     * @return
-     */
-    public cn.ibizlab.pms.core.es.service.IIbizproIndexESService getESService(){
-        return esService;
-    }
-
-    /**
-     * 获取es mapping
-     * @return
-     */
-    public cn.ibizlab.pms.core.ibizpro.mapping.IbizproIndexESMapping getESMapping(){
-        return esMapping;
-    }
-
-
-    public IIbizproIndexService getProxyService() {
-        return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
-    }
 }
-
 

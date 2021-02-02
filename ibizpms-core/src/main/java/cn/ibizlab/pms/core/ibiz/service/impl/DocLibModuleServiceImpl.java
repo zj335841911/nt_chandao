@@ -54,30 +54,6 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.IDocLibService doclibService;
 
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.ibiz.service.logic.IDocLibModuleFixPathLogic fixpathLogic;
-
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.ibiz.service.logic.IDocLibModuleUpdate__MSDenyLogic update__msdenyLogic;
-
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.ibiz.service.logic.IDocLibModuleRemove__MSDenyLogic remove__msdenyLogic;
-
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.ibiz.service.logic.IDocLibModuleCurUserIsFLogic curuserisfLogic;
-
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.ibiz.service.logic.IDocLibModuleDoclibModuleNFavoriteLogic doclibmodulenfavoriteLogic;
-
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.ibiz.service.logic.IDocLibModuleDocLibModuleFavoriteLogic doclibmodulefavoriteLogic;
-
     protected int batchSize = 500;
 
     @Override

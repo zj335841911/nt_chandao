@@ -57,10 +57,6 @@ public class IbzLibModuleServiceImpl extends ServiceImpl<IbzLibModuleMapper, Ibz
     @Lazy
     protected cn.ibizlab.pms.core.ibiz.service.IIbzLibService ibzlibService;
 
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.ibiz.service.logic.IIbzLibModuleFixPathLogic fixpathLogic;
-
     protected int batchSize = 500;
 
     @Override

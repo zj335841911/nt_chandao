@@ -26,112 +26,103 @@ import org.springframework.data.annotation.Transient;
 import cn.ibizlab.pms.util.annotation.Audit;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.baomidou.mybatisplus.annotation.*;
-import cn.ibizlab.pms.util.domain.EntityMP;
-import com.baomidou.mybatisplus.core.toolkit.IdWorker;
-
 /**
- * 实体[索引检索]
+ * [索引检索] 对象
  */
+@Builder
 @Getter
 @Setter
 @NoArgsConstructor
-@JsonIgnoreProperties(value = "handler")
-@TableName(value = "", resultMap = "IbizproIndexResultMap")
-public class IbizproIndex extends EntityMP implements Serializable {
-
-    private static final long serialVersionUID = 1L;
+@AllArgsConstructor
+public class IbizproIndex extends EntityBase implements Serializable {
 
     /**
      * 类型
      */
-    @TableField(exist = false)
-    @JSONField(name = "indextype")
-    @JsonProperty("indextype")
+    @JSONField(name = "indexType")
+    @JsonProperty("indexType")
     private String indextype;
+
     /**
      * 主键
      */
-    @DEField(isKeyField = true)
-    @TableField(exist = false)
     @JSONField(name = "indexid")
     @JsonProperty("indexid")
     private Long indexid;
+
     /**
      * 标题[需求、任务等]
      */
-    @TableField(exist = false)
     @JSONField(name = "indexname")
     @JsonProperty("indexname")
     private String indexname;
+
     /**
      * 逻辑标识
      */
-    @TableField(exist = false)
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
     private String deleted;
+
     /**
      * 组织标识
      */
-    @TableField(exist = false)
-    @JSONField(name = "orgid")
-    @JsonProperty("orgid")
+    @JSONField(name = "orgId")
+    @JsonProperty("orgId")
     private String orgid;
+
     /**
      * 部门标识
      */
-    @TableField(exist = false)
-    @JSONField(name = "mdeptid")
-    @JsonProperty("mdeptid")
+    @JSONField(name = "mdeptId")
+    @JsonProperty("mdeptId")
     private String mdeptid;
+
     /**
      * 内容[需求、任务等]
      */
-    @TableField(exist = false)
     @JSONField(name = "indexdesc")
     @JsonProperty("indexdesc")
     private String indexdesc;
+
     /**
      * 颜色
      */
-    @TableField(exist = false)
     @JSONField(name = "color")
     @JsonProperty("color")
     private String color;
+
     /**
      * 项目
      */
-    @TableField(exist = false)
     @JSONField(name = "project")
     @JsonProperty("project")
     private Long project;
+
     /**
      * 权限列表
      */
-    @TableField(exist = false)
     @JSONField(name = "acllist")
     @JsonProperty("acllist")
     private String acllist;
+
     /**
      * 权限
      */
-    @TableField(exist = false)
     @JSONField(name = "acl")
     @JsonProperty("acl")
     private String acl;
+
     /**
      * docid
      */
-    @TableField(exist = false)
     @JSONField(name = "docid")
     @JsonProperty("docid")
     private String docid;
+
     /**
      * 产品
      */
-    @TableField(exist = false)
     @JSONField(name = "product")
     @JsonProperty("product")
     private Long product;
@@ -139,22 +130,6 @@ public class IbizproIndex extends EntityMP implements Serializable {
 
 
 
-    @Override
-    public Serializable getDefaultKey(boolean gen) {
-        return IdWorker.getId();
-    }
-    /**
-     * 复制当前对象数据到目标对象(粘贴重置)
-     * @param targetEntity 目标数据对象
-     * @param bIncEmpty  是否包括空值
-     * @param <T>
-     * @return
-     */
-    @Override
-    public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
-        this.reset("indexid");
-        return super.copyTo(targetEntity, bIncEmpty);
-    }
 }
 
 

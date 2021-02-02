@@ -78,26 +78,6 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.IProductService productService;
 
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.IStorybuildUnlinkStorysLogic buildunlinkstorysLogic;
-
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.IStoryGetStorySpecsLogic getstoryspecsLogic;
-
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.IStoryprojectUnlinkStorysLogic projectunlinkstorysLogic;
-
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.IStoryStoryFavoritesLogic storyfavoritesLogic;
-
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.IStoryStoryNFavoritesLogic storynfavoritesLogic;
-
     protected int batchSize = 500;
 
         @Override

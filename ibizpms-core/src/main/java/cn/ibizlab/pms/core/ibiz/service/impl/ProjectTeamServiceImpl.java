@@ -52,10 +52,6 @@ public class ProjectTeamServiceImpl extends ServiceImpl<ProjectTeamMapper, Proje
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.IProjectService projectService;
 
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.ibiz.service.logic.IProjectTeamGetProjectDaysLogic getprojectdaysLogic;
-
     protected int batchSize = 500;
 
     @Override

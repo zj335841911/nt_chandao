@@ -49,10 +49,6 @@ import org.springframework.util.StringUtils;
 public class ProjectStatsServiceImpl extends ServiceImpl<ProjectStatsMapper, ProjectStats> implements IProjectStatsService {
 
 
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.ibiz.service.logic.IProjectStatsProjectQualitySumLogic projectqualitysumLogic;
-
     protected int batchSize = 500;
 
     @Override

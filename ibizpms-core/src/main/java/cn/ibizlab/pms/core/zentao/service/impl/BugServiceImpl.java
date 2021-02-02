@@ -84,30 +84,6 @@ public class BugServiceImpl extends ServiceImpl<BugMapper, Bug> implements IBugS
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.ITestTaskService testtaskService;
 
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.IBugsendNoticeLogic sendnoticeLogic;
-
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.IBugGetProductsLogic getproductsLogic;
-
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.IBugsendTodoTaskLogic sendtodotaskLogic;
-
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.IBugBugFavoritesLogic bugfavoritesLogic;
-
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.IBugBugNFavoritesLogic bugnfavoritesLogic;
-
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.IBugUpdateStoryVersionLogic updatestoryversionLogic;
-
     protected int batchSize = 500;
 
         @Override

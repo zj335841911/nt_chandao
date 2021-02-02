@@ -57,14 +57,6 @@ public class ProjectModuleServiceImpl extends ServiceImpl<ProjectModuleMapper, P
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.IProjectService projectService;
 
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.ibiz.service.logic.IProjectModuleFixPathLogic fixpathLogic;
-
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.ibiz.service.logic.IProjectModuleRemoveModuleLogic removemoduleLogic;
-
     protected int batchSize = 500;
 
     @Override

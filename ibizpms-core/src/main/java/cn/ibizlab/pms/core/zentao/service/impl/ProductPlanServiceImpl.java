@@ -66,18 +66,6 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.IProductService productService;
 
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.IProductPlanGetBedinANDEndLogic getbedinandendLogic;
-
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.IProductPlanGetOldPlanNameLogic getoldplannameLogic;
-
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.IProductPlanMobProductPlanCounterLogic mobproductplancounterLogic;
-
     protected int batchSize = 500;
 
         @Override
