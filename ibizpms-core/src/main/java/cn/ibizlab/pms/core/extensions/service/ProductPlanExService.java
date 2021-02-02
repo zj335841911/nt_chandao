@@ -122,5 +122,19 @@ public class ProductPlanExService extends ProductPlanServiceImpl {
         }
         return new PageImpl<ProductPlan>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
+    /**
+     * 查询集合 默认查询
+     */
+    @Override
+    public Page<ProductPlan> searchPlanTasks(ProductPlanSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProductPlan> pages=baseMapper.searchPlanTasks(context.getPages(),context,context.getSelectCond());
+        for (ProductPlan productPlan : pages.getRecords()) {
+            ProductPlanSearchContext productPlanSearchContext = new ProductPlanSearchContext();
+            productPlanSearchContext.setSelectCond(context.getSelectCond().clone());
+            productPlanSearchContext.setN_parent_eq(productPlan.getId());
+            productPlan.set("items", this.searchDefault(productPlanSearchContext).getContent());
+        }
+        return new PageImpl<ProductPlan>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
 }
 
