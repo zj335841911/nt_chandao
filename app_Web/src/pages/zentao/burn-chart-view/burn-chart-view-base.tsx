@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { ChartViewBase } from '@/studio-core';
 import BurnService from '@/service/burn/burn-service';
 import BurnAuthService from '@/authservice/burn/burn-auth-service';

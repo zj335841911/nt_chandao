@@ -7,6 +7,8 @@ import { Subject, Subscription } from 'rxjs';
  * 应用菜单基类
  */
 export class ZentaoBase extends Vue {
+    // 补充参数避免html报错
+    counterdata: any = null;
 
     /**
      * 获取应用上下文
