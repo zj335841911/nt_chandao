@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 import lombok.extern.slf4j.Slf4j;
+import org.elasticsearch.index.query.BoolQueryBuilder;
 import org.springframework.data.domain.PageRequest;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.data.domain.Pageable;
@@ -63,6 +64,10 @@ public class SearchContextBase implements ISearchContext{
      * 工作流步骤标识
      */
     public String userTaskId;
+    /**
+     * es查询条件
+     */
+    public BoolQueryBuilder esCond=new BoolQueryBuilder();
     /**
      * 工作流流程标识
      */
