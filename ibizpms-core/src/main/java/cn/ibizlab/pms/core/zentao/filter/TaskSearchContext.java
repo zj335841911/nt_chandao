@@ -331,6 +331,13 @@ public class TaskSearchContext extends QueryWrapperContext<Task> {
             this.getSearchCond().eq("`plan`", n_plan_eq);
         }
     }
+	private Long n_plan_noteq;//[编号]
+	public void setN_plan_noteq(Long n_plan_noteq) {
+        this.n_plan_noteq = n_plan_noteq;
+        if(!ObjectUtils.isEmpty(this.n_plan_noteq)){
+            this.getSearchCond().ne("`plan`", n_plan_noteq);
+        }
+    }
 	private String n_taskspecies_eq;//[任务种别]
 	public void setN_taskspecies_eq(String n_taskspecies_eq) {
         this.n_taskspecies_eq = n_taskspecies_eq;

@@ -478,6 +478,7 @@ hide footbox
 | --------   |------------|
 |指派给(ASSIGNEDTO)|EQ|
 |所属计划(PLAN)|EQ|
+|所属计划(PLAN)|NOTEQ|
 |优先级(PRI)|EQ|
 |优先级(PRI)|GTANDEQ|
 |优先级(PRI)|LTANDEQ|

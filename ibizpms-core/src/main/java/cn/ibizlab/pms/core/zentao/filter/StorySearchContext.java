@@ -41,6 +41,13 @@ public class StorySearchContext extends QueryWrapperContext<Story> {
             this.getSearchCond().eq("`plan`", n_plan_eq);
         }
     }
+	private String n_plan_noteq;//[所属计划]
+	public void setN_plan_noteq(String n_plan_noteq) {
+        this.n_plan_noteq = n_plan_noteq;
+        if(!ObjectUtils.isEmpty(this.n_plan_noteq)){
+            this.getSearchCond().ne("`plan`", n_plan_noteq);
+        }
+    }
 	private Integer n_pri_eq;//[优先级]
 	public void setN_pri_eq(Integer n_pri_eq) {
         this.n_pri_eq = n_pri_eq;

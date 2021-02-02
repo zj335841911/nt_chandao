@@ -1450,6 +1450,7 @@ hide footbox
 |任务状态(STATUS1)|EQ|
 |任务类型(TASKTYPE)|EQ|
 |编号(PLAN)|EQ|
+|编号(PLAN)|NOTEQ|
 |任务种别(TASKSPECIES)|EQ|
 |周期类型(CONFIG_TYPE)|EQ|
 |所属计划(PLANNAME)|EQ|
