@@ -3,6 +3,7 @@ package cn.ibizlab.pms.core.extensions.service;
 import cn.ibizlab.pms.core.zentao.domain.Task;
 import cn.ibizlab.pms.core.zentao.service.ITaskService;
 import cn.ibizlab.pms.core.zentao.service.impl.TaskEstimateServiceImpl;
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import lombok.extern.slf4j.Slf4j;
 import cn.ibizlab.pms.core.zentao.domain.TaskEstimate;
@@ -37,7 +38,9 @@ public class TaskEstimateExService extends TaskEstimateServiceImpl {
     @Transactional
     public TaskEstimate pMEvaluation(TaskEstimate et) {
         et.setEvaluationstatus("yes");
-        super.update(et);
+        if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("pmsee_projectid", et.getId()))) {
+            return et;
+        }
         //汇总成本
         //先通过传入的任务id去获取今天完成的这个任务工时集合
         List<TaskEstimate> taskEstimateList = this.list(new QueryWrapper<TaskEstimate>().eq("task", et.getTask()));
