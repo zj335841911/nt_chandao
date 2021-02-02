@@ -327,6 +327,7 @@ public class TaskEstimateServiceImpl extends ServiceImpl<TaskEstimateMapper, Tas
             et.setProjectname(zttask.getProjectname());
             et.setTaskspecies(zttask.getTaskspecies());
             et.setType(zttask.getType());
+            et.setDeleted(zttask.getDeleted());
         }
     }
 

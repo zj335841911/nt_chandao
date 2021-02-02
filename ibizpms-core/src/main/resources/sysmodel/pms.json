@@ -44835,6 +44835,24 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"DELETED" ,
+    "codename":"Deleted",
+    "field_logic_name":"任务删除标识",
+    "entity_name":"ZT_TASKESTIMATE",
+    "ref_de":"ZT_TASK",
+    "ref_field_name":"DELETED",
+    "relation_name":"DER1N_ZT_TASKESTIMATE_ZT_TASK_TASK",
+    "relation_codename":"ZTtask",
+    "field_type":"PICKUPDATA",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":1,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[

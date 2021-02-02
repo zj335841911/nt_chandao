@@ -27,6 +27,7 @@ function getLocaleResourceBase(){
 			monthname: commonLogic.appcommonhandle("月（显示）",null),
 			monthorder: commonLogic.appcommonhandle("月（排序）",null),
 			files: commonLogic.appcommonhandle("附件",null),
+			deleted: commonLogic.appcommonhandle("任务删除标识",null),
 		},
 			views: {
 				gridview9: {

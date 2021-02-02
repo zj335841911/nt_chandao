@@ -110,6 +110,9 @@ export class RootDoclibProjectTreeVeiwTreeBase extends MainControlBase {
         if (Object.is($event.tag, 'deuiaction3')) {
             this.doclibdoc_cm_deuiaction3_click(null, 'doclibdoc_cm', $event2);
         }
+        if (Object.is($event.tag, 'deuiaction5')) {
+            this.doclibdoc_cm_deuiaction5_click(null, 'doclibdoc_cm', $event2);
+        }
     }
 
     /**
@@ -153,6 +156,9 @@ export class RootDoclibProjectTreeVeiwTreeBase extends MainControlBase {
         }
         if (Object.is($event.tag, 'deuiaction3')) {
             this.moduledoc_cm_deuiaction3_click(null, 'moduledoc_cm', $event2);
+        }
+        if (Object.is($event.tag, 'deuiaction5')) {
+            this.moduledoc_cm_deuiaction5_click(null, 'moduledoc_cm', $event2);
         }
     }
 
@@ -396,6 +402,35 @@ export class RootDoclibProjectTreeVeiwTreeBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
+    public doclibdoc_cm_deuiaction5_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:DocUIService  = new DocUIService();
+        curUIService.Doc_DocInfo(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
     public childmodule_cm_deuiaction1_click(params: any = {}, tag?: any, $event?: any) {
         // 参数
         // 取数
@@ -620,6 +655,35 @@ export class RootDoclibProjectTreeVeiwTreeBase extends MainControlBase {
         curUIService.Doc_OnlyUnCollectDoc(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
     }
 
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public moduledoc_cm_deuiaction5_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:DocUIService  = new DocUIService();
+        curUIService.Doc_DocInfo(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
+    }
+
 
     /**
      * 获取多项数据
@@ -800,6 +864,7 @@ export class RootDoclibProjectTreeVeiwTreeBase extends MainControlBase {
         DocLibDoc_deuiaction4: {ctrlname: 'doclibdoc_cm',name:'deuiaction4',nodeOwner:'DocLibDoc',type: 'DEUIACTION', tag: 'Delete', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_DELETE_BUT', visible: true, disabled: false,imgclass: 'fa fa-remove',caption: '',title:'entities.doclib.rootdoclibprojecttreeveiw_treeview.uiactions.doc_delete'},
         DocLibDoc_deuiaction2: {ctrlname: 'doclibdoc_cm',name:'deuiaction2',nodeOwner:'DocLibDoc',type: 'DEUIACTION', tag: 'OnlyCollectDoc', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_FAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star-o',caption: '',title:'entities.doclib.rootdoclibprojecttreeveiw_treeview.uiactions.doc_onlycollectdoc'},
         DocLibDoc_deuiaction3: {ctrlname: 'doclibdoc_cm',name:'deuiaction3',nodeOwner:'DocLibDoc',type: 'DEUIACTION', tag: 'OnlyUnCollectDoc', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_NFAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star',caption: '',title:'entities.doclib.rootdoclibprojecttreeveiw_treeview.uiactions.doc_onlyuncollectdoc'},
+        DocLibDoc_deuiaction5: {ctrlname: 'doclibdoc_cm',name:'deuiaction5',nodeOwner:'DocLibDoc',type: 'DEUIACTION', tag: 'DocInfo', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, visible: true, disabled: false,imgclass: 'fa fa-eye',caption: '',title:'entities.doclib.rootdoclibprojecttreeveiw_treeview.uiactions.doc_docinfo'},
         RootModule_deuiaction1: {ctrlname: 'rootmodule_cm',name:'deuiaction1',nodeOwner:'RootModule',type: 'DEUIACTION', tag: 'edit', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_EDIT_BUT', visible: true, disabled: false,imgclass: 'fa fa-edit',caption: '',title:'entities.doclib.rootdoclibprojecttreeveiw_treeview.uiactions.doclibmodule_edit'},
         RootModule_deuiaction4: {ctrlname: 'rootmodule_cm',name:'deuiaction4',nodeOwner:'RootModule',type: 'DEUIACTION', tag: 'WeiHuFenLei', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_MAINTENANCE_BUT', visible: true, disabled: false,imgclass: 'fa fa-lock',caption: '',title:'entities.doclib.rootdoclibprojecttreeveiw_treeview.uiactions.doclibmodule_weihufenlei'},
         RootModule_deuiaction2: {ctrlname: 'rootmodule_cm',name:'deuiaction2',nodeOwner:'RootModule',type: 'DEUIACTION', tag: 'Favorite', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOCLIBMODULE_FAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star-o',caption: '',title:'entities.doclib.rootdoclibprojecttreeveiw_treeview.uiactions.doclibmodule_favorite'},
@@ -808,6 +873,7 @@ export class RootDoclibProjectTreeVeiwTreeBase extends MainControlBase {
         ModuleDoc_deuiaction4: {ctrlname: 'moduledoc_cm',name:'deuiaction4',nodeOwner:'ModuleDoc',type: 'DEUIACTION', tag: 'Delete', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_DELETE_BUT', visible: true, disabled: false,imgclass: 'fa fa-remove',caption: '',title:'entities.doclib.rootdoclibprojecttreeveiw_treeview.uiactions.doc_delete'},
         ModuleDoc_deuiaction2: {ctrlname: 'moduledoc_cm',name:'deuiaction2',nodeOwner:'ModuleDoc',type: 'DEUIACTION', tag: 'OnlyCollectDoc', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_FAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star-o',caption: '',title:'entities.doclib.rootdoclibprojecttreeveiw_treeview.uiactions.doc_onlycollectdoc'},
         ModuleDoc_deuiaction3: {ctrlname: 'moduledoc_cm',name:'deuiaction3',nodeOwner:'ModuleDoc',type: 'DEUIACTION', tag: 'OnlyUnCollectDoc', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_NFAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star',caption: '',title:'entities.doclib.rootdoclibprojecttreeveiw_treeview.uiactions.doc_onlyuncollectdoc'},
+        ModuleDoc_deuiaction5: {ctrlname: 'moduledoc_cm',name:'deuiaction5',nodeOwner:'ModuleDoc',type: 'DEUIACTION', tag: 'DocInfo', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, visible: true, disabled: false,imgclass: 'fa fa-eye',caption: '',title:'entities.doclib.rootdoclibprojecttreeveiw_treeview.uiactions.doc_docinfo'},
     }
 
     /**

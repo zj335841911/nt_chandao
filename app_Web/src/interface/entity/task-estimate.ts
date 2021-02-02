@@ -197,4 +197,12 @@ export interface TaskEstimate {
      * @memberof TaskEstimate
      */
     files?: any;
+
+    /**
+     * 任务删除标识
+     *
+     * @returns {*}
+     * @memberof TaskEstimate
+     */
+    deleted?: any;
 }

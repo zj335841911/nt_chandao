@@ -36,6 +36,7 @@ hide members
 |月（显示）|MONTHNAME|TEXT|&nbsp;|
 |月（排序）|MONTHORDER|INT|&nbsp;|
 |附件|FILES|LONGTEXT_1000|&nbsp;|
+|任务删除标识|DELETED|PICKUPDATA|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -66,6 +67,7 @@ hide members
 |月（显示）|默认规则|内容长度必须小于等于[100]|
 |月（排序）|默认规则|默认规则|
 |附件|默认规则|内容长度必须小于等于[2000]|
+|任务删除标识|默认规则|内容长度必须小于等于[1]|
 
 ## 状态控制
 

@@ -220,6 +220,13 @@ public class TaskEstimate extends EntityMP implements Serializable {
     @JSONField(name = "files")
     @JsonProperty("files")
     private String files;
+    /**
+     * 任务删除标识
+     */
+    @TableField(exist = false)
+    @JSONField(name = "deleted")
+    @JsonProperty("deleted")
+    private String deleted;
 
     /**
      * 
