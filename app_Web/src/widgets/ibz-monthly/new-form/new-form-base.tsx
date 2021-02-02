@@ -95,14 +95,14 @@ export class NewEditFormBase extends EditFormControlBase {
         srfsourcekey: null,
         ibz_monthlyname: null,
         date: null,
+        reportto: null,
+        mailto: null,
         thismonthtask: null,
         workthismonth: null,
         nextmonthplanstask: null,
         plansnextmonth: null,
         comment: null,
         files: null,
-        reportto: null,
-        mailto: null,
         ibz_monthlyid: null,
         account: null,
         issubmit: null,
@@ -218,6 +218,20 @@ export class NewEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
+        reportto: new FormItemModel({
+    caption: '汇报给', detailType: 'FORMITEM', name: 'reportto', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
+        mailto: new FormItemModel({
+    caption: '抄送给', detailType: 'FORMITEM', name: 'mailto', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
         thismonthtask: new FormItemModel({
     caption: '本月完成任务', detailType: 'FORMITEM', name: 'thismonthtask', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
@@ -255,20 +269,6 @@ export class NewEditFormBase extends EditFormControlBase {
 
         files: new FormItemModel({
     caption: '附件', detailType: 'FORMITEM', name: 'files', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
-    required:false,
-    disabled: false,
-    enableCond: 3,
-}),
-
-        reportto: new FormItemModel({
-    caption: '汇报给', detailType: 'FORMITEM', name: 'reportto', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
-    required:false,
-    disabled: false,
-    enableCond: 3,
-}),
-
-        mailto: new FormItemModel({
-    caption: '抄送给', detailType: 'FORMITEM', name: 'mailto', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,

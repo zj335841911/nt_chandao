@@ -15,6 +15,7 @@
             :placeholder="placeholder"
             :size="size"
             :type="type"
+            :rows="rows"
             v-model="CurrentVal"
             :disabled="disabled ? true : false"
             :element-id="textareaId"
@@ -37,6 +38,17 @@ export default class InputBox extends Vue {
      * @memberof InputBox
      */
     @Model('change') readonly itemValue?: any;
+
+    /**
+     * 生命周期 （多行文本十行高度问题）
+     * @type {any}
+     * @memberof InputBox
+     */
+    public created() {
+        if(this.editorType && this.editorType == "TEXTAREA_10") {
+            this.rows = 10;
+        }
+    }
 
     /**
      * 生命周期 （多行文本十行高度问题）
@@ -79,6 +91,20 @@ export default class InputBox extends Vue {
      * @memberof InputBoxUnit
      */
     @Prop() public size?: string;
+
+   /**
+     * 编辑器样式
+     * @type {String}
+     * @memberof InputBoxUnit
+     */
+    @Prop() public editorType?: string;
+
+    /**
+     * 文本行数
+     * @type {String}
+     * @memberof InputBoxUnit
+     */
+    public rows: number = 2;
 
     /**
      * placeholder值

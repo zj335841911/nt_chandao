@@ -147399,6 +147399,7 @@ CREATE TABLE `zt_module`(
 | ISEXPIRED        | 是否过期  | VARCHAR      |   200   | &nbsp; |
 | STORYCNT        | 需求数  | INTEGER      |   -1   | &nbsp; |
 | DESC        | 描述  | CLOB      |   65,535   | &nbsp; |
+| DURATION        | 持续时间  | VARCHAR      |   200   | &nbsp; |
 | DELETED        | 已删除  | VARCHAR      |   1   | &nbsp; |
 | FUTURE        | 待定  | VARCHAR      |   200   | &nbsp; |
 | PARENTNAME        | 父计划名称  | VARCHAR      |   90   | &nbsp; |

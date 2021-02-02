@@ -257,6 +257,15 @@ public class ProductPlanDTO extends DTOBase implements Serializable {
     @JsonProperty("taskscnt")
     private Integer taskscnt;
 
+    /**
+     * 属性 [DURATION]
+     *
+     */
+    @JSONField(name = "duration")
+    @JsonProperty("duration")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String duration;
+
 
     /**
      * 设置 [TITLE]

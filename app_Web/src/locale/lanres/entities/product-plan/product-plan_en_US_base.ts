@@ -29,6 +29,7 @@ function getLocaleResourceBase(){
 			unfinishedtaskscnt: commonLogic.appcommonhandle("未完成任务数",null),
 			finishedtaskscnt: commonLogic.appcommonhandle("完成任务数",null),
 			taskscnt: commonLogic.appcommonhandle("总任务数",null),
+			duration: commonLogic.appcommonhandle("持续时间",null),
 		},
 			views: {
 				maintabexp: {

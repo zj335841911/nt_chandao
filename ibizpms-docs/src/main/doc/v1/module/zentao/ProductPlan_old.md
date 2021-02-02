@@ -44,6 +44,7 @@ hide members
 |未完成任务数|UNFINISHEDTASKSCNT|INT|&nbsp;|
 |完成任务数|FINISHEDTASKSCNT|INT|&nbsp;|
 |总任务数|TASKSCNT|INT|&nbsp;|
+|持续时间|DURATION|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -74,6 +75,7 @@ hide members
 |未完成任务数|默认规则|默认规则|
 |完成任务数|默认规则|默认规则|
 |总任务数|默认规则|默认规则|
+|持续时间|默认规则|内容长度必须小于等于[200]|
 
 ## 状态控制
 

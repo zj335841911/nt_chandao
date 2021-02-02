@@ -1536,7 +1536,8 @@ POST
 | 24 | unfinishedtaskscnt | Integer | 允许 | 未完成任务数 |
 | 25 | finishedtaskscnt | Integer | 允许 | 完成任务数 |
 | 26 | taskscnt | Integer | 允许 | 总任务数 |
-| 27 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 27 | duration | String | 允许 | 持续时间 |
+| 28 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### ProductPlanSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

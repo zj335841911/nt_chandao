@@ -213,4 +213,12 @@ export interface ProductPlan {
      * @memberof ProductPlan
      */
     taskscnt?: any;
+
+    /**
+     * 持续时间
+     *
+     * @returns {*}
+     * @memberof ProductPlan
+     */
+    duration?: any;
 }

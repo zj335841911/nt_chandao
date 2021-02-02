@@ -235,6 +235,13 @@ public class ProductPlan extends EntityMP implements Serializable {
     @JSONField(name = "taskscnt")
     @JsonProperty("taskscnt")
     private Integer taskscnt;
+    /**
+     * 持续时间
+     */
+    @TableField(exist = false)
+    @JSONField(name = "duration")
+    @JsonProperty("duration")
+    private String duration;
 
     /**
      * 
