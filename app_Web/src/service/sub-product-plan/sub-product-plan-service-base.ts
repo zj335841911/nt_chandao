@@ -408,6 +408,32 @@ export default class SubProductPlanServiceBase extends EntityService {
     }
 
     /**
+     * EeRestartPlan接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubProductPlanServiceBase
+     */
+    public async EeRestartPlan(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productplan && context.subproductplan){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/subproductplans/${context.subproductplan}/eerestartplan`,data,isloading);
+            
+            return res;
+        }
+        if(context.productplan && context.subproductplan){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/subproductplans/${context.subproductplan}/eerestartplan`,data,isloading);
+            
+            return res;
+        }
+    }
+
+    /**
      * EeStartPlan接口方法
      *
      * @param {*} [context={}]

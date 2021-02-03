@@ -58,6 +58,8 @@ public interface IProductPlanService extends IService<ProductPlan> {
     boolean eeFinishPlanBatch(List<ProductPlan> etList);
     ProductPlan eePausePlan(ProductPlan et);
     boolean eePausePlanBatch(List<ProductPlan> etList);
+    ProductPlan eeRestartPlan(ProductPlan et);
+    boolean eeRestartPlanBatch(List<ProductPlan> etList);
     ProductPlan eeStartPlan(ProductPlan et);
     boolean eeStartPlanBatch(List<ProductPlan> etList);
     ProductPlan getOldPlanName(ProductPlan et);

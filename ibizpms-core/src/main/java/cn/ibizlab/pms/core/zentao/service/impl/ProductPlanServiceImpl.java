@@ -232,6 +232,21 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
 
     @Override
     @Transactional
+    public ProductPlan eeRestartPlan(ProductPlan et) {
+        //自定义代码
+        return et;
+    }
+   @Override
+    @Transactional
+    public boolean eeRestartPlanBatch(List<ProductPlan> etList) {
+        for(ProductPlan et : etList) {
+            eeRestartPlan(et);
+        }
+        return true;
+    }
+
+    @Override
+    @Transactional
     public ProductPlan eeStartPlan(ProductPlan et) {
         //自定义代码
         return et;

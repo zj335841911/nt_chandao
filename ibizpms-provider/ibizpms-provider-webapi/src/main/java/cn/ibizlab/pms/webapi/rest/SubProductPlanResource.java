@@ -251,6 +251,23 @@ public class SubProductPlanResource {
         boolean result = productplanService.eePausePlanBatch(domains);
         return ResponseEntity.status(HttpStatus.OK).body(result);
     }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-EeRestartPlan-all')")
+    @ApiOperation(value = "根据产品计划产品计划", tags = {"产品计划" },  notes = "根据产品计划产品计划")
+	@RequestMapping(method = RequestMethod.POST, value = "/productplans/{productplan_id}/subproductplans/{subproductplan_id}/eerestartplan")
+    public ResponseEntity<SubProductPlanDTO> eeRestartPlanByProductPlan(@PathVariable("productplan_id") Long productplan_id, @PathVariable("subproductplan_id") Long subproductplan_id, @RequestBody SubProductPlanDTO subproductplandto) {
+        ProductPlan domain = subproductplanMapping.toDomain(subproductplandto);
+        domain.setParent(productplan_id);
+        domain = productplanService.eeRestartPlan(domain) ;
+        subproductplandto = subproductplanMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(subproductplandto);
+    }
+    @ApiOperation(value = "批量处理[根据产品计划产品计划]", tags = {"产品计划" },  notes = "批量处理[根据产品计划产品计划]")
+	@RequestMapping(method = RequestMethod.POST, value = "/productplans/{productplan_id}/subproductplans/eerestartplanbatch")
+    public ResponseEntity<Boolean> eeRestartPlanByProductPlan(@PathVariable("productplan_id") Long productplan_id, @RequestBody List<SubProductPlanDTO> subproductplandtos) {
+        List<ProductPlan> domains = subproductplanMapping.toDomain(subproductplandtos);
+        boolean result = productplanService.eeRestartPlanBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
+    }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-EeStartPlan-all')")
     @ApiOperation(value = "根据产品计划产品计划", tags = {"产品计划" },  notes = "根据产品计划产品计划")
 	@RequestMapping(method = RequestMethod.POST, value = "/productplans/{productplan_id}/subproductplans/{subproductplan_id}/eestartplan")
@@ -843,6 +860,23 @@ public class SubProductPlanResource {
     public ResponseEntity<Boolean> eePausePlanByProductProductPlan(@PathVariable("product_id") Long product_id, @PathVariable("productplan_id") Long productplan_id, @RequestBody List<SubProductPlanDTO> subproductplandtos) {
         List<ProductPlan> domains = subproductplanMapping.toDomain(subproductplandtos);
         boolean result = productplanService.eePausePlanBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-EeRestartPlan-all')")
+    @ApiOperation(value = "根据产品产品计划产品计划", tags = {"产品计划" },  notes = "根据产品产品计划产品计划")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productplans/{productplan_id}/subproductplans/{subproductplan_id}/eerestartplan")
+    public ResponseEntity<SubProductPlanDTO> eeRestartPlanByProductProductPlan(@PathVariable("product_id") Long product_id, @PathVariable("productplan_id") Long productplan_id, @PathVariable("subproductplan_id") Long subproductplan_id, @RequestBody SubProductPlanDTO subproductplandto) {
+        ProductPlan domain = subproductplanMapping.toDomain(subproductplandto);
+        domain.setParent(productplan_id);
+        domain = productplanService.eeRestartPlan(domain) ;
+        subproductplandto = subproductplanMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(subproductplandto);
+    }
+    @ApiOperation(value = "批量处理[根据产品产品计划产品计划]", tags = {"产品计划" },  notes = "批量处理[根据产品产品计划产品计划]")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productplans/{productplan_id}/subproductplans/eerestartplanbatch")
+    public ResponseEntity<Boolean> eeRestartPlanByProductProductPlan(@PathVariable("product_id") Long product_id, @PathVariable("productplan_id") Long productplan_id, @RequestBody List<SubProductPlanDTO> subproductplandtos) {
+        List<ProductPlan> domains = subproductplanMapping.toDomain(subproductplandtos);
+        boolean result = productplanService.eeRestartPlanBatch(domains);
         return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-EeStartPlan-all')")
