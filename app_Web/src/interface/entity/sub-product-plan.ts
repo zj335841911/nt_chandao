@@ -221,4 +221,20 @@ export interface SubProductPlan {
      * @memberof SubProductPlan
      */
     product?: any;
+
+    /**
+     * 任务状态
+     *
+     * @returns {*}
+     * @memberof SubProductPlan
+     */
+    status?: any;
+
+    /**
+     * 延期
+     *
+     * @returns {*}
+     * @memberof SubProductPlan
+     */
+    delay?: any;
 }

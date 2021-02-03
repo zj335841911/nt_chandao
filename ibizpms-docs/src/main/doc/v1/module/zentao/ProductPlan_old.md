@@ -45,6 +45,8 @@ hide members
 |平台/分支|BRANCH|PICKUP|&nbsp;|
 |父计划|PARENT|PICKUP|&nbsp;|
 |产品|PRODUCT|PICKUP|&nbsp;|
+|任务状态|STATUS|TEXT|&nbsp;|
+|延期|DELAY|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -76,6 +78,8 @@ hide members
 |平台/分支|默认规则|默认规则|
 |父计划|默认规则|默认规则|
 |产品|默认规则|默认规则|
+|任务状态|默认规则|内容长度必须小于等于[100]|
+|延期|默认规则|内容长度必须小于等于[200]|
 
 ## 状态控制
 

@@ -242,6 +242,21 @@ public class ProductPlan extends EntityMP implements Serializable {
     @JSONField(name = "product")
     @JsonProperty("product")
     private Long product;
+    /**
+     * 任务状态
+     */
+    @DEField(defaultValue = "wait")
+    @TableField(value = "`status`")
+    @JSONField(name = "status")
+    @JsonProperty("status")
+    private String status;
+    /**
+     * 延期
+     */
+    @TableField(exist = false)
+    @JSONField(name = "delay")
+    @JsonProperty("delay")
+    private String delay;
 
     /**
      * 
@@ -351,6 +366,14 @@ public class ProductPlan extends EntityMP implements Serializable {
     public void setProduct(Long product) {
         this.product = product;
         this.modify("product", product);
+    }
+
+    /**
+     * 设置 [任务状态]
+     */
+    public void setStatus(String status) {
+        this.status = status;
+        this.modify("status", status);
     }
 
 

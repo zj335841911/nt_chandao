@@ -266,6 +266,24 @@ public class SubProductPlanDTO extends DTOBase implements Serializable {
     @JsonSerialize(using = ToStringSerializer.class)
     private Long product;
 
+    /**
+     * 属性 [STATUS]
+     *
+     */
+    @JSONField(name = "status")
+    @JsonProperty("status")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    private String status;
+
+    /**
+     * 属性 [DELAY]
+     *
+     */
+    @JSONField(name = "delay")
+    @JsonProperty("delay")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    private String delay;
+
 
     /**
      * 设置 [TITLE]
@@ -329,6 +347,14 @@ public class SubProductPlanDTO extends DTOBase implements Serializable {
     public void setProduct(Long  product){
         this.product = product ;
         this.modify("product",product);
+    }
+
+    /**
+     * 设置 [STATUS]
+     */
+    public void setStatus(String  status){
+        this.status = status ;
+        this.modify("status",status);
     }
 
 

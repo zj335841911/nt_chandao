@@ -221,4 +221,20 @@ export interface ProductPlan {
      * @memberof ProductPlan
      */
     product?: any;
+
+    /**
+     * 任务状态
+     *
+     * @returns {*}
+     * @memberof ProductPlan
+     */
+    status?: any;
+
+    /**
+     * 延期
+     *
+     * @returns {*}
+     * @memberof ProductPlan
+     */
+    delay?: any;
 }
