@@ -92,6 +92,11 @@ export default class SubTaskNewModel {
           isEditable:true
         },
         {
+          name: 'frombug',
+          prop: 'frombug',
+          dataType: 'PICKUP',
+        },
+        {
           name: 'isleaf',
           prop: 'isleaf',
           dataType: 'TEXT',
@@ -137,6 +142,11 @@ export default class SubTaskNewModel {
           prop: 'story',
           dataType: 'PICKUP',
           isEditable:true
+        },
+        {
+          name: 'plan',
+          prop: 'plan',
+          dataType: 'PICKUP',
         },
         {
           name: 'allmodules',
