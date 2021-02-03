@@ -6,6 +6,7 @@ import cn.ibizlab.pms.core.zentao.filter.ProductPlanSearchContext;
 import cn.ibizlab.pms.core.zentao.filter.StorySearchContext;
 import cn.ibizlab.pms.core.zentao.service.impl.ProductPlanServiceImpl;
 import cn.ibizlab.pms.util.dict.StaticDict;
+import cn.ibizlab.pms.util.helper.CachedBeanCopier;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -135,6 +136,122 @@ public class ProductPlanExService extends ProductPlanServiceImpl {
             productPlan.set("items", this.searchDefault(productPlanSearchContext).getContent());
         }
         return new PageImpl<ProductPlan>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 自定义行为[eeStartPlan]Ee开始计划
+     * @param et
+     * @return
+     */
+    @Override
+    public ProductPlan eeStartPlan(ProductPlan et){
+        ProductPlan old = new ProductPlan();
+        CachedBeanCopier.copy(this.get(et.getId()),old);
+//        if (old.getParent() > 0 ){
+//            throw new RuntimeException("功能未开发！");
+//        }
+        et.setStatus(StaticDict.Task__status.DOING.getValue());
+        this.update(et);
+        return et;
+    }
+
+    /**
+     * 自定义行为[eeStartPlan]Ee开始计划
+     * @param et
+     * @return
+     */
+    @Override
+    public ProductPlan eePausePlan(ProductPlan et){
+        ProductPlan old = new ProductPlan();
+        CachedBeanCopier.copy(this.get(et.getId()),old);
+//        if (old.getParent() > 0 ){
+//            throw new RuntimeException("功能未开发！");
+//        }
+        et.setStatus(StaticDict.Task__status.PAUSE.getValue());
+        this.update(et);
+        return et;
+    }
+    /**
+     * 自定义行为[eeStartPlan]Ee开始计划
+     * @param et
+     * @return
+     */
+    @Override
+    public ProductPlan eeRestartPlan(ProductPlan et){
+        ProductPlan old = new ProductPlan();
+        CachedBeanCopier.copy(this.get(et.getId()),old);
+//        if (old.getParent() > 0 ){
+//            throw new RuntimeException("功能未开发！");
+//        }
+        et.setStatus(StaticDict.Task__status.DOING.getValue());
+        this.update(et);
+        return et;
+    }
+    /**
+     * 自定义行为[eeStartPlan]Ee开始计划
+     * @param et
+     * @return
+     */
+    @Override
+    public ProductPlan eeFinishPlan(ProductPlan et){
+        ProductPlan old = new ProductPlan();
+        CachedBeanCopier.copy(this.get(et.getId()),old);
+//        if (old.getParent() > 0 ){
+//            throw new RuntimeException("功能未开发！");
+//        }
+        et.setStatus(StaticDict.Task__status.DONE.getValue());
+        this.update(et);
+        return et;
+    }
+
+    /**
+     * 自定义行为[eeStartPlan]Ee开始计划
+     * @param et
+     * @return
+     */
+    @Override
+    public ProductPlan eeCancelPlan(ProductPlan et){
+        ProductPlan old = new ProductPlan();
+        CachedBeanCopier.copy(this.get(et.getId()),old);
+//        if (old.getParent() > 0 ){
+//            throw new RuntimeException("功能未开发！");
+//        }
+        et.setStatus(StaticDict.Task__status.CANCEL.getValue());
+        this.update(et);
+        return et;
+    }
+    /**
+     * 自定义行为[eeStartPlan]Ee开始计划
+     * @param et
+     * @return
+     */
+    @Override
+    public ProductPlan eeActivePlan(ProductPlan et){
+        ProductPlan old = new ProductPlan();
+        CachedBeanCopier.copy(this.get(et.getId()),old);
+//        if (old.getParent() > 0 ){
+//            throw new RuntimeException("功能未开发！");
+//        }
+        et.setStatus(StaticDict.Task__status.DOING.getValue());
+        this.update(et);
+        return et;
+    }
+
+    /**
+     * 自定义行为[eeStartPlan]Ee关闭计划
+     * @param et
+     * @return
+     */
+    @Override
+    public ProductPlan eeClosePlan(ProductPlan et){
+        ProductPlan old = new ProductPlan();
+        CachedBeanCopier.copy(this.get(et.getId()),old);
+//        if (old.getParent() > 0 ){
+//            throw new RuntimeException("功能未开发！");
+//        }
+        et.setStatus(StaticDict.Task__status.CLOSED.getValue());
+        this.update(et);
+        return et;
     }
 }
 
