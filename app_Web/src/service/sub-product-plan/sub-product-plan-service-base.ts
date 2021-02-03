@@ -278,6 +278,162 @@ export default class SubProductPlanServiceBase extends EntityService {
     }
 
     /**
+     * EeActivePlan接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubProductPlanServiceBase
+     */
+    public async EeActivePlan(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productplan && context.subproductplan){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/subproductplans/${context.subproductplan}/eeactiveplan`,data,isloading);
+            
+            return res;
+        }
+        if(context.productplan && context.subproductplan){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/subproductplans/${context.subproductplan}/eeactiveplan`,data,isloading);
+            
+            return res;
+        }
+    }
+
+    /**
+     * EeCancelPlan接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubProductPlanServiceBase
+     */
+    public async EeCancelPlan(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productplan && context.subproductplan){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/subproductplans/${context.subproductplan}/eecancelplan`,data,isloading);
+            
+            return res;
+        }
+        if(context.productplan && context.subproductplan){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/subproductplans/${context.subproductplan}/eecancelplan`,data,isloading);
+            
+            return res;
+        }
+    }
+
+    /**
+     * EeClosePlan接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubProductPlanServiceBase
+     */
+    public async EeClosePlan(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productplan && context.subproductplan){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/subproductplans/${context.subproductplan}/eecloseplan`,data,isloading);
+            
+            return res;
+        }
+        if(context.productplan && context.subproductplan){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/subproductplans/${context.subproductplan}/eecloseplan`,data,isloading);
+            
+            return res;
+        }
+    }
+
+    /**
+     * EeFinishPlan接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubProductPlanServiceBase
+     */
+    public async EeFinishPlan(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productplan && context.subproductplan){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/subproductplans/${context.subproductplan}/eefinishplan`,data,isloading);
+            
+            return res;
+        }
+        if(context.productplan && context.subproductplan){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/subproductplans/${context.subproductplan}/eefinishplan`,data,isloading);
+            
+            return res;
+        }
+    }
+
+    /**
+     * EePausePlan接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubProductPlanServiceBase
+     */
+    public async EePausePlan(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productplan && context.subproductplan){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/subproductplans/${context.subproductplan}/eepauseplan`,data,isloading);
+            
+            return res;
+        }
+        if(context.productplan && context.subproductplan){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/subproductplans/${context.subproductplan}/eepauseplan`,data,isloading);
+            
+            return res;
+        }
+    }
+
+    /**
+     * EeStartPlan接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubProductPlanServiceBase
+     */
+    public async EeStartPlan(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productplan && context.subproductplan){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/subproductplans/${context.subproductplan}/eestartplan`,data,isloading);
+            
+            return res;
+        }
+        if(context.productplan && context.subproductplan){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/subproductplans/${context.subproductplan}/eestartplan`,data,isloading);
+            
+            return res;
+        }
+    }
+
+    /**
      * GetOldPlanName接口方法
      *
      * @param {*} [context={}]

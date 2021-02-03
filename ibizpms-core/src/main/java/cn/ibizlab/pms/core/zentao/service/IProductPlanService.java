@@ -48,6 +48,18 @@ public interface IProductPlanService extends IService<ProductPlan> {
     ProductPlan batchUnlinkStory(ProductPlan et);
     boolean batchUnlinkStoryBatch(List<ProductPlan> etList);
     boolean checkKey(ProductPlan et);
+    ProductPlan eeActivePlan(ProductPlan et);
+    boolean eeActivePlanBatch(List<ProductPlan> etList);
+    ProductPlan eeCancelPlan(ProductPlan et);
+    boolean eeCancelPlanBatch(List<ProductPlan> etList);
+    ProductPlan eeClosePlan(ProductPlan et);
+    boolean eeClosePlanBatch(List<ProductPlan> etList);
+    ProductPlan eeFinishPlan(ProductPlan et);
+    boolean eeFinishPlanBatch(List<ProductPlan> etList);
+    ProductPlan eePausePlan(ProductPlan et);
+    boolean eePausePlanBatch(List<ProductPlan> etList);
+    ProductPlan eeStartPlan(ProductPlan et);
+    boolean eeStartPlanBatch(List<ProductPlan> etList);
     ProductPlan getOldPlanName(ProductPlan et);
     ProductPlan importPlanTemplet(ProductPlan et);
     boolean importPlanTempletBatch(List<ProductPlan> etList);

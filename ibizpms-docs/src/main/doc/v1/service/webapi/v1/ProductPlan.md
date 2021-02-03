@@ -186,6 +186,120 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
+### EE激活计划
+#### 访问路径
+/productplans/{productplan_id}/eeactiveplan
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productplan_id | Long | 产品计划主键ID |
+| 2 | productplandto | [ProductPlanDTO](#ProductPlanDTO) | 产品计划实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [ProductPlanDTO](#ProductPlanDTO)：产品计划实体传输对象 |
+
+### EE取消计划
+#### 访问路径
+/productplans/{productplan_id}/eecancelplan
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productplan_id | Long | 产品计划主键ID |
+| 2 | productplandto | [ProductPlanDTO](#ProductPlanDTO) | 产品计划实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [ProductPlanDTO](#ProductPlanDTO)：产品计划实体传输对象 |
+
+### EE关闭计划
+#### 访问路径
+/productplans/{productplan_id}/eecloseplan
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productplan_id | Long | 产品计划主键ID |
+| 2 | productplandto | [ProductPlanDTO](#ProductPlanDTO) | 产品计划实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [ProductPlanDTO](#ProductPlanDTO)：产品计划实体传输对象 |
+
+### EE完成计划
+#### 访问路径
+/productplans/{productplan_id}/eefinishplan
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productplan_id | Long | 产品计划主键ID |
+| 2 | productplandto | [ProductPlanDTO](#ProductPlanDTO) | 产品计划实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [ProductPlanDTO](#ProductPlanDTO)：产品计划实体传输对象 |
+
+### EE暂停计划
+#### 访问路径
+/productplans/{productplan_id}/eepauseplan
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productplan_id | Long | 产品计划主键ID |
+| 2 | productplandto | [ProductPlanDTO](#ProductPlanDTO) | 产品计划实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [ProductPlanDTO](#ProductPlanDTO)：产品计划实体传输对象 |
+
+### EE开始计划
+#### 访问路径
+/productplans/{productplan_id}/eestartplan
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | productplan_id | Long | 产品计划主键ID |
+| 2 | productplandto | [ProductPlanDTO](#ProductPlanDTO) | 产品计划实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [ProductPlanDTO](#ProductPlanDTO)：产品计划实体传输对象 |
+
 ### 获取上一个计划的名称
 #### 访问路径
 /productplans/{productplan_id}/getoldplanname
@@ -926,6 +1040,126 @@ POST
 | ---- | ---- |
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
+
+### EE激活计划
+#### 访问路径
+/products/{product_id}/productplans/{productplan_id}/eeactiveplan
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |
+| 2 | productplan_id | Long | 产品计划主键ID |
+| 3 | productplandto | [ProductPlanDTO](#ProductPlanDTO) | 产品计划实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [ProductPlanDTO](#ProductPlanDTO)：产品计划实体传输对象 |
+
+### EE取消计划
+#### 访问路径
+/products/{product_id}/productplans/{productplan_id}/eecancelplan
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |
+| 2 | productplan_id | Long | 产品计划主键ID |
+| 3 | productplandto | [ProductPlanDTO](#ProductPlanDTO) | 产品计划实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [ProductPlanDTO](#ProductPlanDTO)：产品计划实体传输对象 |
+
+### EE关闭计划
+#### 访问路径
+/products/{product_id}/productplans/{productplan_id}/eecloseplan
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |
+| 2 | productplan_id | Long | 产品计划主键ID |
+| 3 | productplandto | [ProductPlanDTO](#ProductPlanDTO) | 产品计划实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [ProductPlanDTO](#ProductPlanDTO)：产品计划实体传输对象 |
+
+### EE完成计划
+#### 访问路径
+/products/{product_id}/productplans/{productplan_id}/eefinishplan
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |
+| 2 | productplan_id | Long | 产品计划主键ID |
+| 3 | productplandto | [ProductPlanDTO](#ProductPlanDTO) | 产品计划实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [ProductPlanDTO](#ProductPlanDTO)：产品计划实体传输对象 |
+
+### EE暂停计划
+#### 访问路径
+/products/{product_id}/productplans/{productplan_id}/eepauseplan
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |
+| 2 | productplan_id | Long | 产品计划主键ID |
+| 3 | productplandto | [ProductPlanDTO](#ProductPlanDTO) | 产品计划实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [ProductPlanDTO](#ProductPlanDTO)：产品计划实体传输对象 |
+
+### EE开始计划
+#### 访问路径
+/products/{product_id}/productplans/{productplan_id}/eestartplan
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | product_id | Long | 产品主键ID |
+| 2 | productplan_id | Long | 产品计划主键ID |
+| 3 | productplandto | [ProductPlanDTO](#ProductPlanDTO) | 产品计划实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [ProductPlanDTO](#ProductPlanDTO)：产品计划实体传输对象 |
 
 ### 获取上一个计划的名称
 #### 访问路径

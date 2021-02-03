@@ -157,6 +157,96 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
     }
     @Override
     @Transactional
+    public ProductPlan eeActivePlan(ProductPlan et) {
+        //自定义代码
+        return et;
+    }
+   @Override
+    @Transactional
+    public boolean eeActivePlanBatch(List<ProductPlan> etList) {
+        for(ProductPlan et : etList) {
+            eeActivePlan(et);
+        }
+        return true;
+    }
+
+    @Override
+    @Transactional
+    public ProductPlan eeCancelPlan(ProductPlan et) {
+        //自定义代码
+        return et;
+    }
+   @Override
+    @Transactional
+    public boolean eeCancelPlanBatch(List<ProductPlan> etList) {
+        for(ProductPlan et : etList) {
+            eeCancelPlan(et);
+        }
+        return true;
+    }
+
+    @Override
+    @Transactional
+    public ProductPlan eeClosePlan(ProductPlan et) {
+        //自定义代码
+        return et;
+    }
+   @Override
+    @Transactional
+    public boolean eeClosePlanBatch(List<ProductPlan> etList) {
+        for(ProductPlan et : etList) {
+            eeClosePlan(et);
+        }
+        return true;
+    }
+
+    @Override
+    @Transactional
+    public ProductPlan eeFinishPlan(ProductPlan et) {
+        //自定义代码
+        return et;
+    }
+   @Override
+    @Transactional
+    public boolean eeFinishPlanBatch(List<ProductPlan> etList) {
+        for(ProductPlan et : etList) {
+            eeFinishPlan(et);
+        }
+        return true;
+    }
+
+    @Override
+    @Transactional
+    public ProductPlan eePausePlan(ProductPlan et) {
+        //自定义代码
+        return et;
+    }
+   @Override
+    @Transactional
+    public boolean eePausePlanBatch(List<ProductPlan> etList) {
+        for(ProductPlan et : etList) {
+            eePausePlan(et);
+        }
+        return true;
+    }
+
+    @Override
+    @Transactional
+    public ProductPlan eeStartPlan(ProductPlan et) {
+        //自定义代码
+        return et;
+    }
+   @Override
+    @Transactional
+    public boolean eeStartPlanBatch(List<ProductPlan> etList) {
+        for(ProductPlan et : etList) {
+            eeStartPlan(et);
+        }
+        return true;
+    }
+
+    @Override
+    @Transactional
     public ProductPlan getOldPlanName(ProductPlan et) {
          return et;
     }

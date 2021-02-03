@@ -166,6 +166,108 @@ public class SubProductPlanResource {
         return  ResponseEntity.status(HttpStatus.OK).body(productplanService.checkKey(subproductplanMapping.toDomain(subproductplandto)));
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-EeActivePlan-all')")
+    @ApiOperation(value = "根据产品计划产品计划", tags = {"产品计划" },  notes = "根据产品计划产品计划")
+	@RequestMapping(method = RequestMethod.POST, value = "/productplans/{productplan_id}/subproductplans/{subproductplan_id}/eeactiveplan")
+    public ResponseEntity<SubProductPlanDTO> eeActivePlanByProductPlan(@PathVariable("productplan_id") Long productplan_id, @PathVariable("subproductplan_id") Long subproductplan_id, @RequestBody SubProductPlanDTO subproductplandto) {
+        ProductPlan domain = subproductplanMapping.toDomain(subproductplandto);
+        domain.setParent(productplan_id);
+        domain = productplanService.eeActivePlan(domain) ;
+        subproductplandto = subproductplanMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(subproductplandto);
+    }
+    @ApiOperation(value = "批量处理[根据产品计划产品计划]", tags = {"产品计划" },  notes = "批量处理[根据产品计划产品计划]")
+	@RequestMapping(method = RequestMethod.POST, value = "/productplans/{productplan_id}/subproductplans/eeactiveplanbatch")
+    public ResponseEntity<Boolean> eeActivePlanByProductPlan(@PathVariable("productplan_id") Long productplan_id, @RequestBody List<SubProductPlanDTO> subproductplandtos) {
+        List<ProductPlan> domains = subproductplanMapping.toDomain(subproductplandtos);
+        boolean result = productplanService.eeActivePlanBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-EeCancelPlan-all')")
+    @ApiOperation(value = "根据产品计划产品计划", tags = {"产品计划" },  notes = "根据产品计划产品计划")
+	@RequestMapping(method = RequestMethod.POST, value = "/productplans/{productplan_id}/subproductplans/{subproductplan_id}/eecancelplan")
+    public ResponseEntity<SubProductPlanDTO> eeCancelPlanByProductPlan(@PathVariable("productplan_id") Long productplan_id, @PathVariable("subproductplan_id") Long subproductplan_id, @RequestBody SubProductPlanDTO subproductplandto) {
+        ProductPlan domain = subproductplanMapping.toDomain(subproductplandto);
+        domain.setParent(productplan_id);
+        domain = productplanService.eeCancelPlan(domain) ;
+        subproductplandto = subproductplanMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(subproductplandto);
+    }
+    @ApiOperation(value = "批量处理[根据产品计划产品计划]", tags = {"产品计划" },  notes = "批量处理[根据产品计划产品计划]")
+	@RequestMapping(method = RequestMethod.POST, value = "/productplans/{productplan_id}/subproductplans/eecancelplanbatch")
+    public ResponseEntity<Boolean> eeCancelPlanByProductPlan(@PathVariable("productplan_id") Long productplan_id, @RequestBody List<SubProductPlanDTO> subproductplandtos) {
+        List<ProductPlan> domains = subproductplanMapping.toDomain(subproductplandtos);
+        boolean result = productplanService.eeCancelPlanBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-EeClosePlan-all')")
+    @ApiOperation(value = "根据产品计划产品计划", tags = {"产品计划" },  notes = "根据产品计划产品计划")
+	@RequestMapping(method = RequestMethod.POST, value = "/productplans/{productplan_id}/subproductplans/{subproductplan_id}/eecloseplan")
+    public ResponseEntity<SubProductPlanDTO> eeClosePlanByProductPlan(@PathVariable("productplan_id") Long productplan_id, @PathVariable("subproductplan_id") Long subproductplan_id, @RequestBody SubProductPlanDTO subproductplandto) {
+        ProductPlan domain = subproductplanMapping.toDomain(subproductplandto);
+        domain.setParent(productplan_id);
+        domain = productplanService.eeClosePlan(domain) ;
+        subproductplandto = subproductplanMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(subproductplandto);
+    }
+    @ApiOperation(value = "批量处理[根据产品计划产品计划]", tags = {"产品计划" },  notes = "批量处理[根据产品计划产品计划]")
+	@RequestMapping(method = RequestMethod.POST, value = "/productplans/{productplan_id}/subproductplans/eecloseplanbatch")
+    public ResponseEntity<Boolean> eeClosePlanByProductPlan(@PathVariable("productplan_id") Long productplan_id, @RequestBody List<SubProductPlanDTO> subproductplandtos) {
+        List<ProductPlan> domains = subproductplanMapping.toDomain(subproductplandtos);
+        boolean result = productplanService.eeClosePlanBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-EeFinishPlan-all')")
+    @ApiOperation(value = "根据产品计划产品计划", tags = {"产品计划" },  notes = "根据产品计划产品计划")
+	@RequestMapping(method = RequestMethod.POST, value = "/productplans/{productplan_id}/subproductplans/{subproductplan_id}/eefinishplan")
+    public ResponseEntity<SubProductPlanDTO> eeFinishPlanByProductPlan(@PathVariable("productplan_id") Long productplan_id, @PathVariable("subproductplan_id") Long subproductplan_id, @RequestBody SubProductPlanDTO subproductplandto) {
+        ProductPlan domain = subproductplanMapping.toDomain(subproductplandto);
+        domain.setParent(productplan_id);
+        domain = productplanService.eeFinishPlan(domain) ;
+        subproductplandto = subproductplanMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(subproductplandto);
+    }
+    @ApiOperation(value = "批量处理[根据产品计划产品计划]", tags = {"产品计划" },  notes = "批量处理[根据产品计划产品计划]")
+	@RequestMapping(method = RequestMethod.POST, value = "/productplans/{productplan_id}/subproductplans/eefinishplanbatch")
+    public ResponseEntity<Boolean> eeFinishPlanByProductPlan(@PathVariable("productplan_id") Long productplan_id, @RequestBody List<SubProductPlanDTO> subproductplandtos) {
+        List<ProductPlan> domains = subproductplanMapping.toDomain(subproductplandtos);
+        boolean result = productplanService.eeFinishPlanBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-EePausePlan-all')")
+    @ApiOperation(value = "根据产品计划产品计划", tags = {"产品计划" },  notes = "根据产品计划产品计划")
+	@RequestMapping(method = RequestMethod.POST, value = "/productplans/{productplan_id}/subproductplans/{subproductplan_id}/eepauseplan")
+    public ResponseEntity<SubProductPlanDTO> eePausePlanByProductPlan(@PathVariable("productplan_id") Long productplan_id, @PathVariable("subproductplan_id") Long subproductplan_id, @RequestBody SubProductPlanDTO subproductplandto) {
+        ProductPlan domain = subproductplanMapping.toDomain(subproductplandto);
+        domain.setParent(productplan_id);
+        domain = productplanService.eePausePlan(domain) ;
+        subproductplandto = subproductplanMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(subproductplandto);
+    }
+    @ApiOperation(value = "批量处理[根据产品计划产品计划]", tags = {"产品计划" },  notes = "批量处理[根据产品计划产品计划]")
+	@RequestMapping(method = RequestMethod.POST, value = "/productplans/{productplan_id}/subproductplans/eepauseplanbatch")
+    public ResponseEntity<Boolean> eePausePlanByProductPlan(@PathVariable("productplan_id") Long productplan_id, @RequestBody List<SubProductPlanDTO> subproductplandtos) {
+        List<ProductPlan> domains = subproductplanMapping.toDomain(subproductplandtos);
+        boolean result = productplanService.eePausePlanBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-EeStartPlan-all')")
+    @ApiOperation(value = "根据产品计划产品计划", tags = {"产品计划" },  notes = "根据产品计划产品计划")
+	@RequestMapping(method = RequestMethod.POST, value = "/productplans/{productplan_id}/subproductplans/{subproductplan_id}/eestartplan")
+    public ResponseEntity<SubProductPlanDTO> eeStartPlanByProductPlan(@PathVariable("productplan_id") Long productplan_id, @PathVariable("subproductplan_id") Long subproductplan_id, @RequestBody SubProductPlanDTO subproductplandto) {
+        ProductPlan domain = subproductplanMapping.toDomain(subproductplandto);
+        domain.setParent(productplan_id);
+        domain = productplanService.eeStartPlan(domain) ;
+        subproductplandto = subproductplanMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(subproductplandto);
+    }
+    @ApiOperation(value = "批量处理[根据产品计划产品计划]", tags = {"产品计划" },  notes = "批量处理[根据产品计划产品计划]")
+	@RequestMapping(method = RequestMethod.POST, value = "/productplans/{productplan_id}/subproductplans/eestartplanbatch")
+    public ResponseEntity<Boolean> eeStartPlanByProductPlan(@PathVariable("productplan_id") Long productplan_id, @RequestBody List<SubProductPlanDTO> subproductplandtos) {
+        List<ProductPlan> domains = subproductplanMapping.toDomain(subproductplandtos);
+        boolean result = productplanService.eeStartPlanBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
+    }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-GetOldPlanName-all')")
     @ApiOperation(value = "根据产品计划产品计划", tags = {"产品计划" },  notes = "根据产品计划产品计划")
 	@RequestMapping(method = RequestMethod.POST, value = "/productplans/{productplan_id}/subproductplans/{subproductplan_id}/getoldplanname")
@@ -658,6 +760,108 @@ public class SubProductPlanResource {
         return  ResponseEntity.status(HttpStatus.OK).body(productplanService.checkKey(subproductplanMapping.toDomain(subproductplandto)));
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-EeActivePlan-all')")
+    @ApiOperation(value = "根据产品产品计划产品计划", tags = {"产品计划" },  notes = "根据产品产品计划产品计划")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productplans/{productplan_id}/subproductplans/{subproductplan_id}/eeactiveplan")
+    public ResponseEntity<SubProductPlanDTO> eeActivePlanByProductProductPlan(@PathVariable("product_id") Long product_id, @PathVariable("productplan_id") Long productplan_id, @PathVariable("subproductplan_id") Long subproductplan_id, @RequestBody SubProductPlanDTO subproductplandto) {
+        ProductPlan domain = subproductplanMapping.toDomain(subproductplandto);
+        domain.setParent(productplan_id);
+        domain = productplanService.eeActivePlan(domain) ;
+        subproductplandto = subproductplanMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(subproductplandto);
+    }
+    @ApiOperation(value = "批量处理[根据产品产品计划产品计划]", tags = {"产品计划" },  notes = "批量处理[根据产品产品计划产品计划]")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productplans/{productplan_id}/subproductplans/eeactiveplanbatch")
+    public ResponseEntity<Boolean> eeActivePlanByProductProductPlan(@PathVariable("product_id") Long product_id, @PathVariable("productplan_id") Long productplan_id, @RequestBody List<SubProductPlanDTO> subproductplandtos) {
+        List<ProductPlan> domains = subproductplanMapping.toDomain(subproductplandtos);
+        boolean result = productplanService.eeActivePlanBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-EeCancelPlan-all')")
+    @ApiOperation(value = "根据产品产品计划产品计划", tags = {"产品计划" },  notes = "根据产品产品计划产品计划")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productplans/{productplan_id}/subproductplans/{subproductplan_id}/eecancelplan")
+    public ResponseEntity<SubProductPlanDTO> eeCancelPlanByProductProductPlan(@PathVariable("product_id") Long product_id, @PathVariable("productplan_id") Long productplan_id, @PathVariable("subproductplan_id") Long subproductplan_id, @RequestBody SubProductPlanDTO subproductplandto) {
+        ProductPlan domain = subproductplanMapping.toDomain(subproductplandto);
+        domain.setParent(productplan_id);
+        domain = productplanService.eeCancelPlan(domain) ;
+        subproductplandto = subproductplanMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(subproductplandto);
+    }
+    @ApiOperation(value = "批量处理[根据产品产品计划产品计划]", tags = {"产品计划" },  notes = "批量处理[根据产品产品计划产品计划]")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productplans/{productplan_id}/subproductplans/eecancelplanbatch")
+    public ResponseEntity<Boolean> eeCancelPlanByProductProductPlan(@PathVariable("product_id") Long product_id, @PathVariable("productplan_id") Long productplan_id, @RequestBody List<SubProductPlanDTO> subproductplandtos) {
+        List<ProductPlan> domains = subproductplanMapping.toDomain(subproductplandtos);
+        boolean result = productplanService.eeCancelPlanBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-EeClosePlan-all')")
+    @ApiOperation(value = "根据产品产品计划产品计划", tags = {"产品计划" },  notes = "根据产品产品计划产品计划")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productplans/{productplan_id}/subproductplans/{subproductplan_id}/eecloseplan")
+    public ResponseEntity<SubProductPlanDTO> eeClosePlanByProductProductPlan(@PathVariable("product_id") Long product_id, @PathVariable("productplan_id") Long productplan_id, @PathVariable("subproductplan_id") Long subproductplan_id, @RequestBody SubProductPlanDTO subproductplandto) {
+        ProductPlan domain = subproductplanMapping.toDomain(subproductplandto);
+        domain.setParent(productplan_id);
+        domain = productplanService.eeClosePlan(domain) ;
+        subproductplandto = subproductplanMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(subproductplandto);
+    }
+    @ApiOperation(value = "批量处理[根据产品产品计划产品计划]", tags = {"产品计划" },  notes = "批量处理[根据产品产品计划产品计划]")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productplans/{productplan_id}/subproductplans/eecloseplanbatch")
+    public ResponseEntity<Boolean> eeClosePlanByProductProductPlan(@PathVariable("product_id") Long product_id, @PathVariable("productplan_id") Long productplan_id, @RequestBody List<SubProductPlanDTO> subproductplandtos) {
+        List<ProductPlan> domains = subproductplanMapping.toDomain(subproductplandtos);
+        boolean result = productplanService.eeClosePlanBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-EeFinishPlan-all')")
+    @ApiOperation(value = "根据产品产品计划产品计划", tags = {"产品计划" },  notes = "根据产品产品计划产品计划")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productplans/{productplan_id}/subproductplans/{subproductplan_id}/eefinishplan")
+    public ResponseEntity<SubProductPlanDTO> eeFinishPlanByProductProductPlan(@PathVariable("product_id") Long product_id, @PathVariable("productplan_id") Long productplan_id, @PathVariable("subproductplan_id") Long subproductplan_id, @RequestBody SubProductPlanDTO subproductplandto) {
+        ProductPlan domain = subproductplanMapping.toDomain(subproductplandto);
+        domain.setParent(productplan_id);
+        domain = productplanService.eeFinishPlan(domain) ;
+        subproductplandto = subproductplanMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(subproductplandto);
+    }
+    @ApiOperation(value = "批量处理[根据产品产品计划产品计划]", tags = {"产品计划" },  notes = "批量处理[根据产品产品计划产品计划]")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productplans/{productplan_id}/subproductplans/eefinishplanbatch")
+    public ResponseEntity<Boolean> eeFinishPlanByProductProductPlan(@PathVariable("product_id") Long product_id, @PathVariable("productplan_id") Long productplan_id, @RequestBody List<SubProductPlanDTO> subproductplandtos) {
+        List<ProductPlan> domains = subproductplanMapping.toDomain(subproductplandtos);
+        boolean result = productplanService.eeFinishPlanBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-EePausePlan-all')")
+    @ApiOperation(value = "根据产品产品计划产品计划", tags = {"产品计划" },  notes = "根据产品产品计划产品计划")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productplans/{productplan_id}/subproductplans/{subproductplan_id}/eepauseplan")
+    public ResponseEntity<SubProductPlanDTO> eePausePlanByProductProductPlan(@PathVariable("product_id") Long product_id, @PathVariable("productplan_id") Long productplan_id, @PathVariable("subproductplan_id") Long subproductplan_id, @RequestBody SubProductPlanDTO subproductplandto) {
+        ProductPlan domain = subproductplanMapping.toDomain(subproductplandto);
+        domain.setParent(productplan_id);
+        domain = productplanService.eePausePlan(domain) ;
+        subproductplandto = subproductplanMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(subproductplandto);
+    }
+    @ApiOperation(value = "批量处理[根据产品产品计划产品计划]", tags = {"产品计划" },  notes = "批量处理[根据产品产品计划产品计划]")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productplans/{productplan_id}/subproductplans/eepauseplanbatch")
+    public ResponseEntity<Boolean> eePausePlanByProductProductPlan(@PathVariable("product_id") Long product_id, @PathVariable("productplan_id") Long productplan_id, @RequestBody List<SubProductPlanDTO> subproductplandtos) {
+        List<ProductPlan> domains = subproductplanMapping.toDomain(subproductplandtos);
+        boolean result = productplanService.eePausePlanBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-EeStartPlan-all')")
+    @ApiOperation(value = "根据产品产品计划产品计划", tags = {"产品计划" },  notes = "根据产品产品计划产品计划")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productplans/{productplan_id}/subproductplans/{subproductplan_id}/eestartplan")
+    public ResponseEntity<SubProductPlanDTO> eeStartPlanByProductProductPlan(@PathVariable("product_id") Long product_id, @PathVariable("productplan_id") Long productplan_id, @PathVariable("subproductplan_id") Long subproductplan_id, @RequestBody SubProductPlanDTO subproductplandto) {
+        ProductPlan domain = subproductplanMapping.toDomain(subproductplandto);
+        domain.setParent(productplan_id);
+        domain = productplanService.eeStartPlan(domain) ;
+        subproductplandto = subproductplanMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(subproductplandto);
+    }
+    @ApiOperation(value = "批量处理[根据产品产品计划产品计划]", tags = {"产品计划" },  notes = "批量处理[根据产品产品计划产品计划]")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productplans/{productplan_id}/subproductplans/eestartplanbatch")
+    public ResponseEntity<Boolean> eeStartPlanByProductProductPlan(@PathVariable("product_id") Long product_id, @PathVariable("productplan_id") Long productplan_id, @RequestBody List<SubProductPlanDTO> subproductplandtos) {
+        List<ProductPlan> domains = subproductplanMapping.toDomain(subproductplandtos);
+        boolean result = productplanService.eeStartPlanBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
+    }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductPlan-GetOldPlanName-all')")
     @ApiOperation(value = "根据产品产品计划产品计划", tags = {"产品计划" },  notes = "根据产品产品计划产品计划")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productplans/{productplan_id}/subproductplans/{subproductplan_id}/getoldplanname")
