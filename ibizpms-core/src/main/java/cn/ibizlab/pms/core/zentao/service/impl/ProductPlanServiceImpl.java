@@ -155,109 +155,109 @@ public class ProductPlanServiceImpl extends ServiceImpl<ProductPlanMapper, Produ
     public boolean checkKey(ProductPlan et) {
         return (!ObjectUtils.isEmpty(et.getId())) && (!Objects.isNull(this.getById(et.getId())));
     }
-    @Override
+       @Override
     @Transactional
     public ProductPlan eeActivePlan(ProductPlan et) {
-        //自定义代码
-        return et;
+  			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.ProductPlanHelper.class).eeActivePlan(et);
     }
-   @Override
+	
+	@Override
     @Transactional
-    public boolean eeActivePlanBatch(List<ProductPlan> etList) {
-        for(ProductPlan et : etList) {
-            eeActivePlan(et);
-        }
-        return true;
+    public boolean eeActivePlanBatch (List<ProductPlan> etList) {
+		 for(ProductPlan et : etList) {
+		   eeActivePlan(et);
+		 }
+	 	 return true;
     }
 
-    @Override
+       @Override
     @Transactional
     public ProductPlan eeCancelPlan(ProductPlan et) {
-        //自定义代码
-        return et;
+  			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.ProductPlanHelper.class).eeCancelPlan(et);
     }
-   @Override
+	
+	@Override
     @Transactional
-    public boolean eeCancelPlanBatch(List<ProductPlan> etList) {
-        for(ProductPlan et : etList) {
-            eeCancelPlan(et);
-        }
-        return true;
+    public boolean eeCancelPlanBatch (List<ProductPlan> etList) {
+		 for(ProductPlan et : etList) {
+		   eeCancelPlan(et);
+		 }
+	 	 return true;
     }
 
-    @Override
+       @Override
     @Transactional
     public ProductPlan eeClosePlan(ProductPlan et) {
-        //自定义代码
-        return et;
+  			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.ProductPlanHelper.class).eeClosePlan(et);
     }
-   @Override
+	
+	@Override
     @Transactional
-    public boolean eeClosePlanBatch(List<ProductPlan> etList) {
-        for(ProductPlan et : etList) {
-            eeClosePlan(et);
-        }
-        return true;
+    public boolean eeClosePlanBatch (List<ProductPlan> etList) {
+		 for(ProductPlan et : etList) {
+		   eeClosePlan(et);
+		 }
+	 	 return true;
     }
 
-    @Override
+       @Override
     @Transactional
     public ProductPlan eeFinishPlan(ProductPlan et) {
-        //自定义代码
-        return et;
+  			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.ProductPlanHelper.class).eeFinishPlan(et);
     }
-   @Override
+	
+	@Override
     @Transactional
-    public boolean eeFinishPlanBatch(List<ProductPlan> etList) {
-        for(ProductPlan et : etList) {
-            eeFinishPlan(et);
-        }
-        return true;
+    public boolean eeFinishPlanBatch (List<ProductPlan> etList) {
+		 for(ProductPlan et : etList) {
+		   eeFinishPlan(et);
+		 }
+	 	 return true;
     }
 
-    @Override
+       @Override
     @Transactional
     public ProductPlan eePausePlan(ProductPlan et) {
-        //自定义代码
-        return et;
+  			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.ProductPlanHelper.class).eePausePlan(et);
     }
-   @Override
+	
+	@Override
     @Transactional
-    public boolean eePausePlanBatch(List<ProductPlan> etList) {
-        for(ProductPlan et : etList) {
-            eePausePlan(et);
-        }
-        return true;
+    public boolean eePausePlanBatch (List<ProductPlan> etList) {
+		 for(ProductPlan et : etList) {
+		   eePausePlan(et);
+		 }
+	 	 return true;
     }
 
-    @Override
+       @Override
     @Transactional
     public ProductPlan eeRestartPlan(ProductPlan et) {
-        //自定义代码
-        return et;
+  			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.ProductPlanHelper.class).eeRestartPlan(et);
     }
-   @Override
+	
+	@Override
     @Transactional
-    public boolean eeRestartPlanBatch(List<ProductPlan> etList) {
-        for(ProductPlan et : etList) {
-            eeRestartPlan(et);
-        }
-        return true;
+    public boolean eeRestartPlanBatch (List<ProductPlan> etList) {
+		 for(ProductPlan et : etList) {
+		   eeRestartPlan(et);
+		 }
+	 	 return true;
     }
 
-    @Override
+       @Override
     @Transactional
     public ProductPlan eeStartPlan(ProductPlan et) {
-        //自定义代码
-        return et;
+  			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.ProductPlanHelper.class).eeStartPlan(et);
     }
-   @Override
+	
+	@Override
     @Transactional
-    public boolean eeStartPlanBatch(List<ProductPlan> etList) {
-        for(ProductPlan et : etList) {
-            eeStartPlan(et);
-        }
-        return true;
+    public boolean eeStartPlanBatch (List<ProductPlan> etList) {
+		 for(ProductPlan et : etList) {
+		   eeStartPlan(et);
+		 }
+	 	 return true;
     }
 
     @Override
