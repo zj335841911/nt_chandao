@@ -283,6 +283,9 @@ public class ProductPlanHelper extends ZTBaseHelper<ProductPlanMapper, ProductPl
         }
         old.setOrder(curOrder);
         this.internalUpdate(old);
+
+        taskHelper.updateRelatedPlanStatus(null,et.getId());
+
         return old;
     }
 
