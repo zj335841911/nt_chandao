@@ -13620,7 +13620,8 @@ WHERE
 	) AS `DELAYTASKSCNT`,
 	t1.`TITLE`,
 	IFNULL(t2.LeftEstimate,0) as leftestimate,
-	IFNULL(t2.ConsumedEstimate,0) as consumedestimate  
+	IFNULL(t2.ConsumedEstimate,0) as consumedestimate  ,
+        t1.`STATUS`
 FROM
 	`zt_PRODUCTPLAN` t1
 	LEFT JOIN `zt_PRODUCTPLAN` t11 ON t1.`PARENT` = t11.`ID`
