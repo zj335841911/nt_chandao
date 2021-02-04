@@ -1,9 +1,13 @@
 package cn.ibizlab.pms.core.extensions.service;
 
 import cn.ibizlab.pms.core.ibizpro.domain.IbzPlanTempletDetail;
+import cn.ibizlab.pms.core.util.ibizzentao.common.ChangeUtil;
+import cn.ibizlab.pms.core.zentao.domain.Action;
+import cn.ibizlab.pms.core.zentao.domain.History;
 import cn.ibizlab.pms.core.zentao.domain.Story;
 import cn.ibizlab.pms.core.zentao.filter.ProductPlanSearchContext;
 import cn.ibizlab.pms.core.zentao.filter.StorySearchContext;
+import cn.ibizlab.pms.core.zentao.service.IActionService;
 import cn.ibizlab.pms.core.zentao.service.impl.ProductPlanServiceImpl;
 import cn.ibizlab.pms.util.dict.StaticDict;
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
@@ -33,6 +37,7 @@ public class ProductPlanExService extends ProductPlanServiceImpl {
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.ibizpro.service.IIbzPlanTempletDetailService ibzplantempletdetailService;
+
 
     @Override
     protected Class currentModelClass() {
@@ -138,120 +143,6 @@ public class ProductPlanExService extends ProductPlanServiceImpl {
         return new PageImpl<ProductPlan>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
-    /**
-     * 自定义行为[eeStartPlan]Ee开始计划
-     * @param et
-     * @return
-     */
-    @Override
-    public ProductPlan eeStartPlan(ProductPlan et){
-        ProductPlan old = new ProductPlan();
-        CachedBeanCopier.copy(this.get(et.getId()),old);
-//        if (old.getParent() > 0 ){
-//            throw new RuntimeException("功能未开发！");
-//        }
-        et.setStatus(StaticDict.Task__status.DOING.getValue());
-        this.update(et);
-        return et;
-    }
 
-    /**
-     * 自定义行为[eeStartPlan]Ee开始计划
-     * @param et
-     * @return
-     */
-    @Override
-    public ProductPlan eePausePlan(ProductPlan et){
-        ProductPlan old = new ProductPlan();
-        CachedBeanCopier.copy(this.get(et.getId()),old);
-//        if (old.getParent() > 0 ){
-//            throw new RuntimeException("功能未开发！");
-//        }
-        et.setStatus(StaticDict.Task__status.PAUSE.getValue());
-        this.update(et);
-        return et;
-    }
-    /**
-     * 自定义行为[eeStartPlan]Ee开始计划
-     * @param et
-     * @return
-     */
-    @Override
-    public ProductPlan eeRestartPlan(ProductPlan et){
-        ProductPlan old = new ProductPlan();
-        CachedBeanCopier.copy(this.get(et.getId()),old);
-//        if (old.getParent() > 0 ){
-//            throw new RuntimeException("功能未开发！");
-//        }
-        et.setStatus(StaticDict.Task__status.DOING.getValue());
-        this.update(et);
-        return et;
-    }
-    /**
-     * 自定义行为[eeStartPlan]Ee开始计划
-     * @param et
-     * @return
-     */
-    @Override
-    public ProductPlan eeFinishPlan(ProductPlan et){
-        ProductPlan old = new ProductPlan();
-        CachedBeanCopier.copy(this.get(et.getId()),old);
-//        if (old.getParent() > 0 ){
-//            throw new RuntimeException("功能未开发！");
-//        }
-        et.setStatus(StaticDict.Task__status.DONE.getValue());
-        this.update(et);
-        return et;
-    }
-
-    /**
-     * 自定义行为[eeStartPlan]Ee开始计划
-     * @param et
-     * @return
-     */
-    @Override
-    public ProductPlan eeCancelPlan(ProductPlan et){
-        ProductPlan old = new ProductPlan();
-        CachedBeanCopier.copy(this.get(et.getId()),old);
-//        if (old.getParent() > 0 ){
-//            throw new RuntimeException("功能未开发！");
-//        }
-        et.setStatus(StaticDict.Task__status.CANCEL.getValue());
-        this.update(et);
-        return et;
-    }
-    /**
-     * 自定义行为[eeStartPlan]Ee开始计划
-     * @param et
-     * @return
-     */
-    @Override
-    public ProductPlan eeActivePlan(ProductPlan et){
-        ProductPlan old = new ProductPlan();
-        CachedBeanCopier.copy(this.get(et.getId()),old);
-//        if (old.getParent() > 0 ){
-//            throw new RuntimeException("功能未开发！");
-//        }
-        et.setStatus(StaticDict.Task__status.DOING.getValue());
-        this.update(et);
-        return et;
-    }
-
-    /**
-     * 自定义行为[eeStartPlan]Ee关闭计划
-     * @param et
-     * @return
-     */
-    @Override
-    public ProductPlan eeClosePlan(ProductPlan et){
-        ProductPlan old = new ProductPlan();
-        CachedBeanCopier.copy(this.get(et.getId()),old);
-//        if (old.getParent() > 0 ){
-//            throw new RuntimeException("功能未开发！");
-//        }
-        et.setStatus(StaticDict.Task__status.CLOSED.getValue());
-        this.update(et);
-        return et;
-    }
 }
 

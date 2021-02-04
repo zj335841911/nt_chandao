@@ -285,4 +285,128 @@ public class ProductPlanHelper extends ZTBaseHelper<ProductPlanMapper, ProductPl
         this.internalUpdate(old);
         return old;
     }
+
+
+
+
+    /**
+     * 自定义行为[eeStartPlan]Ee开始计划
+     * @param et
+     * @return
+     */
+    @Transactional
+    public ProductPlan eeStartPlan(ProductPlan et){
+        ProductPlan old = new ProductPlan();
+        CachedBeanCopier.copy(this.get(et.getId()),old);
+//        if (old.getParent() > 0 ){
+//            throw new RuntimeException("功能未开发！");
+//        }
+        et.setStatus(StaticDict.Task__status.DOING.getValue());
+        this.internalUpdate(et);
+        return et;
+    }
+
+    /**
+     * 自定义行为[eeStartPlan]Ee开始计划
+     * @param et
+     * @return
+     */
+    @Transactional
+    public ProductPlan eePausePlan(ProductPlan et){
+        ProductPlan old = new ProductPlan();
+        CachedBeanCopier.copy(this.get(et.getId()),old);
+//        if (old.getParent() > 0 ){
+//            throw new RuntimeException("功能未开发！");
+//        }
+        et.setStatus(StaticDict.Task__status.PAUSE.getValue());
+        this.internalUpdate(et);
+        return et;
+    }
+    /**
+     * 自定义行为[eeStartPlan]Ee开始计划
+     * @param et
+     * @return
+     */
+    @Transactional
+    public ProductPlan eeRestartPlan(ProductPlan et){
+        ProductPlan old = new ProductPlan();
+        CachedBeanCopier.copy(this.get(et.getId()),old);
+//        if (old.getParent() > 0 ){
+//            throw new RuntimeException("功能未开发！");
+//        }
+        et.setStatus(StaticDict.Task__status.DOING.getValue());
+        this.internalUpdate(et);
+        return et;
+    }
+    /**
+     * 自定义行为[eeStartPlan]Ee开始计划
+     * @param et
+     * @return
+     */
+    @Transactional
+    public ProductPlan eeFinishPlan(ProductPlan et){
+        ProductPlan old = new ProductPlan();
+        CachedBeanCopier.copy(this.get(et.getId()),old);
+//        if (old.getParent() > 0 ){
+//            throw new RuntimeException("功能未开发！");
+//        }
+        et.setStatus(StaticDict.Task__status.DONE.getValue());
+        this.internalUpdate(et);
+        return et;
+    }
+
+    /**
+     * 自定义行为[eeStartPlan]Ee开始计划
+     * @param et
+     * @return
+     */
+    @Transactional
+    public ProductPlan eeCancelPlan(ProductPlan et){
+        String comment = StringUtils.isNotBlank(et.getComment()) ? et.getComment() : "";
+        ProductPlan old = new ProductPlan();
+        CachedBeanCopier.copy(this.get(et.getId()),old);
+//        if (old.getParent() > 0 ){
+//            throw new RuntimeException("功能未开发！");
+//        }
+        et.setStatus(StaticDict.Task__status.CANCEL.getValue());
+        this.internalUpdate(et);
+
+        List<History> changes = ChangeUtil.diff(old,et);
+        if (changes.size() > 0 || StringUtils.isNotBlank(comment)){
+        }
+        return et;
+    }
+    /**
+     * 自定义行为[eeStartPlan]Ee开始计划
+     * @param et
+     * @return
+     */
+    @Transactional
+    public ProductPlan eeActivePlan(ProductPlan et){
+        ProductPlan old = new ProductPlan();
+        CachedBeanCopier.copy(this.get(et.getId()),old);
+//        if (old.getParent() > 0 ){
+//            throw new RuntimeException("功能未开发！");
+//        }
+        et.setStatus(StaticDict.Task__status.DOING.getValue());
+        this.internalUpdate(et);
+        return et;
+    }
+
+    /**
+     * 自定义行为[eeStartPlan]Ee关闭计划
+     * @param et
+     * @return
+     */
+    @Transactional
+    public ProductPlan eeClosePlan(ProductPlan et){
+        ProductPlan old = new ProductPlan();
+        CachedBeanCopier.copy(this.get(et.getId()),old);
+//        if (old.getParent() > 0 ){
+//            throw new RuntimeException("功能未开发！");
+//        }
+        et.setStatus(StaticDict.Task__status.CLOSED.getValue());
+        this.internalUpdate(et);
+        return et;
+    }
 }
