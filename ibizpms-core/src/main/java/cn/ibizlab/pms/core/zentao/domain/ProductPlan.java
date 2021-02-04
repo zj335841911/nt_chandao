@@ -257,6 +257,13 @@ public class ProductPlan extends EntityMP implements Serializable {
     @JSONField(name = "delay")
     @JsonProperty("delay")
     private String delay;
+    /**
+     * 备注
+     */
+    @TableField(exist = false)
+    @JSONField(name = "comment")
+    @JsonProperty("comment")
+    private String comment;
 
     /**
      * 

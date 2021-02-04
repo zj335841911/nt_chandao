@@ -237,4 +237,12 @@ export interface SubProductPlan {
      * @memberof SubProductPlan
      */
     delay?: any;
+
+    /**
+     * 备注
+     *
+     * @returns {*}
+     * @memberof SubProductPlan
+     */
+    comment?: any;
 }

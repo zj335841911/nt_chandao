@@ -237,4 +237,12 @@ export interface ProductPlan {
      * @memberof ProductPlan
      */
     delay?: any;
+
+    /**
+     * 备注
+     *
+     * @returns {*}
+     * @memberof ProductPlan
+     */
+    comment?: any;
 }
