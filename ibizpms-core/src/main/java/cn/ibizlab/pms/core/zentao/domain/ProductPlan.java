@@ -243,7 +243,7 @@ public class ProductPlan extends EntityMP implements Serializable {
     @JsonProperty("product")
     private Long product;
     /**
-     * 任务状态
+     * 计划状态
      */
     @DEField(defaultValue = "wait")
     @TableField(value = "`status`")
@@ -390,7 +390,7 @@ public class ProductPlan extends EntityMP implements Serializable {
     }
 
     /**
-     * 设置 [任务状态]
+     * 设置 [计划状态]
      */
     public void setStatus(String status) {
         this.status = status;

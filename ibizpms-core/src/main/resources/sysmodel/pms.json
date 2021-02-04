@@ -31543,7 +31543,7 @@
     {
     "fieldname":"STATUS" ,
     "codename":"Status",
-    "field_logic_name":"任务状态",
+    "field_logic_name":"计划状态",
     "entity_name":"ZT_PRODUCTPLAN",
     "field_type":"TEXT",
     "dict":"Task__status",

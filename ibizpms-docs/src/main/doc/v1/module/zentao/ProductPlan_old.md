@@ -45,7 +45,7 @@ hide members
 |平台/分支|BRANCH|PICKUP|&nbsp;|
 |父计划|PARENT|PICKUP|&nbsp;|
 |产品|PRODUCT|PICKUP|&nbsp;|
-|任务状态|STATUS|TEXT|&nbsp;|
+|计划状态|STATUS|TEXT|&nbsp;|
 |延期|DELAY|TEXT|&nbsp;|
 |备注|COMMENT|HTMLTEXT|&nbsp;|
 |剩余工时|LEFTESTIMATE|FLOAT|&nbsp;|
@@ -81,7 +81,7 @@ hide members
 |平台/分支|默认规则|默认规则|
 |父计划|默认规则|默认规则|
 |产品|默认规则|默认规则|
-|任务状态|默认规则|内容长度必须小于等于[100]|
+|计划状态|默认规则|内容长度必须小于等于[100]|
 |延期|默认规则|内容长度必须小于等于[200]|
 |备注|默认规则|内容长度必须小于等于[1048576]|
 |剩余工时|默认规则|默认规则|

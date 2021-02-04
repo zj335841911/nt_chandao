@@ -1857,7 +1857,7 @@ POST
 | 25 | branch | Long | 允许 | 平台/分支 |
 | 26 | parent | Long | 允许 | 父计划 |
 | 27 | product | Long | 允许 | 产品 |
-| 28 | status | String | 允许 | 任务状态 |
+| 28 | status | String | 允许 | 计划状态 |
 | 29 | delay | String | 允许 | 延期 |
 | 30 | comment | String | 允许 | 备注 |
 | 31 | leftestimate | Double | 允许 | 剩余工时 |

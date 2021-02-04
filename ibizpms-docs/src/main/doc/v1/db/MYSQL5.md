@@ -182819,7 +182819,7 @@ CREATE TABLE `zt_module`(
 | STATUSS        | 状态  | VARCHAR      |   200   | &nbsp; |
 | DELAY        | 延期  | VARCHAR      |   200   | &nbsp; |
 | TITLE        | 名称  | VARCHAR      |   90   | &nbsp; |
-| STATUS        | 任务状态  | VARCHAR      |   100   | &nbsp; |
+| STATUS        | 计划状态  | VARCHAR      |   100   | &nbsp; |
 | ISEXPIRED        | 是否过期  | VARCHAR      |   200   | &nbsp; |
 | STORYCNT        | 需求数  | INTEGER      |   -1   | &nbsp; |
 | DESC        | 描述  | CLOB      |   65,535   | &nbsp; |
@@ -183911,7 +183911,7 @@ CREATE TABLE `zt_productplan`(
 ,`BRANCH`  BIGINT(8)  UNSIGNED COMMENT '平台/分支' 
 ,`PARENT`  BIGINT(8)  UNSIGNED COMMENT '父计划' 
 ,`PRODUCT`  BIGINT(8)  UNSIGNED COMMENT '产品' 
-,`STATUS`  VARCHAR(100) COMMENT '任务状态' 
+,`STATUS`  VARCHAR(100) COMMENT '计划状态' 
 )COMMENT='产品计划';
 ```
 
