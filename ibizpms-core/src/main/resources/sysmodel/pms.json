@@ -31569,6 +31569,20 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"COMMENT" ,
+    "codename":"Comment",
+    "field_logic_name":"备注",
+    "entity_name":"ZT_PRODUCTPLAN",
+    "field_type":"HTMLTEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"TEXT",
+    "data_length":1048576,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[

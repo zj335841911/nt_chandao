@@ -32,6 +32,7 @@ function getLocaleResourceBase(){
 			product: commonLogic.appcommonhandle("产品",null),
 			status: commonLogic.appcommonhandle("任务状态",null),
 			delay: commonLogic.appcommonhandle("延期",null),
+			comment: commonLogic.appcommonhandle("备注",null),
 		},
 			views: {
 				optionview: {
