@@ -264,6 +264,20 @@ public class ProductPlan extends EntityMP implements Serializable {
     @JSONField(name = "comment")
     @JsonProperty("comment")
     private String comment;
+    /**
+     * 剩余工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "leftestimate")
+    @JsonProperty("leftestimate")
+    private Double leftestimate;
+    /**
+     * 消耗工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "consumedestimate")
+    @JsonProperty("consumedestimate")
+    private Double consumedestimate;
 
     /**
      * 

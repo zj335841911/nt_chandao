@@ -31583,6 +31583,34 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"LEFTESTIMATE" ,
+    "codename":"Leftestimate",
+    "field_logic_name":"剩余工时",
+    "entity_name":"ZT_PRODUCTPLAN",
+    "field_type":"FLOAT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"FLOAT",
+    "data_preci":2,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"CONSUMEDESTIMATE" ,
+    "codename":"Consumedestimate",
+    "field_logic_name":"消耗工时",
+    "entity_name":"ZT_PRODUCTPLAN",
+    "field_type":"FLOAT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"FLOAT",
+    "data_preci":2,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[

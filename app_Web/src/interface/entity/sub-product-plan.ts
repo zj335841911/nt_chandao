@@ -245,4 +245,20 @@ export interface SubProductPlan {
      * @memberof SubProductPlan
      */
     comment?: any;
+
+    /**
+     * 剩余工时
+     *
+     * @returns {*}
+     * @memberof SubProductPlan
+     */
+    leftestimate?: any;
+
+    /**
+     * 消耗工时
+     *
+     * @returns {*}
+     * @memberof SubProductPlan
+     */
+    consumedestimate?: any;
 }

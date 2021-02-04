@@ -1860,7 +1860,9 @@ POST
 | 28 | status | String | 允许 | 任务状态 |
 | 29 | delay | String | 允许 | 延期 |
 | 30 | comment | String | 允许 | 备注 |
-| 31 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 31 | leftestimate | Double | 允许 | 剩余工时 |
+| 32 | consumedestimate | Double | 允许 | 消耗工时 |
+| 33 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### ProductPlanSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
