@@ -296,6 +296,8 @@ public class ProductPlanHelper extends ZTBaseHelper<ProductPlanMapper, ProductPl
      */
     @Transactional
     public ProductPlan eeStartPlan(ProductPlan et){
+        String comment = StringUtils.isNotBlank(et.getComment()) ? et.getComment() : "";
+
         ProductPlan old = new ProductPlan();
         CachedBeanCopier.copy(this.get(et.getId()),old);
 //        if (old.getParent() > 0 ){
@@ -303,6 +305,11 @@ public class ProductPlanHelper extends ZTBaseHelper<ProductPlanMapper, ProductPl
 //        }
         et.setStatus(StaticDict.Task__status.DOING.getValue());
         this.internalUpdate(et);
+        List<History> changes = ChangeUtil.diff(old,et);
+        if (changes.size() > 0 || StringUtils.isNotBlank(comment)){
+            Action action = actionHelper.create(StaticDict.Action__object_type.PRODUCTPLAN.getValue(),et.getId(),StaticDict.Action__type.STARTED.getValue(),comment,"",null,false);
+            actionHelper.logHistory(action.getId(),changes);
+        }
         return et;
     }
 
@@ -313,6 +320,8 @@ public class ProductPlanHelper extends ZTBaseHelper<ProductPlanMapper, ProductPl
      */
     @Transactional
     public ProductPlan eePausePlan(ProductPlan et){
+        String comment = StringUtils.isNotBlank(et.getComment()) ? et.getComment() : "";
+
         ProductPlan old = new ProductPlan();
         CachedBeanCopier.copy(this.get(et.getId()),old);
 //        if (old.getParent() > 0 ){
@@ -320,6 +329,11 @@ public class ProductPlanHelper extends ZTBaseHelper<ProductPlanMapper, ProductPl
 //        }
         et.setStatus(StaticDict.Task__status.PAUSE.getValue());
         this.internalUpdate(et);
+        List<History> changes = ChangeUtil.diff(old,et);
+        if (changes.size() > 0 || StringUtils.isNotBlank(comment)){
+            Action action = actionHelper.create(StaticDict.Action__object_type.PRODUCTPLAN.getValue(),et.getId(),StaticDict.Action__type.PAUSED.getValue(),comment,"",null,false);
+            actionHelper.logHistory(action.getId(),changes);
+        }
         return et;
     }
     /**
@@ -329,6 +343,8 @@ public class ProductPlanHelper extends ZTBaseHelper<ProductPlanMapper, ProductPl
      */
     @Transactional
     public ProductPlan eeRestartPlan(ProductPlan et){
+        String comment = StringUtils.isNotBlank(et.getComment()) ? et.getComment() : "";
+
         ProductPlan old = new ProductPlan();
         CachedBeanCopier.copy(this.get(et.getId()),old);
 //        if (old.getParent() > 0 ){
@@ -336,6 +352,11 @@ public class ProductPlanHelper extends ZTBaseHelper<ProductPlanMapper, ProductPl
 //        }
         et.setStatus(StaticDict.Task__status.DOING.getValue());
         this.internalUpdate(et);
+        List<History> changes = ChangeUtil.diff(old,et);
+        if (changes.size() > 0 || StringUtils.isNotBlank(comment)){
+            Action action = actionHelper.create(StaticDict.Action__object_type.PRODUCTPLAN.getValue(),et.getId(),StaticDict.Action__type.RESTARTED.getValue(),comment,"",null,false);
+            actionHelper.logHistory(action.getId(),changes);
+        }
         return et;
     }
     /**
@@ -345,6 +366,8 @@ public class ProductPlanHelper extends ZTBaseHelper<ProductPlanMapper, ProductPl
      */
     @Transactional
     public ProductPlan eeFinishPlan(ProductPlan et){
+        String comment = StringUtils.isNotBlank(et.getComment()) ? et.getComment() : "";
+
         ProductPlan old = new ProductPlan();
         CachedBeanCopier.copy(this.get(et.getId()),old);
 //        if (old.getParent() > 0 ){
@@ -352,6 +375,11 @@ public class ProductPlanHelper extends ZTBaseHelper<ProductPlanMapper, ProductPl
 //        }
         et.setStatus(StaticDict.Task__status.DONE.getValue());
         this.internalUpdate(et);
+        List<History> changes = ChangeUtil.diff(old,et);
+        if (changes.size() > 0 || StringUtils.isNotBlank(comment)){
+            Action action = actionHelper.create(StaticDict.Action__object_type.PRODUCTPLAN.getValue(),et.getId(),StaticDict.Action__type.FINISHED.getValue(),comment,"",null,false);
+            actionHelper.logHistory(action.getId(),changes);
+        }
         return et;
     }
 
@@ -373,6 +401,8 @@ public class ProductPlanHelper extends ZTBaseHelper<ProductPlanMapper, ProductPl
 
         List<History> changes = ChangeUtil.diff(old,et);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)){
+            Action action = actionHelper.create(StaticDict.Action__object_type.PRODUCTPLAN.getValue(),et.getId(),StaticDict.Action__type.CANCELED.getValue(),comment,"",null,false);
+            actionHelper.logHistory(action.getId(),changes);
         }
         return et;
     }
@@ -383,6 +413,7 @@ public class ProductPlanHelper extends ZTBaseHelper<ProductPlanMapper, ProductPl
      */
     @Transactional
     public ProductPlan eeActivePlan(ProductPlan et){
+        String comment = StringUtils.isNotBlank(et.getComment()) ? et.getComment() : "";
         ProductPlan old = new ProductPlan();
         CachedBeanCopier.copy(this.get(et.getId()),old);
 //        if (old.getParent() > 0 ){
@@ -390,6 +421,11 @@ public class ProductPlanHelper extends ZTBaseHelper<ProductPlanMapper, ProductPl
 //        }
         et.setStatus(StaticDict.Task__status.DOING.getValue());
         this.internalUpdate(et);
+        List<History> changes = ChangeUtil.diff(old,et);
+        if (changes.size() > 0 || StringUtils.isNotBlank(comment)){
+            Action action = actionHelper.create(StaticDict.Action__object_type.PRODUCTPLAN.getValue(),et.getId(),StaticDict.Action__type.ACTIVATED.getValue(),comment,"",null,false);
+            actionHelper.logHistory(action.getId(),changes);
+        }
         return et;
     }
 
@@ -400,6 +436,8 @@ public class ProductPlanHelper extends ZTBaseHelper<ProductPlanMapper, ProductPl
      */
     @Transactional
     public ProductPlan eeClosePlan(ProductPlan et){
+        String comment = StringUtils.isNotBlank(et.getComment()) ? et.getComment() : "";
+
         ProductPlan old = new ProductPlan();
         CachedBeanCopier.copy(this.get(et.getId()),old);
 //        if (old.getParent() > 0 ){
@@ -407,6 +445,11 @@ public class ProductPlanHelper extends ZTBaseHelper<ProductPlanMapper, ProductPl
 //        }
         et.setStatus(StaticDict.Task__status.CLOSED.getValue());
         this.internalUpdate(et);
+        List<History> changes = ChangeUtil.diff(old,et);
+        if (changes.size() > 0 || StringUtils.isNotBlank(comment)){
+            Action action = actionHelper.create(StaticDict.Action__object_type.PRODUCTPLAN.getValue(),et.getId(),StaticDict.Action__type.CLOSED.getValue(),comment,"",null,false);
+            actionHelper.logHistory(action.getId(),changes);
+        }
         return et;
     }
 }
