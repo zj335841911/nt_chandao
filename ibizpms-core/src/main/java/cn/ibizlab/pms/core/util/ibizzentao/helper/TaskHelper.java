@@ -77,6 +77,8 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
 
     @Autowired
     IProductPlanService productPlanService;
+    @Autowired
+    ProductPlanHelper productPlanHelper;
 
     String[] diffAttrs = {"desc"};
     List<String> ignore = Arrays.asList("totalwh", "totalleft", "totalconsumed", "totalestimate");
@@ -486,6 +488,12 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
                 }
             }
         }
+        //PmsEe操作任务，需判断状态，计算关联的计划的状态
+        if (et.getPlan() != null && et.getPlan() > 0){
+            //该任务有计划，根据任务状态更新计划状态
+            this.updateRelatedPlanStatus(et,et.getPlan());
+        }
+
         et.setStatus1(old.getStatus1());
         List<History> changes = ChangeUtil.diff(old, et, null, null, diffAttrs);
         this.removeIgonreChanges(changes);
@@ -519,6 +527,12 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         }
         if (old.getStory() != null && old.getStory() != 0L) {
             storyHelper.setStage(old.getZtstory());
+        }
+
+        //PmsEe操作任务，需判断状态，计算关联的计划的状态
+        if (old.getPlan() != null && old.getPlan() > 0){
+            //该任务有计划，根据任务状态更新计划状态
+            this.updateRelatedPlanStatus(old,old.getPlan());
         }
         return bOk;
     }
@@ -796,32 +810,9 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             return;
         }
 
-        String status = "";
-        if (childTasks.size() == 1) {
-            status = childTasks.get(0).getString(FIELD_STATUS);
-        } else {
+        //根据子任务状态计算父任务状态
+        String status = this.getParentOrRelatedPlanStatusByChildTasks(childTasks);
 
-            String strStatus = "";
-            String strClose = "";
-            for (JSONObject task : childTasks) {
-                strStatus += task.getString(FIELD_STATUS) + MULTIPLE_CHOICE;
-                strClose += task.getString(FIELD_CLOSED_REASON) + MULTIPLE_CHOICE;
-            }
-
-            if (strStatus.contains(StaticDict.Task__status.DOING.getValue()) || strStatus.contains(StaticDict.Task__status.PAUSE.getValue())) {
-                status = StaticDict.Task__status.DOING.getValue();
-            } else if ((strStatus.contains(StaticDict.Task__status.DONE.getValue()) || strClose.contains(StaticDict.Task__closed_reason.DONE.getValue())) && strStatus.contains(StaticDict.Task__status.WAIT.getValue())) {
-                status = StaticDict.Task__status.DOING.getValue();
-            } else if (strStatus.contains(StaticDict.Task__status.WAIT.getValue())) {
-                status = StaticDict.Task__status.WAIT.getValue();
-            } else if (strStatus.contains(StaticDict.Task__status.DONE.getValue())) {
-                status = StaticDict.Task__status.DONE.getValue();
-            } else if (strStatus.contains(StaticDict.Task__status.CLOSED.getValue())) {
-                status = StaticDict.Task__status.CLOSED.getValue();
-            } else if (strStatus.contains(StaticDict.Task__status.CANCEL.getValue())) {
-                status = StaticDict.Task__status.CANCEL.getValue();
-            }
-        }
         Task parentTask = this.getOne(new QueryWrapper<Task>().eq(FIELD_ID, parentId).eq(FIELD_DELETED, '0'));
         if (parentTask == null) {
             Task task1 = new Task();
@@ -869,28 +860,21 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
                 task.setClosedreason("");
             }
             this.internalUpdate(task);
+            //PmsEe操作任务，需判断状态，计算关联的计划的状态
+            if (task.getPlan() != null && task.getPlan() > 0){
+                //该任务有计划，根据任务状态更新计划状态
+                this.updateRelatedPlanStatus(task,task.getPlan());
+            }
             if (!changed) {
                 return;
             }
 
             List<History> changes = ChangeUtil.diff(oldParentTask, this.get(parentId));
             this.removeIgonreChanges(changes);
-            String action = "";
-            if (StaticDict.Task__status.DOING.getValue().equals(status) && !StaticDict.Task__status.WAIT.getValue().equals(oldParentTask.getStatus()) && !StaticDict.Task__status.PAUSE.getValue().equals(oldParentTask.getStatus())) {
-                action = StaticDict.Action__type.ACTIVATED.getValue();
-            } else if (StaticDict.Task__status.DOING.getValue().equals(status) && StaticDict.Task__status.PAUSE.getValue().equals(oldParentTask.getStatus())) {
-                action = StaticDict.Action__type.RESTARTED.getValue();
-            } else if (StaticDict.Task__status.DOING.getValue().equals(status) && StaticDict.Task__status.WAIT.getValue().equals(oldParentTask.getStatus())) {
-                action = StaticDict.Action__type.STARTED.getValue();
-            } else if (StaticDict.Task__status.CANCEL.getValue().equals(status) && !StaticDict.Task__status.CANCEL.getValue().equals(oldParentTask.getStatus())) {
-                action = StaticDict.Action__type.CANCELED.getValue();
-            } else if (StaticDict.Task__status.PAUSE.getValue().equals(status) && !StaticDict.Task__status.PAUSE.getValue().equals(oldParentTask.getStatus())) {
-                action = StaticDict.Action__type.PAUSED.getValue();
-            } else if (StaticDict.Task__status.CLOSED.getValue().equals(status) && !StaticDict.Task__status.CLOSED.getValue().equals(oldParentTask.getStatus())) {
-                action = StaticDict.Action__type.CLOSED.getValue();
-            } else if (StaticDict.Task__status.DONE.getValue().equals(status) && !StaticDict.Task__status.DONE.getValue().equals(oldParentTask.getStatus())) {
-                action = StaticDict.Action__type.FINISHED.getValue();
-            }
+
+
+            //根据原本父任务状态，和stauts计算行为类型actiontype
+            String action = this.getActionTypeByStatus(oldParentTask.getStatus(),status);
             if (!"".equals(action)) {
                 Action action1 = actionHelper.create(StaticDict.Action__object_type.TASK.getValue(), parentId, action,
                         "", "", null, false);
@@ -920,6 +904,11 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         String noticeusers = et.getNoticeusers();
         starts(et, old, newTask);
 
+        //PmsEe操作任务，需判断状态，计算关联的计划的状态
+        if (newTask.getPlan() != null && newTask.getPlan() > 0){
+            //该任务有计划，根据任务状态更新计划状态
+            this.updateRelatedPlanStatus(newTask,newTask.getPlan());
+        }
         List<History> changes = ChangeUtil.diff(old, newTask);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
             String strAction = StaticDict.Action__type.STARTED.getValue();
@@ -1004,6 +993,11 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         String noticeusers = et.getNoticeusers();
         starts(et, old, newTask);
 
+        //PmsEe操作任务，需判断状态，计算关联的计划的状态
+        if (newTask.getPlan() != null && newTask.getPlan() > 0){
+            //该任务有计划，根据任务状态更新计划状态
+            this.updateRelatedPlanStatus(newTask,newTask.getPlan());
+        }
         List<History> changes = ChangeUtil.diff(old, newTask);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
             String strAction = StaticDict.Action__type.RESTARTED.getValue();
@@ -1041,6 +1035,11 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
 
         if (old.getParent() > 0) {
             this.updateParentStatus(newTask, newTask.getParent(), true);
+        }
+        //PmsEe操作任务，需判断状态，计算关联的计划的状态
+        if (newTask.getPlan() != null && newTask.getPlan() > 0){
+            //该任务有计划，根据任务状态更新计划状态
+            this.updateRelatedPlanStatus(newTask,newTask.getPlan());
         }
         List<History> changes = ChangeUtil.diff(old, newTask);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
@@ -1101,7 +1100,11 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         String noticeusers = et.getNoticeusers();
         this.internalUpdate(newTask);
 
-
+        //PmsEe操作任务，需判断状态，计算关联的计划的状态
+        if (newTask.getPlan() != null && newTask.getPlan() > 0){
+            //该任务有计划，根据任务状态更新计划状态
+            this.updateRelatedPlanStatus(newTask,newTask.getPlan());
+        }
         List<History> changes = ChangeUtil.diff(old, newTask);
         this.removeIgonreChanges(changes);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
@@ -1164,7 +1167,11 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             this.update(task1, (Wrapper<Task>) task1.getUpdateWrapper(true).eq(FIELD_PARENT, old.getId()));
             this.computeWorkingHours(newTask);
         }
-
+        //PmsEe操作任务，需判断状态，计算关联的计划的状态
+        if (newTask.getPlan() != null && newTask.getPlan() > 0){
+            //该任务有计划，根据任务状态更新计划状态
+            this.updateRelatedPlanStatus(newTask,newTask.getPlan());
+        }
 
         newTask.setStatus1(old.getStatus1());
         List<History> changes = ChangeUtil.diff(old, newTask);
@@ -1226,6 +1233,11 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             Task childNewTask = new Task();
             this.setCancelNewTask(old, childNewTask);
             this.update(childNewTask, (Wrapper<Task>) childNewTask.getUpdateWrapper(true).eq(FIELD_PARENT, old.getId()));
+        }
+        //PmsEe操作任务，需判断状态，计算关联的计划的状态
+        if (newTask.getPlan() != null && newTask.getPlan() > 0){
+            //该任务有计划，根据任务状态更新计划状态
+            this.updateRelatedPlanStatus(newTask,newTask.getPlan());
         }
 
         List<History> changes = ChangeUtil.diff(old, newTask);
@@ -1340,6 +1352,11 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             updateParentStatus(newTask, old.getParent(), true);
         }
 
+        //PmsEe操作任务，需判断状态，计算关联的计划的状态
+        if (newTask.getPlan() != null && newTask.getPlan() > 0){
+            //该任务有计划，根据任务状态更新计划状态
+            this.updateRelatedPlanStatus(newTask,newTask.getPlan());
+        }
         List<History> changes = ChangeUtil.diff(old, newTask);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
             actionHelper.sendMarkDone(newTask.getId(), newTask.getName(), old.getAssignedto(), ITaskService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.TASK.getValue(), ITaskService.OBJECT_SOURCE_PATH, StaticDict.Action__type.FINISHED.getText());
@@ -1386,7 +1403,11 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         if (old.getParent() > 0) {
             updateParentStatus(newTask, old.getParent(), true);
         }
-
+        //PmsEe操作任务，需判断状态，计算关联的计划的状态
+        if (newTask.getPlan() != null && newTask.getPlan() > 0){
+            //该任务有计划，根据任务状态更新计划状态
+            this.updateRelatedPlanStatus(newTask,newTask.getPlan());
+        }
 
         String[] ignores = {FIELD_ASSIGNED_DATE, FIELD_CLOSED_DATE};
         List<History> changes = ChangeUtil.diff(old, newTask, ignores, null, null);
@@ -1518,6 +1539,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             this.computeHours4Multiple(old, task, null, false);
         }
         this.internalUpdate(task);
+
         fileHelper.updateObjectID(task.getId(),StaticDict.File__object_type.TASK.getValue(),files,"");
 
         List<History> changes = ChangeUtil.diff(old, task);
@@ -1529,6 +1551,11 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         }
         if (old.getStory() != null && old.getStory() != 0L) {
             storyHelper.setStage(old.getZtstory());
+        }
+        //PmsEe操作任务，需判断状态，计算关联的计划的状态
+        if (task.getPlan() != null && task.getPlan() > 0){
+            //该任务有计划，根据任务状态更新计划状态
+            this.updateRelatedPlanStatus(task,task.getPlan());
         }
         return task;
     }
@@ -1779,6 +1806,92 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             tasks += data.get(FIELD_ID);
         }
         return tasks;
+    }
+
+
+    //根据子任务状态计算父任务(或者关联的计划)状态
+    public String getParentOrRelatedPlanStatusByChildTasks(List<JSONObject> childTasks){
+        String status = "";
+        if (childTasks.size() == 1) {
+            status = childTasks.get(0).getString(FIELD_STATUS);
+        } else {
+
+            String strStatus = "";
+            String strClose = "";
+            for (JSONObject task : childTasks) {
+                strStatus += task.getString(FIELD_STATUS) + MULTIPLE_CHOICE;
+                strClose += task.getString(FIELD_CLOSED_REASON) + MULTIPLE_CHOICE;
+            }
+
+            if (strStatus.contains(StaticDict.Task__status.DOING.getValue()) || strStatus.contains(StaticDict.Task__status.PAUSE.getValue())) {
+                status = StaticDict.Task__status.DOING.getValue();
+            } else if ((strStatus.contains(StaticDict.Task__status.DONE.getValue()) || strClose.contains(StaticDict.Task__closed_reason.DONE.getValue())) && strStatus.contains(StaticDict.Task__status.WAIT.getValue())) {
+                status = StaticDict.Task__status.DOING.getValue();
+            } else if (strStatus.contains(StaticDict.Task__status.WAIT.getValue())) {
+                status = StaticDict.Task__status.WAIT.getValue();
+            } else if (strStatus.contains(StaticDict.Task__status.DONE.getValue())) {
+                status = StaticDict.Task__status.DONE.getValue();
+            } else if (strStatus.contains(StaticDict.Task__status.CLOSED.getValue())) {
+                status = StaticDict.Task__status.CLOSED.getValue();
+            } else if (strStatus.contains(StaticDict.Task__status.CANCEL.getValue())) {
+                status = StaticDict.Task__status.CANCEL.getValue();
+            }
+        }
+        return status;
+    }
+
+    public String getActionTypeByStatus(String oldStatus,String status){
+        String action = "";
+        if (StaticDict.Task__status.DOING.getValue().equals(status) && !StaticDict.Task__status.WAIT.getValue().equals(oldStatus) && !StaticDict.Task__status.PAUSE.getValue().equals(oldStatus)) {
+            action = StaticDict.Action__type.ACTIVATED.getValue();
+        } else if (StaticDict.Task__status.DOING.getValue().equals(status) && StaticDict.Task__status.PAUSE.getValue().equals(oldStatus)) {
+            action = StaticDict.Action__type.RESTARTED.getValue();
+        } else if (StaticDict.Task__status.DOING.getValue().equals(status) && StaticDict.Task__status.WAIT.getValue().equals(oldStatus)) {
+            action = StaticDict.Action__type.STARTED.getValue();
+        } else if (StaticDict.Task__status.CANCEL.getValue().equals(status) && !StaticDict.Task__status.CANCEL.getValue().equals(oldStatus)) {
+            action = StaticDict.Action__type.CANCELED.getValue();
+        } else if (StaticDict.Task__status.PAUSE.getValue().equals(status) && !StaticDict.Task__status.PAUSE.getValue().equals(oldStatus)) {
+            action = StaticDict.Action__type.PAUSED.getValue();
+        } else if (StaticDict.Task__status.CLOSED.getValue().equals(status) && !StaticDict.Task__status.CLOSED.getValue().equals(oldStatus)) {
+            action = StaticDict.Action__type.CLOSED.getValue();
+        } else if (StaticDict.Task__status.DONE.getValue().equals(status) && !StaticDict.Task__status.DONE.getValue().equals(oldStatus)) {
+            action = StaticDict.Action__type.FINISHED.getValue();
+        }
+        return action;
+    }
+
+    //pmsee中，任务可以管理计划，操作任务时，需要更改任务关联的计划的状态
+    public void updateRelatedPlanStatus(Task relatedTask,Long planId){
+        if (planId == null){
+            planId = relatedTask.getPlan();
+        }
+        if (planId == null || planId <= 0){
+            return;
+        }
+        ProductPlan oldRelatePlan = productPlanService.getById(planId);//任务关联的计划
+        if (oldRelatePlan == null){
+            relatedTask.setPlan(0L);
+            this.internalUpdate(relatedTask);
+            return;
+        }
+        List<JSONObject> relatedTasks = taskService.select(String.format("select * from zt_task t1 where t1.deleted = '0' and t1.plan = %1$s",oldRelatePlan.getId()),null);
+        //根据关联的任务的状态，计算计划的状态
+        String status = this.getParentOrRelatedPlanStatusByChildTasks(relatedTasks);
+        if (StringUtils.compare(status,oldRelatePlan.getStatus()) != 0){
+            ProductPlan newProductPlan = new ProductPlan();
+            CachedBeanCopier.copy(oldRelatePlan,newProductPlan);
+            newProductPlan.setStatus(status);
+            productPlanHelper.internalUpdate(newProductPlan);
+            String actionType = this.getActionTypeByStatus(oldRelatePlan.getStatus() == null ? StaticDict.Task__status.WAIT.getValue() : oldRelatePlan.getStatus(),status);
+            Action action = actionHelper.create(StaticDict.Action__object_type.PRODUCTPLAN.getValue(),oldRelatePlan.getId(),actionType,"","","",false);
+            List<History> changes = ChangeUtil.diff(oldRelatePlan,newProductPlan);
+            if (changes.size() > 0){
+                actionHelper.logHistory(action.getId(),changes);
+            }
+        }
+
+
+
     }
 
 }
