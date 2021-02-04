@@ -2152,7 +2152,7 @@
 
 
     <!--输出实体[IBZ_PRODUCTTEAM]数据结构 -->
-    <changeSet author="zentao" id="tab-ibz_productteam-1-79">
+    <changeSet author="zentao" id="tab-ibz_productteam-2-79">
         <createTable tableName="zt_team">
                 <column name="`TEAMSTATUS`" remarks="" type="VARCHAR(100)">
                 </column>
@@ -3388,7 +3388,7 @@
     </changeSet>
         <!--输出实体[ZT_NOTIFY]外键关系 -->
         <!--输出实体[IBZ_PRODUCTTEAM]外键关系 -->
-    <changeSet author="zentao" id="fk-ibz_productteam-1-194">
+    <changeSet author="zentao" id="fk-ibz_productteam-2-194">
        <addForeignKeyConstraint baseColumnNames="ROOT" baseTableName="zt_team" constraintName="DER1N_IBZ_PRODUCTTEAM_ZT_PRODU" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_product" validate="true"/>
     </changeSet>
         <!--输出实体[ZT_PRODUCT]外键关系 -->

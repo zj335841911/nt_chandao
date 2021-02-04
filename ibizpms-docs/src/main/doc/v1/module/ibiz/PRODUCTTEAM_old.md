@@ -132,6 +132,7 @@ hide footbox
 | 属性      |    搜索模式     |
 | --------   |------------|
 |成员状态(TEAMSTATUS)|EQ|
+|用户(ACCOUNT)|EQ|
 |用户(ACCOUNT)|LIKE|
 |加盟日(JOIN)|GTANDEQ|
 |结束时间(END)|LTANDEQ|

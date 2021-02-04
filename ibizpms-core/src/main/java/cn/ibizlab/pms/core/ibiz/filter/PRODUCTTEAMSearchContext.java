@@ -34,6 +34,13 @@ public class PRODUCTTEAMSearchContext extends QueryWrapperContext<PRODUCTTEAM> {
             this.getSearchCond().eq("`teamstatus`", n_teamstatus_eq);
         }
     }
+	private String n_account_eq;//[用户]
+	public void setN_account_eq(String n_account_eq) {
+        this.n_account_eq = n_account_eq;
+        if(!ObjectUtils.isEmpty(this.n_account_eq)){
+            this.getSearchCond().eq("`account`", n_account_eq);
+        }
+    }
 	private String n_account_like;//[用户]
 	public void setN_account_like(String n_account_like) {
         this.n_account_like = n_account_like;
