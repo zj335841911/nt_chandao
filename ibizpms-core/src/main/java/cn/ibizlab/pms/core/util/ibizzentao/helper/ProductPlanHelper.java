@@ -246,9 +246,7 @@ public class ProductPlanHelper extends ZTBaseHelper<ProductPlanMapper, ProductPl
             productPlanId = Long.parseLong(et.get(StaticDict.Action__object_type.PRODUCTPLAN.getValue()).toString());
         }
         String tasks = "";
-        if (et.get("tasks") != null) {
-            tasks = et.get("tasks").toString();
-        } else if (et.get(FIELD_SRFACTIONPARAM) != null) {
+        if (et.get(FIELD_SRFACTIONPARAM) != null) {
             List<Map<String, Object>> list = (List<Map<String, Object>>) et.get(FIELD_SRFACTIONPARAM);
             for (Map<String, Object> jsonObject : list) {
                 if (!"".equals(tasks)) {
@@ -256,6 +254,8 @@ public class ProductPlanHelper extends ZTBaseHelper<ProductPlanMapper, ProductPl
                 }
                 tasks += jsonObject.get(FIELD_ID);
             }
+        }else if (et.get("tasks") != null) {
+            tasks = et.get("tasks").toString();
         }
         if ("".equals(tasks)) {
             return et;

@@ -189,6 +189,12 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             this.internalUpdate(et);
 
         }
+        //PmsEe操作任务，需判断状态，计算关联的计划的状态
+        if (et.getPlan() != null && et.getPlan() > 0){
+            //该任务有计划，根据任务状态更新计划状态
+            this.updateRelatedPlanStatus(et,et.getPlan());
+        }
+
         actionHelper.sendTodo(et.getId(), et.getName(), noticeusers, et.getAssignedto(), et.getMailto(), ITaskService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.TASK.getValue(), ITaskService.OBJECT_SOURCE_PATH, StaticDict.Action__type.OPENED.getText());
         actionHelper.create(StaticDict.Action__object_type.TASK.getValue(), et.getId(), StaticDict.Action__type.OPENED.getValue(), "", "", null, true);
         if (et.getStory() != null && et.getStory() != 0L) {
