@@ -1083,10 +1083,6 @@
 
 
     <!--输出实体[IBIZPRO_INDEX]数据结构 -->
-    <changeSet author="zentao" id="tab-ibizpro_index-3-37">
-        <createTable tableName="">
-        </createTable>
-    </changeSet>
 
 
     <!--输出实体[IBIZPRO_PRODUCTDAILY]数据结构 -->
@@ -1425,19 +1421,6 @@
 
 
     <!--输出实体[IBZ_CASESTEP]数据结构 -->
-    <changeSet author="zentao" id="tab-ibz_casestep-1-49">
-        <createTable tableName="ZT_CASESTEP">
-                <column name="`EXPECT`" remarks="" type="TEXT(65535)">
-                </column>
-                <column name="`TYPE`" remarks="" type="VARCHAR(60)">
-                </column>
-                <column name="`ID`" remarks="" type="BIGINT">
-                    <constraints primaryKey="true" primaryKeyName="PK_IBZ_CASESTEP_ID"/>
-                </column>
-                <column name="`DESC`" remarks="" type="TEXT(65535)">
-                </column>
-        </createTable>
-    </changeSet>
 
 
     <!--输出实体[IBZ_LIBCASESTEPS]数据结构 -->
@@ -1570,49 +1553,6 @@
 
 
     <!--输出实体[IBZ_REPORT]数据结构 -->
-    <changeSet author="zentao" id="tab-ibz_report-1-57">
-        <createTable tableName="t_ibz_daily">
-                <column name="`UPDATEMANNAME`" remarks="" type="VARCHAR(60)">
-                </column>
-                <column name="`MAILTO`" remarks="" type="VARCHAR(2000)">
-                </column>
-                <column name="`IBZ_DAILYID`" remarks="" type="BIGINT">
-                    <constraints primaryKey="true" primaryKeyName="PK_IBZ_REPORT_IBZ_DAILYID"/>
-                </column>
-                <column name="`UPDATEDATE`" remarks="" type="DATETIME">
-                </column>
-                <column name="`WORKTODAY`" remarks="" type="TEXT(1048576)">
-                </column>
-                <column name="`CREATEDATE`" remarks="" type="DATETIME">
-                </column>
-                <column name="`TODAYTASK`" remarks="" type="VARCHAR(2000)">
-                </column>
-                <column name="`ACCOUNT`" remarks="" type="VARCHAR(60)">
-                </column>
-                <column name="`CREATEMAN`" remarks="" type="VARCHAR(60)">
-                </column>
-                <column name="`UPDATEMAN`" remarks="" type="VARCHAR(60)">
-                </column>
-                <column name="`IBZ_DAILYNAME`" remarks="" type="VARCHAR(200)">
-                </column>
-                <column name="`REPORTTO`" remarks="" type="VARCHAR(60)">
-                </column>
-                <column name="`CREATEMANNAME`" remarks="" type="VARCHAR(60)">
-                </column>
-                <column name="`PLANSTOMORROW`" remarks="" type="TEXT(1048576)">
-                </column>
-                <column name="`REPORTSTATUS`" remarks="" type="VARCHAR(60)">
-                </column>
-                <column name="`DATE`" remarks="" type="DATETIME">
-                </column>
-                <column name="`ISSUBMIT`" remarks="" type="VARCHAR(60)">
-                </column>
-                <column name="`COMMENT`" remarks="" type="TEXT(1048576)">
-                </column>
-                <column name="`TOMORROWPLANSTASK`" remarks="" type="VARCHAR(2000)">
-                </column>
-        </createTable>
-    </changeSet>
 
 
     <!--输出实体[IBZ_REPORT_ROLE_CONFIG]数据结构 -->
@@ -2660,109 +2600,6 @@
 
 
     <!--输出实体[ZT_TASK]数据结构 -->
-    <changeSet author="zentao" id="tab-zt_task-3-106">
-        <createTable tableName="zt_task">
-                <column name="`CANCELEDBY`" remarks="" type="VARCHAR(30)">
-                </column>
-                <column name="`CONFIG_TYPE`" remarks="" type="VARCHAR(60)">
-                </column>
-                <column name="`LEFT`" remarks="" type="FLOAT">
-                </column>
-                <column name="`CONFIG_END`" remarks="" type="DATETIME">
-                </column>
-                <column name="`OPENEDDATE`" remarks="" type="DATETIME">
-                </column>
-                <column name="`ASSIGN`" remarks="" type="VARCHAR(100)">
-                </column>
-                <column name="`COLOR`" remarks="" type="VARCHAR(7)">
-                </column>
-                <column name="`ID`" remarks="" type="BIGINT">
-                    <constraints primaryKey="true" primaryKeyName="PK_ZT_TASK_ID"/>
-                </column>
-                <column name="`FINISHEDBY`" remarks="" type="VARCHAR(30)">
-                </column>
-                <column name="`FINISHEDLIST`" remarks="" type="TEXT(65535)">
-                </column>
-                <column name="`REALSTARTED`" remarks="" type="DATETIME">
-                </column>
-                <column name="`CONFIG_BEGIN`" remarks="" type="DATETIME">
-                </column>
-                <column name="`CLOSEDBY`" remarks="" type="VARCHAR(30)">
-                </column>
-                <column name="`SUBSTATUS`" remarks="" type="VARCHAR(30)">
-                </column>
-                <column name="`CLOSEDREASON`" remarks="" type="VARCHAR(30)">
-                </column>
-                <column name="`TASKSPECIES`" remarks="" type="VARCHAR(60)">
-                </column>
-                <column name="`LASTEDITEDDATE`" remarks="" type="DATETIME">
-                </column>
-                <column name="`CONFIG_DAY`" remarks="" type="INT">
-                </column>
-                <column name="`ASSIGNEDDATE`" remarks="" type="DATETIME">
-                </column>
-                <column name="`PRI`" remarks="" type="INT">
-                </column>
-                <column name="`LASTEDITEDBY`" remarks="" type="VARCHAR(30)">
-                </column>
-                <column name="`IDVALUE`" remarks="" type="BIGINT">
-                </column>
-                <column name="`STATUS`" remarks="" type="VARCHAR(6)">
-                </column>
-                <column name="`NAME`" remarks="" type="VARCHAR(255)">
-                </column>
-                <column name="`CLOSEDDATE`" remarks="" type="DATETIME">
-                </column>
-                <column name="`INPUTCOST`" remarks="" type="FLOAT">
-                </column>
-                <column name="`TYPE`" remarks="" type="VARCHAR(20)">
-                </column>
-                <column name="`ASSIGNEDTO`" remarks="" type="VARCHAR(30)">
-                </column>
-                <column name="`DESC`" remarks="" type="TEXT(65535)">
-                </column>
-                <column name="`ESTSTARTED`" remarks="" type="DATETIME">
-                </column>
-                <column name="`DEADLINE`" remarks="" type="DATETIME">
-                </column>
-                <column name="`DELETED`" remarks="" type="VARCHAR(1)">
-                </column>
-                <column name="`CYCLE`" remarks="" type="INT">
-                </column>
-                <column name="`MAILTO`" remarks="" type="VARCHAR(65535)">
-                </column>
-                <column name="`CONSUMED`" remarks="" type="FLOAT">
-                </column>
-                <column name="`ESTIMATE`" remarks="" type="FLOAT">
-                </column>
-                <column name="`OPENEDBY`" remarks="" type="VARCHAR(30)">
-                </column>
-                <column name="`CANCELEDDATE`" remarks="" type="DATETIME">
-                </column>
-                <column name="`CONFIG_MONTH`" remarks="" type="VARCHAR(2000)">
-                </column>
-                <column name="`CONFIG_WEEK`" remarks="" type="VARCHAR(2000)">
-                </column>
-                <column name="`CONFIG_BEFOREDAYS`" remarks="" type="INT">
-                </column>
-                <column name="`FINISHEDDATE`" remarks="" type="DATETIME">
-                </column>
-                <column name="`STORYVERSION`" remarks="" type="INT">
-                </column>
-                <column name="`PROJECT`" remarks="" type="BIGINT">
-                </column>
-                <column name="`PLAN`" remarks="" type="BIGINT">
-                </column>
-                <column name="`MODULE`" remarks="" type="BIGINT">
-                </column>
-                <column name="`STORY`" remarks="" type="BIGINT">
-                </column>
-                <column name="`PARENT`" remarks="" type="BIGINT">
-                </column>
-                <column name="`FROMBUG`" remarks="" type="BIGINT">
-                </column>
-        </createTable>
-    </changeSet>
 
 
     <!--输出实体[ZT_TASKESTIMATE]数据结构 -->

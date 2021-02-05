@@ -223,7 +223,7 @@ export interface ProductPlan {
     product?: any;
 
     /**
-     * 任务状态
+     * 计划状态
      *
      * @returns {*}
      * @memberof ProductPlan

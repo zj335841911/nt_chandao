@@ -66,7 +66,7 @@ public class DELogicAspect {
      * @return
      * @throws Throwable
      */
-    @Around("execution(* cn.ibizlab.pms.core.*.service.*.*(..))")
+    @Around("execution(* cn.ibizlab.pms.core.*.service.*.*(..)) && !execution(* cn.ibizlab.pms.core.es.service.*.*(..))")
     public Object executeLogic(ProceedingJoinPoint point) throws Throwable {
         Object args[] = point.getArgs();
         if (ObjectUtils.isEmpty(args) || args.length == 0) {
@@ -90,6 +90,9 @@ public class DELogicAspect {
         if (entity != null) {
             executeBeforeLogic(entity, action);
             Object result = point.proceed();
+            if("get".equalsIgnoreCase(action) && result instanceof EntityBase){
+                entity = (EntityBase) result;
+            }
             executeLogic(entity, action);
             executeAfterLogic(entity, action);
             return result;

@@ -30,7 +30,7 @@ function getLocaleResourceBase(){
 			branch: commonLogic.appcommonhandle("平台/分支",null),
 			parent: commonLogic.appcommonhandle("父计划",null),
 			product: commonLogic.appcommonhandle("产品",null),
-			status: commonLogic.appcommonhandle("任务状态",null),
+			status: commonLogic.appcommonhandle("计划状态",null),
 			delay: commonLogic.appcommonhandle("延期",null),
 			comment: commonLogic.appcommonhandle("备注",null),
 			leftestimate: commonLogic.appcommonhandle("剩余工时",null),
