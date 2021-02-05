@@ -28,7 +28,7 @@ ruleflow-group "productplanmobproductplancounterrawsqlcall2"
     param.put("param0",productplanmobproductplancounterdefault.get("id"));
     String strSql="select count(1) as bugcnt from zt_bug where deleted = '0' and plan = #{et.param0}";
     java.util.List<JSONObject> entities=iBzSysProductplanDefaultService.select(strSql,param);//SQL调用
-    if(entities.size()>0){
+    if(entities.size()>0 && !ObjectUtils.isEmpty(entities.get(0))){
         JSONObject entity=entities.get(0);
         for (Map.Entry entry : entity.entrySet()) {
             productplanmobproductplancounterdefault.set(String.valueOf(entry.getKey()),entry.getValue());
@@ -46,7 +46,7 @@ ruleflow-group "productplanmobproductplancounterrawsqlcall1"
     param.put("param0",productplanmobproductplancounterdefault.get("id"));
     String strSql="select count(1) as storycnt from zt_story t1 where t1.deleted = '0' and t1.plan = #{et.param0}";
     java.util.List<JSONObject> entities=iBzSysProductplanDefaultService.select(strSql,param);//SQL调用
-    if(entities.size()>0){
+    if(entities.size()>0 && !ObjectUtils.isEmpty(entities.get(0))){
         JSONObject entity=entities.get(0);
         for (Map.Entry entry : entity.entrySet()) {
             productplanmobproductplancounterdefault.set(String.valueOf(entry.getKey()),entry.getValue());

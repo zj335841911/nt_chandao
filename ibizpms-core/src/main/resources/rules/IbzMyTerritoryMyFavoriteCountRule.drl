@@ -28,7 +28,7 @@ ruleflow-group "ibzmyterritorymyfavoritecountrawsqlcall3"
     param.put("param0",curuser.getSessionParams().get("srfloginname"));
     String strSql="select count(t1.id) AS MYFAVORITETASKS from zt_task t1 where t1.deleted = '0' and t1.id in (select t.OBJECTID from T_IBZ_FAVORITES t where t.type = 'task' and t.account = #{et.param0})";
     java.util.List<JSONObject> entities=iBzSysIbzmyterritoryDefaultService.select(strSql,param);//SQL调用
-    if(entities.size()>0){
+    if(entities.size()>0 && !ObjectUtils.isEmpty(entities.get(0))){
         JSONObject entity=entities.get(0);
         for (Map.Entry entry : entity.entrySet()) {
             ibzmyterritorymyfavoritecountdefault.set(String.valueOf(entry.getKey()),entry.getValue());
@@ -46,7 +46,7 @@ ruleflow-group "ibzmyterritorymyfavoritecountrawsqlcall1"
     param.put("param0",curuser.getSessionParams().get("srfloginname"));
     String strSql="select count(t1.id) AS MYFAVORITESTORYS from zt_story t1 where t1.deleted = '0' and t1.id in (select t.OBJECTID from T_IBZ_FAVORITES t where t.type = 'story' and t.account = #{et.param0})";
     java.util.List<JSONObject> entities=iBzSysIbzmyterritoryDefaultService.select(strSql,param);//SQL调用
-    if(entities.size()>0){
+    if(entities.size()>0 && !ObjectUtils.isEmpty(entities.get(0))){
         JSONObject entity=entities.get(0);
         for (Map.Entry entry : entity.entrySet()) {
             ibzmyterritorymyfavoritecountdefault.set(String.valueOf(entry.getKey()),entry.getValue());
@@ -64,7 +64,7 @@ ruleflow-group "ibzmyterritorymyfavoritecountrawsqlcall2"
     param.put("param0",curuser.getSessionParams().get("srfloginname"));
     String strSql="select count(t1.id) AS MYFAVORITEBUGS from zt_bug t1 where t1.deleted = '0' and t1.id in (select t.OBJECTID from T_IBZ_FAVORITES t where t.type = 'bug' and t.account = #{et.param0})";
     java.util.List<JSONObject> entities=iBzSysIbzmyterritoryDefaultService.select(strSql,param);//SQL调用
-    if(entities.size()>0){
+    if(entities.size()>0 && !ObjectUtils.isEmpty(entities.get(0))){
         JSONObject entity=entities.get(0);
         for (Map.Entry entry : entity.entrySet()) {
             ibzmyterritorymyfavoritecountdefault.set(String.valueOf(entry.getKey()),entry.getValue());

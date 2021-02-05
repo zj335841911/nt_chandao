@@ -29,7 +29,7 @@ ruleflow-group "casegetcasestepbyidversionrawsqlcall1"
     param.put("param1",casegetcasestepbyidversiondefault.get("version"));
     String strSql="select concat('[', GROUP_CONCAT(t1.casestep),']') as casestep from (SELECT JSON_OBJECT('case', t1.`CASE`,'desc', t1.`DESC`,'expect', t1.`EXPECT`,'id', t1.`ID`,'parent', t1.`PARENT`,'type', t1.`TYPE`,'version', t1.`VERSION`) as casestep,t1.`case`,t1.version  FROM `zt_casestep` t1) t1 where t1.`case` = #{et.param0} and t1.version =#{et.param1} GROUP BY t1.`case`,t1.version";
     java.util.List<JSONObject> entities=iBzSysCaseDefaultService.select(strSql,param);//SQL调用
-    if(entities.size()>0){
+    if(entities.size()>0 && !ObjectUtils.isEmpty(entities.get(0))){
         JSONObject entity=entities.get(0);
         for (Map.Entry entry : entity.entrySet()) {
             casegetcasestepbyidversiondefault.set(String.valueOf(entry.getKey()),entry.getValue());

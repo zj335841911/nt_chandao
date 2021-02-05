@@ -57,7 +57,7 @@ ruleflow-group "useryearworkstatsupdateinforawsqlcall1"
     param.put("param1",useryearworkstatsupdateinfodefault.get("realname"));
     String strSql="select CONCAT_WS('',#{et.param0},'年工作内容统计一览表 —— ',#{et.param1}) as Title from dual";
     java.util.List<JSONObject> entities=iBzSysUseryearworkstatsDefaultService.select(strSql,param);//SQL调用
-    if(entities.size()>0){
+    if(entities.size()>0 && !ObjectUtils.isEmpty(entities.get(0))){
         JSONObject entity=entities.get(0);
         for (Map.Entry entry : entity.entrySet()) {
             useryearworkstatsupdateinfodefault.set(String.valueOf(entry.getKey()),entry.getValue());

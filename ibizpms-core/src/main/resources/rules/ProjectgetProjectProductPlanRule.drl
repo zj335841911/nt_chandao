@@ -21,7 +21,7 @@ ruleflow-group "projectgetprojectproductplanrawsqlcall1"
     param.put("param0",projectgetprojectproductplandefault.get("id"));
     String strSql="select concat('[', GROUP_CONCAT(t1.srfarray),']') as srfarray  from ( select JSON_OBJECT('products', cast(product as char), 'branchs', cast(branch as char),'plans',cast(plan as char)) as srfarray,project from zt_projectproduct left join zt_product on id = product where project = #{et.param0} and deleted = '0') t1 GROUP BY t1.project";
     java.util.List<JSONObject> entities=iBzSysProjectDefaultService.select(strSql,param);//SQL调用
-    if(entities.size()>0){
+    if(entities.size()>0 && !ObjectUtils.isEmpty(entities.get(0))){
         JSONObject entity=entities.get(0);
         for (Map.Entry entry : entity.entrySet()) {
             projectgetprojectproductplandefault.set(String.valueOf(entry.getKey()),entry.getValue());

@@ -21,7 +21,7 @@ ruleflow-group "taskgetusernamesrawsqlcall2"
     param.put("param0",taskgetusernamesdefault.get("project"));
     String strSql="select GROUP_CONCAT(tt.account separator ';') as USERNAMES from zt_team tt where tt.type = 'project' and tt.root = #{et.param0}";
     java.util.List<JSONObject> entities=iBzSysTaskDefaultService.select(strSql,param);//SQL调用
-    if(entities.size()>0){
+    if(entities.size()>0 && !ObjectUtils.isEmpty(entities.get(0))){
         JSONObject entity=entities.get(0);
         for (Map.Entry entry : entity.entrySet()) {
             taskgetusernamesdefault.set(String.valueOf(entry.getKey()),entry.getValue());
@@ -46,7 +46,7 @@ ruleflow-group "taskgetusernamesrawsqlcall1"
     param.put("param0",taskgetusernamesdefault.get("id"));
     String strSql="select GROUP_CONCAT(tt.account separator ';') as USERNAMES from zt_team tt where tt.type = 'task' and tt.root = #{et.param0}";
     java.util.List<JSONObject> entities=iBzSysTaskDefaultService.select(strSql,param);//SQL调用
-    if(entities.size()>0){
+    if(entities.size()>0 && !ObjectUtils.isEmpty(entities.get(0))){
         JSONObject entity=entities.get(0);
         for (Map.Entry entry : entity.entrySet()) {
             taskgetusernamesdefault.set(String.valueOf(entry.getKey()),entry.getValue());

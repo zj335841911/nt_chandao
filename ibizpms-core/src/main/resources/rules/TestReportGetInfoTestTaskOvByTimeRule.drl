@@ -24,7 +24,7 @@ ruleflow-group "testreportgetinfotesttaskovbytimerawsqlcall3"
     param.put("param3",testreportgetinfotesttaskovbytimedefault.get("end"));
     String strSql="select COUNT(1) as rencase from (SELECT DISTINCT t1.id FROM `zt_case` t1  left join zt_testrun t11 on t1.id = t11.`case` INNER join zt_testresult t21 on t21.run = t11.id WHERE  t1.`DELETED` = '0'   AND FIND_IN_SET ( t1.ID, #{et.param0}) and FIND_IN_SET(t11.task ,#{et.param1})  and t21.date > #{et.param2} and t21.date < (SELECT CONCAT(DATE_FORMAT(#{et.param3},'%Y-%m-%d'),' 23:59:59') )  ) t";
     java.util.List<JSONObject> entities=iBzSysTestreportDefaultService.select(strSql,param);//SQL调用
-    if(entities.size()>0){
+    if(entities.size()>0 && !ObjectUtils.isEmpty(entities.get(0))){
         JSONObject entity=entities.get(0);
         for (Map.Entry entry : entity.entrySet()) {
             testreportgetinfotesttaskovbytimedefault.set(String.valueOf(entry.getKey()),entry.getValue());
@@ -42,7 +42,7 @@ ruleflow-group "testreportgetinfotesttaskovbytimerawsqlcall1"
     param.put("param0",testreportgetinfotesttaskovbytimedefault.get("tasks"));
     String strSql="SELECT COUNT(1) as storycnt, sum(t1.ESTIMATE) as storyestimate,GROUP_CONCAT(DISTINCT t1.id ORDER BY t1.id asc) as stories FROM `zt_story` t1  LEFT JOIN zt_build t11 on FIND_IN_SET(t1.id,t11.stories) LEFT JOIN zt_testtask t21 on t21.build = t11.id WHERE t1.`DELETED` = '0' and t21.id = #{et.param0}";
     java.util.List<JSONObject> entities=iBzSysTestreportDefaultService.select(strSql,param);//SQL调用
-    if(entities.size()>0){
+    if(entities.size()>0 && !ObjectUtils.isEmpty(entities.get(0))){
         JSONObject entity=entities.get(0);
         for (Map.Entry entry : entity.entrySet()) {
             testreportgetinfotesttaskovbytimedefault.set(String.valueOf(entry.getKey()),entry.getValue());
@@ -63,7 +63,7 @@ ruleflow-group "testreportgetinfotesttaskovbytimerawsqlcall9"
     param.put("param3",testreportgetinfotesttaskovbytimedefault.get("tasks"));
     String strSql="select COUNT(1) testresultcnt from zt_testresult t1  INNER JOIN zt_case t31 on t31.id = t1.`case` inner join zt_testrun t11 on t1.run = t11.id and t1.`case` = t11.`case` where   t31.deleted = '0' and t1.date >  #{et.param0} and t1.date <  #{et.param1}  and find_in_set(t11.case,#{et.param2}) and find_in_set(t11.task,#{et.param3})";
     java.util.List<JSONObject> entities=iBzSysTestreportDefaultService.select(strSql,param);//SQL调用
-    if(entities.size()>0){
+    if(entities.size()>0 && !ObjectUtils.isEmpty(entities.get(0))){
         JSONObject entity=entities.get(0);
         for (Map.Entry entry : entity.entrySet()) {
             testreportgetinfotesttaskovbytimedefault.set(String.valueOf(entry.getKey()),entry.getValue());
@@ -83,7 +83,7 @@ ruleflow-group "testreportgetinfotesttaskovbytimerawsqlcall11"
     param.put("param2",testreportgetinfotesttaskovbytimedefault.get("end"));
     String strSql="SELECT COUNT(1) as resolvedcnt FROM `zt_bug` t1  where  t1.OPENEDBUILD = (select t.build from zt_testtask t where t.id = #{et.param0})   and t1.openedDate > #{et.param1} and t1.openedDate < (select CONCAT( DATE_FORMAT( #{et.param2}, '%Y-%m-%d'),' 23:59:59')  )  and t1.`status` in ('resolved','closed')";
     java.util.List<JSONObject> entities=iBzSysTestreportDefaultService.select(strSql,param);//SQL调用
-    if(entities.size()>0){
+    if(entities.size()>0 && !ObjectUtils.isEmpty(entities.get(0))){
         JSONObject entity=entities.get(0);
         for (Map.Entry entry : entity.entrySet()) {
             testreportgetinfotesttaskovbytimedefault.set(String.valueOf(entry.getKey()),entry.getValue());
@@ -122,7 +122,7 @@ ruleflow-group "testreportgetinfotesttaskovbytimerawsqlcall13"
     param.put("param21",testreportgetinfotesttaskovbytimedefault.get("bugcnt"));
     String strSql="select CONCAT_WS('','本页共 ',#{et.param0},' 个需求，预计 ',case when #{et.param1} is null then 0 else #{et.param2} end,' 个工时，用例覆盖率 ',CONCAT(ROUND(#{et.param3}/(case when #{et.param4}= 0 or #{et.param5} is null then 1 else #{et.param6} end) * 100, 0)),'%。<br>','共测试了1个版本。共有',#{et.param7},'个用例，共执行',#{et.param8},'个用例，产生了',#{et.param9},'个结果，失败的用例有',#{et.param10},'个。<br>','共发现',#{et.param11},'个Bug<a data-toggle=\"tooltip\" class=\"text-warning\" title=\"影响版本在测试轮次内，并且创建时间在测试时间范围内产生的Bug数。\" style=\"vertical-align: middle;padding: 2px;\"><i class=\"fa fa-question-circle\" style=\" color: #ff9800;\"></i></a>，遗留',#{et.param12},'个Bug<a data-toggle=\"tooltip\" class=\"text-warning\" title=\"Bug状态是激活，或Bug的解决时间在测试结束时间之后。\" style=\"vertical-align: middle;padding: 2px;\"><i class=\"fa fa-question-circle\" style=\" color: #ff9800;\"></i></a>。 用例执行产生',#{et.param13},'个Bug<a data-toggle=\"tooltip\" class=\"text-warning\" title=\"测试时间范围内，用例执行失败后创建的Bug。\" style=\"vertical-align: middle;padding: 2px;\"><i class=\"fa fa-question-circle\" style=\" color: #ff9800;\"></i></a>。 有效Bug率（方案为已解决或延期 / 状态为已解决或已关闭）：',CONCAT(ROUND(#{et.param14}/(case when #{et.param15} = 0 or #{et.param16} is null then 1 else #{et.param17} end) * 100, 2), '%'),'，用例发现Bug率（用例创建的Bug / 发现Bug数）：',CONCAT(ROUND(#{et.param18}/(case when #{et.param19} = 0 or #{et.param20} is null then 1 else #{et.param21} end)* 100, 2) , '%')) as OVERVIEWS from dual";
     java.util.List<JSONObject> entities=iBzSysTestreportDefaultService.select(strSql,param);//SQL调用
-    if(entities.size()>0){
+    if(entities.size()>0 && !ObjectUtils.isEmpty(entities.get(0))){
         JSONObject entity=entities.get(0);
         for (Map.Entry entry : entity.entrySet()) {
             testreportgetinfotesttaskovbytimedefault.set(String.valueOf(entry.getKey()),entry.getValue());
@@ -140,7 +140,7 @@ ruleflow-group "testreportgetinfotesttaskovbytimerawsqlcall5"
     param.put("param0",testreportgetinfotesttaskovbytimedefault.get("tasks"));
     String strSql="SELECT COUNT(1) as storycnts FROM `zt_story` t1  LEFT JOIN zt_build t21 on FIND_IN_SET(t1.id,t21.stories) LEFT JOIN zt_testtask t31 on t31.build = t21.id WHERE t1.`DELETED` = '0' and (t1.`status` <> 'closed' or (t1.`status` = 'closed' and t1.closedReason in ('done','postponed'))) and t31.id = #{et.param0}";
     java.util.List<JSONObject> entities=iBzSysTestreportDefaultService.select(strSql,param);//SQL调用
-    if(entities.size()>0){
+    if(entities.size()>0 && !ObjectUtils.isEmpty(entities.get(0))){
         JSONObject entity=entities.get(0);
         for (Map.Entry entry : entity.entrySet()) {
             testreportgetinfotesttaskovbytimedefault.set(String.valueOf(entry.getKey()),entry.getValue());
@@ -158,7 +158,7 @@ ruleflow-group "testreportgetinfotesttaskovbytimerawsqlcall6"
     param.put("param0",testreportgetinfotesttaskovbytimedefault.get("tasks"));
     String strSql="SELECT count(1) as casecnts FROM `zt_story` t1  LEFT JOIN zt_build t21 on FIND_IN_SET(t1.id,t21.stories) LEFT JOIN zt_testtask t31 on t31.build = t21.id WHERE t1.`DELETED` = '0'  and (t1.`status` <> 'closed' or (t1.`status` = 'closed' and t1.closedReason in ('done','postponed'))) and EXISTS(select 1 from zt_case t where t.deleted = '0' and t1.id = t.story) and t31.id = #{et.param0}";
     java.util.List<JSONObject> entities=iBzSysTestreportDefaultService.select(strSql,param);//SQL调用
-    if(entities.size()>0){
+    if(entities.size()>0 && !ObjectUtils.isEmpty(entities.get(0))){
         JSONObject entity=entities.get(0);
         for (Map.Entry entry : entity.entrySet()) {
             testreportgetinfotesttaskovbytimedefault.set(String.valueOf(entry.getKey()),entry.getValue());
@@ -178,7 +178,7 @@ ruleflow-group "testreportgetinfotesttaskovbytimerawsqlcall8"
     param.put("param2",testreportgetinfotesttaskovbytimedefault.get("end"));
     String strSql="SELECT COUNT(1) as casebugcnt FROM `zt_bug` t1  where  t1.OPENEDBUILD = (select tt.build from zt_testtask tt where tt.id = #{et.param0})   and t1.openedDate > #{et.param1} and t1.openedDate < (select CONCAT( DATE_FORMAT( #{et.param2}, '%Y-%m-%d'),' 23:59:59') )  and t1.`case` > 0";
     java.util.List<JSONObject> entities=iBzSysTestreportDefaultService.select(strSql,param);//SQL调用
-    if(entities.size()>0){
+    if(entities.size()>0 && !ObjectUtils.isEmpty(entities.get(0))){
         JSONObject entity=entities.get(0);
         for (Map.Entry entry : entity.entrySet()) {
             testreportgetinfotesttaskovbytimedefault.set(String.valueOf(entry.getKey()),entry.getValue());
@@ -206,7 +206,7 @@ ruleflow-group "testreportgetinfotesttaskovbytimerawsqlcall4"
     param.put("param3",testreportgetinfotesttaskovbytimedefault.get("end"));
     String strSql="select COUNT(1) as failcase from (SELECT DISTINCT t1.id FROM `zt_case` t1  left join zt_testrun t11 on t1.id = t11.`case` left join zt_testresult t21 on t21.run = t11.id LEFT JOIN zt_testtask t31 on t31.id = t11.task WHERE  t1.`DELETED` = '0'   AND FIND_IN_SET ( t1.ID, #{et.param0}) and FIND_IN_SET(t11.task , #{et.param1})  and t21.date > #{et.param2}  and t21.date < (SELECT CONCAT(DATE_FORMAT(#{et.param3},'%Y-%m-%d'),' 23:59:59') )   and t21.caseResult = 'fail') t";
     java.util.List<JSONObject> entities=iBzSysTestreportDefaultService.select(strSql,param);//SQL调用
-    if(entities.size()>0){
+    if(entities.size()>0 && !ObjectUtils.isEmpty(entities.get(0))){
         JSONObject entity=entities.get(0);
         for (Map.Entry entry : entity.entrySet()) {
             testreportgetinfotesttaskovbytimedefault.set(String.valueOf(entry.getKey()),entry.getValue());
@@ -226,7 +226,7 @@ ruleflow-group "testreportgetinfotesttaskovbytimerawsqlcall10"
     param.put("param2",testreportgetinfotesttaskovbytimedefault.get("end"));
     String strSql="SELECT COUNT(1) as effective FROM `zt_bug` t1  where  t1.OPENEDBUILD = (select t.build from zt_testtask t  where t.id = #{et.param0})  and t1.openedDate > #{et.param1} and t1.openedDate < (select CONCAT( DATE_FORMAT( #{et.param2}, '%Y-%m-%d'),' 23:59:59')  ) and t1.`status` in ('resolved','closed') and t1.resolution in ('fixed','postponed')";
     java.util.List<JSONObject> entities=iBzSysTestreportDefaultService.select(strSql,param);//SQL调用
-    if(entities.size()>0){
+    if(entities.size()>0 && !ObjectUtils.isEmpty(entities.get(0))){
         JSONObject entity=entities.get(0);
         for (Map.Entry entry : entity.entrySet()) {
             testreportgetinfotesttaskovbytimedefault.set(String.valueOf(entry.getKey()),entry.getValue());
@@ -245,7 +245,7 @@ ruleflow-group "testreportgetinfotesttaskovbytimerawsqlcall2"
     param.put("param1",testreportgetinfotesttaskovbytimedefault.get("tasks"));
     String strSql="select COUNT(1) as casecnt from ( SELECT DISTINCT t1.* FROM `zt_case` t1  left join zt_testrun t11 on t1.id = t11.`case` WHERE  t1.`DELETED` = '0' AND FIND_IN_SET ( t1.ID, #{et.param0}) and FIND_IN_SET(t11.task ,#{et.param1}) )t";
     java.util.List<JSONObject> entities=iBzSysTestreportDefaultService.select(strSql,param);//SQL调用
-    if(entities.size()>0){
+    if(entities.size()>0 && !ObjectUtils.isEmpty(entities.get(0))){
         JSONObject entity=entities.get(0);
         for (Map.Entry entry : entity.entrySet()) {
             testreportgetinfotesttaskovbytimedefault.set(String.valueOf(entry.getKey()),entry.getValue());
@@ -265,7 +265,7 @@ ruleflow-group "testreportgetinfotesttaskovbytimerawsqlcall12"
     param.put("param2",testreportgetinfotesttaskovbytimedefault.get("end"));
     String strSql="SELECT COUNT(1) as bugcnt FROM `zt_bug` t1  where t1.OPENEDBUILD = (select build from  zt_testtask  where id = #{et.param0})  and t1.openedDate > #{et.param1}  and t1.openedDate < (select CONCAT( DATE_FORMAT( #{et.param2}, '%Y-%m-%d'),' 23:59:59') )";
     java.util.List<JSONObject> entities=iBzSysTestreportDefaultService.select(strSql,param);//SQL调用
-    if(entities.size()>0){
+    if(entities.size()>0 && !ObjectUtils.isEmpty(entities.get(0))){
         JSONObject entity=entities.get(0);
         for (Map.Entry entry : entity.entrySet()) {
             testreportgetinfotesttaskovbytimedefault.set(String.valueOf(entry.getKey()),entry.getValue());
@@ -286,7 +286,7 @@ ruleflow-group "testreportgetinfotesttaskovbytimerawsqlcall7"
     param.put("param3",testreportgetinfotesttaskovbytimedefault.get("end"));
     String strSql="SELECT COUNT(1) as ylbugcnt FROM `zt_bug` t1  where  t1.OPENEDBUILD = (select t.build from zt_testtask t  where t.id = #{et.param0})   and t1.openedDate > #{et.param1} and t1.openedDate < (select CONCAT( DATE_FORMAT( #{et.param2}, '%Y-%m-%d'),' 23:59:59')  ) and (t1.`status` = 'active' or t1.resolvedDate > #{et.param3})";
     java.util.List<JSONObject> entities=iBzSysTestreportDefaultService.select(strSql,param);//SQL调用
-    if(entities.size()>0){
+    if(entities.size()>0 && !ObjectUtils.isEmpty(entities.get(0))){
         JSONObject entity=entities.get(0);
         for (Map.Entry entry : entity.entrySet()) {
             testreportgetinfotesttaskovbytimedefault.set(String.valueOf(entry.getKey()),entry.getValue());

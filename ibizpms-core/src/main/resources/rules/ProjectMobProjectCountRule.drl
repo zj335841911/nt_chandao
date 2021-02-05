@@ -21,7 +21,7 @@ ruleflow-group "projectmobprojectcountrawsqlcall3"
     param.put("param0",projectmobprojectcountdefault.get("id"));
     String strSql="select count(t1.id) as BUGCNT from zt_bug t1 where t1.deleted = '0' and t1.project = #{et.param0}";
     java.util.List<JSONObject> entities=iBzSysProjectDefaultService.select(strSql,param);//SQL调用
-    if(entities.size()>0){
+    if(entities.size()>0 && !ObjectUtils.isEmpty(entities.get(0))){
         JSONObject entity=entities.get(0);
         for (Map.Entry entry : entity.entrySet()) {
             projectmobprojectcountdefault.set(String.valueOf(entry.getKey()),entry.getValue());
@@ -39,7 +39,7 @@ ruleflow-group "projectmobprojectcountrawsqlcall1"
     param.put("param0",projectmobprojectcountdefault.get("id"));
     String strSql="select count(t1.id) as STORYCNT from zt_story t1 where t1.deleted = '0' and t1.id in (select t.story from zt_projectstory t where t.project = #{et.param0})";
     java.util.List<JSONObject> entities=iBzSysProjectDefaultService.select(strSql,param);//SQL调用
-    if(entities.size()>0){
+    if(entities.size()>0 && !ObjectUtils.isEmpty(entities.get(0))){
         JSONObject entity=entities.get(0);
         for (Map.Entry entry : entity.entrySet()) {
             projectmobprojectcountdefault.set(String.valueOf(entry.getKey()),entry.getValue());
@@ -57,7 +57,7 @@ ruleflow-group "projectmobprojectcountrawsqlcall5"
     param.put("param0",projectmobprojectcountdefault.get("id"));
     String strSql="select count(t1.id) as TEAMCNT from zt_team t1 where t1.root = #{et.param0} and t1.type = 'project'";
     java.util.List<JSONObject> entities=iBzSysProjectDefaultService.select(strSql,param);//SQL调用
-    if(entities.size()>0){
+    if(entities.size()>0 && !ObjectUtils.isEmpty(entities.get(0))){
         JSONObject entity=entities.get(0);
         for (Map.Entry entry : entity.entrySet()) {
             projectmobprojectcountdefault.set(String.valueOf(entry.getKey()),entry.getValue());
@@ -75,7 +75,7 @@ ruleflow-group "projectmobprojectcountrawsqlcall4"
     param.put("param0",projectmobprojectcountdefault.get("id"));
     String strSql="select count(t1.id) as BUILDCNT from zt_build t1 where t1.deleted = '0' and t1.project = #{et.param0}";
     java.util.List<JSONObject> entities=iBzSysProjectDefaultService.select(strSql,param);//SQL调用
-    if(entities.size()>0){
+    if(entities.size()>0 && !ObjectUtils.isEmpty(entities.get(0))){
         JSONObject entity=entities.get(0);
         for (Map.Entry entry : entity.entrySet()) {
             projectmobprojectcountdefault.set(String.valueOf(entry.getKey()),entry.getValue());
@@ -100,7 +100,7 @@ ruleflow-group "projectmobprojectcountrawsqlcall2"
     param.put("param0",projectmobprojectcountdefault.get("id"));
     String strSql="select count(t1.id) as TASKCNT from zt_task t1 where t1.deleted = '0' and t1.project = #{et.param0} and `STATUS` in('doing','wait','pause')";
     java.util.List<JSONObject> entities=iBzSysProjectDefaultService.select(strSql,param);//SQL调用
-    if(entities.size()>0){
+    if(entities.size()>0 && !ObjectUtils.isEmpty(entities.get(0))){
         JSONObject entity=entities.get(0);
         for (Map.Entry entry : entity.entrySet()) {
             projectmobprojectcountdefault.set(String.valueOf(entry.getKey()),entry.getValue());

@@ -20,7 +20,7 @@ ruleflow-group "doclibmodulecuruserisfrawsqlcall2"
     Map param = null;
     String strSql="select 'module' as `DOCQTYPE` from dual";
     java.util.List<JSONObject> entities=iBzSysDoclibmoduleDefaultService.select(strSql,param);//SQL调用
-    if(entities.size()>0){
+    if(entities.size()>0 && !ObjectUtils.isEmpty(entities.get(0))){
         JSONObject entity=entities.get(0);
         for (Map.Entry entry : entity.entrySet()) {
             doclibmodulecuruserisfdefault.set(String.valueOf(entry.getKey()),entry.getValue());
@@ -39,7 +39,7 @@ ruleflow-group "doclibmodulecuruserisfrawsqlcall1"
     param.put("param1",doclibmodulecuruserisfdefault.get("collector"));
     String strSql="select ( CASE WHEN FIND_IN_SET( #{et.param0}, #{et.param1}) > 0 THEN 1 ELSE 0 END ) AS `ISFAVOURITES` from dual";
     java.util.List<JSONObject> entities=iBzSysDoclibmoduleDefaultService.select(strSql,param);//SQL调用
-    if(entities.size()>0){
+    if(entities.size()>0 && !ObjectUtils.isEmpty(entities.get(0))){
         JSONObject entity=entities.get(0);
         for (Map.Entry entry : entity.entrySet()) {
             doclibmodulecuruserisfdefault.set(String.valueOf(entry.getKey()),entry.getValue());

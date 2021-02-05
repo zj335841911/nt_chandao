@@ -22,7 +22,7 @@ ruleflow-group "docbyversionupdatecontextrawsqlcall1"
     param.put("param1",docbyversionupdatecontextdefault.get("id"));
     String strSql="select t.`content` as content from zt_doccontent t where t.`version` = #{et.param0} and t.`doc` = #{et.param1}";
     java.util.List<JSONObject> entities=iBzSysDocDefaultService.select(strSql,param);//SQL调用
-    if(entities.size()>0){
+    if(entities.size()>0 && !ObjectUtils.isEmpty(entities.get(0))){
         JSONObject entity=entities.get(0);
         for (Map.Entry entry : entity.entrySet()) {
             docbyversionupdatecontextdefault.set(String.valueOf(entry.getKey()),entry.getValue());

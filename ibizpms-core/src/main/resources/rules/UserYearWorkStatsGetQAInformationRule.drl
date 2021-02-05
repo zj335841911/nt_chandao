@@ -22,7 +22,7 @@ ruleflow-group "useryearworkstatsgetqainformationrawsqlcall4"
     param.put("param1",useryearworkstatsgetqainformationdefault.get("curyear"));
     String strSql="select count(1) as `YEARVISITS` from zt_action t where t.actor = #{et.param0} and t.action = 'login' and DATE_FORMAT(t.date,'%Y') = #{et.param1} ";
     java.util.List<JSONObject> entities=iBzSysUseryearworkstatsDefaultService.select(strSql,param);//SQL调用
-    if(entities.size()>0){
+    if(entities.size()>0 && !ObjectUtils.isEmpty(entities.get(0))){
         JSONObject entity=entities.get(0);
         for (Map.Entry entry : entity.entrySet()) {
             useryearworkstatsgetqainformationdefault.set(String.valueOf(entry.getKey()),entry.getValue());
@@ -41,7 +41,7 @@ ruleflow-group "useryearworkstatsgetqainformationrawsqlcall2"
     param.put("param1",useryearworkstatsgetqainformationdefault.get("curyear"));
     String strSql="select count(1)  as `YEARBUGCNT` from zt_bug t where t.product > 0 and t.openedBy = #{et.param0}  and DATE_FORMAT(t.openedDate,'%Y') = #{et.param1}";
     java.util.List<JSONObject> entities=iBzSysUseryearworkstatsDefaultService.select(strSql,param);//SQL调用
-    if(entities.size()>0){
+    if(entities.size()>0 && !ObjectUtils.isEmpty(entities.get(0))){
         JSONObject entity=entities.get(0);
         for (Map.Entry entry : entity.entrySet()) {
             useryearworkstatsgetqainformationdefault.set(String.valueOf(entry.getKey()),entry.getValue());
@@ -60,7 +60,7 @@ ruleflow-group "useryearworkstatsgetqainformationrawsqlcall3"
     param.put("param1",useryearworkstatsgetqainformationdefault.get("curyear"));
     String strSql="select count(1) as `YEARCASECNT` from zt_case t where t.product > 0 and t.openedBy = #{et.param0} and DATE_FORMAT(t.openedDate,'%Y') = #{et.param1}";
     java.util.List<JSONObject> entities=iBzSysUseryearworkstatsDefaultService.select(strSql,param);//SQL调用
-    if(entities.size()>0){
+    if(entities.size()>0 && !ObjectUtils.isEmpty(entities.get(0))){
         JSONObject entity=entities.get(0);
         for (Map.Entry entry : entity.entrySet()) {
             useryearworkstatsgetqainformationdefault.set(String.valueOf(entry.getKey()),entry.getValue());
@@ -86,7 +86,7 @@ ruleflow-group "useryearworkstatsgetqainformationrawsqlcall1"
     param.put("param1",useryearworkstatsgetqainformationdefault.get("curyear"));
     String strSql="select count(1)  as `YEARACTIONCNT` from zt_action t where t.actor = #{et.param0}  and DATE_FORMAT(t.date,'%Y') = #{et.param1}";
     java.util.List<JSONObject> entities=iBzSysUseryearworkstatsDefaultService.select(strSql,param);//SQL调用
-    if(entities.size()>0){
+    if(entities.size()>0 && !ObjectUtils.isEmpty(entities.get(0))){
         JSONObject entity=entities.get(0);
         for (Map.Entry entry : entity.entrySet()) {
             useryearworkstatsgetqainformationdefault.set(String.valueOf(entry.getKey()),entry.getValue());

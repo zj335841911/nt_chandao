@@ -31,7 +31,7 @@ ruleflow-group "todoresetbeginendrawsqlcall1"
     param.put("param3",todoresetbeginenddefault.get("end"));
     String strSql="select (case when #{et.param0} = '2030-01-01' then null else #{et.param1} end) as `BEGIN`,(case when #{et.param2} = '2030-01-01' then null else #{et.param3} end) as `END` from dual";
     java.util.List<JSONObject> entities=iBzSysTodoDefaultService.select(strSql,param);//SQL调用
-    if(entities.size()>0){
+    if(entities.size()>0 && !ObjectUtils.isEmpty(entities.get(0))){
         JSONObject entity=entities.get(0);
         for (Map.Entry entry : entity.entrySet()) {
             todoresetbeginenddefault.set(String.valueOf(entry.getKey()),entry.getValue());
