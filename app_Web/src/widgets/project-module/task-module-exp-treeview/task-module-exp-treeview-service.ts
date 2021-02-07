@@ -136,6 +136,15 @@ export default class TaskModuleExpService extends ControlService {
 	public TREENODE_PROJECTMODULE: string = 'ProjectModule';
 
     /**
+     * 产品非跟模块(动态)节点分隔符号
+     *
+     * @public
+     * @type {string}
+     * @memberof TaskModuleExpService
+     */
+	public TREENODE_PRODUCTNOTROOT: string = 'productNotRoot';
+
+    /**
      * 产品根模块（动态）节点分隔符号
      *
      * @public
@@ -254,6 +263,10 @@ export default class TaskModuleExpService extends ControlService {
         }
         if (Object.is(strNodeType, this.TREENODE_PROJECTMODULE)) {
             await this.fillProjectmoduleNodeChilds(context,filter, list);
+            return Promise.resolve({ status: 200, data: list });
+        }
+        if (Object.is(strNodeType, this.TREENODE_PRODUCTNOTROOT)) {
+            await this.fillProductnotrootNodeChilds(context,filter, list);
             return Promise.resolve({ status: 200, data: list });
         }
         if (Object.is(strNodeType, this.TREENODE_ROOTMODULE)) {
@@ -878,6 +891,169 @@ export default class TaskModuleExpService extends ControlService {
 	}
 
     /**
+     * 填充 树视图节点[产品非跟模块(动态)]
+     *
+     * @public
+     * @param {any{}} context     
+     * @param {*} filter
+     * @param {any[]} list
+     * @param {*} rsNavContext   
+     * @param {*} rsNavParams
+     * @param {*} rsParams
+     * @returns {Promise<any>}
+     * @memberof TaskModuleExpService
+     */
+    @Errorlog
+    public fillProductnotrootNodes(context:any={},filter: any, list: any[],rsNavContext?:any,rsNavParams?:any,rsParams?:any): Promise<any> {
+        context = this.handleResNavContext(context,filter,rsNavContext);
+        filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
+        return new Promise((resolve:any,reject:any) =>{
+            let searchFilter: any = {};
+            if (Object.is(filter.strNodeType, this.TREENODE_PRODUCTNOTROOT)) {
+                Object.assign(searchFilter, { n_parent_eq: filter.nodeid });
+            }
+
+            if (Object.is(filter.strNodeType, this.TREENODE_ROOT_NOBRANCH)) {
+                Object.assign(searchFilter, { n_parent_eq: filter.nodeid });
+            }
+
+            if (Object.is(filter.strNodeType, this.TREENODE_ROOTMODULE)) {
+                Object.assign(searchFilter, { n_parent_eq: filter.nodeid });
+            }
+
+            Object.assign(searchFilter, { total: false });
+            let bFirst: boolean = true;
+            let records: any[] = [];
+            try {
+                this.searchProductnotroot(context, searchFilter, filter).then((records:any) =>{
+                    if(records && records.length >0){
+                        records.forEach((entity: any) => {
+                        let treeNode: any = {};
+                        // 整理context
+                        let strId: string = entity.id;
+                        let strText: string = entity.name;
+                        Object.assign(treeNode,{srfparentdename:'ProjectModule',srfparentkey:entity.id});
+                        let tempContext:any = JSON.parse(JSON.stringify(context));
+                        Object.assign(tempContext,{srfparentdename:'ProjectModule',srfparentkey:entity.id,projectmodule:strId})
+                        Object.assign(treeNode,{srfappctx:tempContext});
+                        Object.assign(treeNode,{'projectmodule':strId});
+                        Object.assign(treeNode, { srfkey: strId });
+                        Object.assign(treeNode, { text: strText, srfmajortext: strText });
+                        let strNodeId: string = 'productNotRoot';
+                        strNodeId += this.TREENODE_SEPARATOR;
+                        strNodeId += strId;
+                        Object.assign(treeNode, { id: strNodeId });
+                        Object.assign(treeNode, { expanded: filter.isautoexpand });
+                        Object.assign(treeNode, { leaf: false });
+                        let objLeafFlag = entity.isleaf;
+                        if (objLeafFlag != null ) {
+                            let strLeafFlag: string = objLeafFlag.toString().toLowerCase();
+                            if (Object.is(strLeafFlag, '1') || Object.is(strLeafFlag, 'true')){
+                                Object.assign(treeNode, { leaf: true });
+                            }
+                        }
+                        Object.assign(treeNode, { navfilter: "n_parent_eq" });
+                        Object.assign(treeNode, { curData: entity });
+                        Object.assign(treeNode, { nodeid: treeNode.srfkey });
+                        Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+                        Object.assign(treeNode, { nodeType: "DE",appEntityName:"projectmodule" });
+                        list.push(treeNode);
+                        resolve(list);
+                        bFirst = false;
+                    });
+                    }else{
+                        resolve(list);
+                    }
+                });
+            } catch (error) {
+                console.error(error);
+            }
+        });
+
+	}
+
+    /**
+     * 获取查询集合
+     *
+     * @public
+     * @param {any{}} context     
+     * @param {*} searchFilter
+     * @param {*} filter
+     * @returns {any[]}
+     * @memberof TestEnetityDatasService
+     */
+    @Errorlog
+    public searchProductnotroot(context:any={}, searchFilter: any, filter: any): Promise<any> {
+        return new Promise((resolve:any,reject:any) =>{
+            if(filter.viewparams){
+                Object.assign(searchFilter,filter.viewparams);
+            }
+            if(!searchFilter.page){
+                Object.assign(searchFilter,{page:0});
+            }
+            if(!searchFilter.size){
+                Object.assign(searchFilter,{size:1000});
+            }
+            if(context && context.srfparentdename){
+                Object.assign(searchFilter,{srfparentdename:JSON.parse(JSON.stringify(context)).srfparentdename});
+            }
+            if(context && context.srfparentkey){
+                Object.assign(searchFilter,{srfparentkey:JSON.parse(JSON.stringify(context)).srfparentkey});
+            }
+            const _appEntityService: any = this.appEntityService;
+            let list: any[] = [];
+            if (_appEntityService['FetchDefault'] && _appEntityService['FetchDefault'] instanceof Function) {
+                const response: Promise<any> = _appEntityService['FetchDefault'](context, searchFilter, false);
+                response.then((response: any) => {
+                    if (!response.status || response.status !== 200) {
+                        resolve([]);
+                        console.log(JSON.stringify(context));
+                        console.error('查询FetchDefault数据集异常!');
+                    }
+                    const data: any = response.data;
+                    if (Object.keys(data).length > 0) {
+                        list = JSON.parse(JSON.stringify(data));
+                        resolve(list);
+                    } else {
+                        resolve([]);
+                    }
+                }).catch((response: any) => {
+                        resolve([]);
+                        console.log(JSON.stringify(context));
+                        console.error('查询FetchDefault数据集异常!');
+                });
+            }
+        })
+    }
+
+    /**
+     * 填充 树视图节点[产品非跟模块(动态)]子节点
+     *
+     * @public
+     * @param {any{}} context         
+     * @param {*} filter
+     * @param {any[]} list
+     * @returns {Promise<any>}
+     * @memberof TaskModuleExpService
+     */
+    @Errorlog
+    public async fillProductnotrootNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
+		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
+			// 填充产品非跟模块(动态)
+            let ProductnotrootRsNavContext:any = {};
+            let ProductnotrootRsNavParams:any = {};
+            let ProductnotrootRsParams:any = {};
+			await this.fillProductnotrootNodes(context, filter, list ,ProductnotrootRsNavContext,ProductnotrootRsNavParams,ProductnotrootRsParams);
+		} else {
+			// 填充产品非跟模块(动态)
+            let ProductnotrootRsNavContext:any = {};
+            let ProductnotrootRsNavParams:any = {};
+            let ProductnotrootRsParams:any = {};
+			await this.fillProductnotrootNodes(context, filter, list ,ProductnotrootRsNavContext,ProductnotrootRsNavParams,ProductnotrootRsParams);
+		}
+	}
+
+    /**
      * 填充 树视图节点[产品根模块（动态）]
      *
      * @public
@@ -1025,12 +1201,22 @@ export default class TaskModuleExpService extends ControlService {
             let ModuleRsNavParams:any = {};
             let ModuleRsParams:any = {};
 			await this.fillModuleNodes(context, filter, list ,ModuleRsNavContext,ModuleRsNavParams,ModuleRsParams);
+			// 填充产品非跟模块(动态)
+            let ProductnotrootRsNavContext:any = {};
+            let ProductnotrootRsNavParams:any = {};
+            let ProductnotrootRsParams:any = {};
+			await this.fillProductnotrootNodes(context, filter, list ,ProductnotrootRsNavContext,ProductnotrootRsNavParams,ProductnotrootRsParams);
 		} else {
 			// 填充非根模块（动态）
             let ModuleRsNavContext:any = {};
             let ModuleRsNavParams:any = {};
             let ModuleRsParams:any = {};
 			await this.fillModuleNodes(context, filter, list ,ModuleRsNavContext,ModuleRsNavParams,ModuleRsParams);
+			// 填充产品非跟模块(动态)
+            let ProductnotrootRsNavContext:any = {};
+            let ProductnotrootRsNavParams:any = {};
+            let ProductnotrootRsParams:any = {};
+			await this.fillProductnotrootNodes(context, filter, list ,ProductnotrootRsNavContext,ProductnotrootRsNavParams,ProductnotrootRsParams);
 		}
 	}
 
@@ -1350,12 +1536,22 @@ export default class TaskModuleExpService extends ControlService {
             let ModuleRsNavParams:any = {};
             let ModuleRsParams:any = {};
 			await this.fillModuleNodes(context, filter, list ,ModuleRsNavContext,ModuleRsNavParams,ModuleRsParams);
+			// 填充产品非跟模块(动态)
+            let ProductnotrootRsNavContext:any = {};
+            let ProductnotrootRsNavParams:any = {};
+            let ProductnotrootRsParams:any = {};
+			await this.fillProductnotrootNodes(context, filter, list ,ProductnotrootRsNavContext,ProductnotrootRsNavParams,ProductnotrootRsParams);
 		} else {
 			// 填充非根模块（动态）
             let ModuleRsNavContext:any = {};
             let ModuleRsNavParams:any = {};
             let ModuleRsParams:any = {};
 			await this.fillModuleNodes(context, filter, list ,ModuleRsNavContext,ModuleRsNavParams,ModuleRsParams);
+			// 填充产品非跟模块(动态)
+            let ProductnotrootRsNavContext:any = {};
+            let ProductnotrootRsNavParams:any = {};
+            let ProductnotrootRsParams:any = {};
+			await this.fillProductnotrootNodes(context, filter, list ,ProductnotrootRsNavContext,ProductnotrootRsNavParams,ProductnotrootRsParams);
 		}
 	}
 

@@ -129,6 +129,13 @@ export class TaskTreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarControlBa
                 deKeyField:'task'
 			};
         }
+        if (Object.is(expmode, 'PRODUCTNOTROOT')) {
+            return {  
+                viewname: 'task-main-grid-view-by-module', 
+                parentdata: {"srfparentdefname":"n_parent_eq"},
+                deKeyField:'task'
+			};
+        }
         if (Object.is(expmode, 'ROOTMODULE')) {
             return {  
                 viewname: 'task-main-grid-view-by-module', 
