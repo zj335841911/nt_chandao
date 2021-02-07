@@ -65,6 +65,20 @@ export class TaskTaskTypeGanttViewBase extends GanttViewBase {
      */
     public appUIService: TaskUIService = new TaskUIService(this.$store);
 
+	/**
+	 * 自定义视图导航参数集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof TaskTaskTypeGanttViewBase
+	 */
+    protected customViewParams: any = {
+        'project': {
+            isRawValue: false,
+            value: 'project',
+        }
+    };
+
     /**
      * 视图模型数据
      *
