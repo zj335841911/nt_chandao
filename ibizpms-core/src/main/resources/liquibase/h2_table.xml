@@ -3254,10 +3254,10 @@
        <addForeignKeyConstraint baseColumnNames="PARENT" baseTableName="zt_project" constraintName="DER1N__ZT_PROJECT__ZT_PROJECT_" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_project" validate="true"/>
     </changeSet>
         <!--输出实体[IBZ_PROJECTMODULE]外键关系 -->
-    <changeSet author="zentao" id="fk-ibz_projectmodule-7-201">
+    <changeSet author="zentao" id="fk-ibz_projectmodule-8-201">
        <addForeignKeyConstraint baseColumnNames="PARENT" baseTableName="zt_module" constraintName="DER1N_IBZ_PROJECTMODULE_IBZ_PR" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_module" validate="true"/>
     </changeSet>
-    <changeSet author="zentao" id="fk-ibz_projectmodule-7-202">
+    <changeSet author="zentao" id="fk-ibz_projectmodule-8-202">
        <addForeignKeyConstraint baseColumnNames="ROOT" baseTableName="zt_module" constraintName="DER1N_IBZ_PROJECTMODULE_ZT_PRO" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="ID" referencedTableName="zt_project" validate="true"/>
     </changeSet>
         <!--输出实体[ZT_PROJECTPRODUCT]外键关系 -->

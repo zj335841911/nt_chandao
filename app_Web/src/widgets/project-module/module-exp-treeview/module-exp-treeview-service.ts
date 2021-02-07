@@ -662,22 +662,12 @@ export default class ModuleExpService extends ControlService {
     @Errorlog
     public async fillModule2NodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
 		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
-			// 填充项目非根模块（动态）
-            let ModuleRsNavContext:any = {};
-            let ModuleRsNavParams:any = {};
-            let ModuleRsParams:any = {};
-			await this.fillModuleNodes(context, filter, list ,ModuleRsNavContext,ModuleRsNavParams,ModuleRsParams);
 			// 填充产品非根模块（动态）
             let Module2RsNavContext:any = {};
             let Module2RsNavParams:any = {};
             let Module2RsParams:any = {};
 			await this.fillModule2Nodes(context, filter, list ,Module2RsNavContext,Module2RsNavParams,Module2RsParams);
 		} else {
-			// 填充项目非根模块（动态）
-            let ModuleRsNavContext:any = {};
-            let ModuleRsNavParams:any = {};
-            let ModuleRsParams:any = {};
-			await this.fillModuleNodes(context, filter, list ,ModuleRsNavContext,ModuleRsNavParams,ModuleRsParams);
 			// 填充产品非根模块（动态）
             let Module2RsNavContext:any = {};
             let Module2RsNavParams:any = {};
@@ -868,14 +858,6 @@ export default class ModuleExpService extends ControlService {
             }
 
             if (Object.is(filter.strNodeType, this.TREENODE_PROJECTMODULE)) {
-                Object.assign(searchFilter, { n_parent_eq: filter.nodeid });
-            }
-
-            if (Object.is(filter.strNodeType, this.TREENODE_MODULE2)) {
-                Object.assign(searchFilter, { n_parent_eq: filter.nodeid });
-            }
-
-            if (Object.is(filter.strNodeType, this.TREENODE_ROOTMODULE)) {
                 Object.assign(searchFilter, { n_parent_eq: filter.nodeid });
             }
 
@@ -1153,22 +1135,12 @@ export default class ModuleExpService extends ControlService {
     @Errorlog
     public async fillRootmoduleNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
 		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
-			// 填充项目非根模块（动态）
-            let ModuleRsNavContext:any = {};
-            let ModuleRsNavParams:any = {};
-            let ModuleRsParams:any = {};
-			await this.fillModuleNodes(context, filter, list ,ModuleRsNavContext,ModuleRsNavParams,ModuleRsParams);
 			// 填充产品非根模块（动态）
             let Module2RsNavContext:any = {};
             let Module2RsNavParams:any = {};
             let Module2RsParams:any = {};
 			await this.fillModule2Nodes(context, filter, list ,Module2RsNavContext,Module2RsNavParams,Module2RsParams);
 		} else {
-			// 填充项目非根模块（动态）
-            let ModuleRsNavContext:any = {};
-            let ModuleRsNavParams:any = {};
-            let ModuleRsParams:any = {};
-			await this.fillModuleNodes(context, filter, list ,ModuleRsNavContext,ModuleRsNavParams,ModuleRsParams);
 			// 填充产品非根模块（动态）
             let Module2RsNavContext:any = {};
             let Module2RsNavParams:any = {};
