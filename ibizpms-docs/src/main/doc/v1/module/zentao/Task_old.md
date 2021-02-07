@@ -1362,6 +1362,7 @@ hide footbox
 |ThisWeekCompleteTaskZS|本周完成的任务(汇报)([MYSQL5](../../appendix/query_MYSQL5.md#Task_ThisWeekCompleteTaskZS))|否|&nbsp;|
 |TodoListTask|todo列表查询([MYSQL5](../../appendix/query_MYSQL5.md#Task_TodoListTask))|否|&nbsp;|
 |TypeGroup|任务类型分组([MYSQL5](../../appendix/query_MYSQL5.md#Task_TypeGroup))|否|&nbsp;|
+|TypeGroupPlan|任务类型分组（计划）([MYSQL5](../../appendix/query_MYSQL5.md#Task_TypeGroupPlan))|否|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#Task_View))|否|&nbsp;|
 
 * **数据集合**
@@ -1404,6 +1405,7 @@ hide footbox
 |ThisWeekCompleteTaskZS|本周完成的任务(汇报)|ThisWeekCompleteTaskZS|否|&nbsp;|
 |TodoListTask|todo列表查询|TodoListTask|否|&nbsp;|
 |TypeGroup|任务类型分组|TypeGroup|否|&nbsp;|
+|TypeGroupPlan|任务类型分组（计划）|TypeGroupPlan|否|&nbsp;|
 
 ## 查询模式
 | 属性      |    搜索模式     |

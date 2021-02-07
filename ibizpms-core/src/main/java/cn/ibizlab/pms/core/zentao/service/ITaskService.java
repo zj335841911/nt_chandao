@@ -128,6 +128,7 @@ public interface ITaskService extends IService<Task> {
     Page<Task> searchThisWeekCompleteTaskZS(TaskSearchContext context);
     Page<Task> searchTodoListTask(TaskSearchContext context);
     Page<Map> searchTypeGroup(TaskSearchContext context);
+    Page<Map> searchTypeGroupPlan(TaskSearchContext context);
     List<Task> selectByModule(Long id);
     void removeByModule(Long id);
     List<Task> selectByFrombug(Long id);

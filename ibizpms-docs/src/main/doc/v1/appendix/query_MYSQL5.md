@@ -20230,6 +20230,57 @@ WHERE
 	WHERE
 	t1.DELETED = '0'  t1.project = #{srf.datacontext.project}
 ```
+### 任务类型分组（计划）(TypeGroupPlan)<div id="Task_TypeGroupPlan"></div>
+```sql
+SELECT
+	(
+SELECT
+	MIN( ESTSTARTED ) 
+FROM
+	`zt_task` 
+WHERE
+	DELETED = '0' 
+	AND TYPE = t1.`TYPE` 
+	AND plan = t1.plan
+	AND ESTSTARTED <> '0000-00-00' 
+	AND estStarted <> '0002-11-30' 
+	AND estStarted <> '1970-01-01' 
+	) AS `ESTSTARTED`,
+	(
+SELECT
+	MAX( DEADLINE ) 
+FROM
+	`zt_task` 
+WHERE
+	DELETED = '0' 
+	AND TYPE = t1.`TYPE` 
+	AND plan = t1.plan
+	AND DEADLINE <> '0000-00-00' 
+	AND estStarted <> '0002-11-30' 
+	AND estStarted <> '1970-01-01' 
+	) AS `DEADLINE`,
+	(
+SELECT
+	DATEDIFF( MAX( DEADLINE ), MIN( ESTSTARTED ) ) + 1 
+FROM
+	`zt_task` 
+WHERE
+	DELETED = '0' 
+	AND TYPE = t1.`TYPE` 
+	AND plan = t1.plan
+	AND ESTSTARTED <> '0000-00-00' 
+	AND DEADLINE <> '0000-00-00' 
+	AND estStarted <> '0002-11-30' 
+	AND estStarted <> '1970-01-01' 
+	) AS `DURATION`,
+	t1.`TYPE`,
+	t1.`PLAN`,
+	t1.project
+	FROM
+		`zt_task` t1
+	WHERE
+	t1.DELETED = '0' and t1.plan =  #{srf.datacontext.n_plan_eq}
+```
 ### 默认（全部数据）(VIEW)<div id="Task_View"></div>
 ```sql
 SELECT
