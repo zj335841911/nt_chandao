@@ -35,6 +35,7 @@ function getLocaleResourceBase(){
 			comment: commonLogic.appcommonhandle("备注",null),
 			leftestimate: commonLogic.appcommonhandle("剩余工时",null),
 			consumedestimate: commonLogic.appcommonhandle("消耗工时",null),
+			isleaf: commonLogic.appcommonhandle("叶子节点",null),
 		},
 			views: {
 				subplaneditview: {

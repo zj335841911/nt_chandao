@@ -121,6 +121,25 @@ public class PRODUCTTEAMResource {
         return  ResponseEntity.status(HttpStatus.OK).body(productteamService.checkKey(productteamMapping.toDomain(productteamdto)));
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-PRODUCTTEAM-ProductTeamGuoLv-all')")
+    @ApiOperation(value = "PmsEe团队管理过滤", tags = {"产品团队" },  notes = "PmsEe团队管理过滤")
+	@RequestMapping(method = RequestMethod.POST, value = "/productteams/{productteam_id}/productteamguolv")
+    public ResponseEntity<PRODUCTTEAMDTO> productTeamGuoLv(@PathVariable("productteam_id") Long productteam_id, @RequestBody PRODUCTTEAMDTO productteamdto) {
+        PRODUCTTEAM domain = productteamMapping.toDomain(productteamdto);
+        domain.setId(productteam_id);
+        domain = productteamService.productTeamGuoLv(domain);
+        productteamdto = productteamMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(productteamdto);
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-PRODUCTTEAM-ProductTeamGuoLv-all')")
+    @ApiOperation(value = "批量处理[PmsEe团队管理过滤]", tags = {"产品团队" },  notes = "批量处理[PmsEe团队管理过滤]")
+	@RequestMapping(method = RequestMethod.POST, value = "/productteams/productteamguolvbatch")
+    public ResponseEntity<Boolean> productTeamGuoLvBatch(@RequestBody List<PRODUCTTEAMDTO> productteamdtos) {
+        List<PRODUCTTEAM> domains = productteamMapping.toDomain(productteamdtos);
+        boolean result = productteamService.productTeamGuoLvBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-PRODUCTTEAM-Save-all')")
     @ApiOperation(value = "保存产品团队", tags = {"产品团队" },  notes = "保存产品团队")
 	@RequestMapping(method = RequestMethod.POST, value = "/productteams/save")
@@ -311,6 +330,23 @@ public class PRODUCTTEAMResource {
         return  ResponseEntity.status(HttpStatus.OK).body(productteamService.checkKey(productteamMapping.toDomain(productteamdto)));
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-PRODUCTTEAM-ProductTeamGuoLv-all')")
+    @ApiOperation(value = "根据产品产品团队", tags = {"产品团队" },  notes = "根据产品产品团队")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productteams/{productteam_id}/productteamguolv")
+    public ResponseEntity<PRODUCTTEAMDTO> productTeamGuoLvByProduct(@PathVariable("product_id") Long product_id, @PathVariable("productteam_id") Long productteam_id, @RequestBody PRODUCTTEAMDTO productteamdto) {
+        PRODUCTTEAM domain = productteamMapping.toDomain(productteamdto);
+        domain.setRoot(product_id);
+        domain = productteamService.productTeamGuoLv(domain) ;
+        productteamdto = productteamMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(productteamdto);
+    }
+    @ApiOperation(value = "批量处理[根据产品产品团队]", tags = {"产品团队" },  notes = "批量处理[根据产品产品团队]")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productteams/productteamguolvbatch")
+    public ResponseEntity<Boolean> productTeamGuoLvByProduct(@PathVariable("product_id") Long product_id, @RequestBody List<PRODUCTTEAMDTO> productteamdtos) {
+        List<PRODUCTTEAM> domains = productteamMapping.toDomain(productteamdtos);
+        boolean result = productteamService.productTeamGuoLvBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
+    }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-PRODUCTTEAM-Save-all')")
     @ApiOperation(value = "根据产品保存产品团队", tags = {"产品团队" },  notes = "根据产品保存产品团队")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productteams/save")

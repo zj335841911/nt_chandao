@@ -261,4 +261,12 @@ export interface SubProductPlan {
      * @memberof SubProductPlan
      */
     consumedestimate?: any;
+
+    /**
+     * 叶子节点
+     *
+     * @returns {*}
+     * @memberof SubProductPlan
+     */
+    isleaf?: any;
 }

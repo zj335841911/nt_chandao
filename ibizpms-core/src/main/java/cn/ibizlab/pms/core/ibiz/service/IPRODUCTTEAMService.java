@@ -44,6 +44,8 @@ public interface IPRODUCTTEAMService extends IService<PRODUCTTEAM> {
     PRODUCTTEAM get(Long key);
     PRODUCTTEAM getDraft(PRODUCTTEAM et);
     boolean checkKey(PRODUCTTEAM et);
+    PRODUCTTEAM productTeamGuoLv(PRODUCTTEAM et);
+    boolean productTeamGuoLvBatch(List<PRODUCTTEAM> etList);
     boolean save(PRODUCTTEAM et);
     void saveBatch(List<PRODUCTTEAM> list);
     Page<PRODUCTTEAM> searchDefault(PRODUCTTEAMSearchContext context);

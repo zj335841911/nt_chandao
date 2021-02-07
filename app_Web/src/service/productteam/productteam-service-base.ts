@@ -209,6 +209,27 @@ export default class PRODUCTTEAMServiceBase extends EntityService {
     }
 
     /**
+     * ProductTeamGuoLv接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof PRODUCTTEAMServiceBase
+     */
+    public async ProductTeamGuoLv(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productteam){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productteams/${context.productteam}/productteamguolv`,data,isloading);
+            
+            return res;
+        }
+            let res:any = Http.getInstance().post(`/productteams/${context.productteam}/productteamguolv`,data,isloading);
+            return res;
+    }
+
+    /**
      * Save接口方法
      *
      * @param {*} [context={}]

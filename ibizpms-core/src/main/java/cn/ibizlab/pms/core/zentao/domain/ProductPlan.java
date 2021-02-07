@@ -278,6 +278,13 @@ public class ProductPlan extends EntityMP implements Serializable {
     @JSONField(name = "consumedestimate")
     @JsonProperty("consumedestimate")
     private Double consumedestimate;
+    /**
+     * 叶子节点
+     */
+    @TableField(exist = false)
+    @JSONField(name = "isleaf")
+    @JsonProperty("isleaf")
+    private Integer isleaf;
 
     /**
      * 

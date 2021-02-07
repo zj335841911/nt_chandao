@@ -309,6 +309,14 @@ public class ProductPlanDTO extends DTOBase implements Serializable {
     @JsonProperty("consumedestimate")
     private Double consumedestimate;
 
+    /**
+     * 属性 [ISLEAF]
+     *
+     */
+    @JSONField(name = "isleaf")
+    @JsonProperty("isleaf")
+    private Integer isleaf;
+
 
     /**
      * 设置 [TITLE]

@@ -123,6 +123,21 @@ public class PRODUCTTEAMServiceImpl extends ServiceImpl<PRODUCTTEAMMapper, PRODU
     }
     @Override
     @Transactional
+    public PRODUCTTEAM productTeamGuoLv(PRODUCTTEAM et) {
+        //自定义代码
+        return et;
+    }
+   @Override
+    @Transactional
+    public boolean productTeamGuoLvBatch(List<PRODUCTTEAM> etList) {
+        for(PRODUCTTEAM et : etList) {
+            productTeamGuoLv(et);
+        }
+        return true;
+    }
+
+    @Override
+    @Transactional
     public boolean save(PRODUCTTEAM et) {
         if (!saveOrUpdate(et)) {
             return false;
