@@ -13686,6 +13686,9 @@ WHERE t1.DELETED = '0'
 ### 项目计划列表(ProjectPlan)<div id="ProductPlan_ProjectPlan"></div>
 ```sql
 SELECT
+case when t1.`end` is null or t1.`end` = '0000-00-00' or t1.`end` = '1970-01-01' then '' when t1.`status` in('wait','doing') and t1.`end` < DATE_FORMAT(NOW(),'%Y-%m-%d') then CONCAT('','延期',TO_DAYS(NOW()) - TO_DAYS(t1.`end`),'天') ELSE '' end as delay,
+	t1.`BEGIN`,
+	( CASE WHEN t1.`begin` = '2030-01-01' THEN '待定' ELSE t1.`begin` END ) AS `BEGINSTR`,
 	t1.`BEGIN`,
 (case when t1.`begin` = '2030-01-01' then '待定' else t1.`begin` end) AS `BEGINSTR`,
 	t1.`BRANCH`,
