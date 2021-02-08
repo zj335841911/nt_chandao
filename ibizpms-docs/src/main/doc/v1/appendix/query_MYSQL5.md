@@ -19620,6 +19620,7 @@ t1.`TASKSPECIES`,
 t61.`TITLE` AS `PLANNAME` FROM `zt_task` t1  LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID  LEFT JOIN zt_story t21 ON t1.STORY = t21.ID  LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID  LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID  LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID LEFT JOIN `zt_productplan` t61 ON t1.`PLAN` = t61.`ID`
 WHERE t1.DELETED = '0' 
 ( t1.`ASSIGNEDTO` =  #{srf.sessioncontext.srfloginname} ) 
+t1.parent <= 0 
 
 ```
 ### 指派给我任务（PC）(AssignedToMyTaskPc)<div id="Task_AssignedToMyTaskPc"></div>
@@ -19773,6 +19774,7 @@ t1.`TASKSPECIES`,
 t61.`TITLE` AS `PLANNAME` FROM `zt_task` t1  LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID  LEFT JOIN zt_story t21 ON t1.STORY = t21.ID  LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID  LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID  LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID LEFT JOIN `zt_productplan` t61 ON t1.`PLAN` = t61.`ID`
 WHERE t1.DELETED = '0' 
 t1.assignedTo = #{srf.sessioncontext.srfloginname} or t1.openedBy =#{srf.sessioncontext.srfloginname}  or FIND_IN_SET(#{srf.sessioncontext.srfloginname}, t1.finishedList) or t1.closedBy = #{srf.sessioncontext.srfloginname} or t1.finishedBy = #{srf.sessioncontext.srfloginname} or t1.canceledBy = #{srf.sessioncontext.srfloginname} 
+t1.parent <= 0 
 
 ```
 ### 我完成的任务（汇报）(MyCompleteTask)<div id="Task_MyCompleteTask"></div>
@@ -21524,6 +21526,7 @@ t1.`BEGIN`,
 t1.`CLOSEDBY`,
 t1.`CLOSEDDATE`,
 t1.`CONFIG`,
+t1.`COST`,
 t1.`CYCLE`,
 t1.`DATE`,
 (case when t1.`DATE` = '2030-01-01' then '待定' else t1.`DATE` end) AS `DATE1`,

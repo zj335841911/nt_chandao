@@ -329,6 +329,14 @@ public class TodoDTO extends DTOBase implements Serializable {
     @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
     private String config;
 
+    /**
+     * 属性 [COST]
+     *
+     */
+    @JSONField(name = "cost")
+    @JsonProperty("cost")
+    private Integer cost;
+
 
     /**
      * 设置 [CLOSEDDATE]
@@ -480,6 +488,14 @@ public class TodoDTO extends DTOBase implements Serializable {
     public void setConfig(String  config){
         this.config = config ;
         this.modify("config",config);
+    }
+
+    /**
+     * 设置 [COST]
+     */
+    public void setCost(Integer  cost){
+        this.cost = cost ;
+        this.modify("cost",cost);
     }
 
 

@@ -300,6 +300,13 @@ public class Todo extends EntityMP implements Serializable {
     @JSONField(name = "config")
     @JsonProperty("config")
     private String config;
+    /**
+     * 费用
+     */
+    @TableField(value = "`cost`")
+    @JSONField(name = "cost")
+    @JsonProperty("cost")
+    private Integer cost;
 
 
 
@@ -493,6 +500,14 @@ public class Todo extends EntityMP implements Serializable {
     public void setConfig(String config) {
         this.config = config;
         this.modify("config", config);
+    }
+
+    /**
+     * 设置 [费用]
+     */
+    public void setCost(Integer cost) {
+        this.cost = cost;
+        this.modify("cost", cost);
     }
 
 

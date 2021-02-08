@@ -117,6 +117,9 @@ export default class MainModel {
       {
         name: 'config',
       },
+      {
+        name: 'cost',
+      },
     ]
   }
 

@@ -117,6 +117,9 @@ export default class TodoDescModel {
       {
         name: 'config',
       },
+      {
+        name: 'cost',
+      },
     ]
   }
 

@@ -117,6 +117,9 @@ export default class TodoBaseModel {
       {
         name: 'config',
       },
+      {
+        name: 'cost',
+      },
     ]
   }
 
