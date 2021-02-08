@@ -656,6 +656,11 @@ export default class TaskModuleExpService extends ControlService {
             let BranchsRsNavParams:any = {};
             let BranchsRsParams:any = {};
 			await this.fillBranchsNodes(context, filter, list ,BranchsRsNavContext,BranchsRsNavParams,BranchsRsParams);
+			// 填充产品根模块（动态）
+            let RootmoduleRsNavContext:any = {"PRODUCT":{"isRawValue":false,"value":"projectproduct"}};
+            let RootmoduleRsNavParams:any = {};
+            let RootmoduleRsParams:any = {};
+			await this.fillRootmoduleNodes(context, filter, list ,RootmoduleRsNavContext,RootmoduleRsNavParams,RootmoduleRsParams);
 		} else {
 			// 填充产品根模块无分支（动态）
             let Root_nobranchRsNavContext:any = {"PRODUCT":{"isRawValue":false,"value":"projectproduct"}};
@@ -667,6 +672,11 @@ export default class TaskModuleExpService extends ControlService {
             let BranchsRsNavParams:any = {};
             let BranchsRsParams:any = {};
 			await this.fillBranchsNodes(context, filter, list ,BranchsRsNavContext,BranchsRsNavParams,BranchsRsParams);
+			// 填充产品根模块（动态）
+            let RootmoduleRsNavContext:any = {"PRODUCT":{"isRawValue":false,"value":"projectproduct"}};
+            let RootmoduleRsNavParams:any = {};
+            let RootmoduleRsParams:any = {};
+			await this.fillRootmoduleNodes(context, filter, list ,RootmoduleRsNavContext,RootmoduleRsNavParams,RootmoduleRsParams);
 		}
 	}
 
