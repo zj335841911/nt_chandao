@@ -12,40 +12,40 @@ hide members
 
 | 属性名称        |    中文名称    | 类型     |  备注  |
 | --------   |------------| -----   |  -------- | 
-|主键|ID|ACID|&nbsp;|
 |任务名|NAME|TEXT|&nbsp;|
 |任务数|TASKCNT|INT|&nbsp;|
-|项目编号|PROJECT|PICKUP|&nbsp;|
-|项目|PROJECTNAME|PICKUPTEXT|&nbsp;|
-|总任务数|TOTALTASKCNT|INT|&nbsp;|
-|总工时|TOTALLEFT|INT|&nbsp;|
-|剩余工时|LEFT|INT|&nbsp;|
-|工作负载|WORKLOAD|TEXT|&nbsp;|
-|指派给|ASSIGNEDTO|SSCODELIST|&nbsp;|
 |部门|DEPT|SSCODELIST|&nbsp;|
-|属性|BEGIN|DATE|&nbsp;|
-|结束|END|DATE|&nbsp;|
+|主键|ID|ACID|&nbsp;|
 |工作日天数|WORKDAY|INT|&nbsp;|
+|总任务数|TOTALTASKCNT|INT|&nbsp;|
+|指派给|ASSIGNEDTO|SSCODELIST|&nbsp;|
+|剩余工时|LEFT|INT|&nbsp;|
 |是否指派|ASSIGN|TEXT|&nbsp;|
+|属性|BEGIN|DATE|&nbsp;|
+|总工时|TOTALLEFT|INT|&nbsp;|
+|工作负载|WORKLOAD|TEXT|&nbsp;|
+|结束|END|DATE|&nbsp;|
+|项目|PROJECTNAME|PICKUPTEXT|&nbsp;|
+|项目编号|PROJECT|PICKUP|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
 | --------   |------------| ----- | 
-|主键|默认规则|默认规则|
 |任务名|默认规则|内容长度必须小于等于[100]|
 |任务数|默认规则|默认规则|
-|项目编号|默认规则|默认规则|
-|项目|默认规则|内容长度必须小于等于[90]|
-|总任务数|默认规则|默认规则|
-|总工时|默认规则|默认规则|
-|剩余工时|默认规则|默认规则|
-|工作负载|默认规则|内容长度必须小于等于[200]|
-|指派给|默认规则|内容长度必须小于等于[100]|
 |部门|默认规则|内容长度必须小于等于[200]|
-|属性|默认规则|默认规则|
-|结束|默认规则|默认规则|
+|主键|默认规则|默认规则|
 |工作日天数|默认规则|默认规则|
+|总任务数|默认规则|默认规则|
+|指派给|默认规则|内容长度必须小于等于[100]|
+|剩余工时|默认规则|默认规则|
 |是否指派|默认规则|内容长度必须小于等于[100]|
+|属性|默认规则|默认规则|
+|总工时|默认规则|默认规则|
+|工作负载|默认规则|内容长度必须小于等于[200]|
+|结束|默认规则|默认规则|
+|项目|默认规则|内容长度必须小于等于[90]|
+|项目编号|默认规则|默认规则|
 
 ## 状态控制
 
@@ -88,14 +88,14 @@ hide members
 | 属性      |    搜索模式     |
 | --------   |------------|
 |任务名(NAME)|LIKE|
-|项目编号(PROJECT)|EQ|
-|项目(PROJECTNAME)|EQ|
-|项目(PROJECTNAME)|LIKE|
 |部门(DEPT)|EQ|
-|属性(BEGIN)|LTANDEQ|
-|结束(END)|GTANDEQ|
 |工作日天数(WORKDAY)|EQ|
 |是否指派(ASSIGN)|EQ|
+|属性(BEGIN)|LTANDEQ|
+|结束(END)|GTANDEQ|
+|项目(PROJECTNAME)|EQ|
+|项目(PROJECTNAME)|LIKE|
+|项目编号(PROJECT)|EQ|
 
 ## 导入模式
 无
