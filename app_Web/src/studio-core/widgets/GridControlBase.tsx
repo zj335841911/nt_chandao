@@ -1558,6 +1558,9 @@ export class GridControlBase extends MDControlBase {
      * @memberof GridControlBase
      */
     public gridEditItemChange(row: any, property: string, value: any, rowIndex: number): void {
+        if(this.majorInfoColName == property) {
+            this.items[rowIndex].srfmajortext = value;
+        }
         row.rowDataState = row.rowDataState ? row.rowDataState : 'update';
         this.curEditRowData = row;
         this.validate(property, row, rowIndex);

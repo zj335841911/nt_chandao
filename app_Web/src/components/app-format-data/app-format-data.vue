@@ -50,7 +50,8 @@ export default class AppFormatData extends Vue {
             if (
                 Object.is(this.dataType, 'DECIMAL') ||
                 Object.is(this.dataType, 'FLOAT') ||
-                Object.is(this.dataType, 'CURRENCY')
+                Object.is(this.dataType, 'CURRENCY') ||
+                Object.is(this.dataType, 'BIGDECIMAL')
             ) {
                 let number = Number(this.data);
                 let precision = Number(this.precision);

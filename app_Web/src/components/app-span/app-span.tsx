@@ -1,5 +1,5 @@
 import { Vue, Component, Prop, Watch, Model } from 'vue-property-decorator';
-
+import moment from "moment"; 
 /**
  * 标签
  *
@@ -111,6 +111,30 @@ export default class AppSpan extends Vue {
     @Prop() public caption?: any;
 
     /**
+     * 数据类型
+     *
+     * @type {*}
+     * @memberof AppSpan
+     */
+    @Prop() public dataType?: any;
+
+    /**
+     * 日期格式化格式
+     *
+     * @type {string}
+     * @memberof AppSpan
+     */
+    @Prop() public valueFormat?: string;
+
+    /**
+     * 精度
+     *
+     * @type {number}
+     * @memberof AppSpan
+     */
+    @Prop({default:'2'}) public precision?:number;
+
+    /**
      * 监控表单属性 data 值
      *
      * @memberof AppSpan
@@ -167,9 +191,54 @@ export default class AppSpan extends Vue {
                 this.text += index === 0 ? item.srfmajortext : ',' + item.srfmajortext;
             });
         } else {
+            if(this.$util.isEmpty(this.value)){
+                this.text = '';
+            }else if(this.dataType){
+                this.dataFormat();
+            }else{
+                this.text = this.value;
+            }
+        }
+    }
+
+    /**
+     * 数据格式化
+     * 
+     * @memberof AppSpan
+     */
+    public dataFormat(){
+        if(this.valueFormat){
+            this.dateFormat() ;
+            return;
+        }
+        if(Object.is(this.dataType,"CURRENCY")){
+            let number:any = Number(this.value); 
+            this.text = Number(number.toFixed(this.precision)).toLocaleString('en-US')+ ' '+ this.unitName;   
+        }else if(Object.is(this.dataType,"FLOAT") || Object.is(this.dataType,"DECIMAL") || Object.is(this.dataType, "BIGDECIMAL")){
+            let number:any = Number(this.value);
+            const decimalCnt:number = this.value.toString().split('.').length > 1 ? this.value.toString().split('.')[1].length : 0;
+            this.text = (Number(this.precision) === 0 && decimalCnt !== 0) ? number.toFixed(decimalCnt) : number.toFixed(this.precision);
+        }else {
             this.text = this.value;
         }
     }
+
+    /**
+     * 日期格式化
+     * 
+     * @memberof AppSpan
+     */
+    public dateFormat(){
+        if(this.valueFormat){
+            if(this.valueFormat.indexOf('%1$t') !== -1){
+                this.text= moment(this.value).format("YYYY-MM-DD");
+            }else if(this.valueFormat.indexOf('%1$s') == -1){
+                this.text= moment(this.value).format(this.valueFormat);
+            }else{
+                this.text= this.value;
+            }
+        }
+    }  
 
     /**
      * 绘制内容

@@ -6,6 +6,7 @@
             :border="isDragendCol"
             :span-method="arraySpanMethod.bind(_self)"
             :tree-props="{children: 'children', hasChildren: 'children?true:false'}"
+            default-expand-all
             row-key="groupById"
             :highlight-current-row ="isSingleSelect"
             :row-class-name="getRowClassName.bind(_self)"
