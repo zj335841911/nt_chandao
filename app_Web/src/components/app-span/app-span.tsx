@@ -213,7 +213,7 @@ export default class AppSpan extends Vue {
         }
         if(Object.is(this.dataType,"CURRENCY")){
             let number:any = Number(this.value); 
-            this.text = Number(number.toFixed(this.precision)).toLocaleString('en-US')+ ' '+ this.unitName;   
+            this.text = Number(number.toFixed(this.precision)).toLocaleString('en-US');   
         }else if(Object.is(this.dataType,"FLOAT") || Object.is(this.dataType,"DECIMAL") || Object.is(this.dataType, "BIGDECIMAL")){
             let number:any = Number(this.value);
             const decimalCnt:number = this.value.toString().split('.').length > 1 ? this.value.toString().split('.')[1].length : 0;
