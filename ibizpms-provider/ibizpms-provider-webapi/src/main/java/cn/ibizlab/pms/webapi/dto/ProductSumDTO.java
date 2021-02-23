@@ -20,11 +20,14 @@ import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * 服务DTO对象[ProductSumDTO]
  */
 @Data
+@ApiModel("产品汇总表")
 public class ProductSumDTO extends DTOBase implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -35,6 +38,7 @@ public class ProductSumDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "designdefect")
     @JsonProperty("designdefect")
+    @ApiModelProperty("设计缺陷")
     private Integer designdefect;
 
     /**
@@ -43,6 +47,7 @@ public class ProductSumDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "changedstorycnt")
     @JsonProperty("changedstorycnt")
+    @ApiModelProperty("已变更")
     private Integer changedstorycnt;
 
     /**
@@ -51,6 +56,7 @@ public class ProductSumDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "developingstagestoryhours")
     @JsonProperty("developingstagestoryhours")
+    @ApiModelProperty("研发中阶段需求工时")
     private Integer developingstagestoryhours;
 
     /**
@@ -59,6 +65,7 @@ public class ProductSumDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "storycnt")
     @JsonProperty("storycnt")
+    @ApiModelProperty("总计")
     private Integer storycnt;
 
     /**
@@ -67,6 +74,7 @@ public class ProductSumDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "others")
     @JsonProperty("others")
+    @ApiModelProperty("其他")
     private Integer others;
 
     /**
@@ -75,6 +83,7 @@ public class ProductSumDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "config")
     @JsonProperty("config")
+    @ApiModelProperty("配置相关")
     private Integer config;
 
     /**
@@ -83,6 +92,7 @@ public class ProductSumDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "codeerror")
     @JsonProperty("codeerror")
+    @ApiModelProperty("代码错误")
     private Integer codeerror;
 
     /**
@@ -91,6 +101,7 @@ public class ProductSumDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "bugsum")
     @JsonProperty("bugsum")
+    @ApiModelProperty("bug总计")
     private Integer bugsum;
 
     /**
@@ -99,6 +110,7 @@ public class ProductSumDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "performance")
     @JsonProperty("performance")
+    @ApiModelProperty("性能问题")
     private Integer performance;
 
     /**
@@ -108,6 +120,7 @@ public class ProductSumDTO extends DTOBase implements Serializable {
     @JSONField(name = "end")
     @JsonProperty("end")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("结束日期")
     private String end;
 
     /**
@@ -116,6 +129,7 @@ public class ProductSumDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "closedstorycnt")
     @JsonProperty("closedstorycnt")
+    @ApiModelProperty("已关闭")
     private Integer closedstorycnt;
 
     /**
@@ -124,6 +138,7 @@ public class ProductSumDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "closedstagestoryhours")
     @JsonProperty("closedstagestoryhours")
+    @ApiModelProperty("已关闭阶段需求工时")
     private Integer closedstagestoryhours;
 
     /**
@@ -132,6 +147,7 @@ public class ProductSumDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "testedstagestoryhours")
     @JsonProperty("testedstagestoryhours")
+    @ApiModelProperty("测试完毕阶段需求工时")
     private Integer testedstagestoryhours;
 
     /**
@@ -140,6 +156,7 @@ public class ProductSumDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "waitstagestoryhours")
     @JsonProperty("waitstagestoryhours")
+    @ApiModelProperty("未开始阶段需求工时")
     private Integer waitstagestoryhours;
 
     /**
@@ -149,6 +166,7 @@ public class ProductSumDTO extends DTOBase implements Serializable {
     @JSONField(name = "po")
     @JsonProperty("po")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("产品负责人")
     private String po;
 
     /**
@@ -157,6 +175,7 @@ public class ProductSumDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "testingstagestoryhours")
     @JsonProperty("testingstagestoryhours")
+    @ApiModelProperty("测试中阶段需求工时")
     private Integer testingstagestoryhours;
 
     /**
@@ -165,6 +184,7 @@ public class ProductSumDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "projectedstagestoryhours")
     @JsonProperty("projectedstagestoryhours")
+    @ApiModelProperty("已立项阶段需求工时")
     private Integer projectedstagestoryhours;
 
     /**
@@ -173,6 +193,7 @@ public class ProductSumDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "projectedstagestorycnt")
     @JsonProperty("projectedstagestorycnt")
+    @ApiModelProperty("已立项阶段需求数量")
     private Integer projectedstagestorycnt;
 
     /**
@@ -181,6 +202,7 @@ public class ProductSumDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "verifiedstagestorycnt")
     @JsonProperty("verifiedstagestorycnt")
+    @ApiModelProperty("已验收阶段需求数量")
     private Integer verifiedstagestorycnt;
 
     /**
@@ -190,6 +212,7 @@ public class ProductSumDTO extends DTOBase implements Serializable {
     @JSONField(name = "id")
     @JsonProperty("id")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("主键标识")
     private Long id;
 
     /**
@@ -198,6 +221,7 @@ public class ProductSumDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "totalhours")
     @JsonProperty("totalhours")
+    @ApiModelProperty("总工时")
     private Integer totalhours;
 
     /**
@@ -206,6 +230,7 @@ public class ProductSumDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "planedstagestorycnt")
     @JsonProperty("planedstagestorycnt")
+    @ApiModelProperty("已计划阶段需求数量")
     private Integer planedstagestorycnt;
 
     /**
@@ -214,6 +239,7 @@ public class ProductSumDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "developingstagestorycnt")
     @JsonProperty("developingstagestorycnt")
+    @ApiModelProperty("研发中阶段需求数量")
     private Integer developingstagestorycnt;
 
     /**
@@ -222,6 +248,7 @@ public class ProductSumDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "activestorycnt")
     @JsonProperty("activestorycnt")
+    @ApiModelProperty("激活")
     private Integer activestorycnt;
 
     /**
@@ -230,6 +257,7 @@ public class ProductSumDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "bugcnt")
     @JsonProperty("bugcnt")
+    @ApiModelProperty("Bug数")
     private Integer bugcnt;
 
     /**
@@ -238,6 +266,7 @@ public class ProductSumDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "waitstagestorycnt")
     @JsonProperty("waitstagestorycnt")
+    @ApiModelProperty("未开始阶段需求数量")
     private Integer waitstagestorycnt;
 
     /**
@@ -246,6 +275,7 @@ public class ProductSumDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "verifiedstagestoryhours")
     @JsonProperty("verifiedstagestoryhours")
+    @ApiModelProperty("已验收阶段需求工时")
     private Integer verifiedstagestoryhours;
 
     /**
@@ -254,6 +284,7 @@ public class ProductSumDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "waitstorycnt")
     @JsonProperty("waitstorycnt")
+    @ApiModelProperty("草稿")
     private Integer waitstorycnt;
 
     /**
@@ -262,6 +293,7 @@ public class ProductSumDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "testingstagestorycnt")
     @JsonProperty("testingstagestorycnt")
+    @ApiModelProperty("测试中阶段需求数量")
     private Integer testingstagestorycnt;
 
     /**
@@ -271,6 +303,7 @@ public class ProductSumDTO extends DTOBase implements Serializable {
     @JSONField(name = "begin")
     @JsonProperty("begin")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("开始日期")
     private String begin;
 
     /**
@@ -280,6 +313,7 @@ public class ProductSumDTO extends DTOBase implements Serializable {
     @JSONField(name = "plan")
     @JsonProperty("plan")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("计划")
     private Long plan;
 
     /**
@@ -288,6 +322,7 @@ public class ProductSumDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "releasedstagestoryhours")
     @JsonProperty("releasedstagestoryhours")
+    @ApiModelProperty("已发布阶段需求工时")
     private Integer releasedstagestoryhours;
 
     /**
@@ -296,6 +331,7 @@ public class ProductSumDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "developedstagestoryhours")
     @JsonProperty("developedstagestoryhours")
+    @ApiModelProperty("研发完毕阶段需求工时")
     private Integer developedstagestoryhours;
 
     /**
@@ -305,6 +341,7 @@ public class ProductSumDTO extends DTOBase implements Serializable {
     @JSONField(name = "name")
     @JsonProperty("name")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("产品名称")
     private String name;
 
     /**
@@ -313,6 +350,7 @@ public class ProductSumDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "developedstagestorycnt")
     @JsonProperty("developedstagestorycnt")
+    @ApiModelProperty("研发完毕阶段需求数量")
     private Integer developedstagestorycnt;
 
     /**
@@ -321,6 +359,7 @@ public class ProductSumDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "automation")
     @JsonProperty("automation")
+    @ApiModelProperty("测试脚本")
     private Integer automation;
 
     /**
@@ -329,6 +368,7 @@ public class ProductSumDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "planedstagestoryhours")
     @JsonProperty("planedstagestoryhours")
+    @ApiModelProperty("已计划阶段需求工时")
     private Integer planedstagestoryhours;
 
     /**
@@ -337,6 +377,7 @@ public class ProductSumDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "install")
     @JsonProperty("install")
+    @ApiModelProperty("安装部署")
     private Integer install;
 
     /**
@@ -345,6 +386,7 @@ public class ProductSumDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "security")
     @JsonProperty("security")
+    @ApiModelProperty("安全相关")
     private Integer security;
 
     /**
@@ -353,6 +395,7 @@ public class ProductSumDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "releasedstagestorycnt")
     @JsonProperty("releasedstagestorycnt")
+    @ApiModelProperty("已发布阶段需求数量")
     private Integer releasedstagestorycnt;
 
     /**
@@ -361,6 +404,7 @@ public class ProductSumDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "testedstagestorycnt")
     @JsonProperty("testedstagestorycnt")
+    @ApiModelProperty("测试完毕阶段需求数量")
     private Integer testedstagestorycnt;
 
     /**
@@ -369,6 +413,7 @@ public class ProductSumDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "standard")
     @JsonProperty("standard")
+    @ApiModelProperty("标准规范")
     private Integer standard;
 
     /**
@@ -377,6 +422,7 @@ public class ProductSumDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "closedstagestorycnt")
     @JsonProperty("closedstagestorycnt")
+    @ApiModelProperty("已关闭阶段需求数量")
     private Integer closedstagestorycnt;
 
 

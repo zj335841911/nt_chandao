@@ -49,7 +49,7 @@ export default class IbzMonthlyServiceBase extends EntityService {
      * @memberof IbzMonthlyServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().get(`/ibzmonthlies/${context.ibzmonthly}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/ibzmonthlies/${context.ibzmonthly}/select`,isloading);
             
             return res;
     }
@@ -105,7 +105,7 @@ export default class IbzMonthlyServiceBase extends EntityService {
      * @memberof IbzMonthlyServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().delete(`/ibzmonthlies/${context.ibzmonthly}`,isloading);
+            let res:any = await Http.getInstance().delete(`/ibzmonthlies/${context.ibzmonthly}`,isloading);
             return res;
     }
 
@@ -153,7 +153,7 @@ export default class IbzMonthlyServiceBase extends EntityService {
      * @memberof IbzMonthlyServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/ibzmonthlies/${context.ibzmonthly}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/ibzmonthlies/${context.ibzmonthly}/checkkey`,data,isloading);
             return res;
     }
 
@@ -167,7 +167,7 @@ export default class IbzMonthlyServiceBase extends EntityService {
      * @memberof IbzMonthlyServiceBase
      */
     public async CreateGetInfo(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/ibzmonthlies/${context.ibzmonthly}/creategetinfo`,data,isloading);
+            let res:any = await Http.getInstance().post(`/ibzmonthlies/${context.ibzmonthly}/creategetinfo`,data,isloading);
             return res;
     }
 
@@ -181,7 +181,7 @@ export default class IbzMonthlyServiceBase extends EntityService {
      * @memberof IbzMonthlyServiceBase
      */
     public async CreateUserMonthly(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/ibzmonthlies/${context.ibzmonthly}/createusermonthly`,data,isloading);
+            let res:any = await Http.getInstance().post(`/ibzmonthlies/${context.ibzmonthly}/createusermonthly`,data,isloading);
             return res;
     }
 
@@ -195,7 +195,7 @@ export default class IbzMonthlyServiceBase extends EntityService {
      * @memberof IbzMonthlyServiceBase
      */
     public async EditGetCompleteTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/ibzmonthlies/${context.ibzmonthly}/editgetcompletetask`,data,isloading);
+            let res:any = await Http.getInstance().post(`/ibzmonthlies/${context.ibzmonthly}/editgetcompletetask`,data,isloading);
             return res;
     }
 
@@ -209,7 +209,7 @@ export default class IbzMonthlyServiceBase extends EntityService {
      * @memberof IbzMonthlyServiceBase
      */
     public async HaveRead(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/ibzmonthlies/${context.ibzmonthly}/haveread`,data,isloading);
+            let res:any = await Http.getInstance().post(`/ibzmonthlies/${context.ibzmonthly}/haveread`,data,isloading);
             return res;
     }
 
@@ -223,7 +223,7 @@ export default class IbzMonthlyServiceBase extends EntityService {
      * @memberof IbzMonthlyServiceBase
      */
     public async PushUserMonthly(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/ibzmonthlies/${context.ibzmonthly}/pushusermonthly`,data,isloading);
+            let res:any = await Http.getInstance().post(`/ibzmonthlies/${context.ibzmonthly}/pushusermonthly`,data,isloading);
             return res;
     }
 
@@ -254,7 +254,7 @@ export default class IbzMonthlyServiceBase extends EntityService {
      * @memberof IbzMonthlyServiceBase
      */
     public async Submit(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().put(`/ibzmonthlies/${context.ibzmonthly}/submit`,data,isloading);
+            let res:any = await Http.getInstance().put(`/ibzmonthlies/${context.ibzmonthly}/submit`,data,isloading);
             return res;
     }
 
@@ -269,7 +269,7 @@ export default class IbzMonthlyServiceBase extends EntityService {
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/ibzmonthlies/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/ibzmonthlies/fetchdefault`,tempData,isloading);
         return res;
     }
 
@@ -298,7 +298,7 @@ export default class IbzMonthlyServiceBase extends EntityService {
      */
     public async FetchMyMonthly(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/ibzmonthlies/fetchmymonthly`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/ibzmonthlies/fetchmymonthly`,tempData,isloading);
         return res;
     }
 
@@ -327,7 +327,7 @@ export default class IbzMonthlyServiceBase extends EntityService {
      */
     public async FetchMyMonthlyMob(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/ibzmonthlies/fetchmymonthlymob`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/ibzmonthlies/fetchmymonthlymob`,tempData,isloading);
         return res;
     }
 
@@ -356,7 +356,7 @@ export default class IbzMonthlyServiceBase extends EntityService {
      */
     public async FetchMyReceivedMonthly(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/ibzmonthlies/fetchmyreceivedmonthly`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/ibzmonthlies/fetchmyreceivedmonthly`,tempData,isloading);
         return res;
     }
 
@@ -385,7 +385,7 @@ export default class IbzMonthlyServiceBase extends EntityService {
      */
     public async FetchMySubmitMonthly(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/ibzmonthlies/fetchmysubmitmonthly`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/ibzmonthlies/fetchmysubmitmonthly`,tempData,isloading);
         return res;
     }
 
@@ -414,7 +414,7 @@ export default class IbzMonthlyServiceBase extends EntityService {
      */
     public async FetchProductMonthly(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/ibzmonthlies/fetchproductmonthly`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/ibzmonthlies/fetchproductmonthly`,tempData,isloading);
         return res;
     }
 
@@ -443,7 +443,7 @@ export default class IbzMonthlyServiceBase extends EntityService {
      */
     public async FetchProjectMonthly(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/ibzmonthlies/fetchprojectmonthly`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/ibzmonthlies/fetchprojectmonthly`,tempData,isloading);
         return res;
     }
 

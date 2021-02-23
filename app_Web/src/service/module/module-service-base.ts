@@ -49,7 +49,7 @@ export default class ModuleServiceBase extends EntityService {
      * @memberof ModuleServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().get(`/modules/${context.module}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/modules/${context.module}/select`,isloading);
             
             return res;
     }
@@ -105,7 +105,7 @@ export default class ModuleServiceBase extends EntityService {
      * @memberof ModuleServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().delete(`/modules/${context.module}`,isloading);
+            let res:any = await Http.getInstance().delete(`/modules/${context.module}`,isloading);
             return res;
     }
 
@@ -153,7 +153,7 @@ export default class ModuleServiceBase extends EntityService {
      * @memberof ModuleServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/modules/${context.module}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/modules/${context.module}/checkkey`,data,isloading);
             return res;
     }
 
@@ -167,7 +167,7 @@ export default class ModuleServiceBase extends EntityService {
      * @memberof ModuleServiceBase
      */
     public async Fix(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/modules/${context.module}/fix`,data,isloading);
+            let res:any = await Http.getInstance().post(`/modules/${context.module}/fix`,data,isloading);
             return res;
     }
 
@@ -199,7 +199,7 @@ export default class ModuleServiceBase extends EntityService {
      */
     public async FetchBugModule(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/modules/fetchbugmodule`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/modules/fetchbugmodule`,tempData,isloading);
         return res;
     }
 
@@ -228,7 +228,7 @@ export default class ModuleServiceBase extends EntityService {
      */
     public async FetchBugModuleCodeList(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/modules/fetchbugmodulecodelist`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/modules/fetchbugmodulecodelist`,tempData,isloading);
         return res;
     }
 
@@ -257,7 +257,7 @@ export default class ModuleServiceBase extends EntityService {
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/modules/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/modules/fetchdefault`,tempData,isloading);
         return res;
     }
 
@@ -286,7 +286,7 @@ export default class ModuleServiceBase extends EntityService {
      */
     public async FetchDocModule(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/modules/fetchdocmodule`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/modules/fetchdocmodule`,tempData,isloading);
         return res;
     }
 
@@ -315,7 +315,7 @@ export default class ModuleServiceBase extends EntityService {
      */
     public async FetchLine(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/modules/fetchline`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/modules/fetchline`,tempData,isloading);
         return res;
     }
 
@@ -344,7 +344,7 @@ export default class ModuleServiceBase extends EntityService {
      */
     public async FetchStoryModule(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/modules/fetchstorymodule`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/modules/fetchstorymodule`,tempData,isloading);
         return res;
     }
 
@@ -373,7 +373,7 @@ export default class ModuleServiceBase extends EntityService {
      */
     public async FetchTaskModule(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/modules/fetchtaskmodule`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/modules/fetchtaskmodule`,tempData,isloading);
         return res;
     }
 

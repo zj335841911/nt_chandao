@@ -20,11 +20,14 @@ import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * 服务DTO对象[ProjectProductDTO]
  */
 @Data
+@ApiModel("项目产品")
 public class ProjectProductDTO extends DTOBase implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -36,6 +39,7 @@ public class ProjectProductDTO extends DTOBase implements Serializable {
     @JSONField(name = "id")
     @JsonProperty("id")
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("虚拟主键")
     private String id;
 
     /**
@@ -45,6 +49,7 @@ public class ProjectProductDTO extends DTOBase implements Serializable {
     @JSONField(name = "productname")
     @JsonProperty("productname")
     @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
+    @ApiModelProperty("产品")
     private String productname;
 
     /**
@@ -54,6 +59,7 @@ public class ProjectProductDTO extends DTOBase implements Serializable {
     @JSONField(name = "projectname")
     @JsonProperty("projectname")
     @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
+    @ApiModelProperty("项目")
     private String projectname;
 
     /**
@@ -63,6 +69,7 @@ public class ProjectProductDTO extends DTOBase implements Serializable {
     @JSONField(name = "planname")
     @JsonProperty("planname")
     @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
+    @ApiModelProperty("计划名称")
     private String planname;
 
     /**
@@ -73,6 +80,7 @@ public class ProjectProductDTO extends DTOBase implements Serializable {
     @JsonProperty("product")
     @JsonSerialize(using = ToStringSerializer.class)
     @NotNull(message = "[产品]不允许为空!")
+    @ApiModelProperty("产品")
     private Long product;
 
     /**
@@ -82,6 +90,7 @@ public class ProjectProductDTO extends DTOBase implements Serializable {
     @JSONField(name = "plan")
     @JsonProperty("plan")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("产品计划")
     private Long plan;
 
     /**
@@ -91,6 +100,7 @@ public class ProjectProductDTO extends DTOBase implements Serializable {
     @JSONField(name = "branch")
     @JsonProperty("branch")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("平台/分支")
     private Long branch;
 
     /**
@@ -101,6 +111,7 @@ public class ProjectProductDTO extends DTOBase implements Serializable {
     @JsonProperty("project")
     @JsonSerialize(using = ToStringSerializer.class)
     @NotNull(message = "[项目]不允许为空!")
+    @ApiModelProperty("项目")
     private Long project;
 
 

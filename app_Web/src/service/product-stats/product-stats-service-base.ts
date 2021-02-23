@@ -49,7 +49,7 @@ export default class ProductStatsServiceBase extends EntityService {
      * @memberof ProductStatsServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().get(`/productstats/${context.productstats}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/productstats/${context.productstats}/select`,isloading);
             
             return res;
     }
@@ -105,7 +105,7 @@ export default class ProductStatsServiceBase extends EntityService {
      * @memberof ProductStatsServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().delete(`/productstats/${context.productstats}`,isloading);
+            let res:any = await Http.getInstance().delete(`/productstats/${context.productstats}`,isloading);
             return res;
     }
 
@@ -153,7 +153,7 @@ export default class ProductStatsServiceBase extends EntityService {
      * @memberof ProductStatsServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/productstats/${context.productstats}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/productstats/${context.productstats}/checkkey`,data,isloading);
             return res;
     }
 
@@ -200,7 +200,7 @@ export default class ProductStatsServiceBase extends EntityService {
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/productstats/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/productstats/fetchdefault`,tempData,isloading);
         return res;
     }
 
@@ -229,7 +229,7 @@ export default class ProductStatsServiceBase extends EntityService {
      */
     public async FetchNoOpenProduct(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/productstats/fetchnoopenproduct`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/productstats/fetchnoopenproduct`,tempData,isloading);
         return res;
     }
 
@@ -258,7 +258,7 @@ export default class ProductStatsServiceBase extends EntityService {
      */
     public async FetchProdctQuantiGird(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/productstats/fetchprodctquantigird`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/productstats/fetchprodctquantigird`,tempData,isloading);
         return res;
     }
 
@@ -287,7 +287,7 @@ export default class ProductStatsServiceBase extends EntityService {
      */
     public async FetchProductInputTable(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/productstats/fetchproductinputtable`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/productstats/fetchproductinputtable`,tempData,isloading);
         return res;
     }
 
@@ -316,7 +316,7 @@ export default class ProductStatsServiceBase extends EntityService {
      */
     public async FetchProductcompletionstatistics(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/productstats/fetchproductcompletionstatistics`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/productstats/fetchproductcompletionstatistics`,tempData,isloading);
         return res;
     }
 

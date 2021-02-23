@@ -20,11 +20,14 @@ import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * 服务DTO对象[UserTplDTO]
  */
 @Data
+@ApiModel("用户模板")
 public class UserTplDTO extends DTOBase implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -37,6 +40,7 @@ public class UserTplDTO extends DTOBase implements Serializable {
     @JsonProperty("title")
     @NotBlank(message = "[模板标题]不允许为空!")
     @Size(min = 0, max = 150, message = "内容长度必须小于等于[150]")
+    @ApiModelProperty("模板标题")
     private String title;
 
     /**
@@ -46,6 +50,7 @@ public class UserTplDTO extends DTOBase implements Serializable {
     @JSONField(name = "id")
     @JsonProperty("id")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("id")
     private Long id;
 
     /**
@@ -55,6 +60,7 @@ public class UserTplDTO extends DTOBase implements Serializable {
     @JSONField(name = "content")
     @JsonProperty("content")
     @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
+    @ApiModelProperty("content")
     private String content;
 
     /**
@@ -64,6 +70,7 @@ public class UserTplDTO extends DTOBase implements Serializable {
     @JSONField(name = "type")
     @JsonProperty("type")
     @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
+    @ApiModelProperty("type")
     private String type;
 
     /**
@@ -73,6 +80,7 @@ public class UserTplDTO extends DTOBase implements Serializable {
     @JSONField(name = "account")
     @JsonProperty("account")
     @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
+    @ApiModelProperty("account")
     private String account;
 
     /**
@@ -82,6 +90,7 @@ public class UserTplDTO extends DTOBase implements Serializable {
     @JSONField(name = "ibizpublic")
     @JsonProperty("ibizpublic")
     @Size(min = 0, max = 1, message = "内容长度必须小于等于[1]")
+    @ApiModelProperty("公开")
     private String ibizpublic;
 
 

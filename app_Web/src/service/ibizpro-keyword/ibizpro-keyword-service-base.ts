@@ -49,7 +49,7 @@ export default class IBIZProKeywordServiceBase extends EntityService {
      * @memberof IBIZProKeywordServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().get(`/ibizprokeywords/${context.ibizprokeyword}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/ibizprokeywords/${context.ibizprokeyword}/select`,isloading);
             
             return res;
     }
@@ -105,7 +105,7 @@ export default class IBIZProKeywordServiceBase extends EntityService {
      * @memberof IBIZProKeywordServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().delete(`/ibizprokeywords/${context.ibizprokeyword}`,isloading);
+            let res:any = await Http.getInstance().delete(`/ibizprokeywords/${context.ibizprokeyword}`,isloading);
             return res;
     }
 
@@ -153,7 +153,7 @@ export default class IBIZProKeywordServiceBase extends EntityService {
      * @memberof IBIZProKeywordServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/ibizprokeywords/${context.ibizprokeyword}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/ibizprokeywords/${context.ibizprokeyword}/checkkey`,data,isloading);
             return res;
     }
 
@@ -185,7 +185,7 @@ export default class IBIZProKeywordServiceBase extends EntityService {
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/ibizprokeywords/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/ibizprokeywords/fetchdefault`,tempData,isloading);
         return res;
     }
 

@@ -20,11 +20,14 @@ import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * 服务DTO对象[IBZProStoryModuleDTO]
  */
 @Data
+@ApiModel("需求模块")
 public class IBZProStoryModuleDTO extends DTOBase implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -35,6 +38,7 @@ public class IBZProStoryModuleDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "grade")
     @JsonProperty("grade")
+    @ApiModelProperty("级别")
     private Integer grade;
 
     /**
@@ -44,6 +48,7 @@ public class IBZProStoryModuleDTO extends DTOBase implements Serializable {
     @JSONField(name = "collector")
     @JsonProperty("collector")
     @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
+    @ApiModelProperty("collector")
     private String collector;
 
     /**
@@ -53,6 +58,7 @@ public class IBZProStoryModuleDTO extends DTOBase implements Serializable {
     @JSONField(name = "owner")
     @JsonProperty("owner")
     @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
+    @ApiModelProperty("owner")
     private String owner;
 
     /**
@@ -62,6 +68,7 @@ public class IBZProStoryModuleDTO extends DTOBase implements Serializable {
     @JSONField(name = "ibiz_storytype")
     @JsonProperty("ibiz_storytype")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("需求模块类型")
     private String ibizStorytype;
 
     /**
@@ -71,6 +78,7 @@ public class IBZProStoryModuleDTO extends DTOBase implements Serializable {
     @JSONField(name = "id")
     @JsonProperty("id")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("id")
     private Long id;
 
     /**
@@ -80,6 +88,7 @@ public class IBZProStoryModuleDTO extends DTOBase implements Serializable {
     @JSONField(name = "type")
     @JsonProperty("type")
     @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
+    @ApiModelProperty("类型")
     private String type;
 
     /**
@@ -89,6 +98,7 @@ public class IBZProStoryModuleDTO extends DTOBase implements Serializable {
     @JSONField(name = "ibizshort")
     @JsonProperty("ibizshort")
     @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
+    @ApiModelProperty("简称")
     private String ibizshort;
 
     /**
@@ -99,6 +109,7 @@ public class IBZProStoryModuleDTO extends DTOBase implements Serializable {
     @JsonProperty("name")
     @NotBlank(message = "[名称]不允许为空!")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("名称")
     private String name;
 
     /**
@@ -108,6 +119,7 @@ public class IBZProStoryModuleDTO extends DTOBase implements Serializable {
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
     @Size(min = 0, max = 1, message = "内容长度必须小于等于[1]")
+    @ApiModelProperty("已删除")
     private String deleted;
 
     /**
@@ -117,6 +129,7 @@ public class IBZProStoryModuleDTO extends DTOBase implements Serializable {
     @JSONField(name = "path")
     @JsonProperty("path")
     @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
+    @ApiModelProperty("路径")
     private String path;
 
     /**
@@ -126,6 +139,7 @@ public class IBZProStoryModuleDTO extends DTOBase implements Serializable {
     @JSONField(name = "ibizid")
     @JsonProperty("ibizid")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("IBIZ标识")
     private String ibizid;
 
     /**
@@ -135,6 +149,7 @@ public class IBZProStoryModuleDTO extends DTOBase implements Serializable {
     @JSONField(name = "productname")
     @JsonProperty("productname")
     @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
+    @ApiModelProperty("产品")
     private String productname;
 
     /**
@@ -144,6 +159,7 @@ public class IBZProStoryModuleDTO extends DTOBase implements Serializable {
     @JSONField(name = "root")
     @JsonProperty("root")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("编号")
     private Long root;
 
     /**
@@ -153,6 +169,7 @@ public class IBZProStoryModuleDTO extends DTOBase implements Serializable {
     @JSONField(name = "parent")
     @JsonProperty("parent")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("id")
     private Long parent;
 
 

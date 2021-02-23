@@ -49,7 +49,7 @@ export default class IbizproProjectMonthlyServiceBase extends EntityService {
      * @memberof IbizproProjectMonthlyServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().get(`/ibizproprojectmonthlies/${context.ibizproprojectmonthly}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/ibizproprojectmonthlies/${context.ibizproprojectmonthly}/select`,isloading);
             
             return res;
     }
@@ -105,7 +105,7 @@ export default class IbizproProjectMonthlyServiceBase extends EntityService {
      * @memberof IbizproProjectMonthlyServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().delete(`/ibizproprojectmonthlies/${context.ibizproprojectmonthly}`,isloading);
+            let res:any = await Http.getInstance().delete(`/ibizproprojectmonthlies/${context.ibizproprojectmonthly}`,isloading);
             return res;
     }
 
@@ -153,7 +153,7 @@ export default class IbizproProjectMonthlyServiceBase extends EntityService {
      * @memberof IbizproProjectMonthlyServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/ibizproprojectmonthlies/${context.ibizproprojectmonthly}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/ibizproprojectmonthlies/${context.ibizproprojectmonthly}/checkkey`,data,isloading);
             return res;
     }
 
@@ -167,7 +167,7 @@ export default class IbizproProjectMonthlyServiceBase extends EntityService {
      * @memberof IbizproProjectMonthlyServiceBase
      */
     public async ManualCreateMonthly(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/ibizproprojectmonthlies/${context.ibizproprojectmonthly}/manualcreatemonthly`,data,isloading);
+            let res:any = await Http.getInstance().post(`/ibizproprojectmonthlies/${context.ibizproprojectmonthly}/manualcreatemonthly`,data,isloading);
             return res;
     }
 
@@ -198,7 +198,7 @@ export default class IbizproProjectMonthlyServiceBase extends EntityService {
      * @memberof IbizproProjectMonthlyServiceBase
      */
     public async SumProjectMonthly(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/ibizproprojectmonthlies/${context.ibizproprojectmonthly}/sumprojectmonthly`,data,isloading);
+            let res:any = await Http.getInstance().post(`/ibizproprojectmonthlies/${context.ibizproprojectmonthly}/sumprojectmonthly`,data,isloading);
             return res;
     }
 
@@ -213,7 +213,7 @@ export default class IbizproProjectMonthlyServiceBase extends EntityService {
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/ibizproprojectmonthlies/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/ibizproprojectmonthlies/fetchdefault`,tempData,isloading);
         return res;
     }
 

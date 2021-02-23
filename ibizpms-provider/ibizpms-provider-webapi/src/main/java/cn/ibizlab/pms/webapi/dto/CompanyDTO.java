@@ -20,11 +20,14 @@ import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * 服务DTO对象[CompanyDTO]
  */
 @Data
+@ApiModel("公司")
 public class CompanyDTO extends DTOBase implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -36,6 +39,7 @@ public class CompanyDTO extends DTOBase implements Serializable {
     @JSONField(name = "admins")
     @JsonProperty("admins")
     @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
+    @ApiModelProperty("admins")
     private String admins;
 
     /**
@@ -45,6 +49,7 @@ public class CompanyDTO extends DTOBase implements Serializable {
     @JSONField(name = "fax")
     @JsonProperty("fax")
     @Size(min = 0, max = 20, message = "内容长度必须小于等于[20]")
+    @ApiModelProperty("传真")
     private String fax;
 
     /**
@@ -54,6 +59,7 @@ public class CompanyDTO extends DTOBase implements Serializable {
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
     @Size(min = 0, max = 1, message = "内容长度必须小于等于[1]")
+    @ApiModelProperty("逻辑删除标志")
     private String deleted;
 
     /**
@@ -63,6 +69,7 @@ public class CompanyDTO extends DTOBase implements Serializable {
     @JSONField(name = "website")
     @JsonProperty("website")
     @Size(min = 0, max = 120, message = "内容长度必须小于等于[120]")
+    @ApiModelProperty("官网")
     private String website;
 
     /**
@@ -72,6 +79,7 @@ public class CompanyDTO extends DTOBase implements Serializable {
     @JSONField(name = "id")
     @JsonProperty("id")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("id")
     private Long id;
 
     /**
@@ -81,6 +89,7 @@ public class CompanyDTO extends DTOBase implements Serializable {
     @JSONField(name = "zipcode")
     @JsonProperty("zipcode")
     @Size(min = 0, max = 10, message = "内容长度必须小于等于[10]")
+    @ApiModelProperty("邮政编码")
     private String zipcode;
 
     /**
@@ -90,6 +99,7 @@ public class CompanyDTO extends DTOBase implements Serializable {
     @JSONField(name = "address")
     @JsonProperty("address")
     @Size(min = 0, max = 120, message = "内容长度必须小于等于[120]")
+    @ApiModelProperty("通讯地址")
     private String address;
 
     /**
@@ -99,6 +109,7 @@ public class CompanyDTO extends DTOBase implements Serializable {
     @JSONField(name = "backyard")
     @JsonProperty("backyard")
     @Size(min = 0, max = 120, message = "内容长度必须小于等于[120]")
+    @ApiModelProperty("内网")
     private String backyard;
 
     /**
@@ -109,6 +120,7 @@ public class CompanyDTO extends DTOBase implements Serializable {
     @JsonProperty("name")
     @NotBlank(message = "[公司名称]不允许为空!")
     @Size(min = 0, max = 120, message = "内容长度必须小于等于[120]")
+    @ApiModelProperty("公司名称")
     private String name;
 
     /**
@@ -118,6 +130,7 @@ public class CompanyDTO extends DTOBase implements Serializable {
     @JSONField(name = "guest")
     @JsonProperty("guest")
     @Size(min = 0, max = 1, message = "内容长度必须小于等于[1]")
+    @ApiModelProperty("匿名登陆")
     private String guest;
 
     /**
@@ -127,6 +140,7 @@ public class CompanyDTO extends DTOBase implements Serializable {
     @JSONField(name = "phone")
     @JsonProperty("phone")
     @Size(min = 0, max = 20, message = "内容长度必须小于等于[20]")
+    @ApiModelProperty("联系电话")
     private String phone;
 
 

@@ -20,11 +20,14 @@ import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * 服务DTO对象[IbizproIndexDTO]
  */
 @Data
+@ApiModel("索引检索")
 public class IbizproIndexDTO extends DTOBase implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -36,6 +39,7 @@ public class IbizproIndexDTO extends DTOBase implements Serializable {
     @JSONField(name = "indexid")
     @JsonProperty("indexid")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("主键")
     private Long indexid;
 
     /**
@@ -45,6 +49,7 @@ public class IbizproIndexDTO extends DTOBase implements Serializable {
     @JSONField(name = "acl")
     @JsonProperty("acl")
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("权限")
     private String acl;
 
     /**
@@ -54,6 +59,7 @@ public class IbizproIndexDTO extends DTOBase implements Serializable {
     @JSONField(name = "docid")
     @JsonProperty("docid")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("docid")
     private String docid;
 
     /**
@@ -63,6 +69,7 @@ public class IbizproIndexDTO extends DTOBase implements Serializable {
     @JSONField(name = "indexname")
     @JsonProperty("indexname")
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("标题[需求、任务等]")
     private String indexname;
 
     /**
@@ -72,6 +79,7 @@ public class IbizproIndexDTO extends DTOBase implements Serializable {
     @JSONField(name = "color")
     @JsonProperty("color")
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("颜色")
     private String color;
 
     /**
@@ -81,6 +89,7 @@ public class IbizproIndexDTO extends DTOBase implements Serializable {
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("逻辑标识")
     private String deleted;
 
     /**
@@ -90,6 +99,7 @@ public class IbizproIndexDTO extends DTOBase implements Serializable {
     @JSONField(name = "acllist")
     @JsonProperty("acllist")
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("权限列表")
     private String acllist;
 
     /**
@@ -99,6 +109,7 @@ public class IbizproIndexDTO extends DTOBase implements Serializable {
     @JSONField(name = "indexdesc")
     @JsonProperty("indexdesc")
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("内容[需求、任务等]")
     private String indexdesc;
 
     /**
@@ -108,6 +119,7 @@ public class IbizproIndexDTO extends DTOBase implements Serializable {
     @JSONField(name = "product")
     @JsonProperty("product")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("产品")
     private Long product;
 
     /**
@@ -117,6 +129,7 @@ public class IbizproIndexDTO extends DTOBase implements Serializable {
     @JSONField(name = "indextype")
     @JsonProperty("indextype")
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("类型")
     private String indextype;
 
     /**
@@ -126,6 +139,7 @@ public class IbizproIndexDTO extends DTOBase implements Serializable {
     @JSONField(name = "mdeptid")
     @JsonProperty("mdeptid")
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("部门标识")
     private String mdeptid;
 
     /**
@@ -135,6 +149,7 @@ public class IbizproIndexDTO extends DTOBase implements Serializable {
     @JSONField(name = "project")
     @JsonProperty("project")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("项目")
     private Long project;
 
     /**
@@ -144,6 +159,7 @@ public class IbizproIndexDTO extends DTOBase implements Serializable {
     @JSONField(name = "orgid")
     @JsonProperty("orgid")
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("组织标识")
     private String orgid;
 
 

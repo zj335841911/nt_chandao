@@ -49,7 +49,7 @@ export default class AccountTaskestimateServiceBase extends EntityService {
      * @memberof AccountTaskestimateServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().get(`/accounttaskestimates/${context.accounttaskestimate}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/accounttaskestimates/${context.accounttaskestimate}/select`,isloading);
             
             return res;
     }
@@ -105,7 +105,7 @@ export default class AccountTaskestimateServiceBase extends EntityService {
      * @memberof AccountTaskestimateServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().delete(`/accounttaskestimates/${context.accounttaskestimate}`,isloading);
+            let res:any = await Http.getInstance().delete(`/accounttaskestimates/${context.accounttaskestimate}`,isloading);
             return res;
     }
 
@@ -153,7 +153,7 @@ export default class AccountTaskestimateServiceBase extends EntityService {
      * @memberof AccountTaskestimateServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/accounttaskestimates/${context.accounttaskestimate}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/accounttaskestimates/${context.accounttaskestimate}/checkkey`,data,isloading);
             return res;
     }
 
@@ -185,7 +185,7 @@ export default class AccountTaskestimateServiceBase extends EntityService {
      */
     public async FetchAllAccountEstimate(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/accounttaskestimates/fetchallaccountestimate`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/accounttaskestimates/fetchallaccountestimate`,tempData,isloading);
         return res;
     }
 
@@ -214,7 +214,7 @@ export default class AccountTaskestimateServiceBase extends EntityService {
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/accounttaskestimates/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/accounttaskestimates/fetchdefault`,tempData,isloading);
         return res;
     }
 

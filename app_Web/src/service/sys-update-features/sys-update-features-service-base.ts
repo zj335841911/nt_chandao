@@ -50,11 +50,11 @@ export default class SysUpdateFeaturesServiceBase extends EntityService {
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.sysupdatelog && context.sysupdatefeatures){
-            let res:any = Http.getInstance().get(`/sysupdatelogs/${context.sysupdatelog}/sysupdatefeatures/${context.sysupdatefeatures}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/sysupdatelogs/${context.sysupdatelog}/sysupdatefeatures/${context.sysupdatefeatures}/select`,isloading);
             
             return res;
         }
-            let res:any = Http.getInstance().get(`/sysupdatefeatures/${context.sysupdatefeatures}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/sysupdatefeatures/${context.sysupdatefeatures}/select`,isloading);
             
             return res;
     }
@@ -132,10 +132,10 @@ export default class SysUpdateFeaturesServiceBase extends EntityService {
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.sysupdatelog && context.sysupdatefeatures){
-            let res:any = Http.getInstance().delete(`/sysupdatelogs/${context.sysupdatelog}/sysupdatefeatures/${context.sysupdatefeatures}`,isloading);
+            let res:any = await Http.getInstance().delete(`/sysupdatelogs/${context.sysupdatelog}/sysupdatefeatures/${context.sysupdatefeatures}`,isloading);
             return res;
         }
-            let res:any = Http.getInstance().delete(`/sysupdatefeatures/${context.sysupdatefeatures}`,isloading);
+            let res:any = await Http.getInstance().delete(`/sysupdatefeatures/${context.sysupdatefeatures}`,isloading);
             return res;
     }
 
@@ -204,7 +204,7 @@ export default class SysUpdateFeaturesServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/sysupdatefeatures/${context.sysupdatefeatures}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/sysupdatefeatures/${context.sysupdatefeatures}/checkkey`,data,isloading);
             return res;
     }
 
@@ -244,11 +244,11 @@ export default class SysUpdateFeaturesServiceBase extends EntityService {
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.sysupdatelog && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/sysupdatelogs/${context.sysupdatelog}/sysupdatefeatures/fetchdefault`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/sysupdatelogs/${context.sysupdatelog}/sysupdatefeatures/fetchdefault`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/sysupdatefeatures/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/sysupdatefeatures/fetchdefault`,tempData,isloading);
         return res;
     }
 

@@ -63,7 +63,7 @@ export default class TestReportServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().put(`/testreports/${context.testreport}/getinfotesttask`,data,isloading);
+            let res:any = await Http.getInstance().put(`/testreports/${context.testreport}/getinfotesttask`,data,isloading);
             return res;
     }
 
@@ -78,16 +78,16 @@ export default class TestReportServiceBase extends EntityService {
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.testreport){
-            let res:any = Http.getInstance().get(`/projects/${context.project}/testreports/${context.testreport}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/testreports/${context.testreport}/select`,isloading);
             
             return res;
         }
         if(context.product && context.testreport){
-            let res:any = Http.getInstance().get(`/products/${context.product}/testreports/${context.testreport}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/testreports/${context.testreport}/select`,isloading);
             
             return res;
         }
-            let res:any = Http.getInstance().get(`/testreports/${context.testreport}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/testreports/${context.testreport}/select`,isloading);
             
             return res;
     }
@@ -186,14 +186,14 @@ export default class TestReportServiceBase extends EntityService {
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.testreport){
-            let res:any = Http.getInstance().delete(`/projects/${context.project}/testreports/${context.testreport}`,isloading);
+            let res:any = await Http.getInstance().delete(`/projects/${context.project}/testreports/${context.testreport}`,isloading);
             return res;
         }
         if(context.product && context.testreport){
-            let res:any = Http.getInstance().delete(`/products/${context.product}/testreports/${context.testreport}`,isloading);
+            let res:any = await Http.getInstance().delete(`/products/${context.product}/testreports/${context.testreport}`,isloading);
             return res;
         }
-            let res:any = Http.getInstance().delete(`/testreports/${context.testreport}`,isloading);
+            let res:any = await Http.getInstance().delete(`/testreports/${context.testreport}`,isloading);
             return res;
     }
 
@@ -283,7 +283,7 @@ export default class TestReportServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/testreports/${context.testreport}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/testreports/${context.testreport}/checkkey`,data,isloading);
             return res;
     }
 
@@ -311,7 +311,7 @@ export default class TestReportServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().put(`/testreports/${context.testreport}/getinfotaskovbytime`,data,isloading);
+            let res:any = await Http.getInstance().put(`/testreports/${context.testreport}/getinfotaskovbytime`,data,isloading);
             return res;
     }
 
@@ -339,7 +339,7 @@ export default class TestReportServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().put(`/testreports/${context.testreport}/getinfotesttaskovproject`,data,isloading);
+            let res:any = await Http.getInstance().put(`/testreports/${context.testreport}/getinfotesttaskovproject`,data,isloading);
             return res;
     }
 
@@ -367,7 +367,7 @@ export default class TestReportServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().put(`/testreports/${context.testreport}/getinfotesttaskproject`,data,isloading);
+            let res:any = await Http.getInstance().put(`/testreports/${context.testreport}/getinfotesttaskproject`,data,isloading);
             return res;
     }
 
@@ -395,7 +395,7 @@ export default class TestReportServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().put(`/testreports/${context.testreport}/getinfotesttaskr`,data,isloading);
+            let res:any = await Http.getInstance().put(`/testreports/${context.testreport}/getinfotesttaskr`,data,isloading);
             return res;
     }
 
@@ -423,7 +423,7 @@ export default class TestReportServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().put(`/testreports/${context.testreport}/getinfotesttasks`,data,isloading);
+            let res:any = await Http.getInstance().put(`/testreports/${context.testreport}/getinfotesttasks`,data,isloading);
             return res;
     }
 
@@ -451,7 +451,7 @@ export default class TestReportServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().put(`/testreports/${context.testreport}/gettestreportbasicinfo`,data,isloading);
+            let res:any = await Http.getInstance().put(`/testreports/${context.testreport}/gettestreportbasicinfo`,data,isloading);
             return res;
     }
 
@@ -479,7 +479,7 @@ export default class TestReportServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().put(`/testreports/${context.testreport}/gettestreportproject`,data,isloading);
+            let res:any = await Http.getInstance().put(`/testreports/${context.testreport}/gettestreportproject`,data,isloading);
             return res;
     }
 
@@ -526,16 +526,16 @@ export default class TestReportServiceBase extends EntityService {
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/projects/${context.project}/testreports/fetchdefault`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/testreports/fetchdefault`,tempData,isloading);
             return res;
         }
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/products/${context.product}/testreports/fetchdefault`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/testreports/fetchdefault`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().post(`/testreports/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().post(`/testreports/fetchdefault`,tempData,isloading);
         return res;
     }
 

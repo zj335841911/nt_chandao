@@ -49,7 +49,7 @@ export default class IbzAgentServiceBase extends EntityService {
      * @memberof IbzAgentServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().get(`/ibzagents/${context.ibzagent}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/ibzagents/${context.ibzagent}/select`,isloading);
             
             return res;
     }
@@ -105,7 +105,7 @@ export default class IbzAgentServiceBase extends EntityService {
      * @memberof IbzAgentServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().delete(`/ibzagents/${context.ibzagent}`,isloading);
+            let res:any = await Http.getInstance().delete(`/ibzagents/${context.ibzagent}`,isloading);
             return res;
     }
 
@@ -153,7 +153,7 @@ export default class IbzAgentServiceBase extends EntityService {
      * @memberof IbzAgentServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/ibzagents/${context.ibzagent}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/ibzagents/${context.ibzagent}/checkkey`,data,isloading);
             return res;
     }
 
@@ -185,7 +185,7 @@ export default class IbzAgentServiceBase extends EntityService {
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/ibzagents/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/ibzagents/fetchdefault`,tempData,isloading);
         return res;
     }
 

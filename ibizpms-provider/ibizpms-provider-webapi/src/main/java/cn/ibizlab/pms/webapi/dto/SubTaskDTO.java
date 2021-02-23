@@ -20,11 +20,14 @@ import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * 服务DTO对象[SubTaskDTO]
  */
 @Data
+@ApiModel("任务")
 public class SubTaskDTO extends DTOBase implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -36,6 +39,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @JSONField(name = "canceledby")
     @JsonProperty("canceledby")
     @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
+    @ApiModelProperty("由谁取消")
     private String canceledby;
 
     /**
@@ -45,6 +49,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @JSONField(name = "configtype")
     @JsonProperty("configtype")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("周期类型")
     private String configtype;
 
     /**
@@ -53,6 +58,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "left")
     @JsonProperty("left")
+    @ApiModelProperty("预计剩余")
     private Double left;
 
     /**
@@ -62,6 +68,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @JSONField(name = "isfavorites")
     @JsonProperty("isfavorites")
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("是否收藏")
     private String isfavorites;
 
     /**
@@ -71,6 +78,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "configend" , format="yyyy-MM-dd")
     @JsonProperty("configend")
+    @ApiModelProperty("过期日期")
     private Timestamp configend;
 
     /**
@@ -80,6 +88,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @JSONField(name = "hasdetail")
     @JsonProperty("hasdetail")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("是否填写描述")
     private String hasdetail;
 
     /**
@@ -89,6 +98,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "openeddate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("openeddate")
+    @ApiModelProperty("创建日期")
     private Timestamp openeddate;
 
     /**
@@ -98,6 +108,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @JSONField(name = "assign")
     @JsonProperty("assign")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("是否指派")
     private String assign;
 
     /**
@@ -107,6 +118,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @JSONField(name = "color")
     @JsonProperty("color")
     @Size(min = 0, max = 7, message = "内容长度必须小于等于[7]")
+    @ApiModelProperty("标题颜色")
     private String color;
 
     /**
@@ -116,6 +128,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @JSONField(name = "id")
     @JsonProperty("id")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("编号")
     private Long id;
 
     /**
@@ -125,6 +138,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @JSONField(name = "finishedby")
     @JsonProperty("finishedby")
     @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
+    @ApiModelProperty("由谁完成")
     private String finishedby;
 
     /**
@@ -133,6 +147,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "mytotaltime")
     @JsonProperty("mytotaltime")
+    @ApiModelProperty("我的总消耗")
     private Double mytotaltime;
 
     /**
@@ -142,6 +157,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @JSONField(name = "mailtopk")
     @JsonProperty("mailtopk")
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("抄送给")
     private String mailtopk;
 
     /**
@@ -151,6 +167,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @JSONField(name = "finishedlist")
     @JsonProperty("finishedlist")
     @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
+    @ApiModelProperty("完成者列表")
     private String finishedlist;
 
     /**
@@ -160,6 +177,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @JSONField(name = "modulename1")
     @JsonProperty("modulename1")
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("所属模块")
     private String modulename1;
 
     /**
@@ -169,6 +187,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @JSONField(name = "isleaf")
     @JsonProperty("isleaf")
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("是否子任务")
     private String isleaf;
 
     /**
@@ -178,6 +197,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "realstarted" , format="yyyy-MM-dd")
     @JsonProperty("realstarted")
+    @ApiModelProperty("实际开始")
     private Timestamp realstarted;
 
     /**
@@ -187,6 +207,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @JSONField(name = "status1")
     @JsonProperty("status1")
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("任务状态")
     private String status1;
 
     /**
@@ -195,6 +216,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "replycount")
     @JsonProperty("replycount")
+    @ApiModelProperty("回复数量")
     private Integer replycount;
 
     /**
@@ -204,6 +226,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "configbegin" , format="yyyy-MM-dd")
     @JsonProperty("configbegin")
+    @ApiModelProperty("开始日期")
     private Timestamp configbegin;
 
     /**
@@ -213,6 +236,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "updatedate" , format="yyyy-MM-dd")
     @JsonProperty("updatedate")
+    @ApiModelProperty("最后的更新日期")
     private Timestamp updatedate;
 
     /**
@@ -222,6 +246,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @JSONField(name = "noticeusers")
     @JsonProperty("noticeusers")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("消息通知用户")
     private String noticeusers;
 
     /**
@@ -231,6 +256,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @JSONField(name = "closedby")
     @JsonProperty("closedby")
     @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
+    @ApiModelProperty("由谁关闭")
     private String closedby;
 
     /**
@@ -239,6 +265,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "currentconsumed")
     @JsonProperty("currentconsumed")
+    @ApiModelProperty("本次消耗")
     private Double currentconsumed;
 
     /**
@@ -248,6 +275,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @JSONField(name = "files")
     @JsonProperty("files")
     @Size(min = 0, max = 1000, message = "内容长度必须小于等于[1000]")
+    @ApiModelProperty("附件")
     private String files;
 
     /**
@@ -257,6 +285,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @JSONField(name = "substatus")
     @JsonProperty("substatus")
     @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
+    @ApiModelProperty("子状态")
     private String substatus;
 
     /**
@@ -266,6 +295,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @JSONField(name = "closedreason")
     @JsonProperty("closedreason")
     @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
+    @ApiModelProperty("关闭原因")
     private String closedreason;
 
     /**
@@ -275,6 +305,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @JSONField(name = "taskspecies")
     @JsonProperty("taskspecies")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("任务种别")
     private String taskspecies;
 
     /**
@@ -284,6 +315,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "lastediteddate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("lastediteddate")
+    @ApiModelProperty("最后修改日期")
     private Timestamp lastediteddate;
 
     /**
@@ -292,6 +324,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "configday")
     @JsonProperty("configday")
+    @ApiModelProperty("间隔天数")
     private Integer configday;
 
     /**
@@ -301,6 +334,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "assigneddate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("assigneddate")
+    @ApiModelProperty("指派日期")
     private Timestamp assigneddate;
 
     /**
@@ -309,6 +343,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "pri")
     @JsonProperty("pri")
+    @ApiModelProperty("优先级")
     private Integer pri;
 
     /**
@@ -318,6 +353,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @JSONField(name = "lasteditedby")
     @JsonProperty("lasteditedby")
     @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
+    @ApiModelProperty("最后修改")
     private String lasteditedby;
 
     /**
@@ -327,6 +363,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @JSONField(name = "idvalue")
     @JsonProperty("idvalue")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("关联编号")
     private Long idvalue;
 
     /**
@@ -336,6 +373,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @JSONField(name = "status")
     @JsonProperty("status")
     @Size(min = 0, max = 6, message = "内容长度必须小于等于[6]")
+    @ApiModelProperty("任务状态")
     private String status;
 
     /**
@@ -345,6 +383,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @JSONField(name = "multiple")
     @JsonProperty("multiple")
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("多人任务")
     private String multiple;
 
     /**
@@ -355,6 +394,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @JsonProperty("name")
     @NotBlank(message = "[任务名称]不允许为空!")
     @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
+    @ApiModelProperty("任务名称")
     private String name;
 
     /**
@@ -364,6 +404,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "closeddate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("closeddate")
+    @ApiModelProperty("关闭时间")
     private Timestamp closeddate;
 
     /**
@@ -372,6 +413,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "inputcost")
     @JsonProperty("inputcost")
+    @ApiModelProperty("投入成本")
     private Double inputcost;
 
     /**
@@ -380,6 +422,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "totaltime")
     @JsonProperty("totaltime")
+    @ApiModelProperty("总计耗时")
     private Double totaltime;
 
     /**
@@ -389,6 +432,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @JSONField(name = "type")
     @JsonProperty("type")
     @Size(min = 0, max = 20, message = "内容长度必须小于等于[20]")
+    @ApiModelProperty("任务类型")
     private String type;
 
     /**
@@ -398,6 +442,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @JSONField(name = "assignedto")
     @JsonProperty("assignedto")
     @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
+    @ApiModelProperty("指派给")
     private String assignedto;
 
     /**
@@ -407,6 +452,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @JSONField(name = "delay")
     @JsonProperty("delay")
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("延期")
     private String delay;
 
     /**
@@ -416,6 +462,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @JSONField(name = "desc")
     @JsonProperty("desc")
     @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
+    @ApiModelProperty("任务描述")
     private String desc;
 
     /**
@@ -425,6 +472,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "eststarted" , format="yyyy-MM-dd")
     @JsonProperty("eststarted")
+    @ApiModelProperty("预计开始")
     private Timestamp eststarted;
 
     /**
@@ -434,6 +482,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "deadline" , format="yyyy-MM-dd")
     @JsonProperty("deadline")
+    @ApiModelProperty("截止日期")
     private Timestamp deadline;
 
     /**
@@ -442,6 +491,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "statusorder")
     @JsonProperty("statusorder")
+    @ApiModelProperty("排序")
     private Integer statusorder;
 
     /**
@@ -451,6 +501,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @JSONField(name = "mailtoconact")
     @JsonProperty("mailtoconact")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("联系人")
     private String mailtoconact;
 
     /**
@@ -460,6 +511,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
     @Size(min = 0, max = 1, message = "内容长度必须小于等于[1]")
+    @ApiModelProperty("已删除")
     private String deleted;
 
     /**
@@ -468,6 +520,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "cycle")
     @JsonProperty("cycle")
+    @ApiModelProperty("周期")
     private Integer cycle;
 
     /**
@@ -477,6 +530,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @JSONField(name = "mailto")
     @JsonProperty("mailto")
     @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
+    @ApiModelProperty("抄送给")
     private String mailto;
 
     /**
@@ -485,6 +539,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "consumed")
     @JsonProperty("consumed")
+    @ApiModelProperty("总计消耗")
     private Double consumed;
 
     /**
@@ -493,6 +548,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "estimate")
     @JsonProperty("estimate")
+    @ApiModelProperty("最初预计")
     private Double estimate;
 
     /**
@@ -502,6 +558,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @JSONField(name = "openedby")
     @JsonProperty("openedby")
     @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
+    @ApiModelProperty("由谁创建")
     private String openedby;
 
     /**
@@ -511,6 +568,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @JSONField(name = "isfinished")
     @JsonProperty("isfinished")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("是否完成")
     private String isfinished;
 
     /**
@@ -520,6 +578,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "canceleddate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("canceleddate")
+    @ApiModelProperty("取消时间")
     private Timestamp canceleddate;
 
     /**
@@ -529,6 +588,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @JSONField(name = "configmonth")
     @JsonProperty("configmonth")
     @Size(min = 0, max = 2000, message = "内容长度必须小于等于[2000]")
+    @ApiModelProperty("周期设置月")
     private String configmonth;
 
     /**
@@ -538,6 +598,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @JSONField(name = "comment")
     @JsonProperty("comment")
     @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
+    @ApiModelProperty("备注")
     private String comment;
 
     /**
@@ -547,6 +608,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @JSONField(name = "duration")
     @JsonProperty("duration")
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("持续时间")
     private String duration;
 
     /**
@@ -556,6 +618,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @JSONField(name = "assignedtozj")
     @JsonProperty("assignedtozj")
     @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
+    @ApiModelProperty("转交给")
     private String assignedtozj;
 
     /**
@@ -565,6 +628,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @JSONField(name = "usernames")
     @JsonProperty("usernames")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("团队用户")
     private String usernames;
 
     /**
@@ -573,6 +637,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "myconsumed")
     @JsonProperty("myconsumed")
+    @ApiModelProperty("之前消耗")
     private Double myconsumed;
 
     /**
@@ -582,6 +647,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @JSONField(name = "configweek")
     @JsonProperty("configweek")
     @Size(min = 0, max = 2000, message = "内容长度必须小于等于[2000]")
+    @ApiModelProperty("周期设置周几")
     private String configweek;
 
     /**
@@ -591,6 +657,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @JSONField(name = "tasktype")
     @JsonProperty("tasktype")
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("任务类型")
     private String tasktype;
 
     /**
@@ -600,6 +667,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @JSONField(name = "allmodules")
     @JsonProperty("allmodules")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("所有模块")
     private String allmodules;
 
     /**
@@ -608,6 +676,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "configbeforedays")
     @JsonProperty("configbeforedays")
+    @ApiModelProperty("提前天数")
     private Integer configbeforedays;
 
     /**
@@ -617,6 +686,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "finisheddate" , format="yyyy-MM-dd")
     @JsonProperty("finisheddate")
+    @ApiModelProperty("实际完成")
     private Timestamp finisheddate;
 
     /**
@@ -626,6 +696,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @JSONField(name = "progressrate")
     @JsonProperty("progressrate")
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("进度")
     private String progressrate;
 
     /**
@@ -635,6 +706,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @JSONField(name = "modulename")
     @JsonProperty("modulename")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("所属模块")
     private String modulename;
 
     /**
@@ -644,6 +716,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @JSONField(name = "storyname")
     @JsonProperty("storyname")
     @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
+    @ApiModelProperty("相关需求")
     private String storyname;
 
     /**
@@ -653,6 +726,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @JSONField(name = "path")
     @JsonProperty("path")
     @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
+    @ApiModelProperty("模块路径")
     private String path;
 
     /**
@@ -662,6 +736,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @JSONField(name = "planname")
     @JsonProperty("planname")
     @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
+    @ApiModelProperty("所属计划")
     private String planname;
 
     /**
@@ -671,6 +746,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @JSONField(name = "projectname")
     @JsonProperty("projectname")
     @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
+    @ApiModelProperty("所属项目")
     private String projectname;
 
     /**
@@ -680,6 +756,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @JSONField(name = "product")
     @JsonProperty("product")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("产品")
     private Long product;
 
     /**
@@ -688,6 +765,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "storyversion")
     @JsonProperty("storyversion")
+    @ApiModelProperty("需求版本")
     private Integer storyversion;
 
     /**
@@ -697,6 +775,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @JSONField(name = "productname")
     @JsonProperty("productname")
     @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
+    @ApiModelProperty("产品")
     private String productname;
 
     /**
@@ -706,6 +785,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @JSONField(name = "parentname")
     @JsonProperty("parentname")
     @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
+    @ApiModelProperty("父任务")
     private String parentname;
 
     /**
@@ -715,6 +795,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @JSONField(name = "project")
     @JsonProperty("project")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("所属项目")
     private Long project;
 
     /**
@@ -724,6 +805,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @JSONField(name = "plan")
     @JsonProperty("plan")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("编号")
     private Long plan;
 
     /**
@@ -733,6 +815,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @JSONField(name = "module")
     @JsonProperty("module")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("模块")
     private Long module;
 
     /**
@@ -742,6 +825,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @JSONField(name = "story")
     @JsonProperty("story")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("相关需求")
     private Long story;
 
     /**
@@ -751,6 +835,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @JSONField(name = "parent")
     @JsonProperty("parent")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("父任务")
     private Long parent;
 
     /**
@@ -760,6 +845,7 @@ public class SubTaskDTO extends DTOBase implements Serializable {
     @JSONField(name = "frombug")
     @JsonProperty("frombug")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("来源Bug")
     private Long frombug;
 
 

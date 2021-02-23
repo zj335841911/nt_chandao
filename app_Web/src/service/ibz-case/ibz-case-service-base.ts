@@ -50,11 +50,11 @@ export default class IbzCaseServiceBase extends EntityService {
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.ibzlib && context.ibzcase){
-            let res:any = Http.getInstance().get(`/ibzlibs/${context.ibzlib}/ibzcases/${context.ibzcase}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/ibzlibs/${context.ibzlib}/ibzcases/${context.ibzcase}/select`,isloading);
             
             return res;
         }
-            let res:any = Http.getInstance().get(`/ibzcases/${context.ibzcase}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/ibzcases/${context.ibzcase}/select`,isloading);
             
             return res;
     }
@@ -79,7 +79,7 @@ export default class IbzCaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -95,7 +95,7 @@ export default class IbzCaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -126,7 +126,7 @@ export default class IbzCaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -142,7 +142,7 @@ export default class IbzCaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -185,7 +185,7 @@ export default class IbzCaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -201,7 +201,7 @@ export default class IbzCaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -225,7 +225,7 @@ export default class IbzCaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -241,7 +241,7 @@ export default class IbzCaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -268,10 +268,10 @@ export default class IbzCaseServiceBase extends EntityService {
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.ibzlib && context.ibzcase){
-            let res:any = Http.getInstance().delete(`/ibzlibs/${context.ibzlib}/ibzcases/${context.ibzcase}`,isloading);
+            let res:any = await Http.getInstance().delete(`/ibzlibs/${context.ibzlib}/ibzcases/${context.ibzcase}`,isloading);
             return res;
         }
-            let res:any = Http.getInstance().delete(`/ibzcases/${context.ibzcase}`,isloading);
+            let res:any = await Http.getInstance().delete(`/ibzcases/${context.ibzcase}`,isloading);
             return res;
     }
 
@@ -351,7 +351,7 @@ export default class IbzCaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -367,7 +367,7 @@ export default class IbzCaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -382,7 +382,7 @@ export default class IbzCaseServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/ibzcases/${context.ibzcase}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/ibzcases/${context.ibzcase}/checkkey`,data,isloading);
             return res;
     }
 
@@ -406,7 +406,7 @@ export default class IbzCaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -422,7 +422,7 @@ export default class IbzCaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -446,7 +446,7 @@ export default class IbzCaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -462,7 +462,7 @@ export default class IbzCaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -490,11 +490,11 @@ export default class IbzCaseServiceBase extends EntityService {
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.ibzlib && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/ibzlibs/${context.ibzlib}/ibzcases/fetchdefault`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/ibzlibs/${context.ibzlib}/ibzcases/fetchdefault`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/ibzcases/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/ibzcases/fetchdefault`,tempData,isloading);
         return res;
     }
 

@@ -49,7 +49,7 @@ export default class ProjectStatsServiceBase extends EntityService {
      * @memberof ProjectStatsServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().get(`/projectstats/${context.projectstats}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/projectstats/${context.projectstats}/select`,isloading);
             
             return res;
     }
@@ -105,7 +105,7 @@ export default class ProjectStatsServiceBase extends EntityService {
      * @memberof ProjectStatsServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().delete(`/projectstats/${context.projectstats}`,isloading);
+            let res:any = await Http.getInstance().delete(`/projectstats/${context.projectstats}`,isloading);
             return res;
     }
 
@@ -153,7 +153,7 @@ export default class ProjectStatsServiceBase extends EntityService {
      * @memberof ProjectStatsServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/projectstats/${context.projectstats}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/projectstats/${context.projectstats}/checkkey`,data,isloading);
             return res;
     }
 
@@ -167,7 +167,7 @@ export default class ProjectStatsServiceBase extends EntityService {
      * @memberof ProjectStatsServiceBase
      */
     public async ProjectQualitySum(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/projectstats/${context.projectstats}/projectqualitysum`,data,isloading);
+            let res:any = await Http.getInstance().post(`/projectstats/${context.projectstats}/projectqualitysum`,data,isloading);
             return res;
     }
 
@@ -199,7 +199,7 @@ export default class ProjectStatsServiceBase extends EntityService {
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/projectstats/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/projectstats/fetchdefault`,tempData,isloading);
         return res;
     }
 
@@ -228,7 +228,7 @@ export default class ProjectStatsServiceBase extends EntityService {
      */
     public async FetchNoOpenProduct(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/projectstats/fetchnoopenproduct`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/projectstats/fetchnoopenproduct`,tempData,isloading);
         return res;
     }
 
@@ -257,7 +257,7 @@ export default class ProjectStatsServiceBase extends EntityService {
      */
     public async FetchProjectBugType(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/projectstats/fetchprojectbugtype`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/projectstats/fetchprojectbugtype`,tempData,isloading);
         return res;
     }
 
@@ -286,7 +286,7 @@ export default class ProjectStatsServiceBase extends EntityService {
      */
     public async FetchProjectInputStats(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/projectstats/fetchprojectinputstats`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/projectstats/fetchprojectinputstats`,tempData,isloading);
         return res;
     }
 
@@ -315,7 +315,7 @@ export default class ProjectStatsServiceBase extends EntityService {
      */
     public async FetchProjectProgress(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/projectstats/fetchprojectprogress`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/projectstats/fetchprojectprogress`,tempData,isloading);
         return res;
     }
 
@@ -344,7 +344,7 @@ export default class ProjectStatsServiceBase extends EntityService {
      */
     public async FetchProjectQuality(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/projectstats/fetchprojectquality`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/projectstats/fetchprojectquality`,tempData,isloading);
         return res;
     }
 
@@ -373,7 +373,7 @@ export default class ProjectStatsServiceBase extends EntityService {
      */
     public async FetchProjectStoryStageStats(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/projectstats/fetchprojectstorystagestats`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/projectstats/fetchprojectstorystagestats`,tempData,isloading);
         return res;
     }
 
@@ -402,7 +402,7 @@ export default class ProjectStatsServiceBase extends EntityService {
      */
     public async FetchProjectStoryStatusStats(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/projectstats/fetchprojectstorystatusstats`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/projectstats/fetchprojectstorystatusstats`,tempData,isloading);
         return res;
     }
 
@@ -431,7 +431,7 @@ export default class ProjectStatsServiceBase extends EntityService {
      */
     public async FetchProjectTaskCountByTaskStatus(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/projectstats/fetchprojecttaskcountbytaskstatus`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/projectstats/fetchprojecttaskcountbytaskstatus`,tempData,isloading);
         return res;
     }
 
@@ -460,7 +460,7 @@ export default class ProjectStatsServiceBase extends EntityService {
      */
     public async FetchProjectTaskCountByType(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/projectstats/fetchprojecttaskcountbytype`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/projectstats/fetchprojecttaskcountbytype`,tempData,isloading);
         return res;
     }
 
@@ -489,7 +489,7 @@ export default class ProjectStatsServiceBase extends EntityService {
      */
     public async FetchTaskTime(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/projectstats/fetchtasktime`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/projectstats/fetchtasktime`,tempData,isloading);
         return res;
     }
 

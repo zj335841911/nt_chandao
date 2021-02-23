@@ -20,11 +20,14 @@ import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * 服务DTO对象[ProductStatsDTO]
  */
 @Data
+@ApiModel("产品统计")
 public class ProductStatsDTO extends DTOBase implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -36,6 +39,7 @@ public class ProductStatsDTO extends DTOBase implements Serializable {
     @JSONField(name = "code")
     @JsonProperty("code")
     @Size(min = 0, max = 45, message = "内容长度必须小于等于[45]")
+    @ApiModelProperty("产品代号")
     private String code;
 
     /**
@@ -45,6 +49,7 @@ public class ProductStatsDTO extends DTOBase implements Serializable {
     @JSONField(name = "id")
     @JsonProperty("id")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("产品编号")
     private Long id;
 
     /**
@@ -53,6 +58,7 @@ public class ProductStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "finishedstorycnt")
     @JsonProperty("finishedstorycnt")
+    @ApiModelProperty("已完成的需求数")
     private Integer finishedstorycnt;
 
     /**
@@ -61,6 +67,7 @@ public class ProductStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "releasedstorycnt")
     @JsonProperty("releasedstorycnt")
+    @ApiModelProperty("已发布需求数")
     private Integer releasedstorycnt;
 
     /**
@@ -70,6 +77,7 @@ public class ProductStatsDTO extends DTOBase implements Serializable {
     @JSONField(name = "importantbugpercent")
     @JsonProperty("importantbugpercent")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("严重bug比")
     private String importantbugpercent;
 
     /**
@@ -78,6 +86,7 @@ public class ProductStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "undoneresprojectcnt")
     @JsonProperty("undoneresprojectcnt")
+    @ApiModelProperty("未完成关联项目数")
     private Integer undoneresprojectcnt;
 
     /**
@@ -86,6 +95,7 @@ public class ProductStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "assigntomebugcnt")
     @JsonProperty("assigntomebugcnt")
+    @ApiModelProperty("指派给我的Bug数")
     private Integer assigntomebugcnt;
 
     /**
@@ -95,6 +105,7 @@ public class ProductStatsDTO extends DTOBase implements Serializable {
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
     @Size(min = 0, max = 1, message = "内容长度必须小于等于[1]")
+    @ApiModelProperty("已删除")
     private String deleted;
 
     /**
@@ -103,6 +114,7 @@ public class ProductStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "istop")
     @JsonProperty("istop")
+    @ApiModelProperty("是否置顶")
     private Integer istop;
 
     /**
@@ -111,6 +123,7 @@ public class ProductStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "resprojectcnt")
     @JsonProperty("resprojectcnt")
+    @ApiModelProperty("关联项目数")
     private Integer resprojectcnt;
 
     /**
@@ -119,6 +132,7 @@ public class ProductStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "bugcnt")
     @JsonProperty("bugcnt")
+    @ApiModelProperty("所有Bug数")
     private Integer bugcnt;
 
     /**
@@ -127,6 +141,7 @@ public class ProductStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "haveconsumed")
     @JsonProperty("haveconsumed")
+    @ApiModelProperty("已消耗工时")
     private Double haveconsumed;
 
     /**
@@ -136,6 +151,7 @@ public class ProductStatsDTO extends DTOBase implements Serializable {
     @JSONField(name = "type")
     @JsonProperty("type")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("产品类型")
     private String type;
 
     /**
@@ -144,6 +160,7 @@ public class ProductStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "waitstorycnt")
     @JsonProperty("waitstorycnt")
+    @ApiModelProperty("未开始需求数")
     private Integer waitstorycnt;
 
     /**
@@ -152,6 +169,7 @@ public class ProductStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "bugstory")
     @JsonProperty("bugstory")
+    @ApiModelProperty("需求所提bug数")
     private Integer bugstory;
 
     /**
@@ -160,6 +178,7 @@ public class ProductStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "storycnt")
     @JsonProperty("storycnt")
+    @ApiModelProperty("需求总数")
     private Integer storycnt;
 
     /**
@@ -170,6 +189,7 @@ public class ProductStatsDTO extends DTOBase implements Serializable {
     @JsonProperty("name")
     @NotBlank(message = "[产品名称]不允许为空!")
     @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
+    @ApiModelProperty("产品名称")
     private String name;
 
     /**
@@ -178,6 +198,7 @@ public class ProductStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "importantbugcnt")
     @JsonProperty("importantbugcnt")
+    @ApiModelProperty("重要的Bug数")
     private Integer importantbugcnt;
 
     /**
@@ -186,6 +207,7 @@ public class ProductStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "yesterdayclosedbugcnt")
     @JsonProperty("yesterdayclosedbugcnt")
+    @ApiModelProperty("昨天关闭Bug数")
     private Integer yesterdayclosedbugcnt;
 
     /**
@@ -195,6 +217,7 @@ public class ProductStatsDTO extends DTOBase implements Serializable {
     @JSONField(name = "status")
     @JsonProperty("status")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("状态")
     private String status;
 
     /**
@@ -203,6 +226,7 @@ public class ProductStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "yesterdayresolvedbugcnt")
     @JsonProperty("yesterdayresolvedbugcnt")
+    @ApiModelProperty("昨天解决Bug数")
     private Integer yesterdayresolvedbugcnt;
 
     /**
@@ -211,6 +235,7 @@ public class ProductStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "developingstorycnt")
     @JsonProperty("developingstorycnt")
+    @ApiModelProperty("开发中需求数")
     private Integer developingstorycnt;
 
     /**
@@ -219,6 +244,7 @@ public class ProductStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "activestorycnt")
     @JsonProperty("activestorycnt")
+    @ApiModelProperty("激活需求数")
     private Integer activestorycnt;
 
     /**
@@ -227,6 +253,7 @@ public class ProductStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "notclosedbugcnt")
     @JsonProperty("notclosedbugcnt")
+    @ApiModelProperty("未关闭Bug数")
     private Integer notclosedbugcnt;
 
     /**
@@ -235,6 +262,7 @@ public class ProductStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "normalreleasecnt")
     @JsonProperty("normalreleasecnt")
+    @ApiModelProperty("维护中发布数")
     private Integer normalreleasecnt;
 
     /**
@@ -243,6 +271,7 @@ public class ProductStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "order1")
     @JsonProperty("order1")
+    @ApiModelProperty("产品排序")
     private Integer order1;
 
     /**
@@ -252,6 +281,7 @@ public class ProductStatsDTO extends DTOBase implements Serializable {
     @JSONField(name = "currproject")
     @JsonProperty("currproject")
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("当前项目")
     private String currproject;
 
     /**
@@ -260,6 +290,7 @@ public class ProductStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "testingstorycnt")
     @JsonProperty("testingstorycnt")
+    @ApiModelProperty("测试中需求数")
     private Integer testingstorycnt;
 
     /**
@@ -268,6 +299,7 @@ public class ProductStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "productplancnt")
     @JsonProperty("productplancnt")
+    @ApiModelProperty("计划总数")
     private Integer productplancnt;
 
     /**
@@ -276,6 +308,7 @@ public class ProductStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "releasecnt")
     @JsonProperty("releasecnt")
+    @ApiModelProperty("发布总数")
     private Integer releasecnt;
 
     /**
@@ -284,6 +317,7 @@ public class ProductStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "yesterdayconfirmbugcnt")
     @JsonProperty("yesterdayconfirmbugcnt")
+    @ApiModelProperty("昨天确认Bug数")
     private Integer yesterdayconfirmbugcnt;
 
     /**
@@ -292,6 +326,7 @@ public class ProductStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "postponedprojectcnt")
     @JsonProperty("postponedprojectcnt")
+    @ApiModelProperty("已延期")
     private Integer postponedprojectcnt;
 
     /**
@@ -300,6 +335,7 @@ public class ProductStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "unendproductplancnt")
     @JsonProperty("unendproductplancnt")
+    @ApiModelProperty("未过期计划数")
     private Integer unendproductplancnt;
 
     /**
@@ -308,6 +344,7 @@ public class ProductStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "resolvedbugcnt")
     @JsonProperty("resolvedbugcnt")
+    @ApiModelProperty("解决Bug数")
     private Integer resolvedbugcnt;
 
     /**
@@ -316,6 +353,7 @@ public class ProductStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "plannedstorycnt")
     @JsonProperty("plannedstorycnt")
+    @ApiModelProperty("已计划需求数")
     private Integer plannedstorycnt;
 
     /**
@@ -324,6 +362,7 @@ public class ProductStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "unconfirmbugcnt")
     @JsonProperty("unconfirmbugcnt")
+    @ApiModelProperty("未确认Bug数")
     private Integer unconfirmbugcnt;
 
     /**
@@ -332,6 +371,7 @@ public class ProductStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "activebugcnt")
     @JsonProperty("activebugcnt")
+    @ApiModelProperty("未解决Bug数")
     private Integer activebugcnt;
 
 

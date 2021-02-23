@@ -322,6 +322,14 @@ export class ActionProductTrendsListViewBase extends ListViewBase {
     protected isExpandSearchForm: boolean = true;
 
     /**
+     * 快速分组代码表标识
+     *
+     * @type {boolean}
+     * @memberof ActionProductTrendsListViewBase
+     */
+    public quickGroupCodelistTag: string = "";
+
+    /**
      * 加载快速分组模型
      *
      * @protected
@@ -329,6 +337,7 @@ export class ActionProductTrendsListViewBase extends ListViewBase {
      */
     protected loadQuickGroupModel(): void {
         const quickGroupCodeList: any = { tag: 'ProductActionQuickpacket', codelistType: 'STATIC' };
+        this.quickGroupCodelistTag = quickGroupCodeList.tag ? quickGroupCodeList.tag : "";
         if (quickGroupCodeList.tag && Object.is(quickGroupCodeList.codelistType, "STATIC")) {
             const codelist = this.$store.getters.getCodeList(quickGroupCodeList.tag);
             if (codelist) {

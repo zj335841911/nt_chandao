@@ -51,46 +51,46 @@ export default class SubTaskServiceBase extends EntityService {
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.projectmodule && context.task && context.subtask){
-            let res:any = Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/${context.subtask}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/${context.subtask}/select`,isloading);
             
             return res;
         }
         if(context.product && context.story && context.task && context.subtask){
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/${context.subtask}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/${context.subtask}/select`,isloading);
             
             return res;
         }
         if(context.product && context.productplan && context.task && context.subtask){
-            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/${context.subtask}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/${context.subtask}/select`,isloading);
             
             return res;
         }
         if(context.project && context.task && context.subtask){
-            let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/${context.subtask}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/${context.subtask}/select`,isloading);
             
             return res;
         }
         if(context.story && context.task && context.subtask){
-            let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/subtasks/${context.subtask}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/subtasks/${context.subtask}/select`,isloading);
             
             return res;
         }
         if(context.productplan && context.task && context.subtask){
-            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/${context.subtask}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/${context.subtask}/select`,isloading);
             
             return res;
         }
         if(context.projectmodule && context.task && context.subtask){
-            let res:any = Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/${context.subtask}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/${context.subtask}/select`,isloading);
             
             return res;
         }
         if(context.task && context.subtask){
-            let res:any = Http.getInstance().get(`/tasks/${context.task}/subtasks/${context.subtask}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/tasks/${context.task}/subtasks/${context.subtask}/select`,isloading);
             
             return res;
         }
-            let res:any = Http.getInstance().get(`/subtasks/${context.subtask}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/subtasks/${context.subtask}/select`,isloading);
             
             return res;
     }
@@ -315,38 +315,38 @@ export default class SubTaskServiceBase extends EntityService {
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.projectmodule && context.task && context.subtask){
-            let res:any = Http.getInstance().delete(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/${context.subtask}`,isloading);
+            let res:any = await Http.getInstance().delete(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/${context.subtask}`,isloading);
             return res;
         }
         if(context.product && context.story && context.task && context.subtask){
-            let res:any = Http.getInstance().delete(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/${context.subtask}`,isloading);
+            let res:any = await Http.getInstance().delete(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/${context.subtask}`,isloading);
             return res;
         }
         if(context.product && context.productplan && context.task && context.subtask){
-            let res:any = Http.getInstance().delete(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/${context.subtask}`,isloading);
+            let res:any = await Http.getInstance().delete(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/${context.subtask}`,isloading);
             return res;
         }
         if(context.project && context.task && context.subtask){
-            let res:any = Http.getInstance().delete(`/projects/${context.project}/tasks/${context.task}/subtasks/${context.subtask}`,isloading);
+            let res:any = await Http.getInstance().delete(`/projects/${context.project}/tasks/${context.task}/subtasks/${context.subtask}`,isloading);
             return res;
         }
         if(context.story && context.task && context.subtask){
-            let res:any = Http.getInstance().delete(`/stories/${context.story}/tasks/${context.task}/subtasks/${context.subtask}`,isloading);
+            let res:any = await Http.getInstance().delete(`/stories/${context.story}/tasks/${context.task}/subtasks/${context.subtask}`,isloading);
             return res;
         }
         if(context.productplan && context.task && context.subtask){
-            let res:any = Http.getInstance().delete(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/${context.subtask}`,isloading);
+            let res:any = await Http.getInstance().delete(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/${context.subtask}`,isloading);
             return res;
         }
         if(context.projectmodule && context.task && context.subtask){
-            let res:any = Http.getInstance().delete(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/${context.subtask}`,isloading);
+            let res:any = await Http.getInstance().delete(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/${context.subtask}`,isloading);
             return res;
         }
         if(context.task && context.subtask){
-            let res:any = Http.getInstance().delete(`/tasks/${context.task}/subtasks/${context.subtask}`,isloading);
+            let res:any = await Http.getInstance().delete(`/tasks/${context.task}/subtasks/${context.subtask}`,isloading);
             return res;
         }
-            let res:any = Http.getInstance().delete(`/subtasks/${context.subtask}`,isloading);
+            let res:any = await Http.getInstance().delete(`/subtasks/${context.subtask}`,isloading);
             return res;
     }
 
@@ -562,7 +562,7 @@ export default class SubTaskServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/subtasks/${context.subtask}/activate`,data,isloading);
+            let res:any = await Http.getInstance().post(`/subtasks/${context.subtask}/activate`,data,isloading);
             return res;
     }
 
@@ -632,7 +632,7 @@ export default class SubTaskServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/subtasks/${context.subtask}/assignto`,data,isloading);
+            let res:any = await Http.getInstance().post(`/subtasks/${context.subtask}/assignto`,data,isloading);
             return res;
     }
 
@@ -702,7 +702,7 @@ export default class SubTaskServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/subtasks/${context.subtask}/cancel`,data,isloading);
+            let res:any = await Http.getInstance().post(`/subtasks/${context.subtask}/cancel`,data,isloading);
             return res;
     }
 
@@ -772,7 +772,7 @@ export default class SubTaskServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/subtasks/${context.subtask}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/subtasks/${context.subtask}/checkkey`,data,isloading);
             return res;
     }
 
@@ -842,7 +842,7 @@ export default class SubTaskServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/subtasks/${context.subtask}/close`,data,isloading);
+            let res:any = await Http.getInstance().post(`/subtasks/${context.subtask}/close`,data,isloading);
             return res;
     }
 
@@ -912,7 +912,7 @@ export default class SubTaskServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/subtasks/${context.subtask}/confirmstorychange`,data,isloading);
+            let res:any = await Http.getInstance().post(`/subtasks/${context.subtask}/confirmstorychange`,data,isloading);
             return res;
     }
 
@@ -982,7 +982,7 @@ export default class SubTaskServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/subtasks/${context.subtask}/createcycletasks`,data,isloading);
+            let res:any = await Http.getInstance().post(`/subtasks/${context.subtask}/createcycletasks`,data,isloading);
             return res;
     }
 
@@ -1052,7 +1052,7 @@ export default class SubTaskServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/subtasks/${context.subtask}/deleteestimate`,data,isloading);
+            let res:any = await Http.getInstance().post(`/subtasks/${context.subtask}/deleteestimate`,data,isloading);
             return res;
     }
 
@@ -1122,7 +1122,7 @@ export default class SubTaskServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/subtasks/${context.subtask}/editestimate`,data,isloading);
+            let res:any = await Http.getInstance().post(`/subtasks/${context.subtask}/editestimate`,data,isloading);
             return res;
     }
 
@@ -1192,7 +1192,7 @@ export default class SubTaskServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/subtasks/${context.subtask}/finish`,data,isloading);
+            let res:any = await Http.getInstance().post(`/subtasks/${context.subtask}/finish`,data,isloading);
             return res;
     }
 
@@ -1262,7 +1262,7 @@ export default class SubTaskServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().put(`/subtasks/${context.subtask}/getnextteamuser`,data,isloading);
+            let res:any = await Http.getInstance().put(`/subtasks/${context.subtask}/getnextteamuser`,data,isloading);
             return res;
     }
 
@@ -1332,7 +1332,7 @@ export default class SubTaskServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().put(`/subtasks/${context.subtask}/getteamuserleftactivity`,data,isloading);
+            let res:any = await Http.getInstance().put(`/subtasks/${context.subtask}/getteamuserleftactivity`,data,isloading);
             return res;
     }
 
@@ -1402,7 +1402,7 @@ export default class SubTaskServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().put(`/subtasks/${context.subtask}/getteamuserleftstart`,data,isloading);
+            let res:any = await Http.getInstance().put(`/subtasks/${context.subtask}/getteamuserleftstart`,data,isloading);
             return res;
     }
 
@@ -1472,7 +1472,7 @@ export default class SubTaskServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().put(`/subtasks/${context.subtask}/getusernames`,data,isloading);
+            let res:any = await Http.getInstance().put(`/subtasks/${context.subtask}/getusernames`,data,isloading);
             return res;
     }
 
@@ -1542,7 +1542,7 @@ export default class SubTaskServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/subtasks/${context.subtask}/linkplan`,data,isloading);
+            let res:any = await Http.getInstance().post(`/subtasks/${context.subtask}/linkplan`,data,isloading);
             return res;
     }
 
@@ -1612,7 +1612,7 @@ export default class SubTaskServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().put(`/subtasks/${context.subtask}/otherupdate`,data,isloading);
+            let res:any = await Http.getInstance().put(`/subtasks/${context.subtask}/otherupdate`,data,isloading);
             return res;
     }
 
@@ -1682,7 +1682,7 @@ export default class SubTaskServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/subtasks/${context.subtask}/pause`,data,isloading);
+            let res:any = await Http.getInstance().post(`/subtasks/${context.subtask}/pause`,data,isloading);
             return res;
     }
 
@@ -1752,7 +1752,7 @@ export default class SubTaskServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/subtasks/${context.subtask}/recordestimate`,data,isloading);
+            let res:any = await Http.getInstance().post(`/subtasks/${context.subtask}/recordestimate`,data,isloading);
             return res;
     }
 
@@ -1822,7 +1822,7 @@ export default class SubTaskServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/subtasks/${context.subtask}/restart`,data,isloading);
+            let res:any = await Http.getInstance().post(`/subtasks/${context.subtask}/restart`,data,isloading);
             return res;
     }
 
@@ -1965,7 +1965,7 @@ export default class SubTaskServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/subtasks/${context.subtask}/sendmessage`,data,isloading);
+            let res:any = await Http.getInstance().post(`/subtasks/${context.subtask}/sendmessage`,data,isloading);
             return res;
     }
 
@@ -2035,7 +2035,7 @@ export default class SubTaskServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/subtasks/${context.subtask}/sendmsgpreprocess`,data,isloading);
+            let res:any = await Http.getInstance().post(`/subtasks/${context.subtask}/sendmsgpreprocess`,data,isloading);
             return res;
     }
 
@@ -2105,7 +2105,7 @@ export default class SubTaskServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/subtasks/${context.subtask}/start`,data,isloading);
+            let res:any = await Http.getInstance().post(`/subtasks/${context.subtask}/start`,data,isloading);
             return res;
     }
 
@@ -2175,7 +2175,7 @@ export default class SubTaskServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/subtasks/${context.subtask}/taskfavorites`,data,isloading);
+            let res:any = await Http.getInstance().post(`/subtasks/${context.subtask}/taskfavorites`,data,isloading);
             return res;
     }
 
@@ -2245,7 +2245,7 @@ export default class SubTaskServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/subtasks/${context.subtask}/taskforward`,data,isloading);
+            let res:any = await Http.getInstance().post(`/subtasks/${context.subtask}/taskforward`,data,isloading);
             return res;
     }
 
@@ -2315,7 +2315,7 @@ export default class SubTaskServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/subtasks/${context.subtask}/tasknfavorites`,data,isloading);
+            let res:any = await Http.getInstance().post(`/subtasks/${context.subtask}/tasknfavorites`,data,isloading);
             return res;
     }
 
@@ -2385,7 +2385,7 @@ export default class SubTaskServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().put(`/subtasks/${context.subtask}/updatestoryversion`,data,isloading);
+            let res:any = await Http.getInstance().put(`/subtasks/${context.subtask}/updatestoryversion`,data,isloading);
             return res;
     }
 
@@ -2401,46 +2401,46 @@ export default class SubTaskServiceBase extends EntityService {
     public async FetchAssignedToMyTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchassignedtomytask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchassignedtomytask`,tempData,isloading);
             return res;
         }
         if(context.product && context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchassignedtomytask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchassignedtomytask`,tempData,isloading);
             return res;
         }
         if(context.product && context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchassignedtomytask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchassignedtomytask`,tempData,isloading);
             return res;
         }
         if(context.project && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchassignedtomytask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchassignedtomytask`,tempData,isloading);
             return res;
         }
         if(context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchassignedtomytask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchassignedtomytask`,tempData,isloading);
             return res;
         }
         if(context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchassignedtomytask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchassignedtomytask`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchassignedtomytask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchassignedtomytask`,tempData,isloading);
             return res;
         }
         if(context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchassignedtomytask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchassignedtomytask`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/subtasks/fetchassignedtomytask`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/subtasks/fetchassignedtomytask`,tempData,isloading);
         return res;
     }
 
@@ -2502,46 +2502,46 @@ export default class SubTaskServiceBase extends EntityService {
     public async FetchAssignedToMyTaskPc(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchassignedtomytaskpc`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchassignedtomytaskpc`,tempData,isloading);
             return res;
         }
         if(context.product && context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchassignedtomytaskpc`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchassignedtomytaskpc`,tempData,isloading);
             return res;
         }
         if(context.product && context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchassignedtomytaskpc`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchassignedtomytaskpc`,tempData,isloading);
             return res;
         }
         if(context.project && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchassignedtomytaskpc`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchassignedtomytaskpc`,tempData,isloading);
             return res;
         }
         if(context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchassignedtomytaskpc`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchassignedtomytaskpc`,tempData,isloading);
             return res;
         }
         if(context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchassignedtomytaskpc`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchassignedtomytaskpc`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchassignedtomytaskpc`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchassignedtomytaskpc`,tempData,isloading);
             return res;
         }
         if(context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchassignedtomytaskpc`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchassignedtomytaskpc`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/subtasks/fetchassignedtomytaskpc`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/subtasks/fetchassignedtomytaskpc`,tempData,isloading);
         return res;
     }
 
@@ -2603,46 +2603,46 @@ export default class SubTaskServiceBase extends EntityService {
     public async FetchBugTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchbugtask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchbugtask`,tempData,isloading);
             return res;
         }
         if(context.product && context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchbugtask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchbugtask`,tempData,isloading);
             return res;
         }
         if(context.product && context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchbugtask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchbugtask`,tempData,isloading);
             return res;
         }
         if(context.project && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchbugtask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchbugtask`,tempData,isloading);
             return res;
         }
         if(context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchbugtask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchbugtask`,tempData,isloading);
             return res;
         }
         if(context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchbugtask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchbugtask`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchbugtask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchbugtask`,tempData,isloading);
             return res;
         }
         if(context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchbugtask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchbugtask`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/subtasks/fetchbugtask`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/subtasks/fetchbugtask`,tempData,isloading);
         return res;
     }
 
@@ -2704,46 +2704,46 @@ export default class SubTaskServiceBase extends EntityService {
     public async FetchByModule(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchbymodule`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchbymodule`,tempData,isloading);
             return res;
         }
         if(context.product && context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchbymodule`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchbymodule`,tempData,isloading);
             return res;
         }
         if(context.product && context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchbymodule`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchbymodule`,tempData,isloading);
             return res;
         }
         if(context.project && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchbymodule`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchbymodule`,tempData,isloading);
             return res;
         }
         if(context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchbymodule`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchbymodule`,tempData,isloading);
             return res;
         }
         if(context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchbymodule`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchbymodule`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchbymodule`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchbymodule`,tempData,isloading);
             return res;
         }
         if(context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/tasks/${context.task}/subtasks/fetchbymodule`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/tasks/${context.task}/subtasks/fetchbymodule`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().post(`/subtasks/fetchbymodule`,tempData,isloading);
+        let res:any = await Http.getInstance().post(`/subtasks/fetchbymodule`,tempData,isloading);
         return res;
     }
 
@@ -2805,46 +2805,46 @@ export default class SubTaskServiceBase extends EntityService {
     public async FetchChildTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchchildtask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchchildtask`,tempData,isloading);
             return res;
         }
         if(context.product && context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchchildtask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchchildtask`,tempData,isloading);
             return res;
         }
         if(context.product && context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchchildtask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchchildtask`,tempData,isloading);
             return res;
         }
         if(context.project && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchchildtask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchchildtask`,tempData,isloading);
             return res;
         }
         if(context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchchildtask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchchildtask`,tempData,isloading);
             return res;
         }
         if(context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchchildtask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchchildtask`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchchildtask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchchildtask`,tempData,isloading);
             return res;
         }
         if(context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchchildtask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchchildtask`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/subtasks/fetchchildtask`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/subtasks/fetchchildtask`,tempData,isloading);
         return res;
     }
 
@@ -2906,46 +2906,46 @@ export default class SubTaskServiceBase extends EntityService {
     public async FetchChildTaskTree(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchchildtasktree`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchchildtasktree`,tempData,isloading);
             return res;
         }
         if(context.product && context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchchildtasktree`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchchildtasktree`,tempData,isloading);
             return res;
         }
         if(context.product && context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchchildtasktree`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchchildtasktree`,tempData,isloading);
             return res;
         }
         if(context.project && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchchildtasktree`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchchildtasktree`,tempData,isloading);
             return res;
         }
         if(context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchchildtasktree`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchchildtasktree`,tempData,isloading);
             return res;
         }
         if(context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchchildtasktree`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchchildtasktree`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchchildtasktree`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchchildtasktree`,tempData,isloading);
             return res;
         }
         if(context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchchildtasktree`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchchildtasktree`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/subtasks/fetchchildtasktree`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/subtasks/fetchchildtasktree`,tempData,isloading);
         return res;
     }
 
@@ -3007,46 +3007,46 @@ export default class SubTaskServiceBase extends EntityService {
     public async FetchCurFinishTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchcurfinishtask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchcurfinishtask`,tempData,isloading);
             return res;
         }
         if(context.product && context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchcurfinishtask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchcurfinishtask`,tempData,isloading);
             return res;
         }
         if(context.product && context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchcurfinishtask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchcurfinishtask`,tempData,isloading);
             return res;
         }
         if(context.project && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchcurfinishtask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchcurfinishtask`,tempData,isloading);
             return res;
         }
         if(context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchcurfinishtask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchcurfinishtask`,tempData,isloading);
             return res;
         }
         if(context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchcurfinishtask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchcurfinishtask`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchcurfinishtask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchcurfinishtask`,tempData,isloading);
             return res;
         }
         if(context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchcurfinishtask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchcurfinishtask`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/subtasks/fetchcurfinishtask`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/subtasks/fetchcurfinishtask`,tempData,isloading);
         return res;
     }
 
@@ -3108,46 +3108,46 @@ export default class SubTaskServiceBase extends EntityService {
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchdefault`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchdefault`,tempData,isloading);
             return res;
         }
         if(context.product && context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchdefault`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchdefault`,tempData,isloading);
             return res;
         }
         if(context.product && context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchdefault`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchdefault`,tempData,isloading);
             return res;
         }
         if(context.project && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchdefault`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchdefault`,tempData,isloading);
             return res;
         }
         if(context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchdefault`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchdefault`,tempData,isloading);
             return res;
         }
         if(context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchdefault`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchdefault`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchdefault`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchdefault`,tempData,isloading);
             return res;
         }
         if(context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/tasks/${context.task}/subtasks/fetchdefault`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/tasks/${context.task}/subtasks/fetchdefault`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().post(`/subtasks/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().post(`/subtasks/fetchdefault`,tempData,isloading);
         return res;
     }
 
@@ -3209,46 +3209,46 @@ export default class SubTaskServiceBase extends EntityService {
     public async FetchDefaultRow(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchdefaultrow`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchdefaultrow`,tempData,isloading);
             return res;
         }
         if(context.product && context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchdefaultrow`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchdefaultrow`,tempData,isloading);
             return res;
         }
         if(context.product && context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchdefaultrow`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchdefaultrow`,tempData,isloading);
             return res;
         }
         if(context.project && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchdefaultrow`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchdefaultrow`,tempData,isloading);
             return res;
         }
         if(context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchdefaultrow`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchdefaultrow`,tempData,isloading);
             return res;
         }
         if(context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchdefaultrow`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchdefaultrow`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchdefaultrow`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchdefaultrow`,tempData,isloading);
             return res;
         }
         if(context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchdefaultrow`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchdefaultrow`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/subtasks/fetchdefaultrow`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/subtasks/fetchdefaultrow`,tempData,isloading);
         return res;
     }
 
@@ -3310,46 +3310,46 @@ export default class SubTaskServiceBase extends EntityService {
     public async FetchESBulk(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchesbulk`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchesbulk`,tempData,isloading);
             return res;
         }
         if(context.product && context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchesbulk`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchesbulk`,tempData,isloading);
             return res;
         }
         if(context.product && context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchesbulk`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchesbulk`,tempData,isloading);
             return res;
         }
         if(context.project && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchesbulk`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchesbulk`,tempData,isloading);
             return res;
         }
         if(context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchesbulk`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchesbulk`,tempData,isloading);
             return res;
         }
         if(context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchesbulk`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchesbulk`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchesbulk`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchesbulk`,tempData,isloading);
             return res;
         }
         if(context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchesbulk`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchesbulk`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/subtasks/fetchesbulk`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/subtasks/fetchesbulk`,tempData,isloading);
         return res;
     }
 
@@ -3411,46 +3411,46 @@ export default class SubTaskServiceBase extends EntityService {
     public async FetchMyAgentTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchmyagenttask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchmyagenttask`,tempData,isloading);
             return res;
         }
         if(context.product && context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchmyagenttask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchmyagenttask`,tempData,isloading);
             return res;
         }
         if(context.product && context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchmyagenttask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchmyagenttask`,tempData,isloading);
             return res;
         }
         if(context.project && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchmyagenttask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchmyagenttask`,tempData,isloading);
             return res;
         }
         if(context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchmyagenttask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchmyagenttask`,tempData,isloading);
             return res;
         }
         if(context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchmyagenttask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchmyagenttask`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchmyagenttask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchmyagenttask`,tempData,isloading);
             return res;
         }
         if(context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchmyagenttask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchmyagenttask`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/subtasks/fetchmyagenttask`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/subtasks/fetchmyagenttask`,tempData,isloading);
         return res;
     }
 
@@ -3512,46 +3512,46 @@ export default class SubTaskServiceBase extends EntityService {
     public async FetchMyAllTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchmyalltask`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchmyalltask`,tempData,isloading);
             return res;
         }
         if(context.product && context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchmyalltask`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchmyalltask`,tempData,isloading);
             return res;
         }
         if(context.product && context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchmyalltask`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchmyalltask`,tempData,isloading);
             return res;
         }
         if(context.project && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchmyalltask`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchmyalltask`,tempData,isloading);
             return res;
         }
         if(context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchmyalltask`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchmyalltask`,tempData,isloading);
             return res;
         }
         if(context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchmyalltask`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchmyalltask`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchmyalltask`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchmyalltask`,tempData,isloading);
             return res;
         }
         if(context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/tasks/${context.task}/subtasks/fetchmyalltask`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/tasks/${context.task}/subtasks/fetchmyalltask`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().post(`/subtasks/fetchmyalltask`,tempData,isloading);
+        let res:any = await Http.getInstance().post(`/subtasks/fetchmyalltask`,tempData,isloading);
         return res;
     }
 
@@ -3613,46 +3613,46 @@ export default class SubTaskServiceBase extends EntityService {
     public async FetchMyCompleteTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchmycompletetask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchmycompletetask`,tempData,isloading);
             return res;
         }
         if(context.product && context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchmycompletetask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchmycompletetask`,tempData,isloading);
             return res;
         }
         if(context.product && context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchmycompletetask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchmycompletetask`,tempData,isloading);
             return res;
         }
         if(context.project && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchmycompletetask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchmycompletetask`,tempData,isloading);
             return res;
         }
         if(context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchmycompletetask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchmycompletetask`,tempData,isloading);
             return res;
         }
         if(context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchmycompletetask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchmycompletetask`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchmycompletetask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchmycompletetask`,tempData,isloading);
             return res;
         }
         if(context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchmycompletetask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchmycompletetask`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/subtasks/fetchmycompletetask`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/subtasks/fetchmycompletetask`,tempData,isloading);
         return res;
     }
 
@@ -3714,46 +3714,46 @@ export default class SubTaskServiceBase extends EntityService {
     public async FetchMyCompleteTaskMobDaily(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchmycompletetaskmobdaily`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchmycompletetaskmobdaily`,tempData,isloading);
             return res;
         }
         if(context.product && context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchmycompletetaskmobdaily`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchmycompletetaskmobdaily`,tempData,isloading);
             return res;
         }
         if(context.product && context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchmycompletetaskmobdaily`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchmycompletetaskmobdaily`,tempData,isloading);
             return res;
         }
         if(context.project && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchmycompletetaskmobdaily`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchmycompletetaskmobdaily`,tempData,isloading);
             return res;
         }
         if(context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchmycompletetaskmobdaily`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchmycompletetaskmobdaily`,tempData,isloading);
             return res;
         }
         if(context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchmycompletetaskmobdaily`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchmycompletetaskmobdaily`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchmycompletetaskmobdaily`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchmycompletetaskmobdaily`,tempData,isloading);
             return res;
         }
         if(context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchmycompletetaskmobdaily`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchmycompletetaskmobdaily`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/subtasks/fetchmycompletetaskmobdaily`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/subtasks/fetchmycompletetaskmobdaily`,tempData,isloading);
         return res;
     }
 
@@ -3815,46 +3815,46 @@ export default class SubTaskServiceBase extends EntityService {
     public async FetchMyCompleteTaskMobMonthly(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchmycompletetaskmobmonthly`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchmycompletetaskmobmonthly`,tempData,isloading);
             return res;
         }
         if(context.product && context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchmycompletetaskmobmonthly`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchmycompletetaskmobmonthly`,tempData,isloading);
             return res;
         }
         if(context.product && context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchmycompletetaskmobmonthly`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchmycompletetaskmobmonthly`,tempData,isloading);
             return res;
         }
         if(context.project && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchmycompletetaskmobmonthly`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchmycompletetaskmobmonthly`,tempData,isloading);
             return res;
         }
         if(context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchmycompletetaskmobmonthly`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchmycompletetaskmobmonthly`,tempData,isloading);
             return res;
         }
         if(context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchmycompletetaskmobmonthly`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchmycompletetaskmobmonthly`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchmycompletetaskmobmonthly`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchmycompletetaskmobmonthly`,tempData,isloading);
             return res;
         }
         if(context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchmycompletetaskmobmonthly`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchmycompletetaskmobmonthly`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/subtasks/fetchmycompletetaskmobmonthly`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/subtasks/fetchmycompletetaskmobmonthly`,tempData,isloading);
         return res;
     }
 
@@ -3916,46 +3916,46 @@ export default class SubTaskServiceBase extends EntityService {
     public async FetchMyCompleteTaskMonthlyZS(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchmycompletetaskmonthlyzs`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchmycompletetaskmonthlyzs`,tempData,isloading);
             return res;
         }
         if(context.product && context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchmycompletetaskmonthlyzs`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchmycompletetaskmonthlyzs`,tempData,isloading);
             return res;
         }
         if(context.product && context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchmycompletetaskmonthlyzs`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchmycompletetaskmonthlyzs`,tempData,isloading);
             return res;
         }
         if(context.project && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchmycompletetaskmonthlyzs`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchmycompletetaskmonthlyzs`,tempData,isloading);
             return res;
         }
         if(context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchmycompletetaskmonthlyzs`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchmycompletetaskmonthlyzs`,tempData,isloading);
             return res;
         }
         if(context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchmycompletetaskmonthlyzs`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchmycompletetaskmonthlyzs`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchmycompletetaskmonthlyzs`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchmycompletetaskmonthlyzs`,tempData,isloading);
             return res;
         }
         if(context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchmycompletetaskmonthlyzs`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchmycompletetaskmonthlyzs`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/subtasks/fetchmycompletetaskmonthlyzs`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/subtasks/fetchmycompletetaskmonthlyzs`,tempData,isloading);
         return res;
     }
 
@@ -4017,46 +4017,46 @@ export default class SubTaskServiceBase extends EntityService {
     public async FetchMyCompleteTaskZS(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchmycompletetaskzs`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchmycompletetaskzs`,tempData,isloading);
             return res;
         }
         if(context.product && context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchmycompletetaskzs`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchmycompletetaskzs`,tempData,isloading);
             return res;
         }
         if(context.product && context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchmycompletetaskzs`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchmycompletetaskzs`,tempData,isloading);
             return res;
         }
         if(context.project && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchmycompletetaskzs`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchmycompletetaskzs`,tempData,isloading);
             return res;
         }
         if(context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchmycompletetaskzs`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchmycompletetaskzs`,tempData,isloading);
             return res;
         }
         if(context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchmycompletetaskzs`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchmycompletetaskzs`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchmycompletetaskzs`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchmycompletetaskzs`,tempData,isloading);
             return res;
         }
         if(context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchmycompletetaskzs`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchmycompletetaskzs`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/subtasks/fetchmycompletetaskzs`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/subtasks/fetchmycompletetaskzs`,tempData,isloading);
         return res;
     }
 
@@ -4118,46 +4118,46 @@ export default class SubTaskServiceBase extends EntityService {
     public async FetchMyFavorites(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchmyfavorites`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchmyfavorites`,tempData,isloading);
             return res;
         }
         if(context.product && context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchmyfavorites`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchmyfavorites`,tempData,isloading);
             return res;
         }
         if(context.product && context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchmyfavorites`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchmyfavorites`,tempData,isloading);
             return res;
         }
         if(context.project && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchmyfavorites`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchmyfavorites`,tempData,isloading);
             return res;
         }
         if(context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchmyfavorites`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchmyfavorites`,tempData,isloading);
             return res;
         }
         if(context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchmyfavorites`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchmyfavorites`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchmyfavorites`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchmyfavorites`,tempData,isloading);
             return res;
         }
         if(context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/tasks/${context.task}/subtasks/fetchmyfavorites`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/tasks/${context.task}/subtasks/fetchmyfavorites`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().post(`/subtasks/fetchmyfavorites`,tempData,isloading);
+        let res:any = await Http.getInstance().post(`/subtasks/fetchmyfavorites`,tempData,isloading);
         return res;
     }
 
@@ -4219,46 +4219,46 @@ export default class SubTaskServiceBase extends EntityService {
     public async FetchMyPlansTaskMobMonthly(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchmyplanstaskmobmonthly`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchmyplanstaskmobmonthly`,tempData,isloading);
             return res;
         }
         if(context.product && context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchmyplanstaskmobmonthly`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchmyplanstaskmobmonthly`,tempData,isloading);
             return res;
         }
         if(context.product && context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchmyplanstaskmobmonthly`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchmyplanstaskmobmonthly`,tempData,isloading);
             return res;
         }
         if(context.project && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchmyplanstaskmobmonthly`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchmyplanstaskmobmonthly`,tempData,isloading);
             return res;
         }
         if(context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchmyplanstaskmobmonthly`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchmyplanstaskmobmonthly`,tempData,isloading);
             return res;
         }
         if(context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchmyplanstaskmobmonthly`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchmyplanstaskmobmonthly`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchmyplanstaskmobmonthly`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchmyplanstaskmobmonthly`,tempData,isloading);
             return res;
         }
         if(context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchmyplanstaskmobmonthly`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchmyplanstaskmobmonthly`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/subtasks/fetchmyplanstaskmobmonthly`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/subtasks/fetchmyplanstaskmobmonthly`,tempData,isloading);
         return res;
     }
 
@@ -4320,46 +4320,46 @@ export default class SubTaskServiceBase extends EntityService {
     public async FetchMyTomorrowPlanTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchmytomorrowplantask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchmytomorrowplantask`,tempData,isloading);
             return res;
         }
         if(context.product && context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchmytomorrowplantask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchmytomorrowplantask`,tempData,isloading);
             return res;
         }
         if(context.product && context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchmytomorrowplantask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchmytomorrowplantask`,tempData,isloading);
             return res;
         }
         if(context.project && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchmytomorrowplantask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchmytomorrowplantask`,tempData,isloading);
             return res;
         }
         if(context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchmytomorrowplantask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchmytomorrowplantask`,tempData,isloading);
             return res;
         }
         if(context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchmytomorrowplantask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchmytomorrowplantask`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchmytomorrowplantask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchmytomorrowplantask`,tempData,isloading);
             return res;
         }
         if(context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchmytomorrowplantask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchmytomorrowplantask`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/subtasks/fetchmytomorrowplantask`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/subtasks/fetchmytomorrowplantask`,tempData,isloading);
         return res;
     }
 
@@ -4421,46 +4421,46 @@ export default class SubTaskServiceBase extends EntityService {
     public async FetchMyTomorrowPlanTaskMobDaily(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchmytomorrowplantaskmobdaily`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchmytomorrowplantaskmobdaily`,tempData,isloading);
             return res;
         }
         if(context.product && context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchmytomorrowplantaskmobdaily`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchmytomorrowplantaskmobdaily`,tempData,isloading);
             return res;
         }
         if(context.product && context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchmytomorrowplantaskmobdaily`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchmytomorrowplantaskmobdaily`,tempData,isloading);
             return res;
         }
         if(context.project && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchmytomorrowplantaskmobdaily`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchmytomorrowplantaskmobdaily`,tempData,isloading);
             return res;
         }
         if(context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchmytomorrowplantaskmobdaily`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchmytomorrowplantaskmobdaily`,tempData,isloading);
             return res;
         }
         if(context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchmytomorrowplantaskmobdaily`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchmytomorrowplantaskmobdaily`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchmytomorrowplantaskmobdaily`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchmytomorrowplantaskmobdaily`,tempData,isloading);
             return res;
         }
         if(context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchmytomorrowplantaskmobdaily`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchmytomorrowplantaskmobdaily`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/subtasks/fetchmytomorrowplantaskmobdaily`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/subtasks/fetchmytomorrowplantaskmobdaily`,tempData,isloading);
         return res;
     }
 
@@ -4522,46 +4522,46 @@ export default class SubTaskServiceBase extends EntityService {
     public async FetchNextWeekCompleteTaskMobZS(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchnextweekcompletetaskmobzs`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchnextweekcompletetaskmobzs`,tempData,isloading);
             return res;
         }
         if(context.product && context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchnextweekcompletetaskmobzs`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchnextweekcompletetaskmobzs`,tempData,isloading);
             return res;
         }
         if(context.product && context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchnextweekcompletetaskmobzs`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchnextweekcompletetaskmobzs`,tempData,isloading);
             return res;
         }
         if(context.project && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchnextweekcompletetaskmobzs`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchnextweekcompletetaskmobzs`,tempData,isloading);
             return res;
         }
         if(context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchnextweekcompletetaskmobzs`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchnextweekcompletetaskmobzs`,tempData,isloading);
             return res;
         }
         if(context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchnextweekcompletetaskmobzs`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchnextweekcompletetaskmobzs`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchnextweekcompletetaskmobzs`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchnextweekcompletetaskmobzs`,tempData,isloading);
             return res;
         }
         if(context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchnextweekcompletetaskmobzs`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchnextweekcompletetaskmobzs`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/subtasks/fetchnextweekcompletetaskmobzs`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/subtasks/fetchnextweekcompletetaskmobzs`,tempData,isloading);
         return res;
     }
 
@@ -4623,46 +4623,46 @@ export default class SubTaskServiceBase extends EntityService {
     public async FetchNextWeekCompleteTaskZS(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchnextweekcompletetaskzs`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchnextweekcompletetaskzs`,tempData,isloading);
             return res;
         }
         if(context.product && context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchnextweekcompletetaskzs`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchnextweekcompletetaskzs`,tempData,isloading);
             return res;
         }
         if(context.product && context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchnextweekcompletetaskzs`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchnextweekcompletetaskzs`,tempData,isloading);
             return res;
         }
         if(context.project && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchnextweekcompletetaskzs`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchnextweekcompletetaskzs`,tempData,isloading);
             return res;
         }
         if(context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchnextweekcompletetaskzs`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchnextweekcompletetaskzs`,tempData,isloading);
             return res;
         }
         if(context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchnextweekcompletetaskzs`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchnextweekcompletetaskzs`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchnextweekcompletetaskzs`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchnextweekcompletetaskzs`,tempData,isloading);
             return res;
         }
         if(context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchnextweekcompletetaskzs`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchnextweekcompletetaskzs`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/subtasks/fetchnextweekcompletetaskzs`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/subtasks/fetchnextweekcompletetaskzs`,tempData,isloading);
         return res;
     }
 
@@ -4724,46 +4724,46 @@ export default class SubTaskServiceBase extends EntityService {
     public async FetchNextWeekPlanCompleteTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchnextweekplancompletetask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchnextweekplancompletetask`,tempData,isloading);
             return res;
         }
         if(context.product && context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchnextweekplancompletetask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchnextweekplancompletetask`,tempData,isloading);
             return res;
         }
         if(context.product && context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchnextweekplancompletetask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchnextweekplancompletetask`,tempData,isloading);
             return res;
         }
         if(context.project && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchnextweekplancompletetask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchnextweekplancompletetask`,tempData,isloading);
             return res;
         }
         if(context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchnextweekplancompletetask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchnextweekplancompletetask`,tempData,isloading);
             return res;
         }
         if(context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchnextweekplancompletetask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchnextweekplancompletetask`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchnextweekplancompletetask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchnextweekplancompletetask`,tempData,isloading);
             return res;
         }
         if(context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchnextweekplancompletetask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchnextweekplancompletetask`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/subtasks/fetchnextweekplancompletetask`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/subtasks/fetchnextweekplancompletetask`,tempData,isloading);
         return res;
     }
 
@@ -4825,46 +4825,46 @@ export default class SubTaskServiceBase extends EntityService {
     public async FetchPlanTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchplantask`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchplantask`,tempData,isloading);
             return res;
         }
         if(context.product && context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchplantask`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchplantask`,tempData,isloading);
             return res;
         }
         if(context.product && context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchplantask`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchplantask`,tempData,isloading);
             return res;
         }
         if(context.project && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchplantask`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchplantask`,tempData,isloading);
             return res;
         }
         if(context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchplantask`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchplantask`,tempData,isloading);
             return res;
         }
         if(context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchplantask`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchplantask`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchplantask`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchplantask`,tempData,isloading);
             return res;
         }
         if(context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/tasks/${context.task}/subtasks/fetchplantask`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/tasks/${context.task}/subtasks/fetchplantask`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().post(`/subtasks/fetchplantask`,tempData,isloading);
+        let res:any = await Http.getInstance().post(`/subtasks/fetchplantask`,tempData,isloading);
         return res;
     }
 
@@ -4926,46 +4926,46 @@ export default class SubTaskServiceBase extends EntityService {
     public async FetchProjectAppTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchprojectapptask`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchprojectapptask`,tempData,isloading);
             return res;
         }
         if(context.product && context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchprojectapptask`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchprojectapptask`,tempData,isloading);
             return res;
         }
         if(context.product && context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchprojectapptask`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchprojectapptask`,tempData,isloading);
             return res;
         }
         if(context.project && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchprojectapptask`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchprojectapptask`,tempData,isloading);
             return res;
         }
         if(context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchprojectapptask`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchprojectapptask`,tempData,isloading);
             return res;
         }
         if(context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchprojectapptask`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchprojectapptask`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchprojectapptask`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchprojectapptask`,tempData,isloading);
             return res;
         }
         if(context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/tasks/${context.task}/subtasks/fetchprojectapptask`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/tasks/${context.task}/subtasks/fetchprojectapptask`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().post(`/subtasks/fetchprojectapptask`,tempData,isloading);
+        let res:any = await Http.getInstance().post(`/subtasks/fetchprojectapptask`,tempData,isloading);
         return res;
     }
 
@@ -5027,46 +5027,46 @@ export default class SubTaskServiceBase extends EntityService {
     public async FetchProjectTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchprojecttask`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchprojecttask`,tempData,isloading);
             return res;
         }
         if(context.product && context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchprojecttask`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchprojecttask`,tempData,isloading);
             return res;
         }
         if(context.product && context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchprojecttask`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchprojecttask`,tempData,isloading);
             return res;
         }
         if(context.project && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchprojecttask`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchprojecttask`,tempData,isloading);
             return res;
         }
         if(context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchprojecttask`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchprojecttask`,tempData,isloading);
             return res;
         }
         if(context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchprojecttask`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchprojecttask`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchprojecttask`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchprojecttask`,tempData,isloading);
             return res;
         }
         if(context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/tasks/${context.task}/subtasks/fetchprojecttask`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/tasks/${context.task}/subtasks/fetchprojecttask`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().post(`/subtasks/fetchprojecttask`,tempData,isloading);
+        let res:any = await Http.getInstance().post(`/subtasks/fetchprojecttask`,tempData,isloading);
         return res;
     }
 
@@ -5128,46 +5128,46 @@ export default class SubTaskServiceBase extends EntityService {
     public async FetchRootTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchroottask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchroottask`,tempData,isloading);
             return res;
         }
         if(context.product && context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchroottask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchroottask`,tempData,isloading);
             return res;
         }
         if(context.product && context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchroottask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchroottask`,tempData,isloading);
             return res;
         }
         if(context.project && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchroottask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchroottask`,tempData,isloading);
             return res;
         }
         if(context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchroottask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchroottask`,tempData,isloading);
             return res;
         }
         if(context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchroottask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchroottask`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchroottask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchroottask`,tempData,isloading);
             return res;
         }
         if(context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchroottask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchroottask`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/subtasks/fetchroottask`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/subtasks/fetchroottask`,tempData,isloading);
         return res;
     }
 
@@ -5229,46 +5229,46 @@ export default class SubTaskServiceBase extends EntityService {
     public async FetchTaskLinkPlan(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchtasklinkplan`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchtasklinkplan`,tempData,isloading);
             return res;
         }
         if(context.product && context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchtasklinkplan`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchtasklinkplan`,tempData,isloading);
             return res;
         }
         if(context.product && context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchtasklinkplan`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchtasklinkplan`,tempData,isloading);
             return res;
         }
         if(context.project && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchtasklinkplan`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchtasklinkplan`,tempData,isloading);
             return res;
         }
         if(context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchtasklinkplan`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchtasklinkplan`,tempData,isloading);
             return res;
         }
         if(context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchtasklinkplan`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchtasklinkplan`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchtasklinkplan`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchtasklinkplan`,tempData,isloading);
             return res;
         }
         if(context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchtasklinkplan`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchtasklinkplan`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/subtasks/fetchtasklinkplan`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/subtasks/fetchtasklinkplan`,tempData,isloading);
         return res;
     }
 
@@ -5330,46 +5330,46 @@ export default class SubTaskServiceBase extends EntityService {
     public async FetchThisMonthCompleteTaskChoice(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchthismonthcompletetaskchoice`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchthismonthcompletetaskchoice`,tempData,isloading);
             return res;
         }
         if(context.product && context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchthismonthcompletetaskchoice`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchthismonthcompletetaskchoice`,tempData,isloading);
             return res;
         }
         if(context.product && context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchthismonthcompletetaskchoice`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchthismonthcompletetaskchoice`,tempData,isloading);
             return res;
         }
         if(context.project && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchthismonthcompletetaskchoice`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchthismonthcompletetaskchoice`,tempData,isloading);
             return res;
         }
         if(context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchthismonthcompletetaskchoice`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchthismonthcompletetaskchoice`,tempData,isloading);
             return res;
         }
         if(context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchthismonthcompletetaskchoice`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchthismonthcompletetaskchoice`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchthismonthcompletetaskchoice`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchthismonthcompletetaskchoice`,tempData,isloading);
             return res;
         }
         if(context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchthismonthcompletetaskchoice`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchthismonthcompletetaskchoice`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/subtasks/fetchthismonthcompletetaskchoice`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/subtasks/fetchthismonthcompletetaskchoice`,tempData,isloading);
         return res;
     }
 
@@ -5431,46 +5431,46 @@ export default class SubTaskServiceBase extends EntityService {
     public async FetchThisWeekCompleteTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchthisweekcompletetask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchthisweekcompletetask`,tempData,isloading);
             return res;
         }
         if(context.product && context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchthisweekcompletetask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchthisweekcompletetask`,tempData,isloading);
             return res;
         }
         if(context.product && context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchthisweekcompletetask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchthisweekcompletetask`,tempData,isloading);
             return res;
         }
         if(context.project && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchthisweekcompletetask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchthisweekcompletetask`,tempData,isloading);
             return res;
         }
         if(context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchthisweekcompletetask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchthisweekcompletetask`,tempData,isloading);
             return res;
         }
         if(context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchthisweekcompletetask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchthisweekcompletetask`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchthisweekcompletetask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchthisweekcompletetask`,tempData,isloading);
             return res;
         }
         if(context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchthisweekcompletetask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchthisweekcompletetask`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/subtasks/fetchthisweekcompletetask`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/subtasks/fetchthisweekcompletetask`,tempData,isloading);
         return res;
     }
 
@@ -5532,46 +5532,46 @@ export default class SubTaskServiceBase extends EntityService {
     public async FetchThisWeekCompleteTaskChoice(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchthisweekcompletetaskchoice`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchthisweekcompletetaskchoice`,tempData,isloading);
             return res;
         }
         if(context.product && context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchthisweekcompletetaskchoice`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchthisweekcompletetaskchoice`,tempData,isloading);
             return res;
         }
         if(context.product && context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchthisweekcompletetaskchoice`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchthisweekcompletetaskchoice`,tempData,isloading);
             return res;
         }
         if(context.project && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchthisweekcompletetaskchoice`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchthisweekcompletetaskchoice`,tempData,isloading);
             return res;
         }
         if(context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchthisweekcompletetaskchoice`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchthisweekcompletetaskchoice`,tempData,isloading);
             return res;
         }
         if(context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchthisweekcompletetaskchoice`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchthisweekcompletetaskchoice`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchthisweekcompletetaskchoice`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchthisweekcompletetaskchoice`,tempData,isloading);
             return res;
         }
         if(context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchthisweekcompletetaskchoice`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchthisweekcompletetaskchoice`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/subtasks/fetchthisweekcompletetaskchoice`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/subtasks/fetchthisweekcompletetaskchoice`,tempData,isloading);
         return res;
     }
 
@@ -5633,46 +5633,46 @@ export default class SubTaskServiceBase extends EntityService {
     public async FetchThisWeekCompleteTaskMobZS(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchthisweekcompletetaskmobzs`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchthisweekcompletetaskmobzs`,tempData,isloading);
             return res;
         }
         if(context.product && context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchthisweekcompletetaskmobzs`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchthisweekcompletetaskmobzs`,tempData,isloading);
             return res;
         }
         if(context.product && context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchthisweekcompletetaskmobzs`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchthisweekcompletetaskmobzs`,tempData,isloading);
             return res;
         }
         if(context.project && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchthisweekcompletetaskmobzs`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchthisweekcompletetaskmobzs`,tempData,isloading);
             return res;
         }
         if(context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchthisweekcompletetaskmobzs`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchthisweekcompletetaskmobzs`,tempData,isloading);
             return res;
         }
         if(context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchthisweekcompletetaskmobzs`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchthisweekcompletetaskmobzs`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchthisweekcompletetaskmobzs`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchthisweekcompletetaskmobzs`,tempData,isloading);
             return res;
         }
         if(context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchthisweekcompletetaskmobzs`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchthisweekcompletetaskmobzs`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/subtasks/fetchthisweekcompletetaskmobzs`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/subtasks/fetchthisweekcompletetaskmobzs`,tempData,isloading);
         return res;
     }
 
@@ -5734,46 +5734,46 @@ export default class SubTaskServiceBase extends EntityService {
     public async FetchThisWeekCompleteTaskZS(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchthisweekcompletetaskzs`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchthisweekcompletetaskzs`,tempData,isloading);
             return res;
         }
         if(context.product && context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchthisweekcompletetaskzs`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchthisweekcompletetaskzs`,tempData,isloading);
             return res;
         }
         if(context.product && context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchthisweekcompletetaskzs`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchthisweekcompletetaskzs`,tempData,isloading);
             return res;
         }
         if(context.project && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchthisweekcompletetaskzs`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchthisweekcompletetaskzs`,tempData,isloading);
             return res;
         }
         if(context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchthisweekcompletetaskzs`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchthisweekcompletetaskzs`,tempData,isloading);
             return res;
         }
         if(context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchthisweekcompletetaskzs`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchthisweekcompletetaskzs`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchthisweekcompletetaskzs`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchthisweekcompletetaskzs`,tempData,isloading);
             return res;
         }
         if(context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchthisweekcompletetaskzs`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchthisweekcompletetaskzs`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/subtasks/fetchthisweekcompletetaskzs`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/subtasks/fetchthisweekcompletetaskzs`,tempData,isloading);
         return res;
     }
 
@@ -5835,46 +5835,46 @@ export default class SubTaskServiceBase extends EntityService {
     public async FetchTodoListTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchtodolisttask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchtodolisttask`,tempData,isloading);
             return res;
         }
         if(context.product && context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchtodolisttask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchtodolisttask`,tempData,isloading);
             return res;
         }
         if(context.product && context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchtodolisttask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchtodolisttask`,tempData,isloading);
             return res;
         }
         if(context.project && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchtodolisttask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchtodolisttask`,tempData,isloading);
             return res;
         }
         if(context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchtodolisttask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchtodolisttask`,tempData,isloading);
             return res;
         }
         if(context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchtodolisttask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchtodolisttask`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchtodolisttask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchtodolisttask`,tempData,isloading);
             return res;
         }
         if(context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchtodolisttask`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchtodolisttask`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/subtasks/fetchtodolisttask`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/subtasks/fetchtodolisttask`,tempData,isloading);
         return res;
     }
 
@@ -5936,46 +5936,46 @@ export default class SubTaskServiceBase extends EntityService {
     public async FetchTypeGroup(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchtypegroup`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchtypegroup`,tempData,isloading);
             return res;
         }
         if(context.product && context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchtypegroup`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchtypegroup`,tempData,isloading);
             return res;
         }
         if(context.product && context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchtypegroup`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchtypegroup`,tempData,isloading);
             return res;
         }
         if(context.project && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchtypegroup`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchtypegroup`,tempData,isloading);
             return res;
         }
         if(context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchtypegroup`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchtypegroup`,tempData,isloading);
             return res;
         }
         if(context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchtypegroup`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchtypegroup`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchtypegroup`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchtypegroup`,tempData,isloading);
             return res;
         }
         if(context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchtypegroup`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchtypegroup`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/subtasks/fetchtypegroup`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/subtasks/fetchtypegroup`,tempData,isloading);
         return res;
     }
 
@@ -6037,46 +6037,46 @@ export default class SubTaskServiceBase extends EntityService {
     public async FetchTypeGroupPlan(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchtypegroupplan`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchtypegroupplan`,tempData,isloading);
             return res;
         }
         if(context.product && context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchtypegroupplan`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/fetchtypegroupplan`,tempData,isloading);
             return res;
         }
         if(context.product && context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchtypegroupplan`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchtypegroupplan`,tempData,isloading);
             return res;
         }
         if(context.project && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchtypegroupplan`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/subtasks/fetchtypegroupplan`,tempData,isloading);
             return res;
         }
         if(context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchtypegroupplan`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/subtasks/fetchtypegroupplan`,tempData,isloading);
             return res;
         }
         if(context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchtypegroupplan`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/fetchtypegroupplan`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchtypegroupplan`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/fetchtypegroupplan`,tempData,isloading);
             return res;
         }
         if(context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchtypegroupplan`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/tasks/${context.task}/subtasks/fetchtypegroupplan`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/subtasks/fetchtypegroupplan`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/subtasks/fetchtypegroupplan`,tempData,isloading);
         return res;
     }
 

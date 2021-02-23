@@ -20,11 +20,14 @@ import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * 服务DTO对象[IbzAgentDTO]
  */
 @Data
+@ApiModel("代理")
 public class IbzAgentDTO extends DTOBase implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -36,6 +39,7 @@ public class IbzAgentDTO extends DTOBase implements Serializable {
     @JSONField(name = "updateman")
     @JsonProperty("updateman")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("更新人")
     private String updateman;
 
     /**
@@ -45,6 +49,7 @@ public class IbzAgentDTO extends DTOBase implements Serializable {
     @JSONField(name = "createmanname")
     @JsonProperty("createmanname")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("创建人姓名")
     private String createmanname;
 
     /**
@@ -54,6 +59,7 @@ public class IbzAgentDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "agentend" , format="yyyy-MM-dd")
     @JsonProperty("agentend")
+    @ApiModelProperty("代理结束日期")
     private Timestamp agentend;
 
     /**
@@ -63,6 +69,7 @@ public class IbzAgentDTO extends DTOBase implements Serializable {
     @JSONField(name = "ibzagentid")
     @JsonProperty("ibzagentid")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("代理标识")
     private Long ibzagentid;
 
     /**
@@ -72,6 +79,7 @@ public class IbzAgentDTO extends DTOBase implements Serializable {
     @JSONField(name = "createman")
     @JsonProperty("createman")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("建立人")
     private String createman;
 
     /**
@@ -81,6 +89,7 @@ public class IbzAgentDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "updatedate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("updatedate")
+    @ApiModelProperty("更新时间")
     private Timestamp updatedate;
 
     /**
@@ -90,6 +99,7 @@ public class IbzAgentDTO extends DTOBase implements Serializable {
     @JSONField(name = "agentuser")
     @JsonProperty("agentuser")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("代理用户")
     private String agentuser;
 
     /**
@@ -99,6 +109,7 @@ public class IbzAgentDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "createdate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createdate")
+    @ApiModelProperty("建立时间")
     private Timestamp createdate;
 
     /**
@@ -108,6 +119,7 @@ public class IbzAgentDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "agentbegin" , format="yyyy-MM-dd")
     @JsonProperty("agentbegin")
+    @ApiModelProperty("代理开始日期")
     private Timestamp agentbegin;
 
     /**
@@ -117,6 +129,7 @@ public class IbzAgentDTO extends DTOBase implements Serializable {
     @JSONField(name = "ibzagentname")
     @JsonProperty("ibzagentname")
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("代理名称")
     private String ibzagentname;
 
 

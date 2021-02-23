@@ -49,7 +49,7 @@ export default class IbzFavoritesServiceBase extends EntityService {
      * @memberof IbzFavoritesServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().get(`/ibzfavorites/${context.ibzfavorites}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/ibzfavorites/${context.ibzfavorites}/select`,isloading);
             
             return res;
     }
@@ -105,7 +105,7 @@ export default class IbzFavoritesServiceBase extends EntityService {
      * @memberof IbzFavoritesServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().delete(`/ibzfavorites/${context.ibzfavorites}`,isloading);
+            let res:any = await Http.getInstance().delete(`/ibzfavorites/${context.ibzfavorites}`,isloading);
             return res;
     }
 
@@ -153,7 +153,7 @@ export default class IbzFavoritesServiceBase extends EntityService {
      * @memberof IbzFavoritesServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/ibzfavorites/${context.ibzfavorites}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/ibzfavorites/${context.ibzfavorites}/checkkey`,data,isloading);
             return res;
     }
 
@@ -185,7 +185,7 @@ export default class IbzFavoritesServiceBase extends EntityService {
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/ibzfavorites/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/ibzfavorites/fetchdefault`,tempData,isloading);
         return res;
     }
 

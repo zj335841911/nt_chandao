@@ -20,11 +20,14 @@ import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * 服务DTO对象[IBIZProPluginDTO]
  */
 @Data
+@ApiModel("系统插件")
 public class IBIZProPluginDTO extends DTOBase implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -35,6 +38,7 @@ public class IBIZProPluginDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "version")
     @JsonProperty("version")
+    @ApiModelProperty("版本")
     private Integer version;
 
     /**
@@ -44,6 +48,7 @@ public class IBIZProPluginDTO extends DTOBase implements Serializable {
     @JSONField(name = "type")
     @JsonProperty("type")
     @Size(min = 0, max = 10, message = "内容长度必须小于等于[10]")
+    @ApiModelProperty("类型")
     private String type;
 
     /**
@@ -53,6 +58,7 @@ public class IBIZProPluginDTO extends DTOBase implements Serializable {
     @JSONField(name = "createman")
     @JsonProperty("createman")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("建立人")
     private String createman;
 
     /**
@@ -61,6 +67,7 @@ public class IBIZProPluginDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "downloadcount")
     @JsonProperty("downloadcount")
+    @ApiModelProperty("总下载量")
     private Integer downloadcount;
 
     /**
@@ -70,6 +77,7 @@ public class IBIZProPluginDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "createdate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createdate")
+    @ApiModelProperty("建立时间")
     private Timestamp createdate;
 
     /**
@@ -79,6 +87,7 @@ public class IBIZProPluginDTO extends DTOBase implements Serializable {
     @JSONField(name = "downloadurl")
     @JsonProperty("downloadurl")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("最新版本下载地址")
     private String downloadurl;
 
     /**
@@ -88,6 +97,7 @@ public class IBIZProPluginDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "updatedate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("updatedate")
+    @ApiModelProperty("更新时间")
     private Timestamp updatedate;
 
     /**
@@ -97,6 +107,7 @@ public class IBIZProPluginDTO extends DTOBase implements Serializable {
     @JSONField(name = "tag")
     @JsonProperty("tag")
     @Size(min = 0, max = 2000, message = "内容长度必须小于等于[2000]")
+    @ApiModelProperty("标签")
     private String tag;
 
     /**
@@ -105,6 +116,7 @@ public class IBIZProPluginDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "score")
     @JsonProperty("score")
+    @ApiModelProperty("总评分")
     private Integer score;
 
     /**
@@ -114,6 +126,7 @@ public class IBIZProPluginDTO extends DTOBase implements Serializable {
     @JSONField(name = "ibizpropluginname")
     @JsonProperty("ibizpropluginname")
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("系统插件名称")
     private String ibizpropluginname;
 
     /**
@@ -123,6 +136,7 @@ public class IBIZProPluginDTO extends DTOBase implements Serializable {
     @JSONField(name = "ibizpropluginid")
     @JsonProperty("ibizpropluginid")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("系统插件标识")
     private String ibizpropluginid;
 
     /**
@@ -132,6 +146,7 @@ public class IBIZProPluginDTO extends DTOBase implements Serializable {
     @JSONField(name = "keyword")
     @JsonProperty("keyword")
     @Size(min = 0, max = 2000, message = "内容长度必须小于等于[2000]")
+    @ApiModelProperty("关键字")
     private String keyword;
 
     /**
@@ -141,6 +156,7 @@ public class IBIZProPluginDTO extends DTOBase implements Serializable {
     @JSONField(name = "updateman")
     @JsonProperty("updateman")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("更新人")
     private String updateman;
 
     /**
@@ -149,6 +165,7 @@ public class IBIZProPluginDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "commentcount")
     @JsonProperty("commentcount")
+    @ApiModelProperty("总评论数")
     private Integer commentcount;
 
 

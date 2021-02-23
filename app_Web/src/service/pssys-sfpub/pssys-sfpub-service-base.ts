@@ -49,7 +49,7 @@ export default class PSSysSFPubServiceBase extends EntityService {
      * @memberof PSSysSFPubServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().get(`/pssyssfpubs/${context.pssyssfpub}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/pssyssfpubs/${context.pssyssfpub}/select`,isloading);
             
             return res;
     }
@@ -105,7 +105,7 @@ export default class PSSysSFPubServiceBase extends EntityService {
      * @memberof PSSysSFPubServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().delete(`/pssyssfpubs/${context.pssyssfpub}`,isloading);
+            let res:any = await Http.getInstance().delete(`/pssyssfpubs/${context.pssyssfpub}`,isloading);
             return res;
     }
 
@@ -153,7 +153,7 @@ export default class PSSysSFPubServiceBase extends EntityService {
      * @memberof PSSysSFPubServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/pssyssfpubs/${context.pssyssfpub}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/pssyssfpubs/${context.pssyssfpub}/checkkey`,data,isloading);
             return res;
     }
 
@@ -185,7 +185,7 @@ export default class PSSysSFPubServiceBase extends EntityService {
      */
     public async FetchBuild(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/pssyssfpubs/fetchbuild`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/pssyssfpubs/fetchbuild`,tempData,isloading);
         return res;
     }
 
@@ -214,7 +214,7 @@ export default class PSSysSFPubServiceBase extends EntityService {
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/pssyssfpubs/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/pssyssfpubs/fetchdefault`,tempData,isloading);
         return res;
     }
 

@@ -50,28 +50,28 @@ export default class IBZTaskEstimateServiceBase extends EntityService {
      */
     public async PMEvaluation(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.projectmodule && context.task &&  true){
-            return Http.getInstance().post(`projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/ibztaskestimates/pmevaluation`,data,isloading);
+            return await Http.getInstance().post(`projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/ibztaskestimates/pmevaluation`,data,isloading);
         }
         if(context.product && context.story && context.task &&  true){
-            return Http.getInstance().post(`products/${context.product}/stories/${context.story}/tasks/${context.task}/ibztaskestimates/pmevaluation`,data,isloading);
+            return await Http.getInstance().post(`products/${context.product}/stories/${context.story}/tasks/${context.task}/ibztaskestimates/pmevaluation`,data,isloading);
         }
         if(context.product && context.productplan && context.task &&  true){
-            return Http.getInstance().post(`products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/ibztaskestimates/pmevaluation`,data,isloading);
+            return await Http.getInstance().post(`products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/ibztaskestimates/pmevaluation`,data,isloading);
         }
         if(context.project && context.task &&  true){
-            return Http.getInstance().post(`projects/${context.project}/tasks/${context.task}/ibztaskestimates/pmevaluation`,data,isloading);
+            return await Http.getInstance().post(`projects/${context.project}/tasks/${context.task}/ibztaskestimates/pmevaluation`,data,isloading);
         }
         if(context.story && context.task &&  true){
-            return Http.getInstance().post(`stories/${context.story}/tasks/${context.task}/ibztaskestimates/pmevaluation`,data,isloading);
+            return await Http.getInstance().post(`stories/${context.story}/tasks/${context.task}/ibztaskestimates/pmevaluation`,data,isloading);
         }
         if(context.productplan && context.task &&  true){
-            return Http.getInstance().post(`productplans/${context.productplan}/tasks/${context.task}/ibztaskestimates/pmevaluation`,data,isloading);
+            return await Http.getInstance().post(`productplans/${context.productplan}/tasks/${context.task}/ibztaskestimates/pmevaluation`,data,isloading);
         }
         if(context.projectmodule && context.task &&  true){
-            return Http.getInstance().post(`projectmodules/${context.projectmodule}/tasks/${context.task}/ibztaskestimates/pmevaluation`,data,isloading);
+            return await Http.getInstance().post(`projectmodules/${context.projectmodule}/tasks/${context.task}/ibztaskestimates/pmevaluation`,data,isloading);
         }
         if(context.task &&  true){
-            return Http.getInstance().post(`tasks/${context.task}/ibztaskestimates/pmevaluation`,data,isloading);
+            return await Http.getInstance().post(`tasks/${context.task}/ibztaskestimates/pmevaluation`,data,isloading);
         }
     }
 

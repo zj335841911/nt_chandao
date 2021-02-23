@@ -49,7 +49,7 @@ export default class IbzproConfigServiceBase extends EntityService {
      * @memberof IbzproConfigServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().get(`/ibzproconfigs/${context.ibzproconfig}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/ibzproconfigs/${context.ibzproconfig}/select`,isloading);
             
             return res;
     }
@@ -105,7 +105,7 @@ export default class IbzproConfigServiceBase extends EntityService {
      * @memberof IbzproConfigServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().delete(`/ibzproconfigs/${context.ibzproconfig}`,isloading);
+            let res:any = await Http.getInstance().delete(`/ibzproconfigs/${context.ibzproconfig}`,isloading);
             return res;
     }
 
@@ -153,7 +153,7 @@ export default class IbzproConfigServiceBase extends EntityService {
      * @memberof IbzproConfigServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/ibzproconfigs/${context.ibzproconfig}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/ibzproconfigs/${context.ibzproconfig}/checkkey`,data,isloading);
             return res;
     }
 
@@ -167,7 +167,7 @@ export default class IbzproConfigServiceBase extends EntityService {
      * @memberof IbzproConfigServiceBase
      */
     public async GetSystemConfig(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().put(`/ibzproconfigs/${context.ibzproconfig}/getsystemconfig`,data,isloading);
+            let res:any = await Http.getInstance().put(`/ibzproconfigs/${context.ibzproconfig}/getsystemconfig`,data,isloading);
             return res;
     }
 
@@ -199,7 +199,7 @@ export default class IbzproConfigServiceBase extends EntityService {
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/ibzproconfigs/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/ibzproconfigs/fetchdefault`,tempData,isloading);
         return res;
     }
 

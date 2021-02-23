@@ -20,11 +20,14 @@ import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * 服务DTO对象[IBZCaseStepDTO]
  */
 @Data
+@ApiModel("用例步骤")
 public class IBZCaseStepDTO extends DTOBase implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -36,6 +39,7 @@ public class IBZCaseStepDTO extends DTOBase implements Serializable {
     @JSONField(name = "casestepid")
     @JsonProperty("casestepid")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("用例步骤编号")
     private Long casestepid;
 
     /**
@@ -45,6 +49,7 @@ public class IBZCaseStepDTO extends DTOBase implements Serializable {
     @JSONField(name = "reals")
     @JsonProperty("reals")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("实际情况")
     private String reals;
 
     /**
@@ -54,6 +59,7 @@ public class IBZCaseStepDTO extends DTOBase implements Serializable {
     @JSONField(name = "steps")
     @JsonProperty("steps")
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("测试结果")
     private String steps;
 
     /**
@@ -63,6 +69,7 @@ public class IBZCaseStepDTO extends DTOBase implements Serializable {
     @JSONField(name = "type")
     @JsonProperty("type")
     @Size(min = 0, max = 10, message = "内容长度必须小于等于[10]")
+    @ApiModelProperty("用例步骤类型")
     private String type;
 
     /**
@@ -72,6 +79,7 @@ public class IBZCaseStepDTO extends DTOBase implements Serializable {
     @JSONField(name = "id")
     @JsonProperty("id")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("编号")
     private Long id;
 
     /**
@@ -81,6 +89,7 @@ public class IBZCaseStepDTO extends DTOBase implements Serializable {
     @JSONField(name = "desc")
     @JsonProperty("desc")
     @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
+    @ApiModelProperty("步骤")
     private String desc;
 
     /**
@@ -90,6 +99,7 @@ public class IBZCaseStepDTO extends DTOBase implements Serializable {
     @JSONField(name = "expect")
     @JsonProperty("expect")
     @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
+    @ApiModelProperty("预期")
     private String expect;
 
     /**
@@ -99,6 +109,7 @@ public class IBZCaseStepDTO extends DTOBase implements Serializable {
     @JSONField(name = "files")
     @JsonProperty("files")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("附件")
     private String files;
 
     /**
@@ -107,6 +118,7 @@ public class IBZCaseStepDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "runid")
     @JsonProperty("runid")
+    @ApiModelProperty("执行编号")
     private Integer runid;
 
     /**
@@ -115,6 +127,7 @@ public class IBZCaseStepDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "version")
     @JsonProperty("version")
+    @ApiModelProperty("用例版本")
     private Integer version;
 
     /**
@@ -124,6 +137,7 @@ public class IBZCaseStepDTO extends DTOBase implements Serializable {
     @JSONField(name = "ibizcase")
     @JsonProperty("ibizcase")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("用例")
     private Long ibizcase;
 
     /**
@@ -133,6 +147,7 @@ public class IBZCaseStepDTO extends DTOBase implements Serializable {
     @JSONField(name = "parent")
     @JsonProperty("parent")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("分组用例步骤的组编号")
     private Long parent;
 
 

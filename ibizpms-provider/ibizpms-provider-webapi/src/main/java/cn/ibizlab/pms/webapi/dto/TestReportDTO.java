@@ -20,11 +20,14 @@ import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * 服务DTO对象[TestReportDTO]
  */
 @Data
+@ApiModel("测试报告")
 public class TestReportDTO extends DTOBase implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -35,6 +38,7 @@ public class TestReportDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "productcnt")
     @JsonProperty("productcnt")
+    @ApiModelProperty("项目报告产品数")
     private Integer productcnt;
 
     /**
@@ -44,6 +48,7 @@ public class TestReportDTO extends DTOBase implements Serializable {
     @JSONField(name = "overviews")
     @JsonProperty("overviews")
     @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
+    @ApiModelProperty("概况")
     private String overviews;
 
     /**
@@ -52,6 +57,7 @@ public class TestReportDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "objectid")
     @JsonProperty("objectid")
+    @ApiModelProperty("所属对象")
     private Integer objectid;
 
     /**
@@ -61,6 +67,7 @@ public class TestReportDTO extends DTOBase implements Serializable {
     @JSONField(name = "cases")
     @JsonProperty("cases")
     @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
+    @ApiModelProperty("用例")
     private String cases;
 
     /**
@@ -70,6 +77,7 @@ public class TestReportDTO extends DTOBase implements Serializable {
     @JSONField(name = "members")
     @JsonProperty("members")
     @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
+    @ApiModelProperty("参与人员")
     private String members;
 
     /**
@@ -79,6 +87,7 @@ public class TestReportDTO extends DTOBase implements Serializable {
     @JSONField(name = "bugs")
     @JsonProperty("bugs")
     @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
+    @ApiModelProperty("测试的Bug")
     private String bugs;
 
     /**
@@ -88,6 +97,7 @@ public class TestReportDTO extends DTOBase implements Serializable {
     @JSONField(name = "createdby")
     @JsonProperty("createdby")
     @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
+    @ApiModelProperty("由谁创建")
     private String createdby;
 
     /**
@@ -97,6 +107,7 @@ public class TestReportDTO extends DTOBase implements Serializable {
     @JSONField(name = "stories")
     @JsonProperty("stories")
     @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
+    @ApiModelProperty("测试的需求")
     private String stories;
 
     /**
@@ -106,6 +117,7 @@ public class TestReportDTO extends DTOBase implements Serializable {
     @JSONField(name = "files")
     @JsonProperty("files")
     @Size(min = 0, max = 1000, message = "内容长度必须小于等于[1000]")
+    @ApiModelProperty("附件")
     private String files;
 
     /**
@@ -115,6 +127,7 @@ public class TestReportDTO extends DTOBase implements Serializable {
     @JSONField(name = "comment")
     @JsonProperty("comment")
     @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
+    @ApiModelProperty("备注")
     private String comment;
 
     /**
@@ -124,6 +137,7 @@ public class TestReportDTO extends DTOBase implements Serializable {
     @JSONField(name = "tasks")
     @JsonProperty("tasks")
     @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
+    @ApiModelProperty("测试单")
     private String tasks;
 
     /**
@@ -134,6 +148,7 @@ public class TestReportDTO extends DTOBase implements Serializable {
     @JsonProperty("title")
     @NotBlank(message = "[标题]不允许为空!")
     @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
+    @ApiModelProperty("标题")
     private String title;
 
     /**
@@ -144,6 +159,7 @@ public class TestReportDTO extends DTOBase implements Serializable {
     @JSONField(name = "begin" , format="yyyy-MM-dd")
     @JsonProperty("begin")
     @NotNull(message = "[开始时间]不允许为空!")
+    @ApiModelProperty("开始时间")
     private Timestamp begin;
 
     /**
@@ -153,6 +169,7 @@ public class TestReportDTO extends DTOBase implements Serializable {
     @JSONField(name = "objecttype")
     @JsonProperty("objecttype")
     @Size(min = 0, max = 20, message = "内容长度必须小于等于[20]")
+    @ApiModelProperty("对象类型")
     private String objecttype;
 
     /**
@@ -163,6 +180,7 @@ public class TestReportDTO extends DTOBase implements Serializable {
     @JSONField(name = "end" , format="yyyy-MM-dd")
     @JsonProperty("end")
     @NotNull(message = "[结束时间]不允许为空!")
+    @ApiModelProperty("结束时间")
     private Timestamp end;
 
     /**
@@ -172,6 +190,7 @@ public class TestReportDTO extends DTOBase implements Serializable {
     @JSONField(name = "builds")
     @JsonProperty("builds")
     @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
+    @ApiModelProperty("版本信息")
     private String builds;
 
     /**
@@ -181,6 +200,7 @@ public class TestReportDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "createddate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createddate")
+    @ApiModelProperty("创建时间")
     private Timestamp createddate;
 
     /**
@@ -190,6 +210,7 @@ public class TestReportDTO extends DTOBase implements Serializable {
     @JSONField(name = "report")
     @JsonProperty("report")
     @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
+    @ApiModelProperty("总结")
     private String report;
 
     /**
@@ -199,6 +220,7 @@ public class TestReportDTO extends DTOBase implements Serializable {
     @JSONField(name = "id")
     @JsonProperty("id")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("编号")
     private Long id;
 
     /**
@@ -208,6 +230,7 @@ public class TestReportDTO extends DTOBase implements Serializable {
     @JSONField(name = "owner")
     @JsonProperty("owner")
     @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
+    @ApiModelProperty("负责人")
     private String owner;
 
     /**
@@ -217,6 +240,7 @@ public class TestReportDTO extends DTOBase implements Serializable {
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
     @Size(min = 0, max = 1, message = "内容长度必须小于等于[1]")
+    @ApiModelProperty("已删除")
     private String deleted;
 
     /**
@@ -226,6 +250,7 @@ public class TestReportDTO extends DTOBase implements Serializable {
     @JSONField(name = "projectname")
     @JsonProperty("projectname")
     @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
+    @ApiModelProperty("所属项目")
     private String projectname;
 
     /**
@@ -235,6 +260,7 @@ public class TestReportDTO extends DTOBase implements Serializable {
     @JSONField(name = "productname")
     @JsonProperty("productname")
     @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
+    @ApiModelProperty("所属产品")
     private String productname;
 
     /**
@@ -244,6 +270,7 @@ public class TestReportDTO extends DTOBase implements Serializable {
     @JSONField(name = "product")
     @JsonProperty("product")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("所属产品")
     private Long product;
 
     /**
@@ -253,6 +280,7 @@ public class TestReportDTO extends DTOBase implements Serializable {
     @JSONField(name = "project")
     @JsonProperty("project")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("所属项目")
     private Long project;
 
 

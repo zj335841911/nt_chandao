@@ -49,7 +49,7 @@ export default class IBZProStoryServiceBase extends EntityService {
      * @memberof IBZProStoryServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().get(`/ibzprostories/${context.ibzprostory}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/ibzprostories/${context.ibzprostory}/select`,isloading);
             
             return res;
     }
@@ -105,7 +105,7 @@ export default class IBZProStoryServiceBase extends EntityService {
      * @memberof IBZProStoryServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().delete(`/ibzprostories/${context.ibzprostory}`,isloading);
+            let res:any = await Http.getInstance().delete(`/ibzprostories/${context.ibzprostory}`,isloading);
             return res;
     }
 
@@ -153,7 +153,7 @@ export default class IBZProStoryServiceBase extends EntityService {
      * @memberof IBZProStoryServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/ibzprostories/${context.ibzprostory}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/ibzprostories/${context.ibzprostory}/checkkey`,data,isloading);
             return res;
     }
 
@@ -184,7 +184,7 @@ export default class IBZProStoryServiceBase extends EntityService {
      * @memberof IBZProStoryServiceBase
      */
     public async SyncFromIBIZ(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/ibzprostories/${context.ibzprostory}/syncfromibiz`,data,isloading);
+            let res:any = await Http.getInstance().post(`/ibzprostories/${context.ibzprostory}/syncfromibiz`,data,isloading);
             return res;
     }
 
@@ -199,7 +199,7 @@ export default class IBZProStoryServiceBase extends EntityService {
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/ibzprostories/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/ibzprostories/fetchdefault`,tempData,isloading);
         return res;
     }
 

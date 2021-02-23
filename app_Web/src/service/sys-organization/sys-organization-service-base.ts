@@ -49,7 +49,7 @@ export default class SysOrganizationServiceBase extends EntityService {
      * @memberof SysOrganizationServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().get(`/sysorganizations/${context.sysorganization}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/sysorganizations/${context.sysorganization}/select`,isloading);
             
             return res;
     }
@@ -105,7 +105,7 @@ export default class SysOrganizationServiceBase extends EntityService {
      * @memberof SysOrganizationServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().delete(`/sysorganizations/${context.sysorganization}`,isloading);
+            let res:any = await Http.getInstance().delete(`/sysorganizations/${context.sysorganization}`,isloading);
             return res;
     }
 
@@ -153,7 +153,7 @@ export default class SysOrganizationServiceBase extends EntityService {
      * @memberof SysOrganizationServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/sysorganizations/${context.sysorganization}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/sysorganizations/${context.sysorganization}/checkkey`,data,isloading);
             return res;
     }
 
@@ -185,7 +185,7 @@ export default class SysOrganizationServiceBase extends EntityService {
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/sysorganizations/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/sysorganizations/fetchdefault`,tempData,isloading);
         return res;
     }
 

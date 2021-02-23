@@ -50,12 +50,12 @@ export default class IbzLibCasestepsServiceBase extends EntityService {
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.ibzlib && context.ibzcase && context.ibzlibcasesteps){
-            let res:any = Http.getInstance().get(`/ibzlibs/${context.ibzlib}/ibzcases/${context.ibzcase}/ibzlibcasesteps/${context.ibzlibcasesteps}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/ibzlibs/${context.ibzlib}/ibzcases/${context.ibzcase}/ibzlibcasesteps/${context.ibzlibcasesteps}/select`,isloading);
             
             return res;
         }
         if(context.ibzcase && context.ibzlibcasesteps){
-            let res:any = Http.getInstance().get(`/ibzcases/${context.ibzcase}/ibzlibcasesteps/${context.ibzlibcasesteps}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/ibzcases/${context.ibzcase}/ibzlibcasesteps/${context.ibzlibcasesteps}/select`,isloading);
             
             return res;
         }
@@ -138,11 +138,11 @@ export default class IbzLibCasestepsServiceBase extends EntityService {
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.ibzlib && context.ibzcase && context.ibzlibcasesteps){
-            let res:any = Http.getInstance().delete(`/ibzlibs/${context.ibzlib}/ibzcases/${context.ibzcase}/ibzlibcasesteps/${context.ibzlibcasesteps}`,isloading);
+            let res:any = await Http.getInstance().delete(`/ibzlibs/${context.ibzlib}/ibzcases/${context.ibzcase}/ibzlibcasesteps/${context.ibzlibcasesteps}`,isloading);
             return res;
         }
         if(context.ibzcase && context.ibzlibcasesteps){
-            let res:any = Http.getInstance().delete(`/ibzcases/${context.ibzcase}/ibzlibcasesteps/${context.ibzlibcasesteps}`,isloading);
+            let res:any = await Http.getInstance().delete(`/ibzcases/${context.ibzcase}/ibzlibcasesteps/${context.ibzlibcasesteps}`,isloading);
             return res;
         }
     }
@@ -263,12 +263,12 @@ export default class IbzLibCasestepsServiceBase extends EntityService {
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.ibzlib && context.ibzcase && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/ibzlibs/${context.ibzlib}/ibzcases/${context.ibzcase}/ibzlibcasesteps/fetchdefault`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/ibzlibs/${context.ibzlib}/ibzcases/${context.ibzcase}/ibzlibcasesteps/fetchdefault`,tempData,isloading);
             return res;
         }
         if(context.ibzcase && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/ibzcases/${context.ibzcase}/ibzlibcasesteps/fetchdefault`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/ibzcases/${context.ibzcase}/ibzlibcasesteps/fetchdefault`,tempData,isloading);
             return res;
         }
     }
