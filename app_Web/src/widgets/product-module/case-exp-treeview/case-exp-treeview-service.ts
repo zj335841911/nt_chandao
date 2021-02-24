@@ -214,8 +214,8 @@ export default class CaseExpService extends ControlService {
             Object.assign(treeNode, { text: i18n.t('entities.productmodule.caseexp_treeview.nodes.all') });
             Object.assign(treeNode, { isUseLangRes: true });
             if(filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")){
-                if((i18n.t(treeNode.text) as string).toUpperCase().indexOf(filter.getSrfnodefilter().toUpperCase())==-1)
-                    return Promise.reject();
+                if((i18n.t(treeNode.text) as string).toUpperCase().indexOf(filter.srfnodefilter.toUpperCase())==-1)
+                    return resolve(list);
             }
             Object.assign(treeNode,{srfappctx:context});
             Object.assign(treeNode, { srfmajortext: treeNode.text });
@@ -289,8 +289,8 @@ export default class CaseExpService extends ControlService {
             Object.assign(treeNode, { text: i18n.t('entities.productmodule.caseexp_treeview.nodes.root') });
             Object.assign(treeNode, { isUseLangRes: true });
             if(filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")){
-                if((i18n.t(treeNode.text) as string).toUpperCase().indexOf(filter.getSrfnodefilter().toUpperCase())==-1)
-                    return Promise.reject();
+                if((i18n.t(treeNode.text) as string).toUpperCase().indexOf(filter.srfnodefilter.toUpperCase())==-1)
+                    return resolve(list);
             }
             Object.assign(treeNode,{srfappctx:context});
             Object.assign(treeNode, { srfmajortext: treeNode.text });
