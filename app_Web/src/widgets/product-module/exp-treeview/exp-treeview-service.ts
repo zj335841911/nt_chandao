@@ -262,7 +262,7 @@ export default class ExpService extends ControlService {
             Object.assign(treeNode, { text: i18n.t('entities.productmodule.exp_treeview.nodes.all') });
             Object.assign(treeNode, { isUseLangRes: true });
             if(filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")){
-                if((i18n.t(treeNode.text) as string).toUpperCase().indexOf(filter.srfnodefilter.toUpperCase())==-1)
+                if((i18n.t(treeNode.text) as string).toUpperCase().indexOf(filter.srfnodefilter.toUpperCase())!=-1)
                     return resolve(list);
             }
             Object.assign(treeNode,{srfappctx:context});
@@ -493,7 +493,7 @@ export default class ExpService extends ControlService {
             Object.assign(treeNode, { text: i18n.t('entities.productmodule.exp_treeview.nodes.branch') });
             Object.assign(treeNode, { isUseLangRes: true });
             if(filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")){
-                if((i18n.t(treeNode.text) as string).toUpperCase().indexOf(filter.srfnodefilter.toUpperCase())==-1)
+                if((i18n.t(treeNode.text) as string).toUpperCase().indexOf(filter.srfnodefilter.toUpperCase())!=-1)
                     return resolve(list);
             }
             Object.assign(treeNode,{srfappctx:context});
@@ -568,7 +568,7 @@ export default class ExpService extends ControlService {
             Object.assign(treeNode, { text: i18n.t('entities.productmodule.exp_treeview.nodes.root') });
             Object.assign(treeNode, { isUseLangRes: true });
             if(filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")){
-                if((i18n.t(treeNode.text) as string).toUpperCase().indexOf(filter.srfnodefilter.toUpperCase())==-1)
+                if((i18n.t(treeNode.text) as string).toUpperCase().indexOf(filter.srfnodefilter.toUpperCase())!=-1)
                     return resolve(list);
             }
             Object.assign(treeNode,{srfappctx:context});
