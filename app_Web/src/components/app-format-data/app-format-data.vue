@@ -50,7 +50,8 @@ export default class AppFormatData extends Vue {
             if (
                 Object.is(this.dataType, 'DECIMAL') ||
                 Object.is(this.dataType, 'FLOAT') ||
-                Object.is(this.dataType, 'CURRENCY')
+                Object.is(this.dataType, 'CURRENCY') ||
+                Object.is(this.dataType, 'BIGDECIMAL')
             ) {
                 let number = Number(this.data);
                 let precision = Number(this.precision);
@@ -65,14 +66,14 @@ export default class AppFormatData extends Vue {
                     } else {
                         result = number.toFixed(Object.is(precision, NaN) ? 2 : precision);
                     }
-                    let index = result.indexOf('.');
-                    let fornum = (Object.is(precision, NaN) ? 2 : precision) - result.length + index + 1;
-                    if (Object.is(index, -1) && !Object.is(precision, 0)) {
-                        result += '.';
-                    }
-                    for (let i = 0; i < fornum; i++) {
-                        result += '0';
-                    }
+                    // let index = result.indexOf('.');
+                    // let fornum = (Object.is(precision, NaN) ? 2 : precision) - result.length + index + 1;
+                    // if (Object.is(index, -1) && !Object.is(precision, 0)) {
+                    //     result += '.';
+                    // }
+                    // for (let i = 0; i < fornum; i++) {
+                    //     result += '0';
+                    // }
                     return result;
                 }
             } else if (this.format) {

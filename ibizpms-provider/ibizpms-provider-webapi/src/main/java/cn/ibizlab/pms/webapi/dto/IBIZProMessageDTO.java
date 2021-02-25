@@ -20,11 +20,14 @@ import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * 服务DTO对象[IBIZProMessageDTO]
  */
 @Data
+@ApiModel("消息")
 public class IBIZProMessageDTO extends DTOBase implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -36,6 +39,7 @@ public class IBIZProMessageDTO extends DTOBase implements Serializable {
     @JSONField(name = "sendproxyid")
     @JsonProperty("sendproxyid")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("发送代理标识")
     private String sendproxyid;
 
     /**
@@ -45,6 +49,7 @@ public class IBIZProMessageDTO extends DTOBase implements Serializable {
     @JSONField(name = "ibizpromessagename")
     @JsonProperty("ibizpromessagename")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("消息名称")
     private String ibizpromessagename;
 
     /**
@@ -53,6 +58,7 @@ public class IBIZProMessageDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "islink")
     @JsonProperty("islink")
+    @ApiModelProperty("是否是链接消息")
     private Integer islink;
 
     /**
@@ -62,6 +68,7 @@ public class IBIZProMessageDTO extends DTOBase implements Serializable {
     @JSONField(name = "subject")
     @JsonProperty("subject")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("标题")
     private String subject;
 
     /**
@@ -70,6 +77,7 @@ public class IBIZProMessageDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "retryintervaltime")
     @JsonProperty("retryintervaltime")
+    @ApiModelProperty("重发间隔时间")
     private Integer retryintervaltime;
 
     /**
@@ -79,6 +87,7 @@ public class IBIZProMessageDTO extends DTOBase implements Serializable {
     @JSONField(name = "bcc")
     @JsonProperty("bcc")
     @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
+    @ApiModelProperty("密件抄送方")
     private String bcc;
 
     /**
@@ -87,6 +96,7 @@ public class IBIZProMessageDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "isdone")
     @JsonProperty("isdone")
+    @ApiModelProperty("是否完成")
     private Integer isdone;
 
     /**
@@ -96,6 +106,7 @@ public class IBIZProMessageDTO extends DTOBase implements Serializable {
     @JSONField(name = "param")
     @JsonProperty("param")
     @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
+    @ApiModelProperty("消息参数")
     private String param;
 
     /**
@@ -105,6 +116,7 @@ public class IBIZProMessageDTO extends DTOBase implements Serializable {
     @JSONField(name = "ibizpromessageid")
     @JsonProperty("ibizpromessageid")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("消息标识")
     private String ibizpromessageid;
 
     /**
@@ -113,6 +125,7 @@ public class IBIZProMessageDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "retrytimes")
     @JsonProperty("retrytimes")
+    @ApiModelProperty("重发次数")
     private Integer retrytimes;
 
     /**
@@ -121,6 +134,7 @@ public class IBIZProMessageDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "issync")
     @JsonProperty("issync")
+    @ApiModelProperty("是否同步")
     private Integer issync;
 
     /**
@@ -130,6 +144,7 @@ public class IBIZProMessageDTO extends DTOBase implements Serializable {
     @JSONField(name = "from")
     @JsonProperty("from")
     @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
+    @ApiModelProperty("发送方")
     private String from;
 
     /**
@@ -139,6 +154,7 @@ public class IBIZProMessageDTO extends DTOBase implements Serializable {
     @JSONField(name = "cc")
     @JsonProperty("cc")
     @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
+    @ApiModelProperty("抄送方")
     private String cc;
 
     /**
@@ -148,6 +164,7 @@ public class IBIZProMessageDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "sendtime" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("sendtime")
+    @ApiModelProperty("发送时间")
     private Timestamp sendtime;
 
     /**
@@ -157,6 +174,7 @@ public class IBIZProMessageDTO extends DTOBase implements Serializable {
     @JSONField(name = "content")
     @JsonProperty("content")
     @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
+    @ApiModelProperty("内容")
     private String content;
 
     /**
@@ -166,6 +184,7 @@ public class IBIZProMessageDTO extends DTOBase implements Serializable {
     @JSONField(name = "linkurl")
     @JsonProperty("linkurl")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("链接地址")
     private String linkurl;
 
     /**
@@ -174,6 +193,7 @@ public class IBIZProMessageDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "isread")
     @JsonProperty("isread")
+    @ApiModelProperty("是否已读")
     private Integer isread;
 
     /**
@@ -182,6 +202,7 @@ public class IBIZProMessageDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "isretry")
     @JsonProperty("isretry")
+    @ApiModelProperty("是否重发")
     private Integer isretry;
 
     /**
@@ -191,6 +212,7 @@ public class IBIZProMessageDTO extends DTOBase implements Serializable {
     @JSONField(name = "type")
     @JsonProperty("type")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("消息类型")
     private String type;
 
     /**
@@ -200,6 +222,7 @@ public class IBIZProMessageDTO extends DTOBase implements Serializable {
     @JSONField(name = "to")
     @JsonProperty("to")
     @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
+    @ApiModelProperty("接收方")
     private String to;
 
 

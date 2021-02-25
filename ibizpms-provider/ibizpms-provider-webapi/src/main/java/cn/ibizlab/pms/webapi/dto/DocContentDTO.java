@@ -20,11 +20,14 @@ import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * 服务DTO对象[DocContentDTO]
  */
 @Data
+@ApiModel("文档内容")
 public class DocContentDTO extends DTOBase implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -36,6 +39,7 @@ public class DocContentDTO extends DTOBase implements Serializable {
     @JSONField(name = "files")
     @JsonProperty("files")
     @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
+    @ApiModelProperty("附件")
     private String files;
 
     /**
@@ -45,6 +49,7 @@ public class DocContentDTO extends DTOBase implements Serializable {
     @JSONField(name = "id")
     @JsonProperty("id")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("编号")
     private Long id;
 
     /**
@@ -54,6 +59,7 @@ public class DocContentDTO extends DTOBase implements Serializable {
     @JSONField(name = "content")
     @JsonProperty("content")
     @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
+    @ApiModelProperty("文档正文")
     private String content;
 
     /**
@@ -63,6 +69,7 @@ public class DocContentDTO extends DTOBase implements Serializable {
     @JSONField(name = "type")
     @JsonProperty("type")
     @Size(min = 0, max = 10, message = "内容长度必须小于等于[10]")
+    @ApiModelProperty("文档类型")
     private String type;
 
     /**
@@ -73,6 +80,7 @@ public class DocContentDTO extends DTOBase implements Serializable {
     @JsonProperty("title")
     @NotBlank(message = "[文档标题]不允许为空!")
     @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
+    @ApiModelProperty("文档标题")
     private String title;
 
     /**
@@ -81,6 +89,7 @@ public class DocContentDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "version")
     @JsonProperty("version")
+    @ApiModelProperty("版本号")
     private Integer version;
 
     /**
@@ -90,6 +99,7 @@ public class DocContentDTO extends DTOBase implements Serializable {
     @JSONField(name = "digest")
     @JsonProperty("digest")
     @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
+    @ApiModelProperty("文档摘要")
     private String digest;
 
     /**
@@ -99,6 +109,7 @@ public class DocContentDTO extends DTOBase implements Serializable {
     @JSONField(name = "doc")
     @JsonProperty("doc")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("文档")
     private Long doc;
 
 

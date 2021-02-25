@@ -56,7 +56,7 @@ export default class ProjectTeamServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().put(`/projectteams/${context.projectteam}/getuserrole`,data,isloading);
+            let res:any = await Http.getInstance().put(`/projectteams/${context.projectteam}/getuserrole`,data,isloading);
             return res;
     }
 
@@ -71,11 +71,11 @@ export default class ProjectTeamServiceBase extends EntityService {
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.projectteam){
-            let res:any = Http.getInstance().get(`/projects/${context.project}/projectteams/${context.projectteam}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectteams/${context.projectteam}/select`,isloading);
             
             return res;
         }
-            let res:any = Http.getInstance().get(`/projectteams/${context.projectteam}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/projectteams/${context.projectteam}/select`,isloading);
             
             return res;
     }
@@ -153,10 +153,10 @@ export default class ProjectTeamServiceBase extends EntityService {
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.projectteam){
-            let res:any = Http.getInstance().delete(`/projects/${context.project}/projectteams/${context.projectteam}`,isloading);
+            let res:any = await Http.getInstance().delete(`/projects/${context.project}/projectteams/${context.projectteam}`,isloading);
             return res;
         }
-            let res:any = Http.getInstance().delete(`/projectteams/${context.projectteam}`,isloading);
+            let res:any = await Http.getInstance().delete(`/projectteams/${context.projectteam}`,isloading);
             return res;
     }
 
@@ -225,7 +225,7 @@ export default class ProjectTeamServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/projectteams/${context.projectteam}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/projectteams/${context.projectteam}/checkkey`,data,isloading);
             return res;
     }
 
@@ -265,11 +265,11 @@ export default class ProjectTeamServiceBase extends EntityService {
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/projectteams/fetchdefault`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectteams/fetchdefault`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/projectteams/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/projectteams/fetchdefault`,tempData,isloading);
         return res;
     }
 
@@ -303,11 +303,11 @@ export default class ProjectTeamServiceBase extends EntityService {
     public async FetchProjectTeamPm(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/projectteams/fetchprojectteampm`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectteams/fetchprojectteampm`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/projectteams/fetchprojectteampm`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/projectteams/fetchprojectteampm`,tempData,isloading);
         return res;
     }
 
@@ -341,11 +341,11 @@ export default class ProjectTeamServiceBase extends EntityService {
     public async FetchRowEditDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/projectteams/fetchroweditdefault`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectteams/fetchroweditdefault`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/projectteams/fetchroweditdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/projectteams/fetchroweditdefault`,tempData,isloading);
         return res;
     }
 
@@ -379,11 +379,11 @@ export default class ProjectTeamServiceBase extends EntityService {
     public async FetchTaskCntEstimateConsumedLeft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/projectteams/fetchtaskcntestimateconsumedleft`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectteams/fetchtaskcntestimateconsumedleft`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/projectteams/fetchtaskcntestimateconsumedleft`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/projectteams/fetchtaskcntestimateconsumedleft`,tempData,isloading);
         return res;
     }
 

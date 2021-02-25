@@ -20,11 +20,14 @@ import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * 服务DTO对象[IbizproProductWeeklyDTO]
  */
 @Data
+@ApiModel("产品周报")
 public class IbizproProductWeeklyDTO extends DTOBase implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -36,6 +39,7 @@ public class IbizproProductWeeklyDTO extends DTOBase implements Serializable {
     @JSONField(name = "po")
     @JsonProperty("po")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("产品负责人")
     private String po;
 
     /**
@@ -45,6 +49,7 @@ public class IbizproProductWeeklyDTO extends DTOBase implements Serializable {
     @JSONField(name = "ibizpro_productweeklyid")
     @JsonProperty("ibizpro_productweeklyid")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("产品周报标识")
     private Long ibizproProductweeklyid;
 
     /**
@@ -54,6 +59,7 @@ public class IbizproProductWeeklyDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "updatedate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("updatedate")
+    @ApiModelProperty("更新时间")
     private Timestamp updatedate;
 
     /**
@@ -63,6 +69,7 @@ public class IbizproProductWeeklyDTO extends DTOBase implements Serializable {
     @JSONField(name = "tasks")
     @JsonProperty("tasks")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("任务")
     private String tasks;
 
     /**
@@ -72,6 +79,7 @@ public class IbizproProductWeeklyDTO extends DTOBase implements Serializable {
     @JSONField(name = "updateman")
     @JsonProperty("updateman")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("更新人")
     private String updateman;
 
     /**
@@ -81,6 +89,7 @@ public class IbizproProductWeeklyDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "date" , format="yyyy-MM-dd")
     @JsonProperty("date")
+    @ApiModelProperty("日期")
     private Timestamp date;
 
     /**
@@ -90,6 +99,7 @@ public class IbizproProductWeeklyDTO extends DTOBase implements Serializable {
     @JSONField(name = "createman")
     @JsonProperty("createman")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("建立人")
     private String createman;
 
     /**
@@ -99,6 +109,7 @@ public class IbizproProductWeeklyDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "createdate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createdate")
+    @ApiModelProperty("建立时间")
     private Timestamp createdate;
 
     /**
@@ -108,6 +119,7 @@ public class IbizproProductWeeklyDTO extends DTOBase implements Serializable {
     @JSONField(name = "ibizproproductweeklyname")
     @JsonProperty("ibizproproductweeklyname")
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("产品周报名称")
     private String ibizproproductweeklyname;
 
     /**
@@ -117,6 +129,7 @@ public class IbizproProductWeeklyDTO extends DTOBase implements Serializable {
     @JSONField(name = "begindatestats")
     @JsonProperty("begindatestats")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("开始统计")
     private String begindatestats;
 
     /**
@@ -125,6 +138,7 @@ public class IbizproProductWeeklyDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "totalestimates")
     @JsonProperty("totalestimates")
+    @ApiModelProperty("总工时")
     private Double totalestimates;
 
     /**
@@ -134,6 +148,7 @@ public class IbizproProductWeeklyDTO extends DTOBase implements Serializable {
     @JSONField(name = "enddatestats")
     @JsonProperty("enddatestats")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("结束统计")
     private String enddatestats;
 
     /**
@@ -143,6 +158,7 @@ public class IbizproProductWeeklyDTO extends DTOBase implements Serializable {
     @JSONField(name = "productname")
     @JsonProperty("productname")
     @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
+    @ApiModelProperty("产品名称")
     private String productname;
 
     /**
@@ -152,6 +168,7 @@ public class IbizproProductWeeklyDTO extends DTOBase implements Serializable {
     @JSONField(name = "product")
     @JsonProperty("product")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("编号")
     private Long product;
 
 

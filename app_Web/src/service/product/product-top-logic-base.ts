@@ -139,15 +139,15 @@ export default class ProductTopLogicBase {
     */
     private async executePrepareparam1(context:any,params:any,isloading:boolean){
         // 准备参数节点
-    let tempDstParam0Context:any = this.paramsMap.get('ibzTop').context?this.paramsMap.get('ibzTop').context:{};
+    let tempDstParam0Context:any = this.paramsMap.get('ibzTop').context?this.paramsMap.get('ibzTop').context:context;
     let tempDstParam0Data:any = this.paramsMap.get('ibzTop').data?this.paramsMap.get('ibzTop').data:{};
     let tempSrcParam0Data:any = this.paramsMap.get('Default').data?this.paramsMap.get('Default').data:{};
     Object.assign(tempDstParam0Data,{objectid:tempSrcParam0Data['id']});
     this.paramsMap.set('ibzTop',{data:tempDstParam0Data,context:tempDstParam0Context});
-    let tempDstParam1Context:any = this.paramsMap.get('ibzTop').context?this.paramsMap.get('ibzTop').context:{};
+    let tempDstParam1Context:any = this.paramsMap.get('ibzTop').context?this.paramsMap.get('ibzTop').context:context;
     let tempDstParam1Data:any = this.paramsMap.get('ibzTop').data?this.paramsMap.get('ibzTop').data:{};
     this.paramsMap.set('ibzTop',{data:tempDstParam1Data,context:tempDstParam1Context});
-    let tempDstParam2Context:any = this.paramsMap.get('ibzTop').context?this.paramsMap.get('ibzTop').context:{};
+    let tempDstParam2Context:any = this.paramsMap.get('ibzTop').context?this.paramsMap.get('ibzTop').context:context;
     let tempDstParam2Data:any = this.paramsMap.get('ibzTop').data?this.paramsMap.get('ibzTop').data:{};
     Object.assign(tempDstParam2Data,{type:"product"});
     this.paramsMap.set('ibzTop',{data:tempDstParam2Data,context:tempDstParam2Context});

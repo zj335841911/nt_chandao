@@ -1797,7 +1797,13 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         ProductPlan productPlan = new ProductPlan();
         productPlan.setProduct(oldProductPlan.getProduct());
         productPlan.setId(oldProductPlan.getId());
-        productPlan.set("tasks", getTasks(et));
+        String tasksId = getTasks(et);
+        if ("[]".equals(tasksId)){
+            productPlan.set("tasks",null);
+        }else {
+            productPlan.set("tasks",tasksId);
+
+        }
         cn.ibizlab.pms.util.security.SpringContextHolder.getBean(ProductPlanHelper.class).linkTask(productPlan);
         return et;
     }

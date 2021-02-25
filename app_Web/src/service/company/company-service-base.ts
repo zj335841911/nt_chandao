@@ -49,7 +49,7 @@ export default class CompanyServiceBase extends EntityService {
      * @memberof CompanyServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().get(`/companies/${context.company}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/companies/${context.company}/select`,isloading);
             
             return res;
     }
@@ -105,7 +105,7 @@ export default class CompanyServiceBase extends EntityService {
      * @memberof CompanyServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().delete(`/companies/${context.company}`,isloading);
+            let res:any = await Http.getInstance().delete(`/companies/${context.company}`,isloading);
             return res;
     }
 
@@ -153,7 +153,7 @@ export default class CompanyServiceBase extends EntityService {
      * @memberof CompanyServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/companies/${context.company}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/companies/${context.company}/checkkey`,data,isloading);
             return res;
     }
 
@@ -185,7 +185,7 @@ export default class CompanyServiceBase extends EntityService {
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/companies/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/companies/fetchdefault`,tempData,isloading);
         return res;
     }
 

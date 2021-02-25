@@ -49,7 +49,7 @@ export default class CaseStatsServiceBase extends EntityService {
      * @memberof CaseStatsServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().get(`/casestats/${context.casestats}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/casestats/${context.casestats}/select`,isloading);
             
             return res;
     }
@@ -105,7 +105,7 @@ export default class CaseStatsServiceBase extends EntityService {
      * @memberof CaseStatsServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().delete(`/casestats/${context.casestats}`,isloading);
+            let res:any = await Http.getInstance().delete(`/casestats/${context.casestats}`,isloading);
             return res;
     }
 
@@ -153,7 +153,7 @@ export default class CaseStatsServiceBase extends EntityService {
      * @memberof CaseStatsServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/casestats/${context.casestats}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/casestats/${context.casestats}/checkkey`,data,isloading);
             return res;
     }
 
@@ -185,7 +185,7 @@ export default class CaseStatsServiceBase extends EntityService {
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/casestats/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/casestats/fetchdefault`,tempData,isloading);
         return res;
     }
 
@@ -214,7 +214,7 @@ export default class CaseStatsServiceBase extends EntityService {
      */
     public async FetchTestCaseStats(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/casestats/fetchtestcasestats`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/casestats/fetchtestcasestats`,tempData,isloading);
         return res;
     }
 

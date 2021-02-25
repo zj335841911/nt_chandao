@@ -1,6 +1,7 @@
 import { Prop } from 'vue-property-decorator';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { FormControlBase } from './FormControlBase';
+import { Environment } from '@/environments/environment';
 
 /**
  * 编辑表单部件基类
@@ -166,7 +167,7 @@ export class EditFormControlBase extends FormControlBase {
      * @memberof EditFormControlBase
      */
     protected subDataChange(): void {
-        this.dataChang.pipe(debounceTime(300), distinctUntilChanged()).subscribe((data: any) => {
+        this.dataChang.pipe(debounceTime(Environment.debounceTime), distinctUntilChanged()).subscribe((data: any) => {
             if (this.autosave) {
                 this.autoSave();
             }
@@ -269,6 +270,9 @@ export class EditFormControlBase extends FormControlBase {
                 this.data[name] = data[name];
             }
         });
+        if (Object.is(action, 'loadDraft')) {
+            this.createDefault();
+        }
         if (Object.is(action, 'load')) {
             this.updateDefault();
         }

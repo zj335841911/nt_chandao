@@ -49,7 +49,7 @@ export default class TaskStatsServiceBase extends EntityService {
      * @memberof TaskStatsServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().get(`/taskstats/${context.taskstats}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/taskstats/${context.taskstats}/select`,isloading);
             
             return res;
     }
@@ -105,7 +105,7 @@ export default class TaskStatsServiceBase extends EntityService {
      * @memberof TaskStatsServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().delete(`/taskstats/${context.taskstats}`,isloading);
+            let res:any = await Http.getInstance().delete(`/taskstats/${context.taskstats}`,isloading);
             return res;
     }
 
@@ -153,7 +153,7 @@ export default class TaskStatsServiceBase extends EntityService {
      * @memberof TaskStatsServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/taskstats/${context.taskstats}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/taskstats/${context.taskstats}/checkkey`,data,isloading);
             return res;
     }
 
@@ -185,7 +185,7 @@ export default class TaskStatsServiceBase extends EntityService {
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/taskstats/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/taskstats/fetchdefault`,tempData,isloading);
         return res;
     }
 
@@ -214,7 +214,7 @@ export default class TaskStatsServiceBase extends EntityService {
      */
     public async FetchTaskFinishHuiZong(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/taskstats/fetchtaskfinishhuizong`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/taskstats/fetchtaskfinishhuizong`,tempData,isloading);
         return res;
     }
 
@@ -243,7 +243,7 @@ export default class TaskStatsServiceBase extends EntityService {
      */
     public async FetchUserFinishTaskSum(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/taskstats/fetchuserfinishtasksum`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/taskstats/fetchuserfinishtasksum`,tempData,isloading);
         return res;
     }
 

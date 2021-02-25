@@ -728,19 +728,10 @@ export class TaskGroupTreeTreeBase extends MainControlBase {
         if(Object.is(nodeType,"STATIC")){
             return this.copyActionModel;
         }
-        let service:any = await this.appEntityService.getService(appEntityName);
         if(this.copyActionModel && Object.keys(this.copyActionModel).length > 0) {
-            if(service['Get'] && service['Get'] instanceof Function){
-                let tempContext:any = this.$util.deepCopy(this.context);
-                tempContext[appEntityName] = node.srfkey;
-                let targetData = await service.Get(tempContext,{}, false);
-                let uiservice:any = await this.appUIService.getService(appEntityName);
-                let result: any[] = ViewTool.calcActionItemAuthState(targetData.data,this.copyActionModel,uiservice);
-                return this.copyActionModel;
-            }else{
-                console.warn("获取数据异常");
-                return this.copyActionModel;
-            }
+            let uiservice:any = await this.appUIService.getService(appEntityName);
+            let result: any[] = ViewTool.calcActionItemAuthState(node.curData,this.copyActionModel,uiservice);
+            return this.copyActionModel;  
         }
     }
 

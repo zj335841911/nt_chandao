@@ -51,21 +51,21 @@ export default class CaseServiceBase extends EntityService {
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.case){
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/${context.case}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/${context.case}/select`,isloading);
             
             return res;
         }
         if(context.story && context.case){
-            let res:any = Http.getInstance().get(`/stories/${context.story}/cases/${context.case}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/cases/${context.case}/select`,isloading);
             
             return res;
         }
         if(context.product && context.case){
-            let res:any = Http.getInstance().get(`/products/${context.product}/cases/${context.case}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/cases/${context.case}/select`,isloading);
             
             return res;
         }
-            let res:any = Http.getInstance().get(`/cases/${context.case}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/cases/${context.case}/select`,isloading);
             
             return res;
     }
@@ -90,7 +90,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -106,7 +106,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -139,7 +139,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -155,7 +155,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -188,7 +188,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -204,7 +204,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -236,7 +236,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -252,7 +252,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -296,7 +296,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -312,7 +312,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -337,7 +337,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -353,7 +353,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -378,7 +378,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -394,7 +394,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -418,7 +418,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -434,7 +434,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -461,18 +461,18 @@ export default class CaseServiceBase extends EntityService {
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.case){
-            let res:any = Http.getInstance().delete(`/products/${context.product}/stories/${context.story}/cases/${context.case}`,isloading);
+            let res:any = await Http.getInstance().delete(`/products/${context.product}/stories/${context.story}/cases/${context.case}`,isloading);
             return res;
         }
         if(context.story && context.case){
-            let res:any = Http.getInstance().delete(`/stories/${context.story}/cases/${context.case}`,isloading);
+            let res:any = await Http.getInstance().delete(`/stories/${context.story}/cases/${context.case}`,isloading);
             return res;
         }
         if(context.product && context.case){
-            let res:any = Http.getInstance().delete(`/products/${context.product}/cases/${context.case}`,isloading);
+            let res:any = await Http.getInstance().delete(`/products/${context.product}/cases/${context.case}`,isloading);
             return res;
         }
-            let res:any = Http.getInstance().delete(`/cases/${context.case}`,isloading);
+            let res:any = await Http.getInstance().delete(`/cases/${context.case}`,isloading);
             return res;
     }
 
@@ -588,7 +588,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -604,7 +604,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -629,7 +629,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -645,7 +645,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -670,7 +670,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -686,7 +686,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -701,7 +701,7 @@ export default class CaseServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/cases/${context.case}/casefavorite`,data,isloading);
+            let res:any = await Http.getInstance().post(`/cases/${context.case}/casefavorite`,data,isloading);
             return res;
     }
 
@@ -725,7 +725,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -741,7 +741,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -766,7 +766,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -782,7 +782,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -807,7 +807,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -823,7 +823,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -838,7 +838,7 @@ export default class CaseServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/cases/${context.case}/casenfavorite`,data,isloading);
+            let res:any = await Http.getInstance().post(`/cases/${context.case}/casenfavorite`,data,isloading);
             return res;
     }
 
@@ -862,7 +862,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -878,7 +878,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -903,7 +903,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -919,7 +919,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -944,7 +944,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -960,7 +960,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -975,7 +975,7 @@ export default class CaseServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/cases/${context.case}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/cases/${context.case}/checkkey`,data,isloading);
             return res;
     }
 
@@ -999,7 +999,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1015,7 +1015,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1040,7 +1040,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1056,7 +1056,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1081,7 +1081,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1097,7 +1097,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1112,7 +1112,7 @@ export default class CaseServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().put(`/cases/${context.case}/confirmchange`,data,isloading);
+            let res:any = await Http.getInstance().put(`/cases/${context.case}/confirmchange`,data,isloading);
             return res;
     }
 
@@ -1136,7 +1136,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1152,7 +1152,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1177,7 +1177,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1193,7 +1193,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1218,7 +1218,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1234,7 +1234,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1249,7 +1249,7 @@ export default class CaseServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/cases/${context.case}/confirmstorychange`,data,isloading);
+            let res:any = await Http.getInstance().post(`/cases/${context.case}/confirmstorychange`,data,isloading);
             return res;
     }
 
@@ -1311,7 +1311,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1327,7 +1327,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1352,7 +1352,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1368,7 +1368,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1393,7 +1393,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1409,7 +1409,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1424,7 +1424,7 @@ export default class CaseServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().put(`/cases/${context.case}/gettesttaskcntrun`,data,isloading);
+            let res:any = await Http.getInstance().put(`/cases/${context.case}/gettesttaskcntrun`,data,isloading);
             return res;
     }
 
@@ -1448,7 +1448,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1464,7 +1464,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1489,7 +1489,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1505,7 +1505,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1530,7 +1530,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1546,7 +1546,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1561,7 +1561,7 @@ export default class CaseServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/cases/${context.case}/linkcase`,data,isloading);
+            let res:any = await Http.getInstance().post(`/cases/${context.case}/linkcase`,data,isloading);
             return res;
     }
 
@@ -1585,7 +1585,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1601,7 +1601,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1626,7 +1626,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1642,7 +1642,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1667,7 +1667,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1683,7 +1683,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1698,7 +1698,7 @@ export default class CaseServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/cases/${context.case}/moblinkcase`,data,isloading);
+            let res:any = await Http.getInstance().post(`/cases/${context.case}/moblinkcase`,data,isloading);
             return res;
     }
 
@@ -1722,7 +1722,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1738,7 +1738,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1763,7 +1763,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1779,7 +1779,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1804,7 +1804,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1820,7 +1820,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1835,7 +1835,7 @@ export default class CaseServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/cases/${context.case}/runcase`,data,isloading);
+            let res:any = await Http.getInstance().post(`/cases/${context.case}/runcase`,data,isloading);
             return res;
     }
 
@@ -1859,7 +1859,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1875,7 +1875,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1900,7 +1900,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1916,7 +1916,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1941,7 +1941,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1957,7 +1957,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1972,7 +1972,7 @@ export default class CaseServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/cases/${context.case}/runcases`,data,isloading);
+            let res:any = await Http.getInstance().post(`/cases/${context.case}/runcases`,data,isloading);
             return res;
     }
 
@@ -1996,7 +1996,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -2012,7 +2012,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -2037,7 +2037,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -2053,7 +2053,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -2078,7 +2078,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -2094,7 +2094,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -2118,7 +2118,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -2134,7 +2134,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -2170,7 +2170,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -2186,7 +2186,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -2211,7 +2211,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -2227,7 +2227,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -2252,7 +2252,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -2268,7 +2268,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -2283,7 +2283,7 @@ export default class CaseServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/cases/${context.case}/testruncase`,data,isloading);
+            let res:any = await Http.getInstance().post(`/cases/${context.case}/testruncase`,data,isloading);
             return res;
     }
 
@@ -2307,7 +2307,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -2323,7 +2323,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -2348,7 +2348,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -2364,7 +2364,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -2389,7 +2389,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -2405,7 +2405,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -2420,7 +2420,7 @@ export default class CaseServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/cases/${context.case}/testruncases`,data,isloading);
+            let res:any = await Http.getInstance().post(`/cases/${context.case}/testruncases`,data,isloading);
             return res;
     }
 
@@ -2444,7 +2444,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -2460,7 +2460,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -2485,7 +2485,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -2501,7 +2501,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -2526,7 +2526,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -2542,7 +2542,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -2557,7 +2557,7 @@ export default class CaseServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/cases/${context.case}/testsuitelinkcase`,data,isloading);
+            let res:any = await Http.getInstance().post(`/cases/${context.case}/testsuitelinkcase`,data,isloading);
             return res;
     }
 
@@ -2581,7 +2581,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -2597,7 +2597,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -2622,7 +2622,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -2638,7 +2638,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -2663,7 +2663,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -2679,7 +2679,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -2694,7 +2694,7 @@ export default class CaseServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/cases/${context.case}/unlinkcase`,data,isloading);
+            let res:any = await Http.getInstance().post(`/cases/${context.case}/unlinkcase`,data,isloading);
             return res;
     }
 
@@ -2718,7 +2718,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -2734,7 +2734,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -2759,7 +2759,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -2775,7 +2775,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -2800,7 +2800,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -2816,7 +2816,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -2831,7 +2831,7 @@ export default class CaseServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/cases/${context.case}/unlinkcases`,data,isloading);
+            let res:any = await Http.getInstance().post(`/cases/${context.case}/unlinkcases`,data,isloading);
             return res;
     }
 
@@ -2855,7 +2855,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -2871,7 +2871,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -2896,7 +2896,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -2912,7 +2912,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -2937,7 +2937,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -2953,7 +2953,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -2968,7 +2968,7 @@ export default class CaseServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/cases/${context.case}/unlinksuitecase`,data,isloading);
+            let res:any = await Http.getInstance().post(`/cases/${context.case}/unlinksuitecase`,data,isloading);
             return res;
     }
 
@@ -2992,7 +2992,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -3008,7 +3008,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -3033,7 +3033,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -3049,7 +3049,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -3074,7 +3074,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -3090,7 +3090,7 @@ export default class CaseServiceBase extends EntityService {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -3105,7 +3105,7 @@ export default class CaseServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/cases/${context.case}/unlinksuitecases`,data,isloading);
+            let res:any = await Http.getInstance().post(`/cases/${context.case}/unlinksuitecases`,data,isloading);
             return res;
     }
 
@@ -3121,21 +3121,21 @@ export default class CaseServiceBase extends EntityService {
     public async FetchBatchNew(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/fetchbatchnew`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/fetchbatchnew`,tempData,isloading);
             return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/cases/fetchbatchnew`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/cases/fetchbatchnew`,tempData,isloading);
             return res;
         }
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/cases/fetchbatchnew`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/cases/fetchbatchnew`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/cases/fetchbatchnew`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/cases/fetchbatchnew`,tempData,isloading);
         return res;
     }
 
@@ -3177,21 +3177,21 @@ export default class CaseServiceBase extends EntityService {
     public async FetchCurOpenedCase(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/fetchcuropenedcase`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/fetchcuropenedcase`,tempData,isloading);
             return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/cases/fetchcuropenedcase`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/cases/fetchcuropenedcase`,tempData,isloading);
             return res;
         }
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/cases/fetchcuropenedcase`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/cases/fetchcuropenedcase`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/cases/fetchcuropenedcase`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/cases/fetchcuropenedcase`,tempData,isloading);
         return res;
     }
 
@@ -3233,21 +3233,21 @@ export default class CaseServiceBase extends EntityService {
     public async FetchCurSuite(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/products/${context.product}/stories/${context.story}/cases/fetchcursuite`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/cases/fetchcursuite`,tempData,isloading);
             return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/stories/${context.story}/cases/fetchcursuite`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/cases/fetchcursuite`,tempData,isloading);
             return res;
         }
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/products/${context.product}/cases/fetchcursuite`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/cases/fetchcursuite`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().post(`/cases/fetchcursuite`,tempData,isloading);
+        let res:any = await Http.getInstance().post(`/cases/fetchcursuite`,tempData,isloading);
         return res;
     }
 
@@ -3289,21 +3289,21 @@ export default class CaseServiceBase extends EntityService {
     public async FetchCurTestTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/products/${context.product}/stories/${context.story}/cases/fetchcurtesttask`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/cases/fetchcurtesttask`,tempData,isloading);
             return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/stories/${context.story}/cases/fetchcurtesttask`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/cases/fetchcurtesttask`,tempData,isloading);
             return res;
         }
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/products/${context.product}/cases/fetchcurtesttask`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/cases/fetchcurtesttask`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().post(`/cases/fetchcurtesttask`,tempData,isloading);
+        let res:any = await Http.getInstance().post(`/cases/fetchcurtesttask`,tempData,isloading);
         return res;
     }
 
@@ -3345,21 +3345,21 @@ export default class CaseServiceBase extends EntityService {
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/products/${context.product}/stories/${context.story}/cases/fetchdefault`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/cases/fetchdefault`,tempData,isloading);
             return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/stories/${context.story}/cases/fetchdefault`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/cases/fetchdefault`,tempData,isloading);
             return res;
         }
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/products/${context.product}/cases/fetchdefault`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/cases/fetchdefault`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().post(`/cases/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().post(`/cases/fetchdefault`,tempData,isloading);
         return res;
     }
 
@@ -3401,21 +3401,21 @@ export default class CaseServiceBase extends EntityService {
     public async FetchESBulk(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/fetchesbulk`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/fetchesbulk`,tempData,isloading);
             return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/cases/fetchesbulk`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/cases/fetchesbulk`,tempData,isloading);
             return res;
         }
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/cases/fetchesbulk`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/cases/fetchesbulk`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/cases/fetchesbulk`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/cases/fetchesbulk`,tempData,isloading);
         return res;
     }
 
@@ -3457,21 +3457,21 @@ export default class CaseServiceBase extends EntityService {
     public async FetchModuleRePortCase(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/fetchmodulereportcase`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/fetchmodulereportcase`,tempData,isloading);
             return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/cases/fetchmodulereportcase`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/cases/fetchmodulereportcase`,tempData,isloading);
             return res;
         }
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/cases/fetchmodulereportcase`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/cases/fetchmodulereportcase`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/cases/fetchmodulereportcase`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/cases/fetchmodulereportcase`,tempData,isloading);
         return res;
     }
 
@@ -3513,21 +3513,21 @@ export default class CaseServiceBase extends EntityService {
     public async FetchModuleRePortCaseEntry(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/fetchmodulereportcaseentry`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/fetchmodulereportcaseentry`,tempData,isloading);
             return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/cases/fetchmodulereportcaseentry`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/cases/fetchmodulereportcaseentry`,tempData,isloading);
             return res;
         }
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/cases/fetchmodulereportcaseentry`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/cases/fetchmodulereportcaseentry`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/cases/fetchmodulereportcaseentry`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/cases/fetchmodulereportcaseentry`,tempData,isloading);
         return res;
     }
 
@@ -3569,21 +3569,21 @@ export default class CaseServiceBase extends EntityService {
     public async FetchModuleRePortCase_Project(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/fetchmodulereportcase_project`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/fetchmodulereportcase_project`,tempData,isloading);
             return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/cases/fetchmodulereportcase_project`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/cases/fetchmodulereportcase_project`,tempData,isloading);
             return res;
         }
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/cases/fetchmodulereportcase_project`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/cases/fetchmodulereportcase_project`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/cases/fetchmodulereportcase_project`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/cases/fetchmodulereportcase_project`,tempData,isloading);
         return res;
     }
 
@@ -3625,21 +3625,21 @@ export default class CaseServiceBase extends EntityService {
     public async FetchMyFavorites(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/products/${context.product}/stories/${context.story}/cases/fetchmyfavorites`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/cases/fetchmyfavorites`,tempData,isloading);
             return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/stories/${context.story}/cases/fetchmyfavorites`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/cases/fetchmyfavorites`,tempData,isloading);
             return res;
         }
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/products/${context.product}/cases/fetchmyfavorites`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/cases/fetchmyfavorites`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().post(`/cases/fetchmyfavorites`,tempData,isloading);
+        let res:any = await Http.getInstance().post(`/cases/fetchmyfavorites`,tempData,isloading);
         return res;
     }
 
@@ -3681,21 +3681,21 @@ export default class CaseServiceBase extends EntityService {
     public async FetchNotCurTestSuite(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/products/${context.product}/stories/${context.story}/cases/fetchnotcurtestsuite`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/cases/fetchnotcurtestsuite`,tempData,isloading);
             return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/stories/${context.story}/cases/fetchnotcurtestsuite`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/cases/fetchnotcurtestsuite`,tempData,isloading);
             return res;
         }
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/products/${context.product}/cases/fetchnotcurtestsuite`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/cases/fetchnotcurtestsuite`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().post(`/cases/fetchnotcurtestsuite`,tempData,isloading);
+        let res:any = await Http.getInstance().post(`/cases/fetchnotcurtestsuite`,tempData,isloading);
         return res;
     }
 
@@ -3737,21 +3737,21 @@ export default class CaseServiceBase extends EntityService {
     public async FetchNotCurTestTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/products/${context.product}/stories/${context.story}/cases/fetchnotcurtesttask`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/cases/fetchnotcurtesttask`,tempData,isloading);
             return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/stories/${context.story}/cases/fetchnotcurtesttask`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/cases/fetchnotcurtesttask`,tempData,isloading);
             return res;
         }
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/products/${context.product}/cases/fetchnotcurtesttask`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/cases/fetchnotcurtesttask`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().post(`/cases/fetchnotcurtesttask`,tempData,isloading);
+        let res:any = await Http.getInstance().post(`/cases/fetchnotcurtesttask`,tempData,isloading);
         return res;
     }
 
@@ -3793,21 +3793,21 @@ export default class CaseServiceBase extends EntityService {
     public async FetchNotCurTestTaskProject(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/fetchnotcurtesttaskproject`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/fetchnotcurtesttaskproject`,tempData,isloading);
             return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/cases/fetchnotcurtesttaskproject`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/cases/fetchnotcurtesttaskproject`,tempData,isloading);
             return res;
         }
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/cases/fetchnotcurtesttaskproject`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/cases/fetchnotcurtesttaskproject`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/cases/fetchnotcurtesttaskproject`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/cases/fetchnotcurtesttaskproject`,tempData,isloading);
         return res;
     }
 
@@ -3849,21 +3849,21 @@ export default class CaseServiceBase extends EntityService {
     public async FetchRePortCase(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/products/${context.product}/stories/${context.story}/cases/fetchreportcase`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/cases/fetchreportcase`,tempData,isloading);
             return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/stories/${context.story}/cases/fetchreportcase`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/cases/fetchreportcase`,tempData,isloading);
             return res;
         }
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/products/${context.product}/cases/fetchreportcase`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/cases/fetchreportcase`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().post(`/cases/fetchreportcase`,tempData,isloading);
+        let res:any = await Http.getInstance().post(`/cases/fetchreportcase`,tempData,isloading);
         return res;
     }
 
@@ -3905,21 +3905,21 @@ export default class CaseServiceBase extends EntityService {
     public async FetchRePortCaseEntry(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/fetchreportcaseentry`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/fetchreportcaseentry`,tempData,isloading);
             return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/cases/fetchreportcaseentry`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/cases/fetchreportcaseentry`,tempData,isloading);
             return res;
         }
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/cases/fetchreportcaseentry`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/cases/fetchreportcaseentry`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/cases/fetchreportcaseentry`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/cases/fetchreportcaseentry`,tempData,isloading);
         return res;
     }
 
@@ -3961,21 +3961,21 @@ export default class CaseServiceBase extends EntityService {
     public async FetchRePortCase_Project(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/products/${context.product}/stories/${context.story}/cases/fetchreportcase_project`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/cases/fetchreportcase_project`,tempData,isloading);
             return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/stories/${context.story}/cases/fetchreportcase_project`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/cases/fetchreportcase_project`,tempData,isloading);
             return res;
         }
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/products/${context.product}/cases/fetchreportcase_project`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/cases/fetchreportcase_project`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().post(`/cases/fetchreportcase_project`,tempData,isloading);
+        let res:any = await Http.getInstance().post(`/cases/fetchreportcase_project`,tempData,isloading);
         return res;
     }
 
@@ -4017,21 +4017,21 @@ export default class CaseServiceBase extends EntityService {
     public async FetchRunERRePortCase(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/fetchrunerreportcase`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/fetchrunerreportcase`,tempData,isloading);
             return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/cases/fetchrunerreportcase`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/cases/fetchrunerreportcase`,tempData,isloading);
             return res;
         }
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/cases/fetchrunerreportcase`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/cases/fetchrunerreportcase`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/cases/fetchrunerreportcase`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/cases/fetchrunerreportcase`,tempData,isloading);
         return res;
     }
 
@@ -4073,21 +4073,21 @@ export default class CaseServiceBase extends EntityService {
     public async FetchRunERRePortCaseEntry(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/fetchrunerreportcaseentry`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/fetchrunerreportcaseentry`,tempData,isloading);
             return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/cases/fetchrunerreportcaseentry`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/cases/fetchrunerreportcaseentry`,tempData,isloading);
             return res;
         }
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/cases/fetchrunerreportcaseentry`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/cases/fetchrunerreportcaseentry`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/cases/fetchrunerreportcaseentry`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/cases/fetchrunerreportcaseentry`,tempData,isloading);
         return res;
     }
 
@@ -4129,21 +4129,21 @@ export default class CaseServiceBase extends EntityService {
     public async FetchRunERRePortCase_Project(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/fetchrunerreportcase_project`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/fetchrunerreportcase_project`,tempData,isloading);
             return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/cases/fetchrunerreportcase_project`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/cases/fetchrunerreportcase_project`,tempData,isloading);
             return res;
         }
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/cases/fetchrunerreportcase_project`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/cases/fetchrunerreportcase_project`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/cases/fetchrunerreportcase_project`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/cases/fetchrunerreportcase_project`,tempData,isloading);
         return res;
     }
 
@@ -4185,21 +4185,21 @@ export default class CaseServiceBase extends EntityService {
     public async FetchRunRePortCase(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/fetchrunreportcase`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/fetchrunreportcase`,tempData,isloading);
             return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/cases/fetchrunreportcase`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/cases/fetchrunreportcase`,tempData,isloading);
             return res;
         }
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/cases/fetchrunreportcase`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/cases/fetchrunreportcase`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/cases/fetchrunreportcase`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/cases/fetchrunreportcase`,tempData,isloading);
         return res;
     }
 
@@ -4241,21 +4241,21 @@ export default class CaseServiceBase extends EntityService {
     public async FetchRunRePortCaseEntry(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/fetchrunreportcaseentry`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/fetchrunreportcaseentry`,tempData,isloading);
             return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/cases/fetchrunreportcaseentry`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/cases/fetchrunreportcaseentry`,tempData,isloading);
             return res;
         }
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/cases/fetchrunreportcaseentry`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/cases/fetchrunreportcaseentry`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/cases/fetchrunreportcaseentry`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/cases/fetchrunreportcaseentry`,tempData,isloading);
         return res;
     }
 
@@ -4297,21 +4297,21 @@ export default class CaseServiceBase extends EntityService {
     public async FetchRunRePortCase_Project(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/fetchrunreportcase_project`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/fetchrunreportcase_project`,tempData,isloading);
             return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/cases/fetchrunreportcase_project`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/cases/fetchrunreportcase_project`,tempData,isloading);
             return res;
         }
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/cases/fetchrunreportcase_project`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/cases/fetchrunreportcase_project`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/cases/fetchrunreportcase_project`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/cases/fetchrunreportcase_project`,tempData,isloading);
         return res;
     }
 

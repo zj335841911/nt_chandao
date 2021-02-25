@@ -132,7 +132,7 @@ export class TaskTreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarControlBa
         if (Object.is(expmode, 'PRODUCTNOTROOT')) {
             return {  
                 viewname: 'task-main-grid-view-by-module', 
-                parentdata: {"srfparentdefname":"n_parent_eq"},
+                parentdata: {},
                 deKeyField:'task'
 			};
         }

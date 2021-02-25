@@ -20,11 +20,14 @@ import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * 服务DTO对象[SysUpdateFeaturesDTO]
  */
 @Data
+@ApiModel("系统更新功能")
 public class SysUpdateFeaturesDTO extends DTOBase implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -36,6 +39,7 @@ public class SysUpdateFeaturesDTO extends DTOBase implements Serializable {
     @JSONField(name = "sysupdatefeaturesname")
     @JsonProperty("sysupdatefeaturesname")
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("系统更新功能名称")
     private String sysupdatefeaturesname;
 
     /**
@@ -45,6 +49,7 @@ public class SysUpdateFeaturesDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "updatedate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("updatedate")
+    @ApiModelProperty("更新时间")
     private Timestamp updatedate;
 
     /**
@@ -54,6 +59,7 @@ public class SysUpdateFeaturesDTO extends DTOBase implements Serializable {
     @JSONField(name = "createman")
     @JsonProperty("createman")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("建立人")
     private String createman;
 
     /**
@@ -63,6 +69,7 @@ public class SysUpdateFeaturesDTO extends DTOBase implements Serializable {
     @JSONField(name = "updateman")
     @JsonProperty("updateman")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("更新人")
     private String updateman;
 
     /**
@@ -72,6 +79,7 @@ public class SysUpdateFeaturesDTO extends DTOBase implements Serializable {
     @JSONField(name = "type")
     @JsonProperty("type")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("更新类型")
     private String type;
 
     /**
@@ -81,6 +89,7 @@ public class SysUpdateFeaturesDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "createdate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createdate")
+    @ApiModelProperty("建立时间")
     private Timestamp createdate;
 
     /**
@@ -90,6 +99,7 @@ public class SysUpdateFeaturesDTO extends DTOBase implements Serializable {
     @JSONField(name = "upfeatures")
     @JsonProperty("upfeatures")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("更新功能")
     private String upfeatures;
 
     /**
@@ -99,6 +109,7 @@ public class SysUpdateFeaturesDTO extends DTOBase implements Serializable {
     @JSONField(name = "sysupdatefeaturesid")
     @JsonProperty("sysupdatefeaturesid")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("系统更新功能标识")
     private String sysupdatefeaturesid;
 
     /**
@@ -107,6 +118,7 @@ public class SysUpdateFeaturesDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "displayorder")
     @JsonProperty("displayorder")
+    @ApiModelProperty("展示顺序")
     private Integer displayorder;
 
     /**
@@ -116,6 +128,7 @@ public class SysUpdateFeaturesDTO extends DTOBase implements Serializable {
     @JSONField(name = "featuresdesc")
     @JsonProperty("featuresdesc")
     @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
+    @ApiModelProperty("功能描述")
     private String featuresdesc;
 
     /**
@@ -125,6 +138,7 @@ public class SysUpdateFeaturesDTO extends DTOBase implements Serializable {
     @JSONField(name = "sysupdatelogname")
     @JsonProperty("sysupdatelogname")
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("所属更新")
     private String sysupdatelogname;
 
     /**
@@ -134,6 +148,7 @@ public class SysUpdateFeaturesDTO extends DTOBase implements Serializable {
     @JSONField(name = "sysupdatelogid")
     @JsonProperty("sysupdatelogid")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("系统更新日志标识")
     private String sysupdatelogid;
 
 

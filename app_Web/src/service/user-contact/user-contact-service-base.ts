@@ -49,7 +49,7 @@ export default class UserContactServiceBase extends EntityService {
      * @memberof UserContactServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().get(`/usercontacts/${context.usercontact}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/usercontacts/${context.usercontact}/select`,isloading);
             
             return res;
     }
@@ -105,7 +105,7 @@ export default class UserContactServiceBase extends EntityService {
      * @memberof UserContactServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().delete(`/usercontacts/${context.usercontact}`,isloading);
+            let res:any = await Http.getInstance().delete(`/usercontacts/${context.usercontact}`,isloading);
             return res;
     }
 
@@ -153,7 +153,7 @@ export default class UserContactServiceBase extends EntityService {
      * @memberof UserContactServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/usercontacts/${context.usercontact}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/usercontacts/${context.usercontact}/checkkey`,data,isloading);
             return res;
     }
 
@@ -185,7 +185,7 @@ export default class UserContactServiceBase extends EntityService {
      */
     public async FetchCurUSERCONTACT(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/usercontacts/fetchcurusercontact`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/usercontacts/fetchcurusercontact`,tempData,isloading);
         return res;
     }
 
@@ -214,7 +214,7 @@ export default class UserContactServiceBase extends EntityService {
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/usercontacts/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/usercontacts/fetchdefault`,tempData,isloading);
         return res;
     }
 
@@ -243,7 +243,7 @@ export default class UserContactServiceBase extends EntityService {
      */
     public async FetchMyUSERCONTACT(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/usercontacts/fetchmyusercontact`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/usercontacts/fetchmyusercontact`,tempData,isloading);
         return res;
     }
 

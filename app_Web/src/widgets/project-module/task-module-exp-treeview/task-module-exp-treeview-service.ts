@@ -656,6 +656,11 @@ export default class TaskModuleExpService extends ControlService {
             let BranchsRsNavParams:any = {};
             let BranchsRsParams:any = {};
 			await this.fillBranchsNodes(context, filter, list ,BranchsRsNavContext,BranchsRsNavParams,BranchsRsParams);
+			// 填充产品根模块（动态）
+            let RootmoduleRsNavContext:any = {"PRODUCT":{"isRawValue":false,"value":"projectproduct"}};
+            let RootmoduleRsNavParams:any = {};
+            let RootmoduleRsParams:any = {};
+			await this.fillRootmoduleNodes(context, filter, list ,RootmoduleRsNavContext,RootmoduleRsNavParams,RootmoduleRsParams);
 		} else {
 			// 填充产品根模块无分支（动态）
             let Root_nobranchRsNavContext:any = {"PRODUCT":{"isRawValue":false,"value":"projectproduct"}};
@@ -667,6 +672,11 @@ export default class TaskModuleExpService extends ControlService {
             let BranchsRsNavParams:any = {};
             let BranchsRsParams:any = {};
 			await this.fillBranchsNodes(context, filter, list ,BranchsRsNavContext,BranchsRsNavParams,BranchsRsParams);
+			// 填充产品根模块（动态）
+            let RootmoduleRsNavContext:any = {"PRODUCT":{"isRawValue":false,"value":"projectproduct"}};
+            let RootmoduleRsNavParams:any = {};
+            let RootmoduleRsParams:any = {};
+			await this.fillRootmoduleNodes(context, filter, list ,RootmoduleRsNavContext,RootmoduleRsNavParams,RootmoduleRsParams);
 		}
 	}
 
@@ -932,11 +942,11 @@ export default class TaskModuleExpService extends ControlService {
                         // 整理context
                         let strId: string = entity.id;
                         let strText: string = entity.name;
-                        Object.assign(treeNode,{srfparentdename:'ProjectModule',srfparentkey:entity.id});
+                        Object.assign(treeNode,{srfparentdename:'ProductModule',srfparentkey:entity.id});
                         let tempContext:any = JSON.parse(JSON.stringify(context));
-                        Object.assign(tempContext,{srfparentdename:'ProjectModule',srfparentkey:entity.id,projectmodule:strId})
+                        Object.assign(tempContext,{srfparentdename:'ProductModule',srfparentkey:entity.id,productmodule:strId})
                         Object.assign(treeNode,{srfappctx:tempContext});
-                        Object.assign(treeNode,{'projectmodule':strId});
+                        Object.assign(treeNode,{'productmodule':strId});
                         Object.assign(treeNode, { srfkey: strId });
                         Object.assign(treeNode, { text: strText, srfmajortext: strText });
                         let strNodeId: string = 'productNotRoot';
@@ -952,11 +962,10 @@ export default class TaskModuleExpService extends ControlService {
                                 Object.assign(treeNode, { leaf: true });
                             }
                         }
-                        Object.assign(treeNode, { navfilter: "n_parent_eq" });
                         Object.assign(treeNode, { curData: entity });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
-                        Object.assign(treeNode, { nodeType: "DE",appEntityName:"projectmodule" });
+                        Object.assign(treeNode, { nodeType: "DE",appEntityName:"productmodule" });
                         list.push(treeNode);
                         resolve(list);
                         bFirst = false;
@@ -1000,7 +1009,7 @@ export default class TaskModuleExpService extends ControlService {
             if(context && context.srfparentkey){
                 Object.assign(searchFilter,{srfparentkey:JSON.parse(JSON.stringify(context)).srfparentkey});
             }
-            const _appEntityService: any = this.appEntityService;
+            const _appEntityService: any = this.productmoduleService;
             let list: any[] = [];
             if (_appEntityService['FetchDefault'] && _appEntityService['FetchDefault'] instanceof Function) {
                 const response: Promise<any> = _appEntityService['FetchDefault'](context, searchFilter, false);

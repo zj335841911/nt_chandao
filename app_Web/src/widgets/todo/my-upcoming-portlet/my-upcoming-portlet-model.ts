@@ -117,6 +117,9 @@ export default class MyUpcomingModel {
       {
         name: 'config',
       },
+      {
+        name: 'cost',
+      },
     ]
   }
 

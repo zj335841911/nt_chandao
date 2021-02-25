@@ -13493,6 +13493,7 @@ FROM dual  ) t1
 ### 项目计划任务（项目管理-项目计划）(PlanTasks)<div id="ProductPlan_PlanTasks"></div>
 ```sql
 SELECT
+case when t1.`end` is null or t1.`end` = '0000-00-00' or t1.`end` = '1970-01-01' then '' when t1.`status` in('wait','doing') and t1.`end` < DATE_FORMAT(NOW(),'%Y-%m-%d') then CONCAT('','延期',TO_DAYS(NOW()) - TO_DAYS(t1.`end`),'天') ELSE '' end as delay,
 	t1.`BEGIN`,
 	( CASE WHEN t1.`begin` = '2030-01-01' THEN '待定' ELSE t1.`begin` END ) AS `BEGINSTR`,
 	t1.`BRANCH`,
@@ -13685,23 +13686,7 @@ WHERE t1.DELETED = '0'
 ```
 ### 项目计划列表(ProjectPlan)<div id="ProductPlan_ProjectPlan"></div>
 ```sql
-SELECT
-	t1.`BEGIN`,
-(case when t1.`begin` = '2030-01-01' then '待定' else t1.`begin` end) AS `BEGINSTR`,
-	t1.`BRANCH`,
-	t1.`DELETED`,
-	t1.`END`,
-(case when t1.`end` = '2030-01-01' then '待定' else t1.`end` end) AS `ENDSTR`,
-	t1.`ID`,
-	t1.`PARENT`,
-	t11.`TITLE` AS `PARENTNAME`,
-	t1.`PRODUCT`,
-	(CONCAT(t31.`name`,'/',t1.title,'[',case when t1.`begin` is not null then t1.`begin` else '' end,'~',case when t1.`end` is not null then t1.`end` else '' end,']')) as `TITLE` 
-FROM
-	`zt_productplan` t1
-	LEFT JOIN zt_productplan t11 ON t1.PARENT = t11.ID
-	LEFT JOIN zt_product t31 ON t1.product = t31.id 
-	LEFT JOIN zt_projectproduct t21 ON t31.id = t21.product and t1.id = t21.plan
+SELECT 	t1.`BEGIN`, (case when t1.`begin` = '2030-01-01' then '待定' else t1.`begin` end) AS `BEGINSTR`, 	t1.`BRANCH`, 	t1.`DELETED`, 	t1.`END`, (case when t1.`end` = '2030-01-01' then '待定' else t1.`end` end) AS `ENDSTR`, 	t1.`ID`, 	t1.`PARENT`, 	t11.`TITLE` AS `PARENTNAME`, 	t1.`PRODUCT`, 	(CONCAT(t31.`name`,'/',t1.title,'[',case when t1.`begin` is not null then t1.`begin` else '' end,'~',case when t1.`end` is not null then t1.`end` else '' end,']')) as `TITLE`  FROM 	`zt_productplan` t1 	LEFT JOIN zt_productplan t11 ON t1.PARENT = t11.ID 	LEFT JOIN zt_product t31 ON t1.product = t31.id  	LEFT JOIN zt_projectproduct t21 ON t31.id = t21.product and t1.id = t21.plan
 WHERE ( t21.`PROJECT` = 	${srfdatacontext('srfparentkey','{"defname":"PROJECT","dename":"ZT_PROJECTPRODUCT"}')}
  or t1.parent in (	SELECT GROUP_CONCAT(t1.id)
 FROM
@@ -19620,6 +19605,7 @@ t1.`TASKSPECIES`,
 t61.`TITLE` AS `PLANNAME` FROM `zt_task` t1  LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID  LEFT JOIN zt_story t21 ON t1.STORY = t21.ID  LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID  LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID  LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID LEFT JOIN `zt_productplan` t61 ON t1.`PLAN` = t61.`ID`
 WHERE t1.DELETED = '0' 
 ( t1.`ASSIGNEDTO` =  #{srf.sessioncontext.srfloginname} ) 
+(t1.parent <= 0) 
 
 ```
 ### 指派给我任务（PC）(AssignedToMyTaskPc)<div id="Task_AssignedToMyTaskPc"></div>
@@ -19772,7 +19758,8 @@ t1.`PLAN`,
 t1.`TASKSPECIES`,
 t61.`TITLE` AS `PLANNAME` FROM `zt_task` t1  LEFT JOIN zt_module t11 ON t1.MODULE = t11.ID  LEFT JOIN zt_story t21 ON t1.STORY = t21.ID  LEFT JOIN zt_project t31 ON t1.PROJECT = t31.ID  LEFT JOIN zt_product t41 ON t21.PRODUCT = t41.ID  LEFT JOIN zt_task t51 ON t1.PARENT = t51.ID LEFT JOIN `zt_productplan` t61 ON t1.`PLAN` = t61.`ID`
 WHERE t1.DELETED = '0' 
-t1.assignedTo = #{srf.sessioncontext.srfloginname} or t1.openedBy =#{srf.sessioncontext.srfloginname}  or FIND_IN_SET(#{srf.sessioncontext.srfloginname}, t1.finishedList) or t1.closedBy = #{srf.sessioncontext.srfloginname} or t1.finishedBy = #{srf.sessioncontext.srfloginname} or t1.canceledBy = #{srf.sessioncontext.srfloginname} 
+(t1.assignedTo = #{srf.sessioncontext.srfloginname} or t1.openedBy =#{srf.sessioncontext.srfloginname}  or FIND_IN_SET(#{srf.sessioncontext.srfloginname}, t1.finishedList) or t1.closedBy = #{srf.sessioncontext.srfloginname} or t1.finishedBy = #{srf.sessioncontext.srfloginname} or t1.canceledBy = #{srf.sessioncontext.srfloginname}) 
+(t1.parent <= 0) 
 
 ```
 ### 我完成的任务（汇报）(MyCompleteTask)<div id="Task_MyCompleteTask"></div>
@@ -20228,7 +20215,58 @@ WHERE
 	FROM
 		`zt_task` t1
 	WHERE
-	t1.DELETED = '0'  t1.project = #{srf.datacontext.project}
+	t1.DELETED = '0' and  t1.project = #{srf.datacontext.project}
+```
+### 任务类型分组（计划）(TypeGroupPlan)<div id="Task_TypeGroupPlan"></div>
+```sql
+SELECT
+	(
+SELECT
+	MIN( ESTSTARTED ) 
+FROM
+	`zt_task` 
+WHERE
+	DELETED = '0' 
+	AND TYPE = t1.`TYPE` 
+	AND plan = t1.plan
+	AND ESTSTARTED <> '0000-00-00' 
+	AND estStarted <> '0002-11-30' 
+	AND estStarted <> '1970-01-01' 
+	) AS `ESTSTARTED`,
+	(
+SELECT
+	MAX( DEADLINE ) 
+FROM
+	`zt_task` 
+WHERE
+	DELETED = '0' 
+	AND TYPE = t1.`TYPE` 
+	AND plan = t1.plan
+	AND DEADLINE <> '0000-00-00' 
+	AND estStarted <> '0002-11-30' 
+	AND estStarted <> '1970-01-01' 
+	) AS `DEADLINE`,
+	(
+SELECT
+	DATEDIFF( MAX( DEADLINE ), MIN( ESTSTARTED ) ) + 1 
+FROM
+	`zt_task` 
+WHERE
+	DELETED = '0' 
+	AND TYPE = t1.`TYPE` 
+	AND plan = t1.plan
+	AND ESTSTARTED <> '0000-00-00' 
+	AND DEADLINE <> '0000-00-00' 
+	AND estStarted <> '0002-11-30' 
+	AND estStarted <> '1970-01-01' 
+	) AS `DURATION`,
+	t1.`TYPE`,
+	t1.`PLAN`,
+	t1.project
+	FROM
+		`zt_task` t1
+	WHERE
+	t1.DELETED = '0' and t1.plan =  #{srf.datacontext.srfparentkey}
 ```
 ### 默认（全部数据）(VIEW)<div id="Task_View"></div>
 ```sql
@@ -21473,6 +21511,7 @@ t1.`BEGIN`,
 t1.`CLOSEDBY`,
 t1.`CLOSEDDATE`,
 t1.`CONFIG`,
+t1.`COST`,
 t1.`CYCLE`,
 t1.`DATE`,
 (case when t1.`DATE` = '2030-01-01' then '待定' else t1.`DATE` end) AS `DATE1`,

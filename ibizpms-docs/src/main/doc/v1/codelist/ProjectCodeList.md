@@ -16,5 +16,5 @@
 | 项目 | 说明 |
 | ---- | ---- |
 | 实体 | [项目](../module/zentao/Project) |
-| 结果集合 | [DEFAULT（Default）](../module/zentao/Project/#数据集合-DEFAULT（Default）) |
+| 结果集合 | [BugProject（BugProject）](../module/zentao/Project/#数据集合-BugProject（BugProject）) |
 

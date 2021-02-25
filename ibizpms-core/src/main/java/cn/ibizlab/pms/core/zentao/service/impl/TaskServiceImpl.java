@@ -941,6 +941,15 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
         return new PageImpl<Map>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
+    /**
+     * 查询集合 任务类型分组（计划）
+     */
+    @Override
+    public Page<Map> searchTypeGroupPlan(TaskSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Map> pages=baseMapper.searchTypeGroupPlan(context.getPages(), context, context.getSelectCond());
+        return new PageImpl<Map>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
 
 
     /**

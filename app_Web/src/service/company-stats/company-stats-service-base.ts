@@ -49,7 +49,7 @@ export default class CompanyStatsServiceBase extends EntityService {
      * @memberof CompanyStatsServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().get(`/companystats/${context.companystats}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/companystats/${context.companystats}/select`,isloading);
             
             return res;
     }
@@ -105,7 +105,7 @@ export default class CompanyStatsServiceBase extends EntityService {
      * @memberof CompanyStatsServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().delete(`/companystats/${context.companystats}`,isloading);
+            let res:any = await Http.getInstance().delete(`/companystats/${context.companystats}`,isloading);
             return res;
     }
 
@@ -153,7 +153,7 @@ export default class CompanyStatsServiceBase extends EntityService {
      * @memberof CompanyStatsServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/companystats/${context.companystats}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/companystats/${context.companystats}/checkkey`,data,isloading);
             return res;
     }
 
@@ -185,7 +185,7 @@ export default class CompanyStatsServiceBase extends EntityService {
      */
     public async FetchCompanyDynamicStats(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/companystats/fetchcompanydynamicstats`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/companystats/fetchcompanydynamicstats`,tempData,isloading);
         return res;
     }
 
@@ -214,7 +214,7 @@ export default class CompanyStatsServiceBase extends EntityService {
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/companystats/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/companystats/fetchdefault`,tempData,isloading);
         return res;
     }
 

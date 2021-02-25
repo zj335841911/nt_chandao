@@ -20,11 +20,14 @@ import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * 服务DTO对象[TestRunDTO]
  */
 @Data
+@ApiModel("测试运行")
 public class TestRunDTO extends DTOBase implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -36,6 +39,7 @@ public class TestRunDTO extends DTOBase implements Serializable {
     @JSONField(name = "lastrunresult")
     @JsonProperty("lastrunresult")
     @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
+    @ApiModelProperty("结果")
     private String lastrunresult;
 
     /**
@@ -45,6 +49,7 @@ public class TestRunDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "lastrundate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("lastrundate")
+    @ApiModelProperty("最后执行时间")
     private Timestamp lastrundate;
 
     /**
@@ -54,6 +59,7 @@ public class TestRunDTO extends DTOBase implements Serializable {
     @JSONField(name = "assignedto")
     @JsonProperty("assignedto")
     @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
+    @ApiModelProperty("指派给")
     private String assignedto;
 
     /**
@@ -63,6 +69,7 @@ public class TestRunDTO extends DTOBase implements Serializable {
     @JSONField(name = "lastrunner")
     @JsonProperty("lastrunner")
     @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
+    @ApiModelProperty("最后执行人")
     private String lastrunner;
 
     /**
@@ -72,6 +79,7 @@ public class TestRunDTO extends DTOBase implements Serializable {
     @JSONField(name = "status")
     @JsonProperty("status")
     @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
+    @ApiModelProperty("当前状态")
     private String status;
 
     /**
@@ -81,6 +89,7 @@ public class TestRunDTO extends DTOBase implements Serializable {
     @JSONField(name = "id")
     @JsonProperty("id")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("编号")
     private Long id;
 
     /**
@@ -89,6 +98,7 @@ public class TestRunDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "version")
     @JsonProperty("version")
+    @ApiModelProperty("用例版本")
     private Integer version;
 
     /**
@@ -98,6 +108,7 @@ public class TestRunDTO extends DTOBase implements Serializable {
     @JSONField(name = "ibizcase")
     @JsonProperty("ibizcase")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("测试用例")
     private Long ibizcase;
 
     /**
@@ -107,6 +118,7 @@ public class TestRunDTO extends DTOBase implements Serializable {
     @JSONField(name = "task")
     @JsonProperty("task")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("测试单")
     private Long task;
 
 

@@ -176,7 +176,6 @@ export default class EntityService {
         if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_'+this.APPDENAME),'undefined')){
             let tempData:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_'+this.APPDENAME) as any);
             data.srffrontuf = "0";
-            data[this.APPDEKEY] = null;
             tempData.push(data);
             this.tempStorage.setItem(context.srfsessionkey+'_'+this.APPDENAME,JSON.stringify(tempData));
             return {"status":200,"data":data};
