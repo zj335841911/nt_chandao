@@ -1605,7 +1605,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             }
         }
         Project project = projectService.get(list.get(0).getProject());
-        boolean isOps = project.getType().equalsIgnoreCase(StaticDict.Project__type.OPS.getValue());
+        boolean isOps = StaticDict.Project__type.OPS.getValue().equalsIgnoreCase(project.getType());
         String childTasks = "";
         for (Task task : list) {
             long story = task.getStory() == null ? 0 : task.getStory();
