@@ -1620,10 +1620,10 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
 ////            task.set(FIELD_DEADLINE, task.getDeadline() == null ? DEFAULT_TIME : task.getDeadline());
             task.setStatus(StaticDict.Task__status.WAIT.getValue());
             task.setLeft(task.getEstimate());
-            if (task.getStory() != null && task.getStory() != 0L) {
+            if(isOps) {
+                task.setStory(0L);
+            }else if (task.getStory() != null && task.getStory() != 0L) {
                 task.setStoryversion(storyHelper.get(task.getStory()).getVersion());
-            } else if (isOps) {
-                continue;
             }
             if (assignedTo != "" && assignedTo != null) {
                 task.setAssigneddate(ZTDateUtil.now());
