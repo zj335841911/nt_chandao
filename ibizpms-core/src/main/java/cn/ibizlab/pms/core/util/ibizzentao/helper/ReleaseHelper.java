@@ -104,9 +104,28 @@ public class ReleaseHelper extends ZTBaseHelper<ReleaseMapper, Release> {
         boolean bOk = false;
 
         Release old = this.get(key);
+        if(old.getBuild() != null && old.getBuild() != 0) {
+            deletedBuild(old.getBuild(), old.getName());
+        }
+
         bOk = super.delete(key);
-        buildHelper.delete(old.getBuild());
         return bOk;
+    }
+
+    @Transactional(rollbackFor = Exception.class)
+    public boolean deletedBuild(Long key, String name) {
+        List<Build> list1 = buildHelper.list(new QueryWrapper<Build>().eq("`id`", key));
+        for(Build build : list1) {
+            if(build.getProject() == null || build.getProject() == 0L) {
+                buildHelper.delete(build.getId());
+            }
+
+        }
+        List<Build> list = buildHelper.list(new QueryWrapper<Build>().eq("`id`", key).eq("`name`", name));
+        for(Build build : list) {
+            buildHelper.delete(build.getId());
+        }
+        return true;
     }
 
     @Transactional(rollbackFor = Exception.class)
