@@ -8053,20 +8053,6 @@ const router = new Router({
                     component: () => import('@pages/ibizpro/ibizpro-product-weekly-usr2-grid-view/ibizpro-product-weekly-usr2-grid-view.vue'),
                 },
                 {
-                    path: 'actions/:action?/editview/:editview?',
-                    meta: {
-                        caption: 'entities.action.views.editview.caption',
-                        info:'',
-                        parameters: [
-                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
-                            { pathName: 'actions', parameterName: 'action' },
-                            { pathName: 'editview', parameterName: 'editview' },
-                        ],
-                        requireAuth: true,
-                    },
-                    component: () => import('@pages/zentao/action-edit-view/action-edit-view.vue'),
-                },
-                {
                     path: 'useryearworkstats/:useryearworkstats?/dashboardview/:dashboardview?',
                     meta: {
                         caption: 'entities.useryearworkstats.views.dashboardview.caption',
@@ -8079,6 +8065,20 @@ const router = new Router({
                         requireAuth: true,
                     },
                     component: () => import('@pages/ibiz/user-year-work-stats-dashboard-view/user-year-work-stats-dashboard-view.vue'),
+                },
+                {
+                    path: 'actions/:action?/editview/:editview?',
+                    meta: {
+                        caption: 'entities.action.views.editview.caption',
+                        info:'',
+                        parameters: [
+                            { pathName: 'ibizpms', parameterName: 'ibizpms' },
+                            { pathName: 'actions', parameterName: 'action' },
+                            { pathName: 'editview', parameterName: 'editview' },
+                        ],
+                        requireAuth: true,
+                    },
+                    component: () => import('@pages/zentao/action-edit-view/action-edit-view.vue'),
                 },
                 {
                     path: 'products/:product?/stories/:story?/cases/:case?/curtesttaskgridview/:curtesttaskgridview?',

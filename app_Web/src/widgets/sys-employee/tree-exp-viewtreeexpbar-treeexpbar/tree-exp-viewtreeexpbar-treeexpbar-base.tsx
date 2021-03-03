@@ -136,13 +136,6 @@ export class TreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarControlBase {
                 deKeyField:'sysemployee'
 			};
         }
-        if (Object.is(expmode, 'SYSPOST')) {
-            return {  
-                viewname: 'sys-team-member-grid-exp-view', 
-                parentdata: {"srfparentdefname":"postid"},
-                deKeyField:'systeammember'
-			};
-        }
         if (Object.is(expmode, 'ORGEMP')) {
             return {  
                 viewname: 'sys-organization-grid-exp-view', 
@@ -157,23 +150,9 @@ export class TreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarControlBase {
                 deKeyField:'sysdepartment'
 			};
         }
-        if (Object.is(expmode, 'TEAM')) {
+        if (Object.is(expmode, 'TEAMMEMBER')) {
             return {  
-                viewname: 'sys-team-grid-exp-view', 
-                parentdata: {},
-                deKeyField:'systeam'
-			};
-        }
-        if (Object.is(expmode, 'CONCATLIST')) {
-            return {  
-                viewname: 'user-contact-grid-exp-view', 
-                parentdata: {},
-                deKeyField:'usercontact'
-			};
-        }
-        if (Object.is(expmode, 'DEPART')) {
-            return {  
-                viewname: 'sys-employee-grid-exp-view-dept', 
+                viewname: 'sys-employee-edit-view', 
                 parentdata: {},
                 deKeyField:'sysemployee'
 			};
@@ -183,6 +162,55 @@ export class TreeExpViewtreeexpbarTreeExpBarBase extends TreeExpBarControlBase {
                 viewname: 'project-grid-exp-view', 
                 parentdata: {},
                 deKeyField:'project'
+			};
+        }
+        if (Object.is(expmode, 'DEPART')) {
+            return {  
+                viewname: 'sys-employee-grid-exp-view-dept', 
+                parentdata: {},
+                deKeyField:'sysemployee'
+			};
+        }
+        if (Object.is(expmode, 'CONCATLIST')) {
+            return {  
+                viewname: 'user-contact-grid-exp-view', 
+                parentdata: {},
+                deKeyField:'usercontact'
+			};
+        }
+        if (Object.is(expmode, 'CONTACTUSER')) {
+            return {  
+                viewname: 'sys-employee-edit-view', 
+                parentdata: {},
+                deKeyField:'sysemployee'
+			};
+        }
+        if (Object.is(expmode, 'SYSPOST')) {
+            return {  
+                viewname: 'sys-team-member-grid-exp-view', 
+                parentdata: {"srfparentdefname":"postid"},
+                deKeyField:'systeammember'
+			};
+        }
+        if (Object.is(expmode, 'IBZEMP')) {
+            return {  
+                viewname: 'sys-employee-edit-view', 
+                parentdata: {},
+                deKeyField:'sysemployee'
+			};
+        }
+        if (Object.is(expmode, 'TEAM')) {
+            return {  
+                viewname: 'sys-team-grid-exp-view', 
+                parentdata: {},
+                deKeyField:'systeam'
+			};
+        }
+        if (Object.is(expmode, 'PROJECTEMP')) {
+            return {  
+                viewname: 'sys-employee-edit-view', 
+                parentdata: {},
+                deKeyField:'sysemployee'
 			};
         }
         return null;
