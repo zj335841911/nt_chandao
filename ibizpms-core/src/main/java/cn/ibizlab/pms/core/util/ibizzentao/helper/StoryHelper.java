@@ -803,6 +803,7 @@ public class StoryHelper extends ZTBaseHelper<StoryMapper, Story> {
             story.setStage(StaticDict.Story__stage.PROJECTED.getValue());
             story.setId(et.getId());
             this.internalUpdate(story);
+            return et;
         } else if (taskList.size() > 0) {
             if (hasBranch) {
                 for (JSONObject jsonObject : taskList) {
