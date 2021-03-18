@@ -1,3 +1,4 @@
+import { Environment } from '@/environments/environment';
 import { Http } from '@/utils';
 import { Util } from '@/utils';
 import EntityService from '../entity-service';
@@ -68,7 +69,7 @@ export default class IbzPlanTempletServiceBase extends EntityService {
         let plantempletdetailsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_plantempletdetails'),'undefined')){
             plantempletdetailsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_plantempletdetails') as any);
-            if(plantempletdetailsData && plantempletdetailsData.length && plantempletdetailsData.length > 0){
+            if(plantempletdetailsData && plantempletdetailsData.length && plantempletdetailsData.length > 0 && Environment.isStudioSystem === false){
                 plantempletdetailsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -109,7 +110,7 @@ export default class IbzPlanTempletServiceBase extends EntityService {
         let plantempletdetailsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_plantempletdetails'),'undefined')){
             plantempletdetailsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_plantempletdetails') as any);
-            if(plantempletdetailsData && plantempletdetailsData.length && plantempletdetailsData.length > 0){
+            if(plantempletdetailsData && plantempletdetailsData.length && plantempletdetailsData.length > 0 && Environment.isStudioSystem === false){
                 plantempletdetailsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -223,7 +224,7 @@ export default class IbzPlanTempletServiceBase extends EntityService {
         let plantempletdetailsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_plantempletdetails'),'undefined')){
             plantempletdetailsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_plantempletdetails') as any);
-            if(plantempletdetailsData && plantempletdetailsData.length && plantempletdetailsData.length > 0){
+            if(plantempletdetailsData && plantempletdetailsData.length && plantempletdetailsData.length > 0 && Environment.isStudioSystem === false){
                 plantempletdetailsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){

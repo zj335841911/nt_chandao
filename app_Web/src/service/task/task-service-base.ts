@@ -1,3 +1,4 @@
+import { Environment } from '@/environments/environment';
 import { Http } from '@/utils';
 import { Util } from '@/utils';
 import EntityService from '../entity-service';
@@ -105,7 +106,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -121,7 +122,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -137,7 +138,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -153,7 +154,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -169,7 +170,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -204,7 +205,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -220,7 +221,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -236,7 +237,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -252,7 +253,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -268,7 +269,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -303,7 +304,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -319,7 +320,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -335,7 +336,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -351,7 +352,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -367,7 +368,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -402,7 +403,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -418,7 +419,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -434,7 +435,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -450,7 +451,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -466,7 +467,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -501,7 +502,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -517,7 +518,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -533,7 +534,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -549,7 +550,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -565,7 +566,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -600,7 +601,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -616,7 +617,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -632,7 +633,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -648,7 +649,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -664,7 +665,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -699,7 +700,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -715,7 +716,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -731,7 +732,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -747,7 +748,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -763,7 +764,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -797,7 +798,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -813,7 +814,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -829,7 +830,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -845,7 +846,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -861,7 +862,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -907,7 +908,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -923,7 +924,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -939,7 +940,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -955,7 +956,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -971,7 +972,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -999,7 +1000,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1015,7 +1016,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1031,7 +1032,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1047,7 +1048,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1063,7 +1064,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1091,7 +1092,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1107,7 +1108,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1123,7 +1124,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1139,7 +1140,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1155,7 +1156,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1183,7 +1184,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1199,7 +1200,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1215,7 +1216,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1231,7 +1232,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1247,7 +1248,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1275,7 +1276,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1291,7 +1292,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1307,7 +1308,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1323,7 +1324,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1339,7 +1340,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1367,7 +1368,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1383,7 +1384,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1399,7 +1400,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1415,7 +1416,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1431,7 +1432,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1459,7 +1460,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1475,7 +1476,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1491,7 +1492,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1507,7 +1508,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1523,7 +1524,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1550,7 +1551,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1566,7 +1567,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1582,7 +1583,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1598,7 +1599,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1614,7 +1615,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1907,7 +1908,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1923,7 +1924,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1939,7 +1940,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1955,7 +1956,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1971,7 +1972,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1999,7 +2000,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2015,7 +2016,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2031,7 +2032,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2047,7 +2048,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2063,7 +2064,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2091,7 +2092,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2107,7 +2108,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2123,7 +2124,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2139,7 +2140,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2155,7 +2156,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2183,7 +2184,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2199,7 +2200,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2215,7 +2216,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2231,7 +2232,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2247,7 +2248,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2275,7 +2276,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2291,7 +2292,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2307,7 +2308,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2323,7 +2324,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2339,7 +2340,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2367,7 +2368,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2383,7 +2384,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2399,7 +2400,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2415,7 +2416,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2431,7 +2432,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2459,7 +2460,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2475,7 +2476,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2491,7 +2492,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2507,7 +2508,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2523,7 +2524,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2565,7 +2566,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2581,7 +2582,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2597,7 +2598,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2613,7 +2614,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2629,7 +2630,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2657,7 +2658,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2673,7 +2674,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2689,7 +2690,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2705,7 +2706,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2721,7 +2722,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2749,7 +2750,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2765,7 +2766,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2781,7 +2782,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2797,7 +2798,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2813,7 +2814,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2841,7 +2842,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2857,7 +2858,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2873,7 +2874,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2889,7 +2890,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2905,7 +2906,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2933,7 +2934,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2949,7 +2950,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2965,7 +2966,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2981,7 +2982,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2997,7 +2998,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -3025,7 +3026,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -3041,7 +3042,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -3057,7 +3058,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -3073,7 +3074,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -3089,7 +3090,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -3117,7 +3118,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -3133,7 +3134,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -3149,7 +3150,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -3165,7 +3166,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -3181,7 +3182,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -3223,7 +3224,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -3239,7 +3240,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -3255,7 +3256,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -3271,7 +3272,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -3287,7 +3288,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -3315,7 +3316,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -3331,7 +3332,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -3347,7 +3348,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -3363,7 +3364,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -3379,7 +3380,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -3407,7 +3408,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -3423,7 +3424,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -3439,7 +3440,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -3455,7 +3456,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -3471,7 +3472,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -3499,7 +3500,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -3515,7 +3516,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -3531,7 +3532,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -3547,7 +3548,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -3563,7 +3564,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -3591,7 +3592,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -3607,7 +3608,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -3623,7 +3624,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -3639,7 +3640,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -3655,7 +3656,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -3683,7 +3684,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -3699,7 +3700,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -3715,7 +3716,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -3731,7 +3732,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -3747,7 +3748,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -3775,7 +3776,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -3791,7 +3792,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -3807,7 +3808,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -3823,7 +3824,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -3839,7 +3840,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -3881,7 +3882,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -3897,7 +3898,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -3913,7 +3914,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -3929,7 +3930,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -3945,7 +3946,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -3973,7 +3974,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -3989,7 +3990,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -4005,7 +4006,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -4021,7 +4022,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -4037,7 +4038,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -4065,7 +4066,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -4081,7 +4082,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -4097,7 +4098,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -4113,7 +4114,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -4129,7 +4130,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -4157,7 +4158,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -4173,7 +4174,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -4189,7 +4190,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -4205,7 +4206,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -4221,7 +4222,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -4249,7 +4250,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -4265,7 +4266,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -4281,7 +4282,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -4297,7 +4298,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -4313,7 +4314,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -4341,7 +4342,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -4357,7 +4358,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -4373,7 +4374,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -4389,7 +4390,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -4405,7 +4406,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -4433,7 +4434,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -4449,7 +4450,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -4465,7 +4466,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -4481,7 +4482,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -4497,7 +4498,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -4539,7 +4540,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -4555,7 +4556,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -4571,7 +4572,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -4587,7 +4588,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -4603,7 +4604,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -4631,7 +4632,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -4647,7 +4648,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -4663,7 +4664,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -4679,7 +4680,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -4695,7 +4696,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -4723,7 +4724,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -4739,7 +4740,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -4755,7 +4756,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -4771,7 +4772,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -4787,7 +4788,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -4815,7 +4816,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -4831,7 +4832,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -4847,7 +4848,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -4863,7 +4864,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -4879,7 +4880,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -4907,7 +4908,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -4923,7 +4924,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -4939,7 +4940,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -4955,7 +4956,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -4971,7 +4972,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -4999,7 +5000,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -5015,7 +5016,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -5031,7 +5032,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -5047,7 +5048,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -5063,7 +5064,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -5091,7 +5092,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -5107,7 +5108,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -5123,7 +5124,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -5139,7 +5140,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -5155,7 +5156,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -5197,7 +5198,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -5213,7 +5214,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -5229,7 +5230,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -5245,7 +5246,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -5261,7 +5262,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -5289,7 +5290,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -5305,7 +5306,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -5321,7 +5322,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -5337,7 +5338,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -5353,7 +5354,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -5381,7 +5382,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -5397,7 +5398,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -5413,7 +5414,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -5429,7 +5430,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -5445,7 +5446,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -5473,7 +5474,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -5489,7 +5490,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -5505,7 +5506,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -5521,7 +5522,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -5537,7 +5538,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -5565,7 +5566,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -5581,7 +5582,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -5597,7 +5598,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -5613,7 +5614,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -5629,7 +5630,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -5657,7 +5658,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -5673,7 +5674,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -5689,7 +5690,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -5705,7 +5706,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -5721,7 +5722,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -5749,7 +5750,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -5765,7 +5766,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -5781,7 +5782,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -5797,7 +5798,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -5813,7 +5814,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -5855,7 +5856,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -5871,7 +5872,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -5887,7 +5888,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -5903,7 +5904,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -5919,7 +5920,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -5947,7 +5948,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -5963,7 +5964,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -5979,7 +5980,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -5995,7 +5996,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -6011,7 +6012,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -6039,7 +6040,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -6055,7 +6056,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -6071,7 +6072,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -6087,7 +6088,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -6103,7 +6104,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -6131,7 +6132,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -6147,7 +6148,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -6163,7 +6164,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -6179,7 +6180,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -6195,7 +6196,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -6223,7 +6224,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -6239,7 +6240,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -6255,7 +6256,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -6271,7 +6272,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -6287,7 +6288,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -6315,7 +6316,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -6331,7 +6332,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -6347,7 +6348,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -6363,7 +6364,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -6379,7 +6380,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -6407,7 +6408,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -6423,7 +6424,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -6439,7 +6440,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -6455,7 +6456,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -6471,7 +6472,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -6513,7 +6514,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -6529,7 +6530,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -6545,7 +6546,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -6561,7 +6562,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -6577,7 +6578,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -6605,7 +6606,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -6621,7 +6622,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -6637,7 +6638,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -6653,7 +6654,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -6669,7 +6670,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -6697,7 +6698,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -6713,7 +6714,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -6729,7 +6730,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -6745,7 +6746,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -6761,7 +6762,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -6789,7 +6790,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -6805,7 +6806,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -6821,7 +6822,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -6837,7 +6838,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -6853,7 +6854,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -6881,7 +6882,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -6897,7 +6898,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -6913,7 +6914,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -6929,7 +6930,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -6945,7 +6946,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -6973,7 +6974,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -6989,7 +6990,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -7005,7 +7006,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -7021,7 +7022,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -7037,7 +7038,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -7065,7 +7066,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -7081,7 +7082,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -7097,7 +7098,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -7113,7 +7114,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -7129,7 +7130,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -7171,7 +7172,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -7187,7 +7188,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -7203,7 +7204,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -7219,7 +7220,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -7235,7 +7236,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -7263,7 +7264,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -7279,7 +7280,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -7295,7 +7296,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -7311,7 +7312,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -7327,7 +7328,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -7355,7 +7356,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -7371,7 +7372,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -7387,7 +7388,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -7403,7 +7404,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -7419,7 +7420,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -7447,7 +7448,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -7463,7 +7464,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -7479,7 +7480,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -7495,7 +7496,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -7511,7 +7512,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -7539,7 +7540,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -7555,7 +7556,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -7571,7 +7572,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -7587,7 +7588,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -7603,7 +7604,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -7631,7 +7632,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -7647,7 +7648,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -7663,7 +7664,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -7679,7 +7680,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -7695,7 +7696,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -7723,7 +7724,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -7739,7 +7740,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -7755,7 +7756,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -7771,7 +7772,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -7787,7 +7788,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -7829,7 +7830,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -7845,7 +7846,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -7861,7 +7862,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -7877,7 +7878,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -7893,7 +7894,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -7921,7 +7922,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -7937,7 +7938,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -7953,7 +7954,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -7969,7 +7970,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -7985,7 +7986,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -8013,7 +8014,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -8029,7 +8030,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -8045,7 +8046,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -8061,7 +8062,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -8077,7 +8078,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -8105,7 +8106,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -8121,7 +8122,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -8137,7 +8138,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -8153,7 +8154,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -8169,7 +8170,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -8197,7 +8198,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -8213,7 +8214,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -8229,7 +8230,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -8245,7 +8246,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -8261,7 +8262,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -8289,7 +8290,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -8305,7 +8306,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -8321,7 +8322,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -8337,7 +8338,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -8353,7 +8354,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -8381,7 +8382,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -8397,7 +8398,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -8413,7 +8414,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -8429,7 +8430,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -8445,7 +8446,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -8487,7 +8488,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -8503,7 +8504,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -8519,7 +8520,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -8535,7 +8536,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -8551,7 +8552,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -8579,7 +8580,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -8595,7 +8596,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -8611,7 +8612,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -8627,7 +8628,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -8643,7 +8644,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -8671,7 +8672,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -8687,7 +8688,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -8703,7 +8704,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -8719,7 +8720,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -8735,7 +8736,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -8763,7 +8764,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -8779,7 +8780,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -8795,7 +8796,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -8811,7 +8812,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -8827,7 +8828,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -8855,7 +8856,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -8871,7 +8872,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -8887,7 +8888,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -8903,7 +8904,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -8919,7 +8920,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -8947,7 +8948,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -8963,7 +8964,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -8979,7 +8980,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -8995,7 +8996,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -9011,7 +9012,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -9039,7 +9040,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -9055,7 +9056,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -9071,7 +9072,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -9087,7 +9088,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -9103,7 +9104,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -9145,7 +9146,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -9161,7 +9162,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -9177,7 +9178,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -9193,7 +9194,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -9209,7 +9210,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -9237,7 +9238,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -9253,7 +9254,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -9269,7 +9270,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -9285,7 +9286,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -9301,7 +9302,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -9329,7 +9330,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -9345,7 +9346,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -9361,7 +9362,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -9377,7 +9378,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -9393,7 +9394,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -9421,7 +9422,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -9437,7 +9438,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -9453,7 +9454,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -9469,7 +9470,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -9485,7 +9486,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -9513,7 +9514,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -9529,7 +9530,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -9545,7 +9546,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -9561,7 +9562,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -9577,7 +9578,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -9605,7 +9606,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -9621,7 +9622,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -9637,7 +9638,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -9653,7 +9654,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -9669,7 +9670,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -9697,7 +9698,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -9713,7 +9714,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -9729,7 +9730,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -9745,7 +9746,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -9761,7 +9762,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -9803,7 +9804,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -9819,7 +9820,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -9835,7 +9836,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -9851,7 +9852,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -9867,7 +9868,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -9895,7 +9896,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -9911,7 +9912,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -9927,7 +9928,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -9943,7 +9944,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -9959,7 +9960,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -9987,7 +9988,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -10003,7 +10004,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -10019,7 +10020,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -10035,7 +10036,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -10051,7 +10052,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -10079,7 +10080,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -10095,7 +10096,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -10111,7 +10112,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -10127,7 +10128,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -10143,7 +10144,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -10171,7 +10172,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -10187,7 +10188,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -10203,7 +10204,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -10219,7 +10220,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -10235,7 +10236,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -10263,7 +10264,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -10279,7 +10280,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -10295,7 +10296,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -10311,7 +10312,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -10327,7 +10328,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -10355,7 +10356,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -10371,7 +10372,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -10387,7 +10388,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -10403,7 +10404,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -10419,7 +10420,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -10461,7 +10462,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -10477,7 +10478,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -10493,7 +10494,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -10509,7 +10510,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -10525,7 +10526,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -10553,7 +10554,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -10569,7 +10570,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -10585,7 +10586,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -10601,7 +10602,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -10617,7 +10618,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -10645,7 +10646,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -10661,7 +10662,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -10677,7 +10678,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -10693,7 +10694,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -10709,7 +10710,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -10737,7 +10738,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -10753,7 +10754,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -10769,7 +10770,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -10785,7 +10786,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -10801,7 +10802,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -10829,7 +10830,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -10845,7 +10846,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -10861,7 +10862,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -10877,7 +10878,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -10893,7 +10894,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -10921,7 +10922,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -10937,7 +10938,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -10953,7 +10954,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -10969,7 +10970,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -10985,7 +10986,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -11013,7 +11014,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -11029,7 +11030,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -11045,7 +11046,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -11061,7 +11062,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -11077,7 +11078,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -11119,7 +11120,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -11135,7 +11136,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -11151,7 +11152,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -11167,7 +11168,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -11183,7 +11184,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -11211,7 +11212,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -11227,7 +11228,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -11243,7 +11244,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -11259,7 +11260,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -11275,7 +11276,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -11303,7 +11304,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -11319,7 +11320,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -11335,7 +11336,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -11351,7 +11352,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -11367,7 +11368,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -11395,7 +11396,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -11411,7 +11412,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -11427,7 +11428,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -11443,7 +11444,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -11459,7 +11460,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -11487,7 +11488,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -11503,7 +11504,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -11519,7 +11520,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -11535,7 +11536,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -11551,7 +11552,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -11579,7 +11580,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -11595,7 +11596,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -11611,7 +11612,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -11627,7 +11628,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -11643,7 +11644,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -11671,7 +11672,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -11687,7 +11688,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -11703,7 +11704,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -11719,7 +11720,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -11735,7 +11736,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -11777,7 +11778,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -11793,7 +11794,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -11809,7 +11810,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -11825,7 +11826,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -11841,7 +11842,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -11869,7 +11870,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -11885,7 +11886,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -11901,7 +11902,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -11917,7 +11918,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -11933,7 +11934,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -11961,7 +11962,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -11977,7 +11978,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -11993,7 +11994,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -12009,7 +12010,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -12025,7 +12026,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -12053,7 +12054,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -12069,7 +12070,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -12085,7 +12086,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -12101,7 +12102,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -12117,7 +12118,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -12145,7 +12146,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -12161,7 +12162,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -12177,7 +12178,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -12193,7 +12194,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -12209,7 +12210,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -12237,7 +12238,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -12253,7 +12254,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -12269,7 +12270,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -12285,7 +12286,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -12301,7 +12302,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -12329,7 +12330,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -12345,7 +12346,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -12361,7 +12362,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -12377,7 +12378,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -12393,7 +12394,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -12435,7 +12436,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -12451,7 +12452,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -12467,7 +12468,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -12483,7 +12484,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -12499,7 +12500,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -12527,7 +12528,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -12543,7 +12544,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -12559,7 +12560,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -12575,7 +12576,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -12591,7 +12592,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -12619,7 +12620,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -12635,7 +12636,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -12651,7 +12652,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -12667,7 +12668,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -12683,7 +12684,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -12711,7 +12712,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -12727,7 +12728,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -12743,7 +12744,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -12759,7 +12760,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -12775,7 +12776,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -12803,7 +12804,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -12819,7 +12820,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -12835,7 +12836,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -12851,7 +12852,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -12867,7 +12868,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -12895,7 +12896,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -12911,7 +12912,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -12927,7 +12928,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -12943,7 +12944,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -12959,7 +12960,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -12987,7 +12988,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -13003,7 +13004,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -13019,7 +13020,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -13035,7 +13036,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -13051,7 +13052,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -13093,7 +13094,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -13109,7 +13110,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -13125,7 +13126,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -13141,7 +13142,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -13157,7 +13158,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -13185,7 +13186,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -13201,7 +13202,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -13217,7 +13218,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -13233,7 +13234,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -13249,7 +13250,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -13277,7 +13278,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -13293,7 +13294,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -13309,7 +13310,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -13325,7 +13326,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -13341,7 +13342,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -13369,7 +13370,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -13385,7 +13386,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -13401,7 +13402,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -13417,7 +13418,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -13433,7 +13434,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -13461,7 +13462,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -13477,7 +13478,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -13493,7 +13494,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -13509,7 +13510,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -13525,7 +13526,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -13553,7 +13554,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -13569,7 +13570,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -13585,7 +13586,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -13601,7 +13602,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -13617,7 +13618,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -13645,7 +13646,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -13661,7 +13662,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -13677,7 +13678,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -13693,7 +13694,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -13709,7 +13710,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -13751,7 +13752,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -13767,7 +13768,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -13783,7 +13784,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -13799,7 +13800,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -13815,7 +13816,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -13843,7 +13844,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -13859,7 +13860,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -13875,7 +13876,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -13891,7 +13892,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -13907,7 +13908,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -13935,7 +13936,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -13951,7 +13952,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -13967,7 +13968,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -13983,7 +13984,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -13999,7 +14000,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -14027,7 +14028,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -14043,7 +14044,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -14059,7 +14060,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -14075,7 +14076,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -14091,7 +14092,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -14119,7 +14120,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -14135,7 +14136,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -14151,7 +14152,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -14167,7 +14168,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -14183,7 +14184,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -14211,7 +14212,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -14227,7 +14228,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -14243,7 +14244,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -14259,7 +14260,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -14275,7 +14276,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -14303,7 +14304,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -14319,7 +14320,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -14335,7 +14336,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -14351,7 +14352,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -14367,7 +14368,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -14409,7 +14410,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -14425,7 +14426,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -14441,7 +14442,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -14457,7 +14458,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -14473,7 +14474,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -14501,7 +14502,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -14517,7 +14518,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -14533,7 +14534,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -14549,7 +14550,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -14565,7 +14566,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -14593,7 +14594,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -14609,7 +14610,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -14625,7 +14626,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -14641,7 +14642,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -14657,7 +14658,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -14685,7 +14686,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -14701,7 +14702,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -14717,7 +14718,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -14733,7 +14734,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -14749,7 +14750,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -14777,7 +14778,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -14793,7 +14794,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -14809,7 +14810,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -14825,7 +14826,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -14841,7 +14842,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -14869,7 +14870,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -14885,7 +14886,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -14901,7 +14902,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -14917,7 +14918,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -14933,7 +14934,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -14961,7 +14962,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -14977,7 +14978,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -14993,7 +14994,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -15009,7 +15010,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -15025,7 +15026,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -15052,7 +15053,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -15068,7 +15069,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -15084,7 +15085,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -15100,7 +15101,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -15116,7 +15117,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -15155,7 +15156,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -15171,7 +15172,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -15187,7 +15188,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -15203,7 +15204,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -15219,7 +15220,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -15247,7 +15248,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -15263,7 +15264,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -15279,7 +15280,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -15295,7 +15296,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -15311,7 +15312,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -15339,7 +15340,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -15355,7 +15356,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -15371,7 +15372,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -15387,7 +15388,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -15403,7 +15404,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -15431,7 +15432,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -15447,7 +15448,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -15463,7 +15464,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -15479,7 +15480,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -15495,7 +15496,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -15523,7 +15524,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -15539,7 +15540,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -15555,7 +15556,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -15571,7 +15572,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -15587,7 +15588,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -15615,7 +15616,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -15631,7 +15632,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -15647,7 +15648,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -15663,7 +15664,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -15679,7 +15680,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -15707,7 +15708,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -15723,7 +15724,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -15739,7 +15740,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -15755,7 +15756,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -15771,7 +15772,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -15813,7 +15814,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -15829,7 +15830,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -15845,7 +15846,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -15861,7 +15862,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -15877,7 +15878,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -15905,7 +15906,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -15921,7 +15922,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -15937,7 +15938,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -15953,7 +15954,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -15969,7 +15970,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -15997,7 +15998,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -16013,7 +16014,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -16029,7 +16030,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -16045,7 +16046,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -16061,7 +16062,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -16089,7 +16090,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -16105,7 +16106,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -16121,7 +16122,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -16137,7 +16138,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -16153,7 +16154,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -16181,7 +16182,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -16197,7 +16198,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -16213,7 +16214,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -16229,7 +16230,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -16245,7 +16246,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -16273,7 +16274,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -16289,7 +16290,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -16305,7 +16306,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -16321,7 +16322,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -16337,7 +16338,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -16365,7 +16366,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -16381,7 +16382,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -16397,7 +16398,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -16413,7 +16414,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -16429,7 +16430,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -16471,7 +16472,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -16487,7 +16488,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -16503,7 +16504,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -16519,7 +16520,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -16535,7 +16536,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -16563,7 +16564,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -16579,7 +16580,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -16595,7 +16596,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -16611,7 +16612,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -16627,7 +16628,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -16655,7 +16656,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -16671,7 +16672,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -16687,7 +16688,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -16703,7 +16704,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -16719,7 +16720,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -16747,7 +16748,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -16763,7 +16764,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -16779,7 +16780,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -16795,7 +16796,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -16811,7 +16812,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -16839,7 +16840,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -16855,7 +16856,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -16871,7 +16872,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -16887,7 +16888,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -16903,7 +16904,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -16931,7 +16932,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -16947,7 +16948,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -16963,7 +16964,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -16979,7 +16980,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -16995,7 +16996,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -17023,7 +17024,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -17039,7 +17040,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -17055,7 +17056,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -17071,7 +17072,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -17087,7 +17088,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -17129,7 +17130,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -17145,7 +17146,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -17161,7 +17162,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -17177,7 +17178,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -17193,7 +17194,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -17221,7 +17222,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -17237,7 +17238,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -17253,7 +17254,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -17269,7 +17270,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -17285,7 +17286,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -17313,7 +17314,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -17329,7 +17330,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -17345,7 +17346,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -17361,7 +17362,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -17377,7 +17378,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -17405,7 +17406,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -17421,7 +17422,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -17437,7 +17438,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -17453,7 +17454,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -17469,7 +17470,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -17497,7 +17498,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -17513,7 +17514,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -17529,7 +17530,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -17545,7 +17546,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -17561,7 +17562,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -17589,7 +17590,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -17605,7 +17606,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -17621,7 +17622,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -17637,7 +17638,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -17653,7 +17654,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -17681,7 +17682,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -17697,7 +17698,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -17713,7 +17714,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -17729,7 +17730,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -17745,7 +17746,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -17787,7 +17788,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -17803,7 +17804,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -17819,7 +17820,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -17835,7 +17836,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -17851,7 +17852,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -17879,7 +17880,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -17895,7 +17896,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -17911,7 +17912,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -17927,7 +17928,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -17943,7 +17944,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -17971,7 +17972,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -17987,7 +17988,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -18003,7 +18004,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -18019,7 +18020,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -18035,7 +18036,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -18063,7 +18064,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -18079,7 +18080,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -18095,7 +18096,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -18111,7 +18112,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -18127,7 +18128,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -18155,7 +18156,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -18171,7 +18172,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -18187,7 +18188,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -18203,7 +18204,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -18219,7 +18220,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -18247,7 +18248,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -18263,7 +18264,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -18279,7 +18280,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -18295,7 +18296,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -18311,7 +18312,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -18339,7 +18340,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -18355,7 +18356,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -18371,7 +18372,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -18387,7 +18388,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -18403,7 +18404,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -18445,7 +18446,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -18461,7 +18462,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -18477,7 +18478,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -18493,7 +18494,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -18509,7 +18510,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -18537,7 +18538,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -18553,7 +18554,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -18569,7 +18570,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -18585,7 +18586,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -18601,7 +18602,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -18629,7 +18630,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -18645,7 +18646,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -18661,7 +18662,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -18677,7 +18678,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -18693,7 +18694,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -18721,7 +18722,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -18737,7 +18738,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -18753,7 +18754,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -18769,7 +18770,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -18785,7 +18786,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -18813,7 +18814,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -18829,7 +18830,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -18845,7 +18846,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -18861,7 +18862,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -18877,7 +18878,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -18905,7 +18906,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -18921,7 +18922,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -18937,7 +18938,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -18953,7 +18954,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -18969,7 +18970,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -18997,7 +18998,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -19013,7 +19014,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -19029,7 +19030,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -19045,7 +19046,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -19061,7 +19062,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -19103,7 +19104,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -19119,7 +19120,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -19135,7 +19136,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -19151,7 +19152,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -19167,7 +19168,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -19195,7 +19196,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -19211,7 +19212,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -19227,7 +19228,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -19243,7 +19244,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -19259,7 +19260,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -19287,7 +19288,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -19303,7 +19304,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -19319,7 +19320,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -19335,7 +19336,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -19351,7 +19352,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -19379,7 +19380,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -19395,7 +19396,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -19411,7 +19412,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -19427,7 +19428,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -19443,7 +19444,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -19471,7 +19472,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -19487,7 +19488,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -19503,7 +19504,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -19519,7 +19520,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -19535,7 +19536,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -19563,7 +19564,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -19579,7 +19580,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -19595,7 +19596,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -19611,7 +19612,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -19627,7 +19628,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -19655,7 +19656,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates'),'undefined')){
             ibztaskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskestimates') as any);
-            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0){
+            if(ibztaskestimatesData && ibztaskestimatesData.length && ibztaskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -19671,7 +19672,7 @@ export default class TaskServiceBase extends EntityService {
         let ibztaskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams'),'undefined')){
             ibztaskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibztaskteams') as any);
-            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0){
+            if(ibztaskteamsData && ibztaskteamsData.length && ibztaskteamsData.length > 0 && Environment.isStudioSystem === false){
                 ibztaskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -19687,7 +19688,7 @@ export default class TaskServiceBase extends EntityService {
         let subtasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_subtasks'),'undefined')){
             subtasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_subtasks') as any);
-            if(subtasksData && subtasksData.length && subtasksData.length > 0){
+            if(subtasksData && subtasksData.length && subtasksData.length > 0 && Environment.isStudioSystem === false){
                 subtasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -19703,7 +19704,7 @@ export default class TaskServiceBase extends EntityService {
         let taskestimatesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates'),'undefined')){
             taskestimatesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskestimates') as any);
-            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0){
+            if(taskestimatesData && taskestimatesData.length && taskestimatesData.length > 0 && Environment.isStudioSystem === false){
                 taskestimatesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -19719,7 +19720,7 @@ export default class TaskServiceBase extends EntityService {
         let taskteamsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_taskteams'),'undefined')){
             taskteamsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_taskteams') as any);
-            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0){
+            if(taskteamsData && taskteamsData.length && taskteamsData.length > 0 && Environment.isStudioSystem === false){
                 taskteamsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){

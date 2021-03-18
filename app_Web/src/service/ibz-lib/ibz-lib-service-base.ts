@@ -1,3 +1,4 @@
+import { Environment } from '@/environments/environment';
 import { Http } from '@/utils';
 import { Util } from '@/utils';
 import EntityService from '../entity-service';
@@ -68,7 +69,7 @@ export default class IbzLibServiceBase extends EntityService {
         let ibzcasesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcases'),'undefined')){
             ibzcasesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcases') as any);
-            if(ibzcasesData && ibzcasesData.length && ibzcasesData.length > 0){
+            if(ibzcasesData && ibzcasesData.length && ibzcasesData.length > 0 && Environment.isStudioSystem === false){
                 ibzcasesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -110,7 +111,7 @@ export default class IbzLibServiceBase extends EntityService {
         let ibzcasesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcases'),'undefined')){
             ibzcasesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcases') as any);
-            if(ibzcasesData && ibzcasesData.length && ibzcasesData.length > 0){
+            if(ibzcasesData && ibzcasesData.length && ibzcasesData.length > 0 && Environment.isStudioSystem === false){
                 ibzcasesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -208,7 +209,7 @@ export default class IbzLibServiceBase extends EntityService {
         let ibzcasesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcases'),'undefined')){
             ibzcasesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcases') as any);
-            if(ibzcasesData && ibzcasesData.length && ibzcasesData.length > 0){
+            if(ibzcasesData && ibzcasesData.length && ibzcasesData.length > 0 && Environment.isStudioSystem === false){
                 ibzcasesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){

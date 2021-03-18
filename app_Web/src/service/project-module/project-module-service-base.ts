@@ -1,3 +1,4 @@
+import { Environment } from '@/environments/environment';
 import { Http } from '@/utils';
 import { Util } from '@/utils';
 import EntityService from '../entity-service';
@@ -74,7 +75,7 @@ export default class ProjectModuleServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -104,7 +105,7 @@ export default class ProjectModuleServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -146,7 +147,7 @@ export default class ProjectModuleServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -169,7 +170,7 @@ export default class ProjectModuleServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -274,7 +275,7 @@ export default class ProjectModuleServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -312,7 +313,7 @@ export default class ProjectModuleServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -350,7 +351,7 @@ export default class ProjectModuleServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -388,7 +389,7 @@ export default class ProjectModuleServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -411,7 +412,7 @@ export default class ProjectModuleServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){

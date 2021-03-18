@@ -57,7 +57,9 @@ export const Environment = {
     // 界面导航条分隔符 
     NavBarDelimiter: '/',
     // 防抖时间（单位：ms）
-    debounceTime: 300
+    debounceTime: 300,
+    // 是否为Studio的系统
+    isStudioSystem: false
 };
 // 挂载外部配置文件
 if ((window as any).Environment) {

@@ -533,7 +533,7 @@ export class TreeLibModuleTreeBase extends MainControlBase {
     public refresh_node(curContext:any,arg: any = {}, parentnode: boolean): void {
         const { srfnodeid: id } = arg;
         Object.assign(arg,{viewparams:this.viewparams});
-        const get: Promise<any> = this.service.getNodes(JSON.parse(JSON.stringify(this.context)),arg);
+        const get: Promise<any> = this.service.getNodes(JSON.parse(JSON.stringify(curContext)),arg);
         get.then((response: any) => {
             if (!response || response.status !== 200) {
                 this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.info });

@@ -1,3 +1,4 @@
+import { Environment } from '@/environments/environment';
 import { Http } from '@/utils';
 import { Util } from '@/utils';
 import EntityService from '../entity-service';
@@ -85,7 +86,7 @@ export default class CaseServiceBase extends EntityService {
         let casestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
             casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+            if(casestepsData && casestepsData.length && casestepsData.length > 0 && Environment.isStudioSystem === false){
                 casestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -101,7 +102,7 @@ export default class CaseServiceBase extends EntityService {
         let ibzcasestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
             ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
+            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0 && Environment.isStudioSystem === false){
                 ibzcasestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -134,7 +135,7 @@ export default class CaseServiceBase extends EntityService {
         let casestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
             casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+            if(casestepsData && casestepsData.length && casestepsData.length > 0 && Environment.isStudioSystem === false){
                 casestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -150,7 +151,7 @@ export default class CaseServiceBase extends EntityService {
         let ibzcasestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
             ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
+            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0 && Environment.isStudioSystem === false){
                 ibzcasestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -183,7 +184,7 @@ export default class CaseServiceBase extends EntityService {
         let casestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
             casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+            if(casestepsData && casestepsData.length && casestepsData.length > 0 && Environment.isStudioSystem === false){
                 casestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -199,7 +200,7 @@ export default class CaseServiceBase extends EntityService {
         let ibzcasestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
             ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
+            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0 && Environment.isStudioSystem === false){
                 ibzcasestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -231,7 +232,7 @@ export default class CaseServiceBase extends EntityService {
         let casestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
             casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+            if(casestepsData && casestepsData.length && casestepsData.length > 0 && Environment.isStudioSystem === false){
                 casestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -247,7 +248,7 @@ export default class CaseServiceBase extends EntityService {
         let ibzcasestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
             ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
+            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0 && Environment.isStudioSystem === false){
                 ibzcasestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -291,7 +292,7 @@ export default class CaseServiceBase extends EntityService {
         let casestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
             casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+            if(casestepsData && casestepsData.length && casestepsData.length > 0 && Environment.isStudioSystem === false){
                 casestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -307,7 +308,7 @@ export default class CaseServiceBase extends EntityService {
         let ibzcasestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
             ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
+            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0 && Environment.isStudioSystem === false){
                 ibzcasestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -332,7 +333,7 @@ export default class CaseServiceBase extends EntityService {
         let casestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
             casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+            if(casestepsData && casestepsData.length && casestepsData.length > 0 && Environment.isStudioSystem === false){
                 casestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -348,7 +349,7 @@ export default class CaseServiceBase extends EntityService {
         let ibzcasestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
             ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
+            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0 && Environment.isStudioSystem === false){
                 ibzcasestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -373,7 +374,7 @@ export default class CaseServiceBase extends EntityService {
         let casestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
             casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+            if(casestepsData && casestepsData.length && casestepsData.length > 0 && Environment.isStudioSystem === false){
                 casestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -389,7 +390,7 @@ export default class CaseServiceBase extends EntityService {
         let ibzcasestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
             ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
+            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0 && Environment.isStudioSystem === false){
                 ibzcasestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -413,7 +414,7 @@ export default class CaseServiceBase extends EntityService {
         let casestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
             casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+            if(casestepsData && casestepsData.length && casestepsData.length > 0 && Environment.isStudioSystem === false){
                 casestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -429,7 +430,7 @@ export default class CaseServiceBase extends EntityService {
         let ibzcasestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
             ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
+            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0 && Environment.isStudioSystem === false){
                 ibzcasestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -583,7 +584,7 @@ export default class CaseServiceBase extends EntityService {
         let casestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
             casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+            if(casestepsData && casestepsData.length && casestepsData.length > 0 && Environment.isStudioSystem === false){
                 casestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -599,7 +600,7 @@ export default class CaseServiceBase extends EntityService {
         let ibzcasestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
             ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
+            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0 && Environment.isStudioSystem === false){
                 ibzcasestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -624,7 +625,7 @@ export default class CaseServiceBase extends EntityService {
         let casestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
             casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+            if(casestepsData && casestepsData.length && casestepsData.length > 0 && Environment.isStudioSystem === false){
                 casestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -640,7 +641,7 @@ export default class CaseServiceBase extends EntityService {
         let ibzcasestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
             ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
+            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0 && Environment.isStudioSystem === false){
                 ibzcasestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -665,7 +666,7 @@ export default class CaseServiceBase extends EntityService {
         let casestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
             casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+            if(casestepsData && casestepsData.length && casestepsData.length > 0 && Environment.isStudioSystem === false){
                 casestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -681,7 +682,7 @@ export default class CaseServiceBase extends EntityService {
         let ibzcasestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
             ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
+            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0 && Environment.isStudioSystem === false){
                 ibzcasestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -720,7 +721,7 @@ export default class CaseServiceBase extends EntityService {
         let casestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
             casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+            if(casestepsData && casestepsData.length && casestepsData.length > 0 && Environment.isStudioSystem === false){
                 casestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -736,7 +737,7 @@ export default class CaseServiceBase extends EntityService {
         let ibzcasestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
             ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
+            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0 && Environment.isStudioSystem === false){
                 ibzcasestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -761,7 +762,7 @@ export default class CaseServiceBase extends EntityService {
         let casestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
             casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+            if(casestepsData && casestepsData.length && casestepsData.length > 0 && Environment.isStudioSystem === false){
                 casestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -777,7 +778,7 @@ export default class CaseServiceBase extends EntityService {
         let ibzcasestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
             ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
+            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0 && Environment.isStudioSystem === false){
                 ibzcasestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -802,7 +803,7 @@ export default class CaseServiceBase extends EntityService {
         let casestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
             casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+            if(casestepsData && casestepsData.length && casestepsData.length > 0 && Environment.isStudioSystem === false){
                 casestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -818,7 +819,7 @@ export default class CaseServiceBase extends EntityService {
         let ibzcasestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
             ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
+            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0 && Environment.isStudioSystem === false){
                 ibzcasestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -857,7 +858,7 @@ export default class CaseServiceBase extends EntityService {
         let casestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
             casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+            if(casestepsData && casestepsData.length && casestepsData.length > 0 && Environment.isStudioSystem === false){
                 casestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -873,7 +874,7 @@ export default class CaseServiceBase extends EntityService {
         let ibzcasestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
             ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
+            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0 && Environment.isStudioSystem === false){
                 ibzcasestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -898,7 +899,7 @@ export default class CaseServiceBase extends EntityService {
         let casestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
             casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+            if(casestepsData && casestepsData.length && casestepsData.length > 0 && Environment.isStudioSystem === false){
                 casestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -914,7 +915,7 @@ export default class CaseServiceBase extends EntityService {
         let ibzcasestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
             ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
+            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0 && Environment.isStudioSystem === false){
                 ibzcasestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -939,7 +940,7 @@ export default class CaseServiceBase extends EntityService {
         let casestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
             casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+            if(casestepsData && casestepsData.length && casestepsData.length > 0 && Environment.isStudioSystem === false){
                 casestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -955,7 +956,7 @@ export default class CaseServiceBase extends EntityService {
         let ibzcasestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
             ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
+            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0 && Environment.isStudioSystem === false){
                 ibzcasestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -994,7 +995,7 @@ export default class CaseServiceBase extends EntityService {
         let casestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
             casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+            if(casestepsData && casestepsData.length && casestepsData.length > 0 && Environment.isStudioSystem === false){
                 casestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1010,7 +1011,7 @@ export default class CaseServiceBase extends EntityService {
         let ibzcasestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
             ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
+            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0 && Environment.isStudioSystem === false){
                 ibzcasestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1035,7 +1036,7 @@ export default class CaseServiceBase extends EntityService {
         let casestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
             casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+            if(casestepsData && casestepsData.length && casestepsData.length > 0 && Environment.isStudioSystem === false){
                 casestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1051,7 +1052,7 @@ export default class CaseServiceBase extends EntityService {
         let ibzcasestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
             ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
+            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0 && Environment.isStudioSystem === false){
                 ibzcasestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1076,7 +1077,7 @@ export default class CaseServiceBase extends EntityService {
         let casestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
             casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+            if(casestepsData && casestepsData.length && casestepsData.length > 0 && Environment.isStudioSystem === false){
                 casestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1092,7 +1093,7 @@ export default class CaseServiceBase extends EntityService {
         let ibzcasestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
             ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
+            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0 && Environment.isStudioSystem === false){
                 ibzcasestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1131,7 +1132,7 @@ export default class CaseServiceBase extends EntityService {
         let casestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
             casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+            if(casestepsData && casestepsData.length && casestepsData.length > 0 && Environment.isStudioSystem === false){
                 casestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1147,7 +1148,7 @@ export default class CaseServiceBase extends EntityService {
         let ibzcasestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
             ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
+            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0 && Environment.isStudioSystem === false){
                 ibzcasestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1172,7 +1173,7 @@ export default class CaseServiceBase extends EntityService {
         let casestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
             casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+            if(casestepsData && casestepsData.length && casestepsData.length > 0 && Environment.isStudioSystem === false){
                 casestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1188,7 +1189,7 @@ export default class CaseServiceBase extends EntityService {
         let ibzcasestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
             ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
+            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0 && Environment.isStudioSystem === false){
                 ibzcasestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1213,7 +1214,7 @@ export default class CaseServiceBase extends EntityService {
         let casestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
             casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+            if(casestepsData && casestepsData.length && casestepsData.length > 0 && Environment.isStudioSystem === false){
                 casestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1229,7 +1230,7 @@ export default class CaseServiceBase extends EntityService {
         let ibzcasestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
             ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
+            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0 && Environment.isStudioSystem === false){
                 ibzcasestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1306,7 +1307,7 @@ export default class CaseServiceBase extends EntityService {
         let casestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
             casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+            if(casestepsData && casestepsData.length && casestepsData.length > 0 && Environment.isStudioSystem === false){
                 casestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1322,7 +1323,7 @@ export default class CaseServiceBase extends EntityService {
         let ibzcasestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
             ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
+            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0 && Environment.isStudioSystem === false){
                 ibzcasestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1347,7 +1348,7 @@ export default class CaseServiceBase extends EntityService {
         let casestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
             casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+            if(casestepsData && casestepsData.length && casestepsData.length > 0 && Environment.isStudioSystem === false){
                 casestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1363,7 +1364,7 @@ export default class CaseServiceBase extends EntityService {
         let ibzcasestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
             ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
+            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0 && Environment.isStudioSystem === false){
                 ibzcasestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1388,7 +1389,7 @@ export default class CaseServiceBase extends EntityService {
         let casestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
             casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+            if(casestepsData && casestepsData.length && casestepsData.length > 0 && Environment.isStudioSystem === false){
                 casestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1404,7 +1405,7 @@ export default class CaseServiceBase extends EntityService {
         let ibzcasestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
             ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
+            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0 && Environment.isStudioSystem === false){
                 ibzcasestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1443,7 +1444,7 @@ export default class CaseServiceBase extends EntityService {
         let casestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
             casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+            if(casestepsData && casestepsData.length && casestepsData.length > 0 && Environment.isStudioSystem === false){
                 casestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1459,7 +1460,7 @@ export default class CaseServiceBase extends EntityService {
         let ibzcasestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
             ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
+            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0 && Environment.isStudioSystem === false){
                 ibzcasestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1484,7 +1485,7 @@ export default class CaseServiceBase extends EntityService {
         let casestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
             casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+            if(casestepsData && casestepsData.length && casestepsData.length > 0 && Environment.isStudioSystem === false){
                 casestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1500,7 +1501,7 @@ export default class CaseServiceBase extends EntityService {
         let ibzcasestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
             ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
+            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0 && Environment.isStudioSystem === false){
                 ibzcasestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1525,7 +1526,7 @@ export default class CaseServiceBase extends EntityService {
         let casestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
             casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+            if(casestepsData && casestepsData.length && casestepsData.length > 0 && Environment.isStudioSystem === false){
                 casestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1541,7 +1542,7 @@ export default class CaseServiceBase extends EntityService {
         let ibzcasestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
             ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
+            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0 && Environment.isStudioSystem === false){
                 ibzcasestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1580,7 +1581,7 @@ export default class CaseServiceBase extends EntityService {
         let casestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
             casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+            if(casestepsData && casestepsData.length && casestepsData.length > 0 && Environment.isStudioSystem === false){
                 casestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1596,7 +1597,7 @@ export default class CaseServiceBase extends EntityService {
         let ibzcasestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
             ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
+            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0 && Environment.isStudioSystem === false){
                 ibzcasestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1621,7 +1622,7 @@ export default class CaseServiceBase extends EntityService {
         let casestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
             casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+            if(casestepsData && casestepsData.length && casestepsData.length > 0 && Environment.isStudioSystem === false){
                 casestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1637,7 +1638,7 @@ export default class CaseServiceBase extends EntityService {
         let ibzcasestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
             ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
+            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0 && Environment.isStudioSystem === false){
                 ibzcasestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1662,7 +1663,7 @@ export default class CaseServiceBase extends EntityService {
         let casestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
             casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+            if(casestepsData && casestepsData.length && casestepsData.length > 0 && Environment.isStudioSystem === false){
                 casestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1678,7 +1679,7 @@ export default class CaseServiceBase extends EntityService {
         let ibzcasestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
             ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
+            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0 && Environment.isStudioSystem === false){
                 ibzcasestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1717,7 +1718,7 @@ export default class CaseServiceBase extends EntityService {
         let casestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
             casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+            if(casestepsData && casestepsData.length && casestepsData.length > 0 && Environment.isStudioSystem === false){
                 casestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1733,7 +1734,7 @@ export default class CaseServiceBase extends EntityService {
         let ibzcasestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
             ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
+            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0 && Environment.isStudioSystem === false){
                 ibzcasestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1758,7 +1759,7 @@ export default class CaseServiceBase extends EntityService {
         let casestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
             casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+            if(casestepsData && casestepsData.length && casestepsData.length > 0 && Environment.isStudioSystem === false){
                 casestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1774,7 +1775,7 @@ export default class CaseServiceBase extends EntityService {
         let ibzcasestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
             ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
+            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0 && Environment.isStudioSystem === false){
                 ibzcasestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1799,7 +1800,7 @@ export default class CaseServiceBase extends EntityService {
         let casestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
             casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+            if(casestepsData && casestepsData.length && casestepsData.length > 0 && Environment.isStudioSystem === false){
                 casestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1815,7 +1816,7 @@ export default class CaseServiceBase extends EntityService {
         let ibzcasestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
             ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
+            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0 && Environment.isStudioSystem === false){
                 ibzcasestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1854,7 +1855,7 @@ export default class CaseServiceBase extends EntityService {
         let casestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
             casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+            if(casestepsData && casestepsData.length && casestepsData.length > 0 && Environment.isStudioSystem === false){
                 casestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1870,7 +1871,7 @@ export default class CaseServiceBase extends EntityService {
         let ibzcasestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
             ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
+            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0 && Environment.isStudioSystem === false){
                 ibzcasestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1895,7 +1896,7 @@ export default class CaseServiceBase extends EntityService {
         let casestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
             casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+            if(casestepsData && casestepsData.length && casestepsData.length > 0 && Environment.isStudioSystem === false){
                 casestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1911,7 +1912,7 @@ export default class CaseServiceBase extends EntityService {
         let ibzcasestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
             ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
+            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0 && Environment.isStudioSystem === false){
                 ibzcasestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1936,7 +1937,7 @@ export default class CaseServiceBase extends EntityService {
         let casestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
             casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+            if(casestepsData && casestepsData.length && casestepsData.length > 0 && Environment.isStudioSystem === false){
                 casestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1952,7 +1953,7 @@ export default class CaseServiceBase extends EntityService {
         let ibzcasestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
             ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
+            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0 && Environment.isStudioSystem === false){
                 ibzcasestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -1991,7 +1992,7 @@ export default class CaseServiceBase extends EntityService {
         let casestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
             casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+            if(casestepsData && casestepsData.length && casestepsData.length > 0 && Environment.isStudioSystem === false){
                 casestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2007,7 +2008,7 @@ export default class CaseServiceBase extends EntityService {
         let ibzcasestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
             ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
+            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0 && Environment.isStudioSystem === false){
                 ibzcasestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2032,7 +2033,7 @@ export default class CaseServiceBase extends EntityService {
         let casestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
             casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+            if(casestepsData && casestepsData.length && casestepsData.length > 0 && Environment.isStudioSystem === false){
                 casestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2048,7 +2049,7 @@ export default class CaseServiceBase extends EntityService {
         let ibzcasestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
             ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
+            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0 && Environment.isStudioSystem === false){
                 ibzcasestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2073,7 +2074,7 @@ export default class CaseServiceBase extends EntityService {
         let casestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
             casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+            if(casestepsData && casestepsData.length && casestepsData.length > 0 && Environment.isStudioSystem === false){
                 casestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2089,7 +2090,7 @@ export default class CaseServiceBase extends EntityService {
         let ibzcasestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
             ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
+            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0 && Environment.isStudioSystem === false){
                 ibzcasestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2113,7 +2114,7 @@ export default class CaseServiceBase extends EntityService {
         let casestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
             casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+            if(casestepsData && casestepsData.length && casestepsData.length > 0 && Environment.isStudioSystem === false){
                 casestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2129,7 +2130,7 @@ export default class CaseServiceBase extends EntityService {
         let ibzcasestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
             ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
+            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0 && Environment.isStudioSystem === false){
                 ibzcasestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2165,7 +2166,7 @@ export default class CaseServiceBase extends EntityService {
         let casestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
             casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+            if(casestepsData && casestepsData.length && casestepsData.length > 0 && Environment.isStudioSystem === false){
                 casestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2181,7 +2182,7 @@ export default class CaseServiceBase extends EntityService {
         let ibzcasestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
             ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
+            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0 && Environment.isStudioSystem === false){
                 ibzcasestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2206,7 +2207,7 @@ export default class CaseServiceBase extends EntityService {
         let casestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
             casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+            if(casestepsData && casestepsData.length && casestepsData.length > 0 && Environment.isStudioSystem === false){
                 casestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2222,7 +2223,7 @@ export default class CaseServiceBase extends EntityService {
         let ibzcasestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
             ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
+            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0 && Environment.isStudioSystem === false){
                 ibzcasestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2247,7 +2248,7 @@ export default class CaseServiceBase extends EntityService {
         let casestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
             casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+            if(casestepsData && casestepsData.length && casestepsData.length > 0 && Environment.isStudioSystem === false){
                 casestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2263,7 +2264,7 @@ export default class CaseServiceBase extends EntityService {
         let ibzcasestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
             ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
+            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0 && Environment.isStudioSystem === false){
                 ibzcasestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2302,7 +2303,7 @@ export default class CaseServiceBase extends EntityService {
         let casestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
             casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+            if(casestepsData && casestepsData.length && casestepsData.length > 0 && Environment.isStudioSystem === false){
                 casestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2318,7 +2319,7 @@ export default class CaseServiceBase extends EntityService {
         let ibzcasestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
             ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
+            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0 && Environment.isStudioSystem === false){
                 ibzcasestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2343,7 +2344,7 @@ export default class CaseServiceBase extends EntityService {
         let casestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
             casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+            if(casestepsData && casestepsData.length && casestepsData.length > 0 && Environment.isStudioSystem === false){
                 casestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2359,7 +2360,7 @@ export default class CaseServiceBase extends EntityService {
         let ibzcasestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
             ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
+            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0 && Environment.isStudioSystem === false){
                 ibzcasestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2384,7 +2385,7 @@ export default class CaseServiceBase extends EntityService {
         let casestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
             casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+            if(casestepsData && casestepsData.length && casestepsData.length > 0 && Environment.isStudioSystem === false){
                 casestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2400,7 +2401,7 @@ export default class CaseServiceBase extends EntityService {
         let ibzcasestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
             ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
+            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0 && Environment.isStudioSystem === false){
                 ibzcasestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2439,7 +2440,7 @@ export default class CaseServiceBase extends EntityService {
         let casestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
             casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+            if(casestepsData && casestepsData.length && casestepsData.length > 0 && Environment.isStudioSystem === false){
                 casestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2455,7 +2456,7 @@ export default class CaseServiceBase extends EntityService {
         let ibzcasestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
             ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
+            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0 && Environment.isStudioSystem === false){
                 ibzcasestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2480,7 +2481,7 @@ export default class CaseServiceBase extends EntityService {
         let casestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
             casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+            if(casestepsData && casestepsData.length && casestepsData.length > 0 && Environment.isStudioSystem === false){
                 casestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2496,7 +2497,7 @@ export default class CaseServiceBase extends EntityService {
         let ibzcasestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
             ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
+            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0 && Environment.isStudioSystem === false){
                 ibzcasestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2521,7 +2522,7 @@ export default class CaseServiceBase extends EntityService {
         let casestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
             casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+            if(casestepsData && casestepsData.length && casestepsData.length > 0 && Environment.isStudioSystem === false){
                 casestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2537,7 +2538,7 @@ export default class CaseServiceBase extends EntityService {
         let ibzcasestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
             ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
+            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0 && Environment.isStudioSystem === false){
                 ibzcasestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2576,7 +2577,7 @@ export default class CaseServiceBase extends EntityService {
         let casestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
             casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+            if(casestepsData && casestepsData.length && casestepsData.length > 0 && Environment.isStudioSystem === false){
                 casestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2592,7 +2593,7 @@ export default class CaseServiceBase extends EntityService {
         let ibzcasestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
             ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
+            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0 && Environment.isStudioSystem === false){
                 ibzcasestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2617,7 +2618,7 @@ export default class CaseServiceBase extends EntityService {
         let casestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
             casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+            if(casestepsData && casestepsData.length && casestepsData.length > 0 && Environment.isStudioSystem === false){
                 casestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2633,7 +2634,7 @@ export default class CaseServiceBase extends EntityService {
         let ibzcasestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
             ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
+            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0 && Environment.isStudioSystem === false){
                 ibzcasestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2658,7 +2659,7 @@ export default class CaseServiceBase extends EntityService {
         let casestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
             casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+            if(casestepsData && casestepsData.length && casestepsData.length > 0 && Environment.isStudioSystem === false){
                 casestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2674,7 +2675,7 @@ export default class CaseServiceBase extends EntityService {
         let ibzcasestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
             ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
+            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0 && Environment.isStudioSystem === false){
                 ibzcasestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2713,7 +2714,7 @@ export default class CaseServiceBase extends EntityService {
         let casestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
             casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+            if(casestepsData && casestepsData.length && casestepsData.length > 0 && Environment.isStudioSystem === false){
                 casestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2729,7 +2730,7 @@ export default class CaseServiceBase extends EntityService {
         let ibzcasestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
             ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
+            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0 && Environment.isStudioSystem === false){
                 ibzcasestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2754,7 +2755,7 @@ export default class CaseServiceBase extends EntityService {
         let casestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
             casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+            if(casestepsData && casestepsData.length && casestepsData.length > 0 && Environment.isStudioSystem === false){
                 casestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2770,7 +2771,7 @@ export default class CaseServiceBase extends EntityService {
         let ibzcasestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
             ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
+            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0 && Environment.isStudioSystem === false){
                 ibzcasestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2795,7 +2796,7 @@ export default class CaseServiceBase extends EntityService {
         let casestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
             casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+            if(casestepsData && casestepsData.length && casestepsData.length > 0 && Environment.isStudioSystem === false){
                 casestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2811,7 +2812,7 @@ export default class CaseServiceBase extends EntityService {
         let ibzcasestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
             ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
+            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0 && Environment.isStudioSystem === false){
                 ibzcasestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2850,7 +2851,7 @@ export default class CaseServiceBase extends EntityService {
         let casestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
             casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+            if(casestepsData && casestepsData.length && casestepsData.length > 0 && Environment.isStudioSystem === false){
                 casestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2866,7 +2867,7 @@ export default class CaseServiceBase extends EntityService {
         let ibzcasestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
             ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
+            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0 && Environment.isStudioSystem === false){
                 ibzcasestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2891,7 +2892,7 @@ export default class CaseServiceBase extends EntityService {
         let casestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
             casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+            if(casestepsData && casestepsData.length && casestepsData.length > 0 && Environment.isStudioSystem === false){
                 casestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2907,7 +2908,7 @@ export default class CaseServiceBase extends EntityService {
         let ibzcasestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
             ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
+            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0 && Environment.isStudioSystem === false){
                 ibzcasestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2932,7 +2933,7 @@ export default class CaseServiceBase extends EntityService {
         let casestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
             casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+            if(casestepsData && casestepsData.length && casestepsData.length > 0 && Environment.isStudioSystem === false){
                 casestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2948,7 +2949,7 @@ export default class CaseServiceBase extends EntityService {
         let ibzcasestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
             ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
+            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0 && Environment.isStudioSystem === false){
                 ibzcasestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -2987,7 +2988,7 @@ export default class CaseServiceBase extends EntityService {
         let casestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
             casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+            if(casestepsData && casestepsData.length && casestepsData.length > 0 && Environment.isStudioSystem === false){
                 casestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -3003,7 +3004,7 @@ export default class CaseServiceBase extends EntityService {
         let ibzcasestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
             ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
+            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0 && Environment.isStudioSystem === false){
                 ibzcasestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -3028,7 +3029,7 @@ export default class CaseServiceBase extends EntityService {
         let casestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
             casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+            if(casestepsData && casestepsData.length && casestepsData.length > 0 && Environment.isStudioSystem === false){
                 casestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -3044,7 +3045,7 @@ export default class CaseServiceBase extends EntityService {
         let ibzcasestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
             ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
+            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0 && Environment.isStudioSystem === false){
                 ibzcasestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -3069,7 +3070,7 @@ export default class CaseServiceBase extends EntityService {
         let casestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
             casestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(casestepsData && casestepsData.length && casestepsData.length > 0){
+            if(casestepsData && casestepsData.length && casestepsData.length > 0 && Environment.isStudioSystem === false){
                 casestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
@@ -3085,7 +3086,7 @@ export default class CaseServiceBase extends EntityService {
         let ibzcasestepsData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps'),'undefined')){
             ibzcasestepsData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcasesteps') as any);
-            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0){
+            if(ibzcasestepsData && ibzcasestepsData.length && ibzcasestepsData.length > 0 && Environment.isStudioSystem === false){
                 ibzcasestepsData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
