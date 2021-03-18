@@ -158,7 +158,7 @@ hide footbox
 
 | 查询编号 | 查询名称       | 默认查询 |   备注|
 | --------  | --------   | --------   | ----- |
-|DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#Todo_Default))|否|&nbsp;|
+|DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#Todo_Default))|是|&nbsp;|
 |MyTodo|我的待办([MYSQL5](../../appendix/query_MYSQL5.md#Todo_MyTodo))|否|&nbsp;|
 |MyTodoPc|我的待办([MYSQL5](../../appendix/query_MYSQL5.md#Todo_MyTodoPc))|否|&nbsp;|
 |MyUpcoming|MyUpcoming([MYSQL5](../../appendix/query_MYSQL5.md#Todo_MyUpcoming))|否|&nbsp;|

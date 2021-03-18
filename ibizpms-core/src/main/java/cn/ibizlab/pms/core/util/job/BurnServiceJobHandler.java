@@ -18,9 +18,9 @@ public class BurnServiceJobHandler implements IJobsHandler {
 
     @Override
     public JobsResponse execute(String tenantId, String param) throws JobsException {
-        cn.ibizlab.pms.core.zentao.domain.Burn entity=new cn.ibizlab.pms.core.zentao.domain.Burn();
-        entity.set("tenantid",tenantId);
-        entity.set("param",param);
+        cn.ibizlab.pms.core.zentao.domain.Burn entity = cn.ibizlab.pms.util.helper.Setting.getEntity(param, new cn.ibizlab.pms.core.zentao.domain.Burn());
+        entity.set("tenantid", tenantId);
+        entity.set("param", param);
         burnService.computeBurn(entity);
         log.info("执行 DemoJobHandler tenantId=" + tenantId + ",param=" + param);
         return JobsResponse.ok();
