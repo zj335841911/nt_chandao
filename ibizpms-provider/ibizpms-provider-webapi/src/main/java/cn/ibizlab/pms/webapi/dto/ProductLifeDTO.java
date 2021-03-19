@@ -20,11 +20,14 @@ import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * 服务DTO对象[ProductLifeDTO]
  */
 @Data
+@ApiModel("产品生命周期")
 public class ProductLifeDTO extends DTOBase implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -36,6 +39,7 @@ public class ProductLifeDTO extends DTOBase implements Serializable {
     @JSONField(name = "branch")
     @JsonProperty("branch")
     @Size(min = 0, max = 8, message = "内容长度必须小于等于[8]")
+    @ApiModelProperty("平台/分支")
     private String branch;
 
     /**
@@ -45,6 +49,7 @@ public class ProductLifeDTO extends DTOBase implements Serializable {
     @JSONField(name = "createman")
     @JsonProperty("createman")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("建立人")
     private String createman;
 
     /**
@@ -54,6 +59,7 @@ public class ProductLifeDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "updatedate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("updatedate")
+    @ApiModelProperty("更新时间")
     private Timestamp updatedate;
 
     /**
@@ -63,6 +69,7 @@ public class ProductLifeDTO extends DTOBase implements Serializable {
     @JSONField(name = "productlifename")
     @JsonProperty("productlifename")
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("产品生命周期名称")
     private String productlifename;
 
     /**
@@ -71,6 +78,7 @@ public class ProductLifeDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "product")
     @JsonProperty("product")
+    @ApiModelProperty("产品")
     private Integer product;
 
     /**
@@ -80,6 +88,7 @@ public class ProductLifeDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "createdate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createdate")
+    @ApiModelProperty("建立时间")
     private Timestamp createdate;
 
     /**
@@ -89,6 +98,7 @@ public class ProductLifeDTO extends DTOBase implements Serializable {
     @JSONField(name = "parent")
     @JsonProperty("parent")
     @Size(min = 0, max = 8, message = "内容长度必须小于等于[8]")
+    @ApiModelProperty("父对象")
     private String parent;
 
     /**
@@ -98,6 +108,7 @@ public class ProductLifeDTO extends DTOBase implements Serializable {
     @JSONField(name = "year")
     @JsonProperty("year")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("年")
     private String year;
 
     /**
@@ -107,6 +118,7 @@ public class ProductLifeDTO extends DTOBase implements Serializable {
     @JSONField(name = "updateman")
     @JsonProperty("updateman")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("更新人")
     private String updateman;
 
     /**
@@ -116,6 +128,7 @@ public class ProductLifeDTO extends DTOBase implements Serializable {
     @JSONField(name = "type")
     @JsonProperty("type")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("属性")
     private String type;
 
     /**
@@ -124,6 +137,7 @@ public class ProductLifeDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "marker")
     @JsonProperty("marker")
+    @ApiModelProperty("里程碑")
     private Integer marker;
 
     /**
@@ -133,6 +147,7 @@ public class ProductLifeDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "begin" , format="yyyy-MM-dd")
     @JsonProperty("begin")
+    @ApiModelProperty("开始日期")
     private Timestamp begin;
 
     /**
@@ -142,6 +157,7 @@ public class ProductLifeDTO extends DTOBase implements Serializable {
     @JSONField(name = "productlifeid")
     @JsonProperty("productlifeid")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("产品生命周期标识")
     private String productlifeid;
 
     /**
@@ -151,6 +167,7 @@ public class ProductLifeDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "end" , format="yyyy-MM-dd")
     @JsonProperty("end")
+    @ApiModelProperty("结束日期")
     private Timestamp end;
 
 

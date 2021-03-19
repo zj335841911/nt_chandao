@@ -500,7 +500,8 @@ POST
 | 32 | story | String | 允许 | 待办名称 |
 | 33 | ibizprivate | String | 允许 | 私人事务 |
 | 34 | config | String | 允许 | config |
-| 35 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 35 | cost | Integer | 允许 | 费用 |
+| 36 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### TodoSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

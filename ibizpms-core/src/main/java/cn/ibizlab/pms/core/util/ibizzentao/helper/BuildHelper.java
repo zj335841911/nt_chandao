@@ -196,9 +196,11 @@ public class BuildHelper extends ZTBaseHelper<BuildMapper, Build> {
     }
 
 
+    @Transactional(rollbackFor = Exception.class)
+    @Override
     public boolean delete(Long key){
         Build old = this.get(key);
-        if (old.getBugs() !=null && "".equals(old.getBugs())){
+        if (old.getBugs() !=null &&  !"".equals(old.getBugs())){
             throw  new RuntimeException("已有Bug的解决版本关联此版本，不能删除!");
         }
         List<Bug> linkedBugs = bugHelper.list(new QueryWrapper<Bug>().in("openedBuild",old.getId()));

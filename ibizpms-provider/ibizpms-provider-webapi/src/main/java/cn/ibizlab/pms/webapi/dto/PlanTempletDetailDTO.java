@@ -20,11 +20,14 @@ import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * 服务DTO对象[PlanTempletDetailDTO]
  */
 @Data
+@ApiModel("计划模板详情嵌套")
 public class PlanTempletDetailDTO extends DTOBase implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -36,6 +39,7 @@ public class PlanTempletDetailDTO extends DTOBase implements Serializable {
     @JSONField(name = "type")
     @JsonProperty("type")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("类型")
     private String type;
 
     /**
@@ -45,6 +49,7 @@ public class PlanTempletDetailDTO extends DTOBase implements Serializable {
     @JSONField(name = "plancode")
     @JsonProperty("plancode")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("计划编号")
     private String plancode;
 
     /**
@@ -54,6 +59,7 @@ public class PlanTempletDetailDTO extends DTOBase implements Serializable {
     @JSONField(name = "desc")
     @JsonProperty("desc")
     @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
+    @ApiModelProperty("计划名称")
     private String desc;
 
     /**
@@ -62,6 +68,7 @@ public class PlanTempletDetailDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "order")
     @JsonProperty("order")
+    @ApiModelProperty("排序")
     private Integer order;
 
     /**
@@ -71,6 +78,7 @@ public class PlanTempletDetailDTO extends DTOBase implements Serializable {
     @JSONField(name = "ibzplantempletdetailid")
     @JsonProperty("ibzplantempletdetailid")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("计划模板详情标识")
     private String ibzplantempletdetailid;
 
     /**
@@ -80,6 +88,7 @@ public class PlanTempletDetailDTO extends DTOBase implements Serializable {
     @JSONField(name = "ibzplantempletdetailname")
     @JsonProperty("ibzplantempletdetailname")
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("计划模板详情名称")
     private String ibzplantempletdetailname;
 
     /**
@@ -89,6 +98,7 @@ public class PlanTempletDetailDTO extends DTOBase implements Serializable {
     @JSONField(name = "createman")
     @JsonProperty("createman")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("建立人")
     private String createman;
 
     /**
@@ -98,6 +108,7 @@ public class PlanTempletDetailDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "createdate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createdate")
+    @ApiModelProperty("建立时间")
     private Timestamp createdate;
 
     /**
@@ -107,6 +118,7 @@ public class PlanTempletDetailDTO extends DTOBase implements Serializable {
     @JSONField(name = "updateman")
     @JsonProperty("updateman")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("更新人")
     private String updateman;
 
     /**
@@ -116,6 +128,7 @@ public class PlanTempletDetailDTO extends DTOBase implements Serializable {
     @JSONField(name = "expect")
     @JsonProperty("expect")
     @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
+    @ApiModelProperty("描述")
     private String expect;
 
     /**
@@ -125,6 +138,7 @@ public class PlanTempletDetailDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "updatedate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("updatedate")
+    @ApiModelProperty("更新时间")
     private Timestamp updatedate;
 
     /**
@@ -134,6 +148,7 @@ public class PlanTempletDetailDTO extends DTOBase implements Serializable {
     @JSONField(name = "plantempletid")
     @JsonProperty("plantempletid")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("产品计划模板标识")
     private String plantempletid;
 
 

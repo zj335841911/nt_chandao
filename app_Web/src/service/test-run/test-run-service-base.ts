@@ -1,3 +1,4 @@
+import { Environment } from '@/environments/environment';
 import { Http } from '@/utils';
 import { Util } from '@/utils';
 import EntityService from '../entity-service';
@@ -50,21 +51,21 @@ export default class TestRunServiceBase extends EntityService {
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.testtask && context.testrun){
-            let res:any = Http.getInstance().get(`/projects/${context.project}/testtasks/${context.testtask}/testruns/${context.testrun}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/testtasks/${context.testtask}/testruns/${context.testrun}/select`,isloading);
             
             return res;
         }
         if(context.product && context.testtask && context.testrun){
-            let res:any = Http.getInstance().get(`/products/${context.product}/testtasks/${context.testtask}/testruns/${context.testrun}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/testtasks/${context.testtask}/testruns/${context.testrun}/select`,isloading);
             
             return res;
         }
         if(context.testtask && context.testrun){
-            let res:any = Http.getInstance().get(`/testtasks/${context.testtask}/testruns/${context.testrun}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/testtasks/${context.testtask}/testruns/${context.testrun}/select`,isloading);
             
             return res;
         }
-            let res:any = Http.getInstance().get(`/testruns/${context.testrun}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/testruns/${context.testrun}/select`,isloading);
             
             return res;
     }
@@ -184,18 +185,18 @@ export default class TestRunServiceBase extends EntityService {
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.testtask && context.testrun){
-            let res:any = Http.getInstance().delete(`/projects/${context.project}/testtasks/${context.testtask}/testruns/${context.testrun}`,isloading);
+            let res:any = await Http.getInstance().delete(`/projects/${context.project}/testtasks/${context.testtask}/testruns/${context.testrun}`,isloading);
             return res;
         }
         if(context.product && context.testtask && context.testrun){
-            let res:any = Http.getInstance().delete(`/products/${context.product}/testtasks/${context.testtask}/testruns/${context.testrun}`,isloading);
+            let res:any = await Http.getInstance().delete(`/products/${context.product}/testtasks/${context.testtask}/testruns/${context.testrun}`,isloading);
             return res;
         }
         if(context.testtask && context.testrun){
-            let res:any = Http.getInstance().delete(`/testtasks/${context.testtask}/testruns/${context.testrun}`,isloading);
+            let res:any = await Http.getInstance().delete(`/testtasks/${context.testtask}/testruns/${context.testrun}`,isloading);
             return res;
         }
-            let res:any = Http.getInstance().delete(`/testruns/${context.testrun}`,isloading);
+            let res:any = await Http.getInstance().delete(`/testruns/${context.testrun}`,isloading);
             return res;
     }
 
@@ -306,7 +307,7 @@ export default class TestRunServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/testruns/${context.testrun}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/testruns/${context.testrun}/checkkey`,data,isloading);
             return res;
     }
 
@@ -360,21 +361,21 @@ export default class TestRunServiceBase extends EntityService {
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.testtask && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/testtasks/${context.testtask}/testruns/fetchdefault`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/testtasks/${context.testtask}/testruns/fetchdefault`,tempData,isloading);
             return res;
         }
         if(context.product && context.testtask && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/testtasks/${context.testtask}/testruns/fetchdefault`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/testtasks/${context.testtask}/testruns/fetchdefault`,tempData,isloading);
             return res;
         }
         if(context.testtask && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/testtasks/${context.testtask}/testruns/fetchdefault`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/testtasks/${context.testtask}/testruns/fetchdefault`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/testruns/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/testruns/fetchdefault`,tempData,isloading);
         return res;
     }
 

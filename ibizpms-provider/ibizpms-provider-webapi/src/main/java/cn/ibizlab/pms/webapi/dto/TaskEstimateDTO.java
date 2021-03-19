@@ -20,11 +20,14 @@ import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * 服务DTO对象[TaskEstimateDTO]
  */
 @Data
+@ApiModel("任务预计")
 public class TaskEstimateDTO extends DTOBase implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -36,6 +39,7 @@ public class TaskEstimateDTO extends DTOBase implements Serializable {
     @JSONField(name = "monthname")
     @JsonProperty("monthname")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("月（显示）")
     private String monthname;
 
     /**
@@ -45,6 +49,7 @@ public class TaskEstimateDTO extends DTOBase implements Serializable {
     @JSONField(name = "year")
     @JsonProperty("year")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("年")
     private String year;
 
     /**
@@ -54,6 +59,7 @@ public class TaskEstimateDTO extends DTOBase implements Serializable {
     @JSONField(name = "account")
     @JsonProperty("account")
     @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
+    @ApiModelProperty("用户")
     private String account;
 
     /**
@@ -62,6 +68,7 @@ public class TaskEstimateDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "left")
     @JsonProperty("left")
+    @ApiModelProperty("预计剩余")
     private Double left;
 
     /**
@@ -70,6 +77,7 @@ public class TaskEstimateDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "consumed")
     @JsonProperty("consumed")
+    @ApiModelProperty("总计消耗")
     private Double consumed;
 
     /**
@@ -78,6 +86,7 @@ public class TaskEstimateDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "evaluationcost")
     @JsonProperty("evaluationcost")
+    @ApiModelProperty("评估成本")
     private Double evaluationcost;
 
     /**
@@ -86,6 +95,7 @@ public class TaskEstimateDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "monthorder")
     @JsonProperty("monthorder")
+    @ApiModelProperty("月（排序）")
     private Integer monthorder;
 
     /**
@@ -95,6 +105,7 @@ public class TaskEstimateDTO extends DTOBase implements Serializable {
     @JSONField(name = "files")
     @JsonProperty("files")
     @Size(min = 0, max = 2000, message = "内容长度必须小于等于[2000]")
+    @ApiModelProperty("附件")
     private String files;
 
     /**
@@ -104,6 +115,7 @@ public class TaskEstimateDTO extends DTOBase implements Serializable {
     @JSONField(name = "id")
     @JsonProperty("id")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("编号")
     private Long id;
 
     /**
@@ -113,6 +125,7 @@ public class TaskEstimateDTO extends DTOBase implements Serializable {
     @JSONField(name = "evaluationstatus")
     @JsonProperty("evaluationstatus")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("评估状态")
     private String evaluationstatus;
 
     /**
@@ -122,6 +135,7 @@ public class TaskEstimateDTO extends DTOBase implements Serializable {
     @JSONField(name = "yearname")
     @JsonProperty("yearname")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("年（显示）")
     private String yearname;
 
     /**
@@ -131,6 +145,7 @@ public class TaskEstimateDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "date" , format="yyyy-MM-dd")
     @JsonProperty("date")
+    @ApiModelProperty("日期")
     private Timestamp date;
 
     /**
@@ -139,6 +154,7 @@ public class TaskEstimateDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "evaluationtime")
     @JsonProperty("evaluationtime")
+    @ApiModelProperty("评估工时")
     private Double evaluationtime;
 
     /**
@@ -147,6 +163,7 @@ public class TaskEstimateDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "inputcost")
     @JsonProperty("inputcost")
+    @ApiModelProperty("投入成本")
     private Double inputcost;
 
     /**
@@ -156,6 +173,7 @@ public class TaskEstimateDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "dates" , format="yyyy-MM-dd")
     @JsonProperty("dates")
+    @ApiModelProperty("日期")
     private Timestamp dates;
 
     /**
@@ -165,6 +183,7 @@ public class TaskEstimateDTO extends DTOBase implements Serializable {
     @JSONField(name = "month")
     @JsonProperty("month")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("月")
     private String month;
 
     /**
@@ -174,6 +193,7 @@ public class TaskEstimateDTO extends DTOBase implements Serializable {
     @JSONField(name = "work")
     @JsonProperty("work")
     @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
+    @ApiModelProperty("work")
     private String work;
 
     /**
@@ -183,6 +203,7 @@ public class TaskEstimateDTO extends DTOBase implements Serializable {
     @JSONField(name = "evaluationdesc")
     @JsonProperty("evaluationdesc")
     @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
+    @ApiModelProperty("评估说明")
     private String evaluationdesc;
 
     /**
@@ -192,6 +213,7 @@ public class TaskEstimateDTO extends DTOBase implements Serializable {
     @JSONField(name = "taskspecies")
     @JsonProperty("taskspecies")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("任务种别")
     private String taskspecies;
 
     /**
@@ -201,6 +223,7 @@ public class TaskEstimateDTO extends DTOBase implements Serializable {
     @JSONField(name = "taskname")
     @JsonProperty("taskname")
     @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
+    @ApiModelProperty("任务名称")
     private String taskname;
 
     /**
@@ -210,6 +233,7 @@ public class TaskEstimateDTO extends DTOBase implements Serializable {
     @JSONField(name = "projectname")
     @JsonProperty("projectname")
     @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
+    @ApiModelProperty("所属项目")
     private String projectname;
 
     /**
@@ -219,6 +243,7 @@ public class TaskEstimateDTO extends DTOBase implements Serializable {
     @JSONField(name = "type")
     @JsonProperty("type")
     @Size(min = 0, max = 20, message = "内容长度必须小于等于[20]")
+    @ApiModelProperty("任务类型")
     private String type;
 
     /**
@@ -228,6 +253,7 @@ public class TaskEstimateDTO extends DTOBase implements Serializable {
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
     @Size(min = 0, max = 1, message = "内容长度必须小于等于[1]")
+    @ApiModelProperty("任务删除标识")
     private String deleted;
 
     /**
@@ -237,6 +263,7 @@ public class TaskEstimateDTO extends DTOBase implements Serializable {
     @JSONField(name = "project")
     @JsonProperty("project")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("项目")
     private Long project;
 
     /**
@@ -246,6 +273,7 @@ public class TaskEstimateDTO extends DTOBase implements Serializable {
     @JSONField(name = "task")
     @JsonProperty("task")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("任务")
     private Long task;
 
 

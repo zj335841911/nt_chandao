@@ -1,3 +1,4 @@
+import { Environment } from '@/environments/environment';
 import { Http } from '@/utils';
 import { Util } from '@/utils';
 import EntityService from '../entity-service';
@@ -50,46 +51,46 @@ export default class TaskEstimateServiceBase extends EntityService {
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.projectmodule && context.task && context.taskestimate){
-            let res:any = Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/${context.taskestimate}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/${context.taskestimate}/select`,isloading);
             
             return res;
         }
         if(context.product && context.story && context.task && context.taskestimate){
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/taskestimates/${context.taskestimate}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/taskestimates/${context.taskestimate}/select`,isloading);
             
             return res;
         }
         if(context.product && context.productplan && context.task && context.taskestimate){
-            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/taskestimates/${context.taskestimate}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/taskestimates/${context.taskestimate}/select`,isloading);
             
             return res;
         }
         if(context.project && context.task && context.taskestimate){
-            let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/taskestimates/${context.taskestimate}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/taskestimates/${context.taskestimate}/select`,isloading);
             
             return res;
         }
         if(context.story && context.task && context.taskestimate){
-            let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/taskestimates/${context.taskestimate}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/taskestimates/${context.taskestimate}/select`,isloading);
             
             return res;
         }
         if(context.productplan && context.task && context.taskestimate){
-            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/taskestimates/${context.taskestimate}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/taskestimates/${context.taskestimate}/select`,isloading);
             
             return res;
         }
         if(context.projectmodule && context.task && context.taskestimate){
-            let res:any = Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/${context.taskestimate}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/${context.taskestimate}/select`,isloading);
             
             return res;
         }
         if(context.task && context.taskestimate){
-            let res:any = Http.getInstance().get(`/tasks/${context.task}/taskestimates/${context.taskestimate}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/tasks/${context.task}/taskestimates/${context.taskestimate}/select`,isloading);
             
             return res;
         }
-            let res:any = Http.getInstance().get(`/taskestimates/${context.taskestimate}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/taskestimates/${context.taskestimate}/select`,isloading);
             
             return res;
     }
@@ -314,38 +315,38 @@ export default class TaskEstimateServiceBase extends EntityService {
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.projectmodule && context.task && context.taskestimate){
-            let res:any = Http.getInstance().delete(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/${context.taskestimate}`,isloading);
+            let res:any = await Http.getInstance().delete(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/${context.taskestimate}`,isloading);
             return res;
         }
         if(context.product && context.story && context.task && context.taskestimate){
-            let res:any = Http.getInstance().delete(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/taskestimates/${context.taskestimate}`,isloading);
+            let res:any = await Http.getInstance().delete(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/taskestimates/${context.taskestimate}`,isloading);
             return res;
         }
         if(context.product && context.productplan && context.task && context.taskestimate){
-            let res:any = Http.getInstance().delete(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/taskestimates/${context.taskestimate}`,isloading);
+            let res:any = await Http.getInstance().delete(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/taskestimates/${context.taskestimate}`,isloading);
             return res;
         }
         if(context.project && context.task && context.taskestimate){
-            let res:any = Http.getInstance().delete(`/projects/${context.project}/tasks/${context.task}/taskestimates/${context.taskestimate}`,isloading);
+            let res:any = await Http.getInstance().delete(`/projects/${context.project}/tasks/${context.task}/taskestimates/${context.taskestimate}`,isloading);
             return res;
         }
         if(context.story && context.task && context.taskestimate){
-            let res:any = Http.getInstance().delete(`/stories/${context.story}/tasks/${context.task}/taskestimates/${context.taskestimate}`,isloading);
+            let res:any = await Http.getInstance().delete(`/stories/${context.story}/tasks/${context.task}/taskestimates/${context.taskestimate}`,isloading);
             return res;
         }
         if(context.productplan && context.task && context.taskestimate){
-            let res:any = Http.getInstance().delete(`/productplans/${context.productplan}/tasks/${context.task}/taskestimates/${context.taskestimate}`,isloading);
+            let res:any = await Http.getInstance().delete(`/productplans/${context.productplan}/tasks/${context.task}/taskestimates/${context.taskestimate}`,isloading);
             return res;
         }
         if(context.projectmodule && context.task && context.taskestimate){
-            let res:any = Http.getInstance().delete(`/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/${context.taskestimate}`,isloading);
+            let res:any = await Http.getInstance().delete(`/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/${context.taskestimate}`,isloading);
             return res;
         }
         if(context.task && context.taskestimate){
-            let res:any = Http.getInstance().delete(`/tasks/${context.task}/taskestimates/${context.taskestimate}`,isloading);
+            let res:any = await Http.getInstance().delete(`/tasks/${context.task}/taskestimates/${context.taskestimate}`,isloading);
             return res;
         }
-            let res:any = Http.getInstance().delete(`/taskestimates/${context.taskestimate}`,isloading);
+            let res:any = await Http.getInstance().delete(`/taskestimates/${context.taskestimate}`,isloading);
             return res;
     }
 
@@ -561,7 +562,7 @@ export default class TaskEstimateServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/taskestimates/${context.taskestimate}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/taskestimates/${context.taskestimate}/checkkey`,data,isloading);
             return res;
     }
 
@@ -631,7 +632,7 @@ export default class TaskEstimateServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/taskestimates/${context.taskestimate}/pmevaluation`,data,isloading);
+            let res:any = await Http.getInstance().post(`/taskestimates/${context.taskestimate}/pmevaluation`,data,isloading);
             return res;
     }
 
@@ -720,46 +721,46 @@ export default class TaskEstimateServiceBase extends EntityService {
     public async FetchActionMonth(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/fetchactionmonth`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/fetchactionmonth`,tempData,isloading);
             return res;
         }
         if(context.product && context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/taskestimates/fetchactionmonth`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/taskestimates/fetchactionmonth`,tempData,isloading);
             return res;
         }
         if(context.product && context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/taskestimates/fetchactionmonth`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/taskestimates/fetchactionmonth`,tempData,isloading);
             return res;
         }
         if(context.project && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/taskestimates/fetchactionmonth`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/taskestimates/fetchactionmonth`,tempData,isloading);
             return res;
         }
         if(context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/taskestimates/fetchactionmonth`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/taskestimates/fetchactionmonth`,tempData,isloading);
             return res;
         }
         if(context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/taskestimates/fetchactionmonth`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/taskestimates/fetchactionmonth`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/fetchactionmonth`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/fetchactionmonth`,tempData,isloading);
             return res;
         }
         if(context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/tasks/${context.task}/taskestimates/fetchactionmonth`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/tasks/${context.task}/taskestimates/fetchactionmonth`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/taskestimates/fetchactionmonth`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/taskestimates/fetchactionmonth`,tempData,isloading);
         return res;
     }
 
@@ -821,46 +822,46 @@ export default class TaskEstimateServiceBase extends EntityService {
     public async FetchActionYear(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/fetchactionyear`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/fetchactionyear`,tempData,isloading);
             return res;
         }
         if(context.product && context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/taskestimates/fetchactionyear`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/taskestimates/fetchactionyear`,tempData,isloading);
             return res;
         }
         if(context.product && context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/taskestimates/fetchactionyear`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/taskestimates/fetchactionyear`,tempData,isloading);
             return res;
         }
         if(context.project && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/taskestimates/fetchactionyear`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/taskestimates/fetchactionyear`,tempData,isloading);
             return res;
         }
         if(context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/taskestimates/fetchactionyear`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/taskestimates/fetchactionyear`,tempData,isloading);
             return res;
         }
         if(context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/taskestimates/fetchactionyear`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/taskestimates/fetchactionyear`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/fetchactionyear`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/fetchactionyear`,tempData,isloading);
             return res;
         }
         if(context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/tasks/${context.task}/taskestimates/fetchactionyear`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/tasks/${context.task}/taskestimates/fetchactionyear`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/taskestimates/fetchactionyear`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/taskestimates/fetchactionyear`,tempData,isloading);
         return res;
     }
 
@@ -922,46 +923,46 @@ export default class TaskEstimateServiceBase extends EntityService {
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/fetchdefault`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/fetchdefault`,tempData,isloading);
             return res;
         }
         if(context.product && context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/taskestimates/fetchdefault`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/taskestimates/fetchdefault`,tempData,isloading);
             return res;
         }
         if(context.product && context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/taskestimates/fetchdefault`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/taskestimates/fetchdefault`,tempData,isloading);
             return res;
         }
         if(context.project && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/taskestimates/fetchdefault`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/taskestimates/fetchdefault`,tempData,isloading);
             return res;
         }
         if(context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/taskestimates/fetchdefault`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/taskestimates/fetchdefault`,tempData,isloading);
             return res;
         }
         if(context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/taskestimates/fetchdefault`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/taskestimates/fetchdefault`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/fetchdefault`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/fetchdefault`,tempData,isloading);
             return res;
         }
         if(context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/tasks/${context.task}/taskestimates/fetchdefault`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/tasks/${context.task}/taskestimates/fetchdefault`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/taskestimates/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/taskestimates/fetchdefault`,tempData,isloading);
         return res;
     }
 
@@ -1023,46 +1024,46 @@ export default class TaskEstimateServiceBase extends EntityService {
     public async FetchDefaults(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/fetchdefaults`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/fetchdefaults`,tempData,isloading);
             return res;
         }
         if(context.product && context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/taskestimates/fetchdefaults`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/taskestimates/fetchdefaults`,tempData,isloading);
             return res;
         }
         if(context.product && context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/taskestimates/fetchdefaults`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/taskestimates/fetchdefaults`,tempData,isloading);
             return res;
         }
         if(context.project && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/taskestimates/fetchdefaults`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/taskestimates/fetchdefaults`,tempData,isloading);
             return res;
         }
         if(context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/taskestimates/fetchdefaults`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/taskestimates/fetchdefaults`,tempData,isloading);
             return res;
         }
         if(context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/taskestimates/fetchdefaults`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/taskestimates/fetchdefaults`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/fetchdefaults`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/fetchdefaults`,tempData,isloading);
             return res;
         }
         if(context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/tasks/${context.task}/taskestimates/fetchdefaults`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/tasks/${context.task}/taskestimates/fetchdefaults`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/taskestimates/fetchdefaults`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/taskestimates/fetchdefaults`,tempData,isloading);
         return res;
     }
 
@@ -1124,46 +1125,46 @@ export default class TaskEstimateServiceBase extends EntityService {
     public async FetchProjectActionMonth(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/fetchprojectactionmonth`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/fetchprojectactionmonth`,tempData,isloading);
             return res;
         }
         if(context.product && context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/taskestimates/fetchprojectactionmonth`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/taskestimates/fetchprojectactionmonth`,tempData,isloading);
             return res;
         }
         if(context.product && context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/taskestimates/fetchprojectactionmonth`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/taskestimates/fetchprojectactionmonth`,tempData,isloading);
             return res;
         }
         if(context.project && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/taskestimates/fetchprojectactionmonth`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/taskestimates/fetchprojectactionmonth`,tempData,isloading);
             return res;
         }
         if(context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/taskestimates/fetchprojectactionmonth`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/taskestimates/fetchprojectactionmonth`,tempData,isloading);
             return res;
         }
         if(context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/taskestimates/fetchprojectactionmonth`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/taskestimates/fetchprojectactionmonth`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/fetchprojectactionmonth`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/fetchprojectactionmonth`,tempData,isloading);
             return res;
         }
         if(context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/tasks/${context.task}/taskestimates/fetchprojectactionmonth`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/tasks/${context.task}/taskestimates/fetchprojectactionmonth`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/taskestimates/fetchprojectactionmonth`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/taskestimates/fetchprojectactionmonth`,tempData,isloading);
         return res;
     }
 
@@ -1225,46 +1226,46 @@ export default class TaskEstimateServiceBase extends EntityService {
     public async FetchProjectActionYear(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/fetchprojectactionyear`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/fetchprojectactionyear`,tempData,isloading);
             return res;
         }
         if(context.product && context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/taskestimates/fetchprojectactionyear`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/taskestimates/fetchprojectactionyear`,tempData,isloading);
             return res;
         }
         if(context.product && context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/taskestimates/fetchprojectactionyear`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/taskestimates/fetchprojectactionyear`,tempData,isloading);
             return res;
         }
         if(context.project && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/taskestimates/fetchprojectactionyear`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/taskestimates/fetchprojectactionyear`,tempData,isloading);
             return res;
         }
         if(context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/taskestimates/fetchprojectactionyear`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/taskestimates/fetchprojectactionyear`,tempData,isloading);
             return res;
         }
         if(context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/taskestimates/fetchprojectactionyear`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/taskestimates/fetchprojectactionyear`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/fetchprojectactionyear`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/fetchprojectactionyear`,tempData,isloading);
             return res;
         }
         if(context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/tasks/${context.task}/taskestimates/fetchprojectactionyear`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/tasks/${context.task}/taskestimates/fetchprojectactionyear`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/taskestimates/fetchprojectactionyear`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/taskestimates/fetchprojectactionyear`,tempData,isloading);
         return res;
     }
 
@@ -1326,46 +1327,46 @@ export default class TaskEstimateServiceBase extends EntityService {
     public async FetchProjectTaskEstimate(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/fetchprojecttaskestimate`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/fetchprojecttaskestimate`,tempData,isloading);
             return res;
         }
         if(context.product && context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/taskestimates/fetchprojecttaskestimate`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/taskestimates/fetchprojecttaskestimate`,tempData,isloading);
             return res;
         }
         if(context.product && context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/taskestimates/fetchprojecttaskestimate`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/taskestimates/fetchprojecttaskestimate`,tempData,isloading);
             return res;
         }
         if(context.project && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/taskestimates/fetchprojecttaskestimate`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/tasks/${context.task}/taskestimates/fetchprojecttaskestimate`,tempData,isloading);
             return res;
         }
         if(context.story && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/taskestimates/fetchprojecttaskestimate`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/tasks/${context.task}/taskestimates/fetchprojecttaskestimate`,tempData,isloading);
             return res;
         }
         if(context.productplan && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/taskestimates/fetchprojecttaskestimate`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/productplans/${context.productplan}/tasks/${context.task}/taskestimates/fetchprojecttaskestimate`,tempData,isloading);
             return res;
         }
         if(context.projectmodule && context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/fetchprojecttaskestimate`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projectmodules/${context.projectmodule}/tasks/${context.task}/taskestimates/fetchprojecttaskestimate`,tempData,isloading);
             return res;
         }
         if(context.task && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/tasks/${context.task}/taskestimates/fetchprojecttaskestimate`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/tasks/${context.task}/taskestimates/fetchprojecttaskestimate`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/taskestimates/fetchprojecttaskestimate`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/taskestimates/fetchprojecttaskestimate`,tempData,isloading);
         return res;
     }
 

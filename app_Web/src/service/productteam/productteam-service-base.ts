@@ -1,3 +1,4 @@
+import { Environment } from '@/environments/environment';
 import { Http } from '@/utils';
 import { Util } from '@/utils';
 import EntityService from '../entity-service';
@@ -50,11 +51,11 @@ export default class PRODUCTTEAMServiceBase extends EntityService {
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.productteam){
-            let res:any = Http.getInstance().get(`/products/${context.product}/productteams/${context.productteam}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productteams/${context.productteam}/select`,isloading);
             
             return res;
         }
-            let res:any = Http.getInstance().get(`/productteams/${context.productteam}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/productteams/${context.productteam}/select`,isloading);
             
             return res;
     }
@@ -132,10 +133,10 @@ export default class PRODUCTTEAMServiceBase extends EntityService {
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.productteam){
-            let res:any = Http.getInstance().delete(`/products/${context.product}/productteams/${context.productteam}`,isloading);
+            let res:any = await Http.getInstance().delete(`/products/${context.product}/productteams/${context.productteam}`,isloading);
             return res;
         }
-            let res:any = Http.getInstance().delete(`/productteams/${context.productteam}`,isloading);
+            let res:any = await Http.getInstance().delete(`/productteams/${context.productteam}`,isloading);
             return res;
     }
 
@@ -204,7 +205,7 @@ export default class PRODUCTTEAMServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/productteams/${context.productteam}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/productteams/${context.productteam}/checkkey`,data,isloading);
             return res;
     }
 
@@ -225,7 +226,7 @@ export default class PRODUCTTEAMServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/productteams/${context.productteam}/productteamguolv`,data,isloading);
+            let res:any = await Http.getInstance().post(`/productteams/${context.productteam}/productteamguolv`,data,isloading);
             return res;
     }
 
@@ -265,11 +266,11 @@ export default class PRODUCTTEAMServiceBase extends EntityService {
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/productteams/fetchdefault`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productteams/fetchdefault`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/productteams/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/productteams/fetchdefault`,tempData,isloading);
         return res;
     }
 
@@ -303,11 +304,11 @@ export default class PRODUCTTEAMServiceBase extends EntityService {
     public async FetchProductTeamInfo(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/productteams/fetchproductteaminfo`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productteams/fetchproductteaminfo`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/productteams/fetchproductteaminfo`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/productteams/fetchproductteaminfo`,tempData,isloading);
         return res;
     }
 
@@ -341,11 +342,11 @@ export default class PRODUCTTEAMServiceBase extends EntityService {
     public async FetchProjectApp(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/productteams/fetchprojectapp`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productteams/fetchprojectapp`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/productteams/fetchprojectapp`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/productteams/fetchprojectapp`,tempData,isloading);
         return res;
     }
 
@@ -379,11 +380,11 @@ export default class PRODUCTTEAMServiceBase extends EntityService {
     public async FetchRowEditDefaultProductTeam(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/productteams/fetchroweditdefaultproductteam`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productteams/fetchroweditdefaultproductteam`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/productteams/fetchroweditdefaultproductteam`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/productteams/fetchroweditdefaultproductteam`,tempData,isloading);
         return res;
     }
 

@@ -1,3 +1,4 @@
+import { Environment } from '@/environments/environment';
 import { Http } from '@/utils';
 import { Util } from '@/utils';
 import EntityService from '../entity-service';
@@ -51,11 +52,11 @@ export default class StoryServiceBase extends EntityService {
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story){
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/select`,isloading);
             
             return res;
         }
-            let res:any = Http.getInstance().get(`/stories/${context.story}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/select`,isloading);
             
             return res;
     }
@@ -75,12 +76,12 @@ export default class StoryServiceBase extends EntityService {
         let casesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_cases'),'undefined')){
             casesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_cases') as any);
-            if(casesData && casesData.length && casesData.length > 0){
+            if(casesData && casesData.length && casesData.length > 0 && Environment.isStudioSystem === false){
                 casesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -91,12 +92,12 @@ export default class StoryServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -125,12 +126,12 @@ export default class StoryServiceBase extends EntityService {
         let casesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_cases'),'undefined')){
             casesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_cases') as any);
-            if(casesData && casesData.length && casesData.length > 0){
+            if(casesData && casesData.length && casesData.length > 0 && Environment.isStudioSystem === false){
                 casesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -141,12 +142,12 @@ export default class StoryServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -187,12 +188,12 @@ export default class StoryServiceBase extends EntityService {
         let casesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_cases'),'undefined')){
             casesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_cases') as any);
-            if(casesData && casesData.length && casesData.length > 0){
+            if(casesData && casesData.length && casesData.length > 0 && Environment.isStudioSystem === false){
                 casesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -203,12 +204,12 @@ export default class StoryServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -227,12 +228,12 @@ export default class StoryServiceBase extends EntityService {
         let casesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_cases'),'undefined')){
             casesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_cases') as any);
-            if(casesData && casesData.length && casesData.length > 0){
+            if(casesData && casesData.length && casesData.length > 0 && Environment.isStudioSystem === false){
                 casesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -243,12 +244,12 @@ export default class StoryServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -275,10 +276,10 @@ export default class StoryServiceBase extends EntityService {
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story){
-            let res:any = Http.getInstance().delete(`/products/${context.product}/stories/${context.story}`,isloading);
+            let res:any = await Http.getInstance().delete(`/products/${context.product}/stories/${context.story}`,isloading);
             return res;
         }
-            let res:any = Http.getInstance().delete(`/stories/${context.story}`,isloading);
+            let res:any = await Http.getInstance().delete(`/stories/${context.story}`,isloading);
             return res;
     }
 
@@ -353,12 +354,12 @@ export default class StoryServiceBase extends EntityService {
         let casesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_cases'),'undefined')){
             casesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_cases') as any);
-            if(casesData && casesData.length && casesData.length > 0){
+            if(casesData && casesData.length && casesData.length > 0 && Environment.isStudioSystem === false){
                 casesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -369,12 +370,12 @@ export default class StoryServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -389,7 +390,7 @@ export default class StoryServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/stories/${context.story}/activate`,data,isloading);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/activate`,data,isloading);
             return res;
     }
 
@@ -408,12 +409,12 @@ export default class StoryServiceBase extends EntityService {
         let casesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_cases'),'undefined')){
             casesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_cases') as any);
-            if(casesData && casesData.length && casesData.length > 0){
+            if(casesData && casesData.length && casesData.length > 0 && Environment.isStudioSystem === false){
                 casesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -424,12 +425,12 @@ export default class StoryServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -444,7 +445,7 @@ export default class StoryServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/stories/${context.story}/allpush`,data,isloading);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/allpush`,data,isloading);
             return res;
     }
 
@@ -463,12 +464,12 @@ export default class StoryServiceBase extends EntityService {
         let casesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_cases'),'undefined')){
             casesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_cases') as any);
-            if(casesData && casesData.length && casesData.length > 0){
+            if(casesData && casesData.length && casesData.length > 0 && Environment.isStudioSystem === false){
                 casesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -479,12 +480,12 @@ export default class StoryServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -499,7 +500,7 @@ export default class StoryServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/stories/${context.story}/assignto`,data,isloading);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/assignto`,data,isloading);
             return res;
     }
 
@@ -518,12 +519,12 @@ export default class StoryServiceBase extends EntityService {
         let casesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_cases'),'undefined')){
             casesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_cases') as any);
-            if(casesData && casesData.length && casesData.length > 0){
+            if(casesData && casesData.length && casesData.length > 0 && Environment.isStudioSystem === false){
                 casesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -534,12 +535,12 @@ export default class StoryServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -554,7 +555,7 @@ export default class StoryServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/stories/${context.story}/batchassignto`,data,isloading);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/batchassignto`,data,isloading);
             return res;
     }
 
@@ -573,12 +574,12 @@ export default class StoryServiceBase extends EntityService {
         let casesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_cases'),'undefined')){
             casesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_cases') as any);
-            if(casesData && casesData.length && casesData.length > 0){
+            if(casesData && casesData.length && casesData.length > 0 && Environment.isStudioSystem === false){
                 casesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -589,12 +590,12 @@ export default class StoryServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -609,7 +610,7 @@ export default class StoryServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/stories/${context.story}/batchchangebranch`,data,isloading);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/batchchangebranch`,data,isloading);
             return res;
     }
 
@@ -628,12 +629,12 @@ export default class StoryServiceBase extends EntityService {
         let casesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_cases'),'undefined')){
             casesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_cases') as any);
-            if(casesData && casesData.length && casesData.length > 0){
+            if(casesData && casesData.length && casesData.length > 0 && Environment.isStudioSystem === false){
                 casesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -644,12 +645,12 @@ export default class StoryServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -664,7 +665,7 @@ export default class StoryServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/stories/${context.story}/batchchangemodule`,data,isloading);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/batchchangemodule`,data,isloading);
             return res;
     }
 
@@ -683,12 +684,12 @@ export default class StoryServiceBase extends EntityService {
         let casesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_cases'),'undefined')){
             casesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_cases') as any);
-            if(casesData && casesData.length && casesData.length > 0){
+            if(casesData && casesData.length && casesData.length > 0 && Environment.isStudioSystem === false){
                 casesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -699,12 +700,12 @@ export default class StoryServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -719,7 +720,7 @@ export default class StoryServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/stories/${context.story}/batchchangeplan`,data,isloading);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/batchchangeplan`,data,isloading);
             return res;
     }
 
@@ -738,12 +739,12 @@ export default class StoryServiceBase extends EntityService {
         let casesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_cases'),'undefined')){
             casesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_cases') as any);
-            if(casesData && casesData.length && casesData.length > 0){
+            if(casesData && casesData.length && casesData.length > 0 && Environment.isStudioSystem === false){
                 casesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -754,12 +755,12 @@ export default class StoryServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -774,7 +775,7 @@ export default class StoryServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/stories/${context.story}/batchchangestage`,data,isloading);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/batchchangestage`,data,isloading);
             return res;
     }
 
@@ -793,12 +794,12 @@ export default class StoryServiceBase extends EntityService {
         let casesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_cases'),'undefined')){
             casesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_cases') as any);
-            if(casesData && casesData.length && casesData.length > 0){
+            if(casesData && casesData.length && casesData.length > 0 && Environment.isStudioSystem === false){
                 casesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -809,12 +810,12 @@ export default class StoryServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -829,7 +830,7 @@ export default class StoryServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/stories/${context.story}/batchclose`,data,isloading);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/batchclose`,data,isloading);
             return res;
     }
 
@@ -848,12 +849,12 @@ export default class StoryServiceBase extends EntityService {
         let casesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_cases'),'undefined')){
             casesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_cases') as any);
-            if(casesData && casesData.length && casesData.length > 0){
+            if(casesData && casesData.length && casesData.length > 0 && Environment.isStudioSystem === false){
                 casesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -864,12 +865,12 @@ export default class StoryServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -884,7 +885,7 @@ export default class StoryServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/stories/${context.story}/batchreview`,data,isloading);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/batchreview`,data,isloading);
             return res;
     }
 
@@ -903,12 +904,12 @@ export default class StoryServiceBase extends EntityService {
         let casesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_cases'),'undefined')){
             casesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_cases') as any);
-            if(casesData && casesData.length && casesData.length > 0){
+            if(casesData && casesData.length && casesData.length > 0 && Environment.isStudioSystem === false){
                 casesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -919,12 +920,12 @@ export default class StoryServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -939,7 +940,7 @@ export default class StoryServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/stories/${context.story}/batchunlinkstory`,data,isloading);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/batchunlinkstory`,data,isloading);
             return res;
     }
 
@@ -958,12 +959,12 @@ export default class StoryServiceBase extends EntityService {
         let casesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_cases'),'undefined')){
             casesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_cases') as any);
-            if(casesData && casesData.length && casesData.length > 0){
+            if(casesData && casesData.length && casesData.length > 0 && Environment.isStudioSystem === false){
                 casesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -974,12 +975,12 @@ export default class StoryServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -994,7 +995,7 @@ export default class StoryServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/stories/${context.story}/bugtostory`,data,isloading);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/bugtostory`,data,isloading);
             return res;
     }
 
@@ -1013,12 +1014,12 @@ export default class StoryServiceBase extends EntityService {
         let casesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_cases'),'undefined')){
             casesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_cases') as any);
-            if(casesData && casesData.length && casesData.length > 0){
+            if(casesData && casesData.length && casesData.length > 0 && Environment.isStudioSystem === false){
                 casesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1029,12 +1030,12 @@ export default class StoryServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1049,7 +1050,7 @@ export default class StoryServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/stories/${context.story}/buildbatchunlinkstory`,data,isloading);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/buildbatchunlinkstory`,data,isloading);
             return res;
     }
 
@@ -1068,12 +1069,12 @@ export default class StoryServiceBase extends EntityService {
         let casesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_cases'),'undefined')){
             casesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_cases') as any);
-            if(casesData && casesData.length && casesData.length > 0){
+            if(casesData && casesData.length && casesData.length > 0 && Environment.isStudioSystem === false){
                 casesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1084,12 +1085,12 @@ export default class StoryServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1104,7 +1105,7 @@ export default class StoryServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/stories/${context.story}/buildlinkstory`,data,isloading);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/buildlinkstory`,data,isloading);
             return res;
     }
 
@@ -1123,12 +1124,12 @@ export default class StoryServiceBase extends EntityService {
         let casesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_cases'),'undefined')){
             casesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_cases') as any);
-            if(casesData && casesData.length && casesData.length > 0){
+            if(casesData && casesData.length && casesData.length > 0 && Environment.isStudioSystem === false){
                 casesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1139,12 +1140,12 @@ export default class StoryServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1159,7 +1160,7 @@ export default class StoryServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/stories/${context.story}/buildunlinkstory`,data,isloading);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/buildunlinkstory`,data,isloading);
             return res;
     }
 
@@ -1178,12 +1179,12 @@ export default class StoryServiceBase extends EntityService {
         let casesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_cases'),'undefined')){
             casesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_cases') as any);
-            if(casesData && casesData.length && casesData.length > 0){
+            if(casesData && casesData.length && casesData.length > 0 && Environment.isStudioSystem === false){
                 casesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1194,12 +1195,12 @@ export default class StoryServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1214,7 +1215,7 @@ export default class StoryServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/stories/${context.story}/buildunlinkstorys`,data,isloading);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/buildunlinkstorys`,data,isloading);
             return res;
     }
 
@@ -1233,12 +1234,12 @@ export default class StoryServiceBase extends EntityService {
         let casesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_cases'),'undefined')){
             casesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_cases') as any);
-            if(casesData && casesData.length && casesData.length > 0){
+            if(casesData && casesData.length && casesData.length > 0 && Environment.isStudioSystem === false){
                 casesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1249,12 +1250,12 @@ export default class StoryServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1269,7 +1270,7 @@ export default class StoryServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/stories/${context.story}/change`,data,isloading);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/change`,data,isloading);
             return res;
     }
 
@@ -1288,12 +1289,12 @@ export default class StoryServiceBase extends EntityService {
         let casesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_cases'),'undefined')){
             casesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_cases') as any);
-            if(casesData && casesData.length && casesData.length > 0){
+            if(casesData && casesData.length && casesData.length > 0 && Environment.isStudioSystem === false){
                 casesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1304,12 +1305,12 @@ export default class StoryServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1324,7 +1325,7 @@ export default class StoryServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/stories/${context.story}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/checkkey`,data,isloading);
             return res;
     }
 
@@ -1343,12 +1344,12 @@ export default class StoryServiceBase extends EntityService {
         let casesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_cases'),'undefined')){
             casesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_cases') as any);
-            if(casesData && casesData.length && casesData.length > 0){
+            if(casesData && casesData.length && casesData.length > 0 && Environment.isStudioSystem === false){
                 casesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1359,12 +1360,12 @@ export default class StoryServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1379,7 +1380,7 @@ export default class StoryServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/stories/${context.story}/close`,data,isloading);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/close`,data,isloading);
             return res;
     }
 
@@ -1398,12 +1399,12 @@ export default class StoryServiceBase extends EntityService {
         let casesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_cases'),'undefined')){
             casesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_cases') as any);
-            if(casesData && casesData.length && casesData.length > 0){
+            if(casesData && casesData.length && casesData.length > 0 && Environment.isStudioSystem === false){
                 casesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1414,12 +1415,12 @@ export default class StoryServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1434,7 +1435,7 @@ export default class StoryServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/stories/${context.story}/createtasks`,data,isloading);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/createtasks`,data,isloading);
             return res;
     }
 
@@ -1453,12 +1454,12 @@ export default class StoryServiceBase extends EntityService {
         let casesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_cases'),'undefined')){
             casesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_cases') as any);
-            if(casesData && casesData.length && casesData.length > 0){
+            if(casesData && casesData.length && casesData.length > 0 && Environment.isStudioSystem === false){
                 casesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1469,12 +1470,12 @@ export default class StoryServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1489,7 +1490,7 @@ export default class StoryServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/stories/${context.story}/getstoryspec`,data,isloading);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/getstoryspec`,data,isloading);
             return res;
     }
 
@@ -1532,12 +1533,12 @@ export default class StoryServiceBase extends EntityService {
         let casesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_cases'),'undefined')){
             casesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_cases') as any);
-            if(casesData && casesData.length && casesData.length > 0){
+            if(casesData && casesData.length && casesData.length > 0 && Environment.isStudioSystem === false){
                 casesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1548,12 +1549,12 @@ export default class StoryServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1568,7 +1569,7 @@ export default class StoryServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/stories/${context.story}/importplanstories`,data,isloading);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/importplanstories`,data,isloading);
             return res;
     }
 
@@ -1587,12 +1588,12 @@ export default class StoryServiceBase extends EntityService {
         let casesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_cases'),'undefined')){
             casesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_cases') as any);
-            if(casesData && casesData.length && casesData.length > 0){
+            if(casesData && casesData.length && casesData.length > 0 && Environment.isStudioSystem === false){
                 casesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1603,12 +1604,12 @@ export default class StoryServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1623,7 +1624,7 @@ export default class StoryServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/stories/${context.story}/linkstory`,data,isloading);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/linkstory`,data,isloading);
             return res;
     }
 
@@ -1642,12 +1643,12 @@ export default class StoryServiceBase extends EntityService {
         let casesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_cases'),'undefined')){
             casesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_cases') as any);
-            if(casesData && casesData.length && casesData.length > 0){
+            if(casesData && casesData.length && casesData.length > 0 && Environment.isStudioSystem === false){
                 casesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1658,12 +1659,12 @@ export default class StoryServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1678,7 +1679,7 @@ export default class StoryServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/stories/${context.story}/projectbatchunlinkstory`,data,isloading);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/projectbatchunlinkstory`,data,isloading);
             return res;
     }
 
@@ -1697,12 +1698,12 @@ export default class StoryServiceBase extends EntityService {
         let casesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_cases'),'undefined')){
             casesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_cases') as any);
-            if(casesData && casesData.length && casesData.length > 0){
+            if(casesData && casesData.length && casesData.length > 0 && Environment.isStudioSystem === false){
                 casesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1713,12 +1714,12 @@ export default class StoryServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1733,7 +1734,7 @@ export default class StoryServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/stories/${context.story}/projectlinkstory`,data,isloading);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/projectlinkstory`,data,isloading);
             return res;
     }
 
@@ -1752,12 +1753,12 @@ export default class StoryServiceBase extends EntityService {
         let casesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_cases'),'undefined')){
             casesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_cases') as any);
-            if(casesData && casesData.length && casesData.length > 0){
+            if(casesData && casesData.length && casesData.length > 0 && Environment.isStudioSystem === false){
                 casesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1768,12 +1769,12 @@ export default class StoryServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1788,7 +1789,7 @@ export default class StoryServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/stories/${context.story}/projectunlinkstory`,data,isloading);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/projectunlinkstory`,data,isloading);
             return res;
     }
 
@@ -1807,12 +1808,12 @@ export default class StoryServiceBase extends EntityService {
         let casesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_cases'),'undefined')){
             casesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_cases') as any);
-            if(casesData && casesData.length && casesData.length > 0){
+            if(casesData && casesData.length && casesData.length > 0 && Environment.isStudioSystem === false){
                 casesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1823,12 +1824,12 @@ export default class StoryServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1843,7 +1844,7 @@ export default class StoryServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/stories/${context.story}/projectunlinkstorys`,data,isloading);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/projectunlinkstorys`,data,isloading);
             return res;
     }
 
@@ -1862,12 +1863,12 @@ export default class StoryServiceBase extends EntityService {
         let casesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_cases'),'undefined')){
             casesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_cases') as any);
-            if(casesData && casesData.length && casesData.length > 0){
+            if(casesData && casesData.length && casesData.length > 0 && Environment.isStudioSystem === false){
                 casesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1878,12 +1879,12 @@ export default class StoryServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1898,7 +1899,7 @@ export default class StoryServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/stories/${context.story}/push`,data,isloading);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/push`,data,isloading);
             return res;
     }
 
@@ -1917,12 +1918,12 @@ export default class StoryServiceBase extends EntityService {
         let casesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_cases'),'undefined')){
             casesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_cases') as any);
-            if(casesData && casesData.length && casesData.length > 0){
+            if(casesData && casesData.length && casesData.length > 0 && Environment.isStudioSystem === false){
                 casesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1933,12 +1934,12 @@ export default class StoryServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1953,7 +1954,7 @@ export default class StoryServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/stories/${context.story}/releasebatchunlinkstory`,data,isloading);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/releasebatchunlinkstory`,data,isloading);
             return res;
     }
 
@@ -1972,12 +1973,12 @@ export default class StoryServiceBase extends EntityService {
         let casesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_cases'),'undefined')){
             casesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_cases') as any);
-            if(casesData && casesData.length && casesData.length > 0){
+            if(casesData && casesData.length && casesData.length > 0 && Environment.isStudioSystem === false){
                 casesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -1988,12 +1989,12 @@ export default class StoryServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -2008,7 +2009,7 @@ export default class StoryServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/stories/${context.story}/releaselinkstory`,data,isloading);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/releaselinkstory`,data,isloading);
             return res;
     }
 
@@ -2027,12 +2028,12 @@ export default class StoryServiceBase extends EntityService {
         let casesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_cases'),'undefined')){
             casesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_cases') as any);
-            if(casesData && casesData.length && casesData.length > 0){
+            if(casesData && casesData.length && casesData.length > 0 && Environment.isStudioSystem === false){
                 casesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -2043,12 +2044,12 @@ export default class StoryServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -2063,7 +2064,7 @@ export default class StoryServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/stories/${context.story}/releaseunlinkstory`,data,isloading);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/releaseunlinkstory`,data,isloading);
             return res;
     }
 
@@ -2082,12 +2083,12 @@ export default class StoryServiceBase extends EntityService {
         let casesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_cases'),'undefined')){
             casesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_cases') as any);
-            if(casesData && casesData.length && casesData.length > 0){
+            if(casesData && casesData.length && casesData.length > 0 && Environment.isStudioSystem === false){
                 casesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -2098,12 +2099,12 @@ export default class StoryServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -2118,7 +2119,7 @@ export default class StoryServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/stories/${context.story}/resetreviewedby`,data,isloading);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/resetreviewedby`,data,isloading);
             return res;
     }
 
@@ -2137,12 +2138,12 @@ export default class StoryServiceBase extends EntityService {
         let casesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_cases'),'undefined')){
             casesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_cases') as any);
-            if(casesData && casesData.length && casesData.length > 0){
+            if(casesData && casesData.length && casesData.length > 0 && Environment.isStudioSystem === false){
                 casesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -2153,12 +2154,12 @@ export default class StoryServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -2173,7 +2174,7 @@ export default class StoryServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/stories/${context.story}/review`,data,isloading);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/review`,data,isloading);
             return res;
     }
 
@@ -2192,12 +2193,12 @@ export default class StoryServiceBase extends EntityService {
         let casesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_cases'),'undefined')){
             casesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_cases') as any);
-            if(casesData && casesData.length && casesData.length > 0){
+            if(casesData && casesData.length && casesData.length > 0 && Environment.isStudioSystem === false){
                 casesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -2208,12 +2209,12 @@ export default class StoryServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -2232,12 +2233,12 @@ export default class StoryServiceBase extends EntityService {
         let casesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_cases'),'undefined')){
             casesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_cases') as any);
-            if(casesData && casesData.length && casesData.length > 0){
+            if(casesData && casesData.length && casesData.length > 0 && Environment.isStudioSystem === false){
                 casesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -2248,12 +2249,12 @@ export default class StoryServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -2284,12 +2285,12 @@ export default class StoryServiceBase extends EntityService {
         let casesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_cases'),'undefined')){
             casesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_cases') as any);
-            if(casesData && casesData.length && casesData.length > 0){
+            if(casesData && casesData.length && casesData.length > 0 && Environment.isStudioSystem === false){
                 casesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -2300,12 +2301,12 @@ export default class StoryServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -2320,7 +2321,7 @@ export default class StoryServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/stories/${context.story}/sendmessage`,data,isloading);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/sendmessage`,data,isloading);
             return res;
     }
 
@@ -2339,12 +2340,12 @@ export default class StoryServiceBase extends EntityService {
         let casesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_cases'),'undefined')){
             casesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_cases') as any);
-            if(casesData && casesData.length && casesData.length > 0){
+            if(casesData && casesData.length && casesData.length > 0 && Environment.isStudioSystem === false){
                 casesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -2355,12 +2356,12 @@ export default class StoryServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -2375,7 +2376,7 @@ export default class StoryServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/stories/${context.story}/sendmsgpreprocess`,data,isloading);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/sendmsgpreprocess`,data,isloading);
             return res;
     }
 
@@ -2394,12 +2395,12 @@ export default class StoryServiceBase extends EntityService {
         let casesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_cases'),'undefined')){
             casesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_cases') as any);
-            if(casesData && casesData.length && casesData.length > 0){
+            if(casesData && casesData.length && casesData.length > 0 && Environment.isStudioSystem === false){
                 casesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -2410,12 +2411,12 @@ export default class StoryServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -2430,7 +2431,7 @@ export default class StoryServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/stories/${context.story}/storyfavorites`,data,isloading);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/storyfavorites`,data,isloading);
             return res;
     }
 
@@ -2449,12 +2450,12 @@ export default class StoryServiceBase extends EntityService {
         let casesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_cases'),'undefined')){
             casesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_cases') as any);
-            if(casesData && casesData.length && casesData.length > 0){
+            if(casesData && casesData.length && casesData.length > 0 && Environment.isStudioSystem === false){
                 casesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -2465,12 +2466,12 @@ export default class StoryServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -2485,7 +2486,7 @@ export default class StoryServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/stories/${context.story}/storynfavorites`,data,isloading);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/storynfavorites`,data,isloading);
             return res;
     }
 
@@ -2504,12 +2505,12 @@ export default class StoryServiceBase extends EntityService {
         let casesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_cases'),'undefined')){
             casesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_cases') as any);
-            if(casesData && casesData.length && casesData.length > 0){
+            if(casesData && casesData.length && casesData.length > 0 && Environment.isStudioSystem === false){
                 casesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -2520,12 +2521,12 @@ export default class StoryServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -2540,7 +2541,7 @@ export default class StoryServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/stories/${context.story}/syncfromibiz`,data,isloading);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/syncfromibiz`,data,isloading);
             return res;
     }
 
@@ -2559,12 +2560,12 @@ export default class StoryServiceBase extends EntityService {
         let casesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_cases'),'undefined')){
             casesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_cases') as any);
-            if(casesData && casesData.length && casesData.length > 0){
+            if(casesData && casesData.length && casesData.length > 0 && Environment.isStudioSystem === false){
                 casesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -2575,12 +2576,12 @@ export default class StoryServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -2595,7 +2596,7 @@ export default class StoryServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/stories/${context.story}/unlinkstory`,data,isloading);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/unlinkstory`,data,isloading);
             return res;
     }
 
@@ -2611,11 +2612,11 @@ export default class StoryServiceBase extends EntityService {
     public async FetchAssignedToMyStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/fetchassignedtomystory`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/fetchassignedtomystory`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/stories/fetchassignedtomystory`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/stories/fetchassignedtomystory`,tempData,isloading);
         return res;
     }
 
@@ -2649,11 +2650,11 @@ export default class StoryServiceBase extends EntityService {
     public async FetchAssignedToMyStoryCalendar(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/fetchassignedtomystorycalendar`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/fetchassignedtomystorycalendar`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/stories/fetchassignedtomystorycalendar`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/stories/fetchassignedtomystorycalendar`,tempData,isloading);
         return res;
     }
 
@@ -2687,11 +2688,11 @@ export default class StoryServiceBase extends EntityService {
     public async FetchBugStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/fetchbugstory`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/fetchbugstory`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/stories/fetchbugstory`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/stories/fetchbugstory`,tempData,isloading);
         return res;
     }
 
@@ -2725,11 +2726,11 @@ export default class StoryServiceBase extends EntityService {
     public async FetchBuildLinkCompletedStories(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/fetchbuildlinkcompletedstories`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/fetchbuildlinkcompletedstories`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/stories/fetchbuildlinkcompletedstories`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/stories/fetchbuildlinkcompletedstories`,tempData,isloading);
         return res;
     }
 
@@ -2763,11 +2764,11 @@ export default class StoryServiceBase extends EntityService {
     public async FetchBuildLinkableStories(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/fetchbuildlinkablestories`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/fetchbuildlinkablestories`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/stories/fetchbuildlinkablestories`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/stories/fetchbuildlinkablestories`,tempData,isloading);
         return res;
     }
 
@@ -2801,11 +2802,11 @@ export default class StoryServiceBase extends EntityService {
     public async FetchBuildStories(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/products/${context.product}/stories/fetchbuildstories`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/fetchbuildstories`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().post(`/stories/fetchbuildstories`,tempData,isloading);
+        let res:any = await Http.getInstance().post(`/stories/fetchbuildstories`,tempData,isloading);
         return res;
     }
 
@@ -2839,11 +2840,11 @@ export default class StoryServiceBase extends EntityService {
     public async FetchByModule(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/products/${context.product}/stories/fetchbymodule`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/fetchbymodule`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().post(`/stories/fetchbymodule`,tempData,isloading);
+        let res:any = await Http.getInstance().post(`/stories/fetchbymodule`,tempData,isloading);
         return res;
     }
 
@@ -2877,11 +2878,11 @@ export default class StoryServiceBase extends EntityService {
     public async FetchCaseStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/fetchcasestory`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/fetchcasestory`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/stories/fetchcasestory`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/stories/fetchcasestory`,tempData,isloading);
         return res;
     }
 
@@ -2915,11 +2916,11 @@ export default class StoryServiceBase extends EntityService {
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/products/${context.product}/stories/fetchdefault`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/fetchdefault`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().post(`/stories/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().post(`/stories/fetchdefault`,tempData,isloading);
         return res;
     }
 
@@ -2953,11 +2954,11 @@ export default class StoryServiceBase extends EntityService {
     public async FetchESBulk(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/fetchesbulk`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/fetchesbulk`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/stories/fetchesbulk`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/stories/fetchesbulk`,tempData,isloading);
         return res;
     }
 
@@ -2991,11 +2992,11 @@ export default class StoryServiceBase extends EntityService {
     public async FetchGetProductStories(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/fetchgetproductstories`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/fetchgetproductstories`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/stories/fetchgetproductstories`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/stories/fetchgetproductstories`,tempData,isloading);
         return res;
     }
 
@@ -3029,11 +3030,11 @@ export default class StoryServiceBase extends EntityService {
     public async FetchMyAgentStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/fetchmyagentstory`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/fetchmyagentstory`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/stories/fetchmyagentstory`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/stories/fetchmyagentstory`,tempData,isloading);
         return res;
     }
 
@@ -3067,11 +3068,11 @@ export default class StoryServiceBase extends EntityService {
     public async FetchMyCurOpenedStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/fetchmycuropenedstory`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/fetchmycuropenedstory`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/stories/fetchmycuropenedstory`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/stories/fetchmycuropenedstory`,tempData,isloading);
         return res;
     }
 
@@ -3105,11 +3106,11 @@ export default class StoryServiceBase extends EntityService {
     public async FetchMyFavorites(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/products/${context.product}/stories/fetchmyfavorites`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/fetchmyfavorites`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().post(`/stories/fetchmyfavorites`,tempData,isloading);
+        let res:any = await Http.getInstance().post(`/stories/fetchmyfavorites`,tempData,isloading);
         return res;
     }
 
@@ -3143,11 +3144,11 @@ export default class StoryServiceBase extends EntityService {
     public async FetchNotCurPlanLinkStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/fetchnotcurplanlinkstory`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/fetchnotcurplanlinkstory`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/stories/fetchnotcurplanlinkstory`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/stories/fetchnotcurplanlinkstory`,tempData,isloading);
         return res;
     }
 
@@ -3181,11 +3182,11 @@ export default class StoryServiceBase extends EntityService {
     public async FetchParentDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/products/${context.product}/stories/fetchparentdefault`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/fetchparentdefault`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().post(`/stories/fetchparentdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().post(`/stories/fetchparentdefault`,tempData,isloading);
         return res;
     }
 
@@ -3219,11 +3220,11 @@ export default class StoryServiceBase extends EntityService {
     public async FetchParentDefaultQ(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/fetchparentdefaultq`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/fetchparentdefaultq`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/stories/fetchparentdefaultq`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/stories/fetchparentdefaultq`,tempData,isloading);
         return res;
     }
 
@@ -3257,11 +3258,11 @@ export default class StoryServiceBase extends EntityService {
     public async FetchProjectLinkStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/fetchprojectlinkstory`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/fetchprojectlinkstory`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/stories/fetchprojectlinkstory`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/stories/fetchprojectlinkstory`,tempData,isloading);
         return res;
     }
 
@@ -3295,11 +3296,11 @@ export default class StoryServiceBase extends EntityService {
     public async FetchProjectStories(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/products/${context.product}/stories/fetchprojectstories`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/fetchprojectstories`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().post(`/stories/fetchprojectstories`,tempData,isloading);
+        let res:any = await Http.getInstance().post(`/stories/fetchprojectstories`,tempData,isloading);
         return res;
     }
 
@@ -3333,11 +3334,11 @@ export default class StoryServiceBase extends EntityService {
     public async FetchReleaseLinkableStories(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/fetchreleaselinkablestories`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/fetchreleaselinkablestories`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/stories/fetchreleaselinkablestories`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/stories/fetchreleaselinkablestories`,tempData,isloading);
         return res;
     }
 
@@ -3371,11 +3372,11 @@ export default class StoryServiceBase extends EntityService {
     public async FetchReleaseStories(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/products/${context.product}/stories/fetchreleasestories`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/fetchreleasestories`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().post(`/stories/fetchreleasestories`,tempData,isloading);
+        let res:any = await Http.getInstance().post(`/stories/fetchreleasestories`,tempData,isloading);
         return res;
     }
 
@@ -3409,11 +3410,11 @@ export default class StoryServiceBase extends EntityService {
     public async FetchReportStories(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/products/${context.product}/stories/fetchreportstories`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/fetchreportstories`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().post(`/stories/fetchreportstories`,tempData,isloading);
+        let res:any = await Http.getInstance().post(`/stories/fetchreportstories`,tempData,isloading);
         return res;
     }
 
@@ -3447,11 +3448,11 @@ export default class StoryServiceBase extends EntityService {
     public async FetchStoryChild(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/fetchstorychild`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/fetchstorychild`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/stories/fetchstorychild`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/stories/fetchstorychild`,tempData,isloading);
         return res;
     }
 
@@ -3485,11 +3486,11 @@ export default class StoryServiceBase extends EntityService {
     public async FetchStoryRelated(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/fetchstoryrelated`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/fetchstoryrelated`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/stories/fetchstoryrelated`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/stories/fetchstoryrelated`,tempData,isloading);
         return res;
     }
 
@@ -3523,11 +3524,11 @@ export default class StoryServiceBase extends EntityService {
     public async FetchSubStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/fetchsubstory`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/fetchsubstory`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/stories/fetchsubstory`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/stories/fetchsubstory`,tempData,isloading);
         return res;
     }
 
@@ -3561,11 +3562,11 @@ export default class StoryServiceBase extends EntityService {
     public async FetchTaskRelatedStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/fetchtaskrelatedstory`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/fetchtaskrelatedstory`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/stories/fetchtaskrelatedstory`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/stories/fetchtaskrelatedstory`,tempData,isloading);
         return res;
     }
 
@@ -3599,11 +3600,11 @@ export default class StoryServiceBase extends EntityService {
     public async FetchView(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/fetchview`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/fetchview`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/stories/fetchview`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/stories/fetchview`,tempData,isloading);
         return res;
     }
 

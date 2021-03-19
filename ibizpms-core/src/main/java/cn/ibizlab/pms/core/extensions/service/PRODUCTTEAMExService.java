@@ -70,10 +70,15 @@ public class PRODUCTTEAMExService extends PRODUCTTEAMServiceImpl {
 
 
     public boolean jug(List<PRODUCTTEAM> list,PRODUCTTEAM team,boolean flag){
+        int i = 1;
         for (PRODUCTTEAM productteam : list) {
             if (productteam.getAccount().equals(team.getAccount()) && StringUtils.compare(productteam.getJoin().toString(),team.getJoin().toString()) == 0 && StringUtils.compare(productteam.getEnd().toString(),team.getEnd().toString()) == 0){
-                flag = false;
-                break;
+                if (i == 1){
+                    i++;
+                }else {
+                    flag = false;
+                    break;
+                }
             }
         }
         return flag;

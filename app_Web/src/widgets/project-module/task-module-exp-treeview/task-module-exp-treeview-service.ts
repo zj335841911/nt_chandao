@@ -305,6 +305,10 @@ export default class TaskModuleExpService extends ControlService {
             let treeNode: any = {};
             Object.assign(treeNode, { text: i18n.t('entities.projectmodule.taskmoduleexp_treeview.nodes.all') });
             Object.assign(treeNode, { isUseLangRes: true });
+            if(filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")){
+                if((i18n.t(treeNode.text) as string).toUpperCase().indexOf(filter.srfnodefilter.toUpperCase())!=-1)
+                    return resolve(list);
+            }
             Object.assign(treeNode,{srfappctx:context});
             Object.assign(treeNode, { srfmajortext: treeNode.text });
             let strNodeId: string = 'ALL';
@@ -390,6 +394,7 @@ export default class TaskModuleExpService extends ControlService {
             }
 
             Object.assign(searchFilter, { total: false });
+            Object.assign(searchFilter, { query: filter.srfnodefilter });
             let bFirst: boolean = true;
             let records: any[] = [];
             try {
@@ -533,6 +538,7 @@ export default class TaskModuleExpService extends ControlService {
         return new Promise((resolve:any,reject:any) =>{
             let searchFilter: any = {};
             Object.assign(searchFilter, { total: false });
+            Object.assign(searchFilter, { query: filter.srfnodefilter });
             let bFirst: boolean = true;
             let records: any[] = [];
             try {
@@ -656,6 +662,11 @@ export default class TaskModuleExpService extends ControlService {
             let BranchsRsNavParams:any = {};
             let BranchsRsParams:any = {};
 			await this.fillBranchsNodes(context, filter, list ,BranchsRsNavContext,BranchsRsNavParams,BranchsRsParams);
+			// 填充产品根模块（动态）
+            let RootmoduleRsNavContext:any = {"PRODUCT":{"isRawValue":false,"value":"projectproduct"}};
+            let RootmoduleRsNavParams:any = {};
+            let RootmoduleRsParams:any = {};
+			await this.fillRootmoduleNodes(context, filter, list ,RootmoduleRsNavContext,RootmoduleRsNavParams,RootmoduleRsParams);
 		} else {
 			// 填充产品根模块无分支（动态）
             let Root_nobranchRsNavContext:any = {"PRODUCT":{"isRawValue":false,"value":"projectproduct"}};
@@ -667,6 +678,11 @@ export default class TaskModuleExpService extends ControlService {
             let BranchsRsNavParams:any = {};
             let BranchsRsParams:any = {};
 			await this.fillBranchsNodes(context, filter, list ,BranchsRsNavContext,BranchsRsNavParams,BranchsRsParams);
+			// 填充产品根模块（动态）
+            let RootmoduleRsNavContext:any = {"PRODUCT":{"isRawValue":false,"value":"projectproduct"}};
+            let RootmoduleRsNavParams:any = {};
+            let RootmoduleRsParams:any = {};
+			await this.fillRootmoduleNodes(context, filter, list ,RootmoduleRsNavContext,RootmoduleRsNavParams,RootmoduleRsParams);
 		}
 	}
 
@@ -691,6 +707,10 @@ export default class TaskModuleExpService extends ControlService {
             let treeNode: any = {};
             Object.assign(treeNode, { text: i18n.t('entities.projectmodule.taskmoduleexp_treeview.nodes.root') });
             Object.assign(treeNode, { isUseLangRes: true });
+            if(filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")){
+                if((i18n.t(treeNode.text) as string).toUpperCase().indexOf(filter.srfnodefilter.toUpperCase())!=-1)
+                    return resolve(list);
+            }
             Object.assign(treeNode,{srfappctx:context});
             Object.assign(treeNode, { srfmajortext: treeNode.text });
             let strNodeId: string = 'ROOT';
@@ -758,6 +778,7 @@ export default class TaskModuleExpService extends ControlService {
         return new Promise((resolve:any,reject:any) =>{
             let searchFilter: any = {};
             Object.assign(searchFilter, { total: false });
+            Object.assign(searchFilter, { query: filter.srfnodefilter });
             let bFirst: boolean = true;
             let records: any[] = [];
             try {
@@ -922,6 +943,7 @@ export default class TaskModuleExpService extends ControlService {
             }
 
             Object.assign(searchFilter, { total: false });
+            Object.assign(searchFilter, { query: filter.srfnodefilter });
             let bFirst: boolean = true;
             let records: any[] = [];
             try {
@@ -1077,6 +1099,7 @@ export default class TaskModuleExpService extends ControlService {
             }
 
             Object.assign(searchFilter, { total: false });
+            Object.assign(searchFilter, { query: filter.srfnodefilter });
             let bFirst: boolean = true;
             let records: any[] = [];
             try {
@@ -1255,6 +1278,7 @@ export default class TaskModuleExpService extends ControlService {
             }
 
             Object.assign(searchFilter, { total: false });
+            Object.assign(searchFilter, { query: filter.srfnodefilter });
             let bFirst: boolean = true;
             let records: any[] = [];
             try {
@@ -1412,6 +1436,7 @@ export default class TaskModuleExpService extends ControlService {
             }
 
             Object.assign(searchFilter, { total: false });
+            Object.assign(searchFilter, { query: filter.srfnodefilter });
             let bFirst: boolean = true;
             let records: any[] = [];
             try {

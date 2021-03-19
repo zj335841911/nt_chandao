@@ -20,11 +20,14 @@ import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * 服务DTO对象[IbzLoginDTO]
  */
 @Data
+@ApiModel("实体")
 public class IbzLoginDTO extends DTOBase implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -36,6 +39,7 @@ public class IbzLoginDTO extends DTOBase implements Serializable {
     @JSONField(name = "realname")
     @JsonProperty("realname")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("真实姓名")
     private String realname;
 
     /**
@@ -45,6 +49,7 @@ public class IbzLoginDTO extends DTOBase implements Serializable {
     @JSONField(name = "id")
     @JsonProperty("id")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("ID")
     private Long id;
 
     /**
@@ -54,6 +59,7 @@ public class IbzLoginDTO extends DTOBase implements Serializable {
     @JSONField(name = "account")
     @JsonProperty("account")
     @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
+    @ApiModelProperty("账户")
     private String account;
 
     /**
@@ -63,6 +69,7 @@ public class IbzLoginDTO extends DTOBase implements Serializable {
     @JSONField(name = "token")
     @JsonProperty("token")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("token")
     private String token;
 
     /**
@@ -72,6 +79,7 @@ public class IbzLoginDTO extends DTOBase implements Serializable {
     @JSONField(name = "commiter")
     @JsonProperty("commiter")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("源代码账户")
     private String commiter;
 
 

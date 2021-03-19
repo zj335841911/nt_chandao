@@ -1,3 +1,4 @@
+import { Environment } from '@/environments/environment';
 import { Http } from '@/utils';
 import { Util } from '@/utils';
 import EntityService from '../entity-service';
@@ -49,7 +50,7 @@ export default class UserYearWorkStatsServiceBase extends EntityService {
      * @memberof UserYearWorkStatsServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().get(`/useryearworkstats/${context.useryearworkstats}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/useryearworkstats/${context.useryearworkstats}/select`,isloading);
             
             return res;
     }
@@ -105,7 +106,7 @@ export default class UserYearWorkStatsServiceBase extends EntityService {
      * @memberof UserYearWorkStatsServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().delete(`/useryearworkstats/${context.useryearworkstats}`,isloading);
+            let res:any = await Http.getInstance().delete(`/useryearworkstats/${context.useryearworkstats}`,isloading);
             return res;
     }
 
@@ -153,7 +154,7 @@ export default class UserYearWorkStatsServiceBase extends EntityService {
      * @memberof UserYearWorkStatsServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/useryearworkstats/${context.useryearworkstats}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/useryearworkstats/${context.useryearworkstats}/checkkey`,data,isloading);
             return res;
     }
 
@@ -212,7 +213,7 @@ export default class UserYearWorkStatsServiceBase extends EntityService {
      * @memberof UserYearWorkStatsServiceBase
      */
     public async GetUserYearAction(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().put(`/useryearworkstats/${context.useryearworkstats}/getuseryearaction`,data,isloading);
+            let res:any = await Http.getInstance().put(`/useryearworkstats/${context.useryearworkstats}/getuseryearaction`,data,isloading);
             return res;
     }
 
@@ -243,7 +244,7 @@ export default class UserYearWorkStatsServiceBase extends EntityService {
      * @memberof UserYearWorkStatsServiceBase
      */
     public async UpdateTitleByYear(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().put(`/useryearworkstats/${context.useryearworkstats}/updatetitlebyyear`,data,isloading);
+            let res:any = await Http.getInstance().put(`/useryearworkstats/${context.useryearworkstats}/updatetitlebyyear`,data,isloading);
             return res;
     }
 
@@ -258,7 +259,7 @@ export default class UserYearWorkStatsServiceBase extends EntityService {
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/useryearworkstats/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/useryearworkstats/fetchdefault`,tempData,isloading);
         return res;
     }
 
@@ -287,7 +288,7 @@ export default class UserYearWorkStatsServiceBase extends EntityService {
      */
     public async FetchMonthFinishTaskAndBug(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/useryearworkstats/fetchmonthfinishtaskandbug`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/useryearworkstats/fetchmonthfinishtaskandbug`,tempData,isloading);
         return res;
     }
 
@@ -316,7 +317,7 @@ export default class UserYearWorkStatsServiceBase extends EntityService {
      */
     public async FetchMonthOpenedBugAndCase(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/useryearworkstats/fetchmonthopenedbugandcase`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/useryearworkstats/fetchmonthopenedbugandcase`,tempData,isloading);
         return res;
     }
 
@@ -345,7 +346,7 @@ export default class UserYearWorkStatsServiceBase extends EntityService {
      */
     public async FetchMonthOpenedStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/useryearworkstats/fetchmonthopenedstory`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/useryearworkstats/fetchmonthopenedstory`,tempData,isloading);
         return res;
     }
 

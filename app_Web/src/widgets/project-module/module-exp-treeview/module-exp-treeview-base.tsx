@@ -1084,7 +1084,7 @@ export class ModuleExpTreeBase extends MainControlBase {
     public refresh_node(curContext:any,arg: any = {}, parentnode: boolean): void {
         const { srfnodeid: id } = arg;
         Object.assign(arg,{viewparams:this.viewparams});
-        const get: Promise<any> = this.service.getNodes(JSON.parse(JSON.stringify(this.context)),arg);
+        const get: Promise<any> = this.service.getNodes(JSON.parse(JSON.stringify(curContext)),arg);
         get.then((response: any) => {
             if (!response || response.status !== 200) {
                 this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.info });
@@ -1483,19 +1483,10 @@ export class ModuleExpTreeBase extends MainControlBase {
         if(Object.is(nodeType,"STATIC")){
             return this.copyActionModel;
         }
-        let service:any = await this.appEntityService.getService(appEntityName);
         if(this.copyActionModel && Object.keys(this.copyActionModel).length > 0) {
-            if(service['Get'] && service['Get'] instanceof Function){
-                let tempContext:any = this.$util.deepCopy(this.context);
-                tempContext[appEntityName] = node.srfkey;
-                let targetData = await service.Get(tempContext,{}, false);
-                let uiservice:any = await this.appUIService.getService(appEntityName);
-                let result: any[] = ViewTool.calcActionItemAuthState(targetData.data,this.copyActionModel,uiservice);
-                return this.copyActionModel;
-            }else{
-                console.warn("获取数据异常");
-                return this.copyActionModel;
-            }
+            let uiservice:any = await this.appUIService.getService(appEntityName);
+            let result: any[] = ViewTool.calcActionItemAuthState(node.curData,this.copyActionModel,uiservice);
+            return this.copyActionModel;  
         }
     }
 

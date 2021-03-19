@@ -20,11 +20,14 @@ import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * 服务DTO对象[SuiteCaseDTO]
  */
 @Data
+@ApiModel("套件用例")
 public class SuiteCaseDTO extends DTOBase implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -36,6 +39,7 @@ public class SuiteCaseDTO extends DTOBase implements Serializable {
     @JSONField(name = "id")
     @JsonProperty("id")
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("虚拟主键")
     private String id;
 
     /**
@@ -44,6 +48,7 @@ public class SuiteCaseDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "version")
     @JsonProperty("version")
+    @ApiModelProperty("用例版本")
     private Integer version;
 
     /**
@@ -53,6 +58,7 @@ public class SuiteCaseDTO extends DTOBase implements Serializable {
     @JSONField(name = "suite")
     @JsonProperty("suite")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("测试套件")
     private Long suite;
 
     /**
@@ -62,6 +68,7 @@ public class SuiteCaseDTO extends DTOBase implements Serializable {
     @JSONField(name = "ibizcase")
     @JsonProperty("ibizcase")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("用例")
     private Long ibizcase;
 
     /**
@@ -71,6 +78,7 @@ public class SuiteCaseDTO extends DTOBase implements Serializable {
     @JSONField(name = "product")
     @JsonProperty("product")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("所属产品")
     private Long product;
 
 

@@ -1,3 +1,4 @@
+import { Environment } from '@/environments/environment';
 import { Http } from '@/utils';
 import { Util } from '@/utils';
 import EntityService from '../entity-service';
@@ -49,7 +50,7 @@ export default class ProductSumServiceBase extends EntityService {
      * @memberof ProductSumServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().get(`/productsums/${context.productsum}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/productsums/${context.productsum}/select`,isloading);
             
             return res;
     }
@@ -105,7 +106,7 @@ export default class ProductSumServiceBase extends EntityService {
      * @memberof ProductSumServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().delete(`/productsums/${context.productsum}`,isloading);
+            let res:any = await Http.getInstance().delete(`/productsums/${context.productsum}`,isloading);
             return res;
     }
 
@@ -153,7 +154,7 @@ export default class ProductSumServiceBase extends EntityService {
      * @memberof ProductSumServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/productsums/${context.productsum}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/productsums/${context.productsum}/checkkey`,data,isloading);
             return res;
     }
 
@@ -185,7 +186,7 @@ export default class ProductSumServiceBase extends EntityService {
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/productsums/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/productsums/fetchdefault`,tempData,isloading);
         return res;
     }
 
@@ -214,7 +215,7 @@ export default class ProductSumServiceBase extends EntityService {
      */
     public async FetchProductBugcnt_QA(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/productsums/fetchproductbugcnt_qa`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/productsums/fetchproductbugcnt_qa`,tempData,isloading);
         return res;
     }
 
@@ -243,7 +244,7 @@ export default class ProductSumServiceBase extends EntityService {
      */
     public async FetchProductCreateStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/productsums/fetchproductcreatestory`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/productsums/fetchproductcreatestory`,tempData,isloading);
         return res;
     }
 
@@ -272,7 +273,7 @@ export default class ProductSumServiceBase extends EntityService {
      */
     public async FetchProductStoryHoursSum(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/productsums/fetchproductstoryhourssum`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/productsums/fetchproductstoryhourssum`,tempData,isloading);
         return res;
     }
 
@@ -301,7 +302,7 @@ export default class ProductSumServiceBase extends EntityService {
      */
     public async FetchProductStorySum(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/productsums/fetchproductstorysum`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/productsums/fetchproductstorysum`,tempData,isloading);
         return res;
     }
 
@@ -330,7 +331,7 @@ export default class ProductSumServiceBase extends EntityService {
      */
     public async FetchProductStorycntAndPlancnt(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/productsums/fetchproductstorycntandplancnt`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/productsums/fetchproductstorycntandplancnt`,tempData,isloading);
         return res;
     }
 
@@ -359,7 +360,7 @@ export default class ProductSumServiceBase extends EntityService {
      */
     public async FetchProductSumBugType(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/productsums/fetchproductsumbugtype`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/productsums/fetchproductsumbugtype`,tempData,isloading);
         return res;
     }
 

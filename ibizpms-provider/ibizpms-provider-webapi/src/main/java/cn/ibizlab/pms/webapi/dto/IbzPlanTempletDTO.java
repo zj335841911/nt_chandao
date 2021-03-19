@@ -20,11 +20,14 @@ import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * 服务DTO对象[IbzPlanTempletDTO]
  */
 @Data
+@ApiModel("计划模板")
 public class IbzPlanTempletDTO extends DTOBase implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -36,6 +39,7 @@ public class IbzPlanTempletDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "createdate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createdate")
+    @ApiModelProperty("建立时间")
     private Timestamp createdate;
 
     /**
@@ -45,6 +49,7 @@ public class IbzPlanTempletDTO extends DTOBase implements Serializable {
     @JSONField(name = "plans")
     @JsonProperty("plans")
     @Size(min = 0, max = 2000, message = "内容长度必须小于等于[2000]")
+    @ApiModelProperty("计划")
     private String plans;
 
     /**
@@ -54,6 +59,7 @@ public class IbzPlanTempletDTO extends DTOBase implements Serializable {
     @JSONField(name = "acl")
     @JsonProperty("acl")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("权限")
     private String acl;
 
     /**
@@ -63,6 +69,7 @@ public class IbzPlanTempletDTO extends DTOBase implements Serializable {
     @JSONField(name = "createmanname")
     @JsonProperty("createmanname")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("创建人姓名")
     private String createmanname;
 
     /**
@@ -72,6 +79,7 @@ public class IbzPlanTempletDTO extends DTOBase implements Serializable {
     @JSONField(name = "product")
     @JsonProperty("product")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("产品")
     private Long product;
 
     /**
@@ -81,6 +89,7 @@ public class IbzPlanTempletDTO extends DTOBase implements Serializable {
     @JSONField(name = "ibzplantempletid")
     @JsonProperty("ibzplantempletid")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("产品计划模板标识")
     private String ibzplantempletid;
 
     /**
@@ -90,6 +99,7 @@ public class IbzPlanTempletDTO extends DTOBase implements Serializable {
     @JSONField(name = "updateman")
     @JsonProperty("updateman")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("更新人")
     private String updateman;
 
     /**
@@ -99,6 +109,7 @@ public class IbzPlanTempletDTO extends DTOBase implements Serializable {
     @JSONField(name = "ibzplantempletname")
     @JsonProperty("ibzplantempletname")
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("模板名称")
     private String ibzplantempletname;
 
     /**
@@ -108,6 +119,7 @@ public class IbzPlanTempletDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "updatedate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("updatedate")
+    @ApiModelProperty("更新时间")
     private Timestamp updatedate;
 
     /**
@@ -117,6 +129,7 @@ public class IbzPlanTempletDTO extends DTOBase implements Serializable {
     @JSONField(name = "createman")
     @JsonProperty("createman")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("建立人")
     private String createman;
 
 

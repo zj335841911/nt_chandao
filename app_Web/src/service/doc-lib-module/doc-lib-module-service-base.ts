@@ -1,3 +1,4 @@
+import { Environment } from '@/environments/environment';
 import { Http } from '@/utils';
 import { Util } from '@/utils';
 import EntityService from '../entity-service';
@@ -49,7 +50,7 @@ export default class DocLibModuleServiceBase extends EntityService {
      * @memberof DocLibModuleServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().get(`/doclibmodules/${context.doclibmodule}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/doclibmodules/${context.doclibmodule}/select`,isloading);
             
             return res;
     }
@@ -105,7 +106,7 @@ export default class DocLibModuleServiceBase extends EntityService {
      * @memberof DocLibModuleServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().delete(`/doclibmodules/${context.doclibmodule}`,isloading);
+            let res:any = await Http.getInstance().delete(`/doclibmodules/${context.doclibmodule}`,isloading);
             return res;
     }
 
@@ -153,7 +154,7 @@ export default class DocLibModuleServiceBase extends EntityService {
      * @memberof DocLibModuleServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/doclibmodules/${context.doclibmodule}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/doclibmodules/${context.doclibmodule}/checkkey`,data,isloading);
             return res;
     }
 
@@ -167,7 +168,7 @@ export default class DocLibModuleServiceBase extends EntityService {
      * @memberof DocLibModuleServiceBase
      */
     public async Collect(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/doclibmodules/${context.doclibmodule}/collect`,data,isloading);
+            let res:any = await Http.getInstance().post(`/doclibmodules/${context.doclibmodule}/collect`,data,isloading);
             return res;
     }
 
@@ -181,7 +182,7 @@ export default class DocLibModuleServiceBase extends EntityService {
      * @memberof DocLibModuleServiceBase
      */
     public async DocLibModuleNFavorite(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/doclibmodules/${context.doclibmodule}/doclibmodulenfavorite`,data,isloading);
+            let res:any = await Http.getInstance().post(`/doclibmodules/${context.doclibmodule}/doclibmodulenfavorite`,data,isloading);
             return res;
     }
 
@@ -195,7 +196,7 @@ export default class DocLibModuleServiceBase extends EntityService {
      * @memberof DocLibModuleServiceBase
      */
     public async DoclibModuleFavorite(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/doclibmodules/${context.doclibmodule}/doclibmodulefavorite`,data,isloading);
+            let res:any = await Http.getInstance().post(`/doclibmodules/${context.doclibmodule}/doclibmodulefavorite`,data,isloading);
             return res;
     }
 
@@ -209,7 +210,7 @@ export default class DocLibModuleServiceBase extends EntityService {
      * @memberof DocLibModuleServiceBase
      */
     public async Fix(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/doclibmodules/${context.doclibmodule}/fix`,data,isloading);
+            let res:any = await Http.getInstance().post(`/doclibmodules/${context.doclibmodule}/fix`,data,isloading);
             return res;
     }
 
@@ -240,7 +241,7 @@ export default class DocLibModuleServiceBase extends EntityService {
      * @memberof DocLibModuleServiceBase
      */
     public async UnCollect(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/doclibmodules/${context.doclibmodule}/uncollect`,data,isloading);
+            let res:any = await Http.getInstance().post(`/doclibmodules/${context.doclibmodule}/uncollect`,data,isloading);
             return res;
     }
 
@@ -255,7 +256,7 @@ export default class DocLibModuleServiceBase extends EntityService {
      */
     public async FetchAllDocLibModule_Custom(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/doclibmodules/fetchalldoclibmodule_custom`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/doclibmodules/fetchalldoclibmodule_custom`,tempData,isloading);
         return res;
     }
 
@@ -284,7 +285,7 @@ export default class DocLibModuleServiceBase extends EntityService {
      */
     public async FetchAllDoclibModule(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/doclibmodules/fetchalldoclibmodule`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/doclibmodules/fetchalldoclibmodule`,tempData,isloading);
         return res;
     }
 
@@ -313,7 +314,7 @@ export default class DocLibModuleServiceBase extends EntityService {
      */
     public async FetchChildModuleByParent(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/doclibmodules/fetchchildmodulebyparent`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/doclibmodules/fetchchildmodulebyparent`,tempData,isloading);
         return res;
     }
 
@@ -342,7 +343,7 @@ export default class DocLibModuleServiceBase extends EntityService {
      */
     public async FetchChildModuleByRealParent(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/doclibmodules/fetchchildmodulebyrealparent`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/doclibmodules/fetchchildmodulebyrealparent`,tempData,isloading);
         return res;
     }
 
@@ -371,7 +372,7 @@ export default class DocLibModuleServiceBase extends EntityService {
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/doclibmodules/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/doclibmodules/fetchdefault`,tempData,isloading);
         return res;
     }
 
@@ -400,7 +401,7 @@ export default class DocLibModuleServiceBase extends EntityService {
      */
     public async FetchMyFavourites(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/doclibmodules/fetchmyfavourites`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/doclibmodules/fetchmyfavourites`,tempData,isloading);
         return res;
     }
 
@@ -429,7 +430,7 @@ export default class DocLibModuleServiceBase extends EntityService {
      */
     public async FetchParentModule(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/doclibmodules/fetchparentmodule`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/doclibmodules/fetchparentmodule`,tempData,isloading);
         return res;
     }
 
@@ -458,7 +459,7 @@ export default class DocLibModuleServiceBase extends EntityService {
      */
     public async FetchRootModuleMuLu(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/doclibmodules/fetchrootmodulemulu`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/doclibmodules/fetchrootmodulemulu`,tempData,isloading);
         return res;
     }
 
@@ -487,7 +488,7 @@ export default class DocLibModuleServiceBase extends EntityService {
      */
     public async FetchRootModuleMuLuByRoot(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/doclibmodules/fetchrootmodulemulubyroot`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/doclibmodules/fetchrootmodulemulubyroot`,tempData,isloading);
         return res;
     }
 
@@ -516,7 +517,7 @@ export default class DocLibModuleServiceBase extends EntityService {
      */
     public async FetchRootModuleMuLuBysrfparentkey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/doclibmodules/fetchrootmodulemulubysrfparentkey`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/doclibmodules/fetchrootmodulemulubysrfparentkey`,tempData,isloading);
         return res;
     }
 

@@ -557,7 +557,7 @@ export class FormControlBase extends MainControlBase {
         let post: Promise<any> = this.service.loadDraft(
             this.loaddraftAction,
             JSON.parse(JSON.stringify(this.context)),
-            this.data,
+            { viewparams: viewparamResult },
             this.showBusyIndicator
         );
         post.then((response: any) => {

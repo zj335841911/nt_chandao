@@ -1,3 +1,4 @@
+import { Environment } from '@/environments/environment';
 import { Http } from '@/utils';
 import { Util } from '@/utils';
 import EntityService from '../entity-service';
@@ -49,7 +50,7 @@ export default class DeptServiceBase extends EntityService {
      * @memberof DeptServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().get(`/depts/${context.dept}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/depts/${context.dept}/select`,isloading);
             
             return res;
     }
@@ -105,7 +106,7 @@ export default class DeptServiceBase extends EntityService {
      * @memberof DeptServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().delete(`/depts/${context.dept}`,isloading);
+            let res:any = await Http.getInstance().delete(`/depts/${context.dept}`,isloading);
             return res;
     }
 
@@ -153,7 +154,7 @@ export default class DeptServiceBase extends EntityService {
      * @memberof DeptServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/depts/${context.dept}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/depts/${context.dept}/checkkey`,data,isloading);
             return res;
     }
 
@@ -185,7 +186,7 @@ export default class DeptServiceBase extends EntityService {
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/depts/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/depts/fetchdefault`,tempData,isloading);
         return res;
     }
 
@@ -214,7 +215,7 @@ export default class DeptServiceBase extends EntityService {
      */
     public async FetchRoot(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/depts/fetchroot`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/depts/fetchroot`,tempData,isloading);
         return res;
     }
 

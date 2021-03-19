@@ -1,3 +1,4 @@
+import { Environment } from '@/environments/environment';
 import { Http } from '@/utils';
 import { Util } from '@/utils';
 import EntityService from '../entity-service';
@@ -49,7 +50,7 @@ export default class TaskestimatestatsServiceBase extends EntityService {
      * @memberof TaskestimatestatsServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().get(`/taskestimatestats/${context.taskestimatestats}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/taskestimatestats/${context.taskestimatestats}/select`,isloading);
             
             return res;
     }
@@ -105,7 +106,7 @@ export default class TaskestimatestatsServiceBase extends EntityService {
      * @memberof TaskestimatestatsServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().delete(`/taskestimatestats/${context.taskestimatestats}`,isloading);
+            let res:any = await Http.getInstance().delete(`/taskestimatestats/${context.taskestimatestats}`,isloading);
             return res;
     }
 
@@ -153,7 +154,7 @@ export default class TaskestimatestatsServiceBase extends EntityService {
      * @memberof TaskestimatestatsServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/taskestimatestats/${context.taskestimatestats}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/taskestimatestats/${context.taskestimatestats}/checkkey`,data,isloading);
             return res;
     }
 
@@ -185,7 +186,7 @@ export default class TaskestimatestatsServiceBase extends EntityService {
      */
     public async FetchActionMonth(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/taskestimatestats/fetchactionmonth`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/taskestimatestats/fetchactionmonth`,tempData,isloading);
         return res;
     }
 
@@ -214,7 +215,7 @@ export default class TaskestimatestatsServiceBase extends EntityService {
      */
     public async FetchActionYear(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/taskestimatestats/fetchactionyear`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/taskestimatestats/fetchactionyear`,tempData,isloading);
         return res;
     }
 
@@ -243,7 +244,7 @@ export default class TaskestimatestatsServiceBase extends EntityService {
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/taskestimatestats/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/taskestimatestats/fetchdefault`,tempData,isloading);
         return res;
     }
 

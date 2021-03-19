@@ -164,6 +164,8 @@ export default class AppModalCompponent extends Vue {
         }
         if (this.view.height && !Object.is(this.view.height, '0px')) {
             Object.assign(this.style, { height: `${this.view.height}${this.view.height > 100 ? 'px' : 'vh'}` });
+        }else if(!this.view.height || Object.is(this.view.height, '0px')){
+            Object.assign(this.style, { height: '800px' });
         }
     }
 

@@ -185,7 +185,7 @@ hide footbox
 | 查询编号 | 查询名称       | 默认查询 |   备注|
 | --------  | --------   | --------   | ----- |
 |ChildPlan|子计划([MYSQL5](../../appendix/query_MYSQL5.md#ProductPlan_ChildPlan))|否|&nbsp;|
-|DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#ProductPlan_Default))|否|&nbsp;|
+|DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#ProductPlan_Default))|是|&nbsp;|
 |DefaultParent|默认查询([MYSQL5](../../appendix/query_MYSQL5.md#ProductPlan_DefaultParent))|否|&nbsp;|
 |GetList|获取产品计划列表([MYSQL5](../../appendix/query_MYSQL5.md#ProductPlan_GetList))|否|&nbsp;获取当前用户的相关产品（分支）的计划|
 |PlanCodeList|计划（代码表）([MYSQL5](../../appendix/query_MYSQL5.md#ProductPlan_PlanCodeList))|否|&nbsp;|

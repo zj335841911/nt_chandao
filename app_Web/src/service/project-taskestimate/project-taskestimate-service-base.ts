@@ -1,3 +1,4 @@
+import { Environment } from '@/environments/environment';
 import { Http } from '@/utils';
 import { Util } from '@/utils';
 import EntityService from '../entity-service';
@@ -49,7 +50,7 @@ export default class ProjectTaskestimateServiceBase extends EntityService {
      * @memberof ProjectTaskestimateServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().get(`/projecttaskestimates/${context.projecttaskestimate}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/projecttaskestimates/${context.projecttaskestimate}/select`,isloading);
             
             return res;
     }
@@ -105,7 +106,7 @@ export default class ProjectTaskestimateServiceBase extends EntityService {
      * @memberof ProjectTaskestimateServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().delete(`/projecttaskestimates/${context.projecttaskestimate}`,isloading);
+            let res:any = await Http.getInstance().delete(`/projecttaskestimates/${context.projecttaskestimate}`,isloading);
             return res;
     }
 
@@ -153,7 +154,7 @@ export default class ProjectTaskestimateServiceBase extends EntityService {
      * @memberof ProjectTaskestimateServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/projecttaskestimates/${context.projecttaskestimate}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/projecttaskestimates/${context.projecttaskestimate}/checkkey`,data,isloading);
             return res;
     }
 
@@ -185,7 +186,7 @@ export default class ProjectTaskestimateServiceBase extends EntityService {
      */
     public async FetchAccountDetail(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/projecttaskestimates/fetchaccountdetail`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/projecttaskestimates/fetchaccountdetail`,tempData,isloading);
         return res;
     }
 
@@ -214,7 +215,7 @@ export default class ProjectTaskestimateServiceBase extends EntityService {
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/projecttaskestimates/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/projecttaskestimates/fetchdefault`,tempData,isloading);
         return res;
     }
 

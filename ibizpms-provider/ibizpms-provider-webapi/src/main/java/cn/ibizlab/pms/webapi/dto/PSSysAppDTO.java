@@ -20,11 +20,14 @@ import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * 服务DTO对象[PSSysAppDTO]
  */
 @Data
+@ApiModel("系统应用")
 public class PSSysAppDTO extends DTOClient implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -35,6 +38,7 @@ public class PSSysAppDTO extends DTOClient implements Serializable {
      */
     @JSONField(name = "uaclogin")
     @JsonProperty("uaclogin")
+    @ApiModelProperty("启用统一认证")
     private Integer uaclogin;
 
     /**
@@ -45,6 +49,7 @@ public class PSSysAppDTO extends DTOClient implements Serializable {
     @JsonProperty("pspfid")
     @NotBlank(message = "[前台技术架构]不允许为空!")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("前台技术架构")
     private String pspfid;
 
     /**
@@ -54,6 +59,7 @@ public class PSSysAppDTO extends DTOClient implements Serializable {
     @JSONField(name = "usertag")
     @JsonProperty("usertag")
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("用户标记")
     private String usertag;
 
     /**
@@ -62,6 +68,7 @@ public class PSSysAppDTO extends DTOClient implements Serializable {
      */
     @JSONField(name = "autoaddappview")
     @JsonProperty("autoaddappview")
+    @ApiModelProperty("自动添加应用视图")
     private Integer autoaddappview;
 
     /**
@@ -70,6 +77,7 @@ public class PSSysAppDTO extends DTOClient implements Serializable {
      */
     @JSONField(name = "enalocalservice")
     @JsonProperty("enalocalservice")
+    @ApiModelProperty("启用本地服务")
     private Integer enalocalservice;
 
     /**
@@ -79,6 +87,7 @@ public class PSSysAppDTO extends DTOClient implements Serializable {
     @JSONField(name = "usertag2")
     @JsonProperty("usertag2")
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("用户标记2")
     private String usertag2;
 
     /**
@@ -88,6 +97,7 @@ public class PSSysAppDTO extends DTOClient implements Serializable {
     @JSONField(name = "usertag4")
     @JsonProperty("usertag4")
     @Size(min = 0, max = 50, message = "内容长度必须小于等于[50]")
+    @ApiModelProperty("用户标记4")
     private String usertag4;
 
     /**
@@ -97,6 +107,7 @@ public class PSSysAppDTO extends DTOClient implements Serializable {
     @JSONField(name = "pssystemid")
     @JsonProperty("pssystemid")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("系统")
     private String pssystemid;
 
     /**
@@ -106,6 +117,7 @@ public class PSSysAppDTO extends DTOClient implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "createdate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createdate")
+    @ApiModelProperty("建立时间")
     private Timestamp createdate;
 
     /**
@@ -114,6 +126,7 @@ public class PSSysAppDTO extends DTOClient implements Serializable {
      */
     @JSONField(name = "pubsysrefviewonly")
     @JsonProperty("pubsysrefviewonly")
+    @ApiModelProperty("只发布系统引用视图（废弃）")
     private Integer pubsysrefviewonly;
 
     /**
@@ -123,6 +136,7 @@ public class PSSysAppDTO extends DTOClient implements Serializable {
     @JSONField(name = "mainmenuside")
     @JsonProperty("mainmenuside")
     @Size(min = 0, max = 20, message = "内容长度必须小于等于[20]")
+    @ApiModelProperty("视图主菜单方向")
     private String mainmenuside;
 
     /**
@@ -132,6 +146,7 @@ public class PSSysAppDTO extends DTOClient implements Serializable {
     @JSONField(name = "pssysappid")
     @JsonProperty("pssysappid")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("系统应用标识")
     private String pssysappid;
 
     /**
@@ -141,6 +156,7 @@ public class PSSysAppDTO extends DTOClient implements Serializable {
     @JSONField(name = "codefolder")
     @JsonProperty("codefolder")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("代码目录")
     private String codefolder;
 
     /**
@@ -149,6 +165,7 @@ public class PSSysAppDTO extends DTOClient implements Serializable {
      */
     @JSONField(name = "gridforcefit")
     @JsonProperty("gridforcefit")
+    @ApiModelProperty("表格适应屏宽")
     private Integer gridforcefit;
 
     /**
@@ -158,6 +175,7 @@ public class PSSysAppDTO extends DTOClient implements Serializable {
     @JSONField(name = "updateman")
     @JsonProperty("updateman")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("更新人")
     private String updateman;
 
     /**
@@ -166,6 +184,7 @@ public class PSSysAppDTO extends DTOClient implements Serializable {
      */
     @JSONField(name = "finoprivdm")
     @JsonProperty("finoprivdm")
+    @ApiModelProperty("表单项无权限显示模式")
     private Integer finoprivdm;
 
     /**
@@ -175,6 +194,7 @@ public class PSSysAppDTO extends DTOClient implements Serializable {
     @JSONField(name = "userparams")
     @JsonProperty("userparams")
     @Size(min = 0, max = 2000, message = "内容长度必须小于等于[2000]")
+    @ApiModelProperty("自定义参数")
     private String userparams;
 
     /**
@@ -184,6 +204,7 @@ public class PSSysAppDTO extends DTOClient implements Serializable {
     @JSONField(name = "orientationmode")
     @JsonProperty("orientationmode")
     @Size(min = 0, max = 20, message = "内容长度必须小于等于[20]")
+    @ApiModelProperty("移动端方向设置")
     private String orientationmode;
 
     /**
@@ -193,6 +214,7 @@ public class PSSysAppDTO extends DTOClient implements Serializable {
     @JSONField(name = "memo")
     @JsonProperty("memo")
     @Size(min = 0, max = 2000, message = "内容长度必须小于等于[2000]")
+    @ApiModelProperty("备注")
     private String memo;
 
     /**
@@ -201,6 +223,7 @@ public class PSSysAppDTO extends DTOClient implements Serializable {
      */
     @JSONField(name = "removeflag")
     @JsonProperty("removeflag")
+    @ApiModelProperty("删除模式")
     private Integer removeflag;
 
     /**
@@ -209,6 +232,7 @@ public class PSSysAppDTO extends DTOClient implements Serializable {
      */
     @JSONField(name = "enablestoryboard")
     @JsonProperty("enablestoryboard")
+    @ApiModelProperty("启用故事板")
     private Integer enablestoryboard;
 
     /**
@@ -218,6 +242,7 @@ public class PSSysAppDTO extends DTOClient implements Serializable {
     @JSONField(name = "psstudiothemename")
     @JsonProperty("psstudiothemename")
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("应用主题")
     private String psstudiothemename;
 
     /**
@@ -226,6 +251,7 @@ public class PSSysAppDTO extends DTOClient implements Serializable {
      */
     @JSONField(name = "enabledynasys")
     @JsonProperty("enabledynasys")
+    @ApiModelProperty("支持动态系统")
     private Integer enabledynasys;
 
     /**
@@ -234,6 +260,7 @@ public class PSSysAppDTO extends DTOClient implements Serializable {
      */
     @JSONField(name = "validflag")
     @JsonProperty("validflag")
+    @ApiModelProperty("是否启用")
     private Integer validflag;
 
     /**
@@ -243,6 +270,7 @@ public class PSSysAppDTO extends DTOClient implements Serializable {
     @JSONField(name = "iconfile")
     @JsonProperty("iconfile")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("图标文件")
     private String iconfile;
 
     /**
@@ -252,6 +280,7 @@ public class PSSysAppDTO extends DTOClient implements Serializable {
     @JSONField(name = "apptag")
     @JsonProperty("apptag")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("应用标记")
     private String apptag;
 
     /**
@@ -260,6 +289,7 @@ public class PSSysAppDTO extends DTOClient implements Serializable {
      */
     @JSONField(name = "defaultpub")
     @JsonProperty("defaultpub")
+    @ApiModelProperty("默认应用")
     private Integer defaultpub;
 
     /**
@@ -269,6 +299,7 @@ public class PSSysAppDTO extends DTOClient implements Serializable {
     @JSONField(name = "apptag2")
     @JsonProperty("apptag2")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("应用标记2")
     private String apptag2;
 
     /**
@@ -278,6 +309,7 @@ public class PSSysAppDTO extends DTOClient implements Serializable {
     @JSONField(name = "servicecodename")
     @JsonProperty("servicecodename")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("服务代码名称")
     private String servicecodename;
 
     /**
@@ -286,6 +318,7 @@ public class PSSysAppDTO extends DTOClient implements Serializable {
      */
     @JSONField(name = "preventxss")
     @JsonProperty("preventxss")
+    @ApiModelProperty("防止XSS攻击")
     private Integer preventxss;
 
     /**
@@ -296,6 +329,7 @@ public class PSSysAppDTO extends DTOClient implements Serializable {
     @JsonProperty("psapptypename")
     @NotBlank(message = "[应用类型]不允许为空!")
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("应用类型")
     private String psapptypename;
 
     /**
@@ -305,6 +339,7 @@ public class PSSysAppDTO extends DTOClient implements Serializable {
     @JSONField(name = "pspfcdnid")
     @JsonProperty("pspfcdnid")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("应用CDN")
     private String pspfcdnid;
 
     /**
@@ -313,6 +348,7 @@ public class PSSysAppDTO extends DTOClient implements Serializable {
      */
     @JSONField(name = "gridcolenablelink")
     @JsonProperty("gridcolenablelink")
+    @ApiModelProperty("表格列启用链接")
     private Integer gridcolenablelink;
 
     /**
@@ -322,6 +358,7 @@ public class PSSysAppDTO extends DTOClient implements Serializable {
     @JSONField(name = "psstudiothemeid")
     @JsonProperty("psstudiothemeid")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("应用主题")
     private String psstudiothemeid;
 
     /**
@@ -330,6 +367,7 @@ public class PSSysAppDTO extends DTOClient implements Serializable {
      */
     @JSONField(name = "enablec12toc24")
     @JsonProperty("enablec12toc24")
+    @ApiModelProperty("转换12列至24列布局")
     private Integer enablec12toc24;
 
     /**
@@ -339,6 +377,7 @@ public class PSSysAppDTO extends DTOClient implements Serializable {
     @JSONField(name = "appsn")
     @JsonProperty("appsn")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("应用编号")
     private String appsn;
 
     /**
@@ -348,6 +387,7 @@ public class PSSysAppDTO extends DTOClient implements Serializable {
     @JSONField(name = "apptag4")
     @JsonProperty("apptag4")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("应用标记4")
     private String apptag4;
 
     /**
@@ -357,6 +397,7 @@ public class PSSysAppDTO extends DTOClient implements Serializable {
     @JSONField(name = "createman")
     @JsonProperty("createman")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("建立人")
     private String createman;
 
     /**
@@ -365,6 +406,7 @@ public class PSSysAppDTO extends DTOClient implements Serializable {
      */
     @JSONField(name = "gridrowactivemode")
     @JsonProperty("gridrowactivemode")
+    @ApiModelProperty("表格行激活模式")
     private Integer gridrowactivemode;
 
     /**
@@ -374,6 +416,7 @@ public class PSSysAppDTO extends DTOClient implements Serializable {
     @JSONField(name = "usertag3")
     @JsonProperty("usertag3")
     @Size(min = 0, max = 50, message = "内容长度必须小于等于[50]")
+    @ApiModelProperty("用户标记3")
     private String usertag3;
 
     /**
@@ -384,6 +427,7 @@ public class PSSysAppDTO extends DTOClient implements Serializable {
     @JsonProperty("apppkgname")
     @NotBlank(message = "[代码名称]不允许为空!")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("代码名称")
     private String apppkgname;
 
     /**
@@ -393,6 +437,7 @@ public class PSSysAppDTO extends DTOClient implements Serializable {
     @JSONField(name = "logicname")
     @JsonProperty("logicname")
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("中文名称")
     private String logicname;
 
     /**
@@ -403,6 +448,7 @@ public class PSSysAppDTO extends DTOClient implements Serializable {
     @JsonProperty("pspfstyleid")
     @NotBlank(message = "[应用样式]不允许为空!")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("应用样式")
     private String pspfstyleid;
 
     /**
@@ -411,6 +457,7 @@ public class PSSysAppDTO extends DTOClient implements Serializable {
      */
     @JSONField(name = "btnnoprivdm")
     @JsonProperty("btnnoprivdm")
+    @ApiModelProperty("按钮无权限显示模式")
     private Integer btnnoprivdm;
 
     /**
@@ -420,6 +467,7 @@ public class PSSysAppDTO extends DTOClient implements Serializable {
     @JSONField(name = "pspfcdnname")
     @JsonProperty("pspfcdnname")
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("应用CDN")
     private String pspfcdnname;
 
     /**
@@ -428,6 +476,7 @@ public class PSSysAppDTO extends DTOClient implements Serializable {
      */
     @JSONField(name = "pubrefviewonly")
     @JsonProperty("pubrefviewonly")
+    @ApiModelProperty("只发布引用视图")
     private Integer pubrefviewonly;
 
     /**
@@ -437,6 +486,7 @@ public class PSSysAppDTO extends DTOClient implements Serializable {
     @JSONField(name = "appmode")
     @JsonProperty("appmode")
     @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
+    @ApiModelProperty("应用模式")
     private String appmode;
 
     /**
@@ -446,6 +496,7 @@ public class PSSysAppDTO extends DTOClient implements Serializable {
     @JSONField(name = "pssysappname")
     @JsonProperty("pssysappname")
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("系统应用名称")
     private String pssysappname;
 
     /**
@@ -455,6 +506,7 @@ public class PSSysAppDTO extends DTOClient implements Serializable {
     @JSONField(name = "psapptypeid")
     @JsonProperty("psapptypeid")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("应用类型")
     private String psapptypeid;
 
     /**
@@ -464,6 +516,7 @@ public class PSSysAppDTO extends DTOClient implements Serializable {
     @JSONField(name = "appfolder")
     @JsonProperty("appfolder")
     @Size(min = 0, max = 500, message = "内容长度必须小于等于[500]")
+    @ApiModelProperty("应用目录")
     private String appfolder;
 
     /**
@@ -473,6 +526,7 @@ public class PSSysAppDTO extends DTOClient implements Serializable {
     @JSONField(name = "startpagefile")
     @JsonProperty("startpagefile")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("起始页图片文件")
     private String startpagefile;
 
     /**
@@ -482,6 +536,7 @@ public class PSSysAppDTO extends DTOClient implements Serializable {
     @JSONField(name = "usercat")
     @JsonProperty("usercat")
     @Size(min = 0, max = 10, message = "内容长度必须小于等于[10]")
+    @ApiModelProperty("用户分类")
     private String usercat;
 
     /**
@@ -491,6 +546,7 @@ public class PSSysAppDTO extends DTOClient implements Serializable {
     @JSONField(name = "apptag3")
     @JsonProperty("apptag3")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("应用标记3")
     private String apptag3;
 
     /**
@@ -500,6 +556,7 @@ public class PSSysAppDTO extends DTOClient implements Serializable {
     @JSONField(name = "pfstyleparam")
     @JsonProperty("pfstyleparam")
     @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
+    @ApiModelProperty("应用样式参数")
     private String pfstyleparam;
 
     /**
@@ -509,6 +566,7 @@ public class PSSysAppDTO extends DTOClient implements Serializable {
     @JSONField(name = "pssystemname")
     @JsonProperty("pssystemname")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("系统")
     private String pssystemname;
 
     /**
@@ -518,6 +576,7 @@ public class PSSysAppDTO extends DTOClient implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "updatedate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("updatedate")
+    @ApiModelProperty("更新时间")
     private Timestamp updatedate;
 
     /**
@@ -527,6 +586,7 @@ public class PSSysAppDTO extends DTOClient implements Serializable {
     @JSONField(name = "uistyle")
     @JsonProperty("uistyle")
     @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
+    @ApiModelProperty("内建界面式样")
     private String uistyle;
 
     /**
@@ -535,6 +595,7 @@ public class PSSysAppDTO extends DTOClient implements Serializable {
      */
     @JSONField(name = "gcnoprivdm")
     @JsonProperty("gcnoprivdm")
+    @ApiModelProperty("表格列无权限显示模式")
     private Integer gcnoprivdm;
 
     /**
@@ -543,6 +604,7 @@ public class PSSysAppDTO extends DTOClient implements Serializable {
      */
     @JSONField(name = "fiupdateprivtag")
     @JsonProperty("fiupdateprivtag")
+    @ApiModelProperty("输出表单项更新权限标记")
     private Integer fiupdateprivtag;
 
     /**
@@ -552,6 +614,7 @@ public class PSSysAppDTO extends DTOClient implements Serializable {
     @JSONField(name = "pssysserviceapiname")
     @JsonProperty("pssysserviceapiname")
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("默认服务接口")
     private String pssysserviceapiname;
 
     /**
@@ -561,6 +624,7 @@ public class PSSysAppDTO extends DTOClient implements Serializable {
     @JSONField(name = "pssysserviceapiid")
     @JsonProperty("pssysserviceapiid")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("默认服务接口")
     private String pssysserviceapiid;
 
 

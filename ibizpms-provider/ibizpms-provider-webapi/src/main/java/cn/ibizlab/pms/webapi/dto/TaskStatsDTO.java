@@ -20,11 +20,14 @@ import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * 服务DTO对象[TaskStatsDTO]
  */
 @Data
+@ApiModel("任务统计")
 public class TaskStatsDTO extends DTOBase implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -36,6 +39,7 @@ public class TaskStatsDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "taskdeadline" , format="yyyy-MM-dd")
     @JsonProperty("taskdeadline")
+    @ApiModelProperty("任务截至日期")
     private Timestamp taskdeadline;
 
     /**
@@ -44,6 +48,7 @@ public class TaskStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "taskid")
     @JsonProperty("taskid")
+    @ApiModelProperty("任务编号")
     private Integer taskid;
 
     /**
@@ -53,6 +58,7 @@ public class TaskStatsDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "taskrealstart" , format="yyyy-MM-dd")
     @JsonProperty("taskrealstart")
+    @ApiModelProperty("任务实际开始时间")
     private Timestamp taskrealstart;
 
     /**
@@ -62,6 +68,7 @@ public class TaskStatsDTO extends DTOBase implements Serializable {
     @JSONField(name = "taskefficient")
     @JsonProperty("taskefficient")
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("效率")
     private String taskefficient;
 
     /**
@@ -70,6 +77,7 @@ public class TaskStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "taskestimate")
     @JsonProperty("taskestimate")
+    @ApiModelProperty("任务预计消耗")
     private Integer taskestimate;
 
     /**
@@ -79,6 +87,7 @@ public class TaskStatsDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "end" , format="yyyy-MM-dd")
     @JsonProperty("end")
+    @ApiModelProperty("结束")
     private Timestamp end;
 
     /**
@@ -87,6 +96,7 @@ public class TaskStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "userconsumed")
     @JsonProperty("userconsumed")
+    @ApiModelProperty("用户总消耗")
     private Integer userconsumed;
 
     /**
@@ -95,6 +105,7 @@ public class TaskStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "totalleft")
     @JsonProperty("totalleft")
+    @ApiModelProperty("剩余总工时")
     private Integer totalleft;
 
     /**
@@ -103,6 +114,7 @@ public class TaskStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "projectconsumed")
     @JsonProperty("projectconsumed")
+    @ApiModelProperty("项目总消耗")
     private Integer projectconsumed;
 
     /**
@@ -112,6 +124,7 @@ public class TaskStatsDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "begin" , format="yyyy-MM-dd")
     @JsonProperty("begin")
+    @ApiModelProperty("属性")
     private Timestamp begin;
 
     /**
@@ -120,6 +133,7 @@ public class TaskStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "totalconsumed")
     @JsonProperty("totalconsumed")
+    @ApiModelProperty("消耗总工时")
     private Integer totalconsumed;
 
     /**
@@ -128,6 +142,7 @@ public class TaskStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "totalestimate")
     @JsonProperty("totalestimate")
+    @ApiModelProperty("预计总工时")
     private Integer totalestimate;
 
     /**
@@ -137,6 +152,7 @@ public class TaskStatsDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "taskeststarted" , format="yyyy-MM-dd")
     @JsonProperty("taskeststarted")
+    @ApiModelProperty("任务预计开始日期")
     private Timestamp taskeststarted;
 
     /**
@@ -146,6 +162,7 @@ public class TaskStatsDTO extends DTOBase implements Serializable {
     @JSONField(name = "id")
     @JsonProperty("id")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("编号")
     private Long id;
 
     /**
@@ -155,6 +172,7 @@ public class TaskStatsDTO extends DTOBase implements Serializable {
     @JSONField(name = "dept")
     @JsonProperty("dept")
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("部门")
     private String dept;
 
     /**
@@ -164,6 +182,7 @@ public class TaskStatsDTO extends DTOBase implements Serializable {
     @JSONField(name = "name")
     @JsonProperty("name")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("名称")
     private String name;
 
     /**
@@ -173,6 +192,7 @@ public class TaskStatsDTO extends DTOBase implements Serializable {
     @JSONField(name = "projectname")
     @JsonProperty("projectname")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("项目名称")
     private String projectname;
 
     /**
@@ -182,6 +202,7 @@ public class TaskStatsDTO extends DTOBase implements Serializable {
     @JSONField(name = "project")
     @JsonProperty("project")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("项目")
     private String project;
 
     /**
@@ -191,6 +212,7 @@ public class TaskStatsDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "taskfinisheddate" , format="yyyy-MM-dd")
     @JsonProperty("taskfinisheddate")
+    @ApiModelProperty("任务实际完成日期")
     private Timestamp taskfinisheddate;
 
     /**
@@ -200,6 +222,7 @@ public class TaskStatsDTO extends DTOBase implements Serializable {
     @JSONField(name = "taskname")
     @JsonProperty("taskname")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("任务名称")
     private String taskname;
 
     /**
@@ -208,6 +231,7 @@ public class TaskStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "taskcnt")
     @JsonProperty("taskcnt")
+    @ApiModelProperty("总任务数")
     private Integer taskcnt;
 
     /**
@@ -216,6 +240,7 @@ public class TaskStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "taskpri")
     @JsonProperty("taskpri")
+    @ApiModelProperty("任务优先级")
     private Integer taskpri;
 
     /**
@@ -225,6 +250,7 @@ public class TaskStatsDTO extends DTOBase implements Serializable {
     @JSONField(name = "taskdelay")
     @JsonProperty("taskdelay")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("任务延期")
     private String taskdelay;
 
     /**
@@ -234,6 +260,7 @@ public class TaskStatsDTO extends DTOBase implements Serializable {
     @JSONField(name = "finishedby")
     @JsonProperty("finishedby")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("完成者")
     private String finishedby;
 
 

@@ -20,11 +20,14 @@ import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * 服务DTO对象[CompanyStatsDTO]
  */
 @Data
+@ApiModel("公司动态汇总")
 public class CompanyStatsDTO extends DTOBase implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -35,6 +38,7 @@ public class CompanyStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "logincnt")
     @JsonProperty("logincnt")
+    @ApiModelProperty("登录次数")
     private Integer logincnt;
 
     /**
@@ -43,6 +47,7 @@ public class CompanyStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "openedstorycnt")
     @JsonProperty("openedstorycnt")
+    @ApiModelProperty("新增需求数")
     private Integer openedstorycnt;
 
     /**
@@ -52,6 +57,7 @@ public class CompanyStatsDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "ztdate" , format="yyyy-MM-dd")
     @JsonProperty("ztdate")
+    @ApiModelProperty("日期")
     private Timestamp ztdate;
 
     /**
@@ -61,6 +67,7 @@ public class CompanyStatsDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "date" , format="yyyy-MM-dd")
     @JsonProperty("date")
+    @ApiModelProperty("日志日期")
     private Timestamp date;
 
     /**
@@ -69,6 +76,7 @@ public class CompanyStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "closedstorycnt")
     @JsonProperty("closedstorycnt")
+    @ApiModelProperty("关闭需求数")
     private Integer closedstorycnt;
 
     /**
@@ -77,6 +85,7 @@ public class CompanyStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "openedbugcnt")
     @JsonProperty("openedbugcnt")
+    @ApiModelProperty("新增Bug数")
     private Integer openedbugcnt;
 
     /**
@@ -85,6 +94,7 @@ public class CompanyStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "loghours")
     @JsonProperty("loghours")
+    @ApiModelProperty("日志工时")
     private Integer loghours;
 
     /**
@@ -93,6 +103,7 @@ public class CompanyStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "dynamiccnt")
     @JsonProperty("dynamiccnt")
+    @ApiModelProperty("动态数")
     private Integer dynamiccnt;
 
     /**
@@ -101,6 +112,7 @@ public class CompanyStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "finishedtaskcnt")
     @JsonProperty("finishedtaskcnt")
+    @ApiModelProperty("完成任务数")
     private Integer finishedtaskcnt;
 
     /**
@@ -109,6 +121,7 @@ public class CompanyStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "resolvedbugcnt")
     @JsonProperty("resolvedbugcnt")
+    @ApiModelProperty("解决Bug数")
     private Integer resolvedbugcnt;
 
     /**
@@ -118,6 +131,7 @@ public class CompanyStatsDTO extends DTOBase implements Serializable {
     @JSONField(name = "comment")
     @JsonProperty("comment")
     @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
+    @ApiModelProperty("备注")
     private String comment;
 
     /**
@@ -126,6 +140,7 @@ public class CompanyStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "openedtaskcnt")
     @JsonProperty("openedtaskcnt")
+    @ApiModelProperty("新增任务数")
     private Integer openedtaskcnt;
 
     /**
@@ -135,6 +150,7 @@ public class CompanyStatsDTO extends DTOBase implements Serializable {
     @JSONField(name = "id")
     @JsonProperty("id")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("标识")
     private Long id;
 
 

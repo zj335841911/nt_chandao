@@ -1,3 +1,4 @@
+import { Environment } from '@/environments/environment';
 import { Http } from '@/utils';
 import { Util } from '@/utils';
 import EntityService from '../entity-service';
@@ -51,16 +52,16 @@ export default class TestTaskServiceBase extends EntityService {
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.testtask){
-            let res:any = Http.getInstance().get(`/projects/${context.project}/testtasks/${context.testtask}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/testtasks/${context.testtask}/select`,isloading);
             
             return res;
         }
         if(context.product && context.testtask){
-            let res:any = Http.getInstance().get(`/products/${context.product}/testtasks/${context.testtask}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/testtasks/${context.testtask}/select`,isloading);
             
             return res;
         }
-            let res:any = Http.getInstance().get(`/testtasks/${context.testtask}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/testtasks/${context.testtask}/select`,isloading);
             
             return res;
     }
@@ -162,14 +163,14 @@ export default class TestTaskServiceBase extends EntityService {
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.testtask){
-            let res:any = Http.getInstance().delete(`/projects/${context.project}/testtasks/${context.testtask}`,isloading);
+            let res:any = await Http.getInstance().delete(`/projects/${context.project}/testtasks/${context.testtask}`,isloading);
             return res;
         }
         if(context.product && context.testtask){
-            let res:any = Http.getInstance().delete(`/products/${context.product}/testtasks/${context.testtask}`,isloading);
+            let res:any = await Http.getInstance().delete(`/products/${context.product}/testtasks/${context.testtask}`,isloading);
             return res;
         }
-            let res:any = Http.getInstance().delete(`/testtasks/${context.testtask}`,isloading);
+            let res:any = await Http.getInstance().delete(`/testtasks/${context.testtask}`,isloading);
             return res;
     }
 
@@ -259,7 +260,7 @@ export default class TestTaskServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/testtasks/${context.testtask}/activate`,data,isloading);
+            let res:any = await Http.getInstance().post(`/testtasks/${context.testtask}/activate`,data,isloading);
             return res;
     }
 
@@ -287,7 +288,7 @@ export default class TestTaskServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/testtasks/${context.testtask}/block`,data,isloading);
+            let res:any = await Http.getInstance().post(`/testtasks/${context.testtask}/block`,data,isloading);
             return res;
     }
 
@@ -315,7 +316,7 @@ export default class TestTaskServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/testtasks/${context.testtask}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/testtasks/${context.testtask}/checkkey`,data,isloading);
             return res;
     }
 
@@ -343,7 +344,7 @@ export default class TestTaskServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/testtasks/${context.testtask}/close`,data,isloading);
+            let res:any = await Http.getInstance().post(`/testtasks/${context.testtask}/close`,data,isloading);
             return res;
     }
 
@@ -371,7 +372,7 @@ export default class TestTaskServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/testtasks/${context.testtask}/linkcase`,data,isloading);
+            let res:any = await Http.getInstance().post(`/testtasks/${context.testtask}/linkcase`,data,isloading);
             return res;
     }
 
@@ -399,7 +400,7 @@ export default class TestTaskServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/testtasks/${context.testtask}/mobtesttaskcounter`,data,isloading);
+            let res:any = await Http.getInstance().post(`/testtasks/${context.testtask}/mobtesttaskcounter`,data,isloading);
             return res;
     }
 
@@ -458,7 +459,7 @@ export default class TestTaskServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/testtasks/${context.testtask}/start`,data,isloading);
+            let res:any = await Http.getInstance().post(`/testtasks/${context.testtask}/start`,data,isloading);
             return res;
     }
 
@@ -486,7 +487,7 @@ export default class TestTaskServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/testtasks/${context.testtask}/unlinkcase`,data,isloading);
+            let res:any = await Http.getInstance().post(`/testtasks/${context.testtask}/unlinkcase`,data,isloading);
             return res;
     }
 
@@ -502,16 +503,16 @@ export default class TestTaskServiceBase extends EntityService {
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/projects/${context.project}/testtasks/fetchdefault`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/testtasks/fetchdefault`,tempData,isloading);
             return res;
         }
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/products/${context.product}/testtasks/fetchdefault`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/testtasks/fetchdefault`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().post(`/testtasks/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().post(`/testtasks/fetchdefault`,tempData,isloading);
         return res;
     }
 
@@ -549,16 +550,16 @@ export default class TestTaskServiceBase extends EntityService {
     public async FetchMyTestTaskPc(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/testtasks/fetchmytesttaskpc`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/testtasks/fetchmytesttaskpc`,tempData,isloading);
             return res;
         }
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/testtasks/fetchmytesttaskpc`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/testtasks/fetchmytesttaskpc`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/testtasks/fetchmytesttaskpc`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/testtasks/fetchmytesttaskpc`,tempData,isloading);
         return res;
     }
 

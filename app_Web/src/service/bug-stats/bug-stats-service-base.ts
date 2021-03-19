@@ -1,3 +1,4 @@
+import { Environment } from '@/environments/environment';
 import { Http } from '@/utils';
 import { Util } from '@/utils';
 import EntityService from '../entity-service';
@@ -49,7 +50,7 @@ export default class BugStatsServiceBase extends EntityService {
      * @memberof BugStatsServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().get(`/bugstats/${context.bugstats}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/bugstats/${context.bugstats}/select`,isloading);
             
             return res;
     }
@@ -105,7 +106,7 @@ export default class BugStatsServiceBase extends EntityService {
      * @memberof BugStatsServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().delete(`/bugstats/${context.bugstats}`,isloading);
+            let res:any = await Http.getInstance().delete(`/bugstats/${context.bugstats}`,isloading);
             return res;
     }
 
@@ -153,7 +154,7 @@ export default class BugStatsServiceBase extends EntityService {
      * @memberof BugStatsServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/bugstats/${context.bugstats}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/bugstats/${context.bugstats}/checkkey`,data,isloading);
             return res;
     }
 
@@ -185,7 +186,7 @@ export default class BugStatsServiceBase extends EntityService {
      */
     public async FetchBugCountInResolution(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/bugstats/fetchbugcountinresolution`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/bugstats/fetchbugcountinresolution`,tempData,isloading);
         return res;
     }
 
@@ -214,7 +215,7 @@ export default class BugStatsServiceBase extends EntityService {
      */
     public async FetchBugResolvedBy(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/bugstats/fetchbugresolvedby`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/bugstats/fetchbugresolvedby`,tempData,isloading);
         return res;
     }
 
@@ -243,7 +244,7 @@ export default class BugStatsServiceBase extends EntityService {
      */
     public async FetchBugResolvedGird(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/bugstats/fetchbugresolvedgird`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/bugstats/fetchbugresolvedgird`,tempData,isloading);
         return res;
     }
 
@@ -272,7 +273,7 @@ export default class BugStatsServiceBase extends EntityService {
      */
     public async FetchBugassignedTo(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/bugstats/fetchbugassignedto`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/bugstats/fetchbugassignedto`,tempData,isloading);
         return res;
     }
 
@@ -301,7 +302,7 @@ export default class BugStatsServiceBase extends EntityService {
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/bugstats/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/bugstats/fetchdefault`,tempData,isloading);
         return res;
     }
 
@@ -330,7 +331,7 @@ export default class BugStatsServiceBase extends EntityService {
      */
     public async FetchProductBugResolutionStats(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/bugstats/fetchproductbugresolutionstats`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/bugstats/fetchproductbugresolutionstats`,tempData,isloading);
         return res;
     }
 
@@ -359,7 +360,7 @@ export default class BugStatsServiceBase extends EntityService {
      */
     public async FetchProductBugStatusSum(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/bugstats/fetchproductbugstatussum`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/bugstats/fetchproductbugstatussum`,tempData,isloading);
         return res;
     }
 
@@ -388,7 +389,7 @@ export default class BugStatsServiceBase extends EntityService {
      */
     public async FetchProductCreateBug(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/bugstats/fetchproductcreatebug`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/bugstats/fetchproductcreatebug`,tempData,isloading);
         return res;
     }
 
@@ -417,7 +418,7 @@ export default class BugStatsServiceBase extends EntityService {
      */
     public async FetchProjectBugStatusCount(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/bugstats/fetchprojectbugstatuscount`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/bugstats/fetchprojectbugstatuscount`,tempData,isloading);
         return res;
     }
 

@@ -117,6 +117,9 @@ export default class TodoDashboardActionsModel {
       {
         name: 'config',
       },
+      {
+        name: 'cost',
+      },
     ]
   }
 

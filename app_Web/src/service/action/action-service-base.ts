@@ -1,3 +1,4 @@
+import { Environment } from '@/environments/environment';
 import { Http } from '@/utils';
 import { Util } from '@/utils';
 import EntityService from '../entity-service';
@@ -49,7 +50,7 @@ export default class ActionServiceBase extends EntityService {
      * @memberof ActionServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().get(`/actions/${context.action}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/actions/${context.action}/select`,isloading);
             
             return res;
     }
@@ -106,7 +107,7 @@ export default class ActionServiceBase extends EntityService {
      * @memberof ActionServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().delete(`/actions/${context.action}`,isloading);
+            let res:any = await Http.getInstance().delete(`/actions/${context.action}`,isloading);
             return res;
     }
 
@@ -154,7 +155,7 @@ export default class ActionServiceBase extends EntityService {
      * @memberof ActionServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/actions/${context.action}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/actions/${context.action}/checkkey`,data,isloading);
             return res;
     }
 
@@ -168,7 +169,7 @@ export default class ActionServiceBase extends EntityService {
      * @memberof ActionServiceBase
      */
     public async Comment(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/actions/${context.action}/comment`,data,isloading);
+            let res:any = await Http.getInstance().post(`/actions/${context.action}/comment`,data,isloading);
             return res;
     }
 
@@ -182,7 +183,7 @@ export default class ActionServiceBase extends EntityService {
      * @memberof ActionServiceBase
      */
     public async EditComment(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/actions/${context.action}/editcomment`,data,isloading);
+            let res:any = await Http.getInstance().post(`/actions/${context.action}/editcomment`,data,isloading);
             return res;
     }
 
@@ -196,7 +197,7 @@ export default class ActionServiceBase extends EntityService {
      * @memberof ActionServiceBase
      */
     public async ManagePmsEe(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/actions/${context.action}/managepmsee`,data,isloading);
+            let res:any = await Http.getInstance().post(`/actions/${context.action}/managepmsee`,data,isloading);
             return res;
     }
 
@@ -228,7 +229,7 @@ export default class ActionServiceBase extends EntityService {
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/actions/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/actions/fetchdefault`,tempData,isloading);
         return res;
     }
 
@@ -257,7 +258,7 @@ export default class ActionServiceBase extends EntityService {
      */
     public async FetchMobType(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/actions/fetchmobtype`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/actions/fetchmobtype`,tempData,isloading);
         return res;
     }
 
@@ -286,7 +287,7 @@ export default class ActionServiceBase extends EntityService {
      */
     public async FetchMyTrends(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/actions/fetchmytrends`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/actions/fetchmytrends`,tempData,isloading);
         return res;
     }
 
@@ -315,7 +316,7 @@ export default class ActionServiceBase extends EntityService {
      */
     public async FetchProductTrends(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/actions/fetchproducttrends`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/actions/fetchproducttrends`,tempData,isloading);
         return res;
     }
 
@@ -344,7 +345,7 @@ export default class ActionServiceBase extends EntityService {
      */
     public async FetchProjectTrends(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/actions/fetchprojecttrends`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/actions/fetchprojecttrends`,tempData,isloading);
         return res;
     }
 
@@ -373,7 +374,7 @@ export default class ActionServiceBase extends EntityService {
      */
     public async FetchQueryUserYEAR(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/actions/fetchqueryuseryear`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/actions/fetchqueryuseryear`,tempData,isloading);
         return res;
     }
 
@@ -402,7 +403,7 @@ export default class ActionServiceBase extends EntityService {
      */
     public async FetchType(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/actions/fetchtype`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/actions/fetchtype`,tempData,isloading);
         return res;
     }
 

@@ -20,11 +20,14 @@ import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * 服务DTO对象[SysTeamMemberDTO]
  */
 @Data
+@ApiModel("组成员")
 public class SysTeamMemberDTO extends DTOBase implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -36,6 +39,7 @@ public class SysTeamMemberDTO extends DTOBase implements Serializable {
     @JSONField(name = "teammemberid")
     @JsonProperty("teammemberid")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("组成员标识")
     private String teammemberid;
 
     /**
@@ -46,6 +50,7 @@ public class SysTeamMemberDTO extends DTOBase implements Serializable {
     @JsonProperty("teamname")
     @NotBlank(message = "[组名称]不允许为空!")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("组名称")
     private String teamname;
 
     /**
@@ -55,6 +60,7 @@ public class SysTeamMemberDTO extends DTOBase implements Serializable {
     @JSONField(name = "postname")
     @JsonProperty("postname")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("岗位")
     private String postname;
 
     /**
@@ -64,6 +70,7 @@ public class SysTeamMemberDTO extends DTOBase implements Serializable {
     @JSONField(name = "domains")
     @JsonProperty("domains")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("区属")
     private String domains;
 
     /**
@@ -73,6 +80,7 @@ public class SysTeamMemberDTO extends DTOBase implements Serializable {
     @JSONField(name = "usericon")
     @JsonProperty("usericon")
     @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
+    @ApiModelProperty("头像")
     private String usericon;
 
     /**
@@ -82,6 +90,7 @@ public class SysTeamMemberDTO extends DTOBase implements Serializable {
     @JSONField(name = "personname")
     @JsonProperty("personname")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("姓名")
     private String personname;
 
     /**
@@ -91,6 +100,7 @@ public class SysTeamMemberDTO extends DTOBase implements Serializable {
     @JSONField(name = "username")
     @JsonProperty("username")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("账号")
     private String username;
 
     /**
@@ -100,6 +110,7 @@ public class SysTeamMemberDTO extends DTOBase implements Serializable {
     @JSONField(name = "postid")
     @JsonProperty("postid")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("岗位标识")
     private String postid;
 
     /**
@@ -109,6 +120,7 @@ public class SysTeamMemberDTO extends DTOBase implements Serializable {
     @JSONField(name = "teamid")
     @JsonProperty("teamid")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("组标识")
     private String teamid;
 
     /**
@@ -118,6 +130,7 @@ public class SysTeamMemberDTO extends DTOBase implements Serializable {
     @JSONField(name = "userid")
     @JsonProperty("userid")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("用户标识")
     private String userid;
 
 

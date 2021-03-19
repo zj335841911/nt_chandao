@@ -20,11 +20,14 @@ import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * 服务DTO对象[PRODUCTTEAMDTO]
  */
 @Data
+@ApiModel("产品团队")
 public class PRODUCTTEAMDTO extends DTOBase implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -36,6 +39,7 @@ public class PRODUCTTEAMDTO extends DTOBase implements Serializable {
     @JSONField(name = "teamstatus")
     @JsonProperty("teamstatus")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("成员状态")
     private String teamstatus;
 
     /**
@@ -45,6 +49,7 @@ public class PRODUCTTEAMDTO extends DTOBase implements Serializable {
     @JSONField(name = "account")
     @JsonProperty("account")
     @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
+    @ApiModelProperty("用户")
     private String account;
 
     /**
@@ -54,6 +59,7 @@ public class PRODUCTTEAMDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "join" , format="yyyy-MM-dd")
     @JsonProperty("join")
+    @ApiModelProperty("加盟日")
     private Timestamp join;
 
     /**
@@ -62,6 +68,7 @@ public class PRODUCTTEAMDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "left")
     @JsonProperty("left")
+    @ApiModelProperty("预计剩余")
     private Double left;
 
     /**
@@ -70,6 +77,7 @@ public class PRODUCTTEAMDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "total")
     @JsonProperty("total")
+    @ApiModelProperty("总计可用")
     private Integer total;
 
     /**
@@ -79,6 +87,7 @@ public class PRODUCTTEAMDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "end" , format="yyyy-MM-dd")
     @JsonProperty("end")
+    @ApiModelProperty("结束时间")
     private Timestamp end;
 
     /**
@@ -88,6 +97,7 @@ public class PRODUCTTEAMDTO extends DTOBase implements Serializable {
     @JSONField(name = "username")
     @JsonProperty("username")
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("用户")
     private String username;
 
     /**
@@ -96,6 +106,7 @@ public class PRODUCTTEAMDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "estimate")
     @JsonProperty("estimate")
+    @ApiModelProperty("最初预计")
     private Double estimate;
 
     /**
@@ -104,6 +115,7 @@ public class PRODUCTTEAMDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "hours")
     @JsonProperty("hours")
+    @ApiModelProperty("可用工时/天")
     private Double hours;
 
     /**
@@ -112,6 +124,7 @@ public class PRODUCTTEAMDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "taskcnt")
     @JsonProperty("taskcnt")
+    @ApiModelProperty("任务数")
     private Integer taskcnt;
 
     /**
@@ -121,6 +134,7 @@ public class PRODUCTTEAMDTO extends DTOBase implements Serializable {
     @JSONField(name = "type")
     @JsonProperty("type")
     @Size(min = 0, max = 7, message = "内容长度必须小于等于[7]")
+    @ApiModelProperty("团队类型")
     private String type;
 
     /**
@@ -129,6 +143,7 @@ public class PRODUCTTEAMDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "consumed")
     @JsonProperty("consumed")
+    @ApiModelProperty("总计消耗")
     private Double consumed;
 
     /**
@@ -137,6 +152,7 @@ public class PRODUCTTEAMDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "days")
     @JsonProperty("days")
+    @ApiModelProperty("可用工日")
     private Integer days;
 
     /**
@@ -146,6 +162,7 @@ public class PRODUCTTEAMDTO extends DTOBase implements Serializable {
     @JSONField(name = "id")
     @JsonProperty("id")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("编号")
     private Long id;
 
     /**
@@ -155,6 +172,7 @@ public class PRODUCTTEAMDTO extends DTOBase implements Serializable {
     @JSONField(name = "leadingcadre")
     @JsonProperty("leadingcadre")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("当前负责人")
     private String leadingcadre;
 
     /**
@@ -164,6 +182,7 @@ public class PRODUCTTEAMDTO extends DTOBase implements Serializable {
     @JSONField(name = "limited")
     @JsonProperty("limited")
     @Size(min = 0, max = 8, message = "内容长度必须小于等于[8]")
+    @ApiModelProperty("受限用户")
     private String limited;
 
     /**
@@ -172,6 +191,7 @@ public class PRODUCTTEAMDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "order")
     @JsonProperty("order")
+    @ApiModelProperty("排序")
     private Integer order;
 
     /**
@@ -181,6 +201,7 @@ public class PRODUCTTEAMDTO extends DTOBase implements Serializable {
     @JSONField(name = "role")
     @JsonProperty("role")
     @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
+    @ApiModelProperty("角色")
     private String role;
 
     /**
@@ -190,6 +211,7 @@ public class PRODUCTTEAMDTO extends DTOBase implements Serializable {
     @JSONField(name = "root")
     @JsonProperty("root")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("产品编号")
     private Long root;
 
 

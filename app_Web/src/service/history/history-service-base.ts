@@ -1,3 +1,4 @@
+import { Environment } from '@/environments/environment';
 import { Http } from '@/utils';
 import { Util } from '@/utils';
 import EntityService from '../entity-service';
@@ -50,11 +51,11 @@ export default class HistoryServiceBase extends EntityService {
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.action && context.history){
-            let res:any = Http.getInstance().get(`/actions/${context.action}/histories/${context.history}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/actions/${context.action}/histories/${context.history}/select`,isloading);
             
             return res;
         }
-            let res:any = Http.getInstance().get(`/histories/${context.history}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/histories/${context.history}/select`,isloading);
             
             return res;
     }
@@ -132,10 +133,10 @@ export default class HistoryServiceBase extends EntityService {
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.action && context.history){
-            let res:any = Http.getInstance().delete(`/actions/${context.action}/histories/${context.history}`,isloading);
+            let res:any = await Http.getInstance().delete(`/actions/${context.action}/histories/${context.history}`,isloading);
             return res;
         }
-            let res:any = Http.getInstance().delete(`/histories/${context.history}`,isloading);
+            let res:any = await Http.getInstance().delete(`/histories/${context.history}`,isloading);
             return res;
     }
 
@@ -204,7 +205,7 @@ export default class HistoryServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/histories/${context.history}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/histories/${context.history}/checkkey`,data,isloading);
             return res;
     }
 
@@ -244,11 +245,11 @@ export default class HistoryServiceBase extends EntityService {
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.action && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/actions/${context.action}/histories/fetchdefault`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/actions/${context.action}/histories/fetchdefault`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/histories/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/histories/fetchdefault`,tempData,isloading);
         return res;
     }
 

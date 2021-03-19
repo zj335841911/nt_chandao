@@ -1,3 +1,4 @@
+import { Environment } from '@/environments/environment';
 import { Http } from '@/utils';
 import { Util } from '@/utils';
 import EntityService from '../entity-service';
@@ -50,11 +51,11 @@ export default class BurnServiceBase extends EntityService {
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.burn){
-            let res:any = Http.getInstance().get(`/projects/${context.project}/burns/${context.burn}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/burns/${context.burn}/select`,isloading);
             
             return res;
         }
-            let res:any = Http.getInstance().get(`/burns/${context.burn}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/burns/${context.burn}/select`,isloading);
             
             return res;
     }
@@ -132,10 +133,10 @@ export default class BurnServiceBase extends EntityService {
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.burn){
-            let res:any = Http.getInstance().delete(`/projects/${context.project}/burns/${context.burn}`,isloading);
+            let res:any = await Http.getInstance().delete(`/projects/${context.project}/burns/${context.burn}`,isloading);
             return res;
         }
-            let res:any = Http.getInstance().delete(`/burns/${context.burn}`,isloading);
+            let res:any = await Http.getInstance().delete(`/burns/${context.burn}`,isloading);
             return res;
     }
 
@@ -204,7 +205,7 @@ export default class BurnServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/burns/${context.burn}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/burns/${context.burn}/checkkey`,data,isloading);
             return res;
     }
 
@@ -225,7 +226,7 @@ export default class BurnServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/burns/${context.burn}/computeburn`,data,isloading);
+            let res:any = await Http.getInstance().post(`/burns/${context.burn}/computeburn`,data,isloading);
             return res;
     }
 
@@ -265,11 +266,11 @@ export default class BurnServiceBase extends EntityService {
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/burns/fetchdefault`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/burns/fetchdefault`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/burns/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/burns/fetchdefault`,tempData,isloading);
         return res;
     }
 
@@ -303,11 +304,11 @@ export default class BurnServiceBase extends EntityService {
     public async FetchESTIMATEANDLEFT(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/burns/fetchestimateandleft`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/burns/fetchestimateandleft`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/burns/fetchestimateandleft`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/burns/fetchestimateandleft`,tempData,isloading);
         return res;
     }
 

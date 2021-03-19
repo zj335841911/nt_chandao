@@ -1,3 +1,4 @@
+import { Environment } from '@/environments/environment';
 import { Http } from '@/utils';
 import { Util } from '@/utils';
 import EntityService from '../entity-service';
@@ -49,7 +50,7 @@ export default class IbzReportlyServiceBase extends EntityService {
      * @memberof IbzReportlyServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().get(`/ibzreportlies/${context.ibzreportly}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/ibzreportlies/${context.ibzreportly}/select`,isloading);
             
             return res;
     }
@@ -105,7 +106,7 @@ export default class IbzReportlyServiceBase extends EntityService {
      * @memberof IbzReportlyServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().delete(`/ibzreportlies/${context.ibzreportly}`,isloading);
+            let res:any = await Http.getInstance().delete(`/ibzreportlies/${context.ibzreportly}`,isloading);
             return res;
     }
 
@@ -153,7 +154,7 @@ export default class IbzReportlyServiceBase extends EntityService {
      * @memberof IbzReportlyServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/ibzreportlies/${context.ibzreportly}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/ibzreportlies/${context.ibzreportly}/checkkey`,data,isloading);
             return res;
     }
 
@@ -167,7 +168,7 @@ export default class IbzReportlyServiceBase extends EntityService {
      * @memberof IbzReportlyServiceBase
      */
     public async HaveRead(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/ibzreportlies/${context.ibzreportly}/haveread`,data,isloading);
+            let res:any = await Http.getInstance().post(`/ibzreportlies/${context.ibzreportly}/haveread`,data,isloading);
             return res;
     }
 
@@ -198,7 +199,7 @@ export default class IbzReportlyServiceBase extends EntityService {
      * @memberof IbzReportlyServiceBase
      */
     public async Submit(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().put(`/ibzreportlies/${context.ibzreportly}/submit`,data,isloading);
+            let res:any = await Http.getInstance().put(`/ibzreportlies/${context.ibzreportly}/submit`,data,isloading);
             return res;
     }
 
@@ -213,7 +214,7 @@ export default class IbzReportlyServiceBase extends EntityService {
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/ibzreportlies/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/ibzreportlies/fetchdefault`,tempData,isloading);
         return res;
     }
 
@@ -242,7 +243,7 @@ export default class IbzReportlyServiceBase extends EntityService {
      */
     public async FetchMyAllReportly(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/ibzreportlies/fetchmyallreportly`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/ibzreportlies/fetchmyallreportly`,tempData,isloading);
         return res;
     }
 
@@ -271,7 +272,7 @@ export default class IbzReportlyServiceBase extends EntityService {
      */
     public async FetchMyReceived(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/ibzreportlies/fetchmyreceived`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/ibzreportlies/fetchmyreceived`,tempData,isloading);
         return res;
     }
 
@@ -300,7 +301,7 @@ export default class IbzReportlyServiceBase extends EntityService {
      */
     public async FetchMyReportlyMob(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/ibzreportlies/fetchmyreportlymob`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/ibzreportlies/fetchmyreportlymob`,tempData,isloading);
         return res;
     }
 

@@ -1,3 +1,4 @@
+import { Environment } from '@/environments/environment';
 import { Http } from '@/utils';
 import { Util } from '@/utils';
 import EntityService from '../entity-service';
@@ -49,7 +50,7 @@ export default class SysPostServiceBase extends EntityService {
      * @memberof SysPostServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().get(`/sysposts/${context.syspost}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/sysposts/${context.syspost}/select`,isloading);
             
             return res;
     }
@@ -105,7 +106,7 @@ export default class SysPostServiceBase extends EntityService {
      * @memberof SysPostServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().delete(`/sysposts/${context.syspost}`,isloading);
+            let res:any = await Http.getInstance().delete(`/sysposts/${context.syspost}`,isloading);
             return res;
     }
 
@@ -153,7 +154,7 @@ export default class SysPostServiceBase extends EntityService {
      * @memberof SysPostServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/sysposts/${context.syspost}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/sysposts/${context.syspost}/checkkey`,data,isloading);
             return res;
     }
 
@@ -185,7 +186,7 @@ export default class SysPostServiceBase extends EntityService {
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/sysposts/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/sysposts/fetchdefault`,tempData,isloading);
         return res;
     }
 

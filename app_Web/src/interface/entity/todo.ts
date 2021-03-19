@@ -277,4 +277,12 @@ export interface Todo {
      * @memberof Todo
      */
     config?: any;
+
+    /**
+     * 费用
+     *
+     * @returns {*}
+     * @memberof Todo
+     */
+    cost?: any;
 }

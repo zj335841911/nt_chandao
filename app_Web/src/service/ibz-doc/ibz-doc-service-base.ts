@@ -1,3 +1,4 @@
+import { Environment } from '@/environments/environment';
 import { Http } from '@/utils';
 import { Util } from '@/utils';
 import EntityService from '../entity-service';
@@ -49,7 +50,7 @@ export default class IBzDocServiceBase extends EntityService {
      * @memberof IBzDocServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().get(`/ibzdocs/${context.ibzdoc}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/ibzdocs/${context.ibzdoc}/select`,isloading);
             
             return res;
     }

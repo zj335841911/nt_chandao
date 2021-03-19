@@ -1,3 +1,4 @@
+import { Environment } from '@/environments/environment';
 import { Http } from '@/utils';
 import { Util } from '@/utils';
 import EntityService from '../entity-service';
@@ -50,11 +51,11 @@ export default class ProductPlanServiceBase extends EntityService {
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.productplan){
-            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}/select`,isloading);
             
             return res;
         }
-            let res:any = Http.getInstance().get(`/productplans/${context.productplan}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/productplans/${context.productplan}/select`,isloading);
             
             return res;
     }
@@ -74,12 +75,12 @@ export default class ProductPlanServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -105,12 +106,12 @@ export default class ProductPlanServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -148,12 +149,12 @@ export default class ProductPlanServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -171,12 +172,12 @@ export default class ProductPlanServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -202,10 +203,10 @@ export default class ProductPlanServiceBase extends EntityService {
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.productplan){
-            let res:any = Http.getInstance().delete(`/products/${context.product}/productplans/${context.productplan}`,isloading);
+            let res:any = await Http.getInstance().delete(`/products/${context.product}/productplans/${context.productplan}`,isloading);
             return res;
         }
-            let res:any = Http.getInstance().delete(`/productplans/${context.productplan}`,isloading);
+            let res:any = await Http.getInstance().delete(`/productplans/${context.productplan}`,isloading);
             return res;
     }
 
@@ -276,12 +277,12 @@ export default class ProductPlanServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -295,7 +296,7 @@ export default class ProductPlanServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/productplans/${context.productplan}/batchunlinkbug`,data,isloading);
+            let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/batchunlinkbug`,data,isloading);
             return res;
     }
 
@@ -314,12 +315,12 @@ export default class ProductPlanServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -333,7 +334,7 @@ export default class ProductPlanServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/productplans/${context.productplan}/batchunlinkstory`,data,isloading);
+            let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/batchunlinkstory`,data,isloading);
             return res;
     }
 
@@ -352,12 +353,12 @@ export default class ProductPlanServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -371,7 +372,7 @@ export default class ProductPlanServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/productplans/${context.productplan}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/checkkey`,data,isloading);
             return res;
     }
 
@@ -390,12 +391,12 @@ export default class ProductPlanServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -409,7 +410,7 @@ export default class ProductPlanServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/productplans/${context.productplan}/eeactiveplan`,data,isloading);
+            let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/eeactiveplan`,data,isloading);
             return res;
     }
 
@@ -428,12 +429,12 @@ export default class ProductPlanServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -447,7 +448,7 @@ export default class ProductPlanServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/productplans/${context.productplan}/eecancelplan`,data,isloading);
+            let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/eecancelplan`,data,isloading);
             return res;
     }
 
@@ -466,12 +467,12 @@ export default class ProductPlanServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -485,7 +486,7 @@ export default class ProductPlanServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/productplans/${context.productplan}/eecloseplan`,data,isloading);
+            let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/eecloseplan`,data,isloading);
             return res;
     }
 
@@ -504,12 +505,12 @@ export default class ProductPlanServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -523,7 +524,7 @@ export default class ProductPlanServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/productplans/${context.productplan}/eefinishplan`,data,isloading);
+            let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/eefinishplan`,data,isloading);
             return res;
     }
 
@@ -542,12 +543,12 @@ export default class ProductPlanServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -561,7 +562,7 @@ export default class ProductPlanServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/productplans/${context.productplan}/eepauseplan`,data,isloading);
+            let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/eepauseplan`,data,isloading);
             return res;
     }
 
@@ -580,12 +581,12 @@ export default class ProductPlanServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -599,7 +600,7 @@ export default class ProductPlanServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/productplans/${context.productplan}/eerestartplan`,data,isloading);
+            let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/eerestartplan`,data,isloading);
             return res;
     }
 
@@ -618,12 +619,12 @@ export default class ProductPlanServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -637,7 +638,7 @@ export default class ProductPlanServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/productplans/${context.productplan}/eestartplan`,data,isloading);
+            let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/eestartplan`,data,isloading);
             return res;
     }
 
@@ -656,12 +657,12 @@ export default class ProductPlanServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -675,7 +676,7 @@ export default class ProductPlanServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/productplans/${context.productplan}/getoldplanname`,data,isloading);
+            let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/getoldplanname`,data,isloading);
             return res;
     }
 
@@ -694,12 +695,12 @@ export default class ProductPlanServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -713,7 +714,7 @@ export default class ProductPlanServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/productplans/${context.productplan}/importplantemplet`,data,isloading);
+            let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/importplantemplet`,data,isloading);
             return res;
     }
 
@@ -732,12 +733,12 @@ export default class ProductPlanServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -751,7 +752,7 @@ export default class ProductPlanServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/productplans/${context.productplan}/linkbug`,data,isloading);
+            let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/linkbug`,data,isloading);
             return res;
     }
 
@@ -770,12 +771,12 @@ export default class ProductPlanServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -789,7 +790,7 @@ export default class ProductPlanServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/productplans/${context.productplan}/linkstory`,data,isloading);
+            let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/linkstory`,data,isloading);
             return res;
     }
 
@@ -808,12 +809,12 @@ export default class ProductPlanServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -827,7 +828,7 @@ export default class ProductPlanServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/productplans/${context.productplan}/linktask`,data,isloading);
+            let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/linktask`,data,isloading);
             return res;
     }
 
@@ -846,12 +847,12 @@ export default class ProductPlanServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -865,7 +866,7 @@ export default class ProductPlanServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().put(`/productplans/${context.productplan}/mobproductplancounter`,data,isloading);
+            let res:any = await Http.getInstance().put(`/productplans/${context.productplan}/mobproductplancounter`,data,isloading);
             return res;
     }
 
@@ -884,12 +885,12 @@ export default class ProductPlanServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -907,12 +908,12 @@ export default class ProductPlanServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -942,12 +943,12 @@ export default class ProductPlanServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -961,7 +962,7 @@ export default class ProductPlanServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/productplans/${context.productplan}/unlinkbug`,data,isloading);
+            let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/unlinkbug`,data,isloading);
             return res;
     }
 
@@ -980,12 +981,12 @@ export default class ProductPlanServiceBase extends EntityService {
         let tasksData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
             tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
-            if(tasksData && tasksData.length && tasksData.length > 0){
+            if(tasksData && tasksData.length && tasksData.length > 0 && Environment.isStudioSystem === false){
                 tasksData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -999,7 +1000,7 @@ export default class ProductPlanServiceBase extends EntityService {
 
             return res;
         }
-            let res:any = Http.getInstance().post(`/productplans/${context.productplan}/unlinkstory`,data,isloading);
+            let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/unlinkstory`,data,isloading);
             return res;
     }
 
@@ -1015,11 +1016,11 @@ export default class ProductPlanServiceBase extends EntityService {
     public async FetchChildPlan(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/fetchchildplan`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/fetchchildplan`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/productplans/fetchchildplan`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/productplans/fetchchildplan`,tempData,isloading);
         return res;
     }
 
@@ -1053,11 +1054,11 @@ export default class ProductPlanServiceBase extends EntityService {
     public async FetchCurProductPlan(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/fetchcurproductplan`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/fetchcurproductplan`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/productplans/fetchcurproductplan`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/productplans/fetchcurproductplan`,tempData,isloading);
         return res;
     }
 
@@ -1091,11 +1092,11 @@ export default class ProductPlanServiceBase extends EntityService {
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/fetchdefault`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/fetchdefault`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/productplans/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/productplans/fetchdefault`,tempData,isloading);
         return res;
     }
 
@@ -1129,11 +1130,11 @@ export default class ProductPlanServiceBase extends EntityService {
     public async FetchDefaultParent(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/products/${context.product}/productplans/fetchdefaultparent`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/fetchdefaultparent`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().post(`/productplans/fetchdefaultparent`,tempData,isloading);
+        let res:any = await Http.getInstance().post(`/productplans/fetchdefaultparent`,tempData,isloading);
         return res;
     }
 
@@ -1167,11 +1168,11 @@ export default class ProductPlanServiceBase extends EntityService {
     public async FetchPlanCodeList(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/fetchplancodelist`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/fetchplancodelist`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/productplans/fetchplancodelist`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/productplans/fetchplancodelist`,tempData,isloading);
         return res;
     }
 
@@ -1205,11 +1206,11 @@ export default class ProductPlanServiceBase extends EntityService {
     public async FetchPlanTasks(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/fetchplantasks`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/fetchplantasks`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/productplans/fetchplantasks`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/productplans/fetchplantasks`,tempData,isloading);
         return res;
     }
 
@@ -1243,11 +1244,11 @@ export default class ProductPlanServiceBase extends EntityService {
     public async FetchProjectApp(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/fetchprojectapp`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/fetchprojectapp`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/productplans/fetchprojectapp`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/productplans/fetchprojectapp`,tempData,isloading);
         return res;
     }
 
@@ -1281,11 +1282,11 @@ export default class ProductPlanServiceBase extends EntityService {
     public async FetchProjectPlan(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/fetchprojectplan`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/fetchprojectplan`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/productplans/fetchprojectplan`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/productplans/fetchprojectplan`,tempData,isloading);
         return res;
     }
 
@@ -1319,11 +1320,11 @@ export default class ProductPlanServiceBase extends EntityService {
     public async FetchRootPlan(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/fetchrootplan`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/fetchrootplan`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/productplans/fetchrootplan`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/productplans/fetchrootplan`,tempData,isloading);
         return res;
     }
 
@@ -1357,11 +1358,11 @@ export default class ProductPlanServiceBase extends EntityService {
     public async FetchTaskPlan(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/fetchtaskplan`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/fetchtaskplan`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/productplans/fetchtaskplan`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/productplans/fetchtaskplan`,tempData,isloading);
         return res;
     }
 

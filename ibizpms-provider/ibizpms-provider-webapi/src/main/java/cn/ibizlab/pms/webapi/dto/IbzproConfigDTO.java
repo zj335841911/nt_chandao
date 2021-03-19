@@ -20,11 +20,14 @@ import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * 服务DTO对象[IbzproConfigDTO]
  */
 @Data
+@ApiModel("系统配置表")
 public class IbzproConfigDTO extends DTOBase implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -36,6 +39,7 @@ public class IbzproConfigDTO extends DTOBase implements Serializable {
     @JSONField(name = "updateman")
     @JsonProperty("updateman")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("更新人")
     private String updateman;
 
     /**
@@ -45,6 +49,7 @@ public class IbzproConfigDTO extends DTOBase implements Serializable {
     @JSONField(name = "ibzproconfigname")
     @JsonProperty("ibzproconfigname")
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("系统配置表名称")
     private String ibzproconfigname;
 
     /**
@@ -54,6 +59,7 @@ public class IbzproConfigDTO extends DTOBase implements Serializable {
     @JSONField(name = "memo")
     @JsonProperty("memo")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("描述")
     private String memo;
 
     /**
@@ -63,6 +69,7 @@ public class IbzproConfigDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "updatedate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("updatedate")
+    @ApiModelProperty("更新时间")
     private Timestamp updatedate;
 
     /**
@@ -72,6 +79,7 @@ public class IbzproConfigDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "createdate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createdate")
+    @ApiModelProperty("建立时间")
     private Timestamp createdate;
 
     /**
@@ -81,6 +89,7 @@ public class IbzproConfigDTO extends DTOBase implements Serializable {
     @JSONField(name = "ibzproconfigid")
     @JsonProperty("ibzproconfigid")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("系统配置表标识")
     private String ibzproconfigid;
 
     /**
@@ -90,6 +99,7 @@ public class IbzproConfigDTO extends DTOBase implements Serializable {
     @JSONField(name = "scope")
     @JsonProperty("scope")
     @Size(min = 0, max = 2000, message = "内容长度必须小于等于[2000]")
+    @ApiModelProperty("范围")
     private String scope;
 
     /**
@@ -99,6 +109,7 @@ public class IbzproConfigDTO extends DTOBase implements Serializable {
     @JSONField(name = "type")
     @JsonProperty("type")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("类型")
     private String type;
 
     /**
@@ -108,6 +119,7 @@ public class IbzproConfigDTO extends DTOBase implements Serializable {
     @JSONField(name = "managementstatus")
     @JsonProperty("managementstatus")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("管理现状")
     private String managementstatus;
 
     /**
@@ -117,6 +129,7 @@ public class IbzproConfigDTO extends DTOBase implements Serializable {
     @JSONField(name = "vaild")
     @JsonProperty("vaild")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("是否启用")
     private String vaild;
 
     /**
@@ -126,6 +139,7 @@ public class IbzproConfigDTO extends DTOBase implements Serializable {
     @JSONField(name = "createman")
     @JsonProperty("createman")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("建立人")
     private String createman;
 
 

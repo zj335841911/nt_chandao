@@ -1,3 +1,4 @@
+import { Environment } from '@/environments/environment';
 import { Http } from '@/utils';
 import { Util } from '@/utils';
 import EntityService from '../entity-service';
@@ -50,16 +51,16 @@ export default class BuildServiceBase extends EntityService {
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.build){
-            let res:any = Http.getInstance().get(`/projects/${context.project}/builds/${context.build}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/builds/${context.build}/select`,isloading);
             
             return res;
         }
         if(context.product && context.build){
-            let res:any = Http.getInstance().get(`/products/${context.product}/builds/${context.build}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/builds/${context.build}/select`,isloading);
             
             return res;
         }
-            let res:any = Http.getInstance().get(`/builds/${context.build}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/builds/${context.build}/select`,isloading);
             
             return res;
     }
@@ -158,14 +159,14 @@ export default class BuildServiceBase extends EntityService {
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.build){
-            let res:any = Http.getInstance().delete(`/projects/${context.project}/builds/${context.build}`,isloading);
+            let res:any = await Http.getInstance().delete(`/projects/${context.project}/builds/${context.build}`,isloading);
             return res;
         }
         if(context.product && context.build){
-            let res:any = Http.getInstance().delete(`/products/${context.product}/builds/${context.build}`,isloading);
+            let res:any = await Http.getInstance().delete(`/products/${context.product}/builds/${context.build}`,isloading);
             return res;
         }
-            let res:any = Http.getInstance().delete(`/builds/${context.build}`,isloading);
+            let res:any = await Http.getInstance().delete(`/builds/${context.build}`,isloading);
             return res;
     }
 
@@ -255,7 +256,7 @@ export default class BuildServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/builds/${context.build}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/builds/${context.build}/checkkey`,data,isloading);
             return res;
     }
 
@@ -283,7 +284,7 @@ export default class BuildServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/builds/${context.build}/linkstory`,data,isloading);
+            let res:any = await Http.getInstance().post(`/builds/${context.build}/linkstory`,data,isloading);
             return res;
     }
 
@@ -311,7 +312,7 @@ export default class BuildServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().put(`/builds/${context.build}/mobprojectbuildcounter`,data,isloading);
+            let res:any = await Http.getInstance().put(`/builds/${context.build}/mobprojectbuildcounter`,data,isloading);
             return res;
     }
 
@@ -339,7 +340,7 @@ export default class BuildServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/builds/${context.build}/oneclickrelease`,data,isloading);
+            let res:any = await Http.getInstance().post(`/builds/${context.build}/oneclickrelease`,data,isloading);
             return res;
     }
 
@@ -386,16 +387,16 @@ export default class BuildServiceBase extends EntityService {
     public async FetchBugProductBuild(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/builds/fetchbugproductbuild`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/builds/fetchbugproductbuild`,tempData,isloading);
             return res;
         }
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/builds/fetchbugproductbuild`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/builds/fetchbugproductbuild`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/builds/fetchbugproductbuild`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/builds/fetchbugproductbuild`,tempData,isloading);
         return res;
     }
 
@@ -433,16 +434,16 @@ export default class BuildServiceBase extends EntityService {
     public async FetchCurProduct(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/builds/fetchcurproduct`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/builds/fetchcurproduct`,tempData,isloading);
             return res;
         }
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/builds/fetchcurproduct`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/builds/fetchcurproduct`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/builds/fetchcurproduct`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/builds/fetchcurproduct`,tempData,isloading);
         return res;
     }
 
@@ -480,16 +481,16 @@ export default class BuildServiceBase extends EntityService {
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/projects/${context.project}/builds/fetchdefault`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/builds/fetchdefault`,tempData,isloading);
             return res;
         }
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/products/${context.product}/builds/fetchdefault`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/builds/fetchdefault`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().post(`/builds/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().post(`/builds/fetchdefault`,tempData,isloading);
         return res;
     }
 
@@ -527,16 +528,16 @@ export default class BuildServiceBase extends EntityService {
     public async FetchTestBuild(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/builds/fetchtestbuild`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/builds/fetchtestbuild`,tempData,isloading);
             return res;
         }
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/builds/fetchtestbuild`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/builds/fetchtestbuild`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/builds/fetchtestbuild`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/builds/fetchtestbuild`,tempData,isloading);
         return res;
     }
 
@@ -574,16 +575,16 @@ export default class BuildServiceBase extends EntityService {
     public async FetchTestRounds(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/projects/${context.project}/builds/fetchtestrounds`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/projects/${context.project}/builds/fetchtestrounds`,tempData,isloading);
             return res;
         }
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/products/${context.product}/builds/fetchtestrounds`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/builds/fetchtestrounds`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().post(`/builds/fetchtestrounds`,tempData,isloading);
+        let res:any = await Http.getInstance().post(`/builds/fetchtestrounds`,tempData,isloading);
         return res;
     }
 
@@ -621,16 +622,16 @@ export default class BuildServiceBase extends EntityService {
     public async FetchUpdateLog(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/builds/fetchupdatelog`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/builds/fetchupdatelog`,tempData,isloading);
             return res;
         }
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/builds/fetchupdatelog`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/builds/fetchupdatelog`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/builds/fetchupdatelog`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/builds/fetchupdatelog`,tempData,isloading);
         return res;
     }
 

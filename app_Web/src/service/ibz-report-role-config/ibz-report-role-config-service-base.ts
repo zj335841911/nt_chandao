@@ -1,3 +1,4 @@
+import { Environment } from '@/environments/environment';
 import { Http } from '@/utils';
 import { Util } from '@/utils';
 import EntityService from '../entity-service';
@@ -49,7 +50,7 @@ export default class IbzReportRoleConfigServiceBase extends EntityService {
      * @memberof IbzReportRoleConfigServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().get(`/ibzreportroleconfigs/${context.ibzreportroleconfig}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/ibzreportroleconfigs/${context.ibzreportroleconfig}/select`,isloading);
             
             return res;
     }
@@ -105,7 +106,7 @@ export default class IbzReportRoleConfigServiceBase extends EntityService {
      * @memberof IbzReportRoleConfigServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().delete(`/ibzreportroleconfigs/${context.ibzreportroleconfig}`,isloading);
+            let res:any = await Http.getInstance().delete(`/ibzreportroleconfigs/${context.ibzreportroleconfig}`,isloading);
             return res;
     }
 
@@ -153,7 +154,7 @@ export default class IbzReportRoleConfigServiceBase extends EntityService {
      * @memberof IbzReportRoleConfigServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/ibzreportroleconfigs/${context.ibzreportroleconfig}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/ibzreportroleconfigs/${context.ibzreportroleconfig}/checkkey`,data,isloading);
             return res;
     }
 
@@ -185,7 +186,7 @@ export default class IbzReportRoleConfigServiceBase extends EntityService {
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/ibzreportroleconfigs/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/ibzreportroleconfigs/fetchdefault`,tempData,isloading);
         return res;
     }
 

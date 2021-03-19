@@ -20,11 +20,14 @@ import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * 服务DTO对象[StorySpecDTO]
  */
 @Data
+@ApiModel("需求描述")
 public class StorySpecDTO extends DTOBase implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -36,6 +39,7 @@ public class StorySpecDTO extends DTOBase implements Serializable {
     @JSONField(name = "spec")
     @JsonProperty("spec")
     @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
+    @ApiModelProperty("需求描述	")
     private String spec;
 
     /**
@@ -45,6 +49,7 @@ public class StorySpecDTO extends DTOBase implements Serializable {
     @JSONField(name = "verify")
     @JsonProperty("verify")
     @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
+    @ApiModelProperty("验收标准")
     private String verify;
 
     /**
@@ -54,6 +59,7 @@ public class StorySpecDTO extends DTOBase implements Serializable {
     @JSONField(name = "id")
     @JsonProperty("id")
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("虚拟主键")
     private String id;
 
     /**
@@ -64,6 +70,7 @@ public class StorySpecDTO extends DTOBase implements Serializable {
     @JsonProperty("title")
     @NotBlank(message = "[需求名称]不允许为空!")
     @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
+    @ApiModelProperty("需求名称")
     private String title;
 
     /**
@@ -72,6 +79,7 @@ public class StorySpecDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "version")
     @JsonProperty("version")
+    @ApiModelProperty("版本号")
     private Integer version;
 
     /**
@@ -81,6 +89,7 @@ public class StorySpecDTO extends DTOBase implements Serializable {
     @JSONField(name = "story")
     @JsonProperty("story")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("需求")
     private Long story;
 
 

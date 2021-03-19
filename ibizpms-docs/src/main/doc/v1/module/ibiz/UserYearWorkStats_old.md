@@ -248,7 +248,7 @@ hide footbox
 
 | 查询编号 | 查询名称       | 默认查询 |   备注|
 | --------  | --------   | --------   | ----- |
-|DEFAULT|数据查询([MYSQL5](../../appendix/query_MYSQL5.md#UserYearWorkStats_Default))|否|&nbsp;|
+|DEFAULT|数据查询([MYSQL5](../../appendix/query_MYSQL5.md#UserYearWorkStats_Default))|是|&nbsp;|
 |MonthFinishTaskAndBug|月完成任务数及累计工时和解决Bug数([MYSQL5](../../appendix/query_MYSQL5.md#UserYearWorkStats_MonthFinishTaskAndBug))|否|&nbsp;|
 |MonthOpenedBugAndCase|月创建Bug数和创建用例数([MYSQL5](../../appendix/query_MYSQL5.md#UserYearWorkStats_MonthOpenedBugAndCase))|否|&nbsp;|
 |MonthOpenedStory|月创建需求数([MYSQL5](../../appendix/query_MYSQL5.md#UserYearWorkStats_MonthOpenedStory))|否|&nbsp;|

@@ -1,3 +1,4 @@
+import { Environment } from '@/environments/environment';
 import { Http } from '@/utils';
 import { Util } from '@/utils';
 import EntityService from '../entity-service';
@@ -50,11 +51,11 @@ export default class IbzLibModuleServiceBase extends EntityService {
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.ibzlib && context.ibzlibmodule){
-            let res:any = Http.getInstance().get(`/ibzlibs/${context.ibzlib}/ibzlibmodules/${context.ibzlibmodule}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/ibzlibs/${context.ibzlib}/ibzlibmodules/${context.ibzlibmodule}/select`,isloading);
             
             return res;
         }
-            let res:any = Http.getInstance().get(`/ibzlibmodules/${context.ibzlibmodule}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/ibzlibmodules/${context.ibzlibmodule}/select`,isloading);
             
             return res;
     }
@@ -132,10 +133,10 @@ export default class IbzLibModuleServiceBase extends EntityService {
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.ibzlib && context.ibzlibmodule){
-            let res:any = Http.getInstance().delete(`/ibzlibs/${context.ibzlib}/ibzlibmodules/${context.ibzlibmodule}`,isloading);
+            let res:any = await Http.getInstance().delete(`/ibzlibs/${context.ibzlib}/ibzlibmodules/${context.ibzlibmodule}`,isloading);
             return res;
         }
-            let res:any = Http.getInstance().delete(`/ibzlibmodules/${context.ibzlibmodule}`,isloading);
+            let res:any = await Http.getInstance().delete(`/ibzlibmodules/${context.ibzlibmodule}`,isloading);
             return res;
     }
 
@@ -204,7 +205,7 @@ export default class IbzLibModuleServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/ibzlibmodules/${context.ibzlibmodule}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/ibzlibmodules/${context.ibzlibmodule}/checkkey`,data,isloading);
             return res;
     }
 
@@ -244,11 +245,11 @@ export default class IbzLibModuleServiceBase extends EntityService {
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.ibzlib && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/ibzlibs/${context.ibzlib}/ibzlibmodules/fetchdefault`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/ibzlibs/${context.ibzlib}/ibzlibmodules/fetchdefault`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/ibzlibmodules/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/ibzlibmodules/fetchdefault`,tempData,isloading);
         return res;
     }
 
@@ -282,11 +283,11 @@ export default class IbzLibModuleServiceBase extends EntityService {
     public async FetchRoot_NoBranch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.ibzlib && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/ibzlibs/${context.ibzlib}/ibzlibmodules/fetchroot_nobranch`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/ibzlibs/${context.ibzlib}/ibzlibmodules/fetchroot_nobranch`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/ibzlibmodules/fetchroot_nobranch`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/ibzlibmodules/fetchroot_nobranch`,tempData,isloading);
         return res;
     }
 

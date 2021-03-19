@@ -253,10 +253,17 @@ public class TaskExService extends TaskServiceImpl {
      */
     @Override
     public Page<Task> searchPlanTask(TaskSearchContext context) {
-        List<Long> allTaskId = new ArrayList<>();
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchPlanTask(context.getPages(),context,context.getSelectCond());
         List<Task> records = pages.getRecords();
 
+        this.setChildTaskToParent(records,context,pages);
+        pages.setRecords(records);
+        return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+
+    public void setChildTaskToParent(List<Task> records,TaskSearchContext context,com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages){
+        List<Long> allTaskId = new ArrayList<>();
         for (Task task : records) {
             if (task.getParent() < 0){//父任务
                 allTaskId.add(task.getId());
@@ -280,10 +287,7 @@ public class TaskExService extends TaskServiceImpl {
             records.get(i).set("items", taskList);
             pages.setPages(pages.getTotal() + taskList.size());
         }
-        pages.setRecords(records);
-        return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
-
     /**
      * 查询集合 项目任务
      */
@@ -305,7 +309,49 @@ public class TaskExService extends TaskServiceImpl {
         return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
+    /**
+     * 查询集合 我相关的任务
+     */
     @Override
+    public Page<Task> searchMyAllTask(TaskSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchMyAllTask(context.getPages(),context,context.getSelectCond());
+        for(Task task : pages.getRecords()) {
+            if(task.getParent() == 0) {
+                continue;
+            }
+            TaskSearchContext context1 = new TaskSearchContext();
+            context1.setSelectCond(context.getSelectCond().clone());
+            context1.setN_parent_eq(task.getId());
+            List<Task> taskList = this.searchDefault(context1).getContent();
+            task.set("items", taskList);
+            pages.setPages(pages.getTotal() + taskList.size());
+
+        }
+        return new PageImpl<Task>(pages.getRecords(),context.getPageable(),pages.getTotal());
+    }
+    /**
+     * 查询集合 我相关的任务
+     */
+    @Override
+    public Page<Task> searchAssignedToMyTask(TaskSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchAssignedToMyTask(context.getPages(),context,context.getSelectCond());
+        for(Task task : pages.getRecords()) {
+            if(task.getParent() == 0) {
+                continue;
+            }
+            TaskSearchContext context1 = new TaskSearchContext();
+            context1.setSelectCond(context.getSelectCond().clone());
+            context1.setN_parent_eq(task.getId());
+            List<Task> taskList = this.searchDefault(context1).getContent();
+            task.set("items", taskList);
+            pages.setPages(pages.getTotal() + taskList.size());
+
+        }
+        return new PageImpl<Task>(pages.getRecords(),context.getPageable(),pages.getTotal());
+    }
+
+
+        @Override
     @Transactional
     public Task get(Long key) {
         Task et = getById(key);

@@ -1605,7 +1605,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             }
         }
         Project project = projectService.get(list.get(0).getProject());
-        boolean isOps = project.getType().equalsIgnoreCase(StaticDict.Project__type.OPS.getValue());
+        boolean isOps = StaticDict.Project__type.OPS.getValue().equalsIgnoreCase(project.getType());
         String childTasks = "";
         for (Task task : list) {
             long story = task.getStory() == null ? 0 : task.getStory();
@@ -1620,10 +1620,10 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
 ////            task.set(FIELD_DEADLINE, task.getDeadline() == null ? DEFAULT_TIME : task.getDeadline());
             task.setStatus(StaticDict.Task__status.WAIT.getValue());
             task.setLeft(task.getEstimate());
-            if (task.getStory() != null && task.getStory() != 0L) {
+            if(isOps) {
+                task.setStory(0L);
+            }else if (task.getStory() != null && task.getStory() != 0L) {
                 task.setStoryversion(storyHelper.get(task.getStory()).getVersion());
-            } else if (isOps) {
-                continue;
             }
             if (assignedTo != "" && assignedTo != null) {
                 task.setAssigneddate(ZTDateUtil.now());
@@ -1797,7 +1797,13 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         ProductPlan productPlan = new ProductPlan();
         productPlan.setProduct(oldProductPlan.getProduct());
         productPlan.setId(oldProductPlan.getId());
-        productPlan.set("tasks", getTasks(et));
+        String tasksId = getTasks(et);
+        if ("[]".equals(tasksId)){
+            productPlan.set("tasks",null);
+        }else {
+            productPlan.set("tasks",tasksId);
+
+        }
         cn.ibizlab.pms.util.security.SpringContextHolder.getBean(ProductPlanHelper.class).linkTask(productPlan);
         return et;
     }

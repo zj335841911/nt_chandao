@@ -20,11 +20,14 @@ import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * 服务DTO对象[DocDTO]
  */
 @Data
+@ApiModel("文档")
 public class DocDTO extends DTOBase implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -36,6 +39,7 @@ public class DocDTO extends DTOBase implements Serializable {
     @JSONField(name = "groups")
     @JsonProperty("groups")
     @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
+    @ApiModelProperty("分组")
     private String groups;
 
     /**
@@ -45,6 +49,7 @@ public class DocDTO extends DTOBase implements Serializable {
     @JSONField(name = "content")
     @JsonProperty("content")
     @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
+    @ApiModelProperty("文档正文")
     private String content;
 
     /**
@@ -54,6 +59,7 @@ public class DocDTO extends DTOBase implements Serializable {
     @JSONField(name = "docqtype")
     @JsonProperty("docqtype")
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("文档查询类型")
     private String docqtype;
 
     /**
@@ -63,6 +69,7 @@ public class DocDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "editeddate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("editeddate")
+    @ApiModelProperty("更新时间")
     private Timestamp editeddate;
 
     /**
@@ -71,6 +78,7 @@ public class DocDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "views")
     @JsonProperty("views")
+    @ApiModelProperty("views")
     private Integer views;
 
     /**
@@ -79,6 +87,7 @@ public class DocDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "version")
     @JsonProperty("version")
+    @ApiModelProperty("版本号")
     private Integer version;
 
     /**
@@ -88,6 +97,7 @@ public class DocDTO extends DTOBase implements Serializable {
     @JSONField(name = "editedby")
     @JsonProperty("editedby")
     @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
+    @ApiModelProperty("由谁更新")
     private String editedby;
 
     /**
@@ -97,6 +107,7 @@ public class DocDTO extends DTOBase implements Serializable {
     @JSONField(name = "id")
     @JsonProperty("id")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("文档编号")
     private Long id;
 
     /**
@@ -107,6 +118,7 @@ public class DocDTO extends DTOBase implements Serializable {
     @JsonProperty("title")
     @NotBlank(message = "[文档标题]不允许为空!")
     @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
+    @ApiModelProperty("文档标题")
     private String title;
 
     /**
@@ -116,6 +128,7 @@ public class DocDTO extends DTOBase implements Serializable {
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
     @Size(min = 0, max = 1, message = "内容长度必须小于等于[1]")
+    @ApiModelProperty("已删除")
     private String deleted;
 
     /**
@@ -124,6 +137,7 @@ public class DocDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "recentupdatecnt")
     @JsonProperty("recentupdatecnt")
+    @ApiModelProperty("最近更新数量")
     private Integer recentupdatecnt;
 
     /**
@@ -133,6 +147,7 @@ public class DocDTO extends DTOBase implements Serializable {
     @JSONField(name = "type")
     @JsonProperty("type")
     @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
+    @ApiModelProperty("文档类型")
     private String type;
 
     /**
@@ -141,6 +156,7 @@ public class DocDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "alldoccnt")
     @JsonProperty("alldoccnt")
+    @ApiModelProperty("所有文档数量")
     private Integer alldoccnt;
 
     /**
@@ -150,6 +166,7 @@ public class DocDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "addeddate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("addeddate")
+    @ApiModelProperty("添加时间")
     private Timestamp addeddate;
 
     /**
@@ -159,6 +176,7 @@ public class DocDTO extends DTOBase implements Serializable {
     @JSONField(name = "acl")
     @JsonProperty("acl")
     @Size(min = 0, max = 10, message = "内容长度必须小于等于[10]")
+    @ApiModelProperty("权限")
     private String acl;
 
     /**
@@ -167,6 +185,7 @@ public class DocDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "mydoccnt")
     @JsonProperty("mydoccnt")
+    @ApiModelProperty("我的文档数量")
     private Integer mydoccnt;
 
     /**
@@ -176,6 +195,7 @@ public class DocDTO extends DTOBase implements Serializable {
     @JSONField(name = "url")
     @JsonProperty("url")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("文档链接")
     private String url;
 
     /**
@@ -184,6 +204,7 @@ public class DocDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "doccnt")
     @JsonProperty("doccnt")
+    @ApiModelProperty("文档数")
     private Integer doccnt;
 
     /**
@@ -192,6 +213,7 @@ public class DocDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "myfavouritecnt")
     @JsonProperty("myfavouritecnt")
+    @ApiModelProperty("我的收藏数量")
     private Integer myfavouritecnt;
 
     /**
@@ -201,6 +223,7 @@ public class DocDTO extends DTOBase implements Serializable {
     @JSONField(name = "users")
     @JsonProperty("users")
     @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
+    @ApiModelProperty("用户")
     private String users;
 
     /**
@@ -209,6 +232,7 @@ public class DocDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "recentaddcnt")
     @JsonProperty("recentaddcnt")
+    @ApiModelProperty("最近添加数量")
     private Integer recentaddcnt;
 
     /**
@@ -218,6 +242,7 @@ public class DocDTO extends DTOBase implements Serializable {
     @JSONField(name = "keywords")
     @JsonProperty("keywords")
     @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
+    @ApiModelProperty("关键字")
     private String keywords;
 
     /**
@@ -227,6 +252,7 @@ public class DocDTO extends DTOBase implements Serializable {
     @JSONField(name = "isfavourites")
     @JsonProperty("isfavourites")
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("是否收藏")
     private String isfavourites;
 
     /**
@@ -236,6 +262,7 @@ public class DocDTO extends DTOBase implements Serializable {
     @JSONField(name = "collector")
     @JsonProperty("collector")
     @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
+    @ApiModelProperty("收藏者")
     private String collector;
 
     /**
@@ -245,6 +272,7 @@ public class DocDTO extends DTOBase implements Serializable {
     @JSONField(name = "addedby")
     @JsonProperty("addedby")
     @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
+    @ApiModelProperty("由谁添加")
     private String addedby;
 
     /**
@@ -253,6 +281,7 @@ public class DocDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "todayupdatecnt")
     @JsonProperty("todayupdatecnt")
+    @ApiModelProperty("今日更新数量")
     private Integer todayupdatecnt;
 
     /**
@@ -262,6 +291,7 @@ public class DocDTO extends DTOBase implements Serializable {
     @JSONField(name = "files")
     @JsonProperty("files")
     @Size(min = 0, max = 1000, message = "内容长度必须小于等于[1000]")
+    @ApiModelProperty("附件")
     private String files;
 
     /**
@@ -271,6 +301,7 @@ public class DocDTO extends DTOBase implements Serializable {
     @JSONField(name = "productname")
     @JsonProperty("productname")
     @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
+    @ApiModelProperty("所属产品")
     private String productname;
 
     /**
@@ -280,6 +311,7 @@ public class DocDTO extends DTOBase implements Serializable {
     @JSONField(name = "projectname")
     @JsonProperty("projectname")
     @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
+    @ApiModelProperty("所属项目")
     private String projectname;
 
     /**
@@ -289,6 +321,7 @@ public class DocDTO extends DTOBase implements Serializable {
     @JSONField(name = "libname")
     @JsonProperty("libname")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("所属文档库")
     private String libname;
 
     /**
@@ -298,6 +331,7 @@ public class DocDTO extends DTOBase implements Serializable {
     @JSONField(name = "modulename")
     @JsonProperty("modulename")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("模块分类")
     private String modulename;
 
     /**
@@ -307,6 +341,7 @@ public class DocDTO extends DTOBase implements Serializable {
     @JSONField(name = "lib")
     @JsonProperty("lib")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("所属文档库")
     private Long lib;
 
     /**
@@ -316,6 +351,7 @@ public class DocDTO extends DTOBase implements Serializable {
     @JSONField(name = "project")
     @JsonProperty("project")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("所属项目")
     private Long project;
 
     /**
@@ -325,6 +361,7 @@ public class DocDTO extends DTOBase implements Serializable {
     @JSONField(name = "product")
     @JsonProperty("product")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("所属产品")
     private Long product;
 
     /**
@@ -334,6 +371,7 @@ public class DocDTO extends DTOBase implements Serializable {
     @JSONField(name = "module")
     @JsonProperty("module")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("所属分类")
     private Long module;
 
 

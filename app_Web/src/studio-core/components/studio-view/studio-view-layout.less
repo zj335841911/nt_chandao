@@ -58,6 +58,26 @@
             margin: 0px;
         }
 
+        .context-menu-container {
+            .tree-content {
+                position: relative;
+                width: 100%;
+                .content-more {
+                    position: absolute;
+                    top: 2px;
+                    right: 0;
+                    font-size: 16px;
+                    z-index: 1;
+                    display: none;
+                }
+            }
+            .tree-content:hover {
+                .content-more {
+                    display: inline-block;
+                }
+            }
+        }
+
         .el-tree {
             background-color: var(--view-background-color);
             color: var(--view-font-color);

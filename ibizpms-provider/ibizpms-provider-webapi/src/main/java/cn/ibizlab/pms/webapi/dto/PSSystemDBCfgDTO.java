@@ -20,11 +20,14 @@ import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * 服务DTO对象[PSSystemDBCfgDTO]
  */
 @Data
+@ApiModel("系统数据库")
 public class PSSystemDBCfgDTO extends DTOClient implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -36,6 +39,7 @@ public class PSSystemDBCfgDTO extends DTOClient implements Serializable {
     @JSONField(name = "tabspace2")
     @JsonProperty("tabspace2")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("表空间2名称")
     private String tabspace2;
 
     /**
@@ -44,6 +48,7 @@ public class PSSystemDBCfgDTO extends DTOClient implements Serializable {
      */
     @JSONField(name = "resstate")
     @JsonProperty("resstate")
+    @ApiModelProperty("资源状态")
     private Integer resstate;
 
     /**
@@ -53,6 +58,7 @@ public class PSSystemDBCfgDTO extends DTOClient implements Serializable {
     @JSONField(name = "nullvalorder")
     @JsonProperty("nullvalorder")
     @Size(min = 0, max = 10, message = "内容长度必须小于等于[10]")
+    @ApiModelProperty("空值排序")
     private String nullvalorder;
 
     /**
@@ -62,6 +68,7 @@ public class PSSystemDBCfgDTO extends DTOClient implements Serializable {
     @JSONField(name = "usertag3")
     @JsonProperty("usertag3")
     @Size(min = 0, max = 50, message = "内容长度必须小于等于[50]")
+    @ApiModelProperty("用户标记3")
     private String usertag3;
 
     /**
@@ -71,6 +78,7 @@ public class PSSystemDBCfgDTO extends DTOClient implements Serializable {
     @JSONField(name = "tabspace")
     @JsonProperty("tabspace")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("默认表空间名称")
     private String tabspace;
 
     /**
@@ -79,6 +87,7 @@ public class PSSystemDBCfgDTO extends DTOClient implements Serializable {
      */
     @JSONField(name = "defaultflag")
     @JsonProperty("defaultflag")
+    @ApiModelProperty("默认数据源")
     private Integer defaultflag;
 
     /**
@@ -88,6 +97,7 @@ public class PSSystemDBCfgDTO extends DTOClient implements Serializable {
     @JSONField(name = "memo")
     @JsonProperty("memo")
     @Size(min = 0, max = 2000, message = "内容长度必须小于等于[2000]")
+    @ApiModelProperty("备注")
     private String memo;
 
     /**
@@ -96,6 +106,7 @@ public class PSSystemDBCfgDTO extends DTOClient implements Serializable {
      */
     @JSONField(name = "nodbinstmode")
     @JsonProperty("nodbinstmode")
+    @ApiModelProperty("无数据库模式")
     private Integer nodbinstmode;
 
     /**
@@ -105,6 +116,7 @@ public class PSSystemDBCfgDTO extends DTOClient implements Serializable {
     @JSONField(name = "usertag4")
     @JsonProperty("usertag4")
     @Size(min = 0, max = 50, message = "内容长度必须小于等于[50]")
+    @ApiModelProperty("用户标记4")
     private String usertag4;
 
     /**
@@ -114,6 +126,7 @@ public class PSSystemDBCfgDTO extends DTOClient implements Serializable {
     @JSONField(name = "pssystemdbcfgname")
     @JsonProperty("pssystemdbcfgname")
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("系统数据库名称")
     private String pssystemdbcfgname;
 
     /**
@@ -123,6 +136,7 @@ public class PSSystemDBCfgDTO extends DTOClient implements Serializable {
     @JSONField(name = "pssystemname")
     @JsonProperty("pssystemname")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("系统")
     private String pssystemname;
 
     /**
@@ -132,6 +146,7 @@ public class PSSystemDBCfgDTO extends DTOClient implements Serializable {
     @JSONField(name = "resinfo")
     @JsonProperty("resinfo")
     @Size(min = 0, max = 2000, message = "内容长度必须小于等于[2000]")
+    @ApiModelProperty("资源信息")
     private String resinfo;
 
     /**
@@ -141,6 +156,7 @@ public class PSSystemDBCfgDTO extends DTOClient implements Serializable {
     @JSONField(name = "usertag")
     @JsonProperty("usertag")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("用户标记")
     private String usertag;
 
     /**
@@ -150,6 +166,7 @@ public class PSSystemDBCfgDTO extends DTOClient implements Serializable {
     @JSONField(name = "userparams")
     @JsonProperty("userparams")
     @Size(min = 0, max = 2000, message = "内容长度必须小于等于[2000]")
+    @ApiModelProperty("自定义参数")
     private String userparams;
 
     /**
@@ -159,6 +176,7 @@ public class PSSystemDBCfgDTO extends DTOClient implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "resreadytime" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("resreadytime")
+    @ApiModelProperty("资源就绪时间")
     private Timestamp resreadytime;
 
     /**
@@ -167,6 +185,7 @@ public class PSSystemDBCfgDTO extends DTOClient implements Serializable {
      */
     @JSONField(name = "pubfkeyflag")
     @JsonProperty("pubfkeyflag")
+    @ApiModelProperty("发布外键")
     private Integer pubfkeyflag;
 
     /**
@@ -176,6 +195,7 @@ public class PSSystemDBCfgDTO extends DTOClient implements Serializable {
     @JSONField(name = "pssystemdbcfgid")
     @JsonProperty("pssystemdbcfgid")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("系统数据库标识")
     private String pssystemdbcfgid;
 
     /**
@@ -185,6 +205,7 @@ public class PSSystemDBCfgDTO extends DTOClient implements Serializable {
     @JSONField(name = "usertag2")
     @JsonProperty("usertag2")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("用户标记2")
     private String usertag2;
 
     /**
@@ -194,6 +215,7 @@ public class PSSystemDBCfgDTO extends DTOClient implements Serializable {
     @JSONField(name = "updateman")
     @JsonProperty("updateman")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("更新人")
     private String updateman;
 
     /**
@@ -202,6 +224,7 @@ public class PSSystemDBCfgDTO extends DTOClient implements Serializable {
      */
     @JSONField(name = "pubcommentflag")
     @JsonProperty("pubcommentflag")
+    @ApiModelProperty("发布模型注释")
     private Integer pubcommentflag;
 
     /**
@@ -211,6 +234,7 @@ public class PSSystemDBCfgDTO extends DTOClient implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "createdate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createdate")
+    @ApiModelProperty("建立时间")
     private Timestamp createdate;
 
     /**
@@ -220,6 +244,7 @@ public class PSSystemDBCfgDTO extends DTOClient implements Serializable {
     @JSONField(name = "tabspace3")
     @JsonProperty("tabspace3")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("表空间3名称")
     private String tabspace3;
 
     /**
@@ -228,6 +253,7 @@ public class PSSystemDBCfgDTO extends DTOClient implements Serializable {
      */
     @JSONField(name = "enablewebtool")
     @JsonProperty("enablewebtool")
+    @ApiModelProperty("支持Web管理")
     private Integer enablewebtool;
 
     /**
@@ -236,6 +262,7 @@ public class PSSystemDBCfgDTO extends DTOClient implements Serializable {
      */
     @JSONField(name = "pubdbmodelflag")
     @JsonProperty("pubdbmodelflag")
+    @ApiModelProperty("发布数据库模型")
     private Integer pubdbmodelflag;
 
     /**
@@ -245,6 +272,7 @@ public class PSSystemDBCfgDTO extends DTOClient implements Serializable {
     @JSONField(name = "objnamecase")
     @JsonProperty("objnamecase")
     @Size(min = 0, max = 20, message = "内容长度必须小于等于[20]")
+    @ApiModelProperty("对象名称转换")
     private String objnamecase;
 
     /**
@@ -253,6 +281,7 @@ public class PSSystemDBCfgDTO extends DTOClient implements Serializable {
      */
     @JSONField(name = "pubindexflag")
     @JsonProperty("pubindexflag")
+    @ApiModelProperty("发布索引")
     private Integer pubindexflag;
 
     /**
@@ -261,6 +290,7 @@ public class PSSystemDBCfgDTO extends DTOClient implements Serializable {
      */
     @JSONField(name = "appendschema")
     @JsonProperty("appendschema")
+    @ApiModelProperty("附加模式名称")
     private Integer appendschema;
 
     /**
@@ -270,6 +300,7 @@ public class PSSystemDBCfgDTO extends DTOClient implements Serializable {
     @JSONField(name = "pssystemid")
     @JsonProperty("pssystemid")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("系统")
     private String pssystemid;
 
     /**
@@ -279,6 +310,7 @@ public class PSSystemDBCfgDTO extends DTOClient implements Serializable {
     @JSONField(name = "dbschemaname")
     @JsonProperty("dbschemaname")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("数据库模式名称")
     private String dbschemaname;
 
     /**
@@ -288,6 +320,7 @@ public class PSSystemDBCfgDTO extends DTOClient implements Serializable {
     @JSONField(name = "tabspace4")
     @JsonProperty("tabspace4")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("表空间4名称")
     private String tabspace4;
 
     /**
@@ -297,6 +330,7 @@ public class PSSystemDBCfgDTO extends DTOClient implements Serializable {
     @JSONField(name = "usercat")
     @JsonProperty("usercat")
     @Size(min = 0, max = 10, message = "内容长度必须小于等于[10]")
+    @ApiModelProperty("用户分类")
     private String usercat;
 
     /**
@@ -306,6 +340,7 @@ public class PSSystemDBCfgDTO extends DTOClient implements Serializable {
     @JSONField(name = "createman")
     @JsonProperty("createman")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("建立人")
     private String createman;
 
     /**
@@ -315,6 +350,7 @@ public class PSSystemDBCfgDTO extends DTOClient implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "updatedate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("updatedate")
+    @ApiModelProperty("更新时间")
     private Timestamp updatedate;
 
     /**
@@ -323,6 +359,7 @@ public class PSSystemDBCfgDTO extends DTOClient implements Serializable {
      */
     @JSONField(name = "pubviewflag")
     @JsonProperty("pubviewflag")
+    @ApiModelProperty("发布视图")
     private Integer pubviewflag;
 
 

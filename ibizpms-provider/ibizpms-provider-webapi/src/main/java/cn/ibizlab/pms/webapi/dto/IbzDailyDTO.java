@@ -20,11 +20,14 @@ import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * 服务DTO对象[IbzDailyDTO]
  */
 @Data
+@ApiModel("日报")
 public class IbzDailyDTO extends DTOBase implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -36,6 +39,7 @@ public class IbzDailyDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "updatedate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("updatedate")
+    @ApiModelProperty("更新时间")
     private Timestamp updatedate;
 
     /**
@@ -45,6 +49,7 @@ public class IbzDailyDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "submittime" , format="HH:mm:ss")
     @JsonProperty("submittime")
+    @ApiModelProperty("提交时间")
     private Timestamp submittime;
 
     /**
@@ -54,6 +59,7 @@ public class IbzDailyDTO extends DTOBase implements Serializable {
     @JSONField(name = "todaytask")
     @JsonProperty("todaytask")
     @Size(min = 0, max = 2000, message = "内容长度必须小于等于[2000]")
+    @ApiModelProperty("完成任务")
     private String todaytask;
 
     /**
@@ -63,6 +69,7 @@ public class IbzDailyDTO extends DTOBase implements Serializable {
     @JSONField(name = "worktoday")
     @JsonProperty("worktoday")
     @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
+    @ApiModelProperty("今日工作")
     private String worktoday;
 
     /**
@@ -72,6 +79,7 @@ public class IbzDailyDTO extends DTOBase implements Serializable {
     @JSONField(name = "tomorrowplanstask")
     @JsonProperty("tomorrowplanstask")
     @Size(min = 0, max = 2000, message = "内容长度必须小于等于[2000]")
+    @ApiModelProperty("明日计划任务")
     private String tomorrowplanstask;
 
     /**
@@ -81,6 +89,7 @@ public class IbzDailyDTO extends DTOBase implements Serializable {
     @JSONField(name = "reportto")
     @JsonProperty("reportto")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("汇报给")
     private String reportto;
 
     /**
@@ -90,6 +99,7 @@ public class IbzDailyDTO extends DTOBase implements Serializable {
     @JSONField(name = "createman")
     @JsonProperty("createman")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("建立人")
     private String createman;
 
     /**
@@ -99,6 +109,7 @@ public class IbzDailyDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "createdate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createdate")
+    @ApiModelProperty("建立时间")
     private Timestamp createdate;
 
     /**
@@ -108,6 +119,7 @@ public class IbzDailyDTO extends DTOBase implements Serializable {
     @JSONField(name = "issubmit")
     @JsonProperty("issubmit")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("是否提交")
     private String issubmit;
 
     /**
@@ -117,6 +129,7 @@ public class IbzDailyDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "date" , format="yyyy-MM-dd")
     @JsonProperty("date")
+    @ApiModelProperty("日期")
     private Timestamp date;
 
     /**
@@ -126,6 +139,7 @@ public class IbzDailyDTO extends DTOBase implements Serializable {
     @JSONField(name = "files")
     @JsonProperty("files")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("附件")
     private String files;
 
     /**
@@ -135,6 +149,7 @@ public class IbzDailyDTO extends DTOBase implements Serializable {
     @JSONField(name = "updatemanname")
     @JsonProperty("updatemanname")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("更新人名称")
     private String updatemanname;
 
     /**
@@ -144,6 +159,7 @@ public class IbzDailyDTO extends DTOBase implements Serializable {
     @JSONField(name = "mailtopk")
     @JsonProperty("mailtopk")
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("抄送给（选择）")
     private String mailtopk;
 
     /**
@@ -153,6 +169,7 @@ public class IbzDailyDTO extends DTOBase implements Serializable {
     @JSONField(name = "reportstatus")
     @JsonProperty("reportstatus")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("状态")
     private String reportstatus;
 
     /**
@@ -162,6 +179,7 @@ public class IbzDailyDTO extends DTOBase implements Serializable {
     @JSONField(name = "comment")
     @JsonProperty("comment")
     @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
+    @ApiModelProperty("其他事项")
     private String comment;
 
     /**
@@ -171,6 +189,7 @@ public class IbzDailyDTO extends DTOBase implements Serializable {
     @JSONField(name = "updateman")
     @JsonProperty("updateman")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("更新人")
     private String updateman;
 
     /**
@@ -180,6 +199,7 @@ public class IbzDailyDTO extends DTOBase implements Serializable {
     @JSONField(name = "planstomorrow")
     @JsonProperty("planstomorrow")
     @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
+    @ApiModelProperty("明日计划")
     private String planstomorrow;
 
     /**
@@ -189,6 +209,7 @@ public class IbzDailyDTO extends DTOBase implements Serializable {
     @JSONField(name = "mailto")
     @JsonProperty("mailto")
     @Size(min = 0, max = 2000, message = "内容长度必须小于等于[2000]")
+    @ApiModelProperty("抄送给")
     private String mailto;
 
     /**
@@ -198,6 +219,7 @@ public class IbzDailyDTO extends DTOBase implements Serializable {
     @JSONField(name = "ibzdailyid")
     @JsonProperty("ibzdailyid")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("日报标识")
     private Long ibzdailyid;
 
     /**
@@ -207,6 +229,7 @@ public class IbzDailyDTO extends DTOBase implements Serializable {
     @JSONField(name = "account")
     @JsonProperty("account")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("用户")
     private String account;
 
     /**
@@ -216,6 +239,7 @@ public class IbzDailyDTO extends DTOBase implements Serializable {
     @JSONField(name = "reporttopk")
     @JsonProperty("reporttopk")
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("汇报给（选择）")
     private String reporttopk;
 
     /**
@@ -225,6 +249,7 @@ public class IbzDailyDTO extends DTOBase implements Serializable {
     @JSONField(name = "createmanname")
     @JsonProperty("createmanname")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("建立人名称")
     private String createmanname;
 
     /**
@@ -234,6 +259,7 @@ public class IbzDailyDTO extends DTOBase implements Serializable {
     @JSONField(name = "ibzdailyname")
     @JsonProperty("ibzdailyname")
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("日报名称")
     private String ibzdailyname;
 
 

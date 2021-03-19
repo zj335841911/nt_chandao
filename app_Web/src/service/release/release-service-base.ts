@@ -1,3 +1,4 @@
+import { Environment } from '@/environments/environment';
 import { Http } from '@/utils';
 import { Util } from '@/utils';
 import EntityService from '../entity-service';
@@ -50,11 +51,11 @@ export default class ReleaseServiceBase extends EntityService {
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.release){
-            let res:any = Http.getInstance().get(`/products/${context.product}/releases/${context.release}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/releases/${context.release}/select`,isloading);
             
             return res;
         }
-            let res:any = Http.getInstance().get(`/releases/${context.release}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/releases/${context.release}/select`,isloading);
             
             return res;
     }
@@ -132,10 +133,10 @@ export default class ReleaseServiceBase extends EntityService {
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.release){
-            let res:any = Http.getInstance().delete(`/products/${context.product}/releases/${context.release}`,isloading);
+            let res:any = await Http.getInstance().delete(`/products/${context.product}/releases/${context.release}`,isloading);
             return res;
         }
-            let res:any = Http.getInstance().delete(`/releases/${context.release}`,isloading);
+            let res:any = await Http.getInstance().delete(`/releases/${context.release}`,isloading);
             return res;
     }
 
@@ -204,7 +205,7 @@ export default class ReleaseServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/releases/${context.release}/activate`,data,isloading);
+            let res:any = await Http.getInstance().post(`/releases/${context.release}/activate`,data,isloading);
             return res;
     }
 
@@ -225,7 +226,7 @@ export default class ReleaseServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/releases/${context.release}/batchunlinkbug`,data,isloading);
+            let res:any = await Http.getInstance().post(`/releases/${context.release}/batchunlinkbug`,data,isloading);
             return res;
     }
 
@@ -246,7 +247,7 @@ export default class ReleaseServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/releases/${context.release}/changestatus`,data,isloading);
+            let res:any = await Http.getInstance().post(`/releases/${context.release}/changestatus`,data,isloading);
             return res;
     }
 
@@ -267,7 +268,7 @@ export default class ReleaseServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/releases/${context.release}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/releases/${context.release}/checkkey`,data,isloading);
             return res;
     }
 
@@ -288,7 +289,7 @@ export default class ReleaseServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/releases/${context.release}/linkbug`,data,isloading);
+            let res:any = await Http.getInstance().post(`/releases/${context.release}/linkbug`,data,isloading);
             return res;
     }
 
@@ -309,7 +310,7 @@ export default class ReleaseServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/releases/${context.release}/linkbugbybug`,data,isloading);
+            let res:any = await Http.getInstance().post(`/releases/${context.release}/linkbugbybug`,data,isloading);
             return res;
     }
 
@@ -330,7 +331,7 @@ export default class ReleaseServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/releases/${context.release}/linkbugbyleftbug`,data,isloading);
+            let res:any = await Http.getInstance().post(`/releases/${context.release}/linkbugbyleftbug`,data,isloading);
             return res;
     }
 
@@ -351,7 +352,7 @@ export default class ReleaseServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/releases/${context.release}/linkstory`,data,isloading);
+            let res:any = await Http.getInstance().post(`/releases/${context.release}/linkstory`,data,isloading);
             return res;
     }
 
@@ -372,7 +373,7 @@ export default class ReleaseServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().put(`/releases/${context.release}/mobreleasecounter`,data,isloading);
+            let res:any = await Http.getInstance().put(`/releases/${context.release}/mobreleasecounter`,data,isloading);
             return res;
     }
 
@@ -393,7 +394,7 @@ export default class ReleaseServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/releases/${context.release}/oneclickrelease`,data,isloading);
+            let res:any = await Http.getInstance().post(`/releases/${context.release}/oneclickrelease`,data,isloading);
             return res;
     }
 
@@ -438,7 +439,7 @@ export default class ReleaseServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/releases/${context.release}/terminate`,data,isloading);
+            let res:any = await Http.getInstance().post(`/releases/${context.release}/terminate`,data,isloading);
             return res;
     }
 
@@ -459,7 +460,7 @@ export default class ReleaseServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/releases/${context.release}/unlinkbug`,data,isloading);
+            let res:any = await Http.getInstance().post(`/releases/${context.release}/unlinkbug`,data,isloading);
             return res;
     }
 
@@ -475,11 +476,11 @@ export default class ReleaseServiceBase extends EntityService {
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/products/${context.product}/releases/fetchdefault`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/releases/fetchdefault`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().post(`/releases/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().post(`/releases/fetchdefault`,tempData,isloading);
         return res;
     }
 
@@ -513,11 +514,11 @@ export default class ReleaseServiceBase extends EntityService {
     public async FetchReportRelease(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/releases/fetchreportrelease`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/releases/fetchreportrelease`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/releases/fetchreportrelease`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/releases/fetchreportrelease`,tempData,isloading);
         return res;
     }
 

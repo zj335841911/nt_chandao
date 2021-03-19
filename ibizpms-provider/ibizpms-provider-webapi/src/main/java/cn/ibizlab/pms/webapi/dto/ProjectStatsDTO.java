@@ -20,11 +20,14 @@ import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * 服务DTO对象[ProjectStatsDTO]
  */
 @Data
+@ApiModel("项目统计")
 public class ProjectStatsDTO extends DTOBase implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -35,6 +38,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "standard")
     @JsonProperty("standard")
+    @ApiModelProperty("标准规范")
     private Integer standard;
 
     /**
@@ -44,6 +48,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
     @JSONField(name = "type")
     @JsonProperty("type")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("工时类型")
     private String type;
 
     /**
@@ -52,6 +57,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "emptystory")
     @JsonProperty("emptystory")
+    @ApiModelProperty("空需求")
     private Integer emptystory;
 
     /**
@@ -60,6 +66,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "draftstory")
     @JsonProperty("draftstory")
+    @ApiModelProperty("草稿需求")
     private Integer draftstory;
 
     /**
@@ -69,6 +76,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "end" , format="yyyy-MM-dd")
     @JsonProperty("end")
+    @ApiModelProperty("截止日期")
     private Timestamp end;
 
     /**
@@ -77,6 +85,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "releasedstagestorycnt")
     @JsonProperty("releasedstagestorycnt")
+    @ApiModelProperty("已发布阶段需求数")
     private Integer releasedstagestorycnt;
 
     /**
@@ -85,6 +94,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "importantbugcnt")
     @JsonProperty("importantbugcnt")
+    @ApiModelProperty("重要Bug数")
     private Integer importantbugcnt;
 
     /**
@@ -93,6 +103,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "canceltaskcnt")
     @JsonProperty("canceltaskcnt")
+    @ApiModelProperty("已取消任务数")
     private Integer canceltaskcnt;
 
     /**
@@ -102,6 +113,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "begin" , format="yyyy-MM-dd")
     @JsonProperty("begin")
+    @ApiModelProperty("开始时间")
     private Timestamp begin;
 
     /**
@@ -111,6 +123,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
     @JSONField(name = "status")
     @JsonProperty("status")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("状态")
     private String status;
 
     /**
@@ -120,6 +133,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
     @JSONField(name = "seriousbugproportion")
     @JsonProperty("seriousbugproportion")
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("严重Bug比率")
     private String seriousbugproportion;
 
     /**
@@ -128,6 +142,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "doingtaskcnt")
     @JsonProperty("doingtaskcnt")
+    @ApiModelProperty("进行中任务数")
     private Integer doingtaskcnt;
 
     /**
@@ -136,6 +151,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "undonetaskcnt")
     @JsonProperty("undonetaskcnt")
+    @ApiModelProperty("未完成任务总数")
     private Integer undonetaskcnt;
 
     /**
@@ -144,6 +160,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "servetaskcnt")
     @JsonProperty("servetaskcnt")
+    @ApiModelProperty("服务类型任务")
     private Integer servetaskcnt;
 
     /**
@@ -152,6 +169,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "donetaskcnt")
     @JsonProperty("donetaskcnt")
+    @ApiModelProperty("已完成任务数")
     private Integer donetaskcnt;
 
     /**
@@ -160,6 +178,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "totalwh")
     @JsonProperty("totalwh")
+    @ApiModelProperty("总工时")
     private Integer totalwh;
 
     /**
@@ -168,6 +187,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "unclosedstorycnt")
     @JsonProperty("unclosedstorycnt")
+    @ApiModelProperty("未关闭需求总数")
     private Integer unclosedstorycnt;
 
     /**
@@ -176,6 +196,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "misctaskcnt")
     @JsonProperty("misctaskcnt")
+    @ApiModelProperty("其他类型任务")
     private Integer misctaskcnt;
 
     /**
@@ -184,6 +205,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "leftstorycnt")
     @JsonProperty("leftstorycnt")
+    @ApiModelProperty("剩余需求数")
     private Integer leftstorycnt;
 
     /**
@@ -192,6 +214,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "performance")
     @JsonProperty("performance")
+    @ApiModelProperty("性能问题")
     private Integer performance;
 
     /**
@@ -200,6 +223,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "emptystagestorycnt")
     @JsonProperty("emptystagestorycnt")
+    @ApiModelProperty("空阶段需求数")
     private Integer emptystagestorycnt;
 
     /**
@@ -208,6 +232,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "waitstagestorycnt")
     @JsonProperty("waitstagestorycnt")
+    @ApiModelProperty("未开始阶段需求数")
     private Integer waitstagestorycnt;
 
     /**
@@ -216,6 +241,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "developingstagestorycnt")
     @JsonProperty("developingstagestorycnt")
+    @ApiModelProperty("研发中阶段需求数")
     private Integer developingstagestorycnt;
 
     /**
@@ -224,6 +250,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "istop")
     @JsonProperty("istop")
+    @ApiModelProperty("是否置顶")
     private Integer istop;
 
     /**
@@ -232,6 +259,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "completestorycnt")
     @JsonProperty("completestorycnt")
+    @ApiModelProperty("完成需求数")
     private Integer completestorycnt;
 
     /**
@@ -240,6 +268,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "testtaskcnt")
     @JsonProperty("testtaskcnt")
+    @ApiModelProperty("测试类型任务")
     private Integer testtaskcnt;
 
     /**
@@ -249,6 +278,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
     @Size(min = 0, max = 1, message = "内容长度必须小于等于[1]")
+    @ApiModelProperty("已删除")
     private String deleted;
 
     /**
@@ -257,6 +287,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "storycnt")
     @JsonProperty("storycnt")
+    @ApiModelProperty("需求总数")
     private Integer storycnt;
 
     /**
@@ -265,6 +296,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "projectedstagestorycnt")
     @JsonProperty("projectedstagestorycnt")
+    @ApiModelProperty("已立项阶段需求数")
     private Integer projectedstagestorycnt;
 
     /**
@@ -273,6 +305,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "discusstaskcnt")
     @JsonProperty("discusstaskcnt")
+    @ApiModelProperty("讨论类型任务")
     private Integer discusstaskcnt;
 
     /**
@@ -281,6 +314,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "completetaskcnt")
     @JsonProperty("completetaskcnt")
+    @ApiModelProperty("完成任务数")
     private Integer completetaskcnt;
 
     /**
@@ -289,6 +323,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "plannedstagestorycnt")
     @JsonProperty("plannedstagestorycnt")
+    @ApiModelProperty("已计划阶段需求数")
     private Integer plannedstagestorycnt;
 
     /**
@@ -297,6 +332,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "testedstagestorycnt")
     @JsonProperty("testedstagestorycnt")
+    @ApiModelProperty("测试完毕阶段需求数")
     private Integer testedstagestorycnt;
 
     /**
@@ -307,6 +343,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
     @JsonProperty("name")
     @NotBlank(message = "[项目名称]不允许为空!")
     @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
+    @ApiModelProperty("项目名称")
     private String name;
 
     /**
@@ -315,6 +352,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "taskcnt")
     @JsonProperty("taskcnt")
+    @ApiModelProperty("任务总数")
     private Integer taskcnt;
 
     /**
@@ -323,6 +361,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "totalleft")
     @JsonProperty("totalleft")
+    @ApiModelProperty("任务预计剩余总工时")
     private Double totalleft;
 
     /**
@@ -332,6 +371,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
     @JSONField(name = "timescale")
     @JsonProperty("timescale")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("工期")
     private String timescale;
 
     /**
@@ -340,6 +380,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "activestory")
     @JsonProperty("activestory")
+    @ApiModelProperty("激活需求")
     private Integer activestory;
 
     /**
@@ -348,6 +389,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "order1")
     @JsonProperty("order1")
+    @ApiModelProperty("项目排序")
     private Integer order1;
 
     /**
@@ -356,6 +398,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "activebugcnt")
     @JsonProperty("activebugcnt")
+    @ApiModelProperty("未解决Bug总数")
     private Integer activebugcnt;
 
     /**
@@ -364,6 +407,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "designdefect")
     @JsonProperty("designdefect")
+    @ApiModelProperty("设计缺陷")
     private Integer designdefect;
 
     /**
@@ -372,6 +416,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "waittaskcnt")
     @JsonProperty("waittaskcnt")
+    @ApiModelProperty("未开始任务数")
     private Integer waittaskcnt;
 
     /**
@@ -380,6 +425,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "pausetaskcnt")
     @JsonProperty("pausetaskcnt")
+    @ApiModelProperty("已暂停任务数")
     private Integer pausetaskcnt;
 
     /**
@@ -388,6 +434,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "closedstagestorycnt")
     @JsonProperty("closedstagestorycnt")
+    @ApiModelProperty("已关闭阶段需求数")
     private Integer closedstagestorycnt;
 
     /**
@@ -396,6 +443,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "totalestimate")
     @JsonProperty("totalestimate")
+    @ApiModelProperty("任务最初预计总工时")
     private Double totalestimate;
 
     /**
@@ -404,6 +452,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "verifiedstagestorycnt")
     @JsonProperty("verifiedstagestorycnt")
+    @ApiModelProperty("已验收阶段需求数")
     private Integer verifiedstagestorycnt;
 
     /**
@@ -412,6 +461,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "install")
     @JsonProperty("install")
+    @ApiModelProperty("安装部署")
     private Integer install;
 
     /**
@@ -421,6 +471,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
     @JSONField(name = "id")
     @JsonProperty("id")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("项目编号")
     private Long id;
 
     /**
@@ -429,6 +480,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "designtaskcnt")
     @JsonProperty("designtaskcnt")
+    @ApiModelProperty("设计类型任务")
     private Integer designtaskcnt;
 
     /**
@@ -437,6 +489,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "security")
     @JsonProperty("security")
+    @ApiModelProperty("安全相关")
     private Integer security;
 
     /**
@@ -445,6 +498,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "others")
     @JsonProperty("others")
+    @ApiModelProperty("其他")
     private Integer others;
 
     /**
@@ -453,6 +507,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "bugcnt")
     @JsonProperty("bugcnt")
+    @ApiModelProperty("Bug总数")
     private Integer bugcnt;
 
     /**
@@ -461,6 +516,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "unclosedbugcnt")
     @JsonProperty("unclosedbugcnt")
+    @ApiModelProperty("未关闭Bug总数")
     private Integer unclosedbugcnt;
 
     /**
@@ -469,6 +525,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "yesterdayctaskcnt")
     @JsonProperty("yesterdayctaskcnt")
+    @ApiModelProperty("昨日完成任务数")
     private Integer yesterdayctaskcnt;
 
     /**
@@ -477,6 +534,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "time")
     @JsonProperty("time")
+    @ApiModelProperty("工时")
     private Double time;
 
     /**
@@ -485,6 +543,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "automation")
     @JsonProperty("automation")
+    @ApiModelProperty("测试脚本")
     private Integer automation;
 
     /**
@@ -493,6 +552,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "unconfirmedbugcnt")
     @JsonProperty("unconfirmedbugcnt")
+    @ApiModelProperty("未确认Bug总数")
     private Integer unconfirmedbugcnt;
 
     /**
@@ -501,6 +561,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "developedstagestorycnt")
     @JsonProperty("developedstagestorycnt")
+    @ApiModelProperty("研发完毕阶段需求数")
     private Integer developedstagestorycnt;
 
     /**
@@ -509,6 +570,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "testingstagestorycnt")
     @JsonProperty("testingstagestorycnt")
+    @ApiModelProperty("测试中阶段需求数")
     private Integer testingstagestorycnt;
 
     /**
@@ -517,6 +579,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "finishtaskcnt")
     @JsonProperty("finishtaskcnt")
+    @ApiModelProperty("已结束任务总数")
     private Integer finishtaskcnt;
 
     /**
@@ -525,6 +588,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "config")
     @JsonProperty("config")
+    @ApiModelProperty("配置相关")
     private Integer config;
 
     /**
@@ -533,6 +597,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "totalconsumed")
     @JsonProperty("totalconsumed")
+    @ApiModelProperty("任务消耗总工时")
     private Double totalconsumed;
 
     /**
@@ -541,6 +606,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "affairtaskcnt")
     @JsonProperty("affairtaskcnt")
+    @ApiModelProperty("事务类型任务")
     private Integer affairtaskcnt;
 
     /**
@@ -549,6 +615,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "projecttotalconsumed")
     @JsonProperty("projecttotalconsumed")
+    @ApiModelProperty("项目消耗总工时")
     private Double projecttotalconsumed;
 
     /**
@@ -557,6 +624,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "uitaskcnt")
     @JsonProperty("uitaskcnt")
+    @ApiModelProperty("界面类型任务")
     private Integer uitaskcnt;
 
     /**
@@ -565,6 +633,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "bugstory")
     @JsonProperty("bugstory")
+    @ApiModelProperty("Bug/完成需求")
     private Integer bugstory;
 
     /**
@@ -573,6 +642,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "closedstory")
     @JsonProperty("closedstory")
+    @ApiModelProperty("已关闭需求")
     private Integer closedstory;
 
     /**
@@ -581,6 +651,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "bugtask")
     @JsonProperty("bugtask")
+    @ApiModelProperty("Bug/完成任务")
     private Integer bugtask;
 
     /**
@@ -589,6 +660,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "releasedstorycnt")
     @JsonProperty("releasedstorycnt")
+    @ApiModelProperty("已发布需求数")
     private Integer releasedstorycnt;
 
     /**
@@ -597,6 +669,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "studytaskcnt")
     @JsonProperty("studytaskcnt")
+    @ApiModelProperty("研究类型任务")
     private Integer studytaskcnt;
 
     /**
@@ -605,6 +678,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "closedtaskcnt")
     @JsonProperty("closedtaskcnt")
+    @ApiModelProperty("已关闭任务数")
     private Integer closedtaskcnt;
 
     /**
@@ -613,6 +687,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "codeerror")
     @JsonProperty("codeerror")
+    @ApiModelProperty("代码错误")
     private Integer codeerror;
 
     /**
@@ -621,6 +696,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "closedstorycnt")
     @JsonProperty("closedstorycnt")
+    @ApiModelProperty("关闭需求总数")
     private Integer closedstorycnt;
 
     /**
@@ -629,6 +705,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "finishbugcnt")
     @JsonProperty("finishbugcnt")
+    @ApiModelProperty("已解决Bug总数")
     private Integer finishbugcnt;
 
     /**
@@ -637,6 +714,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "changedstory")
     @JsonProperty("changedstory")
+    @ApiModelProperty("已变更需求")
     private Integer changedstory;
 
     /**
@@ -645,6 +723,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "develtaskcnt")
     @JsonProperty("develtaskcnt")
+    @ApiModelProperty("开发类型任务")
     private Integer develtaskcnt;
 
     /**
@@ -653,6 +732,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "membercnt")
     @JsonProperty("membercnt")
+    @ApiModelProperty("人数")
     private Integer membercnt;
 
     /**
@@ -662,6 +742,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
     @JSONField(name = "progress")
     @JsonProperty("progress")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("进度")
     private String progress;
 
     /**
@@ -670,6 +751,7 @@ public class ProjectStatsDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "yesterdayrbugcnt")
     @JsonProperty("yesterdayrbugcnt")
+    @ApiModelProperty("昨天解决Bug数")
     private Integer yesterdayrbugcnt;
 
 

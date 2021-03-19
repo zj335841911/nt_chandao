@@ -48446,6 +48446,19 @@
     "key_field":0,
     "show_order":1000,
     "major_field":0
+    },
+    {
+    "fieldname":"COST" ,
+    "codename":"Cost",
+    "field_logic_name":"费用",
+    "entity_name":"ZT_TODO",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"INT",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
     }
     ],
     "subEntitys":[

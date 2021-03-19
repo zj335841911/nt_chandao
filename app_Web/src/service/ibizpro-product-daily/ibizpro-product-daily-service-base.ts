@@ -1,3 +1,4 @@
+import { Environment } from '@/environments/environment';
 import { Http } from '@/utils';
 import { Util } from '@/utils';
 import EntityService from '../entity-service';
@@ -49,7 +50,7 @@ export default class IbizproProductDailyServiceBase extends EntityService {
      * @memberof IbizproProductDailyServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().get(`/ibizproproductdailies/${context.ibizproproductdaily}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/ibizproproductdailies/${context.ibizproproductdaily}/select`,isloading);
             
             return res;
     }
@@ -105,7 +106,7 @@ export default class IbizproProductDailyServiceBase extends EntityService {
      * @memberof IbizproProductDailyServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().delete(`/ibizproproductdailies/${context.ibizproproductdaily}`,isloading);
+            let res:any = await Http.getInstance().delete(`/ibizproproductdailies/${context.ibizproproductdaily}`,isloading);
             return res;
     }
 
@@ -153,7 +154,7 @@ export default class IbizproProductDailyServiceBase extends EntityService {
      * @memberof IbizproProductDailyServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/ibizproproductdailies/${context.ibizproproductdaily}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/ibizproproductdailies/${context.ibizproproductdaily}/checkkey`,data,isloading);
             return res;
     }
 
@@ -167,7 +168,7 @@ export default class IbizproProductDailyServiceBase extends EntityService {
      * @memberof IbizproProductDailyServiceBase
      */
     public async ManualCreateDaily(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/ibizproproductdailies/${context.ibizproproductdaily}/manualcreatedaily`,data,isloading);
+            let res:any = await Http.getInstance().post(`/ibizproproductdailies/${context.ibizproproductdaily}/manualcreatedaily`,data,isloading);
             return res;
     }
 
@@ -198,7 +199,7 @@ export default class IbizproProductDailyServiceBase extends EntityService {
      * @memberof IbizproProductDailyServiceBase
      */
     public async StatsProductDaily(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/ibizproproductdailies/${context.ibizproproductdaily}/statsproductdaily`,data,isloading);
+            let res:any = await Http.getInstance().post(`/ibizproproductdailies/${context.ibizproproductdaily}/statsproductdaily`,data,isloading);
             return res;
     }
 
@@ -213,7 +214,7 @@ export default class IbizproProductDailyServiceBase extends EntityService {
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/ibizproproductdailies/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/ibizproproductdailies/fetchdefault`,tempData,isloading);
         return res;
     }
 
@@ -242,7 +243,7 @@ export default class IbizproProductDailyServiceBase extends EntityService {
      */
     public async FetchProductDaily(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/ibizproproductdailies/fetchproductdaily`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/ibizproproductdailies/fetchproductdaily`,tempData,isloading);
         return res;
     }
 

@@ -1,3 +1,4 @@
+import { Environment } from '@/environments/environment';
 import { Http } from '@/utils';
 import { Util } from '@/utils';
 import EntityService from '../entity-service';
@@ -50,16 +51,16 @@ export default class ProjectProductServiceBase extends EntityService {
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.projectproduct){
-            let res:any = Http.getInstance().get(`/projects/${context.project}/projectproducts/${context.projectproduct}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectproducts/${context.projectproduct}/select`,isloading);
             
             return res;
         }
         if(context.product && context.projectproduct){
-            let res:any = Http.getInstance().get(`/products/${context.product}/projectproducts/${context.projectproduct}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/projectproducts/${context.projectproduct}/select`,isloading);
             
             return res;
         }
-            let res:any = Http.getInstance().get(`/projectproducts/${context.projectproduct}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/projectproducts/${context.projectproduct}/select`,isloading);
             
             return res;
     }
@@ -158,14 +159,14 @@ export default class ProjectProductServiceBase extends EntityService {
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.projectproduct){
-            let res:any = Http.getInstance().delete(`/projects/${context.project}/projectproducts/${context.projectproduct}`,isloading);
+            let res:any = await Http.getInstance().delete(`/projects/${context.project}/projectproducts/${context.projectproduct}`,isloading);
             return res;
         }
         if(context.product && context.projectproduct){
-            let res:any = Http.getInstance().delete(`/products/${context.product}/projectproducts/${context.projectproduct}`,isloading);
+            let res:any = await Http.getInstance().delete(`/products/${context.product}/projectproducts/${context.projectproduct}`,isloading);
             return res;
         }
-            let res:any = Http.getInstance().delete(`/projectproducts/${context.projectproduct}`,isloading);
+            let res:any = await Http.getInstance().delete(`/projectproducts/${context.projectproduct}`,isloading);
             return res;
     }
 
@@ -255,7 +256,7 @@ export default class ProjectProductServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/projectproducts/${context.projectproduct}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/projectproducts/${context.projectproduct}/checkkey`,data,isloading);
             return res;
     }
 
@@ -302,16 +303,16 @@ export default class ProjectProductServiceBase extends EntityService {
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/projectproducts/fetchdefault`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectproducts/fetchdefault`,tempData,isloading);
             return res;
         }
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/projectproducts/fetchdefault`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/projectproducts/fetchdefault`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/projectproducts/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/projectproducts/fetchdefault`,tempData,isloading);
         return res;
     }
 
@@ -349,16 +350,16 @@ export default class ProjectProductServiceBase extends EntityService {
     public async FetchRelationPlan(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/projectproducts/fetchrelationplan`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectproducts/fetchrelationplan`,tempData,isloading);
             return res;
         }
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/projectproducts/fetchrelationplan`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/projectproducts/fetchrelationplan`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/projectproducts/fetchrelationplan`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/projectproducts/fetchrelationplan`,tempData,isloading);
         return res;
     }
 

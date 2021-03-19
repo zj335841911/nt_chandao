@@ -1,3 +1,4 @@
+import { Environment } from '@/environments/environment';
 import { Http } from '@/utils';
 import { Util } from '@/utils';
 import EntityService from '../entity-service';
@@ -49,7 +50,7 @@ export default class SysEmployeeServiceBase extends EntityService {
      * @memberof SysEmployeeServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().get(`/sysemployees/${context.sysemployee}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/sysemployees/${context.sysemployee}/select`,isloading);
             
             return res;
     }
@@ -105,7 +106,7 @@ export default class SysEmployeeServiceBase extends EntityService {
      * @memberof SysEmployeeServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().delete(`/sysemployees/${context.sysemployee}`,isloading);
+            let res:any = await Http.getInstance().delete(`/sysemployees/${context.sysemployee}`,isloading);
             return res;
     }
 
@@ -153,7 +154,7 @@ export default class SysEmployeeServiceBase extends EntityService {
      * @memberof SysEmployeeServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/sysemployees/${context.sysemployee}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/sysemployees/${context.sysemployee}/checkkey`,data,isloading);
             return res;
     }
 
@@ -185,7 +186,7 @@ export default class SysEmployeeServiceBase extends EntityService {
      */
     public async FetchBugUser(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/sysemployees/fetchbuguser`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/sysemployees/fetchbuguser`,tempData,isloading);
         return res;
     }
 
@@ -214,7 +215,7 @@ export default class SysEmployeeServiceBase extends EntityService {
      */
     public async FetchContActList(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/sysemployees/fetchcontactlist`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/sysemployees/fetchcontactlist`,tempData,isloading);
         return res;
     }
 
@@ -243,7 +244,7 @@ export default class SysEmployeeServiceBase extends EntityService {
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/sysemployees/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/sysemployees/fetchdefault`,tempData,isloading);
         return res;
     }
 
@@ -272,7 +273,7 @@ export default class SysEmployeeServiceBase extends EntityService {
      */
     public async FetchProductTeamM(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/sysemployees/fetchproductteamm`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/sysemployees/fetchproductteamm`,tempData,isloading);
         return res;
     }
 
@@ -301,7 +302,7 @@ export default class SysEmployeeServiceBase extends EntityService {
      */
     public async FetchProjectTeamM(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/sysemployees/fetchprojectteamm`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/sysemployees/fetchprojectteamm`,tempData,isloading);
         return res;
     }
 
@@ -330,7 +331,7 @@ export default class SysEmployeeServiceBase extends EntityService {
      */
     public async FetchProjectTeamMProduct(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/sysemployees/fetchprojectteammproduct`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/sysemployees/fetchprojectteammproduct`,tempData,isloading);
         return res;
     }
 
@@ -359,7 +360,7 @@ export default class SysEmployeeServiceBase extends EntityService {
      */
     public async FetchProjectTeamTaskUserTemp(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/sysemployees/fetchprojectteamtaskusertemp`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/sysemployees/fetchprojectteamtaskusertemp`,tempData,isloading);
         return res;
     }
 
@@ -388,7 +389,7 @@ export default class SysEmployeeServiceBase extends EntityService {
      */
     public async FetchProjectTeamUser(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/sysemployees/fetchprojectteamuser`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/sysemployees/fetchprojectteamuser`,tempData,isloading);
         return res;
     }
 
@@ -417,7 +418,7 @@ export default class SysEmployeeServiceBase extends EntityService {
      */
     public async FetchProjectTeamUserTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/sysemployees/fetchprojectteamusertask`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/sysemployees/fetchprojectteamusertask`,tempData,isloading);
         return res;
     }
 
@@ -446,7 +447,7 @@ export default class SysEmployeeServiceBase extends EntityService {
      */
     public async FetchProjectteamPk(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/sysemployees/fetchprojectteampk`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/sysemployees/fetchprojectteampk`,tempData,isloading);
         return res;
     }
 
@@ -475,7 +476,7 @@ export default class SysEmployeeServiceBase extends EntityService {
      */
     public async FetchStoryProductTeamPK(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/sysemployees/fetchstoryproductteampk`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/sysemployees/fetchstoryproductteampk`,tempData,isloading);
         return res;
     }
 
@@ -504,7 +505,7 @@ export default class SysEmployeeServiceBase extends EntityService {
      */
     public async FetchTaskMTeam(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/sysemployees/fetchtaskmteam`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/sysemployees/fetchtaskmteam`,tempData,isloading);
         return res;
     }
 
@@ -533,7 +534,7 @@ export default class SysEmployeeServiceBase extends EntityService {
      */
     public async FetchTaskTeam(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/sysemployees/fetchtaskteam`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/sysemployees/fetchtaskteam`,tempData,isloading);
         return res;
     }
 
