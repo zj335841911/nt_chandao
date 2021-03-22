@@ -11,6 +11,7 @@ import org.apache.ibatis.mapping.VendorDatabaseIdProvider;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.beans.factory.annotation.Autowired;
 import java.util.Properties;
 
 /**
@@ -19,7 +20,6 @@ import java.util.Properties;
 @Configuration
 @MapperScan(value="cn.ibizlab.pms.core.*.mapper",nameGenerator = UniqueNameGenerator.class)
 public class MybatisConfiguration {
-
     /**
      * mybatis适配多数据库
      * @return
@@ -52,6 +52,18 @@ public class MybatisConfiguration {
         // 开启 count 的 join 优化,只针对部分 left join
         paginationInterceptor.setCountSqlParser(new JsqlParserCountOptimize(true));
         return paginationInterceptor;
+    }
+    
+    @Bean
+    public ISqlParserFilter ignoreParserFilter() {
+        return metaObject -> {
+            // 此处就过滤
+            MappedStatement ms = SqlParserHelper.getMappedStatement(metaObject);
+            if (saaSTenantProperties.getIgnoreMappers().contains(ms.getId())) {
+                return true;
+            }
+            return false;
+        };
     }
 
 }

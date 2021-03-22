@@ -413,24 +413,27 @@ hide footbox
 |1|开始 | 
 |2|重置需求版本 |
 <center>更新需求版本</center>
-* 根据计划获取相关项目 (getProjectByPlan)
+* 根据计划或需求获取相关项目 (getProjectByPlan)
   
    
 
 {% plantuml %}
 hide footbox
 
-任务 -> 任务: 获取项目
 任务 -> 任务: 设置常规参数
+任务 -> 任务: 根据需求获取项目
+任务 -> 任务: 获取项目
 {% endplantuml %}
 
 | 步骤       | 操作        |
 | --------   | --------   |
 |0|开始 | 
-|1|获取项目 |
+|1|设置常规参数 |
 |1|开始 | 
-|2|设置常规参数 |
-<center>根据计划获取相关项目</center>
+|2|根据需求获取项目 |
+|2|开始 | 
+|3|获取项目 |
+<center>根据计划或需求获取相关项目</center>
 * 获取团队成员 (getUsernames)
   
    
