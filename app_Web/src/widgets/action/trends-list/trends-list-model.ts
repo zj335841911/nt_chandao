@@ -18,29 +18,12 @@ export default class TrendsModel {
 				name: 'action',
 			},
 			{
-				name: 'date1',
-			},
-			{
-				name: 'id',
-			},
-			{
-				name: 'srfkey',
-			},
-			{
-				name: 'project',
-			},
-			{
-				name: 'date',
-			},
-			{
-				name: 'objecttype',
-			},
-			{
-				name: 'objectid',
-			},
-			{
 				name: 'actor',
         codelist:{tag:'UserRealName',codelistType:'DYNAMIC'},
+			},
+			{
+				name: 'actionmanner',
+        codelist:{tag:'ActionManner',codelistType:'STATIC'},
 			},
 			{
 				name: 'read',
@@ -50,8 +33,25 @@ export default class TrendsModel {
 				name: 'product',
 			},
 			{
-				name: 'actionmanner',
-        codelist:{tag:'ActionManner',codelistType:'STATIC'},
+				name: 'project',
+			},
+			{
+				name: 'objectid',
+			},
+			{
+				name: 'date',
+			},
+			{
+				name: 'objecttype',
+			},
+			{
+				name: 'srfkey',
+			},
+			{
+				name: 'date1',
+			},
+			{
+				name: 'id',
 			},
       {
         name:'size',

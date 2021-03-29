@@ -12,4 +12,3 @@ public interface ProductSumMapping extends MappingBase<ProductSumDTO, ProductSum
 
 
 }
-

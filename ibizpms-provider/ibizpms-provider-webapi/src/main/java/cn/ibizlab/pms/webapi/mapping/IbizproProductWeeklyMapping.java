@@ -12,4 +12,3 @@ public interface IbizproProductWeeklyMapping extends MappingBase<IbizproProductW
 
 
 }
-

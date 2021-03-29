@@ -12,4 +12,3 @@ public interface DeptMapping extends MappingBase<DeptDTO, Dept> {
 
 
 }
-

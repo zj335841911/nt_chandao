@@ -12,4 +12,3 @@ public interface SubStoryMapping extends MappingBase<SubStoryDTO, Story> {
 
 
 }
-

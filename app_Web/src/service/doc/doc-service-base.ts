@@ -160,6 +160,20 @@ export default class DocServiceBase extends EntityService {
     }
 
     /**
+     * ByVersionUpdateContextBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocServiceBase
+     */
+    public async ByVersionUpdateContextBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/docs/byversionupdatecontextbatch`,tempData,isloading);
+    }
+
+    /**
      * CheckKey接口方法
      *
      * @param {*} [context={}]
@@ -188,6 +202,20 @@ export default class DocServiceBase extends EntityService {
     }
 
     /**
+     * CollectBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocServiceBase
+     */
+    public async CollectBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/docs/collectbatch`,tempData,isloading);
+    }
+
+    /**
      * GetDocStatus接口方法
      *
      * @param {*} [context={}]
@@ -199,6 +227,20 @@ export default class DocServiceBase extends EntityService {
     public async GetDocStatus(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
             let res:any = await Http.getInstance().put(`/docs/${context.doc}/getdocstatus`,data,isloading);
             return res;
+    }
+
+    /**
+     * GetDocStatusBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocServiceBase
+     */
+    public async GetDocStatusBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/docs/getdocstatusbatch`,tempData,isloading);
     }
 
     /**
@@ -216,6 +258,20 @@ export default class DocServiceBase extends EntityService {
     }
 
     /**
+     * OnlyCollectDocBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocServiceBase
+     */
+    public async OnlyCollectDocBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/docs/onlycollectdocbatch`,tempData,isloading);
+    }
+
+    /**
      * OnlyUnCollectDoc接口方法
      *
      * @param {*} [context={}]
@@ -227,6 +283,20 @@ export default class DocServiceBase extends EntityService {
     public async OnlyUnCollectDoc(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
             let res:any = await Http.getInstance().post(`/docs/${context.doc}/onlyuncollectdoc`,data,isloading);
             return res;
+    }
+
+    /**
+     * OnlyUnCollectDocBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocServiceBase
+     */
+    public async OnlyUnCollectDocBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/docs/onlyuncollectdocbatch`,tempData,isloading);
     }
 
     /**
@@ -258,6 +328,20 @@ export default class DocServiceBase extends EntityService {
     public async UnCollect(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
             let res:any = await Http.getInstance().post(`/docs/${context.doc}/uncollect`,data,isloading);
             return res;
+    }
+
+    /**
+     * UnCollectBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocServiceBase
+     */
+    public async UnCollectBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/docs/uncollectbatch`,tempData,isloading);
     }
 
     /**

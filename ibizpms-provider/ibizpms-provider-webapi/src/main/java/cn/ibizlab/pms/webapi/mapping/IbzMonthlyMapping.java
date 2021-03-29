@@ -12,4 +12,3 @@ public interface IbzMonthlyMapping extends MappingBase<IbzMonthlyDTO, IbzMonthly
 
 
 }
-

@@ -2110,12 +2110,12 @@ export default class EmpTreeMenuZSService extends ControlService {
         filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
         return new Promise((resolve:any,reject:any) =>{
             let searchFilter: any = {};
-            if (Object.is(filter.strNodeType, this.TREENODE_SYSPOST)) {
-                Object.assign(searchFilter, { n_postid_eq: filter.nodeid });
-            }
-
             if (Object.is(filter.strNodeType, this.TREENODE_SYSTEAM)) {
                 Object.assign(searchFilter, { n_teamid_eq: filter.nodeid });
+            }
+
+            if (Object.is(filter.strNodeType, this.TREENODE_SYSPOST)) {
+                Object.assign(searchFilter, { n_postid_eq: filter.nodeid });
             }
 
             Object.assign(searchFilter, { total: false });

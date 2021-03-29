@@ -12,4 +12,3 @@ public interface CaseStatsMapping extends MappingBase<CaseStatsDTO, CaseStats> {
 
 
 }
-

@@ -12,4 +12,3 @@ public interface CaseMapping extends MappingBase<CaseDTO, Case> {
 
 
 }
-

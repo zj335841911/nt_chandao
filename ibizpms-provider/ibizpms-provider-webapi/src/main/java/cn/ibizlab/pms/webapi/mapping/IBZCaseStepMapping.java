@@ -12,4 +12,3 @@ public interface IBZCaseStepMapping extends MappingBase<IBZCaseStepDTO, CaseStep
 
 
 }
-

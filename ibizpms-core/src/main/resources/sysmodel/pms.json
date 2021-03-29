@@ -31170,6 +31170,20 @@
     "major_field":0
     },
     {
+    "fieldname":"COMMENT" ,
+    "codename":"Comment",
+    "field_logic_name":"备注",
+    "entity_name":"ZT_PRODUCTPLAN",
+    "field_type":"HTMLTEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"TEXT",
+    "data_length":1048576,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
     "fieldname":"TITLE" ,
     "codename":"Title",
     "field_logic_name":"名称",
@@ -31280,6 +31294,21 @@
     "major_field":0
     },
     {
+    "fieldname":"DELAY" ,
+    "codename":"Delay",
+    "field_logic_name":"延期",
+    "entity_name":"ZT_PRODUCTPLAN",
+    "field_type":"TEXT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"VARCHAR",
+    "data_length":200,
+    "expression":"case when t1.`end` is null or t1.`end` = '0000-00-00' or t1.`end` = '1970-01-01' then '' when t1.`status` in('wait','doing') and t1.`end` < DATE_FORMAT(NOW(),'%Y-%m-%d') then CONCAT('','延期',TO_DAYS(NOW()) - TO_DAYS(t1.`end`),'天') ELSE '' end",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
     "fieldname":"DURATION" ,
     "codename":"Duration",
     "field_logic_name":"持续时间",
@@ -31305,6 +31334,20 @@
     "data_type":"VARCHAR",
     "data_length":200,
     "expression":"(case when t1.`begin` = '2030-01-01' then '待定' else t1.`begin` end)",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"LEFTESTIMATE" ,
+    "codename":"Leftestimate",
+    "field_logic_name":"剩余工时",
+    "entity_name":"ZT_PRODUCTPLAN",
+    "field_type":"FLOAT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"FLOAT",
+    "data_preci":2,
     "key_field":0,
     "show_order":1000,
     "major_field":0
@@ -31353,6 +31396,21 @@
     "major_field":0
     },
     {
+    "fieldname":"STATUS" ,
+    "codename":"Status",
+    "field_logic_name":"计划状态",
+    "entity_name":"ZT_PRODUCTPLAN",
+    "field_type":"TEXT",
+    "dict":"Task__status",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"VARCHAR",
+    "data_length":100,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
     "fieldname":"ISEXPIRED" ,
     "codename":"Isexpired",
     "field_logic_name":"是否过期",
@@ -31383,6 +31441,20 @@
     "major_field":0
     },
     {
+    "fieldname":"CONSUMEDESTIMATE" ,
+    "codename":"Consumedestimate",
+    "field_logic_name":"消耗工时",
+    "entity_name":"ZT_PRODUCTPLAN",
+    "field_type":"FLOAT",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"FLOAT",
+    "data_preci":2,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
     "fieldname":"ORDER" ,
     "codename":"Order",
     "field_logic_name":"排序",
@@ -31392,6 +31464,19 @@
     "physical_field":1,
     "data_type":"TEXT",
     "data_length":65535,
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
+    "fieldname":"ISLEAF" ,
+    "codename":"IsLeaf",
+    "field_logic_name":"叶子节点",
+    "entity_name":"ZT_PRODUCTPLAN",
+    "field_type":"TRUEFALSE",
+    "nullable":1,
+    "physical_field":0,
+    "data_type":"INT",
     "key_field":0,
     "show_order":1000,
     "major_field":0
@@ -31536,91 +31621,6 @@
     "physical_field":1,
     "data_type":"BIGINT",
     "data_length":8,
-    "key_field":0,
-    "show_order":1000,
-    "major_field":0
-    },
-    {
-    "fieldname":"STATUS" ,
-    "codename":"Status",
-    "field_logic_name":"计划状态",
-    "entity_name":"ZT_PRODUCTPLAN",
-    "field_type":"TEXT",
-    "dict":"Task__status",
-    "nullable":1,
-    "physical_field":1,
-    "data_type":"VARCHAR",
-    "data_length":100,
-    "key_field":0,
-    "show_order":1000,
-    "major_field":0
-    },
-    {
-    "fieldname":"DELAY" ,
-    "codename":"Delay",
-    "field_logic_name":"延期",
-    "entity_name":"ZT_PRODUCTPLAN",
-    "field_type":"TEXT",
-    "nullable":1,
-    "physical_field":0,
-    "data_type":"VARCHAR",
-    "data_length":200,
-    "expression":"case when t1.`end` is null or t1.`end` = '0000-00-00' or t1.`end` = '1970-01-01' then '' when t1.`status` in('wait','doing') and t1.`end` < DATE_FORMAT(NOW(),'%Y-%m-%d') then CONCAT('','延期',TO_DAYS(NOW()) - TO_DAYS(t1.`end`),'天') ELSE '' end",
-    "key_field":0,
-    "show_order":1000,
-    "major_field":0
-    },
-    {
-    "fieldname":"COMMENT" ,
-    "codename":"Comment",
-    "field_logic_name":"备注",
-    "entity_name":"ZT_PRODUCTPLAN",
-    "field_type":"HTMLTEXT",
-    "nullable":1,
-    "physical_field":0,
-    "data_type":"TEXT",
-    "data_length":1048576,
-    "key_field":0,
-    "show_order":1000,
-    "major_field":0
-    },
-    {
-    "fieldname":"LEFTESTIMATE" ,
-    "codename":"Leftestimate",
-    "field_logic_name":"剩余工时",
-    "entity_name":"ZT_PRODUCTPLAN",
-    "field_type":"FLOAT",
-    "nullable":1,
-    "physical_field":0,
-    "data_type":"FLOAT",
-    "data_preci":2,
-    "key_field":0,
-    "show_order":1000,
-    "major_field":0
-    },
-    {
-    "fieldname":"CONSUMEDESTIMATE" ,
-    "codename":"Consumedestimate",
-    "field_logic_name":"消耗工时",
-    "entity_name":"ZT_PRODUCTPLAN",
-    "field_type":"FLOAT",
-    "nullable":1,
-    "physical_field":0,
-    "data_type":"FLOAT",
-    "data_preci":2,
-    "key_field":0,
-    "show_order":1000,
-    "major_field":0
-    },
-    {
-    "fieldname":"ISLEAF" ,
-    "codename":"IsLeaf",
-    "field_logic_name":"叶子节点",
-    "entity_name":"ZT_PRODUCTPLAN",
-    "field_type":"TRUEFALSE",
-    "nullable":1,
-    "physical_field":0,
-    "data_type":"INT",
     "key_field":0,
     "show_order":1000,
     "major_field":0
@@ -48377,6 +48377,19 @@
     "major_field":0
     },
     {
+    "fieldname":"COST" ,
+    "codename":"Cost",
+    "field_logic_name":"费用",
+    "entity_name":"ZT_TODO",
+    "field_type":"INT",
+    "nullable":1,
+    "physical_field":1,
+    "data_type":"INT",
+    "key_field":0,
+    "show_order":1000,
+    "major_field":0
+    },
+    {
     "fieldname":"PRI" ,
     "codename":"Pri",
     "field_logic_name":"优先级",
@@ -48443,19 +48456,6 @@
     "physical_field":1,
     "data_type":"VARCHAR",
     "data_length":255,
-    "key_field":0,
-    "show_order":1000,
-    "major_field":0
-    },
-    {
-    "fieldname":"COST" ,
-    "codename":"Cost",
-    "field_logic_name":"费用",
-    "entity_name":"ZT_TODO",
-    "field_type":"INT",
-    "nullable":1,
-    "physical_field":1,
-    "data_type":"INT",
     "key_field":0,
     "show_order":1000,
     "major_field":0

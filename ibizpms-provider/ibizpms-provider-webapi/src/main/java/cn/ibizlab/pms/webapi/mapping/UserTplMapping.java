@@ -12,4 +12,3 @@ public interface UserTplMapping extends MappingBase<UserTplDTO, UserTpl> {
 
 
 }
-

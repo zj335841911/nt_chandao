@@ -289,7 +289,7 @@ export class TaskModuleExpTreeBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public productnotroot_cm_deuiaction1_click(params: any = {}, tag?: any, $event?: any) {
+    public rootmodule_cm_deuiaction1_click(params: any = {}, tag?: any, $event?: any) {
         // 参数
         // 取数
         let datas: any[] = [];
@@ -317,7 +317,7 @@ export class TaskModuleExpTreeBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public rootmodule_cm_deuiaction1_click(params: any = {}, tag?: any, $event?: any) {
+    public productnotroot_cm_deuiaction1_click(params: any = {}, tag?: any, $event?: any) {
         // 参数
         // 取数
         let datas: any[] = [];

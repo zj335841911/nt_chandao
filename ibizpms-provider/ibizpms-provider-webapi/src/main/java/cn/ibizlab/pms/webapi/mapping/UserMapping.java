@@ -12,4 +12,3 @@ public interface UserMapping extends MappingBase<UserDTO, User> {
 
 
 }
-

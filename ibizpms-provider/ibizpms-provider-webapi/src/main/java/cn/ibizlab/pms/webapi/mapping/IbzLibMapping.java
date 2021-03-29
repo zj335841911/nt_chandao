@@ -12,4 +12,3 @@ public interface IbzLibMapping extends MappingBase<IbzLibDTO, IbzLib> {
 
 
 }
-

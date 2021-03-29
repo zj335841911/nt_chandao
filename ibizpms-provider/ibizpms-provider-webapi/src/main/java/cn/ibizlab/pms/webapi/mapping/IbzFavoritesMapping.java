@@ -12,4 +12,3 @@ public interface IbzFavoritesMapping extends MappingBase<IbzFavoritesDTO, IbzFav
 
 
 }
-

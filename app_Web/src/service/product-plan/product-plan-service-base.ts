@@ -301,6 +301,24 @@ export default class ProductPlanServiceBase extends EntityService {
     }
 
     /**
+     * BatchUnlinkBugBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductPlanServiceBase
+     */
+    public async BatchUnlinkBugBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/batchunlinkbugbatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/productplans/batchunlinkbugbatch`,tempData,isloading);
+    }
+
+    /**
      * BatchUnlinkStory接口方法
      *
      * @param {*} [context={}]
@@ -336,6 +354,24 @@ export default class ProductPlanServiceBase extends EntityService {
         }
             let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/batchunlinkstory`,data,isloading);
             return res;
+    }
+
+    /**
+     * BatchUnlinkStoryBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductPlanServiceBase
+     */
+    public async BatchUnlinkStoryBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/batchunlinkstorybatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/productplans/batchunlinkstorybatch`,tempData,isloading);
     }
 
     /**
@@ -415,6 +451,24 @@ export default class ProductPlanServiceBase extends EntityService {
     }
 
     /**
+     * EeActivePlanBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductPlanServiceBase
+     */
+    public async EeActivePlanBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/eeactiveplanbatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/productplans/eeactiveplanbatch`,tempData,isloading);
+    }
+
+    /**
      * EeCancelPlan接口方法
      *
      * @param {*} [context={}]
@@ -450,6 +504,24 @@ export default class ProductPlanServiceBase extends EntityService {
         }
             let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/eecancelplan`,data,isloading);
             return res;
+    }
+
+    /**
+     * EeCancelPlanBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductPlanServiceBase
+     */
+    public async EeCancelPlanBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/eecancelplanbatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/productplans/eecancelplanbatch`,tempData,isloading);
     }
 
     /**
@@ -491,6 +563,24 @@ export default class ProductPlanServiceBase extends EntityService {
     }
 
     /**
+     * EeClosePlanBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductPlanServiceBase
+     */
+    public async EeClosePlanBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/eecloseplanbatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/productplans/eecloseplanbatch`,tempData,isloading);
+    }
+
+    /**
      * EeFinishPlan接口方法
      *
      * @param {*} [context={}]
@@ -526,6 +616,24 @@ export default class ProductPlanServiceBase extends EntityService {
         }
             let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/eefinishplan`,data,isloading);
             return res;
+    }
+
+    /**
+     * EeFinishPlanBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductPlanServiceBase
+     */
+    public async EeFinishPlanBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/eefinishplanbatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/productplans/eefinishplanbatch`,tempData,isloading);
     }
 
     /**
@@ -567,6 +675,24 @@ export default class ProductPlanServiceBase extends EntityService {
     }
 
     /**
+     * EePausePlanBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductPlanServiceBase
+     */
+    public async EePausePlanBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/eepauseplanbatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/productplans/eepauseplanbatch`,tempData,isloading);
+    }
+
+    /**
      * EeRestartPlan接口方法
      *
      * @param {*} [context={}]
@@ -605,6 +731,24 @@ export default class ProductPlanServiceBase extends EntityService {
     }
 
     /**
+     * EeRestartPlanBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductPlanServiceBase
+     */
+    public async EeRestartPlanBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/eerestartplanbatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/productplans/eerestartplanbatch`,tempData,isloading);
+    }
+
+    /**
      * EeStartPlan接口方法
      *
      * @param {*} [context={}]
@@ -640,6 +784,24 @@ export default class ProductPlanServiceBase extends EntityService {
         }
             let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/eestartplan`,data,isloading);
             return res;
+    }
+
+    /**
+     * EeStartPlanBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductPlanServiceBase
+     */
+    public async EeStartPlanBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/eestartplanbatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/productplans/eestartplanbatch`,tempData,isloading);
     }
 
     /**
@@ -719,6 +881,24 @@ export default class ProductPlanServiceBase extends EntityService {
     }
 
     /**
+     * ImportPlanTempletBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductPlanServiceBase
+     */
+    public async ImportPlanTempletBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/importplantempletbatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/productplans/importplantempletbatch`,tempData,isloading);
+    }
+
+    /**
      * LinkBug接口方法
      *
      * @param {*} [context={}]
@@ -754,6 +934,24 @@ export default class ProductPlanServiceBase extends EntityService {
         }
             let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/linkbug`,data,isloading);
             return res;
+    }
+
+    /**
+     * LinkBugBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductPlanServiceBase
+     */
+    public async LinkBugBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/linkbugbatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/productplans/linkbugbatch`,tempData,isloading);
     }
 
     /**
@@ -795,6 +993,24 @@ export default class ProductPlanServiceBase extends EntityService {
     }
 
     /**
+     * LinkStoryBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductPlanServiceBase
+     */
+    public async LinkStoryBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/linkstorybatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/productplans/linkstorybatch`,tempData,isloading);
+    }
+
+    /**
      * LinkTask接口方法
      *
      * @param {*} [context={}]
@@ -830,6 +1046,24 @@ export default class ProductPlanServiceBase extends EntityService {
         }
             let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/linktask`,data,isloading);
             return res;
+    }
+
+    /**
+     * LinkTaskBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductPlanServiceBase
+     */
+    public async LinkTaskBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/linktaskbatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/productplans/linktaskbatch`,tempData,isloading);
     }
 
     /**
@@ -967,6 +1201,24 @@ export default class ProductPlanServiceBase extends EntityService {
     }
 
     /**
+     * UnlinkBugBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductPlanServiceBase
+     */
+    public async UnlinkBugBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/unlinkbugbatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/productplans/unlinkbugbatch`,tempData,isloading);
+    }
+
+    /**
      * UnlinkStory接口方法
      *
      * @param {*} [context={}]
@@ -1002,6 +1254,24 @@ export default class ProductPlanServiceBase extends EntityService {
         }
             let res:any = await Http.getInstance().post(`/productplans/${context.productplan}/unlinkstory`,data,isloading);
             return res;
+    }
+
+    /**
+     * UnlinkStoryBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductPlanServiceBase
+     */
+    public async UnlinkStoryBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/unlinkstorybatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/productplans/unlinkstorybatch`,tempData,isloading);
     }
 
     /**

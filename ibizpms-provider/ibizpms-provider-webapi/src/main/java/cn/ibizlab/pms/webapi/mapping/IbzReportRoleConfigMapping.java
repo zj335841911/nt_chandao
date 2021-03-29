@@ -12,4 +12,3 @@ public interface IbzReportRoleConfigMapping extends MappingBase<IbzReportRoleCon
 
 
 }
-

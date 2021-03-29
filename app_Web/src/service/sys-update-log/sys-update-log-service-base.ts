@@ -174,6 +174,20 @@ export default class SysUpdateLogServiceBase extends EntityService {
     }
 
     /**
+     * GetLastUpdateInfoBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SysUpdateLogServiceBase
+     */
+    public async GetLastUpdateInfoBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/sysupdatelogs/getlastupdateinfobatch`,tempData,isloading);
+    }
+
+    /**
      * Save接口方法
      *
      * @param {*} [context={}]

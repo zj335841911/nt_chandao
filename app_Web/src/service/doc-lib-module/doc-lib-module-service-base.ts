@@ -173,6 +173,20 @@ export default class DocLibModuleServiceBase extends EntityService {
     }
 
     /**
+     * CollectBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocLibModuleServiceBase
+     */
+    public async CollectBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/doclibmodules/collectbatch`,tempData,isloading);
+    }
+
+    /**
      * DocLibModuleNFavorite接口方法
      *
      * @param {*} [context={}]
@@ -243,6 +257,20 @@ export default class DocLibModuleServiceBase extends EntityService {
     public async UnCollect(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
             let res:any = await Http.getInstance().post(`/doclibmodules/${context.doclibmodule}/uncollect`,data,isloading);
             return res;
+    }
+
+    /**
+     * UnCollectBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocLibModuleServiceBase
+     */
+    public async UnCollectBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/doclibmodules/uncollectbatch`,tempData,isloading);
     }
 
     /**

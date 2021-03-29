@@ -173,6 +173,20 @@ export default class IbizproProductMonthlyServiceBase extends EntityService {
     }
 
     /**
+     * ManualCreateMonthlyBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbizproProductMonthlyServiceBase
+     */
+    public async ManualCreateMonthlyBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/ibizproproductmonthlies/manualcreatemonthlybatch`,tempData,isloading);
+    }
+
+    /**
      * Save接口方法
      *
      * @param {*} [context={}]
@@ -201,6 +215,20 @@ export default class IbizproProductMonthlyServiceBase extends EntityService {
     public async StatsProductMonthly(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
             let res:any = await Http.getInstance().post(`/ibizproproductmonthlies/${context.ibizproproductmonthly}/statsproductmonthly`,data,isloading);
             return res;
+    }
+
+    /**
+     * StatsProductMonthlyBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbizproProductMonthlyServiceBase
+     */
+    public async StatsProductMonthlyBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/ibizproproductmonthlies/statsproductmonthlybatch`,tempData,isloading);
     }
 
     /**

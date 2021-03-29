@@ -289,6 +289,28 @@ export default class BuildServiceBase extends EntityService {
     }
 
     /**
+     * LinkStoryBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof BuildServiceBase
+     */
+    public async LinkStoryBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projects/${context.project}/builds/linkstorybatch`,tempData,isloading);
+        }
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/builds/linkstorybatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/builds/linkstorybatch`,tempData,isloading);
+    }
+
+    /**
      * MobProjectBuildCounter接口方法
      *
      * @param {*} [context={}]
@@ -342,6 +364,28 @@ export default class BuildServiceBase extends EntityService {
         }
             let res:any = await Http.getInstance().post(`/builds/${context.build}/oneclickrelease`,data,isloading);
             return res;
+    }
+
+    /**
+     * OneClickReleaseBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof BuildServiceBase
+     */
+    public async OneClickReleaseBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projects/${context.project}/builds/oneclickreleasebatch`,tempData,isloading);
+        }
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/builds/oneclickreleasebatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/builds/oneclickreleasebatch`,tempData,isloading);
     }
 
     /**

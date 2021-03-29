@@ -12,4 +12,3 @@ public interface TaskTeamMapping extends MappingBase<TaskTeamDTO, TaskTeam> {
 
 
 }
-

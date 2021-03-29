@@ -12,4 +12,3 @@ public interface IBZPROJECTTEAMMapping extends MappingBase<IBZPROJECTTEAMDTO, Pr
 
 
 }
-

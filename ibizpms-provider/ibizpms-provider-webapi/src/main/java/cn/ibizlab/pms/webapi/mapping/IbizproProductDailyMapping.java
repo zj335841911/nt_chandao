@@ -12,4 +12,3 @@ public interface IbizproProductDailyMapping extends MappingBase<IbizproProductDa
 
 
 }
-

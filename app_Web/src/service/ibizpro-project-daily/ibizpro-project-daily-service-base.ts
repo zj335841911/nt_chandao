@@ -190,6 +190,20 @@ export default class IbizproProjectDailyServiceBase extends EntityService {
     }
 
     /**
+     * SumProjectDailyBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbizproProjectDailyServiceBase
+     */
+    public async SumProjectDailyBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/ibizproprojectdailies/sumprojectdailybatch`,tempData,isloading);
+    }
+
+    /**
      * FetchDefault接口方法
      *
      * @param {*} [context={}]

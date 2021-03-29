@@ -218,6 +218,20 @@ export default class UserYearWorkStatsServiceBase extends EntityService {
     }
 
     /**
+     * GetUserYearActionBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof UserYearWorkStatsServiceBase
+     */
+    public async GetUserYearActionBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/useryearworkstats/getuseryearactionbatch`,tempData,isloading);
+    }
+
+    /**
      * Save接口方法
      *
      * @param {*} [context={}]
@@ -246,6 +260,20 @@ export default class UserYearWorkStatsServiceBase extends EntityService {
     public async UpdateTitleByYear(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
             let res:any = await Http.getInstance().put(`/useryearworkstats/${context.useryearworkstats}/updatetitlebyyear`,data,isloading);
             return res;
+    }
+
+    /**
+     * UpdateTitleByYearBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof UserYearWorkStatsServiceBase
+     */
+    public async UpdateTitleByYearBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/useryearworkstats/updatetitlebyyearbatch`,tempData,isloading);
     }
 
     /**

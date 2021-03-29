@@ -12,4 +12,3 @@ public interface IBZTaskTeamMapping extends MappingBase<IBZTaskTeamDTO, TaskTeam
 
 
 }
-

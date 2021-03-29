@@ -12,4 +12,3 @@ public interface SubProductPlanMapping extends MappingBase<SubProductPlanDTO, Pr
 
 
 }
-

@@ -188,6 +188,20 @@ export default class ActionServiceBase extends EntityService {
     }
 
     /**
+     * EditCommentBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ActionServiceBase
+     */
+    public async EditCommentBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/actions/editcommentbatch`,tempData,isloading);
+    }
+
+    /**
      * ManagePmsEe接口方法
      *
      * @param {*} [context={}]
@@ -199,6 +213,20 @@ export default class ActionServiceBase extends EntityService {
     public async ManagePmsEe(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
             let res:any = await Http.getInstance().post(`/actions/${context.action}/managepmsee`,data,isloading);
             return res;
+    }
+
+    /**
+     * ManagePmsEeBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ActionServiceBase
+     */
+    public async ManagePmsEeBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/actions/managepmseebatch`,tempData,isloading);
     }
 
     /**

@@ -233,6 +233,17 @@ export class MainEditGridBase extends GridControlBase {
                       isIncludeMinValue:true,
                   },
                 ],
+                estimate:[
+                  {
+                      type:"SIMPLE",
+                      condOP:"GT",
+                      ruleInfo:"", 
+                      isKeyCond:false,
+                      paramValue:"0",
+                      isNotMode:false,
+                      deName:"estimate",
+                  },
+                ],
                 left:[
                   {
                       type:"VALUERANGE2",
@@ -244,17 +255,6 @@ export class MainEditGridBase extends GridControlBase {
                       deName:"left",
                       isIncludeMaxValue:false,
                       isIncludeMinValue:true,
-                  },
-                ],
-                estimate:[
-                  {
-                      type:"SIMPLE",
-                      condOP:"GT",
-                      ruleInfo:"", 
-                      isKeyCond:false,
-                      paramValue:"0",
-                      isNotMode:false,
-                      deName:"estimate",
                   },
                 ],
     };

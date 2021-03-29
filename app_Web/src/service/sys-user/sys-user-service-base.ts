@@ -159,6 +159,20 @@ export default class SysUserServiceBase extends EntityService {
     }
 
     /**
+     * ChangePwdBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SysUserServiceBase
+     */
+    public async ChangePwdBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/sysusers/changepwdbatch`,tempData,isloading);
+    }
+
+    /**
      * CheckKey接口方法
      *
      * @param {*} [context={}]

@@ -12,4 +12,3 @@ public interface IbzproProductUserTaskMapping extends MappingBase<IbzproProductU
 
 
 }
-

@@ -12,4 +12,3 @@ public interface ProjectMapping extends MappingBase<ProjectDTO, Project> {
 
 
 }
-

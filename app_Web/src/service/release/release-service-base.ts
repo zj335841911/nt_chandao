@@ -210,6 +210,24 @@ export default class ReleaseServiceBase extends EntityService {
     }
 
     /**
+     * ActivateBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ReleaseServiceBase
+     */
+    public async ActivateBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/releases/activatebatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/releases/activatebatch`,tempData,isloading);
+    }
+
+    /**
      * BatchUnlinkBug接口方法
      *
      * @param {*} [context={}]
@@ -231,6 +249,24 @@ export default class ReleaseServiceBase extends EntityService {
     }
 
     /**
+     * BatchUnlinkBugBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ReleaseServiceBase
+     */
+    public async BatchUnlinkBugBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/releases/batchunlinkbugbatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/releases/batchunlinkbugbatch`,tempData,isloading);
+    }
+
+    /**
      * ChangeStatus接口方法
      *
      * @param {*} [context={}]
@@ -249,6 +285,24 @@ export default class ReleaseServiceBase extends EntityService {
         }
             let res:any = await Http.getInstance().post(`/releases/${context.release}/changestatus`,data,isloading);
             return res;
+    }
+
+    /**
+     * ChangeStatusBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ReleaseServiceBase
+     */
+    public async ChangeStatusBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/releases/changestatusbatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/releases/changestatusbatch`,tempData,isloading);
     }
 
     /**
@@ -294,6 +348,24 @@ export default class ReleaseServiceBase extends EntityService {
     }
 
     /**
+     * LinkBugBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ReleaseServiceBase
+     */
+    public async LinkBugBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/releases/linkbugbatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/releases/linkbugbatch`,tempData,isloading);
+    }
+
+    /**
      * LinkBugbyBug接口方法
      *
      * @param {*} [context={}]
@@ -312,6 +384,24 @@ export default class ReleaseServiceBase extends EntityService {
         }
             let res:any = await Http.getInstance().post(`/releases/${context.release}/linkbugbybug`,data,isloading);
             return res;
+    }
+
+    /**
+     * LinkBugbyBugBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ReleaseServiceBase
+     */
+    public async LinkBugbyBugBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/releases/linkbugbybugbatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/releases/linkbugbybugbatch`,tempData,isloading);
     }
 
     /**
@@ -336,6 +426,24 @@ export default class ReleaseServiceBase extends EntityService {
     }
 
     /**
+     * LinkBugbyLeftBugBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ReleaseServiceBase
+     */
+    public async LinkBugbyLeftBugBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/releases/linkbugbyleftbugbatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/releases/linkbugbyleftbugbatch`,tempData,isloading);
+    }
+
+    /**
      * LinkStory接口方法
      *
      * @param {*} [context={}]
@@ -354,6 +462,24 @@ export default class ReleaseServiceBase extends EntityService {
         }
             let res:any = await Http.getInstance().post(`/releases/${context.release}/linkstory`,data,isloading);
             return res;
+    }
+
+    /**
+     * LinkStoryBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ReleaseServiceBase
+     */
+    public async LinkStoryBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/releases/linkstorybatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/releases/linkstorybatch`,tempData,isloading);
     }
 
     /**
@@ -396,6 +522,24 @@ export default class ReleaseServiceBase extends EntityService {
         }
             let res:any = await Http.getInstance().post(`/releases/${context.release}/oneclickrelease`,data,isloading);
             return res;
+    }
+
+    /**
+     * OneClickReleaseBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ReleaseServiceBase
+     */
+    public async OneClickReleaseBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/releases/oneclickreleasebatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/releases/oneclickreleasebatch`,tempData,isloading);
     }
 
     /**
@@ -444,6 +588,24 @@ export default class ReleaseServiceBase extends EntityService {
     }
 
     /**
+     * TerminateBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ReleaseServiceBase
+     */
+    public async TerminateBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/releases/terminatebatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/releases/terminatebatch`,tempData,isloading);
+    }
+
+    /**
      * UnlinkBug接口方法
      *
      * @param {*} [context={}]
@@ -462,6 +624,24 @@ export default class ReleaseServiceBase extends EntityService {
         }
             let res:any = await Http.getInstance().post(`/releases/${context.release}/unlinkbug`,data,isloading);
             return res;
+    }
+
+    /**
+     * UnlinkBugBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ReleaseServiceBase
+     */
+    public async UnlinkBugBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/releases/unlinkbugbatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/releases/unlinkbugbatch`,tempData,isloading);
     }
 
     /**

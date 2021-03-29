@@ -12,4 +12,3 @@ public interface SubTaskMapping extends MappingBase<SubTaskDTO, Task> {
 
 
 }
-

@@ -103,6 +103,9 @@ export default class TodoBaseModel {
         name: 'config_end',
       },
       {
+        name: 'cost',
+      },
+      {
         name: 'pri',
       },
       {
@@ -116,9 +119,6 @@ export default class TodoBaseModel {
       },
       {
         name: 'config',
-      },
-      {
-        name: 'cost',
       },
     ]
   }

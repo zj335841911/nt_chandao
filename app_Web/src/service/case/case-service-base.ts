@@ -1118,6 +1118,32 @@ export default class CaseServiceBase extends EntityService {
     }
 
     /**
+     * ConfirmChangeBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof CaseServiceBase
+     */
+    public async ConfirmChangeBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/cases/confirmchangebatch`,tempData,isloading);
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/cases/confirmchangebatch`,tempData,isloading);
+        }
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/cases/confirmchangebatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/cases/confirmchangebatch`,tempData,isloading);
+    }
+
+    /**
      * Confirmstorychange接口方法
      *
      * @param {*} [context={}]
@@ -1255,6 +1281,32 @@ export default class CaseServiceBase extends EntityService {
     }
 
     /**
+     * ConfirmstorychangeBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof CaseServiceBase
+     */
+    public async ConfirmstorychangeBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/cases/confirmstorychangebatch`,tempData,isloading);
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/cases/confirmstorychangebatch`,tempData,isloading);
+        }
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/cases/confirmstorychangebatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/cases/confirmstorychangebatch`,tempData,isloading);
+    }
+
+    /**
      * GetByTestTask接口方法
      *
      * @param {*} [context={}]
@@ -1290,6 +1342,32 @@ export default class CaseServiceBase extends EntityService {
             this.tempStorage.setItem(context.srfsessionkey+'_ibzcasesteps',JSON.stringify(res.data.ibzcasesteps?res.data.ibzcasesteps:[]));
 
             return res;
+    }
+
+    /**
+     * GetByTestTaskBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof CaseServiceBase
+     */
+    public async GetByTestTaskBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/cases/getbytesttaskbatch`,tempData,isloading);
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/cases/getbytesttaskbatch`,tempData,isloading);
+        }
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/cases/getbytesttaskbatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/cases/getbytesttaskbatch`,tempData,isloading);
     }
 
     /**
@@ -1430,6 +1508,32 @@ export default class CaseServiceBase extends EntityService {
     }
 
     /**
+     * GetTestTaskCntRunBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof CaseServiceBase
+     */
+    public async GetTestTaskCntRunBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/cases/gettesttaskcntrunbatch`,tempData,isloading);
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/cases/gettesttaskcntrunbatch`,tempData,isloading);
+        }
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/cases/gettesttaskcntrunbatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/cases/gettesttaskcntrunbatch`,tempData,isloading);
+    }
+
+    /**
      * LinkCase接口方法
      *
      * @param {*} [context={}]
@@ -1564,6 +1668,32 @@ export default class CaseServiceBase extends EntityService {
         }
             let res:any = await Http.getInstance().post(`/cases/${context.case}/linkcase`,data,isloading);
             return res;
+    }
+
+    /**
+     * LinkCaseBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof CaseServiceBase
+     */
+    public async LinkCaseBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/cases/linkcasebatch`,tempData,isloading);
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/cases/linkcasebatch`,tempData,isloading);
+        }
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/cases/linkcasebatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/cases/linkcasebatch`,tempData,isloading);
     }
 
     /**
@@ -1704,6 +1834,32 @@ export default class CaseServiceBase extends EntityService {
     }
 
     /**
+     * MobLinkCaseBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof CaseServiceBase
+     */
+    public async MobLinkCaseBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/cases/moblinkcasebatch`,tempData,isloading);
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/cases/moblinkcasebatch`,tempData,isloading);
+        }
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/cases/moblinkcasebatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/cases/moblinkcasebatch`,tempData,isloading);
+    }
+
+    /**
      * RunCase接口方法
      *
      * @param {*} [context={}]
@@ -1838,6 +1994,32 @@ export default class CaseServiceBase extends EntityService {
         }
             let res:any = await Http.getInstance().post(`/cases/${context.case}/runcase`,data,isloading);
             return res;
+    }
+
+    /**
+     * RunCaseBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof CaseServiceBase
+     */
+    public async RunCaseBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/cases/runcasebatch`,tempData,isloading);
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/cases/runcasebatch`,tempData,isloading);
+        }
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/cases/runcasebatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/cases/runcasebatch`,tempData,isloading);
     }
 
     /**
@@ -2289,6 +2471,32 @@ export default class CaseServiceBase extends EntityService {
     }
 
     /**
+     * TestRunCaseBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof CaseServiceBase
+     */
+    public async TestRunCaseBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/cases/testruncasebatch`,tempData,isloading);
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/cases/testruncasebatch`,tempData,isloading);
+        }
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/cases/testruncasebatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/cases/testruncasebatch`,tempData,isloading);
+    }
+
+    /**
      * TestRunCases接口方法
      *
      * @param {*} [context={}]
@@ -2563,6 +2771,32 @@ export default class CaseServiceBase extends EntityService {
     }
 
     /**
+     * TestsuitelinkCaseBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof CaseServiceBase
+     */
+    public async TestsuitelinkCaseBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/cases/testsuitelinkcasebatch`,tempData,isloading);
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/cases/testsuitelinkcasebatch`,tempData,isloading);
+        }
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/cases/testsuitelinkcasebatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/cases/testsuitelinkcasebatch`,tempData,isloading);
+    }
+
+    /**
      * UnlinkCase接口方法
      *
      * @param {*} [context={}]
@@ -2697,6 +2931,32 @@ export default class CaseServiceBase extends EntityService {
         }
             let res:any = await Http.getInstance().post(`/cases/${context.case}/unlinkcase`,data,isloading);
             return res;
+    }
+
+    /**
+     * UnlinkCaseBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof CaseServiceBase
+     */
+    public async UnlinkCaseBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/cases/unlinkcasebatch`,tempData,isloading);
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/cases/unlinkcasebatch`,tempData,isloading);
+        }
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/cases/unlinkcasebatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/cases/unlinkcasebatch`,tempData,isloading);
     }
 
     /**
@@ -2971,6 +3231,32 @@ export default class CaseServiceBase extends EntityService {
         }
             let res:any = await Http.getInstance().post(`/cases/${context.case}/unlinksuitecase`,data,isloading);
             return res;
+    }
+
+    /**
+     * UnlinkSuiteCaseBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof CaseServiceBase
+     */
+    public async UnlinkSuiteCaseBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/cases/unlinksuitecasebatch`,tempData,isloading);
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/cases/unlinksuitecasebatch`,tempData,isloading);
+        }
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/cases/unlinksuitecasebatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/cases/unlinksuitecasebatch`,tempData,isloading);
     }
 
     /**

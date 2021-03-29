@@ -568,6 +568,52 @@ export default class SubTaskServiceBase extends EntityService {
     }
 
     /**
+     * ActivateBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubTaskServiceBase
+     */
+    public async ActivateBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/activatebatch`,tempData,isloading);
+        }
+        if(context.product && context.story && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/activatebatch`,tempData,isloading);
+        }
+        if(context.product && context.productplan && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/activatebatch`,tempData,isloading);
+        }
+        if(context.project && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/activatebatch`,tempData,isloading);
+        }
+        if(context.story && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/subtasks/activatebatch`,tempData,isloading);
+        }
+        if(context.productplan && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/activatebatch`,tempData,isloading);
+        }
+        if(context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/activatebatch`,tempData,isloading);
+        }
+        if(context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/tasks/${context.task}/subtasks/activatebatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/subtasks/activatebatch`,tempData,isloading);
+    }
+
+    /**
      * AssignTo接口方法
      *
      * @param {*} [context={}]
@@ -638,6 +684,52 @@ export default class SubTaskServiceBase extends EntityService {
     }
 
     /**
+     * AssignToBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubTaskServiceBase
+     */
+    public async AssignToBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/assigntobatch`,tempData,isloading);
+        }
+        if(context.product && context.story && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/assigntobatch`,tempData,isloading);
+        }
+        if(context.product && context.productplan && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/assigntobatch`,tempData,isloading);
+        }
+        if(context.project && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/assigntobatch`,tempData,isloading);
+        }
+        if(context.story && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/subtasks/assigntobatch`,tempData,isloading);
+        }
+        if(context.productplan && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/assigntobatch`,tempData,isloading);
+        }
+        if(context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/assigntobatch`,tempData,isloading);
+        }
+        if(context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/tasks/${context.task}/subtasks/assigntobatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/subtasks/assigntobatch`,tempData,isloading);
+    }
+
+    /**
      * Cancel接口方法
      *
      * @param {*} [context={}]
@@ -705,6 +797,52 @@ export default class SubTaskServiceBase extends EntityService {
         }
             let res:any = await Http.getInstance().post(`/subtasks/${context.subtask}/cancel`,data,isloading);
             return res;
+    }
+
+    /**
+     * CancelBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubTaskServiceBase
+     */
+    public async CancelBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/cancelbatch`,tempData,isloading);
+        }
+        if(context.product && context.story && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/cancelbatch`,tempData,isloading);
+        }
+        if(context.product && context.productplan && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/cancelbatch`,tempData,isloading);
+        }
+        if(context.project && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/cancelbatch`,tempData,isloading);
+        }
+        if(context.story && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/subtasks/cancelbatch`,tempData,isloading);
+        }
+        if(context.productplan && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/cancelbatch`,tempData,isloading);
+        }
+        if(context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/cancelbatch`,tempData,isloading);
+        }
+        if(context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/tasks/${context.task}/subtasks/cancelbatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/subtasks/cancelbatch`,tempData,isloading);
     }
 
     /**
@@ -848,6 +986,52 @@ export default class SubTaskServiceBase extends EntityService {
     }
 
     /**
+     * CloseBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubTaskServiceBase
+     */
+    public async CloseBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/closebatch`,tempData,isloading);
+        }
+        if(context.product && context.story && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/closebatch`,tempData,isloading);
+        }
+        if(context.product && context.productplan && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/closebatch`,tempData,isloading);
+        }
+        if(context.project && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/closebatch`,tempData,isloading);
+        }
+        if(context.story && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/subtasks/closebatch`,tempData,isloading);
+        }
+        if(context.productplan && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/closebatch`,tempData,isloading);
+        }
+        if(context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/closebatch`,tempData,isloading);
+        }
+        if(context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/tasks/${context.task}/subtasks/closebatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/subtasks/closebatch`,tempData,isloading);
+    }
+
+    /**
      * ConfirmStoryChange接口方法
      *
      * @param {*} [context={}]
@@ -915,6 +1099,52 @@ export default class SubTaskServiceBase extends EntityService {
         }
             let res:any = await Http.getInstance().post(`/subtasks/${context.subtask}/confirmstorychange`,data,isloading);
             return res;
+    }
+
+    /**
+     * ConfirmStoryChangeBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubTaskServiceBase
+     */
+    public async ConfirmStoryChangeBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/confirmstorychangebatch`,tempData,isloading);
+        }
+        if(context.product && context.story && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/confirmstorychangebatch`,tempData,isloading);
+        }
+        if(context.product && context.productplan && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/confirmstorychangebatch`,tempData,isloading);
+        }
+        if(context.project && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/confirmstorychangebatch`,tempData,isloading);
+        }
+        if(context.story && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/subtasks/confirmstorychangebatch`,tempData,isloading);
+        }
+        if(context.productplan && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/confirmstorychangebatch`,tempData,isloading);
+        }
+        if(context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/confirmstorychangebatch`,tempData,isloading);
+        }
+        if(context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/tasks/${context.task}/subtasks/confirmstorychangebatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/subtasks/confirmstorychangebatch`,tempData,isloading);
     }
 
     /**
@@ -988,6 +1218,52 @@ export default class SubTaskServiceBase extends EntityService {
     }
 
     /**
+     * CreateCycleTasksBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubTaskServiceBase
+     */
+    public async CreateCycleTasksBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/createcycletasksbatch`,tempData,isloading);
+        }
+        if(context.product && context.story && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/createcycletasksbatch`,tempData,isloading);
+        }
+        if(context.product && context.productplan && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/createcycletasksbatch`,tempData,isloading);
+        }
+        if(context.project && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/createcycletasksbatch`,tempData,isloading);
+        }
+        if(context.story && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/subtasks/createcycletasksbatch`,tempData,isloading);
+        }
+        if(context.productplan && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/createcycletasksbatch`,tempData,isloading);
+        }
+        if(context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/createcycletasksbatch`,tempData,isloading);
+        }
+        if(context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/tasks/${context.task}/subtasks/createcycletasksbatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/subtasks/createcycletasksbatch`,tempData,isloading);
+    }
+
+    /**
      * DeleteEstimate接口方法
      *
      * @param {*} [context={}]
@@ -1055,6 +1331,52 @@ export default class SubTaskServiceBase extends EntityService {
         }
             let res:any = await Http.getInstance().post(`/subtasks/${context.subtask}/deleteestimate`,data,isloading);
             return res;
+    }
+
+    /**
+     * DeleteEstimateBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubTaskServiceBase
+     */
+    public async DeleteEstimateBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/deleteestimatebatch`,tempData,isloading);
+        }
+        if(context.product && context.story && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/deleteestimatebatch`,tempData,isloading);
+        }
+        if(context.product && context.productplan && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/deleteestimatebatch`,tempData,isloading);
+        }
+        if(context.project && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/deleteestimatebatch`,tempData,isloading);
+        }
+        if(context.story && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/subtasks/deleteestimatebatch`,tempData,isloading);
+        }
+        if(context.productplan && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/deleteestimatebatch`,tempData,isloading);
+        }
+        if(context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/deleteestimatebatch`,tempData,isloading);
+        }
+        if(context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/tasks/${context.task}/subtasks/deleteestimatebatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/subtasks/deleteestimatebatch`,tempData,isloading);
     }
 
     /**
@@ -1128,6 +1450,52 @@ export default class SubTaskServiceBase extends EntityService {
     }
 
     /**
+     * EditEstimateBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubTaskServiceBase
+     */
+    public async EditEstimateBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/editestimatebatch`,tempData,isloading);
+        }
+        if(context.product && context.story && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/editestimatebatch`,tempData,isloading);
+        }
+        if(context.product && context.productplan && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/editestimatebatch`,tempData,isloading);
+        }
+        if(context.project && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/editestimatebatch`,tempData,isloading);
+        }
+        if(context.story && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/subtasks/editestimatebatch`,tempData,isloading);
+        }
+        if(context.productplan && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/editestimatebatch`,tempData,isloading);
+        }
+        if(context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/editestimatebatch`,tempData,isloading);
+        }
+        if(context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/tasks/${context.task}/subtasks/editestimatebatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/subtasks/editestimatebatch`,tempData,isloading);
+    }
+
+    /**
      * Finish接口方法
      *
      * @param {*} [context={}]
@@ -1195,6 +1563,52 @@ export default class SubTaskServiceBase extends EntityService {
         }
             let res:any = await Http.getInstance().post(`/subtasks/${context.subtask}/finish`,data,isloading);
             return res;
+    }
+
+    /**
+     * FinishBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubTaskServiceBase
+     */
+    public async FinishBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/finishbatch`,tempData,isloading);
+        }
+        if(context.product && context.story && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/finishbatch`,tempData,isloading);
+        }
+        if(context.product && context.productplan && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/finishbatch`,tempData,isloading);
+        }
+        if(context.project && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/finishbatch`,tempData,isloading);
+        }
+        if(context.story && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/subtasks/finishbatch`,tempData,isloading);
+        }
+        if(context.productplan && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/finishbatch`,tempData,isloading);
+        }
+        if(context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/finishbatch`,tempData,isloading);
+        }
+        if(context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/tasks/${context.task}/subtasks/finishbatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/subtasks/finishbatch`,tempData,isloading);
     }
 
     /**
@@ -1268,6 +1682,52 @@ export default class SubTaskServiceBase extends EntityService {
     }
 
     /**
+     * GetNextTeamUserBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubTaskServiceBase
+     */
+    public async GetNextTeamUserBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/getnextteamuserbatch`,tempData,isloading);
+        }
+        if(context.product && context.story && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/getnextteamuserbatch`,tempData,isloading);
+        }
+        if(context.product && context.productplan && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/getnextteamuserbatch`,tempData,isloading);
+        }
+        if(context.project && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/getnextteamuserbatch`,tempData,isloading);
+        }
+        if(context.story && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/subtasks/getnextteamuserbatch`,tempData,isloading);
+        }
+        if(context.productplan && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/getnextteamuserbatch`,tempData,isloading);
+        }
+        if(context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/getnextteamuserbatch`,tempData,isloading);
+        }
+        if(context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/tasks/${context.task}/subtasks/getnextteamuserbatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/subtasks/getnextteamuserbatch`,tempData,isloading);
+    }
+
+    /**
      * GetTeamUserLeftActivity接口方法
      *
      * @param {*} [context={}]
@@ -1338,6 +1798,52 @@ export default class SubTaskServiceBase extends EntityService {
     }
 
     /**
+     * GetTeamUserLeftActivityBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubTaskServiceBase
+     */
+    public async GetTeamUserLeftActivityBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/getteamuserleftactivitybatch`,tempData,isloading);
+        }
+        if(context.product && context.story && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/getteamuserleftactivitybatch`,tempData,isloading);
+        }
+        if(context.product && context.productplan && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/getteamuserleftactivitybatch`,tempData,isloading);
+        }
+        if(context.project && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/getteamuserleftactivitybatch`,tempData,isloading);
+        }
+        if(context.story && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/subtasks/getteamuserleftactivitybatch`,tempData,isloading);
+        }
+        if(context.productplan && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/getteamuserleftactivitybatch`,tempData,isloading);
+        }
+        if(context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/getteamuserleftactivitybatch`,tempData,isloading);
+        }
+        if(context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/tasks/${context.task}/subtasks/getteamuserleftactivitybatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/subtasks/getteamuserleftactivitybatch`,tempData,isloading);
+    }
+
+    /**
      * GetTeamUserLeftStart接口方法
      *
      * @param {*} [context={}]
@@ -1405,6 +1911,52 @@ export default class SubTaskServiceBase extends EntityService {
         }
             let res:any = await Http.getInstance().put(`/subtasks/${context.subtask}/getteamuserleftstart`,data,isloading);
             return res;
+    }
+
+    /**
+     * GetTeamUserLeftStartBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubTaskServiceBase
+     */
+    public async GetTeamUserLeftStartBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/getteamuserleftstartbatch`,tempData,isloading);
+        }
+        if(context.product && context.story && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/getteamuserleftstartbatch`,tempData,isloading);
+        }
+        if(context.product && context.productplan && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/getteamuserleftstartbatch`,tempData,isloading);
+        }
+        if(context.project && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/getteamuserleftstartbatch`,tempData,isloading);
+        }
+        if(context.story && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/subtasks/getteamuserleftstartbatch`,tempData,isloading);
+        }
+        if(context.productplan && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/getteamuserleftstartbatch`,tempData,isloading);
+        }
+        if(context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/getteamuserleftstartbatch`,tempData,isloading);
+        }
+        if(context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/tasks/${context.task}/subtasks/getteamuserleftstartbatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/subtasks/getteamuserleftstartbatch`,tempData,isloading);
     }
 
     /**
@@ -1548,6 +2100,52 @@ export default class SubTaskServiceBase extends EntityService {
     }
 
     /**
+     * LinkPlanBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubTaskServiceBase
+     */
+    public async LinkPlanBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/linkplanbatch`,tempData,isloading);
+        }
+        if(context.product && context.story && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/linkplanbatch`,tempData,isloading);
+        }
+        if(context.product && context.productplan && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/linkplanbatch`,tempData,isloading);
+        }
+        if(context.project && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/linkplanbatch`,tempData,isloading);
+        }
+        if(context.story && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/subtasks/linkplanbatch`,tempData,isloading);
+        }
+        if(context.productplan && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/linkplanbatch`,tempData,isloading);
+        }
+        if(context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/linkplanbatch`,tempData,isloading);
+        }
+        if(context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/tasks/${context.task}/subtasks/linkplanbatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/subtasks/linkplanbatch`,tempData,isloading);
+    }
+
+    /**
      * OtherUpdate接口方法
      *
      * @param {*} [context={}]
@@ -1615,6 +2213,52 @@ export default class SubTaskServiceBase extends EntityService {
         }
             let res:any = await Http.getInstance().put(`/subtasks/${context.subtask}/otherupdate`,data,isloading);
             return res;
+    }
+
+    /**
+     * OtherUpdateBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubTaskServiceBase
+     */
+    public async OtherUpdateBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/otherupdatebatch`,tempData,isloading);
+        }
+        if(context.product && context.story && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/otherupdatebatch`,tempData,isloading);
+        }
+        if(context.product && context.productplan && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/otherupdatebatch`,tempData,isloading);
+        }
+        if(context.project && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/otherupdatebatch`,tempData,isloading);
+        }
+        if(context.story && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/subtasks/otherupdatebatch`,tempData,isloading);
+        }
+        if(context.productplan && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/otherupdatebatch`,tempData,isloading);
+        }
+        if(context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/otherupdatebatch`,tempData,isloading);
+        }
+        if(context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/tasks/${context.task}/subtasks/otherupdatebatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/subtasks/otherupdatebatch`,tempData,isloading);
     }
 
     /**
@@ -1688,6 +2332,52 @@ export default class SubTaskServiceBase extends EntityService {
     }
 
     /**
+     * PauseBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubTaskServiceBase
+     */
+    public async PauseBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/pausebatch`,tempData,isloading);
+        }
+        if(context.product && context.story && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/pausebatch`,tempData,isloading);
+        }
+        if(context.product && context.productplan && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/pausebatch`,tempData,isloading);
+        }
+        if(context.project && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/pausebatch`,tempData,isloading);
+        }
+        if(context.story && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/subtasks/pausebatch`,tempData,isloading);
+        }
+        if(context.productplan && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/pausebatch`,tempData,isloading);
+        }
+        if(context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/pausebatch`,tempData,isloading);
+        }
+        if(context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/tasks/${context.task}/subtasks/pausebatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/subtasks/pausebatch`,tempData,isloading);
+    }
+
+    /**
      * RecordEstimate接口方法
      *
      * @param {*} [context={}]
@@ -1758,6 +2448,52 @@ export default class SubTaskServiceBase extends EntityService {
     }
 
     /**
+     * RecordEstimateBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubTaskServiceBase
+     */
+    public async RecordEstimateBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/recordestimatebatch`,tempData,isloading);
+        }
+        if(context.product && context.story && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/recordestimatebatch`,tempData,isloading);
+        }
+        if(context.product && context.productplan && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/recordestimatebatch`,tempData,isloading);
+        }
+        if(context.project && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/recordestimatebatch`,tempData,isloading);
+        }
+        if(context.story && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/subtasks/recordestimatebatch`,tempData,isloading);
+        }
+        if(context.productplan && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/recordestimatebatch`,tempData,isloading);
+        }
+        if(context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/recordestimatebatch`,tempData,isloading);
+        }
+        if(context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/tasks/${context.task}/subtasks/recordestimatebatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/subtasks/recordestimatebatch`,tempData,isloading);
+    }
+
+    /**
      * Restart接口方法
      *
      * @param {*} [context={}]
@@ -1825,6 +2561,52 @@ export default class SubTaskServiceBase extends EntityService {
         }
             let res:any = await Http.getInstance().post(`/subtasks/${context.subtask}/restart`,data,isloading);
             return res;
+    }
+
+    /**
+     * RestartBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubTaskServiceBase
+     */
+    public async RestartBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/restartbatch`,tempData,isloading);
+        }
+        if(context.product && context.story && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/restartbatch`,tempData,isloading);
+        }
+        if(context.product && context.productplan && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/restartbatch`,tempData,isloading);
+        }
+        if(context.project && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/restartbatch`,tempData,isloading);
+        }
+        if(context.story && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/subtasks/restartbatch`,tempData,isloading);
+        }
+        if(context.productplan && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/restartbatch`,tempData,isloading);
+        }
+        if(context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/restartbatch`,tempData,isloading);
+        }
+        if(context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/tasks/${context.task}/subtasks/restartbatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/subtasks/restartbatch`,tempData,isloading);
     }
 
     /**
@@ -1971,6 +2753,52 @@ export default class SubTaskServiceBase extends EntityService {
     }
 
     /**
+     * SendMessageBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubTaskServiceBase
+     */
+    public async SendMessageBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/sendmessagebatch`,tempData,isloading);
+        }
+        if(context.product && context.story && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/sendmessagebatch`,tempData,isloading);
+        }
+        if(context.product && context.productplan && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/sendmessagebatch`,tempData,isloading);
+        }
+        if(context.project && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/sendmessagebatch`,tempData,isloading);
+        }
+        if(context.story && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/subtasks/sendmessagebatch`,tempData,isloading);
+        }
+        if(context.productplan && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/sendmessagebatch`,tempData,isloading);
+        }
+        if(context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/sendmessagebatch`,tempData,isloading);
+        }
+        if(context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/tasks/${context.task}/subtasks/sendmessagebatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/subtasks/sendmessagebatch`,tempData,isloading);
+    }
+
+    /**
      * SendMsgPreProcess接口方法
      *
      * @param {*} [context={}]
@@ -2041,6 +2869,52 @@ export default class SubTaskServiceBase extends EntityService {
     }
 
     /**
+     * SendMsgPreProcessBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubTaskServiceBase
+     */
+    public async SendMsgPreProcessBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/sendmsgpreprocessbatch`,tempData,isloading);
+        }
+        if(context.product && context.story && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/sendmsgpreprocessbatch`,tempData,isloading);
+        }
+        if(context.product && context.productplan && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/sendmsgpreprocessbatch`,tempData,isloading);
+        }
+        if(context.project && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/sendmsgpreprocessbatch`,tempData,isloading);
+        }
+        if(context.story && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/subtasks/sendmsgpreprocessbatch`,tempData,isloading);
+        }
+        if(context.productplan && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/sendmsgpreprocessbatch`,tempData,isloading);
+        }
+        if(context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/sendmsgpreprocessbatch`,tempData,isloading);
+        }
+        if(context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/tasks/${context.task}/subtasks/sendmsgpreprocessbatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/subtasks/sendmsgpreprocessbatch`,tempData,isloading);
+    }
+
+    /**
      * Start接口方法
      *
      * @param {*} [context={}]
@@ -2108,6 +2982,52 @@ export default class SubTaskServiceBase extends EntityService {
         }
             let res:any = await Http.getInstance().post(`/subtasks/${context.subtask}/start`,data,isloading);
             return res;
+    }
+
+    /**
+     * StartBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubTaskServiceBase
+     */
+    public async StartBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/startbatch`,tempData,isloading);
+        }
+        if(context.product && context.story && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/startbatch`,tempData,isloading);
+        }
+        if(context.product && context.productplan && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/startbatch`,tempData,isloading);
+        }
+        if(context.project && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/startbatch`,tempData,isloading);
+        }
+        if(context.story && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/subtasks/startbatch`,tempData,isloading);
+        }
+        if(context.productplan && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/startbatch`,tempData,isloading);
+        }
+        if(context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/startbatch`,tempData,isloading);
+        }
+        if(context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/tasks/${context.task}/subtasks/startbatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/subtasks/startbatch`,tempData,isloading);
     }
 
     /**
@@ -2248,6 +3168,52 @@ export default class SubTaskServiceBase extends EntityService {
         }
             let res:any = await Http.getInstance().post(`/subtasks/${context.subtask}/taskforward`,data,isloading);
             return res;
+    }
+
+    /**
+     * TaskForwardBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubTaskServiceBase
+     */
+    public async TaskForwardBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projects/${context.project}/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/taskforwardbatch`,tempData,isloading);
+        }
+        if(context.product && context.story && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/tasks/${context.task}/subtasks/taskforwardbatch`,tempData,isloading);
+        }
+        if(context.product && context.productplan && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/tasks/${context.task}/subtasks/taskforwardbatch`,tempData,isloading);
+        }
+        if(context.project && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projects/${context.project}/tasks/${context.task}/subtasks/taskforwardbatch`,tempData,isloading);
+        }
+        if(context.story && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/tasks/${context.task}/subtasks/taskforwardbatch`,tempData,isloading);
+        }
+        if(context.productplan && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/productplans/${context.productplan}/tasks/${context.task}/subtasks/taskforwardbatch`,tempData,isloading);
+        }
+        if(context.projectmodule && context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projectmodules/${context.projectmodule}/tasks/${context.task}/subtasks/taskforwardbatch`,tempData,isloading);
+        }
+        if(context.task && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/tasks/${context.task}/subtasks/taskforwardbatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/subtasks/taskforwardbatch`,tempData,isloading);
     }
 
     /**

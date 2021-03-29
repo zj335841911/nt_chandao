@@ -239,6 +239,20 @@ export default class ProjectServiceBase extends EntityService {
     }
 
     /**
+     * ActivateBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectServiceBase
+     */
+    public async ActivateBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/projects/activatebatch`,tempData,isloading);
+    }
+
+    /**
      * BatchUnlinkStory接口方法
      *
      * @param {*} [context={}]
@@ -250,6 +264,20 @@ export default class ProjectServiceBase extends EntityService {
     public async BatchUnlinkStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
             let res:any = await Http.getInstance().post(`/projects/${context.project}/batchunlinkstory`,data,isloading);
             return res;
+    }
+
+    /**
+     * BatchUnlinkStoryBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectServiceBase
+     */
+    public async BatchUnlinkStoryBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/projects/batchunlinkstorybatch`,tempData,isloading);
     }
 
     /**
@@ -295,6 +323,20 @@ export default class ProjectServiceBase extends EntityService {
     }
 
     /**
+     * CloseBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectServiceBase
+     */
+    public async CloseBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/projects/closebatch`,tempData,isloading);
+    }
+
+    /**
      * LinkStory接口方法
      *
      * @param {*} [context={}]
@@ -309,6 +351,20 @@ export default class ProjectServiceBase extends EntityService {
     }
 
     /**
+     * LinkStoryBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectServiceBase
+     */
+    public async LinkStoryBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/projects/linkstorybatch`,tempData,isloading);
+    }
+
+    /**
      * ManageMembers接口方法
      *
      * @param {*} [context={}]
@@ -320,6 +376,20 @@ export default class ProjectServiceBase extends EntityService {
     public async ManageMembers(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
             let res:any = await Http.getInstance().post(`/projects/${context.project}/managemembers`,data,isloading);
             return res;
+    }
+
+    /**
+     * ManageMembersBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectServiceBase
+     */
+    public async ManageMembersBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/projects/managemembersbatch`,tempData,isloading);
     }
 
     /**
@@ -351,6 +421,20 @@ export default class ProjectServiceBase extends EntityService {
     }
 
     /**
+     * PmsEeProjectAllTaskCountBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectServiceBase
+     */
+    public async PmsEeProjectAllTaskCountBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/projects/pmseeprojectalltaskcountbatch`,tempData,isloading);
+    }
+
+    /**
      * PmsEeProjectTodoTaskCount接口方法
      *
      * @param {*} [context={}]
@@ -362,6 +446,20 @@ export default class ProjectServiceBase extends EntityService {
     public async PmsEeProjectTodoTaskCount(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
             let res:any = await Http.getInstance().post(`/projects/${context.project}/pmseeprojecttodotaskcount`,data,isloading);
             return res;
+    }
+
+    /**
+     * PmsEeProjectTodoTaskCountBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectServiceBase
+     */
+    public async PmsEeProjectTodoTaskCountBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/projects/pmseeprojecttodotaskcountbatch`,tempData,isloading);
     }
 
     /**
@@ -404,6 +502,20 @@ export default class ProjectServiceBase extends EntityService {
     public async Putoff(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
             let res:any = await Http.getInstance().post(`/projects/${context.project}/putoff`,data,isloading);
             return res;
+    }
+
+    /**
+     * PutoffBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectServiceBase
+     */
+    public async PutoffBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/projects/putoffbatch`,tempData,isloading);
     }
 
     /**
@@ -472,6 +584,20 @@ export default class ProjectServiceBase extends EntityService {
     }
 
     /**
+     * StartBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectServiceBase
+     */
+    public async StartBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/projects/startbatch`,tempData,isloading);
+    }
+
+    /**
      * Suspend接口方法
      *
      * @param {*} [context={}]
@@ -483,6 +609,20 @@ export default class ProjectServiceBase extends EntityService {
     public async Suspend(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
             let res:any = await Http.getInstance().post(`/projects/${context.project}/suspend`,data,isloading);
             return res;
+    }
+
+    /**
+     * SuspendBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectServiceBase
+     */
+    public async SuspendBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/projects/suspendbatch`,tempData,isloading);
     }
 
     /**
@@ -500,6 +640,20 @@ export default class ProjectServiceBase extends EntityService {
     }
 
     /**
+     * UnlinkMemberBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectServiceBase
+     */
+    public async UnlinkMemberBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/projects/unlinkmemberbatch`,tempData,isloading);
+    }
+
+    /**
      * UnlinkStory接口方法
      *
      * @param {*} [context={}]
@@ -514,6 +668,20 @@ export default class ProjectServiceBase extends EntityService {
     }
 
     /**
+     * UnlinkStoryBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectServiceBase
+     */
+    public async UnlinkStoryBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/projects/unlinkstorybatch`,tempData,isloading);
+    }
+
+    /**
      * UpdateOrder接口方法
      *
      * @param {*} [context={}]
@@ -525,6 +693,20 @@ export default class ProjectServiceBase extends EntityService {
     public async UpdateOrder(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
             let res:any = await Http.getInstance().put(`/projects/${context.project}/updateorder`,data,isloading);
             return res;
+    }
+
+    /**
+     * UpdateOrderBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectServiceBase
+     */
+    public async UpdateOrderBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/projects/updateorderbatch`,tempData,isloading);
     }
 
     /**

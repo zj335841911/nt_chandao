@@ -12,4 +12,3 @@ public interface BranchMapping extends MappingBase<BranchDTO, Branch> {
 
 
 }
-

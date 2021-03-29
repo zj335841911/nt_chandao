@@ -24,6 +24,8 @@ import java.io.Serializable;
 import lombok.*;
 import org.springframework.data.annotation.Transient;
 import cn.ibizlab.pms.util.annotation.Audit;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -39,6 +41,7 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
 @TableName(value = "zt_productplan", resultMap = "ProductPlanResultMap")
+@ApiModel("产品计划")
 public class ProductPlan extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -49,6 +52,7 @@ public class ProductPlan extends EntityMP implements Serializable {
     @TableField(exist = false)
     @JSONField(name = "taskscnt")
     @JsonProperty("taskscnt")
+    @ApiModelProperty("总任务数")
     private Integer taskscnt;
     /**
      * 工时数
@@ -56,13 +60,23 @@ public class ProductPlan extends EntityMP implements Serializable {
     @TableField(exist = false)
     @JSONField(name = "estimatecnt")
     @JsonProperty("estimatecnt")
+    @ApiModelProperty("工时数")
     private Integer estimatecnt;
+    /**
+     * 备注
+     */
+    @TableField(exist = false)
+    @JSONField(name = "comment")
+    @JsonProperty("comment")
+    @ApiModelProperty("备注")
+    private String comment;
     /**
      * 名称
      */
     @TableField(value = "`title`")
     @JSONField(name = "title")
     @JsonProperty("title")
+    @ApiModelProperty("名称")
     private String title;
     /**
      * 延迟任务数
@@ -70,6 +84,7 @@ public class ProductPlan extends EntityMP implements Serializable {
     @TableField(exist = false)
     @JSONField(name = "delaytaskscnt")
     @JsonProperty("delaytaskscnt")
+    @ApiModelProperty("延迟任务数")
     private Integer delaytaskscnt;
     /**
      * 上一次计划名称
@@ -77,6 +92,7 @@ public class ProductPlan extends EntityMP implements Serializable {
     @TableField(exist = false)
     @JSONField(name = "oldtitle")
     @JsonProperty("oldtitle")
+    @ApiModelProperty("上一次计划名称")
     private String oldtitle;
     /**
      * 编号
@@ -85,6 +101,7 @@ public class ProductPlan extends EntityMP implements Serializable {
     @TableId(value = "id", type = IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
+    @ApiModelProperty("编号")
     private Long id;
     /**
      * 开始日期
@@ -93,6 +110,7 @@ public class ProductPlan extends EntityMP implements Serializable {
     @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "begin", format = "yyyy-MM-dd")
     @JsonProperty("begin")
+    @ApiModelProperty("开始日期")
     private Timestamp begin;
     /**
      * 状态
@@ -100,6 +118,7 @@ public class ProductPlan extends EntityMP implements Serializable {
     @TableField(exist = false)
     @JSONField(name = "statuss")
     @JsonProperty("statuss")
+    @ApiModelProperty("状态")
     private String statuss;
     /**
      * 描述
@@ -108,6 +127,7 @@ public class ProductPlan extends EntityMP implements Serializable {
     @TableField(value = "`desc`")
     @JSONField(name = "desc")
     @JsonProperty("desc")
+    @ApiModelProperty("描述")
     private String desc;
     /**
      * 结束日期
@@ -116,13 +136,23 @@ public class ProductPlan extends EntityMP implements Serializable {
     @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "end", format = "yyyy-MM-dd")
     @JsonProperty("end")
+    @ApiModelProperty("结束日期")
     private Timestamp end;
+    /**
+     * 延期
+     */
+    @TableField(exist = false)
+    @JSONField(name = "delay")
+    @JsonProperty("delay")
+    @ApiModelProperty("延期")
+    private String delay;
     /**
      * 持续时间
      */
     @TableField(exist = false)
     @JSONField(name = "duration")
     @JsonProperty("duration")
+    @ApiModelProperty("持续时间")
     private String duration;
     /**
      * 开始日期
@@ -130,13 +160,23 @@ public class ProductPlan extends EntityMP implements Serializable {
     @TableField(exist = false)
     @JSONField(name = "beginstr")
     @JsonProperty("beginstr")
+    @ApiModelProperty("开始日期")
     private String beginstr;
+    /**
+     * 剩余工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "leftestimate")
+    @JsonProperty("leftestimate")
+    @ApiModelProperty("剩余工时")
+    private Double leftestimate;
     /**
      * 计划模板
      */
     @TableField(exist = false)
     @JSONField(name = "plantemplet")
     @JsonProperty("plantemplet")
+    @ApiModelProperty("计划模板")
     private String plantemplet;
     /**
      * 未完成任务数
@@ -144,6 +184,7 @@ public class ProductPlan extends EntityMP implements Serializable {
     @TableField(exist = false)
     @JSONField(name = "unfinishedtaskscnt")
     @JsonProperty("unfinishedtaskscnt")
+    @ApiModelProperty("未完成任务数")
     private Integer unfinishedtaskscnt;
     /**
      * 结束日期
@@ -151,13 +192,24 @@ public class ProductPlan extends EntityMP implements Serializable {
     @TableField(exist = false)
     @JSONField(name = "endstr")
     @JsonProperty("endstr")
+    @ApiModelProperty("结束日期")
     private String endstr;
+    /**
+     * 计划状态
+     */
+    @DEField(defaultValue = "wait")
+    @TableField(value = "`status`")
+    @JSONField(name = "status")
+    @JsonProperty("status")
+    @ApiModelProperty("计划状态")
+    private String status;
     /**
      * 是否过期
      */
     @TableField(exist = false)
     @JSONField(name = "isexpired")
     @JsonProperty("isexpired")
+    @ApiModelProperty("是否过期")
     private String isexpired;
     /**
      * 已删除
@@ -167,7 +219,16 @@ public class ProductPlan extends EntityMP implements Serializable {
     @TableField(value = "`deleted`")
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
+    @ApiModelProperty("已删除")
     private String deleted;
+    /**
+     * 消耗工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "consumedestimate")
+    @JsonProperty("consumedestimate")
+    @ApiModelProperty("消耗工时")
+    private Double consumedestimate;
     /**
      * 排序
      */
@@ -175,13 +236,23 @@ public class ProductPlan extends EntityMP implements Serializable {
     @TableField(value = "`order`")
     @JSONField(name = "order")
     @JsonProperty("order")
+    @ApiModelProperty("排序")
     private String order;
+    /**
+     * 叶子节点
+     */
+    @TableField(exist = false)
+    @JSONField(name = "isleaf")
+    @JsonProperty("isleaf")
+    @ApiModelProperty("叶子节点")
+    private Integer isleaf;
     /**
      * 待定
      */
     @TableField(exist = false)
     @JSONField(name = "future")
     @JsonProperty("future")
+    @ApiModelProperty("待定")
     private String future;
     /**
      * 需求数
@@ -189,6 +260,7 @@ public class ProductPlan extends EntityMP implements Serializable {
     @TableField(exist = false)
     @JSONField(name = "storycnt")
     @JsonProperty("storycnt")
+    @ApiModelProperty("需求数")
     private Integer storycnt;
     /**
      * 周期
@@ -196,6 +268,7 @@ public class ProductPlan extends EntityMP implements Serializable {
     @TableField(exist = false)
     @JSONField(name = "delta")
     @JsonProperty("delta")
+    @ApiModelProperty("周期")
     private String delta;
     /**
      * 完成任务数
@@ -203,6 +276,7 @@ public class ProductPlan extends EntityMP implements Serializable {
     @TableField(exist = false)
     @JSONField(name = "finishedtaskscnt")
     @JsonProperty("finishedtaskscnt")
+    @ApiModelProperty("完成任务数")
     private Integer finishedtaskscnt;
     /**
      * bug数
@@ -210,6 +284,7 @@ public class ProductPlan extends EntityMP implements Serializable {
     @TableField(exist = false)
     @JSONField(name = "bugcnt")
     @JsonProperty("bugcnt")
+    @ApiModelProperty("bug数")
     private Integer bugcnt;
     /**
      * 父计划名称
@@ -217,6 +292,7 @@ public class ProductPlan extends EntityMP implements Serializable {
     @TableField(exist = false)
     @JSONField(name = "parentname")
     @JsonProperty("parentname")
+    @ApiModelProperty("父计划名称")
     private String parentname;
     /**
      * 平台/分支
@@ -225,6 +301,7 @@ public class ProductPlan extends EntityMP implements Serializable {
     @TableField(value = "`branch`")
     @JSONField(name = "branch")
     @JsonProperty("branch")
+    @ApiModelProperty("平台/分支")
     private Long branch;
     /**
      * 父计划
@@ -233,6 +310,7 @@ public class ProductPlan extends EntityMP implements Serializable {
     @TableField(value = "`parent`")
     @JSONField(name = "parent")
     @JsonProperty("parent")
+    @ApiModelProperty("父计划")
     private Long parent;
     /**
      * 产品
@@ -241,50 +319,8 @@ public class ProductPlan extends EntityMP implements Serializable {
     @TableField(value = "`product`")
     @JSONField(name = "product")
     @JsonProperty("product")
+    @ApiModelProperty("产品")
     private Long product;
-    /**
-     * 计划状态
-     */
-    @DEField(defaultValue = "wait")
-    @TableField(value = "`status`")
-    @JSONField(name = "status")
-    @JsonProperty("status")
-    private String status;
-    /**
-     * 延期
-     */
-    @TableField(exist = false)
-    @JSONField(name = "delay")
-    @JsonProperty("delay")
-    private String delay;
-    /**
-     * 备注
-     */
-    @TableField(exist = false)
-    @JSONField(name = "comment")
-    @JsonProperty("comment")
-    private String comment;
-    /**
-     * 剩余工时
-     */
-    @TableField(exist = false)
-    @JSONField(name = "leftestimate")
-    @JsonProperty("leftestimate")
-    private Double leftestimate;
-    /**
-     * 消耗工时
-     */
-    @TableField(exist = false)
-    @JSONField(name = "consumedestimate")
-    @JsonProperty("consumedestimate")
-    private Double consumedestimate;
-    /**
-     * 叶子节点
-     */
-    @TableField(exist = false)
-    @JSONField(name = "isleaf")
-    @JsonProperty("isleaf")
-    private Integer isleaf;
 
     /**
      * 
@@ -365,6 +401,14 @@ public class ProductPlan extends EntityMP implements Serializable {
         return sdf.format(end);
     }
     /**
+     * 设置 [计划状态]
+     */
+    public void setStatus(String status) {
+        this.status = status;
+        this.modify("status", status);
+    }
+
+    /**
      * 设置 [排序]
      */
     public void setOrder(String order) {
@@ -394,14 +438,6 @@ public class ProductPlan extends EntityMP implements Serializable {
     public void setProduct(Long product) {
         this.product = product;
         this.modify("product", product);
-    }
-
-    /**
-     * 设置 [计划状态]
-     */
-    public void setStatus(String status) {
-        this.status = status;
-        this.modify("status", status);
     }
 
 

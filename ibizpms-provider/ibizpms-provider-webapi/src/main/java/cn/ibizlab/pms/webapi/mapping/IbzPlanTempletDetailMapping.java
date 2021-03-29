@@ -12,4 +12,3 @@ public interface IbzPlanTempletDetailMapping extends MappingBase<IbzPlanTempletD
 
 
 }
-

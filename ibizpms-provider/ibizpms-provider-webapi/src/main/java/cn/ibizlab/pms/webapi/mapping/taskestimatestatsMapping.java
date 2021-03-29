@@ -12,4 +12,3 @@ public interface taskestimatestatsMapping extends MappingBase<taskestimatestatsD
 
 
 }
-

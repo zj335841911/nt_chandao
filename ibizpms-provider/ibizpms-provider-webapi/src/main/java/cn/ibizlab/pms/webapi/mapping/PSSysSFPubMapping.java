@@ -12,4 +12,3 @@ public interface PSSysSFPubMapping extends MappingBase<PSSysSFPubDTO, PSSysSFPub
 
 
 }
-

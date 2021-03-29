@@ -12,4 +12,3 @@ public interface EmpLoyeeloadMapping extends MappingBase<EmpLoyeeloadDTO, EmpLoy
 
 
 }
-

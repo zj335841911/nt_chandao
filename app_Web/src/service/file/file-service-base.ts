@@ -190,6 +190,20 @@ export default class FileServiceBase extends EntityService {
     }
 
     /**
+     * UpdateObjectIDForPmsEeBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof FileServiceBase
+     */
+    public async UpdateObjectIDForPmsEeBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/files/updateobjectidforpmseebatch`,tempData,isloading);
+    }
+
+    /**
      * FetchDefault接口方法
      *
      * @param {*} [context={}]

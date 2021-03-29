@@ -239,6 +239,14 @@ export interface Todo {
     config_end?: any;
 
     /**
+     * 费用
+     *
+     * @returns {*}
+     * @memberof Todo
+     */
+    cost?: any;
+
+    /**
      * 优先级
      *
      * @returns {*}
@@ -277,12 +285,4 @@ export interface Todo {
      * @memberof Todo
      */
     config?: any;
-
-    /**
-     * 费用
-     *
-     * @returns {*}
-     * @memberof Todo
-     */
-    cost?: any;
 }

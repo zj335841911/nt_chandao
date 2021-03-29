@@ -12,4 +12,3 @@ public interface IbzWeeklyMapping extends MappingBase<IbzWeeklyDTO, IbzWeekly> {
 
 
 }
-

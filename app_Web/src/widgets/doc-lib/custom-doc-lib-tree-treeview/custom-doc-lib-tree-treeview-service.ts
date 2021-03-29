@@ -594,11 +594,11 @@ export default class CustomDocLibTreeService extends ControlService {
         filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
         return new Promise((resolve:any,reject:any) =>{
             let searchFilter: any = {};
-            if (Object.is(filter.strNodeType, this.TREENODE_DOCROOT)) {
+            if (Object.is(filter.strNodeType, this.TREENODE_DOCLIBMODULE)) {
                 Object.assign(searchFilter, { n_parent_eq: filter.nodeid });
             }
 
-            if (Object.is(filter.strNodeType, this.TREENODE_DOCLIBMODULE)) {
+            if (Object.is(filter.strNodeType, this.TREENODE_DOCROOT)) {
                 Object.assign(searchFilter, { n_parent_eq: filter.nodeid });
             }
 

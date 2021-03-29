@@ -23,6 +23,14 @@ export interface ProductPlan {
     estimatecnt?: any;
 
     /**
+     * 备注
+     *
+     * @returns {*}
+     * @memberof ProductPlan
+     */
+    comment?: any;
+
+    /**
      * 名称
      *
      * @returns {*}
@@ -87,6 +95,14 @@ export interface ProductPlan {
     end?: any;
 
     /**
+     * 延期
+     *
+     * @returns {*}
+     * @memberof ProductPlan
+     */
+    delay?: any;
+
+    /**
      * 持续时间
      *
      * @returns {*}
@@ -101,6 +117,14 @@ export interface ProductPlan {
      * @memberof ProductPlan
      */
     beginstr?: any;
+
+    /**
+     * 剩余工时
+     *
+     * @returns {*}
+     * @memberof ProductPlan
+     */
+    leftestimate?: any;
 
     /**
      * 计划模板
@@ -127,6 +151,14 @@ export interface ProductPlan {
     endstr?: any;
 
     /**
+     * 计划状态
+     *
+     * @returns {*}
+     * @memberof ProductPlan
+     */
+    status?: any;
+
+    /**
      * 是否过期
      *
      * @returns {*}
@@ -143,12 +175,28 @@ export interface ProductPlan {
     deleted?: any;
 
     /**
+     * 消耗工时
+     *
+     * @returns {*}
+     * @memberof ProductPlan
+     */
+    consumedestimate?: any;
+
+    /**
      * 排序
      *
      * @returns {*}
      * @memberof ProductPlan
      */
     order?: any;
+
+    /**
+     * 叶子节点
+     *
+     * @returns {*}
+     * @memberof ProductPlan
+     */
+    isleaf?: any;
 
     /**
      * 待定
@@ -221,52 +269,4 @@ export interface ProductPlan {
      * @memberof ProductPlan
      */
     product?: any;
-
-    /**
-     * 计划状态
-     *
-     * @returns {*}
-     * @memberof ProductPlan
-     */
-    status?: any;
-
-    /**
-     * 延期
-     *
-     * @returns {*}
-     * @memberof ProductPlan
-     */
-    delay?: any;
-
-    /**
-     * 备注
-     *
-     * @returns {*}
-     * @memberof ProductPlan
-     */
-    comment?: any;
-
-    /**
-     * 剩余工时
-     *
-     * @returns {*}
-     * @memberof ProductPlan
-     */
-    leftestimate?: any;
-
-    /**
-     * 消耗工时
-     *
-     * @returns {*}
-     * @memberof ProductPlan
-     */
-    consumedestimate?: any;
-
-    /**
-     * 叶子节点
-     *
-     * @returns {*}
-     * @memberof ProductPlan
-     */
-    isleaf?: any;
 }

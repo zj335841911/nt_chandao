@@ -12,4 +12,3 @@ public interface ProductLineMapping extends MappingBase<ProductLineDTO, ProductL
 
 
 }
-

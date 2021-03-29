@@ -12,4 +12,3 @@ public interface UserYearWorkStatsMapping extends MappingBase<UserYearWorkStatsD
 
 
 }
-

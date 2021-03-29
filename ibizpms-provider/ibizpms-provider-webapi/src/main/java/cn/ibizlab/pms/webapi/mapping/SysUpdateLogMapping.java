@@ -12,4 +12,3 @@ public interface SysUpdateLogMapping extends MappingBase<SysUpdateLogDTO, SysUpd
 
 
 }
-

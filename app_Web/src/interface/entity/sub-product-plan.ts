@@ -23,6 +23,14 @@ export interface SubProductPlan {
     estimatecnt?: any;
 
     /**
+     * 备注
+     *
+     * @returns {*}
+     * @memberof SubProductPlan
+     */
+    comment?: any;
+
+    /**
      * 名称
      *
      * @returns {*}
@@ -87,6 +95,14 @@ export interface SubProductPlan {
     end?: any;
 
     /**
+     * 延期
+     *
+     * @returns {*}
+     * @memberof SubProductPlan
+     */
+    delay?: any;
+
+    /**
      * 持续时间
      *
      * @returns {*}
@@ -101,6 +117,14 @@ export interface SubProductPlan {
      * @memberof SubProductPlan
      */
     beginstr?: any;
+
+    /**
+     * 剩余工时
+     *
+     * @returns {*}
+     * @memberof SubProductPlan
+     */
+    leftestimate?: any;
 
     /**
      * 计划模板
@@ -127,6 +151,14 @@ export interface SubProductPlan {
     endstr?: any;
 
     /**
+     * 计划状态
+     *
+     * @returns {*}
+     * @memberof SubProductPlan
+     */
+    status?: any;
+
+    /**
      * 是否过期
      *
      * @returns {*}
@@ -143,12 +175,28 @@ export interface SubProductPlan {
     deleted?: any;
 
     /**
+     * 消耗工时
+     *
+     * @returns {*}
+     * @memberof SubProductPlan
+     */
+    consumedestimate?: any;
+
+    /**
      * 排序
      *
      * @returns {*}
      * @memberof SubProductPlan
      */
     order?: any;
+
+    /**
+     * 叶子节点
+     *
+     * @returns {*}
+     * @memberof SubProductPlan
+     */
+    isleaf?: any;
 
     /**
      * 待定
@@ -221,52 +269,4 @@ export interface SubProductPlan {
      * @memberof SubProductPlan
      */
     product?: any;
-
-    /**
-     * 计划状态
-     *
-     * @returns {*}
-     * @memberof SubProductPlan
-     */
-    status?: any;
-
-    /**
-     * 延期
-     *
-     * @returns {*}
-     * @memberof SubProductPlan
-     */
-    delay?: any;
-
-    /**
-     * 备注
-     *
-     * @returns {*}
-     * @memberof SubProductPlan
-     */
-    comment?: any;
-
-    /**
-     * 剩余工时
-     *
-     * @returns {*}
-     * @memberof SubProductPlan
-     */
-    leftestimate?: any;
-
-    /**
-     * 消耗工时
-     *
-     * @returns {*}
-     * @memberof SubProductPlan
-     */
-    consumedestimate?: any;
-
-    /**
-     * 叶子节点
-     *
-     * @returns {*}
-     * @memberof SubProductPlan
-     */
-    isleaf?: any;
 }

@@ -54,16 +54,5 @@ public class MybatisConfiguration {
         return paginationInterceptor;
     }
     
-    @Bean
-    public ISqlParserFilter ignoreParserFilter() {
-        return metaObject -> {
-            // 此处就过滤
-            MappedStatement ms = SqlParserHelper.getMappedStatement(metaObject);
-            if (saaSTenantProperties.getIgnoreMappers().contains(ms.getId())) {
-                return true;
-            }
-            return false;
-        };
-    }
 
 }

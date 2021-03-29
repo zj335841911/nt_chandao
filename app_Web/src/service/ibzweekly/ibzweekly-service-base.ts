@@ -173,6 +173,20 @@ export default class IBZWEEKLYServiceBase extends EntityService {
     }
 
     /**
+     * CreateEveryWeekReportBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IBZWEEKLYServiceBase
+     */
+    public async CreateEveryWeekReportBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/ibzweeklies/createeveryweekreportbatch`,tempData,isloading);
+    }
+
+    /**
      * CreateGetLastWeekPlanAndWork接口方法
      *
      * @param {*} [context={}]
@@ -184,6 +198,20 @@ export default class IBZWEEKLYServiceBase extends EntityService {
     public async CreateGetLastWeekPlanAndWork(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
             let res:any = await Http.getInstance().post(`/ibzweeklies/${context.ibzweekly}/creategetlastweekplanandwork`,data,isloading);
             return res;
+    }
+
+    /**
+     * CreateGetLastWeekPlanAndWorkBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IBZWEEKLYServiceBase
+     */
+    public async CreateGetLastWeekPlanAndWorkBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/ibzweeklies/creategetlastweekplanandworkbatch`,tempData,isloading);
     }
 
     /**
@@ -201,6 +229,20 @@ export default class IBZWEEKLYServiceBase extends EntityService {
     }
 
     /**
+     * EditGetLastWeekTaskAndComTaskBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IBZWEEKLYServiceBase
+     */
+    public async EditGetLastWeekTaskAndComTaskBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/ibzweeklies/editgetlastweektaskandcomtaskbatch`,tempData,isloading);
+    }
+
+    /**
      * HaveRead接口方法
      *
      * @param {*} [context={}]
@@ -212,6 +254,20 @@ export default class IBZWEEKLYServiceBase extends EntityService {
     public async HaveRead(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
             let res:any = await Http.getInstance().post(`/ibzweeklies/${context.ibzweekly}/haveread`,data,isloading);
             return res;
+    }
+
+    /**
+     * HaveReadBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IBZWEEKLYServiceBase
+     */
+    public async HaveReadBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/ibzweeklies/havereadbatch`,tempData,isloading);
     }
 
     /**
@@ -229,6 +285,20 @@ export default class IBZWEEKLYServiceBase extends EntityService {
     }
 
     /**
+     * JugThisWeekCreateWeeklyBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IBZWEEKLYServiceBase
+     */
+    public async JugThisWeekCreateWeeklyBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/ibzweeklies/jugthisweekcreateweeklybatch`,tempData,isloading);
+    }
+
+    /**
      * PushUserWeekly接口方法
      *
      * @param {*} [context={}]
@@ -240,6 +310,20 @@ export default class IBZWEEKLYServiceBase extends EntityService {
     public async PushUserWeekly(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
             let res:any = await Http.getInstance().post(`/ibzweeklies/${context.ibzweekly}/pushuserweekly`,data,isloading);
             return res;
+    }
+
+    /**
+     * PushUserWeeklyBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IBZWEEKLYServiceBase
+     */
+    public async PushUserWeeklyBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/ibzweeklies/pushuserweeklybatch`,tempData,isloading);
     }
 
     /**
@@ -271,6 +355,20 @@ export default class IBZWEEKLYServiceBase extends EntityService {
     public async Submit(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
             let res:any = await Http.getInstance().post(`/ibzweeklies/${context.ibzweekly}/submit`,data,isloading);
             return res;
+    }
+
+    /**
+     * SubmitBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IBZWEEKLYServiceBase
+     */
+    public async SubmitBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/ibzweeklies/submitbatch`,tempData,isloading);
     }
 
     /**

@@ -506,7 +506,7 @@ export default class MoreMyFavouritesTreeService extends ControlService {
         return new Promise((resolve:any,reject:any) =>{
             let searchFilter: any = {};
 
-            if (Object.is(filter.strNodeType, this.TREENODE_ROOTDIR)) {
+            if (Object.is(filter.strNodeType, this.TREENODE_MODULE)) {
                 Object.assign(searchFilter, { n_module_eq: filter.nodeid });
             }
 
@@ -516,7 +516,7 @@ export default class MoreMyFavouritesTreeService extends ControlService {
             }
 
 
-            if (Object.is(filter.strNodeType, this.TREENODE_MODULE)) {
+            if (Object.is(filter.strNodeType, this.TREENODE_ROOTDIR)) {
                 Object.assign(searchFilter, { n_module_eq: filter.nodeid });
             }
 
@@ -1115,7 +1115,7 @@ export default class MoreMyFavouritesTreeService extends ControlService {
         return new Promise((resolve:any,reject:any) =>{
             let searchFilter: any = {};
 
-            if (Object.is(filter.strNodeType, this.TREENODE_MODULE)) {
+            if (Object.is(filter.strNodeType, this.TREENODE_CHILDDIR)) {
                 Object.assign(searchFilter, { n_parent_eq: filter.nodeid });
             }
 
@@ -1125,7 +1125,7 @@ export default class MoreMyFavouritesTreeService extends ControlService {
             }
 
 
-            if (Object.is(filter.strNodeType, this.TREENODE_CHILDDIR)) {
+            if (Object.is(filter.strNodeType, this.TREENODE_MODULE)) {
                 Object.assign(searchFilter, { n_parent_eq: filter.nodeid });
             }
 

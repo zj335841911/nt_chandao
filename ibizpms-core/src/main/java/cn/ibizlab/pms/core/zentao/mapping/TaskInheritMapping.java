@@ -33,5 +33,3 @@ public interface TaskInheritMapping {
     List<Task> toTask(List<IbizproIndex> majorEntities);
 
 }
-
-

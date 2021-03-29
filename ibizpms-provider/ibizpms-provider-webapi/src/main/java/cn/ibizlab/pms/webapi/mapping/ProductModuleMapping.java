@@ -12,4 +12,3 @@ public interface ProductModuleMapping extends MappingBase<ProductModuleDTO, Prod
 
 
 }
-

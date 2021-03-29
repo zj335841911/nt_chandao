@@ -62,6 +62,24 @@ export default class ProjectTeamServiceBase extends EntityService {
     }
 
     /**
+     * getuserroleBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectTeamServiceBase
+     */
+    public async getuserroleBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projects/${context.project}/projectteams/getuserrolebatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/projectteams/getuserrolebatch`,tempData,isloading);
+    }
+
+    /**
      * Select接口方法
      *
      * @param {*} [context={}]

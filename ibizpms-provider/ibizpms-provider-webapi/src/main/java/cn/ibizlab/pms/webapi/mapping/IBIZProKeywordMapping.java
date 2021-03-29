@@ -12,4 +12,3 @@ public interface IBIZProKeywordMapping extends MappingBase<IBIZProKeywordDTO, IB
 
 
 }
-

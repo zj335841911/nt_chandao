@@ -12,4 +12,3 @@ public interface ProjectTaskestimateMapping extends MappingBase<ProjectTaskestim
 
 
 }
-

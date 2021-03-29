@@ -12,4 +12,3 @@ public interface ProductLifeMapping extends MappingBase<ProductLifeDTO, ProductL
 
 
 }
-

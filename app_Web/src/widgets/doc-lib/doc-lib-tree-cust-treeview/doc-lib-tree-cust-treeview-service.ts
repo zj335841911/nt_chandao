@@ -785,12 +785,12 @@ export default class DocLibTreeCustService extends ControlService {
         return new Promise((resolve:any,reject:any) =>{
             let searchFilter: any = {};
 
-            if (Object.is(filter.strNodeType, this.TREENODE_MODULE)) {
+            if (Object.is(filter.strNodeType, this.TREENODE_ROOTMODULE)) {
                 Object.assign(searchFilter, { n_parent_eq: filter.nodeid });
             }
 
 
-            if (Object.is(filter.strNodeType, this.TREENODE_ROOTMODULE)) {
+            if (Object.is(filter.strNodeType, this.TREENODE_MODULE)) {
                 Object.assign(searchFilter, { n_parent_eq: filter.nodeid });
             }
 
@@ -952,12 +952,12 @@ export default class DocLibTreeCustService extends ControlService {
         return new Promise((resolve:any,reject:any) =>{
             let searchFilter: any = {};
 
-            if (Object.is(filter.strNodeType, this.TREENODE_ROOTMODULE)) {
+            if (Object.is(filter.strNodeType, this.TREENODE_MODULE)) {
                 Object.assign(searchFilter, { n_module_eq: filter.nodeid });
             }
 
 
-            if (Object.is(filter.strNodeType, this.TREENODE_MODULE)) {
+            if (Object.is(filter.strNodeType, this.TREENODE_ROOTMODULE)) {
                 Object.assign(searchFilter, { n_module_eq: filter.nodeid });
             }
 

@@ -12,4 +12,3 @@ public interface ProductStatsMapping extends MappingBase<ProductStatsDTO, Produc
 
 
 }
-

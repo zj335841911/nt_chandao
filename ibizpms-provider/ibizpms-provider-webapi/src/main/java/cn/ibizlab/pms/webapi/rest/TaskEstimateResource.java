@@ -72,7 +72,7 @@ public class TaskEstimateResource {
 		TaskEstimate domain  = taskestimateMapping.toDomain(taskestimatedto);
         domain .setId(taskestimate_id);
 		taskestimateService.update(domain );
-		TaskEstimateDTO dto = taskestimateMapping.toDto(domain );
+		TaskEstimateDTO dto = taskestimateMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
@@ -143,8 +143,10 @@ public class TaskEstimateResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-Save-all')")
     @ApiOperation(value = "保存任务预计", tags = {"任务预计" },  notes = "保存任务预计")
 	@RequestMapping(method = RequestMethod.POST, value = "/taskestimates/save")
-    public ResponseEntity<Boolean> save(@RequestBody TaskEstimateDTO taskestimatedto) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskestimateService.save(taskestimateMapping.toDomain(taskestimatedto)));
+    public ResponseEntity<TaskEstimateDTO> save(@RequestBody TaskEstimateDTO taskestimatedto) {
+        TaskEstimate domain = taskestimateMapping.toDomain(taskestimatedto);
+        taskestimateService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(taskestimateMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-Save-all')")
@@ -416,10 +418,11 @@ public class TaskEstimateResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-Save-all')")
     @ApiOperation(value = "根据任务保存任务预计", tags = {"任务预计" },  notes = "根据任务保存任务预计")
 	@RequestMapping(method = RequestMethod.POST, value = "/tasks/{task_id}/taskestimates/save")
-    public ResponseEntity<Boolean> saveByTask(@PathVariable("task_id") Long task_id, @RequestBody TaskEstimateDTO taskestimatedto) {
+    public ResponseEntity<TaskEstimateDTO> saveByTask(@PathVariable("task_id") Long task_id, @RequestBody TaskEstimateDTO taskestimatedto) {
         TaskEstimate domain = taskestimateMapping.toDomain(taskestimatedto);
         domain.setTask(task_id);
-        return ResponseEntity.status(HttpStatus.OK).body(taskestimateService.save(domain));
+        taskestimateService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(taskestimateMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-Save-all')")
@@ -700,10 +703,11 @@ public class TaskEstimateResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-Save-all')")
     @ApiOperation(value = "根据任务模块任务保存任务预计", tags = {"任务预计" },  notes = "根据任务模块任务保存任务预计")
 	@RequestMapping(method = RequestMethod.POST, value = "/projectmodules/{projectmodule_id}/tasks/{task_id}/taskestimates/save")
-    public ResponseEntity<Boolean> saveByProjectModuleTask(@PathVariable("projectmodule_id") Long projectmodule_id, @PathVariable("task_id") Long task_id, @RequestBody TaskEstimateDTO taskestimatedto) {
+    public ResponseEntity<TaskEstimateDTO> saveByProjectModuleTask(@PathVariable("projectmodule_id") Long projectmodule_id, @PathVariable("task_id") Long task_id, @RequestBody TaskEstimateDTO taskestimatedto) {
         TaskEstimate domain = taskestimateMapping.toDomain(taskestimatedto);
         domain.setTask(task_id);
-        return ResponseEntity.status(HttpStatus.OK).body(taskestimateService.save(domain));
+        taskestimateService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(taskestimateMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-Save-all')")
@@ -984,10 +988,11 @@ public class TaskEstimateResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-Save-all')")
     @ApiOperation(value = "根据产品计划任务保存任务预计", tags = {"任务预计" },  notes = "根据产品计划任务保存任务预计")
 	@RequestMapping(method = RequestMethod.POST, value = "/productplans/{productplan_id}/tasks/{task_id}/taskestimates/save")
-    public ResponseEntity<Boolean> saveByProductPlanTask(@PathVariable("productplan_id") Long productplan_id, @PathVariable("task_id") Long task_id, @RequestBody TaskEstimateDTO taskestimatedto) {
+    public ResponseEntity<TaskEstimateDTO> saveByProductPlanTask(@PathVariable("productplan_id") Long productplan_id, @PathVariable("task_id") Long task_id, @RequestBody TaskEstimateDTO taskestimatedto) {
         TaskEstimate domain = taskestimateMapping.toDomain(taskestimatedto);
         domain.setTask(task_id);
-        return ResponseEntity.status(HttpStatus.OK).body(taskestimateService.save(domain));
+        taskestimateService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(taskestimateMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-Save-all')")
@@ -1268,10 +1273,11 @@ public class TaskEstimateResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-Save-all')")
     @ApiOperation(value = "根据需求任务保存任务预计", tags = {"任务预计" },  notes = "根据需求任务保存任务预计")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/tasks/{task_id}/taskestimates/save")
-    public ResponseEntity<Boolean> saveByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody TaskEstimateDTO taskestimatedto) {
+    public ResponseEntity<TaskEstimateDTO> saveByStoryTask(@PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody TaskEstimateDTO taskestimatedto) {
         TaskEstimate domain = taskestimateMapping.toDomain(taskestimatedto);
         domain.setTask(task_id);
-        return ResponseEntity.status(HttpStatus.OK).body(taskestimateService.save(domain));
+        taskestimateService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(taskestimateMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-Save-all')")
@@ -1552,10 +1558,11 @@ public class TaskEstimateResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-Save-all')")
     @ApiOperation(value = "根据项目任务保存任务预计", tags = {"任务预计" },  notes = "根据项目任务保存任务预计")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/tasks/{task_id}/taskestimates/save")
-    public ResponseEntity<Boolean> saveByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @RequestBody TaskEstimateDTO taskestimatedto) {
+    public ResponseEntity<TaskEstimateDTO> saveByProjectTask(@PathVariable("project_id") Long project_id, @PathVariable("task_id") Long task_id, @RequestBody TaskEstimateDTO taskestimatedto) {
         TaskEstimate domain = taskestimateMapping.toDomain(taskestimatedto);
         domain.setTask(task_id);
-        return ResponseEntity.status(HttpStatus.OK).body(taskestimateService.save(domain));
+        taskestimateService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(taskestimateMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-Save-all')")
@@ -1836,10 +1843,11 @@ public class TaskEstimateResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-Save-all')")
     @ApiOperation(value = "根据产品产品计划任务保存任务预计", tags = {"任务预计" },  notes = "根据产品产品计划任务保存任务预计")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productplans/{productplan_id}/tasks/{task_id}/taskestimates/save")
-    public ResponseEntity<Boolean> saveByProductProductPlanTask(@PathVariable("product_id") Long product_id, @PathVariable("productplan_id") Long productplan_id, @PathVariable("task_id") Long task_id, @RequestBody TaskEstimateDTO taskestimatedto) {
+    public ResponseEntity<TaskEstimateDTO> saveByProductProductPlanTask(@PathVariable("product_id") Long product_id, @PathVariable("productplan_id") Long productplan_id, @PathVariable("task_id") Long task_id, @RequestBody TaskEstimateDTO taskestimatedto) {
         TaskEstimate domain = taskestimateMapping.toDomain(taskestimatedto);
         domain.setTask(task_id);
-        return ResponseEntity.status(HttpStatus.OK).body(taskestimateService.save(domain));
+        taskestimateService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(taskestimateMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-Save-all')")
@@ -2120,10 +2128,11 @@ public class TaskEstimateResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-Save-all')")
     @ApiOperation(value = "根据产品需求任务保存任务预计", tags = {"任务预计" },  notes = "根据产品需求任务保存任务预计")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/tasks/{task_id}/taskestimates/save")
-    public ResponseEntity<Boolean> saveByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody TaskEstimateDTO taskestimatedto) {
+    public ResponseEntity<TaskEstimateDTO> saveByProductStoryTask(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("task_id") Long task_id, @RequestBody TaskEstimateDTO taskestimatedto) {
         TaskEstimate domain = taskestimateMapping.toDomain(taskestimatedto);
         domain.setTask(task_id);
-        return ResponseEntity.status(HttpStatus.OK).body(taskestimateService.save(domain));
+        taskestimateService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(taskestimateMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-Save-all')")
@@ -2404,10 +2413,11 @@ public class TaskEstimateResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-Save-all')")
     @ApiOperation(value = "根据项目任务模块任务保存任务预计", tags = {"任务预计" },  notes = "根据项目任务模块任务保存任务预计")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/projectmodules/{projectmodule_id}/tasks/{task_id}/taskestimates/save")
-    public ResponseEntity<Boolean> saveByProjectProjectModuleTask(@PathVariable("project_id") Long project_id, @PathVariable("projectmodule_id") Long projectmodule_id, @PathVariable("task_id") Long task_id, @RequestBody TaskEstimateDTO taskestimatedto) {
+    public ResponseEntity<TaskEstimateDTO> saveByProjectProjectModuleTask(@PathVariable("project_id") Long project_id, @PathVariable("projectmodule_id") Long projectmodule_id, @PathVariable("task_id") Long task_id, @RequestBody TaskEstimateDTO taskestimatedto) {
         TaskEstimate domain = taskestimateMapping.toDomain(taskestimatedto);
         domain.setTask(task_id);
-        return ResponseEntity.status(HttpStatus.OK).body(taskestimateService.save(domain));
+        taskestimateService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(taskestimateMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimate-Save-all')")

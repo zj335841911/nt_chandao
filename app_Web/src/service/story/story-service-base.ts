@@ -395,6 +395,24 @@ export default class StoryServiceBase extends EntityService {
     }
 
     /**
+     * ActivateBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async ActivateBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/activatebatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/stories/activatebatch`,tempData,isloading);
+    }
+
+    /**
      * AllPush接口方法
      *
      * @param {*} [context={}]
@@ -447,6 +465,24 @@ export default class StoryServiceBase extends EntityService {
         }
             let res:any = await Http.getInstance().post(`/stories/${context.story}/allpush`,data,isloading);
             return res;
+    }
+
+    /**
+     * AllPushBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async AllPushBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/allpushbatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/stories/allpushbatch`,tempData,isloading);
     }
 
     /**
@@ -505,6 +541,24 @@ export default class StoryServiceBase extends EntityService {
     }
 
     /**
+     * AssignToBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async AssignToBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/assigntobatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/stories/assigntobatch`,tempData,isloading);
+    }
+
+    /**
      * BatchAssignTo接口方法
      *
      * @param {*} [context={}]
@@ -557,6 +611,24 @@ export default class StoryServiceBase extends EntityService {
         }
             let res:any = await Http.getInstance().post(`/stories/${context.story}/batchassignto`,data,isloading);
             return res;
+    }
+
+    /**
+     * BatchAssignToBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async BatchAssignToBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/batchassigntobatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/stories/batchassigntobatch`,tempData,isloading);
     }
 
     /**
@@ -615,6 +687,24 @@ export default class StoryServiceBase extends EntityService {
     }
 
     /**
+     * BatchChangeBranchBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async BatchChangeBranchBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/batchchangebranchbatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/stories/batchchangebranchbatch`,tempData,isloading);
+    }
+
+    /**
      * BatchChangeModule接口方法
      *
      * @param {*} [context={}]
@@ -667,6 +757,24 @@ export default class StoryServiceBase extends EntityService {
         }
             let res:any = await Http.getInstance().post(`/stories/${context.story}/batchchangemodule`,data,isloading);
             return res;
+    }
+
+    /**
+     * BatchChangeModuleBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async BatchChangeModuleBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/batchchangemodulebatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/stories/batchchangemodulebatch`,tempData,isloading);
     }
 
     /**
@@ -725,6 +833,24 @@ export default class StoryServiceBase extends EntityService {
     }
 
     /**
+     * BatchChangePlanBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async BatchChangePlanBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/batchchangeplanbatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/stories/batchchangeplanbatch`,tempData,isloading);
+    }
+
+    /**
      * BatchChangeStage接口方法
      *
      * @param {*} [context={}]
@@ -777,6 +903,24 @@ export default class StoryServiceBase extends EntityService {
         }
             let res:any = await Http.getInstance().post(`/stories/${context.story}/batchchangestage`,data,isloading);
             return res;
+    }
+
+    /**
+     * BatchChangeStageBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async BatchChangeStageBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/batchchangestagebatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/stories/batchchangestagebatch`,tempData,isloading);
     }
 
     /**
@@ -835,6 +979,24 @@ export default class StoryServiceBase extends EntityService {
     }
 
     /**
+     * BatchCloseBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async BatchCloseBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/batchclosebatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/stories/batchclosebatch`,tempData,isloading);
+    }
+
+    /**
      * BatchReview接口方法
      *
      * @param {*} [context={}]
@@ -887,6 +1049,24 @@ export default class StoryServiceBase extends EntityService {
         }
             let res:any = await Http.getInstance().post(`/stories/${context.story}/batchreview`,data,isloading);
             return res;
+    }
+
+    /**
+     * BatchReviewBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async BatchReviewBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/batchreviewbatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/stories/batchreviewbatch`,tempData,isloading);
     }
 
     /**
@@ -945,6 +1125,24 @@ export default class StoryServiceBase extends EntityService {
     }
 
     /**
+     * BatchUnlinkStoryBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async BatchUnlinkStoryBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/batchunlinkstorybatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/stories/batchunlinkstorybatch`,tempData,isloading);
+    }
+
+    /**
      * BugToStory接口方法
      *
      * @param {*} [context={}]
@@ -997,6 +1195,24 @@ export default class StoryServiceBase extends EntityService {
         }
             let res:any = await Http.getInstance().post(`/stories/${context.story}/bugtostory`,data,isloading);
             return res;
+    }
+
+    /**
+     * BugToStoryBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async BugToStoryBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/bugtostorybatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/stories/bugtostorybatch`,tempData,isloading);
     }
 
     /**
@@ -1055,6 +1271,24 @@ export default class StoryServiceBase extends EntityService {
     }
 
     /**
+     * BuildBatchUnlinkStoryBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async BuildBatchUnlinkStoryBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/buildbatchunlinkstorybatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/stories/buildbatchunlinkstorybatch`,tempData,isloading);
+    }
+
+    /**
      * BuildLinkStory接口方法
      *
      * @param {*} [context={}]
@@ -1110,6 +1344,24 @@ export default class StoryServiceBase extends EntityService {
     }
 
     /**
+     * BuildLinkStoryBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async BuildLinkStoryBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/buildlinkstorybatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/stories/buildlinkstorybatch`,tempData,isloading);
+    }
+
+    /**
      * BuildUnlinkStory接口方法
      *
      * @param {*} [context={}]
@@ -1162,6 +1414,24 @@ export default class StoryServiceBase extends EntityService {
         }
             let res:any = await Http.getInstance().post(`/stories/${context.story}/buildunlinkstory`,data,isloading);
             return res;
+    }
+
+    /**
+     * BuildUnlinkStoryBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async BuildUnlinkStoryBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/buildunlinkstorybatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/stories/buildunlinkstorybatch`,tempData,isloading);
     }
 
     /**
@@ -1275,6 +1545,24 @@ export default class StoryServiceBase extends EntityService {
     }
 
     /**
+     * ChangeBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async ChangeBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/changebatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/stories/changebatch`,tempData,isloading);
+    }
+
+    /**
      * CheckKey接口方法
      *
      * @param {*} [context={}]
@@ -1385,6 +1673,24 @@ export default class StoryServiceBase extends EntityService {
     }
 
     /**
+     * CloseBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async CloseBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/closebatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/stories/closebatch`,tempData,isloading);
+    }
+
+    /**
      * CreateTasks接口方法
      *
      * @param {*} [context={}]
@@ -1440,6 +1746,24 @@ export default class StoryServiceBase extends EntityService {
     }
 
     /**
+     * CreateTasksBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async CreateTasksBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/createtasksbatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/stories/createtasksbatch`,tempData,isloading);
+    }
+
+    /**
      * GetStorySpec接口方法
      *
      * @param {*} [context={}]
@@ -1492,6 +1816,24 @@ export default class StoryServiceBase extends EntityService {
         }
             let res:any = await Http.getInstance().post(`/stories/${context.story}/getstoryspec`,data,isloading);
             return res;
+    }
+
+    /**
+     * GetStorySpecBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async GetStorySpecBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/getstoryspecbatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/stories/getstoryspecbatch`,tempData,isloading);
     }
 
     /**
@@ -1574,6 +1916,24 @@ export default class StoryServiceBase extends EntityService {
     }
 
     /**
+     * ImportPlanStoriesBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async ImportPlanStoriesBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/importplanstoriesbatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/stories/importplanstoriesbatch`,tempData,isloading);
+    }
+
+    /**
      * LinkStory接口方法
      *
      * @param {*} [context={}]
@@ -1626,6 +1986,24 @@ export default class StoryServiceBase extends EntityService {
         }
             let res:any = await Http.getInstance().post(`/stories/${context.story}/linkstory`,data,isloading);
             return res;
+    }
+
+    /**
+     * LinkStoryBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async LinkStoryBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/linkstorybatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/stories/linkstorybatch`,tempData,isloading);
     }
 
     /**
@@ -1684,6 +2062,24 @@ export default class StoryServiceBase extends EntityService {
     }
 
     /**
+     * ProjectBatchUnlinkStoryBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async ProjectBatchUnlinkStoryBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/projectbatchunlinkstorybatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/stories/projectbatchunlinkstorybatch`,tempData,isloading);
+    }
+
+    /**
      * ProjectLinkStory接口方法
      *
      * @param {*} [context={}]
@@ -1739,6 +2135,24 @@ export default class StoryServiceBase extends EntityService {
     }
 
     /**
+     * ProjectLinkStoryBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async ProjectLinkStoryBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/projectlinkstorybatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/stories/projectlinkstorybatch`,tempData,isloading);
+    }
+
+    /**
      * ProjectUnlinkStory接口方法
      *
      * @param {*} [context={}]
@@ -1791,6 +2205,24 @@ export default class StoryServiceBase extends EntityService {
         }
             let res:any = await Http.getInstance().post(`/stories/${context.story}/projectunlinkstory`,data,isloading);
             return res;
+    }
+
+    /**
+     * ProjectUnlinkStoryBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async ProjectUnlinkStoryBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/projectunlinkstorybatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/stories/projectunlinkstorybatch`,tempData,isloading);
     }
 
     /**
@@ -1904,6 +2336,24 @@ export default class StoryServiceBase extends EntityService {
     }
 
     /**
+     * PushBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async PushBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/pushbatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/stories/pushbatch`,tempData,isloading);
+    }
+
+    /**
      * ReleaseBatchUnlinkStory接口方法
      *
      * @param {*} [context={}]
@@ -1956,6 +2406,24 @@ export default class StoryServiceBase extends EntityService {
         }
             let res:any = await Http.getInstance().post(`/stories/${context.story}/releasebatchunlinkstory`,data,isloading);
             return res;
+    }
+
+    /**
+     * ReleaseBatchUnlinkStoryBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async ReleaseBatchUnlinkStoryBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/releasebatchunlinkstorybatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/stories/releasebatchunlinkstorybatch`,tempData,isloading);
     }
 
     /**
@@ -2014,6 +2482,24 @@ export default class StoryServiceBase extends EntityService {
     }
 
     /**
+     * ReleaseLinkStoryBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async ReleaseLinkStoryBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/releaselinkstorybatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/stories/releaselinkstorybatch`,tempData,isloading);
+    }
+
+    /**
      * ReleaseUnlinkStory接口方法
      *
      * @param {*} [context={}]
@@ -2066,6 +2552,24 @@ export default class StoryServiceBase extends EntityService {
         }
             let res:any = await Http.getInstance().post(`/stories/${context.story}/releaseunlinkstory`,data,isloading);
             return res;
+    }
+
+    /**
+     * ReleaseUnlinkStoryBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async ReleaseUnlinkStoryBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/releaseunlinkstorybatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/stories/releaseunlinkstorybatch`,tempData,isloading);
     }
 
     /**
@@ -2124,6 +2628,24 @@ export default class StoryServiceBase extends EntityService {
     }
 
     /**
+     * ResetReviewedByBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async ResetReviewedByBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/resetreviewedbybatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/stories/resetreviewedbybatch`,tempData,isloading);
+    }
+
+    /**
      * Review接口方法
      *
      * @param {*} [context={}]
@@ -2176,6 +2698,24 @@ export default class StoryServiceBase extends EntityService {
         }
             let res:any = await Http.getInstance().post(`/stories/${context.story}/review`,data,isloading);
             return res;
+    }
+
+    /**
+     * ReviewBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async ReviewBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/reviewbatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/stories/reviewbatch`,tempData,isloading);
     }
 
     /**
@@ -2326,6 +2866,24 @@ export default class StoryServiceBase extends EntityService {
     }
 
     /**
+     * SendMessageBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async SendMessageBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/sendmessagebatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/stories/sendmessagebatch`,tempData,isloading);
+    }
+
+    /**
      * SendMsgPreProcess接口方法
      *
      * @param {*} [context={}]
@@ -2378,6 +2936,24 @@ export default class StoryServiceBase extends EntityService {
         }
             let res:any = await Http.getInstance().post(`/stories/${context.story}/sendmsgpreprocess`,data,isloading);
             return res;
+    }
+
+    /**
+     * SendMsgPreProcessBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async SendMsgPreProcessBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/sendmsgpreprocessbatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/stories/sendmsgpreprocessbatch`,tempData,isloading);
     }
 
     /**
@@ -2546,6 +3122,24 @@ export default class StoryServiceBase extends EntityService {
     }
 
     /**
+     * SyncFromIbizBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async SyncFromIbizBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/syncfromibizbatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/stories/syncfromibizbatch`,tempData,isloading);
+    }
+
+    /**
      * UnlinkStory接口方法
      *
      * @param {*} [context={}]
@@ -2598,6 +3192,24 @@ export default class StoryServiceBase extends EntityService {
         }
             let res:any = await Http.getInstance().post(`/stories/${context.story}/unlinkstory`,data,isloading);
             return res;
+    }
+
+    /**
+     * UnlinkStoryBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof StoryServiceBase
+     */
+    public async UnlinkStoryBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/unlinkstorybatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/stories/unlinkstorybatch`,tempData,isloading);
     }
 
     /**

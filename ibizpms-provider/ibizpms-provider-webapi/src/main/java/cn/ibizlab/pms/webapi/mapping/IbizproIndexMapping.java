@@ -12,4 +12,3 @@ public interface IbizproIndexMapping extends MappingBase<IbizproIndexDTO, Ibizpr
 
 
 }
-

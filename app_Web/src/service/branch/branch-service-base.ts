@@ -255,6 +255,24 @@ export default class BranchServiceBase extends EntityService {
     }
 
     /**
+     * SortBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof BranchServiceBase
+     */
+    public async SortBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/branches/sortbatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/branches/sortbatch`,tempData,isloading);
+    }
+
+    /**
      * FetchCurProduct接口方法
      *
      * @param {*} [context={}]

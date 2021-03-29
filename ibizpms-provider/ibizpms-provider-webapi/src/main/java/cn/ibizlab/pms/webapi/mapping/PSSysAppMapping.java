@@ -12,4 +12,3 @@ public interface PSSysAppMapping extends MappingBase<PSSysAppDTO, PSSysApp> {
 
 
 }
-

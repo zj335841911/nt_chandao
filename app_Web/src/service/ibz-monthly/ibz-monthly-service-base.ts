@@ -173,6 +173,20 @@ export default class IbzMonthlyServiceBase extends EntityService {
     }
 
     /**
+     * CreateGetInfoBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzMonthlyServiceBase
+     */
+    public async CreateGetInfoBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/ibzmonthlies/creategetinfobatch`,tempData,isloading);
+    }
+
+    /**
      * CreateUserMonthly接口方法
      *
      * @param {*} [context={}]
@@ -184,6 +198,20 @@ export default class IbzMonthlyServiceBase extends EntityService {
     public async CreateUserMonthly(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
             let res:any = await Http.getInstance().post(`/ibzmonthlies/${context.ibzmonthly}/createusermonthly`,data,isloading);
             return res;
+    }
+
+    /**
+     * CreateUserMonthlyBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzMonthlyServiceBase
+     */
+    public async CreateUserMonthlyBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/ibzmonthlies/createusermonthlybatch`,tempData,isloading);
     }
 
     /**
@@ -201,6 +229,20 @@ export default class IbzMonthlyServiceBase extends EntityService {
     }
 
     /**
+     * EditGetCompleteTaskBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzMonthlyServiceBase
+     */
+    public async EditGetCompleteTaskBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/ibzmonthlies/editgetcompletetaskbatch`,tempData,isloading);
+    }
+
+    /**
      * HaveRead接口方法
      *
      * @param {*} [context={}]
@@ -215,6 +257,20 @@ export default class IbzMonthlyServiceBase extends EntityService {
     }
 
     /**
+     * HaveReadBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzMonthlyServiceBase
+     */
+    public async HaveReadBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/ibzmonthlies/havereadbatch`,tempData,isloading);
+    }
+
+    /**
      * PushUserMonthly接口方法
      *
      * @param {*} [context={}]
@@ -226,6 +282,20 @@ export default class IbzMonthlyServiceBase extends EntityService {
     public async PushUserMonthly(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
             let res:any = await Http.getInstance().post(`/ibzmonthlies/${context.ibzmonthly}/pushusermonthly`,data,isloading);
             return res;
+    }
+
+    /**
+     * PushUserMonthlyBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzMonthlyServiceBase
+     */
+    public async PushUserMonthlyBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/ibzmonthlies/pushusermonthlybatch`,tempData,isloading);
     }
 
     /**
@@ -257,6 +327,20 @@ export default class IbzMonthlyServiceBase extends EntityService {
     public async Submit(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
             let res:any = await Http.getInstance().put(`/ibzmonthlies/${context.ibzmonthly}/submit`,data,isloading);
             return res;
+    }
+
+    /**
+     * SubmitBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzMonthlyServiceBase
+     */
+    public async SubmitBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/ibzmonthlies/submitbatch`,tempData,isloading);
     }
 
     /**

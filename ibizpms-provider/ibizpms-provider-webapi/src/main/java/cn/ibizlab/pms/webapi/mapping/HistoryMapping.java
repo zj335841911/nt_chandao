@@ -12,4 +12,3 @@ public interface HistoryMapping extends MappingBase<HistoryDTO, History> {
 
 
 }
-

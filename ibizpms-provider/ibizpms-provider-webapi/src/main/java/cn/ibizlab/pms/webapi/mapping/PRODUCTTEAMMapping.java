@@ -12,4 +12,3 @@ public interface PRODUCTTEAMMapping extends MappingBase<PRODUCTTEAMDTO, PRODUCTT
 
 
 }
-

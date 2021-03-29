@@ -265,6 +265,28 @@ export default class TestTaskServiceBase extends EntityService {
     }
 
     /**
+     * ActivateBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TestTaskServiceBase
+     */
+    public async ActivateBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projects/${context.project}/testtasks/activatebatch`,tempData,isloading);
+        }
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/testtasks/activatebatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/testtasks/activatebatch`,tempData,isloading);
+    }
+
+    /**
      * Block接口方法
      *
      * @param {*} [context={}]
@@ -290,6 +312,28 @@ export default class TestTaskServiceBase extends EntityService {
         }
             let res:any = await Http.getInstance().post(`/testtasks/${context.testtask}/block`,data,isloading);
             return res;
+    }
+
+    /**
+     * BlockBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TestTaskServiceBase
+     */
+    public async BlockBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projects/${context.project}/testtasks/blockbatch`,tempData,isloading);
+        }
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/testtasks/blockbatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/testtasks/blockbatch`,tempData,isloading);
     }
 
     /**
@@ -349,6 +393,28 @@ export default class TestTaskServiceBase extends EntityService {
     }
 
     /**
+     * CloseBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TestTaskServiceBase
+     */
+    public async CloseBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projects/${context.project}/testtasks/closebatch`,tempData,isloading);
+        }
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/testtasks/closebatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/testtasks/closebatch`,tempData,isloading);
+    }
+
+    /**
      * LinkCase接口方法
      *
      * @param {*} [context={}]
@@ -374,6 +440,28 @@ export default class TestTaskServiceBase extends EntityService {
         }
             let res:any = await Http.getInstance().post(`/testtasks/${context.testtask}/linkcase`,data,isloading);
             return res;
+    }
+
+    /**
+     * LinkCaseBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TestTaskServiceBase
+     */
+    public async LinkCaseBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projects/${context.project}/testtasks/linkcasebatch`,tempData,isloading);
+        }
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/testtasks/linkcasebatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/testtasks/linkcasebatch`,tempData,isloading);
     }
 
     /**
@@ -464,6 +552,28 @@ export default class TestTaskServiceBase extends EntityService {
     }
 
     /**
+     * StartBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TestTaskServiceBase
+     */
+    public async StartBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projects/${context.project}/testtasks/startbatch`,tempData,isloading);
+        }
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/testtasks/startbatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/testtasks/startbatch`,tempData,isloading);
+    }
+
+    /**
      * UnlinkCase接口方法
      *
      * @param {*} [context={}]
@@ -489,6 +599,28 @@ export default class TestTaskServiceBase extends EntityService {
         }
             let res:any = await Http.getInstance().post(`/testtasks/${context.testtask}/unlinkcase`,data,isloading);
             return res;
+    }
+
+    /**
+     * UnlinkCaseBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TestTaskServiceBase
+     */
+    public async UnlinkCaseBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projects/${context.project}/testtasks/unlinkcasebatch`,tempData,isloading);
+        }
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/testtasks/unlinkcasebatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/testtasks/unlinkcasebatch`,tempData,isloading);
     }
 
     /**

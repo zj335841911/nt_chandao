@@ -12,4 +12,3 @@ public interface TodoMapping extends MappingBase<TodoDTO, Todo> {
 
 
 }
-

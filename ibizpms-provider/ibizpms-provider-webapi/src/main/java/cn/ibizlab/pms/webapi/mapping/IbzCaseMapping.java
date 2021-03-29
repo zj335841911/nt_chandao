@@ -12,4 +12,3 @@ public interface IbzCaseMapping extends MappingBase<IbzCaseDTO, IbzCase> {
 
 
 }
-

@@ -12,4 +12,3 @@ public interface DynaDashboardMapping extends MappingBase<DynaDashboardDTO, Dyna
 
 
 }
-

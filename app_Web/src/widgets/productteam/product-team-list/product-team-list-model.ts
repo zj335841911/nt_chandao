@@ -15,42 +15,42 @@ export default class ProductTeamModel {
 	public getDataItems(): any[] {
 		return [
 			{
-				name: 'join',
-			},
-			{
-				name: 'estimate',
-			},
-			{
-				name: 'root',
-			},
-			{
-				name: 'consumed',
-			},
-			{
-				name: 'days',
+				name: 'id',
 			},
 			{
 				name: 'account',
         codelist:{tag:'UserRealName_Gird',codelistType:'DYNAMIC'},
 			},
 			{
-				name: 'hours',
+				name: 'join',
+			},
+			{
+				name: 'role',
+			},
+			{
+				name: 'estimate',
+			},
+			{
+				name: 'total',
 			},
 			{
 				name: 'type',
         codelist:{tag:'Team__type',codelistType:'STATIC'},
 			},
 			{
-				name: 'id',
+				name: 'consumed',
+			},
+			{
+				name: 'hours',
+			},
+			{
+				name: 'days',
 			},
 			{
 				name: 'left',
 			},
 			{
-				name: 'role',
-			},
-			{
-				name: 'total',
+				name: 'root',
 			},
 			{
 				name: 'srfkey',

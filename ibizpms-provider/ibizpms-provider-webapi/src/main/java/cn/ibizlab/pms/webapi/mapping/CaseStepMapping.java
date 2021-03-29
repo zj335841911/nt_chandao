@@ -12,4 +12,3 @@ public interface CaseStepMapping extends MappingBase<CaseStepDTO, CaseStep> {
 
 
 }
-

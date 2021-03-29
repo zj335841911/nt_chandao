@@ -12,4 +12,3 @@ public interface IbzProjectMemberMapping extends MappingBase<IbzProjectMemberDTO
 
 
 }
-

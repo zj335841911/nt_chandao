@@ -12,4 +12,3 @@ public interface TaskMapping extends MappingBase<TaskDTO, Task> {
 
 
 }
-

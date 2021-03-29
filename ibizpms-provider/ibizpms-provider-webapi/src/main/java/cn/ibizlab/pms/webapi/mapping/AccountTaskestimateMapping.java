@@ -12,4 +12,3 @@ public interface AccountTaskestimateMapping extends MappingBase<AccountTaskestim
 
 
 }
-

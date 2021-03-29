@@ -12,4 +12,3 @@ public interface IbzDailyMapping extends MappingBase<IbzDailyDTO, IbzDaily> {
 
 
 }
-

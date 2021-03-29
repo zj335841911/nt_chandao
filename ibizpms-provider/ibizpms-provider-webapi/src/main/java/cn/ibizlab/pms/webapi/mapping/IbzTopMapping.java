@@ -12,4 +12,3 @@ public interface IbzTopMapping extends MappingBase<IbzTopDTO, IbzTop> {
 
 
 }
-

@@ -12,4 +12,3 @@ public interface DocContentMapping extends MappingBase<DocContentDTO, DocContent
 
 
 }
-

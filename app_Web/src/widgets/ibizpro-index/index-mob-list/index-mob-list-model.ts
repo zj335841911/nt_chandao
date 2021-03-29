@@ -15,16 +15,19 @@ export default class IndexMobModel {
 	public getDataItems(): any[] {
 		return [
 			{
+				name: 'indextype',
+				prop: 'indextype',
+				dataType: 'SSCODELIST',
+        codelist:{tag:'IndexType',codelistType:'STATIC'},
+			},
+			{
+				name: 'indexname',
+			},
+			{
 				name: 'orgid',
 			},
 			{
 				name: 'indexid',
-			},
-			{
-				name: 'mdeptid',
-			},
-			{
-				name: 'indexname',
 			},
 			{
 				name: 'indexdesc',
@@ -33,10 +36,7 @@ export default class IndexMobModel {
 				name: 'color',
 			},
 			{
-				name: 'indextype',
-				prop: 'indextype',
-				dataType: 'SSCODELIST',
-        codelist:{tag:'IndexType',codelistType:'STATIC'},
+				name: 'mdeptid',
 			},
 			{
 				name: 'srfkey',

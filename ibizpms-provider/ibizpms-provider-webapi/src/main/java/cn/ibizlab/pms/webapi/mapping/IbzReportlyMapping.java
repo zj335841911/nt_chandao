@@ -12,4 +12,3 @@ public interface IbzReportlyMapping extends MappingBase<IbzReportlyDTO, IbzRepor
 
 
 }
-

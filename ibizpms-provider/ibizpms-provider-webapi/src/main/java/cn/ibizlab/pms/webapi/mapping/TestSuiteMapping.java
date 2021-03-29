@@ -12,4 +12,3 @@ public interface TestSuiteMapping extends MappingBase<TestSuiteDTO, TestSuite> {
 
 
 }
-

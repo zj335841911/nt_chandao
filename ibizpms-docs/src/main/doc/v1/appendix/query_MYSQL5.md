@@ -14968,8 +14968,8 @@ FROM
 	`zt_project` t1
 	LEFT JOIN zt_project t11 ON t1.PARENT = t11.ID
 	INNER JOIN zt_team t21 on t1.ID = t21.root and t21.type= 'project' ) t1
-WHERE t1.DELETED = '0' 
-t1.orgid = #{srf.sessioncontext.srforgid} 
+WHERE t1.orgid = #{srf.sessioncontext.srforgid} 
+t1.DELETED = '0' 
 
 ```
 ### 项目团队(ProjectTeam)<div id="Project_ProjectTeam"></div>

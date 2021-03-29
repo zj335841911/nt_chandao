@@ -173,6 +173,20 @@ export default class IbizproProjectWeeklyServiceBase extends EntityService {
     }
 
     /**
+     * PushSumProjectWeeklyBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbizproProjectWeeklyServiceBase
+     */
+    public async PushSumProjectWeeklyBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/ibizproprojectweeklies/pushsumprojectweeklybatch`,tempData,isloading);
+    }
+
+    /**
      * Save接口方法
      *
      * @param {*} [context={}]

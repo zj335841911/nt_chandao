@@ -12,4 +12,3 @@ public interface IbzLibCaseStepTmpMapping extends MappingBase<IbzLibCaseStepTmpD
 
 
 }
-

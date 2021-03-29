@@ -12,4 +12,3 @@ public interface IbizproProjectMonthlyMapping extends MappingBase<IbizproProject
 
 
 }
-

@@ -33,5 +33,3 @@ public interface CaseInheritMapping {
     List<Case> toCase(List<IbizproIndex> majorEntities);
 
 }
-
-

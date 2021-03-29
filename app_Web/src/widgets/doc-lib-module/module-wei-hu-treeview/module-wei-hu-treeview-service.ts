@@ -280,12 +280,12 @@ export default class ModuleWeiHuService extends ControlService {
         return new Promise((resolve:any,reject:any) =>{
             let searchFilter: any = {};
 
-            if (Object.is(filter.strNodeType, this.TREENODE_MODULE)) {
+            if (Object.is(filter.strNodeType, this.TREENODE_CHILEMODULE)) {
                 Object.assign(searchFilter, { n_parent_eq: filter.nodeid });
             }
 
 
-            if (Object.is(filter.strNodeType, this.TREENODE_CHILEMODULE)) {
+            if (Object.is(filter.strNodeType, this.TREENODE_MODULE)) {
                 Object.assign(searchFilter, { n_parent_eq: filter.nodeid });
             }
 
