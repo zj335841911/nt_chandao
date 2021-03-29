@@ -39,8 +39,7 @@ export class CounterServiceRegister {
      * @memberof CounterServiceRegister
      */
     protected init(): void {
-                this.allCounterService.set('projecttaskqcounter', () => import('@/counter/project-task-qcounter/project-task-qcounter-counter'));
-        this.allCounterService.set('myreportcounter', () => import('@/counter/my-report-counter/my-report-counter-counter'));
+                this.allCounterService.set('myreportcounter', () => import('@/counter/my-report-counter/my-report-counter-counter'));
     }
 
     /**

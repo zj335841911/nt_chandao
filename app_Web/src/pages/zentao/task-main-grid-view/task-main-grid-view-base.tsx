@@ -2,13 +2,11 @@
 import { Subject } from 'rxjs';
 import { UIActionTool, ViewTool, Util } from '@/utils';
 import { GridViewBase } from '@/studio-core';
-import  ProjectTaskQCounterCounterService  from '@/counter/project-task-qcounter/project-task-qcounter-counter';
 import TaskService from '@/service/task/task-service';
 import TaskAuthService from '@/authservice/task/task-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
 import TaskUIService from '@/uiservice/task/task-ui-service';
 import CodeListService from '@service/app/codelist-service';
-import  ProjectTaskQCounterCounterService  from '@/counter/project-task-qcounter/project-task-qcounter-counter';
 
 
 /**
@@ -196,21 +194,13 @@ export class TaskMainGridViewBase extends GridViewBase {
 
 
     /**
-     * ProjectTaskQCounterCounterService计数器服务对象
-     *
-     * @type {ProjectTaskQCounterCounterService}
-     * @memberof TaskMainGridViewBase
-     */
-    public projecttaskqcountercounterservice: ProjectTaskQCounterCounterService = new ProjectTaskQCounterCounterService({ $store: this.$store,context:this.context,viewparams:this.viewparams});
-
-    /**
      * 计数器服务对象集合
      *
      * @type {Array<*>}
      * @memberof TaskMainGridViewBase
      */    
     public counterServiceArray: Array<any> = [
-        this.projecttaskqcountercounterservice
+        
     ];
 
     /**
@@ -588,14 +578,6 @@ export class TaskMainGridViewBase extends GridViewBase {
             _this.isExpandSearchForm = !_this.isExpandSearchForm;
         }
     }
-
-    /**
-     * ProjectTaskQCounterCounterService计数器服务对象
-     *
-     * @type {ProjectTaskQCounterCounterService}
-     * @memberof TaskMainGridViewBase
-     */
-    protected projecttaskqcountercounterservice: ProjectTaskQCounterCounterService = new ProjectTaskQCounterCounterService({ $store: this.$store,context:this.context,viewparams:this.viewparams });
 
     /**
      * 是否启用快速分组
