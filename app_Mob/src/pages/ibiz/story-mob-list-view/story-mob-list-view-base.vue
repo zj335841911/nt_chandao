@@ -94,7 +94,7 @@ export default class StoryMobListViewBase extends Vue {
 	 * @type {string}
 	 * @memberof StoryMobListViewBase
 	 */
-	protected viewtag: string = '0e1c41e8bc26190c02e9ed5f01bf32b5';
+	protected viewtag: string = 'f770611a5290693a04ac5666f8855805';
 
     /**
      * 视图上下文

@@ -15,25 +15,25 @@ export class MobModel {
 	public getDataItems(): any[] {
 		return [
 			{
-				name: 'date',
-			},
-			{
 				name: 'pri',
 			},
 			{
-				name: 'begin',
+				name: 'status',
 			},
 			{
 				name: 'end',
 			},
 			{
-				name: 'name',
+				name: 'date',
 			},
 			{
 				name: 'date1',
 			},
 			{
-				name: 'status',
+				name: 'begin',
+			},
+			{
+				name: 'name',
 			},
 			{
 				name: 'srfkey',

@@ -15,19 +15,19 @@ export class MOB_ProjectLinkStoryModel {
 	public getDataItems(): any[] {
 		return [
 			{
+				name: 'end',
+			},
+			{
 				name: 'bugcnt',
 			},
 			{
 				name: 'title',
 			},
 			{
-				name: 'begin',
-			},
-			{
-				name: 'end',
-			},
-			{
 				name: 'storycnt',
+			},
+			{
+				name: 'begin',
 			},
 			{
 				name: 'srfkey',

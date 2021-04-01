@@ -211,7 +211,7 @@ export default class IbzReportMyReMobMDViewBase extends Vue {
 	 * @type {string}
 	 * @memberof IbzReportMyReMobMDViewBase
 	 */
-	protected viewtag: string = 'f49dfaced3944c1bc17f64253fcc95a0';
+	protected viewtag: string = 'ff87986d8fb9e05715dfab560e55e144';
 
     /**
      * 视图上下文

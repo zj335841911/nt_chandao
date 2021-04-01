@@ -15,10 +15,13 @@ export class MOB_Build_CreateBugModel {
 	public getDataItems(): any[] {
 		return [
 			{
-				name: 'status',
+				name: 'title',
 			},
 			{
 				name: 'resolution',
+			},
+			{
+				name: 'assignedto',
 			},
 			{
 				name: 'pri1',
@@ -26,13 +29,10 @@ export class MOB_Build_CreateBugModel {
 				dataType: 'NSCODELIST',
 			},
 			{
-				name: 'assignedto',
+				name: 'status',
 			},
 			{
 				name: 'severity',
-			},
-			{
-				name: 'title',
 			},
 			{
 				name: 'srfkey',

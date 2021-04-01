@@ -141,7 +141,7 @@ export default class TaskUsr2MobOptionViewBase extends Vue {
 	 * @type {string}
 	 * @memberof TaskUsr2MobOptionViewBase
 	 */
-	protected viewtag: string = 'f2bd99acc8e4a6ddf45d4bbe7264cd59';
+	protected viewtag: string = 'ab7248fbbba060f0ee13a6a69f1212c0';
 
     /**
      * 视图上下文

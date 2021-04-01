@@ -90,8 +90,8 @@ export default class DocLibUIActionBase extends EntityUIActionBase {
      * @memberof  DocLibUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'mobproducttreeview',srfappde:'doclibs'});
         this.allViewMap.set(':',{viewname:'projectdoclibmobtreeview',srfappde:'doclibs'});
+        this.allViewMap.set(':',{viewname:'mobproducttreeview',srfappde:'doclibs'});
         this.allViewMap.set('MOBEDITVIEW:',{viewname:'mobeditview',srfappde:'doclibs'});
     }
 
@@ -114,9 +114,9 @@ export default class DocLibUIActionBase extends EntityUIActionBase {
      */  
     public initDeMainStateOPPrivsMap(){
         this.allDeMainStateOPPrivsMap.set('doc__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__DOCLIB_NFAVOUR_BUT':0,'FILE':0,}));
-        this.allDeMainStateOPPrivsMap.set('doc__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'FILE':0,'SRFUR__DOCLIB_FAVOUR_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('file__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'DOC':0,'SRFUR__DOCLIB_NFAVOUR_BUT':0,'SRFUR__DOCLIB_FAVOUR_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('file__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__DOCLIB_FAVOUR_BUT':0,'DOC':0,'SRFUR__DOCLIB_NFAVOUR_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('doc__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__DOCLIB_FAVOUR_BUT':0,'FILE':0,}));
+        this.allDeMainStateOPPrivsMap.set('file__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__DOCLIB_FAVOUR_BUT':0,'DOC':0,'SRFUR__DOCLIB_NFAVOUR_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('file__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'DOC':0,'SRFUR__DOCLIB_NFAVOUR_BUT':0,'SRFUR__DOCLIB_FAVOUR_BUT':0,}));
     }
 
     /**

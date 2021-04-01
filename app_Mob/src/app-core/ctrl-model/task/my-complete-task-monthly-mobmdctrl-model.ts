@@ -15,28 +15,28 @@ export class MyCompleteTaskMonthlyModel {
 	public getDataItems(): any[] {
 		return [
 			{
-				name: 'productname',
+				name: 'id',
+			},
+			{
+				name: 'pri',
 			},
 			{
 				name: 'status',
 			},
 			{
-				name: 'id',
+				name: 'deadline',
 			},
 			{
 				name: 'finishedby',
 			},
 			{
+				name: 'productname',
+			},
+			{
 				name: 'projectname',
 			},
 			{
-				name: 'assignedto',
-			},
-			{
 				name: 'estimate',
-			},
-			{
-				name: 'pri',
 			},
 			{
 				name: 'left',
@@ -45,10 +45,10 @@ export class MyCompleteTaskMonthlyModel {
 				name: 'consumed',
 			},
 			{
-				name: 'name',
+				name: 'assignedto',
 			},
 			{
-				name: 'deadline',
+				name: 'name',
 			},
 			{
 				name: 'srfkey',
@@ -66,6 +66,16 @@ export class MyCompleteTaskMonthlyModel {
 				dataType: 'PICKUP',
 			},
 			{
+				name: 'plan',
+				prop: 'plan',
+				dataType: 'PICKUP',
+			},
+			{
+				name: 'module',
+				prop: 'module',
+				dataType: 'PICKUP',
+			},
+			{
 				name: 'story',
 				prop: 'story',
 				dataType: 'PICKUP',
@@ -78,16 +88,6 @@ export class MyCompleteTaskMonthlyModel {
 			{
 				name: 'frombug',
 				prop: 'frombug',
-				dataType: 'PICKUP',
-			},
-			{
-				name: 'module',
-				prop: 'module',
-				dataType: 'PICKUP',
-			},
-			{
-				name: 'plan',
-				prop: 'plan',
 				dataType: 'PICKUP',
 			},
 			{

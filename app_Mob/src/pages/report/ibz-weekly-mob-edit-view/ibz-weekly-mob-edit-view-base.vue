@@ -52,21 +52,21 @@
                 @click="popUpGroup(true)" />
             <van-popup v-if="getToolBarLimit" class="popup" v-model="showGrop" round position="bottom">
                 <div class="container">
-                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_mobedit1.disabled}" v-show="righttoolbarModels.deuiaction1_mobedit1.visabled">
-                <app-mob-button 
-                    :disabled="righttoolbarModels.deuiaction1_mobedit1.disabled" 
-                    size="large"  
-                    iconName="edit" 
-                    @click="righttoolbar_click({ tag: 'deuiaction1_mobedit1' }, $event),popUpGroup()" />
-                
-            </div>
-        
                     <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_mobsubmit.disabled}" v-show="righttoolbarModels.deuiaction1_mobsubmit.visabled">
                 <app-mob-button 
                     :disabled="righttoolbarModels.deuiaction1_mobsubmit.disabled" 
                     size="large"  
                     iconName="check" 
                     @click="righttoolbar_click({ tag: 'deuiaction1_mobsubmit' }, $event),popUpGroup()" />
+                
+            </div>
+        
+                    <div :class="{'sub-item':true,'disabled':righttoolbarModels.deuiaction1_mobedit1.disabled}" v-show="righttoolbarModels.deuiaction1_mobedit1.visabled">
+                <app-mob-button 
+                    :disabled="righttoolbarModels.deuiaction1_mobedit1.disabled" 
+                    size="large"  
+                    iconName="edit" 
+                    @click="righttoolbar_click({ tag: 'deuiaction1_mobedit1' }, $event),popUpGroup()" />
                 
             </div>
         
@@ -159,7 +159,7 @@ export default class IbzWeeklyMobEditViewBase extends Vue {
 	 * @type {string}
 	 * @memberof IbzWeeklyMobEditViewBase
 	 */
-	protected viewtag: string = 'bb9616d1f1ed5c36e119f071e98b637b';
+	protected viewtag: string = '00ff7889456677e23e769a5dbc9660af';
 
     /**
      * 视图上下文
@@ -314,9 +314,9 @@ export default class IbzWeeklyMobEditViewBase extends Vue {
     * @memberof IbzWeeklyMobEditView
     */
     public righttoolbarModels: any = {
-            deuiaction1_mobedit1: { name: 'deuiaction1_mobedit1', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__WEEKLY_SUBMIT_BUT', uiaction: { tag: 'mobEdit1', target: 'SINGLEKEY' } },
-
             deuiaction1_mobsubmit: { name: 'deuiaction1_mobsubmit', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__WEEKLY_SUBMIT_BUT', uiaction: { tag: 'MobSubmit', target: 'SINGLEKEY' } },
+
+            deuiaction1_mobedit1: { name: 'deuiaction1_mobedit1', disabled: false, type: 'DEUIACTION', visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__WEEKLY_SUBMIT_BUT', uiaction: { tag: 'mobEdit1', target: 'SINGLEKEY' } },
 
     };
 
@@ -607,46 +607,14 @@ export default class IbzWeeklyMobEditViewBase extends Vue {
      * @memberof IbzWeeklyMobEditViewBase
      */
     protected righttoolbar_click($event: any, $event2?: any) {
-        if (Object.is($event.tag, 'deuiaction1_mobedit1')) {
-            this.righttoolbar_deuiaction1_mobedit1_click($event, '', $event2);
-        }
         if (Object.is($event.tag, 'deuiaction1_mobsubmit')) {
             this.righttoolbar_deuiaction1_mobsubmit_click($event, '', $event2);
         }
-    }
-
-
-    /**
-     * 逻辑事件
-     *
-     * @protected
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @returns {Promise<any>}
-     * @memberof IbzWeeklyMobEditViewBase
-     */
-    protected async righttoolbar_deuiaction1_mobedit1_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
-        // 参数
-
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let contextJO: any = {};
-        let paramJO: any = {};
-        
-        xData = this.$refs.form;
-        if (xData.getDatas && xData.getDatas instanceof Function) {
-            datas = [...xData.getDatas()];
-        }
-        // 界面行为
-        const curUIService: any = await this.globaluiservice.getService('ibzweekly_ui_action');
-        if (curUIService) {
-            curUIService.IbzWeekly_mobEdit1(datas, contextJO, paramJO, $event, xData, this);
+        if (Object.is($event.tag, 'deuiaction1_mobedit1')) {
+            this.righttoolbar_deuiaction1_mobedit1_click($event, '', $event2);
         }
     }
+
 
     /**
      * 逻辑事件
@@ -677,6 +645,38 @@ export default class IbzWeeklyMobEditViewBase extends Vue {
         const curUIService: any = await this.globaluiservice.getService('ibzweekly_ui_action');
         if (curUIService) {
             curUIService.IbzWeekly_MobSubmit(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof IbzWeeklyMobEditViewBase
+     */
+    protected async righttoolbar_deuiaction1_mobedit1_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+        // 参数
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this.$refs.form;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('ibzweekly_ui_action');
+        if (curUIService) {
+            curUIService.IbzWeekly_mobEdit1(datas, contextJO, paramJO, $event, xData, this);
         }
     }
 

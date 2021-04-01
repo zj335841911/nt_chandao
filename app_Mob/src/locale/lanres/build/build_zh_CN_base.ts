@@ -1,60 +1,60 @@
 import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
+    ids: "Bug版本健值",
     name: "名称编号",
+    backgroundid: "后台体系",
     builder: "构建者",
+    files: "附件",
+    releasetype: "运行模式",
+    builderpk: "构建者（选择）",
+    rebuild: "重新构建",
     desc: "描述",
     id: "id",
     deleted: "已删除",
+    sqlid: "运行数据库",
     scmpath: "源代码地址",
     filepath: "下载地址",
+    createbugcnt: "产生的bug",
     stories: "完成的需求",
     bugs: "解决的Bug",
+    frontapplication: "系统应用",
+    noticeusers: "消息通知用户",
     date: "打包日期",
+    productname: "产品名称",
     product: "产品",
     branch: "平台/分支",
     project: "所属项目",
-    productname: "产品名称",
-    ids: "Bug版本健值",
-    files: "附件",
-    rebuild: "重新构建",
-    releasetype: "运行模式",
-    frontapplication: "系统应用",
-    backgroundid: "后台体系",
-    sqlid: "运行数据库",
-    createbugcnt: "产生的bug",
-    builderpk: "构建者（选择）",
-    noticeusers: "消息通知用户",
   },
 	views: {
+		mobmpickupview: {
+			caption: commonLogic.appcommonhandle("版本",null),
+		},
+		mobeditview: {
+			caption: commonLogic.appcommonhandle("版本",null),
+		},
+		logmobeditview: {
+			caption: commonLogic.appcommonhandle("更新日志",null),
+		},
+		editmobeditview: {
+			caption: commonLogic.appcommonhandle("版本",null),
+		},
+		mobpickupview: {
+			caption: commonLogic.appcommonhandle("版本",null),
+		},
+		mobtabexpview: {
+			caption: commonLogic.appcommonhandle("版本",null),
+		},
 		mobpickupmdview: {
 			caption: commonLogic.appcommonhandle("版本",null),
 		},
 		logmobmdview: {
 			caption: commonLogic.appcommonhandle("更新日志",null),
 		},
-		mobtabexpview: {
-			caption: commonLogic.appcommonhandle("版本",null),
-		},
-		mobmdview: {
-			caption: commonLogic.appcommonhandle("版本",null),
-		},
-		mobeditview: {
-			caption: commonLogic.appcommonhandle("版本",null),
-		},
-		mobpickupview: {
-			caption: commonLogic.appcommonhandle("版本",null),
-		},
-		editmobeditview: {
-			caption: commonLogic.appcommonhandle("版本",null),
-		},
 		newmobeditview: {
 			caption: commonLogic.appcommonhandle("版本",null),
 		},
-		logmobeditview: {
-			caption: commonLogic.appcommonhandle("更新日志",null),
-		},
-		mobmpickupview: {
+		mobmdview: {
 			caption: commonLogic.appcommonhandle("版本",null),
 		},
 	},

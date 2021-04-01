@@ -15,34 +15,34 @@ export class MOBPorjectModel {
 	public getDataItems(): any[] {
 		return [
 			{
-				name: 'id',
-			},
-			{
-				name: 'status',
-			},
-			{
-				name: 'stage',
+				name: 'color',
 			},
 			{
 				name: 'isleaf',
 			},
 			{
-				name: 'pri',
-			},
-			{
 				name: 'isfavorites',
-			},
-			{
-				name: 'color',
-			},
-			{
-				name: 'parent',
 			},
 			{
 				name: 'title',
 			},
 			{
 				name: 'assignedto',
+			},
+			{
+				name: 'pri',
+			},
+			{
+				name: 'id',
+			},
+			{
+				name: 'parent',
+			},
+			{
+				name: 'status',
+			},
+			{
+				name: 'stage',
 			},
 			{
 				name: 'srfkey',

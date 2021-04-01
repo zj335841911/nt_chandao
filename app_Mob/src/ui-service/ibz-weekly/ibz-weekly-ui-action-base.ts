@@ -90,17 +90,17 @@ export default class IbzWeeklyUIActionBase extends EntityUIActionBase {
      * @memberof  IbzWeeklyUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'mobeditviewcreate',srfappde:'ibzweeklies'});
-        this.allViewMap.set(':',{viewname:'usr2mobtabexpview',srfappde:'ibzweeklies'});
-        this.allViewMap.set(':',{viewname:'mobeditviewmainmytijiao',srfappde:'ibzweeklies'});
-        this.allViewMap.set(':',{viewname:'usr2mobtabexpviewmytijiao',srfappde:'ibzweeklies'});
-        this.allViewMap.set(':',{viewname:'usr2mobtabexpviewmyreceived',srfappde:'ibzweeklies'});
-        this.allViewMap.set(':',{viewname:'usr2mobmdview',srfappde:'ibzweeklies'});
-        this.allViewMap.set(':',{viewname:'usr2mobeditview',srfappde:'ibzweeklies'});
         this.allViewMap.set('MOBEDITVIEW:',{viewname:'mobeditview',srfappde:'ibzweeklies'});
         this.allViewMap.set(':',{viewname:'mobmdview',srfappde:'ibzweeklies'});
+        this.allViewMap.set(':',{viewname:'usr2mobtabexpview',srfappde:'ibzweeklies'});
         this.allViewMap.set(':',{viewname:'mobeditviewmian',srfappde:'ibzweeklies'});
+        this.allViewMap.set(':',{viewname:'mobeditviewmainmytijiao',srfappde:'ibzweeklies'});
         this.allViewMap.set(':',{viewname:'mobeditviewmainreceived',srfappde:'ibzweeklies'});
+        this.allViewMap.set(':',{viewname:'usr2mobtabexpviewmytijiao',srfappde:'ibzweeklies'});
+        this.allViewMap.set(':',{viewname:'usr2mobtabexpviewmyreceived',srfappde:'ibzweeklies'});
+        this.allViewMap.set(':',{viewname:'mobeditviewcreate',srfappde:'ibzweeklies'});
+        this.allViewMap.set(':',{viewname:'usr2mobeditview',srfappde:'ibzweeklies'});
+        this.allViewMap.set(':',{viewname:'usr2mobmdview',srfappde:'ibzweeklies'});
     }
 
     /**
@@ -121,6 +121,67 @@ export default class IbzWeeklyUIActionBase extends EntityUIActionBase {
     public initDeMainStateOPPrivsMap(){
         this.allDeMainStateOPPrivsMap.set('0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__WEEKLY_NSUBMIT_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__WEEKLY_SUBMIT_BUT':0,}));
+    }
+
+    /**
+     * 提交
+     *
+     * @param {any[]} args 数据
+     * @param {*} [contextJO={}] 行为上下文
+     * @param {*} [paramJO={}] 行为参数
+     * @param {*} [$event] 事件
+     * @param {*} [xData] 数据目标
+     * @param {*} [container] 行为容器对象
+     * @param {string} [srfParentDeName] 
+     * @returns {Promise<any>}
+     * @memberof IbzWeeklyUIService
+     */
+    public async IbzWeekly_MobSubmit(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+        const state: boolean = await Notice.getInstance().confirm('警告', '你确定现在提交吗？');
+        if (!state) {
+            return Promise.reject();
+        }
+        let _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(contextJO, { ibzweekly: '%ibzweekly%' });
+        Object.assign(paramJO, { ibzweeklyid: '%ibzweekly%' });
+        Object.assign(paramJO, { ibzweeklyname: '%ibzweeklyname%' });
+        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
+        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
+        context = { ...container.context, ...context };
+        let parentObj: any = {
+            srfparentdename: srfParentDeName ? srfParentDeName : null,
+            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
+        };
+        Object.assign(context, parentObj);
+        Object.assign(params, parentObj);
+        // 直接调实体服务需要转换的数据
+        if (context && context.srfsessionid) {
+            context.srfsessionkey = context.srfsessionid;
+            delete context.srfsessionid;
+        }
+        // 导航参数
+        let panelNavParam= { } ;
+        let panelNavContext= { } ;
+        if(Util.typeOf(_args) == 'array' && _args.length > 0){
+            _args = _args[0];
+        }
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
+        const backend = async () => {
+            const curUIService: any = await this.globaluiservice.getAppEntityService('ibzweekly');
+            const response: any = await curUIService.Submit(_context, _params);
+            if (response && response.status === 200) {
+                this.notice.success('提交成功！');
+                if (xData && xData.refresh && xData.refresh instanceof Function) {
+                    xData.refresh(args);
+                    AppCenterService.notifyMessage({name:"IbzWeekly",action:'appRefresh',data:args});
+                }
+            } else {
+                this.notice.error('系统异常！');
+            }
+            return response;
+        };
+        return backend();
     }
 
     /**
@@ -204,67 +265,6 @@ export default class IbzWeeklyUIActionBase extends EntityUIActionBase {
         const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
         response = await this.openService.openView(routeParam);
         return response;
-    }
-
-    /**
-     * 提交
-     *
-     * @param {any[]} args 数据
-     * @param {*} [contextJO={}] 行为上下文
-     * @param {*} [paramJO={}] 行为参数
-     * @param {*} [$event] 事件
-     * @param {*} [xData] 数据目标
-     * @param {*} [container] 行为容器对象
-     * @param {string} [srfParentDeName] 
-     * @returns {Promise<any>}
-     * @memberof IbzWeeklyUIService
-     */
-    public async IbzWeekly_MobSubmit(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const state: boolean = await Notice.getInstance().confirm('警告', '你确定现在提交吗？');
-        if (!state) {
-            return Promise.reject();
-        }
-        let _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(contextJO, { ibzweekly: '%ibzweekly%' });
-        Object.assign(paramJO, { ibzweeklyid: '%ibzweekly%' });
-        Object.assign(paramJO, { ibzweeklyname: '%ibzweeklyname%' });
-        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
-        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
-        context = { ...container.context, ...context };
-        let parentObj: any = {
-            srfparentdename: srfParentDeName ? srfParentDeName : null,
-            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
-        };
-        Object.assign(context, parentObj);
-        Object.assign(params, parentObj);
-        // 直接调实体服务需要转换的数据
-        if (context && context.srfsessionid) {
-            context.srfsessionkey = context.srfsessionid;
-            delete context.srfsessionid;
-        }
-        // 导航参数
-        let panelNavParam= { } ;
-        let panelNavContext= { } ;
-        if(Util.typeOf(_args) == 'array' && _args.length > 0){
-            _args = _args[0];
-        }
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
-        const backend = async () => {
-            const curUIService: any = await this.globaluiservice.getAppEntityService('ibzweekly');
-            const response: any = await curUIService.Submit(_context, _params);
-            if (response && response.status === 200) {
-                this.notice.success('提交成功！');
-                if (xData && xData.refresh && xData.refresh instanceof Function) {
-                    xData.refresh(args);
-                    AppCenterService.notifyMessage({name:"IbzWeekly",action:'appRefresh',data:args});
-                }
-            } else {
-                this.notice.error('系统异常！');
-            }
-            return response;
-        };
-        return backend();
     }
 
 

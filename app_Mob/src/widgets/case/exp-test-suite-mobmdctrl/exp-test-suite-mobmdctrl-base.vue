@@ -5,7 +5,7 @@
                 <template v-if="(viewType == 'DEMOBMDVIEW9') && controlStyle != 'SWIPERVIEW' ">
                     <ion-item-sliding ref="sliding" v-for="(item,index) in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
-                            <ion-item-option v-show="item.mobUnlinkSuiteCase.visabled" :disabled="item.mobUnlinkSuiteCase.disabled" color="primary" @click="mdctrl_click($event, 'ued2d3f2', item)"><app-mob-icon v-if="item.mobUnlinkSuiteCase.icon && item.mobUnlinkSuiteCase.isShowIcon" :name="item.mobUnlinkSuiteCase.icon"></app-mob-icon><ion-label v-if="item.mobUnlinkSuiteCase.isShowCaption">移除</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.mobUnlinkSuiteCase.visabled" :disabled="item.mobUnlinkSuiteCase.disabled" color="primary" @click="mdctrl_click($event, 'u25a05e5', item)"><app-mob-icon v-if="item.mobUnlinkSuiteCase.icon && item.mobUnlinkSuiteCase.isShowIcon" :name="item.mobUnlinkSuiteCase.icon"></app-mob-icon><ion-label v-if="item.mobUnlinkSuiteCase.isShowCaption">移除</ion-label></ion-item-option>
                         </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
@@ -20,7 +20,7 @@
                 <template v-if="(viewType == 'DEMOBMDVIEW') && controlStyle != 'SWIPERVIEW' ">
                       <ion-item-sliding  :ref="item.srfkey" v-for="(item,index) in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
-                            <ion-item-option v-show="item.mobUnlinkSuiteCase.visabled" :disabled="item.mobUnlinkSuiteCase.disabled" color="primary" @click="mdctrl_click($event, 'ued2d3f2', item)"><app-mob-icon v-if="item.mobUnlinkSuiteCase.icon && item.mobUnlinkSuiteCase.isShowIcon" :name="item.mobUnlinkSuiteCase.icon"></app-mob-icon><ion-label v-if="item.mobUnlinkSuiteCase.isShowCaption">移除</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.mobUnlinkSuiteCase.visabled" :disabled="item.mobUnlinkSuiteCase.disabled" color="primary" @click="mdctrl_click($event, 'u25a05e5', item)"><app-mob-icon v-if="item.mobUnlinkSuiteCase.icon && item.mobUnlinkSuiteCase.isShowIcon" :name="item.mobUnlinkSuiteCase.icon"></app-mob-icon><ion-label v-if="item.mobUnlinkSuiteCase.isShowCaption">移除</ion-label></ion-item-option>
                         </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
@@ -233,7 +233,7 @@ export default class Exp_TestSuiteBase extends Vue implements ControlInterface {
      * @returns {Promise<any>}
      * @memberof MdctrlBase
      */
-    protected async mdctrl_ued2d3f2_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async mdctrl_u25a05e5_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
 
         // 取数
         let datas: any[] = [];
@@ -975,8 +975,8 @@ export default class Exp_TestSuiteBase extends Vue implements ControlInterface {
         $event.stopPropagation();
         this.selectedArray = [];
         this.selectedArray.push(item);
-        if (Object.is(tag, 'ued2d3f2')) {
-            this.mdctrl_ued2d3f2_click();
+        if (Object.is(tag, 'u25a05e5')) {
+            this.mdctrl_u25a05e5_click();
         }
         this.closeSlidings(item);
     }

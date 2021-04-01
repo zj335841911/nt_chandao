@@ -37,6 +37,9 @@ export class MobPickupViewpickupviewpanelModel {
         prop: 'id',
       },
       {
+        name: 'orderpk',
+      },
+      {
         name: 'collector',
       },
       {
@@ -44,6 +47,12 @@ export class MobPickupViewpickupviewpanelModel {
       },
       {
         name: 'path',
+      },
+      {
+        name: 'mdeptid',
+      },
+      {
+        name: 'orgid',
       },
       {
         name: 'deleted',
@@ -56,15 +65,6 @@ export class MobPickupViewpickupviewpanelModel {
       },
       {
         name: 'parent',
-      },
-      {
-        name: 'mdeptid',
-      },
-      {
-        name: 'orgid',
-      },
-      {
-        name: 'orderpk',
       },
     ]
   }

@@ -15,13 +15,6 @@
                 </ion-list>
                 <ion-list class="items" ref="ionlist"  @touchmove="gotouchmove" @touchstart="gotouchstart"  @touchend="gotouchend">
                   <ion-item-sliding  :ref="item.srfkey" v-for="(item,index) in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
-                        <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
-                            <ion-item-option v-show="item.EditMob.visabled" :disabled="item.EditMob.disabled" color="primary" @click="mdctrl_click($event, 'u89c41af', item)"><app-mob-icon v-if="item.EditMob.icon && item.EditMob.isShowIcon" :name="item.EditMob.icon"></app-mob-icon><ion-label v-if="item.EditMob.isShowCaption">详情</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.ProductTop.visabled" :disabled="item.ProductTop.disabled" color="primary" @click="mdctrl_click($event, 'u1f01c30', item)"><app-mob-icon v-if="item.ProductTop.icon && item.ProductTop.isShowIcon" :name="item.ProductTop.icon"></app-mob-icon><ion-label v-if="item.ProductTop.isShowCaption">置顶</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.CancelProductTop.visabled" :disabled="item.CancelProductTop.disabled" color="primary" @click="mdctrl_click($event, 'u8d9e94f', item)"><app-mob-icon v-if="item.CancelProductTop.icon && item.CancelProductTop.isShowIcon" :name="item.CancelProductTop.icon"></app-mob-icon><ion-label v-if="item.CancelProductTop.isShowCaption">取消置顶</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.CloseProductMob.visabled" :disabled="item.CloseProductMob.disabled" color="primary" @click="mdctrl_click($event, 'ubbd2867', item)"><app-mob-icon v-if="item.CloseProductMob.icon && item.CloseProductMob.isShowIcon" :name="item.CloseProductMob.icon"></app-mob-icon><ion-label v-if="item.CloseProductMob.isShowCaption">关闭</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.deleteMob.visabled" :disabled="item.deleteMob.disabled" color="primary" @click="mdctrl_click($event, 'u4089ced', item)"><app-mob-icon v-if="item.deleteMob.icon && item.deleteMob.isShowIcon" :name="item.deleteMob.icon"></app-mob-icon><ion-label v-if="item.deleteMob.isShowCaption">删除</ion-label></ion-item-option>
-                        </ion-item-options>
                     <ion-item>
                       <template v-if="(viewType == 'DEMOBMDVIEW') && controlStyle != 'SWIPERVIEW' ">
                         <app-mob-icon 
@@ -224,161 +217,6 @@ export default class MobBase extends Vue implements ControlInterface {
         }
         // 界面行为
         this.globaluiservice.Remove(datas, contextJO, paramJO, $event, xData, this);
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @protected
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @returns {Promise<any>}
-     * @memberof MdctrlBase
-     */
-    protected async mdctrl_u89c41af_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
-
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let contextJO: any = {};
-        let paramJO: any = {};
-        
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        // 界面行为
-        const curUIService: any = await this.globaluiservice.getService('product_ui_action');
-        if (curUIService) {
-            curUIService.Product_EditMob(datas, contextJO, paramJO, $event, xData, this);
-        }
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @protected
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @returns {Promise<any>}
-     * @memberof MdctrlBase
-     */
-    protected async mdctrl_u1f01c30_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
-
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let contextJO: any = {};
-        let paramJO: any = {};
-        
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        // 界面行为
-        const curUIService: any = await this.globaluiservice.getService('product_ui_action');
-        if (curUIService) {
-            curUIService.Product_ProductTop(datas, contextJO, paramJO, $event, xData, this);
-        }
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @protected
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @returns {Promise<any>}
-     * @memberof MdctrlBase
-     */
-    protected async mdctrl_u8d9e94f_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
-
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let contextJO: any = {};
-        let paramJO: any = {};
-        
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        // 界面行为
-        const curUIService: any = await this.globaluiservice.getService('product_ui_action');
-        if (curUIService) {
-            curUIService.Product_CancelProductTop(datas, contextJO, paramJO, $event, xData, this);
-        }
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @protected
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @returns {Promise<any>}
-     * @memberof MdctrlBase
-     */
-    protected async mdctrl_ubbd2867_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
-
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let contextJO: any = {};
-        let paramJO: any = {};
-        
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        // 界面行为
-        const curUIService: any = await this.globaluiservice.getService('product_ui_action');
-        if (curUIService) {
-            curUIService.Product_CloseProductMob(datas, contextJO, paramJO, $event, xData, this);
-        }
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @protected
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @returns {Promise<any>}
-     * @memberof MdctrlBase
-     */
-    protected async mdctrl_u4089ced_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
-
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let contextJO: any = {};
-        let paramJO: any = {};
-        
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        // 界面行为
-        const curUIService: any = await this.globaluiservice.getService('product_ui_action');
-        if (curUIService) {
-            curUIService.Product_deleteMob(datas, contextJO, paramJO, $event, xData, this);
-        }
     }
 
     /**
@@ -1014,6 +852,18 @@ export default class MobBase extends Vue implements ControlInterface {
                 }
             })
         }
+        if (!this.isMutli) {
+            if (this.selectedData && this.selectedData.length > 0) {
+                this.radio = this.selectedData[0].srfkey;
+            }
+        } else {
+            if (this.selectedData && this.selectedData.length > 0) {
+                this.checkboxList = [];
+                this.selectedData.forEach((item: any) => {
+                    this.checkboxList.push(item.srfkey);
+                })
+            }
+        }
     }
 
     /**
@@ -1102,21 +952,6 @@ export default class MobBase extends Vue implements ControlInterface {
         $event.stopPropagation();
         this.selectedArray = [];
         this.selectedArray.push(item);
-        if (Object.is(tag, 'u89c41af')) {
-            this.mdctrl_u89c41af_click();
-        }
-        if (Object.is(tag, 'u1f01c30')) {
-            this.mdctrl_u1f01c30_click();
-        }
-        if (Object.is(tag, 'u8d9e94f')) {
-            this.mdctrl_u8d9e94f_click();
-        }
-        if (Object.is(tag, 'ubbd2867')) {
-            this.mdctrl_ubbd2867_click();
-        }
-        if (Object.is(tag, 'u4089ced')) {
-            this.mdctrl_u4089ced_click();
-        }
         this.closeSlidings(item);
     }
 
@@ -1223,12 +1058,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof MobBase
      */  
     public ActionModel:any ={
-        Remove: { name: 'Remove',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALDELETE', target: 'MULTIKEY',icon:'remove',},
-        EditMob: { name: 'EditMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: '', target: 'SINGLEKEY',icon:'paper',isShowCaption:true,isShowIcon:true},
-        ProductTop: { name: 'ProductTop',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'NOTOP', target: 'SINGLEKEY',icon:'hand-o-up',isShowCaption:true,isShowIcon:true},
-        CancelProductTop: { name: 'CancelProductTop',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'TOP', target: 'SINGLEKEY',icon:'hand-o-down',isShowCaption:true,isShowIcon:true},
-        CloseProductMob: { name: 'CloseProductMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROD_CLOSED_BUT', target: 'SINGLEKEY',icon:'power',isShowCaption:true,isShowIcon:true},
-        deleteMob: { name: 'deleteMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__PROD_DELETE_BUT', target: 'SINGLEKEY',icon:'close',isShowCaption:true,isShowIcon:true}
+        Remove: { name: 'Remove',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALDELETE', target: 'MULTIKEY',icon:'remove',}
     };
 
     

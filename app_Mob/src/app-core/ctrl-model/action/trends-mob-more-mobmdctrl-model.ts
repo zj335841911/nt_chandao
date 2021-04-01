@@ -15,10 +15,27 @@ export class TrendsMobMoreModel {
 	public getDataItems(): any[] {
 		return [
 			{
-				name: 'product',
+				name: 'actions',
+				prop: 'action',
+				dataType: 'SSCODELIST',
 			},
 			{
-				name: 'actionmanner',
+				name: 'date',
+			},
+			{
+				name: 'actor',
+			},
+			{
+				name: 'date1',
+			},
+			{
+				name: 'read',
+			},
+			{
+				name: 'id',
+			},
+			{
+				name: 'project',
 			},
 			{
 				name: 'objecttype',
@@ -27,27 +44,10 @@ export class TrendsMobMoreModel {
 				name: 'objectid',
 			},
 			{
-				name: 'date',
+				name: 'product',
 			},
 			{
-				name: 'date1',
-			},
-			{
-				name: 'actor',
-			},
-			{
-				name: 'read',
-			},
-			{
-				name: 'project',
-			},
-			{
-				name: 'id',
-			},
-			{
-				name: 'actions',
-				prop: 'action',
-				dataType: 'SSCODELIST',
+				name: 'actionmanner',
 			},
 			{
 				name: 'srfkey',

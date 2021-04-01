@@ -141,7 +141,7 @@ export default class DocLibMobEditViewBase extends Vue {
 	 * @type {string}
 	 * @memberof DocLibMobEditViewBase
 	 */
-	protected viewtag: string = 'b876878a52eca4c8f8ddf2b32fdf1bd2';
+	protected viewtag: string = 'ec72fd71c2d876c13a61245c7728eb82';
 
     /**
      * 视图上下文

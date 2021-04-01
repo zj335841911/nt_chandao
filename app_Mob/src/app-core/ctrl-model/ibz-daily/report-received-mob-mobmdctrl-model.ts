@@ -15,7 +15,10 @@ export class ReportReceivedMobModel {
 	public getDataItems(): any[] {
 		return [
 			{
-				name: 'account',
+				name: 'date',
+			},
+			{
+				name: 'reportstatus',
 			},
 			{
 				name: 'issubmit',
@@ -27,13 +30,10 @@ export class ReportReceivedMobModel {
 				name: 'ibz_dailyname',
 			},
 			{
-				name: 'reportstatus',
-			},
-			{
-				name: 'date',
-			},
-			{
 				name: 'reportto',
+			},
+			{
+				name: 'account',
 			},
 			{
 				name: 'srfkey',

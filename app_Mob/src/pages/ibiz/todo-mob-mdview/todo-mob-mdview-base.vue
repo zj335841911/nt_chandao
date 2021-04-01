@@ -164,7 +164,7 @@ export default class TodoMobMDViewBase extends Vue {
 	 * @type {string}
 	 * @memberof TodoMobMDViewBase
 	 */
-	protected viewtag: string = '899ab4d4cfc33b089a9c4aa5118acbf3';
+	protected viewtag: string = '19e1bcc5b012c2502c5ff456c4d9b6ef';
 
     /**
      * 视图上下文

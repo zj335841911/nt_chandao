@@ -211,7 +211,7 @@ export default class IbzReportMobMDViewBase extends Vue {
 	 * @type {string}
 	 * @memberof IbzReportMobMDViewBase
 	 */
-	protected viewtag: string = '35bd5c967f7ff8d253e10cf7b12dde28';
+	protected viewtag: string = 'c9195460622eb24b2fdad1f86946e544';
 
     /**
      * 视图上下文

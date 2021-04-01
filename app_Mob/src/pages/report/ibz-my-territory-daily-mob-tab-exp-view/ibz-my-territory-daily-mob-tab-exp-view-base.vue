@@ -121,7 +121,7 @@ export default class IbzMyTerritoryDailyMobTabExpViewBase extends Vue {
 	 * @type {string}
 	 * @memberof IbzMyTerritoryDailyMobTabExpViewBase
 	 */
-	protected viewtag: string = '75722e2318eeb643b91480d5221d16b5';
+	protected viewtag: string = '904b990dc0451cc9f3d7bc232fa8f6ca';
 
     /**
      * 视图上下文

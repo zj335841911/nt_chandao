@@ -141,7 +141,7 @@ export default class TaskCloseMobOptionViewBase extends Vue {
 	 * @type {string}
 	 * @memberof TaskCloseMobOptionViewBase
 	 */
-	protected viewtag: string = '4a68a7fca37b1f7d3cf396c66fd2347a';
+	protected viewtag: string = 'd4a277468f33c18a64ebe64e0af28b7c';
 
     /**
      * 视图上下文

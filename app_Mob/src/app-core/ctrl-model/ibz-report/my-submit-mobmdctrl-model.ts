@@ -15,34 +15,34 @@ export class MySubmitModel {
 	public getDataItems(): any[] {
 		return [
 			{
-				name: 'type',
-			},
-			{
-				name: 'account',
-			},
-			{
-				name: 'issubmit',
+				name: 'worktoday',
 			},
 			{
 				name: 'ibz_dailyid',
 			},
 			{
-				name: 'ibz_dailyname',
+				name: 'issubmit',
 			},
 			{
 				name: 'reportstatus',
 			},
 			{
-				name: 'date',
+				name: 'type',
 			},
 			{
-				name: 'worktoday',
+				name: 'comment',
+			},
+			{
+				name: 'account',
 			},
 			{
 				name: 'planstomorrow',
 			},
 			{
-				name: 'comment',
+				name: 'ibz_dailyname',
+			},
+			{
+				name: 'date',
 			},
 			{
 				name: 'srfkey',

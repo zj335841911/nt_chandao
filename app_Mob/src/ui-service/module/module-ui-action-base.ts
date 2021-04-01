@@ -90,8 +90,8 @@ export default class ModuleUIActionBase extends EntityUIActionBase {
      * @memberof  ModuleUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set('MOBPICKUPVIEW:',{viewname:'mobpickupview',srfappde:'modules'});
         this.allViewMap.set(':',{viewname:'mobpickupmdview',srfappde:'modules'});
+        this.allViewMap.set('MOBPICKUPVIEW:',{viewname:'mobpickupview',srfappde:'modules'});
     }
 
     /**

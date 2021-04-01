@@ -16,7 +16,7 @@
             loaddraftAction=""
             loadAction="Get"
             createAction="Create"
-            fetchAction="" 
+            fetchAction="FetchDefault" 
             :isMutli="!isSingleSelect"
             :isNeedLoaddingText="!isPortalView"
             :showBusyIndicator="true" 
@@ -121,7 +121,7 @@ export default class BugAssMobMDView9Base extends Vue {
 	 * @type {string}
 	 * @memberof BugAssMobMDView9Base
 	 */
-	protected viewtag: string = '62bf2b41c1c5e5c96fcdcf923f53898d';
+	protected viewtag: string = '5780b0be9d2146f144ec6f0fcd2e7216';
 
     /**
      * 视图上下文

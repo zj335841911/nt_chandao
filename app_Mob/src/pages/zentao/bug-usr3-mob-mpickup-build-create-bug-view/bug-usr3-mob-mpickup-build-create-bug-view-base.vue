@@ -123,7 +123,7 @@ export default class BugUsr3MobMPickupBuildCreateBugViewBase extends Vue {
 	 * @type {string}
 	 * @memberof BugUsr3MobMPickupBuildCreateBugViewBase
 	 */
-	protected viewtag: string = '0a6b789809245ace89e3a005f76ca854';
+	protected viewtag: string = 'c7d346953b067b41590254c201bab871';
 
     /**
      * 视图上下文

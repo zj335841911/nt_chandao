@@ -2,27 +2,27 @@ import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
     sysUpdateFeaturesName:  commonLogic.appcommonhandle("系统更新功能名称",null),
-    sysUpdateFeaturesId:  commonLogic.appcommonhandle("系统更新功能标识",null),
+    updateDate:  commonLogic.appcommonhandle("更新时间",null),
     createMan:  commonLogic.appcommonhandle("建立人",null),
     updateMan:  commonLogic.appcommonhandle("更新人",null),
-    createDate:  commonLogic.appcommonhandle("建立时间",null),
-    updateDate:  commonLogic.appcommonhandle("更新时间",null),
-    sysUpdateLogId:  commonLogic.appcommonhandle("系统更新日志标识",null),
-    sysUpdateLogName:  commonLogic.appcommonhandle("所属更新",null),
-    upfeatures:  commonLogic.appcommonhandle("更新功能",null),
-    featuresdesc:  commonLogic.appcommonhandle("功能描述",null),
     type:  commonLogic.appcommonhandle("更新类型",null),
+    createDate:  commonLogic.appcommonhandle("建立时间",null),
+    upfeatures:  commonLogic.appcommonhandle("更新功能",null),
+    sysUpdateFeaturesId:  commonLogic.appcommonhandle("系统更新功能标识",null),
     displayorder:  commonLogic.appcommonhandle("展示顺序",null),
+    featuresdesc:  commonLogic.appcommonhandle("功能描述",null),
+    sysUpdateLogName:  commonLogic.appcommonhandle("所属更新",null),
+    sysUpdateLogId:  commonLogic.appcommonhandle("系统更新日志标识",null),
   },
 	views: {
+		mobeditview: {
+			caption: commonLogic.appcommonhandle("系统更新功能",null),
+		},
 		ymobmdview9: {
 			caption: commonLogic.appcommonhandle("优化",null),
 		},
 		mobmdview: {
 			caption: commonLogic.appcommonhandle("功能增强",null),
-		},
-		mobeditview: {
-			caption: commonLogic.appcommonhandle("系统更新功能",null),
 		},
 		mobmdview9: {
 			caption: commonLogic.appcommonhandle("功能增强",null),

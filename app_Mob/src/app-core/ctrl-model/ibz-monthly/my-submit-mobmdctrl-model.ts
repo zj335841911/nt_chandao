@@ -15,22 +15,22 @@ export class MySubmitModel {
 	public getDataItems(): any[] {
 		return [
 			{
-				name: 'workthismonth',
+				name: 'reportto',
 			},
 			{
-				name: 'account',
+				name: 'date',
 			},
 			{
 				name: 'plansnextmonth',
 			},
 			{
-				name: 'reportto',
-			},
-			{
 				name: 'ibz_monthlyname',
 			},
 			{
-				name: 'date',
+				name: 'account',
+			},
+			{
+				name: 'workthismonth',
 			},
 			{
 				name: 'srfkey',

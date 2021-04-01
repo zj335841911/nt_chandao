@@ -40,14 +40,14 @@ export default {
 		mobmpickupview: {
 			caption: commonLogic.appcommonhandle("用户",null),
 		},
+		usercentermobeditview: {
+			caption: commonLogic.appcommonhandle("个人中心",null),
+		},
 		mobpickupmdview: {
 			caption: commonLogic.appcommonhandle("用户",null),
 		},
 		mobpickupview: {
 			caption: commonLogic.appcommonhandle("用户",null),
-		},
-		usercentermobeditview: {
-			caption: commonLogic.appcommonhandle("个人中心",null),
 		},
 	},
 	usercenter_form: {

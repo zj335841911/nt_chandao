@@ -245,7 +245,7 @@ export default class ProjectMobMDViewBase extends Vue {
 	 * @type {string}
 	 * @memberof ProjectMobMDViewBase
 	 */
-	protected viewtag: string = 'e643a925b1d0dab04ef917b973354baa';
+	protected viewtag: string = '1b8475a617a67336720ec64b72c45ad5';
 
     /**
      * 视图上下文

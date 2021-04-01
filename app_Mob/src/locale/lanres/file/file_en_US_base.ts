@@ -3,6 +3,8 @@ export default {
   fields: {
     pathname:  commonLogic.appcommonhandle("路径",null),
     objectID:  commonLogic.appcommonhandle("对象ID",null),
+    strsize:  commonLogic.appcommonhandle("显示大小",null),
+    doclibtype:  commonLogic.appcommonhandle("文档类型",null),
     deleted:  commonLogic.appcommonhandle("已删除",null),
     extension:  commonLogic.appcommonhandle("文件类型",null),
     objectType:  commonLogic.appcommonhandle("对象类型",null),
@@ -13,8 +15,6 @@ export default {
     size:  commonLogic.appcommonhandle("大小",null),
     id:  commonLogic.appcommonhandle("id",null),
     extra:  commonLogic.appcommonhandle("备注",null),
-    strsize:  commonLogic.appcommonhandle("显示大小",null),
-    doclibtype:  commonLogic.appcommonhandle("文档类型",null),
   },
 	views: {
 		mobmdview9: {

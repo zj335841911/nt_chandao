@@ -25,6 +25,9 @@ export class MobTabExpViewtabexppanelModel {
         prop: 'id',
       },
       {
+        name: 'sqlid',
+      },
+      {
         name: 'leftbugs',
       },
       {
@@ -32,6 +35,12 @@ export class MobTabExpViewtabexppanelModel {
       },
       {
         name: 'deleted',
+      },
+      {
+        name: 'noticeusers',
+      },
+      {
+        name: 'rebuild',
       },
       {
         name: 'name',
@@ -43,13 +52,34 @@ export class MobTabExpViewtabexppanelModel {
         name: 'status',
       },
       {
+        name: 'releasetype',
+      },
+      {
         name: 'substatus',
+      },
+      {
+        name: 'backgroundid',
       },
       {
         name: 'desc',
       },
       {
+        name: 'files',
+      },
+      {
+        name: 'frontapplication',
+      },
+      {
+        name: 'productname',
+      },
+      {
+        name: 'builder',
+      },
+      {
         name: 'buildname',
+      },
+      {
+        name: 'builddate',
       },
       {
         name: 'product',
@@ -59,36 +89,6 @@ export class MobTabExpViewtabexppanelModel {
       },
       {
         name: 'branch',
-      },
-      {
-        name: 'productname',
-      },
-      {
-        name: 'files',
-      },
-      {
-        name: 'backgroundid',
-      },
-      {
-        name: 'sqlid',
-      },
-      {
-        name: 'frontapplication',
-      },
-      {
-        name: 'rebuild',
-      },
-      {
-        name: 'releasetype',
-      },
-      {
-        name: 'builder',
-      },
-      {
-        name: 'builddate',
-      },
-      {
-        name: 'noticeusers',
       },
     ]
   }

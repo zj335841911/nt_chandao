@@ -116,7 +116,7 @@ export default class ProductMobChartViewBase extends Vue {
 	 * @type {string}
 	 * @memberof ProductMobChartViewBase
 	 */
-	protected viewtag: string = 'a0f3c3a13896b2c49bd8573316f0a654';
+	protected viewtag: string = 'ec93866d550363a2bfb857df6cb545af';
 
     /**
      * 视图上下文

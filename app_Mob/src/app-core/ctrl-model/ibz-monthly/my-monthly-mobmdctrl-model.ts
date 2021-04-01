@@ -15,15 +15,16 @@ export class MyMonthlyModel {
 	public getDataItems(): any[] {
 		return [
 			{
-				name: 'planstomorrow',
-				prop: 'plansnextmonth',
-				dataType: 'HTMLTEXT',
+				name: 'reportstatus',
 			},
 			{
 				name: 'submittime',
 			},
 			{
 				name: 'date',
+			},
+			{
+				name: 'reportto',
 			},
 			{
 				name: 'account',
@@ -34,13 +35,12 @@ export class MyMonthlyModel {
 				dataType: 'HTMLTEXT',
 			},
 			{
-				name: 'reportstatus',
+				name: 'planstomorrow',
+				prop: 'plansnextmonth',
+				dataType: 'HTMLTEXT',
 			},
 			{
 				name: 'ibz_monthlyname',
-			},
-			{
-				name: 'reportto',
 			},
 			{
 				name: 'srfkey',

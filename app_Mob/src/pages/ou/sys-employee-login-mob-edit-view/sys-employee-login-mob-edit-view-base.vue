@@ -128,7 +128,7 @@ export default class SysEmployeeLoginMobEditViewBase extends Vue {
 	 * @type {string}
 	 * @memberof SysEmployeeLoginMobEditViewBase
 	 */
-	protected viewtag: string = 'b9d4a770b4877d79ee5b05d449d2a488';
+	protected viewtag: string = 'c47f239e594f70b036aaa6a7e6ea56e2';
 
     /**
      * 视图上下文

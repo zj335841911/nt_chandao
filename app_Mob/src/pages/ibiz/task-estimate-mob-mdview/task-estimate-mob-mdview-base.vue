@@ -137,7 +137,7 @@ export default class TaskEstimateMobMDViewBase extends Vue {
 	 * @type {string}
 	 * @memberof TaskEstimateMobMDViewBase
 	 */
-	protected viewtag: string = 'c2ab529c7d645ca0bace6b925ea02c99';
+	protected viewtag: string = '4a2f002b2b5aa1501bbc9bb1ae438a87';
 
     /**
      * 视图上下文

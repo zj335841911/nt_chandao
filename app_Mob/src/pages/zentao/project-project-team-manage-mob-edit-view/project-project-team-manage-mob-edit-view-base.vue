@@ -143,7 +143,7 @@ export default class ProjectProjectTeamManageMobEditViewBase extends Vue {
 	 * @type {string}
 	 * @memberof ProjectProjectTeamManageMobEditViewBase
 	 */
-	protected viewtag: string = 'e7da074448e10578fc11e0e5e3e8e155';
+	protected viewtag: string = '4594ea8b1581d6dc2a3dcce79f05dd4d';
 
     /**
      * 视图上下文

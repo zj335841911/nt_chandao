@@ -107,7 +107,7 @@ export default class SysEmployeeMobPickupTreeViewBase extends Vue {
 	 * @type {string}
 	 * @memberof SysEmployeeMobPickupTreeViewBase
 	 */
-	protected viewtag: string = '58837f4113cb00c058a20da29656ffea';
+	protected viewtag: string = '2cf923585c1c9225d28bb40901d16265';
 
     /**
      * 视图上下文

@@ -131,7 +131,7 @@ export default class IbzMonthlyMainInfoMobTabExpViewBase extends Vue {
 	 * @type {string}
 	 * @memberof IbzMonthlyMainInfoMobTabExpViewBase
 	 */
-	protected viewtag: string = '7ef67652765553e5d81c39ae576780a8';
+	protected viewtag: string = '66f6c76562e023c056775568a4e41296';
 
     /**
      * 视图上下文

@@ -15,10 +15,28 @@ export class MobTabExpViewtabviewpanel5Model {
   public getDataItems(): any[] {
     return [
       {
+        name: 'ids',
+      },
+      {
         name: 'name',
       },
       {
+        name: 'backgroundid',
+      },
+      {
         name: 'builder',
+      },
+      {
+        name: 'files',
+      },
+      {
+        name: 'releasetype',
+      },
+      {
+        name: 'builderpk',
+      },
+      {
+        name: 'rebuild',
       },
       {
         name: 'desc',
@@ -31,10 +49,16 @@ export class MobTabExpViewtabviewpanel5Model {
         name: 'deleted',
       },
       {
+        name: 'sqlid',
+      },
+      {
         name: 'scmpath',
       },
       {
         name: 'filepath',
+      },
+      {
+        name: 'createbugcnt',
       },
       {
         name: 'stories',
@@ -43,7 +67,16 @@ export class MobTabExpViewtabviewpanel5Model {
         name: 'bugs',
       },
       {
+        name: 'frontapplication',
+      },
+      {
+        name: 'noticeusers',
+      },
+      {
         name: 'date',
+      },
+      {
+        name: 'productname',
       },
       {
         name: 'product',
@@ -53,39 +86,6 @@ export class MobTabExpViewtabviewpanel5Model {
       },
       {
         name: 'project',
-      },
-      {
-        name: 'productname',
-      },
-      {
-        name: 'ids',
-      },
-      {
-        name: 'files',
-      },
-      {
-        name: 'rebuild',
-      },
-      {
-        name: 'releasetype',
-      },
-      {
-        name: 'frontapplication',
-      },
-      {
-        name: 'backgroundid',
-      },
-      {
-        name: 'sqlid',
-      },
-      {
-        name: 'createbugcnt',
-      },
-      {
-        name: 'builderpk',
-      },
-      {
-        name: 'noticeusers',
       },
     ]
   }

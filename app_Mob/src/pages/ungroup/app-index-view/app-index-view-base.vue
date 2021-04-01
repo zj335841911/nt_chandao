@@ -86,7 +86,7 @@ export default class AppIndexViewBase extends Vue {
 	 * @type {string}
 	 * @memberof AppIndexViewBase
 	 */
-	protected viewtag: string = '15DFA5E1-68C2-4D93-A0FB-56E09EFEF56D';
+	protected viewtag: string = '7f305e69fef591271653071c641ce82c';
 
     /**
      * 视图上下文

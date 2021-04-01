@@ -15,30 +15,28 @@ export class MyWeeklyModel {
 	public getDataItems(): any[] {
 		return [
 			{
-				name: 'date',
-			},
-			{
-				name: 'mailto',
-			},
-			{
-				name: 'reportto',
-			},
-			{
 				name: 'issubmit',
 			},
 			{
-				name: 'ibz_weeklyid',
+				name: 'date',
 			},
 			{
-				name: 'planstomorrow',
-				prop: 'plannextweek',
-				dataType: 'HTMLTEXT',
+				name: 'account',
 			},
 			{
 				name: 'ibz_weeklyname',
 			},
 			{
+				name: 'ibz_weeklyid',
+			},
+			{
 				name: 'submittime',
+			},
+			{
+				name: 'reportto',
+			},
+			{
+				name: 'mailto',
 			},
 			{
 				name: 'worktoday',
@@ -46,10 +44,12 @@ export class MyWeeklyModel {
 				dataType: 'HTMLTEXT',
 			},
 			{
-				name: 'reportstatus',
+				name: 'planstomorrow',
+				prop: 'plannextweek',
+				dataType: 'HTMLTEXT',
 			},
 			{
-				name: 'account',
+				name: 'reportstatus',
 			},
 			{
 				name: 'srfkey',

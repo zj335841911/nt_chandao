@@ -123,7 +123,7 @@ export default class SysUpdateFeaturesYMobMDView9Base extends Vue {
 	 * @type {string}
 	 * @memberof SysUpdateFeaturesYMobMDView9Base
 	 */
-	protected viewtag: string = '1aa28ee93f41476b61306c6a2d108d32';
+	protected viewtag: string = '73c872e59cf5e7b293f3c7061add4a51';
 
     /**
      * 视图上下文

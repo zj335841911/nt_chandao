@@ -143,7 +143,7 @@ export default class ProductCloseMobEditViewBase extends Vue {
 	 * @type {string}
 	 * @memberof ProductCloseMobEditViewBase
 	 */
-	protected viewtag: string = 'c7a80e4f493974e2e06f5ae3ff9dc72c';
+	protected viewtag: string = '4add6a602adc5a0225250d30e08941f3';
 
     /**
      * 视图上下文

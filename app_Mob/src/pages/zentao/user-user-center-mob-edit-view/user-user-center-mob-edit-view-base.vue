@@ -128,7 +128,7 @@ export default class UserUserCenterMobEditViewBase extends Vue {
 	 * @type {string}
 	 * @memberof UserUserCenterMobEditViewBase
 	 */
-	protected viewtag: string = 'fc2f8f2e45b4fb4f22e7e77d4e57a16c';
+	protected viewtag: string = 'b0444dda525a0f99355a4fad1f6d810b';
 
     /**
      * 视图上下文

@@ -112,7 +112,7 @@ export default class ProductPlanUsr2MobPickupMDViewBase extends Vue {
 	 * @type {string}
 	 * @memberof ProductPlanUsr2MobPickupMDViewBase
 	 */
-	protected viewtag: string = 'd07ba02c63fe9e8d03ed3802ae9abcb0';
+	protected viewtag: string = 'cd3de302854113986e8b74870ec9ad94';
 
     /**
      * 视图上下文

@@ -1,79 +1,64 @@
 import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
+    orgid: "组织标识",
+    istop: "是否置顶",
+    comment: "备注",
     qd: "测试负责人",
+    productclass: "产品分类",
+    unconfirmbugcnt: "未确认Bug数",
     acl: "访问控制",
     name: "产品名称",
+    mobimage: "移动端图片",
+    testtaskcnt: "测试单数",
+    testsuitecnt: "套件数",
+    productplancnt: "计划总数",
     id: "编号",
     deleted: "已删除",
+    closedstorycnt: "已关闭需求",
+    relatedbugcnt: "相关Bug数",
     whitelist: "分组白名单",
+    mdeptid: "部门标识",
+    releasecnt: "发布总数",
     rd: "发布负责人",
+    popk: "产品负责人（选择）",
+    notclosedbugcnt: "未关闭Bug数",
+    supproreport: "支持产品汇报",
     order: "排序",
     type: "产品类型",
     po: "产品负责人",
+    qdpk: "测试负责人（选择）",
     desc: "产品描述	",
     status: "状态",
+    changedstorycnt: "已变更需求",
+    activebugcnt: "未解决Bug数",
     createdby: "由谁创建",
+    rdpk: "发布负责人（选择）",
     createdversion: "当前系统版本",
+    draftstorycnt: "草稿需求",
+    doccnt: "文档数",
+    casecnt: "用例数",
+    relatedprojects: "关联项目数",
+    ibiz_id: "IBIZ标识",
     substatus: "子状态",
     code: "产品代号",
+    srfcount: "属性",
+    order1: "排序",
+    buildcnt: "BUILD数",
     createddate: "创建日期",
+    noticeusers: "消息通知用户",
+    activestorycnt: "激活需求数",
     linename: "产品线",
     line: "产品线",
-    activebugcnt: "未解决Bug数",
-    productplancnt: "计划总数",
-    releasecnt: "发布总数",
-    activestorycnt: "激活需求数",
-    unconfirmbugcnt: "未确认Bug数",
-    notclosedbugcnt: "未关闭Bug数",
-    comment: "备注",
-    relatedbugcnt: "相关Bug数",
-    changedstorycnt: "已变更需求",
-    draftstorycnt: "草稿需求",
-    closedstorycnt: "已关闭需求",
-    relatedprojects: "关联项目数",
-    doccnt: "文档数",
-    buildcnt: "BUILD数",
-    casecnt: "用例数",
-    srfcount: "属性",
-    mobimage: "移动端图片",
-    order1: "排序",
-    istop: "是否置顶",
-    testtaskcnt: "测试单数",
-    testsuitecnt: "套件数",
-    popk: "产品负责人（选择）",
-    qdpk: "测试负责人（选择）",
-    rdpk: "发布负责人（选择）",
-    noticeusers: "消息通知用户",
-    orgid: "组织标识",
-    mdeptid: "部门标识",
-    ibiz_id: "IBIZ标识",
-    supproreport: "支持产品汇报",
-    productclass: "产品分类",
   },
 	views: {
-		prodmobtabexpview: {
-			caption: commonLogic.appcommonhandle("产品",null),
-		},
-		mobpickupmdview: {
-			caption: commonLogic.appcommonhandle("产品",null),
-		},
-		mobchartview9: {
-			caption: commonLogic.appcommonhandle("产品",null),
+		testmobmdview: {
+			caption: commonLogic.appcommonhandle("测试",null),
 		},
 		mobtabexpview: {
 			caption: commonLogic.appcommonhandle("测试",null),
 		},
 		mobpickupview: {
-			caption: commonLogic.appcommonhandle("产品",null),
-		},
-		testmobmdview: {
-			caption: commonLogic.appcommonhandle("测试",null),
-		},
-		mobeditview: {
-			caption: commonLogic.appcommonhandle("产品",null),
-		},
-		mobchartview: {
 			caption: commonLogic.appcommonhandle("产品",null),
 		},
 		mobmdview: {
@@ -82,7 +67,22 @@ export default {
 		closemobeditview: {
 			caption: commonLogic.appcommonhandle("关闭产品",null),
 		},
+		mobeditview: {
+			caption: commonLogic.appcommonhandle("产品",null),
+		},
+		prodmobtabexpview: {
+			caption: commonLogic.appcommonhandle("产品",null),
+		},
 		newmobeditview: {
+			caption: commonLogic.appcommonhandle("产品",null),
+		},
+		mobpickupmdview: {
+			caption: commonLogic.appcommonhandle("产品",null),
+		},
+		mobchartview: {
+			caption: commonLogic.appcommonhandle("产品",null),
+		},
+		mobchartview9: {
 			caption: commonLogic.appcommonhandle("产品",null),
 		},
 	},
@@ -183,7 +183,7 @@ export default {
 	},
 	mobpickupmdviewmdctrl_batchtoolbar_toolbar: {
 	},
-	mobmdviewmdctrl_batchtoolbar_toolbar: {
+	testmobmdviewmdctrl_batchtoolbar_toolbar: {
 		deuiaction1: {
 			caption: commonLogic.appcommonhandle("删除",null),
 			tip: '删除',
@@ -215,16 +215,16 @@ export default {
 			tip: '保存',
 		},
 	},
+	mobmdviewmdctrl_batchtoolbar_toolbar: {
+		deuiaction1: {
+			caption: commonLogic.appcommonhandle("删除",null),
+			tip: '删除',
+		},
+	},
 	mobmdviewrighttoolbar_toolbar: {
 		deuiaction1: {
 			caption: commonLogic.appcommonhandle("新建",null),
 			tip: '新建',
-		},
-	},
-	testmobmdviewmdctrl_batchtoolbar_toolbar: {
-		deuiaction1: {
-			caption: commonLogic.appcommonhandle("删除",null),
-			tip: '删除',
 		},
 	},
 };

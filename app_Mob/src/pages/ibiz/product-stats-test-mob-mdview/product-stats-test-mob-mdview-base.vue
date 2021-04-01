@@ -150,7 +150,7 @@ export default class ProductStatsTestMobMDViewBase extends Vue {
 	 * @type {string}
 	 * @memberof ProductStatsTestMobMDViewBase
 	 */
-	protected viewtag: string = 'd282fcd0f9244a596bf945d529bcf075';
+	protected viewtag: string = '3599d32f55145be9cd952f7734d7b79f';
 
     /**
      * 视图上下文

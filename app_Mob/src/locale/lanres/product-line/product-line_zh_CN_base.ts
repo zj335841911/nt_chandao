@@ -9,10 +9,10 @@ export default {
     createman: "建立人",
   },
 	views: {
-		mobpickupmdview: {
+		mobpickupview: {
 			caption: commonLogic.appcommonhandle("产品线",null),
 		},
-		mobpickupview: {
+		mobpickupmdview: {
 			caption: commonLogic.appcommonhandle("产品线",null),
 		},
 	},

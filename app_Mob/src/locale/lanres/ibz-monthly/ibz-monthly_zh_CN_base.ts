@@ -1,44 +1,47 @@
 import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
-    ibzmonthlyid: "月报标识",
     createman: "建立人",
-    updateman: "更新人",
-    createdate: "建立时间",
-    ibzmonthlyname: "月报名称",
-    updatedate: "更新时间",
-    date: "日期",
-    account: "用户",
-    workthismonth: "本月工作",
-    plansnextmonth: "下月计划",
-    reportto: "汇报给",
-    mailto: "抄送给",
-    comment: "其他事项",
-    thismonthtask: "本月完成任务",
-    nextmonthplanstask: "下月计划任务",
-    files: "附件",
-    issubmit: "是否提交",
-    updatemanname: "更新人名称",
     reportstatus: "状态",
-    createmanname: "建立人名称",
-    submittime: "提交时间",
+    updatedate: "更新时间",
+    plansnextmonth: "下月计划",
     reporttopk: "汇报给（选择）",
+    issubmit: "是否提交",
     mailtopk: "抄送给（选择）",
+    updatemanname: "更新人名称",
+    updateman: "更新人",
+    date: "日期",
+    submittime: "提交时间",
+    createdate: "建立时间",
+    createmanname: "建立人名称",
+    files: "附件",
+    ibzmonthlyid: "月报标识",
+    account: "用户",
+    nextmonthplanstask: "下月计划任务",
+    thismonthtask: "本月完成任务",
+    workthismonth: "本月工作",
+    reportto: "汇报给",
+    ibzmonthlyname: "月报名称",
+    comment: "其他事项",
+    mailto: "抄送给",
   },
 	views: {
-		mobeditview: {
-			caption: commonLogic.appcommonhandle("待阅",null),
+		createmobeditview: {
+			caption: commonLogic.appcommonhandle("月报",null),
+		},
+		myreceivedmobtabexpview: {
+			caption: commonLogic.appcommonhandle("月报",null),
 		},
 		myreceivedmobeditview: {
 			caption: commonLogic.appcommonhandle("月报",null),
 		},
-		maininfomobeditview: {
-			caption: commonLogic.appcommonhandle("月报",null),
-		},
-		mysubmitmobmdview: {
-			caption: commonLogic.appcommonhandle("月报",null),
-		},
 		editmobeditview: {
+			caption: commonLogic.appcommonhandle("月报",null),
+		},
+		mobeditview: {
+			caption: commonLogic.appcommonhandle("待阅",null),
+		},
+		myreceivedmobmdview: {
 			caption: commonLogic.appcommonhandle("月报",null),
 		},
 		maininfomobtabexpview: {
@@ -47,50 +50,11 @@ export default {
 		monthlymobmdview: {
 			caption: commonLogic.appcommonhandle("月报",null),
 		},
-		myreceivedmobmdview: {
+		maininfomobeditview: {
 			caption: commonLogic.appcommonhandle("月报",null),
 		},
-		createmobeditview: {
+		mysubmitmobmdview: {
 			caption: commonLogic.appcommonhandle("月报",null),
-		},
-		myreceivedmobtabexpview: {
-			caption: commonLogic.appcommonhandle("月报",null),
-		},
-	},
-	monthlyinfodingding_form: {
-		details: {
-			druipart3: commonLogic.appcommonhandle("",null), 
-			grouppanel3: commonLogic.appcommonhandle("完成任务",null), 
-			druipart4: commonLogic.appcommonhandle("",null), 
-			grouppanel4: commonLogic.appcommonhandle("计划参与",null), 
-			druipart1: commonLogic.appcommonhandle("",null), 
-			grouppanel1: commonLogic.appcommonhandle("附件",null), 
-			druipart2: commonLogic.appcommonhandle("",null), 
-			grouppanel2: commonLogic.appcommonhandle("操作记录",null), 
-			group1: commonLogic.appcommonhandle("月报基本信息",null), 
-			formpage1: commonLogic.appcommonhandle("基本信息",null), 
-			srfupdatedate: commonLogic.appcommonhandle("更新时间",null), 
-			srforikey: commonLogic.appcommonhandle("",null), 
-			srfkey: commonLogic.appcommonhandle("月报标识",null), 
-			srfmajortext: commonLogic.appcommonhandle("月报名称",null), 
-			srftempmode: commonLogic.appcommonhandle("",null), 
-			srfuf: commonLogic.appcommonhandle("",null), 
-			srfdeid: commonLogic.appcommonhandle("",null), 
-			srfsourcekey: commonLogic.appcommonhandle("",null), 
-			account: commonLogic.appcommonhandle("",null), 
-			ibzmonthlyname: commonLogic.appcommonhandle("月报名称",null), 
-			date: commonLogic.appcommonhandle("日期",null), 
-			workthismonth: commonLogic.appcommonhandle("本月工作",null), 
-			plansnextmonth: commonLogic.appcommonhandle("下月计划",null), 
-			comment: commonLogic.appcommonhandle("其他事项",null), 
-			reportto: commonLogic.appcommonhandle("汇报给",null), 
-			mailto: commonLogic.appcommonhandle("抄送给",null), 
-			thismonthtask: commonLogic.appcommonhandle("本月完成任务",null), 
-			nextmonthplanstask: commonLogic.appcommonhandle("下月计划任务",null), 
-			ibz_monthlyid: commonLogic.appcommonhandle("月报标识",null), 
-			issubmit: commonLogic.appcommonhandle("是否提交",null), 
-		},
-		uiactions: {
 		},
 	},
 	mobnew_form: {
@@ -156,6 +120,48 @@ export default {
 		uiactions: {
 		},
 	},
+	monthlyinfodingding_form: {
+		details: {
+			druipart3: commonLogic.appcommonhandle("",null), 
+			grouppanel3: commonLogic.appcommonhandle("完成任务",null), 
+			druipart4: commonLogic.appcommonhandle("",null), 
+			grouppanel4: commonLogic.appcommonhandle("计划参与",null), 
+			druipart1: commonLogic.appcommonhandle("",null), 
+			grouppanel1: commonLogic.appcommonhandle("附件",null), 
+			druipart2: commonLogic.appcommonhandle("",null), 
+			grouppanel2: commonLogic.appcommonhandle("操作记录",null), 
+			group1: commonLogic.appcommonhandle("月报基本信息",null), 
+			formpage1: commonLogic.appcommonhandle("基本信息",null), 
+			srfupdatedate: commonLogic.appcommonhandle("更新时间",null), 
+			srforikey: commonLogic.appcommonhandle("",null), 
+			srfkey: commonLogic.appcommonhandle("月报标识",null), 
+			srfmajortext: commonLogic.appcommonhandle("月报名称",null), 
+			srftempmode: commonLogic.appcommonhandle("",null), 
+			srfuf: commonLogic.appcommonhandle("",null), 
+			srfdeid: commonLogic.appcommonhandle("",null), 
+			srfsourcekey: commonLogic.appcommonhandle("",null), 
+			account: commonLogic.appcommonhandle("",null), 
+			ibzmonthlyname: commonLogic.appcommonhandle("月报名称",null), 
+			date: commonLogic.appcommonhandle("日期",null), 
+			workthismonth: commonLogic.appcommonhandle("本月工作",null), 
+			plansnextmonth: commonLogic.appcommonhandle("下月计划",null), 
+			comment: commonLogic.appcommonhandle("其他事项",null), 
+			reportto: commonLogic.appcommonhandle("汇报给",null), 
+			mailto: commonLogic.appcommonhandle("抄送给",null), 
+			thismonthtask: commonLogic.appcommonhandle("本月完成任务",null), 
+			nextmonthplanstask: commonLogic.appcommonhandle("下月计划任务",null), 
+			ibz_monthlyid: commonLogic.appcommonhandle("月报标识",null), 
+			issubmit: commonLogic.appcommonhandle("是否提交",null), 
+		},
+		uiactions: {
+		},
+	},
+	createmobeditviewrighttoolbar_toolbar: {
+		tbitem1: {
+			caption: commonLogic.appcommonhandle("保存",null),
+			tip: '保存',
+		},
+	},
 	editmobeditviewrighttoolbar_toolbar: {
 		tbitem1: {
 			caption: commonLogic.appcommonhandle("保存",null),
@@ -180,12 +186,6 @@ export default {
 		deuiaction1_mobsubmit: {
 			caption: commonLogic.appcommonhandle("提交",null),
 			tip: '提交',
-		},
-	},
-	createmobeditviewrighttoolbar_toolbar: {
-		tbitem1: {
-			caption: commonLogic.appcommonhandle("保存",null),
-			tip: '保存',
 		},
 	},
 	monthlymobmdviewrighttoolbar_toolbar: {

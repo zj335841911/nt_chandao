@@ -9,7 +9,7 @@
                 <ion-list class="items" ref="ionlist"  >
                   <ion-item-sliding  :ref="item.srfkey" v-for="(item,index) in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
-                            <ion-item-option v-show="item.unlinkBug_buildMob.visabled" :disabled="item.unlinkBug_buildMob.disabled" color="primary" @click="mdctrl_click($event, 'u0f6e85b', item)"><app-mob-icon v-if="item.unlinkBug_buildMob.icon && item.unlinkBug_buildMob.isShowIcon" :name="item.unlinkBug_buildMob.icon"></app-mob-icon><ion-label v-if="item.unlinkBug_buildMob.isShowCaption">解除关联</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.unlinkBug_buildMob.visabled" :disabled="item.unlinkBug_buildMob.disabled" color="primary" @click="mdctrl_click($event, 'u144bc70', item)"><app-mob-icon v-if="item.unlinkBug_buildMob.icon && item.unlinkBug_buildMob.isShowIcon" :name="item.unlinkBug_buildMob.icon"></app-mob-icon><ion-label v-if="item.unlinkBug_buildMob.isShowCaption">解除关联</ion-label></ion-item-option>
                         </ion-item-options>
                     <ion-item>
                       <template v-if="(viewType == 'DEMOBMDVIEW') && controlStyle != 'SWIPERVIEW' ">
@@ -169,7 +169,7 @@ export default class MOB_Build_ResolvedBugBase extends Vue implements ControlInt
      * @returns {Promise<any>}
      * @memberof MdctrlBase
      */
-    protected async mdctrl_u0f6e85b_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async mdctrl_u144bc70_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
 
         // 取数
         let datas: any[] = [];
@@ -965,8 +965,8 @@ export default class MOB_Build_ResolvedBugBase extends Vue implements ControlInt
         $event.stopPropagation();
         this.selectedArray = [];
         this.selectedArray.push(item);
-        if (Object.is(tag, 'u0f6e85b')) {
-            this.mdctrl_u0f6e85b_click();
+        if (Object.is(tag, 'u144bc70')) {
+            this.mdctrl_u144bc70_click();
         }
         this.closeSlidings(item);
     }

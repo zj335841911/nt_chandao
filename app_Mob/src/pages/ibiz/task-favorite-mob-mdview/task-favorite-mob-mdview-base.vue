@@ -175,7 +175,7 @@ export default class TaskFavoriteMobMDViewBase extends Vue {
 	 * @type {string}
 	 * @memberof TaskFavoriteMobMDViewBase
 	 */
-	protected viewtag: string = '6e91454cb4217d3aa1260161a539c803';
+	protected viewtag: string = '3369f6947c7dd032cf3f25bdafb998f2';
 
     /**
      * 视图上下文

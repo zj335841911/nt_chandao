@@ -118,7 +118,7 @@ export default class IbzDailyMyReMobEditViewBase extends Vue {
 	 * @type {string}
 	 * @memberof IbzDailyMyReMobEditViewBase
 	 */
-	protected viewtag: string = '09980d22d0443ad85d6f9c64f462ed55';
+	protected viewtag: string = 'bddd3aa99781d944f83d8f138ad9f8d7';
 
     /**
      * 视图上下文

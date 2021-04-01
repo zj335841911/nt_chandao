@@ -4,14 +4,6 @@
             <ion-list class="items" ref="ionlist">
                 <template v-if="(viewType == 'DEMOBMDVIEW9') && controlStyle != 'SWIPERVIEW' ">
                     <ion-item-sliding ref="sliding" v-for="(item,index) in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
-                        <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
-                            <ion-item-option v-show="item.assignToMob.visabled" :disabled="item.assignToMob.disabled" color="primary" @click="mdctrl_click($event, 'u5a26748', item)"><app-mob-icon v-if="item.assignToMob.icon && item.assignToMob.isShowIcon" :name="item.assignToMob.icon"></app-mob-icon><ion-label v-if="item.assignToMob.isShowCaption">指派</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.activateMob.visabled" :disabled="item.activateMob.disabled" color="primary" @click="mdctrl_click($event, 'u1586fdf', item)"><app-mob-icon v-if="item.activateMob.icon && item.activateMob.isShowIcon" :name="item.activateMob.icon"></app-mob-icon><ion-label v-if="item.activateMob.isShowCaption">激活</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.finishMob.visabled" :disabled="item.finishMob.disabled" color="primary" @click="mdctrl_click($event, 'u400bc93', item)"><app-mob-icon v-if="item.finishMob.icon && item.finishMob.isShowIcon" :name="item.finishMob.icon"></app-mob-icon><ion-label v-if="item.finishMob.isShowCaption">完成</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.deleteMob.visabled" :disabled="item.deleteMob.disabled" color="primary" @click="mdctrl_click($event, 'u44450a6', item)"><app-mob-icon v-if="item.deleteMob.icon && item.deleteMob.isShowIcon" :name="item.deleteMob.icon"></app-mob-icon><ion-label v-if="item.deleteMob.isShowCaption">删除</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.closeMob.visabled" :disabled="item.closeMob.disabled" color="primary" @click="mdctrl_click($event, 'u775882c', item)"><app-mob-icon v-if="item.closeMob.icon && item.closeMob.isShowIcon" :name="item.closeMob.icon"></app-mob-icon><ion-label v-if="item.closeMob.isShowCaption">关闭</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.editMob.visabled" :disabled="item.editMob.disabled" color="primary" @click="mdctrl_click($event, 'udf35ec2', item)"><app-mob-icon v-if="item.editMob.icon && item.editMob.isShowIcon" :name="item.editMob.icon"></app-mob-icon><ion-label v-if="item.editMob.isShowCaption">编辑</ion-label></ion-item-option>
-                        </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
                                 <ion-checkbox slot="start" class="iconcheck" v-show="isChoose" @click.stop="checkboxSelect(item)"></ion-checkbox>
@@ -30,14 +22,6 @@
                             <div>{{obj.text}}（<label v-if="obj.items && obj.items.length > 0">{{obj.items.length}}</label>）</div>
                           </template>
                       <ion-item-sliding  :ref="item.srfkey" v-for="(item,index) in obj.items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
-                        <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
-                            <ion-item-option v-show="item.assignToMob.visabled" :disabled="item.assignToMob.disabled" color="primary" @click="mdctrl_click($event, 'u5a26748', item)"><app-mob-icon v-if="item.assignToMob.icon && item.assignToMob.isShowIcon" :name="item.assignToMob.icon"></app-mob-icon><ion-label v-if="item.assignToMob.isShowCaption">指派</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.activateMob.visabled" :disabled="item.activateMob.disabled" color="primary" @click="mdctrl_click($event, 'u1586fdf', item)"><app-mob-icon v-if="item.activateMob.icon && item.activateMob.isShowIcon" :name="item.activateMob.icon"></app-mob-icon><ion-label v-if="item.activateMob.isShowCaption">激活</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.finishMob.visabled" :disabled="item.finishMob.disabled" color="primary" @click="mdctrl_click($event, 'u400bc93', item)"><app-mob-icon v-if="item.finishMob.icon && item.finishMob.isShowIcon" :name="item.finishMob.icon"></app-mob-icon><ion-label v-if="item.finishMob.isShowCaption">完成</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.deleteMob.visabled" :disabled="item.deleteMob.disabled" color="primary" @click="mdctrl_click($event, 'u44450a6', item)"><app-mob-icon v-if="item.deleteMob.icon && item.deleteMob.isShowIcon" :name="item.deleteMob.icon"></app-mob-icon><ion-label v-if="item.deleteMob.isShowCaption">删除</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.closeMob.visabled" :disabled="item.closeMob.disabled" color="primary" @click="mdctrl_click($event, 'u775882c', item)"><app-mob-icon v-if="item.closeMob.icon && item.closeMob.isShowIcon" :name="item.closeMob.icon"></app-mob-icon><ion-label v-if="item.closeMob.isShowCaption">关闭</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.editMob.visabled" :disabled="item.editMob.disabled" color="primary" @click="mdctrl_click($event, 'udf35ec2', item)"><app-mob-icon v-if="item.editMob.icon && item.editMob.isShowIcon" :name="item.editMob.icon"></app-mob-icon><ion-label v-if="item.editMob.isShowCaption">编辑</ion-label></ion-item-option>
-                        </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
                                 <ion-checkbox slot="start" class="iconcheck" v-show="isChoose" @click.stop="checkboxSelect(item)"></ion-checkbox>
@@ -242,192 +226,6 @@ export default class MobBase extends Vue implements ControlInterface {
      */  
     public deUIService:TodoUIService = new TodoUIService(this.$store);
     
-
-    /**
-     * 逻辑事件
-     *
-     * @protected
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @returns {Promise<any>}
-     * @memberof MdctrlBase
-     */
-    protected async mdctrl_u5a26748_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
-
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let contextJO: any = {};
-        let paramJO: any = {};
-        
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        // 界面行为
-        const curUIService: any = await this.globaluiservice.getService('todo_ui_action');
-        if (curUIService) {
-            curUIService.Todo_assignToMob(datas, contextJO, paramJO, $event, xData, this);
-        }
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @protected
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @returns {Promise<any>}
-     * @memberof MdctrlBase
-     */
-    protected async mdctrl_u1586fdf_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
-
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let contextJO: any = {};
-        let paramJO: any = {};
-        
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        // 界面行为
-        const curUIService: any = await this.globaluiservice.getService('todo_ui_action');
-        if (curUIService) {
-            curUIService.Todo_activateMob(datas, contextJO, paramJO, $event, xData, this);
-        }
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @protected
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @returns {Promise<any>}
-     * @memberof MdctrlBase
-     */
-    protected async mdctrl_u400bc93_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
-
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let contextJO: any = {};
-        let paramJO: any = {};
-        
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        // 界面行为
-        const curUIService: any = await this.globaluiservice.getService('todo_ui_action');
-        if (curUIService) {
-            curUIService.Todo_finishMob(datas, contextJO, paramJO, $event, xData, this);
-        }
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @protected
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @returns {Promise<any>}
-     * @memberof MdctrlBase
-     */
-    protected async mdctrl_u44450a6_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
-
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let contextJO: any = {};
-        let paramJO: any = {};
-        
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        // 界面行为
-        const curUIService: any = await this.globaluiservice.getService('todo_ui_action');
-        if (curUIService) {
-            curUIService.Todo_deleteMob(datas, contextJO, paramJO, $event, xData, this);
-        }
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @protected
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @returns {Promise<any>}
-     * @memberof MdctrlBase
-     */
-    protected async mdctrl_u775882c_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
-
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let contextJO: any = {};
-        let paramJO: any = {};
-        
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        // 界面行为
-        const curUIService: any = await this.globaluiservice.getService('todo_ui_action');
-        if (curUIService) {
-            curUIService.Todo_closeMob(datas, contextJO, paramJO, $event, xData, this);
-        }
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @protected
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @returns {Promise<any>}
-     * @memberof MdctrlBase
-     */
-    protected async mdctrl_udf35ec2_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
-
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let contextJO: any = {};
-        let paramJO: any = {};
-        
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        // 界面行为
-        const curUIService: any = await this.globaluiservice.getService('todo_ui_action');
-        if (curUIService) {
-            curUIService.Todo_editMob(datas, contextJO, paramJO, $event, xData, this);
-        }
-    }
 
     /**
      * 关闭视图
@@ -1204,24 +1002,6 @@ export default class MobBase extends Vue implements ControlInterface {
         $event.stopPropagation();
         this.selectedArray = [];
         this.selectedArray.push(item);
-        if (Object.is(tag, 'u5a26748')) {
-            this.mdctrl_u5a26748_click();
-        }
-        if (Object.is(tag, 'u1586fdf')) {
-            this.mdctrl_u1586fdf_click();
-        }
-        if (Object.is(tag, 'u400bc93')) {
-            this.mdctrl_u400bc93_click();
-        }
-        if (Object.is(tag, 'u44450a6')) {
-            this.mdctrl_u44450a6_click();
-        }
-        if (Object.is(tag, 'u775882c')) {
-            this.mdctrl_u775882c_click();
-        }
-        if (Object.is(tag, 'udf35ec2')) {
-            this.mdctrl_udf35ec2_click();
-        }
         this.closeSlidings(item);
     }
 
@@ -1328,12 +1108,6 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof MobBase
      */  
     public ActionModel:any ={
-        assignToMob: { name: 'assignToMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'ASSIGNTO', target: 'SINGLEKEY',icon:'hand-right-outline',isShowCaption:true,isShowIcon:true},
-        activateMob: { name: 'activateMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'ACTIVATE', target: 'SINGLEKEY',icon:'color-wand',isShowCaption:true,isShowIcon:true},
-        finishMob: { name: 'finishMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'FINISH', target: 'SINGLEKEY',icon:'checkmark',isShowCaption:true,isShowIcon:true},
-        deleteMob: { name: 'deleteMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'DELETE', target: 'SINGLEKEY',icon:'remove',isShowCaption:true,isShowIcon:true},
-        closeMob: { name: 'closeMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'CLOSE', target: 'SINGLEKEY',icon:'close',isShowCaption:true,isShowIcon:true},
-        editMob: { name: 'editMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'UPDATE', target: 'SINGLEKEY',icon:'edit',isShowCaption:true,isShowIcon:true}
     };
 
     

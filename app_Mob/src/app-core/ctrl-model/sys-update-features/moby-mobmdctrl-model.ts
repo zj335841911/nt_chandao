@@ -15,13 +15,13 @@ export class MOBYModel {
 	public getDataItems(): any[] {
 		return [
 			{
+				name: 'featuresdesc',
+			},
+			{
 				name: 'upfeatures',
 			},
 			{
 				name: 'type',
-			},
-			{
-				name: 'featuresdesc',
 			},
 			{
 				name: 'srfkey',

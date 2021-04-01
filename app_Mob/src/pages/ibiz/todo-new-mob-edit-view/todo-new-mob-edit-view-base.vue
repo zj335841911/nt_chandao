@@ -143,7 +143,7 @@ export default class TodoNewMobEditViewBase extends Vue {
 	 * @type {string}
 	 * @memberof TodoNewMobEditViewBase
 	 */
-	protected viewtag: string = '14e4dca3deb3c35a8ccd12baf10c3d9c';
+	protected viewtag: string = '0cc083a51ecbb27cae0fc0739903aee2';
 
     /**
      * 视图上下文

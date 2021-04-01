@@ -22,6 +22,18 @@ export class MobModel {
         name: 'account',
       },
       {
+        name: 'config_day',
+      },
+      {
+        name: 'assignedtopk',
+      },
+      {
+        name: 'date1',
+      },
+      {
+        name: 'config_type',
+      },
+      {
         name: 'closeddate',
       },
       {
@@ -37,6 +49,9 @@ export class MobModel {
         name: 'desc',
       },
       {
+        name: 'noticeusers',
+      },
+      {
         name: 'finishedby',
       },
       {
@@ -49,10 +64,25 @@ export class MobModel {
         name: 'assignedby',
       },
       {
+        name: 'config_month',
+      },
+      {
+        name: 'task',
+      },
+      {
+        name: 'bug',
+      },
+      {
         name: 'finisheddate',
       },
       {
         name: 'cycle',
+      },
+      {
+        name: 'date_disable',
+      },
+      {
+        name: 'config_week',
       },
       {
         name: 'assignedto',
@@ -61,10 +91,19 @@ export class MobModel {
         name: 'status',
       },
       {
+        name: 'config_beforedays',
+      },
+      {
         name: 'name',
       },
       {
         name: 'assigneddate',
+      },
+      {
+        name: 'config_end',
+      },
+      {
+        name: 'cost',
       },
       {
         name: 'pri',
@@ -73,49 +112,13 @@ export class MobModel {
         name: 'date',
       },
       {
+        name: 'story',
+      },
+      {
         name: 'ibizprivate',
       },
       {
         name: 'config',
-      },
-      {
-        name: 'config_day',
-      },
-      {
-        name: 'config_beforedays',
-      },
-      {
-        name: 'config_week',
-      },
-      {
-        name: 'config_month',
-      },
-      {
-        name: 'config_type',
-      },
-      {
-        name: 'config_end',
-      },
-      {
-        name: 'bug',
-      },
-      {
-        name: 'task',
-      },
-      {
-        name: 'story',
-      },
-      {
-        name: 'date1',
-      },
-      {
-        name: 'date_disable',
-      },
-      {
-        name: 'assignedtopk',
-      },
-      {
-        name: 'noticeusers',
       },
     ]
   }

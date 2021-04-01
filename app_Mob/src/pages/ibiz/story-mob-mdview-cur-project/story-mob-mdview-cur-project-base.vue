@@ -228,7 +228,7 @@ export default class StoryMobMDViewCurProjectBase extends Vue {
 	 * @type {string}
 	 * @memberof StoryMobMDViewCurProjectBase
 	 */
-	protected viewtag: string = '3f8c805b81dddfc3dc5c2c7e04fa68c5';
+	protected viewtag: string = '89921997eb2af05e449025b36455f7a5';
 
     /**
      * 视图上下文

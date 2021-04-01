@@ -137,7 +137,7 @@ export default class BuildLogMobMDViewBase extends Vue {
 	 * @type {string}
 	 * @memberof BuildLogMobMDViewBase
 	 */
-	protected viewtag: string = '4fe6c2da4266eb0a031bc3e636f284e4';
+	protected viewtag: string = '9f37904c06bf52e3abf64ea9f96aa507';
 
     /**
      * 视图上下文

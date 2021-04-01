@@ -21,13 +21,13 @@ export class AssMobModel {
 				name: 'assignedto',
 			},
 			{
-				name: 'pri',
-			},
-			{
 				name: 'left',
 			},
 			{
 				name: 'status',
+			},
+			{
+				name: 'pri',
 			},
 			{
 				name: 'srfkey',
@@ -45,6 +45,16 @@ export class AssMobModel {
 				dataType: 'PICKUP',
 			},
 			{
+				name: 'plan',
+				prop: 'plan',
+				dataType: 'PICKUP',
+			},
+			{
+				name: 'module',
+				prop: 'module',
+				dataType: 'PICKUP',
+			},
+			{
 				name: 'story',
 				prop: 'story',
 				dataType: 'PICKUP',
@@ -57,16 +67,6 @@ export class AssMobModel {
 			{
 				name: 'frombug',
 				prop: 'frombug',
-				dataType: 'PICKUP',
-			},
-			{
-				name: 'module',
-				prop: 'module',
-				dataType: 'PICKUP',
-			},
-			{
-				name: 'plan',
-				prop: 'plan',
 				dataType: 'PICKUP',
 			},
 			{

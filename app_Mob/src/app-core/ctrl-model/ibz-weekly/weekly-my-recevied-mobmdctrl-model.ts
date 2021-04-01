@@ -18,22 +18,22 @@ export class WeeklyMyReceviedModel {
 				name: 'ibz_weeklyname',
 			},
 			{
-				name: 'reportto',
+				name: 'ibz_weeklyid',
 			},
 			{
 				name: 'workthisweek',
 			},
 			{
-				name: 'plannextweek',
+				name: 'mailto',
 			},
 			{
 				name: 'date',
 			},
 			{
-				name: 'ibz_weeklyid',
+				name: 'plannextweek',
 			},
 			{
-				name: 'mailto',
+				name: 'reportto',
 			},
 			{
 				name: 'srfkey',

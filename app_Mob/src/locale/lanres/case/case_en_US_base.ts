@@ -7,34 +7,52 @@ export default {
     path:  commonLogic.appcommonhandle("path",null),
     openedDate:  commonLogic.appcommonhandle("创建日期",null),
     lastRunResult:  commonLogic.appcommonhandle("结果",null),
+    modulename1:  commonLogic.appcommonhandle("模块名称",null),
     linkCase:  commonLogic.appcommonhandle("相关用例",null),
+    caseSteps:  commonLogic.appcommonhandle("用例步骤集合",null),
+    task:  commonLogic.appcommonhandle("属性",null),
     order:  commonLogic.appcommonhandle("排序",null),
     howRun:  commonLogic.appcommonhandle("howRun",null),
+    resultCNT:  commonLogic.appcommonhandle("测试结果数",null),
+    noticeusers:  commonLogic.appcommonhandle("消息通知用户",null),
     version:  commonLogic.appcommonhandle("用例版本",null),
     scriptedBy:  commonLogic.appcommonhandle("scriptedBy",null),
     openedBy:  commonLogic.appcommonhandle("由谁创建",null),
     type:  commonLogic.appcommonhandle("用例类型",null),
+    resultfalicnt:  commonLogic.appcommonhandle("测试失败数",null),
     status:  commonLogic.appcommonhandle("用例状态",null),
+    comment:  commonLogic.appcommonhandle("备注",null),
     auto:  commonLogic.appcommonhandle("auto",null),
+    isfavorites:  commonLogic.appcommonhandle("是否收藏",null),
     frequency:  commonLogic.appcommonhandle("frequency",null),
     title:  commonLogic.appcommonhandle("用例标题",null),
     lastEditedBy:  commonLogic.appcommonhandle("最后修改者",null),
     reviewedBy:  commonLogic.appcommonhandle("由谁评审",null),
+    files:  commonLogic.appcommonhandle("附件",null),
+    toBugCNT:  commonLogic.appcommonhandle("转bug数",null),
+    assignedTo:  commonLogic.appcommonhandle("指派给",null),
     deleted:  commonLogic.appcommonhandle("已删除",null),
     reviewedDate:  commonLogic.appcommonhandle("评审时间",null),
     pri:  commonLogic.appcommonhandle("优先级",null),
     stage:  commonLogic.appcommonhandle("适用阶段",null),
     scriptLocation:  commonLogic.appcommonhandle("scriptLocation",null),
+    status1:  commonLogic.appcommonhandle("用例状态",null),
     lastRunDate:  commonLogic.appcommonhandle("执行时间",null),
     keywords:  commonLogic.appcommonhandle("关键词",null),
     scriptStatus:  commonLogic.appcommonhandle("scriptStatus",null),
     frame:  commonLogic.appcommonhandle("工具/框架",null),
+    lastrunresult1:  commonLogic.appcommonhandle("测试用例结果",null),
+    stepCNT:  commonLogic.appcommonhandle("用例步骤数",null),
     subStatus:  commonLogic.appcommonhandle("子状态",null),
     id:  commonLogic.appcommonhandle("用例编号",null),
     precondition:  commonLogic.appcommonhandle("前置条件",null),
     lastRunner:  commonLogic.appcommonhandle("执行人",null),
+    libname:  commonLogic.appcommonhandle("用例库",null),
     fromCaseVersion:  commonLogic.appcommonhandle("来源用例版本",null),
+    storyname:  commonLogic.appcommonhandle("需求名称",null),
+    modulename:  commonLogic.appcommonhandle("模块名称",null),
     storyVersion:  commonLogic.appcommonhandle("需求版本",null),
+    productName:  commonLogic.appcommonhandle("产品名称",null),
     fromCaseId:  commonLogic.appcommonhandle("来源用例",null),
     branch:  commonLogic.appcommonhandle("平台/分支",null),
     fromBug:  commonLogic.appcommonhandle("来源Bug",null),
@@ -42,37 +60,16 @@ export default {
     product:  commonLogic.appcommonhandle("所属产品",null),
     lib:  commonLogic.appcommonhandle("所属库",null),
     module:  commonLogic.appcommonhandle("所属模块",null),
-    modulename:  commonLogic.appcommonhandle("模块名称",null),
-    storyname:  commonLogic.appcommonhandle("需求名称",null),
-    productName:  commonLogic.appcommonhandle("产品名称",null),
-    caseSteps:  commonLogic.appcommonhandle("用例步骤集合",null),
-    toBugCNT:  commonLogic.appcommonhandle("转bug数",null),
-    resultCNT:  commonLogic.appcommonhandle("测试结果数",null),
-    stepCNT:  commonLogic.appcommonhandle("用例步骤数",null),
-    comment:  commonLogic.appcommonhandle("备注",null),
-    resultfalicnt:  commonLogic.appcommonhandle("测试失败数",null),
-    status1:  commonLogic.appcommonhandle("用例状态",null),
-    assignedTo:  commonLogic.appcommonhandle("指派给",null),
-    task:  commonLogic.appcommonhandle("属性",null),
-    libname:  commonLogic.appcommonhandle("用例库",null),
-    lastrunresult1:  commonLogic.appcommonhandle("测试用例结果",null),
-    isfavorites:  commonLogic.appcommonhandle("是否收藏",null),
-    modulename1:  commonLogic.appcommonhandle("模块名称",null),
-    files:  commonLogic.appcommonhandle("附件",null),
-    noticeusers:  commonLogic.appcommonhandle("消息通知用户",null),
   },
 	views: {
-		mobmdview_testtask: {
+		mobeditview: {
 			caption: commonLogic.appcommonhandle("测试用例",null),
 		},
-		mobmdview_testsuite: {
+		mobmdview: {
 			caption: commonLogic.appcommonhandle("测试用例",null),
 		},
 		usr2mobmpickupview: {
 			caption: commonLogic.appcommonhandle("关联用例",null),
-		},
-		mobmdview: {
-			caption: commonLogic.appcommonhandle("测试用例",null),
 		},
 		usr2mobpickupmdview: {
 			caption: commonLogic.appcommonhandle("关联用例",null),
@@ -80,8 +77,34 @@ export default {
 		createcasemobeditview: {
 			caption: commonLogic.appcommonhandle("测试用例",null),
 		},
-		mobeditview: {
+		mobmdview_testtask: {
 			caption: commonLogic.appcommonhandle("测试用例",null),
+		},
+		mobmdview_testsuite: {
+			caption: commonLogic.appcommonhandle("测试用例",null),
+		},
+	},
+	createmob_form: {
+		details: {
+			group1: commonLogic.appcommonhandle("测试用例基本信息",null), 
+			formpage1: commonLogic.appcommonhandle("基本信息",null), 
+			srfupdatedate: commonLogic.appcommonhandle("修改日期",null), 
+			srforikey: commonLogic.appcommonhandle("",null), 
+			srfkey: commonLogic.appcommonhandle("用例编号",null), 
+			srfmajortext: commonLogic.appcommonhandle("用例标题",null), 
+			srftempmode: commonLogic.appcommonhandle("",null), 
+			srfuf: commonLogic.appcommonhandle("",null), 
+			srfdeid: commonLogic.appcommonhandle("",null), 
+			srfsourcekey: commonLogic.appcommonhandle("",null), 
+			title: commonLogic.appcommonhandle("用例标题",null), 
+			type: commonLogic.appcommonhandle("用例类型",null), 
+			stage: commonLogic.appcommonhandle("适用阶段",null), 
+			precondition: commonLogic.appcommonhandle("前置条件",null), 
+			version: commonLogic.appcommonhandle("用例版本",null), 
+			keywords: commonLogic.appcommonhandle("关键词",null), 
+			id: commonLogic.appcommonhandle("用例编号",null), 
+		},
+		uiactions: {
 		},
 	},
 	mobmain_form: {
@@ -111,29 +134,6 @@ export default {
 		uiactions: {
 		},
 	},
-	createmob_form: {
-		details: {
-			group1: commonLogic.appcommonhandle("测试用例基本信息",null), 
-			formpage1: commonLogic.appcommonhandle("基本信息",null), 
-			srfupdatedate: commonLogic.appcommonhandle("修改日期",null), 
-			srforikey: commonLogic.appcommonhandle("",null), 
-			srfkey: commonLogic.appcommonhandle("用例编号",null), 
-			srfmajortext: commonLogic.appcommonhandle("用例标题",null), 
-			srftempmode: commonLogic.appcommonhandle("",null), 
-			srfuf: commonLogic.appcommonhandle("",null), 
-			srfdeid: commonLogic.appcommonhandle("",null), 
-			srfsourcekey: commonLogic.appcommonhandle("",null), 
-			title: commonLogic.appcommonhandle("用例标题",null), 
-			type: commonLogic.appcommonhandle("用例类型",null), 
-			stage: commonLogic.appcommonhandle("适用阶段",null), 
-			precondition: commonLogic.appcommonhandle("前置条件",null), 
-			version: commonLogic.appcommonhandle("用例版本",null), 
-			keywords: commonLogic.appcommonhandle("关键词",null), 
-			id: commonLogic.appcommonhandle("用例编号",null), 
-		},
-		uiactions: {
-		},
-	},
 	mobdef_searchform: {
 		details: {
 			formpage1: commonLogic.appcommonhandle("常规条件",null), 
@@ -145,14 +145,6 @@ export default {
 		uiactions: {
 		},
 	},
-	mobmdview_testtaskrighttoolbar2_toolbar: {
-		deuiaction1: {
-			caption: commonLogic.appcommonhandle("关联需求",null),
-			tip: 'deuiaction1',
-		},
-	},
-	mobeditviewrighttoolbar_toolbar: {
-	},
 	createcasemobeditviewrighttoolbar_toolbar: {
 		tbitem1: {
 			caption: commonLogic.appcommonhandle("Save And Close",null),
@@ -162,6 +154,14 @@ export default {
 	mobmdviewrighttoolbar_toolbar: {
 		deuiaction1: {
 			caption: commonLogic.appcommonhandle("移动端新建",null),
+			tip: 'deuiaction1',
+		},
+	},
+	mobeditviewrighttoolbar_toolbar: {
+	},
+	mobmdview_testtaskrighttoolbar2_toolbar: {
+		deuiaction1: {
+			caption: commonLogic.appcommonhandle("关联需求",null),
 			tip: 'deuiaction1',
 		},
 	},

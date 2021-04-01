@@ -1137,7 +1137,7 @@ export default class MobChageFormBase extends Vue implements ControlInterface {
 
 
         if (Object.is(name, 'version')) {
-            const details: string[] = ['verify', 'spec'];
+            const details: string[] = ['spec', 'verify'];
             if(await this.validItem('version', this.data['version'])){
                 this.updateFormItems('GetStorySpec', this.data, details, true);
             }

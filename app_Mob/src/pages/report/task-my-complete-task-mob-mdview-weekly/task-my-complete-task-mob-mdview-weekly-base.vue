@@ -127,7 +127,7 @@ export default class TaskMyCompleteTaskMobMDViewWeeklyBase extends Vue {
 	 * @type {string}
 	 * @memberof TaskMyCompleteTaskMobMDViewWeeklyBase
 	 */
-	protected viewtag: string = '1bd9873e7212574f35571116edb7da0b';
+	protected viewtag: string = '1b2343f43825f3e9694c0e7b79c5500b';
 
     /**
      * 视图上下文

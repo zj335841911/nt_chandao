@@ -210,7 +210,7 @@ export default class ReleaseMobMDViewBase extends Vue {
 	 * @type {string}
 	 * @memberof ReleaseMobMDViewBase
 	 */
-	protected viewtag: string = '7862eff0b9a271764fccf722121c6b66';
+	protected viewtag: string = '1a117a4492447b0e842aa5b30cab0701';
 
     /**
      * 视图上下文

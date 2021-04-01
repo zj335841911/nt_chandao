@@ -15,28 +15,28 @@ export class Mob_Task_CaseModel {
 	public getDataItems(): any[] {
 		return [
 			{
-				name: 'id',
-			},
-			{
-				name: 'version',
-			},
-			{
-				name: 'pri',
-			},
-			{
-				name: 'task',
-			},
-			{
-				name: 'title',
-			},
-			{
 				name: 'status1',
 			},
 			{
 				name: 'type',
 			},
 			{
+				name: 'version',
+			},
+			{
 				name: 'lastrunresult',
+			},
+			{
+				name: 'pri',
+			},
+			{
+				name: 'id',
+			},
+			{
+				name: 'task',
+			},
+			{
+				name: 'title',
 			},
 			{
 				name: 'srfkey',

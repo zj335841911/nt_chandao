@@ -898,6 +898,19 @@ export default class MobNewFromBase extends Vue implements ControlInterface {
      * @memberof MobNewFromBase
      */
     public deRules:any = {
+                estimate:[
+                  {
+                      type:"VALUERANGE2",
+                      condOP:"",
+                      ruleInfo:"预计消耗大于等于0", 
+                      isKeyCond:false,
+                      isNotMode:false,
+                      minValue:0,
+                      deName:"estimate",
+                      isIncludeMaxValue:false,
+                      isIncludeMinValue:true,
+                  },
+                ],
                 deadline:[
                   {
                       type:"GROUP",
@@ -946,19 +959,6 @@ export default class MobNewFromBase extends Vue implements ControlInterface {
                       deName:"name",
                       isIncludeMaxValue:true,
                       isIncludeMinValue:false,
-                  },
-                ],
-                estimate:[
-                  {
-                      type:"VALUERANGE2",
-                      condOP:"",
-                      ruleInfo:"预计消耗大于等于0", 
-                      isKeyCond:false,
-                      isNotMode:false,
-                      minValue:0,
-                      deName:"estimate",
-                      isIncludeMaxValue:false,
-                      isIncludeMinValue:true,
                   },
                 ],
     };

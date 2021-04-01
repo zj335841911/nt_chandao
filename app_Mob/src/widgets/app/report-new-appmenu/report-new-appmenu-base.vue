@@ -419,29 +419,29 @@ export default class ReportNewBase extends Vue implements ControlInterface {
     private click(item: any) {
         if (item) {
             switch (item.appfunctag) {
-                case 'AppFunc9': 
-                    this.clickAppFunc9(item);
-                    return;
-                case 'AppFunc13': 
-                    this.clickAppFunc13(item);
-                    return;
-                case 'AppFunc5': 
-                    this.clickAppFunc5(item);
-                    return;
-                case 'AppFunc12': 
-                    this.clickAppFunc12(item);
-                    return;
                 case 'Reportly': 
                     this.clickReportly(item);
+                    return;
+                case 'Monthly': 
+                    this.clickMonthly(item);
                     return;
                 case 'NeedLookMonthly': 
                     this.clickNeedLookMonthly(item);
                     return;
+                case 'AppFunc12': 
+                    this.clickAppFunc12(item);
+                    return;
+                case 'AppFunc13': 
+                    this.clickAppFunc13(item);
+                    return;
+                case 'AppFunc9': 
+                    this.clickAppFunc9(item);
+                    return;
                 case 'AppFunc11': 
                     this.clickAppFunc11(item);
                     return;
-                case 'Monthly': 
-                    this.clickMonthly(item);
+                case 'AppFunc5': 
+                    this.clickAppFunc5(item);
                     return;
                 default:
                     console.warn('未指定应用功能');
@@ -449,90 +449,6 @@ export default class ReportNewBase extends Vue implements ControlInterface {
         }
     }
 
-    
-    /**
-     * 我的周报
-     *
-     * @param {*} [item={}]
-     * @memberof ReportNew
-     */
-    protected clickAppFunc9(item: any = {}) {
-        let navigateParam: any = { } ;
-        let navigateContext: any = { } ;
-        const { param: _param, context: _context } = this.$viewTool.formatNavigateParam(navigateContext, navigateParam, this.context, this.viewparams, {});
-        let context = { ..._context };
-        let param = { ..._param };
-        const deResParameters: any[] = [];
-        const parameters: any[] = [
-            { pathName: 'ibzweeklies', parameterName: 'ibzweekly' },
-            { pathName: 'usr2mobmdview', parameterName: 'usr2mobmdview' },
-        ];
-        const routeParam: any = this.globaluiservice.openService.formatRouteParam(context, deResParameters, parameters, [], param);
-        this.globaluiservice.openService.openView(routeParam);
-    }
-    
-    /**
-     * 周报（待阅）
-     *
-     * @param {*} [item={}]
-     * @memberof ReportNew
-     */
-    protected clickAppFunc13(item: any = {}) {
-        let navigateParam: any = { "ibzweekly": "%srfparentkey%" } ;
-        let navigateContext: any = { "ibzweekly": "%srfparentkey%" } ;
-        const { param: _param, context: _context } = this.$viewTool.formatNavigateParam(navigateContext, navigateParam, this.context, this.viewparams, {});
-        let context = { ..._context };
-        let param = { ..._param };
-        const deResParameters: any[] = [];
-        const parameters: any[] = [
-            { pathName: 'ibzweeklies', parameterName: 'ibzweekly' },
-            { pathName: 'mobeditview', parameterName: 'mobeditview' },
-        ];
-        const routeParam: any = this.globaluiservice.openService.formatRouteParam(context, deResParameters, parameters, [], param);
-        this.globaluiservice.openService.openView(routeParam);
-    }
-    
-    /**
-     * 日报（新建）
-     *
-     * @param {*} [item={}]
-     * @memberof ReportNew
-     */
-    protected clickAppFunc5(item: any = {}) {
-        let navigateParam: any = { } ;
-        let navigateContext: any = { } ;
-        const { param: _param, context: _context } = this.$viewTool.formatNavigateParam(navigateContext, navigateParam, this.context, this.viewparams, {});
-        let context = { ..._context };
-        let param = { ..._param };
-        const deResParameters: any[] = [];
-        const parameters: any[] = [
-            { pathName: 'ibzdailies', parameterName: 'ibzdaily' },
-            { pathName: 'mymobmdview', parameterName: 'mymobmdview' },
-        ];
-        const routeParam: any = this.globaluiservice.openService.formatRouteParam(context, deResParameters, parameters, [], param);
-        this.globaluiservice.openService.openView(routeParam);
-    }
-    
-    /**
-     * 我收到的
-     *
-     * @param {*} [item={}]
-     * @memberof ReportNew
-     */
-    protected clickAppFunc12(item: any = {}) {
-        let navigateParam: any = { } ;
-        let navigateContext: any = { } ;
-        const { param: _param, context: _context } = this.$viewTool.formatNavigateParam(navigateContext, navigateParam, this.context, this.viewparams, {});
-        let context = { ..._context };
-        let param = { ..._param };
-        const deResParameters: any[] = [];
-        const parameters: any[] = [
-            { pathName: 'ibzreports', parameterName: 'ibzreport' },
-            { pathName: 'myremobmdview', parameterName: 'myremobmdview' },
-        ];
-        const routeParam: any = this.globaluiservice.openService.formatRouteParam(context, deResParameters, parameters, [], param);
-        this.globaluiservice.openService.openView(routeParam);
-    }
     
     /**
      * 汇报
@@ -550,6 +466,27 @@ export default class ReportNewBase extends Vue implements ControlInterface {
         const parameters: any[] = [
             { pathName: 'ibzreportlies', parameterName: 'ibzreportly' },
             { pathName: 'reportlymobmdview', parameterName: 'reportlymobmdview' },
+        ];
+        const routeParam: any = this.globaluiservice.openService.formatRouteParam(context, deResParameters, parameters, [], param);
+        this.globaluiservice.openService.openView(routeParam);
+    }
+    
+    /**
+     * 月报
+     *
+     * @param {*} [item={}]
+     * @memberof ReportNew
+     */
+    protected clickMonthly(item: any = {}) {
+        let navigateParam: any = { } ;
+        let navigateContext: any = { } ;
+        const { param: _param, context: _context } = this.$viewTool.formatNavigateParam(navigateContext, navigateParam, this.context, this.viewparams, {});
+        let context = { ..._context };
+        let param = { ..._param };
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'ibzmonthlies', parameterName: 'ibzmonthly' },
+            { pathName: 'monthlymobmdview', parameterName: 'monthlymobmdview' },
         ];
         const routeParam: any = this.globaluiservice.openService.formatRouteParam(context, deResParameters, parameters, [], param);
         this.globaluiservice.openService.openView(routeParam);
@@ -577,6 +514,69 @@ export default class ReportNewBase extends Vue implements ControlInterface {
     }
     
     /**
+     * 我收到的
+     *
+     * @param {*} [item={}]
+     * @memberof ReportNew
+     */
+    protected clickAppFunc12(item: any = {}) {
+        let navigateParam: any = { } ;
+        let navigateContext: any = { } ;
+        const { param: _param, context: _context } = this.$viewTool.formatNavigateParam(navigateContext, navigateParam, this.context, this.viewparams, {});
+        let context = { ..._context };
+        let param = { ..._param };
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'ibzreports', parameterName: 'ibzreport' },
+            { pathName: 'myremobmdview', parameterName: 'myremobmdview' },
+        ];
+        const routeParam: any = this.globaluiservice.openService.formatRouteParam(context, deResParameters, parameters, [], param);
+        this.globaluiservice.openService.openView(routeParam);
+    }
+    
+    /**
+     * 周报（待阅）
+     *
+     * @param {*} [item={}]
+     * @memberof ReportNew
+     */
+    protected clickAppFunc13(item: any = {}) {
+        let navigateParam: any = { "ibzweekly": "%srfparentkey%" } ;
+        let navigateContext: any = { "ibzweekly": "%srfparentkey%" } ;
+        const { param: _param, context: _context } = this.$viewTool.formatNavigateParam(navigateContext, navigateParam, this.context, this.viewparams, {});
+        let context = { ..._context };
+        let param = { ..._param };
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'ibzweeklies', parameterName: 'ibzweekly' },
+            { pathName: 'mobeditview', parameterName: 'mobeditview' },
+        ];
+        const routeParam: any = this.globaluiservice.openService.formatRouteParam(context, deResParameters, parameters, [], param);
+        this.globaluiservice.openService.openView(routeParam);
+    }
+    
+    /**
+     * 我的周报
+     *
+     * @param {*} [item={}]
+     * @memberof ReportNew
+     */
+    protected clickAppFunc9(item: any = {}) {
+        let navigateParam: any = { } ;
+        let navigateContext: any = { } ;
+        const { param: _param, context: _context } = this.$viewTool.formatNavigateParam(navigateContext, navigateParam, this.context, this.viewparams, {});
+        let context = { ..._context };
+        let param = { ..._param };
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'ibzweeklies', parameterName: 'ibzweekly' },
+            { pathName: 'usr2mobmdview', parameterName: 'usr2mobmdview' },
+        ];
+        const routeParam: any = this.globaluiservice.openService.formatRouteParam(context, deResParameters, parameters, [], param);
+        this.globaluiservice.openService.openView(routeParam);
+    }
+    
+    /**
      * 汇报（我提交的）
      *
      * @param {*} [item={}]
@@ -598,12 +598,12 @@ export default class ReportNewBase extends Vue implements ControlInterface {
     }
     
     /**
-     * 月报
+     * 日报（新建）
      *
      * @param {*} [item={}]
      * @memberof ReportNew
      */
-    protected clickMonthly(item: any = {}) {
+    protected clickAppFunc5(item: any = {}) {
         let navigateParam: any = { } ;
         let navigateContext: any = { } ;
         const { param: _param, context: _context } = this.$viewTool.formatNavigateParam(navigateContext, navigateParam, this.context, this.viewparams, {});
@@ -611,8 +611,8 @@ export default class ReportNewBase extends Vue implements ControlInterface {
         let param = { ..._param };
         const deResParameters: any[] = [];
         const parameters: any[] = [
-            { pathName: 'ibzmonthlies', parameterName: 'ibzmonthly' },
-            { pathName: 'monthlymobmdview', parameterName: 'monthlymobmdview' },
+            { pathName: 'ibzdailies', parameterName: 'ibzdaily' },
+            { pathName: 'mymobmdview', parameterName: 'mymobmdview' },
         ];
         const routeParam: any = this.globaluiservice.openService.formatRouteParam(context, deResParameters, parameters, [], param);
         this.globaluiservice.openService.openView(routeParam);

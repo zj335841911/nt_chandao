@@ -15,13 +15,16 @@ export class MobModel {
 	public getDataItems(): any[] {
 		return [
 			{
-				name: 'account',
+				name: 'date',
 			},
 			{
 				name: 'reportstatus',
 			},
 			{
-				name: 'worktoday',
+				name: 'account',
+			},
+			{
+				name: 'planstomorrow',
 			},
 			{
 				name: 'submittime',
@@ -30,13 +33,10 @@ export class MobModel {
 				name: 'ibz_dailyname',
 			},
 			{
-				name: 'date',
-			},
-			{
 				name: 'reportto',
 			},
 			{
-				name: 'planstomorrow',
+				name: 'worktoday',
 			},
 			{
 				name: 'srfkey',

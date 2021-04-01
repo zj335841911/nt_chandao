@@ -15,19 +15,19 @@ export class AssMOBDASHBOARDModel {
 	public getDataItems(): any[] {
 		return [
 			{
+				name: 'title',
+			},
+			{
 				name: 'resolution',
 			},
 			{
 				name: 'status',
 			},
 			{
-				name: 'pri',
-			},
-			{
 				name: 'assignedto',
 			},
 			{
-				name: 'title',
+				name: 'pri',
 			},
 			{
 				name: 'srfkey',

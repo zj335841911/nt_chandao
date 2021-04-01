@@ -15,6 +15,12 @@ export class MainModel {
   public getDataItems(): any[] {
     return [
       {
+        name: 'monthname',
+      },
+      {
+        name: 'year',
+      },
+      {
         name: 'account',
       },
       {
@@ -24,26 +30,26 @@ export class MainModel {
         name: 'consumed',
       },
       {
+        name: 'evaluationcost',
+      },
+      {
+        name: 'monthorder',
+      },
+      {
+        name: 'files',
+      },
+      {
         name: 'ibztaskestimate',
         prop: 'id',
-      },
-      {
-        name: 'date',
-      },
-      {
-        name: 'work',
-      },
-      {
-        name: 'task',
-      },
-      {
-        name: 'dates',
       },
       {
         name: 'evaluationstatus',
       },
       {
-        name: 'evaluationcost',
+        name: 'yearname',
+      },
+      {
+        name: 'date',
       },
       {
         name: 'evaluationtime',
@@ -52,40 +58,37 @@ export class MainModel {
         name: 'inputcost',
       },
       {
-        name: 'evaluationdesc',
-      },
-      {
-        name: 'taskname',
-      },
-      {
-        name: 'project',
-      },
-      {
-        name: 'projectname',
-      },
-      {
-        name: 'taskspecies',
-      },
-      {
-        name: 'type',
-      },
-      {
-        name: 'year',
-      },
-      {
-        name: 'yearname',
+        name: 'dates',
       },
       {
         name: 'month',
       },
       {
-        name: 'monthname',
+        name: 'work',
       },
       {
-        name: 'monthorder',
+        name: 'evaluationdesc',
       },
       {
-        name: 'files',
+        name: 'taskspecies',
+      },
+      {
+        name: 'taskname',
+      },
+      {
+        name: 'projectname',
+      },
+      {
+        name: 'type',
+      },
+      {
+        name: 'deleted',
+      },
+      {
+        name: 'project',
+      },
+      {
+        name: 'task',
       },
       {
         name: 'task',

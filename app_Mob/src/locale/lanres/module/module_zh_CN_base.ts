@@ -8,22 +8,22 @@ export default {
     order: "排序",
     owner: "负责人",
     id: "id",
+    orderpk: "数据选择排序",
     collector: "收藏者",
     ibizshort: "简称",
     path: "路径",
+    mdeptid: "部门标识",
+    orgid: "组织标识",
     deleted: "已删除",
     parentname: "上级模块",
     branch: "平台/分支",
     parent: "上级模块",
-    mdeptid: "部门标识",
-    orgid: "组织标识",
-    orderpk: "数据选择排序",
   },
 	views: {
-		mobpickupview: {
+		mobpickupmdview: {
 			caption: commonLogic.appcommonhandle("模块",null),
 		},
-		mobpickupmdview: {
+		mobpickupview: {
 			caption: commonLogic.appcommonhandle("模块",null),
 		},
 	},

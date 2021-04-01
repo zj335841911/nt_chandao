@@ -128,7 +128,7 @@ export default class SysEmployeeheadPortraitMobEditViewBase extends Vue {
 	 * @type {string}
 	 * @memberof SysEmployeeheadPortraitMobEditViewBase
 	 */
-	protected viewtag: string = '97630768e30593ab04f3d7dc263796cb';
+	protected viewtag: string = '0e7dfc85e620169defd80d3f4abbaae9';
 
     /**
      * 视图上下文

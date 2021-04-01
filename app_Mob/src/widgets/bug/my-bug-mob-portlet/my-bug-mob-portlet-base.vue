@@ -159,7 +159,7 @@ export default class MyBugMobBase extends Vue implements ControlInterface {
      * @returns {Promise<any>}
      * @memberof Dashboard_sysportlet3Base
      */
-    protected async dashboard_sysportlet3_ud7e32da_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async dashboard_sysportlet3_u9452a62_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
 
         // 取数
         let datas: any[] = [];
@@ -250,7 +250,7 @@ export default class MyBugMobBase extends Vue implements ControlInterface {
      */
     protected actionBarModelData: any[] = [
         {
-            viewlogicname: "dashboard_sysportlet3_ud7e32da_click",
+            viewlogicname: "dashboard_sysportlet3_u9452a62_click",
             name: "更多",
         }
     ];
@@ -263,8 +263,8 @@ export default class MyBugMobBase extends Vue implements ControlInterface {
      * @memberof MyBugMob
      */
     protected handleItemClick($event: any) {
-        if (Object.is($event, 'dashboard_sysportlet3_ud7e32da_click')) {
-            this.dashboard_sysportlet3_ud7e32da_click(null);
+        if (Object.is($event, 'dashboard_sysportlet3_u9452a62_click')) {
+            this.dashboard_sysportlet3_u9452a62_click(null);
         }
     }
 

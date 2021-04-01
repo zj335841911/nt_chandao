@@ -15,19 +15,19 @@ export class MobModel {
 	public getDataItems(): any[] {
 		return [
 			{
-				name: 'end',
+				name: 'begin',
 			},
 			{
-				name: 'bugcnt',
+				name: 'storycnt',
 			},
 			{
 				name: 'title',
 			},
 			{
-				name: 'begin',
+				name: 'end',
 			},
 			{
-				name: 'storycnt',
+				name: 'bugcnt',
 			},
 			{
 				name: 'srfkey',

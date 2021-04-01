@@ -112,7 +112,7 @@ export default class UserMobPickupMDViewBase extends Vue {
 	 * @type {string}
 	 * @memberof UserMobPickupMDViewBase
 	 */
-	protected viewtag: string = '8ca2ced94768f27ac028aaea323e33b5';
+	protected viewtag: string = 'f57cc769a2f22b7b506604085fb6eb79';
 
     /**
      * 视图上下文

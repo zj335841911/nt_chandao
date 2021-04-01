@@ -15,13 +15,10 @@ export class MyReceivedModel {
 	public getDataItems(): any[] {
 		return [
 			{
+				name: 'date',
+			},
+			{
 				name: 'reportto',
-			},
-			{
-				name: 'workthismonth',
-			},
-			{
-				name: 'plansnextmonth',
 			},
 			{
 				name: 'account',
@@ -30,7 +27,10 @@ export class MyReceivedModel {
 				name: 'ibz_monthlyname',
 			},
 			{
-				name: 'date',
+				name: 'plansnextmonth',
+			},
+			{
+				name: 'workthismonth',
 			},
 			{
 				name: 'srfkey',

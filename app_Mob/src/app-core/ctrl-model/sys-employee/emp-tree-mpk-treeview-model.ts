@@ -100,13 +100,13 @@ export class EmpTreeMpkModel {
         name: 'createdate',
       },
       {
+        name: 'updatedate',
+      },
+      {
         name: 'updateman',
       },
       {
         name: 'createman',
-      },
-      {
-        name: 'updatedate',
       },
     ]
   }

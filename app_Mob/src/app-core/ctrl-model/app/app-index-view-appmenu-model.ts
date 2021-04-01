@@ -129,7 +129,7 @@ export class AppIndexViewModel {
 	authtag:'Mob-AppIndexView-menuitem7',
 },
         {
-	id: 'A9234AE1-B762-4769-8790-26A98A6CB817',
+	id: 'e76dd92a08a5ec0045cde9fe7e659562',
 	name: 'menuitem8',
 	text: '更新日志',
 	type: 'MENUITEM',
@@ -148,7 +148,7 @@ export class AppIndexViewModel {
 	authtag:'Mob-AppIndexView-menuitem8',
 },
         {
-	id: 'A211AE8E-A134-4271-A075-5BB2D7F14E34',
+	id: '7aceef16a9ecd690aca5e89d63565d33',
 	name: 'menuitem9',
 	text: '登录地图test',
 	type: 'MENUITEM',
@@ -167,7 +167,7 @@ export class AppIndexViewModel {
 	authtag:'Mob-AppIndexView-menuitem9',
 },
         {
-	id: 'FBDFE12B-5722-44A3-BF45-D254CCBE153E',
+	id: '440650b717c9839bb6d06f8589fcc585',
 	name: 'menuitem10',
 	text: '头像',
 	type: 'MENUITEM',
@@ -196,16 +196,29 @@ export class AppIndexViewModel {
 	 */
 	private funcs: any[] = [
         {
-            appfunctag: 'AppFunc3',
+            appfunctag: 'AppFunc14',
             appfuncyype: 'APPVIEW',
             openmode: '', 
-            componentname: 'sys-update-log-mob-mdview', 
-            codename: 'sysupdatelogmobmdview',
+            componentname: 'sys-employeehead-portrait-mob-edit-view', 
+            codename: 'sysemployeeheadportraitmobeditview',
             deResParameters: [],
-            routepath: '/appindexview/:appindexview?/sysupdatelogs/:sysupdatelog?/mobmdview/:mobmdview?',
+            routepath: '/appindexview/:appindexview?/sysemployees/:sysemployee?/headportraitmobeditview/:headportraitmobeditview?',
             parameters: [
-                { pathName: 'sysupdatelogs', parameterName: 'sysupdatelog' },
-                { pathName: 'mobmdview', parameterName: 'mobmdview' },
+                { pathName: 'sysemployees', parameterName: 'sysemployee' },
+                { pathName: 'headportraitmobeditview', parameterName: 'headportraitmobeditview' },
+            ],
+        },
+        {
+            appfunctag: 'Auto20',
+            appfuncyype: 'APPVIEW',
+            openmode: '', 
+            componentname: 'product-test-mob-mdview', 
+            codename: 'producttestmobmdview',
+            deResParameters: [],
+            routepath: '/appindexview/:appindexview?/products/:product?/testmobmdview/:testmobmdview?',
+            parameters: [
+                { pathName: 'products', parameterName: 'product' },
+                { pathName: 'testmobmdview', parameterName: 'testmobmdview' },
             ],
         },
         {
@@ -234,42 +247,16 @@ export class AppIndexViewModel {
             ],
         },
         {
-            appfunctag: 'AppFunc4',
+            appfunctag: 'AppFunc3',
             appfuncyype: 'APPVIEW',
             openmode: '', 
-            componentname: 'action-mob-map-view', 
-            codename: 'actionmobmapview',
+            componentname: 'sys-update-log-mob-mdview', 
+            codename: 'sysupdatelogmobmdview',
             deResParameters: [],
-            routepath: '/appindexview/:appindexview?/actions/:action?/mobmapview/:mobmapview?',
+            routepath: '/appindexview/:appindexview?/sysupdatelogs/:sysupdatelog?/mobmdview/:mobmdview?',
             parameters: [
-                { pathName: 'actions', parameterName: 'action' },
-                { pathName: 'mobmapview', parameterName: 'mobmapview' },
-            ],
-        },
-        {
-            appfunctag: 'AppFunc14',
-            appfuncyype: 'APPVIEW',
-            openmode: '', 
-            componentname: 'sys-employeehead-portrait-mob-edit-view', 
-            codename: 'sysemployeeheadportraitmobeditview',
-            deResParameters: [],
-            routepath: '/appindexview/:appindexview?/sysemployees/:sysemployee?/headportraitmobeditview/:headportraitmobeditview?',
-            parameters: [
-                { pathName: 'sysemployees', parameterName: 'sysemployee' },
-                { pathName: 'headportraitmobeditview', parameterName: 'headportraitmobeditview' },
-            ],
-        },
-        {
-            appfunctag: 'AppFunc',
-            appfuncyype: 'APPVIEW',
-            openmode: '', 
-            componentname: 'sys-employee-login-mob-edit-view', 
-            codename: 'sysemployeeloginmobeditview',
-            deResParameters: [],
-            routepath: '/appindexview/:appindexview?/sysemployees/:sysemployee?/loginmobeditview/:loginmobeditview?',
-            parameters: [
-                { pathName: 'sysemployees', parameterName: 'sysemployee' },
-                { pathName: 'loginmobeditview', parameterName: 'loginmobeditview' },
+                { pathName: 'sysupdatelogs', parameterName: 'sysupdatelog' },
+                { pathName: 'mobmdview', parameterName: 'mobmdview' },
             ],
         },
         {
@@ -286,6 +273,32 @@ export class AppIndexViewModel {
             ],
         },
         {
+            appfunctag: 'AppFunc',
+            appfuncyype: 'APPVIEW',
+            openmode: '', 
+            componentname: 'sys-employee-login-mob-edit-view', 
+            codename: 'sysemployeeloginmobeditview',
+            deResParameters: [],
+            routepath: '/appindexview/:appindexview?/sysemployees/:sysemployee?/loginmobeditview/:loginmobeditview?',
+            parameters: [
+                { pathName: 'sysemployees', parameterName: 'sysemployee' },
+                { pathName: 'loginmobeditview', parameterName: 'loginmobeditview' },
+            ],
+        },
+        {
+            appfunctag: 'AppFunc4',
+            appfuncyype: 'APPVIEW',
+            openmode: '', 
+            componentname: 'action-mob-map-view', 
+            codename: 'actionmobmapview',
+            deResParameters: [],
+            routepath: '/appindexview/:appindexview?/actions/:action?/mobmapview/:mobmapview?',
+            parameters: [
+                { pathName: 'actions', parameterName: 'action' },
+                { pathName: 'mobmapview', parameterName: 'mobmapview' },
+            ],
+        },
+        {
             appfunctag: 'Auto18',
             appfuncyype: 'APPVIEW',
             openmode: '', 
@@ -296,19 +309,6 @@ export class AppIndexViewModel {
             parameters: [
                 { pathName: 'projects', parameterName: 'project' },
                 { pathName: 'mobmdview', parameterName: 'mobmdview' },
-            ],
-        },
-        {
-            appfunctag: 'Auto20',
-            appfuncyype: 'APPVIEW',
-            openmode: '', 
-            componentname: 'product-test-mob-mdview', 
-            codename: 'producttestmobmdview',
-            deResParameters: [],
-            routepath: '/appindexview/:appindexview?/products/:product?/testmobmdview/:testmobmdview?',
-            parameters: [
-                { pathName: 'products', parameterName: 'product' },
-                { pathName: 'testmobmdview', parameterName: 'testmobmdview' },
             ],
         },
 	];

@@ -113,7 +113,7 @@ export default class DocLibProjectDocLibMobTreeViewBase extends Vue {
 	 * @type {string}
 	 * @memberof DocLibProjectDocLibMobTreeViewBase
 	 */
-	protected viewtag: string = 'b731c5d991dcb4695d925bb8749fa6fc';
+	protected viewtag: string = '1b05f18c64482f9efe751410e3801182';
 
     /**
      * 视图上下文

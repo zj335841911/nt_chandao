@@ -115,7 +115,7 @@ export default class IbzMyTerritoryReportMobTabExpViewBase extends Vue {
 	 * @type {string}
 	 * @memberof IbzMyTerritoryReportMobTabExpViewBase
 	 */
-	protected viewtag: string = 'd5c7609394e36976dbc09c76264450f5';
+	protected viewtag: string = 'bfdfb2e7993a7287aeec992e21319c46';
 
     /**
      * 视图上下文

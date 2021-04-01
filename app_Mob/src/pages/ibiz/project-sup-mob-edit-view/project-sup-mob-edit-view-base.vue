@@ -143,7 +143,7 @@ export default class ProjectSupMobEditViewBase extends Vue {
 	 * @type {string}
 	 * @memberof ProjectSupMobEditViewBase
 	 */
-	protected viewtag: string = '6ad6f55033b261e9bd02720faf229274';
+	protected viewtag: string = '732fb2c47872ee18a809a65b03490dc7';
 
     /**
      * 视图上下文

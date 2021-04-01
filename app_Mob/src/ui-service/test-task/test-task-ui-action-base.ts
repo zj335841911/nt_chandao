@@ -91,14 +91,14 @@ export default class TestTaskUIActionBase extends EntityUIActionBase {
      */  
     public initViewMap(){
         this.allViewMap.set(':',{viewname:'moboptionviewclose',srfappde:'testtasks'});
-        this.allViewMap.set(':',{viewname:'mobtabexpview',srfappde:'testtasks'});
-        this.allViewMap.set(':',{viewname:'moboptionviewstart',srfappde:'testtasks'});
-        this.allViewMap.set(':',{viewname:'moboptionviewactivite',srfappde:'testtasks'});
         this.allViewMap.set('MOBEDITVIEW:',{viewname:'mobeditview',srfappde:'testtasks'});
-        this.allViewMap.set(':',{viewname:'editnewmobeditview',srfappde:'testtasks'});
-        this.allViewMap.set('MOBMDATAVIEW:',{viewname:'mobmdview',srfappde:'testtasks'});
         this.allViewMap.set(':',{viewname:'newmobeditview',srfappde:'testtasks'});
+        this.allViewMap.set(':',{viewname:'moboptionviewactivite',srfappde:'testtasks'});
+        this.allViewMap.set(':',{viewname:'editnewmobeditview',srfappde:'testtasks'});
         this.allViewMap.set(':',{viewname:'moboptionviewblock',srfappde:'testtasks'});
+        this.allViewMap.set(':',{viewname:'mobtabexpview',srfappde:'testtasks'});
+        this.allViewMap.set('MOBMDATAVIEW:',{viewname:'mobmdview',srfappde:'testtasks'});
+        this.allViewMap.set(':',{viewname:'moboptionviewstart',srfappde:'testtasks'});
     }
 
     /**
@@ -119,14 +119,14 @@ export default class TestTaskUIActionBase extends EntityUIActionBase {
      * @memberof  TestTaskUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
-        this.allDeMainStateOPPrivsMap.set('blocked',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TESTT_BLOCK_BUT':0,'SRFUR__TESTT_START_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('blocked',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TESTT_START_BUT':0,'SRFUR__TESTT_BLOCK_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('doing',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TESTT_ACTIVITE_BUT':0,'SRFUR__TESTT_START_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('done',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TESTT_BLOCK_BUT':0,'SRFUR__TESTT_CLOSED_BUT':0,'SRFUR__TESTT_START_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('done',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TESTT_CLOSED_BUT':0,'SRFUR__TESTT_START_BUT':0,'SRFUR__TESTT_BLOCK_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('wait',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TESTT_ACTIVITE_BUT':0,}));
     }
 
     /**
-     * 阻塞
+     * 新建
      *
      * @param {any[]} args 数据
      * @param {*} [contextJO={}] 行为上下文
@@ -138,12 +138,9 @@ export default class TestTaskUIActionBase extends EntityUIActionBase {
      * @returns {Promise<any>}
      * @memberof TestTaskUIService
      */
-    public async TestTask_MobBlock(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+    public async TestTask_MobCreate(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
         const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(contextJO, { testtask: '%testtask%' });
-        Object.assign(paramJO, { id: '%testtask%' });
-        Object.assign(paramJO, { name: '%name%' });
+        const actionTarget: string | null = 'NONE';
             
         let context: any = this.handleContextParam(actionTarget, _args, contextJO);
         let params: any = this.handleActionParam(actionTarget, _args, paramJO);
@@ -172,66 +169,7 @@ export default class TestTaskUIActionBase extends EntityUIActionBase {
 
         const parameters: any[] = [
             { pathName: 'testtasks', parameterName: 'testtask' },
-            { pathName: 'moboptionviewblock', parameterName: 'moboptionviewblock' },
-        ];
-        const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
-        response = await this.openService.openView(routeParam);
-        if (response) {
-            if (xData && xData.refresh && xData.refresh instanceof Function) {
-                xData.refresh(args);
-            }
-        }
-        return response;
-    }
-
-    /**
-     * 激活
-     *
-     * @param {any[]} args 数据
-     * @param {*} [contextJO={}] 行为上下文
-     * @param {*} [paramJO={}] 行为参数
-     * @param {*} [$event] 事件
-     * @param {*} [xData] 数据目标
-     * @param {*} [container] 行为容器对象
-     * @param {string} [srfParentDeName] 
-     * @returns {Promise<any>}
-     * @memberof TestTaskUIService
-     */
-    public async TestTask_MobActivite(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(contextJO, { testtask: '%testtask%' });
-        Object.assign(paramJO, { id: '%testtask%' });
-        Object.assign(paramJO, { name: '%name%' });
-            
-        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
-        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
-        context = { ...container.context, ...context };
-        let parentObj: any = {
-            srfparentdename: srfParentDeName ? srfParentDeName : null,
-            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
-        };
-        Object.assign(context, parentObj);
-        Object.assign(params, parentObj);
-        let panelNavParam= { } ;
-        let panelNavContext= { } ;
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
-        let response: any = null;
-        let deResParameters: any[] = [];
-        if ((context as any).project && true) {
-            deResParameters = [
-            { pathName: 'projects', parameterName: 'project' },
-            ]
-        }
-        if ((context as any).product && true) {
-            deResParameters = [
-            { pathName: 'products', parameterName: 'product' },
-            ]
-        }
-
-        const parameters: any[] = [
-            { pathName: 'testtasks', parameterName: 'testtask' },
-            { pathName: 'moboptionviewactivite', parameterName: 'moboptionviewactivite' },
+            { pathName: 'newmobeditview', parameterName: 'newmobeditview' },
         ];
         const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
         response = await this.openService.openView(routeParam);
@@ -305,7 +243,7 @@ export default class TestTaskUIActionBase extends EntityUIActionBase {
     }
 
     /**
-     * 开始
+     * 阻塞
      *
      * @param {any[]} args 数据
      * @param {*} [contextJO={}] 行为上下文
@@ -317,7 +255,7 @@ export default class TestTaskUIActionBase extends EntityUIActionBase {
      * @returns {Promise<any>}
      * @memberof TestTaskUIService
      */
-    public async TestTask_MobStart(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+    public async TestTask_MobBlock(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(contextJO, { testtask: '%testtask%' });
@@ -351,7 +289,7 @@ export default class TestTaskUIActionBase extends EntityUIActionBase {
 
         const parameters: any[] = [
             { pathName: 'testtasks', parameterName: 'testtask' },
-            { pathName: 'moboptionviewstart', parameterName: 'moboptionviewstart' },
+            { pathName: 'moboptionviewblock', parameterName: 'moboptionviewblock' },
         ];
         const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
         response = await this.openService.openView(routeParam);
@@ -364,7 +302,7 @@ export default class TestTaskUIActionBase extends EntityUIActionBase {
     }
 
     /**
-     * 新建
+     * 编辑
      *
      * @param {any[]} args 数据
      * @param {*} [contextJO={}] 行为上下文
@@ -376,9 +314,12 @@ export default class TestTaskUIActionBase extends EntityUIActionBase {
      * @returns {Promise<any>}
      * @memberof TestTaskUIService
      */
-    public async TestTask_MobCreate(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+    public async TestTask_MobEditEdit(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
         const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'NONE';
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(contextJO, { testtask: '%testtask%' });
+        Object.assign(paramJO, { id: '%testtask%' });
+        Object.assign(paramJO, { name: '%name%' });
             
         let context: any = this.handleContextParam(actionTarget, _args, contextJO);
         let params: any = this.handleActionParam(actionTarget, _args, paramJO);
@@ -407,15 +348,10 @@ export default class TestTaskUIActionBase extends EntityUIActionBase {
 
         const parameters: any[] = [
             { pathName: 'testtasks', parameterName: 'testtask' },
-            { pathName: 'newmobeditview', parameterName: 'newmobeditview' },
+            { pathName: 'editnewmobeditview', parameterName: 'editnewmobeditview' },
         ];
         const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
         response = await this.openService.openView(routeParam);
-        if (response) {
-            if (xData && xData.refresh && xData.refresh instanceof Function) {
-                xData.refresh(args);
-            }
-        }
         return response;
     }
 
@@ -479,7 +415,7 @@ export default class TestTaskUIActionBase extends EntityUIActionBase {
     }
 
     /**
-     * 编辑
+     * 开始
      *
      * @param {any[]} args 数据
      * @param {*} [contextJO={}] 行为上下文
@@ -491,7 +427,7 @@ export default class TestTaskUIActionBase extends EntityUIActionBase {
      * @returns {Promise<any>}
      * @memberof TestTaskUIService
      */
-    public async TestTask_MobEditEdit(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+    public async TestTask_MobStart(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(contextJO, { testtask: '%testtask%' });
@@ -525,10 +461,74 @@ export default class TestTaskUIActionBase extends EntityUIActionBase {
 
         const parameters: any[] = [
             { pathName: 'testtasks', parameterName: 'testtask' },
-            { pathName: 'editnewmobeditview', parameterName: 'editnewmobeditview' },
+            { pathName: 'moboptionviewstart', parameterName: 'moboptionviewstart' },
         ];
         const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
         response = await this.openService.openView(routeParam);
+        if (response) {
+            if (xData && xData.refresh && xData.refresh instanceof Function) {
+                xData.refresh(args);
+            }
+        }
+        return response;
+    }
+
+    /**
+     * 激活
+     *
+     * @param {any[]} args 数据
+     * @param {*} [contextJO={}] 行为上下文
+     * @param {*} [paramJO={}] 行为参数
+     * @param {*} [$event] 事件
+     * @param {*} [xData] 数据目标
+     * @param {*} [container] 行为容器对象
+     * @param {string} [srfParentDeName] 
+     * @returns {Promise<any>}
+     * @memberof TestTaskUIService
+     */
+    public async TestTask_MobActivite(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(contextJO, { testtask: '%testtask%' });
+        Object.assign(paramJO, { id: '%testtask%' });
+        Object.assign(paramJO, { name: '%name%' });
+            
+        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
+        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
+        context = { ...container.context, ...context };
+        let parentObj: any = {
+            srfparentdename: srfParentDeName ? srfParentDeName : null,
+            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
+        };
+        Object.assign(context, parentObj);
+        Object.assign(params, parentObj);
+        let panelNavParam= { } ;
+        let panelNavContext= { } ;
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
+        let response: any = null;
+        let deResParameters: any[] = [];
+        if ((context as any).project && true) {
+            deResParameters = [
+            { pathName: 'projects', parameterName: 'project' },
+            ]
+        }
+        if ((context as any).product && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+
+        const parameters: any[] = [
+            { pathName: 'testtasks', parameterName: 'testtask' },
+            { pathName: 'moboptionviewactivite', parameterName: 'moboptionviewactivite' },
+        ];
+        const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
+        response = await this.openService.openView(routeParam);
+        if (response) {
+            if (xData && xData.refresh && xData.refresh instanceof Function) {
+                xData.refresh(args);
+            }
+        }
         return response;
     }
 

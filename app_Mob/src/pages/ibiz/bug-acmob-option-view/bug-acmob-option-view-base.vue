@@ -141,7 +141,7 @@ export default class BugACMobOptionViewBase extends Vue {
 	 * @type {string}
 	 * @memberof BugACMobOptionViewBase
 	 */
-	protected viewtag: string = '3cada37cd0f6b5c0492af340b3aa0a65';
+	protected viewtag: string = '9e4930c80e213c8f3c215e1b1731ef53';
 
     /**
      * 视图上下文

@@ -1315,7 +1315,7 @@ export default class MobNewFormBase extends Vue implements ControlInterface {
 
 
         if (Object.is(name, 'period')) {
-            const details: string[] = ['days', 'end'];
+            const details: string[] = ['end', 'days'];
             if(await this.validItem('period', this.data['period'])){
                 this.updateFormItems('UpdateProjectCycle', this.data, details, true);
             }

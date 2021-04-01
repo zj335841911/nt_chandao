@@ -200,7 +200,7 @@ export default class TaskFavoriteMoreMobMDViewBase extends Vue {
 	 * @type {string}
 	 * @memberof TaskFavoriteMoreMobMDViewBase
 	 */
-	protected viewtag: string = '61673d1a86a046c9ff672f16ab4b7ce7';
+	protected viewtag: string = 'd3a406afcb1c45f96412a0656c897f0a';
 
     /**
      * 视图上下文

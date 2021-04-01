@@ -159,7 +159,7 @@ export default class AllTrendsMobBase extends Vue implements ControlInterface {
      * @returns {Promise<any>}
      * @memberof Dashboard_sysportlet7Base
      */
-    protected async dashboard_sysportlet7_u598b386_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async dashboard_sysportlet7_u6d463c9_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
 
         // 取数
         let datas: any[] = [];
@@ -250,7 +250,7 @@ export default class AllTrendsMobBase extends Vue implements ControlInterface {
      */
     protected actionBarModelData: any[] = [
         {
-            viewlogicname: "dashboard_sysportlet7_u598b386_click",
+            viewlogicname: "dashboard_sysportlet7_u6d463c9_click",
             name: "更多",
         }
     ];
@@ -263,8 +263,8 @@ export default class AllTrendsMobBase extends Vue implements ControlInterface {
      * @memberof AllTrendsMob
      */
     protected handleItemClick($event: any) {
-        if (Object.is($event, 'dashboard_sysportlet7_u598b386_click')) {
-            this.dashboard_sysportlet7_u598b386_click(null);
+        if (Object.is($event, 'dashboard_sysportlet7_u6d463c9_click')) {
+            this.dashboard_sysportlet7_u6d463c9_click(null);
         }
     }
 

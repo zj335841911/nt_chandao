@@ -123,7 +123,7 @@ export default class TaskMonthlyPlansTaskMobMDViewBase extends Vue {
 	 * @type {string}
 	 * @memberof TaskMonthlyPlansTaskMobMDViewBase
 	 */
-	protected viewtag: string = '54b430d78e300148f0d06da1cf52a94b';
+	protected viewtag: string = '4eac0db0167b49f32df134d2b1cb15ed';
 
     /**
      * 视图上下文

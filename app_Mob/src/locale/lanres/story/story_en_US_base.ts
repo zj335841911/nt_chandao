@@ -2,39 +2,73 @@ import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
     assignedTo:  commonLogic.appcommonhandle("指派给",null),
+    modulename1:  commonLogic.appcommonhandle("所属模块名称",null),
+    files:  commonLogic.appcommonhandle("附件",null),
     childStories:  commonLogic.appcommonhandle("细分需求",null),
+    iBIZ_ID:  commonLogic.appcommonhandle("IBIZ标识",null),
     plan:  commonLogic.appcommonhandle("所属计划",null),
     version:  commonLogic.appcommonhandle("版本号",null),
     assignedDate:  commonLogic.appcommonhandle("指派日期",null),
+    storypoints:  commonLogic.appcommonhandle("故事点",null),
+    sOURCENAME:  commonLogic.appcommonhandle("来源对象名称",null),
+    storyprovidedate:  commonLogic.appcommonhandle("需求提供时间",null),
+    isLeaf:  commonLogic.appcommonhandle("是否子需求",null),
     pri:  commonLogic.appcommonhandle("优先级",null),
+    sOURCEID:  commonLogic.appcommonhandle("来源对象标识",null),
     linkStories:  commonLogic.appcommonhandle("相关需求",null),
+    assessresult:  commonLogic.appcommonhandle("评审结果",null),
     status:  commonLogic.appcommonhandle("当前状态",null),
+    mailtopk:  commonLogic.appcommonhandle("抄送给",null),
     estimate:  commonLogic.appcommonhandle("预计工时",null),
+    noticeusers:  commonLogic.appcommonhandle("消息通知用户",null),
     reviewedDate:  commonLogic.appcommonhandle("评审时间",null),
     title:  commonLogic.appcommonhandle("需求名称",null),
+    mailtoconact:  commonLogic.appcommonhandle("联系人",null),
     sourceNote:  commonLogic.appcommonhandle("来源备注",null),
+    versionc:  commonLogic.appcommonhandle("版本号",null),
     reviewedBy:  commonLogic.appcommonhandle("由谁评审",null),
     subStatus:  commonLogic.appcommonhandle("子状态",null),
     stagedBy:  commonLogic.appcommonhandle("设置阶段者",null),
     openedBy:  commonLogic.appcommonhandle("由谁创建",null),
     openedDate:  commonLogic.appcommonhandle("创建日期",null),
     id:  commonLogic.appcommonhandle("编号",null),
+    iBIZ_SOURCEOBJECT:  commonLogic.appcommonhandle("来源对象",null),
     source:  commonLogic.appcommonhandle("需求来源",null),
+    storylatestfinisheddate:  commonLogic.appcommonhandle("需求最晚完成时间",null),
+    neednotreview:  commonLogic.appcommonhandle("不需要评审",null),
+    ischild:  commonLogic.appcommonhandle("是否可以细分",null),
     closedReason:  commonLogic.appcommonhandle("关闭原因",null),
     color:  commonLogic.appcommonhandle("标题颜色",null),
+    orgId:  commonLogic.appcommonhandle("orgid",null),
     mailto:  commonLogic.appcommonhandle("抄送给",null),
+    isfavorites:  commonLogic.appcommonhandle("是否收藏",null),
+    sOURCEOBJECT:  commonLogic.appcommonhandle("来源对象",null),
     deleted:  commonLogic.appcommonhandle("已删除",null),
     keywords:  commonLogic.appcommonhandle("关键词",null),
     lastEditedBy:  commonLogic.appcommonhandle("最后修改",null),
     stage:  commonLogic.appcommonhandle("所处阶段",null),
+    project:  commonLogic.appcommonhandle("项目",null),
     closedDate:  commonLogic.appcommonhandle("关闭日期	",null),
+    spec:  commonLogic.appcommonhandle("需求描述",null),
+    iBIZ_SOURCENAME:  commonLogic.appcommonhandle("来源对象名称",null),
+    assignedtopk:  commonLogic.appcommonhandle("指派给（选择）",null),
+    comment:  commonLogic.appcommonhandle("备注",null),
+    acllist:  commonLogic.appcommonhandle("acllist",null),
+    verify:  commonLogic.appcommonhandle("验收标准",null),
     closedBy:  commonLogic.appcommonhandle("由谁关闭",null),
+    acl:  commonLogic.appcommonhandle("acl",null),
+    result:  commonLogic.appcommonhandle("评审结果",null),
     type:  commonLogic.appcommonhandle("需求类型",null),
     lastEditedDate:  commonLogic.appcommonhandle("最后修改日期",null),
+    iBIZ_SOURCEID:  commonLogic.appcommonhandle("来源对象标识",null),
+    preversion:  commonLogic.appcommonhandle("之前的版本",null),
+    storyprovider:  commonLogic.appcommonhandle("需求提供人",null),
+    mdeptId:  commonLogic.appcommonhandle("MDEPTID",null),
     path:  commonLogic.appcommonhandle("模块路径",null),
     parentName:  commonLogic.appcommonhandle("父需求名称",null),
     modulename:  commonLogic.appcommonhandle("所属模块名称",null),
     productName:  commonLogic.appcommonhandle("产品名称",null),
+    branchname:  commonLogic.appcommonhandle("平台/分支",null),
     fromBug:  commonLogic.appcommonhandle("来源Bug",null),
     parent:  commonLogic.appcommonhandle("父需求",null),
     module:  commonLogic.appcommonhandle("所属模块",null),
@@ -42,131 +76,10 @@ export default {
     duplicateStory:  commonLogic.appcommonhandle("重复需求ID",null),
     branch:  commonLogic.appcommonhandle("平台/分支",null),
     toBug:  commonLogic.appcommonhandle("转Bug",null),
-    spec:  commonLogic.appcommonhandle("需求描述",null),
-    verify:  commonLogic.appcommonhandle("验收标准",null),
-    result:  commonLogic.appcommonhandle("评审结果",null),
-    comment:  commonLogic.appcommonhandle("备注",null),
-    isLeaf:  commonLogic.appcommonhandle("是否子需求",null),
-    files:  commonLogic.appcommonhandle("附件",null),
-    branchname:  commonLogic.appcommonhandle("平台/分支",null),
-    versionc:  commonLogic.appcommonhandle("版本号",null),
-    modulename1:  commonLogic.appcommonhandle("所属模块名称",null),
-    project:  commonLogic.appcommonhandle("项目",null),
-    preversion:  commonLogic.appcommonhandle("之前的版本",null),
-    neednotreview:  commonLogic.appcommonhandle("不需要评审",null),
-    isfavorites:  commonLogic.appcommonhandle("是否收藏",null),
-    ischild:  commonLogic.appcommonhandle("是否可以细分",null),
-    mailtoconact:  commonLogic.appcommonhandle("联系人",null),
-    mailtopk:  commonLogic.appcommonhandle("抄送给",null),
-    assignedtopk:  commonLogic.appcommonhandle("指派给（选择）",null),
-    noticeusers:  commonLogic.appcommonhandle("消息通知用户",null),
-    iBIZ_SOURCEOBJECT:  commonLogic.appcommonhandle("来源对象",null),
-    sOURCEOBJECT:  commonLogic.appcommonhandle("来源对象",null),
-    iBIZ_ID:  commonLogic.appcommonhandle("IBIZ标识",null),
-    sOURCENAME:  commonLogic.appcommonhandle("来源对象名称",null),
-    sOURCEID:  commonLogic.appcommonhandle("来源对象标识",null),
-    iBIZ_SOURCEID:  commonLogic.appcommonhandle("来源对象标识",null),
-    iBIZ_SOURCENAME:  commonLogic.appcommonhandle("来源对象名称",null),
-    storypoints:  commonLogic.appcommonhandle("故事点",null),
-    assessresult:  commonLogic.appcommonhandle("评审结果",null),
-    orgId:  commonLogic.appcommonhandle("orgid",null),
-    acl:  commonLogic.appcommonhandle("acl",null),
-    acllist:  commonLogic.appcommonhandle("acllist",null),
-    mdeptId:  commonLogic.appcommonhandle("MDEPTID",null),
-    storylatestfinisheddate:  commonLogic.appcommonhandle("需求最晚完成时间",null),
-    storyprovidedate:  commonLogic.appcommonhandle("需求提供时间",null),
-    storyprovider:  commonLogic.appcommonhandle("需求提供人",null),
   },
 	views: {
-		newmobeditview: {
-			caption: commonLogic.appcommonhandle("需求",null),
-		},
-		moblistview: {
-			caption: commonLogic.appcommonhandle("需求",null),
-		},
-		mobmdview9: {
-			caption: commonLogic.appcommonhandle("需求",null),
-		},
-		usr2mobmdview: {
-			caption: commonLogic.appcommonhandle("需求",null),
-		},
 		editmobeditview: {
 			caption: commonLogic.appcommonhandle("需求",null),
-		},
-		rmoboptionview: {
-			caption: commonLogic.appcommonhandle("评审",null),
-		},
-		mobmdviewcurproject: {
-			caption: commonLogic.appcommonhandle("需求",null),
-		},
-		mobpickupmdview: {
-			caption: commonLogic.appcommonhandle("需求",null),
-		},
-		linkstorymobmpickupview: {
-			caption: commonLogic.appcommonhandle("管理需求",null),
-		},
-		usr2mobmpickupbuildview: {
-			caption: commonLogic.appcommonhandle("关联需求",null),
-		},
-		logmobmdview9: {
-			caption: commonLogic.appcommonhandle("更新日志",null),
-		},
-		usr3mobmdview: {
-			caption: commonLogic.appcommonhandle("需求",null),
-		},
-		moboptionview: {
-			caption: commonLogic.appcommonhandle("需求",null),
-		},
-		favoritemoremobmdview: {
-			caption: commonLogic.appcommonhandle("我收藏的需求",null),
-		},
-		asmoboptionview: {
-			caption: commonLogic.appcommonhandle("指派",null),
-		},
-		assmobmdview9: {
-			caption: commonLogic.appcommonhandle("需求",null),
-		},
-		usr3mobmpickupview: {
-			caption: commonLogic.appcommonhandle("需求",null),
-		},
-		usr2mobmpickupview: {
-			caption: commonLogic.appcommonhandle("关联需求",null),
-		},
-		favoritemobmdview9: {
-			caption: commonLogic.appcommonhandle("需求",null),
-		},
-		usr3mobpickupmdview: {
-			caption: commonLogic.appcommonhandle("需求",null),
-		},
-		usr2mobmdview_5219: {
-			caption: commonLogic.appcommonhandle("需求",null),
-		},
-		cmoboptionview: {
-			caption: commonLogic.appcommonhandle("关闭",null),
-		},
-		usr4mobmdview: {
-			caption: commonLogic.appcommonhandle("需求",null),
-		},
-		assmobmdview: {
-			caption: commonLogic.appcommonhandle("需求",null),
-		},
-		acmoboptionview: {
-			caption: commonLogic.appcommonhandle("激活",null),
-		},
-		usr2mobpickupmdview: {
-			caption: commonLogic.appcommonhandle("关联需求",null),
-		},
-		mobmdview: {
-			caption: commonLogic.appcommonhandle("需求",null),
-		},
-		assmoremobmdview: {
-			caption: commonLogic.appcommonhandle("指派给我的需求",null),
-		},
-		favoritemobmdview: {
-			caption: commonLogic.appcommonhandle("需求",null),
-		},
-		changemoboptionview: {
-			caption: commonLogic.appcommonhandle("变更",null),
 		},
 		linkstorymobpickupmdview: {
 			caption: commonLogic.appcommonhandle("关联需求",null),
@@ -174,14 +87,101 @@ export default {
 		mobeditview: {
 			caption: commonLogic.appcommonhandle("需求",null),
 		},
+		acmoboptionview: {
+			caption: commonLogic.appcommonhandle("激活",null),
+		},
+		usr2mobmdview_5219: {
+			caption: commonLogic.appcommonhandle("需求",null),
+		},
+		linkstorymobmpickupview: {
+			caption: commonLogic.appcommonhandle("管理需求",null),
+		},
+		asmoboptionview: {
+			caption: commonLogic.appcommonhandle("指派",null),
+		},
+		assmobmdview9: {
+			caption: commonLogic.appcommonhandle("需求",null),
+		},
+		assmoremobmdview: {
+			caption: commonLogic.appcommonhandle("指派给我的需求",null),
+		},
+		usr3mobmdview: {
+			caption: commonLogic.appcommonhandle("需求",null),
+		},
+		newmobeditview: {
+			caption: commonLogic.appcommonhandle("需求",null),
+		},
+		usr3mobpickupmdview: {
+			caption: commonLogic.appcommonhandle("需求",null),
+		},
+		favoritemobmdview: {
+			caption: commonLogic.appcommonhandle("需求",null),
+		},
 		usr2mobpickupmdbuildview: {
 			caption: commonLogic.appcommonhandle("关联需求",null),
+		},
+		mobpickupmdview: {
+			caption: commonLogic.appcommonhandle("需求",null),
+		},
+		mobmdviewcurproject: {
+			caption: commonLogic.appcommonhandle("需求",null),
+		},
+		favoritemoremobmdview: {
+			caption: commonLogic.appcommonhandle("我收藏的需求",null),
+		},
+		logmobmdview9: {
+			caption: commonLogic.appcommonhandle("更新日志",null),
 		},
 		mobpickupview: {
 			caption: commonLogic.appcommonhandle("需求",null),
 		},
+		rmoboptionview: {
+			caption: commonLogic.appcommonhandle("评审",null),
+		},
+		mobmdview: {
+			caption: commonLogic.appcommonhandle("需求",null),
+		},
+		usr4mobmdview: {
+			caption: commonLogic.appcommonhandle("需求",null),
+		},
+		changemoboptionview: {
+			caption: commonLogic.appcommonhandle("变更",null),
+		},
+		usr2mobmpickupview: {
+			caption: commonLogic.appcommonhandle("关联需求",null),
+		},
+		mobmdview9: {
+			caption: commonLogic.appcommonhandle("需求",null),
+		},
+		favoritemobmdview9: {
+			caption: commonLogic.appcommonhandle("需求",null),
+		},
+		usr2mobmdview: {
+			caption: commonLogic.appcommonhandle("需求",null),
+		},
+		usr2mobmpickupbuildview: {
+			caption: commonLogic.appcommonhandle("关联需求",null),
+		},
+		moboptionview: {
+			caption: commonLogic.appcommonhandle("需求",null),
+		},
+		usr3mobmpickupview: {
+			caption: commonLogic.appcommonhandle("需求",null),
+		},
+		assmobmdview: {
+			caption: commonLogic.appcommonhandle("需求",null),
+		},
+		moblistview: {
+			caption: commonLogic.appcommonhandle("需求",null),
+		},
+		usr2mobpickupmdview: {
+			caption: commonLogic.appcommonhandle("关联需求",null),
+		},
+		cmoboptionview: {
+			caption: commonLogic.appcommonhandle("关闭",null),
+		},
 	},
-	mobnewform_form: {
+	mobmainedit_form: {
 		details: {
 			group1: commonLogic.appcommonhandle("需求基本信息",null), 
 			formpage1: commonLogic.appcommonhandle("基本信息",null), 
@@ -193,7 +193,7 @@ export default {
 			srfuf: commonLogic.appcommonhandle("",null), 
 			srfdeid: commonLogic.appcommonhandle("",null), 
 			srfsourcekey: commonLogic.appcommonhandle("",null), 
-			project: commonLogic.appcommonhandle("项目",null), 
+			title: commonLogic.appcommonhandle("需求名称",null), 
 			product: commonLogic.appcommonhandle("所属产品",null), 
 			module: commonLogic.appcommonhandle("所属模块",null), 
 			prodoctname: commonLogic.appcommonhandle("所属产品",null), 
@@ -205,7 +205,6 @@ export default {
 			reviewedby: commonLogic.appcommonhandle("由谁评审",null), 
 			assignedtopk: commonLogic.appcommonhandle("由谁评审",null), 
 			neednotreview: commonLogic.appcommonhandle("",null), 
-			title: commonLogic.appcommonhandle("需求名称",null), 
 			pri: commonLogic.appcommonhandle("优先级",null), 
 			storypoints: commonLogic.appcommonhandle("故事点",null), 
 			estimate: commonLogic.appcommonhandle("预计",null), 
@@ -372,7 +371,7 @@ export default {
 		uiactions: {
 		},
 	},
-	mobmainedit_form: {
+	mobnewform_form: {
 		details: {
 			group1: commonLogic.appcommonhandle("需求基本信息",null), 
 			formpage1: commonLogic.appcommonhandle("基本信息",null), 
@@ -384,7 +383,7 @@ export default {
 			srfuf: commonLogic.appcommonhandle("",null), 
 			srfdeid: commonLogic.appcommonhandle("",null), 
 			srfsourcekey: commonLogic.appcommonhandle("",null), 
-			title: commonLogic.appcommonhandle("需求名称",null), 
+			project: commonLogic.appcommonhandle("项目",null), 
 			product: commonLogic.appcommonhandle("所属产品",null), 
 			module: commonLogic.appcommonhandle("所属模块",null), 
 			prodoctname: commonLogic.appcommonhandle("所属产品",null), 
@@ -396,6 +395,7 @@ export default {
 			reviewedby: commonLogic.appcommonhandle("由谁评审",null), 
 			assignedtopk: commonLogic.appcommonhandle("由谁评审",null), 
 			neednotreview: commonLogic.appcommonhandle("",null), 
+			title: commonLogic.appcommonhandle("需求名称",null), 
 			pri: commonLogic.appcommonhandle("优先级",null), 
 			storypoints: commonLogic.appcommonhandle("故事点",null), 
 			estimate: commonLogic.appcommonhandle("预计",null), 
@@ -462,22 +462,16 @@ export default {
 		uiactions: {
 		},
 	},
-	newmobeditviewrighttoolbar_toolbar: {
-		tbitem1: {
-			caption: commonLogic.appcommonhandle("Save And Close",null),
-			tip: 'tbitem1',
-		},
-	},
-	usr3mobmdviewrighttoolbar_toolbar: {
-		deuiaction1: {
-			caption: commonLogic.appcommonhandle("关联需求",null),
-			tip: 'deuiaction1',
-		},
-	},
 	editmobeditviewrighttoolbar_toolbar: {
 		tbitem1: {
 			caption: commonLogic.appcommonhandle("Save And Close",null),
 			tip: 'tbitem1',
+		},
+	},
+	usr4mobmdviewrighttoolbar_toolbar: {
+		deuiaction1: {
+			caption: commonLogic.appcommonhandle("关联需求",null),
+			tip: 'deuiaction1',
 		},
 	},
 	mobeditviewrighttoolbar_toolbar: {
@@ -506,22 +500,10 @@ export default {
 			tip: 'deuiaction1_deletemob',
 		},
 	},
-	mobmdviewrighttoolbar_toolbar: {
-		deuiaction1: {
-			caption: commonLogic.appcommonhandle("新建需求",null),
-			tip: 'deuiaction1',
-		},
-	},
-	usr2mobmdview_5219righttoolbar_toolbar: {
-		deuiaction1: {
-			caption: commonLogic.appcommonhandle("关联需求",null),
-			tip: 'deuiaction1',
-		},
-	},
-	usr4mobmdviewrighttoolbar_toolbar: {
-		deuiaction1: {
-			caption: commonLogic.appcommonhandle("关联需求",null),
-			tip: 'deuiaction1',
+	newmobeditviewrighttoolbar_toolbar: {
+		tbitem1: {
+			caption: commonLogic.appcommonhandle("Save And Close",null),
+			tip: 'tbitem1',
 		},
 	},
 	mobmdviewcurprojectrighttoolbar_toolbar: {
@@ -536,6 +518,24 @@ export default {
 		deuiaction2: {
 			caption: commonLogic.appcommonhandle("按照计划关联",null),
 			tip: 'deuiaction2',
+		},
+	},
+	usr3mobmdviewrighttoolbar_toolbar: {
+		deuiaction1: {
+			caption: commonLogic.appcommonhandle("关联需求",null),
+			tip: 'deuiaction1',
+		},
+	},
+	usr2mobmdview_5219righttoolbar_toolbar: {
+		deuiaction1: {
+			caption: commonLogic.appcommonhandle("关联需求",null),
+			tip: 'deuiaction1',
+		},
+	},
+	mobmdviewrighttoolbar_toolbar: {
+		deuiaction1: {
+			caption: commonLogic.appcommonhandle("新建需求",null),
+			tip: 'deuiaction1',
 		},
 	},
 	usr2mobmdviewrighttoolbar_toolbar: {

@@ -141,7 +141,7 @@ export default class TaskEstimateMobOptionViewBase extends Vue {
 	 * @type {string}
 	 * @memberof TaskEstimateMobOptionViewBase
 	 */
-	protected viewtag: string = '7fe7a6fba30b701351c3ed7b2acbd738';
+	protected viewtag: string = 'c05ecf10631c585066252960f501db00';
 
     /**
      * 视图上下文

@@ -129,7 +129,7 @@ export default class BugPlanMobMDView9Base extends Vue {
 	 * @type {string}
 	 * @memberof BugPlanMobMDView9Base
 	 */
-	protected viewtag: string = '1820afe6869fbb5e9b01ce076933efca';
+	protected viewtag: string = 'bdb851b6f2553c85de8417af05b29e49';
 
     /**
      * 视图上下文

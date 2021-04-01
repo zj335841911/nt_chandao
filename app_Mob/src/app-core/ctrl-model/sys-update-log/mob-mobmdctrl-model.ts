@@ -18,10 +18,10 @@ export class MobModel {
 				name: 'latestupdate',
 			},
 			{
-				name: 'sys_update_logname',
+				name: 'update',
 			},
 			{
-				name: 'update',
+				name: 'sys_update_logname',
 			},
 			{
 				name: 'srfkey',

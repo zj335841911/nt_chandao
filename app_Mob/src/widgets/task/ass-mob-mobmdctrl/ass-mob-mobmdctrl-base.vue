@@ -5,12 +5,12 @@
                 <template v-if="(viewType == 'DEMOBMDVIEW9') && controlStyle != 'SWIPERVIEW' ">
                     <ion-item-sliding ref="sliding" v-for="(item,index) in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
-                            <ion-item-option v-show="item.StartTaskMob.visabled" :disabled="item.StartTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'uf95e8d0', item)"><app-mob-icon v-if="item.StartTaskMob.icon && item.StartTaskMob.isShowIcon" :name="item.StartTaskMob.icon"></app-mob-icon><ion-label v-if="item.StartTaskMob.isShowCaption">开始</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.AssignTaskMob.visabled" :disabled="item.AssignTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'ucb39267', item)"><app-mob-icon v-if="item.AssignTaskMob.icon && item.AssignTaskMob.isShowIcon" :name="item.AssignTaskMob.icon"></app-mob-icon><ion-label v-if="item.AssignTaskMob.isShowCaption">指派</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.DoneTaskMob.visabled" :disabled="item.DoneTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'u967149a', item)"><app-mob-icon v-if="item.DoneTaskMob.icon && item.DoneTaskMob.isShowIcon" :name="item.DoneTaskMob.icon"></app-mob-icon><ion-label v-if="item.DoneTaskMob.isShowCaption">完成</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.PauseTaskMob.visabled" :disabled="item.PauseTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'ud84a685', item)"><app-mob-icon v-if="item.PauseTaskMob.icon && item.PauseTaskMob.isShowIcon" :name="item.PauseTaskMob.icon"></app-mob-icon><ion-label v-if="item.PauseTaskMob.isShowCaption">暂停</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.CancelTaskMob.visabled" :disabled="item.CancelTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'u7b20a3e', item)"><app-mob-icon v-if="item.CancelTaskMob.icon && item.CancelTaskMob.isShowIcon" :name="item.CancelTaskMob.icon"></app-mob-icon><ion-label v-if="item.CancelTaskMob.isShowCaption">取消</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.CloseTaskMob.visabled" :disabled="item.CloseTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'u7e7b363', item)"><app-mob-icon v-if="item.CloseTaskMob.icon && item.CloseTaskMob.isShowIcon" :name="item.CloseTaskMob.icon"></app-mob-icon><ion-label v-if="item.CloseTaskMob.isShowCaption">关闭</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.StartTaskMob.visabled" :disabled="item.StartTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'u2e7c35c', item)"><app-mob-icon v-if="item.StartTaskMob.icon && item.StartTaskMob.isShowIcon" :name="item.StartTaskMob.icon"></app-mob-icon><ion-label v-if="item.StartTaskMob.isShowCaption">开始</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.AssignTaskMob.visabled" :disabled="item.AssignTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'u52d2761', item)"><app-mob-icon v-if="item.AssignTaskMob.icon && item.AssignTaskMob.isShowIcon" :name="item.AssignTaskMob.icon"></app-mob-icon><ion-label v-if="item.AssignTaskMob.isShowCaption">指派</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.DoneTaskMob.visabled" :disabled="item.DoneTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'uc067e27', item)"><app-mob-icon v-if="item.DoneTaskMob.icon && item.DoneTaskMob.isShowIcon" :name="item.DoneTaskMob.icon"></app-mob-icon><ion-label v-if="item.DoneTaskMob.isShowCaption">完成</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.PauseTaskMob.visabled" :disabled="item.PauseTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'uceeacdf', item)"><app-mob-icon v-if="item.PauseTaskMob.icon && item.PauseTaskMob.isShowIcon" :name="item.PauseTaskMob.icon"></app-mob-icon><ion-label v-if="item.PauseTaskMob.isShowCaption">暂停</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.CancelTaskMob.visabled" :disabled="item.CancelTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'uf9f8c78', item)"><app-mob-icon v-if="item.CancelTaskMob.icon && item.CancelTaskMob.isShowIcon" :name="item.CancelTaskMob.icon"></app-mob-icon><ion-label v-if="item.CancelTaskMob.isShowCaption">取消</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.CloseTaskMob.visabled" :disabled="item.CloseTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'u17eee2a', item)"><app-mob-icon v-if="item.CloseTaskMob.icon && item.CloseTaskMob.isShowIcon" :name="item.CloseTaskMob.icon"></app-mob-icon><ion-label v-if="item.CloseTaskMob.isShowCaption">关闭</ion-label></ion-item-option>
                         </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
@@ -31,12 +31,12 @@
                           </template>
                       <ion-item-sliding  :ref="item.srfkey" v-for="(item,index) in obj.items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
-                            <ion-item-option v-show="item.StartTaskMob.visabled" :disabled="item.StartTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'uf95e8d0', item)"><app-mob-icon v-if="item.StartTaskMob.icon && item.StartTaskMob.isShowIcon" :name="item.StartTaskMob.icon"></app-mob-icon><ion-label v-if="item.StartTaskMob.isShowCaption">开始</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.AssignTaskMob.visabled" :disabled="item.AssignTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'ucb39267', item)"><app-mob-icon v-if="item.AssignTaskMob.icon && item.AssignTaskMob.isShowIcon" :name="item.AssignTaskMob.icon"></app-mob-icon><ion-label v-if="item.AssignTaskMob.isShowCaption">指派</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.DoneTaskMob.visabled" :disabled="item.DoneTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'u967149a', item)"><app-mob-icon v-if="item.DoneTaskMob.icon && item.DoneTaskMob.isShowIcon" :name="item.DoneTaskMob.icon"></app-mob-icon><ion-label v-if="item.DoneTaskMob.isShowCaption">完成</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.PauseTaskMob.visabled" :disabled="item.PauseTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'ud84a685', item)"><app-mob-icon v-if="item.PauseTaskMob.icon && item.PauseTaskMob.isShowIcon" :name="item.PauseTaskMob.icon"></app-mob-icon><ion-label v-if="item.PauseTaskMob.isShowCaption">暂停</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.CancelTaskMob.visabled" :disabled="item.CancelTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'u7b20a3e', item)"><app-mob-icon v-if="item.CancelTaskMob.icon && item.CancelTaskMob.isShowIcon" :name="item.CancelTaskMob.icon"></app-mob-icon><ion-label v-if="item.CancelTaskMob.isShowCaption">取消</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.CloseTaskMob.visabled" :disabled="item.CloseTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'u7e7b363', item)"><app-mob-icon v-if="item.CloseTaskMob.icon && item.CloseTaskMob.isShowIcon" :name="item.CloseTaskMob.icon"></app-mob-icon><ion-label v-if="item.CloseTaskMob.isShowCaption">关闭</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.StartTaskMob.visabled" :disabled="item.StartTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'u2e7c35c', item)"><app-mob-icon v-if="item.StartTaskMob.icon && item.StartTaskMob.isShowIcon" :name="item.StartTaskMob.icon"></app-mob-icon><ion-label v-if="item.StartTaskMob.isShowCaption">开始</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.AssignTaskMob.visabled" :disabled="item.AssignTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'u52d2761', item)"><app-mob-icon v-if="item.AssignTaskMob.icon && item.AssignTaskMob.isShowIcon" :name="item.AssignTaskMob.icon"></app-mob-icon><ion-label v-if="item.AssignTaskMob.isShowCaption">指派</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.DoneTaskMob.visabled" :disabled="item.DoneTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'uc067e27', item)"><app-mob-icon v-if="item.DoneTaskMob.icon && item.DoneTaskMob.isShowIcon" :name="item.DoneTaskMob.icon"></app-mob-icon><ion-label v-if="item.DoneTaskMob.isShowCaption">完成</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.PauseTaskMob.visabled" :disabled="item.PauseTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'uceeacdf', item)"><app-mob-icon v-if="item.PauseTaskMob.icon && item.PauseTaskMob.isShowIcon" :name="item.PauseTaskMob.icon"></app-mob-icon><ion-label v-if="item.PauseTaskMob.isShowCaption">暂停</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.CancelTaskMob.visabled" :disabled="item.CancelTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'uf9f8c78', item)"><app-mob-icon v-if="item.CancelTaskMob.icon && item.CancelTaskMob.isShowIcon" :name="item.CancelTaskMob.icon"></app-mob-icon><ion-label v-if="item.CancelTaskMob.isShowCaption">取消</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.CloseTaskMob.visabled" :disabled="item.CloseTaskMob.disabled" color="primary" @click="mdctrl_click($event, 'u17eee2a', item)"><app-mob-icon v-if="item.CloseTaskMob.icon && item.CloseTaskMob.isShowIcon" :name="item.CloseTaskMob.icon"></app-mob-icon><ion-label v-if="item.CloseTaskMob.isShowCaption">关闭</ion-label></ion-item-option>
                         </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
@@ -253,7 +253,7 @@ export default class AssMobBase extends Vue implements ControlInterface {
      * @returns {Promise<any>}
      * @memberof MdctrlBase
      */
-    protected async mdctrl_uf95e8d0_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async mdctrl_u2e7c35c_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
 
         // 取数
         let datas: any[] = [];
@@ -284,7 +284,7 @@ export default class AssMobBase extends Vue implements ControlInterface {
      * @returns {Promise<any>}
      * @memberof MdctrlBase
      */
-    protected async mdctrl_ucb39267_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async mdctrl_u52d2761_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
 
         // 取数
         let datas: any[] = [];
@@ -315,7 +315,7 @@ export default class AssMobBase extends Vue implements ControlInterface {
      * @returns {Promise<any>}
      * @memberof MdctrlBase
      */
-    protected async mdctrl_u967149a_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async mdctrl_uc067e27_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
 
         // 取数
         let datas: any[] = [];
@@ -346,7 +346,7 @@ export default class AssMobBase extends Vue implements ControlInterface {
      * @returns {Promise<any>}
      * @memberof MdctrlBase
      */
-    protected async mdctrl_ud84a685_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async mdctrl_uceeacdf_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
 
         // 取数
         let datas: any[] = [];
@@ -377,7 +377,7 @@ export default class AssMobBase extends Vue implements ControlInterface {
      * @returns {Promise<any>}
      * @memberof MdctrlBase
      */
-    protected async mdctrl_u7b20a3e_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async mdctrl_uf9f8c78_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
 
         // 取数
         let datas: any[] = [];
@@ -408,7 +408,7 @@ export default class AssMobBase extends Vue implements ControlInterface {
      * @returns {Promise<any>}
      * @memberof MdctrlBase
      */
-    protected async mdctrl_u7e7b363_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async mdctrl_u17eee2a_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
 
         // 取数
         let datas: any[] = [];
@@ -1197,23 +1197,23 @@ export default class AssMobBase extends Vue implements ControlInterface {
         $event.stopPropagation();
         this.selectedArray = [];
         this.selectedArray.push(item);
-        if (Object.is(tag, 'uf95e8d0')) {
-            this.mdctrl_uf95e8d0_click();
+        if (Object.is(tag, 'u2e7c35c')) {
+            this.mdctrl_u2e7c35c_click();
         }
-        if (Object.is(tag, 'ucb39267')) {
-            this.mdctrl_ucb39267_click();
+        if (Object.is(tag, 'u52d2761')) {
+            this.mdctrl_u52d2761_click();
         }
-        if (Object.is(tag, 'u967149a')) {
-            this.mdctrl_u967149a_click();
+        if (Object.is(tag, 'uc067e27')) {
+            this.mdctrl_uc067e27_click();
         }
-        if (Object.is(tag, 'ud84a685')) {
-            this.mdctrl_ud84a685_click();
+        if (Object.is(tag, 'uceeacdf')) {
+            this.mdctrl_uceeacdf_click();
         }
-        if (Object.is(tag, 'u7b20a3e')) {
-            this.mdctrl_u7b20a3e_click();
+        if (Object.is(tag, 'uf9f8c78')) {
+            this.mdctrl_uf9f8c78_click();
         }
-        if (Object.is(tag, 'u7e7b363')) {
-            this.mdctrl_u7e7b363_click();
+        if (Object.is(tag, 'u17eee2a')) {
+            this.mdctrl_u17eee2a_click();
         }
         this.closeSlidings(item);
     }

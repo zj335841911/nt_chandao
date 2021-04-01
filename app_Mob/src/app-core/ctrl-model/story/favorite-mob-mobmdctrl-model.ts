@@ -15,22 +15,22 @@ export class FavoriteMOBModel {
 	public getDataItems(): any[] {
 		return [
 			{
-				name: 'title',
-			},
-			{
-				name: 'isfavorites',
-			},
-			{
 				name: 'status',
-			},
-			{
-				name: 'stage',
 			},
 			{
 				name: 'pri',
 			},
 			{
+				name: 'title',
+			},
+			{
 				name: 'assignedto',
+			},
+			{
+				name: 'stage',
+			},
+			{
+				name: 'isfavorites',
 			},
 			{
 				name: 'srfkey',

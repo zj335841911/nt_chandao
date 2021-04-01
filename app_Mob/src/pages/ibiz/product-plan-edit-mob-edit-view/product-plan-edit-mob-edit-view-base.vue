@@ -143,7 +143,7 @@ export default class ProductPlanEditMobEditViewBase extends Vue {
 	 * @type {string}
 	 * @memberof ProductPlanEditMobEditViewBase
 	 */
-	protected viewtag: string = 'f1a8132f2473391e383ec58c657e4e2f';
+	protected viewtag: string = 'bec4b3a955e5f41d6928091ddf50c08e';
 
     /**
      * 视图上下文

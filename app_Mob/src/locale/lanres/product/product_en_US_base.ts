@@ -1,79 +1,64 @@
 import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
+    orgId:  commonLogic.appcommonhandle("组织标识",null),
+    istop:  commonLogic.appcommonhandle("是否置顶",null),
+    comment:  commonLogic.appcommonhandle("备注",null),
     qD:  commonLogic.appcommonhandle("测试负责人",null),
+    productclass:  commonLogic.appcommonhandle("产品分类",null),
+    unconfirmBugCnt:  commonLogic.appcommonhandle("未确认Bug数",null),
     acl:  commonLogic.appcommonhandle("访问控制",null),
     name:  commonLogic.appcommonhandle("产品名称",null),
+    mobimage:  commonLogic.appcommonhandle("移动端图片",null),
+    testtaskcnt:  commonLogic.appcommonhandle("测试单数",null),
+    testsuitecnt:  commonLogic.appcommonhandle("套件数",null),
+    productPlanCnt:  commonLogic.appcommonhandle("计划总数",null),
     id:  commonLogic.appcommonhandle("编号",null),
     deleted:  commonLogic.appcommonhandle("已删除",null),
+    closedStoryCnt:  commonLogic.appcommonhandle("已关闭需求",null),
+    relatedBUGCNT:  commonLogic.appcommonhandle("相关Bug数",null),
     whitelist:  commonLogic.appcommonhandle("分组白名单",null),
+    mdeptId:  commonLogic.appcommonhandle("部门标识",null),
+    releaseCnt:  commonLogic.appcommonhandle("发布总数",null),
     rD:  commonLogic.appcommonhandle("发布负责人",null),
+    popk:  commonLogic.appcommonhandle("产品负责人（选择）",null),
+    notClosedBugCnt:  commonLogic.appcommonhandle("未关闭Bug数",null),
+    supproreport:  commonLogic.appcommonhandle("支持产品汇报",null),
     order:  commonLogic.appcommonhandle("排序",null),
     type:  commonLogic.appcommonhandle("产品类型",null),
     pO:  commonLogic.appcommonhandle("产品负责人",null),
+    qdpk:  commonLogic.appcommonhandle("测试负责人（选择）",null),
     desc:  commonLogic.appcommonhandle("产品描述	",null),
     status:  commonLogic.appcommonhandle("状态",null),
+    changedstorycnt:  commonLogic.appcommonhandle("已变更需求",null),
+    activeBugCnt:  commonLogic.appcommonhandle("未解决Bug数",null),
     createdBy:  commonLogic.appcommonhandle("由谁创建",null),
+    rdpk:  commonLogic.appcommonhandle("发布负责人（选择）",null),
     createdVersion:  commonLogic.appcommonhandle("当前系统版本",null),
+    draftstorycnt:  commonLogic.appcommonhandle("草稿需求",null),
+    doccnt:  commonLogic.appcommonhandle("文档数",null),
+    casecnt:  commonLogic.appcommonhandle("用例数",null),
+    relatedprojects:  commonLogic.appcommonhandle("关联项目数",null),
+    iBIZ_ID:  commonLogic.appcommonhandle("IBIZ标识",null),
     subStatus:  commonLogic.appcommonhandle("子状态",null),
     code:  commonLogic.appcommonhandle("产品代号",null),
+    srfcount:  commonLogic.appcommonhandle("属性",null),
+    order1:  commonLogic.appcommonhandle("排序",null),
+    buildcnt:  commonLogic.appcommonhandle("BUILD数",null),
     createdDate:  commonLogic.appcommonhandle("创建日期",null),
+    noticeusers:  commonLogic.appcommonhandle("消息通知用户",null),
+    activeStoryCnt:  commonLogic.appcommonhandle("激活需求数",null),
     lineName:  commonLogic.appcommonhandle("产品线",null),
     line:  commonLogic.appcommonhandle("产品线",null),
-    activeBugCnt:  commonLogic.appcommonhandle("未解决Bug数",null),
-    productPlanCnt:  commonLogic.appcommonhandle("计划总数",null),
-    releaseCnt:  commonLogic.appcommonhandle("发布总数",null),
-    activeStoryCnt:  commonLogic.appcommonhandle("激活需求数",null),
-    unconfirmBugCnt:  commonLogic.appcommonhandle("未确认Bug数",null),
-    notClosedBugCnt:  commonLogic.appcommonhandle("未关闭Bug数",null),
-    comment:  commonLogic.appcommonhandle("备注",null),
-    relatedBUGCNT:  commonLogic.appcommonhandle("相关Bug数",null),
-    changedstorycnt:  commonLogic.appcommonhandle("已变更需求",null),
-    draftstorycnt:  commonLogic.appcommonhandle("草稿需求",null),
-    closedStoryCnt:  commonLogic.appcommonhandle("已关闭需求",null),
-    relatedprojects:  commonLogic.appcommonhandle("关联项目数",null),
-    doccnt:  commonLogic.appcommonhandle("文档数",null),
-    buildcnt:  commonLogic.appcommonhandle("BUILD数",null),
-    casecnt:  commonLogic.appcommonhandle("用例数",null),
-    srfcount:  commonLogic.appcommonhandle("属性",null),
-    mobimage:  commonLogic.appcommonhandle("移动端图片",null),
-    order1:  commonLogic.appcommonhandle("排序",null),
-    istop:  commonLogic.appcommonhandle("是否置顶",null),
-    testtaskcnt:  commonLogic.appcommonhandle("测试单数",null),
-    testsuitecnt:  commonLogic.appcommonhandle("套件数",null),
-    popk:  commonLogic.appcommonhandle("产品负责人（选择）",null),
-    qdpk:  commonLogic.appcommonhandle("测试负责人（选择）",null),
-    rdpk:  commonLogic.appcommonhandle("发布负责人（选择）",null),
-    noticeusers:  commonLogic.appcommonhandle("消息通知用户",null),
-    orgId:  commonLogic.appcommonhandle("组织标识",null),
-    mdeptId:  commonLogic.appcommonhandle("部门标识",null),
-    iBIZ_ID:  commonLogic.appcommonhandle("IBIZ标识",null),
-    supproreport:  commonLogic.appcommonhandle("支持产品汇报",null),
-    productclass:  commonLogic.appcommonhandle("产品分类",null),
   },
 	views: {
-		prodmobtabexpview: {
-			caption: commonLogic.appcommonhandle("产品",null),
-		},
-		mobpickupmdview: {
-			caption: commonLogic.appcommonhandle("产品",null),
-		},
-		mobchartview9: {
-			caption: commonLogic.appcommonhandle("产品",null),
+		testmobmdview: {
+			caption: commonLogic.appcommonhandle("测试",null),
 		},
 		mobtabexpview: {
 			caption: commonLogic.appcommonhandle("测试",null),
 		},
 		mobpickupview: {
-			caption: commonLogic.appcommonhandle("产品",null),
-		},
-		testmobmdview: {
-			caption: commonLogic.appcommonhandle("测试",null),
-		},
-		mobeditview: {
-			caption: commonLogic.appcommonhandle("产品",null),
-		},
-		mobchartview: {
 			caption: commonLogic.appcommonhandle("产品",null),
 		},
 		mobmdview: {
@@ -82,7 +67,22 @@ export default {
 		closemobeditview: {
 			caption: commonLogic.appcommonhandle("关闭产品",null),
 		},
+		mobeditview: {
+			caption: commonLogic.appcommonhandle("产品",null),
+		},
+		prodmobtabexpview: {
+			caption: commonLogic.appcommonhandle("产品",null),
+		},
 		newmobeditview: {
+			caption: commonLogic.appcommonhandle("产品",null),
+		},
+		mobpickupmdview: {
+			caption: commonLogic.appcommonhandle("产品",null),
+		},
+		mobchartview: {
+			caption: commonLogic.appcommonhandle("产品",null),
+		},
+		mobchartview9: {
 			caption: commonLogic.appcommonhandle("产品",null),
 		},
 	},
@@ -183,7 +183,7 @@ export default {
 	},
 	mobpickupmdviewmdctrl_batchtoolbar_toolbar: {
 	},
-	mobmdviewmdctrl_batchtoolbar_toolbar: {
+	testmobmdviewmdctrl_batchtoolbar_toolbar: {
 		deuiaction1: {
 			caption: commonLogic.appcommonhandle("Remove",null),
 			tip: 'deuiaction1',
@@ -215,15 +215,15 @@ export default {
 			tip: 'tbitem1',
 		},
 	},
-	mobmdviewrighttoolbar_toolbar: {
+	mobmdviewmdctrl_batchtoolbar_toolbar: {
 		deuiaction1: {
-			caption: commonLogic.appcommonhandle("新建",null),
+			caption: commonLogic.appcommonhandle("Remove",null),
 			tip: 'deuiaction1',
 		},
 	},
-	testmobmdviewmdctrl_batchtoolbar_toolbar: {
+	mobmdviewrighttoolbar_toolbar: {
 		deuiaction1: {
-			caption: commonLogic.appcommonhandle("Remove",null),
+			caption: commonLogic.appcommonhandle("新建",null),
 			tip: 'deuiaction1',
 		},
 	},

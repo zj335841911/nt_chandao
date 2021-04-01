@@ -15,16 +15,16 @@ export class Mob_3335Model {
 	public getDataItems(): any[] {
 		return [
 			{
-				name: 'left',
-			},
-			{
-				name: 'name',
-			},
-			{
 				name: 'assignedto',
 			},
 			{
+				name: 'left',
+			},
+			{
 				name: 'pri',
+			},
+			{
+				name: 'name',
 			},
 			{
 				name: 'status',
@@ -45,6 +45,16 @@ export class Mob_3335Model {
 				dataType: 'PICKUP',
 			},
 			{
+				name: 'plan',
+				prop: 'plan',
+				dataType: 'PICKUP',
+			},
+			{
+				name: 'module',
+				prop: 'module',
+				dataType: 'PICKUP',
+			},
+			{
 				name: 'story',
 				prop: 'story',
 				dataType: 'PICKUP',
@@ -57,16 +67,6 @@ export class Mob_3335Model {
 			{
 				name: 'frombug',
 				prop: 'frombug',
-				dataType: 'PICKUP',
-			},
-			{
-				name: 'module',
-				prop: 'module',
-				dataType: 'PICKUP',
-			},
-			{
-				name: 'plan',
-				prop: 'plan',
 				dataType: 'PICKUP',
 			},
 			{

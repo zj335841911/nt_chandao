@@ -134,7 +134,7 @@ export default class BuildMobTabExpViewBase extends Vue {
 	 * @type {string}
 	 * @memberof BuildMobTabExpViewBase
 	 */
-	protected viewtag: string = '5831fe43122c3d5778cce24bbaa52740';
+	protected viewtag: string = '6e2a4646b4d37a03f7b86daff50fd677';
 
     /**
      * 视图上下文

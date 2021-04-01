@@ -15,7 +15,7 @@ export class MobModel {
 	public getDataItems(): any[] {
 		return [
 			{
-				name: 'addedby',
+				name: 'name',
 			},
 			{
 				name: 'type',
@@ -24,7 +24,7 @@ export class MobModel {
 				name: 'addeddate',
 			},
 			{
-				name: 'name',
+				name: 'addedby',
 			},
 			{
 				name: 'srfkey',

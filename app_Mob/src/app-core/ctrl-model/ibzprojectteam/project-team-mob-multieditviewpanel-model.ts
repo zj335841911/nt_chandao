@@ -15,19 +15,28 @@ export class ProjectTeamMobModel {
   public getDataItems(): any[] {
     return [
       {
-        name: 'join',
+        name: 'role',
       },
       {
-        name: 'account',
+        name: 'limited',
       },
       {
-        name: 'hours',
+        name: 'total',
       },
       {
-        name: 'left',
+        name: 'username',
       },
       {
         name: 'days',
+      },
+      {
+        name: 'exitdate',
+      },
+      {
+        name: 'type',
+      },
+      {
+        name: 'order',
       },
       {
         name: 'ibzprojectteam',
@@ -37,31 +46,22 @@ export class ProjectTeamMobModel {
         name: 'consumed',
       },
       {
-        name: 'order',
+        name: 'account',
       },
       {
         name: 'estimate',
       },
       {
-        name: 'limited',
+        name: 'join',
       },
       {
-        name: 'role',
-      },
-      {
-        name: 'type',
-      },
-      {
-        name: 'total',
-      },
-      {
-        name: 'root',
-      },
-      {
-        name: 'username',
+        name: 'hours',
       },
       {
         name: 'taskcnt',
+      },
+      {
+        name: 'left',
       },
       {
         name: 'pm',
@@ -70,7 +70,7 @@ export class ProjectTeamMobModel {
         name: 'projectname',
       },
       {
-        name: 'exitdate',
+        name: 'root',
       },
       {
         name: 'project',

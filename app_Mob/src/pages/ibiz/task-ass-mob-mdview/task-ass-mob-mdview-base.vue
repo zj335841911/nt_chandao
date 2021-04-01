@@ -175,7 +175,7 @@ export default class TaskAssMobMDViewBase extends Vue {
 	 * @type {string}
 	 * @memberof TaskAssMobMDViewBase
 	 */
-	protected viewtag: string = '8d13feb9b1401f28a033fec23ffd7e90';
+	protected viewtag: string = 'c00410b79b08e2542773fbdfb0067c6c';
 
     /**
      * 视图上下文

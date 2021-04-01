@@ -15,13 +15,13 @@ export class FavoriteMOBDasModel {
 	public getDataItems(): any[] {
 		return [
 			{
-				name: 'assignedto',
-			},
-			{
-				name: 'pri',
-			},
-			{
 				name: 'isfavorites',
+			},
+			{
+				name: 'title',
+			},
+			{
+				name: 'assignedto',
 			},
 			{
 				name: 'status',
@@ -30,7 +30,7 @@ export class FavoriteMOBDasModel {
 				name: 'stage',
 			},
 			{
-				name: 'title',
+				name: 'pri',
 			},
 			{
 				name: 'srfkey',

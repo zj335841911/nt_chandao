@@ -90,9 +90,9 @@ export default class TaskEstimateUIActionBase extends EntityUIActionBase {
      * @memberof  TaskEstimateUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'moboptionview',srfappde:'taskestimates'});
         this.allViewMap.set('MOBMDATAVIEW:',{viewname:'mobmdview',srfappde:'taskestimates'});
         this.allViewMap.set(':',{viewname:'mobmdview9',srfappde:'taskestimates'});
+        this.allViewMap.set(':',{viewname:'moboptionview',srfappde:'taskestimates'});
     }
 
     /**

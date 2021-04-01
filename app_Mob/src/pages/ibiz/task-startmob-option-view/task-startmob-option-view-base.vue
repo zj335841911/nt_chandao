@@ -141,7 +141,7 @@ export default class TaskSTARTMobOptionViewBase extends Vue {
 	 * @type {string}
 	 * @memberof TaskSTARTMobOptionViewBase
 	 */
-	protected viewtag: string = '5417edd9f4126190105417c652149d76';
+	protected viewtag: string = '75410387b02e720ade36698139c44b20';
 
     /**
      * 视图上下文

@@ -15,7 +15,7 @@ export class ReportNewModel {
      */
     private items: any[] = [
         {
-	id: '311884FF-ED77-42DC-9430-C1E698834615',
+	id: '833da28842c93ba4072811fb42ee75ed',
 	name: 'menuitem1',
 	text: '日报',
 	type: 'MENUITEM',
@@ -34,7 +34,7 @@ export class ReportNewModel {
 	authtag:'Mob-reportNew-menuitem1',
 },
         {
-	id: '9EF7DBEB-4E94-497C-B8B0-19D5DF0520C7',
+	id: '9f68bb18d313df8409ff7de50e813514',
 	name: 'menuitem2',
 	text: '周报',
 	type: 'MENUITEM',
@@ -53,7 +53,7 @@ export class ReportNewModel {
 	authtag:'Mob-reportNew-menuitem2',
 },
         {
-	id: '512BD29A-1017-431E-9B02-09AB05F6B61A',
+	id: 'bdb40ef1d23d8b53a573fabd01ded34a',
 	name: 'menuitem3',
 	text: '月报',
 	type: 'MENUITEM',
@@ -72,7 +72,7 @@ export class ReportNewModel {
 	authtag:'Mob-reportNew-menuitem3',
 },
         {
-	id: '66946C22-1C17-4850-882C-32D2FAF47FD2',
+	id: '6e607bbc18a631d63ad35116f561d2ac',
 	name: 'menuitem6',
 	text: '汇报',
 	type: 'MENUITEM',
@@ -91,7 +91,7 @@ export class ReportNewModel {
 	authtag:'Mob-reportNew-menuitem6',
 },
         {
-	id: '94A2705A-0A30-46AA-BFFB-1FBBEF99CC3A',
+	id: 'd0339eb7529c998d2cb0671a7d914352',
 	name: 'menuitem4',
 	text: '我收到的',
 	type: 'MENUITEM',
@@ -110,7 +110,7 @@ export class ReportNewModel {
 	authtag:'Mob-reportNew-menuitem4',
 },
         {
-	id: 'E85CA8D0-F12A-4F35-BB0D-3491CEF8434B',
+	id: 'c35b4b4a24cf08c3cb6fa8a5bc2e45df',
 	name: 'menuitem5',
 	text: '我提交的',
 	type: 'MENUITEM',
@@ -129,7 +129,7 @@ export class ReportNewModel {
 	authtag:'Mob-reportNew-menuitem5',
 },
         {
-	id: '167AFDA3-3CB5-480E-9DAB-D02B57266009',
+	id: 'b87833770d09a63869655a25b19368b8',
 	name: 'menuitem7',
 	text: '月报（待阅）',
 	type: 'MENUITEM',
@@ -148,7 +148,7 @@ export class ReportNewModel {
 	authtag:'Mob-reportNew-menuitem7',
 },
         {
-	id: '61EC81D6-9972-4083-85B9-C6F75CBF9773',
+	id: '9118e752cea79b2a40a8c0416629d78a',
 	name: 'menuitem8',
 	text: '周报(待阅)',
 	type: 'MENUITEM',

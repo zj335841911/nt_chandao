@@ -210,7 +210,7 @@ export default class ProductPlanMobMDViewBase extends Vue {
 	 * @type {string}
 	 * @memberof ProductPlanMobMDViewBase
 	 */
-	protected viewtag: string = '4ad2fc1ff781083ad939783813464b1a';
+	protected viewtag: string = 'c9d967dec7d17e92bfc62551a763f49d';
 
     /**
      * 视图上下文

@@ -5,12 +5,12 @@
                 <template v-if="(viewType == 'DEMOBMDVIEW9') && controlStyle != 'SWIPERVIEW' ">
                     <ion-item-sliding ref="sliding" v-for="(item,index) in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
-                            <ion-item-option v-show="item.StoryFavoritesMob.visabled" :disabled="item.StoryFavoritesMob.disabled" color="primary" @click="mdctrl_click($event, 'ud9b7424', item)"><app-mob-icon v-if="item.StoryFavoritesMob.icon && item.StoryFavoritesMob.isShowIcon" :name="item.StoryFavoritesMob.icon"></app-mob-icon><ion-label v-if="item.StoryFavoritesMob.isShowCaption">收藏</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.StoryNFavoritesMob.visabled" :disabled="item.StoryNFavoritesMob.disabled" color="primary" @click="mdctrl_click($event, 'u7be164c', item)"><app-mob-icon v-if="item.StoryNFavoritesMob.icon && item.StoryNFavoritesMob.isShowIcon" :name="item.StoryNFavoritesMob.icon"></app-mob-icon><ion-label v-if="item.StoryNFavoritesMob.isShowCaption">取消收藏</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.ChangeStoryDetailMob.visabled" :disabled="item.ChangeStoryDetailMob.disabled" color="primary" @click="mdctrl_click($event, 'u081ff4a', item)"><app-mob-icon v-if="item.ChangeStoryDetailMob.icon && item.ChangeStoryDetailMob.isShowIcon" :name="item.ChangeStoryDetailMob.icon"></app-mob-icon><ion-label v-if="item.ChangeStoryDetailMob.isShowCaption">变更</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.AssignToMob.visabled" :disabled="item.AssignToMob.disabled" color="primary" @click="mdctrl_click($event, 'ufdd467a', item)"><app-mob-icon v-if="item.AssignToMob.icon && item.AssignToMob.isShowIcon" :name="item.AssignToMob.icon"></app-mob-icon><ion-label v-if="item.AssignToMob.isShowCaption">指派</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.ReviewStoryMob.visabled" :disabled="item.ReviewStoryMob.disabled" color="primary" @click="mdctrl_click($event, 'u4df6587', item)"><app-mob-icon v-if="item.ReviewStoryMob.icon && item.ReviewStoryMob.isShowIcon" :name="item.ReviewStoryMob.icon"></app-mob-icon><ion-label v-if="item.ReviewStoryMob.isShowCaption">评审</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.CloseStoryMob.visabled" :disabled="item.CloseStoryMob.disabled" color="primary" @click="mdctrl_click($event, 'u7adb519', item)"><app-mob-icon v-if="item.CloseStoryMob.icon && item.CloseStoryMob.isShowIcon" :name="item.CloseStoryMob.icon"></app-mob-icon><ion-label v-if="item.CloseStoryMob.isShowCaption">关闭</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.StoryFavoritesMob.visabled" :disabled="item.StoryFavoritesMob.disabled" color="primary" @click="mdctrl_click($event, 'u1dfb41f', item)"><app-mob-icon v-if="item.StoryFavoritesMob.icon && item.StoryFavoritesMob.isShowIcon" :name="item.StoryFavoritesMob.icon"></app-mob-icon><ion-label v-if="item.StoryFavoritesMob.isShowCaption">收藏</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.StoryNFavoritesMob.visabled" :disabled="item.StoryNFavoritesMob.disabled" color="primary" @click="mdctrl_click($event, 'uc69e3c8', item)"><app-mob-icon v-if="item.StoryNFavoritesMob.icon && item.StoryNFavoritesMob.isShowIcon" :name="item.StoryNFavoritesMob.icon"></app-mob-icon><ion-label v-if="item.StoryNFavoritesMob.isShowCaption">取消收藏</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.ChangeStoryDetailMob.visabled" :disabled="item.ChangeStoryDetailMob.disabled" color="primary" @click="mdctrl_click($event, 'u8a18b8a', item)"><app-mob-icon v-if="item.ChangeStoryDetailMob.icon && item.ChangeStoryDetailMob.isShowIcon" :name="item.ChangeStoryDetailMob.icon"></app-mob-icon><ion-label v-if="item.ChangeStoryDetailMob.isShowCaption">变更</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.AssignToMob.visabled" :disabled="item.AssignToMob.disabled" color="primary" @click="mdctrl_click($event, 'ufe3b9a2', item)"><app-mob-icon v-if="item.AssignToMob.icon && item.AssignToMob.isShowIcon" :name="item.AssignToMob.icon"></app-mob-icon><ion-label v-if="item.AssignToMob.isShowCaption">指派</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.ReviewStoryMob.visabled" :disabled="item.ReviewStoryMob.disabled" color="primary" @click="mdctrl_click($event, 'u0e8f2df', item)"><app-mob-icon v-if="item.ReviewStoryMob.icon && item.ReviewStoryMob.isShowIcon" :name="item.ReviewStoryMob.icon"></app-mob-icon><ion-label v-if="item.ReviewStoryMob.isShowCaption">评审</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.CloseStoryMob.visabled" :disabled="item.CloseStoryMob.disabled" color="primary" @click="mdctrl_click($event, 'u31466ac', item)"><app-mob-icon v-if="item.CloseStoryMob.icon && item.CloseStoryMob.isShowIcon" :name="item.CloseStoryMob.icon"></app-mob-icon><ion-label v-if="item.CloseStoryMob.isShowCaption">关闭</ion-label></ion-item-option>
                         </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
@@ -25,12 +25,12 @@
                 <template v-if="(viewType == 'DEMOBMDVIEW') && controlStyle != 'SWIPERVIEW' ">
                       <ion-item-sliding  :ref="item.srfkey" v-for="(item,index) in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
-                            <ion-item-option v-show="item.StoryFavoritesMob.visabled" :disabled="item.StoryFavoritesMob.disabled" color="primary" @click="mdctrl_click($event, 'ud9b7424', item)"><app-mob-icon v-if="item.StoryFavoritesMob.icon && item.StoryFavoritesMob.isShowIcon" :name="item.StoryFavoritesMob.icon"></app-mob-icon><ion-label v-if="item.StoryFavoritesMob.isShowCaption">收藏</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.StoryNFavoritesMob.visabled" :disabled="item.StoryNFavoritesMob.disabled" color="primary" @click="mdctrl_click($event, 'u7be164c', item)"><app-mob-icon v-if="item.StoryNFavoritesMob.icon && item.StoryNFavoritesMob.isShowIcon" :name="item.StoryNFavoritesMob.icon"></app-mob-icon><ion-label v-if="item.StoryNFavoritesMob.isShowCaption">取消收藏</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.ChangeStoryDetailMob.visabled" :disabled="item.ChangeStoryDetailMob.disabled" color="primary" @click="mdctrl_click($event, 'u081ff4a', item)"><app-mob-icon v-if="item.ChangeStoryDetailMob.icon && item.ChangeStoryDetailMob.isShowIcon" :name="item.ChangeStoryDetailMob.icon"></app-mob-icon><ion-label v-if="item.ChangeStoryDetailMob.isShowCaption">变更</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.AssignToMob.visabled" :disabled="item.AssignToMob.disabled" color="primary" @click="mdctrl_click($event, 'ufdd467a', item)"><app-mob-icon v-if="item.AssignToMob.icon && item.AssignToMob.isShowIcon" :name="item.AssignToMob.icon"></app-mob-icon><ion-label v-if="item.AssignToMob.isShowCaption">指派</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.ReviewStoryMob.visabled" :disabled="item.ReviewStoryMob.disabled" color="primary" @click="mdctrl_click($event, 'u4df6587', item)"><app-mob-icon v-if="item.ReviewStoryMob.icon && item.ReviewStoryMob.isShowIcon" :name="item.ReviewStoryMob.icon"></app-mob-icon><ion-label v-if="item.ReviewStoryMob.isShowCaption">评审</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.CloseStoryMob.visabled" :disabled="item.CloseStoryMob.disabled" color="primary" @click="mdctrl_click($event, 'u7adb519', item)"><app-mob-icon v-if="item.CloseStoryMob.icon && item.CloseStoryMob.isShowIcon" :name="item.CloseStoryMob.icon"></app-mob-icon><ion-label v-if="item.CloseStoryMob.isShowCaption">关闭</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.StoryFavoritesMob.visabled" :disabled="item.StoryFavoritesMob.disabled" color="primary" @click="mdctrl_click($event, 'u1dfb41f', item)"><app-mob-icon v-if="item.StoryFavoritesMob.icon && item.StoryFavoritesMob.isShowIcon" :name="item.StoryFavoritesMob.icon"></app-mob-icon><ion-label v-if="item.StoryFavoritesMob.isShowCaption">收藏</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.StoryNFavoritesMob.visabled" :disabled="item.StoryNFavoritesMob.disabled" color="primary" @click="mdctrl_click($event, 'uc69e3c8', item)"><app-mob-icon v-if="item.StoryNFavoritesMob.icon && item.StoryNFavoritesMob.isShowIcon" :name="item.StoryNFavoritesMob.icon"></app-mob-icon><ion-label v-if="item.StoryNFavoritesMob.isShowCaption">取消收藏</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.ChangeStoryDetailMob.visabled" :disabled="item.ChangeStoryDetailMob.disabled" color="primary" @click="mdctrl_click($event, 'u8a18b8a', item)"><app-mob-icon v-if="item.ChangeStoryDetailMob.icon && item.ChangeStoryDetailMob.isShowIcon" :name="item.ChangeStoryDetailMob.icon"></app-mob-icon><ion-label v-if="item.ChangeStoryDetailMob.isShowCaption">变更</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.AssignToMob.visabled" :disabled="item.AssignToMob.disabled" color="primary" @click="mdctrl_click($event, 'ufe3b9a2', item)"><app-mob-icon v-if="item.AssignToMob.icon && item.AssignToMob.isShowIcon" :name="item.AssignToMob.icon"></app-mob-icon><ion-label v-if="item.AssignToMob.isShowCaption">指派</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.ReviewStoryMob.visabled" :disabled="item.ReviewStoryMob.disabled" color="primary" @click="mdctrl_click($event, 'u0e8f2df', item)"><app-mob-icon v-if="item.ReviewStoryMob.icon && item.ReviewStoryMob.isShowIcon" :name="item.ReviewStoryMob.icon"></app-mob-icon><ion-label v-if="item.ReviewStoryMob.isShowCaption">评审</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.CloseStoryMob.visabled" :disabled="item.CloseStoryMob.disabled" color="primary" @click="mdctrl_click($event, 'u31466ac', item)"><app-mob-icon v-if="item.CloseStoryMob.icon && item.CloseStoryMob.isShowIcon" :name="item.CloseStoryMob.icon"></app-mob-icon><ion-label v-if="item.CloseStoryMob.isShowCaption">关闭</ion-label></ion-item-option>
                         </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
@@ -243,7 +243,7 @@ export default class AssMOBBase extends Vue implements ControlInterface {
      * @returns {Promise<any>}
      * @memberof MdctrlBase
      */
-    protected async mdctrl_ud9b7424_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async mdctrl_u1dfb41f_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
 
         // 取数
         let datas: any[] = [];
@@ -274,7 +274,7 @@ export default class AssMOBBase extends Vue implements ControlInterface {
      * @returns {Promise<any>}
      * @memberof MdctrlBase
      */
-    protected async mdctrl_u7be164c_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async mdctrl_uc69e3c8_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
 
         // 取数
         let datas: any[] = [];
@@ -305,7 +305,7 @@ export default class AssMOBBase extends Vue implements ControlInterface {
      * @returns {Promise<any>}
      * @memberof MdctrlBase
      */
-    protected async mdctrl_u081ff4a_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async mdctrl_u8a18b8a_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
 
         // 取数
         let datas: any[] = [];
@@ -336,7 +336,7 @@ export default class AssMOBBase extends Vue implements ControlInterface {
      * @returns {Promise<any>}
      * @memberof MdctrlBase
      */
-    protected async mdctrl_ufdd467a_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async mdctrl_ufe3b9a2_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
 
         // 取数
         let datas: any[] = [];
@@ -367,7 +367,7 @@ export default class AssMOBBase extends Vue implements ControlInterface {
      * @returns {Promise<any>}
      * @memberof MdctrlBase
      */
-    protected async mdctrl_u4df6587_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async mdctrl_u0e8f2df_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
 
         // 取数
         let datas: any[] = [];
@@ -398,7 +398,7 @@ export default class AssMOBBase extends Vue implements ControlInterface {
      * @returns {Promise<any>}
      * @memberof MdctrlBase
      */
-    protected async mdctrl_u7adb519_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async mdctrl_u31466ac_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
 
         // 取数
         let datas: any[] = [];
@@ -1140,23 +1140,23 @@ export default class AssMOBBase extends Vue implements ControlInterface {
         $event.stopPropagation();
         this.selectedArray = [];
         this.selectedArray.push(item);
-        if (Object.is(tag, 'ud9b7424')) {
-            this.mdctrl_ud9b7424_click();
+        if (Object.is(tag, 'u1dfb41f')) {
+            this.mdctrl_u1dfb41f_click();
         }
-        if (Object.is(tag, 'u7be164c')) {
-            this.mdctrl_u7be164c_click();
+        if (Object.is(tag, 'uc69e3c8')) {
+            this.mdctrl_uc69e3c8_click();
         }
-        if (Object.is(tag, 'u081ff4a')) {
-            this.mdctrl_u081ff4a_click();
+        if (Object.is(tag, 'u8a18b8a')) {
+            this.mdctrl_u8a18b8a_click();
         }
-        if (Object.is(tag, 'ufdd467a')) {
-            this.mdctrl_ufdd467a_click();
+        if (Object.is(tag, 'ufe3b9a2')) {
+            this.mdctrl_ufe3b9a2_click();
         }
-        if (Object.is(tag, 'u4df6587')) {
-            this.mdctrl_u4df6587_click();
+        if (Object.is(tag, 'u0e8f2df')) {
+            this.mdctrl_u0e8f2df_click();
         }
-        if (Object.is(tag, 'u7adb519')) {
-            this.mdctrl_u7adb519_click();
+        if (Object.is(tag, 'u31466ac')) {
+            this.mdctrl_u31466ac_click();
         }
         this.closeSlidings(item);
     }

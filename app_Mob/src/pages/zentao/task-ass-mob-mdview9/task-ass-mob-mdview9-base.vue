@@ -121,7 +121,7 @@ export default class TaskAssMobMDView9Base extends Vue {
 	 * @type {string}
 	 * @memberof TaskAssMobMDView9Base
 	 */
-	protected viewtag: string = 'dc64d438e2778b16e0996277b8feabce';
+	protected viewtag: string = '222046153c11a0c0be0a7bb91fb8669f';
 
     /**
      * 视图上下文

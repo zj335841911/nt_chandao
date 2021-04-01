@@ -127,7 +127,7 @@ export default class TaskMobPickupViewBase extends Vue {
 	 * @type {string}
 	 * @memberof TaskMobPickupViewBase
 	 */
-	protected viewtag: string = '5384573c08c076ea5d17a07231e3247c';
+	protected viewtag: string = 'dd80bc5b2ebbb1fa5beb4c61b76ada0f';
 
     /**
      * 视图上下文

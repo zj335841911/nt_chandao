@@ -21,16 +21,16 @@ export class MOB_ProjectLinkStoryModel {
 				name: 'title',
 			},
 			{
-				name: 'assignedto',
+				name: 'stage',
+			},
+			{
+				name: 'pri',
 			},
 			{
 				name: 'isfavorites',
 			},
 			{
-				name: 'stage',
-			},
-			{
-				name: 'pri',
+				name: 'assignedto',
 			},
 			{
 				name: 'srfkey',

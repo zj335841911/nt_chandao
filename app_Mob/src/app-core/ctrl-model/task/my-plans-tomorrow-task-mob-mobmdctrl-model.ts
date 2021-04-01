@@ -15,22 +15,25 @@ export class MyPlansTomorrowTaskMobModel {
 	public getDataItems(): any[] {
 		return [
 			{
-				name: 'name',
-			},
-			{
-				name: 'deadline',
-			},
-			{
-				name: 'productname',
-			},
-			{
 				name: 'pri',
 			},
 			{
 				name: 'id',
 			},
 			{
+				name: 'name',
+			},
+			{
+				name: 'consumed',
+			},
+			{
+				name: 'deadline',
+			},
+			{
 				name: 'left',
+			},
+			{
+				name: 'finishedby',
 			},
 			{
 				name: 'estimate',
@@ -39,16 +42,13 @@ export class MyPlansTomorrowTaskMobModel {
 				name: 'projectname',
 			},
 			{
-				name: 'assignedto',
-			},
-			{
 				name: 'status',
 			},
 			{
-				name: 'finishedby',
+				name: 'productname',
 			},
 			{
-				name: 'consumed',
+				name: 'assignedto',
 			},
 			{
 				name: 'srfkey',
@@ -66,6 +66,16 @@ export class MyPlansTomorrowTaskMobModel {
 				dataType: 'PICKUP',
 			},
 			{
+				name: 'plan',
+				prop: 'plan',
+				dataType: 'PICKUP',
+			},
+			{
+				name: 'module',
+				prop: 'module',
+				dataType: 'PICKUP',
+			},
+			{
 				name: 'story',
 				prop: 'story',
 				dataType: 'PICKUP',
@@ -78,16 +88,6 @@ export class MyPlansTomorrowTaskMobModel {
 			{
 				name: 'frombug',
 				prop: 'frombug',
-				dataType: 'PICKUP',
-			},
-			{
-				name: 'module',
-				prop: 'module',
-				dataType: 'PICKUP',
-			},
-			{
-				name: 'plan',
-				prop: 'plan',
 				dataType: 'PICKUP',
 			},
 			{

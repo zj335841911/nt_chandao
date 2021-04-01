@@ -121,7 +121,7 @@ export default class FileMobMDView9Base extends Vue {
 	 * @type {string}
 	 * @memberof FileMobMDView9Base
 	 */
-	protected viewtag: string = 'b52bf86837838dcfd5b787fad0350f22';
+	protected viewtag: string = '22961cd5ac6f56eb438a9c9547e474e1';
 
     /**
      * 视图上下文

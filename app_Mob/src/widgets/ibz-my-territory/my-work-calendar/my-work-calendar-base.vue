@@ -718,28 +718,6 @@ export default class MyWorkBase extends Vue implements ControlInterface {
     protected getEditView(deName: string) {
         let view: any = {};
         switch(deName){
-            case "ibzdaily": 
-                view = {
-                    viewname: 'ibz-daily-daily-mob-tab-exp-view', 
-                    height: 0, 
-                    width: 0,  
-                    title: '日报分页导航视图', 
-                    placement: '',
-                    deResParameters: [],
-                    parameters: [{ pathName: 'ibzdailies', parameterName: 'ibzdaily' }, { pathName: 'dailymobtabexpview', parameterName: 'dailymobtabexpview' } ],
-                };
-                break;
-            case "task": 
-                view = {
-                    viewname: 'task-mob-edit-view', 
-                    height: 0, 
-                    width: 0,  
-                    title: '任务移动端编辑视图', 
-                    placement: '',
-                    deResParameters: [{ pathName: 'projectmodules', parameterName: 'projectmodule' }, ],
-                    parameters: [{ pathName: 'tasks', parameterName: 'task' }, { pathName: 'mobeditview', parameterName: 'mobeditview' } ],
-                };
-                break;
             case "bug": 
                 view = {
                     viewname: 'bug-mob-edit-view', 
@@ -760,6 +738,28 @@ export default class MyWorkBase extends Vue implements ControlInterface {
                     placement: '',
                     deResParameters: [],
                     parameters: [{ pathName: 'todos', parameterName: 'todo' }, { pathName: 'mobeditview', parameterName: 'mobeditview' } ],
+                };
+                break;
+            case "task": 
+                view = {
+                    viewname: 'task-mob-edit-view', 
+                    height: 0, 
+                    width: 0,  
+                    title: '任务移动端编辑视图', 
+                    placement: '',
+                    deResParameters: [{ pathName: 'projectmodules', parameterName: 'projectmodule' }, ],
+                    parameters: [{ pathName: 'tasks', parameterName: 'task' }, { pathName: 'mobeditview', parameterName: 'mobeditview' } ],
+                };
+                break;
+            case "ibzdaily": 
+                view = {
+                    viewname: 'ibz-daily-daily-mob-tab-exp-view', 
+                    height: 0, 
+                    width: 0,  
+                    title: '日报分页导航视图', 
+                    placement: '',
+                    deResParameters: [],
+                    parameters: [{ pathName: 'ibzdailies', parameterName: 'ibzdaily' }, { pathName: 'dailymobtabexpview', parameterName: 'dailymobtabexpview' } ],
                 };
                 break;
         }

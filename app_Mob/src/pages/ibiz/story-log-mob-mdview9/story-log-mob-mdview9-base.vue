@@ -126,7 +126,7 @@ export default class StoryLogMobMDView9Base extends Vue {
 	 * @type {string}
 	 * @memberof StoryLogMobMDView9Base
 	 */
-	protected viewtag: string = '55804d2c14c94aaab24b2ad0d4db08d8';
+	protected viewtag: string = '963b139c17c5832ed2cd93ce0ff90a2a';
 
     /**
      * 视图上下文

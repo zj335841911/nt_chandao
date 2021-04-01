@@ -112,7 +112,7 @@ export default class ReleaseMobPickupMDViewBase extends Vue {
 	 * @type {string}
 	 * @memberof ReleaseMobPickupMDViewBase
 	 */
-	protected viewtag: string = 'db4ed15665047c5e87c912301467ff83';
+	protected viewtag: string = '5247f8199f62c5180748b60c67d3726c';
 
     /**
      * 视图上下文

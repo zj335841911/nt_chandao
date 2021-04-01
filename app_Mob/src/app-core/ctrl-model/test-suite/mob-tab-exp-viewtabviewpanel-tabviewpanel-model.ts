@@ -40,13 +40,13 @@ export class MobTabExpViewtabviewpanelModel {
         name: 'addedby',
       },
       {
+        name: 'casecnt',
+      },
+      {
         name: 'desc',
       },
       {
         name: 'product',
-      },
-      {
-        name: 'casecnt',
       },
     ]
   }

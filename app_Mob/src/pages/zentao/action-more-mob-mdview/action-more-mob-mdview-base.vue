@@ -148,7 +148,7 @@ export default class ActionMoreMobMDViewBase extends Vue {
 	 * @type {string}
 	 * @memberof ActionMoreMobMDViewBase
 	 */
-	protected viewtag: string = '38d2759bd079de102a083b27eef703c6';
+	protected viewtag: string = '77ae4c350a661dfc26495a21b7fa9c67';
 
     /**
      * 视图上下文

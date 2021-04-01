@@ -18,10 +18,7 @@ export class AssMobDASHBOARDModel {
 				name: 'pri',
 			},
 			{
-				name: 'left',
-			},
-			{
-				name: 'name',
+				name: 'projectname',
 			},
 			{
 				name: 'status',
@@ -30,7 +27,10 @@ export class AssMobDASHBOARDModel {
 				name: 'assignedto',
 			},
 			{
-				name: 'projectname',
+				name: 'name',
+			},
+			{
+				name: 'left',
 			},
 			{
 				name: 'srfkey',
@@ -48,6 +48,16 @@ export class AssMobDASHBOARDModel {
 				dataType: 'PICKUP',
 			},
 			{
+				name: 'plan',
+				prop: 'plan',
+				dataType: 'PICKUP',
+			},
+			{
+				name: 'module',
+				prop: 'module',
+				dataType: 'PICKUP',
+			},
+			{
 				name: 'story',
 				prop: 'story',
 				dataType: 'PICKUP',
@@ -60,16 +70,6 @@ export class AssMobDASHBOARDModel {
 			{
 				name: 'frombug',
 				prop: 'frombug',
-				dataType: 'PICKUP',
-			},
-			{
-				name: 'module',
-				prop: 'module',
-				dataType: 'PICKUP',
-			},
-			{
-				name: 'plan',
-				prop: 'plan',
 				dataType: 'PICKUP',
 			},
 			{

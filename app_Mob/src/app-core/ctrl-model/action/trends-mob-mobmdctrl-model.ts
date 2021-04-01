@@ -15,22 +15,22 @@ export class TrendsMobModel {
 	public getDataItems(): any[] {
 		return [
 			{
-				name: 'objecttype',
+				name: 'objectid',
 			},
 			{
 				name: 'read',
 			},
 			{
-				name: 'project',
+				name: 'date',
 			},
 			{
 				name: 'actionmanner',
 			},
 			{
-				name: 'actor',
+				name: 'project',
 			},
 			{
-				name: 'id',
+				name: 'actor',
 			},
 			{
 				name: 'actions',
@@ -38,13 +38,13 @@ export class TrendsMobModel {
 				dataType: 'SSCODELIST',
 			},
 			{
-				name: 'date',
+				name: 'id',
+			},
+			{
+				name: 'objecttype',
 			},
 			{
 				name: 'date1',
-			},
-			{
-				name: 'objectid',
 			},
 			{
 				name: 'product',

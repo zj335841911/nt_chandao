@@ -159,7 +159,7 @@ export default class BugUsr4MobMDViewBase extends Vue {
 	 * @type {string}
 	 * @memberof BugUsr4MobMDViewBase
 	 */
-	protected viewtag: string = 'e9edcd7c360c419ba4ae0114a3209465';
+	protected viewtag: string = '4d050c93573ac25c63d176ebc0866989';
 
     /**
      * 视图上下文

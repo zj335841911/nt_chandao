@@ -120,7 +120,7 @@ export default class TaskEstimateMobEditView9Base extends Vue {
 	 * @type {string}
 	 * @memberof TaskEstimateMobEditView9Base
 	 */
-	protected viewtag: string = '2e9c460751885723925d122172641576';
+	protected viewtag: string = '8877c205f05dced89509ff81f42ecd86';
 
     /**
      * 视图上下文

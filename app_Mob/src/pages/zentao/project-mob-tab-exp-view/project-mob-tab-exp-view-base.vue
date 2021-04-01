@@ -137,7 +137,7 @@ export default class ProjectMobTabExpViewBase extends Vue {
 	 * @type {string}
 	 * @memberof ProjectMobTabExpViewBase
 	 */
-	protected viewtag: string = '6adf02d82097636627af57103a3a49fd';
+	protected viewtag: string = '123c7aee9c100191f3f5379f1036ffe8';
 
     /**
      * 视图上下文

@@ -116,7 +116,7 @@ export default class ProjectMobChartViewBase extends Vue {
 	 * @type {string}
 	 * @memberof ProjectMobChartViewBase
 	 */
-	protected viewtag: string = '19024f5f57e716e3a36b513ea2a64dab';
+	protected viewtag: string = '8091af66b37838c706bd0e6bd7ae368d';
 
     /**
      * 视图上下文

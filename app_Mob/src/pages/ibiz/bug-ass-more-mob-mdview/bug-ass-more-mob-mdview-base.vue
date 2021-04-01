@@ -200,7 +200,7 @@ export default class BugAssMoreMobMDViewBase extends Vue {
 	 * @type {string}
 	 * @memberof BugAssMoreMobMDViewBase
 	 */
-	protected viewtag: string = 'f007d26d7f0f56600e074c77d4f0b4ab';
+	protected viewtag: string = 'f0d71bf02dcc9b277354148e72ddfdec';
 
     /**
      * 视图上下文

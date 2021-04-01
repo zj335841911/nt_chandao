@@ -149,7 +149,7 @@ export default class MyWeeklyBase extends Vue implements ControlInterface {
      * @returns {Promise<any>}
      * @memberof MdctrlBase
      */
-    protected async mdctrl_uc5644e8_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async mdctrl_u16db00c_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
 
         // 取数
         let datas: any[] = [];
@@ -891,8 +891,8 @@ export default class MyWeeklyBase extends Vue implements ControlInterface {
         $event.stopPropagation();
         this.selectedArray = [];
         this.selectedArray.push(item);
-        if (Object.is(tag, 'uc5644e8')) {
-            this.mdctrl_uc5644e8_click();
+        if (Object.is(tag, 'u16db00c')) {
+            this.mdctrl_u16db00c_click();
         }
         this.closeSlidings(item);
     }

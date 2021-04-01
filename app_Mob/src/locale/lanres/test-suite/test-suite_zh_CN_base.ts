@@ -9,18 +9,18 @@ export default {
     type: "类型",
     lastediteddate: "最后编辑时间",
     addedby: "由谁创建",
+    casecnt: "用例数",
     desc: "描述",
     product: "所属产品",
-    casecnt: "用例数",
   },
 	views: {
+		mobtabexpview: {
+			caption: commonLogic.appcommonhandle("测试套件",null),
+		},
 		newmobeditview: {
 			caption: commonLogic.appcommonhandle("测试套件",null),
 		},
 		mobeditview: {
-			caption: commonLogic.appcommonhandle("测试套件",null),
-		},
-		mobtabexpview: {
 			caption: commonLogic.appcommonhandle("测试套件",null),
 		},
 		mobmdview: {

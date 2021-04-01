@@ -141,7 +141,7 @@ export default class TaskComMobOptionViewBase extends Vue {
 	 * @type {string}
 	 * @memberof TaskComMobOptionViewBase
 	 */
-	protected viewtag: string = '78beacb29481bfa83dfce62ac4bd9d13';
+	protected viewtag: string = 'bf9c557c51c2689a34a6f04b76ce7fb9';
 
     /**
      * 视图上下文

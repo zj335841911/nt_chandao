@@ -123,7 +123,7 @@ export default class TaskDailyDoneTaskMobMDViewBase extends Vue {
 	 * @type {string}
 	 * @memberof TaskDailyDoneTaskMobMDViewBase
 	 */
-	protected viewtag: string = '3011ba0f68b10e1cbb68a70fb77e646d';
+	protected viewtag: string = '6658e2fc1300c61558eefd6e9994b615';
 
     /**
      * 视图上下文

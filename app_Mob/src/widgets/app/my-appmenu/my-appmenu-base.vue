@@ -422,11 +422,11 @@ export default class MyBase extends Vue implements ControlInterface {
                 case 'AppFunc7': 
                     this.clickAppFunc7(item);
                     return;
-                case 'AppFunc6': 
-                    this.clickAppFunc6(item);
-                    return;
                 case 'AppFunc8': 
                     this.clickAppFunc8(item);
+                    return;
+                case 'AppFunc6': 
+                    this.clickAppFunc6(item);
                     return;
                 default:
                     console.warn('未指定应用功能');
@@ -457,27 +457,6 @@ export default class MyBase extends Vue implements ControlInterface {
     }
     
     /**
-     * 我的工作
-     *
-     * @param {*} [item={}]
-     * @memberof My
-     */
-    protected clickAppFunc6(item: any = {}) {
-        let navigateParam: any = { } ;
-        let navigateContext: any = { } ;
-        const { param: _param, context: _context } = this.$viewTool.formatNavigateParam(navigateContext, navigateParam, this.context, this.viewparams, {});
-        let context = { ..._context };
-        let param = { ..._param };
-        const deResParameters: any[] = [];
-        const parameters: any[] = [
-            { pathName: 'ibzmyterritories', parameterName: 'ibzmyterritory' },
-            { pathName: 'mobcalendarview', parameterName: 'mobcalendarview' },
-        ];
-        const routeParam: any = this.globaluiservice.openService.formatRouteParam(context, deResParameters, parameters, [], param);
-        this.globaluiservice.openService.openView(routeParam);
-    }
-    
-    /**
      * 仪表盘
      *
      * @param {*} [item={}]
@@ -493,6 +472,27 @@ export default class MyBase extends Vue implements ControlInterface {
         const parameters: any[] = [
             { pathName: 'ibzmyterritories', parameterName: 'ibzmyterritory' },
             { pathName: 'mobdashboardview', parameterName: 'mobdashboardview' },
+        ];
+        const routeParam: any = this.globaluiservice.openService.formatRouteParam(context, deResParameters, parameters, [], param);
+        this.globaluiservice.openService.openView(routeParam);
+    }
+    
+    /**
+     * 我的工作
+     *
+     * @param {*} [item={}]
+     * @memberof My
+     */
+    protected clickAppFunc6(item: any = {}) {
+        let navigateParam: any = { } ;
+        let navigateContext: any = { } ;
+        const { param: _param, context: _context } = this.$viewTool.formatNavigateParam(navigateContext, navigateParam, this.context, this.viewparams, {});
+        let context = { ..._context };
+        let param = { ..._param };
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'ibzmyterritories', parameterName: 'ibzmyterritory' },
+            { pathName: 'mobcalendarview', parameterName: 'mobcalendarview' },
         ];
         const routeParam: any = this.globaluiservice.openService.formatRouteParam(context, deResParameters, parameters, [], param);
         this.globaluiservice.openService.openView(routeParam);

@@ -15,19 +15,19 @@ export class Mob_2622Model {
 	public getDataItems(): any[] {
 		return [
 			{
+				name: 'buildname',
+			},
+			{
 				name: 'marker',
 			},
 			{
-				name: 'date',
-			},
-			{
-				name: 'buildname',
+				name: 'name',
 			},
 			{
 				name: 'status',
 			},
 			{
-				name: 'name',
+				name: 'date',
 			},
 			{
 				name: 'srfkey',

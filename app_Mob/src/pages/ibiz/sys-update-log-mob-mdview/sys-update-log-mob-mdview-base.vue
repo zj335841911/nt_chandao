@@ -136,7 +136,7 @@ export default class SysUpdateLogMobMDViewBase extends Vue {
 	 * @type {string}
 	 * @memberof SysUpdateLogMobMDViewBase
 	 */
-	protected viewtag: string = '36115bf8c98ba37034812624719bb492';
+	protected viewtag: string = 'fe3da0b3244df9edc5967b895d385b1e';
 
     /**
      * 视图上下文

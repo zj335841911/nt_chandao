@@ -15,22 +15,22 @@ export class MOB_DuoShuJuChoice_StoryModel {
 	public getDataItems(): any[] {
 		return [
 			{
-				name: 'pri',
-			},
-			{
-				name: 'stage',
+				name: 'status',
 			},
 			{
 				name: 'title',
 			},
 			{
-				name: 'isfavorites',
-			},
-			{
-				name: 'status',
-			},
-			{
 				name: 'assignedto',
+			},
+			{
+				name: 'stage',
+			},
+			{
+				name: 'pri',
+			},
+			{
+				name: 'isfavorites',
 			},
 			{
 				name: 'srfkey',

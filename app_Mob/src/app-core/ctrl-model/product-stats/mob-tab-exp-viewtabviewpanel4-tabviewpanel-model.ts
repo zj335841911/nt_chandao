@@ -15,14 +15,89 @@ export class MobTabExpViewtabviewpanel4Model {
   public getDataItems(): any[] {
     return [
       {
+        name: 'code',
+      },
+      {
         name: 'productstats',
         prop: 'id',
+      },
+      {
+        name: 'finishedstorycnt',
+      },
+      {
+        name: 'releasedstorycnt',
+      },
+      {
+        name: 'importantbugpercent',
+      },
+      {
+        name: 'undoneresprojectcnt',
+      },
+      {
+        name: 'assigntomebugcnt',
       },
       {
         name: 'deleted',
       },
       {
+        name: 'istop',
+      },
+      {
+        name: 'resprojectcnt',
+      },
+      {
+        name: 'bugcnt',
+      },
+      {
+        name: 'haveconsumed',
+      },
+      {
+        name: 'type',
+      },
+      {
+        name: 'waitstorycnt',
+      },
+      {
+        name: 'bugstory',
+      },
+      {
         name: 'storycnt',
+      },
+      {
+        name: 'name',
+      },
+      {
+        name: 'importantbugcnt',
+      },
+      {
+        name: 'yesterdayclosedbugcnt',
+      },
+      {
+        name: 'status',
+      },
+      {
+        name: 'yesterdayresolvedbugcnt',
+      },
+      {
+        name: 'developingstorycnt',
+      },
+      {
+        name: 'activestorycnt',
+      },
+      {
+        name: 'notclosedbugcnt',
+      },
+      {
+        name: 'normalreleasecnt',
+      },
+      {
+        name: 'order1',
+      },
+      {
+        name: 'currproject',
+      },
+      {
+        name: 'testingstorycnt',
       },
       {
         name: 'productplancnt',
@@ -31,100 +106,25 @@ export class MobTabExpViewtabviewpanel4Model {
         name: 'releasecnt',
       },
       {
-        name: 'waitstorycnt',
-      },
-      {
-        name: 'plannedstorycnt',
-      },
-      {
-        name: 'developingstorycnt',
-      },
-      {
-        name: 'testingstorycnt',
-      },
-      {
-        name: 'releasedstorycnt',
-      },
-      {
-        name: 'unendproductplancnt',
-      },
-      {
-        name: 'resprojectcnt',
-      },
-      {
-        name: 'undoneresprojectcnt',
-      },
-      {
-        name: 'normalreleasecnt',
-      },
-      {
-        name: 'activestorycnt',
-      },
-      {
-        name: 'activebugcnt',
-      },
-      {
-        name: 'name',
-      },
-      {
-        name: 'assigntomebugcnt',
-      },
-      {
-        name: 'notclosedbugcnt',
-      },
-      {
-        name: 'bugcnt',
-      },
-      {
-        name: 'unconfirmbugcnt',
-      },
-      {
-        name: 'yesterdayclosedbugcnt',
-      },
-      {
         name: 'yesterdayconfirmbugcnt',
-      },
-      {
-        name: 'yesterdayresolvedbugcnt',
       },
       {
         name: 'postponedprojectcnt',
       },
       {
-        name: 'currproject',
-      },
-      {
-        name: 'status',
-      },
-      {
-        name: 'code',
-      },
-      {
-        name: 'type',
-      },
-      {
-        name: 'order1',
-      },
-      {
-        name: 'istop',
-      },
-      {
-        name: 'finishedstorycnt',
+        name: 'unendproductplancnt',
       },
       {
         name: 'resolvedbugcnt',
       },
       {
-        name: 'importantbugcnt',
+        name: 'plannedstorycnt',
       },
       {
-        name: 'bugstory',
+        name: 'unconfirmbugcnt',
       },
       {
-        name: 'importantbugpercent',
-      },
-      {
-        name: 'haveconsumed',
+        name: 'activebugcnt',
       },
     ]
   }

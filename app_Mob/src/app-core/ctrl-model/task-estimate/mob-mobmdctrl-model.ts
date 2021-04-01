@@ -15,19 +15,19 @@ export class MobModel {
 	public getDataItems(): any[] {
 		return [
 			{
-				name: 'left',
-			},
-			{
-				name: 'date',
-			},
-			{
-				name: 'consumed',
+				name: 'work',
 			},
 			{
 				name: 'account',
 			},
 			{
-				name: 'work',
+				name: 'consumed',
+			},
+			{
+				name: 'date',
+			},
+			{
+				name: 'left',
 			},
 			{
 				name: 'srfkey',

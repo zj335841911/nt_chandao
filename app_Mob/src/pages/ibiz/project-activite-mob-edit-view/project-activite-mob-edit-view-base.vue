@@ -143,7 +143,7 @@ export default class ProjectActiviteMobEditViewBase extends Vue {
 	 * @type {string}
 	 * @memberof ProjectActiviteMobEditViewBase
 	 */
-	protected viewtag: string = '908ae7b1662bbb3715e3adbc6836353b';
+	protected viewtag: string = '329792fdb55e969f2dc042ac8489c208';
 
     /**
      * 视图上下文

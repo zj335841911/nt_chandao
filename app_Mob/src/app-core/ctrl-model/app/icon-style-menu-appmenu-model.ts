@@ -15,7 +15,7 @@ export class IconStyleMenuModel {
      */
     private items: any[] = [
         {
-	id: '19AC11D1-1516-4F04-A04E-F66F9396945C',
+	id: '0345465c8bdc381cb2164d667ff1090e',
 	name: 'menuitem1',
 	text: '我的需求',
 	type: 'MENUITEM',
@@ -34,7 +34,7 @@ export class IconStyleMenuModel {
 	authtag:'Mob-IconStyleMenu-menuitem1',
 },
         {
-	id: '5D464F52-54C7-45F3-9B7E-1A389E959920',
+	id: 'd3beeda1c292222d4c173544ea92e0f9',
 	name: 'menuitem2',
 	text: '我的任务',
 	type: 'MENUITEM',
@@ -53,7 +53,7 @@ export class IconStyleMenuModel {
 	authtag:'Mob-IconStyleMenu-menuitem2',
 },
         {
-	id: '8CA00FFD-EF5C-471F-80EB-DAAAA755D48F',
+	id: '6fe9bfad0e87712b66a29fe9b28f7c40',
 	name: 'menuitem3',
 	text: '产品统计',
 	type: 'MENUITEM',
@@ -72,7 +72,7 @@ export class IconStyleMenuModel {
 	authtag:'Mob-IconStyleMenu-menuitem3',
 },
         {
-	id: '4D89DEE9-2BFB-4E32-A0AA-72AE44AFCB82',
+	id: '81f2d629fc480f2b18fc413c0d491051',
 	name: 'menuitem4',
 	text: '销售机会',
 	type: 'MENUITEM',
@@ -91,7 +91,7 @@ export class IconStyleMenuModel {
 	authtag:'Mob-IconStyleMenu-menuitem4',
 },
         {
-	id: '4AC08B43-A80F-4168-A41B-41D3E5E7A589',
+	id: '2c4307dfe803c9224180d0e6229e9aae',
 	name: 'menuitem5',
 	text: '合同/订单',
 	type: 'MENUITEM',
@@ -110,7 +110,7 @@ export class IconStyleMenuModel {
 	authtag:'Mob-IconStyleMenu-menuitem5',
 },
         {
-	id: '97B4BD83-5F42-45ED-AF44-F545120FF2B5',
+	id: 'a3d0d1e1cab70108f0f0b07ce58f1949',
 	name: 'menuitem6',
 	text: '汇款记录',
 	type: 'MENUITEM',
@@ -129,7 +129,7 @@ export class IconStyleMenuModel {
 	authtag:'Mob-IconStyleMenu-menuitem6',
 },
         {
-	id: '24C2EB3A-3E02-4A3B-AA12-DB03A776316B',
+	id: '2e87e01756ec82bd92de9195c6753a39',
 	name: 'menuitem7',
 	text: '发货单',
 	type: 'MENUITEM',
@@ -148,7 +148,7 @@ export class IconStyleMenuModel {
 	authtag:'Mob-IconStyleMenu-menuitem7',
 },
         {
-	id: '0FD329B2-D71D-4BF1-83A8-27A53DE6B2CB',
+	id: '31ca8a1295870d7994ac88005d389cc3',
 	name: 'menuitem8',
 	text: '产品信息',
 	type: 'MENUITEM',
@@ -167,7 +167,7 @@ export class IconStyleMenuModel {
 	authtag:'Mob-IconStyleMenu-menuitem8',
 },
         {
-	id: '0B391B87-8895-4756-A979-44C8F2373561',
+	id: '7945f6dbc1f06c0898347011168a3367',
 	name: 'menuitem9',
 	text: '数据审核',
 	type: 'MENUITEM',
@@ -186,7 +186,7 @@ export class IconStyleMenuModel {
 	authtag:'Mob-IconStyleMenu-menuitem9',
 },
         {
-	id: 'D94DA645-9D05-4450-B470-1317BCE3026B',
+	id: 'fc4de10f6cc88e16c26d2f812c294cc5',
 	name: 'menuitem10',
 	text: '费用报销',
 	type: 'MENUITEM',
@@ -205,7 +205,7 @@ export class IconStyleMenuModel {
 	authtag:'Mob-IconStyleMenu-menuitem10',
 },
         {
-	id: 'BF9B9574-1EEC-40D9-9DE8-7F0C2407D8EC',
+	id: '52111787e758bebed16826e39f428443',
 	name: 'menuitem11',
 	text: '日/周/月报',
 	type: 'MENUITEM',
@@ -224,7 +224,7 @@ export class IconStyleMenuModel {
 	authtag:'Mob-IconStyleMenu-menuitem11',
 },
         {
-	id: 'A6C1B887-05BA-4D70-B191-BE792A403175',
+	id: '23f8ebf038e1d7631f023be7b2b6e39c',
 	name: 'menuitem12',
 	text: '更多',
 	type: 'MENUITEM',

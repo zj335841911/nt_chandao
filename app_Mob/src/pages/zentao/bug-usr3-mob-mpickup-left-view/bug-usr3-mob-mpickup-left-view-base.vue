@@ -133,7 +133,7 @@ export default class BugUsr3MobMPickupLeftViewBase extends Vue {
 	 * @type {string}
 	 * @memberof BugUsr3MobMPickupLeftViewBase
 	 */
-	protected viewtag: string = 'afcafdb4d30f172f86678c9f44b0e8e1';
+	protected viewtag: string = '05514cf5e825ab063711aea677217490';
 
     /**
      * 视图上下文

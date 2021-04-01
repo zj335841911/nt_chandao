@@ -131,7 +131,7 @@ export default class TestTaskMobOptionViewCloseBase extends Vue {
 	 * @type {string}
 	 * @memberof TestTaskMobOptionViewCloseBase
 	 */
-	protected viewtag: string = '2fc984d9ca86500b55682a3a297f3e97';
+	protected viewtag: string = '0776e2de5e9abe4553ad63cc30f3f0ea';
 
     /**
      * 视图上下文

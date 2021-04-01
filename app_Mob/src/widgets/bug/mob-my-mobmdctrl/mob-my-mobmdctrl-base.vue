@@ -5,12 +5,12 @@
                 <template v-if="(viewType == 'DEMOBMDVIEW9') && controlStyle != 'SWIPERVIEW' ">
                     <ion-item-sliding ref="sliding" v-for="(item,index) in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
-                            <ion-item-option v-show="item.AssingToBugMob.visabled" :disabled="item.AssingToBugMob.disabled" color="primary" @click="mdctrl_click($event, 'u407998a', item)"><app-mob-icon v-if="item.AssingToBugMob.icon && item.AssingToBugMob.isShowIcon" :name="item.AssingToBugMob.icon"></app-mob-icon><ion-label v-if="item.AssingToBugMob.isShowCaption">指派</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.ConfirmBugMob.visabled" :disabled="item.ConfirmBugMob.disabled" color="primary" @click="mdctrl_click($event, 'uf4807eb', item)"><app-mob-icon v-if="item.ConfirmBugMob.icon && item.ConfirmBugMob.isShowIcon" :name="item.ConfirmBugMob.icon"></app-mob-icon><ion-label v-if="item.ConfirmBugMob.isShowCaption">确认</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.ActivationMob.visabled" :disabled="item.ActivationMob.disabled" color="primary" @click="mdctrl_click($event, 'ub160c90', item)"><app-mob-icon v-if="item.ActivationMob.icon && item.ActivationMob.isShowIcon" :name="item.ActivationMob.icon"></app-mob-icon><ion-label v-if="item.ActivationMob.isShowCaption">激活</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.ResolveBugMob.visabled" :disabled="item.ResolveBugMob.disabled" color="primary" @click="mdctrl_click($event, 'u9ab7459', item)"><app-mob-icon v-if="item.ResolveBugMob.icon && item.ResolveBugMob.isShowIcon" :name="item.ResolveBugMob.icon"></app-mob-icon><ion-label v-if="item.ResolveBugMob.isShowCaption">解决</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.MobMainEdit.visabled" :disabled="item.MobMainEdit.disabled" color="primary" @click="mdctrl_click($event, 'u49b4a99', item)"><app-mob-icon v-if="item.MobMainEdit.icon && item.MobMainEdit.isShowIcon" :name="item.MobMainEdit.icon"></app-mob-icon><ion-label v-if="item.MobMainEdit.isShowCaption">编辑</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.CloseBugMob.visabled" :disabled="item.CloseBugMob.disabled" color="primary" @click="mdctrl_click($event, 'u704707e', item)"><app-mob-icon v-if="item.CloseBugMob.icon && item.CloseBugMob.isShowIcon" :name="item.CloseBugMob.icon"></app-mob-icon><ion-label v-if="item.CloseBugMob.isShowCaption">关闭</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.AssingToBugMob.visabled" :disabled="item.AssingToBugMob.disabled" color="primary" @click="mdctrl_click($event, 'u4aeb4a0', item)"><app-mob-icon v-if="item.AssingToBugMob.icon && item.AssingToBugMob.isShowIcon" :name="item.AssingToBugMob.icon"></app-mob-icon><ion-label v-if="item.AssingToBugMob.isShowCaption">指派</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.ConfirmBugMob.visabled" :disabled="item.ConfirmBugMob.disabled" color="primary" @click="mdctrl_click($event, 'ufc1202c', item)"><app-mob-icon v-if="item.ConfirmBugMob.icon && item.ConfirmBugMob.isShowIcon" :name="item.ConfirmBugMob.icon"></app-mob-icon><ion-label v-if="item.ConfirmBugMob.isShowCaption">确认</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.ActivationMob.visabled" :disabled="item.ActivationMob.disabled" color="primary" @click="mdctrl_click($event, 'u3b76c42', item)"><app-mob-icon v-if="item.ActivationMob.icon && item.ActivationMob.isShowIcon" :name="item.ActivationMob.icon"></app-mob-icon><ion-label v-if="item.ActivationMob.isShowCaption">激活</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.ResolveBugMob.visabled" :disabled="item.ResolveBugMob.disabled" color="primary" @click="mdctrl_click($event, 'u3682dea', item)"><app-mob-icon v-if="item.ResolveBugMob.icon && item.ResolveBugMob.isShowIcon" :name="item.ResolveBugMob.icon"></app-mob-icon><ion-label v-if="item.ResolveBugMob.isShowCaption">解决</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.MobMainEdit.visabled" :disabled="item.MobMainEdit.disabled" color="primary" @click="mdctrl_click($event, 'udd69064', item)"><app-mob-icon v-if="item.MobMainEdit.icon && item.MobMainEdit.isShowIcon" :name="item.MobMainEdit.icon"></app-mob-icon><ion-label v-if="item.MobMainEdit.isShowCaption">编辑</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.CloseBugMob.visabled" :disabled="item.CloseBugMob.disabled" color="primary" @click="mdctrl_click($event, 'u5c96498', item)"><app-mob-icon v-if="item.CloseBugMob.icon && item.CloseBugMob.isShowIcon" :name="item.CloseBugMob.icon"></app-mob-icon><ion-label v-if="item.CloseBugMob.isShowCaption">关闭</ion-label></ion-item-option>
                         </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
@@ -25,12 +25,12 @@
                 <template v-if="(viewType == 'DEMOBMDVIEW') && controlStyle != 'SWIPERVIEW' ">
                       <ion-item-sliding  :ref="item.srfkey" v-for="(item,index) in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
-                            <ion-item-option v-show="item.AssingToBugMob.visabled" :disabled="item.AssingToBugMob.disabled" color="primary" @click="mdctrl_click($event, 'u407998a', item)"><app-mob-icon v-if="item.AssingToBugMob.icon && item.AssingToBugMob.isShowIcon" :name="item.AssingToBugMob.icon"></app-mob-icon><ion-label v-if="item.AssingToBugMob.isShowCaption">指派</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.ConfirmBugMob.visabled" :disabled="item.ConfirmBugMob.disabled" color="primary" @click="mdctrl_click($event, 'uf4807eb', item)"><app-mob-icon v-if="item.ConfirmBugMob.icon && item.ConfirmBugMob.isShowIcon" :name="item.ConfirmBugMob.icon"></app-mob-icon><ion-label v-if="item.ConfirmBugMob.isShowCaption">确认</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.ActivationMob.visabled" :disabled="item.ActivationMob.disabled" color="primary" @click="mdctrl_click($event, 'ub160c90', item)"><app-mob-icon v-if="item.ActivationMob.icon && item.ActivationMob.isShowIcon" :name="item.ActivationMob.icon"></app-mob-icon><ion-label v-if="item.ActivationMob.isShowCaption">激活</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.ResolveBugMob.visabled" :disabled="item.ResolveBugMob.disabled" color="primary" @click="mdctrl_click($event, 'u9ab7459', item)"><app-mob-icon v-if="item.ResolveBugMob.icon && item.ResolveBugMob.isShowIcon" :name="item.ResolveBugMob.icon"></app-mob-icon><ion-label v-if="item.ResolveBugMob.isShowCaption">解决</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.MobMainEdit.visabled" :disabled="item.MobMainEdit.disabled" color="primary" @click="mdctrl_click($event, 'u49b4a99', item)"><app-mob-icon v-if="item.MobMainEdit.icon && item.MobMainEdit.isShowIcon" :name="item.MobMainEdit.icon"></app-mob-icon><ion-label v-if="item.MobMainEdit.isShowCaption">编辑</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.CloseBugMob.visabled" :disabled="item.CloseBugMob.disabled" color="primary" @click="mdctrl_click($event, 'u704707e', item)"><app-mob-icon v-if="item.CloseBugMob.icon && item.CloseBugMob.isShowIcon" :name="item.CloseBugMob.icon"></app-mob-icon><ion-label v-if="item.CloseBugMob.isShowCaption">关闭</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.AssingToBugMob.visabled" :disabled="item.AssingToBugMob.disabled" color="primary" @click="mdctrl_click($event, 'u4aeb4a0', item)"><app-mob-icon v-if="item.AssingToBugMob.icon && item.AssingToBugMob.isShowIcon" :name="item.AssingToBugMob.icon"></app-mob-icon><ion-label v-if="item.AssingToBugMob.isShowCaption">指派</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.ConfirmBugMob.visabled" :disabled="item.ConfirmBugMob.disabled" color="primary" @click="mdctrl_click($event, 'ufc1202c', item)"><app-mob-icon v-if="item.ConfirmBugMob.icon && item.ConfirmBugMob.isShowIcon" :name="item.ConfirmBugMob.icon"></app-mob-icon><ion-label v-if="item.ConfirmBugMob.isShowCaption">确认</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.ActivationMob.visabled" :disabled="item.ActivationMob.disabled" color="primary" @click="mdctrl_click($event, 'u3b76c42', item)"><app-mob-icon v-if="item.ActivationMob.icon && item.ActivationMob.isShowIcon" :name="item.ActivationMob.icon"></app-mob-icon><ion-label v-if="item.ActivationMob.isShowCaption">激活</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.ResolveBugMob.visabled" :disabled="item.ResolveBugMob.disabled" color="primary" @click="mdctrl_click($event, 'u3682dea', item)"><app-mob-icon v-if="item.ResolveBugMob.icon && item.ResolveBugMob.isShowIcon" :name="item.ResolveBugMob.icon"></app-mob-icon><ion-label v-if="item.ResolveBugMob.isShowCaption">解决</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.MobMainEdit.visabled" :disabled="item.MobMainEdit.disabled" color="primary" @click="mdctrl_click($event, 'udd69064', item)"><app-mob-icon v-if="item.MobMainEdit.icon && item.MobMainEdit.isShowIcon" :name="item.MobMainEdit.icon"></app-mob-icon><ion-label v-if="item.MobMainEdit.isShowCaption">编辑</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.CloseBugMob.visabled" :disabled="item.CloseBugMob.disabled" color="primary" @click="mdctrl_click($event, 'u5c96498', item)"><app-mob-icon v-if="item.CloseBugMob.icon && item.CloseBugMob.isShowIcon" :name="item.CloseBugMob.icon"></app-mob-icon><ion-label v-if="item.CloseBugMob.isShowCaption">关闭</ion-label></ion-item-option>
                         </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
@@ -243,7 +243,7 @@ export default class Mob_MyBase extends Vue implements ControlInterface {
      * @returns {Promise<any>}
      * @memberof MdctrlBase
      */
-    protected async mdctrl_u407998a_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async mdctrl_u4aeb4a0_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
 
         // 取数
         let datas: any[] = [];
@@ -274,7 +274,7 @@ export default class Mob_MyBase extends Vue implements ControlInterface {
      * @returns {Promise<any>}
      * @memberof MdctrlBase
      */
-    protected async mdctrl_uf4807eb_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async mdctrl_ufc1202c_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
 
         // 取数
         let datas: any[] = [];
@@ -305,7 +305,7 @@ export default class Mob_MyBase extends Vue implements ControlInterface {
      * @returns {Promise<any>}
      * @memberof MdctrlBase
      */
-    protected async mdctrl_ub160c90_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async mdctrl_u3b76c42_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
 
         // 取数
         let datas: any[] = [];
@@ -336,7 +336,7 @@ export default class Mob_MyBase extends Vue implements ControlInterface {
      * @returns {Promise<any>}
      * @memberof MdctrlBase
      */
-    protected async mdctrl_u9ab7459_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async mdctrl_u3682dea_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
 
         // 取数
         let datas: any[] = [];
@@ -367,7 +367,7 @@ export default class Mob_MyBase extends Vue implements ControlInterface {
      * @returns {Promise<any>}
      * @memberof MdctrlBase
      */
-    protected async mdctrl_u49b4a99_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async mdctrl_udd69064_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
 
         // 取数
         let datas: any[] = [];
@@ -398,7 +398,7 @@ export default class Mob_MyBase extends Vue implements ControlInterface {
      * @returns {Promise<any>}
      * @memberof MdctrlBase
      */
-    protected async mdctrl_u704707e_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async mdctrl_u5c96498_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
 
         // 取数
         let datas: any[] = [];
@@ -1140,23 +1140,23 @@ export default class Mob_MyBase extends Vue implements ControlInterface {
         $event.stopPropagation();
         this.selectedArray = [];
         this.selectedArray.push(item);
-        if (Object.is(tag, 'u407998a')) {
-            this.mdctrl_u407998a_click();
+        if (Object.is(tag, 'u4aeb4a0')) {
+            this.mdctrl_u4aeb4a0_click();
         }
-        if (Object.is(tag, 'uf4807eb')) {
-            this.mdctrl_uf4807eb_click();
+        if (Object.is(tag, 'ufc1202c')) {
+            this.mdctrl_ufc1202c_click();
         }
-        if (Object.is(tag, 'ub160c90')) {
-            this.mdctrl_ub160c90_click();
+        if (Object.is(tag, 'u3b76c42')) {
+            this.mdctrl_u3b76c42_click();
         }
-        if (Object.is(tag, 'u9ab7459')) {
-            this.mdctrl_u9ab7459_click();
+        if (Object.is(tag, 'u3682dea')) {
+            this.mdctrl_u3682dea_click();
         }
-        if (Object.is(tag, 'u49b4a99')) {
-            this.mdctrl_u49b4a99_click();
+        if (Object.is(tag, 'udd69064')) {
+            this.mdctrl_udd69064_click();
         }
-        if (Object.is(tag, 'u704707e')) {
-            this.mdctrl_u704707e_click();
+        if (Object.is(tag, 'u5c96498')) {
+            this.mdctrl_u5c96498_click();
         }
         this.closeSlidings(item);
     }

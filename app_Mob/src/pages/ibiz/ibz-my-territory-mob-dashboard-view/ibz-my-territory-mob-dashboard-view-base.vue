@@ -113,7 +113,7 @@ export default class IbzMyTerritoryMobDashboardViewBase extends Vue {
 	 * @type {string}
 	 * @memberof IbzMyTerritoryMobDashboardViewBase
 	 */
-	protected viewtag: string = '70d570ae5cafd7af092084e6d0e6b2f7';
+	protected viewtag: string = '7d7bb370ea3ec35832b2ef03253d16fc';
 
     /**
      * 视图上下文

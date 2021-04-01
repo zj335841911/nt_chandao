@@ -232,7 +232,7 @@ export default class ProductTestMobMDViewBase extends Vue {
 	 * @type {string}
 	 * @memberof ProductTestMobMDViewBase
 	 */
-	protected viewtag: string = '86fe20f86bf10c309e08f52cf7259b9d';
+	protected viewtag: string = '064a8e203568a5929ea303ec7acb2945';
 
     /**
      * 视图上下文

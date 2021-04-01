@@ -21,10 +21,19 @@ export class MyBugMobModel {
         name: 'storyversion',
       },
       {
+        name: 'buildname',
+      },
+      {
         name: 'linkbug',
       },
       {
         name: 'activateddate',
+      },
+      {
+        name: 'overduebugs',
+      },
+      {
+        name: 'createbuild',
       },
       {
         name: 'assignedto',
@@ -36,16 +45,28 @@ export class MyBugMobModel {
         name: 'lastediteddate',
       },
       {
+        name: 'mobimage',
+      },
+      {
         name: 'result',
       },
       {
         name: 'keywords',
       },
       {
+        name: 'isfavorites',
+      },
+      {
+        name: 'modulename1',
+      },
+      {
         name: 'closedby',
       },
       {
         name: 'browser',
+      },
+      {
+        name: 'noticeusers',
       },
       {
         name: 'steps',
@@ -55,6 +76,9 @@ export class MyBugMobModel {
       },
       {
         name: 'confirmed',
+      },
+      {
+        name: 'mailtoconact',
       },
       {
         name: 'openedby',
@@ -81,6 +105,9 @@ export class MyBugMobModel {
         name: 'color',
       },
       {
+        name: 'comment',
+      },
+      {
         name: 'resolveddate',
       },
       {
@@ -91,6 +118,15 @@ export class MyBugMobModel {
       },
       {
         name: 'openedbuild',
+      },
+      {
+        name: 'delayresolve',
+      },
+      {
+        name: 'files',
+      },
+      {
+        name: 'mailtopk',
       },
       {
         name: 'v1',
@@ -105,8 +141,14 @@ export class MyBugMobModel {
         name: 'substatus',
       },
       {
+        name: 'buildproject',
+      },
+      {
         name: 'bug',
         prop: 'id',
+      },
+      {
+        name: 'delay',
       },
       {
         name: 'found',
@@ -136,6 +178,15 @@ export class MyBugMobModel {
         name: 'productname',
       },
       {
+        name: 'branchname',
+      },
+      {
+        name: 'taskname',
+      },
+      {
+        name: 'casename',
+      },
+      {
         name: 'projectname',
       },
       {
@@ -146,6 +197,9 @@ export class MyBugMobModel {
       },
       {
         name: 'repotype',
+      },
+      {
+        name: 'modulename',
       },
       {
         name: 'tostory',
@@ -188,60 +242,6 @@ export class MyBugMobModel {
       },
       {
         name: 'testtask',
-      },
-      {
-        name: 'comment',
-      },
-      {
-        name: 'taskname',
-      },
-      {
-        name: 'modulename',
-      },
-      {
-        name: 'branchname',
-      },
-      {
-        name: 'modulename1',
-      },
-      {
-        name: 'files',
-      },
-      {
-        name: 'mobimage',
-      },
-      {
-        name: 'isfavorites',
-      },
-      {
-        name: 'buildname',
-      },
-      {
-        name: 'buildproject',
-      },
-      {
-        name: 'createbuild',
-      },
-      {
-        name: 'overduebugs',
-      },
-      {
-        name: 'casename',
-      },
-      {
-        name: 'delay',
-      },
-      {
-        name: 'noticeusers',
-      },
-      {
-        name: 'mailtopk',
-      },
-      {
-        name: 'mailtoconact',
-      },
-      {
-        name: 'delayresolve',
       },
     ]
   }

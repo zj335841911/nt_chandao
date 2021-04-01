@@ -15,74 +15,74 @@ export class MainInfoMobTabExpViewtabviewpanel3Model {
   public getDataItems(): any[] {
     return [
       {
-        name: 'ibzmonthly',
-        prop: 'ibzmonthlyid',
-      },
-      {
         name: 'createman',
-      },
-      {
-        name: 'updateman',
-      },
-      {
-        name: 'createdate',
-      },
-      {
-        name: 'ibzmonthlyname',
-      },
-      {
-        name: 'updatedate',
-      },
-      {
-        name: 'date',
-      },
-      {
-        name: 'account',
-      },
-      {
-        name: 'workthismonth',
-      },
-      {
-        name: 'plansnextmonth',
-      },
-      {
-        name: 'reportto',
-      },
-      {
-        name: 'mailto',
-      },
-      {
-        name: 'comment',
-      },
-      {
-        name: 'thismonthtask',
-      },
-      {
-        name: 'nextmonthplanstask',
-      },
-      {
-        name: 'files',
-      },
-      {
-        name: 'issubmit',
-      },
-      {
-        name: 'updatemanname',
       },
       {
         name: 'reportstatus',
       },
       {
-        name: 'createmanname',
+        name: 'updatedate',
       },
       {
-        name: 'submittime',
+        name: 'plansnextmonth',
       },
       {
         name: 'reporttopk',
       },
       {
+        name: 'issubmit',
+      },
+      {
         name: 'mailtopk',
+      },
+      {
+        name: 'updatemanname',
+      },
+      {
+        name: 'updateman',
+      },
+      {
+        name: 'date',
+      },
+      {
+        name: 'submittime',
+      },
+      {
+        name: 'createdate',
+      },
+      {
+        name: 'createmanname',
+      },
+      {
+        name: 'files',
+      },
+      {
+        name: 'ibzmonthly',
+        prop: 'ibzmonthlyid',
+      },
+      {
+        name: 'account',
+      },
+      {
+        name: 'nextmonthplanstask',
+      },
+      {
+        name: 'thismonthtask',
+      },
+      {
+        name: 'workthismonth',
+      },
+      {
+        name: 'reportto',
+      },
+      {
+        name: 'ibzmonthlyname',
+      },
+      {
+        name: 'comment',
+      },
+      {
+        name: 'mailto',
       },
     ]
   }
