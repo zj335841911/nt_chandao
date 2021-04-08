@@ -244,24 +244,24 @@ POST
 #### SysUpdateLogDTO
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
-| 1 | sysupdatelogid | String | 不可 | 系统更新日志标识 |
-| 2 | sysupdatelogname | String | 允许 | 更新名称 |
-| 3 | updateman | String | 不可 | 更新人 |
-| 4 | createman | String | 不可 | 建立人 |
-| 5 | createdate | Timestamp | 不可 | 建立时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
-| 6 | updatedate | Timestamp | 不可 | 更新时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
-| 7 | update | Timestamp | 允许 | 更新日期<br>时间格式：yyyy-MM-dd |
-| 8 | updesc | String | 允许 | 更新说明 |
+| 1 | updatedate | Timestamp | 不可 | 更新时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
+| 2 | updateman | String | 不可 | 更新人 |
+| 3 | createman | String | 不可 | 建立人 |
+| 4 | createdate | Timestamp | 不可 | 建立时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
+| 5 | sysupdatelogid | String | 不可 | 系统更新日志标识 |
+| 6 | updatebranch | String | 允许 | 更新平台 |
+| 7 | updesc | String | 允许 | 更新说明 |
+| 8 | sysupdatelogname | String | 允许 | 更新名称 |
 | 9 | latestupdate | Integer | 允许 | 最新更新 |
-| 10 | updatebranch | String | 允许 | 更新平台 |
+| 10 | update | Timestamp | 允许 | 更新日期<br>时间格式：yyyy-MM-dd |
 | 11 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### SysUpdateLogSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
-| 1 | n_sys_update_logname_like | String | 允许 | 条件字段：sys_update_logname<br>条件组合方式：`%like%` |
-| 2 | n_latestupdate_eq | Integer | 允许 | 条件字段：latestupdate<br>条件组合方式：`=` |
-| 3 | n_updatebranch_eq | String | 允许 | 条件字段：updatebranch<br>条件组合方式：`=` |
+| 1 | n_updatebranch_eq | String | 允许 | 条件字段：updatebranch<br>条件组合方式：`=` |
+| 2 | n_sys_update_logname_like | String | 允许 | 条件字段：sys_update_logname<br>条件组合方式：`%like%` |
+| 3 | n_latestupdate_eq | Integer | 允许 | 条件字段：latestupdate<br>条件组合方式：`=` |
 | 4 | customcond | String | 允许 | 自定义查询条件 |
 | 5 | customparams | String | 允许 | 自定义查询参数 |
 | 6 | query | String | 允许 | 快速搜索 |

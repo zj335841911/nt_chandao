@@ -12,4 +12,3 @@ public interface ModuleMapping extends MappingBase<ModuleDTO, Module> {
 
 
 }
-

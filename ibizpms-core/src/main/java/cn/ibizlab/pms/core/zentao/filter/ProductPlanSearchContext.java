@@ -34,8 +34,8 @@ public class ProductPlanSearchContext extends QueryWrapperContext<ProductPlan> {
             this.getSearchCond().like("`title`", n_title_like);
         }
     }
-    @JsonFormat(pattern="yyyy-MM-dd", timezone="GMT+8")
-    @JSONField(format="yyyy-MM-dd")
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone="GMT+8")
+    @JSONField(format="yyyy-MM-dd HH:mm:ss")
 	private Timestamp n_begin_gtandeq;//[开始日期]
 	public void setN_begin_gtandeq(Timestamp n_begin_gtandeq) {
         this.n_begin_gtandeq = n_begin_gtandeq;
@@ -43,13 +43,41 @@ public class ProductPlanSearchContext extends QueryWrapperContext<ProductPlan> {
             this.getSearchCond().ge("`begin`", n_begin_gtandeq);
         }
     }
-    @JsonFormat(pattern="yyyy-MM-dd", timezone="GMT+8")
-    @JSONField(format="yyyy-MM-dd")
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone="GMT+8")
+    @JSONField(format="yyyy-MM-dd HH:mm:ss")
 	private Timestamp n_end_ltandeq;//[结束日期]
 	public void setN_end_ltandeq(Timestamp n_end_ltandeq) {
         this.n_end_ltandeq = n_end_ltandeq;
         if(!ObjectUtils.isEmpty(this.n_end_ltandeq)){
             this.getSearchCond().le("`end`", n_end_ltandeq);
+        }
+    }
+	private String n_plantemplet_eq;//[计划模板]
+	public void setN_plantemplet_eq(String n_plantemplet_eq) {
+        this.n_plantemplet_eq = n_plantemplet_eq;
+        if(!ObjectUtils.isEmpty(this.n_plantemplet_eq)){
+            this.getSearchCond().eq("`plantemplet`", n_plantemplet_eq);
+        }
+    }
+	private String n_isexpired_eq;//[是否过期]
+	public void setN_isexpired_eq(String n_isexpired_eq) {
+        this.n_isexpired_eq = n_isexpired_eq;
+        if(!ObjectUtils.isEmpty(this.n_isexpired_eq)){
+            this.getSearchCond().eq("`isexpired`", n_isexpired_eq);
+        }
+    }
+	private String n_future_eq;//[待定]
+	public void setN_future_eq(String n_future_eq) {
+        this.n_future_eq = n_future_eq;
+        if(!ObjectUtils.isEmpty(this.n_future_eq)){
+            this.getSearchCond().eq("`future`", n_future_eq);
+        }
+    }
+	private String n_delta_eq;//[周期]
+	public void setN_delta_eq(String n_delta_eq) {
+        this.n_delta_eq = n_delta_eq;
+        if(!ObjectUtils.isEmpty(this.n_delta_eq)){
+            this.getSearchCond().eq("`delta`", n_delta_eq);
         }
     }
 	private String n_parentname_eq;//[父计划名称]
@@ -85,34 +113,6 @@ public class ProductPlanSearchContext extends QueryWrapperContext<ProductPlan> {
         this.n_product_eq = n_product_eq;
         if(!ObjectUtils.isEmpty(this.n_product_eq)){
             this.getSearchCond().eq("`product`", n_product_eq);
-        }
-    }
-	private String n_future_eq;//[待定]
-	public void setN_future_eq(String n_future_eq) {
-        this.n_future_eq = n_future_eq;
-        if(!ObjectUtils.isEmpty(this.n_future_eq)){
-            this.getSearchCond().eq("`future`", n_future_eq);
-        }
-    }
-	private String n_delta_eq;//[周期]
-	public void setN_delta_eq(String n_delta_eq) {
-        this.n_delta_eq = n_delta_eq;
-        if(!ObjectUtils.isEmpty(this.n_delta_eq)){
-            this.getSearchCond().eq("`delta`", n_delta_eq);
-        }
-    }
-	private String n_isexpired_eq;//[是否过期]
-	public void setN_isexpired_eq(String n_isexpired_eq) {
-        this.n_isexpired_eq = n_isexpired_eq;
-        if(!ObjectUtils.isEmpty(this.n_isexpired_eq)){
-            this.getSearchCond().eq("`isexpired`", n_isexpired_eq);
-        }
-    }
-	private String n_plantemplet_eq;//[计划模板]
-	public void setN_plantemplet_eq(String n_plantemplet_eq) {
-        this.n_plantemplet_eq = n_plantemplet_eq;
-        if(!ObjectUtils.isEmpty(this.n_plantemplet_eq)){
-            this.getSearchCond().eq("`plantemplet`", n_plantemplet_eq);
         }
     }
 

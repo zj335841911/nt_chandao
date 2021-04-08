@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { DashboardViewBase } from '@/studio-core';
 import IbzMyTerritoryService from '@/service/ibz-my-territory/ibz-my-territory-service';
 import IbzMyTerritoryAuthService from '@/authservice/ibz-my-territory/ibz-my-territory-auth-service';
@@ -100,7 +100,7 @@ export class IbzMyTerritoryDashboardViewBase extends DashboardViewBase {
      * @type {string}
      * @memberof IbzMyTerritoryDashboardViewBase
      */
-	protected viewtag: string = 'd8df5ca51341d33ccc19208dde3f2cce';
+	protected viewtag: string = 'b33906a0a4a273e8e0da622206d8905d';
 
     /**
      * 视图名称

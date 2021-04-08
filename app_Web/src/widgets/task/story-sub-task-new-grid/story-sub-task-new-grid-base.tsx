@@ -309,8 +309,8 @@ export class StorySubTaskNewGridBase extends GridControlBase {
     public rules() {
         return {
         module: [
-            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: 'id 值不能为空', trigger: 'change' },
-            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: 'id 值不能为空', trigger: 'blur' },
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '模块 值不能为空', trigger: 'change' },
+            { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '模块 值不能为空', trigger: 'blur' },
         ],
         desc: [
             { required: false, validator: (rule:any, value:any, callback:any) => { return (rule.required && (value === null || value === undefined || value === "")) ? false : true;}, message: '任务描述 值不能为空', trigger: 'change' },
@@ -529,6 +529,12 @@ export class StorySubTaskNewGridBase extends GridControlBase {
         }
         if (row.hasOwnProperty('parent')) {
             row['parent'] = 0;
+        }
+        if (row.hasOwnProperty('storyname')) {
+            row['storyname'] = this.viewparams['title'];
+        }
+        if (row.hasOwnProperty('modulename')) {
+            row['modulename'] = this.viewparams['modulename'];
         }
         if (row.hasOwnProperty('story')) {
             row['story'] = this.viewparams['story'];

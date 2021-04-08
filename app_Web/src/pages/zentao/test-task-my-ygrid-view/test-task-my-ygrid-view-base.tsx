@@ -1,6 +1,6 @@
 
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { GridViewBase } from '@/studio-core';
 import TestTaskService from '@/service/test-task/test-task-service';
 import TestTaskAuthService from '@/authservice/test-task/test-task-auth-service';
@@ -143,7 +143,7 @@ export class TestTaskMyYGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof TestTaskMyYGridViewBase
      */
-	protected viewtag: string = '1fdd9d52c2aa726e0d0372fb9e3ad916';
+	protected viewtag: string = '781cd3123dfa8904727b8e9f3b0ff064';
 
     /**
      * 视图名称

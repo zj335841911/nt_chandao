@@ -73,7 +73,7 @@ public class IbzReportlyResource {
 		IbzReportly domain  = ibzreportlyMapping.toDomain(ibzreportlydto);
         domain .setIbzreportlyid(ibzreportly_id);
 		ibzreportlyService.update(domain );
-		IbzReportlyDTO dto = ibzreportlyMapping.toDto(domain );
+		IbzReportlyDTO dto = ibzreportlyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
@@ -111,8 +111,9 @@ public class IbzReportlyResource {
 
     @ApiOperation(value = "获取汇报草稿", tags = {"汇报" },  notes = "获取汇报草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/ibzreportlies/getdraft")
-    public ResponseEntity<IbzReportlyDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(ibzreportlyMapping.toDto(ibzreportlyService.getDraft(new IbzReportly())));
+    public ResponseEntity<IbzReportlyDTO> getDraft(IbzReportlyDTO dto) {
+        IbzReportly domain = ibzreportlyMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(ibzreportlyMapping.toDto(ibzreportlyService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查汇报", tags = {"汇报" },  notes = "检查汇报")
@@ -133,16 +134,20 @@ public class IbzReportlyResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzReportly-HaveRead-all')")
     @ApiOperation(value = "批量处理[已读]", tags = {"汇报" },  notes = "批量处理[已读]")
-	@RequestMapping(method = RequestMethod.POST, value = "/ibzreportlies/{ibzreportly_id}/havereadbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/ibzreportlies/havereadbatch")
     public ResponseEntity<Boolean> haveReadBatch(@RequestBody List<IbzReportlyDTO> ibzreportlydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(ibzreportlyService.haveReadBatch(ibzreportlyMapping.toDomain(ibzreportlydtos)));
+        List<IbzReportly> domains = ibzreportlyMapping.toDomain(ibzreportlydtos);
+        boolean result = ibzreportlyService.haveReadBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasPermission(this.ibzreportlyMapping.toDomain(#ibzreportlydto),'pms-IbzReportly-Save')")
     @ApiOperation(value = "保存汇报", tags = {"汇报" },  notes = "保存汇报")
 	@RequestMapping(method = RequestMethod.POST, value = "/ibzreportlies/save")
-    public ResponseEntity<Boolean> save(@RequestBody IbzReportlyDTO ibzreportlydto) {
-        return ResponseEntity.status(HttpStatus.OK).body(ibzreportlyService.save(ibzreportlyMapping.toDomain(ibzreportlydto)));
+    public ResponseEntity<IbzReportlyDTO> save(@RequestBody IbzReportlyDTO ibzreportlydto) {
+        IbzReportly domain = ibzreportlyMapping.toDomain(ibzreportlydto);
+        ibzreportlyService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(ibzreportlyMapping.toDto(domain));
     }
 
     @PreAuthorize("hasPermission(this.ibzreportlyMapping.toDomain(#ibzreportlydtos),'pms-IbzReportly-Save')")
@@ -165,9 +170,11 @@ public class IbzReportlyResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzReportly-Submit-all')")
     @ApiOperation(value = "批量处理[提交]", tags = {"汇报" },  notes = "批量处理[提交]")
-	@RequestMapping(method = RequestMethod.PUT, value = "/ibzreportlies/{ibzreportly_id}/submitbatch")
+	@RequestMapping(method = RequestMethod.PUT, value = "/ibzreportlies/submitbatch")
     public ResponseEntity<Boolean> submitBatch(@RequestBody List<IbzReportlyDTO> ibzreportlydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(ibzreportlyService.submitBatch(ibzreportlyMapping.toDomain(ibzreportlydtos)));
+        List<IbzReportly> domains = ibzreportlyMapping.toDomain(ibzreportlydtos);
+        boolean result = ibzreportlyService.submitBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzReportly-searchDefault-all') and hasPermission(#context,'pms-IbzReportly-Get')")
@@ -257,6 +264,7 @@ public class IbzReportlyResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(ibzreportlyMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
 
 
 }

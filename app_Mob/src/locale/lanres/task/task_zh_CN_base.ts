@@ -2,89 +2,136 @@ import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
     canceledby: "由谁取消",
+    configtype: "周期类型",
+    taskteams: "项目团队成员",
     left: "预计剩余",
+    isfavorites: "是否收藏",
+    configend: "过期日期",
+    hasdetail: "是否填写描述",
     openeddate: "创建日期",
+    assign: "是否指派",
     color: "标题颜色",
     id: "编号",
     finishedby: "由谁完成",
+    mytotaltime: "我的总消耗",
+    mailtopk: "抄送给",
     finishedlist: "完成者列表",
+    modulename1: "所属模块",
+    isleaf: "是否子任务",
     realstarted: "实际开始",
+    status1: "任务状态",
+    replycount: "回复数量",
+    configbegin: "开始日期",
+    updatedate: "最后的更新日期",
+    noticeusers: "消息通知用户",
     closedby: "由谁关闭",
+    currentconsumed: "本次消耗",
+    files: "附件",
     substatus: "子状态",
     closedreason: "关闭原因",
+    taskspecies: "任务种别",
     lastediteddate: "最后修改日期",
+    configday: "间隔天数",
     assigneddate: "指派日期",
     pri: "优先级",
     lasteditedby: "最后修改",
+    idvalue: "关联编号",
     status: "任务状态",
+    multiple: "多人任务",
     name: "任务名称",
     closeddate: "关闭时间",
+    inputcost: "投入成本",
+    totaltime: "总计耗时",
     type: "任务类型",
     assignedto: "指派给",
+    ibztaskestimates: "工时",
+    delay: "延期",
     desc: "任务描述",
     eststarted: "预计开始",
     deadline: "截止日期",
+    statusorder: "排序",
+    mailtoconact: "联系人",
     deleted: "已删除",
+    cycle: "周期",
     mailto: "抄送给",
     consumed: "总计消耗",
     estimate: "最初预计",
     openedby: "由谁创建",
+    isfinished: "是否完成",
     canceleddate: "取消时间",
+    configmonth: "周期设置月",
+    comment: "备注",
+    duration: "持续时间",
+    assignedtozj: "转交给",
+    usernames: "团队用户",
+    myconsumed: "之前消耗",
+    configweek: "周期设置周几",
+    tasktype: "任务类型",
+    allmodules: "所有模块",
+    configbeforedays: "提前天数",
     finisheddate: "实际完成",
+    progressrate: "进度",
     modulename: "所属模块",
     storyname: "相关需求",
+    path: "模块路径",
+    planname: "所属计划",
     projectname: "所属项目",
     product: "产品",
     storyversion: "需求版本",
     productname: "产品",
     parentname: "父任务",
     project: "所属项目",
+    plan: "编号",
+    module: "模块",
     story: "相关需求",
     parent: "父任务",
     frombug: "来源Bug",
-    duration: "持续时间",
-    module: "id",
-    path: "模块路径",
-    comment: "备注",
-    currentconsumed: "本次消耗",
-    totaltime: "总计耗时",
-    isleaf: "是否子任务",
-    allmodules: "所有模块",
-    multiple: "多人任务",
-    taskteams: "项目团队成员",
-    modulename1: "所属模块",
-    ibztaskestimates: "工时",
-    isfavorites: "是否收藏",
-    status1: "任务状态",
-    tasktype: "任务类型",
-    files: "附件",
-    usernames: "团队用户",
-    isfinished: "是否完成",
-    replycount: "回复数量",
-    hasdetail: "是否填写描述",
-    updatedate: "最后的更新日期",
-    noticeusers: "消息通知用户",
-    progressrate: "进度",
-    delay: "延期",
-    mailtopk: "抄送给",
-    mailtoconact: "联系人",
-    statusorder: "排序",
-    myconsumed: "之前消耗",
-    mytotaltime: "我的总消耗",
-    assignedtozj: "转交给",
   },
 	views: {
-		mobmdview: {
-			caption: commonLogic.appcommonhandle("任务",null),
-		},
-		mobeditview: {
-			caption: commonLogic.appcommonhandle("任务",null),
-		},
-		assmoremobmdview: {
-			caption: commonLogic.appcommonhandle("指派给我的任务",null),
+		activemobtask: {
+			caption: commonLogic.appcommonhandle("激活",null),
 		},
 		mycompletetaskmobmdviewweekly: {
 			caption: commonLogic.appcommonhandle("计划参与",null),
+		},
+		editmobeditview: {
+			caption: commonLogic.appcommonhandle("任务",null),
+		},
+		cancelmoboptionview: {
+			caption: commonLogic.appcommonhandle("取消",null),
+		},
+		assmobmdview9: {
+			caption: commonLogic.appcommonhandle("任务",null),
+		},
+		favoritemobmdview: {
+			caption: commonLogic.appcommonhandle("任务",null),
+		},
+		moboptionview: {
+			caption: commonLogic.appcommonhandle("指派",null),
+		},
+		favoritemobmdview9: {
+			caption: commonLogic.appcommonhandle("任务",null),
+		},
+		newmobeditview: {
+			caption: commonLogic.appcommonhandle("任务",null),
+		},
+		monthlyplanstaskmobmdview: {
+			caption: commonLogic.appcommonhandle("任务",null),
+		},
+		mycompletetaskmobmdview1: {
+			caption: commonLogic.appcommonhandle("任务",null),
+		},
+		dailydonetaskmobmdview: {
+			caption: commonLogic.appcommonhandle("任务",null),
+		},
+		startmoboptionview: {
+			caption: commonLogic.appcommonhandle("开始",null),
+		},
+		monthlymycompletetaskmobmdview: {
+			caption: commonLogic.appcommonhandle("任务",null),
+		},
+		mobpickupmdview: {
+			caption: commonLogic.appcommonhandle("任务",null),
 		},
 		weeklyplanstaskmobmdview: {
 			caption: commonLogic.appcommonhandle("任务",null),
@@ -92,89 +139,125 @@ export default {
 		stopmoboptionview: {
 			caption: commonLogic.appcommonhandle("暂停",null),
 		},
-		mycompletetaskmobmdview: {
-			caption: commonLogic.appcommonhandle("任务",null),
+		gsmoboptionview: {
+			caption: commonLogic.appcommonhandle("工时",null),
 		},
-		monthlymycompletetaskmobmdview: {
-			caption: commonLogic.appcommonhandle("任务",null),
+		usr2moboptionview: {
+			caption: commonLogic.appcommonhandle("继续",null),
 		},
-		dailydonetaskmobmdview: {
-			caption: commonLogic.appcommonhandle("任务",null),
-		},
-		editmobeditview: {
-			caption: commonLogic.appcommonhandle("任务",null),
-		},
-		activemobtask: {
-			caption: commonLogic.appcommonhandle("激活",null),
-		},
-		cancelmoboptionview: {
-			caption: commonLogic.appcommonhandle("取消",null),
-		},
-		favoritemobmdview9: {
-			caption: commonLogic.appcommonhandle("任务",null),
-		},
-		closemoboptionview: {
-			caption: commonLogic.appcommonhandle("关闭",null),
-		},
-		mobpickupmdview: {
-			caption: commonLogic.appcommonhandle("任务",null),
-		},
-		mobpickupview: {
-			caption: commonLogic.appcommonhandle("任务",null),
-		},
-		startmoboptionview: {
-			caption: commonLogic.appcommonhandle("开始",null),
-		},
-		monthlyplanstaskmobmdview: {
-			caption: commonLogic.appcommonhandle("任务",null),
-		},
-		dailyplanstaskmobmdview: {
-			caption: commonLogic.appcommonhandle("任务",null),
-		},
-		favoritemoremobmdview: {
-			caption: commonLogic.appcommonhandle("我收藏的任务",null),
-		},
-		favoritemobmdview: {
+		weeklylydonetaskmobmdview: {
 			caption: commonLogic.appcommonhandle("任务",null),
 		},
 		commoboptionview: {
 			caption: commonLogic.appcommonhandle("完成",null),
 		},
-		monthlydonetaskmobmdview: {
+		mobeditview: {
 			caption: commonLogic.appcommonhandle("任务",null),
 		},
 		assmobmdview: {
 			caption: commonLogic.appcommonhandle("任务",null),
 		},
-		mycompletetaskmobmdview1: {
+		monthlydonetaskmobmdview: {
 			caption: commonLogic.appcommonhandle("任务",null),
 		},
-		monthlymyplanstaskmobmdview: {
+		mycompletetaskmobmdview: {
 			caption: commonLogic.appcommonhandle("任务",null),
 		},
-		moboptionview: {
-			caption: commonLogic.appcommonhandle("指派",null),
+		favoritemoremobmdview: {
+			caption: commonLogic.appcommonhandle("我收藏的任务",null),
 		},
-		gsmoboptionview: {
-			caption: commonLogic.appcommonhandle("工时",null),
+		closemoboptionview: {
+			caption: commonLogic.appcommonhandle("关闭",null),
 		},
-		weeklylydonetaskmobmdview: {
+		mobmdview: {
 			caption: commonLogic.appcommonhandle("任务",null),
 		},
-		assmobmdview9: {
-			caption: commonLogic.appcommonhandle("任务",null),
-		},
-		mycompletetaskmobmdviewnextplanweekly: {
-			caption: commonLogic.appcommonhandle("计划参与",null),
-		},
-		newmobeditview: {
+		dailyplanstaskmobmdview: {
 			caption: commonLogic.appcommonhandle("任务",null),
 		},
 		myplanstomorrowtaskmobmdview: {
 			caption: commonLogic.appcommonhandle("任务",null),
 		},
-		usr2moboptionview: {
-			caption: commonLogic.appcommonhandle("继续",null),
+		mobpickupview: {
+			caption: commonLogic.appcommonhandle("任务",null),
+		},
+		mycompletetaskmobmdviewnextplanweekly: {
+			caption: commonLogic.appcommonhandle("计划参与",null),
+		},
+		assmoremobmdview: {
+			caption: commonLogic.appcommonhandle("指派给我的任务",null),
+		},
+		monthlymyplanstaskmobmdview: {
+			caption: commonLogic.appcommonhandle("任务",null),
+		},
+	},
+	mobactiviteform_form: {
+		details: {
+			druipart1: commonLogic.appcommonhandle("",null), 
+			grouppanel1: commonLogic.appcommonhandle("分组面板",null), 
+			group1: commonLogic.appcommonhandle("任务基本信息",null), 
+			formpage1: commonLogic.appcommonhandle("基本信息",null), 
+			srfupdatedate: commonLogic.appcommonhandle("最后修改日期",null), 
+			srforikey: commonLogic.appcommonhandle("",null), 
+			srfkey: commonLogic.appcommonhandle("编号",null), 
+			srfmajortext: commonLogic.appcommonhandle("任务名称",null), 
+			srftempmode: commonLogic.appcommonhandle("",null), 
+			srfuf: commonLogic.appcommonhandle("",null), 
+			srfdeid: commonLogic.appcommonhandle("",null), 
+			srfsourcekey: commonLogic.appcommonhandle("",null), 
+			assignedto: commonLogic.appcommonhandle("指派给",null), 
+			left: commonLogic.appcommonhandle("预计剩余",null), 
+			comment: commonLogic.appcommonhandle("备注",null), 
+			project: commonLogic.appcommonhandle("所属项目",null), 
+			multiple: commonLogic.appcommonhandle("多人任务",null), 
+			noticeusers: commonLogic.appcommonhandle("消息通知用户",null), 
+			id: commonLogic.appcommonhandle("编号",null), 
+		},
+		uiactions: {
+		},
+	},
+	mobmain_form: {
+		details: {
+			druipart1: commonLogic.appcommonhandle("任务团队",null), 
+			grouppanel1: commonLogic.appcommonhandle("分组面板",null), 
+			druipart3: commonLogic.appcommonhandle("",null), 
+			grouppanel3: commonLogic.appcommonhandle("附件",null), 
+			druipart2: commonLogic.appcommonhandle("",null), 
+			grouppanel2: commonLogic.appcommonhandle("历史记录",null), 
+			group1: commonLogic.appcommonhandle("任务基本信息",null), 
+			formpage1: commonLogic.appcommonhandle("基本信息",null), 
+			srfupdatedate: commonLogic.appcommonhandle("最后修改日期",null), 
+			srforikey: commonLogic.appcommonhandle("",null), 
+			srfkey: commonLogic.appcommonhandle("编号",null), 
+			srfmajortext: commonLogic.appcommonhandle("任务名称",null), 
+			srftempmode: commonLogic.appcommonhandle("",null), 
+			srfuf: commonLogic.appcommonhandle("",null), 
+			srfdeid: commonLogic.appcommonhandle("",null), 
+			srfsourcekey: commonLogic.appcommonhandle("",null), 
+			projectname: commonLogic.appcommonhandle("所属项目",null), 
+			project: commonLogic.appcommonhandle("所属项目",null), 
+			modulename: commonLogic.appcommonhandle("所属模块",null), 
+			name: commonLogic.appcommonhandle("任务名称",null), 
+			type: commonLogic.appcommonhandle("任务类型",null), 
+			assignedto: commonLogic.appcommonhandle("指派给",null), 
+			assigneddate: commonLogic.appcommonhandle("指派日期",null), 
+			multiple: commonLogic.appcommonhandle("多人任务",null), 
+			status: commonLogic.appcommonhandle("任务状态",null), 
+			pri: commonLogic.appcommonhandle("优先级",null), 
+			estimate: commonLogic.appcommonhandle("最初预计",null), 
+			consumed: commonLogic.appcommonhandle("总计消耗",null), 
+			left: commonLogic.appcommonhandle("预计剩余",null), 
+			eststarted: commonLogic.appcommonhandle("预计开始",null), 
+			realstarted: commonLogic.appcommonhandle("实际开始",null), 
+			deadline: commonLogic.appcommonhandle("截止日期",null), 
+			finishedby: commonLogic.appcommonhandle("由谁完成",null), 
+			closedby: commonLogic.appcommonhandle("由谁关闭",null), 
+			closeddate: commonLogic.appcommonhandle("关闭时间",null), 
+			closedreason: commonLogic.appcommonhandle("关闭原因",null), 
+			desc: commonLogic.appcommonhandle("任务描述",null), 
+			id: commonLogic.appcommonhandle("编号",null), 
+		},
+		uiactions: {
 		},
 	},
 	mobstartform_form: {
@@ -223,6 +306,26 @@ export default {
 			status: commonLogic.appcommonhandle("任务状态",null), 
 			noticeusers: commonLogic.appcommonhandle("消息通知用户",null), 
 			id: commonLogic.appcommonhandle("编号",null), 
+		},
+		uiactions: {
+		},
+	},
+	estimatemob_form: {
+		details: {
+			druipart2: commonLogic.appcommonhandle("",null), 
+			grouppanel1: commonLogic.appcommonhandle("工时",null), 
+			druipart1: commonLogic.appcommonhandle("",null), 
+			formpage1: commonLogic.appcommonhandle("基本信息",null), 
+			srfupdatedate: commonLogic.appcommonhandle("最后修改日期",null), 
+			srforikey: commonLogic.appcommonhandle("",null), 
+			srfkey: commonLogic.appcommonhandle("编号",null), 
+			srfmajortext: commonLogic.appcommonhandle("任务名称",null), 
+			srftempmode: commonLogic.appcommonhandle("",null), 
+			srfuf: commonLogic.appcommonhandle("",null), 
+			srfdeid: commonLogic.appcommonhandle("",null), 
+			srfsourcekey: commonLogic.appcommonhandle("",null), 
+			id: commonLogic.appcommonhandle("编号",null), 
+			name: commonLogic.appcommonhandle("任务名称",null), 
 		},
 		uiactions: {
 		},
@@ -278,133 +381,6 @@ export default {
 		uiactions: {
 		},
 	},
-	mobactiviteform_form: {
-		details: {
-			druipart1: commonLogic.appcommonhandle("",null), 
-			grouppanel1: commonLogic.appcommonhandle("分组面板",null), 
-			group1: commonLogic.appcommonhandle("任务基本信息",null), 
-			formpage1: commonLogic.appcommonhandle("基本信息",null), 
-			srfupdatedate: commonLogic.appcommonhandle("最后修改日期",null), 
-			srforikey: commonLogic.appcommonhandle("",null), 
-			srfkey: commonLogic.appcommonhandle("编号",null), 
-			srfmajortext: commonLogic.appcommonhandle("任务名称",null), 
-			srftempmode: commonLogic.appcommonhandle("",null), 
-			srfuf: commonLogic.appcommonhandle("",null), 
-			srfdeid: commonLogic.appcommonhandle("",null), 
-			srfsourcekey: commonLogic.appcommonhandle("",null), 
-			assignedto: commonLogic.appcommonhandle("指派给",null), 
-			left: commonLogic.appcommonhandle("预计剩余",null), 
-			comment: commonLogic.appcommonhandle("备注",null), 
-			project: commonLogic.appcommonhandle("所属项目",null), 
-			multiple: commonLogic.appcommonhandle("多人任务",null), 
-			noticeusers: commonLogic.appcommonhandle("消息通知用户",null), 
-			id: commonLogic.appcommonhandle("编号",null), 
-		},
-		uiactions: {
-		},
-	},
-	estimatemob_form: {
-		details: {
-			druipart2: commonLogic.appcommonhandle("",null), 
-			grouppanel1: commonLogic.appcommonhandle("工时",null), 
-			druipart1: commonLogic.appcommonhandle("",null), 
-			formpage1: commonLogic.appcommonhandle("基本信息",null), 
-			srfupdatedate: commonLogic.appcommonhandle("最后修改日期",null), 
-			srforikey: commonLogic.appcommonhandle("",null), 
-			srfkey: commonLogic.appcommonhandle("编号",null), 
-			srfmajortext: commonLogic.appcommonhandle("任务名称",null), 
-			srftempmode: commonLogic.appcommonhandle("",null), 
-			srfuf: commonLogic.appcommonhandle("",null), 
-			srfdeid: commonLogic.appcommonhandle("",null), 
-			srfsourcekey: commonLogic.appcommonhandle("",null), 
-			id: commonLogic.appcommonhandle("编号",null), 
-			name: commonLogic.appcommonhandle("任务名称",null), 
-		},
-		uiactions: {
-		},
-	},
-	mobnewfrom_form: {
-		details: {
-			druipart1: commonLogic.appcommonhandle("",null), 
-			group1: commonLogic.appcommonhandle("task基本信息",null), 
-			formpage1: commonLogic.appcommonhandle("基本信息",null), 
-			srfupdatedate: commonLogic.appcommonhandle("最后修改日期",null), 
-			srforikey: commonLogic.appcommonhandle("",null), 
-			srfkey: commonLogic.appcommonhandle("编号",null), 
-			srfmajortext: commonLogic.appcommonhandle("任务名称",null), 
-			srftempmode: commonLogic.appcommonhandle("",null), 
-			srfuf: commonLogic.appcommonhandle("",null), 
-			srfdeid: commonLogic.appcommonhandle("",null), 
-			srfsourcekey: commonLogic.appcommonhandle("",null), 
-			projectname: commonLogic.appcommonhandle("所属项目",null), 
-			project: commonLogic.appcommonhandle("所属项目",null), 
-			module: commonLogic.appcommonhandle("id",null), 
-			type: commonLogic.appcommonhandle("任务类型",null), 
-			modulename: commonLogic.appcommonhandle("所属模块",null), 
-			allmodules: commonLogic.appcommonhandle("所有模块",null), 
-			assignedto: commonLogic.appcommonhandle("指派给",null), 
-			multiple: commonLogic.appcommonhandle("多人任务",null), 
-			noticeusers: commonLogic.appcommonhandle("消息通知用户",null), 
-			story: commonLogic.appcommonhandle("相关需求",null), 
-			storyname: commonLogic.appcommonhandle("相关需求",null), 
-			name: commonLogic.appcommonhandle("任务名称",null), 
-			color: commonLogic.appcommonhandle("任务名称color",null), 
-			pri: commonLogic.appcommonhandle("优先级",null), 
-			estimate: commonLogic.appcommonhandle("预计",null), 
-			eststarted: commonLogic.appcommonhandle("预计开始",null), 
-			deadline: commonLogic.appcommonhandle("截止日期",null), 
-			desc: commonLogic.appcommonhandle("任务描述",null), 
-			mailto: commonLogic.appcommonhandle("抄送给",null), 
-			mailtopk: commonLogic.appcommonhandle("抄送给",null), 
-			id: commonLogic.appcommonhandle("编号",null), 
-		},
-		uiactions: {
-		},
-	},
-	mobmain_form: {
-		details: {
-			druipart1: commonLogic.appcommonhandle("任务团队",null), 
-			grouppanel1: commonLogic.appcommonhandle("分组面板",null), 
-			druipart3: commonLogic.appcommonhandle("",null), 
-			grouppanel3: commonLogic.appcommonhandle("附件",null), 
-			druipart2: commonLogic.appcommonhandle("",null), 
-			grouppanel2: commonLogic.appcommonhandle("历史记录",null), 
-			group1: commonLogic.appcommonhandle("任务基本信息",null), 
-			formpage1: commonLogic.appcommonhandle("基本信息",null), 
-			srfupdatedate: commonLogic.appcommonhandle("最后修改日期",null), 
-			srforikey: commonLogic.appcommonhandle("",null), 
-			srfkey: commonLogic.appcommonhandle("编号",null), 
-			srfmajortext: commonLogic.appcommonhandle("任务名称",null), 
-			srftempmode: commonLogic.appcommonhandle("",null), 
-			srfuf: commonLogic.appcommonhandle("",null), 
-			srfdeid: commonLogic.appcommonhandle("",null), 
-			srfsourcekey: commonLogic.appcommonhandle("",null), 
-			projectname: commonLogic.appcommonhandle("所属项目",null), 
-			project: commonLogic.appcommonhandle("所属项目",null), 
-			modulename: commonLogic.appcommonhandle("所属模块",null), 
-			name: commonLogic.appcommonhandle("任务名称",null), 
-			type: commonLogic.appcommonhandle("任务类型",null), 
-			assignedto: commonLogic.appcommonhandle("指派给",null), 
-			assigneddate: commonLogic.appcommonhandle("指派日期",null), 
-			multiple: commonLogic.appcommonhandle("多人任务",null), 
-			status: commonLogic.appcommonhandle("任务状态",null), 
-			pri: commonLogic.appcommonhandle("优先级",null), 
-			estimate: commonLogic.appcommonhandle("最初预计",null), 
-			consumed: commonLogic.appcommonhandle("总计消耗",null), 
-			left: commonLogic.appcommonhandle("预计剩余",null), 
-			eststarted: commonLogic.appcommonhandle("预计开始",null), 
-			realstarted: commonLogic.appcommonhandle("实际开始",null), 
-			deadline: commonLogic.appcommonhandle("截止日期",null), 
-			finishedby: commonLogic.appcommonhandle("由谁完成",null), 
-			closedby: commonLogic.appcommonhandle("由谁关闭",null), 
-			closeddate: commonLogic.appcommonhandle("关闭时间",null), 
-			closedreason: commonLogic.appcommonhandle("关闭原因",null), 
-			desc: commonLogic.appcommonhandle("任务描述",null), 
-			id: commonLogic.appcommonhandle("编号",null), 
-		},
-		uiactions: {
-		},
-	},
 	mobmainedit_form: {
 		details: {
 			group1: commonLogic.appcommonhandle("任务基本信息",null), 
@@ -431,7 +407,7 @@ export default {
 			name: commonLogic.appcommonhandle("任务名称",null), 
 			projectname: commonLogic.appcommonhandle("所属项目",null), 
 			project: commonLogic.appcommonhandle("所属项目",null), 
-			module: commonLogic.appcommonhandle("id",null), 
+			module: commonLogic.appcommonhandle("模块",null), 
 			modulename: commonLogic.appcommonhandle("所属模块",null), 
 			allmodules: commonLogic.appcommonhandle("所有模块",null), 
 			storyname: commonLogic.appcommonhandle("相关需求",null), 
@@ -468,6 +444,44 @@ export default {
 		uiactions: {
 		},
 	},
+	mobnewfrom_form: {
+		details: {
+			druipart1: commonLogic.appcommonhandle("",null), 
+			group1: commonLogic.appcommonhandle("task基本信息",null), 
+			formpage1: commonLogic.appcommonhandle("基本信息",null), 
+			srfupdatedate: commonLogic.appcommonhandle("最后修改日期",null), 
+			srforikey: commonLogic.appcommonhandle("",null), 
+			srfkey: commonLogic.appcommonhandle("编号",null), 
+			srfmajortext: commonLogic.appcommonhandle("任务名称",null), 
+			srftempmode: commonLogic.appcommonhandle("",null), 
+			srfuf: commonLogic.appcommonhandle("",null), 
+			srfdeid: commonLogic.appcommonhandle("",null), 
+			srfsourcekey: commonLogic.appcommonhandle("",null), 
+			projectname: commonLogic.appcommonhandle("所属项目",null), 
+			project: commonLogic.appcommonhandle("所属项目",null), 
+			module: commonLogic.appcommonhandle("模块",null), 
+			type: commonLogic.appcommonhandle("任务类型",null), 
+			modulename: commonLogic.appcommonhandle("所属模块",null), 
+			allmodules: commonLogic.appcommonhandle("所有模块",null), 
+			assignedto: commonLogic.appcommonhandle("指派给",null), 
+			multiple: commonLogic.appcommonhandle("多人任务",null), 
+			noticeusers: commonLogic.appcommonhandle("消息通知用户",null), 
+			story: commonLogic.appcommonhandle("相关需求",null), 
+			storyname: commonLogic.appcommonhandle("相关需求",null), 
+			name: commonLogic.appcommonhandle("任务名称",null), 
+			color: commonLogic.appcommonhandle("任务名称color",null), 
+			pri: commonLogic.appcommonhandle("优先级",null), 
+			estimate: commonLogic.appcommonhandle("预计",null), 
+			eststarted: commonLogic.appcommonhandle("预计开始",null), 
+			deadline: commonLogic.appcommonhandle("截止日期",null), 
+			desc: commonLogic.appcommonhandle("任务描述",null), 
+			mailto: commonLogic.appcommonhandle("抄送给",null), 
+			mailtopk: commonLogic.appcommonhandle("抄送给",null), 
+			id: commonLogic.appcommonhandle("编号",null), 
+		},
+		uiactions: {
+		},
+	},
 	mobdef_searchform: {
 		details: {
 			formpage1: commonLogic.appcommonhandle("常规条件",null), 
@@ -477,18 +491,6 @@ export default {
 			n_projectname_eq: commonLogic.appcommonhandle("所属项目",null), 
 		},
 		uiactions: {
-		},
-	},
-	newmobeditviewrighttoolbar_toolbar: {
-		tbitem1: {
-			caption: commonLogic.appcommonhandle("保存",null),
-			tip: '保存',
-		},
-	},
-	mobmdviewrighttoolbar_toolbar: {
-		deuiaction1: {
-			caption: commonLogic.appcommonhandle("新建",null),
-			tip: '新建',
 		},
 	},
 	editmobeditviewrighttoolbar_toolbar: {
@@ -547,17 +549,27 @@ export default {
 			tip: '删除',
 		},
 	},
+	newmobeditviewrighttoolbar_toolbar: {
+		tbitem1: {
+			caption: commonLogic.appcommonhandle("保存",null),
+			tip: '保存',
+		},
+	},
+	mobmdviewrighttoolbar_toolbar: {
+		deuiaction1: {
+			caption: commonLogic.appcommonhandle("新建",null),
+			tip: '新建',
+		},
+	},
 	assmobmdview9mdctrl_quicktoolbar_toolbar: {
 		deuiaction1: {
 			caption: commonLogic.appcommonhandle("更多",null),
 			tip: '更多',
 		},
 	},
-	mycompletetaskmobmdviewrighttoolbar_toolbar: {
+	mycompletetaskmobmdview1righttoolbar_toolbar: {
 	},
 	myplanstomorrowtaskmobmdviewrighttoolbar_toolbar: {
-	},
-	mycompletetaskmobmdview1righttoolbar_toolbar: {
 	},
 	assmobmdviewmdctrl_quicktoolbar_toolbar: {
 		deuiaction1: {
@@ -578,5 +590,7 @@ export default {
 			caption: commonLogic.appcommonhandle("过滤",null),
 			tip: '过滤',
 		},
+	},
+	mycompletetaskmobmdviewrighttoolbar_toolbar: {
 	},
 };

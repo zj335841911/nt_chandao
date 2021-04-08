@@ -1,6 +1,7 @@
 import { SingletonMode } from '../decorators/SingletonMode';
 import { LayoutState } from '../interface/LayoutState';
 import { on } from '@/utils/dom/dom';
+import { Observable, Subject } from 'rxjs';
 
 /**
  * 应用UI状态管理服务类
@@ -10,6 +11,14 @@ import { on } from '@/utils/dom/dom';
  */
 @SingletonMode()
 export class UIStateService {
+    /**
+     * 事件组
+     *
+     * @private
+     * @type {*}
+     * @memberof OsObject
+     */
+    private events = new Subject();
     /**
      * 缓存标识
      *
@@ -57,6 +66,7 @@ export class UIStateService {
     protected fillLayoutState(data: any): void {
         this.layoutState = {
             styleMode: 'DEFAULT',
+            theme: 'dark',
             contentBottomShow: true,
             contentHorizontalSplit: 0.23,
             contentVerticalSplit: 0.65,
@@ -78,7 +88,22 @@ export class UIStateService {
     public changeLayoutState(state: any): void {
         if (state) {
             Object.assign(this.layoutState, state);
+            for (const key in state) {
+                this.events.next({ key, val: state[key] });
+            }
         }
+    }
+
+    /**
+     * 获取某项UI状态
+     *
+     * @template K
+     * @param {K} key
+     * @returns {*}
+     * @memberof UIStateService
+     */
+    public getState<K extends keyof LayoutState>(key: K): any {
+        return this.layoutState[key];
     }
 
     /**
@@ -117,5 +142,16 @@ export class UIStateService {
      */
     public isStyle2(): boolean {
         return this.layoutState.styleMode === 'STYLE2';
+    }
+
+    /**
+     * 注册事件
+     *
+     * @param {string} [eventName]
+     * @return {*}  {Observable<any>}
+     * @memberof UIStateService
+     */
+    on(eventName?: string): Observable<any> {
+        return this.events.asObservable();
     }
 }

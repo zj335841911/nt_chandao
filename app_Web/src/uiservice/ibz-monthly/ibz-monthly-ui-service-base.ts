@@ -115,7 +115,60 @@ export default class IbzMonthlyUIServiceBase extends UIService {
      */  
     public initDeMainStateOPPrivsMap(){
         this.allDeMainStateOPPrivsMap.set('0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{}));
-        this.allDeMainStateOPPrivsMap.set('1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__MONTHLY_EDIT_BUT':0,'SRFUR__MONTHLY_SUBMIT_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__MONTHLY_SUBMIT_BUT':0,'SRFUR__MONTHLY_EDIT_BUT':0,}));
+    }
+
+    /**
+     * 修改
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async IbzMonthly_Edit(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        Object.assign(context,{DATE:"%date%"});
+        Object.assign(params,{date:"%date%"});
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { ibzmonthly: '%ibzmonthly%' });
+        Object.assign(params, { ibzmonthlyid: '%ibzmonthly%' });
+        Object.assign(params, { ibzmonthlyname: '%ibzmonthlyname%' });
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'ibzmonthlies', parameterName: 'ibzmonthly' },
+            { pathName: 'editmonthlyeditview', parameterName: 'editmonthlyeditview' },
+        ];
+        const openIndexViewTab = (data: any) => {
+            const routePath = actionContext.$viewTool.buildUpRoutePath(actionContext.$route, context, deResParameters, parameters, _args, data);
+            actionContext.$router.push(routePath);
+            if (xData && xData.refresh && xData.refresh instanceof Function) {
+                xData.refresh(args);
+            }
+            return null;
+        }
+        openIndexViewTab(data);
     }
 
     /**
@@ -175,6 +228,56 @@ export default class IbzMonthlyUIServiceBase extends UIService {
                 placement: 'DRAWER_TOP',
             };
             openDrawer(view, data);
+    }
+
+    /**
+     * 新建
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async IbzMonthly_Create(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        Object.assign(context,{DATE:"%date%"});
+        Object.assign(params,{date:"%date%"});
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'NONE';
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'ibzmonthlies', parameterName: 'ibzmonthly' },
+            { pathName: 'newmonthlyeditview', parameterName: 'newmonthlyeditview' },
+        ];
+        const openIndexViewTab = (data: any) => {
+            const routePath = actionContext.$viewTool.buildUpRoutePath(actionContext.$route, context, deResParameters, parameters, _args, data);
+            actionContext.$router.push(routePath);
+            if (xData && xData.refresh && xData.refresh instanceof Function) {
+                xData.refresh(args);
+            }
+            return null;
+        }
+        openIndexViewTab(data);
     }
 
     /**
@@ -269,9 +372,26 @@ export default class IbzMonthlyUIServiceBase extends UIService {
         }
         context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
         data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        if(Object.is(actionTarget,"MULTIKEY")){
+            let tempDataArray:Array<any> = [];
+            if((_args.length >1) && (Object.keys(data).length >0)){
+                for(let i =0;i<_args.length;i++){
+                    let tempObject:any = {};
+                    Object.keys(data).forEach((key:string) =>{
+                        Object.assign(tempObject,{[key]:data[key].split(',')[i]});
+                    })
+                    tempDataArray.push(tempObject);
+                }
+            }else{
+                tempDataArray.push(data);
+            }
+            data = tempDataArray;
+        }
         context = Object.assign({},actionContext.context,context);
         let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
-        Object.assign(data,parentObj);
+        if(!Object.is(actionTarget,"MULTIKEY")){
+            Object.assign(data,parentObj);
+        }
         Object.assign(context,parentObj);
         // 直接调实体服务需要转换的数据
         if(context && context.srfsessionid){
@@ -308,131 +428,6 @@ export default class IbzMonthlyUIServiceBase extends UIService {
             });
         };
         backend();
-    }
-
-    /**
-     * 修改
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} context 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @param {*} [srfParentDeName] 父实体名称
-     * @returns {Promise<any>}
-     */
-    public async IbzMonthly_Edit(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-    
-        let data: any = {};
-        let parentContext:any = {};
-        let parentViewParam:any = {};
-        const _this: any = actionContext;
-        Object.assign(context,{DATE:"%date%"});
-        Object.assign(params,{date:"%date%"});
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(context, { ibzmonthly: '%ibzmonthly%' });
-        Object.assign(params, { ibzmonthlyid: '%ibzmonthly%' });
-        Object.assign(params, { ibzmonthlyname: '%ibzmonthlyname%' });
-        if(_this.context){
-            parentContext = _this.context;
-        }
-        if(_this.viewparams){
-            parentViewParam = _this.viewparams;
-        }
-        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
-        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
-        context = Object.assign({},actionContext.context,context);
-        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
-        Object.assign(data,parentObj);
-        Object.assign(context,parentObj);
-        let deResParameters: any[] = [];
-        const parameters: any[] = [
-            { pathName: 'ibzmonthlies', parameterName: 'ibzmonthly' },
-        ];
-            const openDrawer = (view: any, data: any) => {
-                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
-                container.subscribe((result: any) => {
-                    if (!result || !Object.is(result.ret, 'OK')) {
-                        return;
-                    }
-                    const _this: any = actionContext;
-                    if (xData && xData.refresh && xData.refresh instanceof Function) {
-                        xData.refresh(args);
-                    }
-                    return result.datas;
-                });
-            }
-            const view: any = {
-                viewname: 'ibz-monthly-edit-monthly-edit-view', 
-                height: 0, 
-                width: 800,  
-                title: actionContext.$t('entities.ibzmonthly.views.editmonthlyeditview.title'),
-                placement: 'DRAWER_RIGHT',
-            };
-            openDrawer(view, data);
-    }
-
-    /**
-     * 新建
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} context 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @param {*} [srfParentDeName] 父实体名称
-     * @returns {Promise<any>}
-     */
-    public async IbzMonthly_Create(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-    
-        let data: any = {};
-        let parentContext:any = {};
-        let parentViewParam:any = {};
-        const _this: any = actionContext;
-        Object.assign(context,{DATE:"%date%"});
-        Object.assign(params,{date:"%date%"});
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'NONE';
-        if(_this.context){
-            parentContext = _this.context;
-        }
-        if(_this.viewparams){
-            parentViewParam = _this.viewparams;
-        }
-        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
-        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
-        context = Object.assign({},actionContext.context,context);
-        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
-        Object.assign(data,parentObj);
-        Object.assign(context,parentObj);
-        let deResParameters: any[] = [];
-        const parameters: any[] = [
-            { pathName: 'ibzmonthlies', parameterName: 'ibzmonthly' },
-        ];
-            const openDrawer = (view: any, data: any) => {
-                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
-                container.subscribe((result: any) => {
-                    if (!result || !Object.is(result.ret, 'OK')) {
-                        return;
-                    }
-                    const _this: any = actionContext;
-                    if (xData && xData.refresh && xData.refresh instanceof Function) {
-                        xData.refresh(args);
-                    }
-                    return result.datas;
-                });
-            }
-            const view: any = {
-                viewname: 'ibz-monthly-new-monthly-edit-view', 
-                height: 0, 
-                width: 800,  
-                title: actionContext.$t('entities.ibzmonthly.views.newmonthlyeditview.title'),
-                placement: 'DRAWER_RIGHT',
-            };
-            openDrawer(view, data);
     }
 
 

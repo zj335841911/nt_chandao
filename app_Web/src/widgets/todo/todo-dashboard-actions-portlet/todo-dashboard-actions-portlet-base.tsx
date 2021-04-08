@@ -75,7 +75,7 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet2_u6e9117d_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet2_u503d592_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -102,7 +102,7 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet2_ua4b1799_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet2_u1273871_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -130,7 +130,7 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet2_ucdbdc4c_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet2_uca5eb55_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -158,7 +158,7 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet2_u1453337_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet2_ub41f430_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -186,7 +186,7 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet2_ud54a71d_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet2_u51054a9_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -214,7 +214,7 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet2_u04ff79f_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet2_udb40432_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -242,7 +242,7 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet2_ud97be75_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet2_ud5c5b78_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -270,7 +270,7 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet2_u1e6202a_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet2_u64785b5_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -298,7 +298,7 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet2_u5b0a56a_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet2_u64c909e_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -327,7 +327,7 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
      * @param {*} [$event] 事件源
      * @param {*} [xData]  执行行为所需当前部件
      * @param {*} [actionContext]  执行行为上下文
-     * @memberof TodoDashboardViewBase
+     * @memberof Todomaindashboardview_linkBase
      */
     public Exit(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
         this.closeView(args);
@@ -386,7 +386,7 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
      * @memberof TodoDashboardActionsBase
      */
     public actionBarModelData:any[] =[
-        { viewlogicname:"dashboard_sysportlet2_u6e9117d_click",
+        { viewlogicname:"dashboard_sysportlet2_u503d592_click",
         text: "返回",
         iconcls: "fa fa-sign-out",
         icon: "",
@@ -395,7 +395,7 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
         visible:true,
         disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet2_ua4b1799_click",
+        { viewlogicname:"dashboard_sysportlet2_u1273871_click",
         text: "编辑",
         iconcls: "fa fa-edit",
         icon: "",
@@ -405,7 +405,7 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
         visible:true,
         disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet2_ucdbdc4c_click",
+        { viewlogicname:"dashboard_sysportlet2_uca5eb55_click",
         text: "删除",
         iconcls: "fa fa-remove",
         icon: "",
@@ -415,7 +415,7 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
         visible:true,
         disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet2_u1453337_click",
+        { viewlogicname:"dashboard_sysportlet2_ub41f430_click",
         text: "指派",
         iconcls: "fa fa-hand-o-right",
         icon: "",
@@ -425,7 +425,7 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
         visible:true,
         disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet2_ud54a71d_click",
+        { viewlogicname:"dashboard_sysportlet2_u51054a9_click",
         text: "完成",
         iconcls: "fa fa-check-square-o",
         icon: "",
@@ -435,7 +435,7 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
         visible:true,
         disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet2_u04ff79f_click",
+        { viewlogicname:"dashboard_sysportlet2_udb40432_click",
         text: "激活",
         iconcls: "fa fa-magic",
         icon: "",
@@ -445,7 +445,7 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
         visible:true,
         disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet2_ud97be75_click",
+        { viewlogicname:"dashboard_sysportlet2_ud5c5b78_click",
         text: "关闭",
         iconcls: "fa fa-close",
         icon: "",
@@ -455,7 +455,7 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
         visible:true,
         disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet2_u1e6202a_click",
+        { viewlogicname:"dashboard_sysportlet2_u64785b5_click",
         text: "转Bug",
         iconcls: "fa fa-bug",
         icon: "",
@@ -465,7 +465,7 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
         visible:true,
         disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet2_u5b0a56a_click",
+        { viewlogicname:"dashboard_sysportlet2_u64c909e_click",
         text: "转任务",
         iconcls: "fa fa-tasks",
         icon: "",
@@ -483,32 +483,32 @@ export class TodoDashboardActionsPortletBase extends MainControlBase {
      * @memberof TodoDashboardActionsBase
      */
     public handleItemClick($event:any){
-        if(Object.is($event,'dashboard_sysportlet2_u6e9117d_click')){
-            this.dashboard_sysportlet2_u6e9117d_click(null);
+        if(Object.is($event,'dashboard_sysportlet2_u503d592_click')){
+            this.dashboard_sysportlet2_u503d592_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet2_ua4b1799_click')){
-            this.dashboard_sysportlet2_ua4b1799_click(null);
+        if(Object.is($event,'dashboard_sysportlet2_u1273871_click')){
+            this.dashboard_sysportlet2_u1273871_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet2_ucdbdc4c_click')){
-            this.dashboard_sysportlet2_ucdbdc4c_click(null);
+        if(Object.is($event,'dashboard_sysportlet2_uca5eb55_click')){
+            this.dashboard_sysportlet2_uca5eb55_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet2_u1453337_click')){
-            this.dashboard_sysportlet2_u1453337_click(null);
+        if(Object.is($event,'dashboard_sysportlet2_ub41f430_click')){
+            this.dashboard_sysportlet2_ub41f430_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet2_ud54a71d_click')){
-            this.dashboard_sysportlet2_ud54a71d_click(null);
+        if(Object.is($event,'dashboard_sysportlet2_u51054a9_click')){
+            this.dashboard_sysportlet2_u51054a9_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet2_u04ff79f_click')){
-            this.dashboard_sysportlet2_u04ff79f_click(null);
+        if(Object.is($event,'dashboard_sysportlet2_udb40432_click')){
+            this.dashboard_sysportlet2_udb40432_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet2_ud97be75_click')){
-            this.dashboard_sysportlet2_ud97be75_click(null);
+        if(Object.is($event,'dashboard_sysportlet2_ud5c5b78_click')){
+            this.dashboard_sysportlet2_ud5c5b78_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet2_u1e6202a_click')){
-            this.dashboard_sysportlet2_u1e6202a_click(null);
+        if(Object.is($event,'dashboard_sysportlet2_u64785b5_click')){
+            this.dashboard_sysportlet2_u64785b5_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet2_u5b0a56a_click')){
-            this.dashboard_sysportlet2_u5b0a56a_click(null);
+        if(Object.is($event,'dashboard_sysportlet2_u64c909e_click')){
+            this.dashboard_sysportlet2_u64c909e_click(null);
         }
     }
 

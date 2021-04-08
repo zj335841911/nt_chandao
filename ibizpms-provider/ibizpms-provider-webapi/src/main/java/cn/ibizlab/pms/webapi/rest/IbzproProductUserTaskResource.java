@@ -72,7 +72,7 @@ public class IbzproProductUserTaskResource {
 		IbzproProductUserTask domain  = ibzproproductusertaskMapping.toDomain(ibzproproductusertaskdto);
         domain .setId(ibzproproductusertask_id);
 		ibzproproductusertaskService.update(domain );
-		IbzproProductUserTaskDTO dto = ibzproproductusertaskMapping.toDto(domain );
+		IbzproProductUserTaskDTO dto = ibzproproductusertaskMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
@@ -110,8 +110,9 @@ public class IbzproProductUserTaskResource {
 
     @ApiOperation(value = "获取产品汇报用户任务草稿", tags = {"产品汇报用户任务" },  notes = "获取产品汇报用户任务草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/ibzproproductusertasks/getdraft")
-    public ResponseEntity<IbzproProductUserTaskDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(ibzproproductusertaskMapping.toDto(ibzproproductusertaskService.getDraft(new IbzproProductUserTask())));
+    public ResponseEntity<IbzproProductUserTaskDTO> getDraft(IbzproProductUserTaskDTO dto) {
+        IbzproProductUserTask domain = ibzproproductusertaskMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(ibzproproductusertaskMapping.toDto(ibzproproductusertaskService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查产品汇报用户任务", tags = {"产品汇报用户任务" },  notes = "检查产品汇报用户任务")
@@ -123,8 +124,10 @@ public class IbzproProductUserTaskResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzproProductUserTask-Save-all')")
     @ApiOperation(value = "保存产品汇报用户任务", tags = {"产品汇报用户任务" },  notes = "保存产品汇报用户任务")
 	@RequestMapping(method = RequestMethod.POST, value = "/ibzproproductusertasks/save")
-    public ResponseEntity<Boolean> save(@RequestBody IbzproProductUserTaskDTO ibzproproductusertaskdto) {
-        return ResponseEntity.status(HttpStatus.OK).body(ibzproproductusertaskService.save(ibzproproductusertaskMapping.toDomain(ibzproproductusertaskdto)));
+    public ResponseEntity<IbzproProductUserTaskDTO> save(@RequestBody IbzproProductUserTaskDTO ibzproproductusertaskdto) {
+        IbzproProductUserTask domain = ibzproproductusertaskMapping.toDomain(ibzproproductusertaskdto);
+        ibzproproductusertaskService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(ibzproproductusertaskMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzproProductUserTask-Save-all')")
@@ -222,6 +225,7 @@ public class IbzproProductUserTaskResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(ibzproproductusertaskMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
 
 
 }

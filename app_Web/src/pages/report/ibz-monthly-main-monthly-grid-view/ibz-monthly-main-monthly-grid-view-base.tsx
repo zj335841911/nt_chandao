@@ -1,6 +1,6 @@
 
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { GridViewBase } from '@/studio-core';
 import IbzMonthlyService from '@/service/ibz-monthly/ibz-monthly-service';
 import IbzMonthlyAuthService from '@/authservice/ibz-monthly/ibz-monthly-auth-service';
@@ -141,7 +141,7 @@ export class IbzMonthlyMainMonthlyGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof IbzMonthlyMainMonthlyGridViewBase
      */
-	protected viewtag: string = 'd054969e8eb4b11e01d771b95045178c';
+	protected viewtag: string = '7c509954bcc0516db88536ea91442adf';
 
     /**
      * 视图名称

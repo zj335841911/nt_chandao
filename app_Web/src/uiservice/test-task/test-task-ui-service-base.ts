@@ -134,14 +134,14 @@ export default class TestTaskUIServiceBase extends UIService {
      * @memberof  TestTaskUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
-        this.allDeMainStateOPPrivsMap.set('blocked',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TESTT_BLOCK_BUT':0,'SRFUR__TESTT_START_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('blocked',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TESTT_START_BUT':0,'SRFUR__TESTT_BLOCK_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('doing',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TESTT_ACTIVITE_BUT':0,'SRFUR__TESTT_START_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('done',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TESTT_BLOCK_BUT':0,'SRFUR__TESTT_CLOSED_BUT':0,'SRFUR__TESTT_START_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('done',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TESTT_CLOSED_BUT':0,'SRFUR__TESTT_START_BUT':0,'SRFUR__TESTT_BLOCK_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('wait',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TESTT_ACTIVITE_BUT':0,}));
     }
 
     /**
-     * 激活
+     * 测试报告
      *
      * @param {any[]} args 当前数据
      * @param {any} context 行为附加上下文
@@ -152,16 +152,18 @@ export default class TestTaskUIServiceBase extends UIService {
      * @param {*} [srfParentDeName] 父实体名称
      * @returns {Promise<any>}
      */
-    public async TestTask_ActiviteDash(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    public async TestTask_TestReport(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
     
         let data: any = {};
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
+        Object.assign(context,{TASKS:"%id%",ID:"0"});
+        Object.assign(params,{id:"0",tasks:"%id%"});
         const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(context, { testtask: '%testtask%' });
-        Object.assign(params, { id: '%testtask%' });
+        const actionTarget: string | null = 'MULTIKEY';
+        Object.assign(context, { testtask: '%tasks%' });
+        Object.assign(params, { id: '%tasks%' });
         Object.assign(params, { name: '%name%' });
         if(_this.context){
             parentContext = _this.context;
@@ -182,73 +184,7 @@ export default class TestTaskUIServiceBase extends UIService {
             ]
         }
         const parameters: any[] = [
-            { pathName: 'testtasks', parameterName: 'testtask' },
-        ];
-            const openPopupModal = (view: any, data: any) => {
-                let container: Subject<any> = actionContext.$appmodal.openModal(view, context, data);
-                container.subscribe((result: any) => {
-                    if (!result || !Object.is(result.ret, 'OK')) {
-                        return;
-                    }
-                    const _this: any = actionContext;
-                    if (xData && xData.refresh && xData.refresh instanceof Function) {
-                        xData.refresh(args);
-                    }
-                    return result.datas;
-                });
-            }
-            const view: any = {
-                viewname: 'test-task-activite-option-view', 
-                height: 600, 
-                width: 800,  
-                title: actionContext.$t('entities.testtask.views.activiteoptionview.title'),
-            };
-            openPopupModal(view, data);
-    }
-
-    /**
-     * 查看
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} context 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @param {*} [srfParentDeName] 父实体名称
-     * @returns {Promise<any>}
-     */
-    public async TestTask_Look(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-    
-        let data: any = {};
-        let parentContext:any = {};
-        let parentViewParam:any = {};
-        const _this: any = actionContext;
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(context, { testtask: '%testtask%' });
-        Object.assign(params, { id: '%testtask%' });
-        Object.assign(params, { name: '%name%' });
-        if(_this.context){
-            parentContext = _this.context;
-        }
-        if(_this.viewparams){
-            parentViewParam = _this.viewparams;
-        }
-        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
-        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
-        context = Object.assign({},actionContext.context,context);
-        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
-        Object.assign(data,parentObj);
-        Object.assign(context,parentObj);
-        let deResParameters: any[] = [];
-        if(context.product && true){
-            deResParameters = [
-            { pathName: 'products', parameterName: 'product' },
-            ]
-        }
-        const parameters: any[] = [
-            { pathName: 'testtasks', parameterName: 'testtask' },
+            { pathName: 'testreports', parameterName: 'testreport' },
         ];
             const openDrawer = (view: any, data: any) => {
                 let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
@@ -257,19 +193,147 @@ export default class TestTaskUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
-                    if (xData && xData.refresh && xData.refresh instanceof Function) {
-                        xData.refresh(args);
-                    }
-                    _this.closeView(null);
                     return result.datas;
                 });
             }
             const view: any = {
-                viewname: 'test-task-main-tab-exp-view', 
+                viewname: 'test-report-edit-view-test-tasks', 
                 height: 0, 
                 width: 0,  
-                title: actionContext.$t('entities.testtask.views.maintabexpview.title'),
+                title: actionContext.$t('entities.testreport.views.editview_testtasks.title'),
+                placement: 'DRAWER_RIGHT',
+            };
+            openDrawer(view, data);
+    }
+
+    /**
+     * 关联用例
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async TestTask_LinkCase(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        Object.assign(context,{TASK:"%testtask%"});
+        Object.assign(params,{task:"%testtask%"});
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { testtask: '%testtask%' });
+        Object.assign(params, { id: '%testtask%' });
+        Object.assign(params, { name: '%name%' });
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        if(context.product && true){
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+        const parameters: any[] = [
+            { pathName: 'cases', parameterName: 'case' },
+        ];
+            const openDrawer = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'case-link-case-grid-view', 
+                height: 0, 
+                width: 0,  
+                title: actionContext.$t('entities.case.views.linkcasegridview.title'),
                 placement: 'DRAWER_TOP',
+            };
+            openDrawer(view, data);
+    }
+
+    /**
+     * 测试报告
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async TestTask_TestReportR(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        Object.assign(context,{TASKS:"%id%",ID:"0",PROJECT:"%project%"});
+        Object.assign(params,{id:"0",project:"%project%",tasks:"%id%"});
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'MULTIKEY';
+        Object.assign(context, { testtask: '%testtask%' });
+        Object.assign(params, { id: '%testtask%' });
+        Object.assign(params, { name: '%name%' });
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        if(context.product && true){
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+        const parameters: any[] = [
+            { pathName: 'testreports', parameterName: 'testreport' },
+        ];
+            const openDrawer = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'test-report-edit-view-r', 
+                height: 0, 
+                width: 0,  
+                title: actionContext.$t('entities.testreport.views.editview_r.title'),
+                placement: 'DRAWER_RIGHT',
             };
             openDrawer(view, data);
     }
@@ -343,339 +407,6 @@ export default class TestTaskUIServiceBase extends UIService {
     }
 
     /**
-     * 删除
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} context 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @param {*} [srfParentDeName] 父实体名称
-     * @returns {Promise<any>}
-     */
-    public async TestTask_Delete(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
-        let confirmResult:boolean = await new Promise((resolve: any, reject: any) => {
-          actionContext.$Modal.confirm({
-              title: '警告',
-              content: '您确认要删除该测试单吗？',
-              onOk: () => {resolve(true);},
-              onCancel: () => {resolve(false);}
-          });
-        });
-        if(!confirmResult){
-            return;
-        }
-        let data: any = {};
-        let parentContext:any = {};
-        let parentViewParam:any = {};
-        const _this: any = actionContext;
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(context, { testtask: '%testtask%' });
-        Object.assign(params, { id: '%testtask%' });
-        Object.assign(params, { name: '%name%' });
-        if(_this.context){
-            parentContext = _this.context;
-        }
-        if(_this.viewparams){
-            parentViewParam = _this.viewparams;
-        }
-        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
-        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
-        context = Object.assign({},actionContext.context,context);
-        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
-        Object.assign(data,parentObj);
-        Object.assign(context,parentObj);
-        // 直接调实体服务需要转换的数据
-        if(context && context.srfsessionid){
-          context.srfsessionkey = context.srfsessionid;
-            delete context.srfsessionid;
-        }
-        
-        const backend = () => {
-            const curService:TestTaskService =  new TestTaskService();
-            curService.Remove(context,data, true).then((response: any) => {
-                if (!response || response.status !== 200) {
-                    actionContext.$Notice.error({ title: '错误', desc: response.message });
-                    return;
-                }
-                actionContext.$Notice.success({ title: '成功', desc: '已删除' });
-                const _this: any = actionContext;
-                if (xData && xData.refresh && xData.refresh instanceof Function) {
-                    xData.refresh(args);
-                }
-                return response;
-            }).catch((response: any) => {
-                if (!response || !response.status || !response.data) {
-                    actionContext.$Notice.error({ title: '错误', desc: '系统异常！' });
-                    return;
-                }
-                if (response && response.data) {
-                    actionContext.$Notice.error({ title: '错误', desc: response.data.message });
-                    return;
-                }
-                if (response.status === 401) {
-                    return;
-                }
-                return response;
-            });
-        };
-        backend();
-    }
-
-    /**
-     * 关联用例
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} context 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @param {*} [srfParentDeName] 父实体名称
-     * @returns {Promise<any>}
-     */
-    public async TestTask_LinkCase(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-    
-        let data: any = {};
-        let parentContext:any = {};
-        let parentViewParam:any = {};
-        const _this: any = actionContext;
-        Object.assign(context,{TASK:"%testtask%"});
-        Object.assign(params,{task:"%testtask%"});
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(context, { testtask: '%testtask%' });
-        Object.assign(params, { id: '%testtask%' });
-        Object.assign(params, { name: '%name%' });
-        if(_this.context){
-            parentContext = _this.context;
-        }
-        if(_this.viewparams){
-            parentViewParam = _this.viewparams;
-        }
-        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
-        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
-        context = Object.assign({},actionContext.context,context);
-        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
-        Object.assign(data,parentObj);
-        Object.assign(context,parentObj);
-        let deResParameters: any[] = [];
-        if(context.product && true){
-            deResParameters = [
-            { pathName: 'products', parameterName: 'product' },
-            ]
-        }
-        const parameters: any[] = [
-            { pathName: 'cases', parameterName: 'case' },
-        ];
-            const openDrawer = (view: any, data: any) => {
-                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
-                container.subscribe((result: any) => {
-                    if (!result || !Object.is(result.ret, 'OK')) {
-                        return;
-                    }
-                    const _this: any = actionContext;
-                    return result.datas;
-                });
-            }
-            const view: any = {
-                viewname: 'case-link-case-grid-view', 
-                height: 0, 
-                width: 0,  
-                title: actionContext.$t('entities.case.views.linkcasegridview.title'),
-                placement: 'DRAWER_TOP',
-            };
-            openDrawer(view, data);
-    }
-
-    /**
-     * 报告列表
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} context 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @param {*} [srfParentDeName] 父实体名称
-     * @returns {Promise<any>}
-     */
-    public async TestTask_Reports(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-    
-        let data: any = {};
-        let parentContext:any = {};
-        let parentViewParam:any = {};
-        const _this: any = actionContext;
-        Object.assign(context,{PROJECT:"%project%"});
-        Object.assign(params,{project:"%project%"});
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'NONE';
-        if(_this.context){
-            parentContext = _this.context;
-        }
-        if(_this.viewparams){
-            parentViewParam = _this.viewparams;
-        }
-        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
-        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
-        context = Object.assign({},actionContext.context,context);
-        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
-        Object.assign(data,parentObj);
-        Object.assign(context,parentObj);
-        let deResParameters: any[] = [];
-        if(context.product && true){
-            deResParameters = [
-            { pathName: 'products', parameterName: 'product' },
-            ]
-        }
-        const parameters: any[] = [
-            { pathName: 'testreports', parameterName: 'testreport' },
-            { pathName: 'projectgridview', parameterName: 'projectgridview' },
-        ];
-        const openIndexViewTab = (data: any) => {
-            const routePath = actionContext.$viewTool.buildUpRoutePath(actionContext.$route, context, deResParameters, parameters, _args, data);
-            actionContext.$router.push(routePath);
-            if (xData && xData.refresh && xData.refresh instanceof Function) {
-                xData.refresh(args);
-            }
-            return null;
-        }
-        openIndexViewTab(data);
-    }
-
-    /**
-     * 阻塞
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} context 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @param {*} [srfParentDeName] 父实体名称
-     * @returns {Promise<any>}
-     */
-    public async TestTask_BlockDash(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-    
-        let data: any = {};
-        let parentContext:any = {};
-        let parentViewParam:any = {};
-        const _this: any = actionContext;
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(context, { testtask: '%testtask%' });
-        Object.assign(params, { id: '%testtask%' });
-        Object.assign(params, { name: '%name%' });
-        if(_this.context){
-            parentContext = _this.context;
-        }
-        if(_this.viewparams){
-            parentViewParam = _this.viewparams;
-        }
-        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
-        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
-        context = Object.assign({},actionContext.context,context);
-        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
-        Object.assign(data,parentObj);
-        Object.assign(context,parentObj);
-        let deResParameters: any[] = [];
-        if(context.product && true){
-            deResParameters = [
-            { pathName: 'products', parameterName: 'product' },
-            ]
-        }
-        const parameters: any[] = [
-            { pathName: 'testtasks', parameterName: 'testtask' },
-        ];
-            const openPopupModal = (view: any, data: any) => {
-                let container: Subject<any> = actionContext.$appmodal.openModal(view, context, data);
-                container.subscribe((result: any) => {
-                    if (!result || !Object.is(result.ret, 'OK')) {
-                        return;
-                    }
-                    const _this: any = actionContext;
-                    if (xData && xData.refresh && xData.refresh instanceof Function) {
-                        xData.refresh(args);
-                    }
-                    return result.datas;
-                });
-            }
-            const view: any = {
-                viewname: 'test-task-block-option-view', 
-                height: 600, 
-                width: 800,  
-                title: actionContext.$t('entities.testtask.views.blockoptionview.title'),
-            };
-            openPopupModal(view, data);
-    }
-
-    /**
-     * 新建
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} context 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @param {*} [srfParentDeName] 父实体名称
-     * @returns {Promise<any>}
-     */
-    public async TestTask_Create(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-    
-        let data: any = {};
-        let parentContext:any = {};
-        let parentViewParam:any = {};
-        const _this: any = actionContext;
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'NONE';
-        if(_this.context){
-            parentContext = _this.context;
-        }
-        if(_this.viewparams){
-            parentViewParam = _this.viewparams;
-        }
-        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
-        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
-        context = Object.assign({},actionContext.context,context);
-        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
-        Object.assign(data,parentObj);
-        Object.assign(context,parentObj);
-        let deResParameters: any[] = [];
-        if(context.product && true){
-            deResParameters = [
-            { pathName: 'products', parameterName: 'product' },
-            ]
-        }
-        const parameters: any[] = [
-            { pathName: 'testtasks', parameterName: 'testtask' },
-        ];
-            const openDrawer = (view: any, data: any) => {
-                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
-                container.subscribe((result: any) => {
-                    if (!result || !Object.is(result.ret, 'OK')) {
-                        return;
-                    }
-                    const _this: any = actionContext;
-                    if (xData && xData.refresh && xData.refresh instanceof Function) {
-                        xData.refresh(args);
-                    }
-                    return result.datas;
-                });
-            }
-            const view: any = {
-                viewname: 'test-task-edit-view', 
-                height: 0, 
-                width: 0,  
-                title: actionContext.$t('entities.testtask.views.editview.title'),
-                placement: 'DRAWER_RIGHT',
-            };
-            openDrawer(view, data);
-    }
-
-    /**
      * 新建
      *
      * @param {any[]} args 当前数据
@@ -740,7 +471,7 @@ export default class TestTaskUIServiceBase extends UIService {
     }
 
     /**
-     * 关闭
+     * 报告列表
      *
      * @param {any[]} args 当前数据
      * @param {any} context 行为附加上下文
@@ -751,17 +482,16 @@ export default class TestTaskUIServiceBase extends UIService {
      * @param {*} [srfParentDeName] 父实体名称
      * @returns {Promise<any>}
      */
-    public async TestTask_CloseDash(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    public async TestTask_Reports(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
     
         let data: any = {};
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
+        Object.assign(context,{PROJECT:"%project%"});
+        Object.assign(params,{project:"%project%"});
         const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(context, { testtask: '%testtask%' });
-        Object.assign(params, { id: '%testtask%' });
-        Object.assign(params, { name: '%name%' });
+        const actionTarget: string | null = 'NONE';
         if(_this.context){
             parentContext = _this.context;
         }
@@ -781,28 +511,18 @@ export default class TestTaskUIServiceBase extends UIService {
             ]
         }
         const parameters: any[] = [
-            { pathName: 'testtasks', parameterName: 'testtask' },
+            { pathName: 'testreports', parameterName: 'testreport' },
+            { pathName: 'projectgridview', parameterName: 'projectgridview' },
         ];
-            const openPopupModal = (view: any, data: any) => {
-                let container: Subject<any> = actionContext.$appmodal.openModal(view, context, data);
-                container.subscribe((result: any) => {
-                    if (!result || !Object.is(result.ret, 'OK')) {
-                        return;
-                    }
-                    const _this: any = actionContext;
-                    if (xData && xData.refresh && xData.refresh instanceof Function) {
-                        xData.refresh(args);
-                    }
-                    return result.datas;
-                });
+        const openIndexViewTab = (data: any) => {
+            const routePath = actionContext.$viewTool.buildUpRoutePath(actionContext.$route, context, deResParameters, parameters, _args, data);
+            actionContext.$router.push(routePath);
+            if (xData && xData.refresh && xData.refresh instanceof Function) {
+                xData.refresh(args);
             }
-            const view: any = {
-                viewname: 'test-task-close-option-view', 
-                height: 600, 
-                width: 800,  
-                title: actionContext.$t('entities.testtask.views.closeoptionview.title'),
-            };
-            openPopupModal(view, data);
+            return null;
+        }
+        openIndexViewTab(data);
     }
 
     /**
@@ -936,7 +656,7 @@ export default class TestTaskUIServiceBase extends UIService {
     }
 
     /**
-     * 测试报告
+     * 关闭
      *
      * @param {any[]} args 当前数据
      * @param {any} context 行为附加上下文
@@ -947,82 +667,14 @@ export default class TestTaskUIServiceBase extends UIService {
      * @param {*} [srfParentDeName] 父实体名称
      * @returns {Promise<any>}
      */
-    public async TestTask_TestReport(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    public async TestTask_CloseDash(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
     
         let data: any = {};
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
-        Object.assign(context,{TASKS:"%id%",ID:"0"});
-        Object.assign(params,{id:"0",tasks:"%id%"});
         const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'MULTIKEY';
-        Object.assign(context, { testtask: '%tasks%' });
-        Object.assign(params, { id: '%tasks%' });
-        Object.assign(params, { name: '%name%' });
-        if(_this.context){
-            parentContext = _this.context;
-        }
-        if(_this.viewparams){
-            parentViewParam = _this.viewparams;
-        }
-        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
-        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
-        context = Object.assign({},actionContext.context,context);
-        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
-        Object.assign(data,parentObj);
-        Object.assign(context,parentObj);
-        let deResParameters: any[] = [];
-        if(context.product && true){
-            deResParameters = [
-            { pathName: 'products', parameterName: 'product' },
-            ]
-        }
-        const parameters: any[] = [
-            { pathName: 'testreports', parameterName: 'testreport' },
-        ];
-            const openDrawer = (view: any, data: any) => {
-                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
-                container.subscribe((result: any) => {
-                    if (!result || !Object.is(result.ret, 'OK')) {
-                        return;
-                    }
-                    const _this: any = actionContext;
-                    return result.datas;
-                });
-            }
-            const view: any = {
-                viewname: 'test-report-edit-view-test-tasks', 
-                height: 0, 
-                width: 0,  
-                title: actionContext.$t('entities.testreport.views.editview_testtasks.title'),
-                placement: 'DRAWER_RIGHT',
-            };
-            openDrawer(view, data);
-    }
-
-    /**
-     * 测试报告
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} context 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @param {*} [srfParentDeName] 父实体名称
-     * @returns {Promise<any>}
-     */
-    public async TestTask_TestReportR(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-    
-        let data: any = {};
-        let parentContext:any = {};
-        let parentViewParam:any = {};
-        const _this: any = actionContext;
-        Object.assign(context,{TASKS:"%id%",ID:"0",PROJECT:"%project%"});
-        Object.assign(params,{id:"0",project:"%project%",tasks:"%id%"});
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'MULTIKEY';
+        const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(context, { testtask: '%testtask%' });
         Object.assign(params, { id: '%testtask%' });
         Object.assign(params, { name: '%name%' });
@@ -1045,7 +697,70 @@ export default class TestTaskUIServiceBase extends UIService {
             ]
         }
         const parameters: any[] = [
-            { pathName: 'testreports', parameterName: 'testreport' },
+            { pathName: 'testtasks', parameterName: 'testtask' },
+        ];
+            const openPopupModal = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appmodal.openModal(view, context, data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    if (xData && xData.refresh && xData.refresh instanceof Function) {
+                        xData.refresh(args);
+                    }
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'test-task-close-option-view', 
+                height: 600, 
+                width: 800,  
+                title: actionContext.$t('entities.testtask.views.closeoptionview.title'),
+            };
+            openPopupModal(view, data);
+    }
+
+    /**
+     * 新建
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async TestTask_Create(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'NONE';
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        if(context.product && true){
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+        const parameters: any[] = [
+            { pathName: 'testtasks', parameterName: 'testtask' },
         ];
             const openDrawer = (view: any, data: any) => {
                 let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
@@ -1054,17 +769,319 @@ export default class TestTaskUIServiceBase extends UIService {
                         return;
                     }
                     const _this: any = actionContext;
+                    if (xData && xData.refresh && xData.refresh instanceof Function) {
+                        xData.refresh(args);
+                    }
                     return result.datas;
                 });
             }
             const view: any = {
-                viewname: 'test-report-edit-view-r', 
+                viewname: 'test-task-edit-view', 
                 height: 0, 
                 width: 0,  
-                title: actionContext.$t('entities.testreport.views.editview_r.title'),
+                title: actionContext.$t('entities.testtask.views.editview.title'),
                 placement: 'DRAWER_RIGHT',
             };
             openDrawer(view, data);
+    }
+
+    /**
+     * 激活
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async TestTask_ActiviteDash(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { testtask: '%testtask%' });
+        Object.assign(params, { id: '%testtask%' });
+        Object.assign(params, { name: '%name%' });
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        if(context.product && true){
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+        const parameters: any[] = [
+            { pathName: 'testtasks', parameterName: 'testtask' },
+        ];
+            const openPopupModal = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appmodal.openModal(view, context, data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    if (xData && xData.refresh && xData.refresh instanceof Function) {
+                        xData.refresh(args);
+                    }
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'test-task-activite-option-view', 
+                height: 600, 
+                width: 800,  
+                title: actionContext.$t('entities.testtask.views.activiteoptionview.title'),
+            };
+            openPopupModal(view, data);
+    }
+
+    /**
+     * 删除
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async TestTask_Delete(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
+        let confirmResult:boolean = await new Promise((resolve: any, reject: any) => {
+          actionContext.$Modal.confirm({
+              title: '警告',
+              content: '您确认要删除该测试单吗？',
+              onOk: () => {resolve(true);},
+              onCancel: () => {resolve(false);}
+          });
+        });
+        if(!confirmResult){
+            return;
+        }
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { testtask: '%testtask%' });
+        Object.assign(params, { id: '%testtask%' });
+        Object.assign(params, { name: '%name%' });
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        if(Object.is(actionTarget,"MULTIKEY")){
+            let tempDataArray:Array<any> = [];
+            if((_args.length >1) && (Object.keys(data).length >0)){
+                for(let i =0;i<_args.length;i++){
+                    let tempObject:any = {};
+                    Object.keys(data).forEach((key:string) =>{
+                        Object.assign(tempObject,{[key]:data[key].split(',')[i]});
+                    })
+                    tempDataArray.push(tempObject);
+                }
+            }else{
+                tempDataArray.push(data);
+            }
+            data = tempDataArray;
+        }
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        if(!Object.is(actionTarget,"MULTIKEY")){
+            Object.assign(data,parentObj);
+        }
+        Object.assign(context,parentObj);
+        // 直接调实体服务需要转换的数据
+        if(context && context.srfsessionid){
+          context.srfsessionkey = context.srfsessionid;
+            delete context.srfsessionid;
+        }
+        
+        const backend = () => {
+            const curService:TestTaskService =  new TestTaskService();
+            curService.Remove(context,data, true).then((response: any) => {
+                if (!response || response.status !== 200) {
+                    actionContext.$Notice.error({ title: '错误', desc: response.message });
+                    return;
+                }
+                actionContext.$Notice.success({ title: '成功', desc: '已删除' });
+                const _this: any = actionContext;
+                if (xData && xData.refresh && xData.refresh instanceof Function) {
+                    xData.refresh(args);
+                }
+                return response;
+            }).catch((response: any) => {
+                if (!response || !response.status || !response.data) {
+                    actionContext.$Notice.error({ title: '错误', desc: '系统异常！' });
+                    return;
+                }
+                if (response && response.data) {
+                    actionContext.$Notice.error({ title: '错误', desc: response.data.message });
+                    return;
+                }
+                if (response.status === 401) {
+                    return;
+                }
+                return response;
+            });
+        };
+        backend();
+    }
+
+    /**
+     * 查看
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async TestTask_Look(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { testtask: '%testtask%' });
+        Object.assign(params, { id: '%testtask%' });
+        Object.assign(params, { name: '%name%' });
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        if(context.product && true){
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+        const parameters: any[] = [
+            { pathName: 'testtasks', parameterName: 'testtask' },
+        ];
+            const openDrawer = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    if (xData && xData.refresh && xData.refresh instanceof Function) {
+                        xData.refresh(args);
+                    }
+                    _this.closeView(null);
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'test-task-main-tab-exp-view', 
+                height: 0, 
+                width: 0,  
+                title: actionContext.$t('entities.testtask.views.maintabexpview.title'),
+                placement: 'DRAWER_TOP',
+            };
+            openDrawer(view, data);
+    }
+
+    /**
+     * 阻塞
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async TestTask_BlockDash(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { testtask: '%testtask%' });
+        Object.assign(params, { id: '%testtask%' });
+        Object.assign(params, { name: '%name%' });
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        if(context.product && true){
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            ]
+        }
+        const parameters: any[] = [
+            { pathName: 'testtasks', parameterName: 'testtask' },
+        ];
+            const openPopupModal = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appmodal.openModal(view, context, data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    if (xData && xData.refresh && xData.refresh instanceof Function) {
+                        xData.refresh(args);
+                    }
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'test-task-block-option-view', 
+                height: 600, 
+                width: 800,  
+                title: actionContext.$t('entities.testtask.views.blockoptionview.title'),
+            };
+            openPopupModal(view, data);
     }
 
 

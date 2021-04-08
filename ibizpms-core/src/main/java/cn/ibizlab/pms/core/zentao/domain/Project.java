@@ -24,6 +24,8 @@ import java.io.Serializable;
 import lombok.*;
 import org.springframework.data.annotation.Transient;
 import cn.ibizlab.pms.util.annotation.Audit;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -39,6 +41,7 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
 @TableName(value = "zt_project", resultMap = "ProjectResultMap")
+@ApiModel("项目")
 public class Project extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -50,6 +53,7 @@ public class Project extends EntityMP implements Serializable {
     @TableField(value = "`openedversion`")
     @JSONField(name = "openedversion")
     @JsonProperty("openedversion")
+    @ApiModelProperty("当前系统版本")
     private String openedversion;
     /**
      * 开始时间
@@ -58,7 +62,24 @@ public class Project extends EntityMP implements Serializable {
     @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "begin", format = "yyyy-MM-dd")
     @JsonProperty("begin")
+    @ApiModelProperty("开始时间")
     private Timestamp begin;
+    /**
+     * 可用工时/天
+     */
+    @TableField(exist = false)
+    @JSONField(name = "hours")
+    @JsonProperty("hours")
+    @ApiModelProperty("可用工时/天")
+    private BigDecimal hours;
+    /**
+     * 项目立项信息
+     */
+    @TableField(value = "`pmseeprojectinfo`")
+    @JSONField(name = "pmseeprojectinfo")
+    @JsonProperty("pmseeprojectinfo")
+    @ApiModelProperty("项目立项信息")
+    private String pmseeprojectinfo;
     /**
      * 访问控制
      */
@@ -66,6 +87,7 @@ public class Project extends EntityMP implements Serializable {
     @TableField(value = "`acl`")
     @JSONField(name = "acl")
     @JsonProperty("acl")
+    @ApiModelProperty("访问控制")
     private String acl;
     /**
      * 已删除
@@ -75,7 +97,40 @@ public class Project extends EntityMP implements Serializable {
     @TableField(value = "`deleted`")
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
+    @ApiModelProperty("已删除")
     private String deleted;
+    /**
+     * 任务消耗总工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "totalconsumed")
+    @JsonProperty("totalconsumed")
+    @ApiModelProperty("任务消耗总工时")
+    private Double totalconsumed;
+    /**
+     * 关联产品
+     */
+    @TableField(exist = false)
+    @JSONField(name = "products")
+    @JsonProperty("products")
+    @ApiModelProperty("关联产品")
+    private String products;
+    /**
+     * 已完成任务数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "ycompletetaskcnt")
+    @JsonProperty("ycompletetaskcnt")
+    @ApiModelProperty("已完成任务数")
+    private Integer ycompletetaskcnt;
+    /**
+     * 关联计划
+     */
+    @TableField(exist = false)
+    @JSONField(name = "plans")
+    @JsonProperty("plans")
+    @ApiModelProperty("关联计划")
+    private String plans;
     /**
      * 项目描述
      */
@@ -83,7 +138,56 @@ public class Project extends EntityMP implements Serializable {
     @TableField(value = "`desc`")
     @JSONField(name = "desc")
     @JsonProperty("desc")
+    @ApiModelProperty("项目描述")
     private String desc;
+    /**
+     * 临时任务数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "temptaskcnt")
+    @JsonProperty("temptaskcnt")
+    @ApiModelProperty("临时任务数")
+    private Integer temptaskcnt;
+    /**
+     * 文档数量
+     */
+    @TableField(exist = false)
+    @JSONField(name = "doclibcnt")
+    @JsonProperty("doclibcnt")
+    @ApiModelProperty("文档数量")
+    private Integer doclibcnt;
+    /**
+     * 我完成任务数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "mycompletetaskcnt")
+    @JsonProperty("mycompletetaskcnt")
+    @ApiModelProperty("我完成任务数")
+    private Integer mycompletetaskcnt;
+    /**
+     * 是否置顶
+     */
+    @TableField(exist = false)
+    @JSONField(name = "istop")
+    @JsonProperty("istop")
+    @ApiModelProperty("是否置顶")
+    private Integer istop;
+    /**
+     * 未完成任务数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "uncompletetaskcnt")
+    @JsonProperty("uncompletetaskcnt")
+    @ApiModelProperty("未完成任务数")
+    private Integer uncompletetaskcnt;
+    /**
+     * 团队成员总数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "teamcnt")
+    @JsonProperty("teamcnt")
+    @ApiModelProperty("团队成员总数")
+    private Integer teamcnt;
     /**
      * 项目负责人
      */
@@ -91,7 +195,16 @@ public class Project extends EntityMP implements Serializable {
     @TableField(value = "`pm`")
     @JSONField(name = "pm")
     @JsonProperty("pm")
+    @ApiModelProperty("项目负责人")
     private String pm;
+    /**
+     * 选择部门
+     */
+    @TableField(exist = false)
+    @JSONField(name = "dept")
+    @JsonProperty("dept")
+    @ApiModelProperty("选择部门")
+    private String dept;
     /**
      * 项目编号
      */
@@ -99,6 +212,7 @@ public class Project extends EntityMP implements Serializable {
     @TableId(value = "id", type = IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
+    @ApiModelProperty("项目编号")
     private Long id;
     /**
      * 项目名称
@@ -107,6 +221,7 @@ public class Project extends EntityMP implements Serializable {
     @TableField(value = "`name`")
     @JSONField(name = "name")
     @JsonProperty("name")
+    @ApiModelProperty("项目名称")
     private String name;
     /**
      * 子状态
@@ -115,7 +230,16 @@ public class Project extends EntityMP implements Serializable {
     @TableField(value = "`substatus`")
     @JSONField(name = "substatus")
     @JsonProperty("substatus")
+    @ApiModelProperty("子状态")
     private String substatus;
+    /**
+     * 角色
+     */
+    @TableField(exist = false)
+    @JSONField(name = "role")
+    @JsonProperty("role")
+    @ApiModelProperty("角色")
+    private String role;
     /**
      * 项目排序
      */
@@ -123,7 +247,16 @@ public class Project extends EntityMP implements Serializable {
     @TableField(value = "`order`")
     @JSONField(name = "order")
     @JsonProperty("order")
+    @ApiModelProperty("项目排序")
     private Integer order;
+    /**
+     * Bug总数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "bugcnt")
+    @JsonProperty("bugcnt")
+    @ApiModelProperty("Bug总数")
+    private Integer bugcnt;
     /**
      * 发布负责人
      */
@@ -131,7 +264,24 @@ public class Project extends EntityMP implements Serializable {
     @TableField(value = "`rd`")
     @JSONField(name = "rd")
     @JsonProperty("rd")
+    @ApiModelProperty("发布负责人")
     private String rd;
+    /**
+     * 复制团队
+     */
+    @TableField(exist = false)
+    @JSONField(name = "managemembers")
+    @JsonProperty("managemembers")
+    @ApiModelProperty("复制团队")
+    private String managemembers;
+    /**
+     * 进行中任务数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "ystarttaskcnt")
+    @JsonProperty("ystarttaskcnt")
+    @ApiModelProperty("进行中任务数")
+    private Integer ystarttaskcnt;
     /**
      * 分组白名单
      */
@@ -139,7 +289,32 @@ public class Project extends EntityMP implements Serializable {
     @TableField(value = "`whitelist`")
     @JSONField(name = "whitelist")
     @JsonProperty("whitelist")
+    @ApiModelProperty("分组白名单")
     private String whitelist;
+    /**
+     * 移动端图片
+     */
+    @TableField(exist = false)
+    @JSONField(name = "mobimage")
+    @JsonProperty("mobimage")
+    @ApiModelProperty("移动端图片")
+    private String mobimage;
+    /**
+     * 总工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "totalwh")
+    @JsonProperty("totalwh")
+    @ApiModelProperty("总工时")
+    private Integer totalwh;
+    /**
+     * 可用工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "totalhours")
+    @JsonProperty("totalhours")
+    @ApiModelProperty("可用工时")
+    private BigDecimal totalhours;
     /**
      * 优先级
      */
@@ -147,6 +322,7 @@ public class Project extends EntityMP implements Serializable {
     @TableField(value = "`pri`")
     @JSONField(name = "pri")
     @JsonProperty("pri")
+    @ApiModelProperty("优先级")
     private String pri;
     /**
      * 结束日期
@@ -155,6 +331,7 @@ public class Project extends EntityMP implements Serializable {
     @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "end", format = "yyyy-MM-dd")
     @JsonProperty("end")
+    @ApiModelProperty("结束日期")
     private Timestamp end;
     /**
      * 取消日期
@@ -163,7 +340,58 @@ public class Project extends EntityMP implements Serializable {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "canceleddate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("canceleddate")
+    @ApiModelProperty("取消日期")
     private Timestamp canceleddate;
+    /**
+     * 计划任务数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "plantaskcnt")
+    @JsonProperty("plantaskcnt")
+    @ApiModelProperty("计划任务数")
+    private Integer plantaskcnt;
+    /**
+     * 加盟日
+     */
+    @TableField(exist = false)
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "join", format = "yyyy-MM-dd")
+    @JsonProperty("join")
+    @ApiModelProperty("加盟日")
+    private Timestamp join;
+    /**
+     * 任务最初预计总工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "totalestimate")
+    @JsonProperty("totalestimate")
+    @ApiModelProperty("任务最初预计总工时")
+    private Double totalestimate;
+    /**
+     * 部门标识
+     */
+    @DEField(preType = DEPredefinedFieldType.ORGSECTORID)
+    @TableField(value = "`mdeptid`")
+    @JSONField(name = "mdeptid")
+    @JsonProperty("mdeptid")
+    @ApiModelProperty("部门标识")
+    private String mdeptid;
+    /**
+     * 任务预计剩余总工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "totalleft")
+    @JsonProperty("totalleft")
+    @ApiModelProperty("任务预计剩余总工时")
+    private Double totalleft;
+    /**
+     * 关联数据数组
+     */
+    @TableField(exist = false)
+    @JSONField(name = "srfarray")
+    @JsonProperty("srfarray")
+    @ApiModelProperty("关联数据数组")
+    private String srfarray;
     /**
      * 项目代号
      */
@@ -171,7 +399,32 @@ public class Project extends EntityMP implements Serializable {
     @TableField(value = "`code`")
     @JSONField(name = "code")
     @JsonProperty("code")
+    @ApiModelProperty("项目代号")
     private String code;
+    /**
+     * 时间段
+     */
+    @TableField(exist = false)
+    @JSONField(name = "period")
+    @JsonProperty("period")
+    @ApiModelProperty("时间段")
+    private String period;
+    /**
+     * 关闭任务数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "closetaskcnt")
+    @JsonProperty("closetaskcnt")
+    @ApiModelProperty("关闭任务数")
+    private Integer closetaskcnt;
+    /**
+     * 关联产品平台集合
+     */
+    @TableField(exist = false)
+    @JSONField(name = "branchs")
+    @JsonProperty("branchs")
+    @ApiModelProperty("关联产品平台集合")
+    private String branchs;
     /**
      * catID
      */
@@ -179,7 +432,41 @@ public class Project extends EntityMP implements Serializable {
     @TableField(value = "`catid`")
     @JSONField(name = "catid")
     @JsonProperty("catid")
+    @ApiModelProperty("catID")
     private Integer catid;
+    /**
+     * 组织标识
+     */
+    @DEField(preType = DEPredefinedFieldType.ORGID)
+    @TableField(value = "`orgid`")
+    @JSONField(name = "orgid")
+    @JsonProperty("orgid")
+    @ApiModelProperty("组织标识")
+    private String orgid;
+    /**
+     * 未开始任务数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "unstarttaskcnt")
+    @JsonProperty("unstarttaskcnt")
+    @ApiModelProperty("未开始任务数")
+    private Integer unstarttaskcnt;
+    /**
+     * 项目团队相关成员
+     */
+    @TableField(exist = false)
+    @JSONField(name = "accounts")
+    @JsonProperty("accounts")
+    @ApiModelProperty("项目团队相关成员")
+    private String accounts;
+    /**
+     * 消息通知用户
+     */
+    @TableField(exist = false)
+    @JSONField(name = "noticeusers")
+    @JsonProperty("noticeusers")
+    @ApiModelProperty("消息通知用户")
+    private String noticeusers;
     /**
      * statge
      */
@@ -187,7 +474,41 @@ public class Project extends EntityMP implements Serializable {
     @TableField(value = "`statge`")
     @JSONField(name = "statge")
     @JsonProperty("statge")
+    @ApiModelProperty("statge")
     private String statge;
+    /**
+     * 取消任务数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "canceltaskcnt")
+    @JsonProperty("canceltaskcnt")
+    @ApiModelProperty("取消任务数")
+    private Integer canceltaskcnt;
+    /**
+     * 任务总数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "taskcnt")
+    @JsonProperty("taskcnt")
+    @ApiModelProperty("任务总数")
+    private Integer taskcnt;
+    /**
+     * 所有任务数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "alltaskcnt")
+    @JsonProperty("alltaskcnt")
+    @ApiModelProperty("所有任务数")
+    private Integer alltaskcnt;
+    /**
+     * 支持项目汇报
+     */
+    @DEField(defaultValue = "1")
+    @TableField(value = "`supproreport`")
+    @JSONField(name = "supproreport")
+    @JsonProperty("supproreport")
+    @ApiModelProperty("支持项目汇报")
+    private String supproreport;
     /**
      * 由谁取消
      */
@@ -195,6 +516,7 @@ public class Project extends EntityMP implements Serializable {
     @TableField(value = "`canceledby`")
     @JSONField(name = "canceledby")
     @JsonProperty("canceledby")
+    @ApiModelProperty("由谁取消")
     private String canceledby;
     /**
      * isCat
@@ -203,6 +525,7 @@ public class Project extends EntityMP implements Serializable {
     @TableField(value = "`iscat`")
     @JSONField(name = "iscat")
     @JsonProperty("iscat")
+    @ApiModelProperty("isCat")
     private String iscat;
     /**
      * 创建日期
@@ -212,7 +535,24 @@ public class Project extends EntityMP implements Serializable {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "openeddate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("openeddate")
+    @ApiModelProperty("创建日期")
     private Timestamp openeddate;
+    /**
+     * 未关闭任务数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "unclosetaskcnt")
+    @JsonProperty("unclosetaskcnt")
+    @ApiModelProperty("未关闭任务数")
+    private Integer unclosetaskcnt;
+    /**
+     * 需求变更数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "storychangecnt")
+    @JsonProperty("storychangecnt")
+    @ApiModelProperty("需求变更数")
+    private Integer storychangecnt;
     /**
      * 由谁关闭
      */
@@ -220,6 +560,7 @@ public class Project extends EntityMP implements Serializable {
     @TableField(value = "`closedby`")
     @JSONField(name = "closedby")
     @JsonProperty("closedby")
+    @ApiModelProperty("由谁关闭")
     private String closedby;
     /**
      * 项目类型
@@ -228,7 +569,24 @@ public class Project extends EntityMP implements Serializable {
     @TableField(value = "`type`")
     @JSONField(name = "type")
     @JsonProperty("type")
+    @ApiModelProperty("项目类型")
     private String type;
+    /**
+     * 版本总数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "buildcnt")
+    @JsonProperty("buildcnt")
+    @ApiModelProperty("版本总数")
+    private Integer buildcnt;
+    /**
+     * 项目团队成员
+     */
+    @TableField(exist = false)
+    @JSONField(name = "account")
+    @JsonProperty("account")
+    @ApiModelProperty("项目团队成员")
+    private String account;
     /**
      * 产品负责人
      */
@@ -236,7 +594,24 @@ public class Project extends EntityMP implements Serializable {
     @TableField(value = "`po`")
     @JSONField(name = "po")
     @JsonProperty("po")
+    @ApiModelProperty("产品负责人")
     private String po;
+    /**
+     * 指派给我任务数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "asstomytaskcnt")
+    @JsonProperty("asstomytaskcnt")
+    @ApiModelProperty("指派给我任务数")
+    private Integer asstomytaskcnt;
+    /**
+     * 项目排序
+     */
+    @TableField(exist = false)
+    @JSONField(name = "order1")
+    @JsonProperty("order1")
+    @ApiModelProperty("项目排序")
+    private Integer order1;
     /**
      * 项目状态
      */
@@ -244,7 +619,16 @@ public class Project extends EntityMP implements Serializable {
     @TableField(value = "`status`")
     @JSONField(name = "status")
     @JsonProperty("status")
+    @ApiModelProperty("项目状态")
     private String status;
+    /**
+     * 更多任务数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "moretaskcnt")
+    @JsonProperty("moretaskcnt")
+    @ApiModelProperty("更多任务数")
+    private Integer moretaskcnt;
     /**
      * 可用工作日
      */
@@ -252,7 +636,16 @@ public class Project extends EntityMP implements Serializable {
     @TableField(value = "`days`")
     @JSONField(name = "days")
     @JsonProperty("days")
+    @ApiModelProperty("可用工作日")
     private Integer days;
+    /**
+     * 周期任务数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "cycletaskcnt")
+    @JsonProperty("cycletaskcnt")
+    @ApiModelProperty("周期任务数")
+    private Integer cycletaskcnt;
     /**
      * 团队名称
      */
@@ -260,6 +653,7 @@ public class Project extends EntityMP implements Serializable {
     @TableField(value = "`team`")
     @JSONField(name = "team")
     @JsonProperty("team")
+    @ApiModelProperty("团队名称")
     private String team;
     /**
      * 关闭日期
@@ -268,7 +662,16 @@ public class Project extends EntityMP implements Serializable {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "closeddate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("closeddate")
+    @ApiModelProperty("关闭日期")
     private Timestamp closeddate;
+    /**
+     * 备注
+     */
+    @TableField(exist = false)
+    @JSONField(name = "comment")
+    @JsonProperty("comment")
+    @ApiModelProperty("备注")
+    private String comment;
     /**
      * 由谁创建
      */
@@ -276,7 +679,16 @@ public class Project extends EntityMP implements Serializable {
     @TableField(value = "`openedby`")
     @JSONField(name = "openedby")
     @JsonProperty("openedby")
+    @ApiModelProperty("由谁创建")
     private String openedby;
+    /**
+     * 需求总数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "storycnt")
+    @JsonProperty("storycnt")
+    @ApiModelProperty("需求总数")
+    private Integer storycnt;
     /**
      * 测试负责人
      */
@@ -284,6 +696,7 @@ public class Project extends EntityMP implements Serializable {
     @TableField(value = "`qd`")
     @JSONField(name = "qd")
     @JsonProperty("qd")
+    @ApiModelProperty("测试负责人")
     private String qd;
     /**
      * parent
@@ -291,6 +704,7 @@ public class Project extends EntityMP implements Serializable {
     @TableField(exist = false)
     @JSONField(name = "parentname")
     @JsonProperty("parentname")
+    @ApiModelProperty("parent")
     private String parentname;
     /**
      * 父项目
@@ -299,312 +713,8 @@ public class Project extends EntityMP implements Serializable {
     @TableField(value = "`parent`")
     @JSONField(name = "parent")
     @JsonProperty("parent")
+    @ApiModelProperty("父项目")
     private Long parent;
-    /**
-     * 任务总数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "taskcnt")
-    @JsonProperty("taskcnt")
-    private Integer taskcnt;
-    /**
-     * Bug总数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "bugcnt")
-    @JsonProperty("bugcnt")
-    private Integer bugcnt;
-    /**
-     * 需求总数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "storycnt")
-    @JsonProperty("storycnt")
-    private Integer storycnt;
-    /**
-     * 关联产品
-     */
-    @TableField(exist = false)
-    @JSONField(name = "products")
-    @JsonProperty("products")
-    private String products;
-    /**
-     * 关联产品平台集合
-     */
-    @TableField(exist = false)
-    @JSONField(name = "branchs")
-    @JsonProperty("branchs")
-    private String branchs;
-    /**
-     * 关联计划
-     */
-    @TableField(exist = false)
-    @JSONField(name = "plans")
-    @JsonProperty("plans")
-    private String plans;
-    /**
-     * 关联数据数组
-     */
-    @TableField(exist = false)
-    @JSONField(name = "srfarray")
-    @JsonProperty("srfarray")
-    private String srfarray;
-    /**
-     * 备注
-     */
-    @TableField(exist = false)
-    @JSONField(name = "comment")
-    @JsonProperty("comment")
-    private String comment;
-    /**
-     * 时间段
-     */
-    @TableField(exist = false)
-    @JSONField(name = "period")
-    @JsonProperty("period")
-    private String period;
-    /**
-     * 项目团队成员
-     */
-    @TableField(exist = false)
-    @JSONField(name = "account")
-    @JsonProperty("account")
-    private String account;
-    /**
-     * 加盟日
-     */
-    @TableField(exist = false)
-    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
-    @JSONField(name = "join", format = "yyyy-MM-dd")
-    @JsonProperty("join")
-    private Timestamp join;
-    /**
-     * 可用工时/天
-     */
-    @TableField(exist = false)
-    @JSONField(name = "hours")
-    @JsonProperty("hours")
-    private BigDecimal hours;
-    /**
-     * 角色
-     */
-    @TableField(exist = false)
-    @JSONField(name = "role")
-    @JsonProperty("role")
-    private String role;
-    /**
-     * 任务消耗总工时
-     */
-    @TableField(exist = false)
-    @JSONField(name = "totalconsumed")
-    @JsonProperty("totalconsumed")
-    private Double totalconsumed;
-    /**
-     * 总工时
-     */
-    @TableField(exist = false)
-    @JSONField(name = "totalwh")
-    @JsonProperty("totalwh")
-    private Integer totalwh;
-    /**
-     * 任务预计剩余总工时
-     */
-    @TableField(exist = false)
-    @JSONField(name = "totalleft")
-    @JsonProperty("totalleft")
-    private Double totalleft;
-    /**
-     * 任务最初预计总工时
-     */
-    @TableField(exist = false)
-    @JSONField(name = "totalestimate")
-    @JsonProperty("totalestimate")
-    private Double totalestimate;
-    /**
-     * 可用工时
-     */
-    @TableField(exist = false)
-    @JSONField(name = "totalhours")
-    @JsonProperty("totalhours")
-    private BigDecimal totalhours;
-    /**
-     * 移动端图片
-     */
-    @TableField(exist = false)
-    @JSONField(name = "mobimage")
-    @JsonProperty("mobimage")
-    private String mobimage;
-    /**
-     * 项目团队相关成员
-     */
-    @TableField(exist = false)
-    @JSONField(name = "accounts")
-    @JsonProperty("accounts")
-    private String accounts;
-    /**
-     * 项目排序
-     */
-    @TableField(exist = false)
-    @JSONField(name = "order1")
-    @JsonProperty("order1")
-    private Integer order1;
-    /**
-     * 是否置顶
-     */
-    @TableField(exist = false)
-    @JSONField(name = "istop")
-    @JsonProperty("istop")
-    private Integer istop;
-    /**
-     * 选择部门
-     */
-    @TableField(exist = false)
-    @JSONField(name = "dept")
-    @JsonProperty("dept")
-    private String dept;
-    /**
-     * 复制团队
-     */
-    @TableField(exist = false)
-    @JSONField(name = "managemembers")
-    @JsonProperty("managemembers")
-    private String managemembers;
-    /**
-     * 版本总数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "buildcnt")
-    @JsonProperty("buildcnt")
-    private Integer buildcnt;
-    /**
-     * 团队成员总数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "teamcnt")
-    @JsonProperty("teamcnt")
-    private Integer teamcnt;
-    /**
-     * 所有任务数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "alltaskcnt")
-    @JsonProperty("alltaskcnt")
-    private Integer alltaskcnt;
-    /**
-     * 未关闭任务数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "unclosetaskcnt")
-    @JsonProperty("unclosetaskcnt")
-    private Integer unclosetaskcnt;
-    /**
-     * 指派给我任务数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "asstomytaskcnt")
-    @JsonProperty("asstomytaskcnt")
-    private Integer asstomytaskcnt;
-    /**
-     * 未开始任务数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "unstarttaskcnt")
-    @JsonProperty("unstarttaskcnt")
-    private Integer unstarttaskcnt;
-    /**
-     * 更多任务数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "moretaskcnt")
-    @JsonProperty("moretaskcnt")
-    private Integer moretaskcnt;
-    /**
-     * 进行中任务数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "ystarttaskcnt")
-    @JsonProperty("ystarttaskcnt")
-    private Integer ystarttaskcnt;
-    /**
-     * 未完成任务数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "uncompletetaskcnt")
-    @JsonProperty("uncompletetaskcnt")
-    private Integer uncompletetaskcnt;
-    /**
-     * 已完成任务数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "ycompletetaskcnt")
-    @JsonProperty("ycompletetaskcnt")
-    private Integer ycompletetaskcnt;
-    /**
-     * 我完成任务数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "mycompletetaskcnt")
-    @JsonProperty("mycompletetaskcnt")
-    private Integer mycompletetaskcnt;
-    /**
-     * 关闭任务数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "closetaskcnt")
-    @JsonProperty("closetaskcnt")
-    private Integer closetaskcnt;
-    /**
-     * 取消任务数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "canceltaskcnt")
-    @JsonProperty("canceltaskcnt")
-    private Integer canceltaskcnt;
-    /**
-     * 需求变更数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "storychangecnt")
-    @JsonProperty("storychangecnt")
-    private Integer storychangecnt;
-    /**
-     * 消息通知用户
-     */
-    @TableField(exist = false)
-    @JSONField(name = "noticeusers")
-    @JsonProperty("noticeusers")
-    private String noticeusers;
-    /**
-     * 文档数量
-     */
-    @TableField(exist = false)
-    @JSONField(name = "doclibcnt")
-    @JsonProperty("doclibcnt")
-    private Integer doclibcnt;
-    /**
-     * 组织标识
-     */
-    @DEField(preType = DEPredefinedFieldType.ORGID)
-    @TableField(value = "`orgid`")
-    @JSONField(name = "orgid")
-    @JsonProperty("orgid")
-    private String orgid;
-    /**
-     * 部门标识
-     */
-    @DEField(preType = DEPredefinedFieldType.ORGSECTORID)
-    @TableField(value = "`mdeptid`")
-    @JSONField(name = "mdeptid")
-    @JsonProperty("mdeptid")
-    private String mdeptid;
-    /**
-     * 支持项目汇报
-     */
-    @DEField(defaultValue = "1")
-    @TableField(value = "`supproreport`")
-    @JSONField(name = "supproreport")
-    @JsonProperty("supproreport")
-    private String supproreport;
 
     /**
      * 
@@ -650,6 +760,14 @@ public class Project extends EntityMP implements Serializable {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         return sdf.format(begin);
     }
+    /**
+     * 设置 [项目立项信息]
+     */
+    public void setPmseeprojectinfo(String pmseeprojectinfo) {
+        this.pmseeprojectinfo = pmseeprojectinfo;
+        this.modify("pmseeprojectinfo", pmseeprojectinfo);
+    }
+
     /**
      * 设置 [访问控制]
      */
@@ -783,6 +901,14 @@ public class Project extends EntityMP implements Serializable {
     }
 
     /**
+     * 设置 [支持项目汇报]
+     */
+    public void setSupproreport(String supproreport) {
+        this.supproreport = supproreport;
+        this.modify("supproreport", supproreport);
+    }
+
+    /**
      * 设置 [由谁取消]
      */
     public void setCanceledby(String canceledby) {
@@ -878,14 +1004,6 @@ public class Project extends EntityMP implements Serializable {
     public void setParent(Long parent) {
         this.parent = parent;
         this.modify("parent", parent);
-    }
-
-    /**
-     * 设置 [支持项目汇报]
-     */
-    public void setSupproreport(String supproreport) {
-        this.supproreport = supproreport;
-        this.modify("supproreport", supproreport);
     }
 
 

@@ -14,28 +14,28 @@ hide members
 
 | 属性名称        |    中文名称    | 类型     |  备注  |
 | --------   |------------| -----   |  -------- | 
-|版本|VERSION|PICKUPDATA|&nbsp;|
-|用例编号|CASE|PICKUP|&nbsp;|
+|实际情况|REALS|TEXT|&nbsp;|
 |预期|EXPECT|LONGTEXT|&nbsp;|
+|步骤|DESC|LONGTEXT|&nbsp;|
 |附件|FILES|TEXT|&nbsp;|
 |编号|ID|ACID|&nbsp;|
-|实际情况|REALS|TEXT|&nbsp;|
-|步骤|DESC|LONGTEXT|&nbsp;|
-|编号|PARENT|PICKUP|&nbsp;|
 |类型|TYPE|SSCODELIST|&nbsp;|
+|版本|VERSION|PICKUPDATA|&nbsp;|
+|编号|PARENT|PICKUP|&nbsp;|
+|用例编号|CASE|PICKUP|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
 | --------   |------------| ----- | 
-|版本|默认规则|默认规则|
-|用例编号|默认规则|默认规则|
+|实际情况|默认规则|内容长度必须小于等于[100]|
 |预期|默认规则|内容长度必须小于等于[65535]|
+|步骤|默认规则|内容长度必须小于等于[65535]|
 |附件|默认规则|内容长度必须小于等于[100]|
 |编号|默认规则|默认规则|
-|实际情况|默认规则|内容长度必须小于等于[100]|
-|步骤|默认规则|内容长度必须小于等于[65535]|
-|编号|默认规则|默认规则|
 |类型|默认规则|内容长度必须小于等于[60]|
+|版本|默认规则|默认规则|
+|编号|默认规则|默认规则|
+|用例编号|默认规则|默认规则|
 
 ## 状态控制
 
@@ -72,7 +72,7 @@ hide members
 
 | 查询编号 | 查询名称       | 默认查询 |   备注|
 | --------  | --------   | --------   | ----- |
-|DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#IbzLibCaseSteps_Default))|否|&nbsp;|
+|DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#IbzLibCaseSteps_Default))|是|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#IbzLibCaseSteps_View))|否|&nbsp;|
 
 * **数据集合**
@@ -84,11 +84,11 @@ hide members
 ## 查询模式
 | 属性      |    搜索模式     |
 | --------   |------------|
-|版本(VERSION)|EQ|
-|用例编号(CASE)|EQ|
 |预期(EXPECT)|LIKE|
-|编号(PARENT)|EQ|
 |类型(TYPE)|EQ|
+|版本(VERSION)|EQ|
+|编号(PARENT)|EQ|
+|用例编号(CASE)|EQ|
 
 ## 导入模式
 无

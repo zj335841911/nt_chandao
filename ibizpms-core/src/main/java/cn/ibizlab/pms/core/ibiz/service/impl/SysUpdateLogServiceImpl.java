@@ -52,23 +52,15 @@ public class SysUpdateLogServiceImpl extends ServiceImpl<SysUpdateLogMapper, Sys
     @Lazy
     protected cn.ibizlab.pms.core.ibiz.service.ISysUpdateFeaturesService sysupdatefeaturesService;
 
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.ibiz.service.logic.ISysUpdateLogUpdateLastedLogic updatelastedLogic;
-    @Autowired
-    @Lazy
-    ISysUpdateLogService proxyService;
-
     protected int batchSize = 500;
 
     @Override
     @Transactional
     public boolean create(SysUpdateLog et) {
-        if (!this.retBool(this.baseMapper.insert(et))) {
+        if(!this.retBool(this.baseMapper.insert(et))) {
             return false;
         }
         CachedBeanCopier.copy(get(et.getSysupdatelogid()), et);
-        updatelastedLogic.execute(et);
         return true;
     }
 
@@ -81,7 +73,7 @@ public class SysUpdateLogServiceImpl extends ServiceImpl<SysUpdateLogMapper, Sys
     @Override
     @Transactional
     public boolean update(SysUpdateLog et) {
-        if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("sys_update_logid", et.getSysupdatelogid()))) {
+        if(!update(et, (Wrapper) et.getUpdateWrapper(true).eq("sys_update_logid", et.getSysupdatelogid()))) {
             return false;
         }
         CachedBeanCopier.copy(get(et.getSysupdatelogid()), et);
@@ -99,7 +91,7 @@ public class SysUpdateLogServiceImpl extends ServiceImpl<SysUpdateLogMapper, Sys
     public boolean remove(String key) {
         sysupdatefeaturesService.removeBySysupdatelogid(key);
         boolean result = removeById(key);
-        return result;
+        return result ;
     }
 
     @Override
@@ -113,7 +105,7 @@ public class SysUpdateLogServiceImpl extends ServiceImpl<SysUpdateLogMapper, Sys
     @Transactional
     public SysUpdateLog get(String key) {
         SysUpdateLog et = getById(key);
-        if (et == null) {
+        if(et == null){
             et = new SysUpdateLog();
             et.setSysupdatelogid(key);
         }
@@ -137,7 +129,8 @@ public class SysUpdateLogServiceImpl extends ServiceImpl<SysUpdateLogMapper, Sys
         //自定义代码
         return et;
     }
-   @Override
+
+    @Override
     @Transactional
     public boolean getLastUpdateInfoBatch(List<SysUpdateLog> etList) {
         for(SysUpdateLog et : etList) {
@@ -149,7 +142,7 @@ public class SysUpdateLogServiceImpl extends ServiceImpl<SysUpdateLogMapper, Sys
     @Override
     @Transactional
     public boolean save(SysUpdateLog et) {
-        if (!saveOrUpdate(et)) {
+        if(!saveOrUpdate(et)) {
             return false;
         }
         return true;
@@ -161,7 +154,7 @@ public class SysUpdateLogServiceImpl extends ServiceImpl<SysUpdateLogMapper, Sys
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
+            return checkKey(et) ? getProxyService().update(et) : getProxyService().create(et);
         }
     }
 
@@ -178,10 +171,10 @@ public class SysUpdateLogServiceImpl extends ServiceImpl<SysUpdateLogMapper, Sys
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
         return true;
     }
@@ -199,10 +192,10 @@ public class SysUpdateLogServiceImpl extends ServiceImpl<SysUpdateLogMapper, Sys
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
     }
 
@@ -213,7 +206,7 @@ public class SysUpdateLogServiceImpl extends ServiceImpl<SysUpdateLogMapper, Sys
      */
     @Override
     public Page<SysUpdateLog> searchDefault(SysUpdateLogSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<SysUpdateLog> pages=baseMapper.searchDefault(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<SysUpdateLog> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
         return new PageImpl<SysUpdateLog>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -224,24 +217,24 @@ public class SysUpdateLogServiceImpl extends ServiceImpl<SysUpdateLogMapper, Sys
 
 
     @Override
-    public List<JSONObject> select(String sql, Map param) {
-        return this.baseMapper.selectBySQL(sql, param);
+    public List<JSONObject> select(String sql, Map param){
+        return this.baseMapper.selectBySQL(sql,param);
     }
 
     @Override
     @Transactional
-    public boolean execute(String sql, Map param) {
+    public boolean execute(String sql , Map param){
         if (sql == null || sql.isEmpty()) {
             return false;
         }
         if (sql.toLowerCase().trim().startsWith("insert")) {
-            return this.baseMapper.insertBySQL(sql, param);
+            return this.baseMapper.insertBySQL(sql,param);
         }
         if (sql.toLowerCase().trim().startsWith("update")) {
-            return this.baseMapper.updateBySQL(sql, param);
+            return this.baseMapper.updateBySQL(sql,param);
         }
         if (sql.toLowerCase().trim().startsWith("delete")) {
-            return this.baseMapper.deleteBySQL(sql, param);
+            return this.baseMapper.deleteBySQL(sql,param);
         }
         log.warn("暂未支持的SQL语法");
         return true;
@@ -257,11 +250,11 @@ public class SysUpdateLogServiceImpl extends ServiceImpl<SysUpdateLogMapper, Sys
         List ids =new ArrayList();
         for(SysUpdateLog entity : entities){
             Serializable id=entity.getSysupdatelogid();
-            if (!ObjectUtils.isEmpty(id)) {
+            if(!ObjectUtils.isEmpty(id)){
                 ids.add(id);
             }
         }
-        if (ids.size() > 0) {
+        if(ids.size()>0) {
             return this.listByIds(ids);
         }
         else {
@@ -270,9 +263,9 @@ public class SysUpdateLogServiceImpl extends ServiceImpl<SysUpdateLogMapper, Sys
     }
 
 
-
-
+    public ISysUpdateLogService getProxyService() {
+        return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
+    }
 }
-
 
 

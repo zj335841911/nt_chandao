@@ -31,8 +31,8 @@ part [shape=none, margin=0, label=<
 </TR>
 <TR>
 <TD BORDER="0" COLSPAN="4" CELLPADDING="10">
-修改<BR/>
-提交<BR/>
+
+
 <BR/></TD>
 </TR>
 </TABLE>

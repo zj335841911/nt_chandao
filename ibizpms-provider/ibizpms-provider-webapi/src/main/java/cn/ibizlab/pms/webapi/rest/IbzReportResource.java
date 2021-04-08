@@ -73,7 +73,7 @@ public class IbzReportResource {
 		IbzReport domain  = ibzreportMapping.toDomain(ibzreportdto);
         domain .setIbzdailyid(ibzreport_id);
 		ibzreportService.update(domain );
-		IbzReportDTO dto = ibzreportMapping.toDto(domain );
+		IbzReportDTO dto = ibzreportMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
@@ -111,8 +111,9 @@ public class IbzReportResource {
 
     @ApiOperation(value = "获取汇报汇总草稿", tags = {"汇报汇总" },  notes = "获取汇报汇总草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/ibzreports/getdraft")
-    public ResponseEntity<IbzReportDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(ibzreportMapping.toDto(ibzreportService.getDraft(new IbzReport())));
+    public ResponseEntity<IbzReportDTO> getDraft(IbzReportDTO dto) {
+        IbzReport domain = ibzreportMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(ibzreportMapping.toDto(ibzreportService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查汇报汇总", tags = {"汇报汇总" },  notes = "检查汇报汇总")
@@ -146,8 +147,10 @@ public class IbzReportResource {
     @PreAuthorize("hasPermission(this.ibzreportMapping.toDomain(#ibzreportdto),'pms-IbzReport-Save')")
     @ApiOperation(value = "保存汇报汇总", tags = {"汇报汇总" },  notes = "保存汇报汇总")
 	@RequestMapping(method = RequestMethod.POST, value = "/ibzreports/save")
-    public ResponseEntity<Boolean> save(@RequestBody IbzReportDTO ibzreportdto) {
-        return ResponseEntity.status(HttpStatus.OK).body(ibzreportService.save(ibzreportMapping.toDomain(ibzreportdto)));
+    public ResponseEntity<IbzReportDTO> save(@RequestBody IbzReportDTO ibzreportdto) {
+        IbzReport domain = ibzreportMapping.toDomain(ibzreportdto);
+        ibzreportService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(ibzreportMapping.toDto(domain));
     }
 
     @PreAuthorize("hasPermission(this.ibzreportMapping.toDomain(#ibzreportdtos),'pms-IbzReport-Save')")
@@ -223,6 +226,7 @@ public class IbzReportResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(ibzreportMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
 
 
 }

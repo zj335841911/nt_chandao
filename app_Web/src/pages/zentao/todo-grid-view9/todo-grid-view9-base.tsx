@@ -1,6 +1,6 @@
 
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { GridView9Base } from '@/studio-core';
 import TodoService from '@/service/todo/todo-service';
 import TodoAuthService from '@/authservice/todo/todo-auth-service';
@@ -131,7 +131,7 @@ export class TodoGridView9Base extends GridView9Base {
      * @type {string}
      * @memberof TodoGridView9Base
      */
-	protected viewtag: string = 'c3f0a8956b863fa05a7d961df90a3975';
+	protected viewtag: string = 'bc2507cdd677c5e56d209fbab236dfc2';
 
     /**
      * 视图名称

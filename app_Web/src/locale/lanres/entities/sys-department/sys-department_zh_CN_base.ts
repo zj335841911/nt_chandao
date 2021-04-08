@@ -19,9 +19,9 @@ function getLocaleResourceBase(){
 			parentdeptname: commonLogic.appcommonhandle("上级部门",null),
 			createdate: commonLogic.appcommonhandle("建立时间",null),
 			enable: commonLogic.appcommonhandle("逻辑有效标志",null),
-			createman: commonLogic.appcommonhandle("建立人",null),
 			updateman: commonLogic.appcommonhandle("更新人",null),
 			updatedate: commonLogic.appcommonhandle("更新时间",null),
+			createman: commonLogic.appcommonhandle("建立人",null),
 		},
 			views: {
 				gridexpview: {

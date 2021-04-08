@@ -15,47 +15,16 @@ export class DailyMobTabExpViewtabexppanelModel {
   public getDataItems(): any[] {
     return [
       {
-        name: 'createman',
-      },
-      {
-        name: 'ibzdaily',
-        prop: 'ibzdailyid',
-      },
-      {
-        name: 'ibzdailyname',
-      },
-      {
         name: 'updatedate',
       },
       {
-        name: 'createdate',
-      },
-      {
-        name: 'updateman',
-      },
-      {
-        name: 'date',
-      },
-      {
-        name: 'account',
-      },
-      {
-        name: 'worktoday',
-      },
-      {
-        name: 'mailto',
-      },
-      {
-        name: 'files',
+        name: 'submittime',
       },
       {
         name: 'todaytask',
       },
       {
-        name: 'issubmit',
-      },
-      {
-        name: 'planstomorrow',
+        name: 'worktoday',
       },
       {
         name: 'tomorrowplanstask',
@@ -64,25 +33,56 @@ export class DailyMobTabExpViewtabexppanelModel {
         name: 'reportto',
       },
       {
-        name: 'comment',
+        name: 'createman',
       },
       {
-        name: 'createmanname',
+        name: 'createdate',
+      },
+      {
+        name: 'issubmit',
+      },
+      {
+        name: 'date',
+      },
+      {
+        name: 'files',
       },
       {
         name: 'updatemanname',
       },
       {
+        name: 'mailtopk',
+      },
+      {
         name: 'reportstatus',
       },
       {
-        name: 'submittime',
+        name: 'comment',
+      },
+      {
+        name: 'updateman',
+      },
+      {
+        name: 'planstomorrow',
+      },
+      {
+        name: 'mailto',
+      },
+      {
+        name: 'ibzdaily',
+        prop: 'ibzdailyid',
+      },
+      {
+        name: 'account',
       },
       {
         name: 'reporttopk',
       },
       {
-        name: 'mailtopk',
+        name: 'createmanname',
+      },
+      {
+        name: 'ibzdailyname',
       },
     ]
   }

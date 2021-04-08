@@ -78,29 +78,6 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.IProductService productService;
 
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.IStorybuildUnlinkStorysLogic buildunlinkstorysLogic;
-
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.IStoryGetStorySpecsLogic getstoryspecsLogic;
-
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.IStoryprojectUnlinkStorysLogic projectunlinkstorysLogic;
-
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.IStoryStoryFavoritesLogic storyfavoritesLogic;
-
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.IStoryStoryNFavoritesLogic storynfavoritesLogic;
-    @Autowired
-    @Lazy
-    IStoryService proxyService;
-
     protected int batchSize = 500;
 
         @Override
@@ -141,7 +118,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
     @Transactional
     public Story get(Long key) {
         Story et = getById(key);
-        if (et == null) {
+        if(et == null){
             et = new Story();
             et.setId(key);
         }
@@ -177,7 +154,8 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
         //自定义代码
         return et;
     }
-   @Override
+
+    @Override
     @Transactional
     public boolean allPushBatch(List<Story> etList) {
         for(Story et : etList) {
@@ -207,7 +185,8 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
         //自定义代码
         return et;
     }
-   @Override
+
+    @Override
     @Transactional
     public boolean batchAssignToBatch(List<Story> etList) {
         for(Story et : etList) {
@@ -222,7 +201,8 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
         //自定义代码
         return et;
     }
-   @Override
+
+    @Override
     @Transactional
     public boolean batchChangeBranchBatch(List<Story> etList) {
         for(Story et : etList) {
@@ -237,7 +217,8 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
         //自定义代码
         return et;
     }
-   @Override
+
+    @Override
     @Transactional
     public boolean batchChangeModuleBatch(List<Story> etList) {
         for(Story et : etList) {
@@ -252,7 +233,8 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
         //自定义代码
         return et;
     }
-   @Override
+
+    @Override
     @Transactional
     public boolean batchChangePlanBatch(List<Story> etList) {
         for(Story et : etList) {
@@ -267,7 +249,8 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
         //自定义代码
         return et;
     }
-   @Override
+
+    @Override
     @Transactional
     public boolean batchChangeStageBatch(List<Story> etList) {
         for(Story et : etList) {
@@ -282,7 +265,8 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
         //自定义代码
         return et;
     }
-   @Override
+
+    @Override
     @Transactional
     public boolean batchCloseBatch(List<Story> etList) {
         for(Story et : etList) {
@@ -297,7 +281,8 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
         //自定义代码
         return et;
     }
-   @Override
+
+    @Override
     @Transactional
     public boolean batchReviewBatch(List<Story> etList) {
         for(Story et : etList) {
@@ -327,7 +312,8 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
         //自定义代码
         return et;
     }
-   @Override
+
+    @Override
     @Transactional
     public boolean bugToStoryBatch(List<Story> etList) {
         for(Story et : etList) {
@@ -384,8 +370,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
     @Override
     @Transactional
     public Story buildUnlinkStorys(Story et) {
-        buildunlinkstorysLogic.execute(et);
-         return et;
+         return et ;
     }
 
        @Override
@@ -424,11 +409,28 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
 
     @Override
     @Transactional
+    public Story createTasks(Story et) {
+        //自定义代码
+        return et;
+    }
+
+    @Override
+    @Transactional
+    public boolean createTasksBatch(List<Story> etList) {
+        for(Story et : etList) {
+            createTasks(et);
+        }
+        return true;
+    }
+
+    @Override
+    @Transactional
     public Story getStorySpec(Story et) {
         //自定义代码
         return et;
     }
-   @Override
+
+    @Override
     @Transactional
     public boolean getStorySpecBatch(List<Story> etList) {
         for(Story et : etList) {
@@ -440,8 +442,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
     @Override
     @Transactional
     public Story getStorySpecs(Story et) {
-        getstoryspecsLogic.execute(et);
-         return et;
+         return et ;
     }
 
        @Override
@@ -522,8 +523,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
     @Override
     @Transactional
     public Story projectUnlinkStorys(Story et) {
-        projectunlinkstorysLogic.execute(et);
-         return et;
+         return et ;
     }
 
     @Override
@@ -532,7 +532,8 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
         //自定义代码
         return et;
     }
-   @Override
+
+    @Override
     @Transactional
     public boolean pushBatch(List<Story> etList) {
         for(Story et : etList) {
@@ -592,7 +593,8 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
         //自定义代码
         return et;
     }
-   @Override
+
+    @Override
     @Transactional
     public boolean resetReviewedByBatch(List<Story> etList) {
         for(Story et : etList) {
@@ -619,7 +621,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
     @Override
     @Transactional
     public boolean save(Story et) {
-        if (!saveOrUpdate(et)) {
+        if(!saveOrUpdate(et)) {
             return false;
         }
         return true;
@@ -631,7 +633,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
+            return checkKey(et) ? getProxyService().update(et) : getProxyService().create(et);
         }
     }
 
@@ -649,10 +651,10 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
         return true;
     }
@@ -660,7 +662,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
     @Override
     @Transactional
     public void saveBatch(List<Story> list) {
-        list.forEach(item -> fillParentData(item));
+        list.forEach(item->fillParentData(item));
         List<Story> create = new ArrayList<>();
         List<Story> update = new ArrayList<>();
         for (Story et : list) {
@@ -671,10 +673,10 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
     }
 
@@ -735,15 +737,13 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
     @Override
     @Transactional
     public Story storyFavorites(Story et) {
-        storyfavoritesLogic.execute(et);
-         return et;
+         return et ;
     }
 
     @Override
     @Transactional
     public Story storyNFavorites(Story et) {
-        storynfavoritesLogic.execute(et);
-         return et;
+         return et ;
     }
 
     @Override
@@ -752,7 +752,8 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
         //自定义代码
         return et;
     }
-   @Override
+
+    @Override
     @Transactional
     public boolean syncFromIbizBatch(List<Story> etList) {
         for(Story et : etList) {
@@ -777,67 +778,67 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
     }
 
 
-    @Override
+	@Override
     public List<Story> selectByModule(Long id) {
         return baseMapper.selectByModule(id);
     }
     @Override
     public void removeByModule(Long id) {
-        this.remove(new QueryWrapper<Story>().eq("module", id));
+        this.remove(new QueryWrapper<Story>().eq("module",id));
     }
 
-    @Override
+	@Override
     public List<Story> selectByBranch(Long id) {
         return baseMapper.selectByBranch(id);
     }
     @Override
     public void removeByBranch(Long id) {
-        this.remove(new QueryWrapper<Story>().eq("branch", id));
+        this.remove(new QueryWrapper<Story>().eq("branch",id));
     }
 
-    @Override
+	@Override
     public List<Story> selectByFrombug(Long id) {
         return baseMapper.selectByFrombug(id);
     }
     @Override
     public void removeByFrombug(Long id) {
-        this.remove(new QueryWrapper<Story>().eq("frombug", id));
+        this.remove(new QueryWrapper<Story>().eq("frombug",id));
     }
 
-    @Override
+	@Override
     public List<Story> selectByTobug(Long id) {
         return baseMapper.selectByTobug(id);
     }
     @Override
     public void removeByTobug(Long id) {
-        this.remove(new QueryWrapper<Story>().eq("tobug", id));
+        this.remove(new QueryWrapper<Story>().eq("tobug",id));
     }
 
-    @Override
+	@Override
     public List<Story> selectByProduct(Long id) {
         return baseMapper.selectByProduct(id);
     }
     @Override
     public void removeByProduct(Long id) {
-        this.remove(new QueryWrapper<Story>().eq("product", id));
+        this.remove(new QueryWrapper<Story>().eq("product",id));
     }
 
-    @Override
+	@Override
     public List<Story> selectByDuplicatestory(Long id) {
         return baseMapper.selectByDuplicatestory(id);
     }
     @Override
     public void removeByDuplicatestory(Long id) {
-        this.remove(new QueryWrapper<Story>().eq("duplicatestory", id));
+        this.remove(new QueryWrapper<Story>().eq("duplicatestory",id));
     }
 
-    @Override
+	@Override
     public List<Story> selectByParent(Long id) {
         return baseMapper.selectByParent(id);
     }
     @Override
     public void removeByParent(Long id) {
-        this.remove(new QueryWrapper<Story>().eq("parent", id));
+        this.remove(new QueryWrapper<Story>().eq("parent",id));
     }
 
 
@@ -846,7 +847,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
      */
     @Override
     public Page<Story> searchAssignedToMyStory(StorySearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchAssignedToMyStory(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchAssignedToMyStory(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Story>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -855,7 +856,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
      */
     @Override
     public Page<Story> searchAssignedToMyStoryCalendar(StorySearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchAssignedToMyStoryCalendar(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchAssignedToMyStoryCalendar(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Story>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -864,7 +865,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
      */
     @Override
     public Page<Story> searchBugStory(StorySearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchBugStory(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchBugStory(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Story>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -873,7 +874,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
      */
     @Override
     public Page<Story> searchBuildLinkCompletedStories(StorySearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchBuildLinkCompletedStories(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchBuildLinkCompletedStories(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Story>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -882,7 +883,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
      */
     @Override
     public Page<Story> searchBuildLinkableStories(StorySearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchBuildLinkableStories(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchBuildLinkableStories(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Story>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -891,7 +892,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
      */
     @Override
     public Page<Story> searchBuildStories(StorySearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchBuildStories(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchBuildStories(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Story>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -900,7 +901,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
      */
     @Override
     public Page<Story> searchByModule(StorySearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchByModule(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchByModule(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Story>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -909,7 +910,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
      */
     @Override
     public Page<Story> searchCaseStory(StorySearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchCaseStory(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchCaseStory(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Story>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -918,7 +919,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
      */
     @Override
     public Page<Story> searchDefault(StorySearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchDefault(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Story>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -927,7 +928,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
      */
     @Override
     public Page<Story> searchESBulk(StorySearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchESBulk(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchESBulk(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Story>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -936,7 +937,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
      */
     @Override
     public Page<Story> searchGetProductStories(StorySearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchGetProductStories(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchGetProductStories(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Story>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -945,7 +946,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
      */
     @Override
     public Page<Story> searchMyAgentStory(StorySearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchMyAgentStory(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchMyAgentStory(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Story>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -954,7 +955,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
      */
     @Override
     public Page<Story> searchMyCurOpenedStory(StorySearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchMyCurOpenedStory(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchMyCurOpenedStory(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Story>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -963,7 +964,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
      */
     @Override
     public Page<Story> searchMyFavorites(StorySearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchMyFavorites(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchMyFavorites(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Story>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -972,7 +973,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
      */
     @Override
     public Page<Story> searchNotCurPlanLinkStory(StorySearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchNotCurPlanLinkStory(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchNotCurPlanLinkStory(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Story>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -981,7 +982,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
      */
     @Override
     public Page<Story> searchParentDefault(StorySearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchParentDefault(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchParentDefault(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Story>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -990,7 +991,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
      */
     @Override
     public Page<Story> searchParentDefaultQ(StorySearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchParentDefaultQ(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchParentDefaultQ(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Story>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -999,7 +1000,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
      */
     @Override
     public Page<Story> searchProjectLinkStory(StorySearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchProjectLinkStory(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchProjectLinkStory(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Story>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -1008,7 +1009,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
      */
     @Override
     public Page<Story> searchProjectStories(StorySearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchProjectStories(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchProjectStories(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Story>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -1017,7 +1018,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
      */
     @Override
     public Page<Story> searchReleaseLinkableStories(StorySearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchReleaseLinkableStories(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchReleaseLinkableStories(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Story>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -1026,7 +1027,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
      */
     @Override
     public Page<Story> searchReleaseStories(StorySearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchReleaseStories(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchReleaseStories(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Story>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -1035,7 +1036,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
      */
     @Override
     public Page<Story> searchReportStories(StorySearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchReportStories(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchReportStories(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Story>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -1044,7 +1045,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
      */
     @Override
     public Page<Story> searchStoryChild(StorySearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchStoryChild(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchStoryChild(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Story>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -1053,7 +1054,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
      */
     @Override
     public Page<Story> searchStoryRelated(StorySearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchStoryRelated(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchStoryRelated(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Story>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -1062,7 +1063,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
      */
     @Override
     public Page<Story> searchSubStory(StorySearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchSubStory(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchSubStory(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Story>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -1071,7 +1072,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
      */
     @Override
     public Page<Story> searchTaskRelatedStory(StorySearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchTaskRelatedStory(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchTaskRelatedStory(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Story>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -1080,7 +1081,7 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
      */
     @Override
     public Page<Story> searchView(StorySearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchView(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages=baseMapper.searchView(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Story>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -1092,43 +1093,43 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
      */
     private void fillParentData(Story et){
         //实体关系[DER1N_ZT_STORY_IBZ_PRODUCTMODULE_MODULE]
-        if (!ObjectUtils.isEmpty(et.getModule())) {
+        if(!ObjectUtils.isEmpty(et.getModule())){
             cn.ibizlab.pms.core.ibiz.domain.ProductModule ibzproductmodule=et.getIbzproductmodule();
-            if (ObjectUtils.isEmpty(ibzproductmodule)) {
+            if(ObjectUtils.isEmpty(ibzproductmodule)){
                 cn.ibizlab.pms.core.ibiz.domain.ProductModule majorEntity=productmoduleService.get(et.getModule());
                 et.setIbzproductmodule(majorEntity);
-                ibzproductmodule = majorEntity;
+                ibzproductmodule=majorEntity;
             }
             et.setPath(ibzproductmodule.getPath());
             et.setModulename(ibzproductmodule.getName());
         }
         //实体关系[DER1N_ZT_STORY_ZT_BRANCH_BRANCH]
-        if (!ObjectUtils.isEmpty(et.getBranch())) {
+        if(!ObjectUtils.isEmpty(et.getBranch())){
             cn.ibizlab.pms.core.zentao.domain.Branch ztbranch=et.getZtbranch();
-            if (ObjectUtils.isEmpty(ztbranch)) {
+            if(ObjectUtils.isEmpty(ztbranch)){
                 cn.ibizlab.pms.core.zentao.domain.Branch majorEntity=branchService.get(et.getBranch());
                 et.setZtbranch(majorEntity);
-                ztbranch = majorEntity;
+                ztbranch=majorEntity;
             }
             et.setBranchname(ztbranch.getName());
         }
         //实体关系[DER1N_ZT_STORY_ZT_PRODUCT_PRODUCT]
-        if (!ObjectUtils.isEmpty(et.getProduct())) {
+        if(!ObjectUtils.isEmpty(et.getProduct())){
             cn.ibizlab.pms.core.zentao.domain.Product ztproduct=et.getZtproduct();
-            if (ObjectUtils.isEmpty(ztproduct)) {
+            if(ObjectUtils.isEmpty(ztproduct)){
                 cn.ibizlab.pms.core.zentao.domain.Product majorEntity=productService.get(et.getProduct());
                 et.setZtproduct(majorEntity);
-                ztproduct = majorEntity;
+                ztproduct=majorEntity;
             }
             et.setProductname(ztproduct.getName());
         }
         //实体关系[DER1N__ZT_STORY__ZT_STORY__PARENT]
-        if (!ObjectUtils.isEmpty(et.getParent())) {
+        if(!ObjectUtils.isEmpty(et.getParent())){
             cn.ibizlab.pms.core.zentao.domain.Story ztparent=et.getZtparent();
-            if (ObjectUtils.isEmpty(ztparent)) {
+            if(ObjectUtils.isEmpty(ztparent)){
                 cn.ibizlab.pms.core.zentao.domain.Story majorEntity=storyService.get(et.getParent());
                 et.setZtparent(majorEntity);
-                ztparent = majorEntity;
+                ztparent=majorEntity;
             }
             et.setParentname(ztparent.getTitle());
         }
@@ -1138,24 +1139,24 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
 
 
     @Override
-    public List<JSONObject> select(String sql, Map param) {
-        return this.baseMapper.selectBySQL(sql, param);
+    public List<JSONObject> select(String sql, Map param){
+        return this.baseMapper.selectBySQL(sql,param);
     }
 
     @Override
     @Transactional
-    public boolean execute(String sql, Map param) {
+    public boolean execute(String sql , Map param){
         if (sql == null || sql.isEmpty()) {
             return false;
         }
         if (sql.toLowerCase().trim().startsWith("insert")) {
-            return this.baseMapper.insertBySQL(sql, param);
+            return this.baseMapper.insertBySQL(sql,param);
         }
         if (sql.toLowerCase().trim().startsWith("update")) {
-            return this.baseMapper.updateBySQL(sql, param);
+            return this.baseMapper.updateBySQL(sql,param);
         }
         if (sql.toLowerCase().trim().startsWith("delete")) {
-            return this.baseMapper.deleteBySQL(sql, param);
+            return this.baseMapper.deleteBySQL(sql,param);
         }
         log.warn("暂未支持的SQL语法");
         return true;
@@ -1171,11 +1172,11 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
         List ids =new ArrayList();
         for(Story entity : entities){
             Serializable id=entity.getId();
-            if (!ObjectUtils.isEmpty(id)) {
+            if(!ObjectUtils.isEmpty(id)){
                 ids.add(id);
             }
         }
-        if (ids.size() > 0) {
+        if(ids.size()>0) {
             return this.listByIds(ids);
         }
         else {
@@ -1184,9 +1185,9 @@ public class StoryServiceImpl extends ServiceImpl<StoryMapper, Story> implements
     }
 
 
-
-
+    public IStoryService getProxyService() {
+        return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
+    }
 }
-
 
 

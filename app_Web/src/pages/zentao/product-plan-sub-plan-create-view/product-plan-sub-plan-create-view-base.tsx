@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { EditViewBase } from '@/studio-core';
 import SubProductPlanService from '@/service/sub-product-plan/sub-product-plan-service';
 import SubProductPlanAuthService from '@/authservice/sub-product-plan/sub-product-plan-auth-service';
@@ -125,7 +125,7 @@ export class ProductPlanSubPlanCreateViewBase extends EditViewBase {
      * @type {string}
      * @memberof ProductPlanSubPlanCreateViewBase
      */
-	protected viewtag: string = '170c1d558f26cf37236390b28f8aca82';
+	protected viewtag: string = '727ff5c540998137c588dff49ca7f17b';
 
     /**
      * 视图名称

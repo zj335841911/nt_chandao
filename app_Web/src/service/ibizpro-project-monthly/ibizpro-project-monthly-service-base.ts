@@ -1,3 +1,4 @@
+import { Environment } from '@/environments/environment';
 import { Http } from '@/utils';
 import { Util } from '@/utils';
 import EntityService from '../entity-service';
@@ -49,7 +50,7 @@ export default class IbizproProjectMonthlyServiceBase extends EntityService {
      * @memberof IbizproProjectMonthlyServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().get(`/ibizproprojectmonthlies/${context.ibizproprojectmonthly}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/ibizproprojectmonthlies/${context.ibizproprojectmonthly}/select`,isloading);
             
             return res;
     }
@@ -105,7 +106,7 @@ export default class IbizproProjectMonthlyServiceBase extends EntityService {
      * @memberof IbizproProjectMonthlyServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().delete(`/ibizproprojectmonthlies/${context.ibizproprojectmonthly}`,isloading);
+            let res:any = await Http.getInstance().delete(`/ibizproprojectmonthlies/${context.ibizproprojectmonthly}`,isloading);
             return res;
     }
 
@@ -134,7 +135,10 @@ export default class IbizproProjectMonthlyServiceBase extends EntityService {
      * @memberof IbizproProjectMonthlyServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/ibizproprojectmonthlies/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.ibizproprojectmonthly) delete tempData.ibizproprojectmonthly;
+        if(tempData.ibizproprojectmonthlyid) delete tempData.ibizproprojectmonthlyid;
+        let res:any = await  Http.getInstance().get(`/ibizproprojectmonthlies/getdraft`,tempData,isloading);
         res.data.ibizproprojectmonthly = data.ibizproprojectmonthly;
         
         return res;
@@ -150,7 +154,7 @@ export default class IbizproProjectMonthlyServiceBase extends EntityService {
      * @memberof IbizproProjectMonthlyServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/ibizproprojectmonthlies/${context.ibizproprojectmonthly}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/ibizproprojectmonthlies/${context.ibizproprojectmonthly}/checkkey`,data,isloading);
             return res;
     }
 
@@ -164,8 +168,22 @@ export default class IbizproProjectMonthlyServiceBase extends EntityService {
      * @memberof IbizproProjectMonthlyServiceBase
      */
     public async ManualCreateMonthly(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/ibizproprojectmonthlies/${context.ibizproprojectmonthly}/manualcreatemonthly`,data,isloading);
+            let res:any = await Http.getInstance().post(`/ibizproprojectmonthlies/${context.ibizproprojectmonthly}/manualcreatemonthly`,data,isloading);
             return res;
+    }
+
+    /**
+     * ManualCreateMonthlyBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbizproProjectMonthlyServiceBase
+     */
+    public async ManualCreateMonthlyBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/ibizproprojectmonthlies/manualcreatemonthlybatch`,tempData,isloading);
     }
 
     /**
@@ -195,8 +213,22 @@ export default class IbizproProjectMonthlyServiceBase extends EntityService {
      * @memberof IbizproProjectMonthlyServiceBase
      */
     public async SumProjectMonthly(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/ibizproprojectmonthlies/${context.ibizproprojectmonthly}/sumprojectmonthly`,data,isloading);
+            let res:any = await Http.getInstance().post(`/ibizproprojectmonthlies/${context.ibizproprojectmonthly}/sumprojectmonthly`,data,isloading);
             return res;
+    }
+
+    /**
+     * SumProjectMonthlyBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbizproProjectMonthlyServiceBase
+     */
+    public async SumProjectMonthlyBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/ibizproprojectmonthlies/sumprojectmonthlybatch`,tempData,isloading);
     }
 
     /**
@@ -210,7 +242,7 @@ export default class IbizproProjectMonthlyServiceBase extends EntityService {
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/ibizproprojectmonthlies/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/ibizproprojectmonthlies/fetchdefault`,tempData,isloading);
         return res;
     }
 

@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { EditViewBase } from '@/studio-core';
 import BugService from '@/service/bug/bug-service';
 import BugAuthService from '@/authservice/bug/bug-auth-service';
@@ -116,6 +116,10 @@ export class BugStoryTOBugEditViewBase extends EditViewBase {
             isRawValue: false,
             value: 'product',
         },
+        'modulename': {
+            isRawValue: false,
+            value: 'modulename',
+        },
         'project': {
             isRawValue: false,
             value: 'project',
@@ -201,7 +205,7 @@ export class BugStoryTOBugEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof BugStoryTOBugEditViewBase
      */
-	protected viewtag: string = '5a62e423ec79ab9e8e3f26802cc5e68c';
+	protected viewtag: string = 'ecdca86e0402c79cb2a9978ea04f8330';
 
     /**
      * 视图名称

@@ -72,7 +72,7 @@ public class IbizproIndexResource {
 		IbizproIndex domain  = ibizproindexMapping.toDomain(ibizproindexdto);
         domain .setIndexid(ibizproindex_id);
 		ibizproindexService.update(domain );
-		IbizproIndexDTO dto = ibizproindexMapping.toDto(domain );
+		IbizproIndexDTO dto = ibizproindexMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
@@ -110,8 +110,9 @@ public class IbizproIndexResource {
 
     @ApiOperation(value = "获取索引检索草稿", tags = {"索引检索" },  notes = "获取索引检索草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/ibizproindices/getdraft")
-    public ResponseEntity<IbizproIndexDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(ibizproindexMapping.toDto(ibizproindexService.getDraft(new IbizproIndex())));
+    public ResponseEntity<IbizproIndexDTO> getDraft(IbizproIndexDTO dto) {
+        IbizproIndex domain = ibizproindexMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(ibizproindexMapping.toDto(ibizproindexService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查索引检索", tags = {"索引检索" },  notes = "检查索引检索")
@@ -123,8 +124,10 @@ public class IbizproIndexResource {
     @PreAuthorize("hasPermission(this.ibizproindexMapping.toDomain(#ibizproindexdto),'pms-IbizproIndex-Save')")
     @ApiOperation(value = "保存索引检索", tags = {"索引检索" },  notes = "保存索引检索")
 	@RequestMapping(method = RequestMethod.POST, value = "/ibizproindices/save")
-    public ResponseEntity<Boolean> save(@RequestBody IbizproIndexDTO ibizproindexdto) {
-        return ResponseEntity.status(HttpStatus.OK).body(ibizproindexService.save(ibizproindexMapping.toDomain(ibizproindexdto)));
+    public ResponseEntity<IbizproIndexDTO> save(@RequestBody IbizproIndexDTO ibizproindexdto) {
+        IbizproIndex domain = ibizproindexMapping.toDomain(ibizproindexdto);
+        ibizproindexService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(ibizproindexMapping.toDto(domain));
     }
 
     @PreAuthorize("hasPermission(this.ibizproindexMapping.toDomain(#ibizproindexdtos),'pms-IbizproIndex-Save')")
@@ -200,6 +203,7 @@ public class IbizproIndexResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(ibizproindexMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
 
 
 }

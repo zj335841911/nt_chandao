@@ -72,7 +72,7 @@ public class DocLibModuleResource {
 		DocLibModule domain  = doclibmoduleMapping.toDomain(doclibmoduledto);
         domain .setId(doclibmodule_id);
 		doclibmoduleService.update(domain );
-		DocLibModuleDTO dto = doclibmoduleMapping.toDto(domain );
+		DocLibModuleDTO dto = doclibmoduleMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
@@ -110,8 +110,9 @@ public class DocLibModuleResource {
 
     @ApiOperation(value = "获取文档库分类草稿", tags = {"文档库分类" },  notes = "获取文档库分类草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/doclibmodules/getdraft")
-    public ResponseEntity<DocLibModuleDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(doclibmoduleMapping.toDto(doclibmoduleService.getDraft(new DocLibModule())));
+    public ResponseEntity<DocLibModuleDTO> getDraft(DocLibModuleDTO dto) {
+        DocLibModule domain = doclibmoduleMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(doclibmoduleMapping.toDto(doclibmoduleService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查文档库分类", tags = {"文档库分类" },  notes = "检查文档库分类")
@@ -132,9 +133,11 @@ public class DocLibModuleResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-DocLibModule-Collect-all')")
     @ApiOperation(value = "批量处理[收藏]", tags = {"文档库分类" },  notes = "批量处理[收藏]")
-	@RequestMapping(method = RequestMethod.POST, value = "/doclibmodules/{doclibmodule_id}/collectbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/doclibmodules/collectbatch")
     public ResponseEntity<Boolean> collectBatch(@RequestBody List<DocLibModuleDTO> doclibmoduledtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(doclibmoduleService.collectBatch(doclibmoduleMapping.toDomain(doclibmoduledtos)));
+        List<DocLibModule> domains = doclibmoduleMapping.toDomain(doclibmoduledtos);
+        boolean result = doclibmoduleService.collectBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-DocLibModule-DocLibModuleNFavorite-all')")
@@ -173,8 +176,10 @@ public class DocLibModuleResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-DocLibModule-Save-all')")
     @ApiOperation(value = "保存文档库分类", tags = {"文档库分类" },  notes = "保存文档库分类")
 	@RequestMapping(method = RequestMethod.POST, value = "/doclibmodules/save")
-    public ResponseEntity<Boolean> save(@RequestBody DocLibModuleDTO doclibmoduledto) {
-        return ResponseEntity.status(HttpStatus.OK).body(doclibmoduleService.save(doclibmoduleMapping.toDomain(doclibmoduledto)));
+    public ResponseEntity<DocLibModuleDTO> save(@RequestBody DocLibModuleDTO doclibmoduledto) {
+        DocLibModule domain = doclibmoduleMapping.toDomain(doclibmoduledto);
+        doclibmoduleService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(doclibmoduleMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-DocLibModule-Save-all')")
@@ -197,9 +202,11 @@ public class DocLibModuleResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-DocLibModule-UnCollect-all')")
     @ApiOperation(value = "批量处理[取消收藏]", tags = {"文档库分类" },  notes = "批量处理[取消收藏]")
-	@RequestMapping(method = RequestMethod.POST, value = "/doclibmodules/{doclibmodule_id}/uncollectbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/doclibmodules/uncollectbatch")
     public ResponseEntity<Boolean> unCollectBatch(@RequestBody List<DocLibModuleDTO> doclibmoduledtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(doclibmoduleService.unCollectBatch(doclibmoduleMapping.toDomain(doclibmoduledtos)));
+        List<DocLibModule> domains = doclibmoduleMapping.toDomain(doclibmoduledtos);
+        boolean result = doclibmoduleService.unCollectBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-DocLibModule-searchAllDocLibModule_Custom-all')")
@@ -421,6 +428,7 @@ public class DocLibModuleResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(doclibmoduleMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
 
 
 }

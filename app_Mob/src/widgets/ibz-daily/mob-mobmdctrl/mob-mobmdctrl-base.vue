@@ -140,68 +140,6 @@ export default class MobBase extends Vue implements ControlInterface {
     
 
     /**
-     * 逻辑事件
-     *
-     * @protected
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @returns {Promise<any>}
-     * @memberof MdctrlBase
-     */
-    protected async mdctrl_u33edb64_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
-
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let contextJO: any = {};
-        let paramJO: any = {};
-        Object.assign(paramJO, {});
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        // 界面行为
-        const curUIService: any = await this.globaluiservice.getService('ibzdaily_ui_action');
-        if (curUIService) {
-            curUIService.IbzDaily_MobEdit(datas, contextJO, paramJO, $event, xData, this);
-        }
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @protected
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @returns {Promise<any>}
-     * @memberof MdctrlBase
-     */
-    protected async mdctrl_ua123b72_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
-
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let contextJO: any = {};
-        let paramJO: any = {};
-        
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        // 界面行为
-        const curUIService: any = await this.globaluiservice.getService('ibzdaily_ui_action');
-        if (curUIService) {
-            curUIService.IbzDaily_submitMob(datas, contextJO, paramJO, $event, xData, this);
-        }
-    }
-
-    /**
      * 关闭视图
      *
      * @param {any[]} args
@@ -922,12 +860,6 @@ export default class MobBase extends Vue implements ControlInterface {
         $event.stopPropagation();
         this.selectedArray = [];
         this.selectedArray.push(item);
-        if (Object.is(tag, 'u33edb64')) {
-            this.mdctrl_u33edb64_click();
-        }
-        if (Object.is(tag, 'ua123b72')) {
-            this.mdctrl_ua123b72_click();
-        }
         this.closeSlidings(item);
     }
 
@@ -1034,8 +966,6 @@ export default class MobBase extends Vue implements ControlInterface {
      * @memberof MobBase
      */  
     public ActionModel:any ={
-        MobEdit: { name: 'MobEdit',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__DAILY_SUBMIT_BUT', target: 'SINGLEKEY',icon:'edit',isShowCaption:false,isShowIcon:true},
-        submitMob: { name: 'submitMob',disabled: false, visabled: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__DAILY_SUBMIT_BUT', target: 'SINGLEKEY',icon:'check',isShowCaption:false,isShowIcon:true}
     };
 
     

@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { EditViewBase } from '@/studio-core';
 import BugService from '@/service/bug/bug-service';
 import BugAuthService from '@/authservice/bug/bug-auth-service';
@@ -92,6 +92,10 @@ export class BugEditViewBase extends EditViewBase {
 	 * @memberof BugEditViewBase
 	 */
     protected customViewParams: any = {
+        'modulename': {
+            isRawValue: false,
+            value: 'modulename',
+        },
         'productmodule': {
             isRawValue: false,
             value: 'productmodule',

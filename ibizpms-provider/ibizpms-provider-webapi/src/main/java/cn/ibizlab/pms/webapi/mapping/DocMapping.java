@@ -12,4 +12,3 @@ public interface DocMapping extends MappingBase<DocDTO, Doc> {
 
 
 }
-

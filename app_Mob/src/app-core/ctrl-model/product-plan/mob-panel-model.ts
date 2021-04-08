@@ -15,7 +15,22 @@ export class MobModel {
   public getDataItems(): any[] {
     return [
       {
+        name: 'taskscnt',
+      },
+      {
+        name: 'estimatecnt',
+      },
+      {
+        name: 'comment',
+      },
+      {
         name: 'title',
+      },
+      {
+        name: 'delaytaskscnt',
+      },
+      {
+        name: 'oldtitle',
       },
       {
         name: 'productplan',
@@ -25,16 +40,67 @@ export class MobModel {
         name: 'begin',
       },
       {
+        name: 'statuss',
+      },
+      {
         name: 'desc',
       },
       {
         name: 'end',
       },
       {
+        name: 'delay',
+      },
+      {
+        name: 'duration',
+      },
+      {
+        name: 'beginstr',
+      },
+      {
+        name: 'leftestimate',
+      },
+      {
+        name: 'plantemplet',
+      },
+      {
+        name: 'unfinishedtaskscnt',
+      },
+      {
+        name: 'endstr',
+      },
+      {
+        name: 'status',
+      },
+      {
+        name: 'isexpired',
+      },
+      {
         name: 'deleted',
       },
       {
+        name: 'consumedestimate',
+      },
+      {
         name: 'order',
+      },
+      {
+        name: 'isleaf',
+      },
+      {
+        name: 'future',
+      },
+      {
+        name: 'storycnt',
+      },
+      {
+        name: 'delta',
+      },
+      {
+        name: 'finishedtaskscnt',
+      },
+      {
+        name: 'bugcnt',
       },
       {
         name: 'parentname',
@@ -47,39 +113,6 @@ export class MobModel {
       },
       {
         name: 'product',
-      },
-      {
-        name: 'statuss',
-      },
-      {
-        name: 'future',
-      },
-      {
-        name: 'delta',
-      },
-      {
-        name: 'oldtitle',
-      },
-      {
-        name: 'storycnt',
-      },
-      {
-        name: 'bugcnt',
-      },
-      {
-        name: 'isexpired',
-      },
-      {
-        name: 'estimatecnt',
-      },
-      {
-        name: 'beginstr',
-      },
-      {
-        name: 'endstr',
-      },
-      {
-        name: 'plantemplet',
       },
     ]
   }

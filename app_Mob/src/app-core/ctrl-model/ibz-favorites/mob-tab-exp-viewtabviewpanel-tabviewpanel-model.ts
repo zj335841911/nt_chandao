@@ -15,6 +15,9 @@ export class MobTabExpViewtabviewpanelModel {
   public getDataItems(): any[] {
     return [
       {
+        name: 'type',
+      },
+      {
         name: 'createman',
       },
       {
@@ -25,13 +28,7 @@ export class MobTabExpViewtabviewpanelModel {
         name: 'createdate',
       },
       {
-        name: 'ibzfavoritesname',
-      },
-      {
         name: 'updateman',
-      },
-      {
-        name: 'updatedate',
       },
       {
         name: 'objectid',
@@ -40,7 +37,10 @@ export class MobTabExpViewtabviewpanelModel {
         name: 'account',
       },
       {
-        name: 'type',
+        name: 'ibzfavoritesname',
+      },
+      {
+        name: 'updatedate',
       },
     ]
   }

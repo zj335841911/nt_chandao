@@ -196,7 +196,7 @@ export class MainEditFormBase extends EditFormControlBase {
      * @memberof MainBase
      */
     public deRules:any = {
-        consumed:[
+        left:[
                   {
                       type:"VALUERANGE2",
                       condOP:"",
@@ -209,7 +209,7 @@ export class MainEditFormBase extends EditFormControlBase {
                       isIncludeMinValue:true,
                   },
                 ],
-        left:[
+        consumed:[
                   {
                       type:"VALUERANGE2",
                       condOP:"",

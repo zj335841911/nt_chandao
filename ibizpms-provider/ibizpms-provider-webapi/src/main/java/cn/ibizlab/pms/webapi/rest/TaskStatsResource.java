@@ -72,7 +72,7 @@ public class TaskStatsResource {
 		TaskStats domain  = taskstatsMapping.toDomain(taskstatsdto);
         domain .setId(taskstats_id);
 		taskstatsService.update(domain );
-		TaskStatsDTO dto = taskstatsMapping.toDto(domain );
+		TaskStatsDTO dto = taskstatsMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
@@ -110,8 +110,9 @@ public class TaskStatsResource {
 
     @ApiOperation(value = "获取任务统计草稿", tags = {"任务统计" },  notes = "获取任务统计草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/taskstats/getdraft")
-    public ResponseEntity<TaskStatsDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(taskstatsMapping.toDto(taskstatsService.getDraft(new TaskStats())));
+    public ResponseEntity<TaskStatsDTO> getDraft(TaskStatsDTO dto) {
+        TaskStats domain = taskstatsMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(taskstatsMapping.toDto(taskstatsService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查任务统计", tags = {"任务统计" },  notes = "检查任务统计")
@@ -123,8 +124,10 @@ public class TaskStatsResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskStats-Save-all')")
     @ApiOperation(value = "保存任务统计", tags = {"任务统计" },  notes = "保存任务统计")
 	@RequestMapping(method = RequestMethod.POST, value = "/taskstats/save")
-    public ResponseEntity<Boolean> save(@RequestBody TaskStatsDTO taskstatsdto) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskstatsService.save(taskstatsMapping.toDomain(taskstatsdto)));
+    public ResponseEntity<TaskStatsDTO> save(@RequestBody TaskStatsDTO taskstatsdto) {
+        TaskStats domain = taskstatsMapping.toDomain(taskstatsdto);
+        taskstatsService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(taskstatsMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskStats-Save-all')")
@@ -200,6 +203,7 @@ public class TaskStatsResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(taskstatsMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
 
 
 }

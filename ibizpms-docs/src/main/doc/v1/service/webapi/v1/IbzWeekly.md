@@ -502,39 +502,39 @@ POST
 #### IbzWeeklyDTO
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
-| 1 | ibzweeklyname | String | 允许 | 周报名称 |
-| 2 | ibzweeklyid | Long | 不可 | 周报标识 |
-| 3 | createman | String | 不可 | 建立人 |
-| 4 | createdate | Timestamp | 不可 | 建立时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
-| 5 | updateman | String | 不可 | 更新人 |
-| 6 | updatedate | Timestamp | 不可 | 更新时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
-| 7 | account | String | 允许 | 用户 |
-| 8 | mailto | String | 允许 | 抄送给 |
-| 9 | files | String | 允许 | 附件 |
-| 10 | issubmit | String | 允许 | 是否提交 |
-| 11 | reportto | String | 允许 | 汇报给 |
-| 12 | comment | String | 允许 | 其他事项 |
-| 13 | date | Timestamp | 允许 | 日期<br>时间格式：yyyy-MM-dd |
-| 14 | workthisweek | String | 允许 | 本周工作 |
-| 15 | plannextweek | String | 允许 | 下周计划 |
-| 16 | thisweektask | String | 允许 | 本周完成任务 |
-| 17 | nextweektask | String | 允许 | 下周计划任务 |
-| 18 | updatemanname | String | 不可 | 更新人名称 |
-| 19 | createmanname | String | 不可 | 建立人名称 |
-| 20 | reportstatus | String | 允许 | 状态 |
-| 21 | submittime | Timestamp | 允许 | 提交时间<br>时间格式：HH:mm:ss |
-| 22 | reporttopk | String | 允许 | 汇报给(选择) |
-| 23 | mailtopk | String | 允许 | 抄送给(选择) |
+| 1 | issubmit | String | 允许 | 是否提交 |
+| 2 | plannextweek | String | 允许 | 下周计划 |
+| 3 | ibzweeklyname | String | 允许 | 周报名称 |
+| 4 | mailto | String | 允许 | 抄送给 |
+| 5 | reporttopk | String | 允许 | 汇报给(选择) |
+| 6 | nextweektask | String | 允许 | 下周计划任务 |
+| 7 | ibzweeklyid | Long | 不可 | 周报标识 |
+| 8 | submittime | Timestamp | 允许 | 提交时间<br>时间格式：HH:mm:ss |
+| 9 | mailtopk | String | 允许 | 抄送给(选择) |
+| 10 | createman | String | 不可 | 建立人 |
+| 11 | reportstatus | String | 允许 | 状态 |
+| 12 | files | String | 允许 | 附件 |
+| 13 | workthisweek | String | 允许 | 本周工作 |
+| 14 | reportto | String | 允许 | 汇报给 |
+| 15 | updatemanname | String | 不可 | 更新人名称 |
+| 16 | account | String | 允许 | 用户 |
+| 17 | thisweektask | String | 允许 | 本周完成任务 |
+| 18 | comment | String | 允许 | 其他事项 |
+| 19 | date | Timestamp | 允许 | 日期<br>时间格式：yyyy-MM-dd |
+| 20 | updateman | String | 不可 | 更新人 |
+| 21 | createmanname | String | 不可 | 建立人名称 |
+| 22 | createdate | Timestamp | 不可 | 建立时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
+| 23 | updatedate | Timestamp | 不可 | 更新时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
 | 24 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### IbzWeeklySearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
-| 1 | n_ibz_weeklyname_like | String | 允许 | 条件字段：ibz_weeklyname<br>条件组合方式：`%like%` |
-| 2 | n_account_eq | String | 允许 | 条件字段：account<br>条件组合方式：`=` |
-| 3 | n_issubmit_eq | String | 允许 | 条件字段：issubmit<br>条件组合方式：`=` |
+| 1 | n_issubmit_eq | String | 允许 | 条件字段：issubmit<br>条件组合方式：`=` |
+| 2 | n_ibz_weeklyname_like | String | 允许 | 条件字段：ibz_weeklyname<br>条件组合方式：`%like%` |
+| 3 | n_reportstatus_eq | String | 允许 | 条件字段：reportstatus<br>条件组合方式：`=` |
 | 4 | n_reportto_eq | String | 允许 | 条件字段：reportto<br>条件组合方式：`=` |
-| 5 | n_reportstatus_eq | String | 允许 | 条件字段：reportstatus<br>条件组合方式：`=` |
+| 5 | n_account_eq | String | 允许 | 条件字段：account<br>条件组合方式：`=` |
 | 6 | customcond | String | 允许 | 自定义查询条件 |
 | 7 | customparams | String | 允许 | 自定义查询参数 |
 | 8 | query | String | 允许 | 快速搜索 |

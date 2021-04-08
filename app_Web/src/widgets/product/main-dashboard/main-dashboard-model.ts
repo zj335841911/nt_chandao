@@ -15,13 +15,40 @@ export default class MainModel {
   public getDataItems(): any[] {
     return [
       {
+        name: 'orgid',
+      },
+      {
+        name: 'istop',
+      },
+      {
+        name: 'comment',
+      },
+      {
         name: 'qd',
+      },
+      {
+        name: 'productclass',
+      },
+      {
+        name: 'unconfirmbugcnt',
       },
       {
         name: 'acl',
       },
       {
         name: 'name',
+      },
+      {
+        name: 'mobimage',
+      },
+      {
+        name: 'testtaskcnt',
+      },
+      {
+        name: 'testsuitecnt',
+      },
+      {
+        name: 'productplancnt',
       },
       {
         name: 'product',
@@ -31,10 +58,31 @@ export default class MainModel {
         name: 'deleted',
       },
       {
+        name: 'closedstorycnt',
+      },
+      {
+        name: 'relatedbugcnt',
+      },
+      {
         name: 'whitelist',
       },
       {
+        name: 'mdeptid',
+      },
+      {
+        name: 'releasecnt',
+      },
+      {
         name: 'rd',
+      },
+      {
+        name: 'popk',
+      },
+      {
+        name: 'notclosedbugcnt',
+      },
+      {
+        name: 'supproreport',
       },
       {
         name: 'order',
@@ -46,16 +94,43 @@ export default class MainModel {
         name: 'po',
       },
       {
+        name: 'qdpk',
+      },
+      {
         name: 'desc',
       },
       {
         name: 'status',
       },
       {
+        name: 'changedstorycnt',
+      },
+      {
+        name: 'activebugcnt',
+      },
+      {
         name: 'createdby',
       },
       {
+        name: 'rdpk',
+      },
+      {
         name: 'createdversion',
+      },
+      {
+        name: 'draftstorycnt',
+      },
+      {
+        name: 'doccnt',
+      },
+      {
+        name: 'casecnt',
+      },
+      {
+        name: 'relatedprojects',
+      },
+      {
+        name: 'ibiz_id',
       },
       {
         name: 'substatus',
@@ -64,100 +139,28 @@ export default class MainModel {
         name: 'code',
       },
       {
+        name: 'srfcount',
+      },
+      {
+        name: 'order1',
+      },
+      {
+        name: 'buildcnt',
+      },
+      {
         name: 'createddate',
+      },
+      {
+        name: 'noticeusers',
+      },
+      {
+        name: 'activestorycnt',
       },
       {
         name: 'linename',
       },
       {
         name: 'line',
-      },
-      {
-        name: 'activebugcnt',
-      },
-      {
-        name: 'productplancnt',
-      },
-      {
-        name: 'releasecnt',
-      },
-      {
-        name: 'activestorycnt',
-      },
-      {
-        name: 'unconfirmbugcnt',
-      },
-      {
-        name: 'notclosedbugcnt',
-      },
-      {
-        name: 'comment',
-      },
-      {
-        name: 'relatedbugcnt',
-      },
-      {
-        name: 'changedstorycnt',
-      },
-      {
-        name: 'draftstorycnt',
-      },
-      {
-        name: 'closedstorycnt',
-      },
-      {
-        name: 'relatedprojects',
-      },
-      {
-        name: 'doccnt',
-      },
-      {
-        name: 'buildcnt',
-      },
-      {
-        name: 'casecnt',
-      },
-      {
-        name: 'srfcount',
-      },
-      {
-        name: 'mobimage',
-      },
-      {
-        name: 'order1',
-      },
-      {
-        name: 'istop',
-      },
-      {
-        name: 'testtaskcnt',
-      },
-      {
-        name: 'testsuitecnt',
-      },
-      {
-        name: 'popk',
-      },
-      {
-        name: 'qdpk',
-      },
-      {
-        name: 'rdpk',
-      },
-      {
-        name: 'noticeusers',
-      },
-      {
-        name: 'orgid',
-      },
-      {
-        name: 'mdeptid',
-      },
-      {
-        name: 'ibiz_id',
-      },
-      {
-        name: 'supproreport',
       },
     ]
   }

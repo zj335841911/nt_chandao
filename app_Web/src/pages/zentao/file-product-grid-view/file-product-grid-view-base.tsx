@@ -1,6 +1,6 @@
 
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { GridViewBase } from '@/studio-core';
 import FileService from '@/service/file/file-service';
 import FileAuthService from '@/authservice/file/file-auth-service';
@@ -126,6 +126,10 @@ export class FileProductGridViewBase extends GridViewBase {
      * @memberof FileProductGridView
      */
     public toolBarModels: any = {
+        deuiaction1: { name: 'deuiaction1', caption: 'entities.file.productgridviewtoolbar_toolbar.deuiaction1.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.file.productgridviewtoolbar_toolbar.deuiaction1.tip', iconcls: 'download', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'BatchDownload', target: 'MULTIKEY', class: '' } },
+
+        deuiaction2: { name: 'deuiaction2', caption: 'entities.file.productgridviewtoolbar_toolbar.deuiaction2.caption', 'isShowCaption': true, 'isShowIcon': true, tooltip: 'entities.file.productgridviewtoolbar_toolbar.deuiaction2.tip', iconcls: 'download', icon: '', disabled: false, type: 'DEUIACTION', visible: true,noprivdisplaymode:2,dataaccaction: '', uiaction: { tag: 'AllDownload', target: 'NONE', class: '' } },
+
     };
 
 
@@ -137,7 +141,7 @@ export class FileProductGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof FileProductGridViewBase
      */
-	protected viewtag: string = 'bfdd5a8d625f1be3f009084fbc16c909';
+	protected viewtag: string = '25604124fe30ec7cc83066e3e058b0ec';
 
     /**
      * 视图名称
@@ -194,11 +198,11 @@ export class FileProductGridViewBase extends GridViewBase {
      * @memberof FileProductGridViewBase
      */
     public toolbar_click($event: any, $event2?: any): void {
-        if (Object.is($event.tag, 'tbitem13')) {
-            this.toolbar_tbitem13_click(null, '', $event2);
-        }
         if (Object.is($event.tag, 'deuiaction1')) {
             this.toolbar_deuiaction1_click(null, '', $event2);
+        }
+        if (Object.is($event.tag, 'deuiaction2')) {
+            this.toolbar_deuiaction2_click(null, '', $event2);
         }
     }
 
@@ -298,34 +302,6 @@ export class FileProductGridViewBase extends GridViewBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public toolbar_tbitem13_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this.$refs.grid;
-        if (xData.getDatas && xData.getDatas instanceof Function) {
-            datas = [...xData.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        this.ExportExcel(datas, contextJO,paramJO,  $event, xData,this,"File");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
     public toolbar_deuiaction1_click(params: any = {}, tag?: any, $event?: any) {
         // 参数
         // 取数
@@ -343,44 +319,39 @@ export class FileProductGridViewBase extends GridViewBase {
           datas = [params];
         }
         // 界面行为
-        this.ToggleFilter(datas, contextJO,paramJO,  $event, xData,this,"File");
+        const curUIService:FileUIService  = new FileUIService();
+        curUIService.File_BatchDownload(datas,contextJO, paramJO,  $event, xData,this,"File");
     }
 
     /**
-     * 导出
+     * 逻辑事件
      *
-     * @param {any[]} args 当前数据
-     * @param {any} contextJO 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @memberof FileProductGridViewBase
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
      */
-    public ExportExcel(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    public toolbar_deuiaction2_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
         const _this: any = this;
-        if (!xData || !(xData.exportExcel instanceof Function) || !$event) {
-            return ;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this.$refs.grid;
+        if (xData.getDatas && xData.getDatas instanceof Function) {
+            datas = [...xData.getDatas()];
         }
-        xData.exportExcel($event.exportparms);
-    }
-    /**
-     * 过滤
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} contextJO 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @memberof FileProductGridViewBase
-     */
-    public ToggleFilter(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-        const _this: any = this;
-        if (_this.hasOwnProperty('isExpandSearchForm')) {
-            _this.isExpandSearchForm = !_this.isExpandSearchForm;
+        if(params){
+          datas = [params];
         }
+        // 界面行为
+        const curUIService:FileUIService  = new FileUIService();
+        curUIService.File_AllDownload(datas,contextJO, paramJO,  $event, xData,this,"File");
     }
+
 
     /**
      * 表格行数据默认激活模式

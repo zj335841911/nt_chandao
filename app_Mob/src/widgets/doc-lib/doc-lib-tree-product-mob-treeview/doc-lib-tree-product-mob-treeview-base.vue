@@ -95,10 +95,10 @@ import DocLibEntityService from '@/app-core/service/doc-lib/doc-lib-service';
 import DocLibTreeProductMobService from '@/app-core/ctrl-service/doc-lib/doc-lib-tree-product-mob-treeview-service';
 import AppCenterService from "@/ibiz-core/app-service/app/app-center-service";
 
-import DocLibModuleUIService from '@/ui-service/doc-lib-module/doc-lib-module-ui-action';
-import FileUIService from '@/ui-service/file/file-ui-action';
 import DocLibUIService from '@/ui-service/doc-lib/doc-lib-ui-action';
 import DocUIService from '@/ui-service/doc/doc-ui-action';
+import DocLibModuleUIService from '@/ui-service/doc-lib-module/doc-lib-module-ui-action';
+import FileUIService from '@/ui-service/file/file-ui-action';
 
 import { Util } from '@ibiz-core/utils'
 
@@ -321,6 +321,134 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      * @returns {Promise<any>}
      * @memberof TreeBase
      */
+    protected async doclib_cm_deuiaction1_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+        // 参数
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('doclib_ui_action');
+        if (curUIService) {
+            curUIService.DocLib_UnCollect(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof TreeBase
+     */
+    protected async doclib_cm_deuiaction2_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+        // 参数
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('doclib_ui_action');
+        if (curUIService) {
+            curUIService.DocLib_Collect(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof TreeBase
+     */
+    protected async doclibdoc_cm_deuiaction1_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+        // 参数
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        Object.assign(paramJO, {});
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('doc_ui_action');
+        if (curUIService) {
+            curUIService.Doc_Collect(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof TreeBase
+     */
+    protected async doclibdoc_cm_deuiaction2_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+        // 参数
+
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let contextJO: any = {};
+        let paramJO: any = {};
+        Object.assign(paramJO, {});
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        // 界面行为
+        const curUIService: any = await this.globaluiservice.getService('doc_ui_action');
+        if (curUIService) {
+            curUIService.Doc_UnCollect(datas, contextJO, paramJO, $event, xData, this);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @protected
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @returns {Promise<any>}
+     * @memberof TreeBase
+     */
     protected async childdoclibmodule_cm_deuiaction1_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
         // 参数
 
@@ -449,70 +577,6 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      * @returns {Promise<any>}
      * @memberof TreeBase
      */
-    protected async doclib_cm_deuiaction1_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
-        // 参数
-
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let contextJO: any = {};
-        let paramJO: any = {};
-        
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        // 界面行为
-        const curUIService: any = await this.globaluiservice.getService('doclib_ui_action');
-        if (curUIService) {
-            curUIService.DocLib_UnCollect(datas, contextJO, paramJO, $event, xData, this);
-        }
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @protected
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @returns {Promise<any>}
-     * @memberof TreeBase
-     */
-    protected async doclib_cm_deuiaction2_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
-        // 参数
-
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let contextJO: any = {};
-        let paramJO: any = {};
-        
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        // 界面行为
-        const curUIService: any = await this.globaluiservice.getService('doclib_ui_action');
-        if (curUIService) {
-            curUIService.DocLib_Collect(datas, contextJO, paramJO, $event, xData, this);
-        }
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @protected
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @returns {Promise<any>}
-     * @memberof TreeBase
-     */
     protected async rootdoclibmodule_cm_deuiaction1_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
         // 参数
 
@@ -610,70 +674,6 @@ export default class DocLibTreeProductMobBase extends Vue implements ControlInte
      * @memberof TreeBase
      */
     protected async moduledoc_cm_deuiaction2_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
-        // 参数
-
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let contextJO: any = {};
-        let paramJO: any = {};
-        Object.assign(paramJO, {});
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        // 界面行为
-        const curUIService: any = await this.globaluiservice.getService('doc_ui_action');
-        if (curUIService) {
-            curUIService.Doc_UnCollect(datas, contextJO, paramJO, $event, xData, this);
-        }
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @protected
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @returns {Promise<any>}
-     * @memberof TreeBase
-     */
-    protected async doclibdoc_cm_deuiaction1_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
-        // 参数
-
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let contextJO: any = {};
-        let paramJO: any = {};
-        Object.assign(paramJO, {});
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        // 界面行为
-        const curUIService: any = await this.globaluiservice.getService('doc_ui_action');
-        if (curUIService) {
-            curUIService.Doc_Collect(datas, contextJO, paramJO, $event, xData, this);
-        }
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @protected
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @returns {Promise<any>}
-     * @memberof TreeBase
-     */
-    protected async doclibdoc_cm_deuiaction2_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
         // 参数
 
         // 取数

@@ -74,7 +74,7 @@ export class Main_BuildSubGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u4de0e38_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u92f0290_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -586,7 +586,7 @@ export class Main_BuildSubGridBase extends GridControlBase {
 	public uiAction(row: any, tag: any, $event: any): void {
         $event.stopPropagation();
         if(Object.is('buildUnlinkStory', tag)) {
-            this.grid_uagridcolumn1_u4de0e38_click(row, tag, $event);
+            this.grid_uagridcolumn1_u92f0290_click(row, tag, $event);
         }
     }
 

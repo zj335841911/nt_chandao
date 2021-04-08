@@ -24,6 +24,8 @@ import java.io.Serializable;
 import lombok.*;
 import org.springframework.data.annotation.Transient;
 import cn.ibizlab.pms.util.annotation.Audit;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -39,10 +41,28 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
 @TableName(value = "zt_module", resultMap = "ProjectModuleResultMap")
+@ApiModel("任务模块")
 public class ProjectModule extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    /**
+     * 简称
+     */
+    @DEField(defaultValue = "/")
+    @TableField(value = "`short`")
+    @JSONField(name = "ibizshort")
+    @JsonProperty("ibizshort")
+    @ApiModelProperty("简称")
+    private String ibizshort;
+    /**
+     * 叶子模块
+     */
+    @TableField(exist = false)
+    @JSONField(name = "isleaf")
+    @JsonProperty("isleaf")
+    @ApiModelProperty("叶子模块")
+    private String isleaf;
     /**
      * 类型（task）
      */
@@ -50,7 +70,33 @@ public class ProjectModule extends EntityMP implements Serializable {
     @TableField(value = "`type`")
     @JSONField(name = "type")
     @JsonProperty("type")
+    @ApiModelProperty("类型（task）")
     private String type;
+    /**
+     * 数据选择排序
+     */
+    @TableField(exist = false)
+    @JSONField(name = "orderpk")
+    @JsonProperty("orderpk")
+    @ApiModelProperty("数据选择排序")
+    private String orderpk;
+    /**
+     * 名称
+     */
+    @TableField(value = "`name`")
+    @JSONField(name = "name")
+    @JsonProperty("name")
+    @ApiModelProperty("名称")
+    private String name;
+    /**
+     * 排序值
+     */
+    @DEField(defaultValue = "0", preType = DEPredefinedFieldType.ORDERVALUE)
+    @TableField(value = "`order`")
+    @JSONField(name = "order")
+    @JsonProperty("order")
+    @ApiModelProperty("排序值")
+    private Integer order;
     /**
      * collector
      */
@@ -58,7 +104,35 @@ public class ProjectModule extends EntityMP implements Serializable {
     @TableField(value = "`collector`")
     @JSONField(name = "collector")
     @JsonProperty("collector")
+    @ApiModelProperty("collector")
     private String collector;
+    /**
+     * grade
+     */
+    @DEField(defaultValue = "0")
+    @TableField(value = "`grade`")
+    @JSONField(name = "grade")
+    @JsonProperty("grade")
+    @ApiModelProperty("grade")
+    private Integer grade;
+    /**
+     * branch
+     */
+    @DEField(defaultValue = "0")
+    @TableField(value = "`branch`")
+    @JSONField(name = "branch")
+    @JsonProperty("branch")
+    @ApiModelProperty("branch")
+    private Integer branch;
+    /**
+     * path
+     */
+    @DEField(defaultValue = ",")
+    @TableField(value = "`path`")
+    @JSONField(name = "path")
+    @JsonProperty("path")
+    @ApiModelProperty("path")
+    private String path;
     /**
      * id
      */
@@ -66,7 +140,17 @@ public class ProjectModule extends EntityMP implements Serializable {
     @TableId(value = "id", type = IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
+    @ApiModelProperty("id")
     private Long id;
+    /**
+     * owner
+     */
+    @DEField(defaultValue = "/")
+    @TableField(value = "`owner`")
+    @JSONField(name = "owner")
+    @JsonProperty("owner")
+    @ApiModelProperty("owner")
+    private String owner;
     /**
      * 逻辑删除标志
      */
@@ -75,89 +159,15 @@ public class ProjectModule extends EntityMP implements Serializable {
     @TableField(value = "`deleted`")
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
+    @ApiModelProperty("逻辑删除标志")
     private String deleted;
-    /**
-     * 叶子模块
-     */
-    @TableField(exist = false)
-    @JSONField(name = "isleaf")
-    @JsonProperty("isleaf")
-    private String isleaf;
-    /**
-     * path
-     */
-    @DEField(defaultValue = ",")
-    @TableField(value = "`path`")
-    @JSONField(name = "path")
-    @JsonProperty("path")
-    private String path;
-    /**
-     * owner
-     */
-    @DEField(defaultValue = "/")
-    @TableField(value = "`owner`")
-    @JSONField(name = "owner")
-    @JsonProperty("owner")
-    private String owner;
-    /**
-     * 简称
-     */
-    @DEField(defaultValue = "/")
-    @TableField(value = "`short`")
-    @JSONField(name = "ibizshort")
-    @JsonProperty("ibizshort")
-    private String ibizshort;
-    /**
-     * 名称
-     */
-    @TableField(value = "`name`")
-    @JSONField(name = "name")
-    @JsonProperty("name")
-    private String name;
-    /**
-     * grade
-     */
-    @DEField(defaultValue = "0")
-    @TableField(value = "`grade`")
-    @JSONField(name = "grade")
-    @JsonProperty("grade")
-    private Integer grade;
-    /**
-     * 排序值
-     */
-    @DEField(defaultValue = "0", preType = DEPredefinedFieldType.ORDERVALUE)
-    @TableField(value = "`order`")
-    @JSONField(name = "order")
-    @JsonProperty("order")
-    private Integer order;
-    /**
-     * branch
-     */
-    @DEField(defaultValue = "0")
-    @TableField(value = "`branch`")
-    @JSONField(name = "branch")
-    @JsonProperty("branch")
-    private Integer branch;
-    /**
-     * id
-     */
-    @TableField(value = "`parent`")
-    @JSONField(name = "parent")
-    @JsonProperty("parent")
-    private Long parent;
-    /**
-     * 项目
-     */
-    @TableField(value = "`root`")
-    @JSONField(name = "root")
-    @JsonProperty("root")
-    private Long root;
     /**
      * 所属项目
      */
     @TableField(exist = false)
     @JSONField(name = "rootname")
     @JsonProperty("rootname")
+    @ApiModelProperty("所属项目")
     private String rootname;
     /**
      * 上级模块
@@ -165,14 +175,24 @@ public class ProjectModule extends EntityMP implements Serializable {
     @TableField(exist = false)
     @JSONField(name = "parentname")
     @JsonProperty("parentname")
+    @ApiModelProperty("上级模块")
     private String parentname;
     /**
-     * 数据选择排序
+     * 项目
      */
-    @TableField(exist = false)
-    @JSONField(name = "orderpk")
-    @JsonProperty("orderpk")
-    private String orderpk;
+    @TableField(value = "`root`")
+    @JSONField(name = "root")
+    @JsonProperty("root")
+    @ApiModelProperty("项目")
+    private Long root;
+    /**
+     * id
+     */
+    @TableField(value = "`parent`")
+    @JSONField(name = "parent")
+    @JsonProperty("parent")
+    @ApiModelProperty("id")
+    private Long parent;
 
     /**
      * 
@@ -193,38 +213,6 @@ public class ProjectModule extends EntityMP implements Serializable {
 
 
     /**
-     * 设置 [类型（task）]
-     */
-    public void setType(String type) {
-        this.type = type;
-        this.modify("type", type);
-    }
-
-    /**
-     * 设置 [collector]
-     */
-    public void setCollector(String collector) {
-        this.collector = collector;
-        this.modify("collector", collector);
-    }
-
-    /**
-     * 设置 [path]
-     */
-    public void setPath(String path) {
-        this.path = path;
-        this.modify("path", path);
-    }
-
-    /**
-     * 设置 [owner]
-     */
-    public void setOwner(String owner) {
-        this.owner = owner;
-        this.modify("owner", owner);
-    }
-
-    /**
      * 设置 [简称]
      */
     public void setIbizshort(String ibizshort) {
@@ -233,11 +221,27 @@ public class ProjectModule extends EntityMP implements Serializable {
     }
 
     /**
+     * 设置 [类型（task）]
+     */
+    public void setType(String type) {
+        this.type = type;
+        this.modify("type", type);
+    }
+
+    /**
      * 设置 [名称]
      */
     public void setName(String name) {
         this.name = name;
         this.modify("name", name);
+    }
+
+    /**
+     * 设置 [collector]
+     */
+    public void setCollector(String collector) {
+        this.collector = collector;
+        this.modify("collector", collector);
     }
 
     /**
@@ -257,11 +261,19 @@ public class ProjectModule extends EntityMP implements Serializable {
     }
 
     /**
-     * 设置 [id]
+     * 设置 [path]
      */
-    public void setParent(Long parent) {
-        this.parent = parent;
-        this.modify("parent", parent);
+    public void setPath(String path) {
+        this.path = path;
+        this.modify("path", path);
+    }
+
+    /**
+     * 设置 [owner]
+     */
+    public void setOwner(String owner) {
+        this.owner = owner;
+        this.modify("owner", owner);
     }
 
     /**
@@ -270,6 +282,14 @@ public class ProjectModule extends EntityMP implements Serializable {
     public void setRoot(Long root) {
         this.root = root;
         this.modify("root", root);
+    }
+
+    /**
+     * 设置 [id]
+     */
+    public void setParent(Long parent) {
+        this.parent = parent;
+        this.modify("parent", parent);
     }
 
 

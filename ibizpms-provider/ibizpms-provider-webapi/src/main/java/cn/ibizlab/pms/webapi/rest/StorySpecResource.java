@@ -72,7 +72,7 @@ public class StorySpecResource {
 		StorySpec domain  = storyspecMapping.toDomain(storyspecdto);
         domain .setId(storyspec_id);
 		storyspecService.update(domain );
-		StorySpecDTO dto = storyspecMapping.toDto(domain );
+		StorySpecDTO dto = storyspecMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
@@ -110,8 +110,9 @@ public class StorySpecResource {
 
     @ApiOperation(value = "获取需求描述草稿", tags = {"需求描述" },  notes = "获取需求描述草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/storyspecs/getdraft")
-    public ResponseEntity<StorySpecDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(storyspecMapping.toDto(storyspecService.getDraft(new StorySpec())));
+    public ResponseEntity<StorySpecDTO> getDraft(StorySpecDTO dto) {
+        StorySpec domain = storyspecMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(storyspecMapping.toDto(storyspecService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查需求描述", tags = {"需求描述" },  notes = "检查需求描述")
@@ -123,8 +124,10 @@ public class StorySpecResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-StorySpec-Save-all')")
     @ApiOperation(value = "保存需求描述", tags = {"需求描述" },  notes = "保存需求描述")
 	@RequestMapping(method = RequestMethod.POST, value = "/storyspecs/save")
-    public ResponseEntity<Boolean> save(@RequestBody StorySpecDTO storyspecdto) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyspecService.save(storyspecMapping.toDomain(storyspecdto)));
+    public ResponseEntity<StorySpecDTO> save(@RequestBody StorySpecDTO storyspecdto) {
+        StorySpec domain = storyspecMapping.toDomain(storyspecdto);
+        storyspecService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(storyspecMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-StorySpec-Save-all')")
@@ -178,6 +181,7 @@ public class StorySpecResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(storyspecMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
 
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-StorySpec-Create-all')")
@@ -253,8 +257,8 @@ public class StorySpecResource {
 
     @ApiOperation(value = "根据需求获取需求描述草稿", tags = {"需求描述" },  notes = "根据需求获取需求描述草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/stories/{story_id}/storyspecs/getdraft")
-    public ResponseEntity<StorySpecDTO> getDraftByStory(@PathVariable("story_id") Long story_id) {
-        StorySpec domain = new StorySpec();
+    public ResponseEntity<StorySpecDTO> getDraftByStory(@PathVariable("story_id") Long story_id, StorySpecDTO dto) {
+        StorySpec domain = storyspecMapping.toDomain(dto);
         domain.setStory(story_id);
         return ResponseEntity.status(HttpStatus.OK).body(storyspecMapping.toDto(storyspecService.getDraft(domain)));
     }
@@ -268,10 +272,11 @@ public class StorySpecResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-StorySpec-Save-all')")
     @ApiOperation(value = "根据需求保存需求描述", tags = {"需求描述" },  notes = "根据需求保存需求描述")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/storyspecs/save")
-    public ResponseEntity<Boolean> saveByStory(@PathVariable("story_id") Long story_id, @RequestBody StorySpecDTO storyspecdto) {
+    public ResponseEntity<StorySpecDTO> saveByStory(@PathVariable("story_id") Long story_id, @RequestBody StorySpecDTO storyspecdto) {
         StorySpec domain = storyspecMapping.toDomain(storyspecdto);
         domain.setStory(story_id);
-        return ResponseEntity.status(HttpStatus.OK).body(storyspecService.save(domain));
+        storyspecService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(storyspecMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-StorySpec-Save-all')")
@@ -405,8 +410,8 @@ public class StorySpecResource {
 
     @ApiOperation(value = "根据产品需求获取需求描述草稿", tags = {"需求描述" },  notes = "根据产品需求获取需求描述草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/stories/{story_id}/storyspecs/getdraft")
-    public ResponseEntity<StorySpecDTO> getDraftByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id) {
-        StorySpec domain = new StorySpec();
+    public ResponseEntity<StorySpecDTO> getDraftByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, StorySpecDTO dto) {
+        StorySpec domain = storyspecMapping.toDomain(dto);
         domain.setStory(story_id);
         return ResponseEntity.status(HttpStatus.OK).body(storyspecMapping.toDto(storyspecService.getDraft(domain)));
     }
@@ -420,10 +425,11 @@ public class StorySpecResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-StorySpec-Save-all')")
     @ApiOperation(value = "根据产品需求保存需求描述", tags = {"需求描述" },  notes = "根据产品需求保存需求描述")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/storyspecs/save")
-    public ResponseEntity<Boolean> saveByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody StorySpecDTO storyspecdto) {
+    public ResponseEntity<StorySpecDTO> saveByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody StorySpecDTO storyspecdto) {
         StorySpec domain = storyspecMapping.toDomain(storyspecdto);
         domain.setStory(story_id);
-        return ResponseEntity.status(HttpStatus.OK).body(storyspecService.save(domain));
+        storyspecService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(storyspecMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-StorySpec-Save-all')")

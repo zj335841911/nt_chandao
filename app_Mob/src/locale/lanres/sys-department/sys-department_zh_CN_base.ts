@@ -17,8 +17,8 @@ export default {
     parentdeptname: "上级部门",
     createdate: "建立时间",
     enable: "逻辑有效标志",
-    createman: "建立人",
     updateman: "更新人",
     updatedate: "更新时间",
+    createman: "建立人",
   },
 };

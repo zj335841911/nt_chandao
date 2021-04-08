@@ -113,6 +113,7 @@ export class TaskEstimateEditFormBase extends EditFormControlBase {
         srfsourcekey: null,
         id: null,
         name: null,
+        project: null,
         status: null,
         task: null,
     };
@@ -230,6 +231,13 @@ export class TaskEstimateEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
+        project: new FormItemModel({
+    caption: '所属项目', detailType: 'FORMITEM', name: 'project', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
         status: new FormItemModel({
     caption: '任务状态', detailType: 'FORMITEM', name: 'status', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
@@ -274,6 +282,7 @@ export class TaskEstimateEditFormBase extends EditFormControlBase {
             }
             this.detailsModel.druipart1.setVisible(ret);
         }
+
 
 
 

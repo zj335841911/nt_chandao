@@ -96,19 +96,19 @@ export default class IbzproProjectUserTaskUIServiceBase extends UIService {
      * @memberof  IbzproProjectUserTaskUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set('EDITVIEW:', {
-            viewname: 'editview',
+        this.allViewMap.set('MDATAVIEW:', {
+            viewname: 'gridview',
             srfappde: 'ibzproprojectusertasks',
-            component: 'ibzpro-project-user-task-edit-view',
+            component: 'ibzpro-project-user-task-grid-view',
             openmode: '',
             title: '项目汇报用户任务',
             width: 0,
             height: 0
         });
-        this.allViewMap.set('MDATAVIEW:', {
-            viewname: 'gridview',
+        this.allViewMap.set('EDITVIEW:', {
+            viewname: 'editview',
             srfappde: 'ibzproprojectusertasks',
-            component: 'ibzpro-project-user-task-grid-view',
+            component: 'ibzpro-project-user-task-edit-view',
             openmode: '',
             title: '项目汇报用户任务',
             width: 0,
@@ -169,9 +169,9 @@ export default class IbzproProjectUserTaskUIServiceBase extends UIService {
         Object.assign(data,parentObj);
         Object.assign(context,parentObj);
         let deResParameters: any[] = [];
-        if(context.story && true){
+        if(context.projectmodule && true){
             deResParameters = [
-            { pathName: 'stories', parameterName: 'story' },
+            { pathName: 'projectmodules', parameterName: 'projectmodule' },
             ]
         }
         const parameters: any[] = [

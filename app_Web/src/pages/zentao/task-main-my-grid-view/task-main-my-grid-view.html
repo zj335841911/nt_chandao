@@ -4,7 +4,7 @@
         clearable
         
         v-model="query"
-        :placeholder="$t('entities.task.fields.name')"
+        :placeholder="$t('entities.task.fields.id')+','+$t('entities.task.fields.name')"
         search
         @on-search="onSearch($event)"
     ></i-input>
@@ -27,7 +27,7 @@
             v-show="isExpandSearchForm"
             @search="onSearch($event)"
             name="searchbar"  
-            ref="searchbar"
+            ref="searchbar" 
             @closeview="closeView($event)">
         </view_searchbar>
     </template>
@@ -50,7 +50,7 @@
         :newdata="newdata.bind(_self)"
         :opendata="opendata.bind(_self)"
         name="grid"  
-        ref="grid"
+        ref="grid" 
         @selectionchange="grid_selectionchange($event)"  
         @beforeload="grid_beforeload($event)"  
         @rowdblclick="grid_rowdblclick($event)"  

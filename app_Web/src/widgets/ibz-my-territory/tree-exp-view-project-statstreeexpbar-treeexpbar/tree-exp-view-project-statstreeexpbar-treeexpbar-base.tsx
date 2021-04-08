@@ -108,16 +108,16 @@ export class TreeExpViewProjectStatstreeexpbarTreeExpBarBase extends TreeExpBarC
         if (!expmode) {
             expmode = '';
         }
-        if (Object.is(expmode, 'TASKSTATUSCOUNT')) {
+        if (Object.is(expmode, 'PROJECTPROGRESS')) {
             return {  
-                viewname: 'project-stats-usr2-grid-view-task-status-count', 
+                viewname: 'project-stats-project-progress-usr2-grid-view', 
                 parentdata: {},
                 deKeyField:'projectstats'
 			};
         }
-        if (Object.is(expmode, 'PROJECTPROGRESS')) {
+        if (Object.is(expmode, 'TASKSTATUSCOUNT')) {
             return {  
-                viewname: 'project-stats-project-progress-usr2-grid-view', 
+                viewname: 'project-stats-usr2-grid-view-task-status-count', 
                 parentdata: {},
                 deKeyField:'projectstats'
 			};

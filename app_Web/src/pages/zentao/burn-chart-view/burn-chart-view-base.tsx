@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { ChartViewBase } from '@/studio-core';
 import BurnService from '@/service/burn/burn-service';
 import BurnAuthService from '@/authservice/burn/burn-auth-service';
@@ -113,7 +113,7 @@ export class BurnChartViewBase extends ChartViewBase {
      * @type {string}
      * @memberof BurnChartViewBase
      */
-	protected viewtag: string = '441544d65ca067ea5ea625645b70e610';
+	protected viewtag: string = 'bba3204a7f64b5eafe512a6b63658910';
 
     /**
      * 视图名称
@@ -235,6 +235,14 @@ export class BurnChartViewBase extends ChartViewBase {
     public isEnableQuickGroup: boolean = true;
 
     /**
+     * 快速分组代码表标识
+     *
+     * @type {boolean}
+     * @memberof BurnChartViewBase
+     */
+    public quickGroupCodelistTag: string = "";
+
+    /**
      * 加载快速分组模型
      *
      * @protected
@@ -242,6 +250,7 @@ export class BurnChartViewBase extends ChartViewBase {
      */
     protected loadQuickGroupModel(): void {
         const quickGroupCodeList: any = { tag: 'BurnQuickpacket', codelistType: 'STATIC' };
+        this.quickGroupCodelistTag = quickGroupCodeList.tag ? quickGroupCodeList.tag : "";
         if(quickGroupCodeList.tag && Object.is(quickGroupCodeList.codelistType, "STATIC")) {
             const codelist = this.$store.getters.getCodeList(quickGroupCodeList.tag);
             if (codelist) {

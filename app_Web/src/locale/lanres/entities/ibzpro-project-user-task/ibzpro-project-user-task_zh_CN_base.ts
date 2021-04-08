@@ -3,22 +3,26 @@ function getLocaleResourceBase(){
 	const data:any = {
 		appdename: commonLogic.appcommonhandle("项目汇报用户任务", null),
 		fields: {
+			work: commonLogic.appcommonhandle("work",null),
+			tasktype: commonLogic.appcommonhandle("任务类型",null),
 			account: commonLogic.appcommonhandle("用户",null),
-			id: commonLogic.appcommonhandle("编号",null),
 			consumed: commonLogic.appcommonhandle("总计消耗",null),
 			date: commonLogic.appcommonhandle("日期",null),
-			left: commonLogic.appcommonhandle("预计剩余",null),
-			work: commonLogic.appcommonhandle("work",null),
-			task: commonLogic.appcommonhandle("任务",null),
-			taskname: commonLogic.appcommonhandle("任务名称",null),
-			tasktype: commonLogic.appcommonhandle("任务类型",null),
-			progressrate: commonLogic.appcommonhandle("进度",null),
 			delaydays: commonLogic.appcommonhandle("延期天数",null),
+			id: commonLogic.appcommonhandle("编号",null),
+			progressrate: commonLogic.appcommonhandle("进度",null),
 			eststarted: commonLogic.appcommonhandle("预计开始",null),
 			deadline: commonLogic.appcommonhandle("截止日期",null),
+			task: commonLogic.appcommonhandle("任务",null),
+			left: commonLogic.appcommonhandle("预计剩余",null),
+			taskname: commonLogic.appcommonhandle("任务名称",null),
 		},
 			views: {
 				monthlygridview: {
+					caption: commonLogic.appcommonhandle("项目汇报用户任务",null),
+					title: commonLogic.appcommonhandle("项目汇报用户任务表格视图",null),
+				},
+				gridview: {
 					caption: commonLogic.appcommonhandle("项目汇报用户任务",null),
 					title: commonLogic.appcommonhandle("项目汇报用户任务表格视图",null),
 				},
@@ -27,10 +31,6 @@ function getLocaleResourceBase(){
 					title: commonLogic.appcommonhandle("项目汇报用户任务编辑视图",null),
 				},
 				projectweeklygridview: {
-					caption: commonLogic.appcommonhandle("项目汇报用户任务",null),
-					title: commonLogic.appcommonhandle("项目汇报用户任务表格视图",null),
-				},
-				gridview: {
 					caption: commonLogic.appcommonhandle("项目汇报用户任务",null),
 					title: commonLogic.appcommonhandle("项目汇报用户任务表格视图",null),
 				},
@@ -53,12 +53,12 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
-			main_grid: {
+			monthlymain_grid: {
 				columns: {
 					account: commonLogic.appcommonhandle("用户",null),
 					taskname: commonLogic.appcommonhandle("任务名称",null),
 					tasktype: commonLogic.appcommonhandle("任务类型",null),
-					consumed: commonLogic.appcommonhandle("本周消耗",null),
+					consumed: commonLogic.appcommonhandle("当天消耗",null),
 					eststarted: commonLogic.appcommonhandle("预计开始",null),
 					deadline: commonLogic.appcommonhandle("截止日期",null),
 					date: commonLogic.appcommonhandle("日期",null),
@@ -70,12 +70,12 @@ function getLocaleResourceBase(){
 					ibzproprojectusertask_taskdetail: commonLogic.appcommonhandle("任务详情",null),
 				},
 			},
-			monthlymain_grid: {
+			main_grid: {
 				columns: {
 					account: commonLogic.appcommonhandle("用户",null),
 					taskname: commonLogic.appcommonhandle("任务名称",null),
 					tasktype: commonLogic.appcommonhandle("任务类型",null),
-					consumed: commonLogic.appcommonhandle("当天消耗",null),
+					consumed: commonLogic.appcommonhandle("本周消耗",null),
 					eststarted: commonLogic.appcommonhandle("预计开始",null),
 					deadline: commonLogic.appcommonhandle("截止日期",null),
 					date: commonLogic.appcommonhandle("日期",null),

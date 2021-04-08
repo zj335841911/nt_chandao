@@ -76,6 +76,11 @@ export default class AddCommentModel {
         dataType: 'TEXT',
       },
       {
+        name: 'extra',
+        prop: 'extra',
+        dataType: 'LONGTEXT',
+      },
+      {
         name: 'id',
         prop: 'id',
         dataType: 'ACID',

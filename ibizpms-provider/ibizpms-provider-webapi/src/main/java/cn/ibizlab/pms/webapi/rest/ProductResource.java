@@ -72,7 +72,7 @@ public class ProductResource {
 		Product domain  = productMapping.toDomain(productdto);
         domain .setId(product_id);
 		productService.update(domain );
-		ProductDTO dto = productMapping.toDto(domain );
+		ProductDTO dto = productMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
@@ -110,8 +110,9 @@ public class ProductResource {
 
     @ApiOperation(value = "获取产品草稿", tags = {"产品" },  notes = "获取产品草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/products/getdraft")
-    public ResponseEntity<ProductDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(productMapping.toDto(productService.getDraft(new Product())));
+    public ResponseEntity<ProductDTO> getDraft(ProductDTO dto) {
+        Product domain = productMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(productMapping.toDto(productService.getDraft(domain)));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-CancelProductTop-all')")
@@ -143,9 +144,11 @@ public class ProductResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-Close-all')")
     @ApiOperation(value = "批量处理[关闭]", tags = {"产品" },  notes = "批量处理[关闭]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/closebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/closebatch")
     public ResponseEntity<Boolean> closeBatch(@RequestBody List<ProductDTO> productdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(productService.closeBatch(productMapping.toDomain(productdtos)));
+        List<Product> domains = productMapping.toDomain(productdtos);
+        boolean result = productService.closeBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Product-MobProductCounter-all')")
@@ -184,8 +187,10 @@ public class ProductResource {
     @PreAuthorize("hasPermission(this.productMapping.toDomain(#productdto),'pms-Product-Save')")
     @ApiOperation(value = "保存产品", tags = {"产品" },  notes = "保存产品")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/save")
-    public ResponseEntity<Boolean> save(@RequestBody ProductDTO productdto) {
-        return ResponseEntity.status(HttpStatus.OK).body(productService.save(productMapping.toDomain(productdto)));
+    public ResponseEntity<ProductDTO> save(@RequestBody ProductDTO productdto) {
+        Product domain = productMapping.toDomain(productdto);
+        productService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(productMapping.toDto(domain));
     }
 
     @PreAuthorize("hasPermission(this.productMapping.toDomain(#productdtos),'pms-Product-Save')")
@@ -415,6 +420,7 @@ public class ProductResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(productMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
 
 
 }

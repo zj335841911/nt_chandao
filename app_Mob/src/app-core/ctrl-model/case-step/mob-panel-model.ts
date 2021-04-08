@@ -15,6 +15,15 @@ export class MobModel {
   public getDataItems(): any[] {
     return [
       {
+        name: 'casestepid',
+      },
+      {
+        name: 'reals',
+      },
+      {
+        name: 'steps',
+      },
+      {
         name: 'type',
       },
       {
@@ -28,6 +37,12 @@ export class MobModel {
         name: 'expect',
       },
       {
+        name: 'files',
+      },
+      {
+        name: 'runid',
+      },
+      {
         name: 'version',
       },
       {
@@ -35,26 +50,6 @@ export class MobModel {
       },
       {
         name: 'parent',
-      },
-      {
-        name: 'reals',
-      },
-      {
-        name: 'steps',
-      },
-      {
-        name: 'files',
-      },
-      {
-        name: 'runid',
-      },
-      {
-        name: 'casestepid',
-      },
-      {
-        name: 'case',
-        prop: 'id',
-        dataType: 'FONTKEY',
       },
     ]
   }

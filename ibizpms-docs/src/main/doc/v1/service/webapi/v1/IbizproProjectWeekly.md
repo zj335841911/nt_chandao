@@ -244,23 +244,23 @@ POST
 #### IbizproProjectWeeklyDTO
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
-| 1 | projectweeklyname | String | 允许 | 项目周报名称 |
-| 2 | projectweeklyid | String | 不可 | 项目周报标识 |
-| 3 | createdate | Timestamp | 不可 | 建立时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
-| 4 | updateman | String | 不可 | 更新人 |
+| 1 | createdate | Timestamp | 不可 | 建立时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
+| 2 | updateman | String | 不可 | 更新人 |
+| 3 | year | String | 允许 | 年 |
+| 4 | enddatestats | String | 允许 | 结束统计 |
 | 5 | createman | String | 不可 | 建立人 |
-| 6 | updatedate | Timestamp | 不可 | 更新时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
-| 7 | pm | String | 允许 | 项目负责人 |
-| 8 | totalestimates | Double | 允许 | 总工时 |
-| 9 | tasks | String | 允许 | 任务 |
-| 10 | date | Timestamp | 允许 | 日期<br>时间格式：yyyy-MM-dd |
-| 11 | project | Long | 允许 | 项目编号 |
-| 12 | projectname | String | 允许 | 项目名称 |
-| 13 | week | String | 允许 | 周 |
-| 14 | year | String | 允许 | 年 |
+| 6 | tasks | String | 允许 | 任务 |
+| 7 | projectweeklyname | String | 允许 | 项目周报名称 |
+| 8 | week | String | 允许 | 周 |
+| 9 | projectweeklyid | String | 不可 | 项目周报标识 |
+| 10 | pm | String | 允许 | 项目负责人 |
+| 11 | date | Timestamp | 允许 | 日期<br>时间格式：yyyy-MM-dd |
+| 12 | totalestimates | Double | 允许 | 总工时 |
+| 13 | begindatestats | String | 允许 | 开始统计 |
+| 14 | updatedate | Timestamp | 不可 | 更新时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
 | 15 | month | String | 允许 | 月 |
-| 16 | begindatestats | String | 允许 | 开始统计 |
-| 17 | enddatestats | String | 允许 | 结束统计 |
+| 16 | projectname | String | 允许 | 项目名称 |
+| 17 | project | Long | 允许 | 项目编号 |
 | 18 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### IbizproProjectWeeklySearchContext

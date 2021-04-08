@@ -59,9 +59,11 @@ public class ProjectTeamResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectTeam-GetUserRole-all')")
     @ApiOperation(value = "批量处理[获取成员角色]", tags = {"项目团队" },  notes = "批量处理[获取成员角色]")
-	@RequestMapping(method = RequestMethod.PUT, value = "/projectteams/{projectteam_id}/getuserrolebatch")
+	@RequestMapping(method = RequestMethod.PUT, value = "/projectteams/getuserrolebatch")
     public ResponseEntity<Boolean> getUserRoleBatch(@RequestBody List<ProjectTeamDTO> projectteamdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(projectteamService.getUserRoleBatch(projectteamMapping.toDomain(projectteamdtos)));
+        List<ProjectTeam> domains = projectteamMapping.toDomain(projectteamdtos);
+        boolean result = projectteamService.getUserRoleBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectTeam-Create-all')")
@@ -89,7 +91,7 @@ public class ProjectTeamResource {
 		ProjectTeam domain  = projectteamMapping.toDomain(projectteamdto);
         domain .setId(projectteam_id);
 		projectteamService.update(domain );
-		ProjectTeamDTO dto = projectteamMapping.toDto(domain );
+		ProjectTeamDTO dto = projectteamMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
@@ -127,8 +129,9 @@ public class ProjectTeamResource {
 
     @ApiOperation(value = "获取项目团队草稿", tags = {"项目团队" },  notes = "获取项目团队草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/projectteams/getdraft")
-    public ResponseEntity<ProjectTeamDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(projectteamMapping.toDto(projectteamService.getDraft(new ProjectTeam())));
+    public ResponseEntity<ProjectTeamDTO> getDraft(ProjectTeamDTO dto) {
+        ProjectTeam domain = projectteamMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(projectteamMapping.toDto(projectteamService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查项目团队", tags = {"项目团队" },  notes = "检查项目团队")
@@ -140,8 +143,10 @@ public class ProjectTeamResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectTeam-Save-all')")
     @ApiOperation(value = "保存项目团队", tags = {"项目团队" },  notes = "保存项目团队")
 	@RequestMapping(method = RequestMethod.POST, value = "/projectteams/save")
-    public ResponseEntity<Boolean> save(@RequestBody ProjectTeamDTO projectteamdto) {
-        return ResponseEntity.status(HttpStatus.OK).body(projectteamService.save(projectteamMapping.toDomain(projectteamdto)));
+    public ResponseEntity<ProjectTeamDTO> save(@RequestBody ProjectTeamDTO projectteamdto) {
+        ProjectTeam domain = projectteamMapping.toDomain(projectteamdto);
+        projectteamService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(projectteamMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectTeam-Save-all')")
@@ -170,6 +175,28 @@ public class ProjectTeamResource {
     @RequestMapping(method= RequestMethod.POST , value="/projectteams/searchdefault")
 	public ResponseEntity<Page<ProjectTeamDTO>> searchDefault(@RequestBody ProjectTeamSearchContext context) {
         Page<ProjectTeam> domains = projectteamService.searchDefault(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(projectteamMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectTeam-searchProjectTeamPm-all')")
+	@ApiOperation(value = "获取项目成员（项目经理）", tags = {"项目团队" } ,notes = "获取项目成员（项目经理）")
+    @RequestMapping(method= RequestMethod.GET , value="/projectteams/fetchprojectteampm")
+	public ResponseEntity<List<ProjectTeamDTO>> fetchProjectTeamPm(ProjectTeamSearchContext context) {
+        Page<ProjectTeam> domains = projectteamService.searchProjectTeamPm(context) ;
+        List<ProjectTeamDTO> list = projectteamMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectTeam-searchProjectTeamPm-all')")
+	@ApiOperation(value = "查询项目成员（项目经理）", tags = {"项目团队" } ,notes = "查询项目成员（项目经理）")
+    @RequestMapping(method= RequestMethod.POST , value="/projectteams/searchprojectteampm")
+	public ResponseEntity<Page<ProjectTeamDTO>> searchProjectTeamPm(@RequestBody ProjectTeamSearchContext context) {
+        Page<ProjectTeam> domains = projectteamService.searchProjectTeamPm(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(projectteamMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
@@ -219,6 +246,7 @@ public class ProjectTeamResource {
 	}
 
 
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectTeam-GetUserRole-all')")
     @ApiOperation(value = "根据项目项目团队", tags = {"项目团队" },  notes = "根据项目项目团队")
 	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/projectteams/{projectteam_id}/getuserrole")
@@ -230,9 +258,11 @@ public class ProjectTeamResource {
         return ResponseEntity.status(HttpStatus.OK).body(projectteamdto);
     }
     @ApiOperation(value = "批量处理[根据项目项目团队]", tags = {"项目团队" },  notes = "批量处理[根据项目项目团队]")
-	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/projectteams/{projectteam_id}/getuserrolebatch")
+	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/projectteams/getuserrolebatch")
     public ResponseEntity<Boolean> getUserRoleByProject(@PathVariable("project_id") Long project_id, @RequestBody List<ProjectTeamDTO> projectteamdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(projectteamService.getUserRoleBatch(projectteamMapping.toDomain(projectteamdtos)));
+        List<ProjectTeam> domains = projectteamMapping.toDomain(projectteamdtos);
+        boolean result = projectteamService.getUserRoleBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectTeam-Create-all')")
     @ApiOperation(value = "根据项目建立项目团队", tags = {"项目团队" },  notes = "根据项目建立项目团队")
@@ -307,8 +337,8 @@ public class ProjectTeamResource {
 
     @ApiOperation(value = "根据项目获取项目团队草稿", tags = {"项目团队" },  notes = "根据项目获取项目团队草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/projects/{project_id}/projectteams/getdraft")
-    public ResponseEntity<ProjectTeamDTO> getDraftByProject(@PathVariable("project_id") Long project_id) {
-        ProjectTeam domain = new ProjectTeam();
+    public ResponseEntity<ProjectTeamDTO> getDraftByProject(@PathVariable("project_id") Long project_id, ProjectTeamDTO dto) {
+        ProjectTeam domain = projectteamMapping.toDomain(dto);
         domain.setRoot(project_id);
         return ResponseEntity.status(HttpStatus.OK).body(projectteamMapping.toDto(projectteamService.getDraft(domain)));
     }
@@ -322,10 +352,11 @@ public class ProjectTeamResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectTeam-Save-all')")
     @ApiOperation(value = "根据项目保存项目团队", tags = {"项目团队" },  notes = "根据项目保存项目团队")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/projectteams/save")
-    public ResponseEntity<Boolean> saveByProject(@PathVariable("project_id") Long project_id, @RequestBody ProjectTeamDTO projectteamdto) {
+    public ResponseEntity<ProjectTeamDTO> saveByProject(@PathVariable("project_id") Long project_id, @RequestBody ProjectTeamDTO projectteamdto) {
         ProjectTeam domain = projectteamMapping.toDomain(projectteamdto);
         domain.setRoot(project_id);
-        return ResponseEntity.status(HttpStatus.OK).body(projectteamService.save(domain));
+        projectteamService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(projectteamMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectTeam-Save-all')")
@@ -360,6 +391,29 @@ public class ProjectTeamResource {
 	public ResponseEntity<Page<ProjectTeamDTO>> searchProjectTeamDefaultByProject(@PathVariable("project_id") Long project_id, @RequestBody ProjectTeamSearchContext context) {
         context.setN_root_eq(project_id);
         Page<ProjectTeam> domains = projectteamService.searchDefault(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(projectteamMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectTeam-searchProjectTeamPm-all')")
+	@ApiOperation(value = "根据项目获取项目成员（项目经理）", tags = {"项目团队" } ,notes = "根据项目获取项目成员（项目经理）")
+    @RequestMapping(method= RequestMethod.GET , value="/projects/{project_id}/projectteams/fetchprojectteampm")
+	public ResponseEntity<List<ProjectTeamDTO>> fetchProjectTeamProjectTeamPmByProject(@PathVariable("project_id") Long project_id,ProjectTeamSearchContext context) {
+        context.setN_root_eq(project_id);
+        Page<ProjectTeam> domains = projectteamService.searchProjectTeamPm(context) ;
+        List<ProjectTeamDTO> list = projectteamMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectTeam-searchProjectTeamPm-all')")
+	@ApiOperation(value = "根据项目查询项目成员（项目经理）", tags = {"项目团队" } ,notes = "根据项目查询项目成员（项目经理）")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/{project_id}/projectteams/searchprojectteampm")
+	public ResponseEntity<Page<ProjectTeamDTO>> searchProjectTeamProjectTeamPmByProject(@PathVariable("project_id") Long project_id, @RequestBody ProjectTeamSearchContext context) {
+        context.setN_root_eq(project_id);
+        Page<ProjectTeam> domains = projectteamService.searchProjectTeamPm(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(projectteamMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}

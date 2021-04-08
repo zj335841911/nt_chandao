@@ -51,9 +51,6 @@ public class IbizproProjectWeeklyServiceImpl extends ServiceImpl<IbizproProjectW
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.IProjectService projectService;
-    @Autowired
-    @Lazy
-    IIbizproProjectWeeklyService proxyService;
 
     protected int batchSize = 500;
 
@@ -61,7 +58,7 @@ public class IbizproProjectWeeklyServiceImpl extends ServiceImpl<IbizproProjectW
     @Transactional
     public boolean create(IbizproProjectWeekly et) {
         fillParentData(et);
-        if (!this.retBool(this.baseMapper.insert(et))) {
+        if(!this.retBool(this.baseMapper.insert(et))) {
             return false;
         }
         CachedBeanCopier.copy(get(et.getProjectweeklyid()), et);
@@ -79,7 +76,7 @@ public class IbizproProjectWeeklyServiceImpl extends ServiceImpl<IbizproProjectW
     @Transactional
     public boolean update(IbizproProjectWeekly et) {
         fillParentData(et);
-        if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("ibzpro_projectweeklyid", et.getProjectweeklyid()))) {
+        if(!update(et, (Wrapper) et.getUpdateWrapper(true).eq("ibzpro_projectweeklyid", et.getProjectweeklyid()))) {
             return false;
         }
         CachedBeanCopier.copy(get(et.getProjectweeklyid()), et);
@@ -97,7 +94,7 @@ public class IbizproProjectWeeklyServiceImpl extends ServiceImpl<IbizproProjectW
     @Transactional
     public boolean remove(String key) {
         boolean result = removeById(key);
-        return result;
+        return result ;
     }
 
     @Override
@@ -110,7 +107,7 @@ public class IbizproProjectWeeklyServiceImpl extends ServiceImpl<IbizproProjectW
     @Transactional
     public IbizproProjectWeekly get(String key) {
         IbizproProjectWeekly et = getById(key);
-        if (et == null) {
+        if(et == null){
             et = new IbizproProjectWeekly();
             et.setProjectweeklyid(key);
         }
@@ -135,7 +132,8 @@ public class IbizproProjectWeeklyServiceImpl extends ServiceImpl<IbizproProjectW
         //自定义代码
         return et;
     }
-   @Override
+
+    @Override
     @Transactional
     public boolean pushSumProjectWeeklyBatch(List<IbizproProjectWeekly> etList) {
         for(IbizproProjectWeekly et : etList) {
@@ -147,7 +145,7 @@ public class IbizproProjectWeeklyServiceImpl extends ServiceImpl<IbizproProjectW
     @Override
     @Transactional
     public boolean save(IbizproProjectWeekly et) {
-        if (!saveOrUpdate(et)) {
+        if(!saveOrUpdate(et)) {
             return false;
         }
         return true;
@@ -159,7 +157,7 @@ public class IbizproProjectWeeklyServiceImpl extends ServiceImpl<IbizproProjectW
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
+            return checkKey(et) ? getProxyService().update(et) : getProxyService().create(et);
         }
     }
 
@@ -177,10 +175,10 @@ public class IbizproProjectWeeklyServiceImpl extends ServiceImpl<IbizproProjectW
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
         return true;
     }
@@ -188,7 +186,7 @@ public class IbizproProjectWeeklyServiceImpl extends ServiceImpl<IbizproProjectW
     @Override
     @Transactional
     public void saveBatch(List<IbizproProjectWeekly> list) {
-        list.forEach(item -> fillParentData(item));
+        list.forEach(item->fillParentData(item));
         List<IbizproProjectWeekly> create = new ArrayList<>();
         List<IbizproProjectWeekly> update = new ArrayList<>();
         for (IbizproProjectWeekly et : list) {
@@ -199,21 +197,21 @@ public class IbizproProjectWeeklyServiceImpl extends ServiceImpl<IbizproProjectW
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
     }
 
 
-    @Override
+	@Override
     public List<IbizproProjectWeekly> selectByProject(Long id) {
         return baseMapper.selectByProject(id);
     }
     @Override
     public void removeByProject(Long id) {
-        this.remove(new QueryWrapper<IbizproProjectWeekly>().eq("project", id));
+        this.remove(new QueryWrapper<IbizproProjectWeekly>().eq("project",id));
     }
 
 
@@ -222,7 +220,7 @@ public class IbizproProjectWeeklyServiceImpl extends ServiceImpl<IbizproProjectW
      */
     @Override
     public Page<IbizproProjectWeekly> searchDefault(IbizproProjectWeeklySearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbizproProjectWeekly> pages=baseMapper.searchDefault(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbizproProjectWeekly> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
         return new PageImpl<IbizproProjectWeekly>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -234,12 +232,12 @@ public class IbizproProjectWeeklyServiceImpl extends ServiceImpl<IbizproProjectW
      */
     private void fillParentData(IbizproProjectWeekly et){
         //实体关系[DER1N_IBZPRO_PROJECTWEEKLY_ZT_PROJECT_PROJECT]
-        if (!ObjectUtils.isEmpty(et.getProject())) {
+        if(!ObjectUtils.isEmpty(et.getProject())){
             cn.ibizlab.pms.core.zentao.domain.Project ztproject=et.getZtproject();
-            if (ObjectUtils.isEmpty(ztproject)) {
+            if(ObjectUtils.isEmpty(ztproject)){
                 cn.ibizlab.pms.core.zentao.domain.Project majorEntity=projectService.get(et.getProject());
                 et.setZtproject(majorEntity);
-                ztproject = majorEntity;
+                ztproject=majorEntity;
             }
             et.setProjectname(ztproject.getName());
         }
@@ -249,24 +247,24 @@ public class IbizproProjectWeeklyServiceImpl extends ServiceImpl<IbizproProjectW
 
 
     @Override
-    public List<JSONObject> select(String sql, Map param) {
-        return this.baseMapper.selectBySQL(sql, param);
+    public List<JSONObject> select(String sql, Map param){
+        return this.baseMapper.selectBySQL(sql,param);
     }
 
     @Override
     @Transactional
-    public boolean execute(String sql, Map param) {
+    public boolean execute(String sql , Map param){
         if (sql == null || sql.isEmpty()) {
             return false;
         }
         if (sql.toLowerCase().trim().startsWith("insert")) {
-            return this.baseMapper.insertBySQL(sql, param);
+            return this.baseMapper.insertBySQL(sql,param);
         }
         if (sql.toLowerCase().trim().startsWith("update")) {
-            return this.baseMapper.updateBySQL(sql, param);
+            return this.baseMapper.updateBySQL(sql,param);
         }
         if (sql.toLowerCase().trim().startsWith("delete")) {
-            return this.baseMapper.deleteBySQL(sql, param);
+            return this.baseMapper.deleteBySQL(sql,param);
         }
         log.warn("暂未支持的SQL语法");
         return true;
@@ -282,11 +280,11 @@ public class IbizproProjectWeeklyServiceImpl extends ServiceImpl<IbizproProjectW
         List ids =new ArrayList();
         for(IbizproProjectWeekly entity : entities){
             Serializable id=entity.getProjectweeklyid();
-            if (!ObjectUtils.isEmpty(id)) {
+            if(!ObjectUtils.isEmpty(id)){
                 ids.add(id);
             }
         }
-        if (ids.size() > 0) {
+        if(ids.size()>0) {
             return this.listByIds(ids);
         }
         else {
@@ -295,9 +293,9 @@ public class IbizproProjectWeeklyServiceImpl extends ServiceImpl<IbizproProjectW
     }
 
 
-
-
+    public IIbizproProjectWeeklyService getProxyService() {
+        return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
+    }
 }
-
 
 

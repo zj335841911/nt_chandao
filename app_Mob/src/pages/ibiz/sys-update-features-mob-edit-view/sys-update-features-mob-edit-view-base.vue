@@ -141,7 +141,7 @@ export default class SysUpdateFeaturesMobEditViewBase extends Vue {
 	 * @type {string}
 	 * @memberof SysUpdateFeaturesMobEditViewBase
 	 */
-	protected viewtag: string = '94cbc86dd0c1a91abdeef24049c57747';
+	protected viewtag: string = '7022d10a801eca629c6b811b6e4d39ec';
 
     /**
      * 视图上下文

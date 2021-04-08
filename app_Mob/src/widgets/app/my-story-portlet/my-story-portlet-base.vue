@@ -159,7 +159,7 @@ export default class MyStoryBase extends Vue implements ControlInterface {
      * @returns {Promise<any>}
      * @memberof Dashboard_sysportlet5Base
      */
-    protected async dashboard_sysportlet5_uc2eba09_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async dashboard_sysportlet5_u4de814d_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
 
         // 取数
         let datas: any[] = [];
@@ -250,7 +250,7 @@ export default class MyStoryBase extends Vue implements ControlInterface {
      */
     protected actionBarModelData: any[] = [
         {
-            viewlogicname: "dashboard_sysportlet5_uc2eba09_click",
+            viewlogicname: "dashboard_sysportlet5_u4de814d_click",
             name: "更多",
         }
     ];
@@ -263,8 +263,8 @@ export default class MyStoryBase extends Vue implements ControlInterface {
      * @memberof MyStory
      */
     protected handleItemClick($event: any) {
-        if (Object.is($event, 'dashboard_sysportlet5_uc2eba09_click')) {
-            this.dashboard_sysportlet5_uc2eba09_click(null);
+        if (Object.is($event, 'dashboard_sysportlet5_u4de814d_click')) {
+            this.dashboard_sysportlet5_u4de814d_click(null);
         }
     }
 

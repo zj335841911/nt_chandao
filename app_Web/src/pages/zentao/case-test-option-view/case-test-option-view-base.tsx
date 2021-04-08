@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { OptionViewBase } from '@/studio-core';
 import CaseService from '@/service/case/case-service';
 import CaseAuthService from '@/authservice/case/case-auth-service';
@@ -172,7 +172,7 @@ export class CaseTestOptionViewBase extends OptionViewBase {
      * @type {string}
      * @memberof CaseTestOptionViewBase
      */
-	protected viewtag: string = '6b041208cbc10321a4d9cd74eaac3689';
+	protected viewtag: string = '6895fea07a2489f404d895d6746ae7b8';
 
     /**
      * 视图名称

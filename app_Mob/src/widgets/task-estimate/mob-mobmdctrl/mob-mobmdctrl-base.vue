@@ -5,8 +5,8 @@
                 <template v-if="(viewType == 'DEMOBMDVIEW9') && controlStyle != 'SWIPERVIEW' ">
                     <ion-item-sliding ref="sliding" v-for="(item,index) in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
-                            <ion-item-option v-show="item.EditMob.visabled" :disabled="item.EditMob.disabled" color="primary" @click="mdctrl_click($event, 'ucc1eaf8', item)"><app-mob-icon v-if="item.EditMob.icon && item.EditMob.isShowIcon" :name="item.EditMob.icon"></app-mob-icon><ion-label v-if="item.EditMob.isShowCaption">编辑</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.Remove.visabled" :disabled="item.Remove.disabled" color="danger" @click="mdctrl_click($event, 'u06de784', item)"><app-mob-icon v-if="item.Remove.icon && item.Remove.isShowIcon" :name="item.Remove.icon"></app-mob-icon><ion-label v-if="item.Remove.isShowCaption">删除</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.EditMob.visabled" :disabled="item.EditMob.disabled" color="primary" @click="mdctrl_click($event, 'u7459aab', item)"><app-mob-icon v-if="item.EditMob.icon && item.EditMob.isShowIcon" :name="item.EditMob.icon"></app-mob-icon><ion-label v-if="item.EditMob.isShowCaption">编辑</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.Remove.visabled" :disabled="item.Remove.disabled" color="danger" @click="mdctrl_click($event, 'u4e85775', item)"><app-mob-icon v-if="item.Remove.icon && item.Remove.isShowIcon" :name="item.Remove.icon"></app-mob-icon><ion-label v-if="item.Remove.isShowCaption">删除</ion-label></ion-item-option>
                         </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
@@ -21,8 +21,8 @@
                 <template v-if="(viewType == 'DEMOBMDVIEW') && controlStyle != 'SWIPERVIEW' ">
                       <ion-item-sliding  :ref="item.srfkey" v-for="(item,index) in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
-                            <ion-item-option v-show="item.EditMob.visabled" :disabled="item.EditMob.disabled" color="primary" @click="mdctrl_click($event, 'ucc1eaf8', item)"><app-mob-icon v-if="item.EditMob.icon && item.EditMob.isShowIcon" :name="item.EditMob.icon"></app-mob-icon><ion-label v-if="item.EditMob.isShowCaption">编辑</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.Remove.visabled" :disabled="item.Remove.disabled" color="danger" @click="mdctrl_click($event, 'u06de784', item)"><app-mob-icon v-if="item.Remove.icon && item.Remove.isShowIcon" :name="item.Remove.icon"></app-mob-icon><ion-label v-if="item.Remove.isShowCaption">删除</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.EditMob.visabled" :disabled="item.EditMob.disabled" color="primary" @click="mdctrl_click($event, 'u7459aab', item)"><app-mob-icon v-if="item.EditMob.icon && item.EditMob.isShowIcon" :name="item.EditMob.icon"></app-mob-icon><ion-label v-if="item.EditMob.isShowCaption">编辑</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.Remove.visabled" :disabled="item.Remove.disabled" color="danger" @click="mdctrl_click($event, 'u4e85775', item)"><app-mob-icon v-if="item.Remove.icon && item.Remove.isShowIcon" :name="item.Remove.icon"></app-mob-icon><ion-label v-if="item.Remove.isShowCaption">删除</ion-label></ion-item-option>
                         </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
@@ -235,7 +235,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * @returns {Promise<any>}
      * @memberof MdctrlBase
      */
-    protected async mdctrl_ucc1eaf8_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async mdctrl_u7459aab_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
 
         // 取数
         let datas: any[] = [];
@@ -266,7 +266,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * @returns {Promise<any>}
      * @memberof MdctrlBase
      */
-    protected async mdctrl_u06de784_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async mdctrl_u4e85775_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
 
         // 取数
         let datas: any[] = [];
@@ -1008,11 +1008,11 @@ export default class MobBase extends Vue implements ControlInterface {
         $event.stopPropagation();
         this.selectedArray = [];
         this.selectedArray.push(item);
-        if (Object.is(tag, 'ucc1eaf8')) {
-            this.mdctrl_ucc1eaf8_click();
+        if (Object.is(tag, 'u7459aab')) {
+            this.mdctrl_u7459aab_click();
         }
-        if (Object.is(tag, 'u06de784')) {
-            this.mdctrl_u06de784_click();
+        if (Object.is(tag, 'u4e85775')) {
+            this.mdctrl_u4e85775_click();
         }
         this.closeSlidings(item);
     }

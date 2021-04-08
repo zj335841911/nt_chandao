@@ -18,31 +18,31 @@ export default class MyWorkModel {
 				name: 'projects',
 			},
 			{
-				name: 'mybugs',
-			},
-			{
 				name: 'myebugs',
-			},
-			{
-				name: 'myetasks',
 			},
 			{
 				name: 'account',
 			},
 			{
+				name: 'myetasks',
+			},
+			{
+				name: 'mybugs',
+			},
+			{
+				name: 'products',
+			},
+			{
 				name: 'mystorys',
+			},
+			{
+				name: 'mytasks',
 			},
 			{
 				name: 'eprojects',
 			},
 			{
 				name: 'realname',
-			},
-			{
-				name: 'mytasks',
-			},
-			{
-				name: 'products',
 			},
 			{
 				name: 'srfkey',

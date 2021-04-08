@@ -259,7 +259,7 @@ export class ProjectPortalView_dbDashboardBase extends MainControlBase {
      * 刷新
      * 
      * @param args 
-     * @memberof Main
+     * @memberof ProjectPortalView_db
      */
     public refresh(args?: any){
       this.$emit('refresh',args);

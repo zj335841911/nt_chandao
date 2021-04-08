@@ -15,8 +15,8 @@ hide members
 |用户标识|USERID|TEXT|&nbsp;|
 |用户全局名|USERNAME|TEXT|&nbsp;|
 |用户姓名|PERSONNAME|TEXT|&nbsp;|
-|密码|PASSWORD|TEXT|&nbsp;|
 |用户工号|USERCODE|TEXT|&nbsp;|
+|密码|PASSWORD|TEXT|&nbsp;|
 |登录名|LOGINNAME|TEXT|&nbsp;|
 |区属|DOMAINS|TEXT|&nbsp;|
 |主部门|MDEPTID|TEXT|&nbsp;|
@@ -54,8 +54,8 @@ hide members
 |用户标识|默认规则|内容长度必须小于等于[100]|
 |用户全局名|默认规则|内容长度必须小于等于[200]|
 |用户姓名|默认规则|内容长度必须小于等于[100]|
-|密码|默认规则|内容长度必须小于等于[100]|
 |用户工号|默认规则|内容长度必须小于等于[100]|
+|密码|默认规则|内容长度必须小于等于[100]|
 |登录名|默认规则|内容长度必须小于等于[100]|
 |区属|默认规则|内容长度必须小于等于[100]|
 |主部门|默认规则|内容长度必须小于等于[100]|
@@ -115,7 +115,7 @@ hide members
 
 | 查询编号 | 查询名称       | 默认查询 |   备注|
 | --------  | --------   | --------   | ----- |
-|DEFAULT|数据查询([MYSQL5](../../appendix/query_MYSQL5.md#SysUser_Default))|否|&nbsp;|
+|DEFAULT|数据查询([MYSQL5](../../appendix/query_MYSQL5.md#SysUser_Default))|是|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#SysUser_View))|否|&nbsp;|
 
 * **数据集合**

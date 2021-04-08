@@ -31,7 +31,7 @@ part [shape=none, margin=0, label=<
 </TR>
 <TR>
 <TD BORDER="0" COLSPAN="4" CELLPADDING="10">
-新建<BR/>
+
 <BR/></TD>
 </TR>
 </TABLE>

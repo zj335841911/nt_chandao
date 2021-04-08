@@ -1333,31 +1333,32 @@ POST
 | 2 | stepresults | String | 允许 | 步骤结果 |
 | 3 | caseresult | String | 允许 | 测试结果 |
 | 4 | xml | String | 允许 | 结果文件 |
-| 5 | duration | Double | 允许 | 持续时间 |
-| 6 | date | Timestamp | 允许 | 测试时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
-| 7 | id | Long | 不可 | 编号 |
-| 8 | version | Integer | 允许 | 用例版本 |
-| 9 | job | Long | 允许 | 构建任务 |
-| 10 | ibizcase | Long | 允许 | 用例 |
-| 11 | run | Long | 允许 | 测试执行 |
-| 12 | compile | Long | 允许 | 代码编译 |
-| 13 | task | String | 允许 | 属性 |
-| 14 | title | String | 允许 | 用例名称 |
-| 15 | story | Long | 允许 | 相关需求 |
-| 16 | module | Long | 允许 | 所属模块 |
-| 17 | product | Long | 允许 | 所属产品 |
-| 18 | precondition | String | 允许 | 前置条件 |
-| 19 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 5 | task | String | 允许 | 属性 |
+| 6 | duration | Double | 允许 | 持续时间 |
+| 7 | date | Timestamp | 允许 | 测试时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
+| 8 | id | Long | 不可 | 编号 |
+| 9 | version | Integer | 允许 | 用例版本 |
+| 10 | story | Long | 允许 | 相关需求 |
+| 11 | title | String | 允许 | 用例名称 |
+| 12 | modulename | String | 允许 | 所属模块 |
+| 13 | module | Long | 允许 | 所属模块 |
+| 14 | precondition | String | 允许 | 前置条件 |
+| 15 | product | Long | 允许 | 所属产品 |
+| 16 | job | Long | 允许 | 构建任务 |
+| 17 | ibizcase | Long | 允许 | 用例 |
+| 18 | run | Long | 允许 | 测试执行 |
+| 19 | compile | Long | 允许 | 代码编译 |
+| 20 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### TestResultSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
-| 1 | n_job_eq | Long | 允许 | 条件字段：job<br>条件组合方式：`=` |
-| 2 | n_case_eq | Long | 允许 | 条件字段：case<br>条件组合方式：`=` |
-| 3 | n_run_eq | Long | 允许 | 条件字段：run<br>条件组合方式：`=` |
-| 4 | n_compile_eq | Long | 允许 | 条件字段：compile<br>条件组合方式：`=` |
-| 5 | n_product_eq | Long | 允许 | 条件字段：product<br>条件组合方式：`=` |
-| 6 | n_product_like | Long | 允许 | 条件字段：product<br>条件组合方式：`%like%` |
+| 1 | n_product_eq | Long | 允许 | 条件字段：product<br>条件组合方式：`=` |
+| 2 | n_product_like | Long | 允许 | 条件字段：product<br>条件组合方式：`%like%` |
+| 3 | n_job_eq | Long | 允许 | 条件字段：job<br>条件组合方式：`=` |
+| 4 | n_case_eq | Long | 允许 | 条件字段：case<br>条件组合方式：`=` |
+| 5 | n_run_eq | Long | 允许 | 条件字段：run<br>条件组合方式：`=` |
+| 6 | n_compile_eq | Long | 允许 | 条件字段：compile<br>条件组合方式：`=` |
 | 7 | customcond | String | 允许 | 自定义查询条件 |
 | 8 | customparams | String | 允许 | 自定义查询参数 |
 | 9 | query | String | 允许 | 快速搜索 |

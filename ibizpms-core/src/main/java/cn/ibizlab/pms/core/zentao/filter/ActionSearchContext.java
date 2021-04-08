@@ -27,6 +27,41 @@ import cn.ibizlab.pms.core.zentao.domain.Action;
 @Data
 public class ActionSearchContext extends QueryWrapperContext<Action> {
 
+	private String n_thismonth_eq;//[本月]
+	public void setN_thismonth_eq(String n_thismonth_eq) {
+        this.n_thismonth_eq = n_thismonth_eq;
+        if(!ObjectUtils.isEmpty(this.n_thismonth_eq)){
+            this.getSearchCond().eq("`thismonth`", n_thismonth_eq);
+        }
+    }
+	private String n_yesterday_eq;//[昨天]
+	public void setN_yesterday_eq(String n_yesterday_eq) {
+        this.n_yesterday_eq = n_yesterday_eq;
+        if(!ObjectUtils.isEmpty(this.n_yesterday_eq)){
+            this.getSearchCond().eq("`yesterday`", n_yesterday_eq);
+        }
+    }
+	private String n_lastmonth_eq;//[上月]
+	public void setN_lastmonth_eq(String n_lastmonth_eq) {
+        this.n_lastmonth_eq = n_lastmonth_eq;
+        if(!ObjectUtils.isEmpty(this.n_lastmonth_eq)){
+            this.getSearchCond().eq("`lastmonth`", n_lastmonth_eq);
+        }
+    }
+	private String n_thisweek_eq;//[本周]
+	public void setN_thisweek_eq(String n_thisweek_eq) {
+        this.n_thisweek_eq = n_thisweek_eq;
+        if(!ObjectUtils.isEmpty(this.n_thisweek_eq)){
+            this.getSearchCond().eq("`thisweek`", n_thisweek_eq);
+        }
+    }
+	private String n_today_eq;//[今天]
+	public void setN_today_eq(String n_today_eq) {
+        this.n_today_eq = n_today_eq;
+        if(!ObjectUtils.isEmpty(this.n_today_eq)){
+            this.getSearchCond().eq("`today`", n_today_eq);
+        }
+    }
 	private String n_objecttype_eq;//[对象类型]
 	public void setN_objecttype_eq(String n_objecttype_eq) {
         this.n_objecttype_eq = n_objecttype_eq;
@@ -55,6 +90,20 @@ public class ActionSearchContext extends QueryWrapperContext<Action> {
             this.getSearchCond().eq("`action`", n_action_eq);
         }
     }
+	private String n_actionmanner_eq;//[操作方式]
+	public void setN_actionmanner_eq(String n_actionmanner_eq) {
+        this.n_actionmanner_eq = n_actionmanner_eq;
+        if(!ObjectUtils.isEmpty(this.n_actionmanner_eq)){
+            this.getSearchCond().eq("`actionmanner`", n_actionmanner_eq);
+        }
+    }
+	private String n_lastweek_eq;//[上周]
+	public void setN_lastweek_eq(String n_lastweek_eq) {
+        this.n_lastweek_eq = n_lastweek_eq;
+        if(!ObjectUtils.isEmpty(this.n_lastweek_eq)){
+            this.getSearchCond().eq("`lastweek`", n_lastweek_eq);
+        }
+    }
 	private Long n_objectid_eq;//[对象ID]
 	public void setN_objectid_eq(Long n_objectid_eq) {
         this.n_objectid_eq = n_objectid_eq;
@@ -67,55 +116,6 @@ public class ActionSearchContext extends QueryWrapperContext<Action> {
         this.n_project_eq = n_project_eq;
         if(!ObjectUtils.isEmpty(this.n_project_eq)){
             this.getSearchCond().eq("`project`", n_project_eq);
-        }
-    }
-	private String n_actionmanner_eq;//[操作方式]
-	public void setN_actionmanner_eq(String n_actionmanner_eq) {
-        this.n_actionmanner_eq = n_actionmanner_eq;
-        if(!ObjectUtils.isEmpty(this.n_actionmanner_eq)){
-            this.getSearchCond().eq("`actionmanner`", n_actionmanner_eq);
-        }
-    }
-	private String n_today_eq;//[今天]
-	public void setN_today_eq(String n_today_eq) {
-        this.n_today_eq = n_today_eq;
-        if(!ObjectUtils.isEmpty(this.n_today_eq)){
-            this.getSearchCond().eq("`today`", n_today_eq);
-        }
-    }
-	private String n_yesterday_eq;//[昨天]
-	public void setN_yesterday_eq(String n_yesterday_eq) {
-        this.n_yesterday_eq = n_yesterday_eq;
-        if(!ObjectUtils.isEmpty(this.n_yesterday_eq)){
-            this.getSearchCond().eq("`yesterday`", n_yesterday_eq);
-        }
-    }
-	private String n_thisweek_eq;//[本周]
-	public void setN_thisweek_eq(String n_thisweek_eq) {
-        this.n_thisweek_eq = n_thisweek_eq;
-        if(!ObjectUtils.isEmpty(this.n_thisweek_eq)){
-            this.getSearchCond().eq("`thisweek`", n_thisweek_eq);
-        }
-    }
-	private String n_lastweek_eq;//[上周]
-	public void setN_lastweek_eq(String n_lastweek_eq) {
-        this.n_lastweek_eq = n_lastweek_eq;
-        if(!ObjectUtils.isEmpty(this.n_lastweek_eq)){
-            this.getSearchCond().eq("`lastweek`", n_lastweek_eq);
-        }
-    }
-	private String n_thismonth_eq;//[本月]
-	public void setN_thismonth_eq(String n_thismonth_eq) {
-        this.n_thismonth_eq = n_thismonth_eq;
-        if(!ObjectUtils.isEmpty(this.n_thismonth_eq)){
-            this.getSearchCond().eq("`thismonth`", n_thismonth_eq);
-        }
-    }
-	private String n_lastmonth_eq;//[上月]
-	public void setN_lastmonth_eq(String n_lastmonth_eq) {
-        this.n_lastmonth_eq = n_lastmonth_eq;
-        if(!ObjectUtils.isEmpty(this.n_lastmonth_eq)){
-            this.getSearchCond().eq("`lastmonth`", n_lastmonth_eq);
         }
     }
 

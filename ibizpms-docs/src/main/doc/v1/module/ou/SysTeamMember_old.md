@@ -18,12 +18,12 @@ hide members
 |组名称|TEAMNAME|PICKUPTEXT|&nbsp;|
 |岗位|POSTNAME|PICKUPTEXT|&nbsp;|
 |区属|DOMAINS|TEXT|&nbsp;|
-|用户标识|USERID|PICKUP|&nbsp;|
-|组标识|TEAMID|PICKUP|&nbsp;|
-|岗位标识|POSTID|PICKUP|&nbsp;|
+|头像|USERICON|PICKUPDATA|&nbsp;|
 |姓名|PERSONNAME|PICKUPTEXT|&nbsp;|
 |账号|USERNAME|PICKUPDATA|&nbsp;|
-|头像|USERICON|PICKUPDATA|&nbsp;|
+|岗位标识|POSTID|PICKUP|&nbsp;|
+|组标识|TEAMID|PICKUP|&nbsp;|
+|用户标识|USERID|PICKUP|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -32,12 +32,12 @@ hide members
 |组名称|默认规则|内容长度必须小于等于[100]|
 |岗位|默认规则|内容长度必须小于等于[100]|
 |区属|默认规则|内容长度必须小于等于[100]|
-|用户标识|默认规则|内容长度必须小于等于[100]|
-|组标识|默认规则|内容长度必须小于等于[100]|
-|岗位标识|默认规则|内容长度必须小于等于[100]|
+|头像|默认规则|内容长度必须小于等于[255]|
 |姓名|默认规则|内容长度必须小于等于[100]|
 |账号|默认规则|内容长度必须小于等于[100]|
-|头像|默认规则|内容长度必须小于等于[255]|
+|岗位标识|默认规则|内容长度必须小于等于[100]|
+|组标识|默认规则|内容长度必须小于等于[100]|
+|用户标识|默认规则|内容长度必须小于等于[100]|
 
 ## 状态控制
 
@@ -64,7 +64,7 @@ hide members
 
 | 查询编号 | 查询名称       | 默认查询 |   备注|
 | --------  | --------   | --------   | ----- |
-|DEFAULT|数据查询([MYSQL5](../../appendix/query_MYSQL5.md#SysTeamMember_Default))|否|&nbsp;|
+|DEFAULT|数据查询([MYSQL5](../../appendix/query_MYSQL5.md#SysTeamMember_Default))|是|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#SysTeamMember_View))|否|&nbsp;|
 
 * **数据集合**
@@ -80,11 +80,11 @@ hide members
 |组名称(TEAMNAME)|LIKE|
 |岗位(POSTNAME)|EQ|
 |岗位(POSTNAME)|LIKE|
-|用户标识(USERID)|EQ|
-|组标识(TEAMID)|EQ|
-|岗位标识(POSTID)|EQ|
 |姓名(PERSONNAME)|EQ|
 |姓名(PERSONNAME)|LIKE|
+|岗位标识(POSTID)|EQ|
+|组标识(TEAMID)|EQ|
+|用户标识(USERID)|EQ|
 
 ## 导入模式
 无

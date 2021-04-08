@@ -34,5 +34,3 @@ public interface StoryInheritMapping {
     List<Story> toStory(List<IbizproIndex> majorEntities);
 
 }
-
-

@@ -11,7 +11,7 @@ mock.onGet('v7/myappmenu').reply((config: any) => {
         name: 'db_appmenu1_appmenu',
         items:  [
             {
-	id: '7F346864-D529-43AF-9112-3540450CCAA3',
+	id: '74a220bb5c6ec3fe2ac72afb4c602c2d',
 	name: 'menuitem6',
 	text: '我的待办',
 	type: 'MENUITEM',
@@ -29,7 +29,7 @@ mock.onGet('v7/myappmenu').reply((config: any) => {
 	resourcetag: '',
 },
             {
-	id: '6C281EC0-C62B-4088-882A-BC7044ED01B8',
+	id: '8e505026674c1486fd24ecf1b9efc969',
 	name: 'menuitem5',
 	text: '仪表盘',
 	type: 'MENUITEM',
@@ -47,7 +47,7 @@ mock.onGet('v7/myappmenu').reply((config: any) => {
 	resourcetag: '',
 },
             {
-	id: '19DE4841-8455-4DE4-B576-6FFB82DABA6E',
+	id: 'fbb4deb1f901ca7638ccc674b4d98790',
 	name: 'menuitem15',
 	text: '我的工作',
 	type: 'MENUITEM',

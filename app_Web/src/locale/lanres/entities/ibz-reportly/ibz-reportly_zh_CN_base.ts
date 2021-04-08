@@ -3,34 +3,30 @@ function getLocaleResourceBase(){
 	const data:any = {
 		appdename: commonLogic.appcommonhandle("汇报", null),
 		fields: {
-			ibzreportlyid: commonLogic.appcommonhandle("汇报标识",null),
-			ibzreportlyname: commonLogic.appcommonhandle("汇报名称",null),
+			files: commonLogic.appcommonhandle("附件",null),
+			account: commonLogic.appcommonhandle("用户",null),
 			updateman: commonLogic.appcommonhandle("更新人",null),
 			createdate: commonLogic.appcommonhandle("建立时间",null),
+			mailto: commonLogic.appcommonhandle("抄送给",null),
+			ibzreportlyid: commonLogic.appcommonhandle("汇报标识",null),
+			ibzreportlyname: commonLogic.appcommonhandle("汇报名称",null),
+			reportstatus: commonLogic.appcommonhandle("状态",null),
+			submittime: commonLogic.appcommonhandle("提交时间",null),
+			reporttopk: commonLogic.appcommonhandle("汇报给（选择）",null),
+			reportto: commonLogic.appcommonhandle("汇报给",null),
 			createman: commonLogic.appcommonhandle("建立人",null),
+			issubmit: commonLogic.appcommonhandle("是否提交",null),
 			updatedate: commonLogic.appcommonhandle("更新时间",null),
 			content: commonLogic.appcommonhandle("工作内容",null),
-			files: commonLogic.appcommonhandle("附件",null),
-			reportto: commonLogic.appcommonhandle("汇报给",null),
-			mailto: commonLogic.appcommonhandle("抄送给",null),
 			date: commonLogic.appcommonhandle("汇报日期",null),
-			issubmit: commonLogic.appcommonhandle("是否提交",null),
-			submittime: commonLogic.appcommonhandle("提交时间",null),
-			account: commonLogic.appcommonhandle("用户",null),
-			reportstatus: commonLogic.appcommonhandle("状态",null),
-			reporttopk: commonLogic.appcommonhandle("汇报给（选择）",null),
 			mailtopk: commonLogic.appcommonhandle("抄送给（选择）",null),
 		},
 			views: {
+				maingridview: {
+					caption: commonLogic.appcommonhandle("汇报",null),
+					title: commonLogic.appcommonhandle("汇报表格视图",null),
+				},
 				myreceivedreportlydetaileditview: {
-					caption: commonLogic.appcommonhandle("汇报",null),
-					title: commonLogic.appcommonhandle("汇报编辑视图",null),
-				},
-				calendareditview: {
-					caption: commonLogic.appcommonhandle("汇报",null),
-					title: commonLogic.appcommonhandle("汇报编辑视图",null),
-				},
-				reportlydetaileditview: {
 					caption: commonLogic.appcommonhandle("汇报",null),
 					title: commonLogic.appcommonhandle("汇报编辑视图",null),
 				},
@@ -38,9 +34,13 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("汇报",null),
 					title: commonLogic.appcommonhandle("汇报表格视图",null),
 				},
-				maingridview: {
+				reportlydetaileditview: {
 					caption: commonLogic.appcommonhandle("汇报",null),
-					title: commonLogic.appcommonhandle("汇报表格视图",null),
+					title: commonLogic.appcommonhandle("汇报编辑视图",null),
+				},
+				calendareditview: {
+					caption: commonLogic.appcommonhandle("汇报",null),
+					title: commonLogic.appcommonhandle("汇报编辑视图",null),
 				},
 				createeditview: {
 					caption: commonLogic.appcommonhandle("汇报",null),

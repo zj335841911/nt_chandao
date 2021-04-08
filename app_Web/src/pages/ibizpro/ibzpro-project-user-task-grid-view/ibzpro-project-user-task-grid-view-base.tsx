@@ -1,6 +1,6 @@
 
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { GridViewBase } from '@/studio-core';
 import IbzproProjectUserTaskService from '@/service/ibzpro-project-user-task/ibzpro-project-user-task-service';
 import IbzproProjectUserTaskAuthService from '@/authservice/ibzpro-project-user-task/ibzpro-project-user-task-auth-service';
@@ -105,7 +105,7 @@ export class IbzproProjectUserTaskGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof IbzproProjectUserTaskGridViewBase
      */
-	protected viewtag: string = 'fe81fbd0978314233d70cf0219ba4890';
+	protected viewtag: string = 'a719a6f3bc54e86c42f44c2350b6227d';
 
     /**
      * 视图名称

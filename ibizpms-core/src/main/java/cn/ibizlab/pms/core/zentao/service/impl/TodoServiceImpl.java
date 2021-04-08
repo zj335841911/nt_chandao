@@ -49,17 +49,6 @@ import org.springframework.util.StringUtils;
 public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements ITodoService {
 
 
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.ITodoGetTODOTitleLogic gettodotitleLogic;
-
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.ITodoResetBeginEndLogic resetbeginendLogic;
-    @Autowired
-    @Lazy
-    ITodoService proxyService;
-
     protected int batchSize = 500;
 
         @Override
@@ -99,17 +88,13 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
     @Override
     @Transactional
     public Todo get(Long key) {
-        Todo tempET = new Todo();
-        tempET.set("id", key);
         Todo et = getById(key);
-        if (et == null) {
+        if(et == null){
             et = new Todo();
             et.setId(key);
         }
         else {
         }
-        gettodotitleLogic.execute(et);
-        resetbeginendLogic.execute(et);
         return et;
     }
 
@@ -173,7 +158,8 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
         //自定义代码
         return et;
     }
-   @Override
+
+    @Override
     @Transactional
     public boolean createCycleBatch(List<Todo> etList) {
         for(Todo et : etList) {
@@ -200,7 +186,7 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
     @Override
     @Transactional
     public boolean save(Todo et) {
-        if (!saveOrUpdate(et)) {
+        if(!saveOrUpdate(et)) {
             return false;
         }
         return true;
@@ -212,7 +198,7 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
+            return checkKey(et) ? getProxyService().update(et) : getProxyService().create(et);
         }
     }
 
@@ -229,10 +215,10 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
         return true;
     }
@@ -250,10 +236,10 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
     }
 
@@ -318,7 +304,7 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
      */
     @Override
     public Page<Todo> searchDefault(TodoSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Todo> pages=baseMapper.searchDefault(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Todo> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Todo>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -327,7 +313,7 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
      */
     @Override
     public Page<Todo> searchMyTodo(TodoSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Todo> pages=baseMapper.searchMyTodo(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Todo> pages=baseMapper.searchMyTodo(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Todo>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -336,7 +322,7 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
      */
     @Override
     public Page<Todo> searchMyTodoPc(TodoSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Todo> pages=baseMapper.searchMyTodoPc(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Todo> pages=baseMapper.searchMyTodoPc(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Todo>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -345,7 +331,7 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
      */
     @Override
     public Page<Todo> searchMyUpcoming(TodoSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Todo> pages=baseMapper.searchMyUpcoming(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Todo> pages=baseMapper.searchMyUpcoming(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Todo>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -356,24 +342,24 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
 
 
     @Override
-    public List<JSONObject> select(String sql, Map param) {
-        return this.baseMapper.selectBySQL(sql, param);
+    public List<JSONObject> select(String sql, Map param){
+        return this.baseMapper.selectBySQL(sql,param);
     }
 
     @Override
     @Transactional
-    public boolean execute(String sql, Map param) {
+    public boolean execute(String sql , Map param){
         if (sql == null || sql.isEmpty()) {
             return false;
         }
         if (sql.toLowerCase().trim().startsWith("insert")) {
-            return this.baseMapper.insertBySQL(sql, param);
+            return this.baseMapper.insertBySQL(sql,param);
         }
         if (sql.toLowerCase().trim().startsWith("update")) {
-            return this.baseMapper.updateBySQL(sql, param);
+            return this.baseMapper.updateBySQL(sql,param);
         }
         if (sql.toLowerCase().trim().startsWith("delete")) {
-            return this.baseMapper.deleteBySQL(sql, param);
+            return this.baseMapper.deleteBySQL(sql,param);
         }
         log.warn("暂未支持的SQL语法");
         return true;
@@ -381,9 +367,9 @@ public class TodoServiceImpl extends ServiceImpl<TodoMapper, Todo> implements IT
 
 
 
-
-
+    public ITodoService getProxyService() {
+        return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
+    }
 }
-
 
 

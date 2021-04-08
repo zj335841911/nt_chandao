@@ -72,7 +72,7 @@ public class ModuleResource {
 		Module domain  = moduleMapping.toDomain(moduledto);
         domain .setId(module_id);
 		moduleService.update(domain );
-		ModuleDTO dto = moduleMapping.toDto(domain );
+		ModuleDTO dto = moduleMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
@@ -110,8 +110,9 @@ public class ModuleResource {
 
     @ApiOperation(value = "获取模块草稿", tags = {"模块" },  notes = "获取模块草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/modules/getdraft")
-    public ResponseEntity<ModuleDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(moduleMapping.toDto(moduleService.getDraft(new Module())));
+    public ResponseEntity<ModuleDTO> getDraft(ModuleDTO dto) {
+        Module domain = moduleMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(moduleMapping.toDto(moduleService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查模块", tags = {"模块" },  notes = "检查模块")
@@ -132,16 +133,20 @@ public class ModuleResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Module-Fix-all')")
     @ApiOperation(value = "批量处理[重建模块路径]", tags = {"模块" },  notes = "批量处理[重建模块路径]")
-	@RequestMapping(method = RequestMethod.POST, value = "/modules/{module_id}/fixbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/modules/fixbatch")
     public ResponseEntity<Boolean> fixBatch(@RequestBody List<ModuleDTO> moduledtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(moduleService.fixBatch(moduleMapping.toDomain(moduledtos)));
+        List<Module> domains = moduleMapping.toDomain(moduledtos);
+        boolean result = moduleService.fixBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasPermission(this.moduleMapping.toDomain(#moduledto),'pms-Module-Save')")
     @ApiOperation(value = "保存模块", tags = {"模块" },  notes = "保存模块")
 	@RequestMapping(method = RequestMethod.POST, value = "/modules/save")
-    public ResponseEntity<Boolean> save(@RequestBody ModuleDTO moduledto) {
-        return ResponseEntity.status(HttpStatus.OK).body(moduleService.save(moduleMapping.toDomain(moduledto)));
+    public ResponseEntity<ModuleDTO> save(@RequestBody ModuleDTO moduledto) {
+        Module domain = moduleMapping.toDomain(moduledto);
+        moduleService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(moduleMapping.toDto(domain));
     }
 
     @PreAuthorize("hasPermission(this.moduleMapping.toDomain(#moduledtos),'pms-Module-Save')")
@@ -283,6 +288,29 @@ public class ModuleResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(moduleMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Module-searchTaskModule-all') and hasPermission(#context,'pms-Module-Get')")
+	@ApiOperation(value = "获取任务模块", tags = {"模块" } ,notes = "获取任务模块")
+    @RequestMapping(method= RequestMethod.GET , value="/modules/fetchtaskmodule")
+	public ResponseEntity<List<ModuleDTO>> fetchTaskModule(ModuleSearchContext context) {
+        Page<Module> domains = moduleService.searchTaskModule(context) ;
+        List<ModuleDTO> list = moduleMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Module-searchTaskModule-all') and hasPermission(#context,'pms-Module-Get')")
+	@ApiOperation(value = "查询任务模块", tags = {"模块" } ,notes = "查询任务模块")
+    @RequestMapping(method= RequestMethod.POST , value="/modules/searchtaskmodule")
+	public ResponseEntity<Page<ModuleDTO>> searchTaskModule(@RequestBody ModuleSearchContext context) {
+        Page<Module> domains = moduleService.searchTaskModule(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(moduleMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
 
 
 }

@@ -96,19 +96,19 @@ export default class SysTeamUIServiceBase extends UIService {
      * @memberof  SysTeamUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set('PICKUPVIEW:', {
-            viewname: 'pickupview',
+        this.allViewMap.set('EDITVIEW:', {
+            viewname: 'editview',
             srfappde: 'systeams',
-            component: 'sys-team-pickup-view',
+            component: 'sys-team-edit-view',
             openmode: '',
             title: '组',
             width: 0,
             height: 0
         });
-        this.allViewMap.set('EDITVIEW:', {
-            viewname: 'editview',
+        this.allViewMap.set('PICKUPVIEW:', {
+            viewname: 'pickupview',
             srfappde: 'systeams',
-            component: 'sys-team-edit-view',
+            component: 'sys-team-pickup-view',
             openmode: '',
             title: '组',
             width: 0,

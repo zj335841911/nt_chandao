@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { PickupGridViewBase } from '@/studio-core';
 import StoryService from '@/service/story/story-service';
 import StoryAuthService from '@/authservice/story/story-auth-service';
@@ -102,7 +102,7 @@ export class StoryPickupGridView2Base extends PickupGridViewBase {
      * @type {string}
      * @memberof StoryPickupGridView2Base
      */
-	protected viewtag: string = '971a6faeda9b1b090521472c06eba003';
+	protected viewtag: string = 'a589d1134a8833b43471339d131a329b';
 
     /**
      * 视图名称

@@ -1,3 +1,4 @@
+import { Environment } from '@/environments/environment';
 import { Http } from '@/utils';
 import { Util } from '@/utils';
 import EntityService from '../entity-service';
@@ -49,7 +50,7 @@ export default class IBIZProPluginServiceBase extends EntityService {
      * @memberof IBIZProPluginServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().get(`/ibizproplugins/${context.ibizproplugin}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/ibizproplugins/${context.ibizproplugin}/select`,isloading);
             
             return res;
     }
@@ -105,7 +106,7 @@ export default class IBIZProPluginServiceBase extends EntityService {
      * @memberof IBIZProPluginServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().delete(`/ibizproplugins/${context.ibizproplugin}`,isloading);
+            let res:any = await Http.getInstance().delete(`/ibizproplugins/${context.ibizproplugin}`,isloading);
             return res;
     }
 
@@ -134,7 +135,10 @@ export default class IBIZProPluginServiceBase extends EntityService {
      * @memberof IBIZProPluginServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/ibizproplugins/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.ibizproplugin) delete tempData.ibizproplugin;
+        if(tempData.ibizpropluginid) delete tempData.ibizpropluginid;
+        let res:any = await  Http.getInstance().get(`/ibizproplugins/getdraft`,tempData,isloading);
         res.data.ibizproplugin = data.ibizproplugin;
         
         return res;
@@ -150,7 +154,7 @@ export default class IBIZProPluginServiceBase extends EntityService {
      * @memberof IBIZProPluginServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/ibizproplugins/${context.ibizproplugin}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/ibizproplugins/${context.ibizproplugin}/checkkey`,data,isloading);
             return res;
     }
 
@@ -182,7 +186,7 @@ export default class IBIZProPluginServiceBase extends EntityService {
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/ibizproplugins/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/ibizproplugins/fetchdefault`,tempData,isloading);
         return res;
     }
 

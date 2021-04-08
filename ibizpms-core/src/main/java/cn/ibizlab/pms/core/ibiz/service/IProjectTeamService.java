@@ -49,22 +49,23 @@ public interface IProjectTeamService extends IService<ProjectTeam> {
     boolean save(ProjectTeam et);
     void saveBatch(List<ProjectTeam> list);
     Page<ProjectTeam> searchDefault(ProjectTeamSearchContext context);
+    Page<ProjectTeam> searchProjectTeamPm(ProjectTeamSearchContext context);
     Page<ProjectTeam> searchRowEditDefault(ProjectTeamSearchContext context);
     Page<ProjectTeam> searchTaskCntEstimateConsumedLeft(ProjectTeamSearchContext context);
     List<ProjectTeam> selectByRoot(Long id);
     void removeByRoot(Long id);
     void saveByRoot(Long id, List<ProjectTeam> list) ;
     /**
-     * 自定义查询SQL
+     *自定义查询SQL
      * @param sql  select * from table where id =#{et.param}
-     * @param param 参数列表  param.put("param", "1");
+     * @param param 参数列表  param.put("param","1");
      * @return select * from table where id = '1'
      */
     List<JSONObject> select(String sql, Map param);
     /**
-     * 自定义SQL
+     *自定义SQL
      * @param sql  update table  set name ='test' where id =#{et.param}
-     * @param param 参数列表  param.put("param", "1");
+     * @param param 参数列表  param.put("param","1");
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);

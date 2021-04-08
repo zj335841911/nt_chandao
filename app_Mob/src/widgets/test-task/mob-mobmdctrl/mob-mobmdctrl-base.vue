@@ -5,10 +5,10 @@
                 <template v-if="(viewType == 'DEMOBMDVIEW9') && controlStyle != 'SWIPERVIEW' ">
                     <ion-item-sliding ref="sliding" v-for="(item,index) in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
-                            <ion-item-option v-show="item.MobStart.visabled" :disabled="item.MobStart.disabled" color="primary" @click="mdctrl_click($event, 'uded835a', item)"><app-mob-icon v-if="item.MobStart.icon && item.MobStart.isShowIcon" :name="item.MobStart.icon"></app-mob-icon><ion-label v-if="item.MobStart.isShowCaption">开始</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.MobBlock.visabled" :disabled="item.MobBlock.disabled" color="primary" @click="mdctrl_click($event, 'u7ba5616', item)"><app-mob-icon v-if="item.MobBlock.icon && item.MobBlock.isShowIcon" :name="item.MobBlock.icon"></app-mob-icon><ion-label v-if="item.MobBlock.isShowCaption">阻塞</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.MobActivite.visabled" :disabled="item.MobActivite.disabled" color="primary" @click="mdctrl_click($event, 'u3a9cdb8', item)"><app-mob-icon v-if="item.MobActivite.icon && item.MobActivite.isShowIcon" :name="item.MobActivite.icon"></app-mob-icon><ion-label v-if="item.MobActivite.isShowCaption">激活</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.MobClose.visabled" :disabled="item.MobClose.disabled" color="primary" @click="mdctrl_click($event, 'u26d200d', item)"><app-mob-icon v-if="item.MobClose.icon && item.MobClose.isShowIcon" :name="item.MobClose.icon"></app-mob-icon><ion-label v-if="item.MobClose.isShowCaption">关闭</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.MobStart.visabled" :disabled="item.MobStart.disabled" color="primary" @click="mdctrl_click($event, 'u6c2f01c', item)"><app-mob-icon v-if="item.MobStart.icon && item.MobStart.isShowIcon" :name="item.MobStart.icon"></app-mob-icon><ion-label v-if="item.MobStart.isShowCaption">开始</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.MobBlock.visabled" :disabled="item.MobBlock.disabled" color="primary" @click="mdctrl_click($event, 'ua6bb380', item)"><app-mob-icon v-if="item.MobBlock.icon && item.MobBlock.isShowIcon" :name="item.MobBlock.icon"></app-mob-icon><ion-label v-if="item.MobBlock.isShowCaption">阻塞</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.MobActivite.visabled" :disabled="item.MobActivite.disabled" color="primary" @click="mdctrl_click($event, 'u6d5001b', item)"><app-mob-icon v-if="item.MobActivite.icon && item.MobActivite.isShowIcon" :name="item.MobActivite.icon"></app-mob-icon><ion-label v-if="item.MobActivite.isShowCaption">激活</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.MobClose.visabled" :disabled="item.MobClose.disabled" color="primary" @click="mdctrl_click($event, 'u3981617', item)"><app-mob-icon v-if="item.MobClose.icon && item.MobClose.isShowIcon" :name="item.MobClose.icon"></app-mob-icon><ion-label v-if="item.MobClose.isShowCaption">关闭</ion-label></ion-item-option>
                         </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
@@ -23,10 +23,10 @@
                 <template v-if="(viewType == 'DEMOBMDVIEW') && controlStyle != 'SWIPERVIEW' ">
                       <ion-item-sliding  :ref="item.srfkey" v-for="(item,index) in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
-                            <ion-item-option v-show="item.MobStart.visabled" :disabled="item.MobStart.disabled" color="primary" @click="mdctrl_click($event, 'uded835a', item)"><app-mob-icon v-if="item.MobStart.icon && item.MobStart.isShowIcon" :name="item.MobStart.icon"></app-mob-icon><ion-label v-if="item.MobStart.isShowCaption">开始</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.MobBlock.visabled" :disabled="item.MobBlock.disabled" color="primary" @click="mdctrl_click($event, 'u7ba5616', item)"><app-mob-icon v-if="item.MobBlock.icon && item.MobBlock.isShowIcon" :name="item.MobBlock.icon"></app-mob-icon><ion-label v-if="item.MobBlock.isShowCaption">阻塞</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.MobActivite.visabled" :disabled="item.MobActivite.disabled" color="primary" @click="mdctrl_click($event, 'u3a9cdb8', item)"><app-mob-icon v-if="item.MobActivite.icon && item.MobActivite.isShowIcon" :name="item.MobActivite.icon"></app-mob-icon><ion-label v-if="item.MobActivite.isShowCaption">激活</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.MobClose.visabled" :disabled="item.MobClose.disabled" color="primary" @click="mdctrl_click($event, 'u26d200d', item)"><app-mob-icon v-if="item.MobClose.icon && item.MobClose.isShowIcon" :name="item.MobClose.icon"></app-mob-icon><ion-label v-if="item.MobClose.isShowCaption">关闭</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.MobStart.visabled" :disabled="item.MobStart.disabled" color="primary" @click="mdctrl_click($event, 'u6c2f01c', item)"><app-mob-icon v-if="item.MobStart.icon && item.MobStart.isShowIcon" :name="item.MobStart.icon"></app-mob-icon><ion-label v-if="item.MobStart.isShowCaption">开始</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.MobBlock.visabled" :disabled="item.MobBlock.disabled" color="primary" @click="mdctrl_click($event, 'ua6bb380', item)"><app-mob-icon v-if="item.MobBlock.icon && item.MobBlock.isShowIcon" :name="item.MobBlock.icon"></app-mob-icon><ion-label v-if="item.MobBlock.isShowCaption">阻塞</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.MobActivite.visabled" :disabled="item.MobActivite.disabled" color="primary" @click="mdctrl_click($event, 'u6d5001b', item)"><app-mob-icon v-if="item.MobActivite.icon && item.MobActivite.isShowIcon" :name="item.MobActivite.icon"></app-mob-icon><ion-label v-if="item.MobActivite.isShowCaption">激活</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.MobClose.visabled" :disabled="item.MobClose.disabled" color="primary" @click="mdctrl_click($event, 'u3981617', item)"><app-mob-icon v-if="item.MobClose.icon && item.MobClose.isShowIcon" :name="item.MobClose.icon"></app-mob-icon><ion-label v-if="item.MobClose.isShowCaption">关闭</ion-label></ion-item-option>
                         </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
@@ -239,7 +239,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * @returns {Promise<any>}
      * @memberof MdctrlBase
      */
-    protected async mdctrl_uded835a_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async mdctrl_u6c2f01c_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
 
         // 取数
         let datas: any[] = [];
@@ -270,7 +270,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * @returns {Promise<any>}
      * @memberof MdctrlBase
      */
-    protected async mdctrl_u7ba5616_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async mdctrl_ua6bb380_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
 
         // 取数
         let datas: any[] = [];
@@ -301,7 +301,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * @returns {Promise<any>}
      * @memberof MdctrlBase
      */
-    protected async mdctrl_u3a9cdb8_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async mdctrl_u6d5001b_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
 
         // 取数
         let datas: any[] = [];
@@ -332,7 +332,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * @returns {Promise<any>}
      * @memberof MdctrlBase
      */
-    protected async mdctrl_u26d200d_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async mdctrl_u3981617_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
 
         // 取数
         let datas: any[] = [];
@@ -1074,17 +1074,17 @@ export default class MobBase extends Vue implements ControlInterface {
         $event.stopPropagation();
         this.selectedArray = [];
         this.selectedArray.push(item);
-        if (Object.is(tag, 'uded835a')) {
-            this.mdctrl_uded835a_click();
+        if (Object.is(tag, 'u6c2f01c')) {
+            this.mdctrl_u6c2f01c_click();
         }
-        if (Object.is(tag, 'u7ba5616')) {
-            this.mdctrl_u7ba5616_click();
+        if (Object.is(tag, 'ua6bb380')) {
+            this.mdctrl_ua6bb380_click();
         }
-        if (Object.is(tag, 'u3a9cdb8')) {
-            this.mdctrl_u3a9cdb8_click();
+        if (Object.is(tag, 'u6d5001b')) {
+            this.mdctrl_u6d5001b_click();
         }
-        if (Object.is(tag, 'u26d200d')) {
-            this.mdctrl_u26d200d_click();
+        if (Object.is(tag, 'u3981617')) {
+            this.mdctrl_u3981617_click();
         }
         this.closeSlidings(item);
     }

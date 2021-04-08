@@ -15,24 +15,24 @@ export class MOB_ReleaseLink_LeftBugModel {
 	public getDataItems(): any[] {
 		return [
 			{
+				name: 'severity',
+			},
+			{
 				name: 'resolution',
-			},
-			{
-				name: 'title',
-			},
-			{
-				name: 'pri1',
-				prop: 'pri',
-				dataType: 'NSCODELIST',
 			},
 			{
 				name: 'status',
 			},
 			{
+				name: 'title',
+			},
+			{
 				name: 'assignedto',
 			},
 			{
-				name: 'severity',
+				name: 'pri1',
+				prop: 'pri',
+				dataType: 'NSCODELIST',
 			},
 			{
 				name: 'srfkey',

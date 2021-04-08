@@ -72,7 +72,7 @@ public class IBIZProMessageResource {
 		IBIZProMessage domain  = ibizpromessageMapping.toDomain(ibizpromessagedto);
         domain .setIbizpromessageid(ibizpromessage_id);
 		ibizpromessageService.update(domain );
-		IBIZProMessageDTO dto = ibizpromessageMapping.toDto(domain );
+		IBIZProMessageDTO dto = ibizpromessageMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
@@ -110,8 +110,9 @@ public class IBIZProMessageResource {
 
     @ApiOperation(value = "获取消息草稿", tags = {"消息" },  notes = "获取消息草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/ibizpromessages/getdraft")
-    public ResponseEntity<IBIZProMessageDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(ibizpromessageMapping.toDto(ibizpromessageService.getDraft(new IBIZProMessage())));
+    public ResponseEntity<IBIZProMessageDTO> getDraft(IBIZProMessageDTO dto) {
+        IBIZProMessage domain = ibizpromessageMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(ibizpromessageMapping.toDto(ibizpromessageService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查消息", tags = {"消息" },  notes = "检查消息")
@@ -132,9 +133,11 @@ public class IBIZProMessageResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IBIZProMessage-MarkDone-all')")
     @ApiOperation(value = "批量处理[标记已完成]", tags = {"消息" },  notes = "批量处理[标记已完成]")
-	@RequestMapping(method = RequestMethod.POST, value = "/ibizpromessages/{ibizpromessage_id}/markdonebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/ibizpromessages/markdonebatch")
     public ResponseEntity<Boolean> markDoneBatch(@RequestBody List<IBIZProMessageDTO> ibizpromessagedtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(ibizpromessageService.markDoneBatch(ibizpromessageMapping.toDomain(ibizpromessagedtos)));
+        List<IBIZProMessage> domains = ibizpromessageMapping.toDomain(ibizpromessagedtos);
+        boolean result = ibizpromessageService.markDoneBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IBIZProMessage-MarkRead-all')")
@@ -149,16 +152,20 @@ public class IBIZProMessageResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IBIZProMessage-MarkRead-all')")
     @ApiOperation(value = "批量处理[标记已读]", tags = {"消息" },  notes = "批量处理[标记已读]")
-	@RequestMapping(method = RequestMethod.POST, value = "/ibizpromessages/{ibizpromessage_id}/markreadbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/ibizpromessages/markreadbatch")
     public ResponseEntity<Boolean> markReadBatch(@RequestBody List<IBIZProMessageDTO> ibizpromessagedtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(ibizpromessageService.markReadBatch(ibizpromessageMapping.toDomain(ibizpromessagedtos)));
+        List<IBIZProMessage> domains = ibizpromessageMapping.toDomain(ibizpromessagedtos);
+        boolean result = ibizpromessageService.markReadBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IBIZProMessage-Save-all')")
     @ApiOperation(value = "保存消息", tags = {"消息" },  notes = "保存消息")
 	@RequestMapping(method = RequestMethod.POST, value = "/ibizpromessages/save")
-    public ResponseEntity<Boolean> save(@RequestBody IBIZProMessageDTO ibizpromessagedto) {
-        return ResponseEntity.status(HttpStatus.OK).body(ibizpromessageService.save(ibizpromessageMapping.toDomain(ibizpromessagedto)));
+    public ResponseEntity<IBIZProMessageDTO> save(@RequestBody IBIZProMessageDTO ibizpromessagedto) {
+        IBIZProMessage domain = ibizpromessageMapping.toDomain(ibizpromessagedto);
+        ibizpromessageService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(ibizpromessageMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IBIZProMessage-Save-all')")
@@ -181,9 +188,11 @@ public class IBIZProMessageResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IBIZProMessage-Send-all')")
     @ApiOperation(value = "批量处理[发送消息]", tags = {"消息" },  notes = "批量处理[发送消息]")
-	@RequestMapping(method = RequestMethod.POST, value = "/ibizpromessages/{ibizpromessage_id}/sendbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/ibizpromessages/sendbatch")
     public ResponseEntity<Boolean> sendBatch(@RequestBody List<IBIZProMessageDTO> ibizpromessagedtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(ibizpromessageService.sendBatch(ibizpromessageMapping.toDomain(ibizpromessagedtos)));
+        List<IBIZProMessage> domains = ibizpromessageMapping.toDomain(ibizpromessagedtos);
+        boolean result = ibizpromessageService.sendBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IBIZProMessage-searchDefault-all')")
@@ -251,6 +260,7 @@ public class IBIZProMessageResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(ibizpromessageMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
 
 
 }

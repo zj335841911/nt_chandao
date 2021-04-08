@@ -29,7 +29,7 @@ ruleflow-group "testtaskmobtesttaskcounterrawsqlcall1"
     param.put("param1",testtaskmobtesttaskcounterdefault.get("product"));
     String strSql="SELECT count(1) CASECNT FROM `zt_case` t1 LEFT JOIN zt_testrun t41 ON t1.id = t41.`case` WHERE t41.`TASK` = #{et.param0} AND t1.DELETED = '0' AND t1.product = #{et.param1}";
     java.util.List<JSONObject> entities=iBzSysTesttaskDefaultService.select(strSql,param);//SQL调用
-    if(entities.size()>0){
+    if(entities.size()>0 && !ObjectUtils.isEmpty(entities.get(0))){
         JSONObject entity=entities.get(0);
         for (Map.Entry entry : entity.entrySet()) {
             testtaskmobtesttaskcounterdefault.set(String.valueOf(entry.getKey()),entry.getValue());

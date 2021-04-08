@@ -32,5 +32,3 @@ public interface ProductInheritMapping {
     List<Product> toProduct(List<IbizproIndex> majorEntities);
 
 }
-
-

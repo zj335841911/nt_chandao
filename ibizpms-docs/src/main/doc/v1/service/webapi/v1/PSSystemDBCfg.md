@@ -261,39 +261,39 @@ POST
 #### PSSystemDBCfgDTO
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
-| 1 | pssystemdbcfgname | String | 允许 | 系统数据库名称 |
-| 2 | pssystemdbcfgid | String | 不可 | 系统数据库标识 |
-| 3 | updateman | String | 不可 | 更新人 |
-| 4 | createdate | Timestamp | 不可 | 建立时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
-| 5 | createman | String | 不可 | 建立人 |
-| 6 | updatedate | Timestamp | 不可 | 更新时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
-| 7 | appendschema | Integer | 允许 | 附加模式名称 |
-| 8 | dbschemaname | String | 允许 | 数据库模式名称 |
-| 9 | defaultflag | Integer | 允许 | 默认数据源 |
-| 10 | enablewebtool | Integer | 允许 | 支持Web管理 |
-| 11 | memo | String | 允许 | 备注 |
-| 12 | nodbinstmode | Integer | 允许 | 无数据库模式 |
-| 13 | nullvalorder | String | 允许 | 空值排序 |
-| 14 | pubcommentflag | Integer | 允许 | 发布模型注释 |
-| 15 | objnamecase | String | 允许 | 对象名称转换 |
+| 1 | tabspace2 | String | 允许 | 表空间2名称 |
+| 2 | resstate | Integer | 允许 | 资源状态 |
+| 3 | nullvalorder | String | 允许 | 空值排序 |
+| 4 | usertag3 | String | 允许 | 用户标记3 |
+| 5 | tabspace | String | 允许 | 默认表空间名称 |
+| 6 | defaultflag | Integer | 允许 | 默认数据源 |
+| 7 | memo | String | 允许 | 备注 |
+| 8 | nodbinstmode | Integer | 允许 | 无数据库模式 |
+| 9 | usertag4 | String | 允许 | 用户标记4 |
+| 10 | pssystemdbcfgname | String | 允许 | 系统数据库名称 |
+| 11 | pssystemname | String | 允许 | 系统 |
+| 12 | resinfo | String | 允许 | 资源信息 |
+| 13 | usertag | String | 允许 | 用户标记 |
+| 14 | userparams | String | 允许 | 自定义参数 |
+| 15 | resreadytime | Timestamp | 允许 | 资源就绪时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
 | 16 | pubfkeyflag | Integer | 允许 | 发布外键 |
-| 17 | pubdbmodelflag | Integer | 允许 | 发布数据库模型 |
-| 18 | resinfo | String | 允许 | 资源信息 |
-| 19 | pubindexflag | Integer | 允许 | 发布索引 |
-| 20 | pubviewflag | Integer | 允许 | 发布视图 |
-| 21 | resstate | Integer | 允许 | 资源状态 |
-| 22 | resreadytime | Timestamp | 允许 | 资源就绪时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
-| 23 | tabspace2 | String | 允许 | 表空间2名称 |
-| 24 | tabspace | String | 允许 | 默认表空间名称 |
-| 25 | tabspace3 | String | 允许 | 表空间3名称 |
-| 26 | tabspace4 | String | 允许 | 表空间4名称 |
-| 27 | usercat | String | 允许 | 用户分类 |
-| 28 | usertag | String | 允许 | 用户标记 |
-| 29 | userparams | String | 允许 | 自定义参数 |
-| 30 | usertag2 | String | 允许 | 用户标记2 |
-| 31 | usertag3 | String | 允许 | 用户标记3 |
-| 32 | usertag4 | String | 允许 | 用户标记4 |
-| 33 | pssystemid | String | 允许 | 系统 |
-| 34 | pssystemname | String | 允许 | 系统 |
+| 17 | pssystemdbcfgid | String | 不可 | 系统数据库标识 |
+| 18 | usertag2 | String | 允许 | 用户标记2 |
+| 19 | updateman | String | 不可 | 更新人 |
+| 20 | pubcommentflag | Integer | 允许 | 发布模型注释 |
+| 21 | createdate | Timestamp | 不可 | 建立时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
+| 22 | tabspace3 | String | 允许 | 表空间3名称 |
+| 23 | enablewebtool | Integer | 允许 | 支持Web管理 |
+| 24 | pubdbmodelflag | Integer | 允许 | 发布数据库模型 |
+| 25 | objnamecase | String | 允许 | 对象名称转换 |
+| 26 | pubindexflag | Integer | 允许 | 发布索引 |
+| 27 | appendschema | Integer | 允许 | 附加模式名称 |
+| 28 | pssystemid | String | 允许 | 系统 |
+| 29 | dbschemaname | String | 允许 | 数据库模式名称 |
+| 30 | tabspace4 | String | 允许 | 表空间4名称 |
+| 31 | usercat | String | 允许 | 用户分类 |
+| 32 | createman | String | 不可 | 建立人 |
+| 33 | updatedate | Timestamp | 不可 | 更新时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
+| 34 | pubviewflag | Integer | 允许 | 发布视图 |
 | 35 | <动态属性> | Object | 允许 | 支持动态属性 |
 

@@ -15,6 +15,22 @@ export interface DocLib {
     type?: any;
 
     /**
+     * 文件库类型
+     *
+     * @returns {*}
+     * @memberof DocLib
+     */
+    doclibtype?: any;
+
+    /**
+     * 是否收藏
+     *
+     * @returns {*}
+     * @memberof DocLib
+     */
+    isfavourites?: any;
+
+    /**
      * 收藏者
      *
      * @returns {*}
@@ -23,12 +39,36 @@ export interface DocLib {
     collector?: any;
 
     /**
+     * 部门标识
+     *
+     * @returns {*}
+     * @memberof DocLib
+     */
+    mdeptid?: any;
+
+    /**
+     * 组织标识
+     *
+     * @returns {*}
+     * @memberof DocLib
+     */
+    orgid?: any;
+
+    /**
      * 权限
      *
      * @returns {*}
      * @memberof DocLib
      */
     acl?: any;
+
+    /**
+     * Root
+     *
+     * @returns {*}
+     * @memberof DocLib
+     */
+    root?: any;
 
     /**
      * 已删除
@@ -45,6 +85,14 @@ export interface DocLib {
      * @memberof DocLib
      */
     groups?: any;
+
+    /**
+     * 文档数量
+     *
+     * @returns {*}
+     * @memberof DocLib
+     */
+    doccnt?: any;
 
     /**
      * 编号
@@ -79,12 +127,44 @@ export interface DocLib {
     name?: any;
 
     /**
+     * 文件夹数
+     *
+     * @returns {*}
+     * @memberof DocLib
+     */
+    modulecnt?: any;
+
+    /**
+     * 创建时间
+     *
+     * @returns {*}
+     * @memberof DocLib
+     */
+    openeddate?: any;
+
+    /**
      * 排序
      *
      * @returns {*}
      * @memberof DocLib
      */
     order?: any;
+
+    /**
+     * 所属产品
+     *
+     * @returns {*}
+     * @memberof DocLib
+     */
+    productname?: any;
+
+    /**
+     * 所属项目
+     *
+     * @returns {*}
+     * @memberof DocLib
+     */
+    projectname?: any;
 
     /**
      * 项目库
@@ -101,84 +181,4 @@ export interface DocLib {
      * @memberof DocLib
      */
     product?: any;
-
-    /**
-     * 文档数量
-     *
-     * @returns {*}
-     * @memberof DocLib
-     */
-    doccnt?: any;
-
-    /**
-     * 文件库类型
-     *
-     * @returns {*}
-     * @memberof DocLib
-     */
-    doclibtype?: any;
-
-    /**
-     * 所属项目
-     *
-     * @returns {*}
-     * @memberof DocLib
-     */
-    projectname?: any;
-
-    /**
-     * 所属产品
-     *
-     * @returns {*}
-     * @memberof DocLib
-     */
-    productname?: any;
-
-    /**
-     * 是否收藏
-     *
-     * @returns {*}
-     * @memberof DocLib
-     */
-    isfavourites?: any;
-
-    /**
-     * 组织标识
-     *
-     * @returns {*}
-     * @memberof DocLib
-     */
-    orgid?: any;
-
-    /**
-     * 部门标识
-     *
-     * @returns {*}
-     * @memberof DocLib
-     */
-    mdeptid?: any;
-
-    /**
-     * Root
-     *
-     * @returns {*}
-     * @memberof DocLib
-     */
-    root?: any;
-
-    /**
-     * 文件夹数
-     *
-     * @returns {*}
-     * @memberof DocLib
-     */
-    modulecnt?: any;
-
-    /**
-     * 创建时间
-     *
-     * @returns {*}
-     * @memberof DocLib
-     */
-    openeddate?: any;
 }

@@ -24,6 +24,8 @@ import java.io.Serializable;
 import lombok.*;
 import org.springframework.data.annotation.Transient;
 import cn.ibizlab.pms.util.annotation.Audit;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -39,26 +41,11 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
 @TableName(value = "T_IBZPRO_CONFIG", resultMap = "IbzproConfigResultMap")
+@ApiModel("系统配置表")
 public class IbzproConfig extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    /**
-     * 系统配置表名称
-     */
-    @DEField(name = "ibzpro_configname")
-    @TableField(value = "`ibzpro_configname`")
-    @JSONField(name = "ibzproconfigname")
-    @JsonProperty("ibzproconfigname")
-    private String ibzproconfigname;
-    /**
-     * 系统配置表标识
-     */
-    @DEField(name = "ibzpro_configid", isKeyField = true)
-    @TableId(value = "ibzpro_configid", type = IdType.ASSIGN_UUID)
-    @JSONField(name = "ibzproconfigid")
-    @JsonProperty("ibzproconfigid")
-    private String ibzproconfigid;
     /**
      * 更新人
      */
@@ -66,7 +53,25 @@ public class IbzproConfig extends EntityMP implements Serializable {
     @TableField(value = "`updateman`")
     @JSONField(name = "updateman")
     @JsonProperty("updateman")
+    @ApiModelProperty("更新人")
     private String updateman;
+    /**
+     * 系统配置表名称
+     */
+    @DEField(name = "ibzpro_configname")
+    @TableField(value = "`ibzpro_configname`")
+    @JSONField(name = "ibzproconfigname")
+    @JsonProperty("ibzproconfigname")
+    @ApiModelProperty("系统配置表名称")
+    private String ibzproconfigname;
+    /**
+     * 描述
+     */
+    @TableField(value = "`memo`")
+    @JSONField(name = "memo")
+    @JsonProperty("memo")
+    @ApiModelProperty("描述")
+    private String memo;
     /**
      * 更新时间
      */
@@ -75,6 +80,7 @@ public class IbzproConfig extends EntityMP implements Serializable {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "updatedate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("updatedate")
+    @ApiModelProperty("更新时间")
     private Timestamp updatedate;
     /**
      * 建立时间
@@ -84,42 +90,32 @@ public class IbzproConfig extends EntityMP implements Serializable {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "createdate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createdate")
+    @ApiModelProperty("建立时间")
     private Timestamp createdate;
     /**
-     * 建立人
+     * 系统配置表标识
      */
-    @DEField(preType = DEPredefinedFieldType.CREATEMAN)
-    @TableField(value = "`createman`", fill = FieldFill.INSERT)
-    @JSONField(name = "createman")
-    @JsonProperty("createman")
-    private String createman;
+    @DEField(name = "ibzpro_configid", isKeyField = true)
+    @TableId(value = "ibzpro_configid", type = IdType.ASSIGN_UUID)
+    @JSONField(name = "ibzproconfigid")
+    @JsonProperty("ibzproconfigid")
+    @ApiModelProperty("系统配置表标识")
+    private String ibzproconfigid;
     /**
      * 范围
      */
     @TableField(value = "`scope`")
     @JSONField(name = "scope")
     @JsonProperty("scope")
+    @ApiModelProperty("范围")
     private String scope;
-    /**
-     * 是否启用
-     */
-    @TableField(value = "`vaild`")
-    @JSONField(name = "vaild")
-    @JsonProperty("vaild")
-    private String vaild;
-    /**
-     * 描述
-     */
-    @TableField(value = "`memo`")
-    @JSONField(name = "memo")
-    @JsonProperty("memo")
-    private String memo;
     /**
      * 类型
      */
     @TableField(value = "`type`")
     @JSONField(name = "type")
     @JsonProperty("type")
+    @ApiModelProperty("类型")
     private String type;
     /**
      * 管理现状
@@ -127,7 +123,25 @@ public class IbzproConfig extends EntityMP implements Serializable {
     @TableField(value = "`managementstatus`")
     @JSONField(name = "managementstatus")
     @JsonProperty("managementstatus")
+    @ApiModelProperty("管理现状")
     private String managementstatus;
+    /**
+     * 是否启用
+     */
+    @TableField(value = "`vaild`")
+    @JSONField(name = "vaild")
+    @JsonProperty("vaild")
+    @ApiModelProperty("是否启用")
+    private String vaild;
+    /**
+     * 建立人
+     */
+    @DEField(preType = DEPredefinedFieldType.CREATEMAN)
+    @TableField(value = "`createman`", fill = FieldFill.INSERT)
+    @JSONField(name = "createman")
+    @JsonProperty("createman")
+    @ApiModelProperty("建立人")
+    private String createman;
 
 
 
@@ -140,27 +154,19 @@ public class IbzproConfig extends EntityMP implements Serializable {
     }
 
     /**
-     * 设置 [范围]
-     */
-    public void setScope(String scope) {
-        this.scope = scope;
-        this.modify("scope", scope);
-    }
-
-    /**
-     * 设置 [是否启用]
-     */
-    public void setVaild(String vaild) {
-        this.vaild = vaild;
-        this.modify("vaild", vaild);
-    }
-
-    /**
      * 设置 [描述]
      */
     public void setMemo(String memo) {
         this.memo = memo;
         this.modify("memo", memo);
+    }
+
+    /**
+     * 设置 [范围]
+     */
+    public void setScope(String scope) {
+        this.scope = scope;
+        this.modify("scope", scope);
     }
 
     /**
@@ -177,6 +183,14 @@ public class IbzproConfig extends EntityMP implements Serializable {
     public void setManagementstatus(String managementstatus) {
         this.managementstatus = managementstatus;
         this.modify("managementstatus", managementstatus);
+    }
+
+    /**
+     * 设置 [是否启用]
+     */
+    public void setVaild(String vaild) {
+        this.vaild = vaild;
+        this.modify("vaild", vaild);
     }
 
 

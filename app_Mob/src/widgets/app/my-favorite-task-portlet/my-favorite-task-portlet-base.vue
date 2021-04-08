@@ -159,7 +159,7 @@ export default class MyFavoriteTaskBase extends Vue implements ControlInterface 
      * @returns {Promise<any>}
      * @memberof Dashboard_sysportlet4Base
      */
-    protected async dashboard_sysportlet4_u02f0175_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async dashboard_sysportlet4_u3c23547_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
 
         // 取数
         let datas: any[] = [];
@@ -250,7 +250,7 @@ export default class MyFavoriteTaskBase extends Vue implements ControlInterface 
      */
     protected actionBarModelData: any[] = [
         {
-            viewlogicname: "dashboard_sysportlet4_u02f0175_click",
+            viewlogicname: "dashboard_sysportlet4_u3c23547_click",
             name: "更多",
         }
     ];
@@ -263,8 +263,8 @@ export default class MyFavoriteTaskBase extends Vue implements ControlInterface 
      * @memberof MyFavoriteTask
      */
     protected handleItemClick($event: any) {
-        if (Object.is($event, 'dashboard_sysportlet4_u02f0175_click')) {
-            this.dashboard_sysportlet4_u02f0175_click(null);
+        if (Object.is($event, 'dashboard_sysportlet4_u3c23547_click')) {
+            this.dashboard_sysportlet4_u3c23547_click(null);
         }
     }
 

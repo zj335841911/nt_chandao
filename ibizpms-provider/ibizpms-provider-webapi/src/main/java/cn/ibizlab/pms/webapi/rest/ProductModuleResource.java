@@ -72,7 +72,7 @@ public class ProductModuleResource {
 		ProductModule domain  = productmoduleMapping.toDomain(productmoduledto);
         domain .setId(productmodule_id);
 		productmoduleService.update(domain );
-		ProductModuleDTO dto = productmoduleMapping.toDto(domain );
+		ProductModuleDTO dto = productmoduleMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
@@ -110,8 +110,9 @@ public class ProductModuleResource {
 
     @ApiOperation(value = "获取需求模块草稿", tags = {"需求模块" },  notes = "获取需求模块草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/productmodules/getdraft")
-    public ResponseEntity<ProductModuleDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(productmoduleMapping.toDto(productmoduleService.getDraft(new ProductModule())));
+    public ResponseEntity<ProductModuleDTO> getDraft(ProductModuleDTO dto) {
+        ProductModule domain = productmoduleMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(productmoduleMapping.toDto(productmoduleService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查需求模块", tags = {"需求模块" },  notes = "检查需求模块")
@@ -145,8 +146,10 @@ public class ProductModuleResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductModule-Save-all')")
     @ApiOperation(value = "保存需求模块", tags = {"需求模块" },  notes = "保存需求模块")
 	@RequestMapping(method = RequestMethod.POST, value = "/productmodules/save")
-    public ResponseEntity<Boolean> save(@RequestBody ProductModuleDTO productmoduledto) {
-        return ResponseEntity.status(HttpStatus.OK).body(productmoduleService.save(productmoduleMapping.toDomain(productmoduledto)));
+    public ResponseEntity<ProductModuleDTO> save(@RequestBody ProductModuleDTO productmoduledto) {
+        ProductModule domain = productmoduleMapping.toDomain(productmoduledto);
+        productmoduleService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(productmoduleMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductModule-Save-all')")
@@ -169,9 +172,11 @@ public class ProductModuleResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductModule-SyncFromIBIZ-all')")
     @ApiOperation(value = "批量处理[同步Ibz平台模块]", tags = {"需求模块" },  notes = "批量处理[同步Ibz平台模块]")
-	@RequestMapping(method = RequestMethod.POST, value = "/productmodules/{productmodule_id}/syncfromibizbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/productmodules/syncfromibizbatch")
     public ResponseEntity<Boolean> syncFromIBIZBatch(@RequestBody List<ProductModuleDTO> productmoduledtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(productmoduleService.syncFromIBIZBatch(productmoduleMapping.toDomain(productmoduledtos)));
+        List<ProductModule> domains = productmoduleMapping.toDomain(productmoduledtos);
+        boolean result = productmoduleService.syncFromIBIZBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductModule-searchByPath-all')")
@@ -307,6 +312,7 @@ public class ProductModuleResource {
 	}
 
 
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductModule-Create-all')")
     @ApiOperation(value = "根据产品建立需求模块", tags = {"需求模块" },  notes = "根据产品建立需求模块")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productmodules")
@@ -380,8 +386,8 @@ public class ProductModuleResource {
 
     @ApiOperation(value = "根据产品获取需求模块草稿", tags = {"需求模块" },  notes = "根据产品获取需求模块草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/productmodules/getdraft")
-    public ResponseEntity<ProductModuleDTO> getDraftByProduct(@PathVariable("product_id") Long product_id) {
-        ProductModule domain = new ProductModule();
+    public ResponseEntity<ProductModuleDTO> getDraftByProduct(@PathVariable("product_id") Long product_id, ProductModuleDTO dto) {
+        ProductModule domain = productmoduleMapping.toDomain(dto);
         domain.setRoot(product_id);
         return ResponseEntity.status(HttpStatus.OK).body(productmoduleMapping.toDto(productmoduleService.getDraft(domain)));
     }
@@ -415,10 +421,11 @@ public class ProductModuleResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductModule-Save-all')")
     @ApiOperation(value = "根据产品保存需求模块", tags = {"需求模块" },  notes = "根据产品保存需求模块")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productmodules/save")
-    public ResponseEntity<Boolean> saveByProduct(@PathVariable("product_id") Long product_id, @RequestBody ProductModuleDTO productmoduledto) {
+    public ResponseEntity<ProductModuleDTO> saveByProduct(@PathVariable("product_id") Long product_id, @RequestBody ProductModuleDTO productmoduledto) {
         ProductModule domain = productmoduleMapping.toDomain(productmoduledto);
         domain.setRoot(product_id);
-        return ResponseEntity.status(HttpStatus.OK).body(productmoduleService.save(domain));
+        productmoduleService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(productmoduleMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductModule-Save-all')")
@@ -444,9 +451,11 @@ public class ProductModuleResource {
         return ResponseEntity.status(HttpStatus.OK).body(productmoduledto);
     }
     @ApiOperation(value = "批量处理[根据产品需求模块]", tags = {"需求模块" },  notes = "批量处理[根据产品需求模块]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productmodules/{productmodule_id}/syncfromibizbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productmodules/syncfromibizbatch")
     public ResponseEntity<Boolean> syncFromIBIZByProduct(@PathVariable("product_id") Long product_id, @RequestBody List<ProductModuleDTO> productmoduledtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(productmoduleService.syncFromIBIZBatch(productmoduleMapping.toDomain(productmoduledtos)));
+        List<ProductModule> domains = productmoduleMapping.toDomain(productmoduledtos);
+        boolean result = productmoduleService.syncFromIBIZBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductModule-searchByPath-all')")
 	@ApiOperation(value = "根据产品获取BYPATH", tags = {"需求模块" } ,notes = "根据产品获取BYPATH")

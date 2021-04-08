@@ -20,14 +20,37 @@ import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * 服务DTO对象[IbzproProjectUserTaskDTO]
  */
 @Data
+@ApiModel("项目汇报用户任务")
 public class IbzproProjectUserTaskDTO extends DTOBase implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+
+    /**
+     * 属性 [WORK]
+     *
+     */
+    @JSONField(name = "work")
+    @JsonProperty("work")
+    @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
+    @ApiModelProperty("work")
+    private String work;
+
+    /**
+     * 属性 [TASKTYPE]
+     *
+     */
+    @JSONField(name = "tasktype")
+    @JsonProperty("tasktype")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("任务类型")
+    private String tasktype;
 
     /**
      * 属性 [ACCOUNT]
@@ -36,16 +59,8 @@ public class IbzproProjectUserTaskDTO extends DTOBase implements Serializable {
     @JSONField(name = "account")
     @JsonProperty("account")
     @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
+    @ApiModelProperty("用户")
     private String account;
-
-    /**
-     * 属性 [ID]
-     *
-     */
-    @JSONField(name = "id")
-    @JsonProperty("id")
-    @JsonSerialize(using = ToStringSerializer.class)
-    private Long id;
 
     /**
      * 属性 [CONSUMED]
@@ -53,6 +68,7 @@ public class IbzproProjectUserTaskDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "consumed")
     @JsonProperty("consumed")
+    @ApiModelProperty("总计消耗")
     private Double consumed;
 
     /**
@@ -62,60 +78,8 @@ public class IbzproProjectUserTaskDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "date" , format="yyyy-MM-dd")
     @JsonProperty("date")
+    @ApiModelProperty("日期")
     private Timestamp date;
-
-    /**
-     * 属性 [LEFT]
-     *
-     */
-    @JSONField(name = "left")
-    @JsonProperty("left")
-    private Double left;
-
-    /**
-     * 属性 [WORK]
-     *
-     */
-    @JSONField(name = "work")
-    @JsonProperty("work")
-    @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
-    private String work;
-
-    /**
-     * 属性 [TASK]
-     *
-     */
-    @JSONField(name = "task")
-    @JsonProperty("task")
-    @JsonSerialize(using = ToStringSerializer.class)
-    private Long task;
-
-    /**
-     * 属性 [TASKNAME]
-     *
-     */
-    @JSONField(name = "taskname")
-    @JsonProperty("taskname")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String taskname;
-
-    /**
-     * 属性 [TASKTYPE]
-     *
-     */
-    @JSONField(name = "tasktype")
-    @JsonProperty("tasktype")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String tasktype;
-
-    /**
-     * 属性 [PROGRESSRATE]
-     *
-     */
-    @JSONField(name = "progressrate")
-    @JsonProperty("progressrate")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String progressrate;
 
     /**
      * 属性 [DELAYDAYS]
@@ -124,7 +88,28 @@ public class IbzproProjectUserTaskDTO extends DTOBase implements Serializable {
     @JSONField(name = "delaydays")
     @JsonProperty("delaydays")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("延期天数")
     private String delaydays;
+
+    /**
+     * 属性 [ID]
+     *
+     */
+    @JSONField(name = "id")
+    @JsonProperty("id")
+    @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("编号")
+    private Long id;
+
+    /**
+     * 属性 [PROGRESSRATE]
+     *
+     */
+    @JSONField(name = "progressrate")
+    @JsonProperty("progressrate")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("进度")
+    private String progressrate;
 
     /**
      * 属性 [ESTSTARTED]
@@ -133,6 +118,7 @@ public class IbzproProjectUserTaskDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "eststarted" , format="yyyy-MM-dd")
     @JsonProperty("eststarted")
+    @ApiModelProperty("预计开始")
     private Timestamp eststarted;
 
     /**
@@ -142,8 +128,46 @@ public class IbzproProjectUserTaskDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "deadline" , format="yyyy-MM-dd")
     @JsonProperty("deadline")
+    @ApiModelProperty("截止日期")
     private Timestamp deadline;
 
+    /**
+     * 属性 [TASK]
+     *
+     */
+    @JSONField(name = "task")
+    @JsonProperty("task")
+    @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("任务")
+    private Long task;
+
+    /**
+     * 属性 [LEFT]
+     *
+     */
+    @JSONField(name = "left")
+    @JsonProperty("left")
+    @ApiModelProperty("预计剩余")
+    private Double left;
+
+    /**
+     * 属性 [TASKNAME]
+     *
+     */
+    @JSONField(name = "taskname")
+    @JsonProperty("taskname")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("任务名称")
+    private String taskname;
+
+
+    /**
+     * 设置 [WORK]
+     */
+    public void setWork(String  work){
+        this.work = work ;
+        this.modify("work",work);
+    }
 
     /**
      * 设置 [ACCOUNT]
@@ -170,27 +194,19 @@ public class IbzproProjectUserTaskDTO extends DTOBase implements Serializable {
     }
 
     /**
-     * 设置 [LEFT]
-     */
-    public void setLeft(Double  left){
-        this.left = left ;
-        this.modify("left",left);
-    }
-
-    /**
-     * 设置 [WORK]
-     */
-    public void setWork(String  work){
-        this.work = work ;
-        this.modify("work",work);
-    }
-
-    /**
      * 设置 [TASK]
      */
     public void setTask(Long  task){
         this.task = task ;
         this.modify("task",task);
+    }
+
+    /**
+     * 设置 [LEFT]
+     */
+    public void setLeft(Double  left){
+        this.left = left ;
+        this.modify("left",left);
     }
 
 

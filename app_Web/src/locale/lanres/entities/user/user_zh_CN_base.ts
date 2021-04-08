@@ -39,13 +39,13 @@ function getLocaleResourceBase(){
 			qq: commonLogic.appcommonhandle("QQ",null),
 		},
 			views: {
-				pickupview: {
-					caption: commonLogic.appcommonhandle("用户",null),
-					title: commonLogic.appcommonhandle("用户数据选择视图",null),
-				},
 				infoeditview: {
 					caption: commonLogic.appcommonhandle("用户信息",null),
 					title: commonLogic.appcommonhandle("用户编辑视图",null),
+				},
+				pickupview: {
+					caption: commonLogic.appcommonhandle("用户",null),
+					title: commonLogic.appcommonhandle("用户数据选择视图",null),
 				},
 				editview: {
 					caption: commonLogic.appcommonhandle("用户信息",null),
@@ -55,13 +55,13 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("用户",null),
 					title: commonLogic.appcommonhandle("用户选择表格视图",null),
 				},
-				maingridview: {
-					caption: commonLogic.appcommonhandle("用户",null),
-					title: commonLogic.appcommonhandle("用户表格视图",null),
-				},
 				treeexpview: {
 					caption: commonLogic.appcommonhandle("用户",null),
 					title: commonLogic.appcommonhandle("用户",null),
+				},
+				maingridview: {
+					caption: commonLogic.appcommonhandle("用户",null),
+					title: commonLogic.appcommonhandle("用户表格视图",null),
 				},
 			},
 			info_form: {

@@ -72,7 +72,7 @@ public class IBIZProTagResource {
 		IBIZProTag domain  = ibizprotagMapping.toDomain(ibizprotagdto);
         domain .setId(ibizprotag_id);
 		ibizprotagService.update(domain );
-		IBIZProTagDTO dto = ibizprotagMapping.toDto(domain );
+		IBIZProTagDTO dto = ibizprotagMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
@@ -110,8 +110,9 @@ public class IBIZProTagResource {
 
     @ApiOperation(value = "获取标签草稿", tags = {"标签" },  notes = "获取标签草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/ibizprotags/getdraft")
-    public ResponseEntity<IBIZProTagDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(ibizprotagMapping.toDto(ibizprotagService.getDraft(new IBIZProTag())));
+    public ResponseEntity<IBIZProTagDTO> getDraft(IBIZProTagDTO dto) {
+        IBIZProTag domain = ibizprotagMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(ibizprotagMapping.toDto(ibizprotagService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查标签", tags = {"标签" },  notes = "检查标签")
@@ -123,8 +124,10 @@ public class IBIZProTagResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IBIZProTag-Save-all')")
     @ApiOperation(value = "保存标签", tags = {"标签" },  notes = "保存标签")
 	@RequestMapping(method = RequestMethod.POST, value = "/ibizprotags/save")
-    public ResponseEntity<Boolean> save(@RequestBody IBIZProTagDTO ibizprotagdto) {
-        return ResponseEntity.status(HttpStatus.OK).body(ibizprotagService.save(ibizprotagMapping.toDomain(ibizprotagdto)));
+    public ResponseEntity<IBIZProTagDTO> save(@RequestBody IBIZProTagDTO ibizprotagdto) {
+        IBIZProTag domain = ibizprotagMapping.toDomain(ibizprotagdto);
+        ibizprotagService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(ibizprotagMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IBIZProTag-Save-all')")
@@ -156,6 +159,7 @@ public class IBIZProTagResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(ibizprotagMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
 
 
 }

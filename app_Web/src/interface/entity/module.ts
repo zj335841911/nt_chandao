@@ -63,6 +63,14 @@ export interface Module {
     id?: any;
 
     /**
+     * 数据选择排序
+     *
+     * @returns {*}
+     * @memberof Module
+     */
+    orderpk?: any;
+
+    /**
      * 收藏者
      *
      * @returns {*}
@@ -85,6 +93,22 @@ export interface Module {
      * @memberof Module
      */
     path?: any;
+
+    /**
+     * 部门标识
+     *
+     * @returns {*}
+     * @memberof Module
+     */
+    mdeptid?: any;
+
+    /**
+     * 组织标识
+     *
+     * @returns {*}
+     * @memberof Module
+     */
+    orgid?: any;
 
     /**
      * 已删除
@@ -117,28 +141,4 @@ export interface Module {
      * @memberof Module
      */
     parent?: any;
-
-    /**
-     * 部门标识
-     *
-     * @returns {*}
-     * @memberof Module
-     */
-    mdeptid?: any;
-
-    /**
-     * 组织标识
-     *
-     * @returns {*}
-     * @memberof Module
-     */
-    orgid?: any;
-
-    /**
-     * 数据选择排序
-     *
-     * @returns {*}
-     * @memberof Module
-     */
-    orderpk?: any;
 }

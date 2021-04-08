@@ -12,4 +12,3 @@ public interface StorySpecMapping extends MappingBase<StorySpecDTO, StorySpec> {
 
 
 }
-

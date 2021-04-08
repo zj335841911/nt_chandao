@@ -12,4 +12,3 @@ public interface FileMapping extends MappingBase<FileDTO, File> {
 
 
 }
-

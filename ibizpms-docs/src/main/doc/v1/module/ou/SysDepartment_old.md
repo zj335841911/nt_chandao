@@ -31,9 +31,9 @@ hide members
 |上级部门|PDEPTNAME|PICKUPTEXT|&nbsp;|
 |建立时间|CREATEDATE|DATETIME|&nbsp;|
 |逻辑有效标志|ENABLE|YESNO|&nbsp;|
-|建立人|CREATEMAN|TEXT|&nbsp;|
 |更新人|UPDATEMAN|TEXT|&nbsp;|
 |更新时间|UPDATEDATE|DATETIME|&nbsp;|
+|建立人|CREATEMAN|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -54,9 +54,9 @@ hide members
 |上级部门|默认规则|内容长度必须小于等于[100]|
 |建立时间|默认规则|默认规则|
 |逻辑有效标志|默认规则|默认规则|
-|建立人|默认规则|内容长度必须小于等于[60]|
 |更新人|默认规则|内容长度必须小于等于[60]|
 |更新时间|默认规则|默认规则|
+|建立人|默认规则|内容长度必须小于等于[60]|
 
 ## 状态控制
 
@@ -83,7 +83,7 @@ hide members
 
 | 查询编号 | 查询名称       | 默认查询 |   备注|
 | --------  | --------   | --------   | ----- |
-|DEFAULT|数据查询([MYSQL5](../../appendix/query_MYSQL5.md#SysDepartment_Default))|否|&nbsp;|
+|DEFAULT|数据查询([MYSQL5](../../appendix/query_MYSQL5.md#SysDepartment_Default))|是|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#SysDepartment_View))|否|&nbsp;|
 
 * **数据集合**

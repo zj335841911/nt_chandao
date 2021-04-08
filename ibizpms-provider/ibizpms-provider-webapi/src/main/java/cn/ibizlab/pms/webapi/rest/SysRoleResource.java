@@ -73,7 +73,7 @@ public class SysRoleResource {
 		SysRole domain  = sysroleMapping.toDomain(sysroledto);
         domain .setRoleid(sysrole_id);
 		sysroleService.update(domain );
-		SysRoleDTO dto = sysroleMapping.toDto(domain );
+		SysRoleDTO dto = sysroleMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
@@ -111,8 +111,9 @@ public class SysRoleResource {
 
     @ApiOperation(value = "获取系统角色草稿", tags = {"系统角色" },  notes = "获取系统角色草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/sysroles/getdraft")
-    public ResponseEntity<SysRoleDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(sysroleMapping.toDto(sysroleService.getDraft(new SysRole())));
+    public ResponseEntity<SysRoleDTO> getDraft(SysRoleDTO dto) {
+        SysRole domain = sysroleMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(sysroleMapping.toDto(sysroleService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查系统角色", tags = {"系统角色" },  notes = "检查系统角色")
@@ -124,8 +125,10 @@ public class SysRoleResource {
     @PreAuthorize("hasPermission(this.sysroleMapping.toDomain(#sysroledto),'pms-SysRole-Save')")
     @ApiOperation(value = "保存系统角色", tags = {"系统角色" },  notes = "保存系统角色")
 	@RequestMapping(method = RequestMethod.POST, value = "/sysroles/save")
-    public ResponseEntity<Boolean> save(@RequestBody SysRoleDTO sysroledto) {
-        return ResponseEntity.status(HttpStatus.OK).body(sysroleService.save(sysroleMapping.toDomain(sysroledto)));
+    public ResponseEntity<SysRoleDTO> save(@RequestBody SysRoleDTO sysroledto) {
+        SysRole domain = sysroleMapping.toDomain(sysroledto);
+        sysroleService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(sysroleMapping.toDto(domain));
     }
 
     @PreAuthorize("hasPermission(this.sysroleMapping.toDomain(#sysroledtos),'pms-SysRole-Save')")
@@ -157,6 +160,7 @@ public class SysRoleResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(sysroleMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
 
 
 }

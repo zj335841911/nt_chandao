@@ -226,23 +226,23 @@ POST
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
 | 1 | desc | String | 允许 | 描述 |
-| 2 | lastediteddate | Timestamp | 允许 | 最后编辑时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
+| 2 | product | Long | 允许 | 产品 |
 | 3 | addeddate | Timestamp | 允许 | 创建时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
 | 4 | id | Long | 不可 | 编号 |
-| 5 | deleted | String | 允许 | 已删除 |
-| 6 | name | String | 不可 | 名称 |
-| 7 | type | String | 允许 | 类型 |
-| 8 | addedby | String | 允许 | 由谁创建 |
-| 9 | lasteditedby | String | 允许 | 最后编辑人 |
-| 10 | product | Long | 允许 | 产品 |
+| 5 | lastediteddate | Timestamp | 允许 | 最后编辑时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
+| 6 | addedby | String | 允许 | 由谁创建 |
+| 7 | deleted | String | 允许 | 已删除 |
+| 8 | name | String | 不可 | 名称 |
+| 9 | type | String | 允许 | 类型 |
+| 10 | lasteditedby | String | 允许 | 最后编辑人 |
 | 11 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### IbzLibSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
-| 1 | n_name_like | String | 允许 | 条件字段：name<br>条件组合方式：`%like%` |
-| 2 | n_type_eq | String | 允许 | 条件字段：type<br>条件组合方式：`=` |
-| 3 | n_addedby_eq | String | 允许 | 条件字段：addedby<br>条件组合方式：`=` |
+| 1 | n_addedby_eq | String | 允许 | 条件字段：addedby<br>条件组合方式：`=` |
+| 2 | n_name_like | String | 允许 | 条件字段：name<br>条件组合方式：`%like%` |
+| 3 | n_type_eq | String | 允许 | 条件字段：type<br>条件组合方式：`=` |
 | 4 | n_lasteditedby_eq | String | 允许 | 条件字段：lasteditedby<br>条件组合方式：`=` |
 | 5 | customcond | String | 允许 | 自定义查询条件 |
 | 6 | customparams | String | 允许 | 自定义查询参数 |

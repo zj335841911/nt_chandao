@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { EditView9Base } from '@/studio-core';
 import TodoService from '@/service/todo/todo-service';
 import TodoAuthService from '@/authservice/todo/todo-auth-service';
@@ -102,7 +102,7 @@ export class TodoBaseEditView9Base extends EditView9Base {
      * @type {string}
      * @memberof TodoBaseEditView9Base
      */
-	protected viewtag: string = '10ec8362fe511f35dcf896a048770011';
+	protected viewtag: string = 'd2bc94e4e8156e65ff17c8a6cd125b5b';
 
     /**
      * 视图名称

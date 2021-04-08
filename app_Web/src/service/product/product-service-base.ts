@@ -1,3 +1,4 @@
+import { Environment } from '@/environments/environment';
 import { Http } from '@/utils';
 import { Util } from '@/utils';
 import EntityService from '../entity-service';
@@ -51,7 +52,7 @@ export default class ProductServiceBase extends EntityService {
      * @memberof ProductServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().get(`/products/${context.product}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/select`,isloading);
             
             return res;
     }
@@ -70,12 +71,12 @@ export default class ProductServiceBase extends EntityService {
         let casesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_cases'),'undefined')){
             casesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_cases') as any);
-            if(casesData && casesData.length && casesData.length > 0){
+            if(casesData && casesData.length && casesData.length > 0 && Environment.isStudioSystem === false){
                 casesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -124,12 +125,12 @@ export default class ProductServiceBase extends EntityService {
         let casesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_cases'),'undefined')){
             casesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_cases') as any);
-            if(casesData && casesData.length && casesData.length > 0){
+            if(casesData && casesData.length && casesData.length > 0 && Environment.isStudioSystem === false){
                 casesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -154,7 +155,7 @@ export default class ProductServiceBase extends EntityService {
      * @memberof ProductServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().delete(`/products/${context.product}`,isloading);
+            let res:any = await Http.getInstance().delete(`/products/${context.product}`,isloading);
             return res;
     }
 
@@ -184,7 +185,10 @@ export default class ProductServiceBase extends EntityService {
      * @memberof ProductServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/products/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.product) delete tempData.product;
+        if(tempData.id) delete tempData.id;
+        let res:any = await  Http.getInstance().get(`/products/getdraft`,tempData,isloading);
         res.data.product = data.product;
                     this.tempStorage.setItem(context.srfsessionkey+'_cases',JSON.stringify(res.data.cases?res.data.cases:[]));
 
@@ -201,7 +205,7 @@ export default class ProductServiceBase extends EntityService {
      * @memberof ProductServiceBase
      */
     public async CancelProductTop(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/products/${context.product}/cancelproducttop`,data,isloading);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/cancelproducttop`,data,isloading);
             return res;
     }
 
@@ -215,7 +219,7 @@ export default class ProductServiceBase extends EntityService {
      * @memberof ProductServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/products/${context.product}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/checkkey`,data,isloading);
             return res;
     }
 
@@ -229,8 +233,22 @@ export default class ProductServiceBase extends EntityService {
      * @memberof ProductServiceBase
      */
     public async Close(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/products/${context.product}/close`,data,isloading);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/close`,data,isloading);
             return res;
+    }
+
+    /**
+     * CloseBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductServiceBase
+     */
+    public async CloseBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/products/closebatch`,tempData,isloading);
     }
 
     /**
@@ -243,7 +261,7 @@ export default class ProductServiceBase extends EntityService {
      * @memberof ProductServiceBase
      */
     public async MobProductCounter(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().put(`/products/${context.product}/mobproductcounter`,data,isloading);
+            let res:any = await Http.getInstance().put(`/products/${context.product}/mobproductcounter`,data,isloading);
             return res;
     }
 
@@ -257,7 +275,7 @@ export default class ProductServiceBase extends EntityService {
      * @memberof ProductServiceBase
      */
     public async MobProductTestCounter(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/products/${context.product}/mobproducttestcounter`,data,isloading);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/mobproducttestcounter`,data,isloading);
             return res;
     }
 
@@ -271,7 +289,7 @@ export default class ProductServiceBase extends EntityService {
      * @memberof ProductServiceBase
      */
     public async ProductTop(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/products/${context.product}/producttop`,data,isloading);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/producttop`,data,isloading);
             return res;
     }
 
@@ -289,12 +307,12 @@ export default class ProductServiceBase extends EntityService {
         let casesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_cases'),'undefined')){
             casesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_cases') as any);
-            if(casesData && casesData.length && casesData.length > 0){
+            if(casesData && casesData.length && casesData.length > 0 && Environment.isStudioSystem === false){
                 casesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -320,7 +338,7 @@ export default class ProductServiceBase extends EntityService {
      */
     public async FetchAllList(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/products/fetchalllist`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/products/fetchalllist`,tempData,isloading);
         return res;
     }
 
@@ -349,7 +367,7 @@ export default class ProductServiceBase extends EntityService {
      */
     public async FetchAllProduct(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/products/fetchallproduct`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/products/fetchallproduct`,tempData,isloading);
         return res;
     }
 
@@ -378,7 +396,7 @@ export default class ProductServiceBase extends EntityService {
      */
     public async FetchCheckNameOrCode(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/products/fetchchecknameorcode`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/products/fetchchecknameorcode`,tempData,isloading);
         return res;
     }
 
@@ -407,7 +425,7 @@ export default class ProductServiceBase extends EntityService {
      */
     public async FetchCurProject(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/products/fetchcurproject`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/products/fetchcurproject`,tempData,isloading);
         return res;
     }
 
@@ -436,7 +454,7 @@ export default class ProductServiceBase extends EntityService {
      */
     public async FetchCurUer(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().post(`/products/fetchcuruer`,tempData,isloading);
+        let res:any = await Http.getInstance().post(`/products/fetchcuruer`,tempData,isloading);
         return res;
     }
 
@@ -465,7 +483,7 @@ export default class ProductServiceBase extends EntityService {
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/products/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/products/fetchdefault`,tempData,isloading);
         return res;
     }
 
@@ -494,7 +512,7 @@ export default class ProductServiceBase extends EntityService {
      */
     public async FetchESBulk(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/products/fetchesbulk`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/products/fetchesbulk`,tempData,isloading);
         return res;
     }
 
@@ -523,7 +541,7 @@ export default class ProductServiceBase extends EntityService {
      */
     public async FetchProductPM(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/products/fetchproductpm`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/products/fetchproductpm`,tempData,isloading);
         return res;
     }
 
@@ -552,7 +570,7 @@ export default class ProductServiceBase extends EntityService {
      */
     public async FetchProductTeam(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/products/fetchproductteam`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/products/fetchproductteam`,tempData,isloading);
         return res;
     }
 
@@ -581,7 +599,7 @@ export default class ProductServiceBase extends EntityService {
      */
     public async FetchStoryCurProject(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/products/fetchstorycurproject`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/products/fetchstorycurproject`,tempData,isloading);
         return res;
     }
 

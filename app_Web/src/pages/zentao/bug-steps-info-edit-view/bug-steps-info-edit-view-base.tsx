@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { EditViewBase } from '@/studio-core';
 import BugService from '@/service/bug/bug-service';
 import BugAuthService from '@/authservice/bug/bug-auth-service';
@@ -109,7 +109,7 @@ export class BugStepsInfoEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof BugStepsInfoEditViewBase
      */
-	protected viewtag: string = '6558930042f15c2297572f51d7e77df5';
+	protected viewtag: string = '64c5e35f0b058ff8108bbbbd22efc684';
 
     /**
      * 视图名称

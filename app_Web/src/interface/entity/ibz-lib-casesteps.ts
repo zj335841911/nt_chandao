@@ -7,20 +7,12 @@
 export interface IbzLibCasesteps {
 
     /**
-     * 版本
+     * 实际情况
      *
      * @returns {*}
      * @memberof IbzLibCasesteps
      */
-    version?: any;
-
-    /**
-     * 用例编号
-     *
-     * @returns {*}
-     * @memberof IbzLibCasesteps
-     */
-    ibizcase?: any;
+    reals?: any;
 
     /**
      * 预期
@@ -29,6 +21,14 @@ export interface IbzLibCasesteps {
      * @memberof IbzLibCasesteps
      */
     expect?: any;
+
+    /**
+     * 步骤
+     *
+     * @returns {*}
+     * @memberof IbzLibCasesteps
+     */
+    desc?: any;
 
     /**
      * 附件
@@ -47,20 +47,20 @@ export interface IbzLibCasesteps {
     id?: any;
 
     /**
-     * 实际情况
+     * 类型
      *
      * @returns {*}
      * @memberof IbzLibCasesteps
      */
-    reals?: any;
+    type?: any;
 
     /**
-     * 步骤
+     * 版本
      *
      * @returns {*}
      * @memberof IbzLibCasesteps
      */
-    desc?: any;
+    version?: any;
 
     /**
      * 编号
@@ -71,10 +71,10 @@ export interface IbzLibCasesteps {
     parent?: any;
 
     /**
-     * 类型
+     * 用例编号
      *
      * @returns {*}
      * @memberof IbzLibCasesteps
      */
-    type?: any;
+    ibizcase?: any;
 }

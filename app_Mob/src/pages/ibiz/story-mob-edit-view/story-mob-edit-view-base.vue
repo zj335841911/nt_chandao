@@ -195,7 +195,7 @@ export default class StoryMobEditViewBase extends Vue {
 	 * @type {string}
 	 * @memberof StoryMobEditViewBase
 	 */
-	protected viewtag: string = 'd096e8789265e730da5eefa1423479dc';
+	protected viewtag: string = '17ecaa84ccf3508e04ed6c38861fc23b';
 
     /**
      * 视图上下文

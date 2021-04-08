@@ -1,6 +1,6 @@
 
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { GridViewBase } from '@/studio-core';
 import BuildService from '@/service/build/build-service';
 import BuildAuthService from '@/authservice/build/build-auth-service';
@@ -149,7 +149,7 @@ export class BuildMainGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof BuildMainGridViewBase
      */
-	protected viewtag: string = '8104f8c4c275f6ba17fb969edf52eb37';
+	protected viewtag: string = '118edf7fdb85f90d0ca2fa11e3318f59';
 
     /**
      * 视图名称

@@ -1,60 +1,60 @@
 import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
+    ids:  commonLogic.appcommonhandle("Bug版本健值",null),
     name:  commonLogic.appcommonhandle("名称编号",null),
+    backgroundid:  commonLogic.appcommonhandle("后台体系",null),
     builder:  commonLogic.appcommonhandle("构建者",null),
+    files:  commonLogic.appcommonhandle("附件",null),
+    releasetype:  commonLogic.appcommonhandle("运行模式",null),
+    builderpk:  commonLogic.appcommonhandle("构建者（选择）",null),
+    rebuild:  commonLogic.appcommonhandle("重新构建",null),
     desc:  commonLogic.appcommonhandle("描述",null),
     id:  commonLogic.appcommonhandle("id",null),
     deleted:  commonLogic.appcommonhandle("已删除",null),
+    sqlid:  commonLogic.appcommonhandle("运行数据库",null),
     scmPath:  commonLogic.appcommonhandle("源代码地址",null),
     filePath:  commonLogic.appcommonhandle("下载地址",null),
+    createbugcnt:  commonLogic.appcommonhandle("产生的bug",null),
     stories:  commonLogic.appcommonhandle("完成的需求",null),
     bugs:  commonLogic.appcommonhandle("解决的Bug",null),
+    frontapplication:  commonLogic.appcommonhandle("系统应用",null),
+    noticeusers:  commonLogic.appcommonhandle("消息通知用户",null),
     date:  commonLogic.appcommonhandle("打包日期",null),
+    productName:  commonLogic.appcommonhandle("产品名称",null),
     product:  commonLogic.appcommonhandle("产品",null),
     branch:  commonLogic.appcommonhandle("平台/分支",null),
     project:  commonLogic.appcommonhandle("所属项目",null),
-    productName:  commonLogic.appcommonhandle("产品名称",null),
-    ids:  commonLogic.appcommonhandle("Bug版本健值",null),
-    files:  commonLogic.appcommonhandle("附件",null),
-    rebuild:  commonLogic.appcommonhandle("重新构建",null),
-    releasetype:  commonLogic.appcommonhandle("运行模式",null),
-    frontapplication:  commonLogic.appcommonhandle("系统应用",null),
-    backgroundid:  commonLogic.appcommonhandle("后台体系",null),
-    sqlid:  commonLogic.appcommonhandle("运行数据库",null),
-    createbugcnt:  commonLogic.appcommonhandle("产生的bug",null),
-    builderpk:  commonLogic.appcommonhandle("构建者（选择）",null),
-    noticeusers:  commonLogic.appcommonhandle("消息通知用户",null),
   },
 	views: {
+		mobmpickupview: {
+			caption: commonLogic.appcommonhandle("版本",null),
+		},
+		mobeditview: {
+			caption: commonLogic.appcommonhandle("版本",null),
+		},
+		logmobeditview: {
+			caption: commonLogic.appcommonhandle("更新日志",null),
+		},
+		editmobeditview: {
+			caption: commonLogic.appcommonhandle("版本",null),
+		},
+		mobpickupview: {
+			caption: commonLogic.appcommonhandle("版本",null),
+		},
+		mobtabexpview: {
+			caption: commonLogic.appcommonhandle("版本",null),
+		},
 		mobpickupmdview: {
 			caption: commonLogic.appcommonhandle("版本",null),
 		},
 		logmobmdview: {
 			caption: commonLogic.appcommonhandle("更新日志",null),
 		},
-		mobtabexpview: {
-			caption: commonLogic.appcommonhandle("版本",null),
-		},
-		mobmdview: {
-			caption: commonLogic.appcommonhandle("版本",null),
-		},
-		mobeditview: {
-			caption: commonLogic.appcommonhandle("版本",null),
-		},
-		mobpickupview: {
-			caption: commonLogic.appcommonhandle("版本",null),
-		},
-		editmobeditview: {
-			caption: commonLogic.appcommonhandle("版本",null),
-		},
 		newmobeditview: {
 			caption: commonLogic.appcommonhandle("版本",null),
 		},
-		logmobeditview: {
-			caption: commonLogic.appcommonhandle("更新日志",null),
-		},
-		mobmpickupview: {
+		mobmdview: {
 			caption: commonLogic.appcommonhandle("版本",null),
 		},
 	},

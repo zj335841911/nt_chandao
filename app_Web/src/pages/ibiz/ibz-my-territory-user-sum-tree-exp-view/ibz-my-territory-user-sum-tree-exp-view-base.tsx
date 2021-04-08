@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { TreeExpViewBase } from '@/studio-core';
 import IbzMyTerritoryService from '@/service/ibz-my-territory/ibz-my-territory-service';
 import IbzMyTerritoryAuthService from '@/authservice/ibz-my-territory/ibz-my-territory-auth-service';
@@ -100,7 +100,7 @@ export class IbzMyTerritoryUserSumTreeExpViewBase extends TreeExpViewBase {
      * @type {string}
      * @memberof IbzMyTerritoryUserSumTreeExpViewBase
      */
-	protected viewtag: string = '9ab6d468419797c4a00ff658e4f626b1';
+	protected viewtag: string = '754505eb2d18f5f8cfa4e41911ce79ef';
 
     /**
      * 视图名称

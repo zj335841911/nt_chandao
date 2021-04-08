@@ -24,6 +24,8 @@ import java.io.Serializable;
 import lombok.*;
 import org.springframework.data.annotation.Transient;
 import cn.ibizlab.pms.util.annotation.Audit;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -39,6 +41,7 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
 @TableName(value = "zt_todo", resultMap = "TodoResultMap")
+@ApiModel("待办")
 public class Todo extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -50,6 +53,7 @@ public class Todo extends EntityMP implements Serializable {
     @TableId(value = "id", type = IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
+    @ApiModelProperty("编号")
     private Long id;
     /**
      * 所有者
@@ -58,7 +62,40 @@ public class Todo extends EntityMP implements Serializable {
     @TableField(value = "`account`")
     @JSONField(name = "account")
     @JsonProperty("account")
+    @ApiModelProperty("所有者")
     private String account;
+    /**
+     * 间隔天数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "config_day")
+    @JsonProperty("config_day")
+    @ApiModelProperty("间隔天数")
+    private Integer configDay;
+    /**
+     * 指派给（选择）
+     */
+    @TableField(exist = false)
+    @JSONField(name = "assignedtopk")
+    @JsonProperty("assignedtopk")
+    @ApiModelProperty("指派给（选择）")
+    private String assignedtopk;
+    /**
+     * 日期
+     */
+    @TableField(exist = false)
+    @JSONField(name = "date1")
+    @JsonProperty("date1")
+    @ApiModelProperty("日期")
+    private String date1;
+    /**
+     * 周期类型
+     */
+    @TableField(exist = false)
+    @JSONField(name = "config_type")
+    @JsonProperty("config_type")
+    @ApiModelProperty("周期类型")
+    private String configType;
     /**
      * 关闭时间
      */
@@ -66,6 +103,7 @@ public class Todo extends EntityMP implements Serializable {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "closeddate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("closeddate")
+    @ApiModelProperty("关闭时间")
     private Timestamp closeddate;
     /**
      * 由谁关闭
@@ -74,6 +112,7 @@ public class Todo extends EntityMP implements Serializable {
     @TableField(value = "`closedby`")
     @JSONField(name = "closedby")
     @JsonProperty("closedby")
+    @ApiModelProperty("由谁关闭")
     private String closedby;
     /**
      * 类型
@@ -81,6 +120,7 @@ public class Todo extends EntityMP implements Serializable {
     @TableField(value = "`type`")
     @JSONField(name = "type")
     @JsonProperty("type")
+    @ApiModelProperty("类型")
     private String type;
     /**
      * 结束
@@ -89,6 +129,7 @@ public class Todo extends EntityMP implements Serializable {
     @TableField(value = "`end`")
     @JSONField(name = "end")
     @JsonProperty("end")
+    @ApiModelProperty("结束")
     private Integer end;
     /**
      * 描述
@@ -97,13 +138,23 @@ public class Todo extends EntityMP implements Serializable {
     @TableField(value = "`desc`")
     @JSONField(name = "desc")
     @JsonProperty("desc")
+    @ApiModelProperty("描述")
     private String desc;
+    /**
+     * 消息通知用户
+     */
+    @TableField(exist = false)
+    @JSONField(name = "noticeusers")
+    @JsonProperty("noticeusers")
+    @ApiModelProperty("消息通知用户")
+    private String noticeusers;
     /**
      * 由谁完成
      */
     @TableField(value = "`finishedby`")
     @JSONField(name = "finishedby")
     @JsonProperty("finishedby")
+    @ApiModelProperty("由谁完成")
     private String finishedby;
     /**
      * 开始
@@ -112,6 +163,7 @@ public class Todo extends EntityMP implements Serializable {
     @TableField(value = "`begin`")
     @JSONField(name = "begin")
     @JsonProperty("begin")
+    @ApiModelProperty("开始")
     private Integer begin;
     /**
      * 关联编号
@@ -120,6 +172,7 @@ public class Todo extends EntityMP implements Serializable {
     @TableField(value = "`idvalue`")
     @JSONField(name = "idvalue")
     @JsonProperty("idvalue")
+    @ApiModelProperty("关联编号")
     private Long idvalue;
     /**
      * 由谁指派
@@ -128,7 +181,32 @@ public class Todo extends EntityMP implements Serializable {
     @TableField(value = "`assignedby`")
     @JSONField(name = "assignedby")
     @JsonProperty("assignedby")
+    @ApiModelProperty("由谁指派")
     private String assignedby;
+    /**
+     * 周期设置月
+     */
+    @TableField(exist = false)
+    @JSONField(name = "config_month")
+    @JsonProperty("config_month")
+    @ApiModelProperty("周期设置月")
+    private String configMonth;
+    /**
+     * 待办名称
+     */
+    @TableField(exist = false)
+    @JSONField(name = "task")
+    @JsonProperty("task")
+    @ApiModelProperty("待办名称")
+    private String task;
+    /**
+     * 待办名称
+     */
+    @TableField(exist = false)
+    @JSONField(name = "bug")
+    @JsonProperty("bug")
+    @ApiModelProperty("待办名称")
+    private String bug;
     /**
      * 完成时间
      */
@@ -136,6 +214,7 @@ public class Todo extends EntityMP implements Serializable {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "finisheddate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("finisheddate")
+    @ApiModelProperty("完成时间")
     private Timestamp finisheddate;
     /**
      * 周期
@@ -144,7 +223,24 @@ public class Todo extends EntityMP implements Serializable {
     @TableField(value = "`cycle`")
     @JSONField(name = "cycle")
     @JsonProperty("cycle")
+    @ApiModelProperty("周期")
     private Integer cycle;
+    /**
+     * 待定
+     */
+    @TableField(exist = false)
+    @JSONField(name = "date_disable")
+    @JsonProperty("date_disable")
+    @ApiModelProperty("待定")
+    private String dateDisable;
+    /**
+     * 周期设置周几
+     */
+    @TableField(exist = false)
+    @JSONField(name = "config_week")
+    @JsonProperty("config_week")
+    @ApiModelProperty("周期设置周几")
+    private String configWeek;
     /**
      * 指派给
      */
@@ -152,6 +248,7 @@ public class Todo extends EntityMP implements Serializable {
     @TableField(value = "`assignedto`")
     @JSONField(name = "assignedto")
     @JsonProperty("assignedto")
+    @ApiModelProperty("指派给")
     private String assignedto;
     /**
      * 状态
@@ -160,13 +257,23 @@ public class Todo extends EntityMP implements Serializable {
     @TableField(value = "`status`")
     @JSONField(name = "status")
     @JsonProperty("status")
+    @ApiModelProperty("状态")
     private String status;
+    /**
+     * 提前
+     */
+    @TableField(exist = false)
+    @JSONField(name = "config_beforedays")
+    @JsonProperty("config_beforedays")
+    @ApiModelProperty("提前")
+    private Integer configBeforedays;
     /**
      * 待办名称
      */
     @TableField(value = "`name`")
     @JSONField(name = "name")
     @JsonProperty("name")
+    @ApiModelProperty("待办名称")
     private String name;
     /**
      * 指派日期
@@ -175,7 +282,25 @@ public class Todo extends EntityMP implements Serializable {
     @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "assigneddate", format = "yyyy-MM-dd")
     @JsonProperty("assigneddate")
+    @ApiModelProperty("指派日期")
     private Timestamp assigneddate;
+    /**
+     * 过期时间
+     */
+    @TableField(exist = false)
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "config_end", format = "yyyy-MM-dd")
+    @JsonProperty("config_end")
+    @ApiModelProperty("过期时间")
+    private Timestamp configEnd;
+    /**
+     * 费用
+     */
+    @TableField(value = "`cost`")
+    @JSONField(name = "cost")
+    @JsonProperty("cost")
+    @ApiModelProperty("费用")
+    private Integer cost;
     /**
      * 优先级
      */
@@ -183,6 +308,7 @@ public class Todo extends EntityMP implements Serializable {
     @TableField(value = "`pri`")
     @JSONField(name = "pri")
     @JsonProperty("pri")
+    @ApiModelProperty("优先级")
     private Integer pri;
     /**
      * 日期
@@ -191,7 +317,16 @@ public class Todo extends EntityMP implements Serializable {
     @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "date", format = "yyyy-MM-dd")
     @JsonProperty("date")
+    @ApiModelProperty("日期")
     private Timestamp date;
+    /**
+     * 待办名称
+     */
+    @TableField(exist = false)
+    @JSONField(name = "story")
+    @JsonProperty("story")
+    @ApiModelProperty("待办名称")
+    private String story;
     /**
      * 私人事务
      */
@@ -199,6 +334,7 @@ public class Todo extends EntityMP implements Serializable {
     @TableField(value = "`private`")
     @JSONField(name = "ibizprivate")
     @JsonProperty("ibizprivate")
+    @ApiModelProperty("私人事务")
     private String ibizprivate;
     /**
      * config
@@ -207,99 +343,8 @@ public class Todo extends EntityMP implements Serializable {
     @TableField(value = "`config`")
     @JSONField(name = "config")
     @JsonProperty("config")
+    @ApiModelProperty("config")
     private String config;
-    /**
-     * 间隔天数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "config_day")
-    @JsonProperty("config_day")
-    private Integer configDay;
-    /**
-     * 提前
-     */
-    @TableField(exist = false)
-    @JSONField(name = "config_beforedays")
-    @JsonProperty("config_beforedays")
-    private Integer configBeforedays;
-    /**
-     * 周期设置周几
-     */
-    @TableField(exist = false)
-    @JSONField(name = "config_week")
-    @JsonProperty("config_week")
-    private String configWeek;
-    /**
-     * 周期设置月
-     */
-    @TableField(exist = false)
-    @JSONField(name = "config_month")
-    @JsonProperty("config_month")
-    private String configMonth;
-    /**
-     * 周期类型
-     */
-    @TableField(exist = false)
-    @JSONField(name = "config_type")
-    @JsonProperty("config_type")
-    private String configType;
-    /**
-     * 过期时间
-     */
-    @TableField(exist = false)
-    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
-    @JSONField(name = "config_end", format = "yyyy-MM-dd")
-    @JsonProperty("config_end")
-    private Timestamp configEnd;
-    /**
-     * 待办名称
-     */
-    @TableField(exist = false)
-    @JSONField(name = "bug")
-    @JsonProperty("bug")
-    private String bug;
-    /**
-     * 待办名称
-     */
-    @TableField(exist = false)
-    @JSONField(name = "task")
-    @JsonProperty("task")
-    private String task;
-    /**
-     * 待办名称
-     */
-    @TableField(exist = false)
-    @JSONField(name = "story")
-    @JsonProperty("story")
-    private String story;
-    /**
-     * 日期
-     */
-    @TableField(exist = false)
-    @JSONField(name = "date1")
-    @JsonProperty("date1")
-    private String date1;
-    /**
-     * 待定
-     */
-    @TableField(exist = false)
-    @JSONField(name = "date_disable")
-    @JsonProperty("date_disable")
-    private String dateDisable;
-    /**
-     * 指派给（选择）
-     */
-    @TableField(exist = false)
-    @JSONField(name = "assignedtopk")
-    @JsonProperty("assignedtopk")
-    private String assignedtopk;
-    /**
-     * 消息通知用户
-     */
-    @TableField(exist = false)
-    @JSONField(name = "noticeusers")
-    @JsonProperty("noticeusers")
-    private String noticeusers;
 
 
 
@@ -453,6 +498,14 @@ public class Todo extends EntityMP implements Serializable {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         return sdf.format(assigneddate);
     }
+    /**
+     * 设置 [费用]
+     */
+    public void setCost(Integer cost) {
+        this.cost = cost;
+        this.modify("cost", cost);
+    }
+
     /**
      * 设置 [优先级]
      */

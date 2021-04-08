@@ -7,7 +7,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
-import java.util.HashMap;
+import java.util.Map;
 import org.apache.ibatis.annotations.Select;
 import cn.ibizlab.pms.core.zentao.domain.Project;
 import cn.ibizlab.pms.core.zentao.filter.ProjectSearchContext;
@@ -20,8 +20,10 @@ import com.alibaba.fastjson.JSONObject;
 public interface ProjectMapper extends BaseMapper<Project> {
 
     Page<Project> searchBugProject(IPage page, @Param("srf") ProjectSearchContext context, @Param("ew") Wrapper<Project> wrapper);
+    Page<Project> searchCurPlanProject(IPage page, @Param("srf") ProjectSearchContext context, @Param("ew") Wrapper<Project> wrapper);
     Page<Project> searchCurProduct(IPage page, @Param("srf") ProjectSearchContext context, @Param("ew") Wrapper<Project> wrapper);
     Page<Project> searchCurUser(IPage page, @Param("srf") ProjectSearchContext context, @Param("ew") Wrapper<Project> wrapper);
+    Page<Project> searchCurUserSa(IPage page, @Param("srf") ProjectSearchContext context, @Param("ew") Wrapper<Project> wrapper);
     Page<Project> searchDefault(IPage page, @Param("srf") ProjectSearchContext context, @Param("ew") Wrapper<Project> wrapper);
     Page<Project> searchESBulk(IPage page, @Param("srf") ProjectSearchContext context, @Param("ew") Wrapper<Project> wrapper);
     Page<Project> searchInvolvedProject(IPage page, @Param("srf") ProjectSearchContext context, @Param("ew") Wrapper<Project> wrapper);

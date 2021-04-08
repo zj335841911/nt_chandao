@@ -1,3 +1,4 @@
+import { Environment } from '@/environments/environment';
 import { Http } from '@/utils';
 import { Util } from '@/utils';
 import EntityService from '../entity-service';
@@ -49,7 +50,7 @@ export default class SysUserServiceBase extends EntityService {
      * @memberof SysUserServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().get(`/sysusers/${context.sysuser}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/sysusers/${context.sysuser}/select`,isloading);
             
             return res;
     }
@@ -105,7 +106,7 @@ export default class SysUserServiceBase extends EntityService {
      * @memberof SysUserServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().delete(`/sysusers/${context.sysuser}`,isloading);
+            let res:any = await Http.getInstance().delete(`/sysusers/${context.sysuser}`,isloading);
             return res;
     }
 
@@ -134,7 +135,10 @@ export default class SysUserServiceBase extends EntityService {
      * @memberof SysUserServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/sysusers/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.sysuser) delete tempData.sysuser;
+        if(tempData.userid) delete tempData.userid;
+        let res:any = await  Http.getInstance().get(`/sysusers/getdraft`,tempData,isloading);
         res.data.sysuser = data.sysuser;
         
         return res;
@@ -150,8 +154,22 @@ export default class SysUserServiceBase extends EntityService {
      * @memberof SysUserServiceBase
      */
     public async ChangePwd(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/sysusers/${context.sysuser}/changepwd`,data,isloading);
+            let res:any = await Http.getInstance().post(`/sysusers/${context.sysuser}/changepwd`,data,isloading);
             return res;
+    }
+
+    /**
+     * ChangePwdBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SysUserServiceBase
+     */
+    public async ChangePwdBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/sysusers/changepwdbatch`,tempData,isloading);
     }
 
     /**
@@ -164,7 +182,7 @@ export default class SysUserServiceBase extends EntityService {
      * @memberof SysUserServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/sysusers/${context.sysuser}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/sysusers/${context.sysuser}/checkkey`,data,isloading);
             return res;
     }
 
@@ -196,7 +214,7 @@ export default class SysUserServiceBase extends EntityService {
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/sysusers/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/sysusers/fetchdefault`,tempData,isloading);
         return res;
     }
 

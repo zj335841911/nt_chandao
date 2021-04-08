@@ -1,3 +1,4 @@
+import { Environment } from '@/environments/environment';
 import { Http } from '@/utils';
 import { Util } from '@/utils';
 import EntityService from '../entity-service';
@@ -49,7 +50,7 @@ export default class SysTeamServiceBase extends EntityService {
      * @memberof SysTeamServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().get(`/systeams/${context.systeam}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/systeams/${context.systeam}/select`,isloading);
             
             return res;
     }
@@ -105,7 +106,7 @@ export default class SysTeamServiceBase extends EntityService {
      * @memberof SysTeamServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().delete(`/systeams/${context.systeam}`,isloading);
+            let res:any = await Http.getInstance().delete(`/systeams/${context.systeam}`,isloading);
             return res;
     }
 
@@ -134,7 +135,10 @@ export default class SysTeamServiceBase extends EntityService {
      * @memberof SysTeamServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/systeams/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.systeam) delete tempData.systeam;
+        if(tempData.teamid) delete tempData.teamid;
+        let res:any = await  Http.getInstance().get(`/systeams/getdraft`,tempData,isloading);
         res.data.systeam = data.systeam;
         
         return res;
@@ -150,7 +154,7 @@ export default class SysTeamServiceBase extends EntityService {
      * @memberof SysTeamServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/systeams/${context.systeam}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/systeams/${context.systeam}/checkkey`,data,isloading);
             return res;
     }
 
@@ -182,7 +186,7 @@ export default class SysTeamServiceBase extends EntityService {
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/systeams/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/systeams/fetchdefault`,tempData,isloading);
         return res;
     }
 

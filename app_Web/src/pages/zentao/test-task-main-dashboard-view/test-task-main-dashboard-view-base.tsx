@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { DashboardViewBase } from '@/studio-core';
 import TestTaskService from '@/service/test-task/test-task-service';
 import TestTaskAuthService from '@/authservice/test-task/test-task-auth-service';
@@ -118,7 +118,7 @@ export class TestTaskMainDashboardViewBase extends DashboardViewBase {
      * @type {string}
      * @memberof TestTaskMainDashboardViewBase
      */
-	protected viewtag: string = '7cba1f165fc6b4948ce752d3c3b68a34';
+	protected viewtag: string = '55a8c0becc39a06b6b107d1bb4dbdcb9';
 
     /**
      * 视图名称

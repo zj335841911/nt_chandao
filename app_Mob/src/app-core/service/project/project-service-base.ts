@@ -365,6 +365,34 @@ export class ProjectServiceBase extends EntityService {
     }
 
     /**
+     * PmsEeProjectAllTaskCount接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectServiceBase
+     */
+    public async PmsEeProjectAllTaskCount(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = Http.getInstance().post(`/projects/${context.project}/pmseeprojectalltaskcount`,data,isloading);
+            return res;
+    }
+
+    /**
+     * PmsEeProjectTodoTaskCount接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectServiceBase
+     */
+    public async PmsEeProjectTodoTaskCount(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = Http.getInstance().post(`/projects/${context.project}/pmseeprojecttodotaskcount`,data,isloading);
+            return res;
+    }
+
+    /**
      * ProjectTaskQCnt接口方法
      *
      * @param {*} [context={}]
@@ -560,6 +588,21 @@ export class ProjectServiceBase extends EntityService {
     }
 
     /**
+     * FetchCurPlanProject接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectServiceBase
+     */
+    public async FetchCurPlanProject(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/projects/fetchcurplanproject`,tempData,isloading);
+        return res;
+    }
+
+    /**
      * FetchCurProduct接口方法
      *
      * @param {*} [context={}]
@@ -586,6 +629,21 @@ export class ProjectServiceBase extends EntityService {
     public async FetchCurUser(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().post(`/projects/fetchcuruser`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * FetchCurUserSa接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectServiceBase
+     */
+    public async FetchCurUserSa(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().post(`/projects/fetchcurusersa`,tempData,isloading);
         return res;
     }
 
@@ -758,6 +816,18 @@ export class ProjectServiceBase extends EntityService {
     }
 
     /**
+     * FetchTempCurPlanProject接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectServiceBase
+     */
+    public async FetchTempCurPlanProject(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    }
+
+    /**
      * FetchTempCurProduct接口方法
      *
      * @param {*} [context={}]
@@ -779,6 +849,18 @@ export class ProjectServiceBase extends EntityService {
      * @memberof ProjectServiceBase
      */
     public async FetchTempCurUser(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    }
+
+    /**
+     * FetchTempCurUserSa接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectServiceBase
+     */
+    public async FetchTempCurUserSa(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
     }
 
     /**

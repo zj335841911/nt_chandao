@@ -17,15 +17,21 @@ import cn.ibizlab.pms.core.util.ibizpro.template.freemarker.story.DeFreemarkerTp
 import cn.ibizlab.pms.core.util.message.SendMessage;
 import cn.ibizlab.pms.core.util.zentao.bean.ZTFileItem;
 import cn.ibizlab.pms.core.util.zentao.service.IIBZZTFileService;
+import cn.ibizlab.pms.core.zentao.domain.ProjectProduct;
 import cn.ibizlab.pms.core.zentao.domain.StorySpec;
+import cn.ibizlab.pms.core.zentao.domain.Task;
 import cn.ibizlab.pms.core.zentao.filter.FileSearchContext;
 import cn.ibizlab.pms.core.zentao.filter.StorySearchContext;
 import cn.ibizlab.pms.core.zentao.filter.StorySpecSearchContext;
 import cn.ibizlab.pms.core.zentao.service.IFileService;
+import cn.ibizlab.pms.core.zentao.service.IProjectProductService;
+import cn.ibizlab.pms.core.zentao.service.ITaskService;
 import cn.ibizlab.pms.core.zentao.service.impl.StoryServiceImpl;
 import cn.ibizlab.pms.core.zentao.service.impl.StorySpecServiceImpl;
+import cn.ibizlab.pms.util.dict.StaticDict;
 import cn.ibizlab.pms.util.helper.CachedBeanCopier;
 import com.alibaba.fastjson.JSONObject;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import lombok.extern.slf4j.Slf4j;
 import cn.ibizlab.pms.core.zentao.domain.Story;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -79,6 +85,12 @@ public class StoryExService extends StoryServiceImpl {
 
     @Autowired
     private IFileService fileService;
+
+    @Autowired
+    IProjectProductService projectProductService;
+
+    @Autowired
+    ITaskService taskService;
 
     final private static String[] EXTS = {"md", "html", "json"};
 
@@ -171,7 +183,7 @@ public class StoryExService extends StoryServiceImpl {
             List<IBZProStory> ibzProStoryList = new ArrayList<IBZProStory>();
             for (PSDataEntity psDataEntity : psDataEntityList) {
                 psDataEntity.set("preqnum", et.getId());
-                psDataEntity.set("preqlink", "#/ibizpms/products/"+ et.getProduct() +"/stories/"+ et.getId() +"/mainview_link");
+                psDataEntity.set("preqlink", "#/ibizpms/products/" + et.getProduct() + "/stories/" + et.getId() + "/mainview_link");
                 JSONObject dataModel = new JSONObject();
                 dataModel.put("item", psDataEntity);
                 dataModel.put("itemname", psDataEntity.getCodename());
@@ -207,7 +219,7 @@ public class StoryExService extends StoryServiceImpl {
                     fileSearchContext.setN_objectid_eq(Long.parseLong(String.valueOf(ibzProStory.getId())));
                     fileSearchContext.setN_extra_eq(String.valueOf(version));
                     fileSearchContext.setN_title_like(dataModel.getString("itemname") + "_" + updatedateLong);
-                    if(fileService.searchDefault(fileSearchContext).getContent().size() == 0) {
+                    if (fileService.searchDefault(fileSearchContext).getContent().size() == 0) {
                         for (String str : EXTS) {
                             String tmpTargetFilePath = targetFilePath + dataModel.getString("itemname") + File.separator + dataModel.getString("itemname") + "_" + updatedateLong + "." + str;
                             File file = new File(tmpTargetFilePath);
@@ -244,7 +256,7 @@ public class StoryExService extends StoryServiceImpl {
                             }
 
                         }
-                    }else {
+                    } else {
                         String tmpTargetFilePath = targetFilePath + dataModel.getString("itemname") + "_" + updatedateLong + "." + "html";
                         File file = new File(tmpTargetFilePath);
                         BufferedReader reader = null;
@@ -278,7 +290,7 @@ public class StoryExService extends StoryServiceImpl {
                     ibzProStoryList.add(ibzProStory);
                 }
             }
-            if(ibzProStoryList.size() > 0) {
+            if (ibzProStoryList.size() > 0) {
                 List<Story> list = new ArrayList<>();
                 CachedBeanCopier.copy(ibzProStoryList, list);
                 boolean flag = cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.StoryHelper.class).batchCreate(list);
@@ -314,7 +326,6 @@ public class StoryExService extends StoryServiceImpl {
         }
         return et;
     }
-
 
 
     /**
@@ -440,8 +451,8 @@ public class StoryExService extends StoryServiceImpl {
         context.setN_story_eq(et.getId());
         context.setN_version_eq(et.getVersion());
         context.setSort("version,desc");
-        List<StorySpec> list =  storyspecService.searchDefault(context).getContent();
-        if(!list.isEmpty() && list.size() > 0) {
+        List<StorySpec> list = storyspecService.searchDefault(context).getContent();
+        if (!list.isEmpty() && list.size() > 0) {
             StorySpec storySpec = storyspecService.searchDefault(context).getContent().get(0);
             et.setSpec(storySpec.getSpec());
             et.setVerify(storySpec.getVerify());
@@ -513,7 +524,7 @@ public class StoryExService extends StoryServiceImpl {
     public Page<Story> searchByModule(StorySearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages = baseMapper.searchByModule(context.getPages(), context, context.getSelectCond());
         for (Story story : pages.getRecords()) {
-            if(story.getParent() == 0) {
+            if (story.getParent() == 0) {
                 continue;
             }
             StorySearchContext storySearchContext = new StorySearchContext();
@@ -531,7 +542,7 @@ public class StoryExService extends StoryServiceImpl {
     public Page<Story> searchParentDefault(StorySearchContext context) {
         com.baomidou.mybatisplus.extension.plugins.pagination.Page<Story> pages = baseMapper.searchParentDefault(context.getPages(), context, context.getSelectCond());
         for (Story story : pages.getRecords()) {
-            if(story.getParent() == 0) {
+            if (story.getParent() == 0) {
                 continue;
             }
             StorySearchContext storySearchContext = new StorySearchContext();
@@ -540,6 +551,35 @@ public class StoryExService extends StoryServiceImpl {
             story.set("items", this.searchDefault(storySearchContext).getContent());
         }
         return new PageImpl<Story>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    @Override
+    @Transactional
+    public Story createTasks(Story et) {
+        //传入的只有需求的id
+        List<Story> storyList = this.list(new QueryWrapper<Story>().eq("id", et.getId()));
+        Story story = storyList.get(0);
+        Task task = new Task();
+        task.setName(story.getTitle());
+        task.setModule(story.getModule());
+        task.setStory(et.getId());
+        task.setStoryversion(story.getVersion());
+        task.setType(StaticDict.Task__type.DEVEL.getValue());
+        task.setPri(story.getPri());
+        task.setStatus(StaticDict.Task__status.WAIT.getValue());
+        task.setTaskspecies(StaticDict.TaskSpecies.TEMP.getValue());
+        //获取需求描述
+        List<StorySpec> storySpecList = storySpecService.list(new QueryWrapper<StorySpec>().eq("story", et.getId()));
+        String spec = storySpecList.get(0).getSpec();
+        task.setDesc(spec);
+        task.setAssignedto(story.getAssignedto());
+        //根据需求的product找到对应的project
+        List<ProjectProduct> projectProductList = projectProductService.list(new QueryWrapper<ProjectProduct>().eq("product", story.getProduct()));
+        //此处暂取第一组project的值 后期调整（pmsee中product和project一对一 不存在一对多的问题）
+        ProjectProduct projectProduct = projectProductList.get(0);
+        task.setProject(projectProduct.getProject());
+        taskService.create(task);
+        return et;
     }
 }
 

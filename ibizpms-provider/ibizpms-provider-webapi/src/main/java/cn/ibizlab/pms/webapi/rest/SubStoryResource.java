@@ -73,7 +73,7 @@ public class SubStoryResource {
 		Story domain  = substoryMapping.toDomain(substorydto);
         domain .setId(substory_id);
 		storyService.update(domain );
-		SubStoryDTO dto = substoryMapping.toDto(domain );
+		SubStoryDTO dto = substoryMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
@@ -111,8 +111,9 @@ public class SubStoryResource {
 
     @ApiOperation(value = "获取需求草稿", tags = {"需求" },  notes = "获取需求草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/substories/getdraft")
-    public ResponseEntity<SubStoryDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(substoryMapping.toDto(storyService.getDraft(new Story())));
+    public ResponseEntity<SubStoryDTO> getDraft(SubStoryDTO dto) {
+        Story domain = substoryMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(substoryMapping.toDto(storyService.getDraft(domain)));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Activate-all')")
@@ -127,9 +128,11 @@ public class SubStoryResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Activate-all')")
     @ApiOperation(value = "批量处理[激活]", tags = {"需求" },  notes = "批量处理[激活]")
-	@RequestMapping(method = RequestMethod.POST, value = "/substories/{substory_id}/activatebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/substories/activatebatch")
     public ResponseEntity<Boolean> activateBatch(@RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.activateBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.activateBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-AllPush-all')")
@@ -144,9 +147,11 @@ public class SubStoryResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-AllPush-all')")
     @ApiOperation(value = "批量处理[全部推送]", tags = {"需求" },  notes = "批量处理[全部推送]")
-	@RequestMapping(method = RequestMethod.POST, value = "/substories/{substory_id}/allpushbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/substories/allpushbatch")
     public ResponseEntity<Boolean> allPushBatch(@RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.allPushBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.allPushBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-AssignTo-all')")
@@ -161,9 +166,11 @@ public class SubStoryResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-AssignTo-all')")
     @ApiOperation(value = "批量处理[指派]", tags = {"需求" },  notes = "批量处理[指派]")
-	@RequestMapping(method = RequestMethod.POST, value = "/substories/{substory_id}/assigntobatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/substories/assigntobatch")
     public ResponseEntity<Boolean> assignToBatch(@RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.assignToBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.assignToBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-BatchAssignTo-all')")
@@ -178,9 +185,11 @@ public class SubStoryResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-BatchAssignTo-all')")
     @ApiOperation(value = "批量处理[批量指派]", tags = {"需求" },  notes = "批量处理[批量指派]")
-	@RequestMapping(method = RequestMethod.POST, value = "/substories/{substory_id}/batchassigntobatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/substories/batchassigntobatch")
     public ResponseEntity<Boolean> batchAssignToBatch(@RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.batchAssignToBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.batchAssignToBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-BatchChangeBranch-all')")
@@ -195,9 +204,11 @@ public class SubStoryResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-BatchChangeBranch-all')")
     @ApiOperation(value = "批量处理[批量变更平台/分支]", tags = {"需求" },  notes = "批量处理[批量变更平台/分支]")
-	@RequestMapping(method = RequestMethod.POST, value = "/substories/{substory_id}/batchchangebranchbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/substories/batchchangebranchbatch")
     public ResponseEntity<Boolean> batchChangeBranchBatch(@RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.batchChangeBranchBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.batchChangeBranchBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-BatchChangeModule-all')")
@@ -212,9 +223,11 @@ public class SubStoryResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-BatchChangeModule-all')")
     @ApiOperation(value = "批量处理[批量变更模块]", tags = {"需求" },  notes = "批量处理[批量变更模块]")
-	@RequestMapping(method = RequestMethod.POST, value = "/substories/{substory_id}/batchchangemodulebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/substories/batchchangemodulebatch")
     public ResponseEntity<Boolean> batchChangeModuleBatch(@RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.batchChangeModuleBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.batchChangeModuleBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-BatchChangePlan-all')")
@@ -229,9 +242,11 @@ public class SubStoryResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-BatchChangePlan-all')")
     @ApiOperation(value = "批量处理[批量关联计划]", tags = {"需求" },  notes = "批量处理[批量关联计划]")
-	@RequestMapping(method = RequestMethod.POST, value = "/substories/{substory_id}/batchchangeplanbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/substories/batchchangeplanbatch")
     public ResponseEntity<Boolean> batchChangePlanBatch(@RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.batchChangePlanBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.batchChangePlanBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-BatchChangeStage-all')")
@@ -246,9 +261,11 @@ public class SubStoryResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-BatchChangeStage-all')")
     @ApiOperation(value = "批量处理[批量变更阶段]", tags = {"需求" },  notes = "批量处理[批量变更阶段]")
-	@RequestMapping(method = RequestMethod.POST, value = "/substories/{substory_id}/batchchangestagebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/substories/batchchangestagebatch")
     public ResponseEntity<Boolean> batchChangeStageBatch(@RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.batchChangeStageBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.batchChangeStageBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-BatchClose-all')")
@@ -263,9 +280,11 @@ public class SubStoryResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-BatchClose-all')")
     @ApiOperation(value = "批量处理[批量关闭]", tags = {"需求" },  notes = "批量处理[批量关闭]")
-	@RequestMapping(method = RequestMethod.POST, value = "/substories/{substory_id}/batchclosebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/substories/batchclosebatch")
     public ResponseEntity<Boolean> batchCloseBatch(@RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.batchCloseBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.batchCloseBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-BatchReview-all')")
@@ -280,9 +299,11 @@ public class SubStoryResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-BatchReview-all')")
     @ApiOperation(value = "批量处理[批量评审]", tags = {"需求" },  notes = "批量处理[批量评审]")
-	@RequestMapping(method = RequestMethod.POST, value = "/substories/{substory_id}/batchreviewbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/substories/batchreviewbatch")
     public ResponseEntity<Boolean> batchReviewBatch(@RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.batchReviewBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.batchReviewBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-BatchUnlinkStory-all')")
@@ -297,9 +318,11 @@ public class SubStoryResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-BatchUnlinkStory-all')")
     @ApiOperation(value = "批量处理[计划批量解除关联需求]", tags = {"需求" },  notes = "批量处理[计划批量解除关联需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/substories/{substory_id}/batchunlinkstorybatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/substories/batchunlinkstorybatch")
     public ResponseEntity<Boolean> batchUnlinkStoryBatch(@RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.batchUnlinkStoryBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.batchUnlinkStoryBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-BugToStory-all')")
@@ -314,9 +337,11 @@ public class SubStoryResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-BugToStory-all')")
     @ApiOperation(value = "批量处理[bug转需求]", tags = {"需求" },  notes = "批量处理[bug转需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/substories/{substory_id}/bugtostorybatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/substories/bugtostorybatch")
     public ResponseEntity<Boolean> bugToStoryBatch(@RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.bugToStoryBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.bugToStoryBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-BuildBatchUnlinkStory-all')")
@@ -331,9 +356,11 @@ public class SubStoryResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-BuildBatchUnlinkStory-all')")
     @ApiOperation(value = "批量处理[版本批量解除关联需求]", tags = {"需求" },  notes = "批量处理[版本批量解除关联需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/substories/{substory_id}/buildbatchunlinkstorybatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/substories/buildbatchunlinkstorybatch")
     public ResponseEntity<Boolean> buildBatchUnlinkStoryBatch(@RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.buildBatchUnlinkStoryBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.buildBatchUnlinkStoryBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-BuildLinkStory-all')")
@@ -348,9 +375,11 @@ public class SubStoryResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-BuildLinkStory-all')")
     @ApiOperation(value = "批量处理[项目关联需求]", tags = {"需求" },  notes = "批量处理[项目关联需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/substories/{substory_id}/buildlinkstorybatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/substories/buildlinkstorybatch")
     public ResponseEntity<Boolean> buildLinkStoryBatch(@RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.buildLinkStoryBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.buildLinkStoryBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-BuildUnlinkStory-all')")
@@ -365,9 +394,11 @@ public class SubStoryResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-BuildUnlinkStory-all')")
     @ApiOperation(value = "批量处理[版本解除关联需求]", tags = {"需求" },  notes = "批量处理[版本解除关联需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/substories/{substory_id}/buildunlinkstorybatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/substories/buildunlinkstorybatch")
     public ResponseEntity<Boolean> buildUnlinkStoryBatch(@RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.buildUnlinkStoryBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.buildUnlinkStoryBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-BuildUnlinkStorys-all')")
@@ -393,9 +424,11 @@ public class SubStoryResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Change-all')")
     @ApiOperation(value = "批量处理[变更]", tags = {"需求" },  notes = "批量处理[变更]")
-	@RequestMapping(method = RequestMethod.POST, value = "/substories/{substory_id}/changebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/substories/changebatch")
     public ResponseEntity<Boolean> changeBatch(@RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.changeBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.changeBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @ApiOperation(value = "检查需求", tags = {"需求" },  notes = "检查需求")
@@ -416,9 +449,30 @@ public class SubStoryResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Close-all')")
     @ApiOperation(value = "批量处理[关闭]", tags = {"需求" },  notes = "批量处理[关闭]")
-	@RequestMapping(method = RequestMethod.POST, value = "/substories/{substory_id}/closebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/substories/closebatch")
     public ResponseEntity<Boolean> closeBatch(@RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.closeBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.closeBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-CreateTasks-all')")
+    @ApiOperation(value = "生成任务", tags = {"需求" },  notes = "生成任务")
+	@RequestMapping(method = RequestMethod.POST, value = "/substories/{substory_id}/createtasks")
+    public ResponseEntity<SubStoryDTO> createTasks(@PathVariable("substory_id") Long substory_id, @RequestBody SubStoryDTO substorydto) {
+        Story domain = substoryMapping.toDomain(substorydto);
+        domain.setId(substory_id);
+        domain = storyService.createTasks(domain);
+        substorydto = substoryMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(substorydto);
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-CreateTasks-all')")
+    @ApiOperation(value = "批量处理[生成任务]", tags = {"需求" },  notes = "批量处理[生成任务]")
+	@RequestMapping(method = RequestMethod.POST, value = "/substories/createtasksbatch")
+    public ResponseEntity<Boolean> createTasksBatch(@RequestBody List<SubStoryDTO> substorydtos) {
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.createTasksBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-GetStorySpec-all')")
@@ -433,9 +487,11 @@ public class SubStoryResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-GetStorySpec-all')")
     @ApiOperation(value = "批量处理[获取需求描述]", tags = {"需求" },  notes = "批量处理[获取需求描述]")
-	@RequestMapping(method = RequestMethod.POST, value = "/substories/{substory_id}/getstoryspecbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/substories/getstoryspecbatch")
     public ResponseEntity<Boolean> getStorySpecBatch(@RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.getStorySpecBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.getStorySpecBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-GetStorySpecs-all')")
@@ -461,9 +517,11 @@ public class SubStoryResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-ImportPlanStories-all')")
     @ApiOperation(value = "批量处理[项目关联需求-按计划关联]", tags = {"需求" },  notes = "批量处理[项目关联需求-按计划关联]")
-	@RequestMapping(method = RequestMethod.POST, value = "/substories/{substory_id}/importplanstoriesbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/substories/importplanstoriesbatch")
     public ResponseEntity<Boolean> importPlanStoriesBatch(@RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.importPlanStoriesBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.importPlanStoriesBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-LinkStory-all')")
@@ -478,9 +536,11 @@ public class SubStoryResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-LinkStory-all')")
     @ApiOperation(value = "批量处理[计划关联需求]", tags = {"需求" },  notes = "批量处理[计划关联需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/substories/{substory_id}/linkstorybatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/substories/linkstorybatch")
     public ResponseEntity<Boolean> linkStoryBatch(@RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.linkStoryBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.linkStoryBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-ProjectBatchUnlinkStory-all')")
@@ -495,9 +555,11 @@ public class SubStoryResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-ProjectBatchUnlinkStory-all')")
     @ApiOperation(value = "批量处理[项目批量解除关联需求]", tags = {"需求" },  notes = "批量处理[项目批量解除关联需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/substories/{substory_id}/projectbatchunlinkstorybatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/substories/projectbatchunlinkstorybatch")
     public ResponseEntity<Boolean> projectBatchUnlinkStoryBatch(@RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.projectBatchUnlinkStoryBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.projectBatchUnlinkStoryBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-ProjectLinkStory-all')")
@@ -512,9 +574,11 @@ public class SubStoryResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-ProjectLinkStory-all')")
     @ApiOperation(value = "批量处理[项目关联需求]", tags = {"需求" },  notes = "批量处理[项目关联需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/substories/{substory_id}/projectlinkstorybatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/substories/projectlinkstorybatch")
     public ResponseEntity<Boolean> projectLinkStoryBatch(@RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.projectLinkStoryBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.projectLinkStoryBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-ProjectUnlinkStory-all')")
@@ -529,9 +593,11 @@ public class SubStoryResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-ProjectUnlinkStory-all')")
     @ApiOperation(value = "批量处理[项目解除关联需求]", tags = {"需求" },  notes = "批量处理[项目解除关联需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/substories/{substory_id}/projectunlinkstorybatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/substories/projectunlinkstorybatch")
     public ResponseEntity<Boolean> projectUnlinkStoryBatch(@RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.projectUnlinkStoryBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.projectUnlinkStoryBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-ProjectUnlinkStorys-all')")
@@ -557,9 +623,11 @@ public class SubStoryResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Push-all')")
     @ApiOperation(value = "批量处理[推送]", tags = {"需求" },  notes = "批量处理[推送]")
-	@RequestMapping(method = RequestMethod.POST, value = "/substories/{substory_id}/pushbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/substories/pushbatch")
     public ResponseEntity<Boolean> pushBatch(@RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.pushBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.pushBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-ReleaseBatchUnlinkStory-all')")
@@ -574,9 +642,11 @@ public class SubStoryResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-ReleaseBatchUnlinkStory-all')")
     @ApiOperation(value = "批量处理[发布批量解除关联需求]", tags = {"需求" },  notes = "批量处理[发布批量解除关联需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/substories/{substory_id}/releasebatchunlinkstorybatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/substories/releasebatchunlinkstorybatch")
     public ResponseEntity<Boolean> releaseBatchUnlinkStoryBatch(@RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.releaseBatchUnlinkStoryBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.releaseBatchUnlinkStoryBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-ReleaseLinkStory-all')")
@@ -591,9 +661,11 @@ public class SubStoryResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-ReleaseLinkStory-all')")
     @ApiOperation(value = "批量处理[发布关联需求]", tags = {"需求" },  notes = "批量处理[发布关联需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/substories/{substory_id}/releaselinkstorybatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/substories/releaselinkstorybatch")
     public ResponseEntity<Boolean> releaseLinkStoryBatch(@RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.releaseLinkStoryBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.releaseLinkStoryBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-ReleaseUnlinkStory-all')")
@@ -608,9 +680,11 @@ public class SubStoryResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-ReleaseUnlinkStory-all')")
     @ApiOperation(value = "批量处理[发布解除关联需求]", tags = {"需求" },  notes = "批量处理[发布解除关联需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/substories/{substory_id}/releaseunlinkstorybatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/substories/releaseunlinkstorybatch")
     public ResponseEntity<Boolean> releaseUnlinkStoryBatch(@RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.releaseUnlinkStoryBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.releaseUnlinkStoryBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-ResetReviewedBy-all')")
@@ -625,9 +699,11 @@ public class SubStoryResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-ResetReviewedBy-all')")
     @ApiOperation(value = "批量处理[重置由谁评审]", tags = {"需求" },  notes = "批量处理[重置由谁评审]")
-	@RequestMapping(method = RequestMethod.POST, value = "/substories/{substory_id}/resetreviewedbybatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/substories/resetreviewedbybatch")
     public ResponseEntity<Boolean> resetReviewedByBatch(@RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.resetReviewedByBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.resetReviewedByBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Review-all')")
@@ -642,16 +718,20 @@ public class SubStoryResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Review-all')")
     @ApiOperation(value = "批量处理[评审]", tags = {"需求" },  notes = "批量处理[评审]")
-	@RequestMapping(method = RequestMethod.POST, value = "/substories/{substory_id}/reviewbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/substories/reviewbatch")
     public ResponseEntity<Boolean> reviewBatch(@RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.reviewBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.reviewBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasPermission(this.substoryMapping.toDomain(#substorydto),'pms-Story-Save')")
     @ApiOperation(value = "保存需求", tags = {"需求" },  notes = "保存需求")
 	@RequestMapping(method = RequestMethod.POST, value = "/substories/save")
-    public ResponseEntity<Boolean> save(@RequestBody SubStoryDTO substorydto) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.save(substoryMapping.toDomain(substorydto)));
+    public ResponseEntity<SubStoryDTO> save(@RequestBody SubStoryDTO substorydto) {
+        Story domain = substoryMapping.toDomain(substorydto);
+        storyService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(substoryMapping.toDto(domain));
     }
 
     @PreAuthorize("hasPermission(this.substoryMapping.toDomain(#substorydtos),'pms-Story-Save')")
@@ -674,9 +754,11 @@ public class SubStoryResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-SendMessage-all')")
     @ApiOperation(value = "批量处理[行为]", tags = {"需求" },  notes = "批量处理[行为]")
-	@RequestMapping(method = RequestMethod.POST, value = "/substories/{substory_id}/sendmessagebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/substories/sendmessagebatch")
     public ResponseEntity<Boolean> sendMessageBatch(@RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.sendMessageBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.sendMessageBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-SendMsgPreProcess-all')")
@@ -691,9 +773,11 @@ public class SubStoryResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-SendMsgPreProcess-all')")
     @ApiOperation(value = "批量处理[发送消息前置处理]", tags = {"需求" },  notes = "批量处理[发送消息前置处理]")
-	@RequestMapping(method = RequestMethod.POST, value = "/substories/{substory_id}/sendmsgpreprocessbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/substories/sendmsgpreprocessbatch")
     public ResponseEntity<Boolean> sendMsgPreProcessBatch(@RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.sendMsgPreProcessBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.sendMsgPreProcessBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-StoryFavorites-all')")
@@ -730,9 +814,11 @@ public class SubStoryResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-SyncFromIbiz-all')")
     @ApiOperation(value = "批量处理[同步Ibz平台实体]", tags = {"需求" },  notes = "批量处理[同步Ibz平台实体]")
-	@RequestMapping(method = RequestMethod.POST, value = "/substories/{substory_id}/syncfromibizbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/substories/syncfromibizbatch")
     public ResponseEntity<Boolean> syncFromIbizBatch(@RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.syncFromIbizBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.syncFromIbizBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-UnlinkStory-all')")
@@ -747,9 +833,11 @@ public class SubStoryResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-UnlinkStory-all')")
     @ApiOperation(value = "批量处理[计划解除关联需求]", tags = {"需求" },  notes = "批量处理[计划解除关联需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/substories/{substory_id}/unlinkstorybatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/substories/unlinkstorybatch")
     public ResponseEntity<Boolean> unlinkStoryBatch(@RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.unlinkStoryBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.unlinkStoryBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchAssignedToMyStory-all') and hasPermission(#context,'pms-Story-Get')")
@@ -1347,6 +1435,7 @@ public class SubStoryResource {
 	}
 
 
+
     @PreAuthorize("hasPermission(this.substoryMapping.toDomain(#substorydto),'pms-Story-Create')")
     @ApiOperation(value = "根据需求建立需求", tags = {"需求" },  notes = "根据需求建立需求")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories")
@@ -1421,8 +1510,8 @@ public class SubStoryResource {
 
     @ApiOperation(value = "根据需求获取需求草稿", tags = {"需求" },  notes = "根据需求获取需求草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/stories/{story_id}/substories/getdraft")
-    public ResponseEntity<SubStoryDTO> getDraftByStory(@PathVariable("story_id") Long story_id) {
-        Story domain = new Story();
+    public ResponseEntity<SubStoryDTO> getDraftByStory(@PathVariable("story_id") Long story_id, SubStoryDTO dto) {
+        Story domain = substoryMapping.toDomain(dto);
         domain.setParent(story_id);
         return ResponseEntity.status(HttpStatus.OK).body(substoryMapping.toDto(storyService.getDraft(domain)));
     }
@@ -1438,9 +1527,11 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(substorydto);
     }
     @ApiOperation(value = "批量处理[根据需求需求]", tags = {"需求" },  notes = "批量处理[根据需求需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/{substory_id}/activatebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/activatebatch")
     public ResponseEntity<Boolean> activateByStory(@PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.activateBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.activateBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-AllPush-all')")
     @ApiOperation(value = "根据需求需求", tags = {"需求" },  notes = "根据需求需求")
@@ -1453,9 +1544,11 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(substorydto);
     }
     @ApiOperation(value = "批量处理[根据需求需求]", tags = {"需求" },  notes = "批量处理[根据需求需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/{substory_id}/allpushbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/allpushbatch")
     public ResponseEntity<Boolean> allPushByStory(@PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.allPushBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.allPushBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-AssignTo-all')")
     @ApiOperation(value = "根据需求需求", tags = {"需求" },  notes = "根据需求需求")
@@ -1468,9 +1561,11 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(substorydto);
     }
     @ApiOperation(value = "批量处理[根据需求需求]", tags = {"需求" },  notes = "批量处理[根据需求需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/{substory_id}/assigntobatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/assigntobatch")
     public ResponseEntity<Boolean> assignToByStory(@PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.assignToBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.assignToBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-BatchAssignTo-all')")
     @ApiOperation(value = "根据需求需求", tags = {"需求" },  notes = "根据需求需求")
@@ -1483,9 +1578,11 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(substorydto);
     }
     @ApiOperation(value = "批量处理[根据需求需求]", tags = {"需求" },  notes = "批量处理[根据需求需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/{substory_id}/batchassigntobatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/batchassigntobatch")
     public ResponseEntity<Boolean> batchAssignToByStory(@PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.batchAssignToBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.batchAssignToBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-BatchChangeBranch-all')")
     @ApiOperation(value = "根据需求需求", tags = {"需求" },  notes = "根据需求需求")
@@ -1498,9 +1595,11 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(substorydto);
     }
     @ApiOperation(value = "批量处理[根据需求需求]", tags = {"需求" },  notes = "批量处理[根据需求需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/{substory_id}/batchchangebranchbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/batchchangebranchbatch")
     public ResponseEntity<Boolean> batchChangeBranchByStory(@PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.batchChangeBranchBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.batchChangeBranchBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-BatchChangeModule-all')")
     @ApiOperation(value = "根据需求需求", tags = {"需求" },  notes = "根据需求需求")
@@ -1513,9 +1612,11 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(substorydto);
     }
     @ApiOperation(value = "批量处理[根据需求需求]", tags = {"需求" },  notes = "批量处理[根据需求需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/{substory_id}/batchchangemodulebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/batchchangemodulebatch")
     public ResponseEntity<Boolean> batchChangeModuleByStory(@PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.batchChangeModuleBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.batchChangeModuleBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-BatchChangePlan-all')")
     @ApiOperation(value = "根据需求需求", tags = {"需求" },  notes = "根据需求需求")
@@ -1528,9 +1629,11 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(substorydto);
     }
     @ApiOperation(value = "批量处理[根据需求需求]", tags = {"需求" },  notes = "批量处理[根据需求需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/{substory_id}/batchchangeplanbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/batchchangeplanbatch")
     public ResponseEntity<Boolean> batchChangePlanByStory(@PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.batchChangePlanBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.batchChangePlanBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-BatchChangeStage-all')")
     @ApiOperation(value = "根据需求需求", tags = {"需求" },  notes = "根据需求需求")
@@ -1543,9 +1646,11 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(substorydto);
     }
     @ApiOperation(value = "批量处理[根据需求需求]", tags = {"需求" },  notes = "批量处理[根据需求需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/{substory_id}/batchchangestagebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/batchchangestagebatch")
     public ResponseEntity<Boolean> batchChangeStageByStory(@PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.batchChangeStageBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.batchChangeStageBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-BatchClose-all')")
     @ApiOperation(value = "根据需求需求", tags = {"需求" },  notes = "根据需求需求")
@@ -1558,9 +1663,11 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(substorydto);
     }
     @ApiOperation(value = "批量处理[根据需求需求]", tags = {"需求" },  notes = "批量处理[根据需求需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/{substory_id}/batchclosebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/batchclosebatch")
     public ResponseEntity<Boolean> batchCloseByStory(@PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.batchCloseBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.batchCloseBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-BatchReview-all')")
     @ApiOperation(value = "根据需求需求", tags = {"需求" },  notes = "根据需求需求")
@@ -1573,9 +1680,11 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(substorydto);
     }
     @ApiOperation(value = "批量处理[根据需求需求]", tags = {"需求" },  notes = "批量处理[根据需求需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/{substory_id}/batchreviewbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/batchreviewbatch")
     public ResponseEntity<Boolean> batchReviewByStory(@PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.batchReviewBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.batchReviewBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-BatchUnlinkStory-all')")
     @ApiOperation(value = "根据需求需求", tags = {"需求" },  notes = "根据需求需求")
@@ -1588,9 +1697,11 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(substorydto);
     }
     @ApiOperation(value = "批量处理[根据需求需求]", tags = {"需求" },  notes = "批量处理[根据需求需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/{substory_id}/batchunlinkstorybatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/batchunlinkstorybatch")
     public ResponseEntity<Boolean> batchUnlinkStoryByStory(@PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.batchUnlinkStoryBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.batchUnlinkStoryBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-BugToStory-all')")
     @ApiOperation(value = "根据需求需求", tags = {"需求" },  notes = "根据需求需求")
@@ -1603,9 +1714,11 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(substorydto);
     }
     @ApiOperation(value = "批量处理[根据需求需求]", tags = {"需求" },  notes = "批量处理[根据需求需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/{substory_id}/bugtostorybatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/bugtostorybatch")
     public ResponseEntity<Boolean> bugToStoryByStory(@PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.bugToStoryBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.bugToStoryBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-BuildBatchUnlinkStory-all')")
     @ApiOperation(value = "根据需求需求", tags = {"需求" },  notes = "根据需求需求")
@@ -1618,9 +1731,11 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(substorydto);
     }
     @ApiOperation(value = "批量处理[根据需求需求]", tags = {"需求" },  notes = "批量处理[根据需求需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/{substory_id}/buildbatchunlinkstorybatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/buildbatchunlinkstorybatch")
     public ResponseEntity<Boolean> buildBatchUnlinkStoryByStory(@PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.buildBatchUnlinkStoryBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.buildBatchUnlinkStoryBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-BuildLinkStory-all')")
     @ApiOperation(value = "根据需求需求", tags = {"需求" },  notes = "根据需求需求")
@@ -1633,9 +1748,11 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(substorydto);
     }
     @ApiOperation(value = "批量处理[根据需求需求]", tags = {"需求" },  notes = "批量处理[根据需求需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/{substory_id}/buildlinkstorybatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/buildlinkstorybatch")
     public ResponseEntity<Boolean> buildLinkStoryByStory(@PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.buildLinkStoryBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.buildLinkStoryBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-BuildUnlinkStory-all')")
     @ApiOperation(value = "根据需求需求", tags = {"需求" },  notes = "根据需求需求")
@@ -1648,9 +1765,11 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(substorydto);
     }
     @ApiOperation(value = "批量处理[根据需求需求]", tags = {"需求" },  notes = "批量处理[根据需求需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/{substory_id}/buildunlinkstorybatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/buildunlinkstorybatch")
     public ResponseEntity<Boolean> buildUnlinkStoryByStory(@PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.buildUnlinkStoryBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.buildUnlinkStoryBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-BuildUnlinkStorys-all')")
     @ApiOperation(value = "根据需求需求", tags = {"需求" },  notes = "根据需求需求")
@@ -1673,9 +1792,11 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(substorydto);
     }
     @ApiOperation(value = "批量处理[根据需求需求]", tags = {"需求" },  notes = "批量处理[根据需求需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/{substory_id}/changebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/changebatch")
     public ResponseEntity<Boolean> changeByStory(@PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.changeBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.changeBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @ApiOperation(value = "根据需求检查需求", tags = {"需求" },  notes = "根据需求检查需求")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/checkkey")
@@ -1694,9 +1815,28 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(substorydto);
     }
     @ApiOperation(value = "批量处理[根据需求需求]", tags = {"需求" },  notes = "批量处理[根据需求需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/{substory_id}/closebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/closebatch")
     public ResponseEntity<Boolean> closeByStory(@PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.closeBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.closeBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-CreateTasks-all')")
+    @ApiOperation(value = "根据需求需求", tags = {"需求" },  notes = "根据需求需求")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/{substory_id}/createtasks")
+    public ResponseEntity<SubStoryDTO> createTasksByStory(@PathVariable("story_id") Long story_id, @PathVariable("substory_id") Long substory_id, @RequestBody SubStoryDTO substorydto) {
+        Story domain = substoryMapping.toDomain(substorydto);
+        domain.setParent(story_id);
+        domain = storyService.createTasks(domain) ;
+        substorydto = substoryMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(substorydto);
+    }
+    @ApiOperation(value = "批量处理[根据需求需求]", tags = {"需求" },  notes = "批量处理[根据需求需求]")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/createtasksbatch")
+    public ResponseEntity<Boolean> createTasksByStory(@PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.createTasksBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-GetStorySpec-all')")
     @ApiOperation(value = "根据需求需求", tags = {"需求" },  notes = "根据需求需求")
@@ -1709,9 +1849,11 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(substorydto);
     }
     @ApiOperation(value = "批量处理[根据需求需求]", tags = {"需求" },  notes = "批量处理[根据需求需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/{substory_id}/getstoryspecbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/getstoryspecbatch")
     public ResponseEntity<Boolean> getStorySpecByStory(@PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.getStorySpecBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.getStorySpecBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-GetStorySpecs-all')")
     @ApiOperation(value = "根据需求需求", tags = {"需求" },  notes = "根据需求需求")
@@ -1734,9 +1876,11 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(substorydto);
     }
     @ApiOperation(value = "批量处理[根据需求需求]", tags = {"需求" },  notes = "批量处理[根据需求需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/{substory_id}/importplanstoriesbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/importplanstoriesbatch")
     public ResponseEntity<Boolean> importPlanStoriesByStory(@PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.importPlanStoriesBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.importPlanStoriesBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-LinkStory-all')")
     @ApiOperation(value = "根据需求需求", tags = {"需求" },  notes = "根据需求需求")
@@ -1749,9 +1893,11 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(substorydto);
     }
     @ApiOperation(value = "批量处理[根据需求需求]", tags = {"需求" },  notes = "批量处理[根据需求需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/{substory_id}/linkstorybatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/linkstorybatch")
     public ResponseEntity<Boolean> linkStoryByStory(@PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.linkStoryBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.linkStoryBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-ProjectBatchUnlinkStory-all')")
     @ApiOperation(value = "根据需求需求", tags = {"需求" },  notes = "根据需求需求")
@@ -1764,9 +1910,11 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(substorydto);
     }
     @ApiOperation(value = "批量处理[根据需求需求]", tags = {"需求" },  notes = "批量处理[根据需求需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/{substory_id}/projectbatchunlinkstorybatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/projectbatchunlinkstorybatch")
     public ResponseEntity<Boolean> projectBatchUnlinkStoryByStory(@PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.projectBatchUnlinkStoryBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.projectBatchUnlinkStoryBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-ProjectLinkStory-all')")
     @ApiOperation(value = "根据需求需求", tags = {"需求" },  notes = "根据需求需求")
@@ -1779,9 +1927,11 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(substorydto);
     }
     @ApiOperation(value = "批量处理[根据需求需求]", tags = {"需求" },  notes = "批量处理[根据需求需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/{substory_id}/projectlinkstorybatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/projectlinkstorybatch")
     public ResponseEntity<Boolean> projectLinkStoryByStory(@PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.projectLinkStoryBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.projectLinkStoryBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-ProjectUnlinkStory-all')")
     @ApiOperation(value = "根据需求需求", tags = {"需求" },  notes = "根据需求需求")
@@ -1794,9 +1944,11 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(substorydto);
     }
     @ApiOperation(value = "批量处理[根据需求需求]", tags = {"需求" },  notes = "批量处理[根据需求需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/{substory_id}/projectunlinkstorybatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/projectunlinkstorybatch")
     public ResponseEntity<Boolean> projectUnlinkStoryByStory(@PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.projectUnlinkStoryBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.projectUnlinkStoryBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-ProjectUnlinkStorys-all')")
     @ApiOperation(value = "根据需求需求", tags = {"需求" },  notes = "根据需求需求")
@@ -1819,9 +1971,11 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(substorydto);
     }
     @ApiOperation(value = "批量处理[根据需求需求]", tags = {"需求" },  notes = "批量处理[根据需求需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/{substory_id}/pushbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/pushbatch")
     public ResponseEntity<Boolean> pushByStory(@PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.pushBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.pushBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-ReleaseBatchUnlinkStory-all')")
     @ApiOperation(value = "根据需求需求", tags = {"需求" },  notes = "根据需求需求")
@@ -1834,9 +1988,11 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(substorydto);
     }
     @ApiOperation(value = "批量处理[根据需求需求]", tags = {"需求" },  notes = "批量处理[根据需求需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/{substory_id}/releasebatchunlinkstorybatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/releasebatchunlinkstorybatch")
     public ResponseEntity<Boolean> releaseBatchUnlinkStoryByStory(@PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.releaseBatchUnlinkStoryBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.releaseBatchUnlinkStoryBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-ReleaseLinkStory-all')")
     @ApiOperation(value = "根据需求需求", tags = {"需求" },  notes = "根据需求需求")
@@ -1849,9 +2005,11 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(substorydto);
     }
     @ApiOperation(value = "批量处理[根据需求需求]", tags = {"需求" },  notes = "批量处理[根据需求需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/{substory_id}/releaselinkstorybatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/releaselinkstorybatch")
     public ResponseEntity<Boolean> releaseLinkStoryByStory(@PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.releaseLinkStoryBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.releaseLinkStoryBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-ReleaseUnlinkStory-all')")
     @ApiOperation(value = "根据需求需求", tags = {"需求" },  notes = "根据需求需求")
@@ -1864,9 +2022,11 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(substorydto);
     }
     @ApiOperation(value = "批量处理[根据需求需求]", tags = {"需求" },  notes = "批量处理[根据需求需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/{substory_id}/releaseunlinkstorybatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/releaseunlinkstorybatch")
     public ResponseEntity<Boolean> releaseUnlinkStoryByStory(@PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.releaseUnlinkStoryBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.releaseUnlinkStoryBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-ResetReviewedBy-all')")
     @ApiOperation(value = "根据需求需求", tags = {"需求" },  notes = "根据需求需求")
@@ -1879,9 +2039,11 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(substorydto);
     }
     @ApiOperation(value = "批量处理[根据需求需求]", tags = {"需求" },  notes = "批量处理[根据需求需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/{substory_id}/resetreviewedbybatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/resetreviewedbybatch")
     public ResponseEntity<Boolean> resetReviewedByByStory(@PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.resetReviewedByBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.resetReviewedByBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Review-all')")
     @ApiOperation(value = "根据需求需求", tags = {"需求" },  notes = "根据需求需求")
@@ -1894,17 +2056,20 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(substorydto);
     }
     @ApiOperation(value = "批量处理[根据需求需求]", tags = {"需求" },  notes = "批量处理[根据需求需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/{substory_id}/reviewbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/reviewbatch")
     public ResponseEntity<Boolean> reviewByStory(@PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.reviewBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.reviewBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasPermission(this.substoryMapping.toDomain(#substorydto),'pms-Story-Save')")
     @ApiOperation(value = "根据需求保存需求", tags = {"需求" },  notes = "根据需求保存需求")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/save")
-    public ResponseEntity<Boolean> saveByStory(@PathVariable("story_id") Long story_id, @RequestBody SubStoryDTO substorydto) {
+    public ResponseEntity<SubStoryDTO> saveByStory(@PathVariable("story_id") Long story_id, @RequestBody SubStoryDTO substorydto) {
         Story domain = substoryMapping.toDomain(substorydto);
         domain.setParent(story_id);
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.save(domain));
+        storyService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(substoryMapping.toDto(domain));
     }
 
     @PreAuthorize("hasPermission(this.substoryMapping.toDomain(#substorydtos),'pms-Story-Save')")
@@ -1930,9 +2095,11 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(substorydto);
     }
     @ApiOperation(value = "批量处理[根据需求需求]", tags = {"需求" },  notes = "批量处理[根据需求需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/{substory_id}/sendmessagebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/sendmessagebatch")
     public ResponseEntity<Boolean> sendMessageByStory(@PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.sendMessageBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.sendMessageBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-SendMsgPreProcess-all')")
     @ApiOperation(value = "根据需求需求", tags = {"需求" },  notes = "根据需求需求")
@@ -1945,9 +2112,11 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(substorydto);
     }
     @ApiOperation(value = "批量处理[根据需求需求]", tags = {"需求" },  notes = "批量处理[根据需求需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/{substory_id}/sendmsgpreprocessbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/sendmsgpreprocessbatch")
     public ResponseEntity<Boolean> sendMsgPreProcessByStory(@PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.sendMsgPreProcessBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.sendMsgPreProcessBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-StoryFavorites-all')")
     @ApiOperation(value = "根据需求需求", tags = {"需求" },  notes = "根据需求需求")
@@ -1980,9 +2149,11 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(substorydto);
     }
     @ApiOperation(value = "批量处理[根据需求需求]", tags = {"需求" },  notes = "批量处理[根据需求需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/{substory_id}/syncfromibizbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/syncfromibizbatch")
     public ResponseEntity<Boolean> syncFromIbizByStory(@PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.syncFromIbizBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.syncFromIbizBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-UnlinkStory-all')")
     @ApiOperation(value = "根据需求需求", tags = {"需求" },  notes = "根据需求需求")
@@ -1995,9 +2166,11 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(substorydto);
     }
     @ApiOperation(value = "批量处理[根据需求需求]", tags = {"需求" },  notes = "批量处理[根据需求需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/{substory_id}/unlinkstorybatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/substories/unlinkstorybatch")
     public ResponseEntity<Boolean> unlinkStoryByStory(@PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.unlinkStoryBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.unlinkStoryBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchAssignedToMyStory-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据需求获取指派给我的需求", tags = {"需求" } ,notes = "根据需求获取指派给我的需求")
@@ -2694,8 +2867,8 @@ public class SubStoryResource {
 
     @ApiOperation(value = "根据产品需求获取需求草稿", tags = {"需求" },  notes = "根据产品需求获取需求草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/stories/{story_id}/substories/getdraft")
-    public ResponseEntity<SubStoryDTO> getDraftByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id) {
-        Story domain = new Story();
+    public ResponseEntity<SubStoryDTO> getDraftByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, SubStoryDTO dto) {
+        Story domain = substoryMapping.toDomain(dto);
         domain.setParent(story_id);
         return ResponseEntity.status(HttpStatus.OK).body(substoryMapping.toDto(storyService.getDraft(domain)));
     }
@@ -2711,9 +2884,11 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(substorydto);
     }
     @ApiOperation(value = "批量处理[根据产品需求需求]", tags = {"需求" },  notes = "批量处理[根据产品需求需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/{substory_id}/activatebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/activatebatch")
     public ResponseEntity<Boolean> activateByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.activateBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.activateBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-AllPush-all')")
     @ApiOperation(value = "根据产品需求需求", tags = {"需求" },  notes = "根据产品需求需求")
@@ -2726,9 +2901,11 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(substorydto);
     }
     @ApiOperation(value = "批量处理[根据产品需求需求]", tags = {"需求" },  notes = "批量处理[根据产品需求需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/{substory_id}/allpushbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/allpushbatch")
     public ResponseEntity<Boolean> allPushByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.allPushBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.allPushBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-AssignTo-all')")
     @ApiOperation(value = "根据产品需求需求", tags = {"需求" },  notes = "根据产品需求需求")
@@ -2741,9 +2918,11 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(substorydto);
     }
     @ApiOperation(value = "批量处理[根据产品需求需求]", tags = {"需求" },  notes = "批量处理[根据产品需求需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/{substory_id}/assigntobatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/assigntobatch")
     public ResponseEntity<Boolean> assignToByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.assignToBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.assignToBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-BatchAssignTo-all')")
     @ApiOperation(value = "根据产品需求需求", tags = {"需求" },  notes = "根据产品需求需求")
@@ -2756,9 +2935,11 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(substorydto);
     }
     @ApiOperation(value = "批量处理[根据产品需求需求]", tags = {"需求" },  notes = "批量处理[根据产品需求需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/{substory_id}/batchassigntobatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/batchassigntobatch")
     public ResponseEntity<Boolean> batchAssignToByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.batchAssignToBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.batchAssignToBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-BatchChangeBranch-all')")
     @ApiOperation(value = "根据产品需求需求", tags = {"需求" },  notes = "根据产品需求需求")
@@ -2771,9 +2952,11 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(substorydto);
     }
     @ApiOperation(value = "批量处理[根据产品需求需求]", tags = {"需求" },  notes = "批量处理[根据产品需求需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/{substory_id}/batchchangebranchbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/batchchangebranchbatch")
     public ResponseEntity<Boolean> batchChangeBranchByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.batchChangeBranchBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.batchChangeBranchBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-BatchChangeModule-all')")
     @ApiOperation(value = "根据产品需求需求", tags = {"需求" },  notes = "根据产品需求需求")
@@ -2786,9 +2969,11 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(substorydto);
     }
     @ApiOperation(value = "批量处理[根据产品需求需求]", tags = {"需求" },  notes = "批量处理[根据产品需求需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/{substory_id}/batchchangemodulebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/batchchangemodulebatch")
     public ResponseEntity<Boolean> batchChangeModuleByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.batchChangeModuleBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.batchChangeModuleBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-BatchChangePlan-all')")
     @ApiOperation(value = "根据产品需求需求", tags = {"需求" },  notes = "根据产品需求需求")
@@ -2801,9 +2986,11 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(substorydto);
     }
     @ApiOperation(value = "批量处理[根据产品需求需求]", tags = {"需求" },  notes = "批量处理[根据产品需求需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/{substory_id}/batchchangeplanbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/batchchangeplanbatch")
     public ResponseEntity<Boolean> batchChangePlanByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.batchChangePlanBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.batchChangePlanBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-BatchChangeStage-all')")
     @ApiOperation(value = "根据产品需求需求", tags = {"需求" },  notes = "根据产品需求需求")
@@ -2816,9 +3003,11 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(substorydto);
     }
     @ApiOperation(value = "批量处理[根据产品需求需求]", tags = {"需求" },  notes = "批量处理[根据产品需求需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/{substory_id}/batchchangestagebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/batchchangestagebatch")
     public ResponseEntity<Boolean> batchChangeStageByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.batchChangeStageBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.batchChangeStageBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-BatchClose-all')")
     @ApiOperation(value = "根据产品需求需求", tags = {"需求" },  notes = "根据产品需求需求")
@@ -2831,9 +3020,11 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(substorydto);
     }
     @ApiOperation(value = "批量处理[根据产品需求需求]", tags = {"需求" },  notes = "批量处理[根据产品需求需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/{substory_id}/batchclosebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/batchclosebatch")
     public ResponseEntity<Boolean> batchCloseByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.batchCloseBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.batchCloseBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-BatchReview-all')")
     @ApiOperation(value = "根据产品需求需求", tags = {"需求" },  notes = "根据产品需求需求")
@@ -2846,9 +3037,11 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(substorydto);
     }
     @ApiOperation(value = "批量处理[根据产品需求需求]", tags = {"需求" },  notes = "批量处理[根据产品需求需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/{substory_id}/batchreviewbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/batchreviewbatch")
     public ResponseEntity<Boolean> batchReviewByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.batchReviewBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.batchReviewBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-BatchUnlinkStory-all')")
     @ApiOperation(value = "根据产品需求需求", tags = {"需求" },  notes = "根据产品需求需求")
@@ -2861,9 +3054,11 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(substorydto);
     }
     @ApiOperation(value = "批量处理[根据产品需求需求]", tags = {"需求" },  notes = "批量处理[根据产品需求需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/{substory_id}/batchunlinkstorybatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/batchunlinkstorybatch")
     public ResponseEntity<Boolean> batchUnlinkStoryByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.batchUnlinkStoryBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.batchUnlinkStoryBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-BugToStory-all')")
     @ApiOperation(value = "根据产品需求需求", tags = {"需求" },  notes = "根据产品需求需求")
@@ -2876,9 +3071,11 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(substorydto);
     }
     @ApiOperation(value = "批量处理[根据产品需求需求]", tags = {"需求" },  notes = "批量处理[根据产品需求需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/{substory_id}/bugtostorybatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/bugtostorybatch")
     public ResponseEntity<Boolean> bugToStoryByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.bugToStoryBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.bugToStoryBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-BuildBatchUnlinkStory-all')")
     @ApiOperation(value = "根据产品需求需求", tags = {"需求" },  notes = "根据产品需求需求")
@@ -2891,9 +3088,11 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(substorydto);
     }
     @ApiOperation(value = "批量处理[根据产品需求需求]", tags = {"需求" },  notes = "批量处理[根据产品需求需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/{substory_id}/buildbatchunlinkstorybatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/buildbatchunlinkstorybatch")
     public ResponseEntity<Boolean> buildBatchUnlinkStoryByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.buildBatchUnlinkStoryBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.buildBatchUnlinkStoryBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-BuildLinkStory-all')")
     @ApiOperation(value = "根据产品需求需求", tags = {"需求" },  notes = "根据产品需求需求")
@@ -2906,9 +3105,11 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(substorydto);
     }
     @ApiOperation(value = "批量处理[根据产品需求需求]", tags = {"需求" },  notes = "批量处理[根据产品需求需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/{substory_id}/buildlinkstorybatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/buildlinkstorybatch")
     public ResponseEntity<Boolean> buildLinkStoryByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.buildLinkStoryBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.buildLinkStoryBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-BuildUnlinkStory-all')")
     @ApiOperation(value = "根据产品需求需求", tags = {"需求" },  notes = "根据产品需求需求")
@@ -2921,9 +3122,11 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(substorydto);
     }
     @ApiOperation(value = "批量处理[根据产品需求需求]", tags = {"需求" },  notes = "批量处理[根据产品需求需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/{substory_id}/buildunlinkstorybatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/buildunlinkstorybatch")
     public ResponseEntity<Boolean> buildUnlinkStoryByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.buildUnlinkStoryBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.buildUnlinkStoryBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-BuildUnlinkStorys-all')")
     @ApiOperation(value = "根据产品需求需求", tags = {"需求" },  notes = "根据产品需求需求")
@@ -2946,9 +3149,11 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(substorydto);
     }
     @ApiOperation(value = "批量处理[根据产品需求需求]", tags = {"需求" },  notes = "批量处理[根据产品需求需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/{substory_id}/changebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/changebatch")
     public ResponseEntity<Boolean> changeByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.changeBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.changeBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @ApiOperation(value = "根据产品需求检查需求", tags = {"需求" },  notes = "根据产品需求检查需求")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/checkkey")
@@ -2967,9 +3172,28 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(substorydto);
     }
     @ApiOperation(value = "批量处理[根据产品需求需求]", tags = {"需求" },  notes = "批量处理[根据产品需求需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/{substory_id}/closebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/closebatch")
     public ResponseEntity<Boolean> closeByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.closeBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.closeBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-CreateTasks-all')")
+    @ApiOperation(value = "根据产品需求需求", tags = {"需求" },  notes = "根据产品需求需求")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/{substory_id}/createtasks")
+    public ResponseEntity<SubStoryDTO> createTasksByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("substory_id") Long substory_id, @RequestBody SubStoryDTO substorydto) {
+        Story domain = substoryMapping.toDomain(substorydto);
+        domain.setParent(story_id);
+        domain = storyService.createTasks(domain) ;
+        substorydto = substoryMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(substorydto);
+    }
+    @ApiOperation(value = "批量处理[根据产品需求需求]", tags = {"需求" },  notes = "批量处理[根据产品需求需求]")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/createtasksbatch")
+    public ResponseEntity<Boolean> createTasksByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.createTasksBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-GetStorySpec-all')")
     @ApiOperation(value = "根据产品需求需求", tags = {"需求" },  notes = "根据产品需求需求")
@@ -2982,9 +3206,11 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(substorydto);
     }
     @ApiOperation(value = "批量处理[根据产品需求需求]", tags = {"需求" },  notes = "批量处理[根据产品需求需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/{substory_id}/getstoryspecbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/getstoryspecbatch")
     public ResponseEntity<Boolean> getStorySpecByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.getStorySpecBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.getStorySpecBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-GetStorySpecs-all')")
     @ApiOperation(value = "根据产品需求需求", tags = {"需求" },  notes = "根据产品需求需求")
@@ -3007,9 +3233,11 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(substorydto);
     }
     @ApiOperation(value = "批量处理[根据产品需求需求]", tags = {"需求" },  notes = "批量处理[根据产品需求需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/{substory_id}/importplanstoriesbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/importplanstoriesbatch")
     public ResponseEntity<Boolean> importPlanStoriesByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.importPlanStoriesBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.importPlanStoriesBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-LinkStory-all')")
     @ApiOperation(value = "根据产品需求需求", tags = {"需求" },  notes = "根据产品需求需求")
@@ -3022,9 +3250,11 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(substorydto);
     }
     @ApiOperation(value = "批量处理[根据产品需求需求]", tags = {"需求" },  notes = "批量处理[根据产品需求需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/{substory_id}/linkstorybatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/linkstorybatch")
     public ResponseEntity<Boolean> linkStoryByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.linkStoryBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.linkStoryBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-ProjectBatchUnlinkStory-all')")
     @ApiOperation(value = "根据产品需求需求", tags = {"需求" },  notes = "根据产品需求需求")
@@ -3037,9 +3267,11 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(substorydto);
     }
     @ApiOperation(value = "批量处理[根据产品需求需求]", tags = {"需求" },  notes = "批量处理[根据产品需求需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/{substory_id}/projectbatchunlinkstorybatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/projectbatchunlinkstorybatch")
     public ResponseEntity<Boolean> projectBatchUnlinkStoryByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.projectBatchUnlinkStoryBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.projectBatchUnlinkStoryBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-ProjectLinkStory-all')")
     @ApiOperation(value = "根据产品需求需求", tags = {"需求" },  notes = "根据产品需求需求")
@@ -3052,9 +3284,11 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(substorydto);
     }
     @ApiOperation(value = "批量处理[根据产品需求需求]", tags = {"需求" },  notes = "批量处理[根据产品需求需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/{substory_id}/projectlinkstorybatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/projectlinkstorybatch")
     public ResponseEntity<Boolean> projectLinkStoryByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.projectLinkStoryBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.projectLinkStoryBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-ProjectUnlinkStory-all')")
     @ApiOperation(value = "根据产品需求需求", tags = {"需求" },  notes = "根据产品需求需求")
@@ -3067,9 +3301,11 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(substorydto);
     }
     @ApiOperation(value = "批量处理[根据产品需求需求]", tags = {"需求" },  notes = "批量处理[根据产品需求需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/{substory_id}/projectunlinkstorybatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/projectunlinkstorybatch")
     public ResponseEntity<Boolean> projectUnlinkStoryByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.projectUnlinkStoryBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.projectUnlinkStoryBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-ProjectUnlinkStorys-all')")
     @ApiOperation(value = "根据产品需求需求", tags = {"需求" },  notes = "根据产品需求需求")
@@ -3092,9 +3328,11 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(substorydto);
     }
     @ApiOperation(value = "批量处理[根据产品需求需求]", tags = {"需求" },  notes = "批量处理[根据产品需求需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/{substory_id}/pushbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/pushbatch")
     public ResponseEntity<Boolean> pushByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.pushBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.pushBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-ReleaseBatchUnlinkStory-all')")
     @ApiOperation(value = "根据产品需求需求", tags = {"需求" },  notes = "根据产品需求需求")
@@ -3107,9 +3345,11 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(substorydto);
     }
     @ApiOperation(value = "批量处理[根据产品需求需求]", tags = {"需求" },  notes = "批量处理[根据产品需求需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/{substory_id}/releasebatchunlinkstorybatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/releasebatchunlinkstorybatch")
     public ResponseEntity<Boolean> releaseBatchUnlinkStoryByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.releaseBatchUnlinkStoryBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.releaseBatchUnlinkStoryBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-ReleaseLinkStory-all')")
     @ApiOperation(value = "根据产品需求需求", tags = {"需求" },  notes = "根据产品需求需求")
@@ -3122,9 +3362,11 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(substorydto);
     }
     @ApiOperation(value = "批量处理[根据产品需求需求]", tags = {"需求" },  notes = "批量处理[根据产品需求需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/{substory_id}/releaselinkstorybatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/releaselinkstorybatch")
     public ResponseEntity<Boolean> releaseLinkStoryByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.releaseLinkStoryBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.releaseLinkStoryBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-ReleaseUnlinkStory-all')")
     @ApiOperation(value = "根据产品需求需求", tags = {"需求" },  notes = "根据产品需求需求")
@@ -3137,9 +3379,11 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(substorydto);
     }
     @ApiOperation(value = "批量处理[根据产品需求需求]", tags = {"需求" },  notes = "批量处理[根据产品需求需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/{substory_id}/releaseunlinkstorybatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/releaseunlinkstorybatch")
     public ResponseEntity<Boolean> releaseUnlinkStoryByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.releaseUnlinkStoryBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.releaseUnlinkStoryBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-ResetReviewedBy-all')")
     @ApiOperation(value = "根据产品需求需求", tags = {"需求" },  notes = "根据产品需求需求")
@@ -3152,9 +3396,11 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(substorydto);
     }
     @ApiOperation(value = "批量处理[根据产品需求需求]", tags = {"需求" },  notes = "批量处理[根据产品需求需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/{substory_id}/resetreviewedbybatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/resetreviewedbybatch")
     public ResponseEntity<Boolean> resetReviewedByByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.resetReviewedByBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.resetReviewedByBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-Review-all')")
     @ApiOperation(value = "根据产品需求需求", tags = {"需求" },  notes = "根据产品需求需求")
@@ -3167,17 +3413,20 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(substorydto);
     }
     @ApiOperation(value = "批量处理[根据产品需求需求]", tags = {"需求" },  notes = "批量处理[根据产品需求需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/{substory_id}/reviewbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/reviewbatch")
     public ResponseEntity<Boolean> reviewByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.reviewBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.reviewBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasPermission(this.substoryMapping.toDomain(#substorydto),'pms-Story-Save')")
     @ApiOperation(value = "根据产品需求保存需求", tags = {"需求" },  notes = "根据产品需求保存需求")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/save")
-    public ResponseEntity<Boolean> saveByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody SubStoryDTO substorydto) {
+    public ResponseEntity<SubStoryDTO> saveByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody SubStoryDTO substorydto) {
         Story domain = substoryMapping.toDomain(substorydto);
         domain.setParent(story_id);
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.save(domain));
+        storyService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(substoryMapping.toDto(domain));
     }
 
     @PreAuthorize("hasPermission(this.substoryMapping.toDomain(#substorydtos),'pms-Story-Save')")
@@ -3203,9 +3452,11 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(substorydto);
     }
     @ApiOperation(value = "批量处理[根据产品需求需求]", tags = {"需求" },  notes = "批量处理[根据产品需求需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/{substory_id}/sendmessagebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/sendmessagebatch")
     public ResponseEntity<Boolean> sendMessageByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.sendMessageBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.sendMessageBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-SendMsgPreProcess-all')")
     @ApiOperation(value = "根据产品需求需求", tags = {"需求" },  notes = "根据产品需求需求")
@@ -3218,9 +3469,11 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(substorydto);
     }
     @ApiOperation(value = "批量处理[根据产品需求需求]", tags = {"需求" },  notes = "批量处理[根据产品需求需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/{substory_id}/sendmsgpreprocessbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/sendmsgpreprocessbatch")
     public ResponseEntity<Boolean> sendMsgPreProcessByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.sendMsgPreProcessBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.sendMsgPreProcessBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-StoryFavorites-all')")
     @ApiOperation(value = "根据产品需求需求", tags = {"需求" },  notes = "根据产品需求需求")
@@ -3253,9 +3506,11 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(substorydto);
     }
     @ApiOperation(value = "批量处理[根据产品需求需求]", tags = {"需求" },  notes = "批量处理[根据产品需求需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/{substory_id}/syncfromibizbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/syncfromibizbatch")
     public ResponseEntity<Boolean> syncFromIbizByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.syncFromIbizBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.syncFromIbizBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-UnlinkStory-all')")
     @ApiOperation(value = "根据产品需求需求", tags = {"需求" },  notes = "根据产品需求需求")
@@ -3268,9 +3523,11 @@ public class SubStoryResource {
         return ResponseEntity.status(HttpStatus.OK).body(substorydto);
     }
     @ApiOperation(value = "批量处理[根据产品需求需求]", tags = {"需求" },  notes = "批量处理[根据产品需求需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/{substory_id}/unlinkstorybatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/substories/unlinkstorybatch")
     public ResponseEntity<Boolean> unlinkStoryByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<SubStoryDTO> substorydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(storyService.unlinkStoryBatch(substoryMapping.toDomain(substorydtos)));
+        List<Story> domains = substoryMapping.toDomain(substorydtos);
+        boolean result = storyService.unlinkStoryBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Story-searchAssignedToMyStory-all') and hasPermission(#context,'pms-Story-Get')")
 	@ApiOperation(value = "根据产品需求获取指派给我的需求", tags = {"需求" } ,notes = "根据产品需求获取指派给我的需求")

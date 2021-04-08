@@ -7,7 +7,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
-import java.util.HashMap;
+import java.util.Map;
 import org.apache.ibatis.annotations.Select;
 import cn.ibizlab.pms.core.zentao.domain.File;
 import cn.ibizlab.pms.core.zentao.filter.FileSearchContext;
@@ -23,6 +23,7 @@ public interface FileMapper extends BaseMapper<File> {
     Page<File> searchDocLibFile(IPage page, @Param("srf") FileSearchContext context, @Param("ew") Wrapper<File> wrapper);
     Page<File> searchProductDocLibFile(IPage page, @Param("srf") FileSearchContext context, @Param("ew") Wrapper<File> wrapper);
     Page<File> searchType(IPage page, @Param("srf") FileSearchContext context, @Param("ew") Wrapper<File> wrapper);
+    Page<File> searchTypeNotBySrfparentkey(IPage page, @Param("srf") FileSearchContext context, @Param("ew") Wrapper<File> wrapper);
     @Override
     File selectById(Serializable id);
     @Override

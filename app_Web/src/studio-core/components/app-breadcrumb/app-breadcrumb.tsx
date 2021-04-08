@@ -172,7 +172,7 @@ export class AppBreadcrumb extends Vue {
             items.push(
                 <span key={item.tag} class={{ 'app-breadcrumb-item': true, last: i === arr.length - 1 }}>
                     {!indexMeta && i === 0 ? null : <span class="separator">{this.NavBarDelimiter}</span>}
-                    <span class="content" on-click={() => this.click(item.to)}>
+                    <span class="content" on-click={() => this.click(item.to)} title={ info }>
                         {this.$t(item.meta?.caption)}
                         {dropdown ? null : isExistAndNotEmpty(info) ? ' - ' + info : ''}
                     </span>

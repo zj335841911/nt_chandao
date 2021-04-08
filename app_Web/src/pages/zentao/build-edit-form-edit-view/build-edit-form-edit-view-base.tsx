@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { EditViewBase } from '@/studio-core';
 import BuildService from '@/service/build/build-service';
 import BuildAuthService from '@/authservice/build/build-auth-service';
@@ -139,7 +139,7 @@ export class BuildEditFormEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof BuildEditFormEditViewBase
      */
-	protected viewtag: string = '68f49a558ebf0e2566be65fc74f13fdd';
+	protected viewtag: string = 'a975d49b15bcfdfade2a8b537c0b6763';
 
     /**
      * 视图名称

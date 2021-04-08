@@ -1,3 +1,4 @@
+import { Environment } from '@/environments/environment';
 import { Http } from '@/utils';
 import { Util } from '@/utils';
 import EntityService from '../entity-service';
@@ -56,8 +57,26 @@ export default class ProjectTeamServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().put(`/projectteams/${context.projectteam}/getuserrole`,data,isloading);
+            let res:any = await Http.getInstance().put(`/projectteams/${context.projectteam}/getuserrole`,data,isloading);
             return res;
+    }
+
+    /**
+     * getuserroleBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectTeamServiceBase
+     */
+    public async getuserroleBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projects/${context.project}/projectteams/getuserrolebatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/projectteams/getuserrolebatch`,tempData,isloading);
     }
 
     /**
@@ -71,11 +90,11 @@ export default class ProjectTeamServiceBase extends EntityService {
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.projectteam){
-            let res:any = Http.getInstance().get(`/projects/${context.project}/projectteams/${context.projectteam}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectteams/${context.projectteam}/select`,isloading);
             
             return res;
         }
-            let res:any = Http.getInstance().get(`/projectteams/${context.projectteam}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/projectteams/${context.projectteam}/select`,isloading);
             
             return res;
     }
@@ -153,10 +172,10 @@ export default class ProjectTeamServiceBase extends EntityService {
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.projectteam){
-            let res:any = Http.getInstance().delete(`/projects/${context.project}/projectteams/${context.projectteam}`,isloading);
+            let res:any = await Http.getInstance().delete(`/projects/${context.project}/projectteams/${context.projectteam}`,isloading);
             return res;
         }
-            let res:any = Http.getInstance().delete(`/projectteams/${context.projectteam}`,isloading);
+            let res:any = await Http.getInstance().delete(`/projectteams/${context.projectteam}`,isloading);
             return res;
     }
 
@@ -191,12 +210,18 @@ export default class ProjectTeamServiceBase extends EntityService {
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && true){
-            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectteams/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.projectteam) delete tempData.projectteam;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectteams/getdraft`,tempData,isloading);
             res.data.projectteam = data.projectteam;
             
             return res;
         }
-        let res:any = await  Http.getInstance().get(`/projectteams/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.projectteam) delete tempData.projectteam;
+        if(tempData.id) delete tempData.id;
+        let res:any = await  Http.getInstance().get(`/projectteams/getdraft`,tempData,isloading);
         res.data.projectteam = data.projectteam;
         
         return res;
@@ -219,7 +244,7 @@ export default class ProjectTeamServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/projectteams/${context.projectteam}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/projectteams/${context.projectteam}/checkkey`,data,isloading);
             return res;
     }
 
@@ -259,11 +284,11 @@ export default class ProjectTeamServiceBase extends EntityService {
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/projectteams/fetchdefault`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectteams/fetchdefault`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/projectteams/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/projectteams/fetchdefault`,tempData,isloading);
         return res;
     }
 
@@ -286,6 +311,44 @@ export default class ProjectTeamServiceBase extends EntityService {
     }
 
     /**
+     * FetchProjectTeamPm接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectTeamServiceBase
+     */
+    public async FetchProjectTeamPm(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectteams/fetchprojectteampm`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = await Http.getInstance().get(`/projectteams/fetchprojectteampm`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * searchProjectTeamPm接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectTeamServiceBase
+     */
+    public async searchProjectTeamPm(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projects/${context.project}/projectteams/searchprojectteampm`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/projectteams/searchprojectteampm`,tempData,isloading);
+    }
+
+    /**
      * FetchRowEditDefault接口方法
      *
      * @param {*} [context={}]
@@ -297,11 +360,11 @@ export default class ProjectTeamServiceBase extends EntityService {
     public async FetchRowEditDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/projectteams/fetchroweditdefault`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectteams/fetchroweditdefault`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/projectteams/fetchroweditdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/projectteams/fetchroweditdefault`,tempData,isloading);
         return res;
     }
 
@@ -335,11 +398,11 @@ export default class ProjectTeamServiceBase extends EntityService {
     public async FetchTaskCntEstimateConsumedLeft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/projectteams/fetchtaskcntestimateconsumedleft`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/projectteams/fetchtaskcntestimateconsumedleft`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/projectteams/fetchtaskcntestimateconsumedleft`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/projectteams/fetchtaskcntestimateconsumedleft`,tempData,isloading);
         return res;
     }
 
@@ -371,6 +434,18 @@ export default class ProjectTeamServiceBase extends EntityService {
      * @memberof ProjectTeamServiceBase
      */
     public async FetchTempDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+    }
+
+    /**
+     * FetchTempProjectTeamPm接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProjectTeamServiceBase
+     */
+    public async FetchTempProjectTeamPm(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
     }
 
     /**

@@ -1,6 +1,6 @@
 
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { GridViewBase } from '@/studio-core';
 import SysUpdateLogService from '@/service/sys-update-log/sys-update-log-service';
 import SysUpdateLogAuthService from '@/authservice/sys-update-log/sys-update-log-auth-service';
@@ -138,7 +138,7 @@ export class SysUpdateLogGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof SysUpdateLogGridViewBase
      */
-	protected viewtag: string = 'fc0c3502b2833faa9f93600f1fc282c0';
+	protected viewtag: string = '629dda75fa1c847582f36c3e496785f2';
 
     /**
      * 视图名称

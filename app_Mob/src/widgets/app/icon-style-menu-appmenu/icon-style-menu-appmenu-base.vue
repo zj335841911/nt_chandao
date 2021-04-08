@@ -419,11 +419,11 @@ export default class IconStyleMenuBase extends Vue implements ControlInterface {
     private click(item: any) {
         if (item) {
             switch (item.appfunctag) {
-                case 'Auto12': 
-                    this.clickAuto12(item);
-                    return;
                 case 'Auto17': 
                     this.clickAuto17(item);
+                    return;
+                case 'Auto12': 
+                    this.clickAuto12(item);
                     return;
                 case 'Auto21': 
                     this.clickAuto21(item);
@@ -434,27 +434,6 @@ export default class IconStyleMenuBase extends Vue implements ControlInterface {
         }
     }
 
-    
-    /**
-     * 我的任务
-     *
-     * @param {*} [item={}]
-     * @memberof IconStyleMenu
-     */
-    protected clickAuto12(item: any = {}) {
-        let navigateParam: any = { } ;
-        let navigateContext: any = { } ;
-        const { param: _param, context: _context } = this.$viewTool.formatNavigateParam(navigateContext, navigateParam, this.context, this.viewparams, {});
-        let context = { ..._context };
-        let param = { ..._param };
-        const deResParameters: any[] = [];
-        const parameters: any[] = [
-            { pathName: 'tasks', parameterName: 'task' },
-            { pathName: 'mobmdview', parameterName: 'mobmdview' },
-        ];
-        const routeParam: any = this.globaluiservice.openService.formatRouteParam(context, deResParameters, parameters, [], param);
-        this.globaluiservice.openService.openView(routeParam);
-    }
     
     /**
      * 我的需求
@@ -471,6 +450,27 @@ export default class IconStyleMenuBase extends Vue implements ControlInterface {
         const deResParameters: any[] = [];
         const parameters: any[] = [
             { pathName: 'stories', parameterName: 'story' },
+            { pathName: 'mobmdview', parameterName: 'mobmdview' },
+        ];
+        const routeParam: any = this.globaluiservice.openService.formatRouteParam(context, deResParameters, parameters, [], param);
+        this.globaluiservice.openService.openView(routeParam);
+    }
+    
+    /**
+     * 我的任务
+     *
+     * @param {*} [item={}]
+     * @memberof IconStyleMenu
+     */
+    protected clickAuto12(item: any = {}) {
+        let navigateParam: any = { } ;
+        let navigateContext: any = { } ;
+        const { param: _param, context: _context } = this.$viewTool.formatNavigateParam(navigateContext, navigateParam, this.context, this.viewparams, {});
+        let context = { ..._context };
+        let param = { ..._param };
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'tasks', parameterName: 'task' },
             { pathName: 'mobmdview', parameterName: 'mobmdview' },
         ];
         const routeParam: any = this.globaluiservice.openService.formatRouteParam(context, deResParameters, parameters, [], param);

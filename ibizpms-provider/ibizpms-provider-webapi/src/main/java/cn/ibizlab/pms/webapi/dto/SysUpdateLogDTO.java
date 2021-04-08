@@ -20,32 +20,27 @@ import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * 服务DTO对象[SysUpdateLogDTO]
  */
 @Data
+@ApiModel("更新日志")
 public class SysUpdateLogDTO extends DTOBase implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
     /**
-     * 属性 [SYS_UPDATE_LOGID]
+     * 属性 [UPDATEDATE]
      *
      */
-    @JSONField(name = "sysupdatelogid")
-    @JsonProperty("sysupdatelogid")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String sysupdatelogid;
-
-    /**
-     * 属性 [SYS_UPDATE_LOGNAME]
-     *
-     */
-    @JSONField(name = "sysupdatelogname")
-    @JsonProperty("sysupdatelogname")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String sysupdatelogname;
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "updatedate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonProperty("updatedate")
+    @ApiModelProperty("更新时间")
+    private Timestamp updatedate;
 
     /**
      * 属性 [UPDATEMAN]
@@ -54,6 +49,7 @@ public class SysUpdateLogDTO extends DTOBase implements Serializable {
     @JSONField(name = "updateman")
     @JsonProperty("updateman")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("更新人")
     private String updateman;
 
     /**
@@ -63,6 +59,7 @@ public class SysUpdateLogDTO extends DTOBase implements Serializable {
     @JSONField(name = "createman")
     @JsonProperty("createman")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("建立人")
     private String createman;
 
     /**
@@ -72,42 +69,18 @@ public class SysUpdateLogDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "createdate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createdate")
+    @ApiModelProperty("建立时间")
     private Timestamp createdate;
 
     /**
-     * 属性 [UPDATEDATE]
+     * 属性 [SYS_UPDATE_LOGID]
      *
      */
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "updatedate" , format="yyyy-MM-dd HH:mm:ss")
-    @JsonProperty("updatedate")
-    private Timestamp updatedate;
-
-    /**
-     * 属性 [UPDATE]
-     *
-     */
-    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "update" , format="yyyy-MM-dd")
-    @JsonProperty("update")
-    private Timestamp update;
-
-    /**
-     * 属性 [UPDESC]
-     *
-     */
-    @JSONField(name = "updesc")
-    @JsonProperty("updesc")
-    @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
-    private String updesc;
-
-    /**
-     * 属性 [LATESTUPDATE]
-     *
-     */
-    @JSONField(name = "latestupdate")
-    @JsonProperty("latestupdate")
-    private Integer latestupdate;
+    @JSONField(name = "sysupdatelogid")
+    @JsonProperty("sysupdatelogid")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("系统更新日志标识")
+    private String sysupdatelogid;
 
     /**
      * 属性 [UPDATEBRANCH]
@@ -116,23 +89,55 @@ public class SysUpdateLogDTO extends DTOBase implements Serializable {
     @JSONField(name = "updatebranch")
     @JsonProperty("updatebranch")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("更新平台")
     private String updatebranch;
 
+    /**
+     * 属性 [UPDESC]
+     *
+     */
+    @JSONField(name = "updesc")
+    @JsonProperty("updesc")
+    @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
+    @ApiModelProperty("更新说明")
+    private String updesc;
 
     /**
-     * 设置 [SYS_UPDATE_LOGNAME]
+     * 属性 [SYS_UPDATE_LOGNAME]
+     *
      */
-    public void setSysupdatelogname(String  sysupdatelogname){
-        this.sysupdatelogname = sysupdatelogname ;
-        this.modify("sys_update_logname",sysupdatelogname);
-    }
+    @JSONField(name = "sysupdatelogname")
+    @JsonProperty("sysupdatelogname")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("更新名称")
+    private String sysupdatelogname;
 
     /**
-     * 设置 [UPDATE]
+     * 属性 [LATESTUPDATE]
+     *
      */
-    public void setUpdate(Timestamp  update){
-        this.update = update ;
-        this.modify("update",update);
+    @JSONField(name = "latestupdate")
+    @JsonProperty("latestupdate")
+    @ApiModelProperty("最新更新")
+    private Integer latestupdate;
+
+    /**
+     * 属性 [UPDATE]
+     *
+     */
+    @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "update" , format="yyyy-MM-dd")
+    @JsonProperty("update")
+    @ApiModelProperty("更新日期")
+    private Timestamp update;
+
+
+    /**
+     * 设置 [UPDATEBRANCH]
+     */
+    public void setUpdatebranch(String  updatebranch){
+        this.updatebranch = updatebranch ;
+        this.modify("updatebranch",updatebranch);
     }
 
     /**
@@ -144,6 +149,14 @@ public class SysUpdateLogDTO extends DTOBase implements Serializable {
     }
 
     /**
+     * 设置 [SYS_UPDATE_LOGNAME]
+     */
+    public void setSysupdatelogname(String  sysupdatelogname){
+        this.sysupdatelogname = sysupdatelogname ;
+        this.modify("sys_update_logname",sysupdatelogname);
+    }
+
+    /**
      * 设置 [LATESTUPDATE]
      */
     public void setLatestupdate(Integer  latestupdate){
@@ -152,11 +165,11 @@ public class SysUpdateLogDTO extends DTOBase implements Serializable {
     }
 
     /**
-     * 设置 [UPDATEBRANCH]
+     * 设置 [UPDATE]
      */
-    public void setUpdatebranch(String  updatebranch){
-        this.updatebranch = updatebranch ;
-        this.modify("updatebranch",updatebranch);
+    public void setUpdate(Timestamp  update){
+        this.update = update ;
+        this.modify("update",update);
     }
 
 

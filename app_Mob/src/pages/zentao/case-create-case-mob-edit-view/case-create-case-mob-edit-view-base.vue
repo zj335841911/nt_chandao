@@ -143,7 +143,7 @@ export default class CaseCreateCaseMobEditViewBase extends Vue {
 	 * @type {string}
 	 * @memberof CaseCreateCaseMobEditViewBase
 	 */
-	protected viewtag: string = '81d5a05b5c2b0be229fa0cc9a6eadf06';
+	protected viewtag: string = '53be26699068bb1f9e2f0316c47463c7';
 
     /**
      * 视图上下文

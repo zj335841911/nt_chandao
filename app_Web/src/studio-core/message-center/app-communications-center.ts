@@ -1,4 +1,4 @@
-// import mqtt, { MqttClient } from 'mqtt';
+import { connect, MqttClient } from 'mqtt';
 import { Util } from '@/utils';
 import { AccCentralMessage } from './message/acc-central-message';
 import { AccSystemMessage } from './message/acc-system-message';
@@ -115,7 +115,7 @@ export class AppCommunicationsCenter {
      * @type {MqttClient}
      * @memberof AppCommunicationsCenter
      */
-    // protected ws!: MqttClient;
+    protected ws!: MqttClient;
     /**
      * 连接地址
      *
@@ -154,30 +154,30 @@ export class AppCommunicationsCenter {
      */
     constructor(
         params?: { psdsconsoleurl: string; psdcconsoleid?: string; psdevslnsysid?: string; psdsconsoleid?: string },
-        opt: any = {}
+        opt: any = {},
     ) {
         let me: any = this;
         if (AppCommunicationsCenter.appCC) {
             me = AppCommunicationsCenter.appCC;
         }
-        // if (params) {
-        //     me.url = params.psdsconsoleurl;
-        //     me.psdcconsoleid = params.psdcconsoleid;
-        //     me.psdevslnsysid = params.psdevslnsysid;
-        //     me.psdsconsoleid = params.psdsconsoleid;
-        //     if (me.psdsconsoleid) {
-        //         me.options.clientId = me.psdsconsoleid;
-        //     }
-        //     Object.assign(me.options, opt);
-        //     if (me.url) {
-        //         if (me.ws) {
-        //             me.ws.disconnecting()
-        //             me.ws.disconnected();
-        //         }
-        //         me.ws = mqtt.connect(me.url, this.options);
-        //         me.registerEvent();
-        //     }
-        // }
+        if (params) {
+            me.url = params.psdsconsoleurl;
+            me.psdcconsoleid = params.psdcconsoleid;
+            me.psdevslnsysid = params.psdevslnsysid;
+            me.psdsconsoleid = params.psdsconsoleid;
+            if (me.psdsconsoleid) {
+                me.options.clientId = me.psdsconsoleid;
+            }
+            Object.assign(me.options, opt);
+            if (me.url) {
+                if (me.ws) {
+                    me.ws.disconnecting();
+                    me.ws.disconnected();
+                }
+                me.ws = connect(me.url, this.options);
+                me.registerEvent();
+            }
+        }
         return me;
     }
 
@@ -188,67 +188,67 @@ export class AppCommunicationsCenter {
      * @memberof AppCommunicationsCenter
      */
     protected registerEvent(): void {
-        // this.ws.on('connect', () => {
-        //     // 订阅中心级
-        //     if (this.psdcconsoleid) {
-        //         this.ws.subscribe(this.psdcconsoleid, { qos: 1 }, (error: any) => {
-        //             if (error) {
-        //                 console.error('Central 订阅失败', error);
-        //                 return;
-        //             }
-        //         });
-        //     }
-        //     // 订阅系统级
-        //     if (this.psdevslnsysid) {
-        //         this.ws.subscribe(this.psdevslnsysid, { qos: 1 }, (error: any) => {
-        //             if (error) {
-        //                 console.error('System 订阅失败', error);
-        //                 return;
-        //             }
-        //         });
-        //     }
-        //     // 订阅当前级
-        //     if (this.psdsconsoleid) {
-        //         this.ws.subscribe(this.psdsconsoleid, { qos: 1 }, (error: any) => {
-        //             if (error) {
-        //                 console.error('Current 订阅失败', error);
-        //                 return;
-        //             }
-        //         });
-        //     }
-        // })
-        // this.ws.on('reconnect', (error: any) => {
-        //     if (!error) {
-        //         console.log('正在重连...');
-        //     } else {
-        //         console.warn('重连失败:', error);
-        //     }
-        // })
-        // this.ws.on('error', (error: any) => {
-        //     console.log('连接失败:', error)
-        // })
-        // this.ws.on('message', (topic: any, message: any) => {
-        //     let ms: string = '';
-        //     try {
-        //         ms = message.toString('utf-8');
-        //         const data: any = JSON.parse(ms);
-        //         switch (topic) {
-        //             case this.psdcconsoleid:
-        //                 this.next('Central', data);
-        //                 break;
-        //             case this.psdevslnsysid:
-        //                 this.next('System', data);
-        //                 break;
-        //             case this.psdsconsoleid:
-        //                 this.next('Current', data);
-        //                 break;
-        //         }
-        //     } catch (error) {
-        //         console.warn('消息中心：websocket消息解析失败!');
-        //         console.warn('消息内容：', ms);
-        //         console.error(error);
-        //     }
-        // });
+        this.ws.on('connect', () => {
+            // 订阅中心级
+            if (this.psdcconsoleid) {
+                this.ws.subscribe(this.psdcconsoleid, { qos: 1 }, (error: any) => {
+                    if (error) {
+                        console.error('Central 订阅失败', error);
+                        return;
+                    }
+                });
+            }
+            // 订阅系统级
+            if (this.psdevslnsysid) {
+                this.ws.subscribe(this.psdevslnsysid, { qos: 1 }, (error: any) => {
+                    if (error) {
+                        console.error('System 订阅失败', error);
+                        return;
+                    }
+                });
+            }
+            // 订阅当前级
+            if (this.psdsconsoleid) {
+                this.ws.subscribe(this.psdsconsoleid, { qos: 1 }, (error: any) => {
+                    if (error) {
+                        console.error('Current 订阅失败', error);
+                        return;
+                    }
+                });
+            }
+        });
+        this.ws.on('reconnect', (error: any) => {
+            if (!error) {
+                console.log('正在重连...');
+            } else {
+                console.warn('重连失败:', error);
+            }
+        });
+        this.ws.on('error', (error: any) => {
+            console.log('连接失败:', error);
+        });
+        this.ws.on('message', (topic: any, message: any) => {
+            let ms: string = '';
+            try {
+                ms = message.toString('utf-8');
+                const data: any = JSON.parse(ms);
+                switch (topic) {
+                    case this.psdcconsoleid:
+                        this.next('Central', data);
+                        break;
+                    case this.psdevslnsysid:
+                        this.next('System', data);
+                        break;
+                    case this.psdsconsoleid:
+                        this.next('Current', data);
+                        break;
+                }
+            } catch (error) {
+                console.warn('消息中心：websocket消息解析失败!');
+                console.warn('消息内容：', ms);
+                console.error(error);
+            }
+        });
     }
 
     /**
@@ -340,7 +340,7 @@ export class AppCommunicationsCenter {
     public command(
         observer: (content: any) => void,
         subtype?: 'update' | 'remove' | 'create' | 'all',
-        deName?: string
+        deName?: string,
     ): string {
         const arr: any[] = [];
         if (Object.is(subtype, 'update')) {
@@ -377,7 +377,7 @@ export class AppCommunicationsCenter {
     public commandLocal(
         observer: (content: any) => void,
         subtype?: 'update' | 'remove' | 'create' | 'all',
-        deName?: string
+        deName?: string,
     ): string {
         const arr: any[] = [];
         if (Object.is(subtype, 'update')) {

@@ -12,4 +12,3 @@ public interface ProjectStatsMapping extends MappingBase<ProjectStatsDTO, Projec
 
 
 }
-

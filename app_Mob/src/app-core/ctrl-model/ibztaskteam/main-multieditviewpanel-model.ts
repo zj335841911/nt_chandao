@@ -15,41 +15,10 @@ export class MainModel {
   public getDataItems(): any[] {
     return [
       {
-        name: 'role',
-      },
-      {
-        name: 'root',
-      },
-      {
-        name: 'limited',
-      },
-      {
-        name: 'total',
-      },
-      {
-        name: 'username',
-      },
-      {
-        name: 'order',
-      },
-      {
-        name: 'days',
-      },
-      {
-        name: 'type',
-      },
-      {
         name: 'estimate',
       },
       {
-        name: 'account',
-      },
-      {
-        name: 'consumed',
-      },
-      {
-        name: 'ibztaskteam',
-        prop: 'id',
+        name: 'username',
       },
       {
         name: 'join',
@@ -58,7 +27,38 @@ export class MainModel {
         name: 'hours',
       },
       {
+        name: 'account',
+      },
+      {
+        name: 'order',
+      },
+      {
         name: 'left',
+      },
+      {
+        name: 'consumed',
+      },
+      {
+        name: 'limited',
+      },
+      {
+        name: 'role',
+      },
+      {
+        name: 'ibztaskteam',
+        prop: 'id',
+      },
+      {
+        name: 'days',
+      },
+      {
+        name: 'total',
+      },
+      {
+        name: 'type',
+      },
+      {
+        name: 'root',
       },
       {
         name: 'task',

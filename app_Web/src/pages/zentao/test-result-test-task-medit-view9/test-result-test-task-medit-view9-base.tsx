@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { MEditView9Base } from '@/studio-core';
 import TestResultService from '@/service/test-result/test-result-service';
 import TestResultAuthService from '@/authservice/test-result/test-result-auth-service';
@@ -120,7 +120,7 @@ export class TestResultTestTaskMEditView9Base extends MEditView9Base {
      * @type {string}
      * @memberof TestResultTestTaskMEditView9Base
      */
-	protected viewtag: string = '27374a7bc38f2581e433db58d85e14e4';
+	protected viewtag: string = 'a2162c6851a15e4ca36932de99bce8ad';
 
     /**
      * 视图名称

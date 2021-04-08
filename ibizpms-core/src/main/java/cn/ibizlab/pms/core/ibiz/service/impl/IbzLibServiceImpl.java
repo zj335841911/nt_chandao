@@ -54,9 +54,6 @@ public class IbzLibServiceImpl extends ServiceImpl<IbzLibMapper, IbzLib> impleme
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.ibiz.service.IIbzLibModuleService ibzlibmoduleService;
-    @Autowired
-    @Lazy
-    IIbzLibService proxyService;
 
     protected int batchSize = 500;
 
@@ -98,7 +95,7 @@ public class IbzLibServiceImpl extends ServiceImpl<IbzLibMapper, IbzLib> impleme
     @Transactional
     public IbzLib get(Long key) {
         IbzLib et = getById(key);
-        if (et == null) {
+        if(et == null){
             et = new IbzLib();
             et.setId(key);
         }
@@ -119,7 +116,7 @@ public class IbzLibServiceImpl extends ServiceImpl<IbzLibMapper, IbzLib> impleme
     @Override
     @Transactional
     public boolean save(IbzLib et) {
-        if (!saveOrUpdate(et)) {
+        if(!saveOrUpdate(et)) {
             return false;
         }
         return true;
@@ -131,7 +128,7 @@ public class IbzLibServiceImpl extends ServiceImpl<IbzLibMapper, IbzLib> impleme
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
+            return checkKey(et) ? getProxyService().update(et) : getProxyService().create(et);
         }
     }
 
@@ -148,10 +145,10 @@ public class IbzLibServiceImpl extends ServiceImpl<IbzLibMapper, IbzLib> impleme
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
         return true;
     }
@@ -169,10 +166,10 @@ public class IbzLibServiceImpl extends ServiceImpl<IbzLibMapper, IbzLib> impleme
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
     }
 
@@ -183,7 +180,7 @@ public class IbzLibServiceImpl extends ServiceImpl<IbzLibMapper, IbzLib> impleme
      */
     @Override
     public Page<IbzLib> searchDefault(IbzLibSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzLib> pages=baseMapper.searchDefault(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzLib> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
         return new PageImpl<IbzLib>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -194,24 +191,24 @@ public class IbzLibServiceImpl extends ServiceImpl<IbzLibMapper, IbzLib> impleme
 
 
     @Override
-    public List<JSONObject> select(String sql, Map param) {
-        return this.baseMapper.selectBySQL(sql, param);
+    public List<JSONObject> select(String sql, Map param){
+        return this.baseMapper.selectBySQL(sql,param);
     }
 
     @Override
     @Transactional
-    public boolean execute(String sql, Map param) {
+    public boolean execute(String sql , Map param){
         if (sql == null || sql.isEmpty()) {
             return false;
         }
         if (sql.toLowerCase().trim().startsWith("insert")) {
-            return this.baseMapper.insertBySQL(sql, param);
+            return this.baseMapper.insertBySQL(sql,param);
         }
         if (sql.toLowerCase().trim().startsWith("update")) {
-            return this.baseMapper.updateBySQL(sql, param);
+            return this.baseMapper.updateBySQL(sql,param);
         }
         if (sql.toLowerCase().trim().startsWith("delete")) {
-            return this.baseMapper.deleteBySQL(sql, param);
+            return this.baseMapper.deleteBySQL(sql,param);
         }
         log.warn("暂未支持的SQL语法");
         return true;
@@ -219,9 +216,9 @@ public class IbzLibServiceImpl extends ServiceImpl<IbzLibMapper, IbzLib> impleme
 
 
 
-
-
+    public IIbzLibService getProxyService() {
+        return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
+    }
 }
-
 
 

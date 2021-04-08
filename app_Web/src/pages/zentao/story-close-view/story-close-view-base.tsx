@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { OptionViewBase } from '@/studio-core';
 import StoryService from '@/service/story/story-service';
 import StoryAuthService from '@/authservice/story/story-auth-service';
@@ -162,7 +162,7 @@ export class StoryCloseViewBase extends OptionViewBase {
      * @type {string}
      * @memberof StoryCloseViewBase
      */
-	protected viewtag: string = 'e0fbca7627cdd68765e173028b07f687';
+	protected viewtag: string = '5d15dd63b8e4c48a6d5e7cca6b5308cc';
 
     /**
      * 视图名称

@@ -48,16 +48,13 @@ import org.springframework.util.StringUtils;
 @Service("BlockServiceImpl")
 public class BlockServiceImpl extends ServiceImpl<BlockMapper, Block> implements IBlockService {
 
-    @Autowired
-    @Lazy
-    IBlockService proxyService;
 
     protected int batchSize = 500;
 
     @Override
     @Transactional
     public boolean create(Block et) {
-        if (!this.retBool(this.baseMapper.insert(et))) {
+        if(!this.retBool(this.baseMapper.insert(et))) {
             return false;
         }
         CachedBeanCopier.copy(get(et.getId()), et);
@@ -73,7 +70,7 @@ public class BlockServiceImpl extends ServiceImpl<BlockMapper, Block> implements
     @Override
     @Transactional
     public boolean update(Block et) {
-        if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", et.getId()))) {
+        if(!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", et.getId()))) {
             return false;
         }
         CachedBeanCopier.copy(get(et.getId()), et);
@@ -90,7 +87,7 @@ public class BlockServiceImpl extends ServiceImpl<BlockMapper, Block> implements
     @Transactional
     public boolean remove(Long key) {
         boolean result = removeById(key);
-        return result;
+        return result ;
     }
 
     @Override
@@ -103,7 +100,7 @@ public class BlockServiceImpl extends ServiceImpl<BlockMapper, Block> implements
     @Transactional
     public Block get(Long key) {
         Block et = getById(key);
-        if (et == null) {
+        if(et == null){
             et = new Block();
             et.setId(key);
         }
@@ -124,7 +121,7 @@ public class BlockServiceImpl extends ServiceImpl<BlockMapper, Block> implements
     @Override
     @Transactional
     public boolean save(Block et) {
-        if (!saveOrUpdate(et)) {
+        if(!saveOrUpdate(et)) {
             return false;
         }
         return true;
@@ -136,7 +133,7 @@ public class BlockServiceImpl extends ServiceImpl<BlockMapper, Block> implements
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
+            return checkKey(et) ? getProxyService().update(et) : getProxyService().create(et);
         }
     }
 
@@ -153,10 +150,10 @@ public class BlockServiceImpl extends ServiceImpl<BlockMapper, Block> implements
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
         return true;
     }
@@ -174,10 +171,10 @@ public class BlockServiceImpl extends ServiceImpl<BlockMapper, Block> implements
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
     }
 
@@ -188,7 +185,7 @@ public class BlockServiceImpl extends ServiceImpl<BlockMapper, Block> implements
      */
     @Override
     public Page<Block> searchDefault(BlockSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Block> pages=baseMapper.searchDefault(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Block> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Block>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -199,24 +196,24 @@ public class BlockServiceImpl extends ServiceImpl<BlockMapper, Block> implements
 
 
     @Override
-    public List<JSONObject> select(String sql, Map param) {
-        return this.baseMapper.selectBySQL(sql, param);
+    public List<JSONObject> select(String sql, Map param){
+        return this.baseMapper.selectBySQL(sql,param);
     }
 
     @Override
     @Transactional
-    public boolean execute(String sql, Map param) {
+    public boolean execute(String sql , Map param){
         if (sql == null || sql.isEmpty()) {
             return false;
         }
         if (sql.toLowerCase().trim().startsWith("insert")) {
-            return this.baseMapper.insertBySQL(sql, param);
+            return this.baseMapper.insertBySQL(sql,param);
         }
         if (sql.toLowerCase().trim().startsWith("update")) {
-            return this.baseMapper.updateBySQL(sql, param);
+            return this.baseMapper.updateBySQL(sql,param);
         }
         if (sql.toLowerCase().trim().startsWith("delete")) {
-            return this.baseMapper.deleteBySQL(sql, param);
+            return this.baseMapper.deleteBySQL(sql,param);
         }
         log.warn("暂未支持的SQL语法");
         return true;
@@ -224,9 +221,9 @@ public class BlockServiceImpl extends ServiceImpl<BlockMapper, Block> implements
 
 
 
-
-
+    public IBlockService getProxyService() {
+        return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
+    }
 }
-
 
 

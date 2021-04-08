@@ -1,6 +1,6 @@
 
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { ListViewBase } from '@/studio-core';
 import ActionService from '@/service/action/action-service';
 import ActionAuthService from '@/authservice/action/action-auth-service';
@@ -105,7 +105,7 @@ export class ActionMyTrendsListViewBase extends ListViewBase {
      * @type {string}
      * @memberof ActionMyTrendsListViewBase
      */
-	protected viewtag: string = '96ed1661161ecbd9adbb979fddb405a5';
+	protected viewtag: string = 'cd6e8d183f33115b00fbaef1afbbd1dc';
 
     /**
      * 视图名称
@@ -313,6 +313,14 @@ export class ActionMyTrendsListViewBase extends ListViewBase {
 
 
     /**
+     * 快速分组代码表标识
+     *
+     * @type {boolean}
+     * @memberof ActionMyTrendsListViewBase
+     */
+    public quickGroupCodelistTag: string = "";
+
+    /**
      * 加载快速分组模型
      *
      * @protected
@@ -320,6 +328,7 @@ export class ActionMyTrendsListViewBase extends ListViewBase {
      */
     protected loadQuickGroupModel(): void {
         const quickGroupCodeList: any = { tag: 'ProductActionQuickpacket', codelistType: 'STATIC' };
+        this.quickGroupCodelistTag = quickGroupCodeList.tag ? quickGroupCodeList.tag : "";
         if (quickGroupCodeList.tag && Object.is(quickGroupCodeList.codelistType, "STATIC")) {
             const codelist = this.$store.getters.getCodeList(quickGroupCodeList.tag);
             if (codelist) {

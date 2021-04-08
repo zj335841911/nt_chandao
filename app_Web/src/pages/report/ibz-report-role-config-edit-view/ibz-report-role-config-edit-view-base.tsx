@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { EditViewBase } from '@/studio-core';
 import IbzReportRoleConfigService from '@/service/ibz-report-role-config/ibz-report-role-config-service';
 import IbzReportRoleConfigAuthService from '@/authservice/ibz-report-role-config/ibz-report-role-config-auth-service';
@@ -125,7 +125,7 @@ export class IbzReportRoleConfigEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof IbzReportRoleConfigEditViewBase
      */
-	protected viewtag: string = 'fb99ca35f5d1bb1749788ffeacfa2ea3';
+	protected viewtag: string = 'ca5520ca32c6104961484f490807058d';
 
     /**
      * 视图名称

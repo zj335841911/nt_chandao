@@ -73,7 +73,7 @@ public class SysUpdateFeaturesResource {
 		SysUpdateFeatures domain  = sysupdatefeaturesMapping.toDomain(sysupdatefeaturesdto);
         domain .setSysupdatefeaturesid(sysupdatefeatures_id);
 		sysupdatefeaturesService.update(domain );
-		SysUpdateFeaturesDTO dto = sysupdatefeaturesMapping.toDto(domain );
+		SysUpdateFeaturesDTO dto = sysupdatefeaturesMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
@@ -111,8 +111,9 @@ public class SysUpdateFeaturesResource {
 
     @ApiOperation(value = "获取系统更新功能草稿", tags = {"系统更新功能" },  notes = "获取系统更新功能草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/sysupdatefeatures/getdraft")
-    public ResponseEntity<SysUpdateFeaturesDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(sysupdatefeaturesMapping.toDto(sysupdatefeaturesService.getDraft(new SysUpdateFeatures())));
+    public ResponseEntity<SysUpdateFeaturesDTO> getDraft(SysUpdateFeaturesDTO dto) {
+        SysUpdateFeatures domain = sysupdatefeaturesMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(sysupdatefeaturesMapping.toDto(sysupdatefeaturesService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查系统更新功能", tags = {"系统更新功能" },  notes = "检查系统更新功能")
@@ -124,8 +125,10 @@ public class SysUpdateFeaturesResource {
     @PreAuthorize("hasPermission(this.sysupdatefeaturesMapping.toDomain(#sysupdatefeaturesdto),'pms-SysUpdateFeatures-Save')")
     @ApiOperation(value = "保存系统更新功能", tags = {"系统更新功能" },  notes = "保存系统更新功能")
 	@RequestMapping(method = RequestMethod.POST, value = "/sysupdatefeatures/save")
-    public ResponseEntity<Boolean> save(@RequestBody SysUpdateFeaturesDTO sysupdatefeaturesdto) {
-        return ResponseEntity.status(HttpStatus.OK).body(sysupdatefeaturesService.save(sysupdatefeaturesMapping.toDomain(sysupdatefeaturesdto)));
+    public ResponseEntity<SysUpdateFeaturesDTO> save(@RequestBody SysUpdateFeaturesDTO sysupdatefeaturesdto) {
+        SysUpdateFeatures domain = sysupdatefeaturesMapping.toDomain(sysupdatefeaturesdto);
+        sysupdatefeaturesService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(sysupdatefeaturesMapping.toDto(domain));
     }
 
     @PreAuthorize("hasPermission(this.sysupdatefeaturesMapping.toDomain(#sysupdatefeaturesdtos),'pms-SysUpdateFeatures-Save')")
@@ -157,6 +160,7 @@ public class SysUpdateFeaturesResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(sysupdatefeaturesMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
 
 
     @PreAuthorize("hasPermission(this.sysupdatefeaturesMapping.toDomain(#sysupdatefeaturesdto),'pms-SysUpdateFeatures-Create')")
@@ -233,8 +237,8 @@ public class SysUpdateFeaturesResource {
 
     @ApiOperation(value = "根据更新日志获取系统更新功能草稿", tags = {"系统更新功能" },  notes = "根据更新日志获取系统更新功能草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/sysupdatelogs/{sysupdatelog_id}/sysupdatefeatures/getdraft")
-    public ResponseEntity<SysUpdateFeaturesDTO> getDraftBySysUpdateLog(@PathVariable("sysupdatelog_id") String sysupdatelog_id) {
-        SysUpdateFeatures domain = new SysUpdateFeatures();
+    public ResponseEntity<SysUpdateFeaturesDTO> getDraftBySysUpdateLog(@PathVariable("sysupdatelog_id") String sysupdatelog_id, SysUpdateFeaturesDTO dto) {
+        SysUpdateFeatures domain = sysupdatefeaturesMapping.toDomain(dto);
         domain.setSysupdatelogid(sysupdatelog_id);
         return ResponseEntity.status(HttpStatus.OK).body(sysupdatefeaturesMapping.toDto(sysupdatefeaturesService.getDraft(domain)));
     }
@@ -248,10 +252,11 @@ public class SysUpdateFeaturesResource {
     @PreAuthorize("hasPermission(this.sysupdatefeaturesMapping.toDomain(#sysupdatefeaturesdto),'pms-SysUpdateFeatures-Save')")
     @ApiOperation(value = "根据更新日志保存系统更新功能", tags = {"系统更新功能" },  notes = "根据更新日志保存系统更新功能")
 	@RequestMapping(method = RequestMethod.POST, value = "/sysupdatelogs/{sysupdatelog_id}/sysupdatefeatures/save")
-    public ResponseEntity<Boolean> saveBySysUpdateLog(@PathVariable("sysupdatelog_id") String sysupdatelog_id, @RequestBody SysUpdateFeaturesDTO sysupdatefeaturesdto) {
+    public ResponseEntity<SysUpdateFeaturesDTO> saveBySysUpdateLog(@PathVariable("sysupdatelog_id") String sysupdatelog_id, @RequestBody SysUpdateFeaturesDTO sysupdatefeaturesdto) {
         SysUpdateFeatures domain = sysupdatefeaturesMapping.toDomain(sysupdatefeaturesdto);
         domain.setSysupdatelogid(sysupdatelog_id);
-        return ResponseEntity.status(HttpStatus.OK).body(sysupdatefeaturesService.save(domain));
+        sysupdatefeaturesService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(sysupdatefeaturesMapping.toDto(domain));
     }
 
     @PreAuthorize("hasPermission(this.sysupdatefeaturesMapping.toDomain(#sysupdatefeaturesdtos),'pms-SysUpdateFeatures-Save')")

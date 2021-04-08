@@ -151,6 +151,11 @@ export default class CompleteReportMainZSModel {
           dataType: 'NSCODELIST',
         },
         {
+          name: 'plan',
+          prop: 'plan',
+          dataType: 'PICKUP',
+        },
+        {
           name: 'color',
           prop: 'color',
           dataType: 'SSCODELIST',

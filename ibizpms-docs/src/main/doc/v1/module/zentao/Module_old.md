@@ -26,16 +26,16 @@ hide members
 |排序|ORDER|INT|&nbsp;|
 |负责人|OWNER|TEXT|&nbsp;|
 |id|ID|ACID|&nbsp;|
+|数据选择排序|ORDERPK|TEXT|&nbsp;|
 |收藏者|COLLECTOR|LONGTEXT|&nbsp;|
 |简称|SHORT|TEXT|&nbsp;|
 |路径|PATH|TEXT|&nbsp;从根到自己|
+|部门标识|MDEPTID|TEXT|&nbsp;|
+|组织标识|ORGID|TEXT|&nbsp;|
 |已删除|DELETED|TEXT|&nbsp;|
 |上级模块|PARENTNAME|PICKUPTEXT|&nbsp;|
 |平台/分支|BRANCH|PICKUP|&nbsp;|
 |上级模块|PARENT|PICKUP|&nbsp;|
-|部门标识|MDEPTID|TEXT|&nbsp;|
-|组织标识|ORGID|TEXT|&nbsp;|
-|数据选择排序|ORDERPK|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -47,16 +47,16 @@ hide members
 |排序|默认规则|默认规则|
 |负责人|默认规则|内容长度必须小于等于[30]|
 |id|默认规则|默认规则|
+|数据选择排序|默认规则|内容长度必须小于等于[100]|
 |收藏者|默认规则|内容长度必须小于等于[65535]|
 |简称|默认规则|内容长度必须小于等于[30]|
 |路径|默认规则|内容长度必须小于等于[255]|
+|部门标识|默认规则|内容长度必须小于等于[100]|
+|组织标识|默认规则|内容长度必须小于等于[100]|
 |已删除|默认规则|内容长度必须小于等于[1]|
 |上级模块|默认规则|内容长度必须小于等于[60]|
 |平台/分支|默认规则|默认规则|
 |上级模块|默认规则|默认规则|
-|部门标识|默认规则|内容长度必须小于等于[100]|
-|组织标识|默认规则|内容长度必须小于等于[100]|
-|数据选择排序|默认规则|内容长度必须小于等于[100]|
 
 ## 状态控制
 
@@ -86,7 +86,7 @@ hide members
 | --------  | --------   | --------   | ----- |
 |BugModule|BugModule([MYSQL5](../../appendix/query_MYSQL5.md#Module_BugModule))|否|&nbsp;|
 |BugModuleCodeList|数据查询([MYSQL5](../../appendix/query_MYSQL5.md#Module_BugModuleCodeList))|否|&nbsp;|
-|DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#Module_Default))|否|&nbsp;|
+|DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#Module_Default))|是|&nbsp;|
 |DocModule|文档目录查询([MYSQL5](../../appendix/query_MYSQL5.md#Module_DocModule))|否|&nbsp;|
 |Line|产品线([MYSQL5](../../appendix/query_MYSQL5.md#Module_Line))|否|&nbsp;|
 |StoryModule|需求模块([MYSQL5](../../appendix/query_MYSQL5.md#Module_StoryModule))|否|&nbsp;|
@@ -103,6 +103,7 @@ hide members
 |DocModule|文档目录|DocModule|否|&nbsp;|
 |Line|产品线|Line|否|&nbsp;|
 |StoryModule|需求模块|StoryModule|否|&nbsp;|
+|TaskModule|任务模块|TaskModule|否|&nbsp;|
 
 ## 查询模式
 | 属性      |    搜索模式     |

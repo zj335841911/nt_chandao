@@ -1,6 +1,6 @@
 
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { ListViewBase } from '@/studio-core';
 import ActionService from '@/service/action/action-service';
 import ActionAuthService from '@/authservice/action/action-auth-service';
@@ -98,6 +98,10 @@ export class ActionAddCommentHistoryListViewBase extends ListViewBase {
         'objectid': {
             isRawValue: false,
             value: 'srfparentkey',
+        },
+        'version': {
+            isRawValue: false,
+            value: 'version',
         }
     };
 
@@ -157,7 +161,7 @@ export class ActionAddCommentHistoryListViewBase extends ListViewBase {
      * @type {string}
      * @memberof ActionAddCommentHistoryListViewBase
      */
-	protected viewtag: string = 'aeee411b8bffcf0c30d65557a8deeeee';
+	protected viewtag: string = '6cc53210af0a1b521a3fbf7263c94a7b';
 
     /**
      * 视图名称

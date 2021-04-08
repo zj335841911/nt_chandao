@@ -33,13 +33,28 @@ export class Usr2MobMPickupViewpickupviewpanelModel {
         name: 'lastrunresult',
       },
       {
+        name: 'modulename1',
+      },
+      {
         name: 'linkcase',
+      },
+      {
+        name: 'casesteps',
+      },
+      {
+        name: 'task',
       },
       {
         name: 'order',
       },
       {
         name: 'howrun',
+      },
+      {
+        name: 'resultcnt',
+      },
+      {
+        name: 'noticeusers',
       },
       {
         name: 'version',
@@ -54,10 +69,19 @@ export class Usr2MobMPickupViewpickupviewpanelModel {
         name: 'type',
       },
       {
+        name: 'resultfalicnt',
+      },
+      {
         name: 'status',
       },
       {
+        name: 'comment',
+      },
+      {
         name: 'auto',
+      },
+      {
+        name: 'isfavorites',
       },
       {
         name: 'frequency',
@@ -70,6 +94,15 @@ export class Usr2MobMPickupViewpickupviewpanelModel {
       },
       {
         name: 'reviewedby',
+      },
+      {
+        name: 'files',
+      },
+      {
+        name: 'tobugcnt',
+      },
+      {
+        name: 'assignedto',
       },
       {
         name: 'deleted',
@@ -87,6 +120,9 @@ export class Usr2MobMPickupViewpickupviewpanelModel {
         name: 'scriptlocation',
       },
       {
+        name: 'status1',
+      },
+      {
         name: 'lastrundate',
       },
       {
@@ -97,6 +133,12 @@ export class Usr2MobMPickupViewpickupviewpanelModel {
       },
       {
         name: 'frame',
+      },
+      {
+        name: 'lastrunresult1',
+      },
+      {
+        name: 'stepcnt',
       },
       {
         name: 'substatus',
@@ -112,10 +154,22 @@ export class Usr2MobMPickupViewpickupviewpanelModel {
         name: 'lastrunner',
       },
       {
+        name: 'libname',
+      },
+      {
         name: 'fromcaseversion',
       },
       {
+        name: 'storyname',
+      },
+      {
+        name: 'modulename',
+      },
+      {
         name: 'storyversion',
+      },
+      {
+        name: 'productname',
       },
       {
         name: 'fromcaseid',
@@ -137,60 +191,6 @@ export class Usr2MobMPickupViewpickupviewpanelModel {
       },
       {
         name: 'module',
-      },
-      {
-        name: 'modulename',
-      },
-      {
-        name: 'storyname',
-      },
-      {
-        name: 'productname',
-      },
-      {
-        name: 'casesteps',
-      },
-      {
-        name: 'tobugcnt',
-      },
-      {
-        name: 'resultcnt',
-      },
-      {
-        name: 'stepcnt',
-      },
-      {
-        name: 'comment',
-      },
-      {
-        name: 'resultfalicnt',
-      },
-      {
-        name: 'status1',
-      },
-      {
-        name: 'assignedto',
-      },
-      {
-        name: 'task',
-      },
-      {
-        name: 'libname',
-      },
-      {
-        name: 'lastrunresult1',
-      },
-      {
-        name: 'isfavorites',
-      },
-      {
-        name: 'modulename1',
-      },
-      {
-        name: 'files',
-      },
-      {
-        name: 'noticeusers',
       },
     ]
   }

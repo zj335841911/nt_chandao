@@ -141,7 +141,7 @@ export default class TaskStopMobOptionViewBase extends Vue {
 	 * @type {string}
 	 * @memberof TaskStopMobOptionViewBase
 	 */
-	protected viewtag: string = '20d9ad91186fc647b9fd98d0b562341b';
+	protected viewtag: string = '95a350767f059b66eb1781aa608a3915';
 
     /**
      * 视图上下文

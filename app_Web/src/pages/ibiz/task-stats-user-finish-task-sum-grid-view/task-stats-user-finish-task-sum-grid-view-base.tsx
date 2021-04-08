@@ -1,6 +1,6 @@
 
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { GridViewBase } from '@/studio-core';
 import TaskStatsService from '@/service/task-stats/task-stats-service';
 import TaskStatsAuthService from '@/authservice/task-stats/task-stats-auth-service';
@@ -123,7 +123,7 @@ export class TaskStatsUserFinishTaskSumGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof TaskStatsUserFinishTaskSumGridViewBase
      */
-	protected viewtag: string = '861a7b35cdff8ff000b5f90a9a4a12e9';
+	protected viewtag: string = '9c718f75d8c130ae7c44ba1c18edcc62';
 
     /**
      * 视图名称

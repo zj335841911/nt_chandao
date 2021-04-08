@@ -136,6 +136,11 @@ export default class StoryTaskGroupModel {
           dataType: 'PICKUP',
         },
         {
+          name: 'plan',
+          prop: 'plan',
+          dataType: 'PICKUP',
+        },
+        {
           name: 'isfavorites',
           prop: 'isfavorites',
           dataType: 'TEXT',

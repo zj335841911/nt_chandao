@@ -31,25 +31,12 @@ part [shape=none, margin=0, label=<
 </TR>
 <TR>
 <TD BORDER="0" COLSPAN="4" CELLPADDING="10">
-编辑<BR/>
-提交<BR/>
+
+
 <BR/></TD>
 </TR>
 </TABLE>
 >];
-
-
-mobEdit1 [shape=none, margin=0, label=<
-<TABLE WIDTH="150" BORDER="1" CELLBORDER="1" >
-<TR>
-<TD WIDTH="115" BORDER="0" COLSPAN="3"></TD><TD WIDTH="35" BORDER="0">V</TD>
-</TR>
-<TR>
-<TD BORDER="0" COLSPAN="4" CELLPADDING="10">编辑<BR/><BR/></TD>
-</TR>
-</TABLE>
->];
-
 
 
 MobSubmit [shape=none, margin=0, label=<
@@ -65,19 +52,32 @@ MobSubmit [shape=none, margin=0, label=<
 
 
 
+mobEdit1 [shape=none, margin=0, label=<
+<TABLE WIDTH="150" BORDER="1" CELLBORDER="1" >
+<TR>
+<TD WIDTH="115" BORDER="0" COLSPAN="3"></TD><TD WIDTH="35" BORDER="0">V</TD>
+</TR>
+<TR>
+<TD BORDER="0" COLSPAN="4" CELLPADDING="10">编辑<BR/><BR/></TD>
+</TR>
+</TABLE>
+>];
+
+
+
 start -> own ;
 own -> part [style=dashed,arrowhead=diamond,label="<包含>"] ;
-
-
-part -> mobEdit1 [style=dashed,label=<编辑<BR/>(迁移/popup)>];
-
-mobEdit1 -> end ;
-
 
 
 part -> MobSubmit [style=dashed,label=<提交>];
 
 MobSubmit -> end ;
+
+
+
+part -> mobEdit1 [style=dashed,label=<编辑<BR/>(迁移/popup)>];
+
+mobEdit1 -> end ;
 
 
 

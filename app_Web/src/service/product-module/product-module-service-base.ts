@@ -1,3 +1,4 @@
+import { Environment } from '@/environments/environment';
 import { Http } from '@/utils';
 import { Util } from '@/utils';
 import EntityService from '../entity-service';
@@ -50,11 +51,11 @@ export default class ProductModuleServiceBase extends EntityService {
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.productmodule){
-            let res:any = Http.getInstance().get(`/products/${context.product}/productmodules/${context.productmodule}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productmodules/${context.productmodule}/select`,isloading);
             
             return res;
         }
-            let res:any = Http.getInstance().get(`/productmodules/${context.productmodule}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/productmodules/${context.productmodule}/select`,isloading);
             
             return res;
     }
@@ -132,10 +133,10 @@ export default class ProductModuleServiceBase extends EntityService {
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.productmodule){
-            let res:any = Http.getInstance().delete(`/products/${context.product}/productmodules/${context.productmodule}`,isloading);
+            let res:any = await Http.getInstance().delete(`/products/${context.product}/productmodules/${context.productmodule}`,isloading);
             return res;
         }
-            let res:any = Http.getInstance().delete(`/productmodules/${context.productmodule}`,isloading);
+            let res:any = await Http.getInstance().delete(`/productmodules/${context.productmodule}`,isloading);
             return res;
     }
 
@@ -170,12 +171,18 @@ export default class ProductModuleServiceBase extends EntityService {
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
-            let res:any = await Http.getInstance().get(`/products/${context.product}/productmodules/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.productmodule) delete tempData.productmodule;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productmodules/getdraft`,tempData,isloading);
             res.data.productmodule = data.productmodule;
             
             return res;
         }
-        let res:any = await  Http.getInstance().get(`/productmodules/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.productmodule) delete tempData.productmodule;
+        if(tempData.id) delete tempData.id;
+        let res:any = await  Http.getInstance().get(`/productmodules/getdraft`,tempData,isloading);
         res.data.productmodule = data.productmodule;
         
         return res;
@@ -198,7 +205,7 @@ export default class ProductModuleServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/productmodules/${context.productmodule}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/productmodules/${context.productmodule}/checkkey`,data,isloading);
             return res;
     }
 
@@ -219,7 +226,7 @@ export default class ProductModuleServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/productmodules/${context.productmodule}/fix`,data,isloading);
+            let res:any = await Http.getInstance().post(`/productmodules/${context.productmodule}/fix`,data,isloading);
             return res;
     }
 
@@ -240,7 +247,7 @@ export default class ProductModuleServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().put(`/productmodules/${context.productmodule}/removemodule`,data,isloading);
+            let res:any = await Http.getInstance().put(`/productmodules/${context.productmodule}/removemodule`,data,isloading);
             return res;
     }
 
@@ -285,8 +292,26 @@ export default class ProductModuleServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/productmodules/${context.productmodule}/syncfromibiz`,data,isloading);
+            let res:any = await Http.getInstance().post(`/productmodules/${context.productmodule}/syncfromibiz`,data,isloading);
             return res;
+    }
+
+    /**
+     * SyncFromIBIZBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductModuleServiceBase
+     */
+    public async SyncFromIBIZBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productmodules/syncfromibizbatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/productmodules/syncfromibizbatch`,tempData,isloading);
     }
 
     /**
@@ -301,11 +326,11 @@ export default class ProductModuleServiceBase extends EntityService {
     public async FetchByPath(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/productmodules/fetchbypath`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productmodules/fetchbypath`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/productmodules/fetchbypath`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/productmodules/fetchbypath`,tempData,isloading);
         return res;
     }
 
@@ -339,11 +364,11 @@ export default class ProductModuleServiceBase extends EntityService {
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/productmodules/fetchdefault`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productmodules/fetchdefault`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/productmodules/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/productmodules/fetchdefault`,tempData,isloading);
         return res;
     }
 
@@ -377,11 +402,11 @@ export default class ProductModuleServiceBase extends EntityService {
     public async FetchParentModule(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/productmodules/fetchparentmodule`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productmodules/fetchparentmodule`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/productmodules/fetchparentmodule`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/productmodules/fetchparentmodule`,tempData,isloading);
         return res;
     }
 
@@ -415,11 +440,11 @@ export default class ProductModuleServiceBase extends EntityService {
     public async FetchRoot(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/productmodules/fetchroot`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productmodules/fetchroot`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/productmodules/fetchroot`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/productmodules/fetchroot`,tempData,isloading);
         return res;
     }
 
@@ -453,11 +478,11 @@ export default class ProductModuleServiceBase extends EntityService {
     public async FetchRoot_NoBranch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/productmodules/fetchroot_nobranch`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productmodules/fetchroot_nobranch`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/productmodules/fetchroot_nobranch`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/productmodules/fetchroot_nobranch`,tempData,isloading);
         return res;
     }
 
@@ -491,11 +516,11 @@ export default class ProductModuleServiceBase extends EntityService {
     public async FetchStoryModule(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/productmodules/fetchstorymodule`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productmodules/fetchstorymodule`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/productmodules/fetchstorymodule`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/productmodules/fetchstorymodule`,tempData,isloading);
         return res;
     }
 

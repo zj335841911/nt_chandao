@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { TreeViewBase } from '@/studio-core';
 import DocService from '@/service/doc/doc-service';
 import DocAuthService from '@/authservice/doc/doc-auth-service';
@@ -102,7 +102,7 @@ export class DocMoreMyFavouritesTreeViewBase extends TreeViewBase {
      * @type {string}
      * @memberof DocMoreMyFavouritesTreeViewBase
      */
-	protected viewtag: string = '6b0e5dd0dca860d801e403c7591a9f41';
+	protected viewtag: string = '6e45dce2ca6fc6fe33d488f8fd03ed69';
 
     /**
      * 视图名称

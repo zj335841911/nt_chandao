@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { OptionViewBase } from '@/studio-core';
 import TaskEstimateService from '@/service/task-estimate/task-estimate-service';
 import TaskEstimateAuthService from '@/authservice/task-estimate/task-estimate-auth-service';
@@ -144,7 +144,7 @@ export class TaskEstimateOptionViewBase extends OptionViewBase {
      * @type {string}
      * @memberof TaskEstimateOptionViewBase
      */
-	protected viewtag: string = '4acc52d66d0c31e82166d85b1b0cd826';
+	protected viewtag: string = 'd8db3dc48ecc1e32478d7490136cda6c';
 
     /**
      * 视图名称

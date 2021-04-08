@@ -76,11 +76,6 @@ export default class MainModel {
         dataType: 'ACID',
       },
       {
-        name: 'task',
-        prop: 'id',
-        dataType: 'FONTKEY',
-      },
-      {
         name: 'taskestimate',
         prop: 'id',
         dataType: 'FONTKEY',

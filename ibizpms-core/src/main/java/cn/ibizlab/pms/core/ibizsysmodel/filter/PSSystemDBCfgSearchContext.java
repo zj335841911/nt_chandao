@@ -25,13 +25,13 @@ import cn.ibizlab.pms.util.filter.SearchContextBase;
 @Slf4j
 @Data
 public class PSSystemDBCfgSearchContext extends SearchContextBase {
-	private String n_pssystemdbcfgname_like;//[系统数据库名称]
+	private Integer n_resstate_eq;//[资源状态]
 
 	private String n_nullvalorder_eq;//[空值排序]
 
-	private String n_objnamecase_eq;//[对象名称转换]
+	private String n_pssystemdbcfgname_like;//[系统数据库名称]
 
-	private Integer n_resstate_eq;//[资源状态]
+	private String n_objnamecase_eq;//[对象名称转换]
 
 	private String n_usercat_eq;//[用户分类]
 

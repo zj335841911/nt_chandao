@@ -231,6 +231,14 @@ export interface SysEmployee {
     createdate?: any;
 
     /**
+     * 更新时间
+     *
+     * @returns {*}
+     * @memberof SysEmployee
+     */
+    updatedate?: any;
+
+    /**
      * 更新人
      *
      * @returns {*}
@@ -245,12 +253,4 @@ export interface SysEmployee {
      * @memberof SysEmployee
      */
     createman?: any;
-
-    /**
-     * 更新时间
-     *
-     * @returns {*}
-     * @memberof SysEmployee
-     */
-    updatedate?: any;
 }

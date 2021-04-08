@@ -24,6 +24,8 @@ import java.io.Serializable;
 import lombok.*;
 import org.springframework.data.annotation.Transient;
 import cn.ibizlab.pms.util.annotation.Audit;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 import cn.ibizlab.pms.util.domain.EntityClient;
 
@@ -31,6 +33,7 @@ import cn.ibizlab.pms.util.domain.EntityClient;
  * ServiceApi [外部服务接口] 对象
  */
 @Data
+@ApiModel("外部服务接口")
 public class PSSubSysServiceAPI extends EntityClient implements Serializable {
     @Override
     public void modify(String field, Object val) {
@@ -43,6 +46,7 @@ public class PSSubSysServiceAPI extends EntityClient implements Serializable {
      */
     @JSONField(name = "pssubsysserviceapiname")
     @JsonProperty("pssubsysserviceapiname")
+    @ApiModelProperty("外部服务接口名称")
     private String pssubsysserviceapiname;
 
     /**
@@ -51,15 +55,8 @@ public class PSSubSysServiceAPI extends EntityClient implements Serializable {
     @DEField(preType = DEPredefinedFieldType.CREATEMAN)
     @JSONField(name = "createman")
     @JsonProperty("createman")
+    @ApiModelProperty("建立人")
     private String createman;
-
-    /**
-     * 外部服务接口标识
-     */
-    @DEField(isKeyField = true)
-    @JSONField(name = "pssubsysserviceapiid")
-    @JsonProperty("pssubsysserviceapiid")
-    private String pssubsysserviceapiid;
 
     /**
      * 建立时间
@@ -68,7 +65,25 @@ public class PSSubSysServiceAPI extends EntityClient implements Serializable {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "createdate" , format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createdate")
+    @ApiModelProperty("建立时间")
     private Timestamp createdate;
+
+    /**
+     * 系统
+     */
+    @JSONField(name = "pssystemid")
+    @JsonProperty("pssystemid")
+    @ApiModelProperty("系统")
+    private String pssystemid;
+
+    /**
+     * 外部服务接口标识
+     */
+    @DEField(isKeyField = true)
+    @JSONField(name = "pssubsysserviceapiid")
+    @JsonProperty("pssubsysserviceapiid")
+    @ApiModelProperty("外部服务接口标识")
+    private String pssubsysserviceapiid;
 
     /**
      * 更新时间
@@ -77,6 +92,7 @@ public class PSSubSysServiceAPI extends EntityClient implements Serializable {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "updatedate" , format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("updatedate")
+    @ApiModelProperty("更新时间")
     private Timestamp updatedate;
 
     /**
@@ -85,13 +101,31 @@ public class PSSubSysServiceAPI extends EntityClient implements Serializable {
     @DEField(preType = DEPredefinedFieldType.UPDATEMAN)
     @JSONField(name = "updateman")
     @JsonProperty("updateman")
+    @ApiModelProperty("更新人")
     private String updateman;
+
+    /**
+     * 系统
+     */
+    @JSONField(name = "pssystemname")
+    @JsonProperty("pssystemname")
+    @ApiModelProperty("系统")
+    private String pssystemname;
+
+    /**
+     * 系统服务接口
+     */
+    @JSONField(name = "pssysserviceapiname")
+    @JsonProperty("pssysserviceapiname")
+    @ApiModelProperty("系统服务接口")
+    private String pssysserviceapiname;
 
     /**
      * 系统模块
      */
     @JSONField(name = "psmodulename")
     @JsonProperty("psmodulename")
+    @ApiModelProperty("系统模块")
     private String psmodulename;
 
     /**
@@ -99,35 +133,16 @@ public class PSSubSysServiceAPI extends EntityClient implements Serializable {
      */
     @JSONField(name = "psmoduleid")
     @JsonProperty("psmoduleid")
+    @ApiModelProperty("系统模块")
     private String psmoduleid;
-
-    /**
-     * 系统服务接口
-     */
-    @JSONField(name = "pssysserviceapiname")
-    @JsonProperty("pssysserviceapiname")
-    private String pssysserviceapiname;
 
     /**
      * 系统服务接口
      */
     @JSONField(name = "pssysserviceapiid")
     @JsonProperty("pssysserviceapiid")
+    @ApiModelProperty("系统服务接口")
     private String pssysserviceapiid;
-
-    /**
-     * 系统
-     */
-    @JSONField(name = "pssystemid")
-    @JsonProperty("pssystemid")
-    private String pssystemid;
-
-    /**
-     * 系统
-     */
-    @JSONField(name = "pssystemname")
-    @JsonProperty("pssystemname")
-    private String pssystemname;
 
 
     /**
@@ -152,23 +167,7 @@ public class PSSubSysServiceAPI extends EntityClient implements Serializable {
      */
     public void setPssubsysserviceapiname(String pssubsysserviceapiname) {
         this.pssubsysserviceapiname = pssubsysserviceapiname ;
-        this.modify("pssubsysserviceapiname", pssubsysserviceapiname);
-    }
-
-    /**
-     * 设置 [系统模块]
-     */
-    public void setPsmoduleid(String psmoduleid) {
-        this.psmoduleid = psmoduleid ;
-        this.modify("psmoduleid", psmoduleid);
-    }
-
-    /**
-     * 设置 [系统服务接口]
-     */
-    public void setPssysserviceapiid(String pssysserviceapiid) {
-        this.pssysserviceapiid = pssysserviceapiid ;
-        this.modify("pssysserviceapiid", pssysserviceapiid);
+        this.modify("pssubsysserviceapiname",pssubsysserviceapiname);
     }
 
     /**
@@ -176,7 +175,7 @@ public class PSSubSysServiceAPI extends EntityClient implements Serializable {
      */
     public void setPssystemid(String pssystemid) {
         this.pssystemid = pssystemid ;
-        this.modify("pssystemid", pssystemid);
+        this.modify("pssystemid",pssystemid);
     }
 
     /**
@@ -184,7 +183,23 @@ public class PSSubSysServiceAPI extends EntityClient implements Serializable {
      */
     public void setPssystemname(String pssystemname) {
         this.pssystemname = pssystemname ;
-        this.modify("pssystemname", pssystemname);
+        this.modify("pssystemname",pssystemname);
+    }
+
+    /**
+     * 设置 [系统模块]
+     */
+    public void setPsmoduleid(String psmoduleid) {
+        this.psmoduleid = psmoduleid ;
+        this.modify("psmoduleid",psmoduleid);
+    }
+
+    /**
+     * 设置 [系统服务接口]
+     */
+    public void setPssysserviceapiid(String pssysserviceapiid) {
+        this.pssysserviceapiid = pssysserviceapiid ;
+        this.modify("pssysserviceapiid",pssysserviceapiid);
     }
 
     /**
@@ -197,7 +212,7 @@ public class PSSubSysServiceAPI extends EntityClient implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("pssubsysserviceapiid");
-        return super.copyTo(targetEntity, bIncEmpty);
+        return super.copyTo(targetEntity,bIncEmpty);
     }
 }
 

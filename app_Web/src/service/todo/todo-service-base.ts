@@ -1,3 +1,4 @@
+import { Environment } from '@/environments/environment';
 import { Http } from '@/utils';
 import { Util } from '@/utils';
 import EntityService from '../entity-service';
@@ -49,7 +50,7 @@ export default class TodoServiceBase extends EntityService {
      * @memberof TodoServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().get(`/todos/${context.todo}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/todos/${context.todo}/select`,isloading);
             
             return res;
     }
@@ -105,7 +106,7 @@ export default class TodoServiceBase extends EntityService {
      * @memberof TodoServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().delete(`/todos/${context.todo}`,isloading);
+            let res:any = await Http.getInstance().delete(`/todos/${context.todo}`,isloading);
             return res;
     }
 
@@ -134,7 +135,10 @@ export default class TodoServiceBase extends EntityService {
      * @memberof TodoServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/todos/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.todo) delete tempData.todo;
+        if(tempData.id) delete tempData.id;
+        let res:any = await  Http.getInstance().get(`/todos/getdraft`,tempData,isloading);
         res.data.todo = data.todo;
         
         return res;
@@ -150,8 +154,22 @@ export default class TodoServiceBase extends EntityService {
      * @memberof TodoServiceBase
      */
     public async Activate(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/todos/${context.todo}/activate`,data,isloading);
+            let res:any = await Http.getInstance().post(`/todos/${context.todo}/activate`,data,isloading);
             return res;
+    }
+
+    /**
+     * ActivateBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TodoServiceBase
+     */
+    public async ActivateBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/todos/activatebatch`,tempData,isloading);
     }
 
     /**
@@ -164,8 +182,22 @@ export default class TodoServiceBase extends EntityService {
      * @memberof TodoServiceBase
      */
     public async AssignTo(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/todos/${context.todo}/assignto`,data,isloading);
+            let res:any = await Http.getInstance().post(`/todos/${context.todo}/assignto`,data,isloading);
             return res;
+    }
+
+    /**
+     * AssignToBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TodoServiceBase
+     */
+    public async AssignToBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/todos/assigntobatch`,tempData,isloading);
     }
 
     /**
@@ -178,7 +210,7 @@ export default class TodoServiceBase extends EntityService {
      * @memberof TodoServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/todos/${context.todo}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/todos/${context.todo}/checkkey`,data,isloading);
             return res;
     }
 
@@ -192,8 +224,22 @@ export default class TodoServiceBase extends EntityService {
      * @memberof TodoServiceBase
      */
     public async Close(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/todos/${context.todo}/close`,data,isloading);
+            let res:any = await Http.getInstance().post(`/todos/${context.todo}/close`,data,isloading);
             return res;
+    }
+
+    /**
+     * CloseBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TodoServiceBase
+     */
+    public async CloseBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/todos/closebatch`,tempData,isloading);
     }
 
     /**
@@ -206,8 +252,22 @@ export default class TodoServiceBase extends EntityService {
      * @memberof TodoServiceBase
      */
     public async CreateCycle(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/todos/${context.todo}/createcycle`,data,isloading);
+            let res:any = await Http.getInstance().post(`/todos/${context.todo}/createcycle`,data,isloading);
             return res;
+    }
+
+    /**
+     * CreateCycleBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TodoServiceBase
+     */
+    public async CreateCycleBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/todos/createcyclebatch`,tempData,isloading);
     }
 
     /**
@@ -220,8 +280,22 @@ export default class TodoServiceBase extends EntityService {
      * @memberof TodoServiceBase
      */
     public async Finish(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/todos/${context.todo}/finish`,data,isloading);
+            let res:any = await Http.getInstance().post(`/todos/${context.todo}/finish`,data,isloading);
             return res;
+    }
+
+    /**
+     * FinishBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TodoServiceBase
+     */
+    public async FinishBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/todos/finishbatch`,tempData,isloading);
     }
 
     /**
@@ -251,8 +325,22 @@ export default class TodoServiceBase extends EntityService {
      * @memberof TodoServiceBase
      */
     public async SendMessage(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/todos/${context.todo}/sendmessage`,data,isloading);
+            let res:any = await Http.getInstance().post(`/todos/${context.todo}/sendmessage`,data,isloading);
             return res;
+    }
+
+    /**
+     * SendMessageBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TodoServiceBase
+     */
+    public async SendMessageBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/todos/sendmessagebatch`,tempData,isloading);
     }
 
     /**
@@ -265,8 +353,22 @@ export default class TodoServiceBase extends EntityService {
      * @memberof TodoServiceBase
      */
     public async SendMsgPreProcess(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/todos/${context.todo}/sendmsgpreprocess`,data,isloading);
+            let res:any = await Http.getInstance().post(`/todos/${context.todo}/sendmsgpreprocess`,data,isloading);
             return res;
+    }
+
+    /**
+     * SendMsgPreProcessBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TodoServiceBase
+     */
+    public async SendMsgPreProcessBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/todos/sendmsgpreprocessbatch`,tempData,isloading);
     }
 
     /**
@@ -280,7 +382,7 @@ export default class TodoServiceBase extends EntityService {
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().post(`/todos/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().post(`/todos/fetchdefault`,tempData,isloading);
         return res;
     }
 
@@ -309,7 +411,7 @@ export default class TodoServiceBase extends EntityService {
      */
     public async FetchMyTodo(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/todos/fetchmytodo`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/todos/fetchmytodo`,tempData,isloading);
         return res;
     }
 
@@ -338,7 +440,7 @@ export default class TodoServiceBase extends EntityService {
      */
     public async FetchMyTodoPc(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/todos/fetchmytodopc`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/todos/fetchmytodopc`,tempData,isloading);
         return res;
     }
 
@@ -367,7 +469,7 @@ export default class TodoServiceBase extends EntityService {
      */
     public async FetchMyUpcoming(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/todos/fetchmyupcoming`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/todos/fetchmyupcoming`,tempData,isloading);
         return res;
     }
 

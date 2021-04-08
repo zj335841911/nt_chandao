@@ -354,25 +354,25 @@ POST
 #### IBIZProMessageDTO
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
-| 1 | retrytimes | Integer | 允许 | 重发次数 |
-| 2 | from | String | 允许 | 发送方 |
-| 3 | cc | String | 允许 | 抄送方 |
-| 4 | to | String | 允许 | 接收方 |
-| 5 | content | String | 允许 | 内容 |
+| 1 | sendproxyid | String | 允许 | 发送代理标识 |
+| 2 | ibizpromessagename | String | 允许 | 消息名称 |
+| 3 | islink | Integer | 允许 | 是否是链接消息 |
+| 4 | subject | String | 允许 | 标题 |
+| 5 | retryintervaltime | Integer | 允许 | 重发间隔时间 |
 | 6 | bcc | String | 允许 | 密件抄送方 |
-| 7 | param | String | 允许 | 消息参数 |
-| 8 | ibizpromessagename | String | 允许 | 消息名称 |
-| 9 | subject | String | 允许 | 标题 |
-| 10 | retryintervaltime | Integer | 允许 | 重发间隔时间 |
-| 11 | type | String | 允许 | 消息类型 |
-| 12 | issync | Integer | 允许 | 是否同步 |
-| 13 | isretry | Integer | 允许 | 是否重发 |
-| 14 | islink | Integer | 允许 | 是否是链接消息 |
-| 15 | ibizpromessageid | String | 允许 | 消息标识 |
+| 7 | isdone | Integer | 允许 | 是否完成 |
+| 8 | param | String | 允许 | 消息参数 |
+| 9 | ibizpromessageid | String | 允许 | 消息标识 |
+| 10 | retrytimes | Integer | 允许 | 重发次数 |
+| 11 | issync | Integer | 允许 | 是否同步 |
+| 12 | from | String | 允许 | 发送方 |
+| 13 | cc | String | 允许 | 抄送方 |
+| 14 | sendtime | Timestamp | 允许 | 发送时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
+| 15 | content | String | 允许 | 内容 |
 | 16 | linkurl | String | 允许 | 链接地址 |
-| 17 | isdone | Integer | 允许 | 是否完成 |
-| 18 | isread | Integer | 允许 | 是否已读 |
-| 19 | sendproxyid | String | 允许 | 发送代理标识 |
-| 20 | sendtime | Timestamp | 允许 | 发送时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
+| 17 | isread | Integer | 允许 | 是否已读 |
+| 18 | isretry | Integer | 允许 | 是否重发 |
+| 19 | type | String | 允许 | 消息类型 |
+| 20 | to | String | 允许 | 接收方 |
 | 21 | <动态属性> | Object | 允许 | 支持动态属性 |
 

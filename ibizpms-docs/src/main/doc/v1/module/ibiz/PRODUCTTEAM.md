@@ -34,6 +34,9 @@
 | 14 | [总计可用](#属性-总计可用（TOTAL）) | TOTAL | 整型 | 否 | 是 | 是 |
 | 15 | [任务数](#属性-任务数（TASKCNT）) | TASKCNT | 整型 | 否 | 是 | 是 |
 | 16 | [用户](#属性-用户（USERNAME）) | USERNAME | 文本，可指定长度 | 否 | 是 | 是 |
+| 17 | [结束时间](#属性-结束时间（END）) | END | 日期型 | 否 | 是 | 是 |
+| 18 | [当前负责人](#属性-当前负责人（LEADINGCADRE）) | LEADINGCADRE | 单项选择(文本值) | 否 | 是 | 是 |
+| 19 | [成员状态](#属性-成员状态（TEAMSTATUS）) | TEAMSTATUS | 文本，可指定长度 | 否 | 是 | 是 |
 
 ### 属性-加盟日（JOIN）
 #### 属性说明
@@ -70,7 +73,9 @@ yyyy-MM-dd
 否
 
 - 搜索条件
-无
+| 序号 | 组合方式 |
+| ---- | ---- |
+| 1 | `>=` |
 
 #### 关系属性
 | 项目 | 说明 |
@@ -332,6 +337,7 @@ Long
 | 序号 | 组合方式 |
 | ---- | ---- |
 | 1 | `=` |
+| 2 | `in(...)` |
 
 #### 关系属性
 | 项目 | 说明 |
@@ -730,6 +736,138 @@ String
 | 关系属性 | [编号（ID）](../zentao/Product/#属性-编号（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
+### 属性-结束时间（END）
+#### 属性说明
+结束时间
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+日期型
+
+- Java类型
+Timestamp
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+yyyy-MM-dd
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+| 序号 | 组合方式 |
+| ---- | ---- |
+| 1 | `<=` |
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
+| 关系属性 | [编号（ID）](../zentao/Product/#属性-编号（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-当前负责人（LEADINGCADRE）
+#### 属性说明
+当前负责人
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+单项选择(文本值)
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+参照数据字典【[用户真实名称（动态）（UserRealName）](../../codelist/UserRealName)】
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+| 序号 | 组合方式 |
+| ---- | ---- |
+| 1 | `=` |
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
+| 关系属性 | [编号（ID）](../zentao/Product/#属性-编号（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-成员状态（TEAMSTATUS）
+#### 属性说明
+成员状态
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+文本，可指定长度
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+| 项目 | 说明 |
+| ---- | ---- |
+| 类型 |  |
+| 值 | 10 |
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+| 序号 | 组合方式 |
+| ---- | ---- |
+| 1 | `=` |
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [产品（ZT_PRODUCT）](../zentao/Product) |
+| 关系属性 | [编号（ID）](../zentao/Product/#属性-编号（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
 
 ## 业务状态
 无
@@ -872,18 +1010,24 @@ Save
 ### 搜索条件
 | 序号 | 属性 | 组合方式 |
 | ---- | ---- | ---- |
-| 1 | [团队类型（TYPE）](#属性-团队类型（TYPE）) | `=` |
-| 2 | [受限用户（LIMITED）](#属性-受限用户（LIMITED）) | `=` |
-| 3 | [产品编号（ROOT）](#属性-产品编号（ROOT）) | `=` |
-| 4 | [用户（ACCOUNT）](#属性-用户（ACCOUNT）) | `%like%` |
+| 1 | [加盟日（JOIN）](#属性-加盟日（JOIN）) | `>=` |
+| 2 | [团队类型（TYPE）](#属性-团队类型（TYPE）) | `=` |
+| 3 | [受限用户（LIMITED）](#属性-受限用户（LIMITED）) | `=` |
+| 4 | [产品编号（ROOT）](#属性-产品编号（ROOT）) | `=` |
+| 5 | [产品编号（ROOT）](#属性-产品编号（ROOT）) | `in(...)` |
+| 6 | [用户（ACCOUNT）](#属性-用户（ACCOUNT）) | `%like%` |
+| 7 | [结束时间（END）](#属性-结束时间（END）) | `<=` |
+| 8 | [当前负责人（LEADINGCADRE）](#属性-当前负责人（LEADINGCADRE）) | `=` |
+| 9 | [成员状态（TEAMSTATUS）](#属性-成员状态（TEAMSTATUS）) | `=` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |
 | ---- | ---- | ---- | ---- |
 | 1 | [数据查询](#数据查询-数据查询（Default）) | Default | 否 |
 | 2 | [产品团队成员信息](#数据查询-产品团队成员信息（ProductTeamInfo）) | ProductTeamInfo | 否 |
-| 3 | [产品团队管理](#数据查询-产品团队管理（RowEditDefaultProductTeam）) | RowEditDefaultProductTeam | 否 |
-| 4 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 3 | [项目立项](#数据查询-项目立项（ProjectApp）) | ProjectApp | 否 |
+| 4 | [产品团队管理](#数据查询-产品团队管理（RowEditDefaultProductTeam）) | RowEditDefaultProductTeam | 否 |
+| 5 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-数据查询（Default）
 #### 说明
@@ -902,15 +1046,18 @@ SELECT
 t1.`ACCOUNT`,
 t1.`CONSUMED`,
 t1.`DAYS`,
+t1.`END`,
 t1.`ESTIMATE`,
 t1.`HOURS`,
 t1.`ID`,
 t1.`JOIN`,
+t1.`LEADINGCADRE`,
 t1.`LEFT`,
 t1.`LIMITED`,
 t1.`ORDER`,
 t1.`ROLE`,
 t1.`ROOT`,
+t1.`TEAMSTATUS`,
 (t1.`DAYS` * t1.`HOURS`) AS `TOTAL`,
 t1.`TYPE`,
 (select t.realname from zt_user t where t.account = t1.account) AS `USERNAME`
@@ -936,6 +1083,8 @@ SELECT
 	t1.hours,
 	t1.id,
 	t1.`join`,
+        t1.`end`,
+        t1.`LEADINGCADRE`,
 	t1.limited,
 	t1.`order`,
 	t1.role,
@@ -1001,6 +1150,41 @@ FROM
 	(	SELECT *,(SELECT GROUP_CONCAT(project) from zt_projectproduct where product =  t1.root and t1.type = 'product' ) as zzz from zt_team t1
 ) t1
 ```
+### 数据查询-项目立项（ProjectApp）
+#### 说明
+项目立项
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+t1.`ACCOUNT`,
+t1.`CONSUMED`,
+t1.`DAYS`,
+t1.`END`,
+t1.`ESTIMATE`,
+t1.`HOURS`,
+t1.`ID`,
+t1.`JOIN`,
+t1.`LEADINGCADRE`,
+t1.`LEFT`,
+t1.`LIMITED`,
+t1.`ORDER`,
+t1.`ROLE`,
+t1.`ROOT`,
+t1.`TEAMSTATUS`,
+(t1.`DAYS` * t1.`HOURS`) AS `TOTAL`,
+t1.`TYPE`,
+(select t.realname from zt_user t where t.account = t1.account) AS `USERNAME`
+FROM `zt_team` t1 
+
+```
 ### 数据查询-产品团队管理（RowEditDefaultProductTeam）
 #### 说明
 产品团队管理
@@ -1022,6 +1206,8 @@ SELECT
 	t1.`ACCOUNT`,
 	t1.`CONSUMED`,
 	t1.`DAYS`,
+        t1.`end`,
+        t1.`LEADINGCADRE`,
 	t1.`ESTIMATE`,
 	t1.`HOURS`,
 	t1.id as `ID`,
@@ -1044,6 +1230,8 @@ FROM
 	((select SUM(tt.days) from zt_project tt where  FIND_IN_SET(tt.id,(SELECT GROUP_CONCAT(project) FROM zt_projectproduct where product = #{srf.datacontext.root} )
 	)) )
 	AS `DAYS`,
+        null as `end`,
+        null as `LEADINGCADRE`,
 	0 AS `ESTIMATE`,
 	7 AS `HOURS`,
 	null as `ID`,
@@ -1071,6 +1259,8 @@ FROM
 	((select SUM(tt.days) from zt_project tt where  FIND_IN_SET(tt.id,(SELECT GROUP_CONCAT(project) FROM zt_projectproduct where product = #{srf.datacontext.root} )
 	)) )
 	AS `DAYS`,
+        null as `end`,
+        null as `LEADINGCADRE`,
 	0 AS `ESTIMATE`,
 	7 AS `HOURS`,
 	null as `ID`,
@@ -1110,15 +1300,18 @@ SELECT
 t1.`ACCOUNT`,
 t1.`CONSUMED`,
 t1.`DAYS`,
+t1.`END`,
 t1.`ESTIMATE`,
 t1.`HOURS`,
 t1.`ID`,
 t1.`JOIN`,
+t1.`LEADINGCADRE`,
 t1.`LEFT`,
 t1.`LIMITED`,
 t1.`ORDER`,
 t1.`ROLE`,
 t1.`ROOT`,
+t1.`TEAMSTATUS`,
 (t1.`DAYS` * t1.`HOURS`) AS `TOTAL`,
 t1.`TYPE`,
 (select t.realname from zt_user t where t.account = t1.account) AS `USERNAME`
@@ -1131,7 +1324,8 @@ FROM `zt_team` t1
 | ---- | ---- | ---- | ---- |
 | 1 | [数据集](#数据集合-数据集（Default）) | Default | 是 |
 | 2 | [产品团队成员信息](#数据集合-产品团队成员信息（ProductTeamInfo）) | ProductTeamInfo | 否 |
-| 3 | [产品团队管理](#数据集合-产品团队管理（RowEditDefaultProductTeam）) | RowEditDefaultProductTeam | 否 |
+| 3 | [项目立项](#数据集合-项目立项（ProjectApp）) | ProjectApp | 否 |
+| 4 | [产品团队管理](#数据集合-产品团队管理（RowEditDefaultProductTeam）) | RowEditDefaultProductTeam | 否 |
 
 ### 数据集合-数据集（Default）
 #### 说明
@@ -1161,6 +1355,20 @@ FROM `zt_team` t1
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [产品团队成员信息（ProductTeamInfo）](#数据查询-产品团队成员信息（ProductTeamInfo）) |
+### 数据集合-项目立项（ProjectApp）
+#### 说明
+项目立项
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [项目立项（ProjectApp）](#数据查询-项目立项（ProjectApp）) |
 ### 数据集合-产品团队管理（RowEditDefaultProductTeam）
 #### 说明
 产品团队管理

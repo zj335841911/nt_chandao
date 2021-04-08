@@ -126,7 +126,7 @@ export default class BugLogMobMDView9Base extends Vue {
 	 * @type {string}
 	 * @memberof BugLogMobMDView9Base
 	 */
-	protected viewtag: string = 'dc1e0f061d279d7a5773df36833f94d2';
+	protected viewtag: string = 'fd416097dcc82ca31da5a2f203b5c264';
 
     /**
      * 视图上下文

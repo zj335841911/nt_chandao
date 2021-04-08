@@ -54,9 +54,6 @@ public class BugStatsServiceImpl extends ServiceImpl<BugStatsMapper, BugStats> i
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.IProjectService projectService;
-    @Autowired
-    @Lazy
-    IBugStatsService proxyService;
 
     protected int batchSize = 500;
 
@@ -64,7 +61,7 @@ public class BugStatsServiceImpl extends ServiceImpl<BugStatsMapper, BugStats> i
     @Transactional
     public boolean create(BugStats et) {
         fillParentData(et);
-        if (!this.retBool(this.baseMapper.insert(et))) {
+        if(!this.retBool(this.baseMapper.insert(et))) {
             return false;
         }
         CachedBeanCopier.copy(get(et.getId()), et);
@@ -82,7 +79,7 @@ public class BugStatsServiceImpl extends ServiceImpl<BugStatsMapper, BugStats> i
     @Transactional
     public boolean update(BugStats et) {
         fillParentData(et);
-        if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", et.getId()))) {
+        if(!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", et.getId()))) {
             return false;
         }
         CachedBeanCopier.copy(get(et.getId()), et);
@@ -100,7 +97,7 @@ public class BugStatsServiceImpl extends ServiceImpl<BugStatsMapper, BugStats> i
     @Transactional
     public boolean remove(Long key) {
         boolean result = removeById(key);
-        return result;
+        return result ;
     }
 
     @Override
@@ -113,7 +110,7 @@ public class BugStatsServiceImpl extends ServiceImpl<BugStatsMapper, BugStats> i
     @Transactional
     public BugStats get(Long key) {
         BugStats et = getById(key);
-        if (et == null) {
+        if(et == null){
             et = new BugStats();
             et.setId(key);
         }
@@ -135,7 +132,7 @@ public class BugStatsServiceImpl extends ServiceImpl<BugStatsMapper, BugStats> i
     @Override
     @Transactional
     public boolean save(BugStats et) {
-        if (!saveOrUpdate(et)) {
+        if(!saveOrUpdate(et)) {
             return false;
         }
         return true;
@@ -147,7 +144,7 @@ public class BugStatsServiceImpl extends ServiceImpl<BugStatsMapper, BugStats> i
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
+            return checkKey(et) ? getProxyService().update(et) : getProxyService().create(et);
         }
     }
 
@@ -165,10 +162,10 @@ public class BugStatsServiceImpl extends ServiceImpl<BugStatsMapper, BugStats> i
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
         return true;
     }
@@ -176,7 +173,7 @@ public class BugStatsServiceImpl extends ServiceImpl<BugStatsMapper, BugStats> i
     @Override
     @Transactional
     public void saveBatch(List<BugStats> list) {
-        list.forEach(item -> fillParentData(item));
+        list.forEach(item->fillParentData(item));
         List<BugStats> create = new ArrayList<>();
         List<BugStats> update = new ArrayList<>();
         for (BugStats et : list) {
@@ -187,30 +184,30 @@ public class BugStatsServiceImpl extends ServiceImpl<BugStatsMapper, BugStats> i
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
     }
 
 
-    @Override
+	@Override
     public List<BugStats> selectByProduct(Long id) {
         return baseMapper.selectByProduct(id);
     }
     @Override
     public void removeByProduct(Long id) {
-        this.remove(new QueryWrapper<BugStats>().eq("product", id));
+        this.remove(new QueryWrapper<BugStats>().eq("product",id));
     }
 
-    @Override
+	@Override
     public List<BugStats> selectByProject(Long id) {
         return baseMapper.selectByProject(id);
     }
     @Override
     public void removeByProject(Long id) {
-        this.remove(new QueryWrapper<BugStats>().eq("project", id));
+        this.remove(new QueryWrapper<BugStats>().eq("project",id));
     }
 
 
@@ -219,7 +216,7 @@ public class BugStatsServiceImpl extends ServiceImpl<BugStatsMapper, BugStats> i
      */
     @Override
     public Page<BugStats> searchBugCountInResolution(BugStatsSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<BugStats> pages=baseMapper.searchBugCountInResolution(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<BugStats> pages=baseMapper.searchBugCountInResolution(context.getPages(),context,context.getSelectCond());
         return new PageImpl<BugStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -228,7 +225,7 @@ public class BugStatsServiceImpl extends ServiceImpl<BugStatsMapper, BugStats> i
      */
     @Override
     public Page<BugStats> searchBugResolvedBy(BugStatsSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<BugStats> pages=baseMapper.searchBugResolvedBy(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<BugStats> pages=baseMapper.searchBugResolvedBy(context.getPages(),context,context.getSelectCond());
         return new PageImpl<BugStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -237,7 +234,7 @@ public class BugStatsServiceImpl extends ServiceImpl<BugStatsMapper, BugStats> i
      */
     @Override
     public Page<BugStats> searchBugResolvedGird(BugStatsSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<BugStats> pages=baseMapper.searchBugResolvedGird(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<BugStats> pages=baseMapper.searchBugResolvedGird(context.getPages(),context,context.getSelectCond());
         return new PageImpl<BugStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -246,7 +243,7 @@ public class BugStatsServiceImpl extends ServiceImpl<BugStatsMapper, BugStats> i
      */
     @Override
     public Page<BugStats> searchBugassignedTo(BugStatsSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<BugStats> pages=baseMapper.searchBugassignedTo(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<BugStats> pages=baseMapper.searchBugassignedTo(context.getPages(),context,context.getSelectCond());
         return new PageImpl<BugStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -255,7 +252,7 @@ public class BugStatsServiceImpl extends ServiceImpl<BugStatsMapper, BugStats> i
      */
     @Override
     public Page<BugStats> searchDefault(BugStatsSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<BugStats> pages=baseMapper.searchDefault(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<BugStats> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
         return new PageImpl<BugStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -264,7 +261,7 @@ public class BugStatsServiceImpl extends ServiceImpl<BugStatsMapper, BugStats> i
      */
     @Override
     public Page<BugStats> searchProductBugResolutionStats(BugStatsSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<BugStats> pages=baseMapper.searchProductBugResolutionStats(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<BugStats> pages=baseMapper.searchProductBugResolutionStats(context.getPages(),context,context.getSelectCond());
         return new PageImpl<BugStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -273,7 +270,7 @@ public class BugStatsServiceImpl extends ServiceImpl<BugStatsMapper, BugStats> i
      */
     @Override
     public Page<BugStats> searchProductBugStatusSum(BugStatsSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<BugStats> pages=baseMapper.searchProductBugStatusSum(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<BugStats> pages=baseMapper.searchProductBugStatusSum(context.getPages(),context,context.getSelectCond());
         return new PageImpl<BugStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -282,7 +279,7 @@ public class BugStatsServiceImpl extends ServiceImpl<BugStatsMapper, BugStats> i
      */
     @Override
     public Page<BugStats> searchProductCreateBug(BugStatsSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<BugStats> pages=baseMapper.searchProductCreateBug(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<BugStats> pages=baseMapper.searchProductCreateBug(context.getPages(),context,context.getSelectCond());
         return new PageImpl<BugStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -291,7 +288,7 @@ public class BugStatsServiceImpl extends ServiceImpl<BugStatsMapper, BugStats> i
      */
     @Override
     public Page<BugStats> searchProjectBugStatusCount(BugStatsSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<BugStats> pages=baseMapper.searchProjectBugStatusCount(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<BugStats> pages=baseMapper.searchProjectBugStatusCount(context.getPages(),context,context.getSelectCond());
         return new PageImpl<BugStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -303,12 +300,12 @@ public class BugStatsServiceImpl extends ServiceImpl<BugStatsMapper, BugStats> i
      */
     private void fillParentData(BugStats et){
         //实体关系[DER1N_IBZ_BUGSTATS_ZT_PRODUCT_PRODUCT]
-        if (!ObjectUtils.isEmpty(et.getProduct())) {
+        if(!ObjectUtils.isEmpty(et.getProduct())){
             cn.ibizlab.pms.core.zentao.domain.Product ztproduct=et.getZtproduct();
-            if (ObjectUtils.isEmpty(ztproduct)) {
+            if(ObjectUtils.isEmpty(ztproduct)){
                 cn.ibizlab.pms.core.zentao.domain.Product majorEntity=productService.get(et.getProduct());
                 et.setZtproduct(majorEntity);
-                ztproduct = majorEntity;
+                ztproduct=majorEntity;
             }
             et.setProductname(ztproduct.getName());
         }
@@ -318,24 +315,24 @@ public class BugStatsServiceImpl extends ServiceImpl<BugStatsMapper, BugStats> i
 
 
     @Override
-    public List<JSONObject> select(String sql, Map param) {
-        return this.baseMapper.selectBySQL(sql, param);
+    public List<JSONObject> select(String sql, Map param){
+        return this.baseMapper.selectBySQL(sql,param);
     }
 
     @Override
     @Transactional
-    public boolean execute(String sql, Map param) {
+    public boolean execute(String sql , Map param){
         if (sql == null || sql.isEmpty()) {
             return false;
         }
         if (sql.toLowerCase().trim().startsWith("insert")) {
-            return this.baseMapper.insertBySQL(sql, param);
+            return this.baseMapper.insertBySQL(sql,param);
         }
         if (sql.toLowerCase().trim().startsWith("update")) {
-            return this.baseMapper.updateBySQL(sql, param);
+            return this.baseMapper.updateBySQL(sql,param);
         }
         if (sql.toLowerCase().trim().startsWith("delete")) {
-            return this.baseMapper.deleteBySQL(sql, param);
+            return this.baseMapper.deleteBySQL(sql,param);
         }
         log.warn("暂未支持的SQL语法");
         return true;
@@ -343,9 +340,9 @@ public class BugStatsServiceImpl extends ServiceImpl<BugStatsMapper, BugStats> i
 
 
 
-
-
+    public IBugStatsService getProxyService() {
+        return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
+    }
 }
-
 
 

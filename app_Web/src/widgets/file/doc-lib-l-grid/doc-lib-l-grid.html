@@ -98,7 +98,7 @@
                     </template>
                     <template v-slot="{row,column,$index}">
                         <template >
-            <codelist :value="row.addedby" tag="UserRealName" codelistType="DYNAMIC" renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
+            <codelist :value="row.addedby" tag="UserRealName_Gird" codelistType="DYNAMIC" renderMode="STR" valueSeparator="," textSeparator="," ></codelist>
                         </template>
                     </template>
                 </el-table-column>
@@ -126,11 +126,6 @@
                         <div style="text-align: center;">
                             <a v-show="scope.row.ibzdownload.visible" :disabled="scope.row.ibzdownload.disabled" @click="uiAction(scope.row, 'ibzdownload', $event)" :title="$t('entities.file.doclibl_grid.uiactions.file_ibzdownload')">
                                 <i class="fa fa-download"></i>
-                                
-                            </a>
-                            <divider v-show="scope.row.PreviewFile.visible" type="vertical"></divider>
-                            <a v-show="scope.row.PreviewFile.visible" :disabled="scope.row.PreviewFile.disabled" @click="uiAction(scope.row, 'PreviewFile', $event)" :title="$t('entities.file.doclibl_grid.uiactions.file_previewfile')">
-                                <i class="eye"></i>
                                 
                             </a>
                             <divider v-show="scope.row.delete.visible" type="vertical"></divider>

@@ -112,7 +112,7 @@ export default class BugUsr3MobPickupMDView1Base extends Vue {
 	 * @type {string}
 	 * @memberof BugUsr3MobPickupMDView1Base
 	 */
-	protected viewtag: string = 'c5fb7ab4959d7dacf105f0a51695180b';
+	protected viewtag: string = 'cfecea6fab6eba6155bd550ef64019d1';
 
     /**
      * 视图上下文

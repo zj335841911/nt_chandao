@@ -12,4 +12,3 @@ public interface IbzMyTerritoryMapping extends MappingBase<IbzMyTerritoryDTO, Ib
 
 
 }
-

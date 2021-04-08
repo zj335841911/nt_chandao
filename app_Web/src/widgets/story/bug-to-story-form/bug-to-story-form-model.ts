@@ -111,6 +111,11 @@ export default class BugToStoryModel {
         dataType: 'TEXT',
       },
       {
+        name: 'neednotreview',
+        prop: 'neednotreview',
+        dataType: 'SMCODELIST',
+      },
+      {
         name: 'title',
         prop: 'title',
         dataType: 'TEXT',
@@ -133,12 +138,12 @@ export default class BugToStoryModel {
       {
         name: 'spec',
         prop: 'spec',
-        dataType: 'TEXT',
+        dataType: 'HTMLTEXT',
       },
       {
         name: 'verify',
         prop: 'verify',
-        dataType: 'TEXT',
+        dataType: 'LONGTEXT',
       },
       {
         name: 'mailtopk',

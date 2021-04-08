@@ -143,7 +143,7 @@ export default class TaskEditMobEditViewBase extends Vue {
 	 * @type {string}
 	 * @memberof TaskEditMobEditViewBase
 	 */
-	protected viewtag: string = '31c08ada7e3c3bc55c550b01fd8422c6';
+	protected viewtag: string = '1e8bf7851e30ff90cab9594ed21ce8be';
 
     /**
      * 视图上下文

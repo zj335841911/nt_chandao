@@ -29,56 +29,28 @@ export default {
     showorder: "排序",
     enable: "逻辑有效",
     createdate: "创建时间",
+    updatedate: "更新时间",
     updateman: "更新人",
     createman: "建立人",
-    updatedate: "更新时间",
   },
 	views: {
+		headportraitmobeditview: {
+			caption: commonLogic.appcommonhandle("头像",null),
+		},
 		mpkmobpickuptreeview: {
+			caption: commonLogic.appcommonhandle("人员",null),
+		},
+		treemobpickupview: {
 			caption: commonLogic.appcommonhandle("人员",null),
 		},
 		mobpickuptreeview: {
 			caption: commonLogic.appcommonhandle("人员",null),
 		},
-		headportraitmobeditview: {
-			caption: commonLogic.appcommonhandle("头像",null),
-		},
-		treemobpickupview: {
+		usertreemobmpickupview: {
 			caption: commonLogic.appcommonhandle("人员",null),
 		},
 		loginmobeditview: {
 			caption: commonLogic.appcommonhandle("账号信息",null),
-		},
-		usertreemobmpickupview: {
-			caption: commonLogic.appcommonhandle("人员",null),
-		},
-	},
-	mobinfo_form: {
-		details: {
-			group1: commonLogic.appcommonhandle("人员基本信息",null), 
-			formpage1: commonLogic.appcommonhandle("基本信息",null), 
-			srfupdatedate: commonLogic.appcommonhandle("更新时间",null), 
-			srforikey: commonLogic.appcommonhandle("",null), 
-			srfkey: commonLogic.appcommonhandle("用户标识",null), 
-			srfmajortext: commonLogic.appcommonhandle("姓名",null), 
-			srftempmode: commonLogic.appcommonhandle("",null), 
-			srfuf: commonLogic.appcommonhandle("",null), 
-			srfdeid: commonLogic.appcommonhandle("",null), 
-			srfsourcekey: commonLogic.appcommonhandle("",null), 
-			usercode: commonLogic.appcommonhandle("工号",null), 
-			personname: commonLogic.appcommonhandle("姓名",null), 
-			username: commonLogic.appcommonhandle("账号",null), 
-			orgname: commonLogic.appcommonhandle("单位",null), 
-			mdeptname: commonLogic.appcommonhandle("部门",null), 
-			bcode: commonLogic.appcommonhandle("业务编码",null), 
-			nickname: commonLogic.appcommonhandle("昵称别名",null), 
-			sex: commonLogic.appcommonhandle("性别",null), 
-			phone: commonLogic.appcommonhandle("电话",null), 
-			avatar: commonLogic.appcommonhandle("社交账号",null), 
-			email: commonLogic.appcommonhandle("邮件",null), 
-			userid: commonLogic.appcommonhandle("用户标识",null), 
-		},
-		uiactions: {
 		},
 	},
 	mobmain_form: {
@@ -121,6 +93,34 @@ export default {
 			mdeptname: commonLogic.appcommonhandle("主部门名称",null), 
 			orgid: commonLogic.appcommonhandle("单位",null), 
 			orgcode: commonLogic.appcommonhandle("单位代码",null), 
+		},
+		uiactions: {
+		},
+	},
+	mobinfo_form: {
+		details: {
+			group1: commonLogic.appcommonhandle("人员基本信息",null), 
+			formpage1: commonLogic.appcommonhandle("基本信息",null), 
+			srfupdatedate: commonLogic.appcommonhandle("更新时间",null), 
+			srforikey: commonLogic.appcommonhandle("",null), 
+			srfkey: commonLogic.appcommonhandle("用户标识",null), 
+			srfmajortext: commonLogic.appcommonhandle("姓名",null), 
+			srftempmode: commonLogic.appcommonhandle("",null), 
+			srfuf: commonLogic.appcommonhandle("",null), 
+			srfdeid: commonLogic.appcommonhandle("",null), 
+			srfsourcekey: commonLogic.appcommonhandle("",null), 
+			usercode: commonLogic.appcommonhandle("工号",null), 
+			personname: commonLogic.appcommonhandle("姓名",null), 
+			username: commonLogic.appcommonhandle("账号",null), 
+			orgname: commonLogic.appcommonhandle("单位",null), 
+			mdeptname: commonLogic.appcommonhandle("部门",null), 
+			bcode: commonLogic.appcommonhandle("业务编码",null), 
+			nickname: commonLogic.appcommonhandle("昵称别名",null), 
+			sex: commonLogic.appcommonhandle("性别",null), 
+			phone: commonLogic.appcommonhandle("电话",null), 
+			avatar: commonLogic.appcommonhandle("社交账号",null), 
+			email: commonLogic.appcommonhandle("邮件",null), 
+			userid: commonLogic.appcommonhandle("用户标识",null), 
 		},
 		uiactions: {
 		},

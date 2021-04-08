@@ -12,4 +12,3 @@ public interface IBIZProMessageMapping extends MappingBase<IBIZProMessageDTO, IB
 
 
 }
-

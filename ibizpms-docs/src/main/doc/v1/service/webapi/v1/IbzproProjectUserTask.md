@@ -333,26 +333,26 @@ POST
 #### IbzproProjectUserTaskDTO
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
-| 1 | account | String | 允许 | 用户 |
-| 2 | id | Long | 不可 | 编号 |
-| 3 | consumed | Double | 允许 | 总计消耗 |
-| 4 | date | Timestamp | 允许 | 日期<br>时间格式：yyyy-MM-dd |
-| 5 | left | Double | 允许 | 预计剩余 |
-| 6 | work | String | 允许 | work |
-| 7 | task | Long | 允许 | 任务 |
-| 8 | taskname | String | 允许 | 任务名称 |
-| 9 | tasktype | String | 允许 | 任务类型 |
-| 10 | progressrate | String | 允许 | 进度 |
-| 11 | delaydays | String | 允许 | 延期天数 |
-| 12 | eststarted | Timestamp | 允许 | 预计开始<br>时间格式：yyyy-MM-dd |
-| 13 | deadline | Timestamp | 允许 | 截止日期<br>时间格式：yyyy-MM-dd |
+| 1 | work | String | 允许 | work |
+| 2 | tasktype | String | 允许 | 任务类型 |
+| 3 | account | String | 允许 | 用户 |
+| 4 | consumed | Double | 允许 | 总计消耗 |
+| 5 | date | Timestamp | 允许 | 日期<br>时间格式：yyyy-MM-dd |
+| 6 | delaydays | String | 允许 | 延期天数 |
+| 7 | id | Long | 不可 | 编号 |
+| 8 | progressrate | String | 允许 | 进度 |
+| 9 | eststarted | Timestamp | 允许 | 预计开始<br>时间格式：yyyy-MM-dd |
+| 10 | deadline | Timestamp | 允许 | 截止日期<br>时间格式：yyyy-MM-dd |
+| 11 | task | Long | 允许 | 任务 |
+| 12 | left | Double | 允许 | 预计剩余 |
+| 13 | taskname | String | 允许 | 任务名称 |
 | 14 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### IbzproProjectUserTaskSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
-| 1 | n_id_like | Long | 允许 | 条件字段：id<br>条件组合方式：`%like%` |
-| 2 | n_tasktype_eq | String | 允许 | 条件字段：tasktype<br>条件组合方式：`=` |
+| 1 | n_tasktype_eq | String | 允许 | 条件字段：tasktype<br>条件组合方式：`=` |
+| 2 | n_id_like | Long | 允许 | 条件字段：id<br>条件组合方式：`%like%` |
 | 3 | customcond | String | 允许 | 自定义查询条件 |
 | 4 | customparams | String | 允许 | 自定义查询参数 |
 | 5 | query | String | 允许 | 快速搜索 |

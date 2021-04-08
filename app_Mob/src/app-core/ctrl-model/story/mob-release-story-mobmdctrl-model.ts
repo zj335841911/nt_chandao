@@ -15,22 +15,22 @@ export class MOB_Release_StoryModel {
 	public getDataItems(): any[] {
 		return [
 			{
-				name: 'assignedto',
+				name: 'status',
 			},
 			{
-				name: 'status',
+				name: 'stage',
 			},
 			{
 				name: 'pri',
 			},
 			{
-				name: 'title',
-			},
-			{
 				name: 'isfavorites',
 			},
 			{
-				name: 'stage',
+				name: 'assignedto',
+			},
+			{
+				name: 'title',
 			},
 			{
 				name: 'srfkey',

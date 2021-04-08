@@ -141,7 +141,7 @@ export default class TaskCancelMobOptionViewBase extends Vue {
 	 * @type {string}
 	 * @memberof TaskCancelMobOptionViewBase
 	 */
-	protected viewtag: string = '3dceefbdc55213c1c17b2eb35095fb3c';
+	protected viewtag: string = '21575c1aa48e2c18135cbc5775ecd712';
 
     /**
      * 视图上下文

@@ -454,6 +454,438 @@ mock.onPost(new RegExp(/^\/productplans\/([a-zA-Z0-9\-\;]{1,35})\/subproductplan
 });
 
     
+// EeActivePlan
+mock.onPost(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/productplans\/([a-zA-Z0-9\-\;]{1,35})\/subproductplans\/([a-zA-Z0-9\-\;]{1,35})\/eeactiveplan$/)).reply((config: any) => {
+    console.groupCollapsed("实体:subproductplan 方法: EeActivePlan");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    const paramArray:Array<any> = ['id','id','id'];
+    const matchArray:any = new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/productplans\/([a-zA-Z0-9\-\;]{1,35})\/subproductplans\/([a-zA-Z0-9\-\;]{1,35})\/eeactiveplan$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table({});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, {}];
+});
+
+    
+// EeActivePlan
+mock.onPost(new RegExp(/^\/productplans\/([a-zA-Z0-9\-\;]{1,35})\/subproductplans\/([a-zA-Z0-9\-\;]{1,35})\/eeactiveplan$/)).reply((config: any) => {
+    console.groupCollapsed("实体:subproductplan 方法: EeActivePlan");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    const paramArray:Array<any> = ['id','id'];
+    const matchArray:any = new RegExp(/^\/productplans\/([a-zA-Z0-9\-\;]{1,35})\/subproductplans\/([a-zA-Z0-9\-\;]{1,35})\/eeactiveplan$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table({});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, {}];
+});
+
+    
+// EeCancelPlan
+mock.onPost(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/productplans\/([a-zA-Z0-9\-\;]{1,35})\/subproductplans\/([a-zA-Z0-9\-\;]{1,35})\/eecancelplan$/)).reply((config: any) => {
+    console.groupCollapsed("实体:subproductplan 方法: EeCancelPlan");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    const paramArray:Array<any> = ['id','id','id'];
+    const matchArray:any = new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/productplans\/([a-zA-Z0-9\-\;]{1,35})\/subproductplans\/([a-zA-Z0-9\-\;]{1,35})\/eecancelplan$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table({});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, {}];
+});
+
+    
+// EeCancelPlan
+mock.onPost(new RegExp(/^\/productplans\/([a-zA-Z0-9\-\;]{1,35})\/subproductplans\/([a-zA-Z0-9\-\;]{1,35})\/eecancelplan$/)).reply((config: any) => {
+    console.groupCollapsed("实体:subproductplan 方法: EeCancelPlan");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    const paramArray:Array<any> = ['id','id'];
+    const matchArray:any = new RegExp(/^\/productplans\/([a-zA-Z0-9\-\;]{1,35})\/subproductplans\/([a-zA-Z0-9\-\;]{1,35})\/eecancelplan$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table({});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, {}];
+});
+
+    
+// EeClosePlan
+mock.onPost(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/productplans\/([a-zA-Z0-9\-\;]{1,35})\/subproductplans\/([a-zA-Z0-9\-\;]{1,35})\/eecloseplan$/)).reply((config: any) => {
+    console.groupCollapsed("实体:subproductplan 方法: EeClosePlan");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    const paramArray:Array<any> = ['id','id','id'];
+    const matchArray:any = new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/productplans\/([a-zA-Z0-9\-\;]{1,35})\/subproductplans\/([a-zA-Z0-9\-\;]{1,35})\/eecloseplan$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table({});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, {}];
+});
+
+    
+// EeClosePlan
+mock.onPost(new RegExp(/^\/productplans\/([a-zA-Z0-9\-\;]{1,35})\/subproductplans\/([a-zA-Z0-9\-\;]{1,35})\/eecloseplan$/)).reply((config: any) => {
+    console.groupCollapsed("实体:subproductplan 方法: EeClosePlan");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    const paramArray:Array<any> = ['id','id'];
+    const matchArray:any = new RegExp(/^\/productplans\/([a-zA-Z0-9\-\;]{1,35})\/subproductplans\/([a-zA-Z0-9\-\;]{1,35})\/eecloseplan$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table({});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, {}];
+});
+
+    
+// EeFinishPlan
+mock.onPost(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/productplans\/([a-zA-Z0-9\-\;]{1,35})\/subproductplans\/([a-zA-Z0-9\-\;]{1,35})\/eefinishplan$/)).reply((config: any) => {
+    console.groupCollapsed("实体:subproductplan 方法: EeFinishPlan");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    const paramArray:Array<any> = ['id','id','id'];
+    const matchArray:any = new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/productplans\/([a-zA-Z0-9\-\;]{1,35})\/subproductplans\/([a-zA-Z0-9\-\;]{1,35})\/eefinishplan$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table({});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, {}];
+});
+
+    
+// EeFinishPlan
+mock.onPost(new RegExp(/^\/productplans\/([a-zA-Z0-9\-\;]{1,35})\/subproductplans\/([a-zA-Z0-9\-\;]{1,35})\/eefinishplan$/)).reply((config: any) => {
+    console.groupCollapsed("实体:subproductplan 方法: EeFinishPlan");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    const paramArray:Array<any> = ['id','id'];
+    const matchArray:any = new RegExp(/^\/productplans\/([a-zA-Z0-9\-\;]{1,35})\/subproductplans\/([a-zA-Z0-9\-\;]{1,35})\/eefinishplan$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table({});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, {}];
+});
+
+    
+// EePausePlan
+mock.onPost(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/productplans\/([a-zA-Z0-9\-\;]{1,35})\/subproductplans\/([a-zA-Z0-9\-\;]{1,35})\/eepauseplan$/)).reply((config: any) => {
+    console.groupCollapsed("实体:subproductplan 方法: EePausePlan");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    const paramArray:Array<any> = ['id','id','id'];
+    const matchArray:any = new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/productplans\/([a-zA-Z0-9\-\;]{1,35})\/subproductplans\/([a-zA-Z0-9\-\;]{1,35})\/eepauseplan$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table({});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, {}];
+});
+
+    
+// EePausePlan
+mock.onPost(new RegExp(/^\/productplans\/([a-zA-Z0-9\-\;]{1,35})\/subproductplans\/([a-zA-Z0-9\-\;]{1,35})\/eepauseplan$/)).reply((config: any) => {
+    console.groupCollapsed("实体:subproductplan 方法: EePausePlan");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    const paramArray:Array<any> = ['id','id'];
+    const matchArray:any = new RegExp(/^\/productplans\/([a-zA-Z0-9\-\;]{1,35})\/subproductplans\/([a-zA-Z0-9\-\;]{1,35})\/eepauseplan$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table({});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, {}];
+});
+
+    
+// EeRestartPlan
+mock.onPost(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/productplans\/([a-zA-Z0-9\-\;]{1,35})\/subproductplans\/([a-zA-Z0-9\-\;]{1,35})\/eerestartplan$/)).reply((config: any) => {
+    console.groupCollapsed("实体:subproductplan 方法: EeRestartPlan");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    const paramArray:Array<any> = ['id','id','id'];
+    const matchArray:any = new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/productplans\/([a-zA-Z0-9\-\;]{1,35})\/subproductplans\/([a-zA-Z0-9\-\;]{1,35})\/eerestartplan$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table({});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, {}];
+});
+
+    
+// EeRestartPlan
+mock.onPost(new RegExp(/^\/productplans\/([a-zA-Z0-9\-\;]{1,35})\/subproductplans\/([a-zA-Z0-9\-\;]{1,35})\/eerestartplan$/)).reply((config: any) => {
+    console.groupCollapsed("实体:subproductplan 方法: EeRestartPlan");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    const paramArray:Array<any> = ['id','id'];
+    const matchArray:any = new RegExp(/^\/productplans\/([a-zA-Z0-9\-\;]{1,35})\/subproductplans\/([a-zA-Z0-9\-\;]{1,35})\/eerestartplan$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table({});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, {}];
+});
+
+    
+// EeStartPlan
+mock.onPost(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/productplans\/([a-zA-Z0-9\-\;]{1,35})\/subproductplans\/([a-zA-Z0-9\-\;]{1,35})\/eestartplan$/)).reply((config: any) => {
+    console.groupCollapsed("实体:subproductplan 方法: EeStartPlan");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    const paramArray:Array<any> = ['id','id','id'];
+    const matchArray:any = new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/productplans\/([a-zA-Z0-9\-\;]{1,35})\/subproductplans\/([a-zA-Z0-9\-\;]{1,35})\/eestartplan$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table({});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, {}];
+});
+
+    
+// EeStartPlan
+mock.onPost(new RegExp(/^\/productplans\/([a-zA-Z0-9\-\;]{1,35})\/subproductplans\/([a-zA-Z0-9\-\;]{1,35})\/eestartplan$/)).reply((config: any) => {
+    console.groupCollapsed("实体:subproductplan 方法: EeStartPlan");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    const paramArray:Array<any> = ['id','id'];
+    const matchArray:any = new RegExp(/^\/productplans\/([a-zA-Z0-9\-\;]{1,35})\/subproductplans\/([a-zA-Z0-9\-\;]{1,35})\/eestartplan$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table({});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, {}];
+});
+
+    
+// GetOldPlanName
+mock.onPost(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/productplans\/([a-zA-Z0-9\-\;]{1,35})\/subproductplans\/([a-zA-Z0-9\-\;]{1,35})\/getoldplanname$/)).reply((config: any) => {
+    console.groupCollapsed("实体:subproductplan 方法: GetOldPlanName");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    const paramArray:Array<any> = ['id','id','id'];
+    const matchArray:any = new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/productplans\/([a-zA-Z0-9\-\;]{1,35})\/subproductplans\/([a-zA-Z0-9\-\;]{1,35})\/getoldplanname$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table({});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, {}];
+});
+
+    
+// GetOldPlanName
+mock.onPost(new RegExp(/^\/productplans\/([a-zA-Z0-9\-\;]{1,35})\/subproductplans\/([a-zA-Z0-9\-\;]{1,35})\/getoldplanname$/)).reply((config: any) => {
+    console.groupCollapsed("实体:subproductplan 方法: GetOldPlanName");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    const paramArray:Array<any> = ['id','id'];
+    const matchArray:any = new RegExp(/^\/productplans\/([a-zA-Z0-9\-\;]{1,35})\/subproductplans\/([a-zA-Z0-9\-\;]{1,35})\/getoldplanname$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table({});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, {}];
+});
+
+    
 // ImportPlanTemplet
 mock.onPost(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/productplans\/([a-zA-Z0-9\-\;]{1,35})\/subproductplans\/([a-zA-Z0-9\-\;]{1,35})\/importplantemplet$/)).reply((config: any) => {
     console.groupCollapsed("实体:subproductplan 方法: ImportPlanTemplet");
@@ -599,6 +1031,60 @@ mock.onPost(new RegExp(/^\/productplans\/([a-zA-Z0-9\-\;]{1,35})\/subproductplan
     }
     const paramArray:Array<any> = ['id','id'];
     const matchArray:any = new RegExp(/^\/productplans\/([a-zA-Z0-9\-\;]{1,35})\/subproductplans\/([a-zA-Z0-9\-\;]{1,35})\/linkstory$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table({});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, {}];
+});
+
+    
+// LinkTask
+mock.onPost(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/productplans\/([a-zA-Z0-9\-\;]{1,35})\/subproductplans\/([a-zA-Z0-9\-\;]{1,35})\/linktask$/)).reply((config: any) => {
+    console.groupCollapsed("实体:subproductplan 方法: LinkTask");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    const paramArray:Array<any> = ['id','id','id'];
+    const matchArray:any = new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/productplans\/([a-zA-Z0-9\-\;]{1,35})\/subproductplans\/([a-zA-Z0-9\-\;]{1,35})\/linktask$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table({});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, {}];
+});
+
+    
+// LinkTask
+mock.onPost(new RegExp(/^\/productplans\/([a-zA-Z0-9\-\;]{1,35})\/subproductplans\/([a-zA-Z0-9\-\;]{1,35})\/linktask$/)).reply((config: any) => {
+    console.groupCollapsed("实体:subproductplan 方法: LinkTask");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    const paramArray:Array<any> = ['id','id'];
+    const matchArray:any = new RegExp(/^\/productplans\/([a-zA-Z0-9\-\;]{1,35})\/subproductplans\/([a-zA-Z0-9\-\;]{1,35})\/linktask$/).exec(config.url);
     let tempValue: any = {};
     if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
         paramArray.forEach((item: any, index: number) => {
@@ -829,6 +1315,96 @@ mock.onPost(new RegExp(/^\/productplans\/([a-zA-Z0-9\-\;]{1,35})\/subproductplan
     console.groupEnd();
     console.groupEnd();
     return [status, {}];
+});
+
+
+// FetchChildPlan
+mock.onGet(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/productplans\/([a-zA-Z0-9\-\;]{1,35})\/subproductplans\/fetchchildplan$/)).reply((config: any) => {
+    console.groupCollapsed("实体:subproductplan 方法: FetchChildPlan");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    const paramArray:Array<any> = ['id','id'];
+    let tempValue: any = {};
+    const matchArray:any = new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/productplans\/([a-zA-Z0-9\-\;]{1,35})\/subproductplans\/fetchchildplan$/).exec(config.url);
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    let items = mockDatas ? mockDatas : [];
+    if (items.length > 0 && paramArray.length > 0) {
+        paramArray.forEach((paramkey: any) => {
+            if (tempValue[paramkey] && tempValue[paramkey].indexOf(";") > 0) {
+                let keysGrounp: Array<any> = tempValue[paramkey].split(new RegExp(/[\;]/));
+                let tempArray: Array<any> = [];
+                keysGrounp.forEach((singlekey: any) => {
+                    let _items =  items.filter((item: any) => { return item[paramkey] == singlekey });
+                   if(_items.length >0){
+                    tempArray.push(..._items);
+                   }
+                })
+                items = tempArray;
+            } else {
+                items = items.filter((item: any) => { return item[paramkey] == tempValue[paramkey] });
+            }
+        })
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(items);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, items];
+});
+
+
+// FetchChildPlan
+mock.onGet(new RegExp(/^\/productplans\/([a-zA-Z0-9\-\;]{1,35})\/subproductplans\/fetchchildplan$/)).reply((config: any) => {
+    console.groupCollapsed("实体:subproductplan 方法: FetchChildPlan");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    const paramArray:Array<any> = ['id'];
+    let tempValue: any = {};
+    const matchArray:any = new RegExp(/^\/productplans\/([a-zA-Z0-9\-\;]{1,35})\/subproductplans\/fetchchildplan$/).exec(config.url);
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    let items = mockDatas ? mockDatas : [];
+    if (items.length > 0 && paramArray.length > 0) {
+        paramArray.forEach((paramkey: any) => {
+            if (tempValue[paramkey] && tempValue[paramkey].indexOf(";") > 0) {
+                let keysGrounp: Array<any> = tempValue[paramkey].split(new RegExp(/[\;]/));
+                let tempArray: Array<any> = [];
+                keysGrounp.forEach((singlekey: any) => {
+                    let _items =  items.filter((item: any) => { return item[paramkey] == singlekey });
+                   if(_items.length >0){
+                    tempArray.push(..._items);
+                   }
+                })
+                items = tempArray;
+            } else {
+                items = items.filter((item: any) => { return item[paramkey] == tempValue[paramkey] });
+            }
+        })
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(items);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, items];
 });
 
 
@@ -1192,6 +1768,186 @@ mock.onGet(new RegExp(/^\/productplans\/([a-zA-Z0-9\-\;]{1,35})\/subproductplans
 });
 
 
+// FetchPlanTasks
+mock.onGet(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/productplans\/([a-zA-Z0-9\-\;]{1,35})\/subproductplans\/fetchplantasks$/)).reply((config: any) => {
+    console.groupCollapsed("实体:subproductplan 方法: FetchPlanTasks");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    const paramArray:Array<any> = ['id','id'];
+    let tempValue: any = {};
+    const matchArray:any = new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/productplans\/([a-zA-Z0-9\-\;]{1,35})\/subproductplans\/fetchplantasks$/).exec(config.url);
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    let items = mockDatas ? mockDatas : [];
+    if (items.length > 0 && paramArray.length > 0) {
+        paramArray.forEach((paramkey: any) => {
+            if (tempValue[paramkey] && tempValue[paramkey].indexOf(";") > 0) {
+                let keysGrounp: Array<any> = tempValue[paramkey].split(new RegExp(/[\;]/));
+                let tempArray: Array<any> = [];
+                keysGrounp.forEach((singlekey: any) => {
+                    let _items =  items.filter((item: any) => { return item[paramkey] == singlekey });
+                   if(_items.length >0){
+                    tempArray.push(..._items);
+                   }
+                })
+                items = tempArray;
+            } else {
+                items = items.filter((item: any) => { return item[paramkey] == tempValue[paramkey] });
+            }
+        })
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(items);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, items];
+});
+
+
+// FetchPlanTasks
+mock.onGet(new RegExp(/^\/productplans\/([a-zA-Z0-9\-\;]{1,35})\/subproductplans\/fetchplantasks$/)).reply((config: any) => {
+    console.groupCollapsed("实体:subproductplan 方法: FetchPlanTasks");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    const paramArray:Array<any> = ['id'];
+    let tempValue: any = {};
+    const matchArray:any = new RegExp(/^\/productplans\/([a-zA-Z0-9\-\;]{1,35})\/subproductplans\/fetchplantasks$/).exec(config.url);
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    let items = mockDatas ? mockDatas : [];
+    if (items.length > 0 && paramArray.length > 0) {
+        paramArray.forEach((paramkey: any) => {
+            if (tempValue[paramkey] && tempValue[paramkey].indexOf(";") > 0) {
+                let keysGrounp: Array<any> = tempValue[paramkey].split(new RegExp(/[\;]/));
+                let tempArray: Array<any> = [];
+                keysGrounp.forEach((singlekey: any) => {
+                    let _items =  items.filter((item: any) => { return item[paramkey] == singlekey });
+                   if(_items.length >0){
+                    tempArray.push(..._items);
+                   }
+                })
+                items = tempArray;
+            } else {
+                items = items.filter((item: any) => { return item[paramkey] == tempValue[paramkey] });
+            }
+        })
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(items);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, items];
+});
+
+
+// FetchProjectApp
+mock.onGet(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/productplans\/([a-zA-Z0-9\-\;]{1,35})\/subproductplans\/fetchprojectapp$/)).reply((config: any) => {
+    console.groupCollapsed("实体:subproductplan 方法: FetchProjectApp");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    const paramArray:Array<any> = ['id','id'];
+    let tempValue: any = {};
+    const matchArray:any = new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/productplans\/([a-zA-Z0-9\-\;]{1,35})\/subproductplans\/fetchprojectapp$/).exec(config.url);
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    let items = mockDatas ? mockDatas : [];
+    if (items.length > 0 && paramArray.length > 0) {
+        paramArray.forEach((paramkey: any) => {
+            if (tempValue[paramkey] && tempValue[paramkey].indexOf(";") > 0) {
+                let keysGrounp: Array<any> = tempValue[paramkey].split(new RegExp(/[\;]/));
+                let tempArray: Array<any> = [];
+                keysGrounp.forEach((singlekey: any) => {
+                    let _items =  items.filter((item: any) => { return item[paramkey] == singlekey });
+                   if(_items.length >0){
+                    tempArray.push(..._items);
+                   }
+                })
+                items = tempArray;
+            } else {
+                items = items.filter((item: any) => { return item[paramkey] == tempValue[paramkey] });
+            }
+        })
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(items);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, items];
+});
+
+
+// FetchProjectApp
+mock.onGet(new RegExp(/^\/productplans\/([a-zA-Z0-9\-\;]{1,35})\/subproductplans\/fetchprojectapp$/)).reply((config: any) => {
+    console.groupCollapsed("实体:subproductplan 方法: FetchProjectApp");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    const paramArray:Array<any> = ['id'];
+    let tempValue: any = {};
+    const matchArray:any = new RegExp(/^\/productplans\/([a-zA-Z0-9\-\;]{1,35})\/subproductplans\/fetchprojectapp$/).exec(config.url);
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    let items = mockDatas ? mockDatas : [];
+    if (items.length > 0 && paramArray.length > 0) {
+        paramArray.forEach((paramkey: any) => {
+            if (tempValue[paramkey] && tempValue[paramkey].indexOf(";") > 0) {
+                let keysGrounp: Array<any> = tempValue[paramkey].split(new RegExp(/[\;]/));
+                let tempArray: Array<any> = [];
+                keysGrounp.forEach((singlekey: any) => {
+                    let _items =  items.filter((item: any) => { return item[paramkey] == singlekey });
+                   if(_items.length >0){
+                    tempArray.push(..._items);
+                   }
+                })
+                items = tempArray;
+            } else {
+                items = items.filter((item: any) => { return item[paramkey] == tempValue[paramkey] });
+            }
+        })
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(items);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, items];
+});
+
+
 // FetchProjectPlan
 mock.onGet(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/productplans\/([a-zA-Z0-9\-\;]{1,35})\/subproductplans\/fetchprojectplan$/)).reply((config: any) => {
     console.groupCollapsed("实体:subproductplan 方法: FetchProjectPlan");
@@ -1248,6 +2004,186 @@ mock.onGet(new RegExp(/^\/productplans\/([a-zA-Z0-9\-\;]{1,35})\/subproductplans
     const paramArray:Array<any> = ['id'];
     let tempValue: any = {};
     const matchArray:any = new RegExp(/^\/productplans\/([a-zA-Z0-9\-\;]{1,35})\/subproductplans\/fetchprojectplan$/).exec(config.url);
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    let items = mockDatas ? mockDatas : [];
+    if (items.length > 0 && paramArray.length > 0) {
+        paramArray.forEach((paramkey: any) => {
+            if (tempValue[paramkey] && tempValue[paramkey].indexOf(";") > 0) {
+                let keysGrounp: Array<any> = tempValue[paramkey].split(new RegExp(/[\;]/));
+                let tempArray: Array<any> = [];
+                keysGrounp.forEach((singlekey: any) => {
+                    let _items =  items.filter((item: any) => { return item[paramkey] == singlekey });
+                   if(_items.length >0){
+                    tempArray.push(..._items);
+                   }
+                })
+                items = tempArray;
+            } else {
+                items = items.filter((item: any) => { return item[paramkey] == tempValue[paramkey] });
+            }
+        })
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(items);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, items];
+});
+
+
+// FetchRootPlan
+mock.onGet(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/productplans\/([a-zA-Z0-9\-\;]{1,35})\/subproductplans\/fetchrootplan$/)).reply((config: any) => {
+    console.groupCollapsed("实体:subproductplan 方法: FetchRootPlan");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    const paramArray:Array<any> = ['id','id'];
+    let tempValue: any = {};
+    const matchArray:any = new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/productplans\/([a-zA-Z0-9\-\;]{1,35})\/subproductplans\/fetchrootplan$/).exec(config.url);
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    let items = mockDatas ? mockDatas : [];
+    if (items.length > 0 && paramArray.length > 0) {
+        paramArray.forEach((paramkey: any) => {
+            if (tempValue[paramkey] && tempValue[paramkey].indexOf(";") > 0) {
+                let keysGrounp: Array<any> = tempValue[paramkey].split(new RegExp(/[\;]/));
+                let tempArray: Array<any> = [];
+                keysGrounp.forEach((singlekey: any) => {
+                    let _items =  items.filter((item: any) => { return item[paramkey] == singlekey });
+                   if(_items.length >0){
+                    tempArray.push(..._items);
+                   }
+                })
+                items = tempArray;
+            } else {
+                items = items.filter((item: any) => { return item[paramkey] == tempValue[paramkey] });
+            }
+        })
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(items);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, items];
+});
+
+
+// FetchRootPlan
+mock.onGet(new RegExp(/^\/productplans\/([a-zA-Z0-9\-\;]{1,35})\/subproductplans\/fetchrootplan$/)).reply((config: any) => {
+    console.groupCollapsed("实体:subproductplan 方法: FetchRootPlan");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    const paramArray:Array<any> = ['id'];
+    let tempValue: any = {};
+    const matchArray:any = new RegExp(/^\/productplans\/([a-zA-Z0-9\-\;]{1,35})\/subproductplans\/fetchrootplan$/).exec(config.url);
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    let items = mockDatas ? mockDatas : [];
+    if (items.length > 0 && paramArray.length > 0) {
+        paramArray.forEach((paramkey: any) => {
+            if (tempValue[paramkey] && tempValue[paramkey].indexOf(";") > 0) {
+                let keysGrounp: Array<any> = tempValue[paramkey].split(new RegExp(/[\;]/));
+                let tempArray: Array<any> = [];
+                keysGrounp.forEach((singlekey: any) => {
+                    let _items =  items.filter((item: any) => { return item[paramkey] == singlekey });
+                   if(_items.length >0){
+                    tempArray.push(..._items);
+                   }
+                })
+                items = tempArray;
+            } else {
+                items = items.filter((item: any) => { return item[paramkey] == tempValue[paramkey] });
+            }
+        })
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(items);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, items];
+});
+
+
+// FetchTaskPlan
+mock.onGet(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/productplans\/([a-zA-Z0-9\-\;]{1,35})\/subproductplans\/fetchtaskplan$/)).reply((config: any) => {
+    console.groupCollapsed("实体:subproductplan 方法: FetchTaskPlan");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    const paramArray:Array<any> = ['id','id'];
+    let tempValue: any = {};
+    const matchArray:any = new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/productplans\/([a-zA-Z0-9\-\;]{1,35})\/subproductplans\/fetchtaskplan$/).exec(config.url);
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    let items = mockDatas ? mockDatas : [];
+    if (items.length > 0 && paramArray.length > 0) {
+        paramArray.forEach((paramkey: any) => {
+            if (tempValue[paramkey] && tempValue[paramkey].indexOf(";") > 0) {
+                let keysGrounp: Array<any> = tempValue[paramkey].split(new RegExp(/[\;]/));
+                let tempArray: Array<any> = [];
+                keysGrounp.forEach((singlekey: any) => {
+                    let _items =  items.filter((item: any) => { return item[paramkey] == singlekey });
+                   if(_items.length >0){
+                    tempArray.push(..._items);
+                   }
+                })
+                items = tempArray;
+            } else {
+                items = items.filter((item: any) => { return item[paramkey] == tempValue[paramkey] });
+            }
+        })
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(items);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, items];
+});
+
+
+// FetchTaskPlan
+mock.onGet(new RegExp(/^\/productplans\/([a-zA-Z0-9\-\;]{1,35})\/subproductplans\/fetchtaskplan$/)).reply((config: any) => {
+    console.groupCollapsed("实体:subproductplan 方法: FetchTaskPlan");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    const paramArray:Array<any> = ['id'];
+    let tempValue: any = {};
+    const matchArray:any = new RegExp(/^\/productplans\/([a-zA-Z0-9\-\;]{1,35})\/subproductplans\/fetchtaskplan$/).exec(config.url);
     if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
         paramArray.forEach((item: any, index: number) => {
             Object.defineProperty(tempValue, item, {

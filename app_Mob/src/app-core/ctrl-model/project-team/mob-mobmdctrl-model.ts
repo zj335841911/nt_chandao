@@ -15,40 +15,40 @@ export class MobModel {
 	public getDataItems(): any[] {
 		return [
 			{
-				name: 'estimate',
-			},
-			{
-				name: 'account',
-			},
-			{
-				name: 'type',
-			},
-			{
-				name: 'total',
+				name: 'join',
 			},
 			{
 				name: 'role',
 			},
 			{
-				name: 'consumed',
-			},
-			{
-				name: 'hours',
-			},
-			{
-				name: 'id',
+				name: 'total',
 			},
 			{
 				name: 'days',
 			},
 			{
-				name: 'left',
-			},
-			{
-				name: 'join',
+				name: 'consumed',
 			},
 			{
 				name: 'root',
+			},
+			{
+				name: 'account',
+			},
+			{
+				name: 'left',
+			},
+			{
+				name: 'id',
+			},
+			{
+				name: 'hours',
+			},
+			{
+				name: 'type',
+			},
+			{
+				name: 'estimate',
 			},
 			{
 				name: 'srfkey',

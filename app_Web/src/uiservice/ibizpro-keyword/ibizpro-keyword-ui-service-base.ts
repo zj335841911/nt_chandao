@@ -96,19 +96,19 @@ export default class IBIZProKeywordUIServiceBase extends UIService {
      * @memberof  IBIZProKeywordUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set('EDITVIEW:', {
-            viewname: 'editview',
+        this.allViewMap.set('MDATAVIEW:', {
+            viewname: 'gridview',
             srfappde: 'ibizprokeywords',
-            component: 'ibizpro-keyword-edit-view',
+            component: 'ibizpro-keyword-grid-view',
             openmode: '',
             title: '关键字',
             width: 0,
             height: 0
         });
-        this.allViewMap.set('MDATAVIEW:', {
-            viewname: 'gridview',
+        this.allViewMap.set('EDITVIEW:', {
+            viewname: 'editview',
             srfappde: 'ibizprokeywords',
-            component: 'ibizpro-keyword-grid-view',
+            component: 'ibizpro-keyword-edit-view',
             openmode: '',
             title: '关键字',
             width: 0,

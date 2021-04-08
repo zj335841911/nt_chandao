@@ -1,6 +1,6 @@
 
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { ListViewBase } from '@/studio-core';
 import ActionService from '@/service/action/action-service';
 import ActionAuthService from '@/authservice/action/action-auth-service';
@@ -105,7 +105,7 @@ export class ActionMyAllTrendsListViewBase extends ListViewBase {
      * @type {string}
      * @memberof ActionMyAllTrendsListViewBase
      */
-	protected viewtag: string = '6d466e003e0479fb8b1a16e49b889dc1';
+	protected viewtag: string = 'b4e9c97f4ba0a08e4f916933fc97b522';
 
     /**
      * 视图名称

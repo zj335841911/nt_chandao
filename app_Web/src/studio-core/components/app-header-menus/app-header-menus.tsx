@@ -150,7 +150,7 @@ export class AppHeaderMenus extends Vue {
         if (item.hidden) {
             return;
         }
-        const tooltip = item.localetag ? this.$t(item.localetag) : item.tooltip;
+        const tooltip = item.localetag ? this.$t(item.localetag.toLowerCase()) : item.tooltip;
         return (
             <menuItem title={tooltip} name={item.name}>
                 <menu-icon item={item} />

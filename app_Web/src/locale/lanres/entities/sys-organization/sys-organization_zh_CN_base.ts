@@ -17,21 +17,21 @@ function getLocaleResourceBase(){
 			updatedate: commonLogic.appcommonhandle("最后修改时间",null),
 		},
 			views: {
-				gridview: {
-					caption: commonLogic.appcommonhandle("单位",null),
-					title: commonLogic.appcommonhandle("单位表格视图",null),
-				},
 				gridexpview: {
 					caption: commonLogic.appcommonhandle("单位",null),
 					title: commonLogic.appcommonhandle("单位表格导航视图",null),
 				},
-				usr2gridview: {
-					caption: commonLogic.appcommonhandle("单位",null),
-					title: commonLogic.appcommonhandle("单位单位实体表格视图(通讯录所有组织)",null),
-				},
 				editview: {
 					caption: commonLogic.appcommonhandle("单位",null),
 					title: commonLogic.appcommonhandle("单位编辑视图",null),
+				},
+				gridview: {
+					caption: commonLogic.appcommonhandle("单位",null),
+					title: commonLogic.appcommonhandle("单位表格视图",null),
+				},
+				usr2gridview: {
+					caption: commonLogic.appcommonhandle("单位",null),
+					title: commonLogic.appcommonhandle("单位单位实体表格视图(通讯录所有组织)",null),
 				},
 			},
 			main_form: {
@@ -77,6 +77,24 @@ function getLocaleResourceBase(){
 					formpage1: commonLogic.appcommonhandle("常规条件",null), 
 				},
 				uiactions: {
+				},
+			},
+			editviewtoolbar_toolbar: {
+				tbitem3: {
+					caption: commonLogic.appcommonhandle("保存",null),
+					tip: commonLogic.appcommonhandle("保存",null),
+				},
+				tbitem4: {
+					caption: commonLogic.appcommonhandle("保存并新建",null),
+					tip: commonLogic.appcommonhandle("保存并新建",null),
+				},
+				tbitem5: {
+					caption: commonLogic.appcommonhandle("保存并关闭",null),
+					tip: commonLogic.appcommonhandle("保存并关闭",null),
+				},
+				tbitem7: {
+					caption: commonLogic.appcommonhandle("删除",null),
+					tip: commonLogic.appcommonhandle("删除",null),
 				},
 			},
 			gridviewtoolbar_toolbar: {
@@ -135,24 +153,6 @@ function getLocaleResourceBase(){
 				tbitem18: {
 					caption: commonLogic.appcommonhandle("帮助",null),
 					tip: commonLogic.appcommonhandle("帮助",null),
-				},
-			},
-			editviewtoolbar_toolbar: {
-				tbitem3: {
-					caption: commonLogic.appcommonhandle("保存",null),
-					tip: commonLogic.appcommonhandle("保存",null),
-				},
-				tbitem4: {
-					caption: commonLogic.appcommonhandle("保存并新建",null),
-					tip: commonLogic.appcommonhandle("保存并新建",null),
-				},
-				tbitem5: {
-					caption: commonLogic.appcommonhandle("保存并关闭",null),
-					tip: commonLogic.appcommonhandle("保存并关闭",null),
-				},
-				tbitem7: {
-					caption: commonLogic.appcommonhandle("删除",null),
-					tip: commonLogic.appcommonhandle("删除",null),
 				},
 			},
 			usr2gridviewtoolbar_toolbar: {

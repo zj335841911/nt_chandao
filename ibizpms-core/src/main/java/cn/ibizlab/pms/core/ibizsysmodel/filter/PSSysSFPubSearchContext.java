@@ -25,19 +25,19 @@ import cn.ibizlab.pms.util.filter.SearchContextBase;
 @Slf4j
 @Data
 public class PSSysSFPubSearchContext extends SearchContextBase {
+	private Integer n_removeflag_eq;//[删除模式]
+
 	private String n_pssyssfpubname_like;//[后台服务架构名称]
 
 	private String n_contenttype_eq;//[发布内容类型]
 
-	private Integer n_removeflag_eq;//[删除模式]
-
 	private String n_usercat_eq;//[用户分类]
-
-	private String n_ppssyssfpubid_eq;//[父后台服务体系]
 
 	private String n_ppssyssfpubname_eq;//[父后台服务体系]
 
 	private String n_ppssyssfpubname_like;//[父后台服务体系]
+
+	private String n_ppssyssfpubid_eq;//[父后台服务体系]
 
 }
 

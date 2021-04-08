@@ -1,6 +1,6 @@
 
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { ListView9Base } from '@/studio-core';
 import ProductLifeService from '@/service/product-life/product-life-service';
 import ProductLifeAuthService from '@/authservice/product-life/product-life-auth-service';
@@ -123,7 +123,7 @@ export class ProductLifeRoadMapSListView9Base extends ListView9Base {
      * @type {string}
      * @memberof ProductLifeRoadMapSListView9Base
      */
-	protected viewtag: string = 'fae08b50e13943a0678a96d852e8808d';
+	protected viewtag: string = 'd1b3f6d9d0ca781020cf5e4665461fbf';
 
     /**
      * 视图名称

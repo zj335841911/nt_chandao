@@ -74,7 +74,7 @@ export class Main2GridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u612d645_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_uaf9f3f9_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -102,7 +102,7 @@ export class Main2GridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u858fdd0_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u6428ba2_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -130,7 +130,7 @@ export class Main2GridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_ua7e2c7c_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_ue9c7208_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -158,7 +158,7 @@ export class Main2GridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u919bc8f_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u4b268ea_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -186,7 +186,7 @@ export class Main2GridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_uefcbbb0_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u53344aa_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -214,7 +214,7 @@ export class Main2GridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_uec0d822_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u77c1d36_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -242,7 +242,7 @@ export class Main2GridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u4a7d032_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u5f5e79b_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -750,25 +750,25 @@ export class Main2GridBase extends GridControlBase {
 	public uiAction(row: any, tag: any, $event: any): void {
         $event.stopPropagation();
         if(Object.is('AssignTask', tag)) {
-            this.grid_uagridcolumn1_u612d645_click(row, tag, $event);
+            this.grid_uagridcolumn1_uaf9f3f9_click(row, tag, $event);
         }
         if(Object.is('StartTask', tag)) {
-            this.grid_uagridcolumn1_u858fdd0_click(row, tag, $event);
+            this.grid_uagridcolumn1_u6428ba2_click(row, tag, $event);
         }
         if(Object.is('Activation', tag)) {
-            this.grid_uagridcolumn1_ua7e2c7c_click(row, tag, $event);
+            this.grid_uagridcolumn1_ue9c7208_click(row, tag, $event);
         }
         if(Object.is('WorkHours1', tag)) {
-            this.grid_uagridcolumn1_u919bc8f_click(row, tag, $event);
+            this.grid_uagridcolumn1_u4b268ea_click(row, tag, $event);
         }
         if(Object.is('DoneTask', tag)) {
-            this.grid_uagridcolumn1_uefcbbb0_click(row, tag, $event);
+            this.grid_uagridcolumn1_u53344aa_click(row, tag, $event);
         }
         if(Object.is('CloseTask', tag)) {
-            this.grid_uagridcolumn1_uec0d822_click(row, tag, $event);
+            this.grid_uagridcolumn1_u77c1d36_click(row, tag, $event);
         }
         if(Object.is('MainEdit', tag)) {
-            this.grid_uagridcolumn1_u4a7d032_click(row, tag, $event);
+            this.grid_uagridcolumn1_u5f5e79b_click(row, tag, $event);
         }
     }
 

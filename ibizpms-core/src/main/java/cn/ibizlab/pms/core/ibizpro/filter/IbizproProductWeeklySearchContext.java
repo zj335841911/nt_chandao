@@ -41,13 +41,6 @@ public class IbizproProductWeeklySearchContext extends QueryWrapperContext<Ibizp
             this.getSearchCond().like("`ibizpro_productdailyname`", n_ibizpro_productdailyname_like);
         }
     }
-	private Long n_product_eq;//[编号]
-	public void setN_product_eq(Long n_product_eq) {
-        this.n_product_eq = n_product_eq;
-        if(!ObjectUtils.isEmpty(this.n_product_eq)){
-            this.getSearchCond().eq("`product`", n_product_eq);
-        }
-    }
 	private String n_productname_eq;//[产品名称]
 	public void setN_productname_eq(String n_productname_eq) {
         this.n_productname_eq = n_productname_eq;
@@ -60,6 +53,13 @@ public class IbizproProductWeeklySearchContext extends QueryWrapperContext<Ibizp
         this.n_productname_like = n_productname_like;
         if(!ObjectUtils.isEmpty(this.n_productname_like)){
             this.getSearchCond().like("`productname`", n_productname_like);
+        }
+    }
+	private Long n_product_eq;//[编号]
+	public void setN_product_eq(Long n_product_eq) {
+        this.n_product_eq = n_product_eq;
+        if(!ObjectUtils.isEmpty(this.n_product_eq)){
+            this.getSearchCond().eq("`product`", n_product_eq);
         }
     }
 

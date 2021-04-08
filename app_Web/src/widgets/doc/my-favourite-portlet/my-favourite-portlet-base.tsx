@@ -75,7 +75,7 @@ export class MyFavouritePortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet5_ufc4fae3_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet5_u796de2e_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -251,8 +251,8 @@ export class MyFavouritePortletBase extends MainControlBase {
      * @memberof MyFavouriteBase
      */
     public uiAction(tag:string,event:any){
-        if(Object.is(tag,'ufc4fae3')){
-            this.dashboard_sysportlet5_ufc4fae3_click(null,tag,event);
+        if(Object.is(tag,'u796de2e')){
+            this.dashboard_sysportlet5_u796de2e_click(null,tag,event);
         }
     }
 

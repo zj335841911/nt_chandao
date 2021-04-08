@@ -12,4 +12,3 @@ public interface IBIZProTagMapping extends MappingBase<IBIZProTagDTO, IBIZProTag
 
 
 }
-

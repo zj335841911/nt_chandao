@@ -1,3 +1,4 @@
+import { Environment } from '@/environments/environment';
 import { Http } from '@/utils';
 import { Util } from '@/utils';
 import EntityService from '../entity-service';
@@ -50,11 +51,11 @@ export default class DocContentServiceBase extends EntityService {
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.doc && context.doccontent){
-            let res:any = Http.getInstance().get(`/docs/${context.doc}/doccontents/${context.doccontent}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/docs/${context.doc}/doccontents/${context.doccontent}/select`,isloading);
             
             return res;
         }
-            let res:any = Http.getInstance().get(`/doccontents/${context.doccontent}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/doccontents/${context.doccontent}/select`,isloading);
             
             return res;
     }
@@ -132,10 +133,10 @@ export default class DocContentServiceBase extends EntityService {
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.doc && context.doccontent){
-            let res:any = Http.getInstance().delete(`/docs/${context.doc}/doccontents/${context.doccontent}`,isloading);
+            let res:any = await Http.getInstance().delete(`/docs/${context.doc}/doccontents/${context.doccontent}`,isloading);
             return res;
         }
-            let res:any = Http.getInstance().delete(`/doccontents/${context.doccontent}`,isloading);
+            let res:any = await Http.getInstance().delete(`/doccontents/${context.doccontent}`,isloading);
             return res;
     }
 
@@ -170,12 +171,18 @@ export default class DocContentServiceBase extends EntityService {
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.doc && true){
-            let res:any = await Http.getInstance().get(`/docs/${context.doc}/doccontents/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.doccontent) delete tempData.doccontent;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/docs/${context.doc}/doccontents/getdraft`,tempData,isloading);
             res.data.doccontent = data.doccontent;
             
             return res;
         }
-        let res:any = await  Http.getInstance().get(`/doccontents/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.doccontent) delete tempData.doccontent;
+        if(tempData.id) delete tempData.id;
+        let res:any = await  Http.getInstance().get(`/doccontents/getdraft`,tempData,isloading);
         res.data.doccontent = data.doccontent;
         
         return res;
@@ -198,7 +205,7 @@ export default class DocContentServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/doccontents/${context.doccontent}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/doccontents/${context.doccontent}/checkkey`,data,isloading);
             return res;
     }
 
@@ -238,11 +245,11 @@ export default class DocContentServiceBase extends EntityService {
     public async FetchCurVersion(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.doc && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/docs/${context.doc}/doccontents/fetchcurversion`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/docs/${context.doc}/doccontents/fetchcurversion`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/doccontents/fetchcurversion`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/doccontents/fetchcurversion`,tempData,isloading);
         return res;
     }
 
@@ -276,11 +283,11 @@ export default class DocContentServiceBase extends EntityService {
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.doc && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/docs/${context.doc}/doccontents/fetchdefault`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/docs/${context.doc}/doccontents/fetchdefault`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/doccontents/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/doccontents/fetchdefault`,tempData,isloading);
         return res;
     }
 

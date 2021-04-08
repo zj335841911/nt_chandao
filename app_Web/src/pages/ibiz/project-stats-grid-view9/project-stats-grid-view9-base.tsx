@@ -1,6 +1,6 @@
 
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { GridView9Base } from '@/studio-core';
 import ProjectStatsService from '@/service/project-stats/project-stats-service';
 import ProjectStatsAuthService from '@/authservice/project-stats/project-stats-auth-service';
@@ -105,7 +105,7 @@ export class ProjectStatsGridView9Base extends GridView9Base {
      * @type {string}
      * @memberof ProjectStatsGridView9Base
      */
-	protected viewtag: string = 'e8e346e34ba5e02170fe3bcea7e6ec7f';
+	protected viewtag: string = 'cabba7fe7d745d33b88f1ba31a19c4b3';
 
     /**
      * 视图名称

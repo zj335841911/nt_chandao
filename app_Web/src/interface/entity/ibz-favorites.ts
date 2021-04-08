@@ -7,6 +7,14 @@
 export interface IbzFavorites {
 
     /**
+     * 类型
+     *
+     * @returns {*}
+     * @memberof IbzFavorites
+     */
+    type?: any;
+
+    /**
      * 建立人
      *
      * @returns {*}
@@ -31,28 +39,12 @@ export interface IbzFavorites {
     createdate?: any;
 
     /**
-     * 收藏名称
-     *
-     * @returns {*}
-     * @memberof IbzFavorites
-     */
-    ibzfavoritesname?: any;
-
-    /**
      * 更新人
      *
      * @returns {*}
      * @memberof IbzFavorites
      */
     updateman?: any;
-
-    /**
-     * 更新时间
-     *
-     * @returns {*}
-     * @memberof IbzFavorites
-     */
-    updatedate?: any;
 
     /**
      * 数据对象标识
@@ -71,10 +63,18 @@ export interface IbzFavorites {
     account?: any;
 
     /**
-     * 类型
+     * 收藏名称
      *
      * @returns {*}
      * @memberof IbzFavorites
      */
-    type?: any;
+    ibzfavoritesname?: any;
+
+    /**
+     * 更新时间
+     *
+     * @returns {*}
+     * @memberof IbzFavorites
+     */
+    updatedate?: any;
 }

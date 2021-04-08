@@ -32,5 +32,3 @@ public interface ProjectInheritMapping {
     List<Project> toProject(List<IbizproIndex> majorEntities);
 
 }
-
-

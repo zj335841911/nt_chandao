@@ -12,4 +12,3 @@ public interface ProjectModuleMapping extends MappingBase<ProjectModuleDTO, Proj
 
 
 }
-

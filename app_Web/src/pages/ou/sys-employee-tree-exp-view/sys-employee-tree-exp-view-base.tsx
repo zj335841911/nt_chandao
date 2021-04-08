@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { TreeExpViewBase } from '@/studio-core';
 import SysEmployeeService from '@/service/sys-employee/sys-employee-service';
 import SysEmployeeAuthService from '@/authservice/sys-employee/sys-employee-auth-service';
@@ -100,7 +100,7 @@ export class SysEmployeeTreeExpViewBase extends TreeExpViewBase {
      * @type {string}
      * @memberof SysEmployeeTreeExpViewBase
      */
-	protected viewtag: string = 'd1c2669aa1d4bc3973882f4cbb3a9539';
+	protected viewtag: string = 'c311fbb0b39f9771f7d71d4d61f57f31';
 
     /**
      * 视图名称

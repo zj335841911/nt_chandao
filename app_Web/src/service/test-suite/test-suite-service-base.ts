@@ -1,3 +1,4 @@
+import { Environment } from '@/environments/environment';
 import { Http } from '@/utils';
 import { Util } from '@/utils';
 import EntityService from '../entity-service';
@@ -50,11 +51,11 @@ export default class TestSuiteServiceBase extends EntityService {
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.testsuite){
-            let res:any = Http.getInstance().get(`/products/${context.product}/testsuites/${context.testsuite}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/testsuites/${context.testsuite}/select`,isloading);
             
             return res;
         }
-            let res:any = Http.getInstance().get(`/testsuites/${context.testsuite}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/testsuites/${context.testsuite}/select`,isloading);
             
             return res;
     }
@@ -132,10 +133,10 @@ export default class TestSuiteServiceBase extends EntityService {
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.testsuite){
-            let res:any = Http.getInstance().delete(`/products/${context.product}/testsuites/${context.testsuite}`,isloading);
+            let res:any = await Http.getInstance().delete(`/products/${context.product}/testsuites/${context.testsuite}`,isloading);
             return res;
         }
-            let res:any = Http.getInstance().delete(`/testsuites/${context.testsuite}`,isloading);
+            let res:any = await Http.getInstance().delete(`/testsuites/${context.testsuite}`,isloading);
             return res;
     }
 
@@ -170,12 +171,18 @@ export default class TestSuiteServiceBase extends EntityService {
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
-            let res:any = await Http.getInstance().get(`/products/${context.product}/testsuites/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.testsuite) delete tempData.testsuite;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/products/${context.product}/testsuites/getdraft`,tempData,isloading);
             res.data.testsuite = data.testsuite;
             
             return res;
         }
-        let res:any = await  Http.getInstance().get(`/testsuites/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.testsuite) delete tempData.testsuite;
+        if(tempData.id) delete tempData.id;
+        let res:any = await  Http.getInstance().get(`/testsuites/getdraft`,tempData,isloading);
         res.data.testsuite = data.testsuite;
         
         return res;
@@ -198,7 +205,7 @@ export default class TestSuiteServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/testsuites/${context.testsuite}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/testsuites/${context.testsuite}/checkkey`,data,isloading);
             return res;
     }
 
@@ -219,7 +226,7 @@ export default class TestSuiteServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/testsuites/${context.testsuite}/mobtestsuitecount`,data,isloading);
+            let res:any = await Http.getInstance().post(`/testsuites/${context.testsuite}/mobtestsuitecount`,data,isloading);
             return res;
     }
 
@@ -259,11 +266,11 @@ export default class TestSuiteServiceBase extends EntityService {
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/testsuites/fetchdefault`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/testsuites/fetchdefault`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/testsuites/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/testsuites/fetchdefault`,tempData,isloading);
         return res;
     }
 
@@ -297,11 +304,11 @@ export default class TestSuiteServiceBase extends EntityService {
     public async FetchPublicTestSuite(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/products/${context.product}/testsuites/fetchpublictestsuite`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/testsuites/fetchpublictestsuite`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().post(`/testsuites/fetchpublictestsuite`,tempData,isloading);
+        let res:any = await Http.getInstance().post(`/testsuites/fetchpublictestsuite`,tempData,isloading);
         return res;
     }
 

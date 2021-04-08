@@ -5,8 +5,8 @@ import com.alibaba.fastjson.JSONObject;
 import org.springframework.util.StringUtils;
 import org.springframework.util.ObjectUtils;
 import cn.ibizlab.pms.util.errors.BadRequestAlertException;
-global cn.ibizlab.pms.core.report.domain.IbzWeekly ibzweeklyupdate__msdenytemp;
 global cn.ibizlab.pms.core.report.domain.IbzWeekly ibzweeklyupdate__msdenydefault;
+global cn.ibizlab.pms.core.report.domain.IbzWeekly ibzweeklyupdate__msdenytemp;
 global cn.ibizlab.pms.core.report.service.IIbzWeeklyService ibzweeklyservice;
 global cn.ibizlab.pms.core.report.service.IIbzWeeklyService iBzSysIbzweeklyDefaultService;
 global cn.ibizlab.pms.util.security.AuthenticationUser curuser;
@@ -20,17 +20,8 @@ ruleflow-group "ibzweeklyupdate__msdenypreparetemp"
     when
     then
     ibzweeklyupdate__msdenytemp.set("ibzweeklyid",ibzweeklyupdate__msdenydefault.get("ibzweeklyid"));
-    update(ibzweeklyupdate__msdenytemp);//更新fact中变量值
     update(ibzweeklyupdate__msdenydefault);//更新fact中变量值
-    end
-
-//逻辑处理节点[状态[已提交]拒绝[update]操作]
-rule "denybysubmit"
-ruleflow-group "ibzweeklyupdate__msdenydenybysubmit"
-    when
-    then
     update(ibzweeklyupdate__msdenytemp);//更新fact中变量值
-    update(ibzweeklyupdate__msdenydefault);//更新fact中变量值
     end
 
 //逻辑处理节点[状态[未提交]拒绝[update]操作]
@@ -38,8 +29,24 @@ rule "denybynsunbmit"
 ruleflow-group "ibzweeklyupdate__msdenydenybynsunbmit"
     when
     then
-    update(ibzweeklyupdate__msdenytemp);//更新fact中变量值
     update(ibzweeklyupdate__msdenydefault);//更新fact中变量值
+    update(ibzweeklyupdate__msdenytemp);//更新fact中变量值
+    end
+
+//逻辑处理节点[开始]
+rule "begin"
+ruleflow-group "ibzweeklyupdate__msdenybegin"
+    when
+    then
+    end
+
+//逻辑处理节点[状态[已提交]拒绝[update]操作]
+rule "denybysubmit"
+ruleflow-group "ibzweeklyupdate__msdenydenybysubmit"
+    when
+    then
+    update(ibzweeklyupdate__msdenydefault);//更新fact中变量值
+    update(ibzweeklyupdate__msdenytemp);//更新fact中变量值
     end
 
 //逻辑处理节点[获取数据]
@@ -48,14 +55,7 @@ ruleflow-group "ibzweeklyupdate__msdenyget"
     when
     then
     cn.ibizlab.pms.util.helper.CachedBeanCopier.copy(ibzweeklyservice.get(ibzweeklyupdate__msdenytemp.getIbzweeklyid()),ibzweeklyupdate__msdenytemp);
-    update(ibzweeklyupdate__msdenytemp);//更新fact中变量值
     update(ibzweeklyupdate__msdenydefault);//更新fact中变量值
-    end
-
-//逻辑处理节点[开始]
-rule "begin"
-ruleflow-group "ibzweeklyupdate__msdenybegin"
-    when
-    then
+    update(ibzweeklyupdate__msdenytemp);//更新fact中变量值
     end
 

@@ -64,6 +64,11 @@
 | 46 | [我收藏的任务](#属性-我收藏的任务（MYFAVORITETASKS）) | MYFAVORITETASKS | 整型 | 否 | 否 | 是 |
 | 47 | [我的收藏](#属性-我的收藏（MYFAVORITES）) | MYFAVORITES | 整型 | 否 | 否 | 是 |
 | 48 | [我的地盘](#属性-我的地盘（MYTERRITORYCNT）) | MYTERRITORYCNT | 整型 | 否 | 否 | 是 |
+| 49 | [今日截止待办](#属性-今日截止待办（MYTODOCNTJZ）) | MYTODOCNTJZ | 文本，可指定长度 | 否 | 否 | 是 |
+| 50 | [剩余里程碑](#属性-剩余里程碑（LEFTLCBCNT）) | LEFTLCBCNT | 整型 | 否 | 否 | 是 |
+| 51 | [剩余里程碑（今日到期）](#属性-剩余里程碑（今日到期）（LEFTLCBJZCNT）) | LEFTLCBJZCNT | 文本，可指定长度 | 否 | 否 | 是 |
+| 52 | [项目成员](#属性-项目成员（PROJECTTEAMCNT）) | PROJECTTEAMCNT | 整型 | 否 | 否 | 是 |
+| 53 | [项目成员（今日截止）](#属性-项目成员（今日截止）（PROJECTTEAMJZCNT）) | PROJECTTEAMJZCNT | 文本，可指定长度 | 否 | 否 | 是 |
 
 ### 属性-fails（FAILS）
 #### 属性说明
@@ -1882,6 +1887,191 @@ Integer
 #### 关系属性
 无
 
+### 属性-今日截止待办（MYTODOCNTJZ）
+#### 属性说明
+今日截止待办
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+文本，可指定长度
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-剩余里程碑（LEFTLCBCNT）
+#### 属性说明
+剩余里程碑
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-剩余里程碑（今日到期）（LEFTLCBJZCNT）
+#### 属性说明
+剩余里程碑（今日到期）
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+文本，可指定长度
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-项目成员（PROJECTTEAMCNT）
+#### 属性说明
+项目成员
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-项目成员（今日截止）（PROJECTTEAMJZCNT）
+#### 属性说明
+项目成员（今日截止）
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+文本，可指定长度
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
 
 ## 业务状态
 无
@@ -2095,9 +2285,10 @@ Save
 | 1 | [DEFAULT](#数据查询-DEFAULT（Default）) | Default | 否 |
 | 2 | [我的工作](#数据查询-我的工作（MyWork）) | MyWork | 否 |
 | 3 | [我的工作](#数据查询-我的工作（MyWorkMob）) | MyWorkMob | 否 |
-| 4 | [个人信息-个人贡献](#数据查询-个人信息-个人贡献（PersonInfo）) | PersonInfo | 否 |
-| 5 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
-| 6 | [欢迎](#数据查询-欢迎（Welcome）) | Welcome | 否 |
+| 4 | [我的工作（项目经理）](#数据查询-我的工作（项目经理）（MyWorkPm）) | MyWorkPm | 否 |
+| 5 | [个人信息-个人贡献](#数据查询-个人信息-个人贡献（PersonInfo）) | PersonInfo | 否 |
+| 6 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 7 | [欢迎](#数据查询-欢迎（Welcome）) | Welcome | 否 |
 
 ### 数据查询-DEFAULT（Default）
 #### 说明
@@ -2234,6 +2425,32 @@ GROUP BY
 	LEFT JOIN ( SELECT t.assignedTo AS account, COUNT( 1 ) AS mystorys FROM zt_story t GROUP BY t.assignedTo ) t41 ON t1.account = t41.account
 	LEFT JOIN ( SELECT t.assignedTo AS account, COUNT( 1 ) AS MYETASKS FROM zt_task t where (t.`status` = 'wait' or t.`status` = 'doing') and (t.DEADLINE < DATE_FORMAT(now(),'%Y-%m-%d') and t.deadline <> '0000-00-00') GROUP BY t.assignedTo ) t51 ON t1.account = t51.account
 ```
+### 数据查询-我的工作（项目经理）（MyWorkPm）
+#### 说明
+我的工作（项目经理）
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+	t1.`ACCOUNT`,
+	(select count(1) as projects from zt_project tt where tt.deleted = '0' and (tt.`status` <> 'closed' ) and tt.pm = t1.account) as  projects,
+	concat('已延期 ', (select count(1) as eprojects from zt_project tt where tt.deleted = '0' and (tt.`status` <> 'closed' ) and tt.`end` < DATE_FORMAT(now(),'%Y-%m-%d') and tt.pm = t1.account) ) as  eprojects,
+	(select count(1) as LEFTLCBCNT from T_PMSEE_MILESTONE tt left JOIN t_pmsee_project t2 on t2.PMSEE_PROJECTID = tt.projectid and tt.version = t2.MILESTONEVERSION where t2.deleted = '0' and tt.`status` = '0' and t2.PMO = t1.account) as LEFTLCBCNT,
+	concat('今日里程碑 ',(select count(1) as LEFTLCBJZCNT from T_PMSEE_MILESTONE tt left JOIN t_pmsee_project t2 on t2.PMSEE_PROJECTID = tt.projectid and tt.version = t2.MILESTONEVERSION where t2.deleted = '0' and DATE_FORMAT(now(),'%Y-%m-%d') = DATE_FORMAT(tt.`end`,'%Y-%m-%d') and t2.PMO = t1.account)) as LEFTLCBJZCNT,
+	(select count(1) as PROJECTTEAMCNT from (select t2.pm,tt.account from zt_team tt left join zt_project t2 on tt.root = t2.id where tt.type = 'project' and t2.PM is not null and t2.pm <> '' GROUP BY t2.PM, tt.account) tt where tt.pm = t1.account) as PROJECTTEAMCNT,
+	concat('今日离场 ',(select count(1) as PROJECTTEAMJZCNT  from (select t2.pm,tt.account from zt_team tt left join zt_project t2 on tt.root = t2.id where DATE_FORMAT(now(),'%Y-%m-%d') = DATE_FORMAT(DATE_ADD(tt.`join`, INTERVAL tt.days day),'%Y-%m-%d')  and tt.type = 'project' and t2.PM is not null and t2.pm <> '' GROUP BY t2.PM, tt.account) tt where tt.pm = t1.account)) as PROJECTTEAMJZCNT,
+	(select count(1) as MYTODOCNT from zt_todo t where t.`status` in( 'doing', 'wait') and t.type = 'custom' and t.cycle = '0' and t.account = t1.account) as MYTODOCNT,
+	concat('今日截止 ',(select count(1) as MYTODOCNTJZ from zt_todo t where t.`status` in( 'doing', 'wait') and t.type = 'custom' and t.cycle = '0' and DATE_FORMAT(now(),'%Y-%m-%d') >= t.date and t.account = t1.account)) as MYTODOCNTJZ
+FROM
+	(select DISTINCT t1.actor as account from zt_action t1 where t1.actor <> '' and t1.actor is not null) t1
+```
 ### 数据查询-个人信息-个人贡献（PersonInfo）
 #### 说明
 个人信息-个人贡献
@@ -2331,8 +2548,9 @@ FROM
 | 1 | [DEFAULT](#数据集合-DEFAULT（Default）) | Default | 是 |
 | 2 | [我的工作](#数据集合-我的工作（MyWork）) | MyWork | 否 |
 | 3 | [我的工作](#数据集合-我的工作（MyWorkMob）) | MyWorkMob | 否 |
-| 4 | [个人信息-个人贡献](#数据集合-个人信息-个人贡献（PersonInfo）) | PersonInfo | 否 |
-| 5 | [欢迎](#数据集合-欢迎（Welcome）) | Welcome | 否 |
+| 4 | [我的工作（项目经理）](#数据集合-我的工作（项目经理）（MyWorkPm）) | MyWorkPm | 否 |
+| 5 | [个人信息-个人贡献](#数据集合-个人信息-个人贡献（PersonInfo）) | PersonInfo | 否 |
+| 6 | [欢迎](#数据集合-欢迎（Welcome）) | Welcome | 否 |
 
 ### 数据集合-DEFAULT（Default）
 #### 说明
@@ -2376,6 +2594,20 @@ DEFAULT
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [我的工作（MyWorkMob）](#数据查询-我的工作（MyWorkMob）) |
+### 数据集合-我的工作（项目经理）（MyWorkPm）
+#### 说明
+我的工作（项目经理）
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [我的工作（项目经理）（MyWorkPm）](#数据查询-我的工作（项目经理）（MyWorkPm）) |
 ### 数据集合-个人信息-个人贡献（PersonInfo）
 #### 说明
 个人信息-个人贡献

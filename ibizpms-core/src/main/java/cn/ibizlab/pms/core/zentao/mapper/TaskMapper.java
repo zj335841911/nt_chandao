@@ -7,7 +7,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
-import java.util.HashMap;
+import java.util.Map;
 import org.apache.ibatis.annotations.Select;
 import cn.ibizlab.pms.core.zentao.domain.Task;
 import cn.ibizlab.pms.core.zentao.filter.TaskSearchContext;
@@ -30,6 +30,7 @@ public interface TaskMapper extends BaseMapper<Task> {
     Page<Task> searchDefaultRow(IPage page, @Param("srf") TaskSearchContext context, @Param("ew") Wrapper<Task> wrapper);
     Page<Task> searchESBulk(IPage page, @Param("srf") TaskSearchContext context, @Param("ew") Wrapper<Task> wrapper);
     Page<Task> searchMyAgentTask(IPage page, @Param("srf") TaskSearchContext context, @Param("ew") Wrapper<Task> wrapper);
+    Page<Task> searchMyAllTask(IPage page, @Param("srf") TaskSearchContext context, @Param("ew") Wrapper<Task> wrapper);
     Page<Task> searchMyCompleteTask(IPage page, @Param("srf") TaskSearchContext context, @Param("ew") Wrapper<Task> wrapper);
     Page<Task> searchMyCompleteTaskMobDaily(IPage page, @Param("srf") TaskSearchContext context, @Param("ew") Wrapper<Task> wrapper);
     Page<Task> searchMyCompleteTaskMobMonthly(IPage page, @Param("srf") TaskSearchContext context, @Param("ew") Wrapper<Task> wrapper);
@@ -42,15 +43,19 @@ public interface TaskMapper extends BaseMapper<Task> {
     Page<Task> searchNextWeekCompleteTaskMobZS(IPage page, @Param("srf") TaskSearchContext context, @Param("ew") Wrapper<Task> wrapper);
     Page<Task> searchNextWeekCompleteTaskZS(IPage page, @Param("srf") TaskSearchContext context, @Param("ew") Wrapper<Task> wrapper);
     Page<Task> searchNextWeekPlanCompleteTask(IPage page, @Param("srf") TaskSearchContext context, @Param("ew") Wrapper<Task> wrapper);
+    Page<Task> searchPlanTask(IPage page, @Param("srf") TaskSearchContext context, @Param("ew") Wrapper<Task> wrapper);
+    Page<Task> searchProjectAppTask(IPage page, @Param("srf") TaskSearchContext context, @Param("ew") Wrapper<Task> wrapper);
     Page<Task> searchProjectTask(IPage page, @Param("srf") TaskSearchContext context, @Param("ew") Wrapper<Task> wrapper);
     Page<Task> searchRootTask(IPage page, @Param("srf") TaskSearchContext context, @Param("ew") Wrapper<Task> wrapper);
+    Page<Task> searchTaskLinkPlan(IPage page, @Param("srf") TaskSearchContext context, @Param("ew") Wrapper<Task> wrapper);
     Page<Task> searchThisMonthCompleteTaskChoice(IPage page, @Param("srf") TaskSearchContext context, @Param("ew") Wrapper<Task> wrapper);
     Page<Task> searchThisWeekCompleteTask(IPage page, @Param("srf") TaskSearchContext context, @Param("ew") Wrapper<Task> wrapper);
     Page<Task> searchThisWeekCompleteTaskChoice(IPage page, @Param("srf") TaskSearchContext context, @Param("ew") Wrapper<Task> wrapper);
     Page<Task> searchThisWeekCompleteTaskMobZS(IPage page, @Param("srf") TaskSearchContext context, @Param("ew") Wrapper<Task> wrapper);
     Page<Task> searchThisWeekCompleteTaskZS(IPage page, @Param("srf") TaskSearchContext context, @Param("ew") Wrapper<Task> wrapper);
     Page<Task> searchTodoListTask(IPage page, @Param("srf") TaskSearchContext context, @Param("ew") Wrapper<Task> wrapper);
-    Page<HashMap> searchTypeGroup(IPage page, @Param("srf") TaskSearchContext context, @Param("ew") Wrapper<Task> wrapper);
+    Page<Map> searchTypeGroup(IPage page, @Param("srf") TaskSearchContext context, @Param("ew") Wrapper<Task> wrapper);
+    Page<Map> searchTypeGroupPlan(IPage page, @Param("srf") TaskSearchContext context, @Param("ew") Wrapper<Task> wrapper);
     @Override
     Task selectById(Serializable id);
     @Override
@@ -96,6 +101,8 @@ public interface TaskMapper extends BaseMapper<Task> {
     List<Task> selectByModule(@Param("id") Serializable id);
 
     List<Task> selectByFrombug(@Param("id") Serializable id);
+
+    List<Task> selectByPlan(@Param("id") Serializable id);
 
     List<Task> selectByProject(@Param("id") Serializable id);
 

@@ -5,36 +5,6 @@ import lombok.Getter;
 public class StaticDict {
 
 
-    /**
-     * 代码表[月份（01～12）]
-     */
-    @Getter
-    public enum DCodeList {
-        ITEM_01("01","一月"),
-        ITEM_02("02","二月"),
-        ITEM_03("03","三月"),
-        ITEM_04("04","四月"),
-        ITEM_05("05","五月"),
-        ITEM_06("06","六月"),
-        ITEM_07("07","七月"),
-        ITEM_08("08","八月"),
-        ITEM_09("09","九月"),
-        ITEM_10("10","十月"),
-        ITEM_11("11","十一月"),
-        ITEM_12("12","十二月");
-
-        private String value;
-        private String text;
-        private String valueSeparator="";
-        private String textSeparator="";
-        private String emptyText="";
-
-        DCodeList(String value , String text) {
-            this.value=value;
-            this.text = text;
-        }
-    }
-
 
 
     /**
@@ -52,208 +22,6 @@ public class StaticDict {
         private String emptyText="";
 
         Doclib__acl(String value , String text) {
-            this.value=value;
-            this.text = text;
-        }
-    }
-
-
-    /**
-     * 代码表[起止时间选择(下拉列表)]
-     */
-    @Getter
-    public enum BeginendDropList {
-        ITEM_600(600,"06:00"),
-        ITEM_610(610,"06:10"),
-        ITEM_620(620,"06:20"),
-        ITEM_630(630,"06:30"),
-        ITEM_640(640,"06:40"),
-        ITEM_650(650,"06:50"),
-        ITEM_700(700,"07:00"),
-        ITEM_710(710,"07:10"),
-        ITEM_720(720,"07:20"),
-        ITEM_730(730,"07:30"),
-        ITEM_740(740,"07:40"),
-        ITEM_750(750,"07:50"),
-        ITEM_800(800,"08:00"),
-        ITEM_810(810,"08:10"),
-        ITEM_820(820,"08:20"),
-        ITEM_830(830,"08:30"),
-        ITEM_840(840,"08:40"),
-        ITEM_850(850,"08:50"),
-        ITEM_900(900,"09:00"),
-        ITEM_910(910,"09:10"),
-        ITEM_920(920,"09:20"),
-        ITEM_930(930,"09:30"),
-        ITEM_940(940,"09:40"),
-        ITEM_950(950,"09:50"),
-        ITEM_1000(1000,"10:00"),
-        ITEM_1010(1010,"10:10"),
-        ITEM_1020(1020,"10:20"),
-        ITEM_1030(1030,"10:30"),
-        ITEM_1040(1040,"10:40"),
-        ITEM_1050(1050,"10:50"),
-        ITEM_1100(1100,"11:00"),
-        ITEM_1110(1110,"11:10"),
-        ITEM_1120(1120,"11:20"),
-        ITEM_1130(1130,"11:30"),
-        ITEM_1140(1140,"11:40"),
-        ITEM_1150(1150,"11:50"),
-        ITEM_1200(1200,"12:00"),
-        ITEM_1210(1210,"12:10"),
-        ITEM_1220(1220,"12:20"),
-        ITEM_1230(1230,"12:30"),
-        ITEM_1240(1240,"12:40"),
-        ITEM_1250(1250,"12:50"),
-        ITEM_1300(1300,"13:00"),
-        ITEM_1310(1310,"13:10"),
-        ITEM_1320(1320,"13:20"),
-        ITEM_1330(1330,"13:30"),
-        ITEM_1340(1340,"13:40"),
-        ITEM_1350(1350,"13:50"),
-        ITEM_1400(1400,"14:00"),
-        ITEM_1410(1410,"14:10"),
-        ITEM_1420(1420,"14:20"),
-        ITEM_1430(1430,"14:30"),
-        ITEM_1440(1440,"14:40"),
-        ITEM_1450(1450,"14:50"),
-        ITEM_1500(1500,"15:00"),
-        ITEM_1510(1510,"15:10"),
-        ITEM_1520(1520,"15:20"),
-        ITEM_1530(1530,"15:30"),
-        ITEM_1540(1540,"15:40"),
-        ITEM_1550(1550,"15:50"),
-        ITEM_1600(1600,"16:00"),
-        ITEM_1610(1610,"16:10"),
-        ITEM_1620(1620,"16:20"),
-        ITEM_1630(1630,"16:30"),
-        ITEM_1640(1640,"16:40"),
-        ITEM_1650(1650,"16:50"),
-        ITEM_1700(1700,"17:00"),
-        ITEM_1710(1710,"17:10"),
-        ITEM_1720(1720,"17:20"),
-        ITEM_1730(1730,"17:30"),
-        ITEM_1740(1740,"17:40"),
-        ITEM_1750(1750,"17:50"),
-        ITEM_1800(1800,"18:00"),
-        ITEM_1810(1810,"18:10"),
-        ITEM_1820(1820,"18:20"),
-        ITEM_1830(1830,"18:30"),
-        ITEM_1840(1840,"18:40"),
-        ITEM_1850(1850,"18:50"),
-        ITEM_1900(1900,"19:00"),
-        ITEM_1910(1910,"19:10"),
-        ITEM_1920(1920,"19:20"),
-        ITEM_1930(1930,"19:30"),
-        ITEM_1940(1940,"19:40"),
-        ITEM_1950(1950,"19:50"),
-        ITEM_2000(2000,"20:00"),
-        ITEM_2010(2010,"20:10"),
-        ITEM_2020(2020,"20:20"),
-        ITEM_2030(2030,"20:30"),
-        ITEM_2040(2040,"20:40"),
-        ITEM_2050(2050,"20:50"),
-        ITEM_2100(2100,"21:00"),
-        ITEM_2110(2110,"21:10"),
-        ITEM_2120(2120,"21:20"),
-        ITEM_2130(2130,"21:30"),
-        ITEM_2140(2140,"21:40"),
-        ITEM_2150(2150,"21:50"),
-        ITEM_2200(2200,"22:00"),
-        ITEM_2210(2210,"22:10"),
-        ITEM_2220(2220,"22:20"),
-        ITEM_2230(2230,"22:30"),
-        ITEM_2240(2240,"22:40"),
-        ITEM_2250(2250,"22:50"),
-        ITEM_2300(2300,"23:00"),
-        ITEM_2310(2310,"23:10"),
-        ITEM_2320(2320,"23:20"),
-        ITEM_2330(2330,"23:30"),
-        ITEM_2340(2340,"23:40"),
-        ITEM_2350(2350,"23:50");
-
-        private int value;
-        private String text;
-        private String valueSeparator="";
-        private String textSeparator="";
-        private String emptyText="";
-
-        BeginendDropList(int value , String text) {
-            this.value=value;
-            this.text = text;
-        }
-    }
-
-
-    /**
-     * 代码表[时间周期]
-     */
-    @Getter
-    public enum Zt__delta {
-        ITEM_7("7","一星期"),
-        ITEM_14("14","两星期"),
-        ITEM_31("31","一个月"),
-        ITEM_62("62","两个月"),
-        ITEM_93("93","三个月"),
-        ITEM_186("186","半年"),
-        ITEM_365("365","一年");
-
-        private String value;
-        private String text;
-        private String valueSeparator="";
-        private String textSeparator="";
-        private String emptyText="按时间段";
-
-        Zt__delta(String value , String text) {
-            this.value=value;
-            this.text = text;
-        }
-    }
-
-
-    /**
-     * 代码表[管理现状]
-     */
-    @Getter
-    public enum ConfigManagementstatus {
-        PRODUCT_PROJECT("product_project","产品 - 项目"),
-        PRODUCT_ITERATION("product_iteration","产品 - 迭代"),
-        PROJECT_ITERATION("project_iteration","项目 - 迭代"),
-        PRODUCT_SPRINT("product_sprint","产品 - 冲刺"),
-        PROJECT_SPRINT("project_sprint","项目 - 冲刺");
-
-        private String value;
-        private String text;
-        private String valueSeparator="";
-        private String textSeparator="";
-        private String emptyText="";
-
-        ConfigManagementstatus(String value , String text) {
-            this.value=value;
-            this.text = text;
-        }
-    }
-
-
-
-
-    /**
-     * 代码表[汇报快速分组]
-     */
-    @Getter
-    public enum REPORTQuickGroup {
-        ALLCNT("All","所有"),
-        DAILYCNT("daily","日报"),
-        WEEKLYCNT("weekly","周报"),
-        MONTHLYCNT("monthly","月报");
-
-        private String value;
-        private String text;
-        private String valueSeparator="";
-        private String textSeparator="";
-        private String emptyText="";
-
-        REPORTQuickGroup(String value , String text) {
             this.value=value;
             this.text = text;
         }
@@ -283,16 +51,11 @@ public class StaticDict {
 
 
     /**
-     * 代码表[项目快速分组]
+     * 代码表[不需要评审]
      */
     @Getter
-    public enum Project_quickpacket {
-        ALL("All","所有"),
-        WAIT("wait","未开始"),
-        MORE("MORE","更多"),
-        DOING("doing","进行中"),
-        SUSPENDED("suspended","已挂起"),
-        CLOSED("closed","已关闭");
+    public enum NeedNotReview {
+        ITEM_0("0","不需要评审");
 
         private String value;
         private String text;
@@ -300,7 +63,7 @@ public class StaticDict {
         private String textSeparator="";
         private String emptyText="";
 
-        Project_quickpacket(String value , String text) {
+        NeedNotReview(String value , String text) {
             this.value=value;
             this.text = text;
         }
@@ -326,7 +89,6 @@ public class StaticDict {
             this.text = text;
         }
     }
-
 
 
     /**
@@ -375,6 +137,28 @@ public class StaticDict {
     }
 
 
+    /**
+     * 代码表[Bug严重程度（Mob）]
+     */
+    @Getter
+    public enum Bug__severity_mob {
+        ITEM_1(1,"1"),
+        ITEM_2(2,"2"),
+        ITEM_3(3,"3"),
+        ITEM_4(4,"4");
+
+        private int value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        Bug__severity_mob(int value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
 
     /**
      * 代码表[审计行为]
@@ -398,13 +182,19 @@ public class StaticDict {
     }
 
 
+
     /**
-     * 代码表[Bug快速分组（版本所有bug）]
+     * 代码表[任务状态（查看）]
      */
     @Getter
-    public enum BugCodeList2 {
-        ALL("All","所有"),
-        ACTIVE("active","未解决");
+    public enum TaskStatusCK {
+        WAIT("wait","未开始"),
+        DOING("doing","进行中"),
+        DONE("done","已完成"),
+        PAUSE("pause","已暂停"),
+        CANCEL("cancel","已取消"),
+        CLOSED("closed","已关闭"),
+        STORYCHANGE("storychange","需求变更");
 
         private String value;
         private String text;
@@ -412,7 +202,31 @@ public class StaticDict {
         private String textSeparator="";
         private String emptyText="";
 
-        BugCodeList2(String value , String text) {
+        TaskStatusCK(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
+
+    /**
+     * 代码表[测试单快速分组]
+     */
+    @Getter
+    public enum TestQuickpacket {
+        ALL("ALL","全部"),
+        ICREATE("ICREATE","待测测试单"),
+        IREVIEW("IREVIEW","测试中测试单"),
+        ICLOSE("ICLOSE","被阻塞测试单"),
+        TESTED("Tested","已测测试单");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        TestQuickpacket(String value , String text) {
             this.value=value;
             this.text = text;
         }
@@ -468,8 +282,6 @@ public class StaticDict {
     }
 
 
-
-
     /**
      * 代码表[消息模板内容类型]
      */
@@ -492,13 +304,11 @@ public class StaticDict {
 
 
     /**
-     * 代码表[发布快速分组]
+     * 代码表[私人事务选择]
      */
     @Getter
-    public enum Realease_sort {
-        ALL("all","所有"),
-        NORMAL("normal","正常"),
-        TERMINATE("terminate","停止维护");
+    public enum Private_choose {
+        ITEM_1("1","是");
 
         private String value;
         private String text;
@@ -506,33 +316,11 @@ public class StaticDict {
         private String textSeparator="";
         private String emptyText="";
 
-        Realease_sort(String value , String text) {
+        Private_choose(String value , String text) {
             this.value=value;
             this.text = text;
         }
     }
-
-
-    /**
-     * 代码表[插件_消息类型]
-     */
-    @Getter
-    public enum Message__type {
-        TODO("todo","待办"),
-        TOREAD("toread","待阅");
-
-        private String value;
-        private String text;
-        private String valueSeparator="";
-        private String textSeparator="";
-        private String emptyText="";
-
-        Message__type(String value , String text) {
-            this.value=value;
-            this.text = text;
-        }
-    }
-
 
 
     /**
@@ -563,28 +351,6 @@ public class StaticDict {
 
 
     /**
-     * 代码表[汇报状态]
-     */
-    @Getter
-    public enum ReportStatus {
-        ITEM_0("0","未读"),
-        ITEM_1("1","已读");
-
-        private String value;
-        private String text;
-        private String valueSeparator="";
-        private String textSeparator="";
-        private String emptyText="";
-
-        ReportStatus(String value , String text) {
-            this.value=value;
-            this.text = text;
-        }
-    }
-
-
-
-    /**
      * 代码表[字段查询扩展选项]
      */
     @Getter
@@ -600,6 +366,27 @@ public class StaticDict {
         private String emptyText="";
 
         CodeList60(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
+
+    /**
+     * 代码表[计划模板权限]
+     */
+    @Getter
+    public enum PlanAcl {
+        OPEN("open","公开"),
+        PRIVATE("private","私有");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        PlanAcl(String value , String text) {
             this.value=value;
             this.text = text;
         }
@@ -622,7 +409,15 @@ public class StaticDict {
         ITEM_2017("2017","2017年"),
         ITEM_2018("2018","2018年"),
         ITEM_2019("2019","2019年"),
-        ITEM_2020("2020","2020年");
+        ITEM_2020("2020","2020年"),
+        ITEM_2021("2021","2021年"),
+        ITEM_2022("2022","2022年"),
+        ITEM_2023("2023","2023年"),
+        ITEM_2024("2024","2024年"),
+        ITEM_2025("2025","2025年"),
+        ITEM_2026("2026","2026年"),
+        ITEM_2027("2027","2027年"),
+        ITEM_2028("2028","2028年");
 
         private String value;
         private String text;
@@ -660,7 +455,6 @@ public class StaticDict {
     }
 
 
-
     /**
      * 代码表[树视图节点类型]
      */
@@ -681,7 +475,6 @@ public class StaticDict {
             this.text = text;
         }
     }
-
 
 
     /**
@@ -707,24 +500,12 @@ public class StaticDict {
     }
 
 
-
-
     /**
-     * 代码表[Bug快速分组（移动端）]
+     * 代码表[指派用户-关闭]
      */
     @Getter
-    public enum MobBugQuickGroup {
-        ALL("All","所有"),
-        UNCLOSED("UNCLOSED","未关闭"),
-        ICREATE("ICREATE","由我创建"),
-        MORE("MORE","更多"),
-        TOME("TOME","指派给我"),
-        BYME("BYME","由我解决"),
-        WAITCLOSED("WAITCLOSED","待关闭"),
-        UNRESOLVED("UNRESOLVED","未解决"),
-        UNCONFIRMED("UNCONFIRMED","未确认"),
-        UNASSIGNED("UNASSIGNED","未指派"),
-        EXPIREDBUG("EXPIREDBUG","过期Bug");
+    public enum Assignedto_closed {
+        CLOSED("closed","关闭");
 
         private String value;
         private String text;
@@ -732,7 +513,78 @@ public class StaticDict {
         private String textSeparator="";
         private String emptyText="";
 
-        MobBugQuickGroup(String value , String text) {
+        Assignedto_closed(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
+
+    /**
+     * 代码表[燃尽图快速分组]
+     */
+    @Getter
+    public enum BurnQuickpacket {
+        EXWEEK("exWeek","去除周末"),
+        WEEK("Week","显示周末");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        BurnQuickpacket(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
+
+    /**
+     * 代码表[项目快速分组]
+     */
+    @Getter
+    public enum ProjectQuickpacket {
+        ALL("All","所有"),
+        NOWAIT("nowait","未完成"),
+        WAIT("wait","未开始"),
+        DOING("doing","进行中"),
+        SUSPENDED("suspended","已挂起"),
+        CLOSED("closed","已关闭");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        ProjectQuickpacket(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
+
+
+    /**
+     * 代码表[管理现状]
+     */
+    @Getter
+    public enum ConfigManagementstatus {
+        PRODUCT_PROJECT("product_project","产品 - 项目"),
+        PRODUCT_ITERATION("product_iteration","产品 - 迭代"),
+        PROJECT_ITERATION("project_iteration","项目 - 迭代"),
+        PRODUCT_SPRINT("product_sprint","产品 - 冲刺"),
+        PROJECT_SPRINT("project_sprint","项目 - 冲刺");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        ConfigManagementstatus(String value , String text) {
             this.value=value;
             this.text = text;
         }
@@ -790,15 +642,21 @@ public class StaticDict {
 
 
     /**
-     * 代码表[待办类型（全部）]
+     * 代码表[Bug快速分组]
      */
     @Getter
-    public enum TypeAll {
-        CUSTOM("custom","自定义"),
-        BUG("bug","Bug"),
-        TASK("task","项目任务"),
-        STORY("story","项目需求"),
-        CYCLE("cycle","周期");
+    public enum Bug__quickpacket {
+        ALL("All","所有"),
+        UNCLOSED("UNCLOSED","未关闭"),
+        ICREATE("ICREATE","由我创建"),
+        TOME("TOME","指派给我"),
+        BYME("BYME","由我解决"),
+        WAITCLOSED("WAITCLOSED","待关闭"),
+        UNRESOLVED("UNRESOLVED","未解决"),
+        MORE("MORE","更多"),
+        UNCONFIRMED("UNCONFIRMED","未确认"),
+        UNASSIGNED("UNASSIGNED","未指派"),
+        EXPIREDBUG("EXPIREDBUG","过期Bug");
 
         private String value;
         private String text;
@@ -806,7 +664,7 @@ public class StaticDict {
         private String textSeparator="";
         private String emptyText="";
 
-        TypeAll(String value , String text) {
+        Bug__quickpacket(String value , String text) {
             this.value=value;
             this.text = text;
         }
@@ -834,33 +692,6 @@ public class StaticDict {
         }
     }
 
-
-    /**
-     * 代码表[运行模式]
-     */
-    @Getter
-    public enum RELEASE_Type {
-        DEPLOYPKG("DEPLOYPKG","部署系统组件到仓库"),
-        PACKMOBAPP("PACKMOBAPP","打包移动应用"),
-        PACKVER("PACKVER","打包版本"),
-        PUBCODE("PUBCODE","代码发布"),
-        PUBCODE2("PUBCODE2","代码发布（模板开发）"),
-        STARTMSAPI("STARTMSAPI","启动微服务"),
-        STARTMSAPP("STARTMSAPP","启动微服务应用"),
-        STARTMSFUNC("STARTMSFUNC","启动微服务功能"),
-        STARTX("STARTX","启动系统");
-
-        private String value;
-        private String text;
-        private String valueSeparator="";
-        private String textSeparator="";
-        private String emptyText="";
-
-        RELEASE_Type(String value , String text) {
-            this.value=value;
-            this.text = text;
-        }
-    }
 
 
     /**
@@ -916,48 +747,6 @@ public class StaticDict {
     }
 
 
-    /**
-     * 代码表[Bug快速分组（我的地盘）]
-     */
-    @Getter
-    public enum BugQuickpacketMy {
-        TOME("TOME","指派给我"),
-        ICREATE("ICREATE","由我创建"),
-        BYME("BYME","由我解决"),
-        WAITCLOSED("WAITCLOSED","由我关闭");
-
-        private String value;
-        private String text;
-        private String valueSeparator="";
-        private String textSeparator="";
-        private String emptyText="";
-
-        BugQuickpacketMy(String value , String text) {
-            this.value=value;
-            this.text = text;
-        }
-    }
-
-
-    /**
-     * 代码表[指派用户-关闭]
-     */
-    @Getter
-    public enum Assignedto_closed {
-        CLOSED("closed","关闭");
-
-        private String value;
-        private String text;
-        private String valueSeparator="";
-        private String textSeparator="";
-        private String emptyText="";
-
-        Assignedto_closed(String value , String text) {
-            this.value=value;
-            this.text = text;
-        }
-    }
-
 
 
     /**
@@ -979,6 +768,7 @@ public class StaticDict {
             this.text = text;
         }
     }
+
 
 
     /**
@@ -1003,6 +793,7 @@ public class StaticDict {
     }
 
 
+
     /**
      * 代码表[ZT_ACTION__READ]
      */
@@ -1018,6 +809,35 @@ public class StaticDict {
         private String emptyText="";
 
         Action__read(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
+
+
+    /**
+     * 代码表[运行模式]
+     */
+    @Getter
+    public enum RELEASE_Type {
+        DEPLOYPKG("DEPLOYPKG","部署系统组件到仓库"),
+        PACKMOBAPP("PACKMOBAPP","打包移动应用"),
+        PACKVER("PACKVER","打包版本"),
+        PUBCODE("PUBCODE","代码发布"),
+        PUBCODE2("PUBCODE2","代码发布（模板开发）"),
+        STARTMSAPI("STARTMSAPI","启动微服务"),
+        STARTMSAPP("STARTMSAPP","启动微服务应用"),
+        STARTMSFUNC("STARTMSFUNC","启动微服务功能"),
+        STARTX("STARTX","启动系统");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        RELEASE_Type(String value , String text) {
             this.value=value;
             this.text = text;
         }
@@ -1047,6 +867,37 @@ public class StaticDict {
             this.text = text;
         }
     }
+
+
+    /**
+     * 代码表[燃尽图间隔显示]
+     */
+    @Getter
+    public enum Burninterval {
+        ITEM_1("1","间隔1天"),
+        ITEM_2("2","间隔2天"),
+        ITEM_3("3","间隔3天"),
+        ITEM_4("4","间隔4天"),
+        ITEM_5("5","间隔5天"),
+        ITEM_6("6","间隔6天"),
+        ITEM_7("7","间隔7天"),
+        ITEM_8("8","间隔8天"),
+        ITEM_9("9","间隔9天"),
+        ITEM_10("10","间隔10天"),
+        ITEM_11("11","间隔11天");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        Burninterval(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
 
 
     /**
@@ -1184,6 +1035,7 @@ public class StaticDict {
 
 
 
+
     /**
      * 代码表[平台内置流程状态]
      */
@@ -1204,53 +1056,6 @@ public class StaticDict {
         private String emptyText="";
 
         WFStates(String value , String text) {
-            this.value=value;
-            this.text = text;
-        }
-    }
-
-
-    /**
-     * 代码表[测试用例状态（表格）]
-     */
-    @Getter
-    public enum TestCaseStatusGrid {
-        WAIT("wait","未开始"),
-        NORMAL("normal","正常"),
-        BLOCKED("blocked","被阻塞"),
-        INVESTIGATE("investigate","研究中"),
-        DONE("done","已完成"),
-        STORYCHANGE("storychange","需求变更"),
-        CASECHANGE("casechange","原用例更新");
-
-        private String value;
-        private String text;
-        private String valueSeparator="";
-        private String textSeparator="";
-        private String emptyText="";
-
-        TestCaseStatusGrid(String value , String text) {
-            this.value=value;
-            this.text = text;
-        }
-    }
-
-
-    /**
-     * 代码表[燃尽图快速分组]
-     */
-    @Getter
-    public enum BurnQuickpacket {
-        EXWEEK("exWeek","去除周末"),
-        WEEK("Week","显示周末");
-
-        private String value;
-        private String text;
-        private String valueSeparator="";
-        private String textSeparator="";
-        private String emptyText="";
-
-        BurnQuickpacket(String value , String text) {
             this.value=value;
             this.text = text;
         }
@@ -1304,20 +1109,12 @@ public class StaticDict {
 
 
     /**
-     * 代码表[Bug类型（饼图）]
+     * 代码表[功能测试快速分组]
      */
     @Getter
-    public enum Bug_type_pie {
-        CODEERROR("codeerror","代码错误"),
-        CONFIG("config","配置相关"),
-        INSTALL("install","安装部署"),
-        SECURITY("security","安全相关"),
-        PERFORMANCE("performance","性能问题"),
-        STANDARD("standard","标准规范"),
-        AUTOMATION("automation","测试脚本"),
-        DESIGNDEFECT("designdefect","设计缺陷"),
-        OTHERS("others","其他"),
-        ITEM_10("无","无");
+    public enum CaseQuickpachet {
+        ALL("ALL","所有"),
+        TOME("TOME","需求变动");
 
         private String value;
         private String text;
@@ -1325,29 +1122,7 @@ public class StaticDict {
         private String textSeparator="";
         private String emptyText="";
 
-        Bug_type_pie(String value , String text) {
-            this.value=value;
-            this.text = text;
-        }
-    }
-
-
-    /**
-     * 代码表[需求模块类型]
-     */
-    @Getter
-    public enum Ibizpro_storymodule__type {
-        PMSSTORYMODULE("pmsStoryModule","PMS需求模块"),
-        IBIZSYSMODULE("iBizSysModule","iBiz系统模块"),
-        IBIZREQMODULE("iBizReqModule","iBiz需求模块");
-
-        private String value;
-        private String text;
-        private String valueSeparator="";
-        private String textSeparator="";
-        private String emptyText="";
-
-        Ibizpro_storymodule__type(String value , String text) {
+        CaseQuickpachet(String value , String text) {
             this.value=value;
             this.text = text;
         }
@@ -1375,16 +1150,14 @@ public class StaticDict {
 
 
     /**
-     * 代码表[测试单快速分组（移动端）]
+     * 代码表[需求快速分组（我的地盘）]
      */
     @Getter
-    public enum MobTestQuickpacket {
-        ALL("ALL","全部"),
-        ICREATE("ICREATE","待测测试单"),
-        IREVIEW("IREVIEW","测试中测试单"),
-        MORE("MORE","更多"),
-        ICLOSE("ICLOSE","被阻塞测试单"),
-        TESTED("Tested","已测测试单");
+    public enum StoryQuickpacketMy {
+        TOME("TOME","指给我"),
+        ICREATE("ICREATE","由我创建"),
+        IREVIEW("IREVIEW","由我评审"),
+        ICLOSE("ICLOSE","由我关闭");
 
         private String value;
         private String text;
@@ -1392,19 +1165,40 @@ public class StaticDict {
         private String textSeparator="";
         private String emptyText="";
 
-        MobTestQuickpacket(String value , String text) {
+        StoryQuickpacketMy(String value , String text) {
             this.value=value;
             this.text = text;
         }
     }
 
 
+
     /**
-     * 代码表[不需要评审（新建）]
+     * 代码表[系统日志操作方式]
      */
     @Getter
-    public enum NeedNotReviewNew {
-        ITEM_1("1","不需要评审");
+    public enum ActionManner {
+        STORY_CLOSED_WILLNOTDO("story_closed_willnotdo","不做"),
+        STORY_CLOSED_CANCEL("story_closed_cancel","已取消"),
+        STORY_CLOSED_DONE("story_closed_done","已完成"),
+        STORY_CLOSED_SUBDIVIDED("story_closed_subdivided","已细分"),
+        STORY_CLOSED_POSTPONED("story_closed_postponed","延期"),
+        STORY_CLOSED_BYDESIGN("story_closed_bydesign","设计如此"),
+        STORY_CLOSED_DUPLICATE("story_closed_duplicate","重复"),
+        BUG_RESOLVED_WILLNOTFIX("bug_resolved_willnotfix","不予解决"),
+        BUG_RESOLVED_EXTERNAL("bug_resolved_external","外部原因"),
+        BUG_RESOLVED_FIXED("bug_resolved_fixed","已解决"),
+        BUG_RESOLVED_POSTPONED("bug_resolved_postponed","延期处理"),
+        BUG_RESOLVED_NOTREPRO("bug_resolved_notrepro","无法重现"),
+        BUG_RESOLVED_BYDESIGN("bug_resolved_bydesign","设计如此"),
+        BUG_RESOLVED_TOSTORY("bug_resolved_tostory","转为需求"),
+        BUG_RESOLVED_DUPLICATE("bug_resolved_duplicate","重复Bug"),
+        STORY_REVIEWED_REJECT("story_reviewed_reject","拒绝"),
+        STORY_REVIEWED_REVERT("story_reviewed_revert","撤销变更"),
+        STORY_REVIEWED_CLARIFY("story_reviewed_clarify","有待明确"),
+        STORY_REVIEWED_PASS("story_reviewed_pass","确认通过"),
+        _RELEASE_CHANGESTATUS_TERMINATE(" release_changestatus_terminate","停止维护"),
+        _RELEASE_CHANGESTATUS_NORMAL(" release_changestatus_normal","正常");
 
         private String value;
         private String text;
@@ -1412,7 +1206,7 @@ public class StaticDict {
         private String textSeparator="";
         private String emptyText="";
 
-        NeedNotReviewNew(String value , String text) {
+        ActionManner(String value , String text) {
             this.value=value;
             this.text = text;
         }
@@ -1511,7 +1305,6 @@ public class StaticDict {
     }
 
 
-
     /**
      * 代码表[服务运行状态]
      */
@@ -1527,6 +1320,28 @@ public class StaticDict {
         private String emptyText="";
 
         CodeList38(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
+
+
+
+    /**
+     * 代码表[生产体系类型]
+     */
+    @Getter
+    public enum Ibzpro__pssystype {
+        IBIZSYS6("iBizSys6","iBizSys6");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        Ibzpro__pssystype(String value , String text) {
             this.value=value;
             this.text = text;
         }
@@ -1557,27 +1372,6 @@ public class StaticDict {
 
 
     /**
-     * 代码表[配置分组]
-     */
-    @Getter
-    public enum ConfigGroup {
-        GROUP("GROUP","分组"),
-        ITEM("ITEM","配置项");
-
-        private String value;
-        private String text;
-        private String valueSeparator="";
-        private String textSeparator="";
-        private String emptyText="";
-
-        ConfigGroup(String value , String text) {
-            this.value=value;
-            this.text = text;
-        }
-    }
-
-
-    /**
      * 代码表[需求状态]
      */
     @Getter
@@ -1594,28 +1388,6 @@ public class StaticDict {
         private String emptyText="";
 
         Story__status(String value , String text) {
-            this.value=value;
-            this.text = text;
-        }
-    }
-
-
-    /**
-     * 代码表[需求评审结果（草稿）]
-     */
-    @Getter
-    public enum Story__review_result_draft {
-        PASS("pass","确认通过"),
-        CLARIFY("clarify","有待明确"),
-        REJECT("reject","拒绝");
-
-        private String value;
-        private String text;
-        private String valueSeparator="";
-        private String textSeparator="";
-        private String emptyText="";
-
-        Story__review_result_draft(String value , String text) {
             this.value=value;
             this.text = text;
         }
@@ -1644,11 +1416,11 @@ public class StaticDict {
 
 
     /**
-     * 代码表[不需要评审]
+     * 代码表[不需要评审（新建）]
      */
     @Getter
-    public enum NeedNotReview {
-        ITEM_0("0","不需要评审");
+    public enum NeedNotReviewNew {
+        ITEM_1("1","不需要评审");
 
         private String value;
         private String text;
@@ -1656,13 +1428,11 @@ public class StaticDict {
         private String textSeparator="";
         private String emptyText="";
 
-        NeedNotReview(String value , String text) {
+        NeedNotReviewNew(String value , String text) {
             this.value=value;
             this.text = text;
         }
     }
-
-
 
 
     /**
@@ -1687,7 +1457,6 @@ public class StaticDict {
     }
 
 
-
     /**
      * 代码表[脚本功能]
      */
@@ -1710,29 +1479,6 @@ public class StaticDict {
         private String emptyText="";
 
         CodeList114(String value , String text) {
-            this.value=value;
-            this.text = text;
-        }
-    }
-
-
-    /**
-     * 代码表[待办类型]
-     */
-    @Getter
-    public enum Type {
-        CUSTOM("custom","自定义"),
-        BUG("bug","Bug"),
-        TASK("task","项目任务"),
-        STORY("story","项目需求");
-
-        private String value;
-        private String text;
-        private String valueSeparator="";
-        private String textSeparator="";
-        private String emptyText="";
-
-        Type(String value , String text) {
             this.value=value;
             this.text = text;
         }
@@ -1851,18 +1597,17 @@ public class StaticDict {
     }
 
 
+
     /**
-     * 代码表[产品动态快速分组]
+     * 代码表[任务快速分组（我的地盘）]
      */
     @Getter
-    public enum ProductActionQuickpacket {
-        ALL("All","所有"),
-        TODAY("today","今天"),
-        YESTERDAY("yesterday","昨天"),
-        THISWEEK("thisweek","本周"),
-        LASTWEEK("lastweek","上周"),
-        THISMONTH("thismonth","本月"),
-        LASTMONTH("lastmonth","上月");
+    public enum TASK_QuickacketMy {
+        TOME("TOME","指派给我"),
+        CANCELLED("CANCELLED","由我创建"),
+        IFINISHED("IFINISHED","由我完成"),
+        COMPLETED("COMPLETED","由我关闭"),
+        CLOSED("CLOSED","由我取消");
 
         private String value;
         private String text;
@@ -1870,7 +1615,28 @@ public class StaticDict {
         private String textSeparator="";
         private String emptyText="";
 
-        ProductActionQuickpacket(String value , String text) {
+        TASK_QuickacketMy(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
+
+    /**
+     * 代码表[项目时间类型]
+     */
+    @Getter
+    public enum ProjectTimeType {
+        CONSUMED("CONSUMED","消耗时间"),
+        LEFT("LEFT","剩余时间");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        ProjectTimeType(String value , String text) {
             this.value=value;
             this.text = text;
         }
@@ -1878,16 +1644,23 @@ public class StaticDict {
 
 
 
+
     /**
-     * 代码表[测试单快速分组]
+     * 代码表[需求故事点]
      */
     @Getter
-    public enum TestQuickpacket {
-        ALL("ALL","全部"),
-        ICREATE("ICREATE","待测测试单"),
-        IREVIEW("IREVIEW","测试中测试单"),
-        ICLOSE("ICLOSE","被阻塞测试单"),
-        TESTED("Tested","已测测试单");
+    public enum StoryPoints {
+        ITEM_0("0","0"),
+        ITEM_05("0.5","0.5"),
+        ITEM_1("1","1"),
+        ITEM_2("2","2"),
+        ITEM_3("3","3"),
+        ITEM_5("5","5"),
+        ITEM_8("8","8"),
+        ITEM_13("13","13"),
+        ITEM_20("20","20"),
+        ITEM_40("40","40"),
+        ITEM_100("100","100");
 
         private String value;
         private String text;
@@ -1895,7 +1668,7 @@ public class StaticDict {
         private String textSeparator="";
         private String emptyText="";
 
-        TestQuickpacket(String value , String text) {
+        StoryPoints(String value , String text) {
             this.value=value;
             this.text = text;
         }
@@ -1976,39 +1749,23 @@ public class StaticDict {
     }
 
 
-    /**
-     * 代码表[todo快速分组（我的地盘）]
-     */
-    @Getter
-    public enum TodoQuickpacketMy {
-        ALL("All","所有待办"),
-        THISYEAR("thisyear","本年度"),
-        UNFINISHED("Unfinished","未完"),
-        BYME("BYME","待定"),
-        CYCLE("cycle","周期");
-
-        private String value;
-        private String text;
-        private String valueSeparator="";
-        private String textSeparator="";
-        private String emptyText="";
-
-        TodoQuickpacketMy(String value , String text) {
-            this.value=value;
-            this.text = text;
-        }
-    }
-
 
     /**
-     * 代码表[需求快速分组（我的地盘）]
+     * 代码表[Bug快速分组（移动端）]
      */
     @Getter
-    public enum StoryQuickpacketMy {
-        TOME("TOME","指给我"),
+    public enum MobBugQuickGroup {
+        ALL("All","所有"),
+        UNCLOSED("UNCLOSED","未关闭"),
         ICREATE("ICREATE","由我创建"),
-        IREVIEW("IREVIEW","由我评审"),
-        ICLOSE("ICLOSE","由我关闭");
+        MORE("MORE","更多"),
+        TOME("TOME","指派给我"),
+        BYME("BYME","由我解决"),
+        WAITCLOSED("WAITCLOSED","待关闭"),
+        UNRESOLVED("UNRESOLVED","未解决"),
+        UNCONFIRMED("UNCONFIRMED","未确认"),
+        UNASSIGNED("UNASSIGNED","未指派"),
+        EXPIREDBUG("EXPIREDBUG","过期Bug");
 
         private String value;
         private String text;
@@ -2016,7 +1773,7 @@ public class StaticDict {
         private String textSeparator="";
         private String emptyText="";
 
-        StoryQuickpacketMy(String value , String text) {
+        MobBugQuickGroup(String value , String text) {
             this.value=value;
             this.text = text;
         }
@@ -2045,6 +1802,32 @@ public class StaticDict {
         private String emptyText="";
 
         Task__type(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
+
+    /**
+     * 代码表[产品动态快速分组]
+     */
+    @Getter
+    public enum ProductActionQuickpacket {
+        ALL("All","所有"),
+        TODAY("today","今天"),
+        YESTERDAY("yesterday","昨天"),
+        THISWEEK("thisweek","本周"),
+        LASTWEEK("lastweek","上周"),
+        THISMONTH("thismonth","本月"),
+        LASTMONTH("lastmonth","上月");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        ProductActionQuickpacket(String value , String text) {
             this.value=value;
             this.text = text;
         }
@@ -2095,6 +1878,7 @@ public class StaticDict {
     }
 
 
+
     /**
      * 代码表[数据通知_时间条件]
      */
@@ -2110,49 +1894,6 @@ public class StaticDict {
         private String emptyText="";
 
         CodeList62(String value , String text) {
-            this.value=value;
-            this.text = text;
-        }
-    }
-
-
-    /**
-     * 代码表[日期_待定]
-     */
-    @Getter
-    public enum Date_disable {
-        ON("on","待定");
-
-        private String value;
-        private String text;
-        private String valueSeparator="";
-        private String textSeparator="";
-        private String emptyText="";
-
-        Date_disable(String value , String text) {
-            this.value=value;
-            this.text = text;
-        }
-    }
-
-
-    /**
-     * 代码表[需求评审结果]
-     */
-    @Getter
-    public enum Story__review_result {
-        PASS("pass","确认通过"),
-        REVERT("revert","撤销变更"),
-        CLARIFY("clarify","有待明确"),
-        REJECT("reject","拒绝");
-
-        private String value;
-        private String text;
-        private String valueSeparator="";
-        private String textSeparator="";
-        private String emptyText="";
-
-        Story__review_result(String value , String text) {
             this.value=value;
             this.text = text;
         }
@@ -2207,6 +1948,7 @@ public class StaticDict {
     }
 
 
+
     /**
      * 代码表[DA日志对象类型]
      */
@@ -2223,46 +1965,6 @@ public class StaticDict {
         private String emptyText="";
 
         CodeList23(String value , String text) {
-            this.value=value;
-            this.text = text;
-        }
-    }
-
-
-    /**
-     * 代码表[系统日志操作方式]
-     */
-    @Getter
-    public enum ActionManner {
-        STORY_CLOSED_WILLNOTDO("story_closed_willnotdo","不做"),
-        STORY_CLOSED_CANCEL("story_closed_cancel","已取消"),
-        STORY_CLOSED_DONE("story_closed_done","已完成"),
-        STORY_CLOSED_SUBDIVIDED("story_closed_subdivided","已细分"),
-        STORY_CLOSED_POSTPONED("story_closed_postponed","延期"),
-        STORY_CLOSED_BYDESIGN("story_closed_bydesign","设计如此"),
-        STORY_CLOSED_DUPLICATE("story_closed_duplicate","重复"),
-        BUG_RESOLVED_WILLNOTFIX("bug_resolved_willnotfix","不予解决"),
-        BUG_RESOLVED_EXTERNAL("bug_resolved_external","外部原因"),
-        BUG_RESOLVED_FIXED("bug_resolved_fixed","已解决"),
-        BUG_RESOLVED_POSTPONED("bug_resolved_postponed","延期处理"),
-        BUG_RESOLVED_NOTREPRO("bug_resolved_notrepro","无法重现"),
-        BUG_RESOLVED_BYDESIGN("bug_resolved_bydesign","设计如此"),
-        BUG_RESOLVED_TOSTORY("bug_resolved_tostory","转为需求"),
-        BUG_RESOLVED_DUPLICATE("bug_resolved_duplicate","重复Bug"),
-        STORY_REVIEWED_REJECT("story_reviewed_reject","拒绝"),
-        STORY_REVIEWED_REVERT("story_reviewed_revert","撤销变更"),
-        STORY_REVIEWED_CLARIFY("story_reviewed_clarify","有待明确"),
-        STORY_REVIEWED_PASS("story_reviewed_pass","确认通过"),
-        _RELEASE_CHANGESTATUS_TERMINATE(" release_changestatus_terminate","停止维护"),
-        _RELEASE_CHANGESTATUS_NORMAL(" release_changestatus_normal","正常");
-
-        private String value;
-        private String text;
-        private String valueSeparator="";
-        private String textSeparator="";
-        private String emptyText="";
-
-        ActionManner(String value , String text) {
             this.value=value;
             this.text = text;
         }
@@ -2289,29 +1991,6 @@ public class StaticDict {
         private String emptyText="";
 
         Story__closed_reason(String value , String text) {
-            this.value=value;
-            this.text = text;
-        }
-    }
-
-
-    /**
-     * 代码表[用户模板快速分组]
-     */
-    @Getter
-    public enum UserTplQuickGroup {
-        ALL("all","所有"),
-        STORY("story","需求"),
-        TASK("task","任务"),
-        BUG("bug","Bug");
-
-        private String value;
-        private String text;
-        private String valueSeparator="";
-        private String textSeparator="";
-        private String emptyText="";
-
-        UserTplQuickGroup(String value , String text) {
             this.value=value;
             this.text = text;
         }
@@ -2458,27 +2137,6 @@ public class StaticDict {
 
 
     /**
-     * 代码表[功能测试快速分组（我的地盘）]
-     */
-    @Getter
-    public enum CaseQuickpacketMy {
-        TOME("TOME","给我的用例"),
-        ICREATE("ICREATE","我建的用例");
-
-        private String value;
-        private String text;
-        private String valueSeparator="";
-        private String textSeparator="";
-        private String emptyText="";
-
-        CaseQuickpacketMy(String value , String text) {
-            this.value=value;
-            this.text = text;
-        }
-    }
-
-
-    /**
      * 代码表[数据库操作]
      */
     @Getter
@@ -2520,6 +2178,31 @@ public class StaticDict {
         private String emptyText="";
 
         StoryStageKane(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
+
+    /**
+     * 代码表[测试单快速分组（移动端）]
+     */
+    @Getter
+    public enum MobTestQuickpacket {
+        ALL("ALL","全部"),
+        ICREATE("ICREATE","待测测试单"),
+        IREVIEW("IREVIEW","测试中测试单"),
+        MORE("MORE","更多"),
+        ICLOSE("ICLOSE","被阻塞测试单"),
+        TESTED("Tested","已测测试单");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        MobTestQuickpacket(String value , String text) {
             this.value=value;
             this.text = text;
         }
@@ -2632,6 +2315,7 @@ public class StaticDict {
     }
 
 
+
     /**
      * 代码表[DB2触发器代码模式]
      */
@@ -2702,7 +2386,6 @@ public class StaticDict {
     }
 
 
-
     /**
      * 代码表[测试用例优先级]
      */
@@ -2720,71 +2403,6 @@ public class StaticDict {
         private String emptyText="";
 
         Testcase__pri(int value , String text) {
-            this.value=value;
-            this.text = text;
-        }
-    }
-
-
-    /**
-     * 代码表[周期选择_启用]
-     */
-    @Getter
-    public enum Cycle_enable {
-        ITEM_1("1","周期");
-
-        private String value;
-        private String text;
-        private String valueSeparator="";
-        private String textSeparator="";
-        private String emptyText="";
-
-        Cycle_enable(String value , String text) {
-            this.value=value;
-            this.text = text;
-        }
-    }
-
-
-
-    /**
-     * 代码表[待办优先级]
-     */
-    @Getter
-    public enum Pri {
-        ITEM_1(1,"一般"),
-        ITEM_2(2,"最高"),
-        ITEM_3(3,"较高"),
-        ITEM_4(4,"最低");
-
-        private int value;
-        private String text;
-        private String valueSeparator="";
-        private String textSeparator="";
-        private String emptyText="";
-
-        Pri(int value , String text) {
-            this.value=value;
-            this.text = text;
-        }
-    }
-
-
-    /**
-     * 代码表[更新平台]
-     */
-    @Getter
-    public enum SYS_UPDATE_BRANCH {
-        PC("PC","PC"),
-        MOB("MOB","MOB");
-
-        private String value;
-        private String text;
-        private String valueSeparator="";
-        private String textSeparator="";
-        private String emptyText="";
-
-        SYS_UPDATE_BRANCH(String value , String text) {
             this.value=value;
             this.text = text;
         }
@@ -2856,27 +2474,6 @@ public class StaticDict {
     }
 
 
-    /**
-     * 代码表[周期类型]
-     */
-    @Getter
-    public enum CycleType {
-        DAY("day","天"),
-        WEEK("week","周"),
-        MONTH("month","月度");
-
-        private String value;
-        private String text;
-        private String valueSeparator="";
-        private String textSeparator="";
-        private String emptyText="";
-
-        CycleType(String value , String text) {
-            this.value=value;
-            this.text = text;
-        }
-    }
-
 
     /**
      * 代码表[ZT_IM_MESSAGESTATUS__STATUS]
@@ -2920,7 +2517,6 @@ public class StaticDict {
             this.text = text;
         }
     }
-
 
 
     /**
@@ -2991,11 +2587,13 @@ public class StaticDict {
 
 
     /**
-     * 代码表[起止时间_暂时不设定时间]
+     * 代码表[用户模板类型]
      */
     @Getter
-    public enum Beginend_disable {
-        ON("on","暂时不设定时间");
+    public enum UserTplType {
+        STORY("story","需求"),
+        TASK("task","任务"),
+        BUG("bug","Bug");
 
         private String value;
         private String text;
@@ -3003,7 +2601,29 @@ public class StaticDict {
         private String textSeparator="";
         private String emptyText="";
 
-        Beginend_disable(String value , String text) {
+        UserTplType(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
+
+    /**
+     * 代码表[项目状态(wait=doing)]
+     */
+    @Getter
+    public enum Project_staus {
+        DOING("doing","进行中"),
+        SUSPENDED("suspended","已挂起"),
+        CLOSED("closed","已关闭");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        Project_staus(String value , String text) {
             this.value=value;
             this.text = text;
         }
@@ -3081,26 +2701,6 @@ public class StaticDict {
 
 
     /**
-     * 代码表[关闭产品]
-     */
-    @Getter
-    public enum CloseProduct {
-        ITEM_1("1","关闭产品");
-
-        private String value;
-        private String text;
-        private String valueSeparator="";
-        private String textSeparator="";
-        private String emptyText="";
-
-        CloseProduct(String value , String text) {
-            this.value=value;
-            this.text = text;
-        }
-    }
-
-
-    /**
      * 代码表[扩展表格单元格水平对齐方式]
      */
     @Getter
@@ -3123,12 +2723,11 @@ public class StaticDict {
 
 
     /**
-     * 代码表[项目时间类型]
+     * 代码表[项目快速分组（我的地盘）]
      */
     @Getter
-    public enum ProjectTimeType {
-        CONSUMED("CONSUMED","消耗时间"),
-        LEFT("LEFT","剩余时间");
+    public enum ProjectQuickpaketMy {
+        ALL("All","我的项目");
 
         private String value;
         private String text;
@@ -3136,12 +2735,11 @@ public class StaticDict {
         private String textSeparator="";
         private String emptyText="";
 
-        ProjectTimeType(String value , String text) {
+        ProjectQuickpaketMy(String value , String text) {
             this.value=value;
             this.text = text;
         }
     }
-
 
 
     /**
@@ -3188,6 +2786,28 @@ public class StaticDict {
 
 
     /**
+     * 代码表[是否指派]
+     */
+    @Getter
+    public enum IsAssigned {
+        ASSIGN("assign","已指派"),
+        NOASSIGN("noassign","未指派");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        IsAssigned(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
+
+
+    /**
      * 代码表[文件编码]
      */
     @Getter
@@ -3206,6 +2826,8 @@ public class StaticDict {
             this.text = text;
         }
     }
+
+
 
 
     /**
@@ -3328,7 +2950,6 @@ public class StaticDict {
     }
 
 
-
     /**
      * 代码表[Bug解决方案]
      */
@@ -3409,18 +3030,15 @@ public class StaticDict {
     }
 
 
+
+
     /**
-     * 代码表[全文检索类型]
+     * 代码表[更新平台]
      */
     @Getter
-    public enum IndexType {
-        BUG("bug","Bug"),
-        PRODUCT("product","产品"),
-        TASK("task","任务"),
-        CASE("case","功能测试"),
-        DOC("doc","文档"),
-        STORY("story","需求"),
-        PROJECT("project","项目");
+    public enum SYS_UPDATE_BRANCH {
+        PC("PC","PC"),
+        MOB("MOB","MOB");
 
         private String value;
         private String text;
@@ -3428,7 +3046,7 @@ public class StaticDict {
         private String textSeparator="";
         private String emptyText="";
 
-        IndexType(String value , String text) {
+        SYS_UPDATE_BRANCH(String value , String text) {
             this.value=value;
             this.text = text;
         }
@@ -3524,11 +3142,13 @@ public class StaticDict {
 
 
     /**
-     * 代码表[项目快速分组（我的地盘）]
+     * 代码表[模板类型]
      */
     @Getter
-    public enum ProjectQuickpaketMy {
-        ALL("All","我的项目");
+    public enum Usertpl__type {
+        STORY("story","story"),
+        TASK("task","task"),
+        BUG("bug","bug");
 
         private String value;
         private String text;
@@ -3536,7 +3156,7 @@ public class StaticDict {
         private String textSeparator="";
         private String emptyText="";
 
-        ProjectQuickpaketMy(String value , String text) {
+        Usertpl__type(String value , String text) {
             this.value=value;
             this.text = text;
         }
@@ -3544,16 +3164,13 @@ public class StaticDict {
 
 
     /**
-     * 代码表[项目快速分组]
+     * 代码表[周期类型]
      */
     @Getter
-    public enum ProjectQuickpacket {
-        ALL("All","所有"),
-        NOWAIT("nowait","未完成"),
-        WAIT("wait","未开始"),
-        DOING("doing","进行中"),
-        SUSPENDED("suspended","已挂起"),
-        CLOSED("closed","已关闭");
+    public enum CycleType {
+        DAY("day","天"),
+        WEEK("week","周"),
+        MONTH("month","月度");
 
         private String value;
         private String text;
@@ -3561,7 +3178,62 @@ public class StaticDict {
         private String textSeparator="";
         private String emptyText="";
 
-        ProjectQuickpacket(String value , String text) {
+        CycleType(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
+
+
+    /**
+     * 代码表[需求快速分组（移动端）]
+     */
+    @Getter
+    public enum MobStoryQuickGroup {
+        ALL("ALL","所有"),
+        UNCLOSED("UNCLOSED","未关闭"),
+        TOME("TOME","指给我"),
+        ICREATE("ICREATE","我创建"),
+        MORE("MORE","更多"),
+        IREVIEW("IREVIEW","我评审"),
+        DRAFT("DRAFT","草稿"),
+        ICLOSE("ICLOSE","我关闭"),
+        ACTIVED("ACTIVED","激活"),
+        CHANGED("CHANGED","已变更"),
+        TOBECLOSED("TOBECLOSED","待关闭"),
+        CLOSED("CLOSED","已关闭");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        MobStoryQuickGroup(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
+
+    /**
+     * 代码表[需求评审结果]
+     */
+    @Getter
+    public enum Story__review_result {
+        PASS("pass","确认通过"),
+        REVERT("revert","撤销变更"),
+        CLARIFY("clarify","有待明确"),
+        REJECT("reject","拒绝");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        Story__review_result(String value , String text) {
             this.value=value;
             this.text = text;
         }
@@ -3633,6 +3305,72 @@ public class StaticDict {
 
 
     /**
+     * 代码表[日期_待定]
+     */
+    @Getter
+    public enum Date_disable {
+        ON("on","待定");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        Date_disable(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
+
+    /**
+     * 代码表[功能测试快速分组（我的地盘）]
+     */
+    @Getter
+    public enum CaseQuickpacketMy {
+        TOME("TOME","给我的用例"),
+        ICREATE("ICREATE","我建的用例");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        CaseQuickpacketMy(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
+
+    /**
+     * 代码表[项目快速分组]
+     */
+    @Getter
+    public enum Project_quickpacket {
+        ALL("All","所有"),
+        WAIT("wait","未开始"),
+        MORE("MORE","更多"),
+        DOING("doing","进行中"),
+        SUSPENDED("suspended","已挂起"),
+        CLOSED("closed","已关闭");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        Project_quickpacket(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
+
+    /**
      * 代码表[Bug浏览器]
      */
     @Getter
@@ -3672,29 +3410,6 @@ public class StaticDict {
     }
 
 
-    /**
-     * 代码表[任务快速分组（我的地盘）]
-     */
-    @Getter
-    public enum TASK_QuickacketMy {
-        TOME("TOME","指派给我"),
-        CANCELLED("CANCELLED","由我创建"),
-        IFINISHED("IFINISHED","由我完成"),
-        COMPLETED("COMPLETED","由我关闭"),
-        CLOSED("CLOSED","由我取消");
-
-        private String value;
-        private String text;
-        private String valueSeparator="";
-        private String textSeparator="";
-        private String emptyText="";
-
-        TASK_QuickacketMy(String value , String text) {
-            this.value=value;
-            this.text = text;
-        }
-    }
-
 
     /**
      * 代码表[测试用例阶段]
@@ -3715,6 +3430,51 @@ public class StaticDict {
         private String emptyText="";
 
         Testcase__stage(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
+
+    /**
+     * 代码表[插件_消息类型]
+     */
+    @Getter
+    public enum Message__type {
+        TODO("todo","待办"),
+        TOREAD("toread","待阅");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        Message__type(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
+
+    /**
+     * 代码表[待办类型（全部）]
+     */
+    @Getter
+    public enum TypeAll {
+        CUSTOM("custom","自定义"),
+        BUG("bug","Bug"),
+        TASK("task","项目任务"),
+        STORY("story","项目需求"),
+        CYCLE("cycle","周期");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        TypeAll(String value , String text) {
             this.value=value;
             this.text = text;
         }
@@ -3743,6 +3503,7 @@ public class StaticDict {
     }
 
 
+
     /**
      * 代码表[周期时间类型]
      */
@@ -3766,12 +3527,14 @@ public class StaticDict {
     }
 
 
+
+
     /**
-     * 代码表[日期选择]
+     * 代码表[IBIZ模板类型]
      */
     @Getter
-    public enum Datecheckbox {
-        ON("on","待定");
+    public enum Ibz__systpl__type {
+        TPLTYPE__FREEMARKER("tpltype__freemarker","Freemarker");
 
         private String value;
         private String text;
@@ -3779,22 +3542,20 @@ public class StaticDict {
         private String textSeparator="";
         private String emptyText="";
 
-        Datecheckbox(String value , String text) {
+        Ibz__systpl__type(String value , String text) {
             this.value=value;
             this.text = text;
         }
     }
 
 
-
     /**
-     * 代码表[计划模板类型]
+     * 代码表[测试套件&用例库类型（新建套件）]
      */
     @Getter
-    public enum PlantempletType {
-        STEP("step","计划"),
-        GROUP("group","父计划"),
-        ITEM("item","子计划");
+    public enum TestsuiteTypeNew {
+        PRIVATE("private","私有"),
+        PUBLIC("public","公开");
 
         private String value;
         private String text;
@@ -3802,7 +3563,75 @@ public class StaticDict {
         private String textSeparator="";
         private String emptyText="";
 
-        PlantempletType(String value , String text) {
+        TestsuiteTypeNew(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
+
+    /**
+     * 代码表[待办优先级]
+     */
+    @Getter
+    public enum Pri {
+        ITEM_1(1,"一般"),
+        ITEM_2(2,"最高"),
+        ITEM_3(3,"较高"),
+        ITEM_4(4,"最低");
+
+        private int value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        Pri(int value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
+
+    /**
+     * 代码表[计划快速分组]
+     */
+    @Getter
+    public enum Zt__productplan {
+        ALL("All","所有"),
+        UNEXPIRED("UNEXPIRED","未过期"),
+        ISEXPIRED("ISEXPIRED","已过期");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        Zt__productplan(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
+
+    /**
+     * 代码表[Bug快速分组（我的地盘）]
+     */
+    @Getter
+    public enum BugQuickpacketMy {
+        TOME("TOME","指派给我"),
+        ICREATE("ICREATE","由我创建"),
+        BYME("BYME","由我解决"),
+        WAITCLOSED("WAITCLOSED","由我关闭");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        BugQuickpacketMy(String value , String text) {
             this.value=value;
             this.text = text;
         }
@@ -3824,26 +3653,6 @@ public class StaticDict {
         private String emptyText="";
 
         Doc__type(String value , String text) {
-            this.value=value;
-            this.text = text;
-        }
-    }
-
-
-    /**
-     * 代码表[IBIZ模板类型]
-     */
-    @Getter
-    public enum Ibz__systpl__type {
-        TPLTYPE__FREEMARKER("tpltype__freemarker","Freemarker");
-
-        private String value;
-        private String text;
-        private String valueSeparator="";
-        private String textSeparator="";
-        private String emptyText="";
-
-        Ibz__systpl__type(String value , String text) {
             this.value=value;
             this.text = text;
         }
@@ -3946,57 +3755,6 @@ public class StaticDict {
 
 
     /**
-     * 代码表[功能测试快速分组_测试单]
-     */
-    @Getter
-    public enum CaseTestTaskQuickpachet {
-        ALL("ALL","所有用例"),
-        TOME("TOME","指派给我");
-
-        private String value;
-        private String text;
-        private String valueSeparator="";
-        private String textSeparator="";
-        private String emptyText="";
-
-        CaseTestTaskQuickpachet(String value , String text) {
-            this.value=value;
-            this.text = text;
-        }
-    }
-
-
-    /**
-     * 代码表[Bug快速分组]
-     */
-    @Getter
-    public enum Bug__quickpacket {
-        ALL("All","所有"),
-        UNCLOSED("UNCLOSED","未关闭"),
-        ICREATE("ICREATE","由我创建"),
-        TOME("TOME","指派给我"),
-        BYME("BYME","由我解决"),
-        WAITCLOSED("WAITCLOSED","待关闭"),
-        UNRESOLVED("UNRESOLVED","未解决"),
-        MORE("MORE","更多"),
-        UNCONFIRMED("UNCONFIRMED","未确认"),
-        UNASSIGNED("UNASSIGNED","未指派"),
-        EXPIREDBUG("EXPIREDBUG","过期Bug");
-
-        private String value;
-        private String text;
-        private String valueSeparator="";
-        private String textSeparator="";
-        private String emptyText="";
-
-        Bug__quickpacket(String value , String text) {
-            this.value=value;
-            this.text = text;
-        }
-    }
-
-
-    /**
      * 代码表[ZT_WEBHOOK__SENDTYPE]
      */
     @Getter
@@ -4011,37 +3769,6 @@ public class StaticDict {
         private String emptyText="";
 
         Webhook__sendType(String value , String text) {
-            this.value=value;
-            this.text = text;
-        }
-    }
-
-
-    /**
-     * 代码表[需求快速分组（移动端）]
-     */
-    @Getter
-    public enum MobStoryQuickGroup {
-        ALL("ALL","所有"),
-        UNCLOSED("UNCLOSED","未关闭"),
-        TOME("TOME","指给我"),
-        ICREATE("ICREATE","我创建"),
-        MORE("MORE","更多"),
-        IREVIEW("IREVIEW","我评审"),
-        DRAFT("DRAFT","草稿"),
-        ICLOSE("ICLOSE","我关闭"),
-        ACTIVED("ACTIVED","激活"),
-        CHANGED("CHANGED","已变更"),
-        TOBECLOSED("TOBECLOSED","待关闭"),
-        CLOSED("CLOSED","已关闭");
-
-        private String value;
-        private String text;
-        private String valueSeparator="";
-        private String textSeparator="";
-        private String emptyText="";
-
-        MobStoryQuickGroup(String value , String text) {
             this.value=value;
             this.text = text;
         }
@@ -4071,7 +3798,6 @@ public class StaticDict {
     }
 
 
-
     /**
      * 代码表[实体数据处理_数据对象操作]
      */
@@ -4096,26 +3822,6 @@ public class StaticDict {
 
 
 
-    /**
-     * 代码表[功能测试快速分组]
-     */
-    @Getter
-    public enum CaseQuickpachet {
-        ALL("ALL","所有"),
-        TOME("TOME","需求变动");
-
-        private String value;
-        private String text;
-        private String valueSeparator="";
-        private String textSeparator="";
-        private String emptyText="";
-
-        CaseQuickpachet(String value , String text) {
-            this.value=value;
-            this.text = text;
-        }
-    }
-
 
     /**
      * 代码表[实体属性访问控制]
@@ -4137,9 +3843,6 @@ public class StaticDict {
             this.text = text;
         }
     }
-
-
-
 
 
     /**
@@ -4167,6 +3870,132 @@ public class StaticDict {
     }
 
 
+    /**
+     * 代码表[起止时间选择(下拉列表)]
+     */
+    @Getter
+    public enum BeginendDropList {
+        ITEM_600(600,"06:00"),
+        ITEM_610(610,"06:10"),
+        ITEM_620(620,"06:20"),
+        ITEM_630(630,"06:30"),
+        ITEM_640(640,"06:40"),
+        ITEM_650(650,"06:50"),
+        ITEM_700(700,"07:00"),
+        ITEM_710(710,"07:10"),
+        ITEM_720(720,"07:20"),
+        ITEM_730(730,"07:30"),
+        ITEM_740(740,"07:40"),
+        ITEM_750(750,"07:50"),
+        ITEM_800(800,"08:00"),
+        ITEM_810(810,"08:10"),
+        ITEM_820(820,"08:20"),
+        ITEM_830(830,"08:30"),
+        ITEM_840(840,"08:40"),
+        ITEM_850(850,"08:50"),
+        ITEM_900(900,"09:00"),
+        ITEM_910(910,"09:10"),
+        ITEM_920(920,"09:20"),
+        ITEM_930(930,"09:30"),
+        ITEM_940(940,"09:40"),
+        ITEM_950(950,"09:50"),
+        ITEM_1000(1000,"10:00"),
+        ITEM_1010(1010,"10:10"),
+        ITEM_1020(1020,"10:20"),
+        ITEM_1030(1030,"10:30"),
+        ITEM_1040(1040,"10:40"),
+        ITEM_1050(1050,"10:50"),
+        ITEM_1100(1100,"11:00"),
+        ITEM_1110(1110,"11:10"),
+        ITEM_1120(1120,"11:20"),
+        ITEM_1130(1130,"11:30"),
+        ITEM_1140(1140,"11:40"),
+        ITEM_1150(1150,"11:50"),
+        ITEM_1200(1200,"12:00"),
+        ITEM_1210(1210,"12:10"),
+        ITEM_1220(1220,"12:20"),
+        ITEM_1230(1230,"12:30"),
+        ITEM_1240(1240,"12:40"),
+        ITEM_1250(1250,"12:50"),
+        ITEM_1300(1300,"13:00"),
+        ITEM_1310(1310,"13:10"),
+        ITEM_1320(1320,"13:20"),
+        ITEM_1330(1330,"13:30"),
+        ITEM_1340(1340,"13:40"),
+        ITEM_1350(1350,"13:50"),
+        ITEM_1400(1400,"14:00"),
+        ITEM_1410(1410,"14:10"),
+        ITEM_1420(1420,"14:20"),
+        ITEM_1430(1430,"14:30"),
+        ITEM_1440(1440,"14:40"),
+        ITEM_1450(1450,"14:50"),
+        ITEM_1500(1500,"15:00"),
+        ITEM_1510(1510,"15:10"),
+        ITEM_1520(1520,"15:20"),
+        ITEM_1530(1530,"15:30"),
+        ITEM_1540(1540,"15:40"),
+        ITEM_1550(1550,"15:50"),
+        ITEM_1600(1600,"16:00"),
+        ITEM_1610(1610,"16:10"),
+        ITEM_1620(1620,"16:20"),
+        ITEM_1630(1630,"16:30"),
+        ITEM_1640(1640,"16:40"),
+        ITEM_1650(1650,"16:50"),
+        ITEM_1700(1700,"17:00"),
+        ITEM_1710(1710,"17:10"),
+        ITEM_1720(1720,"17:20"),
+        ITEM_1730(1730,"17:30"),
+        ITEM_1740(1740,"17:40"),
+        ITEM_1750(1750,"17:50"),
+        ITEM_1800(1800,"18:00"),
+        ITEM_1810(1810,"18:10"),
+        ITEM_1820(1820,"18:20"),
+        ITEM_1830(1830,"18:30"),
+        ITEM_1840(1840,"18:40"),
+        ITEM_1850(1850,"18:50"),
+        ITEM_1900(1900,"19:00"),
+        ITEM_1910(1910,"19:10"),
+        ITEM_1920(1920,"19:20"),
+        ITEM_1930(1930,"19:30"),
+        ITEM_1940(1940,"19:40"),
+        ITEM_1950(1950,"19:50"),
+        ITEM_2000(2000,"20:00"),
+        ITEM_2010(2010,"20:10"),
+        ITEM_2020(2020,"20:20"),
+        ITEM_2030(2030,"20:30"),
+        ITEM_2040(2040,"20:40"),
+        ITEM_2050(2050,"20:50"),
+        ITEM_2100(2100,"21:00"),
+        ITEM_2110(2110,"21:10"),
+        ITEM_2120(2120,"21:20"),
+        ITEM_2130(2130,"21:30"),
+        ITEM_2140(2140,"21:40"),
+        ITEM_2150(2150,"21:50"),
+        ITEM_2200(2200,"22:00"),
+        ITEM_2210(2210,"22:10"),
+        ITEM_2220(2220,"22:20"),
+        ITEM_2230(2230,"22:30"),
+        ITEM_2240(2240,"22:40"),
+        ITEM_2250(2250,"22:50"),
+        ITEM_2300(2300,"23:00"),
+        ITEM_2310(2310,"23:10"),
+        ITEM_2320(2320,"23:20"),
+        ITEM_2330(2330,"23:30"),
+        ITEM_2340(2340,"23:40"),
+        ITEM_2350(2350,"23:50");
+
+        private int value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        BeginendDropList(int value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
 
     /**
      * 代码表[项目阶段]
@@ -4192,28 +4021,6 @@ public class StaticDict {
     }
 
 
-    /**
-     * 代码表[文档查询类型]
-     */
-    @Getter
-    public enum DOCQTYPE {
-        DOC("doc","文档"),
-        DOCLIB("doclib","文档库"),
-        MODULE("module","文档库分类");
-
-        private String value;
-        private String text;
-        private String valueSeparator="";
-        private String textSeparator="";
-        private String emptyText="";
-
-        DOCQTYPE(String value , String text) {
-            this.value=value;
-            this.text = text;
-        }
-    }
-
-
 
     /**
      * 代码表[实体存储类型]
@@ -4231,29 +4038,6 @@ public class StaticDict {
         private String emptyText="";
 
         CodeList80(String value , String text) {
-            this.value=value;
-            this.text = text;
-        }
-    }
-
-
-    /**
-     * 代码表[重新构建]
-     */
-    @Getter
-    public enum RELEASE_rebuild {
-        NONE(0,"无操作"),
-        QUICK(1,"快速（删除本地项目与代码仓库多余文件）"),
-        FIXMODEL(4,"修复模型"),
-        FULL(2,"完整（完全重建本地项目及代码仓库）");
-
-        private int value;
-        private String text;
-        private String valueSeparator="";
-        private String textSeparator="";
-        private String emptyText="";
-
-        RELEASE_rebuild(int value , String text) {
             this.value=value;
             this.text = text;
         }
@@ -4359,6 +4143,28 @@ public class StaticDict {
 
 
     /**
+     * 代码表[需求模块类型]
+     */
+    @Getter
+    public enum Ibizpro_storymodule__type {
+        PMSSTORYMODULE("pmsStoryModule","PMS需求模块"),
+        IBIZSYSMODULE("iBizSysModule","iBiz系统模块"),
+        IBIZREQMODULE("iBizReqModule","iBiz需求模块");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        Ibizpro_storymodule__type(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
+
+    /**
      * 代码表[系统错误代码]
      */
     @Getter
@@ -4386,6 +4192,25 @@ public class StaticDict {
         }
     }
 
+
+    /**
+     * 代码表[周期选择_启用]
+     */
+    @Getter
+    public enum Cycle_enable {
+        ITEM_1("1","周期");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        Cycle_enable(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
 
 
 
@@ -4462,28 +4287,6 @@ public class StaticDict {
         private String emptyText="";
 
         CodeList33(String value , String text) {
-            this.value=value;
-            this.text = text;
-        }
-    }
-
-
-    /**
-     * 代码表[产品快速分组]
-     */
-    @Getter
-    public enum ProductQuickpacket {
-        ALL("All","所有"),
-        NORMAL("normal","未关闭"),
-        CLOSED("closed","已关闭");
-
-        private String value;
-        private String text;
-        private String valueSeparator="";
-        private String textSeparator="";
-        private String emptyText="";
-
-        ProductQuickpacket(String value , String text) {
             this.value=value;
             this.text = text;
         }
@@ -4691,18 +4494,13 @@ public class StaticDict {
     }
 
 
+
     /**
-     * 代码表[任务状态（查看）]
+     * 代码表[Bug创建解决版本]
      */
     @Getter
-    public enum TaskStatusCK {
-        WAIT("wait","未开始"),
-        DOING("doing","进行中"),
-        DONE("done","已完成"),
-        PAUSE("pause","已暂停"),
-        CANCEL("cancel","已取消"),
-        CLOSED("closed","已关闭"),
-        STORYCHANGE("storychange","需求变更");
+    public enum BugCreateResolve {
+        ITEM_1("1","创建");
 
         private String value;
         private String text;
@@ -4710,7 +4508,28 @@ public class StaticDict {
         private String textSeparator="";
         private String emptyText="";
 
-        TaskStatusCK(String value , String text) {
+        BugCreateResolve(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
+
+    /**
+     * 代码表[文件库类型]
+     */
+    @Getter
+    public enum DOCLIBTYPE {
+        DOC("doc","文档"),
+        FILE("file","附件");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        DOCLIBTYPE(String value , String text) {
             this.value=value;
             this.text = text;
         }
@@ -4814,6 +4633,27 @@ public class StaticDict {
 
 
     /**
+     * 代码表[系统更新类型]
+     */
+    @Getter
+    public enum SYS_UPDATE_LOG_TYPE {
+        ITEM_10("10","功能增强"),
+        ITEM_20("20","优化");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        SYS_UPDATE_LOG_TYPE(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
+
+    /**
      * 代码表[主实体删除关系实体操作]
      */
     @Getter
@@ -4833,7 +4673,6 @@ public class StaticDict {
             this.text = text;
         }
     }
-
 
 
     /**
@@ -4863,6 +4702,25 @@ public class StaticDict {
         }
     }
 
+
+    /**
+     * 代码表[起止时间_暂时不设定时间]
+     */
+    @Getter
+    public enum Beginend_disable {
+        ON("on","暂时不设定时间");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        Beginend_disable(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
 
 
     /**
@@ -4992,24 +4850,13 @@ public class StaticDict {
     }
 
 
-
     /**
-     * 代码表[任务快速分组]
+     * 代码表[功能测试快速分组_测试单]
      */
     @Getter
-    public enum Task_quickpacket {
-        ALLTASKCNT("All","所有"),
-        UNCLOSETASKCNT("UNCLOSED","未关闭"),
-        ASSTOMYTASKCNT("TOME","指派给我"),
-        STORYCHANGECNT("storychange","需求变更"),
-        MORETASKCNT("MORE","更多"),
-        UNSTARTTASKCNT("NOTSTARTED","未开始"),
-        YSTARTASKCNT("INPROGRESS","进行中"),
-        UNCOMPLETETASKCNT("UNACCOMPLISHED","未完成"),
-        MYCOMPLETETASKCNT("IFINISHED","我完成"),
-        YCOMPLETETASKCNT("COMPLETED","已完成"),
-        CLOSETASKCNT("CLOSED","已关闭"),
-        CANCELTASKCNT("CANCELLED","已取消");
+    public enum CaseTestTaskQuickpachet {
+        ALL("ALL","所有用例"),
+        TOME("TOME","指派给我");
 
         private String value;
         private String text;
@@ -5017,12 +4864,11 @@ public class StaticDict {
         private String textSeparator="";
         private String emptyText="";
 
-        Task_quickpacket(String value , String text) {
+        CaseTestTaskQuickpachet(String value , String text) {
             this.value=value;
             this.text = text;
         }
     }
-
 
 
     /**
@@ -5049,11 +4895,15 @@ public class StaticDict {
 
 
     /**
-     * 代码表[过期计划]
+     * 代码表[todo快速分组（我的地盘）]
      */
     @Getter
-    public enum ExpiredPlan {
-        ITEM_1("1","过期计划");
+    public enum TodoQuickpacketMy {
+        ALL("All","所有待办"),
+        THISYEAR("thisyear","本年度"),
+        UNFINISHED("Unfinished","未完"),
+        BYME("BYME","待定"),
+        CYCLE("cycle","周期");
 
         private String value;
         private String text;
@@ -5061,30 +4911,7 @@ public class StaticDict {
         private String textSeparator="";
         private String emptyText="";
 
-        ExpiredPlan(String value , String text) {
-            this.value=value;
-            this.text = text;
-        }
-    }
-
-
-
-    /**
-     * 代码表[用户模板类型]
-     */
-    @Getter
-    public enum UserTplType {
-        STORY("story","需求"),
-        TASK("task","任务"),
-        BUG("bug","Bug");
-
-        private String value;
-        private String text;
-        private String valueSeparator="";
-        private String textSeparator="";
-        private String emptyText="";
-
-        UserTplType(String value , String text) {
+        TodoQuickpacketMy(String value , String text) {
             this.value=value;
             this.text = text;
         }
@@ -5115,26 +4942,6 @@ public class StaticDict {
 
 
     /**
-     * 代码表[私人事务选择]
-     */
-    @Getter
-    public enum Private_choose {
-        ITEM_1("1","是");
-
-        private String value;
-        private String text;
-        private String valueSeparator="";
-        private String textSeparator="";
-        private String emptyText="";
-
-        Private_choose(String value , String text) {
-            this.value=value;
-            this.text = text;
-        }
-    }
-
-
-    /**
      * 代码表[项目类型]
      */
     @Getter
@@ -5154,6 +4961,7 @@ public class StaticDict {
             this.text = text;
         }
     }
+
 
 
     /**
@@ -5180,48 +4988,29 @@ public class StaticDict {
 
 
     /**
-     * 代码表[计划模板权限]
+     * 代码表[时间周期]
      */
     @Getter
-    public enum PlanAcl {
-        OPEN("open","公开"),
-        PRIVATE("private","私有");
+    public enum Zt__delta {
+        ITEM_7("7","一星期"),
+        ITEM_14("14","两星期"),
+        ITEM_31("31","一个月"),
+        ITEM_62("62","两个月"),
+        ITEM_93("93","三个月"),
+        ITEM_186("186","半年"),
+        ITEM_365("365","一年");
 
         private String value;
         private String text;
         private String valueSeparator="";
         private String textSeparator="";
-        private String emptyText="";
+        private String emptyText="按时间段";
 
-        PlanAcl(String value , String text) {
+        Zt__delta(String value , String text) {
             this.value=value;
             this.text = text;
         }
     }
-
-
-    /**
-     * 代码表[汇报类型]
-     */
-    @Getter
-    public enum ReportType {
-        WEEKLY("weekly","周报"),
-        DAILY("daily","日报"),
-        MONTHLY("monthly","月报"),
-        REPORTLY("reportly","汇报");
-
-        private String value;
-        private String text;
-        private String valueSeparator="";
-        private String textSeparator="";
-        private String emptyText="";
-
-        ReportType(String value , String text) {
-            this.value=value;
-            this.text = text;
-        }
-    }
-
 
 
     /**
@@ -5272,6 +5061,7 @@ public class StaticDict {
     }
 
 
+
     /**
      * 代码表[是否]
      */
@@ -5294,13 +5084,13 @@ public class StaticDict {
 
 
     /**
-     * 代码表[模板类型]
+     * 代码表[发布快速分组]
      */
     @Getter
-    public enum Usertpl__type {
-        STORY("story","story"),
-        TASK("task","task"),
-        BUG("bug","bug");
+    public enum Realease_sort {
+        ALL("all","所有"),
+        NORMAL("normal","正常"),
+        TERMINATE("terminate","停止维护");
 
         private String value;
         private String text;
@@ -5308,7 +5098,52 @@ public class StaticDict {
         private String textSeparator="";
         private String emptyText="";
 
-        Usertpl__type(String value , String text) {
+        Realease_sort(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
+
+    /**
+     * 代码表[文档查询类型]
+     */
+    @Getter
+    public enum DOCQTYPE {
+        DOC("doc","文档"),
+        DOCLIB("doclib","文档库"),
+        MODULE("module","文档库分类");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        DOCQTYPE(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
+
+
+    /**
+     * 代码表[需求评审结果（草稿）]
+     */
+    @Getter
+    public enum Story__review_result_draft {
+        PASS("pass","确认通过"),
+        CLARIFY("clarify","有待明确"),
+        REJECT("reject","拒绝");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        Story__review_result_draft(String value , String text) {
             this.value=value;
             this.text = text;
         }
@@ -5339,26 +5174,6 @@ public class StaticDict {
         private String emptyText="";
 
         CodeList13(String value , String text) {
-            this.value=value;
-            this.text = text;
-        }
-    }
-
-
-    /**
-     * 代码表[Bug创建解决版本]
-     */
-    @Getter
-    public enum BugCreateResolve {
-        ITEM_1("1","创建");
-
-        private String value;
-        private String text;
-        private String valueSeparator="";
-        private String textSeparator="";
-        private String emptyText="";
-
-        BugCreateResolve(String value , String text) {
             this.value=value;
             this.text = text;
         }
@@ -5438,11 +5253,22 @@ public class StaticDict {
 
 
     /**
-     * 代码表[生产体系类型]
+     * 代码表[月份（01～12）]
      */
     @Getter
-    public enum Ibzpro__pssystype {
-        IBIZSYS6("iBizSys6","iBizSys6");
+    public enum DCodeList {
+        ITEM_01("01","一月"),
+        ITEM_02("02","二月"),
+        ITEM_03("03","三月"),
+        ITEM_04("04","四月"),
+        ITEM_05("05","五月"),
+        ITEM_06("06","六月"),
+        ITEM_07("07","七月"),
+        ITEM_08("08","八月"),
+        ITEM_09("09","九月"),
+        ITEM_10("10","十月"),
+        ITEM_11("11","十一月"),
+        ITEM_12("12","十二月");
 
         private String value;
         private String text;
@@ -5450,7 +5276,7 @@ public class StaticDict {
         private String textSeparator="";
         private String emptyText="";
 
-        Ibzpro__pssystype(String value , String text) {
+        DCodeList(String value , String text) {
             this.value=value;
             this.text = text;
         }
@@ -5505,8 +5331,6 @@ public class StaticDict {
     }
 
 
-
-
     /**
      * 代码表[测试结果]
      */
@@ -5553,6 +5377,7 @@ public class StaticDict {
 
 
 
+
     /**
      * 代码表[报表分类]
      */
@@ -5575,11 +5400,13 @@ public class StaticDict {
 
 
     /**
-     * 代码表[来源对象]
+     * 代码表[任务种别]
      */
     @Getter
-    public enum Ibizpro_story__sourceobject {
-        SOURCENOTE__DATAENTITY("sourcenote__dataentity","实体");
+    public enum TaskSpecies {
+        PLAN("plan","计划任务"),
+        CYCLE("cycle","周期任务"),
+        TEMP("temp","临时任务");
 
         private String value;
         private String text;
@@ -5587,32 +5414,7 @@ public class StaticDict {
         private String textSeparator="";
         private String emptyText="";
 
-        Ibizpro_story__sourceobject(String value , String text) {
-            this.value=value;
-            this.text = text;
-        }
-    }
-
-
-    /**
-     * 代码表[产品快速分组]
-     */
-    @Getter
-    public enum Product_quickpacket {
-        ALL("All","所有"),
-        NORMAL("normal","正常"),
-        MORE("MORE","更多"),
-        CLOSED("closed","结束"),
-        BRANCH("branch","多平台"),
-        PLATFORM("platform","多分支");
-
-        private String value;
-        private String text;
-        private String valueSeparator="";
-        private String textSeparator="";
-        private String emptyText="";
-
-        Product_quickpacket(String value , String text) {
+        TaskSpecies(String value , String text) {
             this.value=value;
             this.text = text;
         }
@@ -5642,6 +5444,51 @@ public class StaticDict {
     }
 
 
+    /**
+     * 代码表[重新构建]
+     */
+    @Getter
+    public enum RELEASE_rebuild {
+        NONE(0,"无操作"),
+        QUICK(1,"快速（删除本地项目与代码仓库多余文件）"),
+        FIXMODEL(4,"修复模型"),
+        FULL(2,"完整（完全重建本地项目及代码仓库）");
+
+        private int value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        RELEASE_rebuild(int value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
+
+    /**
+     * 代码表[汇报快速分组]
+     */
+    @Getter
+    public enum REPORTQuickGroup {
+        ALLCNT("All","所有"),
+        DAILYCNT("daily","日报"),
+        WEEKLYCNT("weekly","周报"),
+        MONTHLYCNT("monthly","月报");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        REPORTQuickGroup(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
 
     /**
      * 代码表[数据通知监控行为（新建、更新、删除）]
@@ -5663,6 +5510,7 @@ public class StaticDict {
             this.text = text;
         }
     }
+
 
 
     /**
@@ -5710,6 +5558,54 @@ public class StaticDict {
 
 
     /**
+     * 代码表[产品快速分组]
+     */
+    @Getter
+    public enum Product_quickpacket {
+        ALL("All","所有"),
+        NORMAL("normal","正常"),
+        MORE("MORE","更多"),
+        CLOSED("closed","结束"),
+        BRANCH("branch","多平台"),
+        PLATFORM("platform","多分支");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        Product_quickpacket(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
+
+    /**
+     * 代码表[用户模板快速分组]
+     */
+    @Getter
+    public enum UserTplQuickGroup {
+        ALL("all","所有"),
+        STORY("story","需求"),
+        TASK("task","任务"),
+        BUG("bug","Bug");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        UserTplQuickGroup(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
+
+    /**
      * 代码表[需求来源]
      */
     @Getter
@@ -5744,6 +5640,7 @@ public class StaticDict {
 
 
 
+
     /**
      * 代码表[页面样式]
      */
@@ -5774,12 +5671,13 @@ public class StaticDict {
 
 
     /**
-     * 代码表[文件库类型]
+     * 代码表[产品快速分组]
      */
     @Getter
-    public enum DOCLIBTYPE {
-        DOC("doc","文档"),
-        FILE("file","附件");
+    public enum ProductQuickpacket {
+        ALL("All","所有"),
+        NORMAL("normal","未关闭"),
+        CLOSED("closed","已关闭");
 
         private String value;
         private String text;
@@ -5787,11 +5685,12 @@ public class StaticDict {
         private String textSeparator="";
         private String emptyText="";
 
-        DOCLIBTYPE(String value , String text) {
+        ProductQuickpacket(String value , String text) {
             this.value=value;
             this.text = text;
         }
     }
+
 
 
     /**
@@ -5816,83 +5715,6 @@ public class StaticDict {
         }
     }
 
-
-
-
-
-
-    /**
-     * 代码表[项目状态(wait=doing)]
-     */
-    @Getter
-    public enum Project_staus {
-        DOING("doing","进行中"),
-        SUSPENDED("suspended","已挂起"),
-        CLOSED("closed","已关闭");
-
-        private String value;
-        private String text;
-        private String valueSeparator="";
-        private String textSeparator="";
-        private String emptyText="";
-
-        Project_staus(String value , String text) {
-            this.value=value;
-            this.text = text;
-        }
-    }
-
-
-    /**
-     * 代码表[燃尽图间隔显示]
-     */
-    @Getter
-    public enum Burninterval {
-        ITEM_1("1","间隔1天"),
-        ITEM_2("2","间隔2天"),
-        ITEM_3("3","间隔3天"),
-        ITEM_4("4","间隔4天"),
-        ITEM_5("5","间隔5天"),
-        ITEM_6("6","间隔6天"),
-        ITEM_7("7","间隔7天"),
-        ITEM_8("8","间隔8天"),
-        ITEM_9("9","间隔9天"),
-        ITEM_10("10","间隔10天"),
-        ITEM_11("11","间隔11天");
-
-        private String value;
-        private String text;
-        private String valueSeparator="";
-        private String textSeparator="";
-        private String emptyText="";
-
-        Burninterval(String value , String text) {
-            this.value=value;
-            this.text = text;
-        }
-    }
-
-
-    /**
-     * 代码表[计划快速分组]
-     */
-    @Getter
-    public enum Zt__productplan {
-        ALL("All","所有"),
-        UNEXPIRED("UNEXPIRED","未过期"),
-        ISEXPIRED("ISEXPIRED","已过期");
-
-        private String value;
-        private String text;
-        private String valueSeparator="";
-        private String textSeparator="";
-        private String emptyText="";
-
-        Zt__productplan(String value , String text) {
-            this.value=value;
-            this.text = text;
-        }
-    }
 
 
     /**
@@ -5994,46 +5816,6 @@ public class StaticDict {
     }
 
 
-    /**
-     * 代码表[测试套件&用例库类型（新建套件）]
-     */
-    @Getter
-    public enum TestsuiteTypeNew {
-        PRIVATE("private","私有"),
-        PUBLIC("public","公开");
-
-        private String value;
-        private String text;
-        private String valueSeparator="";
-        private String textSeparator="";
-        private String emptyText="";
-
-        TestsuiteTypeNew(String value , String text) {
-            this.value=value;
-            this.text = text;
-        }
-    }
-
-
-    /**
-     * 代码表[是否指派]
-     */
-    @Getter
-    public enum IsAssigned {
-        ASSIGN("assign","已指派"),
-        NOASSIGN("noassign","未指派");
-
-        private String value;
-        private String text;
-        private String valueSeparator="";
-        private String textSeparator="";
-        private String emptyText="";
-
-        IsAssigned(String value , String text) {
-            this.value=value;
-            this.text = text;
-        }
-    }
 
 
     /**
@@ -6051,6 +5833,47 @@ public class StaticDict {
         private String emptyText="";
 
         CodeList97(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
+
+    /**
+     * 代码表[过期计划]
+     */
+    @Getter
+    public enum ExpiredPlan {
+        ITEM_1("1","过期计划");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        ExpiredPlan(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
+
+    /**
+     * 代码表[Bug快速分组（版本所有bug）]
+     */
+    @Getter
+    public enum BugCodeList2 {
+        ALL("All","所有"),
+        ACTIVE("active","未解决");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        BugCodeList2(String value , String text) {
             this.value=value;
             this.text = text;
         }
@@ -6144,6 +5967,7 @@ public class StaticDict {
 
 
 
+
     /**
      * 代码表[表格每页记录数]
      */
@@ -6171,8 +5995,6 @@ public class StaticDict {
             this.text = text;
         }
     }
-
-
 
 
     /**
@@ -6219,6 +6041,57 @@ public class StaticDict {
         private String emptyText="";
 
         CodeList91(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
+
+    /**
+     * 代码表[关闭产品]
+     */
+    @Getter
+    public enum CloseProduct {
+        ITEM_1("1","关闭产品");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        CloseProduct(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
+
+    /**
+     * 代码表[任务快速分组]
+     */
+    @Getter
+    public enum Task_quickpacket {
+        ALLTASKCNT("All","所有"),
+        UNCLOSETASKCNT("UNCLOSED","未关闭"),
+        ASSTOMYTASKCNT("TOME","指派给我"),
+        STORYCHANGECNT("storychange","需求变更"),
+        MORETASKCNT("MORE","更多"),
+        UNSTARTTASKCNT("NOTSTARTED","未开始"),
+        YSTARTASKCNT("INPROGRESS","进行中"),
+        UNCOMPLETETASKCNT("UNACCOMPLISHED","未完成"),
+        MYCOMPLETETASKCNT("IFINISHED","我完成"),
+        YCOMPLETETASKCNT("COMPLETED","已完成"),
+        CLOSETASKCNT("CLOSED","已关闭"),
+        CANCELTASKCNT("CANCELLED","已取消");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        Task_quickpacket(String value , String text) {
             this.value=value;
             this.text = text;
         }
@@ -6322,6 +6195,7 @@ public class StaticDict {
     }
 
 
+
     /**
      * 代码表[实体规则处理_值处理函数]
      */
@@ -6340,6 +6214,28 @@ public class StaticDict {
         private String emptyText="";
 
         CodeList110(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
+
+    /**
+     * 代码表[计划模板类型]
+     */
+    @Getter
+    public enum PlantempletType {
+        STEP("step","计划"),
+        GROUP("group","父计划"),
+        ITEM("item","子计划");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        PlantempletType(String value , String text) {
             this.value=value;
             this.text = text;
         }
@@ -6371,15 +6267,20 @@ public class StaticDict {
 
 
     /**
-     * 代码表[配置范围]
+     * 代码表[Bug类型（饼图）]
      */
     @Getter
-    public enum ConfigScope {
-        SYS("sys","全局"),
-        ORG("org","当前组织"),
-        DEPT1("dept1","当前部门（含子部门）"),
-        DEPT2("dept2","当前部门（不含子部门）"),
-        USER("user","个人");
+    public enum Bug_type_pie {
+        CODEERROR("codeerror","代码错误"),
+        CONFIG("config","配置相关"),
+        INSTALL("install","安装部署"),
+        SECURITY("security","安全相关"),
+        PERFORMANCE("performance","性能问题"),
+        STANDARD("standard","标准规范"),
+        AUTOMATION("automation","测试脚本"),
+        DESIGNDEFECT("designdefect","设计缺陷"),
+        OTHERS("others","其他"),
+        ITEM_10("无","无");
 
         private String value;
         private String text;
@@ -6387,7 +6288,7 @@ public class StaticDict {
         private String textSeparator="";
         private String emptyText="";
 
-        ConfigScope(String value , String text) {
+        Bug_type_pie(String value , String text) {
             this.value=value;
             this.text = text;
         }
@@ -6409,6 +6310,53 @@ public class StaticDict {
         private String emptyText="";
 
         YesNo2(int value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
+
+    /**
+     * 代码表[全文检索类型]
+     */
+    @Getter
+    public enum IndexType {
+        BUG("bug","Bug"),
+        PRODUCT("product","产品"),
+        TASK("task","任务"),
+        CASE("case","功能测试"),
+        DOC("doc","文档"),
+        STORY("story","需求"),
+        PROJECT("project","项目");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        IndexType(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
+
+    /**
+     * 代码表[汇报状态]
+     */
+    @Getter
+    public enum ReportStatus {
+        ITEM_0("0","未读"),
+        ITEM_1("1","已读");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        ReportStatus(String value , String text) {
             this.value=value;
             this.text = text;
         }
@@ -6439,36 +6387,6 @@ public class StaticDict {
 
 
     /**
-     * 代码表[需求故事点]
-     */
-    @Getter
-    public enum StoryPoints {
-        ITEM_0("0","0"),
-        ITEM_05("0.5","0.5"),
-        ITEM_1("1","1"),
-        ITEM_2("2","2"),
-        ITEM_3("3","3"),
-        ITEM_5("5","5"),
-        ITEM_8("8","8"),
-        ITEM_13("13","13"),
-        ITEM_20("20","20"),
-        ITEM_40("40","40"),
-        ITEM_100("100","100");
-
-        private String value;
-        private String text;
-        private String valueSeparator="";
-        private String textSeparator="";
-        private String emptyText="";
-
-        StoryPoints(String value , String text) {
-            this.value=value;
-            this.text = text;
-        }
-    }
-
-
-    /**
      * 代码表[项目状态]
      */
     @Getter
@@ -6489,6 +6407,33 @@ public class StaticDict {
             this.text = text;
         }
     }
+
+
+    /**
+     * 代码表[测试用例状态（表格）]
+     */
+    @Getter
+    public enum TestCaseStatusGrid {
+        WAIT("wait","未开始"),
+        NORMAL("normal","正常"),
+        BLOCKED("blocked","被阻塞"),
+        INVESTIGATE("investigate","研究中"),
+        DONE("done","已完成"),
+        STORYCHANGE("storychange","需求变更"),
+        CASECHANGE("casechange","原用例更新");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        TestCaseStatusGrid(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
 
 
 
@@ -6557,29 +6502,6 @@ public class StaticDict {
 
 
     /**
-     * 代码表[Bug严重程度（Mob）]
-     */
-    @Getter
-    public enum Bug__severity_mob {
-        ITEM_1(1,"1"),
-        ITEM_2(2,"2"),
-        ITEM_3(3,"3"),
-        ITEM_4(4,"4");
-
-        private int value;
-        private String text;
-        private String valueSeparator="";
-        private String textSeparator="";
-        private String emptyText="";
-
-        Bug__severity_mob(int value , String text) {
-            this.value=value;
-            this.text = text;
-        }
-    }
-
-
-    /**
      * 代码表[ZT_IM_MESSAGE__CONTENTTYPE]
      */
     @Getter
@@ -6599,6 +6521,29 @@ public class StaticDict {
         private String emptyText="";
 
         Im_message__contentType(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
+
+    /**
+     * 代码表[待办类型]
+     */
+    @Getter
+    public enum Type {
+        CUSTOM("custom","自定义"),
+        BUG("bug","Bug"),
+        TASK("task","项目任务"),
+        STORY("story","项目需求");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        Type(String value , String text) {
             this.value=value;
             this.text = text;
         }
@@ -6637,6 +6582,53 @@ public class StaticDict {
         }
     }
 
+
+
+    /**
+     * 代码表[汇报类型]
+     */
+    @Getter
+    public enum ReportType {
+        WEEKLY("weekly","周报"),
+        DAILY("daily","日报"),
+        MONTHLY("monthly","月报"),
+        REPORTLY("reportly","汇报");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        ReportType(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
+
+    /**
+     * 代码表[配置范围]
+     */
+    @Getter
+    public enum ConfigScope {
+        SYS("sys","全局"),
+        ORG("org","当前组织"),
+        DEPT1("dept1","当前部门（含子部门）"),
+        DEPT2("dept2","当前部门（不含子部门）"),
+        USER("user","个人");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        ConfigScope(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
 
 
     /**
@@ -6683,6 +6675,46 @@ public class StaticDict {
 
 
     /**
+     * 代码表[日期选择]
+     */
+    @Getter
+    public enum Datecheckbox {
+        ON("on","待定");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        Datecheckbox(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
+
+    /**
+     * 代码表[来源对象]
+     */
+    @Getter
+    public enum Ibizpro_story__sourceobject {
+        SOURCENOTE__DATAENTITY("sourcenote__dataentity","实体");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        Ibizpro_story__sourceobject(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
+
+    /**
      * 代码表[测试执行结果]
      */
     @Getter
@@ -6703,7 +6735,6 @@ public class StaticDict {
             this.text = text;
         }
     }
-
 
 
     /**
@@ -6731,27 +6762,6 @@ public class StaticDict {
 
 
     /**
-     * 代码表[系统更新类型]
-     */
-    @Getter
-    public enum SYS_UPDATE_LOG_TYPE {
-        ITEM_10("10","功能增强"),
-        ITEM_20("20","优化");
-
-        private String value;
-        private String text;
-        private String valueSeparator="";
-        private String textSeparator="";
-        private String emptyText="";
-
-        SYS_UPDATE_LOG_TYPE(String value , String text) {
-            this.value=value;
-            this.text = text;
-        }
-    }
-
-
-    /**
      * 代码表[扩展表格单元格边框样式]
      */
     @Getter
@@ -6768,6 +6778,27 @@ public class StaticDict {
         private String emptyText="";
 
         CodeList76(String value , String text) {
+            this.value=value;
+            this.text = text;
+        }
+    }
+
+
+    /**
+     * 代码表[配置分组]
+     */
+    @Getter
+    public enum ConfigGroup {
+        GROUP("GROUP","分组"),
+        ITEM("ITEM","配置项");
+
+        private String value;
+        private String text;
+        private String valueSeparator="";
+        private String textSeparator="";
+        private String emptyText="";
+
+        ConfigGroup(String value , String text) {
             this.value=value;
             this.text = text;
         }

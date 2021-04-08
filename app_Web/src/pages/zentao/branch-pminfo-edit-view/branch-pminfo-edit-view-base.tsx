@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { EditViewBase } from '@/studio-core';
 import BranchService from '@/service/branch/branch-service';
 import BranchAuthService from '@/authservice/branch/branch-auth-service';
@@ -123,7 +123,7 @@ export class BranchPMInfoEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof BranchPMInfoEditViewBase
      */
-	protected viewtag: string = 'e1a0e6c29939260ead53dcd3beb8b736';
+	protected viewtag: string = 'b281875cc25dc5ace73c1fe5bf383ad0';
 
     /**
      * 视图名称

@@ -12,4 +12,3 @@ public interface TestRunMapping extends MappingBase<TestRunDTO, TestRun> {
 
 
 }
-

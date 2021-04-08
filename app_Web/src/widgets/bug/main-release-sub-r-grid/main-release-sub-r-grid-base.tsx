@@ -74,7 +74,7 @@ export class Main_ReleaseSubRGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_uc94d6e1_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u876f801_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -568,7 +568,7 @@ export class Main_ReleaseSubRGridBase extends GridControlBase {
 	public uiAction(row: any, tag: any, $event: any): void {
         $event.stopPropagation();
         if(Object.is('releaseUnlinkBug', tag)) {
-            this.grid_uagridcolumn1_uc94d6e1_click(row, tag, $event);
+            this.grid_uagridcolumn1_u876f801_click(row, tag, $event);
         }
     }
 

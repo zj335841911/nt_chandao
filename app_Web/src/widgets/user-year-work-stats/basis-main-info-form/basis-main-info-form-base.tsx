@@ -528,7 +528,7 @@ export class BasisMainInfoEditFormBase extends EditFormControlBase {
 
 
         if (Object.is(name, 'curyear')) {
-            const details: string[] = ['yearactioncnt', 'title', 'yearvisits', 'yearbugcnt', 'yearproductcnt', 'yearcasecnt', 'yearstorycnt', 'yearplancnt', 'yearlogcnt', 'yearestimatecnt'];
+            const details: string[] = ['yearvisits', 'yearproductcnt', 'yearcasecnt', 'yearstorycnt', 'yearplancnt', 'yearestimatecnt', 'yearbugcnt', 'yearlogcnt', 'title', 'yearactioncnt'];
             this.updateFormItems('UpdateTitleByYear', this.data, details, true);
         }
     }

@@ -7,28 +7,12 @@
 export interface IbizproProjectMonthly {
 
     /**
-     * 项目月报标识
-     *
-     * @returns {*}
-     * @memberof IbizproProjectMonthly
-     */
-    ibizproprojectmonthlyid?: any;
-
-    /**
      * 项目月报名称
      *
      * @returns {*}
      * @memberof IbizproProjectMonthly
      */
     ibizproprojectmonthlyname?: any;
-
-    /**
-     * 建立人
-     *
-     * @returns {*}
-     * @memberof IbizproProjectMonthly
-     */
-    createman?: any;
 
     /**
      * 建立时间
@@ -39,44 +23,12 @@ export interface IbizproProjectMonthly {
     createdate?: any;
 
     /**
-     * 更新人
+     * 年月
      *
      * @returns {*}
      * @memberof IbizproProjectMonthly
      */
-    updateman?: any;
-
-    /**
-     * 更新时间
-     *
-     * @returns {*}
-     * @memberof IbizproProjectMonthly
-     */
-    updatedate?: any;
-
-    /**
-     * 项目编号
-     *
-     * @returns {*}
-     * @memberof IbizproProjectMonthly
-     */
-    project?: any;
-
-    /**
-     * 项目名称
-     *
-     * @returns {*}
-     * @memberof IbizproProjectMonthly
-     */
-    projectname?: any;
-
-    /**
-     * 项目负责人
-     *
-     * @returns {*}
-     * @memberof IbizproProjectMonthly
-     */
-    pm?: any;
+    yearmonth?: any;
 
     /**
      * 总工时
@@ -85,6 +37,14 @@ export interface IbizproProjectMonthly {
      * @memberof IbizproProjectMonthly
      */
     totalestimates?: any;
+
+    /**
+     * 更新人
+     *
+     * @returns {*}
+     * @memberof IbizproProjectMonthly
+     */
+    updateman?: any;
 
     /**
      * 任务
@@ -103,10 +63,50 @@ export interface IbizproProjectMonthly {
     date?: any;
 
     /**
-     * 年月
+     * 项目月报标识
      *
      * @returns {*}
      * @memberof IbizproProjectMonthly
      */
-    yearmonth?: any;
+    ibizproprojectmonthlyid?: any;
+
+    /**
+     * 更新时间
+     *
+     * @returns {*}
+     * @memberof IbizproProjectMonthly
+     */
+    updatedate?: any;
+
+    /**
+     * 建立人
+     *
+     * @returns {*}
+     * @memberof IbizproProjectMonthly
+     */
+    createman?: any;
+
+    /**
+     * 项目负责人
+     *
+     * @returns {*}
+     * @memberof IbizproProjectMonthly
+     */
+    pm?: any;
+
+    /**
+     * 项目名称
+     *
+     * @returns {*}
+     * @memberof IbizproProjectMonthly
+     */
+    projectname?: any;
+
+    /**
+     * 项目编号
+     *
+     * @returns {*}
+     * @memberof IbizproProjectMonthly
+     */
+    project?: any;
 }

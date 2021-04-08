@@ -15,19 +15,19 @@ export class MobModel {
 	public getDataItems(): any[] {
 		return [
 			{
-				name: 'left',
-			},
-			{
-				name: 'date',
-			},
-			{
-				name: 'consumed',
+				name: 'work',
 			},
 			{
 				name: 'account',
 			},
 			{
-				name: 'work',
+				name: 'consumed',
+			},
+			{
+				name: 'date',
+			},
+			{
+				name: 'left',
 			},
 			{
 				name: 'srfkey',
@@ -43,11 +43,6 @@ export class MobModel {
 				name: 'task',
 				prop: 'task',
 				dataType: 'PICKUP',
-			},
-			{
-				name: 'task',
-				prop: 'id',
-                dataType: 'FONTKEY',
 			},
 			{
 				name: 'taskestimate',

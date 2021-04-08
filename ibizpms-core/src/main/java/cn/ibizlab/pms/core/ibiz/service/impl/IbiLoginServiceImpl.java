@@ -48,9 +48,6 @@ import org.springframework.util.StringUtils;
 @Service("IbiLoginServiceImpl")
 public class IbiLoginServiceImpl extends ServiceImpl<IbiLoginMapper, IbiLogin> implements IIbiLoginService {
 
-    @Autowired
-    @Lazy
-    IIbiLoginService proxyService;
 
     protected int batchSize = 500;
 
@@ -59,7 +56,8 @@ public class IbiLoginServiceImpl extends ServiceImpl<IbiLoginMapper, IbiLogin> i
         //自定义代码
         return et;
     }
-   @Override
+
+    @Override
     public boolean getUserBatch(List<IbiLogin> etList) {
         for(IbiLogin et : etList) {
             getUser(et);
@@ -72,7 +70,8 @@ public class IbiLoginServiceImpl extends ServiceImpl<IbiLoginMapper, IbiLogin> i
         //自定义代码
         return et;
     }
-   @Override
+
+    @Override
     public boolean ztloginBatch(List<IbiLogin> etList) {
         for(IbiLogin et : etList) {
             ztlogin(et);
@@ -87,7 +86,7 @@ public class IbiLoginServiceImpl extends ServiceImpl<IbiLoginMapper, IbiLogin> i
      */
     @Override
     public Page<IbiLogin> searchDefault(IbiLoginSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbiLogin> pages=baseMapper.searchDefault(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbiLogin> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
         return new PageImpl<IbiLogin>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -98,24 +97,24 @@ public class IbiLoginServiceImpl extends ServiceImpl<IbiLoginMapper, IbiLogin> i
 
 
     @Override
-    public List<JSONObject> select(String sql, Map param) {
-        return this.baseMapper.selectBySQL(sql, param);
+    public List<JSONObject> select(String sql, Map param){
+        return this.baseMapper.selectBySQL(sql,param);
     }
 
     @Override
     @Transactional
-    public boolean execute(String sql, Map param) {
+    public boolean execute(String sql , Map param){
         if (sql == null || sql.isEmpty()) {
             return false;
         }
         if (sql.toLowerCase().trim().startsWith("insert")) {
-            return this.baseMapper.insertBySQL(sql, param);
+            return this.baseMapper.insertBySQL(sql,param);
         }
         if (sql.toLowerCase().trim().startsWith("update")) {
-            return this.baseMapper.updateBySQL(sql, param);
+            return this.baseMapper.updateBySQL(sql,param);
         }
         if (sql.toLowerCase().trim().startsWith("delete")) {
-            return this.baseMapper.deleteBySQL(sql, param);
+            return this.baseMapper.deleteBySQL(sql,param);
         }
         log.warn("暂未支持的SQL语法");
         return true;
@@ -123,9 +122,9 @@ public class IbiLoginServiceImpl extends ServiceImpl<IbiLoginMapper, IbiLogin> i
 
 
 
-
-
+    public IIbiLoginService getProxyService() {
+        return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
+    }
 }
-
 
 

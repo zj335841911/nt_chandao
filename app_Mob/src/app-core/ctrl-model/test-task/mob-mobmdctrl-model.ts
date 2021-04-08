@@ -15,16 +15,16 @@ export class MobModel {
 	public getDataItems(): any[] {
 		return [
 			{
-				name: 'end',
+				name: 'begin',
+			},
+			{
+				name: 'status',
 			},
 			{
 				name: 'pri',
 			},
 			{
-				name: 'begin',
-			},
-			{
-				name: 'status',
+				name: 'end',
 			},
 			{
 				name: 'name',

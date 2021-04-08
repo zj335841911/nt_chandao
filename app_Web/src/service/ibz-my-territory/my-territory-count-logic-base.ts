@@ -21,7 +21,7 @@ export default class MyTerritoryCountLogicBase {
      * 
      * @memberof  MyTerritoryCountLogicBase
      */
-    private id:string = "ECC7315C-3CC1-4C75-8540-390551B28B7D";
+    private id:string = "c64ff831cc9caaf5287d69c52fe119ef";
 
     /**
      * 默认参数名称
@@ -106,24 +106,24 @@ export default class MyTerritoryCountLogicBase {
 
 
     /**
-    * 我的待办数
+    * 获取我的需求数
     * 
     * @param context 应用上下文
     * @param params 传入参数
     */
-    private async executeRawsqlcall4(context:any,params:any,isloading:boolean){
+    private async executeRawsqlcall1(context:any,params:any,isloading:boolean){
         // RAWSQLCALL暂未支持
         console.log("RAWSQLCALL暂未支持");
         return this.paramsMap.get(this.defaultParamName).data;
     }
 
     /**
-    * 获取我的Bug数
+    * 我的待办数
     * 
     * @param context 应用上下文
     * @param params 传入参数
     */
-    private async executeRawsqlcall3(context:any,params:any,isloading:boolean){
+    private async executeRawsqlcall4(context:any,params:any,isloading:boolean){
         // RAWSQLCALL暂未支持
         console.log("RAWSQLCALL暂未支持");
         return this.paramsMap.get(this.defaultParamName).data;
@@ -142,12 +142,12 @@ export default class MyTerritoryCountLogicBase {
     }
 
     /**
-    * 获取我的需求数
+    * 获取我的Bug数
     * 
     * @param context 应用上下文
     * @param params 传入参数
     */
-    private async executeRawsqlcall1(context:any,params:any,isloading:boolean){
+    private async executeRawsqlcall2(context:any,params:any,isloading:boolean){
         // RAWSQLCALL暂未支持
         console.log("RAWSQLCALL暂未支持");
         return this.paramsMap.get(this.defaultParamName).data;
@@ -159,7 +159,7 @@ export default class MyTerritoryCountLogicBase {
     * @param context 应用上下文
     * @param params 传入参数
     */
-    private async executeRawsqlcall2(context:any,params:any,isloading:boolean){
+    private async executeRawsqlcall3(context:any,params:any,isloading:boolean){
         // RAWSQLCALL暂未支持
         console.log("RAWSQLCALL暂未支持");
         return this.paramsMap.get(this.defaultParamName).data;

@@ -1,6 +1,6 @@
 
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { GridView9Base } from '@/studio-core';
 import IBZTaskTeamService from '@/service/ibztask-team/ibztask-team-service';
 import IBZTaskTeamAuthService from '@/authservice/ibztask-team/ibztask-team-auth-service';
@@ -149,7 +149,7 @@ export class TaskTeamGridView9Base extends GridView9Base {
      * @type {string}
      * @memberof TaskTeamGridView9Base
      */
-	protected viewtag: string = '4970832ed515bc37ec3c7c61b55d444b';
+	protected viewtag: string = 'd1339f33d3d82d7b6993e510b20fddbe';
 
     /**
      * 视图名称

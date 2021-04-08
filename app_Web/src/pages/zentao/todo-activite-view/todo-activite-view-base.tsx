@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { OptionViewBase } from '@/studio-core';
 import TodoService from '@/service/todo/todo-service';
 import TodoAuthService from '@/authservice/todo/todo-auth-service';
@@ -144,7 +144,7 @@ export class TodoActiviteViewBase extends OptionViewBase {
      * @type {string}
      * @memberof TodoActiviteViewBase
      */
-	protected viewtag: string = 'fbfc7f8548a02caba7db4438e675641b';
+	protected viewtag: string = 'f5f4e6f9ef5ab3f55ef802e9b2304006';
 
     /**
      * 视图名称

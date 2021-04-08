@@ -15,7 +15,31 @@ export class Mob_6080Model {
   public getDataItems(): any[] {
     return [
       {
+        name: 'thismonth',
+      },
+      {
+        name: 'yesterday',
+      },
+      {
         name: 'extra',
+      },
+      {
+        name: 'files',
+      },
+      {
+        name: 'lastmonth',
+      },
+      {
+        name: 'isactorss',
+      },
+      {
+        name: 'thisweek',
+      },
+      {
+        name: 'today',
+      },
+      {
+        name: 'date1',
       },
       {
         name: 'objecttype',
@@ -23,6 +47,9 @@ export class Mob_6080Model {
       {
         name: 'action',
         prop: 'id',
+      },
+      {
+        name: 'noticeusers',
       },
       {
         name: 'comment',
@@ -40,6 +67,18 @@ export class Mob_6080Model {
         name: 'product',
       },
       {
+        name: 'lastcomment',
+      },
+      {
+        name: 'srfkey',
+      },
+      {
+        name: 'actionmanner',
+      },
+      {
+        name: 'lastweek',
+      },
+      {
         name: 'objectid',
       },
       {
@@ -47,45 +86,6 @@ export class Mob_6080Model {
       },
       {
         name: 'project',
-      },
-      {
-        name: 'lastcomment',
-      },
-      {
-        name: 'actionmanner',
-      },
-      {
-        name: 'isactorss',
-      },
-      {
-        name: 'date1',
-      },
-      {
-        name: 'today',
-      },
-      {
-        name: 'yesterday',
-      },
-      {
-        name: 'thisweek',
-      },
-      {
-        name: 'lastweek',
-      },
-      {
-        name: 'thismonth',
-      },
-      {
-        name: 'lastmonth',
-      },
-      {
-        name: 'srfkey',
-      },
-      {
-        name: 'noticeusers',
-      },
-      {
-        name: 'files',
       },
     ]
   }

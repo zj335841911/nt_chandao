@@ -11,8 +11,8 @@
     <!--通过mybatis将查询结果注入到entity中,通过配置autoMapping="true"由mybatis自动处理映射关系 -->
     <resultMap id="CaseStatsResultMap" type="cn.ibizlab.pms.core.ibiz.domain.CaseStats" autoMapping="true">
 		<id property="id" column="id" /><!--主键字段映射-->
-		<result property="module" column="module" />
 		<result property="product" column="product" />
+		<result property="module" column="module" />
 
 
 		<!--通过mybatis自动注入关系属性[主实体]，fetchType="lazy"为懒加载配置 -->

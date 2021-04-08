@@ -7,7 +7,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
-import java.util.HashMap;
+import java.util.Map;
 import org.apache.ibatis.annotations.Select;
 import cn.ibizlab.pms.core.zentao.domain.TaskEstimateStats;
 import cn.ibizlab.pms.core.zentao.filter.TaskEstimateStatsSearchContext;
@@ -19,6 +19,8 @@ import com.alibaba.fastjson.JSONObject;
 
 public interface TaskEstimateStatsMapper extends BaseMapper<TaskEstimateStats> {
 
+    Page<TaskEstimateStats> searchActionMonth(IPage page, @Param("srf") TaskEstimateStatsSearchContext context, @Param("ew") Wrapper<TaskEstimateStats> wrapper);
+    Page<TaskEstimateStats> searchActionYear(IPage page, @Param("srf") TaskEstimateStatsSearchContext context, @Param("ew") Wrapper<TaskEstimateStats> wrapper);
     Page<TaskEstimateStats> searchDefault(IPage page, @Param("srf") TaskEstimateStatsSearchContext context, @Param("ew") Wrapper<TaskEstimateStats> wrapper);
     @Override
     TaskEstimateStats selectById(Serializable id);

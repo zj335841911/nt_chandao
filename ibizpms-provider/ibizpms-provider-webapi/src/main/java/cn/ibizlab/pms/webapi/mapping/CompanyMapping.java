@@ -12,4 +12,3 @@ public interface CompanyMapping extends MappingBase<CompanyDTO, Company> {
 
 
 }
-

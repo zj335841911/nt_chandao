@@ -1,3 +1,4 @@
+import { Environment } from '@/environments/environment';
 import { Http } from '@/utils';
 import { Util } from '@/utils';
 import EntityService from '../entity-service';
@@ -49,7 +50,7 @@ export default class DynaDashboardServiceBase extends EntityService {
      * @memberof DynaDashboardServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().get(`/dynadashboards/${context.dynadashboard}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/dynadashboards/${context.dynadashboard}/select`,isloading);
             
             return res;
     }
@@ -105,7 +106,7 @@ export default class DynaDashboardServiceBase extends EntityService {
      * @memberof DynaDashboardServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().delete(`/dynadashboards/${context.dynadashboard}`,isloading);
+            let res:any = await Http.getInstance().delete(`/dynadashboards/${context.dynadashboard}`,isloading);
             return res;
     }
 
@@ -134,7 +135,10 @@ export default class DynaDashboardServiceBase extends EntityService {
      * @memberof DynaDashboardServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/dynadashboards/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.dynadashboard) delete tempData.dynadashboard;
+        if(tempData.dynadashboardid) delete tempData.dynadashboardid;
+        let res:any = await  Http.getInstance().get(`/dynadashboards/getdraft`,tempData,isloading);
         res.data.dynadashboard = data.dynadashboard;
         
         return res;
@@ -150,7 +154,7 @@ export default class DynaDashboardServiceBase extends EntityService {
      * @memberof DynaDashboardServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/dynadashboards/${context.dynadashboard}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/dynadashboards/${context.dynadashboard}/checkkey`,data,isloading);
             return res;
     }
 
@@ -182,7 +186,7 @@ export default class DynaDashboardServiceBase extends EntityService {
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/dynadashboards/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/dynadashboards/fetchdefault`,tempData,isloading);
         return res;
     }
 

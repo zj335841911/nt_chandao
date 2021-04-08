@@ -34,6 +34,9 @@
 | 14 | [项目编号](#属性-项目编号（ROOT）) | ROOT | 外键值 | 否 | 是 | 是 |
 | 15 | [用户](#属性-用户（USERNAME）) | USERNAME | 文本，可指定长度 | 否 | 是 | 是 |
 | 16 | [任务数](#属性-任务数（TASKCNT）) | TASKCNT | 整型 | 否 | 是 | 是 |
+| 17 | [项目经理](#属性-项目经理（PM）) | PM | 外键值附加数据 | 否 | 是 | 是 |
+| 18 | [所属项目](#属性-所属项目（PROJECTNAME）) | PROJECTNAME | 外键值文本 | 否 | 是 | 是 |
+| 19 | [退场时间](#属性-退场时间（EXITDATE）) | EXITDATE | 日期型 | 否 | 是 | 是 |
 
 ### 属性-加盟日（JOIN）
 #### 属性说明
@@ -76,7 +79,7 @@ yyyy-MM-dd
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
-| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
+| 关系属性 | [项目名称（NAME）](../zentao/Project/#属性-项目名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-用户（ACCOUNT）
@@ -120,7 +123,7 @@ String
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
-| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
+| 关系属性 | [项目名称（NAME）](../zentao/Project/#属性-项目名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-可用工时/天（HOURS）
@@ -164,7 +167,7 @@ Double
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
-| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
+| 关系属性 | [项目名称（NAME）](../zentao/Project/#属性-项目名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-预计剩余（LEFT）
@@ -208,7 +211,7 @@ Double
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
-| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
+| 关系属性 | [项目名称（NAME）](../zentao/Project/#属性-项目名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-可用工日（DAYS）
@@ -252,7 +255,7 @@ Integer
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
-| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
+| 关系属性 | [项目名称（NAME）](../zentao/Project/#属性-项目名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-编号（ID）
@@ -293,7 +296,7 @@ Long
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
-| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
+| 关系属性 | [项目名称（NAME）](../zentao/Project/#属性-项目名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-总计消耗（CONSUMED）
@@ -337,7 +340,7 @@ Double
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
-| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
+| 关系属性 | [项目名称（NAME）](../zentao/Project/#属性-项目名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-排序（ORDER）
@@ -381,7 +384,7 @@ Integer
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
-| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
+| 关系属性 | [项目名称（NAME）](../zentao/Project/#属性-项目名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-最初预计（ESTIMATE）
@@ -425,7 +428,7 @@ Double
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
-| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
+| 关系属性 | [项目名称（NAME）](../zentao/Project/#属性-项目名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-受限用户（LIMITED）
@@ -471,7 +474,7 @@ String
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
-| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
+| 关系属性 | [项目名称（NAME）](../zentao/Project/#属性-项目名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-角色（ROLE）
@@ -512,7 +515,7 @@ String
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
-| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
+| 关系属性 | [项目名称（NAME）](../zentao/Project/#属性-项目名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-团队类型（TYPE）
@@ -558,7 +561,7 @@ String
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
-| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
+| 关系属性 | [项目名称（NAME）](../zentao/Project/#属性-项目名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-总计可用（TOTAL）
@@ -601,7 +604,7 @@ Integer
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
-| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
+| 关系属性 | [项目名称（NAME）](../zentao/Project/#属性-项目名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-项目编号（ROOT）
@@ -729,6 +732,134 @@ Integer
 | ---- | ---- |
 | 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
 | 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-项目经理（PM）
+#### 属性说明
+项目经理
+
+- 是否是主键
+否
+
+- 属性类型
+链接字段[来自关系实体字段]
+
+- 数据类型
+外键值附加数据
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+参照数据字典【[用户真实名称（动态）（UserRealName）](../../codelist/UserRealName)】
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目负责人（PM）](../zentao/Project/#属性-项目负责人（PM）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-所属项目（PROJECTNAME）
+#### 属性说明
+所属项目
+
+- 是否是主键
+否
+
+- 属性类型
+链接字段[来自关系实体字段]
+
+- 数据类型
+外键值文本
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+| 序号 | 组合方式 |
+| ---- | ---- |
+| 1 | `=` |
+| 2 | `%like%` |
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目名称（NAME）](../zentao/Project/#属性-项目名称（NAME）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-退场时间（EXITDATE）
+#### 属性说明
+退场时间
+
+- 是否是主键
+否
+
+- 属性类型
+逻辑字段[来自计算式]
+
+- 数据类型
+日期型
+
+- Java类型
+Timestamp
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+```SQL
+DATE_ADD(t1.`join`, INTERVAL t1.days day)
+```
+
+- 数据格式
+yyyy-MM-dd
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目名称（NAME）](../zentao/Project/#属性-项目名称（NAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 
@@ -1023,14 +1154,17 @@ Save
 | 3 | [受限用户（LIMITED）](#属性-受限用户（LIMITED）) | `=` |
 | 4 | [团队类型（TYPE）](#属性-团队类型（TYPE）) | `=` |
 | 5 | [项目编号（ROOT）](#属性-项目编号（ROOT）) | `=` |
+| 6 | [所属项目（PROJECTNAME）](#属性-所属项目（PROJECTNAME）) | `=` |
+| 7 | [所属项目（PROJECTNAME）](#属性-所属项目（PROJECTNAME）) | `%like%` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |
 | ---- | ---- | ---- | ---- |
 | 1 | [DEFAULT](#数据查询-DEFAULT（Default）) | Default | 否 |
-| 2 | [行编辑查询](#数据查询-行编辑查询（RowEditDefault）) | RowEditDefault | 否 |
-| 3 | [数据查询](#数据查询-数据查询（TaskCntEstimateConsumedLeft）) | TaskCntEstimateConsumedLeft | 否 |
-| 4 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 2 | [项目成员（项目经理）](#数据查询-项目成员（项目经理）（ProjectTeamPm）) | ProjectTeamPm | 否 |
+| 3 | [行编辑查询](#数据查询-行编辑查询（RowEditDefault）) | RowEditDefault | 否 |
+| 4 | [数据查询](#数据查询-数据查询（TaskCntEstimateConsumedLeft）) | TaskCntEstimateConsumedLeft | 否 |
+| 5 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-DEFAULT（Default）
 #### 说明
@@ -1050,19 +1184,110 @@ t1.`ACCOUNT`,
 t1.`CONSUMED`,
 t1.`DAYS`,
 t1.`ESTIMATE`,
+DATE_ADD(t1.`join`, INTERVAL t1.days day) AS `EXITDATE`,
 t1.`HOURS`,
 t1.`ID`,
 t1.`JOIN`,
 t1.`LEFT`,
 t1.`LIMITED`,
 t1.`ORDER`,
+t11.`PM`,
+t11.`NAME` AS `PROJECTNAME`,
 t1.`ROLE`,
 t1.`ROOT`,
 (t1.`DAYS` * t1.`HOURS`) AS `TOTAL`,
 t1.`TYPE`,
 (select t.realname from zt_user t where t.account = t1.account) AS `USERNAME`
 FROM `zt_team` t1 
+LEFT JOIN `zt_project` t11 ON t1.`ROOT` = t11.`ID` 
 
+```
+### 数据查询-项目成员（项目经理）（ProjectTeamPm）
+#### 说明
+项目成员（项目经理）
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+	t1.account,
+	t1.days,
+	t1.hours,
+	t1.id,
+	t1.`join`,
+	t1.limited,
+	t1.`order`,
+	t1.role,
+	t1.root,
+	( t1.days * t1.hours ) AS total,
+	t1.type,
+	( SELECT t.realname FROM zt_user t WHERE t.account = t1.account ) AS username,
+	(
+SELECT
+	count( t2.id ) 
+FROM
+	zt_task t2 
+WHERE
+	t2.deleted = '0' 
+	AND t2.project = t1.root 
+	AND t2.parent >= 0 
+	AND (
+	t2.assignedTo = t1.account 
+	OR t2.finishedBy = t1.account 
+	OR t2.id IN ( SELECT t.root FROM zt_team t WHERE t.type = 'task' AND t.account = t1.account ) 
+	) 
+	) AS taskcnt,
+	(
+SELECT
+	ROUND(sum( CASE WHEN tt.LEFT IS NOT NULL THEN tt.LEFT ELSE t2.LEFT END ), 1) 
+FROM
+	zt_task t2
+	LEFT JOIN zt_team tt ON tt.root = t2.id 
+	AND tt.type = 'task' 
+WHERE
+	t2.deleted = '0' 
+	AND t2.project = t1.root 
+	AND t2.parent >= 0 
+	AND ( t2.assignedTo = t1.account OR tt.account = t1.account ) 
+	) AS `left`,
+	(
+SELECT
+	ROUND(sum( CASE WHEN tt.estimate IS NOT NULL THEN tt.estimate ELSE t2.estimate END ), 1)
+FROM
+	zt_task t2
+	LEFT JOIN zt_team tt ON tt.root = t2.id 
+	AND tt.type = 'task' 
+WHERE
+	t2.deleted = '0' 
+	AND t2.project = t1.root 
+	AND t2.parent >= 0 
+	AND ( t2.assignedTo = t1.account OR tt.account = t1.account ) 
+	) AS `estimate`,
+	(
+SELECT
+	ROUND(sum( CASE WHEN tt.consumed IS NOT NULL THEN tt.consumed ELSE t2.consumed END ), 1)
+FROM
+	zt_task t2
+	LEFT JOIN zt_team tt ON tt.root = t2.id 
+	AND tt.type = 'task' 
+WHERE
+	t2.deleted = '0' 
+	AND t2.project = t1.root 
+	AND t2.parent >= 0 
+	AND ( t2.assignedTo = t1.account OR tt.account = t1.account ) 
+	) AS consumed ,
+	t11.`PM`,
+t11.`NAME` AS `PROJECTNAME`,
+DATE_ADD(t1.`join`, INTERVAL t1.days day) as Exitdate
+FROM
+	zt_team t1 
+	LEFT JOIN `zt_project` t11 ON t1.`ROOT` = t11.`ID`
 ```
 ### 数据查询-行编辑查询（RowEditDefault）
 #### 说明
@@ -1247,18 +1472,22 @@ t1.`ACCOUNT`,
 t1.`CONSUMED`,
 t1.`DAYS`,
 t1.`ESTIMATE`,
+DATE_ADD(t1.`join`, INTERVAL t1.days day) AS `EXITDATE`,
 t1.`HOURS`,
 t1.`ID`,
 t1.`JOIN`,
 t1.`LEFT`,
 t1.`LIMITED`,
 t1.`ORDER`,
+t11.`PM`,
+t11.`NAME` AS `PROJECTNAME`,
 t1.`ROLE`,
 t1.`ROOT`,
 (t1.`DAYS` * t1.`HOURS`) AS `TOTAL`,
 t1.`TYPE`,
 (select t.realname from zt_user t where t.account = t1.account) AS `USERNAME`
 FROM `zt_team` t1 
+LEFT JOIN `zt_project` t11 ON t1.`ROOT` = t11.`ID` 
 
 ```
 
@@ -1266,8 +1495,9 @@ FROM `zt_team` t1
 | 序号 | 集合 | 集合名 | 默认 |
 | ---- | ---- | ---- | ---- |
 | 1 | [DEFAULT](#数据集合-DEFAULT（Default）) | Default | 是 |
-| 2 | [行编辑查询](#数据集合-行编辑查询（RowEditDefault）) | RowEditDefault | 否 |
-| 3 | [数据查询](#数据集合-数据查询（TaskCntEstimateConsumedLeft）) | TaskCntEstimateConsumedLeft | 否 |
+| 2 | [项目成员（项目经理）](#数据集合-项目成员（项目经理）（ProjectTeamPm）) | ProjectTeamPm | 否 |
+| 3 | [行编辑查询](#数据集合-行编辑查询（RowEditDefault）) | RowEditDefault | 否 |
+| 4 | [数据查询](#数据集合-数据查询（TaskCntEstimateConsumedLeft）) | TaskCntEstimateConsumedLeft | 否 |
 
 ### 数据集合-DEFAULT（Default）
 #### 说明
@@ -1283,6 +1513,20 @@ DEFAULT
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [DEFAULT（Default）](#数据查询-DEFAULT（Default）) |
+### 数据集合-项目成员（项目经理）（ProjectTeamPm）
+#### 说明
+项目成员（项目经理）
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [项目成员（项目经理）（ProjectTeamPm）](#数据查询-项目成员（项目经理）（ProjectTeamPm）) |
 ### 数据集合-行编辑查询（RowEditDefault）
 #### 说明
 行编辑查询

@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { TabExpViewBase } from '@/studio-core';
 import BuildService from '@/service/build/build-service';
 import BuildAuthService from '@/authservice/build/build-auth-service';
@@ -126,7 +126,7 @@ export class BuildMainTabExpViewBase extends TabExpViewBase {
      * @type {string}
      * @memberof BuildMainTabExpViewBase
      */
-	protected viewtag: string = 'fffe78c32fb25b287d0c5165d46f8dd2';
+	protected viewtag: string = '7f78aec6820c14e08caf8fa56087866f';
 
     /**
      * 视图名称

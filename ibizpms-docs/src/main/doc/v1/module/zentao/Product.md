@@ -90,6 +90,7 @@
 | 46 | [部门标识](#属性-部门标识（MDEPTID）) | MDEPTID | 文本，可指定长度 | 否 | 是 | 是 |
 | 47 | [IBIZ标识](#属性-IBIZ标识（IBIZ_ID）) | IBIZ_ID | 文本，可指定长度 | 否 | 是 | 是 |
 | 48 | [支持产品汇报](#属性-支持产品汇报（SUPPROREPORT）) | SUPPROREPORT | 单项选择(文本值) | 否 | 是 | 是 |
+| 49 | [产品分类](#属性-产品分类（PRODUCTCLASS）) | PRODUCTCLASS | 单项选择(文本值) | 否 | 是 | 是 |
 
 ### 属性-测试负责人（QD）
 #### 属性说明
@@ -215,7 +216,8 @@ String
 - 搜索条件
 | 序号 | 组合方式 |
 | ---- | ---- |
-| 1 | `%like%` |
+| 1 | `=` |
+| 2 | `%like%` |
 
 #### 关系属性
 | 项目 | 说明 |
@@ -259,6 +261,7 @@ Long
 | 序号 | 组合方式 |
 | ---- | ---- |
 | 1 | `=` |
+| 2 | `in(...)` |
 
 #### 关系属性
 | 项目 | 说明 |
@@ -2149,6 +2152,49 @@ String
 | 关系属性 | [id（ID）](../zentao/Module/#属性-id（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
+### 属性-产品分类（PRODUCTCLASS）
+#### 属性说明
+产品分类
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+单项选择(文本值)
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+| 序号 | 组合方式 |
+| ---- | ---- |
+| 1 | `=` |
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [模块（ZT_MODULE）](../zentao/Module) |
+| 关系属性 | [id（ID）](../zentao/Module/#属性-id（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
 
 ## 业务状态
 | 序号 | 状态名称 | [状态](#属性-状态（STATUS）)<br>（STATUS） | [是否置顶](#属性-是否置顶（ISTOP）)<br>（ISTOP） | 默认 |
@@ -2581,14 +2627,17 @@ Save
 | 序号 | 属性 | 组合方式 |
 | ---- | ---- | ---- |
 | 1 | [访问控制（ACL）](#属性-访问控制（ACL）) | `=` |
-| 2 | [产品名称（NAME）](#属性-产品名称（NAME）) | `%like%` |
-| 3 | [编号（ID）](#属性-编号（ID）) | `=` |
-| 4 | [产品类型（TYPE）](#属性-产品类型（TYPE）) | `=` |
-| 5 | [状态（STATUS）](#属性-状态（STATUS）) | `=` |
-| 6 | [状态（STATUS）](#属性-状态（STATUS）) | `is not NULL` |
-| 7 | [产品线（LINENAME）](#属性-产品线（LINENAME）) | `=` |
-| 8 | [产品线（LINENAME）](#属性-产品线（LINENAME）) | `%like%` |
-| 9 | [产品线（LINE）](#属性-产品线（LINE）) | `=` |
+| 2 | [产品名称（NAME）](#属性-产品名称（NAME）) | `=` |
+| 3 | [产品名称（NAME）](#属性-产品名称（NAME）) | `%like%` |
+| 4 | [编号（ID）](#属性-编号（ID）) | `=` |
+| 5 | [编号（ID）](#属性-编号（ID）) | `in(...)` |
+| 6 | [产品类型（TYPE）](#属性-产品类型（TYPE）) | `=` |
+| 7 | [状态（STATUS）](#属性-状态（STATUS）) | `=` |
+| 8 | [状态（STATUS）](#属性-状态（STATUS）) | `is not NULL` |
+| 9 | [产品线（LINENAME）](#属性-产品线（LINENAME）) | `=` |
+| 10 | [产品线（LINENAME）](#属性-产品线（LINENAME）) | `%like%` |
+| 11 | [产品线（LINE）](#属性-产品线（LINE）) | `=` |
+| 12 | [产品分类（PRODUCTCLASS）](#属性-产品分类（PRODUCTCLASS）) | `=` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |
@@ -2646,6 +2695,7 @@ t1.`order` AS `ORDER1`,
 t1.`ORGID`,
 t1.`PO`,
 t1.PO AS `POPK`,
+t1.`PRODUCTCLASS`,
 (SELECT COUNT(1) FROM ZT_PRODUCTPLAN WHERE PRODUCT= t1.`ID` AND DELETED = '0') AS `PRODUCTPLANCNT`,
 t1.`QD`,
 t1.QD AS `QDPK`,
@@ -2762,6 +2812,7 @@ t1.`order` AS `ORDER1`,
 t1.`ORGID`,
 t1.`PO`,
 t1.PO AS `POPK`,
+t1.`PRODUCTCLASS`,
 (SELECT COUNT(1) FROM ZT_PRODUCTPLAN WHERE PRODUCT= t1.`ID` AND DELETED = '0') AS `PRODUCTPLANCNT`,
 t1.`QD`,
 t1.QD AS `QDPK`,
@@ -2954,6 +3005,7 @@ t1.`order` AS `ORDER1`,
 t1.`ORGID`,
 t1.`PO`,
 t1.PO AS `POPK`,
+t1.`PRODUCTCLASS`,
 (SELECT COUNT(1) FROM ZT_PRODUCTPLAN WHERE PRODUCT= t1.`ID` AND DELETED = '0') AS `PRODUCTPLANCNT`,
 t1.`QD`,
 t1.QD AS `QDPK`,
@@ -3105,6 +3157,7 @@ t1.`order` AS `ORDER1`,
 t1.`ORGID`,
 t1.`PO`,
 t1.PO AS `POPK`,
+t1.`PRODUCTCLASS`,
 (SELECT COUNT(1) FROM ZT_PRODUCTPLAN WHERE PRODUCT= t1.`ID` AND DELETED = '0') AS `PRODUCTPLANCNT`,
 t1.`QD`,
 t1.QD AS `QDPK`,
@@ -3164,6 +3217,7 @@ t1.`order` AS `ORDER1`,
 t1.`ORGID`,
 t1.`PO`,
 t1.PO AS `POPK`,
+t1.`PRODUCTCLASS`,
 (SELECT COUNT(1) FROM ZT_PRODUCTPLAN WHERE PRODUCT= t1.`ID` AND DELETED = '0') AS `PRODUCTPLANCNT`,
 t1.`QD`,
 t1.QD AS `QDPK`,

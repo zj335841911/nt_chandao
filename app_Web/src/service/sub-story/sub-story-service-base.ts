@@ -1,3 +1,4 @@
+import { Environment } from '@/environments/environment';
 import { Http } from '@/utils';
 import { Util } from '@/utils';
 import EntityService from '../entity-service';
@@ -51,16 +52,16 @@ export default class SubStoryServiceBase extends EntityService {
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.substory){
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/substories/${context.substory}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/substories/${context.substory}/select`,isloading);
             
             return res;
         }
         if(context.story && context.substory){
-            let res:any = Http.getInstance().get(`/stories/${context.story}/substories/${context.substory}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/substories/${context.substory}/select`,isloading);
             
             return res;
         }
-            let res:any = Http.getInstance().get(`/substories/${context.substory}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/substories/${context.substory}/select`,isloading);
             
             return res;
     }
@@ -159,14 +160,14 @@ export default class SubStoryServiceBase extends EntityService {
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.substory){
-            let res:any = Http.getInstance().delete(`/products/${context.product}/stories/${context.story}/substories/${context.substory}`,isloading);
+            let res:any = await Http.getInstance().delete(`/products/${context.product}/stories/${context.story}/substories/${context.substory}`,isloading);
             return res;
         }
         if(context.story && context.substory){
-            let res:any = Http.getInstance().delete(`/stories/${context.story}/substories/${context.substory}`,isloading);
+            let res:any = await Http.getInstance().delete(`/stories/${context.story}/substories/${context.substory}`,isloading);
             return res;
         }
-            let res:any = Http.getInstance().delete(`/substories/${context.substory}`,isloading);
+            let res:any = await Http.getInstance().delete(`/substories/${context.substory}`,isloading);
             return res;
     }
 
@@ -206,18 +207,27 @@ export default class SubStoryServiceBase extends EntityService {
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
-            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/substories/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.substory) delete tempData.substory;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/substories/getdraft`,tempData,isloading);
             res.data.substory = data.substory;
             
             return res;
         }
         if(context.story && true){
-            let res:any = await Http.getInstance().get(`/stories/${context.story}/substories/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.substory) delete tempData.substory;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/substories/getdraft`,tempData,isloading);
             res.data.substory = data.substory;
             
             return res;
         }
-        let res:any = await  Http.getInstance().get(`/substories/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.substory) delete tempData.substory;
+        if(tempData.id) delete tempData.id;
+        let res:any = await  Http.getInstance().get(`/substories/getdraft`,tempData,isloading);
         res.data.substory = data.substory;
         
         return res;
@@ -247,8 +257,30 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/substories/${context.substory}/activate`,data,isloading);
+            let res:any = await Http.getInstance().post(`/substories/${context.substory}/activate`,data,isloading);
             return res;
+    }
+
+    /**
+     * ActivateBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubStoryServiceBase
+     */
+    public async ActivateBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/substories/activatebatch`,tempData,isloading);
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/substories/activatebatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/substories/activatebatch`,tempData,isloading);
     }
 
     /**
@@ -275,8 +307,30 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/substories/${context.substory}/allpush`,data,isloading);
+            let res:any = await Http.getInstance().post(`/substories/${context.substory}/allpush`,data,isloading);
             return res;
+    }
+
+    /**
+     * AllPushBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubStoryServiceBase
+     */
+    public async AllPushBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/substories/allpushbatch`,tempData,isloading);
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/substories/allpushbatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/substories/allpushbatch`,tempData,isloading);
     }
 
     /**
@@ -303,8 +357,30 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/substories/${context.substory}/assignto`,data,isloading);
+            let res:any = await Http.getInstance().post(`/substories/${context.substory}/assignto`,data,isloading);
             return res;
+    }
+
+    /**
+     * AssignToBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubStoryServiceBase
+     */
+    public async AssignToBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/substories/assigntobatch`,tempData,isloading);
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/substories/assigntobatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/substories/assigntobatch`,tempData,isloading);
     }
 
     /**
@@ -331,8 +407,30 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/substories/${context.substory}/batchassignto`,data,isloading);
+            let res:any = await Http.getInstance().post(`/substories/${context.substory}/batchassignto`,data,isloading);
             return res;
+    }
+
+    /**
+     * BatchAssignToBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubStoryServiceBase
+     */
+    public async BatchAssignToBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/substories/batchassigntobatch`,tempData,isloading);
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/substories/batchassigntobatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/substories/batchassigntobatch`,tempData,isloading);
     }
 
     /**
@@ -359,8 +457,30 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/substories/${context.substory}/batchchangebranch`,data,isloading);
+            let res:any = await Http.getInstance().post(`/substories/${context.substory}/batchchangebranch`,data,isloading);
             return res;
+    }
+
+    /**
+     * BatchChangeBranchBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubStoryServiceBase
+     */
+    public async BatchChangeBranchBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/substories/batchchangebranchbatch`,tempData,isloading);
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/substories/batchchangebranchbatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/substories/batchchangebranchbatch`,tempData,isloading);
     }
 
     /**
@@ -387,8 +507,30 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/substories/${context.substory}/batchchangemodule`,data,isloading);
+            let res:any = await Http.getInstance().post(`/substories/${context.substory}/batchchangemodule`,data,isloading);
             return res;
+    }
+
+    /**
+     * BatchChangeModuleBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubStoryServiceBase
+     */
+    public async BatchChangeModuleBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/substories/batchchangemodulebatch`,tempData,isloading);
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/substories/batchchangemodulebatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/substories/batchchangemodulebatch`,tempData,isloading);
     }
 
     /**
@@ -415,8 +557,30 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/substories/${context.substory}/batchchangeplan`,data,isloading);
+            let res:any = await Http.getInstance().post(`/substories/${context.substory}/batchchangeplan`,data,isloading);
             return res;
+    }
+
+    /**
+     * BatchChangePlanBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubStoryServiceBase
+     */
+    public async BatchChangePlanBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/substories/batchchangeplanbatch`,tempData,isloading);
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/substories/batchchangeplanbatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/substories/batchchangeplanbatch`,tempData,isloading);
     }
 
     /**
@@ -443,8 +607,30 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/substories/${context.substory}/batchchangestage`,data,isloading);
+            let res:any = await Http.getInstance().post(`/substories/${context.substory}/batchchangestage`,data,isloading);
             return res;
+    }
+
+    /**
+     * BatchChangeStageBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubStoryServiceBase
+     */
+    public async BatchChangeStageBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/substories/batchchangestagebatch`,tempData,isloading);
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/substories/batchchangestagebatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/substories/batchchangestagebatch`,tempData,isloading);
     }
 
     /**
@@ -471,8 +657,30 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/substories/${context.substory}/batchclose`,data,isloading);
+            let res:any = await Http.getInstance().post(`/substories/${context.substory}/batchclose`,data,isloading);
             return res;
+    }
+
+    /**
+     * BatchCloseBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubStoryServiceBase
+     */
+    public async BatchCloseBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/substories/batchclosebatch`,tempData,isloading);
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/substories/batchclosebatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/substories/batchclosebatch`,tempData,isloading);
     }
 
     /**
@@ -499,8 +707,30 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/substories/${context.substory}/batchreview`,data,isloading);
+            let res:any = await Http.getInstance().post(`/substories/${context.substory}/batchreview`,data,isloading);
             return res;
+    }
+
+    /**
+     * BatchReviewBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubStoryServiceBase
+     */
+    public async BatchReviewBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/substories/batchreviewbatch`,tempData,isloading);
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/substories/batchreviewbatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/substories/batchreviewbatch`,tempData,isloading);
     }
 
     /**
@@ -527,8 +757,30 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/substories/${context.substory}/batchunlinkstory`,data,isloading);
+            let res:any = await Http.getInstance().post(`/substories/${context.substory}/batchunlinkstory`,data,isloading);
             return res;
+    }
+
+    /**
+     * BatchUnlinkStoryBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubStoryServiceBase
+     */
+    public async BatchUnlinkStoryBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/substories/batchunlinkstorybatch`,tempData,isloading);
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/substories/batchunlinkstorybatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/substories/batchunlinkstorybatch`,tempData,isloading);
     }
 
     /**
@@ -555,8 +807,30 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/substories/${context.substory}/bugtostory`,data,isloading);
+            let res:any = await Http.getInstance().post(`/substories/${context.substory}/bugtostory`,data,isloading);
             return res;
+    }
+
+    /**
+     * BugToStoryBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubStoryServiceBase
+     */
+    public async BugToStoryBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/substories/bugtostorybatch`,tempData,isloading);
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/substories/bugtostorybatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/substories/bugtostorybatch`,tempData,isloading);
     }
 
     /**
@@ -583,8 +857,30 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/substories/${context.substory}/buildbatchunlinkstory`,data,isloading);
+            let res:any = await Http.getInstance().post(`/substories/${context.substory}/buildbatchunlinkstory`,data,isloading);
             return res;
+    }
+
+    /**
+     * BuildBatchUnlinkStoryBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubStoryServiceBase
+     */
+    public async BuildBatchUnlinkStoryBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/substories/buildbatchunlinkstorybatch`,tempData,isloading);
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/substories/buildbatchunlinkstorybatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/substories/buildbatchunlinkstorybatch`,tempData,isloading);
     }
 
     /**
@@ -611,8 +907,30 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/substories/${context.substory}/buildlinkstory`,data,isloading);
+            let res:any = await Http.getInstance().post(`/substories/${context.substory}/buildlinkstory`,data,isloading);
             return res;
+    }
+
+    /**
+     * BuildLinkStoryBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubStoryServiceBase
+     */
+    public async BuildLinkStoryBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/substories/buildlinkstorybatch`,tempData,isloading);
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/substories/buildlinkstorybatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/substories/buildlinkstorybatch`,tempData,isloading);
     }
 
     /**
@@ -639,8 +957,30 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/substories/${context.substory}/buildunlinkstory`,data,isloading);
+            let res:any = await Http.getInstance().post(`/substories/${context.substory}/buildunlinkstory`,data,isloading);
             return res;
+    }
+
+    /**
+     * BuildUnlinkStoryBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubStoryServiceBase
+     */
+    public async BuildUnlinkStoryBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/substories/buildunlinkstorybatch`,tempData,isloading);
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/substories/buildunlinkstorybatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/substories/buildunlinkstorybatch`,tempData,isloading);
     }
 
     /**
@@ -667,7 +1007,7 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/substories/${context.substory}/buildunlinkstorys`,data,isloading);
+            let res:any = await Http.getInstance().post(`/substories/${context.substory}/buildunlinkstorys`,data,isloading);
             return res;
     }
 
@@ -695,8 +1035,30 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/substories/${context.substory}/change`,data,isloading);
+            let res:any = await Http.getInstance().post(`/substories/${context.substory}/change`,data,isloading);
             return res;
+    }
+
+    /**
+     * ChangeBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubStoryServiceBase
+     */
+    public async ChangeBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/substories/changebatch`,tempData,isloading);
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/substories/changebatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/substories/changebatch`,tempData,isloading);
     }
 
     /**
@@ -723,7 +1085,7 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/substories/${context.substory}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/substories/${context.substory}/checkkey`,data,isloading);
             return res;
     }
 
@@ -751,8 +1113,80 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/substories/${context.substory}/close`,data,isloading);
+            let res:any = await Http.getInstance().post(`/substories/${context.substory}/close`,data,isloading);
             return res;
+    }
+
+    /**
+     * CloseBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubStoryServiceBase
+     */
+    public async CloseBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/substories/closebatch`,tempData,isloading);
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/substories/closebatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/substories/closebatch`,tempData,isloading);
+    }
+
+    /**
+     * CreateTasks接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubStoryServiceBase
+     */
+    public async CreateTasks(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && context.substory){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/substories/${context.substory}/createtasks`,data,isloading);
+            
+            return res;
+        }
+        if(context.story && context.substory){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/substories/${context.substory}/createtasks`,data,isloading);
+            
+            return res;
+        }
+            let res:any = await Http.getInstance().post(`/substories/${context.substory}/createtasks`,data,isloading);
+            return res;
+    }
+
+    /**
+     * CreateTasksBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubStoryServiceBase
+     */
+    public async CreateTasksBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/substories/createtasksbatch`,tempData,isloading);
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/substories/createtasksbatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/substories/createtasksbatch`,tempData,isloading);
     }
 
     /**
@@ -779,8 +1213,30 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/substories/${context.substory}/getstoryspec`,data,isloading);
+            let res:any = await Http.getInstance().post(`/substories/${context.substory}/getstoryspec`,data,isloading);
             return res;
+    }
+
+    /**
+     * GetStorySpecBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubStoryServiceBase
+     */
+    public async GetStorySpecBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/substories/getstoryspecbatch`,tempData,isloading);
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/substories/getstoryspecbatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/substories/getstoryspecbatch`,tempData,isloading);
     }
 
     /**
@@ -832,8 +1288,30 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/substories/${context.substory}/importplanstories`,data,isloading);
+            let res:any = await Http.getInstance().post(`/substories/${context.substory}/importplanstories`,data,isloading);
             return res;
+    }
+
+    /**
+     * ImportPlanStoriesBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubStoryServiceBase
+     */
+    public async ImportPlanStoriesBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/substories/importplanstoriesbatch`,tempData,isloading);
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/substories/importplanstoriesbatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/substories/importplanstoriesbatch`,tempData,isloading);
     }
 
     /**
@@ -860,8 +1338,30 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/substories/${context.substory}/linkstory`,data,isloading);
+            let res:any = await Http.getInstance().post(`/substories/${context.substory}/linkstory`,data,isloading);
             return res;
+    }
+
+    /**
+     * LinkStoryBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubStoryServiceBase
+     */
+    public async LinkStoryBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/substories/linkstorybatch`,tempData,isloading);
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/substories/linkstorybatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/substories/linkstorybatch`,tempData,isloading);
     }
 
     /**
@@ -888,8 +1388,30 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/substories/${context.substory}/projectbatchunlinkstory`,data,isloading);
+            let res:any = await Http.getInstance().post(`/substories/${context.substory}/projectbatchunlinkstory`,data,isloading);
             return res;
+    }
+
+    /**
+     * ProjectBatchUnlinkStoryBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubStoryServiceBase
+     */
+    public async ProjectBatchUnlinkStoryBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/substories/projectbatchunlinkstorybatch`,tempData,isloading);
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/substories/projectbatchunlinkstorybatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/substories/projectbatchunlinkstorybatch`,tempData,isloading);
     }
 
     /**
@@ -916,8 +1438,30 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/substories/${context.substory}/projectlinkstory`,data,isloading);
+            let res:any = await Http.getInstance().post(`/substories/${context.substory}/projectlinkstory`,data,isloading);
             return res;
+    }
+
+    /**
+     * ProjectLinkStoryBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubStoryServiceBase
+     */
+    public async ProjectLinkStoryBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/substories/projectlinkstorybatch`,tempData,isloading);
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/substories/projectlinkstorybatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/substories/projectlinkstorybatch`,tempData,isloading);
     }
 
     /**
@@ -944,8 +1488,30 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/substories/${context.substory}/projectunlinkstory`,data,isloading);
+            let res:any = await Http.getInstance().post(`/substories/${context.substory}/projectunlinkstory`,data,isloading);
             return res;
+    }
+
+    /**
+     * ProjectUnlinkStoryBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubStoryServiceBase
+     */
+    public async ProjectUnlinkStoryBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/substories/projectunlinkstorybatch`,tempData,isloading);
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/substories/projectunlinkstorybatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/substories/projectunlinkstorybatch`,tempData,isloading);
     }
 
     /**
@@ -972,7 +1538,7 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/substories/${context.substory}/projectunlinkstorys`,data,isloading);
+            let res:any = await Http.getInstance().post(`/substories/${context.substory}/projectunlinkstorys`,data,isloading);
             return res;
     }
 
@@ -1000,8 +1566,30 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/substories/${context.substory}/push`,data,isloading);
+            let res:any = await Http.getInstance().post(`/substories/${context.substory}/push`,data,isloading);
             return res;
+    }
+
+    /**
+     * PushBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubStoryServiceBase
+     */
+    public async PushBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/substories/pushbatch`,tempData,isloading);
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/substories/pushbatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/substories/pushbatch`,tempData,isloading);
     }
 
     /**
@@ -1028,8 +1616,30 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/substories/${context.substory}/releasebatchunlinkstory`,data,isloading);
+            let res:any = await Http.getInstance().post(`/substories/${context.substory}/releasebatchunlinkstory`,data,isloading);
             return res;
+    }
+
+    /**
+     * ReleaseBatchUnlinkStoryBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubStoryServiceBase
+     */
+    public async ReleaseBatchUnlinkStoryBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/substories/releasebatchunlinkstorybatch`,tempData,isloading);
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/substories/releasebatchunlinkstorybatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/substories/releasebatchunlinkstorybatch`,tempData,isloading);
     }
 
     /**
@@ -1056,8 +1666,30 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/substories/${context.substory}/releaselinkstory`,data,isloading);
+            let res:any = await Http.getInstance().post(`/substories/${context.substory}/releaselinkstory`,data,isloading);
             return res;
+    }
+
+    /**
+     * ReleaseLinkStoryBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubStoryServiceBase
+     */
+    public async ReleaseLinkStoryBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/substories/releaselinkstorybatch`,tempData,isloading);
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/substories/releaselinkstorybatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/substories/releaselinkstorybatch`,tempData,isloading);
     }
 
     /**
@@ -1084,8 +1716,30 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/substories/${context.substory}/releaseunlinkstory`,data,isloading);
+            let res:any = await Http.getInstance().post(`/substories/${context.substory}/releaseunlinkstory`,data,isloading);
             return res;
+    }
+
+    /**
+     * ReleaseUnlinkStoryBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubStoryServiceBase
+     */
+    public async ReleaseUnlinkStoryBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/substories/releaseunlinkstorybatch`,tempData,isloading);
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/substories/releaseunlinkstorybatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/substories/releaseunlinkstorybatch`,tempData,isloading);
     }
 
     /**
@@ -1112,8 +1766,30 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/substories/${context.substory}/resetreviewedby`,data,isloading);
+            let res:any = await Http.getInstance().post(`/substories/${context.substory}/resetreviewedby`,data,isloading);
             return res;
+    }
+
+    /**
+     * ResetReviewedByBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubStoryServiceBase
+     */
+    public async ResetReviewedByBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/substories/resetreviewedbybatch`,tempData,isloading);
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/substories/resetreviewedbybatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/substories/resetreviewedbybatch`,tempData,isloading);
     }
 
     /**
@@ -1140,8 +1816,30 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/substories/${context.substory}/review`,data,isloading);
+            let res:any = await Http.getInstance().post(`/substories/${context.substory}/review`,data,isloading);
             return res;
+    }
+
+    /**
+     * ReviewBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubStoryServiceBase
+     */
+    public async ReviewBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/substories/reviewbatch`,tempData,isloading);
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/substories/reviewbatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/substories/reviewbatch`,tempData,isloading);
     }
 
     /**
@@ -1199,8 +1897,30 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/substories/${context.substory}/sendmessage`,data,isloading);
+            let res:any = await Http.getInstance().post(`/substories/${context.substory}/sendmessage`,data,isloading);
             return res;
+    }
+
+    /**
+     * SendMessageBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubStoryServiceBase
+     */
+    public async SendMessageBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/substories/sendmessagebatch`,tempData,isloading);
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/substories/sendmessagebatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/substories/sendmessagebatch`,tempData,isloading);
     }
 
     /**
@@ -1227,8 +1947,30 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/substories/${context.substory}/sendmsgpreprocess`,data,isloading);
+            let res:any = await Http.getInstance().post(`/substories/${context.substory}/sendmsgpreprocess`,data,isloading);
             return res;
+    }
+
+    /**
+     * SendMsgPreProcessBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubStoryServiceBase
+     */
+    public async SendMsgPreProcessBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/substories/sendmsgpreprocessbatch`,tempData,isloading);
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/substories/sendmsgpreprocessbatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/substories/sendmsgpreprocessbatch`,tempData,isloading);
     }
 
     /**
@@ -1255,7 +1997,7 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/substories/${context.substory}/storyfavorites`,data,isloading);
+            let res:any = await Http.getInstance().post(`/substories/${context.substory}/storyfavorites`,data,isloading);
             return res;
     }
 
@@ -1283,7 +2025,7 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/substories/${context.substory}/storynfavorites`,data,isloading);
+            let res:any = await Http.getInstance().post(`/substories/${context.substory}/storynfavorites`,data,isloading);
             return res;
     }
 
@@ -1311,8 +2053,30 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/substories/${context.substory}/syncfromibiz`,data,isloading);
+            let res:any = await Http.getInstance().post(`/substories/${context.substory}/syncfromibiz`,data,isloading);
             return res;
+    }
+
+    /**
+     * SyncFromIbizBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubStoryServiceBase
+     */
+    public async SyncFromIbizBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/substories/syncfromibizbatch`,tempData,isloading);
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/substories/syncfromibizbatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/substories/syncfromibizbatch`,tempData,isloading);
     }
 
     /**
@@ -1339,8 +2103,30 @@ export default class SubStoryServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/substories/${context.substory}/unlinkstory`,data,isloading);
+            let res:any = await Http.getInstance().post(`/substories/${context.substory}/unlinkstory`,data,isloading);
             return res;
+    }
+
+    /**
+     * UnlinkStoryBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SubStoryServiceBase
+     */
+    public async UnlinkStoryBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/substories/unlinkstorybatch`,tempData,isloading);
+        }
+        if(context.story && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/stories/${context.story}/substories/unlinkstorybatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/substories/unlinkstorybatch`,tempData,isloading);
     }
 
     /**
@@ -1355,16 +2141,16 @@ export default class SubStoryServiceBase extends EntityService {
     public async FetchAssignedToMyStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/substories/fetchassignedtomystory`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/substories/fetchassignedtomystory`,tempData,isloading);
             return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/substories/fetchassignedtomystory`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/substories/fetchassignedtomystory`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/substories/fetchassignedtomystory`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/substories/fetchassignedtomystory`,tempData,isloading);
         return res;
     }
 
@@ -1402,16 +2188,16 @@ export default class SubStoryServiceBase extends EntityService {
     public async FetchAssignedToMyStoryCalendar(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/substories/fetchassignedtomystorycalendar`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/substories/fetchassignedtomystorycalendar`,tempData,isloading);
             return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/substories/fetchassignedtomystorycalendar`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/substories/fetchassignedtomystorycalendar`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/substories/fetchassignedtomystorycalendar`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/substories/fetchassignedtomystorycalendar`,tempData,isloading);
         return res;
     }
 
@@ -1449,16 +2235,16 @@ export default class SubStoryServiceBase extends EntityService {
     public async FetchBugStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/substories/fetchbugstory`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/substories/fetchbugstory`,tempData,isloading);
             return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/substories/fetchbugstory`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/substories/fetchbugstory`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/substories/fetchbugstory`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/substories/fetchbugstory`,tempData,isloading);
         return res;
     }
 
@@ -1496,16 +2282,16 @@ export default class SubStoryServiceBase extends EntityService {
     public async FetchBuildLinkCompletedStories(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/substories/fetchbuildlinkcompletedstories`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/substories/fetchbuildlinkcompletedstories`,tempData,isloading);
             return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/substories/fetchbuildlinkcompletedstories`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/substories/fetchbuildlinkcompletedstories`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/substories/fetchbuildlinkcompletedstories`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/substories/fetchbuildlinkcompletedstories`,tempData,isloading);
         return res;
     }
 
@@ -1543,16 +2329,16 @@ export default class SubStoryServiceBase extends EntityService {
     public async FetchBuildLinkableStories(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/substories/fetchbuildlinkablestories`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/substories/fetchbuildlinkablestories`,tempData,isloading);
             return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/substories/fetchbuildlinkablestories`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/substories/fetchbuildlinkablestories`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/substories/fetchbuildlinkablestories`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/substories/fetchbuildlinkablestories`,tempData,isloading);
         return res;
     }
 
@@ -1590,16 +2376,16 @@ export default class SubStoryServiceBase extends EntityService {
     public async FetchBuildStories(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/products/${context.product}/stories/${context.story}/substories/fetchbuildstories`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/substories/fetchbuildstories`,tempData,isloading);
             return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/stories/${context.story}/substories/fetchbuildstories`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/substories/fetchbuildstories`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().post(`/substories/fetchbuildstories`,tempData,isloading);
+        let res:any = await Http.getInstance().post(`/substories/fetchbuildstories`,tempData,isloading);
         return res;
     }
 
@@ -1637,16 +2423,16 @@ export default class SubStoryServiceBase extends EntityService {
     public async FetchByModule(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/products/${context.product}/stories/${context.story}/substories/fetchbymodule`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/substories/fetchbymodule`,tempData,isloading);
             return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/stories/${context.story}/substories/fetchbymodule`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/substories/fetchbymodule`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().post(`/substories/fetchbymodule`,tempData,isloading);
+        let res:any = await Http.getInstance().post(`/substories/fetchbymodule`,tempData,isloading);
         return res;
     }
 
@@ -1684,16 +2470,16 @@ export default class SubStoryServiceBase extends EntityService {
     public async FetchCaseStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/substories/fetchcasestory`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/substories/fetchcasestory`,tempData,isloading);
             return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/substories/fetchcasestory`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/substories/fetchcasestory`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/substories/fetchcasestory`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/substories/fetchcasestory`,tempData,isloading);
         return res;
     }
 
@@ -1731,16 +2517,16 @@ export default class SubStoryServiceBase extends EntityService {
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/products/${context.product}/stories/${context.story}/substories/fetchdefault`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/substories/fetchdefault`,tempData,isloading);
             return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/stories/${context.story}/substories/fetchdefault`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/substories/fetchdefault`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().post(`/substories/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().post(`/substories/fetchdefault`,tempData,isloading);
         return res;
     }
 
@@ -1778,16 +2564,16 @@ export default class SubStoryServiceBase extends EntityService {
     public async FetchESBulk(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/substories/fetchesbulk`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/substories/fetchesbulk`,tempData,isloading);
             return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/substories/fetchesbulk`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/substories/fetchesbulk`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/substories/fetchesbulk`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/substories/fetchesbulk`,tempData,isloading);
         return res;
     }
 
@@ -1825,16 +2611,16 @@ export default class SubStoryServiceBase extends EntityService {
     public async FetchGetProductStories(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/substories/fetchgetproductstories`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/substories/fetchgetproductstories`,tempData,isloading);
             return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/substories/fetchgetproductstories`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/substories/fetchgetproductstories`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/substories/fetchgetproductstories`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/substories/fetchgetproductstories`,tempData,isloading);
         return res;
     }
 
@@ -1872,16 +2658,16 @@ export default class SubStoryServiceBase extends EntityService {
     public async FetchMyAgentStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/substories/fetchmyagentstory`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/substories/fetchmyagentstory`,tempData,isloading);
             return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/substories/fetchmyagentstory`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/substories/fetchmyagentstory`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/substories/fetchmyagentstory`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/substories/fetchmyagentstory`,tempData,isloading);
         return res;
     }
 
@@ -1919,16 +2705,16 @@ export default class SubStoryServiceBase extends EntityService {
     public async FetchMyCurOpenedStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/substories/fetchmycuropenedstory`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/substories/fetchmycuropenedstory`,tempData,isloading);
             return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/substories/fetchmycuropenedstory`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/substories/fetchmycuropenedstory`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/substories/fetchmycuropenedstory`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/substories/fetchmycuropenedstory`,tempData,isloading);
         return res;
     }
 
@@ -1966,16 +2752,16 @@ export default class SubStoryServiceBase extends EntityService {
     public async FetchMyFavorites(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/products/${context.product}/stories/${context.story}/substories/fetchmyfavorites`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/substories/fetchmyfavorites`,tempData,isloading);
             return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/stories/${context.story}/substories/fetchmyfavorites`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/substories/fetchmyfavorites`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().post(`/substories/fetchmyfavorites`,tempData,isloading);
+        let res:any = await Http.getInstance().post(`/substories/fetchmyfavorites`,tempData,isloading);
         return res;
     }
 
@@ -2013,16 +2799,16 @@ export default class SubStoryServiceBase extends EntityService {
     public async FetchNotCurPlanLinkStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/substories/fetchnotcurplanlinkstory`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/substories/fetchnotcurplanlinkstory`,tempData,isloading);
             return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/substories/fetchnotcurplanlinkstory`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/substories/fetchnotcurplanlinkstory`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/substories/fetchnotcurplanlinkstory`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/substories/fetchnotcurplanlinkstory`,tempData,isloading);
         return res;
     }
 
@@ -2060,16 +2846,16 @@ export default class SubStoryServiceBase extends EntityService {
     public async FetchParentDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/products/${context.product}/stories/${context.story}/substories/fetchparentdefault`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/substories/fetchparentdefault`,tempData,isloading);
             return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/stories/${context.story}/substories/fetchparentdefault`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/substories/fetchparentdefault`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().post(`/substories/fetchparentdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().post(`/substories/fetchparentdefault`,tempData,isloading);
         return res;
     }
 
@@ -2107,16 +2893,16 @@ export default class SubStoryServiceBase extends EntityService {
     public async FetchParentDefaultQ(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/substories/fetchparentdefaultq`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/substories/fetchparentdefaultq`,tempData,isloading);
             return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/substories/fetchparentdefaultq`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/substories/fetchparentdefaultq`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/substories/fetchparentdefaultq`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/substories/fetchparentdefaultq`,tempData,isloading);
         return res;
     }
 
@@ -2154,16 +2940,16 @@ export default class SubStoryServiceBase extends EntityService {
     public async FetchProjectLinkStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/substories/fetchprojectlinkstory`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/substories/fetchprojectlinkstory`,tempData,isloading);
             return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/substories/fetchprojectlinkstory`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/substories/fetchprojectlinkstory`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/substories/fetchprojectlinkstory`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/substories/fetchprojectlinkstory`,tempData,isloading);
         return res;
     }
 
@@ -2201,16 +2987,16 @@ export default class SubStoryServiceBase extends EntityService {
     public async FetchProjectStories(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/products/${context.product}/stories/${context.story}/substories/fetchprojectstories`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/substories/fetchprojectstories`,tempData,isloading);
             return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/stories/${context.story}/substories/fetchprojectstories`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/substories/fetchprojectstories`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().post(`/substories/fetchprojectstories`,tempData,isloading);
+        let res:any = await Http.getInstance().post(`/substories/fetchprojectstories`,tempData,isloading);
         return res;
     }
 
@@ -2248,16 +3034,16 @@ export default class SubStoryServiceBase extends EntityService {
     public async FetchReleaseLinkableStories(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/substories/fetchreleaselinkablestories`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/substories/fetchreleaselinkablestories`,tempData,isloading);
             return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/substories/fetchreleaselinkablestories`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/substories/fetchreleaselinkablestories`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/substories/fetchreleaselinkablestories`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/substories/fetchreleaselinkablestories`,tempData,isloading);
         return res;
     }
 
@@ -2295,16 +3081,16 @@ export default class SubStoryServiceBase extends EntityService {
     public async FetchReleaseStories(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/products/${context.product}/stories/${context.story}/substories/fetchreleasestories`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/substories/fetchreleasestories`,tempData,isloading);
             return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/stories/${context.story}/substories/fetchreleasestories`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/substories/fetchreleasestories`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().post(`/substories/fetchreleasestories`,tempData,isloading);
+        let res:any = await Http.getInstance().post(`/substories/fetchreleasestories`,tempData,isloading);
         return res;
     }
 
@@ -2342,16 +3128,16 @@ export default class SubStoryServiceBase extends EntityService {
     public async FetchReportStories(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/products/${context.product}/stories/${context.story}/substories/fetchreportstories`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/stories/${context.story}/substories/fetchreportstories`,tempData,isloading);
             return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().post(`/stories/${context.story}/substories/fetchreportstories`,tempData,isloading);
+            let res:any = await Http.getInstance().post(`/stories/${context.story}/substories/fetchreportstories`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().post(`/substories/fetchreportstories`,tempData,isloading);
+        let res:any = await Http.getInstance().post(`/substories/fetchreportstories`,tempData,isloading);
         return res;
     }
 
@@ -2389,16 +3175,16 @@ export default class SubStoryServiceBase extends EntityService {
     public async FetchStoryChild(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/substories/fetchstorychild`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/substories/fetchstorychild`,tempData,isloading);
             return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/substories/fetchstorychild`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/substories/fetchstorychild`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/substories/fetchstorychild`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/substories/fetchstorychild`,tempData,isloading);
         return res;
     }
 
@@ -2436,16 +3222,16 @@ export default class SubStoryServiceBase extends EntityService {
     public async FetchStoryRelated(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/substories/fetchstoryrelated`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/substories/fetchstoryrelated`,tempData,isloading);
             return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/substories/fetchstoryrelated`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/substories/fetchstoryrelated`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/substories/fetchstoryrelated`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/substories/fetchstoryrelated`,tempData,isloading);
         return res;
     }
 
@@ -2483,16 +3269,16 @@ export default class SubStoryServiceBase extends EntityService {
     public async FetchSubStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/substories/fetchsubstory`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/substories/fetchsubstory`,tempData,isloading);
             return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/substories/fetchsubstory`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/substories/fetchsubstory`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/substories/fetchsubstory`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/substories/fetchsubstory`,tempData,isloading);
         return res;
     }
 
@@ -2530,16 +3316,16 @@ export default class SubStoryServiceBase extends EntityService {
     public async FetchTaskRelatedStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/substories/fetchtaskrelatedstory`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/substories/fetchtaskrelatedstory`,tempData,isloading);
             return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/substories/fetchtaskrelatedstory`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/substories/fetchtaskrelatedstory`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/substories/fetchtaskrelatedstory`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/substories/fetchtaskrelatedstory`,tempData,isloading);
         return res;
     }
 
@@ -2577,16 +3363,16 @@ export default class SubStoryServiceBase extends EntityService {
     public async FetchView(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/substories/fetchview`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/substories/fetchview`,tempData,isloading);
             return res;
         }
         if(context.story && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/substories/fetchview`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/substories/fetchview`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/substories/fetchview`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/substories/fetchview`,tempData,isloading);
         return res;
     }
 

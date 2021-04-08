@@ -3,36 +3,36 @@ function getLocaleResourceBase(){
 	const data:any = {
 		appdename: commonLogic.appcommonhandle("任务模块", null),
 		fields: {
-			type: commonLogic.appcommonhandle("类型（task）",null),
-			collector: commonLogic.appcommonhandle("collector",null),
-			id: commonLogic.appcommonhandle("id",null),
-			deleted: commonLogic.appcommonhandle("逻辑删除标志",null),
-			isleaf: commonLogic.appcommonhandle("叶子模块",null),
-			path: commonLogic.appcommonhandle("path",null),
-			owner: commonLogic.appcommonhandle("owner",null),
 			ibizshort: commonLogic.appcommonhandle("简称",null),
+			isleaf: commonLogic.appcommonhandle("叶子模块",null),
+			type: commonLogic.appcommonhandle("类型（task）",null),
+			orderpk: commonLogic.appcommonhandle("数据选择排序",null),
 			name: commonLogic.appcommonhandle("名称",null),
-			grade: commonLogic.appcommonhandle("grade",null),
 			order: commonLogic.appcommonhandle("排序值",null),
+			collector: commonLogic.appcommonhandle("collector",null),
+			grade: commonLogic.appcommonhandle("grade",null),
 			branch: commonLogic.appcommonhandle("branch",null),
-			parent: commonLogic.appcommonhandle("id",null),
-			root: commonLogic.appcommonhandle("项目",null),
+			path: commonLogic.appcommonhandle("path",null),
+			id: commonLogic.appcommonhandle("id",null),
+			owner: commonLogic.appcommonhandle("owner",null),
+			deleted: commonLogic.appcommonhandle("逻辑删除标志",null),
 			rootname: commonLogic.appcommonhandle("所属项目",null),
 			parentname: commonLogic.appcommonhandle("上级模块",null),
-			orderpk: commonLogic.appcommonhandle("数据选择排序",null),
+			root: commonLogic.appcommonhandle("项目",null),
+			parent: commonLogic.appcommonhandle("id",null),
 		},
 			views: {
-				quickcfgview: {
+				treeexpview: {
 					caption: commonLogic.appcommonhandle("任务模块",null),
-					title: commonLogic.appcommonhandle("任务模块",null),
+					title: commonLogic.appcommonhandle("任务模块树导航视图",null),
 				},
 				maingridview: {
 					caption: commonLogic.appcommonhandle("任务模块",null),
 					title: commonLogic.appcommonhandle("实体表格视图",null),
 				},
-				treeexpview: {
+				quickcfgview: {
 					caption: commonLogic.appcommonhandle("任务模块",null),
-					title: commonLogic.appcommonhandle("任务模块树导航视图",null),
+					title: commonLogic.appcommonhandle("任务模块",null),
 				},
 			},
 			main_form: {
@@ -107,10 +107,10 @@ function getLocaleResourceBase(){
 					root: commonLogic.appcommonhandle("默认根节点",null),
 				},
 				uiactions: {
-					projectmodule_openquickcfgview: commonLogic.appcommonhandle("编辑",null),
 					refreshall: commonLogic.appcommonhandle("刷新",null),
 					refreshparent: commonLogic.appcommonhandle("刷新",null),
 					productmodule_openquickcfgview: commonLogic.appcommonhandle("编辑",null),
+					projectmodule_openquickcfgview: commonLogic.appcommonhandle("编辑",null),
 				},
 			},
 		};

@@ -6,11 +6,16 @@ import com.alibaba.fastjson.JSONObject;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
+import java.util.List;
 
-public interface IIBZZTFileService
-{
+public interface IIBZZTFileService {
     ZTFileItem saveFile(MultipartFile multipartFile);
+
     ZTFileItem saveFile(MultipartFile multipartFile, JSONObject params);
+
     ZTFileItem saveFile(File file, JSONObject params);
+
     ZTDownloadFile getFile(String fileId);
+
+    List<File> getFileByObjectIdAndType(String ObjectId, String ObjectType);
 }

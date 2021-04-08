@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { TabExpViewBase } from '@/studio-core';
 import ProductService from '@/service/product/product-service';
 import ProductAuthService from '@/authservice/product/product-auth-service';
@@ -100,7 +100,7 @@ export class ProductMyTestTabExpViewBase extends TabExpViewBase {
      * @type {string}
      * @memberof ProductMyTestTabExpViewBase
      */
-	protected viewtag: string = 'd21c783cde14166ba9deb09e746a0f28';
+	protected viewtag: string = '192bd3c72259613684edc6fe828196f7';
 
     /**
      * 视图名称

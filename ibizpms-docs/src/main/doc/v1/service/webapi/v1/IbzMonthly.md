@@ -555,39 +555,39 @@ POST
 #### IbzMonthlyDTO
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
-| 1 | ibzmonthlyid | Long | 不可 | 月报标识 |
-| 2 | createman | String | 不可 | 建立人 |
-| 3 | updateman | String | 不可 | 更新人 |
-| 4 | createdate | Timestamp | 不可 | 建立时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
-| 5 | ibzmonthlyname | String | 允许 | 月报名称 |
-| 6 | updatedate | Timestamp | 不可 | 更新时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
-| 7 | date | Timestamp | 允许 | 日期<br>时间格式：yyyy-MM-dd |
-| 8 | account | String | 允许 | 用户 |
-| 9 | workthismonth | String | 允许 | 本月工作 |
-| 10 | plansnextmonth | String | 允许 | 下月计划 |
-| 11 | reportto | String | 允许 | 汇报给 |
-| 12 | mailto | String | 允许 | 抄送给 |
-| 13 | comment | String | 允许 | 其他事项 |
-| 14 | thismonthtask | String | 允许 | 本月完成任务 |
-| 15 | nextmonthplanstask | String | 允许 | 下月计划任务 |
-| 16 | files | String | 允许 | 附件 |
-| 17 | issubmit | String | 允许 | 是否提交 |
-| 18 | updatemanname | String | 不可 | 更新人名称 |
-| 19 | reportstatus | String | 允许 | 状态 |
-| 20 | createmanname | String | 不可 | 建立人名称 |
-| 21 | submittime | Timestamp | 允许 | 提交时间<br>时间格式：HH:mm:ss |
-| 22 | reporttopk | String | 允许 | 汇报给（选择） |
-| 23 | mailtopk | String | 允许 | 抄送给（选择） |
+| 1 | createman | String | 不可 | 建立人 |
+| 2 | reportstatus | String | 允许 | 状态 |
+| 3 | updatedate | Timestamp | 不可 | 更新时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
+| 4 | plansnextmonth | String | 允许 | 下月计划 |
+| 5 | reporttopk | String | 允许 | 汇报给（选择） |
+| 6 | issubmit | String | 允许 | 是否提交 |
+| 7 | mailtopk | String | 允许 | 抄送给（选择） |
+| 8 | updatemanname | String | 不可 | 更新人名称 |
+| 9 | updateman | String | 不可 | 更新人 |
+| 10 | date | Timestamp | 允许 | 日期<br>时间格式：yyyy-MM-dd |
+| 11 | submittime | Timestamp | 允许 | 提交时间<br>时间格式：HH:mm:ss |
+| 12 | createdate | Timestamp | 不可 | 建立时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
+| 13 | createmanname | String | 不可 | 建立人名称 |
+| 14 | files | String | 允许 | 附件 |
+| 15 | ibzmonthlyid | Long | 不可 | 月报标识 |
+| 16 | account | String | 允许 | 用户 |
+| 17 | nextmonthplanstask | String | 允许 | 下月计划任务 |
+| 18 | thismonthtask | String | 允许 | 本月完成任务 |
+| 19 | workthismonth | String | 允许 | 本月工作 |
+| 20 | reportto | String | 允许 | 汇报给 |
+| 21 | ibzmonthlyname | String | 允许 | 月报名称 |
+| 22 | comment | String | 允许 | 其他事项 |
+| 23 | mailto | String | 允许 | 抄送给 |
 | 24 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### IbzMonthlySearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
-| 1 | n_ibz_monthlyname_like | String | 允许 | 条件字段：ibz_monthlyname<br>条件组合方式：`%like%` |
-| 2 | n_account_eq | String | 允许 | 条件字段：account<br>条件组合方式：`=` |
-| 3 | n_reportto_eq | String | 允许 | 条件字段：reportto<br>条件组合方式：`=` |
-| 4 | n_issubmit_eq | String | 允许 | 条件字段：issubmit<br>条件组合方式：`=` |
-| 5 | n_reportstatus_eq | String | 允许 | 条件字段：reportstatus<br>条件组合方式：`=` |
+| 1 | n_reportstatus_eq | String | 允许 | 条件字段：reportstatus<br>条件组合方式：`=` |
+| 2 | n_issubmit_eq | String | 允许 | 条件字段：issubmit<br>条件组合方式：`=` |
+| 3 | n_account_eq | String | 允许 | 条件字段：account<br>条件组合方式：`=` |
+| 4 | n_reportto_eq | String | 允许 | 条件字段：reportto<br>条件组合方式：`=` |
+| 5 | n_ibz_monthlyname_like | String | 允许 | 条件字段：ibz_monthlyname<br>条件组合方式：`%like%` |
 | 6 | customcond | String | 允许 | 自定义查询条件 |
 | 7 | customparams | String | 允许 | 自定义查询参数 |
 | 8 | query | String | 允许 | 快速搜索 |

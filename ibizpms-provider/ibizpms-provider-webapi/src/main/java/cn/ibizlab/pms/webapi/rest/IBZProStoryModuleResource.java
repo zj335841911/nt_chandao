@@ -72,7 +72,7 @@ public class IBZProStoryModuleResource {
 		IBZProStoryModule domain  = ibzprostorymoduleMapping.toDomain(ibzprostorymoduledto);
         domain .setId(ibzprostorymodule_id);
 		ibzprostorymoduleService.update(domain );
-		IBZProStoryModuleDTO dto = ibzprostorymoduleMapping.toDto(domain );
+		IBZProStoryModuleDTO dto = ibzprostorymoduleMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
@@ -110,8 +110,9 @@ public class IBZProStoryModuleResource {
 
     @ApiOperation(value = "获取需求模块草稿", tags = {"需求模块" },  notes = "获取需求模块草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/ibzprostorymodules/getdraft")
-    public ResponseEntity<IBZProStoryModuleDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(ibzprostorymoduleMapping.toDto(ibzprostorymoduleService.getDraft(new IBZProStoryModule())));
+    public ResponseEntity<IBZProStoryModuleDTO> getDraft(IBZProStoryModuleDTO dto) {
+        IBZProStoryModule domain = ibzprostorymoduleMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(ibzprostorymoduleMapping.toDto(ibzprostorymoduleService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查需求模块", tags = {"需求模块" },  notes = "检查需求模块")
@@ -123,8 +124,10 @@ public class IBZProStoryModuleResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IBZProStoryModule-Save-all')")
     @ApiOperation(value = "保存需求模块", tags = {"需求模块" },  notes = "保存需求模块")
 	@RequestMapping(method = RequestMethod.POST, value = "/ibzprostorymodules/save")
-    public ResponseEntity<Boolean> save(@RequestBody IBZProStoryModuleDTO ibzprostorymoduledto) {
-        return ResponseEntity.status(HttpStatus.OK).body(ibzprostorymoduleService.save(ibzprostorymoduleMapping.toDomain(ibzprostorymoduledto)));
+    public ResponseEntity<IBZProStoryModuleDTO> save(@RequestBody IBZProStoryModuleDTO ibzprostorymoduledto) {
+        IBZProStoryModule domain = ibzprostorymoduleMapping.toDomain(ibzprostorymoduledto);
+        ibzprostorymoduleService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(ibzprostorymoduleMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IBZProStoryModule-Save-all')")
@@ -147,9 +150,11 @@ public class IBZProStoryModuleResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IBZProStoryModule-SyncFromIBIZ-all')")
     @ApiOperation(value = "批量处理[同步Ibz平台模块]", tags = {"需求模块" },  notes = "批量处理[同步Ibz平台模块]")
-	@RequestMapping(method = RequestMethod.POST, value = "/ibzprostorymodules/{ibzprostorymodule_id}/syncfromibizbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/ibzprostorymodules/syncfromibizbatch")
     public ResponseEntity<Boolean> syncFromIBIZBatch(@RequestBody List<IBZProStoryModuleDTO> ibzprostorymoduledtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(ibzprostorymoduleService.syncFromIBIZBatch(ibzprostorymoduleMapping.toDomain(ibzprostorymoduledtos)));
+        List<IBZProStoryModule> domains = ibzprostorymoduleMapping.toDomain(ibzprostorymoduledtos);
+        boolean result = ibzprostorymoduleService.syncFromIBIZBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IBZProStoryModule-searchDefault-all')")
@@ -173,6 +178,7 @@ public class IBZProStoryModuleResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(ibzprostorymoduleMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
 
 
 }

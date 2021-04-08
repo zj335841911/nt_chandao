@@ -1,3 +1,4 @@
+import { Environment } from '@/environments/environment';
 import { Http } from '@/utils';
 import { Util } from '@/utils';
 import EntityService from '../entity-service';
@@ -49,7 +50,7 @@ export default class IBZWEEKLYServiceBase extends EntityService {
      * @memberof IBZWEEKLYServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().get(`/ibzweeklies/${context.ibzweekly}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/ibzweeklies/${context.ibzweekly}/select`,isloading);
             
             return res;
     }
@@ -105,7 +106,7 @@ export default class IBZWEEKLYServiceBase extends EntityService {
      * @memberof IBZWEEKLYServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().delete(`/ibzweeklies/${context.ibzweekly}`,isloading);
+            let res:any = await Http.getInstance().delete(`/ibzweeklies/${context.ibzweekly}`,isloading);
             return res;
     }
 
@@ -134,7 +135,10 @@ export default class IBZWEEKLYServiceBase extends EntityService {
      * @memberof IBZWEEKLYServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/ibzweeklies/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.ibzweekly) delete tempData.ibzweekly;
+        if(tempData.ibzweeklyid) delete tempData.ibzweeklyid;
+        let res:any = await  Http.getInstance().get(`/ibzweeklies/getdraft`,tempData,isloading);
         res.data.ibzweekly = data.ibzweekly;
         
         return res;
@@ -150,7 +154,7 @@ export default class IBZWEEKLYServiceBase extends EntityService {
      * @memberof IBZWEEKLYServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/ibzweeklies/${context.ibzweekly}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/ibzweeklies/${context.ibzweekly}/checkkey`,data,isloading);
             return res;
     }
 
@@ -164,8 +168,22 @@ export default class IBZWEEKLYServiceBase extends EntityService {
      * @memberof IBZWEEKLYServiceBase
      */
     public async CreateEveryWeekReport(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/ibzweeklies/${context.ibzweekly}/createeveryweekreport`,data,isloading);
+            let res:any = await Http.getInstance().post(`/ibzweeklies/${context.ibzweekly}/createeveryweekreport`,data,isloading);
             return res;
+    }
+
+    /**
+     * CreateEveryWeekReportBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IBZWEEKLYServiceBase
+     */
+    public async CreateEveryWeekReportBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/ibzweeklies/createeveryweekreportbatch`,tempData,isloading);
     }
 
     /**
@@ -178,8 +196,22 @@ export default class IBZWEEKLYServiceBase extends EntityService {
      * @memberof IBZWEEKLYServiceBase
      */
     public async CreateGetLastWeekPlanAndWork(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/ibzweeklies/${context.ibzweekly}/creategetlastweekplanandwork`,data,isloading);
+            let res:any = await Http.getInstance().post(`/ibzweeklies/${context.ibzweekly}/creategetlastweekplanandwork`,data,isloading);
             return res;
+    }
+
+    /**
+     * CreateGetLastWeekPlanAndWorkBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IBZWEEKLYServiceBase
+     */
+    public async CreateGetLastWeekPlanAndWorkBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/ibzweeklies/creategetlastweekplanandworkbatch`,tempData,isloading);
     }
 
     /**
@@ -192,8 +224,22 @@ export default class IBZWEEKLYServiceBase extends EntityService {
      * @memberof IBZWEEKLYServiceBase
      */
     public async EditGetLastWeekTaskAndComTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/ibzweeklies/${context.ibzweekly}/editgetlastweektaskandcomtask`,data,isloading);
+            let res:any = await Http.getInstance().post(`/ibzweeklies/${context.ibzweekly}/editgetlastweektaskandcomtask`,data,isloading);
             return res;
+    }
+
+    /**
+     * EditGetLastWeekTaskAndComTaskBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IBZWEEKLYServiceBase
+     */
+    public async EditGetLastWeekTaskAndComTaskBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/ibzweeklies/editgetlastweektaskandcomtaskbatch`,tempData,isloading);
     }
 
     /**
@@ -206,8 +252,22 @@ export default class IBZWEEKLYServiceBase extends EntityService {
      * @memberof IBZWEEKLYServiceBase
      */
     public async HaveRead(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/ibzweeklies/${context.ibzweekly}/haveread`,data,isloading);
+            let res:any = await Http.getInstance().post(`/ibzweeklies/${context.ibzweekly}/haveread`,data,isloading);
             return res;
+    }
+
+    /**
+     * HaveReadBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IBZWEEKLYServiceBase
+     */
+    public async HaveReadBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/ibzweeklies/havereadbatch`,tempData,isloading);
     }
 
     /**
@@ -220,8 +280,22 @@ export default class IBZWEEKLYServiceBase extends EntityService {
      * @memberof IBZWEEKLYServiceBase
      */
     public async JugThisWeekCreateWeekly(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/ibzweeklies/${context.ibzweekly}/jugthisweekcreateweekly`,data,isloading);
+            let res:any = await Http.getInstance().post(`/ibzweeklies/${context.ibzweekly}/jugthisweekcreateweekly`,data,isloading);
             return res;
+    }
+
+    /**
+     * JugThisWeekCreateWeeklyBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IBZWEEKLYServiceBase
+     */
+    public async JugThisWeekCreateWeeklyBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/ibzweeklies/jugthisweekcreateweeklybatch`,tempData,isloading);
     }
 
     /**
@@ -234,8 +308,22 @@ export default class IBZWEEKLYServiceBase extends EntityService {
      * @memberof IBZWEEKLYServiceBase
      */
     public async PushUserWeekly(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/ibzweeklies/${context.ibzweekly}/pushuserweekly`,data,isloading);
+            let res:any = await Http.getInstance().post(`/ibzweeklies/${context.ibzweekly}/pushuserweekly`,data,isloading);
             return res;
+    }
+
+    /**
+     * PushUserWeeklyBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IBZWEEKLYServiceBase
+     */
+    public async PushUserWeeklyBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/ibzweeklies/pushuserweeklybatch`,tempData,isloading);
     }
 
     /**
@@ -265,8 +353,22 @@ export default class IBZWEEKLYServiceBase extends EntityService {
      * @memberof IBZWEEKLYServiceBase
      */
     public async Submit(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/ibzweeklies/${context.ibzweekly}/submit`,data,isloading);
+            let res:any = await Http.getInstance().post(`/ibzweeklies/${context.ibzweekly}/submit`,data,isloading);
             return res;
+    }
+
+    /**
+     * SubmitBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IBZWEEKLYServiceBase
+     */
+    public async SubmitBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/ibzweeklies/submitbatch`,tempData,isloading);
     }
 
     /**
@@ -280,7 +382,7 @@ export default class IBZWEEKLYServiceBase extends EntityService {
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/ibzweeklies/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/ibzweeklies/fetchdefault`,tempData,isloading);
         return res;
     }
 
@@ -309,7 +411,7 @@ export default class IBZWEEKLYServiceBase extends EntityService {
      */
     public async FetchMyNotSubmit(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/ibzweeklies/fetchmynotsubmit`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/ibzweeklies/fetchmynotsubmit`,tempData,isloading);
         return res;
     }
 
@@ -338,7 +440,7 @@ export default class IBZWEEKLYServiceBase extends EntityService {
      */
     public async FetchMyWeekly(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/ibzweeklies/fetchmyweekly`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/ibzweeklies/fetchmyweekly`,tempData,isloading);
         return res;
     }
 
@@ -367,7 +469,7 @@ export default class IBZWEEKLYServiceBase extends EntityService {
      */
     public async FetchProductTeamMemberWeekly(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/ibzweeklies/fetchproductteammemberweekly`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/ibzweeklies/fetchproductteammemberweekly`,tempData,isloading);
         return res;
     }
 
@@ -396,7 +498,7 @@ export default class IBZWEEKLYServiceBase extends EntityService {
      */
     public async FetchProjectWeekly(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/ibzweeklies/fetchprojectweekly`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/ibzweeklies/fetchprojectweekly`,tempData,isloading);
         return res;
     }
 

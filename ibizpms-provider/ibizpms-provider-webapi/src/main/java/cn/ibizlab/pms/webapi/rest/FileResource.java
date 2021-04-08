@@ -72,7 +72,7 @@ public class FileResource {
 		File domain  = fileMapping.toDomain(filedto);
         domain .setId(file_id);
 		fileService.update(domain );
-		FileDTO dto = fileMapping.toDto(domain );
+		FileDTO dto = fileMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
@@ -110,8 +110,9 @@ public class FileResource {
 
     @ApiOperation(value = "获取附件草稿", tags = {"附件" },  notes = "获取附件草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/files/getdraft")
-    public ResponseEntity<FileDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(fileMapping.toDto(fileService.getDraft(new File())));
+    public ResponseEntity<FileDTO> getDraft(FileDTO dto) {
+        File domain = fileMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(fileMapping.toDto(fileService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查附件", tags = {"附件" },  notes = "检查附件")
@@ -123,8 +124,10 @@ public class FileResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-File-Save-all')")
     @ApiOperation(value = "保存附件", tags = {"附件" },  notes = "保存附件")
 	@RequestMapping(method = RequestMethod.POST, value = "/files/save")
-    public ResponseEntity<Boolean> save(@RequestBody FileDTO filedto) {
-        return ResponseEntity.status(HttpStatus.OK).body(fileService.save(fileMapping.toDomain(filedto)));
+    public ResponseEntity<FileDTO> save(@RequestBody FileDTO filedto) {
+        File domain = fileMapping.toDomain(filedto);
+        fileService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(fileMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-File-Save-all')")
@@ -133,6 +136,25 @@ public class FileResource {
     public ResponseEntity<Boolean> saveBatch(@RequestBody List<FileDTO> filedtos) {
         fileService.saveBatch(fileMapping.toDomain(filedtos));
         return  ResponseEntity.status(HttpStatus.OK).body(true);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-File-UpdateObjectIDForPmsEe-all')")
+    @ApiOperation(value = "保存附件", tags = {"附件" },  notes = "保存附件")
+	@RequestMapping(method = RequestMethod.PUT, value = "/files/{file_id}/updateobjectidforpmsee")
+    public ResponseEntity<FileDTO> updateObjectIDForPmsEe(@PathVariable("file_id") Long file_id, @RequestBody FileDTO filedto) {
+        File domain = fileMapping.toDomain(filedto);
+        domain.setId(file_id);
+        domain = fileService.updateObjectIDForPmsEe(domain);
+        filedto = fileMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(filedto);
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-File-UpdateObjectIDForPmsEe-all')")
+    @ApiOperation(value = "批量处理[保存附件]", tags = {"附件" },  notes = "批量处理[保存附件]")
+	@RequestMapping(method = RequestMethod.PUT, value = "/files/updateobjectidforpmseebatch")
+    public ResponseEntity<Boolean> updateObjectIDForPmsEeBatch(@RequestBody List<FileDTO> filedtos) {
+        List<File> domains = fileMapping.toDomain(filedtos);
+        boolean result = fileService.updateObjectIDForPmsEeBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-File-searchDefault-all')")
@@ -222,6 +244,29 @@ public class FileResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(fileMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-File-searchTypeNotBySrfparentkey-all')")
+	@ApiOperation(value = "获取查询附件", tags = {"附件" } ,notes = "获取查询附件")
+    @RequestMapping(method= RequestMethod.GET , value="/files/fetchtypenotbysrfparentkey")
+	public ResponseEntity<List<FileDTO>> fetchTypeNotBySrfparentkey(FileSearchContext context) {
+        Page<File> domains = fileService.searchTypeNotBySrfparentkey(context) ;
+        List<FileDTO> list = fileMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-File-searchTypeNotBySrfparentkey-all')")
+	@ApiOperation(value = "查询查询附件", tags = {"附件" } ,notes = "查询查询附件")
+    @RequestMapping(method= RequestMethod.POST , value="/files/searchtypenotbysrfparentkey")
+	public ResponseEntity<Page<FileDTO>> searchTypeNotBySrfparentkey(@RequestBody FileSearchContext context) {
+        Page<File> domains = fileService.searchTypeNotBySrfparentkey(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(fileMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
 
 
 }

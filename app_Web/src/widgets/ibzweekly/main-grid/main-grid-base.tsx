@@ -74,7 +74,7 @@ export class MainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u1b66b37_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u31efdd1_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -102,7 +102,7 @@ export class MainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u0bd2791_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_ufd17a6f_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -488,10 +488,10 @@ export class MainGridBase extends GridControlBase {
 	public uiAction(row: any, tag: any, $event: any): void {
         $event.stopPropagation();
         if(Object.is('edit', tag)) {
-            this.grid_uagridcolumn1_u1b66b37_click(row, tag, $event);
+            this.grid_uagridcolumn1_u31efdd1_click(row, tag, $event);
         }
         if(Object.is('submitZZZ', tag)) {
-            this.grid_uagridcolumn1_u0bd2791_click(row, tag, $event);
+            this.grid_uagridcolumn1_ufd17a6f_click(row, tag, $event);
         }
     }
 

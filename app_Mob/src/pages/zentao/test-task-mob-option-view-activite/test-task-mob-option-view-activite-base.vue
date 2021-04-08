@@ -131,7 +131,7 @@ export default class TestTaskMobOptionViewActiviteBase extends Vue {
 	 * @type {string}
 	 * @memberof TestTaskMobOptionViewActiviteBase
 	 */
-	protected viewtag: string = '548e886996944f4ac071095c9959ced3';
+	protected viewtag: string = '3979a8bc22bc372fbdaf829e48b41022';
 
     /**
      * 视图上下文

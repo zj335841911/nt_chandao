@@ -7,76 +7,12 @@
 export interface TaskStats {
 
     /**
-     * 项目名称
+     * 任务截至日期
      *
      * @returns {*}
      * @memberof TaskStats
      */
-    projectname?: any;
-
-    /**
-     * 预计总工时
-     *
-     * @returns {*}
-     * @memberof TaskStats
-     */
-    totalestimate?: any;
-
-    /**
-     * 消耗总工时
-     *
-     * @returns {*}
-     * @memberof TaskStats
-     */
-    totalconsumed?: any;
-
-    /**
-     * 剩余总工时
-     *
-     * @returns {*}
-     * @memberof TaskStats
-     */
-    totalleft?: any;
-
-    /**
-     * 项目
-     *
-     * @returns {*}
-     * @memberof TaskStats
-     */
-    project?: any;
-
-    /**
-     * 编号
-     *
-     * @returns {*}
-     * @memberof TaskStats
-     */
-    id?: any;
-
-    /**
-     * 名称
-     *
-     * @returns {*}
-     * @memberof TaskStats
-     */
-    name?: any;
-
-    /**
-     * 完成者
-     *
-     * @returns {*}
-     * @memberof TaskStats
-     */
-    finishedby?: any;
-
-    /**
-     * 效率
-     *
-     * @returns {*}
-     * @memberof TaskStats
-     */
-    taskefficient?: any;
+    taskdeadline?: any;
 
     /**
      * 任务编号
@@ -87,20 +23,20 @@ export interface TaskStats {
     taskid?: any;
 
     /**
-     * 任务名称
+     * 任务实际开始时间
      *
      * @returns {*}
      * @memberof TaskStats
      */
-    taskname?: any;
+    taskrealstart?: any;
 
     /**
-     * 任务优先级
+     * 效率
      *
      * @returns {*}
      * @memberof TaskStats
      */
-    taskpri?: any;
+    taskefficient?: any;
 
     /**
      * 任务预计消耗
@@ -111,60 +47,12 @@ export interface TaskStats {
     taskestimate?: any;
 
     /**
-     * 任务实际开始时间
+     * 结束
      *
      * @returns {*}
      * @memberof TaskStats
      */
-    taskrealstart?: any;
-
-    /**
-     * 任务截至日期
-     *
-     * @returns {*}
-     * @memberof TaskStats
-     */
-    taskdeadline?: any;
-
-    /**
-     * 任务实际完成日期
-     *
-     * @returns {*}
-     * @memberof TaskStats
-     */
-    taskfinisheddate?: any;
-
-    /**
-     * 任务延期
-     *
-     * @returns {*}
-     * @memberof TaskStats
-     */
-    taskdelay?: any;
-
-    /**
-     * 任务预计开始日期
-     *
-     * @returns {*}
-     * @memberof TaskStats
-     */
-    taskeststarted?: any;
-
-    /**
-     * 总任务数
-     *
-     * @returns {*}
-     * @memberof TaskStats
-     */
-    taskcnt?: any;
-
-    /**
-     * 项目总消耗
-     *
-     * @returns {*}
-     * @memberof TaskStats
-     */
-    projectconsumed?: any;
+    end?: any;
 
     /**
      * 用户总消耗
@@ -175,20 +63,20 @@ export interface TaskStats {
     userconsumed?: any;
 
     /**
-     * 部门
+     * 剩余总工时
      *
      * @returns {*}
      * @memberof TaskStats
      */
-    dept?: any;
+    totalleft?: any;
 
     /**
-     * 结束
+     * 项目总消耗
      *
      * @returns {*}
      * @memberof TaskStats
      */
-    end?: any;
+    projectconsumed?: any;
 
     /**
      * 属性
@@ -197,4 +85,116 @@ export interface TaskStats {
      * @memberof TaskStats
      */
     begin?: any;
+
+    /**
+     * 消耗总工时
+     *
+     * @returns {*}
+     * @memberof TaskStats
+     */
+    totalconsumed?: any;
+
+    /**
+     * 预计总工时
+     *
+     * @returns {*}
+     * @memberof TaskStats
+     */
+    totalestimate?: any;
+
+    /**
+     * 任务预计开始日期
+     *
+     * @returns {*}
+     * @memberof TaskStats
+     */
+    taskeststarted?: any;
+
+    /**
+     * 编号
+     *
+     * @returns {*}
+     * @memberof TaskStats
+     */
+    id?: any;
+
+    /**
+     * 部门
+     *
+     * @returns {*}
+     * @memberof TaskStats
+     */
+    dept?: any;
+
+    /**
+     * 名称
+     *
+     * @returns {*}
+     * @memberof TaskStats
+     */
+    name?: any;
+
+    /**
+     * 项目名称
+     *
+     * @returns {*}
+     * @memberof TaskStats
+     */
+    projectname?: any;
+
+    /**
+     * 项目
+     *
+     * @returns {*}
+     * @memberof TaskStats
+     */
+    project?: any;
+
+    /**
+     * 任务实际完成日期
+     *
+     * @returns {*}
+     * @memberof TaskStats
+     */
+    taskfinisheddate?: any;
+
+    /**
+     * 任务名称
+     *
+     * @returns {*}
+     * @memberof TaskStats
+     */
+    taskname?: any;
+
+    /**
+     * 总任务数
+     *
+     * @returns {*}
+     * @memberof TaskStats
+     */
+    taskcnt?: any;
+
+    /**
+     * 任务优先级
+     *
+     * @returns {*}
+     * @memberof TaskStats
+     */
+    taskpri?: any;
+
+    /**
+     * 任务延期
+     *
+     * @returns {*}
+     * @memberof TaskStats
+     */
+    taskdelay?: any;
+
+    /**
+     * 完成者
+     *
+     * @returns {*}
+     * @memberof TaskStats
+     */
+    finishedby?: any;
 }

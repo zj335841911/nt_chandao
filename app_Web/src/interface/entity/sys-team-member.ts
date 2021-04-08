@@ -39,28 +39,12 @@ export interface SysTeamMember {
     domains?: any;
 
     /**
-     * 用户标识
+     * 头像
      *
      * @returns {*}
      * @memberof SysTeamMember
      */
-    userid?: any;
-
-    /**
-     * 组标识
-     *
-     * @returns {*}
-     * @memberof SysTeamMember
-     */
-    teamid?: any;
-
-    /**
-     * 岗位标识
-     *
-     * @returns {*}
-     * @memberof SysTeamMember
-     */
-    postid?: any;
+    usericon?: any;
 
     /**
      * 姓名
@@ -79,10 +63,26 @@ export interface SysTeamMember {
     username?: any;
 
     /**
-     * 头像
+     * 岗位标识
      *
      * @returns {*}
      * @memberof SysTeamMember
      */
-    usericon?: any;
+    postid?: any;
+
+    /**
+     * 组标识
+     *
+     * @returns {*}
+     * @memberof SysTeamMember
+     */
+    teamid?: any;
+
+    /**
+     * 用户标识
+     *
+     * @returns {*}
+     * @memberof SysTeamMember
+     */
+    userid?: any;
 }

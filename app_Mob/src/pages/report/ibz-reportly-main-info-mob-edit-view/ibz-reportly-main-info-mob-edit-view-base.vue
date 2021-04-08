@@ -159,7 +159,7 @@ export default class IbzReportlyMainInfoMobEditViewBase extends Vue {
 	 * @type {string}
 	 * @memberof IbzReportlyMainInfoMobEditViewBase
 	 */
-	protected viewtag: string = 'a2ae9ac11aa48db204b35705bf573ebd';
+	protected viewtag: string = '0cc54a135b84887b998704d9313a0616';
 
     /**
      * 视图上下文

@@ -75,7 +75,7 @@ export class ActionBarPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet4_uff3ac3f_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet4_u4e19f49_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -102,7 +102,7 @@ export class ActionBarPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet4_uc98202b_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet4_u16e5bb7_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -130,7 +130,7 @@ export class ActionBarPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet4_u2824624_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet4_uc92b341_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -158,7 +158,7 @@ export class ActionBarPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet4_u71470a2_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet4_uca7e656_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -186,7 +186,7 @@ export class ActionBarPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet4_u134abc0_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet4_u7d6bb89_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -270,7 +270,7 @@ export class ActionBarPortletBase extends MainControlBase {
      * @memberof ActionBarBase
      */
     public actionBarModelData:any[] =[
-        { viewlogicname:"dashboard_sysportlet4_uff3ac3f_click",
+        { viewlogicname:"dashboard_sysportlet4_u4e19f49_click",
         text: "返回",
         iconcls: "fa fa-sign-out",
         icon: "",
@@ -279,7 +279,7 @@ export class ActionBarPortletBase extends MainControlBase {
         visible:true,
         disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet4_uc98202b_click",
+        { viewlogicname:"dashboard_sysportlet4_u16e5bb7_click",
         text: "激活",
         iconcls: "fa fa-magic",
         icon: "",
@@ -289,7 +289,7 @@ export class ActionBarPortletBase extends MainControlBase {
         visible:true,
         disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet4_u2824624_click",
+        { viewlogicname:"dashboard_sysportlet4_uc92b341_click",
         text: "开始",
         iconcls: "fa fa-play",
         icon: "",
@@ -299,7 +299,7 @@ export class ActionBarPortletBase extends MainControlBase {
         visible:true,
         disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet4_u71470a2_click",
+        { viewlogicname:"dashboard_sysportlet4_uca7e656_click",
         text: "关闭",
         iconcls: "fa fa-close",
         icon: "",
@@ -309,7 +309,7 @@ export class ActionBarPortletBase extends MainControlBase {
         visible:true,
         disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet4_u134abc0_click",
+        { viewlogicname:"dashboard_sysportlet4_u7d6bb89_click",
         text: "阻塞",
         iconcls: "fa fa-pause",
         icon: "",
@@ -327,20 +327,20 @@ export class ActionBarPortletBase extends MainControlBase {
      * @memberof ActionBarBase
      */
     public handleItemClick($event:any){
-        if(Object.is($event,'dashboard_sysportlet4_uff3ac3f_click')){
-            this.dashboard_sysportlet4_uff3ac3f_click(null);
+        if(Object.is($event,'dashboard_sysportlet4_u4e19f49_click')){
+            this.dashboard_sysportlet4_u4e19f49_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet4_uc98202b_click')){
-            this.dashboard_sysportlet4_uc98202b_click(null);
+        if(Object.is($event,'dashboard_sysportlet4_u16e5bb7_click')){
+            this.dashboard_sysportlet4_u16e5bb7_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet4_u2824624_click')){
-            this.dashboard_sysportlet4_u2824624_click(null);
+        if(Object.is($event,'dashboard_sysportlet4_uc92b341_click')){
+            this.dashboard_sysportlet4_uc92b341_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet4_u71470a2_click')){
-            this.dashboard_sysportlet4_u71470a2_click(null);
+        if(Object.is($event,'dashboard_sysportlet4_uca7e656_click')){
+            this.dashboard_sysportlet4_uca7e656_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet4_u134abc0_click')){
-            this.dashboard_sysportlet4_u134abc0_click(null);
+        if(Object.is($event,'dashboard_sysportlet4_u7d6bb89_click')){
+            this.dashboard_sysportlet4_u7d6bb89_click(null);
         }
     }
 

@@ -7,7 +7,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
-import java.util.HashMap;
+import java.util.Map;
 import org.apache.ibatis.annotations.Select;
 import cn.ibizlab.pms.core.ibiz.domain.IbzMyTerritory;
 import cn.ibizlab.pms.core.ibiz.filter.IbzMyTerritorySearchContext;
@@ -22,6 +22,7 @@ public interface IbzMyTerritoryMapper extends BaseMapper<IbzMyTerritory> {
     Page<IbzMyTerritory> searchDefault(IPage page, @Param("srf") IbzMyTerritorySearchContext context, @Param("ew") Wrapper<IbzMyTerritory> wrapper);
     Page<IbzMyTerritory> searchMyWork(IPage page, @Param("srf") IbzMyTerritorySearchContext context, @Param("ew") Wrapper<IbzMyTerritory> wrapper);
     Page<IbzMyTerritory> searchMyWorkMob(IPage page, @Param("srf") IbzMyTerritorySearchContext context, @Param("ew") Wrapper<IbzMyTerritory> wrapper);
+    Page<IbzMyTerritory> searchMyWorkPm(IPage page, @Param("srf") IbzMyTerritorySearchContext context, @Param("ew") Wrapper<IbzMyTerritory> wrapper);
     Page<IbzMyTerritory> searchPersonInfo(IPage page, @Param("srf") IbzMyTerritorySearchContext context, @Param("ew") Wrapper<IbzMyTerritory> wrapper);
     Page<IbzMyTerritory> searchWelcome(IPage page, @Param("srf") IbzMyTerritorySearchContext context, @Param("ew") Wrapper<IbzMyTerritory> wrapper);
     @Override

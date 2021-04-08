@@ -90,9 +90,9 @@ export default class IbzReportlyUIActionBase extends EntityUIActionBase {
      * @memberof  IbzReportlyUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'reportlymobmdview',srfappde:'ibzreportlies'});
         this.allViewMap.set(':',{viewname:'maininfomobeditview',srfappde:'ibzreportlies'});
         this.allViewMap.set(':',{viewname:'createmobeditview',srfappde:'ibzreportlies'});
+        this.allViewMap.set(':',{viewname:'reportlymobmdview',srfappde:'ibzreportlies'});
         this.allViewMap.set(':',{viewname:'mobeditview',srfappde:'ibzreportlies'});
     }
 
@@ -174,7 +174,7 @@ export default class IbzReportlyUIActionBase extends EntityUIActionBase {
     }
 
     /**
-     * 新建
+     * 编辑
      *
      * @param {any[]} args 数据
      * @param {*} [contextJO={}] 行为上下文
@@ -186,9 +186,12 @@ export default class IbzReportlyUIActionBase extends EntityUIActionBase {
      * @returns {Promise<any>}
      * @memberof IbzReportlyUIService
      */
-    public async IbzReportly_MobCreate(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+    public async IbzReportly_MobEdit(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
         const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'NONE';
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(contextJO, { ibzreportly: '%ibzreportly%' });
+        Object.assign(paramJO, { ibzreportlyid: '%ibzreportly%' });
+        Object.assign(paramJO, { ibzreportlyname: '%ibzreportlyname%' });
             
         let context: any = this.handleContextParam(actionTarget, _args, contextJO);
         let params: any = this.handleActionParam(actionTarget, _args, paramJO);
@@ -219,7 +222,7 @@ export default class IbzReportlyUIActionBase extends EntityUIActionBase {
     }
 
     /**
-     * 编辑
+     * 新建
      *
      * @param {any[]} args 数据
      * @param {*} [contextJO={}] 行为上下文
@@ -231,12 +234,9 @@ export default class IbzReportlyUIActionBase extends EntityUIActionBase {
      * @returns {Promise<any>}
      * @memberof IbzReportlyUIService
      */
-    public async IbzReportly_MobEdit(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+    public async IbzReportly_MobCreate(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
         const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(contextJO, { ibzreportly: '%ibzreportly%' });
-        Object.assign(paramJO, { ibzreportlyid: '%ibzreportly%' });
-        Object.assign(paramJO, { ibzreportlyname: '%ibzreportlyname%' });
+        const actionTarget: string | null = 'NONE';
             
         let context: any = this.handleContextParam(actionTarget, _args, contextJO);
         let params: any = this.handleActionParam(actionTarget, _args, paramJO);

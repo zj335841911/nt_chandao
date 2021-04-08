@@ -138,12 +138,12 @@ export default class Main_NewModeModel {
       {
         name: 'spec',
         prop: 'spec',
-        dataType: 'TEXT',
+        dataType: 'HTMLTEXT',
       },
       {
         name: 'verify',
         prop: 'verify',
-        dataType: 'TEXT',
+        dataType: 'LONGTEXT',
       },
       {
         name: 'files',

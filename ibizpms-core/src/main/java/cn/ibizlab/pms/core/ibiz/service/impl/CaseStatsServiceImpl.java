@@ -54,9 +54,6 @@ public class CaseStatsServiceImpl extends ServiceImpl<CaseStatsMapper, CaseStats
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.IProductService productService;
-    @Autowired
-    @Lazy
-    ICaseStatsService proxyService;
 
     protected int batchSize = 500;
 
@@ -64,7 +61,7 @@ public class CaseStatsServiceImpl extends ServiceImpl<CaseStatsMapper, CaseStats
     @Transactional
     public boolean create(CaseStats et) {
         fillParentData(et);
-        if (!this.retBool(this.baseMapper.insert(et))) {
+        if(!this.retBool(this.baseMapper.insert(et))) {
             return false;
         }
         CachedBeanCopier.copy(get(et.getId()), et);
@@ -82,7 +79,7 @@ public class CaseStatsServiceImpl extends ServiceImpl<CaseStatsMapper, CaseStats
     @Transactional
     public boolean update(CaseStats et) {
         fillParentData(et);
-        if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", et.getId()))) {
+        if(!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", et.getId()))) {
             return false;
         }
         CachedBeanCopier.copy(get(et.getId()), et);
@@ -100,7 +97,7 @@ public class CaseStatsServiceImpl extends ServiceImpl<CaseStatsMapper, CaseStats
     @Transactional
     public boolean remove(Long key) {
         boolean result = removeById(key);
-        return result;
+        return result ;
     }
 
     @Override
@@ -113,7 +110,7 @@ public class CaseStatsServiceImpl extends ServiceImpl<CaseStatsMapper, CaseStats
     @Transactional
     public CaseStats get(Long key) {
         CaseStats et = getById(key);
-        if (et == null) {
+        if(et == null){
             et = new CaseStats();
             et.setId(key);
         }
@@ -135,7 +132,7 @@ public class CaseStatsServiceImpl extends ServiceImpl<CaseStatsMapper, CaseStats
     @Override
     @Transactional
     public boolean save(CaseStats et) {
-        if (!saveOrUpdate(et)) {
+        if(!saveOrUpdate(et)) {
             return false;
         }
         return true;
@@ -147,7 +144,7 @@ public class CaseStatsServiceImpl extends ServiceImpl<CaseStatsMapper, CaseStats
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
+            return checkKey(et) ? getProxyService().update(et) : getProxyService().create(et);
         }
     }
 
@@ -165,10 +162,10 @@ public class CaseStatsServiceImpl extends ServiceImpl<CaseStatsMapper, CaseStats
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
         return true;
     }
@@ -176,7 +173,7 @@ public class CaseStatsServiceImpl extends ServiceImpl<CaseStatsMapper, CaseStats
     @Override
     @Transactional
     public void saveBatch(List<CaseStats> list) {
-        list.forEach(item -> fillParentData(item));
+        list.forEach(item->fillParentData(item));
         List<CaseStats> create = new ArrayList<>();
         List<CaseStats> update = new ArrayList<>();
         for (CaseStats et : list) {
@@ -187,30 +184,30 @@ public class CaseStatsServiceImpl extends ServiceImpl<CaseStatsMapper, CaseStats
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
     }
 
 
-    @Override
+	@Override
     public List<CaseStats> selectByModule(Long id) {
         return baseMapper.selectByModule(id);
     }
     @Override
     public void removeByModule(Long id) {
-        this.remove(new QueryWrapper<CaseStats>().eq("module", id));
+        this.remove(new QueryWrapper<CaseStats>().eq("module",id));
     }
 
-    @Override
+	@Override
     public List<CaseStats> selectByProduct(Long id) {
         return baseMapper.selectByProduct(id);
     }
     @Override
     public void removeByProduct(Long id) {
-        this.remove(new QueryWrapper<CaseStats>().eq("product", id));
+        this.remove(new QueryWrapper<CaseStats>().eq("product",id));
     }
 
 
@@ -219,7 +216,7 @@ public class CaseStatsServiceImpl extends ServiceImpl<CaseStatsMapper, CaseStats
      */
     @Override
     public Page<CaseStats> searchDefault(CaseStatsSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<CaseStats> pages=baseMapper.searchDefault(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<CaseStats> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
         return new PageImpl<CaseStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -228,7 +225,7 @@ public class CaseStatsServiceImpl extends ServiceImpl<CaseStatsMapper, CaseStats
      */
     @Override
     public Page<CaseStats> searchTestCaseStats(CaseStatsSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<CaseStats> pages=baseMapper.searchTestCaseStats(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<CaseStats> pages=baseMapper.searchTestCaseStats(context.getPages(),context,context.getSelectCond());
         return new PageImpl<CaseStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -240,12 +237,12 @@ public class CaseStatsServiceImpl extends ServiceImpl<CaseStatsMapper, CaseStats
      */
     private void fillParentData(CaseStats et){
         //实体关系[DER1N_IBZ_CASESTATS_ZT_MODULE_MODULE]
-        if (!ObjectUtils.isEmpty(et.getModule())) {
+        if(!ObjectUtils.isEmpty(et.getModule())){
             cn.ibizlab.pms.core.zentao.domain.Module ztmodule=et.getZtmodule();
-            if (ObjectUtils.isEmpty(ztmodule)) {
+            if(ObjectUtils.isEmpty(ztmodule)){
                 cn.ibizlab.pms.core.zentao.domain.Module majorEntity=moduleService.get(et.getModule());
                 et.setZtmodule(majorEntity);
-                ztmodule = majorEntity;
+                ztmodule=majorEntity;
             }
             et.setModulename(ztmodule.getName());
         }
@@ -255,24 +252,24 @@ public class CaseStatsServiceImpl extends ServiceImpl<CaseStatsMapper, CaseStats
 
 
     @Override
-    public List<JSONObject> select(String sql, Map param) {
-        return this.baseMapper.selectBySQL(sql, param);
+    public List<JSONObject> select(String sql, Map param){
+        return this.baseMapper.selectBySQL(sql,param);
     }
 
     @Override
     @Transactional
-    public boolean execute(String sql, Map param) {
+    public boolean execute(String sql , Map param){
         if (sql == null || sql.isEmpty()) {
             return false;
         }
         if (sql.toLowerCase().trim().startsWith("insert")) {
-            return this.baseMapper.insertBySQL(sql, param);
+            return this.baseMapper.insertBySQL(sql,param);
         }
         if (sql.toLowerCase().trim().startsWith("update")) {
-            return this.baseMapper.updateBySQL(sql, param);
+            return this.baseMapper.updateBySQL(sql,param);
         }
         if (sql.toLowerCase().trim().startsWith("delete")) {
-            return this.baseMapper.deleteBySQL(sql, param);
+            return this.baseMapper.deleteBySQL(sql,param);
         }
         log.warn("暂未支持的SQL语法");
         return true;
@@ -280,9 +277,9 @@ public class CaseStatsServiceImpl extends ServiceImpl<CaseStatsMapper, CaseStats
 
 
 
-
-
+    public ICaseStatsService getProxyService() {
+        return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
+    }
 }
-
 
 

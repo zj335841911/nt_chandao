@@ -15,6 +15,12 @@ export class MainModel {
   public getDataItems(): any[] {
     return [
       {
+        name: 'monthname',
+      },
+      {
+        name: 'year',
+      },
+      {
         name: 'account',
       },
       {
@@ -24,20 +30,65 @@ export class MainModel {
         name: 'consumed',
       },
       {
+        name: 'evaluationcost',
+      },
+      {
+        name: 'monthorder',
+      },
+      {
+        name: 'files',
+      },
+      {
         name: 'ibztaskestimate',
         prop: 'id',
+      },
+      {
+        name: 'evaluationstatus',
+      },
+      {
+        name: 'yearname',
       },
       {
         name: 'date',
       },
       {
-        name: 'work',
+        name: 'evaluationtime',
       },
       {
-        name: 'task',
+        name: 'inputcost',
       },
       {
         name: 'dates',
+      },
+      {
+        name: 'month',
+      },
+      {
+        name: 'work',
+      },
+      {
+        name: 'evaluationdesc',
+      },
+      {
+        name: 'taskspecies',
+      },
+      {
+        name: 'taskname',
+      },
+      {
+        name: 'projectname',
+      },
+      {
+        name: 'type',
+      },
+      {
+        name: 'deleted',
+      },
+      {
+        name: 'project',
+      },
+      {
+        name: 'task',
       },
       {
         name: 'task',

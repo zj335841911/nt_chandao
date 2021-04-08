@@ -75,7 +75,7 @@ export class IbzLibCzPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet2_udc1b4e7_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet2_u8b59d6c_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -102,7 +102,7 @@ export class IbzLibCzPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet2_u20ca129_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet2_u3ba6d70_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -130,7 +130,7 @@ export class IbzLibCzPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet2_u6ea81fb_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet2_uf1a9062_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -212,7 +212,7 @@ export class IbzLibCzPortletBase extends MainControlBase {
      * @memberof IbzLibCzBase
      */
     public actionBarModelData:any[] =[
-        { viewlogicname:"dashboard_sysportlet2_udc1b4e7_click",
+        { viewlogicname:"dashboard_sysportlet2_u8b59d6c_click",
         text: "返回",
         iconcls: "fa fa-sign-out",
         icon: "",
@@ -221,7 +221,7 @@ export class IbzLibCzPortletBase extends MainControlBase {
         visible:true,
         disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet2_u20ca129_click",
+        { viewlogicname:"dashboard_sysportlet2_u3ba6d70_click",
         text: "编辑",
         iconcls: "fa fa-edit",
         icon: "",
@@ -231,7 +231,7 @@ export class IbzLibCzPortletBase extends MainControlBase {
         visible:true,
         disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet2_u6ea81fb_click",
+        { viewlogicname:"dashboard_sysportlet2_uf1a9062_click",
         text: "删除",
         iconcls: "fa fa-remove",
         icon: "",
@@ -249,14 +249,14 @@ export class IbzLibCzPortletBase extends MainControlBase {
      * @memberof IbzLibCzBase
      */
     public handleItemClick($event:any){
-        if(Object.is($event,'dashboard_sysportlet2_udc1b4e7_click')){
-            this.dashboard_sysportlet2_udc1b4e7_click(null);
+        if(Object.is($event,'dashboard_sysportlet2_u8b59d6c_click')){
+            this.dashboard_sysportlet2_u8b59d6c_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet2_u20ca129_click')){
-            this.dashboard_sysportlet2_u20ca129_click(null);
+        if(Object.is($event,'dashboard_sysportlet2_u3ba6d70_click')){
+            this.dashboard_sysportlet2_u3ba6d70_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet2_u6ea81fb_click')){
-            this.dashboard_sysportlet2_u6ea81fb_click(null);
+        if(Object.is($event,'dashboard_sysportlet2_uf1a9062_click')){
+            this.dashboard_sysportlet2_uf1a9062_click(null);
         }
     }
 

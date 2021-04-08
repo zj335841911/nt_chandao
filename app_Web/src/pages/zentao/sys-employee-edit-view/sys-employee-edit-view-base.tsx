@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { EditViewBase } from '@/studio-core';
 import SysEmployeeService from '@/service/sys-employee/sys-employee-service';
 import SysEmployeeAuthService from '@/authservice/sys-employee/sys-employee-auth-service';
@@ -109,7 +109,7 @@ export class SysEmployeeEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof SysEmployeeEditViewBase
      */
-	protected viewtag: string = '57a23ead04eda866c6326f0705f595e3';
+	protected viewtag: string = '119fe650e7efd26bd14bd413cae37ded';
 
     /**
      * 视图名称

@@ -15,7 +15,13 @@ export class MOB_Release_YiLiuBugModel {
 	public getDataItems(): any[] {
 		return [
 			{
+				name: 'status',
+			},
+			{
 				name: 'title',
+			},
+			{
+				name: 'resolution',
 			},
 			{
 				name: 'pri1',
@@ -23,13 +29,7 @@ export class MOB_Release_YiLiuBugModel {
 				dataType: 'NSCODELIST',
 			},
 			{
-				name: 'status',
-			},
-			{
 				name: 'severity',
-			},
-			{
-				name: 'resolution',
 			},
 			{
 				name: 'assignedto',

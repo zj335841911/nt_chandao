@@ -12,4 +12,3 @@ public interface TaskEstimateMapping extends MappingBase<TaskEstimateDTO, TaskEs
 
 
 }
-

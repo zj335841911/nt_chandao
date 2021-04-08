@@ -73,7 +73,7 @@ public class PSSysAppResource {
 		PSSysApp domain  = pssysappMapping.toDomain(pssysappdto);
         domain .setPssysappid(pssysapp_id);
 		pssysappService.update(domain );
-		PSSysAppDTO dto = pssysappMapping.toDto(domain );
+		PSSysAppDTO dto = pssysappMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
@@ -111,8 +111,9 @@ public class PSSysAppResource {
 
     @ApiOperation(value = "获取系统应用草稿", tags = {"系统应用" },  notes = "获取系统应用草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/pssysapps/getdraft")
-    public ResponseEntity<PSSysAppDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(pssysappMapping.toDto(pssysappService.getDraft(new PSSysApp())));
+    public ResponseEntity<PSSysAppDTO> getDraft(PSSysAppDTO dto) {
+        PSSysApp domain = pssysappMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(pssysappMapping.toDto(pssysappService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查系统应用", tags = {"系统应用" },  notes = "检查系统应用")
@@ -124,8 +125,10 @@ public class PSSysAppResource {
     @PreAuthorize("hasPermission(this.pssysappMapping.toDomain(#pssysappdto),'pms-PSSysApp-Save')")
     @ApiOperation(value = "保存系统应用", tags = {"系统应用" },  notes = "保存系统应用")
 	@RequestMapping(method = RequestMethod.POST, value = "/pssysapps/save")
-    public ResponseEntity<Boolean> save(@RequestBody PSSysAppDTO pssysappdto) {
-        return ResponseEntity.status(HttpStatus.OK).body(pssysappService.save(pssysappMapping.toDomain(pssysappdto)));
+    public ResponseEntity<PSSysAppDTO> save(@RequestBody PSSysAppDTO pssysappdto) {
+        PSSysApp domain = pssysappMapping.toDomain(pssysappdto);
+        pssysappService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(pssysappMapping.toDto(domain));
     }
 
     @PreAuthorize("hasPermission(this.pssysappMapping.toDomain(#pssysappdtos),'pms-PSSysApp-Save')")
@@ -179,6 +182,7 @@ public class PSSysAppResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(pssysappMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
 
 
 }

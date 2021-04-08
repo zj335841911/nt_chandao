@@ -12,4 +12,3 @@ public interface TestReportMapping extends MappingBase<TestReportDTO, TestReport
 
 
 }
-

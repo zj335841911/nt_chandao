@@ -24,6 +24,8 @@ import java.io.Serializable;
 import lombok.*;
 import org.springframework.data.annotation.Transient;
 import cn.ibizlab.pms.util.annotation.Audit;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -39,26 +41,21 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
 @TableName(value = "T_SYS_UPDATE_LOG", resultMap = "SysUpdateLogResultMap")
+@ApiModel("更新日志")
 public class SysUpdateLog extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     /**
-     * 系统更新日志标识
+     * 更新时间
      */
-    @DEField(name = "sys_update_logid", isKeyField = true)
-    @TableId(value = "sys_update_logid", type = IdType.ASSIGN_UUID)
-    @JSONField(name = "sysupdatelogid")
-    @JsonProperty("sysupdatelogid")
-    private String sysupdatelogid;
-    /**
-     * 更新名称
-     */
-    @DEField(name = "sys_update_logname")
-    @TableField(value = "`sys_update_logname`")
-    @JSONField(name = "sysupdatelogname")
-    @JsonProperty("sysupdatelogname")
-    private String sysupdatelogname;
+    @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
+    @TableField(value = "`updatedate`")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "updatedate", format = "yyyy-MM-dd HH:mm:ss")
+    @JsonProperty("updatedate")
+    @ApiModelProperty("更新时间")
+    private Timestamp updatedate;
     /**
      * 更新人
      */
@@ -66,6 +63,7 @@ public class SysUpdateLog extends EntityMP implements Serializable {
     @TableField(value = "`updateman`")
     @JSONField(name = "updateman")
     @JsonProperty("updateman")
+    @ApiModelProperty("更新人")
     private String updateman;
     /**
      * 建立人
@@ -74,6 +72,7 @@ public class SysUpdateLog extends EntityMP implements Serializable {
     @TableField(value = "`createman`", fill = FieldFill.INSERT)
     @JSONField(name = "createman")
     @JsonProperty("createman")
+    @ApiModelProperty("建立人")
     private String createman;
     /**
      * 建立时间
@@ -83,39 +82,17 @@ public class SysUpdateLog extends EntityMP implements Serializable {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "createdate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createdate")
+    @ApiModelProperty("建立时间")
     private Timestamp createdate;
     /**
-     * 更新时间
+     * 系统更新日志标识
      */
-    @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
-    @TableField(value = "`updatedate`")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
-    @JSONField(name = "updatedate", format = "yyyy-MM-dd HH:mm:ss")
-    @JsonProperty("updatedate")
-    private Timestamp updatedate;
-    /**
-     * 更新日期
-     */
-    @TableField(value = "`update`")
-    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
-    @JSONField(name = "update", format = "yyyy-MM-dd")
-    @JsonProperty("update")
-    private Timestamp update;
-    /**
-     * 更新说明
-     */
-    @TableField(value = "`updesc`")
-    @JSONField(name = "updesc")
-    @JsonProperty("updesc")
-    private String updesc;
-    /**
-     * 最新更新
-     */
-    @DEField(defaultValue = "1")
-    @TableField(value = "`latestupdate`")
-    @JSONField(name = "latestupdate")
-    @JsonProperty("latestupdate")
-    private Integer latestupdate;
+    @DEField(name = "sys_update_logid", isKeyField = true)
+    @TableId(value = "sys_update_logid", type = IdType.ASSIGN_UUID)
+    @JSONField(name = "sysupdatelogid")
+    @JsonProperty("sysupdatelogid")
+    @ApiModelProperty("系统更新日志标识")
+    private String sysupdatelogid;
     /**
      * 更新平台
      */
@@ -123,9 +100,61 @@ public class SysUpdateLog extends EntityMP implements Serializable {
     @TableField(value = "`updatebranch`")
     @JSONField(name = "updatebranch")
     @JsonProperty("updatebranch")
+    @ApiModelProperty("更新平台")
     private String updatebranch;
+    /**
+     * 更新说明
+     */
+    @TableField(value = "`updesc`")
+    @JSONField(name = "updesc")
+    @JsonProperty("updesc")
+    @ApiModelProperty("更新说明")
+    private String updesc;
+    /**
+     * 更新名称
+     */
+    @DEField(name = "sys_update_logname")
+    @TableField(value = "`sys_update_logname`")
+    @JSONField(name = "sysupdatelogname")
+    @JsonProperty("sysupdatelogname")
+    @ApiModelProperty("更新名称")
+    private String sysupdatelogname;
+    /**
+     * 最新更新
+     */
+    @DEField(defaultValue = "1")
+    @TableField(value = "`latestupdate`")
+    @JSONField(name = "latestupdate")
+    @JsonProperty("latestupdate")
+    @ApiModelProperty("最新更新")
+    private Integer latestupdate;
+    /**
+     * 更新日期
+     */
+    @TableField(value = "`update`")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "update", format = "yyyy-MM-dd")
+    @JsonProperty("update")
+    @ApiModelProperty("更新日期")
+    private Timestamp update;
 
 
+
+    /**
+     * 设置 [更新平台]
+     */
+    public void setUpdatebranch(String updatebranch) {
+        this.updatebranch = updatebranch;
+        this.modify("updatebranch", updatebranch);
+    }
+
+    /**
+     * 设置 [更新说明]
+     */
+    public void setUpdesc(String updesc) {
+        this.updesc = updesc;
+        this.modify("updesc", updesc);
+    }
 
     /**
      * 设置 [更新名称]
@@ -133,6 +162,14 @@ public class SysUpdateLog extends EntityMP implements Serializable {
     public void setSysupdatelogname(String sysupdatelogname) {
         this.sysupdatelogname = sysupdatelogname;
         this.modify("sys_update_logname", sysupdatelogname);
+    }
+
+    /**
+     * 设置 [最新更新]
+     */
+    public void setLatestupdate(Integer latestupdate) {
+        this.latestupdate = latestupdate;
+        this.modify("latestupdate", latestupdate);
     }
 
     /**
@@ -153,30 +190,6 @@ public class SysUpdateLog extends EntityMP implements Serializable {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         return sdf.format(update);
     }
-    /**
-     * 设置 [更新说明]
-     */
-    public void setUpdesc(String updesc) {
-        this.updesc = updesc;
-        this.modify("updesc", updesc);
-    }
-
-    /**
-     * 设置 [最新更新]
-     */
-    public void setLatestupdate(Integer latestupdate) {
-        this.latestupdate = latestupdate;
-        this.modify("latestupdate", latestupdate);
-    }
-
-    /**
-     * 设置 [更新平台]
-     */
-    public void setUpdatebranch(String updatebranch) {
-        this.updatebranch = updatebranch;
-        this.modify("updatebranch", updatebranch);
-    }
-
 
     /**
      * 复制当前对象数据到目标对象(粘贴重置)

@@ -225,19 +225,19 @@ POST
 #### IBIZProPluginDTO
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
-| 1 | type | String | 允许 | 类型 |
-| 2 | score | Integer | 允许 | 总评分 |
-| 3 | commentcount | Integer | 允许 | 总评论数 |
+| 1 | version | Integer | 允许 | 版本 |
+| 2 | type | String | 允许 | 类型 |
+| 3 | createman | String | 不可 | 建立人 |
 | 4 | downloadcount | Integer | 允许 | 总下载量 |
-| 5 | downloadurl | String | 允许 | 最新版本下载地址 |
-| 6 | tag | String | 允许 | 标签 |
-| 7 | keyword | String | 允许 | 关键字 |
-| 8 | version | Integer | 允许 | 版本 |
-| 9 | updatedate | Timestamp | 不可 | 更新时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
+| 5 | createdate | Timestamp | 不可 | 建立时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
+| 6 | downloadurl | String | 允许 | 最新版本下载地址 |
+| 7 | updatedate | Timestamp | 不可 | 更新时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
+| 8 | tag | String | 允许 | 标签 |
+| 9 | score | Integer | 允许 | 总评分 |
 | 10 | ibizpropluginname | String | 允许 | 系统插件名称 |
-| 11 | updateman | String | 不可 | 更新人 |
-| 12 | createdate | Timestamp | 不可 | 建立时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
-| 13 | ibizpropluginid | String | 不可 | 系统插件标识 |
-| 14 | createman | String | 不可 | 建立人 |
+| 11 | ibizpropluginid | String | 不可 | 系统插件标识 |
+| 12 | keyword | String | 允许 | 关键字 |
+| 13 | updateman | String | 不可 | 更新人 |
+| 14 | commentcount | Integer | 允许 | 总评论数 |
 | 15 | <动态属性> | Object | 允许 | 支持动态属性 |
 

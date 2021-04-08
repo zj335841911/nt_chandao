@@ -1,3 +1,4 @@
+import { Environment } from '@/environments/environment';
 import { Http } from '@/utils';
 import { Util } from '@/utils';
 import EntityService from '../entity-service';
@@ -49,7 +50,7 @@ export default class SysUpdateLogServiceBase extends EntityService {
      * @memberof SysUpdateLogServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().get(`/sysupdatelogs/${context.sysupdatelog}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/sysupdatelogs/${context.sysupdatelog}/select`,isloading);
             
             return res;
     }
@@ -106,7 +107,7 @@ export default class SysUpdateLogServiceBase extends EntityService {
      * @memberof SysUpdateLogServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().delete(`/sysupdatelogs/${context.sysupdatelog}`,isloading);
+            let res:any = await Http.getInstance().delete(`/sysupdatelogs/${context.sysupdatelog}`,isloading);
             return res;
     }
 
@@ -135,7 +136,10 @@ export default class SysUpdateLogServiceBase extends EntityService {
      * @memberof SysUpdateLogServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/sysupdatelogs/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.sysupdatelog) delete tempData.sysupdatelog;
+        if(tempData.sysupdatelogid) delete tempData.sysupdatelogid;
+        let res:any = await  Http.getInstance().get(`/sysupdatelogs/getdraft`,tempData,isloading);
         res.data.sysupdatelog = data.sysupdatelog;
         
         return res;
@@ -151,7 +155,7 @@ export default class SysUpdateLogServiceBase extends EntityService {
      * @memberof SysUpdateLogServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/sysupdatelogs/${context.sysupdatelog}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/sysupdatelogs/${context.sysupdatelog}/checkkey`,data,isloading);
             return res;
     }
 
@@ -165,8 +169,22 @@ export default class SysUpdateLogServiceBase extends EntityService {
      * @memberof SysUpdateLogServiceBase
      */
     public async GetLastUpdateInfo(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().put(`/sysupdatelogs/${context.sysupdatelog}/getlastupdateinfo`,data,isloading);
+            let res:any = await Http.getInstance().put(`/sysupdatelogs/${context.sysupdatelog}/getlastupdateinfo`,data,isloading);
             return res;
+    }
+
+    /**
+     * GetLastUpdateInfoBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof SysUpdateLogServiceBase
+     */
+    public async GetLastUpdateInfoBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/sysupdatelogs/getlastupdateinfobatch`,tempData,isloading);
     }
 
     /**
@@ -197,7 +215,7 @@ export default class SysUpdateLogServiceBase extends EntityService {
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/sysupdatelogs/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/sysupdatelogs/fetchdefault`,tempData,isloading);
         return res;
     }
 

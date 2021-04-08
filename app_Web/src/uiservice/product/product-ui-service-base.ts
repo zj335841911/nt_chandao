@@ -144,117 +144,9 @@ export default class ProductUIServiceBase extends UIService {
      */  
     public initDeMainStateOPPrivsMap(){
         this.allDeMainStateOPPrivsMap.set('closed__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'TOP':0,'SRFUR__PROD_CLOSED_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('closed__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'NOTOP':0,'SRFUR__PROD_CLOSED_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('closed__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__PROD_CLOSED_BUT':0,'NOTOP':0,}));
         this.allDeMainStateOPPrivsMap.set('normal__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'TOP':0,}));
         this.allDeMainStateOPPrivsMap.set('normal__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'NOTOP':0,}));
-    }
-
-    /**
-     * 取消置顶
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} context 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @param {*} [srfParentDeName] 父实体名称
-     * @returns {Promise<any>}
-     */
-    public async Product_CancelProductTop(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
-        let data: any = {};
-        let parentContext:any = {};
-        let parentViewParam:any = {};
-        const _this: any = actionContext;
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(context, { product: '%product%' });
-        Object.assign(params, { id: '%product%' });
-        Object.assign(params, { name: '%name%' });
-        if(_this.context){
-            parentContext = _this.context;
-        }
-        if(_this.viewparams){
-            parentViewParam = _this.viewparams;
-        }
-        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
-        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
-        context = Object.assign({},actionContext.context,context);
-        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
-        Object.assign(data,parentObj);
-        Object.assign(context,parentObj);
-        // 直接调实体服务需要转换的数据
-        if(context && context.srfsessionid){
-          context.srfsessionkey = context.srfsessionid;
-            delete context.srfsessionid;
-        }
-        
-        const backend = () => {
-            const curService:ProductService =  new ProductService();
-            curService.CancelProductTop(context,data, true).then((response: any) => {
-                if (!response || response.status !== 200) {
-                    actionContext.$Notice.error({ title: '错误', desc: response.message });
-                    return;
-                }
-                actionContext.$Notice.success({ title: '成功', desc: '取消置顶成功！' });
-                const _this: any = actionContext;
-                if (xData && xData.refresh && xData.refresh instanceof Function) {
-                    xData.refresh(args);
-                }
-                return response;
-            }).catch((response: any) => {
-                if (!response || !response.status || !response.data) {
-                    actionContext.$Notice.error({ title: '错误', desc: '系统异常！' });
-                    return;
-                }
-                if (response && response.data) {
-                    actionContext.$Notice.error({ title: '错误', desc: response.data.message });
-                    return;
-                }
-                if (response.status === 401) {
-                    return;
-                }
-                return response;
-            });
-        };
-        backend();
-    }
-
-    /**
-     * 退出
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} context 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @param {*} [srfParentDeName] 父实体名称
-     * @returns {Promise<any>}
-     */
-    public async Product_ReturnEdit(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-    
-        let data: any = {};
-        let parentContext:any = {};
-        let parentViewParam:any = {};
-        const _this: any = actionContext;
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(context, { product: '%product%' });
-        Object.assign(params, { id: '%product%' });
-        Object.assign(params, { name: '%name%' });
-        if(_this.context){
-            parentContext = _this.context;
-        }
-        if(_this.viewparams){
-            parentViewParam = _this.viewparams;
-        }
-        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
-        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
-        context = Object.assign({},actionContext.context,context);
-        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
-        Object.assign(data,parentObj);
-        Object.assign(context,parentObj);
     }
 
     /**
@@ -376,6 +268,347 @@ export default class ProductUIServiceBase extends UIService {
     }
 
     /**
+     * 删除
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Product_delete(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
+        let confirmResult:boolean = await new Promise((resolve: any, reject: any) => {
+          actionContext.$Modal.confirm({
+              title: '警告',
+              content: '确认要删除，删除操作将不可恢复？',
+              onOk: () => {resolve(true);},
+              onCancel: () => {resolve(false);}
+          });
+        });
+        if(!confirmResult){
+            return;
+        }
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { product: '%product%' });
+        Object.assign(params, { id: '%product%' });
+        Object.assign(params, { name: '%name%' });
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        if(Object.is(actionTarget,"MULTIKEY")){
+            let tempDataArray:Array<any> = [];
+            if((_args.length >1) && (Object.keys(data).length >0)){
+                for(let i =0;i<_args.length;i++){
+                    let tempObject:any = {};
+                    Object.keys(data).forEach((key:string) =>{
+                        Object.assign(tempObject,{[key]:data[key].split(',')[i]});
+                    })
+                    tempDataArray.push(tempObject);
+                }
+            }else{
+                tempDataArray.push(data);
+            }
+            data = tempDataArray;
+        }
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        if(!Object.is(actionTarget,"MULTIKEY")){
+            Object.assign(data,parentObj);
+        }
+        Object.assign(context,parentObj);
+        // 直接调实体服务需要转换的数据
+        if(context && context.srfsessionid){
+          context.srfsessionkey = context.srfsessionid;
+            delete context.srfsessionid;
+        }
+        
+        const backend = () => {
+            const curService:ProductService =  new ProductService();
+            curService.Remove(context,data, true).then((response: any) => {
+                if (!response || response.status !== 200) {
+                    actionContext.$Notice.error({ title: '错误', desc: response.message });
+                    return;
+                }
+                actionContext.$Notice.success({ title: '成功', desc: '已删除' });
+                const _this: any = actionContext;
+                if (xData && xData.refresh && xData.refresh instanceof Function) {
+                    xData.refresh(args);
+                }
+                actionContext.closeView(null);
+                const { data: result } = response;
+                let _args: any[] = [];
+                if (Object.is(actionContext.$util.typeOf(result), 'array')) {
+                    _args = [...result];
+                } else if (Object.is(actionContext.$util.typeOf(result), 'object')) {
+                    _args = [{...result}];
+                } else {
+                    _args = [...args];
+                }
+                if (this.Product_ReturnEdit && this.Product_ReturnEdit instanceof Function) {
+                    this.Product_ReturnEdit(_args,context, params, $event, xData,actionContext);
+                }
+                return response;
+            }).catch((response: any) => {
+                if (!response || !response.status || !response.data) {
+                    actionContext.$Notice.error({ title: '错误', desc: '系统异常！' });
+                    return;
+                }
+                if (response && response.data) {
+                    actionContext.$Notice.error({ title: '错误', desc: response.data.message });
+                    return;
+                }
+                if (response.status === 401) {
+                    return;
+                }
+                return response;
+            });
+        };
+        backend();
+    }
+
+    /**
+     * 退出
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Product_ReturnEdit(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { product: '%product%' });
+        Object.assign(params, { id: '%product%' });
+        Object.assign(params, { name: '%name%' });
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+    }
+
+    /**
+     * 新建
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Product_Create(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'NONE';
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'products', parameterName: 'product' },
+        ];
+            const openDrawer = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    if (xData && xData.refresh && xData.refresh instanceof Function) {
+                        xData.refresh(args);
+                    }
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'product-edit-view', 
+                height: 0, 
+                width: 0,  
+                title: actionContext.$t('entities.product.views.editview.title'),
+                placement: 'DRAWER_LEFT',
+            };
+            openDrawer(view, data);
+    }
+
+    /**
+     * 置顶
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Product_ProductTop(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { product: '%product%' });
+        Object.assign(params, { id: '%product%' });
+        Object.assign(params, { name: '%name%' });
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        if(Object.is(actionTarget,"MULTIKEY")){
+            let tempDataArray:Array<any> = [];
+            if((_args.length >1) && (Object.keys(data).length >0)){
+                for(let i =0;i<_args.length;i++){
+                    let tempObject:any = {};
+                    Object.keys(data).forEach((key:string) =>{
+                        Object.assign(tempObject,{[key]:data[key].split(',')[i]});
+                    })
+                    tempDataArray.push(tempObject);
+                }
+            }else{
+                tempDataArray.push(data);
+            }
+            data = tempDataArray;
+        }
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        if(!Object.is(actionTarget,"MULTIKEY")){
+            Object.assign(data,parentObj);
+        }
+        Object.assign(context,parentObj);
+        // 直接调实体服务需要转换的数据
+        if(context && context.srfsessionid){
+          context.srfsessionkey = context.srfsessionid;
+            delete context.srfsessionid;
+        }
+        
+        const backend = () => {
+            const curService:ProductService =  new ProductService();
+            curService.ProductTop(context,data, true).then((response: any) => {
+                if (!response || response.status !== 200) {
+                    actionContext.$Notice.error({ title: '错误', desc: response.message });
+                    return;
+                }
+                actionContext.$Notice.success({ title: '成功', desc: '置顶成功！' });
+                const _this: any = actionContext;
+                if (xData && xData.refresh && xData.refresh instanceof Function) {
+                    xData.refresh(args);
+                }
+                return response;
+            }).catch((response: any) => {
+                if (!response || !response.status || !response.data) {
+                    actionContext.$Notice.error({ title: '错误', desc: '系统异常！' });
+                    return;
+                }
+                if (response && response.data) {
+                    actionContext.$Notice.error({ title: '错误', desc: response.data.message });
+                    return;
+                }
+                if (response.status === 401) {
+                    return;
+                }
+                return response;
+            });
+        };
+        backend();
+    }
+
+    /**
+     * 管理
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async Product_Manager(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'NONE';
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'productstats', parameterName: 'productstats' },
+            { pathName: 'allgridview', parameterName: 'allgridview' },
+        ];
+        const openIndexViewTab = (data: any) => {
+            const routePath = actionContext.$viewTool.buildUpRoutePath(actionContext.$route, context, deResParameters, parameters, _args, data);
+            actionContext.$router.push(routePath);
+            return null;
+        }
+        openIndexViewTab(data);
+    }
+
+    /**
      * 管理
      *
      * @param {any[]} args 当前数据
@@ -483,7 +716,7 @@ export default class ProductUIServiceBase extends UIService {
     }
 
     /**
-     * 管理
+     * 取消置顶
      *
      * @param {any[]} args 当前数据
      * @param {any} context 行为附加上下文
@@ -494,52 +727,7 @@ export default class ProductUIServiceBase extends UIService {
      * @param {*} [srfParentDeName] 父实体名称
      * @returns {Promise<any>}
      */
-    public async Product_Manager(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-    
-        let data: any = {};
-        let parentContext:any = {};
-        let parentViewParam:any = {};
-        const _this: any = actionContext;
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'NONE';
-        if(_this.context){
-            parentContext = _this.context;
-        }
-        if(_this.viewparams){
-            parentViewParam = _this.viewparams;
-        }
-        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
-        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
-        context = Object.assign({},actionContext.context,context);
-        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
-        Object.assign(data,parentObj);
-        Object.assign(context,parentObj);
-        let deResParameters: any[] = [];
-        const parameters: any[] = [
-            { pathName: 'productstats', parameterName: 'productstats' },
-            { pathName: 'allgridview', parameterName: 'allgridview' },
-        ];
-        const openIndexViewTab = (data: any) => {
-            const routePath = actionContext.$viewTool.buildUpRoutePath(actionContext.$route, context, deResParameters, parameters, _args, data);
-            actionContext.$router.push(routePath);
-            return null;
-        }
-        openIndexViewTab(data);
-    }
-
-    /**
-     * 置顶
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} context 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @param {*} [srfParentDeName] 父实体名称
-     * @returns {Promise<any>}
-     */
-    public async Product_ProductTop(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
+    public async Product_CancelProductTop(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
         let data: any = {};
         let parentContext:any = {};
         let parentViewParam:any = {};
@@ -557,150 +745,26 @@ export default class ProductUIServiceBase extends UIService {
         }
         context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
         data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
-        context = Object.assign({},actionContext.context,context);
-        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
-        Object.assign(data,parentObj);
-        Object.assign(context,parentObj);
-        // 直接调实体服务需要转换的数据
-        if(context && context.srfsessionid){
-          context.srfsessionkey = context.srfsessionid;
-            delete context.srfsessionid;
-        }
-        
-        const backend = () => {
-            const curService:ProductService =  new ProductService();
-            curService.ProductTop(context,data, true).then((response: any) => {
-                if (!response || response.status !== 200) {
-                    actionContext.$Notice.error({ title: '错误', desc: response.message });
-                    return;
+        if(Object.is(actionTarget,"MULTIKEY")){
+            let tempDataArray:Array<any> = [];
+            if((_args.length >1) && (Object.keys(data).length >0)){
+                for(let i =0;i<_args.length;i++){
+                    let tempObject:any = {};
+                    Object.keys(data).forEach((key:string) =>{
+                        Object.assign(tempObject,{[key]:data[key].split(',')[i]});
+                    })
+                    tempDataArray.push(tempObject);
                 }
-                actionContext.$Notice.success({ title: '成功', desc: '置顶成功！' });
-                const _this: any = actionContext;
-                if (xData && xData.refresh && xData.refresh instanceof Function) {
-                    xData.refresh(args);
-                }
-                return response;
-            }).catch((response: any) => {
-                if (!response || !response.status || !response.data) {
-                    actionContext.$Notice.error({ title: '错误', desc: '系统异常！' });
-                    return;
-                }
-                if (response && response.data) {
-                    actionContext.$Notice.error({ title: '错误', desc: response.data.message });
-                    return;
-                }
-                if (response.status === 401) {
-                    return;
-                }
-                return response;
-            });
-        };
-        backend();
-    }
-
-    /**
-     * 新建
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} context 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @param {*} [srfParentDeName] 父实体名称
-     * @returns {Promise<any>}
-     */
-    public async Product_Create(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-    
-        let data: any = {};
-        let parentContext:any = {};
-        let parentViewParam:any = {};
-        const _this: any = actionContext;
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'NONE';
-        if(_this.context){
-            parentContext = _this.context;
-        }
-        if(_this.viewparams){
-            parentViewParam = _this.viewparams;
-        }
-        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
-        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
-        context = Object.assign({},actionContext.context,context);
-        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
-        Object.assign(data,parentObj);
-        Object.assign(context,parentObj);
-        let deResParameters: any[] = [];
-        const parameters: any[] = [
-            { pathName: 'products', parameterName: 'product' },
-        ];
-            const openDrawer = (view: any, data: any) => {
-                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
-                container.subscribe((result: any) => {
-                    if (!result || !Object.is(result.ret, 'OK')) {
-                        return;
-                    }
-                    const _this: any = actionContext;
-                    if (xData && xData.refresh && xData.refresh instanceof Function) {
-                        xData.refresh(args);
-                    }
-                    return result.datas;
-                });
+            }else{
+                tempDataArray.push(data);
             }
-            const view: any = {
-                viewname: 'product-edit-view', 
-                height: 0, 
-                width: 0,  
-                title: actionContext.$t('entities.product.views.editview.title'),
-                placement: 'DRAWER_LEFT',
-            };
-            openDrawer(view, data);
-    }
-
-    /**
-     * 删除
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} context 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @param {*} [srfParentDeName] 父实体名称
-     * @returns {Promise<any>}
-     */
-    public async Product_delete(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
-        let confirmResult:boolean = await new Promise((resolve: any, reject: any) => {
-          actionContext.$Modal.confirm({
-              title: '警告',
-              content: '确认要删除，删除操作将不可恢复？',
-              onOk: () => {resolve(true);},
-              onCancel: () => {resolve(false);}
-          });
-        });
-        if(!confirmResult){
-            return;
+            data = tempDataArray;
         }
-        let data: any = {};
-        let parentContext:any = {};
-        let parentViewParam:any = {};
-        const _this: any = actionContext;
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(context, { product: '%product%' });
-        Object.assign(params, { id: '%product%' });
-        Object.assign(params, { name: '%name%' });
-        if(_this.context){
-            parentContext = _this.context;
-        }
-        if(_this.viewparams){
-            parentViewParam = _this.viewparams;
-        }
-        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
-        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
         context = Object.assign({},actionContext.context,context);
         let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
-        Object.assign(data,parentObj);
+        if(!Object.is(actionTarget,"MULTIKEY")){
+            Object.assign(data,parentObj);
+        }
         Object.assign(context,parentObj);
         // 直接调实体服务需要转换的数据
         if(context && context.srfsessionid){
@@ -710,28 +774,15 @@ export default class ProductUIServiceBase extends UIService {
         
         const backend = () => {
             const curService:ProductService =  new ProductService();
-            curService.Remove(context,data, true).then((response: any) => {
+            curService.CancelProductTop(context,data, true).then((response: any) => {
                 if (!response || response.status !== 200) {
                     actionContext.$Notice.error({ title: '错误', desc: response.message });
                     return;
                 }
-                actionContext.$Notice.success({ title: '成功', desc: '已删除' });
+                actionContext.$Notice.success({ title: '成功', desc: '取消置顶成功！' });
                 const _this: any = actionContext;
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
-                }
-                actionContext.closeView(null);
-                const { data: result } = response;
-                let _args: any[] = [];
-                if (Object.is(actionContext.$util.typeOf(result), 'array')) {
-                    _args = [...result];
-                } else if (Object.is(actionContext.$util.typeOf(result), 'object')) {
-                    _args = [{...result}];
-                } else {
-                    _args = [...args];
-                }
-                if (this.Product_ReturnEdit && this.Product_ReturnEdit instanceof Function) {
-                    this.Product_ReturnEdit(_args,context, params, $event, xData,actionContext);
                 }
                 return response;
             }).catch((response: any) => {

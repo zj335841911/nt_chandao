@@ -3,13 +3,13 @@
 | 模块编号   |   模块名称  |   备注 |
 | --------  | ------------ | -----------| 
 |ibiz|[iBiz增强模块](ibiz.md)||
-|zentao|[基础管理模块](zentao.md)||
-|ibizpro|[iBizPro模块](ibizpro.md)||
-|ibizplugin|[iBiz插件模块](ibizplugin.md)||
-|report|[汇报模块](report.md)||
-|ibizsysmodel|[iBiz系统模型](ibizsysmodel.md)||
 |uaa|[uaa权限模块](uaa.md)||
+|ibizplugin|[iBiz插件模块](ibizplugin.md)||
+|zentao|[基础管理模块](zentao.md)||
+|ibizsysmodel|[iBiz系统模型](ibizsysmodel.md)||
+|report|[汇报模块](report.md)||
 |ou|[ou组织用户管理模块](ou.md)||
+|ibizpro|[iBizPro模块](ibizpro.md)||
 
 
 ## 关系图
@@ -151,6 +151,60 @@ class 用户年度工作内容统计 {
 
 
 更新日志 *-- 系统更新功能 
+
+
+
+}
+
+hide members
+
+{% endplantuml %}
+
+{% plantuml %}
+
+package uaa权限模块 {
+
+class 系统角色 {
+}
+
+class 系统用户 {
+}
+
+class 用户角色关系 {
+}
+
+
+系统角色 *-- 系统角色 
+
+
+系统角色 *-- 用户角色关系 
+
+
+系统用户 *-- 用户角色关系 
+
+
+
+}
+
+hide members
+
+{% endplantuml %}
+
+{% plantuml %}
+
+package iBiz插件模块 {
+
+class 关键字 {
+}
+
+class 消息 {
+}
+
+class 系统插件 {
+}
+
+class 标签 {
+}
 
 
 
@@ -567,6 +621,9 @@ Bug *-- 需求
 Bug *-- 任务 
 
 
+产品计划 *-- 任务 
+
+
 项目 *-- 任务 
 
 
@@ -631,138 +688,6 @@ repofiles *-- repofiles
 
 
 任务 *-- 任务 
-
-
-
-}
-
-hide members
-
-{% endplantuml %}
-
-{% plantuml %}
-
-package iBizPro模块 {
-
-class 平台产品 {
-}
-
-class 需求 {
-}
-
-class 需求模块 {
-}
-
-class 系统模板 {
-}
-
-class 运行生产系统 {
-}
-
-class 索引检索 {
-}
-
-class 产品日报 {
-}
-
-class 产品月报 {
-}
-
-class 产品周报 {
-}
-
-class 项目日报 {
-}
-
-class 项目月报 {
-}
-
-class 项目周报 {
-}
-
-class 计划模板 {
-}
-
-class 计划模板详情 {
-}
-
-class 系统配置表 {
-}
-
-class 产品汇报用户任务 {
-}
-
-class 项目汇报用户任务 {
-}
-
-
-平台产品 *-- 需求模块 
-
-
-需求模块 *-- 需求模块 
-
-
-平台产品 *-- 需求 
-
-
-需求模块 *-- 需求 
-
-
-计划模板 *-- 计划模板详情 
-
-
-
-}
-
-hide members
-
-{% endplantuml %}
-
-{% plantuml %}
-
-package iBiz插件模块 {
-
-class 关键字 {
-}
-
-class 消息 {
-}
-
-class 系统插件 {
-}
-
-class 标签 {
-}
-
-
-
-}
-
-hide members
-
-{% endplantuml %}
-
-{% plantuml %}
-
-package 汇报模块 {
-
-class 日报 {
-}
-
-class 月报 {
-}
-
-class 汇报汇总 {
-}
-
-class 汇报角色配置 {
-}
-
-class 汇报 {
-}
-
-class 周报 {
-}
 
 
 
@@ -891,25 +816,25 @@ hide members
 
 {% plantuml %}
 
-package uaa权限模块 {
+package 汇报模块 {
 
-class 系统角色 {
+class 日报 {
 }
 
-class 系统用户 {
+class 月报 {
 }
 
-class 用户角色关系 {
+class 汇报汇总 {
 }
 
+class 汇报角色配置 {
+}
 
-系统角色 *-- 系统角色 
+class 汇报 {
+}
 
-
-系统角色 *-- 用户角色关系 
-
-
-系统用户 *-- 用户角色关系 
+class 周报 {
+}
 
 
 
@@ -964,6 +889,90 @@ class 组成员 {
 
 
 组 *-- 组成员 
+
+
+
+}
+
+hide members
+
+{% endplantuml %}
+
+{% plantuml %}
+
+package iBizPro模块 {
+
+class 用户工时统计 {
+}
+
+class 平台产品 {
+}
+
+class 需求 {
+}
+
+class 需求模块 {
+}
+
+class 系统模板 {
+}
+
+class 运行生产系统 {
+}
+
+class 索引检索 {
+}
+
+class 产品日报 {
+}
+
+class 产品月报 {
+}
+
+class 产品周报 {
+}
+
+class 项目日报 {
+}
+
+class 项目月报 {
+}
+
+class 项目周报 {
+}
+
+class 计划模板 {
+}
+
+class 计划模板详情 {
+}
+
+class 系统配置表 {
+}
+
+class 产品汇报用户任务 {
+}
+
+class 项目汇报用户任务 {
+}
+
+class 项目工时统计 {
+}
+
+
+平台产品 *-- 需求模块 
+
+
+需求模块 *-- 需求模块 
+
+
+平台产品 *-- 需求 
+
+
+需求模块 *-- 需求 
+
+
+计划模板 *-- 计划模板详情 
 
 
 

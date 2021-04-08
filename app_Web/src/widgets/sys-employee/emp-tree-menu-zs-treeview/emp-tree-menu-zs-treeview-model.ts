@@ -100,13 +100,13 @@ export default class EmpTreeMenuZSModel {
         name: 'createdate',
       },
       {
+        name: 'updatedate',
+      },
+      {
         name: 'updateman',
       },
       {
         name: 'createman',
-      },
-      {
-        name: 'updatedate',
       },
     ]
   }

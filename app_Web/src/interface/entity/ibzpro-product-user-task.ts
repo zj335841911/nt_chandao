@@ -7,12 +7,12 @@
 export interface IbzproProductUserTask {
 
     /**
-     * 编号
+     * 任务类型
      *
      * @returns {*}
      * @memberof IbzproProductUserTask
      */
-    id?: any;
+    tasktype?: any;
 
     /**
      * 用户
@@ -23,14 +23,6 @@ export interface IbzproProductUserTask {
     account?: any;
 
     /**
-     * 日期
-     *
-     * @returns {*}
-     * @memberof IbzproProductUserTask
-     */
-    date?: any;
-
-    /**
      * 总计消耗
      *
      * @returns {*}
@@ -39,20 +31,12 @@ export interface IbzproProductUserTask {
     consumed?: any;
 
     /**
-     * 预计剩余
+     * 编号
      *
      * @returns {*}
      * @memberof IbzproProductUserTask
      */
-    left?: any;
-
-    /**
-     * 任务
-     *
-     * @returns {*}
-     * @memberof IbzproProductUserTask
-     */
-    task?: any;
+    id?: any;
 
     /**
      * 任务名称
@@ -63,20 +47,28 @@ export interface IbzproProductUserTask {
     taskname?: any;
 
     /**
-     * 任务类型
-     *
-     * @returns {*}
-     * @memberof IbzproProductUserTask
-     */
-    tasktype?: any;
-
-    /**
      * 进度
      *
      * @returns {*}
      * @memberof IbzproProductUserTask
      */
     progressrate?: any;
+
+    /**
+     * 预计开始
+     *
+     * @returns {*}
+     * @memberof IbzproProductUserTask
+     */
+    eststarted?: any;
+
+    /**
+     * 日期
+     *
+     * @returns {*}
+     * @memberof IbzproProductUserTask
+     */
+    date?: any;
 
     /**
      * 延期天数
@@ -87,12 +79,20 @@ export interface IbzproProductUserTask {
     delaydays?: any;
 
     /**
-     * 预计开始
+     * 任务
      *
      * @returns {*}
      * @memberof IbzproProductUserTask
      */
-    eststarted?: any;
+    task?: any;
+
+    /**
+     * 预计剩余
+     *
+     * @returns {*}
+     * @memberof IbzproProductUserTask
+     */
+    left?: any;
 
     /**
      * 截止日期

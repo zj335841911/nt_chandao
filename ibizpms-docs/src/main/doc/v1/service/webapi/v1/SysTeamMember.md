@@ -229,11 +229,11 @@ POST
 | 2 | teamname | String | 不可 | 组名称 |
 | 3 | postname | String | 允许 | 岗位 |
 | 4 | domains | String | 允许 | 区属 |
-| 5 | userid | String | 允许 | 用户标识 |
-| 6 | teamid | String | 允许 | 组标识 |
-| 7 | postid | String | 允许 | 岗位标识 |
-| 8 | personname | String | 允许 | 姓名 |
-| 9 | username | String | 允许 | 账号 |
-| 10 | usericon | String | 允许 | 头像 |
+| 5 | usericon | String | 允许 | 头像 |
+| 6 | personname | String | 允许 | 姓名 |
+| 7 | username | String | 允许 | 账号 |
+| 8 | postid | String | 允许 | 岗位标识 |
+| 9 | teamid | String | 允许 | 组标识 |
+| 10 | userid | String | 允许 | 用户标识 |
 | 11 | <动态属性> | Object | 允许 | 支持动态属性 |
 

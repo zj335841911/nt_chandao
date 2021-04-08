@@ -1,6 +1,6 @@
 
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { GridViewBase } from '@/studio-core';
 import ProductSumService from '@/service/product-sum/product-sum-service';
 import ProductSumAuthService from '@/authservice/product-sum/product-sum-auth-service';
@@ -121,7 +121,7 @@ export class ProductSumProductBugTypeSumUsr4GridViewBase extends GridViewBase {
      * @type {string}
      * @memberof ProductSumProductBugTypeSumUsr4GridViewBase
      */
-	protected viewtag: string = '15e5bef05cc545e3f705eeed95ac8dc1';
+	protected viewtag: string = '9ca10f6c70b556f095cfca06c1132f5a';
 
     /**
      * 视图名称

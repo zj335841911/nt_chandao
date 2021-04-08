@@ -1,3 +1,4 @@
+import { Environment } from '@/environments/environment';
 import { Http } from '@/utils';
 import { Util } from '@/utils';
 import EntityService from '../entity-service';
@@ -49,7 +50,7 @@ export default class IbzLibServiceBase extends EntityService {
      * @memberof IbzLibServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().get(`/ibzlibs/${context.ibzlib}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/ibzlibs/${context.ibzlib}/select`,isloading);
             
             return res;
     }
@@ -68,12 +69,12 @@ export default class IbzLibServiceBase extends EntityService {
         let ibzcasesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcases'),'undefined')){
             ibzcasesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcases') as any);
-            if(ibzcasesData && ibzcasesData.length && ibzcasesData.length > 0){
+            if(ibzcasesData && ibzcasesData.length && ibzcasesData.length > 0 && Environment.isStudioSystem === false){
                 ibzcasesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -110,12 +111,12 @@ export default class IbzLibServiceBase extends EntityService {
         let ibzcasesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcases'),'undefined')){
             ibzcasesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcases') as any);
-            if(ibzcasesData && ibzcasesData.length && ibzcasesData.length > 0){
+            if(ibzcasesData && ibzcasesData.length && ibzcasesData.length > 0 && Environment.isStudioSystem === false){
                 ibzcasesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -140,7 +141,7 @@ export default class IbzLibServiceBase extends EntityService {
      * @memberof IbzLibServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().delete(`/ibzlibs/${context.ibzlib}`,isloading);
+            let res:any = await Http.getInstance().delete(`/ibzlibs/${context.ibzlib}`,isloading);
             return res;
     }
 
@@ -170,7 +171,10 @@ export default class IbzLibServiceBase extends EntityService {
      * @memberof IbzLibServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/ibzlibs/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.ibzlib) delete tempData.ibzlib;
+        if(tempData.id) delete tempData.id;
+        let res:any = await  Http.getInstance().get(`/ibzlibs/getdraft`,tempData,isloading);
         res.data.ibzlib = data.ibzlib;
                     this.tempStorage.setItem(context.srfsessionkey+'_ibzcases',JSON.stringify(res.data.ibzcases?res.data.ibzcases:[]));
 
@@ -187,7 +191,7 @@ export default class IbzLibServiceBase extends EntityService {
      * @memberof IbzLibServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/ibzlibs/${context.ibzlib}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/ibzlibs/${context.ibzlib}/checkkey`,data,isloading);
             return res;
     }
 
@@ -205,12 +209,12 @@ export default class IbzLibServiceBase extends EntityService {
         let ibzcasesData:any = [];
         if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzcases'),'undefined')){
             ibzcasesData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzcases') as any);
-            if(ibzcasesData && ibzcasesData.length && ibzcasesData.length > 0){
+            if(ibzcasesData && ibzcasesData.length && ibzcasesData.length > 0 && Environment.isStudioSystem === false){
                 ibzcasesData.forEach((item:any) => {
                     if(item.srffrontuf){
                         if(Object.is(item.srffrontuf,"0")){
                             item.id = null;
-                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) delete item.id;
                         }
                         delete item.srffrontuf;
                     }
@@ -236,7 +240,7 @@ export default class IbzLibServiceBase extends EntityService {
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/ibzlibs/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/ibzlibs/fetchdefault`,tempData,isloading);
         return res;
     }
 

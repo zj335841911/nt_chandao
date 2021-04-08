@@ -1,6 +1,6 @@
 
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { ListViewBase } from '@/studio-core';
 import IbizproIndexService from '@/service/ibizpro-index/ibizpro-index-service';
 import IbizproIndexAuthService from '@/authservice/ibizpro-index/ibizpro-index-auth-service';
@@ -109,7 +109,7 @@ export class IbizproIndexListViewBase extends ListViewBase {
      * @type {string}
      * @memberof IbizproIndexListViewBase
      */
-	protected viewtag: string = '10aa6afcd73e77c44c698319a1b4edcd';
+	protected viewtag: string = '50f82495ceeaf8439cd7626c264176a4';
 
     /**
      * 视图名称

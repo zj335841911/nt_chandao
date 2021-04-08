@@ -7,28 +7,12 @@
 export interface DocLibModule {
 
     /**
-     * 叶子模块
+     * 是否已收藏
      *
      * @returns {*}
      * @memberof DocLibModule
      */
-    isleaf?: any;
-
-    /**
-     * 名称
-     *
-     * @returns {*}
-     * @memberof DocLibModule
-     */
-    name?: any;
-
-    /**
-     * 简称
-     *
-     * @returns {*}
-     * @memberof DocLibModule
-     */
-    ibizshort?: any;
+    isfavourites?: any;
 
     /**
      * grade
@@ -39,28 +23,12 @@ export interface DocLibModule {
     grade?: any;
 
     /**
-     * collector
+     * path
      *
      * @returns {*}
      * @memberof DocLibModule
      */
-    collector?: any;
-
-    /**
-     * branch
-     *
-     * @returns {*}
-     * @memberof DocLibModule
-     */
-    branch?: any;
-
-    /**
-     * id
-     *
-     * @returns {*}
-     * @memberof DocLibModule
-     */
-    id?: any;
+    path?: any;
 
     /**
      * 排序值
@@ -71,68 +39,12 @@ export interface DocLibModule {
     order?: any;
 
     /**
-     * 逻辑删除标志
+     * 名称
      *
      * @returns {*}
      * @memberof DocLibModule
      */
-    deleted?: any;
-
-    /**
-     * path
-     *
-     * @returns {*}
-     * @memberof DocLibModule
-     */
-    path?: any;
-
-    /**
-     * owner
-     *
-     * @returns {*}
-     * @memberof DocLibModule
-     */
-    owner?: any;
-
-    /**
-     * 类型
-     *
-     * @returns {*}
-     * @memberof DocLibModule
-     */
-    type?: any;
-
-    /**
-     * 编号
-     *
-     * @returns {*}
-     * @memberof DocLibModule
-     */
-    root?: any;
-
-    /**
-     * id
-     *
-     * @returns {*}
-     * @memberof DocLibModule
-     */
-    parent?: any;
-
-    /**
-     * 所属文档库
-     *
-     * @returns {*}
-     * @memberof DocLibModule
-     */
-    doclibname?: any;
-
-    /**
-     * 上级模块
-     *
-     * @returns {*}
-     * @memberof DocLibModule
-     */
-    modulename?: any;
+    name?: any;
 
     /**
      * 查询类型
@@ -143,12 +55,44 @@ export interface DocLibModule {
     docqtype?: any;
 
     /**
-     * 是否已收藏
+     * owner
      *
      * @returns {*}
      * @memberof DocLibModule
      */
-    isfavourites?: any;
+    owner?: any;
+
+    /**
+     * branch
+     *
+     * @returns {*}
+     * @memberof DocLibModule
+     */
+    branch?: any;
+
+    /**
+     * 叶子模块
+     *
+     * @returns {*}
+     * @memberof DocLibModule
+     */
+    isleaf?: any;
+
+    /**
+     * 类型
+     *
+     * @returns {*}
+     * @memberof DocLibModule
+     */
+    type?: any;
+
+    /**
+     * 简称
+     *
+     * @returns {*}
+     * @memberof DocLibModule
+     */
+    ibizshort?: any;
 
     /**
      * 文档数
@@ -157,4 +101,60 @@ export interface DocLibModule {
      * @memberof DocLibModule
      */
     doccnt?: any;
+
+    /**
+     * collector
+     *
+     * @returns {*}
+     * @memberof DocLibModule
+     */
+    collector?: any;
+
+    /**
+     * id
+     *
+     * @returns {*}
+     * @memberof DocLibModule
+     */
+    id?: any;
+
+    /**
+     * 逻辑删除标志
+     *
+     * @returns {*}
+     * @memberof DocLibModule
+     */
+    deleted?: any;
+
+    /**
+     * 上级模块
+     *
+     * @returns {*}
+     * @memberof DocLibModule
+     */
+    modulename?: any;
+
+    /**
+     * 所属文档库
+     *
+     * @returns {*}
+     * @memberof DocLibModule
+     */
+    doclibname?: any;
+
+    /**
+     * id
+     *
+     * @returns {*}
+     * @memberof DocLibModule
+     */
+    parent?: any;
+
+    /**
+     * 编号
+     *
+     * @returns {*}
+     * @memberof DocLibModule
+     */
+    root?: any;
 }

@@ -9,7 +9,7 @@
                 <ion-list class="items" ref="ionlist"  >
                   <ion-item-sliding  :ref="item.srfkey" v-for="(item,index) in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
-                            <ion-item-option v-show="item.UnlinkBugMob.visabled" :disabled="item.UnlinkBugMob.disabled" color="primary" @click="mdctrl_click($event, 'u2f9e360', item)"><app-mob-icon v-if="item.UnlinkBugMob.icon && item.UnlinkBugMob.isShowIcon" :name="item.UnlinkBugMob.icon"></app-mob-icon><ion-label v-if="item.UnlinkBugMob.isShowCaption">移除关联</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.UnlinkBugMob.visabled" :disabled="item.UnlinkBugMob.disabled" color="primary" @click="mdctrl_click($event, 'uaeca38d', item)"><app-mob-icon v-if="item.UnlinkBugMob.icon && item.UnlinkBugMob.isShowIcon" :name="item.UnlinkBugMob.icon"></app-mob-icon><ion-label v-if="item.UnlinkBugMob.isShowCaption">移除关联</ion-label></ion-item-option>
                         </ion-item-options>
                     <ion-item>
                       <template v-if="(viewType == 'DEMOBMDVIEW') && controlStyle != 'SWIPERVIEW' ">
@@ -169,7 +169,7 @@ export default class Mob_PlanBase extends Vue implements ControlInterface {
      * @returns {Promise<any>}
      * @memberof MdctrlBase
      */
-    protected async mdctrl_u2f9e360_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async mdctrl_uaeca38d_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
 
         // 取数
         let datas: any[] = [];
@@ -911,8 +911,8 @@ export default class Mob_PlanBase extends Vue implements ControlInterface {
         $event.stopPropagation();
         this.selectedArray = [];
         this.selectedArray.push(item);
-        if (Object.is(tag, 'u2f9e360')) {
-            this.mdctrl_u2f9e360_click();
+        if (Object.is(tag, 'uaeca38d')) {
+            this.mdctrl_uaeca38d_click();
         }
         this.closeSlidings(item);
     }

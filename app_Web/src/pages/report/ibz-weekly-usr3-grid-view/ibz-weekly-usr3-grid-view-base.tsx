@@ -1,6 +1,6 @@
 
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { GridViewBase } from '@/studio-core';
 import IBZWEEKLYService from '@/service/ibzweekly/ibzweekly-service';
 import IBZWEEKLYAuthService from '@/authservice/ibzweekly/ibzweekly-auth-service';
@@ -105,7 +105,7 @@ export class IbzWeeklyUsr3GridViewBase extends GridViewBase {
      * @type {string}
      * @memberof IbzWeeklyUsr3GridViewBase
      */
-	protected viewtag: string = '991e5ef3e406f063f981865759d0857f';
+	protected viewtag: string = 'c08179f473e762df0e80e82aa14c7a51';
 
     /**
      * 视图名称
@@ -242,28 +242,16 @@ export class IbzWeeklyUsr3GridViewBase extends GridViewBase {
         const deResParameters: any[] = [];
         const parameters: any[] = [
             { pathName: 'ibzweeklies', parameterName: 'ibzweekly' },
+            { pathName: 'editview', parameterName: 'editview' },
         ];
         const _this: any = this;
-        const openDrawer = (view: any, data: any) => {
-            let container: Subject<any> = this.$appdrawer.openDrawer(view, tempContext, data);
-            container.subscribe((result: any) => {
-                if (!result || !Object.is(result.ret, 'OK')) {
-                    return;
-                }
-                if (!xData || !(xData.refresh instanceof Function)) {
-                    return;
-                }
-                xData.refresh(result.datas);
-            });
+        const openIndexViewTab = (data: any) => {
+            const _data: any = { w: (new Date().getTime()) };
+            Object.assign(_data, data);
+            const routePath = this.$viewTool.buildUpRoutePath(this.$route, tempContext, deResParameters, parameters, args, _data);
+            this.$router.push(routePath);
         }
-        const view: any = {
-            viewname: 'ibz-weekly-edit-view', 
-            height: 0, 
-            width: 0,  
-            title: this.$t('entities.ibzweekly.views.editview.title'),
-            placement: 'DRAWER_RIGHT',
-        };
-        openDrawer(view, data);
+        openIndexViewTab(data);
     }
 
 
@@ -288,28 +276,14 @@ export class IbzWeeklyUsr3GridViewBase extends GridViewBase {
         const deResParameters: any[] = [];
         const parameters: any[] = [
             { pathName: 'ibzweeklies', parameterName: 'ibzweekly' },
+            { pathName: 'editview', parameterName: 'editview' },
         ];
         const _this: any = this;
-        const openDrawer = (view: any, data: any) => {
-            let container: Subject<any> = this.$appdrawer.openDrawer(view, tempContext, data);
-            container.subscribe((result: any) => {
-                if (!result || !Object.is(result.ret, 'OK')) {
-                    return;
-                }
-                if (!xData || !(xData.refresh instanceof Function)) {
-                    return;
-                }
-                xData.refresh(result.datas);
-            });
+        const openIndexViewTab = (data: any) => {
+            const routePath = this.$viewTool.buildUpRoutePath(this.$route, tempContext, deResParameters, parameters, args, data);
+            this.$router.push(routePath);
         }
-        const view: any = {
-            viewname: 'ibz-weekly-edit-view', 
-            height: 0, 
-            width: 0,  
-            title: this.$t('entities.ibzweekly.views.editview.title'),
-            placement: 'DRAWER_RIGHT',
-        };
-        openDrawer(view, data);
+        openIndexViewTab(data);
     }
 
 

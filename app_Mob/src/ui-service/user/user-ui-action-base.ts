@@ -91,9 +91,9 @@ export default class UserUIActionBase extends EntityUIActionBase {
      */  
     public initViewMap(){
         this.allViewMap.set('MOBMPICKUPVIEW:',{viewname:'mobmpickupview',srfappde:'users'});
+        this.allViewMap.set(':',{viewname:'usercentermobeditview',srfappde:'users'});
         this.allViewMap.set(':',{viewname:'mobpickupmdview',srfappde:'users'});
         this.allViewMap.set('MOBPICKUPVIEW:',{viewname:'mobpickupview',srfappde:'users'});
-        this.allViewMap.set(':',{viewname:'usercentermobeditview',srfappde:'users'});
     }
 
     /**

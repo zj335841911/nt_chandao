@@ -4,8 +4,8 @@ import { UIActionTool, Util, ViewTool } from '@/utils';
 import { Watch, MainControlBase } from '@/studio-core';
 import DocLibService from '@/service/doc-lib/doc-lib-service';
 import DocChildProductTreeViewService from './doc-child-product-tree-view-treeview-service';
-import DocUIService from '@/uiservice/doc/doc-ui-service';
 import DocLibModuleUIService from '@/uiservice/doc-lib-module/doc-lib-module-ui-service';
+import DocUIService from '@/uiservice/doc/doc-ui-service';
 import DocLibUIService from '@/uiservice/doc-lib/doc-lib-ui-service';
 import { Environment } from '@/environments/environment';
 
@@ -110,6 +110,125 @@ export class DocChildProductTreeViewTreeBase extends MainControlBase {
         if (Object.is($event.tag, 'deuiaction3')) {
             this.moduledoc_cm_deuiaction3_click(null, 'moduledoc_cm', $event2);
         }
+        if (Object.is($event.tag, 'deuiaction5')) {
+            this.moduledoc_cm_deuiaction5_click(null, 'moduledoc_cm', $event2);
+        }
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public childmodule_cm_deuiaction1_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:DocLibModuleUIService  = new DocLibModuleUIService();
+        curUIService.DocLibModule_edit(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public childmodule_cm_deuiaction4_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:DocLibModuleUIService  = new DocLibModuleUIService();
+        curUIService.DocLibModule_WeiHuFenLei(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public childmodule_cm_deuiaction2_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:DocLibModuleUIService  = new DocLibModuleUIService();
+        curUIService.DocLibModule_Favorite(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public childmodule_cm_deuiaction3_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:DocLibModuleUIService  = new DocLibModuleUIService();
+        curUIService.DocLibModule_NFavorite(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
     }
 
     /**
@@ -236,7 +355,7 @@ export class DocChildProductTreeViewTreeBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public childmodule_cm_deuiaction1_click(params: any = {}, tag?: any, $event?: any) {
+    public moduledoc_cm_deuiaction5_click(params: any = {}, tag?: any, $event?: any) {
         // 参数
         // 取数
         let datas: any[] = [];
@@ -253,95 +372,8 @@ export class DocChildProductTreeViewTreeBase extends MainControlBase {
           datas = [params];
         }
         // 界面行为
-        const curUIService:DocLibModuleUIService  = new DocLibModuleUIService();
-        curUIService.DocLibModule_edit(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public childmodule_cm_deuiaction4_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        const curUIService:DocLibModuleUIService  = new DocLibModuleUIService();
-        curUIService.DocLibModule_WeiHuFenLei(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public childmodule_cm_deuiaction2_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        const curUIService:DocLibModuleUIService  = new DocLibModuleUIService();
-        curUIService.DocLibModule_Favorite(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public childmodule_cm_deuiaction3_click(params: any = {}, tag?: any, $event?: any) {
-        // 参数
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        const curUIService:DocLibModuleUIService  = new DocLibModuleUIService();
-        curUIService.DocLibModule_NFavorite(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
+        const curUIService:DocUIService  = new DocUIService();
+        curUIService.Doc_DocInfo(datas,contextJO, paramJO,  $event, xData,this,"DocLib");
     }
 
 
@@ -524,6 +556,7 @@ export class DocChildProductTreeViewTreeBase extends MainControlBase {
         ModuleDoc_deuiaction4: {ctrlname: 'moduledoc_cm',name:'deuiaction4',nodeOwner:'ModuleDoc',type: 'DEUIACTION', tag: 'Delete', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_DELETE_BUT', visible: true, disabled: false,imgclass: 'fa fa-remove',caption: '',title:'entities.doclib.docchildproducttreeview_treeview.uiactions.doc_delete'},
         ModuleDoc_deuiaction2: {ctrlname: 'moduledoc_cm',name:'deuiaction2',nodeOwner:'ModuleDoc',type: 'DEUIACTION', tag: 'OnlyCollectDoc', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_FAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star-o',caption: '',title:'entities.doclib.docchildproducttreeview_treeview.uiactions.doc_onlycollectdoc'},
         ModuleDoc_deuiaction3: {ctrlname: 'moduledoc_cm',name:'deuiaction3',nodeOwner:'ModuleDoc',type: 'DEUIACTION', tag: 'OnlyUnCollectDoc', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, dataaccaction:'SRFUR__DOC_NFAVOUR_BUT', visible: true, disabled: false,imgclass: 'fa fa-star',caption: '',title:'entities.doclib.docchildproducttreeview_treeview.uiactions.doc_onlyuncollectdoc'},
+        ModuleDoc_deuiaction5: {ctrlname: 'moduledoc_cm',name:'deuiaction5',nodeOwner:'ModuleDoc',type: 'DEUIACTION', tag: 'DocInfo', actiontarget: 'SINGLEKEY', noprivdisplaymode:2, visible: true, disabled: false,imgclass: 'fa fa-eye',caption: '',title:'entities.doclib.docchildproducttreeview_treeview.uiactions.doc_docinfo'},
     }
 
     /**

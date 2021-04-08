@@ -154,7 +154,7 @@ export class AppContentLeftNavMenu extends Vue {
      * @memberof AppContentLeftExp
      */
     protected changeActiveItem(item: any): void {
-        if (!Object.is(item.appfuncyype, 'APPVIEW')) {
+        if (!Object.is(item.appfunctype, 'APPVIEW')) {
             return;
         }
         this.activeItem = item;

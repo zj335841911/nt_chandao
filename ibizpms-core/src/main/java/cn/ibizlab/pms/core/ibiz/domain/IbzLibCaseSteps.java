@@ -24,6 +24,8 @@ import java.io.Serializable;
 import lombok.*;
 import org.springframework.data.annotation.Transient;
 import cn.ibizlab.pms.util.annotation.Audit;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -39,38 +41,42 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
 @TableName(value = "zt_casestep", resultMap = "IbzLibCaseStepsResultMap")
+@ApiModel("用例库用例步骤")
 public class IbzLibCaseSteps extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     /**
-     * 版本
+     * 实际情况
      */
     @TableField(exist = false)
-    @JSONField(name = "version")
-    @JsonProperty("version")
-    private Integer version;
-    /**
-     * 用例编号
-     */
-    @DEField(name = "case")
-    @TableField(value = "`case`")
-    @JSONField(name = "ibizcase")
-    @JsonProperty("ibizcase")
-    private Long ibizcase;
+    @JSONField(name = "reals")
+    @JsonProperty("reals")
+    @ApiModelProperty("实际情况")
+    private String reals;
     /**
      * 预期
      */
     @TableField(value = "`expect`")
     @JSONField(name = "expect")
     @JsonProperty("expect")
+    @ApiModelProperty("预期")
     private String expect;
+    /**
+     * 步骤
+     */
+    @TableField(value = "`desc`")
+    @JSONField(name = "desc")
+    @JsonProperty("desc")
+    @ApiModelProperty("步骤")
+    private String desc;
     /**
      * 附件
      */
     @TableField(exist = false)
     @JSONField(name = "files")
     @JsonProperty("files")
+    @ApiModelProperty("附件")
     private String files;
     /**
      * 编号
@@ -79,35 +85,41 @@ public class IbzLibCaseSteps extends EntityMP implements Serializable {
     @TableId(value = "id", type = IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
+    @ApiModelProperty("编号")
     private Long id;
-    /**
-     * 实际情况
-     */
-    @TableField(exist = false)
-    @JSONField(name = "reals")
-    @JsonProperty("reals")
-    private String reals;
-    /**
-     * 步骤
-     */
-    @TableField(value = "`desc`")
-    @JSONField(name = "desc")
-    @JsonProperty("desc")
-    private String desc;
-    /**
-     * 编号
-     */
-    @TableField(value = "`parent`")
-    @JSONField(name = "parent")
-    @JsonProperty("parent")
-    private Long parent;
     /**
      * 类型
      */
     @TableField(value = "`type`")
     @JSONField(name = "type")
     @JsonProperty("type")
+    @ApiModelProperty("类型")
     private String type;
+    /**
+     * 版本
+     */
+    @TableField(exist = false)
+    @JSONField(name = "version")
+    @JsonProperty("version")
+    @ApiModelProperty("版本")
+    private Integer version;
+    /**
+     * 编号
+     */
+    @TableField(value = "`parent`")
+    @JSONField(name = "parent")
+    @JsonProperty("parent")
+    @ApiModelProperty("编号")
+    private Long parent;
+    /**
+     * 用例编号
+     */
+    @DEField(name = "case")
+    @TableField(value = "`case`")
+    @JSONField(name = "ibizcase")
+    @JsonProperty("ibizcase")
+    @ApiModelProperty("用例编号")
+    private Long ibizcase;
 
     /**
      * 用例
@@ -136,14 +148,6 @@ public class IbzLibCaseSteps extends EntityMP implements Serializable {
 
 
     /**
-     * 设置 [用例编号]
-     */
-    public void setIbizcase(Long ibizcase) {
-        this.ibizcase = ibizcase;
-        this.modify("case", ibizcase);
-    }
-
-    /**
      * 设置 [预期]
      */
     public void setExpect(String expect) {
@@ -160,6 +164,14 @@ public class IbzLibCaseSteps extends EntityMP implements Serializable {
     }
 
     /**
+     * 设置 [类型]
+     */
+    public void setType(String type) {
+        this.type = type;
+        this.modify("type", type);
+    }
+
+    /**
      * 设置 [编号]
      */
     public void setParent(Long parent) {
@@ -168,11 +180,11 @@ public class IbzLibCaseSteps extends EntityMP implements Serializable {
     }
 
     /**
-     * 设置 [类型]
+     * 设置 [用例编号]
      */
-    public void setType(String type) {
-        this.type = type;
-        this.modify("type", type);
+    public void setIbizcase(Long ibizcase) {
+        this.ibizcase = ibizcase;
+        this.modify("case", ibizcase);
     }
 
 

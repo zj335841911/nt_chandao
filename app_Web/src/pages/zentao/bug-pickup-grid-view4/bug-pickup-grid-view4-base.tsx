@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { PickupGridViewBase } from '@/studio-core';
 import BugService from '@/service/bug/bug-service';
 import BugAuthService from '@/authservice/bug/bug-auth-service';
@@ -116,7 +116,7 @@ export class BugPickupGridView4Base extends PickupGridViewBase {
      * @type {string}
      * @memberof BugPickupGridView4Base
      */
-	protected viewtag: string = '1c4104beb7e8515d20d03262732ba4f8';
+	protected viewtag: string = '88a2e4ac2ac010f7ec3f5b256e955207';
 
     /**
      * 视图名称

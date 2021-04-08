@@ -15,46 +15,7 @@ export default class MyTabExpViewtabviewpanel2Model {
   public getDataItems(): any[] {
     return [
       {
-        name: 'updatedate',
-      },
-      {
-        name: 'worktoday',
-      },
-      {
-        name: 'todaytask',
-      },
-      {
-        name: 'tomorrowplanstask',
-      },
-      {
-        name: 'createman',
-      },
-      {
-        name: 'reportto',
-      },
-      {
-        name: 'createdate',
-      },
-      {
-        name: 'date',
-      },
-      {
-        name: 'issubmit',
-      },
-      {
         name: 'updatemanname',
-      },
-      {
-        name: 'files',
-      },
-      {
-        name: 'updateman',
-      },
-      {
-        name: 'reportstatus',
-      },
-      {
-        name: 'comment',
       },
       {
         name: 'mailto',
@@ -64,31 +25,70 @@ export default class MyTabExpViewtabviewpanel2Model {
         prop: 'ibzdailyid',
       },
       {
-        name: 'planstomorrow',
+        name: 'reportlycnt',
       },
       {
-        name: 'account',
+        name: 'updatedate',
       },
       {
-        name: 'createmanname',
-      },
-      {
-        name: 'ibzdailyname',
-      },
-      {
-        name: 'type',
-      },
-      {
-        name: 'dailycnt',
+        name: 'worktoday',
       },
       {
         name: 'monthlycnt',
       },
       {
+        name: 'dailycnt',
+      },
+      {
+        name: 'createdate',
+      },
+      {
+        name: 'todaytask',
+      },
+      {
+        name: 'account',
+      },
+      {
+        name: 'type',
+      },
+      {
+        name: 'createman',
+      },
+      {
+        name: 'updateman',
+      },
+      {
+        name: 'ibzdailyname',
+      },
+      {
+        name: 'reportto',
+      },
+      {
         name: 'submittime',
       },
       {
-        name: 'reportlycnt',
+        name: 'files',
+      },
+      {
+        name: 'createmanname',
+      },
+      {
+        name: 'planstomorrow',
+      },
+      {
+        name: 'reportstatus',
+      },
+      {
+        name: 'date',
+      },
+      {
+        name: 'issubmit',
+      },
+      {
+        name: 'comment',
+      },
+      {
+        name: 'tomorrowplanstask',
       },
     ]
   }

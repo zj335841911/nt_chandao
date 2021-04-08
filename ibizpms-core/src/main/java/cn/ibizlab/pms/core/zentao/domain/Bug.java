@@ -24,6 +24,8 @@ import java.io.Serializable;
 import lombok.*;
 import org.springframework.data.annotation.Transient;
 import cn.ibizlab.pms.util.annotation.Audit;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -39,6 +41,7 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
 @TableName(value = "zt_bug", resultMap = "BugResultMap")
+@ApiModel("Bug")
 public class Bug extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -50,6 +53,7 @@ public class Bug extends EntityMP implements Serializable {
     @TableField(value = "`severity`")
     @JSONField(name = "severity")
     @JsonProperty("severity")
+    @ApiModelProperty("严重程度")
     private Integer severity;
     /**
      * 需求版本
@@ -58,7 +62,16 @@ public class Bug extends EntityMP implements Serializable {
     @TableField(value = "`storyversion`")
     @JSONField(name = "storyversion")
     @JsonProperty("storyversion")
+    @ApiModelProperty("需求版本")
     private Integer storyversion;
+    /**
+     * 版本名称
+     */
+    @TableField(exist = false)
+    @JSONField(name = "buildname")
+    @JsonProperty("buildname")
+    @ApiModelProperty("版本名称")
+    private String buildname;
     /**
      * 相关Bug
      */
@@ -66,6 +79,7 @@ public class Bug extends EntityMP implements Serializable {
     @TableField(value = "`linkbug`")
     @JSONField(name = "linkbug")
     @JsonProperty("linkbug")
+    @ApiModelProperty("相关Bug")
     private String linkbug;
     /**
      * 激活日期
@@ -74,7 +88,24 @@ public class Bug extends EntityMP implements Serializable {
     @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "activateddate", format = "yyyy-MM-dd")
     @JsonProperty("activateddate")
+    @ApiModelProperty("激活日期")
     private Timestamp activateddate;
+    /**
+     * 过期天数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "overduebugs")
+    @JsonProperty("overduebugs")
+    @ApiModelProperty("过期天数")
+    private Integer overduebugs;
+    /**
+     * 创建版本
+     */
+    @TableField(exist = false)
+    @JSONField(name = "createbuild")
+    @JsonProperty("createbuild")
+    @ApiModelProperty("创建版本")
+    private Integer createbuild;
     /**
      * 指派给
      */
@@ -82,6 +113,7 @@ public class Bug extends EntityMP implements Serializable {
     @TableField(value = "`assignedto`")
     @JSONField(name = "assignedto")
     @JsonProperty("assignedto")
+    @ApiModelProperty("指派给")
     private String assignedto;
     /**
      * 解决方案
@@ -90,6 +122,7 @@ public class Bug extends EntityMP implements Serializable {
     @TableField(value = "`resolution`")
     @JSONField(name = "resolution")
     @JsonProperty("resolution")
+    @ApiModelProperty("解决方案")
     private String resolution;
     /**
      * 修改日期
@@ -99,7 +132,16 @@ public class Bug extends EntityMP implements Serializable {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "lastediteddate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("lastediteddate")
+    @ApiModelProperty("修改日期")
     private Timestamp lastediteddate;
+    /**
+     * 移动端图片
+     */
+    @TableField(exist = false)
+    @JSONField(name = "mobimage")
+    @JsonProperty("mobimage")
+    @ApiModelProperty("移动端图片")
+    private String mobimage;
     /**
      * result
      */
@@ -107,6 +149,7 @@ public class Bug extends EntityMP implements Serializable {
     @TableField(value = "`result`")
     @JSONField(name = "result")
     @JsonProperty("result")
+    @ApiModelProperty("result")
     private Integer result;
     /**
      * 关键词
@@ -115,7 +158,24 @@ public class Bug extends EntityMP implements Serializable {
     @TableField(value = "`keywords`")
     @JSONField(name = "keywords")
     @JsonProperty("keywords")
+    @ApiModelProperty("关键词")
     private String keywords;
+    /**
+     * 是否收藏
+     */
+    @TableField(exist = false)
+    @JSONField(name = "isfavorites")
+    @JsonProperty("isfavorites")
+    @ApiModelProperty("是否收藏")
+    private String isfavorites;
+    /**
+     * 模块名称
+     */
+    @TableField(exist = false)
+    @JSONField(name = "modulename1")
+    @JsonProperty("modulename1")
+    @ApiModelProperty("模块名称")
+    private String modulename1;
     /**
      * 由谁关闭
      */
@@ -123,6 +183,7 @@ public class Bug extends EntityMP implements Serializable {
     @TableField(value = "`closedby`")
     @JSONField(name = "closedby")
     @JsonProperty("closedby")
+    @ApiModelProperty("由谁关闭")
     private String closedby;
     /**
      * 浏览器
@@ -131,7 +192,16 @@ public class Bug extends EntityMP implements Serializable {
     @TableField(value = "`browser`")
     @JSONField(name = "browser")
     @JsonProperty("browser")
+    @ApiModelProperty("浏览器")
     private String browser;
+    /**
+     * 消息通知用户
+     */
+    @TableField(exist = false)
+    @JSONField(name = "noticeusers")
+    @JsonProperty("noticeusers")
+    @ApiModelProperty("消息通知用户")
+    private String noticeusers;
     /**
      * 重现步骤
      */
@@ -139,6 +209,7 @@ public class Bug extends EntityMP implements Serializable {
     @TableField(value = "`steps`")
     @JSONField(name = "steps")
     @JsonProperty("steps")
+    @ApiModelProperty("重现步骤")
     private String steps;
     /**
      * v2
@@ -147,6 +218,7 @@ public class Bug extends EntityMP implements Serializable {
     @TableField(value = "`v2`")
     @JSONField(name = "v2")
     @JsonProperty("v2")
+    @ApiModelProperty("v2")
     private String v2;
     /**
      * 是否确认
@@ -155,7 +227,16 @@ public class Bug extends EntityMP implements Serializable {
     @TableField(value = "`confirmed`")
     @JSONField(name = "confirmed")
     @JsonProperty("confirmed")
+    @ApiModelProperty("是否确认")
     private Integer confirmed;
+    /**
+     * 联系人
+     */
+    @TableField(exist = false)
+    @JSONField(name = "mailtoconact")
+    @JsonProperty("mailtoconact")
+    @ApiModelProperty("联系人")
+    private String mailtoconact;
     /**
      * 由谁创建
      */
@@ -163,6 +244,7 @@ public class Bug extends EntityMP implements Serializable {
     @TableField(value = "`openedby`")
     @JSONField(name = "openedby")
     @JsonProperty("openedby")
+    @ApiModelProperty("由谁创建")
     private String openedby;
     /**
      * 激活次数
@@ -171,6 +253,7 @@ public class Bug extends EntityMP implements Serializable {
     @TableField(value = "`activatedcount`")
     @JSONField(name = "activatedcount")
     @JsonProperty("activatedcount")
+    @ApiModelProperty("激活次数")
     private Integer activatedcount;
     /**
      * 创建日期
@@ -180,6 +263,7 @@ public class Bug extends EntityMP implements Serializable {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "openeddate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("openeddate")
+    @ApiModelProperty("创建日期")
     private Timestamp openeddate;
     /**
      * 关闭日期
@@ -188,6 +272,7 @@ public class Bug extends EntityMP implements Serializable {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "closeddate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("closeddate")
+    @ApiModelProperty("关闭日期")
     private Timestamp closeddate;
     /**
      * 抄送给
@@ -196,6 +281,7 @@ public class Bug extends EntityMP implements Serializable {
     @TableField(value = "`mailto`")
     @JSONField(name = "mailto")
     @JsonProperty("mailto")
+    @ApiModelProperty("抄送给")
     private String mailto;
     /**
      * 指派日期
@@ -204,6 +290,7 @@ public class Bug extends EntityMP implements Serializable {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "assigneddate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("assigneddate")
+    @ApiModelProperty("指派日期")
     private Timestamp assigneddate;
     /**
      * 截止日期
@@ -212,6 +299,7 @@ public class Bug extends EntityMP implements Serializable {
     @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "deadline", format = "yyyy-MM-dd")
     @JsonProperty("deadline")
+    @ApiModelProperty("截止日期")
     private Timestamp deadline;
     /**
      * 标题颜色
@@ -220,7 +308,16 @@ public class Bug extends EntityMP implements Serializable {
     @TableField(value = "`color`")
     @JSONField(name = "color")
     @JsonProperty("color")
+    @ApiModelProperty("标题颜色")
     private String color;
+    /**
+     * 备注
+     */
+    @TableField(exist = false)
+    @JSONField(name = "comment")
+    @JsonProperty("comment")
+    @ApiModelProperty("备注")
+    private String comment;
     /**
      * 解决日期
      */
@@ -228,6 +325,7 @@ public class Bug extends EntityMP implements Serializable {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "resolveddate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("resolveddate")
+    @ApiModelProperty("解决日期")
     private Timestamp resolveddate;
     /**
      * Bug类型
@@ -236,6 +334,7 @@ public class Bug extends EntityMP implements Serializable {
     @TableField(value = "`type`")
     @JSONField(name = "type")
     @JsonProperty("type")
+    @ApiModelProperty("Bug类型")
     private String type;
     /**
      * Bug状态
@@ -244,6 +343,7 @@ public class Bug extends EntityMP implements Serializable {
     @TableField(value = "`status`")
     @JSONField(name = "status")
     @JsonProperty("status")
+    @ApiModelProperty("Bug状态")
     private String status;
     /**
      * 影响版本
@@ -252,7 +352,32 @@ public class Bug extends EntityMP implements Serializable {
     @TableField(value = "`openedbuild`")
     @JSONField(name = "openedbuild")
     @JsonProperty("openedbuild")
+    @ApiModelProperty("影响版本")
     private String openedbuild;
+    /**
+     * 延期解决
+     */
+    @TableField(exist = false)
+    @JSONField(name = "delayresolve")
+    @JsonProperty("delayresolve")
+    @ApiModelProperty("延期解决")
+    private String delayresolve;
+    /**
+     * 附件
+     */
+    @TableField(exist = false)
+    @JSONField(name = "files")
+    @JsonProperty("files")
+    @ApiModelProperty("附件")
+    private String files;
+    /**
+     * 抄送给
+     */
+    @TableField(exist = false)
+    @JSONField(name = "mailtopk")
+    @JsonProperty("mailtopk")
+    @ApiModelProperty("抄送给")
+    private String mailtopk;
     /**
      * v1
      */
@@ -260,6 +385,7 @@ public class Bug extends EntityMP implements Serializable {
     @TableField(value = "`v1`")
     @JSONField(name = "v1")
     @JsonProperty("v1")
+    @ApiModelProperty("v1")
     private String v1;
     /**
      * 已删除
@@ -269,6 +395,7 @@ public class Bug extends EntityMP implements Serializable {
     @TableField(value = "`deleted`")
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
+    @ApiModelProperty("已删除")
     private String deleted;
     /**
      * lines
@@ -277,6 +404,7 @@ public class Bug extends EntityMP implements Serializable {
     @TableField(value = "`lines`")
     @JSONField(name = "lines")
     @JsonProperty("lines")
+    @ApiModelProperty("lines")
     private String lines;
     /**
      * 子状态
@@ -285,7 +413,16 @@ public class Bug extends EntityMP implements Serializable {
     @TableField(value = "`substatus`")
     @JSONField(name = "substatus")
     @JsonProperty("substatus")
+    @ApiModelProperty("子状态")
     private String substatus;
+    /**
+     * 版本项目
+     */
+    @TableField(exist = false)
+    @JSONField(name = "buildproject")
+    @JsonProperty("buildproject")
+    @ApiModelProperty("版本项目")
+    private String buildproject;
     /**
      * Bug编号
      */
@@ -293,7 +430,16 @@ public class Bug extends EntityMP implements Serializable {
     @TableId(value = "id", type = IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
+    @ApiModelProperty("Bug编号")
     private Long id;
+    /**
+     * 延期
+     */
+    @TableField(exist = false)
+    @JSONField(name = "delay")
+    @JsonProperty("delay")
+    @ApiModelProperty("延期")
+    private String delay;
     /**
      * found
      */
@@ -301,6 +447,7 @@ public class Bug extends EntityMP implements Serializable {
     @TableField(value = "`found`")
     @JSONField(name = "found")
     @JsonProperty("found")
+    @ApiModelProperty("found")
     private String found;
     /**
      * 解决者
@@ -309,6 +456,7 @@ public class Bug extends EntityMP implements Serializable {
     @TableField(value = "`resolvedby`")
     @JSONField(name = "resolvedby")
     @JsonProperty("resolvedby")
+    @ApiModelProperty("解决者")
     private String resolvedby;
     /**
      * 解决版本
@@ -317,6 +465,7 @@ public class Bug extends EntityMP implements Serializable {
     @TableField(value = "`resolvedbuild`")
     @JSONField(name = "resolvedbuild")
     @JsonProperty("resolvedbuild")
+    @ApiModelProperty("解决版本")
     private String resolvedbuild;
     /**
      * 优先级
@@ -325,6 +474,7 @@ public class Bug extends EntityMP implements Serializable {
     @TableField(value = "`pri`")
     @JSONField(name = "pri")
     @JsonProperty("pri")
+    @ApiModelProperty("优先级")
     private Integer pri;
     /**
      * 操作系统
@@ -333,6 +483,7 @@ public class Bug extends EntityMP implements Serializable {
     @TableField(value = "`os`")
     @JSONField(name = "os")
     @JsonProperty("os")
+    @ApiModelProperty("操作系统")
     private String os;
     /**
      * hardware
@@ -341,6 +492,7 @@ public class Bug extends EntityMP implements Serializable {
     @TableField(value = "`hardware`")
     @JSONField(name = "hardware")
     @JsonProperty("hardware")
+    @ApiModelProperty("hardware")
     private String hardware;
     /**
      * 最后修改者
@@ -349,6 +501,7 @@ public class Bug extends EntityMP implements Serializable {
     @TableField(value = "`lasteditedby`")
     @JSONField(name = "lasteditedby")
     @JsonProperty("lasteditedby")
+    @ApiModelProperty("最后修改者")
     private String lasteditedby;
     /**
      * Bug标题
@@ -356,6 +509,7 @@ public class Bug extends EntityMP implements Serializable {
     @TableField(value = "`title`")
     @JSONField(name = "title")
     @JsonProperty("title")
+    @ApiModelProperty("Bug标题")
     private String title;
     /**
      * 产品
@@ -363,13 +517,39 @@ public class Bug extends EntityMP implements Serializable {
     @TableField(exist = false)
     @JSONField(name = "productname")
     @JsonProperty("productname")
+    @ApiModelProperty("产品")
     private String productname;
+    /**
+     * 平台/分支
+     */
+    @TableField(exist = false)
+    @JSONField(name = "branchname")
+    @JsonProperty("branchname")
+    @ApiModelProperty("平台/分支")
+    private String branchname;
+    /**
+     * 相关任务
+     */
+    @TableField(exist = false)
+    @JSONField(name = "taskname")
+    @JsonProperty("taskname")
+    @ApiModelProperty("相关任务")
+    private String taskname;
+    /**
+     * 相关用例
+     */
+    @TableField(exist = false)
+    @JSONField(name = "casename")
+    @JsonProperty("casename")
+    @ApiModelProperty("相关用例")
+    private String casename;
     /**
      * 项目
      */
     @TableField(exist = false)
     @JSONField(name = "projectname")
     @JsonProperty("projectname")
+    @ApiModelProperty("项目")
     private String projectname;
     /**
      * 相关需求
@@ -377,6 +557,7 @@ public class Bug extends EntityMP implements Serializable {
     @TableField(exist = false)
     @JSONField(name = "storyname")
     @JsonProperty("storyname")
+    @ApiModelProperty("相关需求")
     private String storyname;
     /**
      * 用例版本
@@ -385,6 +566,7 @@ public class Bug extends EntityMP implements Serializable {
     @TableField(value = "`caseversion`")
     @JSONField(name = "caseversion")
     @JsonProperty("caseversion")
+    @ApiModelProperty("用例版本")
     private Integer caseversion;
     /**
      * 代码类型
@@ -392,7 +574,16 @@ public class Bug extends EntityMP implements Serializable {
     @TableField(value = "`repotype`")
     @JSONField(name = "repotype")
     @JsonProperty("repotype")
+    @ApiModelProperty("代码类型")
     private String repotype;
+    /**
+     * 模块名称
+     */
+    @TableField(exist = false)
+    @JSONField(name = "modulename")
+    @JsonProperty("modulename")
+    @ApiModelProperty("模块名称")
+    private String modulename;
     /**
      * 转需求
      */
@@ -400,6 +591,7 @@ public class Bug extends EntityMP implements Serializable {
     @TableField(value = "`tostory`")
     @JSONField(name = "tostory")
     @JsonProperty("tostory")
+    @ApiModelProperty("转需求")
     private Long tostory;
     /**
      * 应用
@@ -408,6 +600,7 @@ public class Bug extends EntityMP implements Serializable {
     @TableField(value = "`entry`")
     @JSONField(name = "entry")
     @JsonProperty("entry")
+    @ApiModelProperty("应用")
     private Long entry;
     /**
      * 所属产品
@@ -416,6 +609,7 @@ public class Bug extends EntityMP implements Serializable {
     @TableField(value = "`product`")
     @JSONField(name = "product")
     @JsonProperty("product")
+    @ApiModelProperty("所属产品")
     private Long product;
     /**
      * 转任务
@@ -424,6 +618,7 @@ public class Bug extends EntityMP implements Serializable {
     @TableField(value = "`totask`")
     @JSONField(name = "totask")
     @JsonProperty("totask")
+    @ApiModelProperty("转任务")
     private Long totask;
     /**
      * 所属计划
@@ -432,6 +627,7 @@ public class Bug extends EntityMP implements Serializable {
     @TableField(value = "`plan`")
     @JSONField(name = "plan")
     @JsonProperty("plan")
+    @ApiModelProperty("所属计划")
     private Long plan;
     /**
      * 所属模块
@@ -440,6 +636,7 @@ public class Bug extends EntityMP implements Serializable {
     @TableField(value = "`module`")
     @JSONField(name = "module")
     @JsonProperty("module")
+    @ApiModelProperty("所属模块")
     private Long module;
     /**
      * 平台/分支
@@ -448,6 +645,7 @@ public class Bug extends EntityMP implements Serializable {
     @TableField(value = "`branch`")
     @JSONField(name = "branch")
     @JsonProperty("branch")
+    @ApiModelProperty("平台/分支")
     private Long branch;
     /**
      * 重复ID
@@ -456,6 +654,7 @@ public class Bug extends EntityMP implements Serializable {
     @TableField(value = "`duplicatebug`")
     @JSONField(name = "duplicatebug")
     @JsonProperty("duplicatebug")
+    @ApiModelProperty("重复ID")
     private Long duplicatebug;
     /**
      * 代码
@@ -464,6 +663,7 @@ public class Bug extends EntityMP implements Serializable {
     @TableField(value = "`repo`")
     @JSONField(name = "repo")
     @JsonProperty("repo")
+    @ApiModelProperty("代码")
     private Long repo;
     /**
      * 相关需求
@@ -472,6 +672,7 @@ public class Bug extends EntityMP implements Serializable {
     @TableField(value = "`story`")
     @JSONField(name = "story")
     @JsonProperty("story")
+    @ApiModelProperty("相关需求")
     private Long story;
     /**
      * 相关用例
@@ -480,6 +681,7 @@ public class Bug extends EntityMP implements Serializable {
     @TableField(value = "`case`")
     @JSONField(name = "ibizcase")
     @JsonProperty("ibizcase")
+    @ApiModelProperty("相关用例")
     private Long ibizcase;
     /**
      * 所属项目
@@ -488,6 +690,7 @@ public class Bug extends EntityMP implements Serializable {
     @TableField(value = "`project`")
     @JSONField(name = "project")
     @JsonProperty("project")
+    @ApiModelProperty("所属项目")
     private Long project;
     /**
      * 相关任务
@@ -496,6 +699,7 @@ public class Bug extends EntityMP implements Serializable {
     @TableField(value = "`task`")
     @JSONField(name = "task")
     @JsonProperty("task")
+    @ApiModelProperty("相关任务")
     private Long task;
     /**
      * 测试单
@@ -504,133 +708,8 @@ public class Bug extends EntityMP implements Serializable {
     @TableField(value = "`testtask`")
     @JSONField(name = "testtask")
     @JsonProperty("testtask")
+    @ApiModelProperty("测试单")
     private Long testtask;
-    /**
-     * 备注
-     */
-    @TableField(exist = false)
-    @JSONField(name = "comment")
-    @JsonProperty("comment")
-    private String comment;
-    /**
-     * 相关任务
-     */
-    @TableField(exist = false)
-    @JSONField(name = "taskname")
-    @JsonProperty("taskname")
-    private String taskname;
-    /**
-     * 模块名称
-     */
-    @TableField(exist = false)
-    @JSONField(name = "modulename")
-    @JsonProperty("modulename")
-    private String modulename;
-    /**
-     * 平台/分支
-     */
-    @TableField(exist = false)
-    @JSONField(name = "branchname")
-    @JsonProperty("branchname")
-    private String branchname;
-    /**
-     * 模块名称
-     */
-    @TableField(exist = false)
-    @JSONField(name = "modulename1")
-    @JsonProperty("modulename1")
-    private String modulename1;
-    /**
-     * 附件
-     */
-    @TableField(exist = false)
-    @JSONField(name = "files")
-    @JsonProperty("files")
-    private String files;
-    /**
-     * 移动端图片
-     */
-    @TableField(exist = false)
-    @JSONField(name = "mobimage")
-    @JsonProperty("mobimage")
-    private String mobimage;
-    /**
-     * 是否收藏
-     */
-    @TableField(exist = false)
-    @JSONField(name = "isfavorites")
-    @JsonProperty("isfavorites")
-    private String isfavorites;
-    /**
-     * 版本名称
-     */
-    @TableField(exist = false)
-    @JSONField(name = "buildname")
-    @JsonProperty("buildname")
-    private String buildname;
-    /**
-     * 版本项目
-     */
-    @TableField(exist = false)
-    @JSONField(name = "buildproject")
-    @JsonProperty("buildproject")
-    private String buildproject;
-    /**
-     * 创建版本
-     */
-    @TableField(exist = false)
-    @JSONField(name = "createbuild")
-    @JsonProperty("createbuild")
-    private Integer createbuild;
-    /**
-     * 过期天数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "overduebugs")
-    @JsonProperty("overduebugs")
-    private Integer overduebugs;
-    /**
-     * 相关用例
-     */
-    @TableField(exist = false)
-    @JSONField(name = "casename")
-    @JsonProperty("casename")
-    private String casename;
-    /**
-     * 延期
-     */
-    @TableField(exist = false)
-    @JSONField(name = "delay")
-    @JsonProperty("delay")
-    private String delay;
-    /**
-     * 消息通知用户
-     */
-    @TableField(exist = false)
-    @JSONField(name = "noticeusers")
-    @JsonProperty("noticeusers")
-    private String noticeusers;
-    /**
-     * 抄送给
-     */
-    @TableField(exist = false)
-    @JSONField(name = "mailtopk")
-    @JsonProperty("mailtopk")
-    private String mailtopk;
-    /**
-     * 联系人
-     */
-    @TableField(exist = false)
-    @JSONField(name = "mailtoconact")
-    @JsonProperty("mailtoconact")
-    private String mailtoconact;
-    /**
-     * 延期解决
-     */
-    @TableField(exist = false)
-    @JSONField(name = "delayresolve")
-    @JsonProperty("delayresolve")
-    private String delayresolve;
 
     /**
      * 

@@ -73,7 +73,7 @@ public class IBIZProPluginResource {
 		IBIZProPlugin domain  = ibizpropluginMapping.toDomain(ibizproplugindto);
         domain .setIbizpropluginid(ibizproplugin_id);
 		ibizpropluginService.update(domain );
-		IBIZProPluginDTO dto = ibizpropluginMapping.toDto(domain );
+		IBIZProPluginDTO dto = ibizpropluginMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
@@ -111,8 +111,9 @@ public class IBIZProPluginResource {
 
     @ApiOperation(value = "获取系统插件草稿", tags = {"系统插件" },  notes = "获取系统插件草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/ibizproplugins/getdraft")
-    public ResponseEntity<IBIZProPluginDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(ibizpropluginMapping.toDto(ibizpropluginService.getDraft(new IBIZProPlugin())));
+    public ResponseEntity<IBIZProPluginDTO> getDraft(IBIZProPluginDTO dto) {
+        IBIZProPlugin domain = ibizpropluginMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(ibizpropluginMapping.toDto(ibizpropluginService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查系统插件", tags = {"系统插件" },  notes = "检查系统插件")
@@ -124,8 +125,10 @@ public class IBIZProPluginResource {
     @PreAuthorize("hasPermission(this.ibizpropluginMapping.toDomain(#ibizproplugindto),'pms-IBIZProPlugin-Save')")
     @ApiOperation(value = "保存系统插件", tags = {"系统插件" },  notes = "保存系统插件")
 	@RequestMapping(method = RequestMethod.POST, value = "/ibizproplugins/save")
-    public ResponseEntity<Boolean> save(@RequestBody IBIZProPluginDTO ibizproplugindto) {
-        return ResponseEntity.status(HttpStatus.OK).body(ibizpropluginService.save(ibizpropluginMapping.toDomain(ibizproplugindto)));
+    public ResponseEntity<IBIZProPluginDTO> save(@RequestBody IBIZProPluginDTO ibizproplugindto) {
+        IBIZProPlugin domain = ibizpropluginMapping.toDomain(ibizproplugindto);
+        ibizpropluginService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(ibizpropluginMapping.toDto(domain));
     }
 
     @PreAuthorize("hasPermission(this.ibizpropluginMapping.toDomain(#ibizproplugindtos),'pms-IBIZProPlugin-Save')")
@@ -157,6 +160,7 @@ public class IBIZProPluginResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(ibizpropluginMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
 
 
 }

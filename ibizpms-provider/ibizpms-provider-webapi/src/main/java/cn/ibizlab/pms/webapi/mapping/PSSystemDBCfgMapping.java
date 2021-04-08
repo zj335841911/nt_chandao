@@ -12,4 +12,3 @@ public interface PSSystemDBCfgMapping extends MappingBase<PSSystemDBCfgDTO, PSSy
 
 
 }
-

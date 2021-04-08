@@ -74,7 +74,7 @@ export class MainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_ud4ae5d7_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u74e6149_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -102,7 +102,7 @@ export class MainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u4c7125d_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u0feedf0_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -130,7 +130,7 @@ export class MainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_uc4a3f1b_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_udbe88f7_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -512,13 +512,13 @@ export class MainGridBase extends GridControlBase {
 	public uiAction(row: any, tag: any, $event: any): void {
         $event.stopPropagation();
         if(Object.is('linkCaseDash', tag)) {
-            this.grid_uagridcolumn1_ud4ae5d7_click(row, tag, $event);
+            this.grid_uagridcolumn1_u74e6149_click(row, tag, $event);
         }
         if(Object.is('EditsuiteDash', tag)) {
-            this.grid_uagridcolumn1_u4c7125d_click(row, tag, $event);
+            this.grid_uagridcolumn1_u0feedf0_click(row, tag, $event);
         }
         if(Object.is('DeleteDash', tag)) {
-            this.grid_uagridcolumn1_uc4a3f1b_click(row, tag, $event);
+            this.grid_uagridcolumn1_udbe88f7_click(row, tag, $event);
         }
     }
 

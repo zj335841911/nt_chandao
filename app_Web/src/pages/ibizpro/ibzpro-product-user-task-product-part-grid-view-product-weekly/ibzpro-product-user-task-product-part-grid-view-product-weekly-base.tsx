@@ -1,6 +1,6 @@
 
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { GridView9Base } from '@/studio-core';
 import IbzproProductUserTaskService from '@/service/ibzpro-product-user-task/ibzpro-product-user-task-service';
 import IbzproProductUserTaskAuthService from '@/authservice/ibzpro-product-user-task/ibzpro-product-user-task-auth-service';
@@ -105,7 +105,7 @@ export class IbzproProductUserTaskProductPartGridViewProductWeeklyBase extends G
      * @type {string}
      * @memberof IbzproProductUserTaskProductPartGridViewProductWeeklyBase
      */
-	protected viewtag: string = 'b0858b3700cc6146837e0f3a1bf949e9';
+	protected viewtag: string = '9c05690154dbe71f2c7505c22ec8419c';
 
     /**
      * 视图名称

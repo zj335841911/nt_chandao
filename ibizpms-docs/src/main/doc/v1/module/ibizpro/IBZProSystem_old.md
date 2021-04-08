@@ -11,8 +11,8 @@
 | --------   |------------| -----   |  -------- | 
 |运行生产系统标识|IBZPRO_SYSTEMID|GUID|&nbsp;|
 |运行生产系统名称|IBZPRO_SYSTEMNAME|TEXT|&nbsp;|
-|建立人|CREATEMAN|TEXT|&nbsp;|
 |更新人|UPDATEMAN|TEXT|&nbsp;|
+|建立人|CREATEMAN|TEXT|&nbsp;|
 |建立时间|CREATEDATE|DATETIME|&nbsp;|
 |更新时间|UPDATEDATE|DATETIME|&nbsp;|
 
@@ -21,8 +21,8 @@
 | --------   |------------| ----- | 
 |运行生产系统标识|默认规则|内容长度必须小于等于[100]|
 |运行生产系统名称|默认规则|内容长度必须小于等于[200]|
-|建立人|默认规则|内容长度必须小于等于[60]|
 |更新人|默认规则|内容长度必须小于等于[60]|
+|建立人|默认规则|内容长度必须小于等于[60]|
 |建立时间|默认规则|默认规则|
 |更新时间|默认规则|默认规则|
 
@@ -51,7 +51,7 @@
 
 | 查询编号 | 查询名称       | 默认查询 |   备注|
 | --------  | --------   | --------   | ----- |
-|DEFAULT|数据查询([MYSQL5](../../appendix/query_MYSQL5.md#IBZProSystem_Default))|否|&nbsp;|
+|DEFAULT|数据查询([MYSQL5](../../appendix/query_MYSQL5.md#IBZProSystem_Default))|是|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#IBZProSystem_View))|否|&nbsp;|
 
 * **数据集合**

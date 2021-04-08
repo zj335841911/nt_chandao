@@ -12,4 +12,3 @@ public interface IBzDocMapping extends MappingBase<IBzDocDTO, IBzDoc> {
 
 
 }
-

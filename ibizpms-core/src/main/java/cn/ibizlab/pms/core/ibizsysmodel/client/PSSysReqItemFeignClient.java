@@ -24,14 +24,14 @@ public interface PSSysReqItemFeignClient {
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/pssysreqitems")
-    PSSysReqItem create(@RequestBody PSSysReqItem pssysreqitem);
+    PSSysReqItem create(@RequestBody PSSysReqItem et);
 
     @RequestMapping(method = RequestMethod.POST, value = "/pssysreqitems/batch")
     Boolean createBatch(@RequestBody List<PSSysReqItem> pssysreqitems);
 
 
     @RequestMapping(method = RequestMethod.PUT, value = "/pssysreqitems/{pssysreqitemid}")
-    PSSysReqItem update(@PathVariable("pssysreqitemid") String pssysreqitemid, @RequestBody PSSysReqItem pssysreqitem);
+    PSSysReqItem update(@PathVariable("pssysreqitemid") String pssysreqitemid, @RequestBody PSSysReqItem et);
 
     @RequestMapping(method = RequestMethod.PUT, value = "/pssysreqitems/batch")
     Boolean updateBatch(@RequestBody List<PSSysReqItem> pssysreqitems);
@@ -52,15 +52,17 @@ public interface PSSysReqItemFeignClient {
 
 
     @RequestMapping(method = RequestMethod.GET, value = "/pssysreqitems/getdraft")
-    PSSysReqItem getDraft();
+    PSSysReqItem getDraft(PSSysReqItem entity);
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/pssysreqitems/checkkey")
-    Boolean checkKey(@RequestBody PSSysReqItem pssysreqitem);
+    Boolean checkKey(@RequestBody PSSysReqItem et);
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/pssysreqitems/save")
-    Boolean save(@RequestBody PSSysReqItem pssysreqitem);
+    Object saveEntity(@RequestBody PSSysReqItem et);
+
+    default Boolean save(@RequestBody PSSysReqItem et) { return saveEntity(et)!=null; }
 
     @RequestMapping(method = RequestMethod.POST, value = "/pssysreqitems/savebatch")
     Boolean saveBatch(@RequestBody List<PSSysReqItem> pssysreqitems);

@@ -1,3 +1,4 @@
+import { Environment } from '@/environments/environment';
 import { Http } from '@/utils';
 import { Util } from '@/utils';
 import EntityService from '../entity-service';
@@ -49,7 +50,7 @@ export default class ProductLineServiceBase extends EntityService {
      * @memberof ProductLineServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().get(`/productlines/${context.productline}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/productlines/${context.productline}/select`,isloading);
             
             return res;
     }
@@ -105,7 +106,7 @@ export default class ProductLineServiceBase extends EntityService {
      * @memberof ProductLineServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().delete(`/productlines/${context.productline}`,isloading);
+            let res:any = await Http.getInstance().delete(`/productlines/${context.productline}`,isloading);
             return res;
     }
 
@@ -134,7 +135,10 @@ export default class ProductLineServiceBase extends EntityService {
      * @memberof ProductLineServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/productlines/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.productline) delete tempData.productline;
+        if(tempData.productlineid) delete tempData.productlineid;
+        let res:any = await  Http.getInstance().get(`/productlines/getdraft`,tempData,isloading);
         res.data.productline = data.productline;
         
         return res;
@@ -150,7 +154,7 @@ export default class ProductLineServiceBase extends EntityService {
      * @memberof ProductLineServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/productlines/${context.productline}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/productlines/${context.productline}/checkkey`,data,isloading);
             return res;
     }
 
@@ -182,7 +186,7 @@ export default class ProductLineServiceBase extends EntityService {
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/productlines/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/productlines/fetchdefault`,tempData,isloading);
         return res;
     }
 

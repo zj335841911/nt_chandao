@@ -34,6 +34,13 @@ public class BugSearchContext extends QueryWrapperContext<Bug> {
             this.getSearchCond().eq("`severity`", n_severity_eq);
         }
     }
+	private Integer n_overduebugs_lt;//[过期天数]
+	public void setN_overduebugs_lt(Integer n_overduebugs_lt) {
+        this.n_overduebugs_lt = n_overduebugs_lt;
+        if(!ObjectUtils.isEmpty(this.n_overduebugs_lt)){
+            this.getSearchCond().lt("`overduebugs`", n_overduebugs_lt);
+        }
+    }
 	private String n_assignedto_eq;//[指派给]
 	public void setN_assignedto_eq(String n_assignedto_eq) {
         this.n_assignedto_eq = n_assignedto_eq;
@@ -85,8 +92,8 @@ public class BugSearchContext extends QueryWrapperContext<Bug> {
             this.getSearchCond().ge("`assigneddate`", n_assigneddate_gtandeq);
         }
     }
-    @JsonFormat(pattern="yyyy-MM-dd", timezone="GMT+8")
-    @JSONField(format="yyyy-MM-dd")
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone="GMT+8")
+    @JSONField(format="yyyy-MM-dd HH:mm:ss")
 	private Timestamp n_deadline_gtandeq;//[截止日期]
 	public void setN_deadline_gtandeq(Timestamp n_deadline_gtandeq) {
         this.n_deadline_gtandeq = n_deadline_gtandeq;
@@ -94,8 +101,8 @@ public class BugSearchContext extends QueryWrapperContext<Bug> {
             this.getSearchCond().ge("`deadline`", n_deadline_gtandeq);
         }
     }
-    @JsonFormat(pattern="yyyy-MM-dd", timezone="GMT+8")
-    @JSONField(format="yyyy-MM-dd")
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone="GMT+8")
+    @JSONField(format="yyyy-MM-dd HH:mm:ss")
 	private Timestamp n_deadline_lt;//[截止日期]
 	public void setN_deadline_lt(Timestamp n_deadline_lt) {
         this.n_deadline_lt = n_deadline_lt;
@@ -103,8 +110,8 @@ public class BugSearchContext extends QueryWrapperContext<Bug> {
             this.getSearchCond().lt("`deadline`", n_deadline_lt);
         }
     }
-    @JsonFormat(pattern="yyyy-MM-dd", timezone="GMT+8")
-    @JSONField(format="yyyy-MM-dd")
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone="GMT+8")
+    @JSONField(format="yyyy-MM-dd HH:mm:ss")
 	private Timestamp n_deadline_ltandeq;//[截止日期]
 	public void setN_deadline_ltandeq(Timestamp n_deadline_ltandeq) {
         this.n_deadline_ltandeq = n_deadline_ltandeq;
@@ -147,6 +154,13 @@ public class BugSearchContext extends QueryWrapperContext<Bug> {
         this.n_status_noteq = n_status_noteq;
         if(!ObjectUtils.isEmpty(this.n_status_noteq)){
             this.getSearchCond().ne("`status`", n_status_noteq);
+        }
+    }
+	private String n_buildproject_eq;//[版本项目]
+	public void setN_buildproject_eq(String n_buildproject_eq) {
+        this.n_buildproject_eq = n_buildproject_eq;
+        if(!ObjectUtils.isEmpty(this.n_buildproject_eq)){
+            this.getSearchCond().eq("`buildproject`", n_buildproject_eq);
         }
     }
 	private Long n_id_eq;//[Bug编号]
@@ -212,6 +226,34 @@ public class BugSearchContext extends QueryWrapperContext<Bug> {
             this.getSearchCond().like("`productname`", n_productname_like);
         }
     }
+	private String n_branchname_eq;//[平台/分支]
+	public void setN_branchname_eq(String n_branchname_eq) {
+        this.n_branchname_eq = n_branchname_eq;
+        if(!ObjectUtils.isEmpty(this.n_branchname_eq)){
+            this.getSearchCond().eq("`branchname`", n_branchname_eq);
+        }
+    }
+	private String n_branchname_like;//[平台/分支]
+	public void setN_branchname_like(String n_branchname_like) {
+        this.n_branchname_like = n_branchname_like;
+        if(!ObjectUtils.isEmpty(this.n_branchname_like)){
+            this.getSearchCond().like("`branchname`", n_branchname_like);
+        }
+    }
+	private String n_taskname_eq;//[相关任务]
+	public void setN_taskname_eq(String n_taskname_eq) {
+        this.n_taskname_eq = n_taskname_eq;
+        if(!ObjectUtils.isEmpty(this.n_taskname_eq)){
+            this.getSearchCond().eq("`taskname`", n_taskname_eq);
+        }
+    }
+	private String n_taskname_like;//[相关任务]
+	public void setN_taskname_like(String n_taskname_like) {
+        this.n_taskname_like = n_taskname_like;
+        if(!ObjectUtils.isEmpty(this.n_taskname_like)){
+            this.getSearchCond().like("`taskname`", n_taskname_like);
+        }
+    }
 	private String n_projectname_eq;//[项目]
 	public void setN_projectname_eq(String n_projectname_eq) {
         this.n_projectname_eq = n_projectname_eq;
@@ -238,6 +280,20 @@ public class BugSearchContext extends QueryWrapperContext<Bug> {
         this.n_storyname_like = n_storyname_like;
         if(!ObjectUtils.isEmpty(this.n_storyname_like)){
             this.getSearchCond().like("`storyname`", n_storyname_like);
+        }
+    }
+	private String n_modulename_eq;//[模块名称]
+	public void setN_modulename_eq(String n_modulename_eq) {
+        this.n_modulename_eq = n_modulename_eq;
+        if(!ObjectUtils.isEmpty(this.n_modulename_eq)){
+            this.getSearchCond().eq("`modulename`", n_modulename_eq);
+        }
+    }
+	private String n_modulename_like;//[模块名称]
+	public void setN_modulename_like(String n_modulename_like) {
+        this.n_modulename_like = n_modulename_like;
+        if(!ObjectUtils.isEmpty(this.n_modulename_like)){
+            this.getSearchCond().like("`modulename`", n_modulename_like);
         }
     }
 	private Long n_tostory_eq;//[转需求]
@@ -338,62 +394,6 @@ public class BugSearchContext extends QueryWrapperContext<Bug> {
             this.getSearchCond().eq("`testtask`", n_testtask_eq);
         }
     }
-	private String n_taskname_eq;//[相关任务]
-	public void setN_taskname_eq(String n_taskname_eq) {
-        this.n_taskname_eq = n_taskname_eq;
-        if(!ObjectUtils.isEmpty(this.n_taskname_eq)){
-            this.getSearchCond().eq("`taskname`", n_taskname_eq);
-        }
-    }
-	private String n_taskname_like;//[相关任务]
-	public void setN_taskname_like(String n_taskname_like) {
-        this.n_taskname_like = n_taskname_like;
-        if(!ObjectUtils.isEmpty(this.n_taskname_like)){
-            this.getSearchCond().like("`taskname`", n_taskname_like);
-        }
-    }
-	private String n_modulename_eq;//[模块名称]
-	public void setN_modulename_eq(String n_modulename_eq) {
-        this.n_modulename_eq = n_modulename_eq;
-        if(!ObjectUtils.isEmpty(this.n_modulename_eq)){
-            this.getSearchCond().eq("`modulename`", n_modulename_eq);
-        }
-    }
-	private String n_modulename_like;//[模块名称]
-	public void setN_modulename_like(String n_modulename_like) {
-        this.n_modulename_like = n_modulename_like;
-        if(!ObjectUtils.isEmpty(this.n_modulename_like)){
-            this.getSearchCond().like("`modulename`", n_modulename_like);
-        }
-    }
-	private String n_branchname_eq;//[平台/分支]
-	public void setN_branchname_eq(String n_branchname_eq) {
-        this.n_branchname_eq = n_branchname_eq;
-        if(!ObjectUtils.isEmpty(this.n_branchname_eq)){
-            this.getSearchCond().eq("`branchname`", n_branchname_eq);
-        }
-    }
-	private String n_branchname_like;//[平台/分支]
-	public void setN_branchname_like(String n_branchname_like) {
-        this.n_branchname_like = n_branchname_like;
-        if(!ObjectUtils.isEmpty(this.n_branchname_like)){
-            this.getSearchCond().like("`branchname`", n_branchname_like);
-        }
-    }
-	private String n_buildproject_eq;//[版本项目]
-	public void setN_buildproject_eq(String n_buildproject_eq) {
-        this.n_buildproject_eq = n_buildproject_eq;
-        if(!ObjectUtils.isEmpty(this.n_buildproject_eq)){
-            this.getSearchCond().eq("`buildproject`", n_buildproject_eq);
-        }
-    }
-	private Integer n_overduebugs_lt;//[过期天数]
-	public void setN_overduebugs_lt(Integer n_overduebugs_lt) {
-        this.n_overduebugs_lt = n_overduebugs_lt;
-        if(!ObjectUtils.isEmpty(this.n_overduebugs_lt)){
-            this.getSearchCond().lt("`overduebugs`", n_overduebugs_lt);
-        }
-    }
 
     /**
 	 * 启用快速搜索
@@ -404,7 +404,8 @@ public class BugSearchContext extends QueryWrapperContext<Bug> {
 		 this.query=query;
 		 if(!StringUtils.isEmpty(query)){
             this.getSearchCond().and( wrapper ->
-                     wrapper.like("`title`", query)
+                     wrapper.like("`id`", query)
+                        .or().like("`title`", query)
             );
 		 }
 	}

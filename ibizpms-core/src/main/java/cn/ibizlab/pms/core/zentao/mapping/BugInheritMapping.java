@@ -34,5 +34,3 @@ public interface BugInheritMapping {
     List<Bug> toBug(List<IbizproIndex> majorEntities);
 
 }
-
-

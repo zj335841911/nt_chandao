@@ -1,32 +1,32 @@
 import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
-    ibzreportlyid: "汇报标识",
-    ibzreportlyname: "汇报名称",
+    files: "附件",
+    account: "用户",
     updateman: "更新人",
     createdate: "建立时间",
+    mailto: "抄送给",
+    ibzreportlyid: "汇报标识",
+    ibzreportlyname: "汇报名称",
+    reportstatus: "状态",
+    submittime: "提交时间",
+    reporttopk: "汇报给（选择）",
+    reportto: "汇报给",
     createman: "建立人",
+    issubmit: "是否提交",
     updatedate: "更新时间",
     content: "工作内容",
-    files: "附件",
-    reportto: "汇报给",
-    mailto: "抄送给",
     date: "汇报日期",
-    issubmit: "是否提交",
-    submittime: "提交时间",
-    account: "用户",
-    reportstatus: "状态",
-    reporttopk: "汇报给（选择）",
     mailtopk: "抄送给（选择）",
   },
 	views: {
-		reportlymobmdview: {
-			caption: commonLogic.appcommonhandle("汇报",null),
-		},
 		maininfomobeditview: {
 			caption: commonLogic.appcommonhandle("汇报",null),
 		},
 		createmobeditview: {
+			caption: commonLogic.appcommonhandle("汇报",null),
+		},
+		reportlymobmdview: {
 			caption: commonLogic.appcommonhandle("汇报",null),
 		},
 		mobeditview: {

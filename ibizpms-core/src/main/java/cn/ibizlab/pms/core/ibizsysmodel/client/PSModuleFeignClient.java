@@ -24,14 +24,14 @@ public interface PSModuleFeignClient {
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/psmodules")
-    PSModule create(@RequestBody PSModule psmodule);
+    PSModule create(@RequestBody PSModule et);
 
     @RequestMapping(method = RequestMethod.POST, value = "/psmodules/batch")
     Boolean createBatch(@RequestBody List<PSModule> psmodules);
 
 
     @RequestMapping(method = RequestMethod.PUT, value = "/psmodules/{psmoduleid}")
-    PSModule update(@PathVariable("psmoduleid") String psmoduleid, @RequestBody PSModule psmodule);
+    PSModule update(@PathVariable("psmoduleid") String psmoduleid, @RequestBody PSModule et);
 
     @RequestMapping(method = RequestMethod.PUT, value = "/psmodules/batch")
     Boolean updateBatch(@RequestBody List<PSModule> psmodules);
@@ -52,15 +52,17 @@ public interface PSModuleFeignClient {
 
 
     @RequestMapping(method = RequestMethod.GET, value = "/psmodules/getdraft")
-    PSModule getDraft();
+    PSModule getDraft(PSModule entity);
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/psmodules/checkkey")
-    Boolean checkKey(@RequestBody PSModule psmodule);
+    Boolean checkKey(@RequestBody PSModule et);
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/psmodules/save")
-    Boolean save(@RequestBody PSModule psmodule);
+    Object saveEntity(@RequestBody PSModule et);
+
+    default Boolean save(@RequestBody PSModule et) { return saveEntity(et)!=null; }
 
     @RequestMapping(method = RequestMethod.POST, value = "/psmodules/savebatch")
     Boolean saveBatch(@RequestBody List<PSModule> psmodules);

@@ -335,42 +335,42 @@ POST
 #### IbzReportDTO
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
-| 1 | updatedate | Timestamp | 不可 | 更新时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
-| 2 | worktoday | String | 允许 | 工作 |
-| 3 | todaytask | String | 允许 | 完成任务 |
-| 4 | tomorrowplanstask | String | 允许 | 计划任务 |
-| 5 | createman | String | 不可 | 建立人 |
-| 6 | reportto | String | 允许 | 汇报给 |
-| 7 | createdate | Timestamp | 不可 | 建立时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
-| 8 | date | Timestamp | 允许 | 日期<br>时间格式：yyyy-MM-dd |
-| 9 | issubmit | String | 允许 | 是否提交 |
-| 10 | updatemanname | String | 不可 | 更新人名称 |
-| 11 | files | String | 允许 | 附件 |
-| 12 | updateman | String | 不可 | 更新人 |
-| 13 | reportstatus | String | 允许 | 状态 |
-| 14 | comment | String | 允许 | 其他事项 |
-| 15 | mailto | String | 允许 | 抄送给 |
-| 16 | ibzdailyid | Long | 不可 | 汇报标识 |
-| 17 | planstomorrow | String | 允许 | 计划 |
-| 18 | account | String | 允许 | 用户 |
+| 1 | updatemanname | String | 不可 | 更新人名称 |
+| 2 | mailto | String | 允许 | 抄送给 |
+| 3 | ibzdailyid | Long | 不可 | 汇报标识 |
+| 4 | reportlycnt | Integer | 允许 | 未读汇报数 |
+| 5 | updatedate | Timestamp | 不可 | 更新时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
+| 6 | worktoday | String | 允许 | 工作 |
+| 7 | monthlycnt | Integer | 允许 | 未读月报数 |
+| 8 | dailycnt | Integer | 允许 | 未读日报数 |
+| 9 | createdate | Timestamp | 不可 | 建立时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
+| 10 | todaytask | String | 允许 | 完成任务 |
+| 11 | account | String | 允许 | 用户 |
+| 12 | type | String | 允许 | 类型 |
+| 13 | createman | String | 不可 | 建立人 |
+| 14 | updateman | String | 不可 | 更新人 |
+| 15 | ibzdailyname | String | 允许 | 汇报名称 |
+| 16 | reportto | String | 允许 | 汇报给 |
+| 17 | submittime | String | 允许 | 提交时间 |
+| 18 | files | String | 允许 | 附件 |
 | 19 | createmanname | String | 不可 | 建立人名称 |
-| 20 | ibzdailyname | String | 允许 | 汇报名称 |
-| 21 | type | String | 允许 | 类型 |
-| 22 | dailycnt | Integer | 允许 | 未读日报数 |
-| 23 | monthlycnt | Integer | 允许 | 未读月报数 |
-| 24 | submittime | String | 允许 | 提交时间 |
-| 25 | reportlycnt | Integer | 允许 | 未读汇报数 |
+| 20 | planstomorrow | String | 允许 | 计划 |
+| 21 | reportstatus | String | 允许 | 状态 |
+| 22 | date | Timestamp | 允许 | 日期<br>时间格式：yyyy-MM-dd |
+| 23 | issubmit | String | 允许 | 是否提交 |
+| 24 | comment | String | 允许 | 其他事项 |
+| 25 | tomorrowplanstask | String | 允许 | 计划任务 |
 | 26 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### IbzReportSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
-| 1 | n_reportto_eq | String | 允许 | 条件字段：reportto<br>条件组合方式：`=` |
-| 2 | n_issubmit_eq | String | 允许 | 条件字段：issubmit<br>条件组合方式：`=` |
-| 3 | n_reportstatus_eq | String | 允许 | 条件字段：reportstatus<br>条件组合方式：`=` |
-| 4 | n_account_eq | String | 允许 | 条件字段：account<br>条件组合方式：`=` |
-| 5 | n_ibz_dailyname_like | String | 允许 | 条件字段：ibz_dailyname<br>条件组合方式：`%like%` |
-| 6 | n_type_eq | String | 允许 | 条件字段：type<br>条件组合方式：`=` |
+| 1 | n_account_eq | String | 允许 | 条件字段：account<br>条件组合方式：`=` |
+| 2 | n_type_eq | String | 允许 | 条件字段：type<br>条件组合方式：`=` |
+| 3 | n_ibz_dailyname_like | String | 允许 | 条件字段：ibz_dailyname<br>条件组合方式：`%like%` |
+| 4 | n_reportto_eq | String | 允许 | 条件字段：reportto<br>条件组合方式：`=` |
+| 5 | n_reportstatus_eq | String | 允许 | 条件字段：reportstatus<br>条件组合方式：`=` |
+| 6 | n_issubmit_eq | String | 允许 | 条件字段：issubmit<br>条件组合方式：`=` |
 | 7 | customcond | String | 允许 | 自定义查询条件 |
 | 8 | customparams | String | 允许 | 自定义查询参数 |
 | 9 | query | String | 允许 | 快速搜索 |

@@ -15,19 +15,19 @@ export default class DEFAULTModel {
 	public getDataItems(): any[] {
 		return [
 			{
-				name: 'old',
+				name: 'field',
 			},
 			{
 				name: 'ibiznew',
 			},
 			{
-				name: 'diff',
-			},
-			{
 				name: 'id',
 			},
 			{
-				name: 'field',
+				name: 'old',
+			},
+			{
+				name: 'diff',
 			},
 			{
 				name: 'action',

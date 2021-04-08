@@ -12,4 +12,3 @@ public interface GroupMapping extends MappingBase<GroupDTO, Group> {
 
 
 }
-

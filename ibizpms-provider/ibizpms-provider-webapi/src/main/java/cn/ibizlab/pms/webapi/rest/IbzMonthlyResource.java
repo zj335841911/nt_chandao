@@ -73,7 +73,7 @@ public class IbzMonthlyResource {
 		IbzMonthly domain  = ibzmonthlyMapping.toDomain(ibzmonthlydto);
         domain .setIbzmonthlyid(ibzmonthly_id);
 		ibzmonthlyService.update(domain );
-		IbzMonthlyDTO dto = ibzmonthlyMapping.toDto(domain );
+		IbzMonthlyDTO dto = ibzmonthlyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
@@ -111,8 +111,9 @@ public class IbzMonthlyResource {
 
     @ApiOperation(value = "获取月报草稿", tags = {"月报" },  notes = "获取月报草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/ibzmonthlies/getdraft")
-    public ResponseEntity<IbzMonthlyDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(ibzmonthlyMapping.toDto(ibzmonthlyService.getDraft(new IbzMonthly())));
+    public ResponseEntity<IbzMonthlyDTO> getDraft(IbzMonthlyDTO dto) {
+        IbzMonthly domain = ibzmonthlyMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(ibzmonthlyMapping.toDto(ibzmonthlyService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查月报", tags = {"月报" },  notes = "检查月报")
@@ -133,9 +134,11 @@ public class IbzMonthlyResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMonthly-CreateGetInfo-all')")
     @ApiOperation(value = "批量处理[新建时获取信息]", tags = {"月报" },  notes = "批量处理[新建时获取信息]")
-	@RequestMapping(method = RequestMethod.POST, value = "/ibzmonthlies/{ibzmonthly_id}/creategetinfobatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/ibzmonthlies/creategetinfobatch")
     public ResponseEntity<Boolean> createGetInfoBatch(@RequestBody List<IbzMonthlyDTO> ibzmonthlydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(ibzmonthlyService.createGetInfoBatch(ibzmonthlyMapping.toDomain(ibzmonthlydtos)));
+        List<IbzMonthly> domains = ibzmonthlyMapping.toDomain(ibzmonthlydtos);
+        boolean result = ibzmonthlyService.createGetInfoBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMonthly-CreateUserMonthly-all')")
@@ -150,9 +153,11 @@ public class IbzMonthlyResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMonthly-CreateUserMonthly-all')")
     @ApiOperation(value = "批量处理[定时生成用户月报]", tags = {"月报" },  notes = "批量处理[定时生成用户月报]")
-	@RequestMapping(method = RequestMethod.POST, value = "/ibzmonthlies/{ibzmonthly_id}/createusermonthlybatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/ibzmonthlies/createusermonthlybatch")
     public ResponseEntity<Boolean> createUserMonthlyBatch(@RequestBody List<IbzMonthlyDTO> ibzmonthlydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(ibzmonthlyService.createUserMonthlyBatch(ibzmonthlyMapping.toDomain(ibzmonthlydtos)));
+        List<IbzMonthly> domains = ibzmonthlyMapping.toDomain(ibzmonthlydtos);
+        boolean result = ibzmonthlyService.createUserMonthlyBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMonthly-EditGetCompleteTask-all')")
@@ -167,9 +172,11 @@ public class IbzMonthlyResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMonthly-EditGetCompleteTask-all')")
     @ApiOperation(value = "批量处理[编辑时获取完成任务]", tags = {"月报" },  notes = "批量处理[编辑时获取完成任务]")
-	@RequestMapping(method = RequestMethod.POST, value = "/ibzmonthlies/{ibzmonthly_id}/editgetcompletetaskbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/ibzmonthlies/editgetcompletetaskbatch")
     public ResponseEntity<Boolean> editGetCompleteTaskBatch(@RequestBody List<IbzMonthlyDTO> ibzmonthlydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(ibzmonthlyService.editGetCompleteTaskBatch(ibzmonthlyMapping.toDomain(ibzmonthlydtos)));
+        List<IbzMonthly> domains = ibzmonthlyMapping.toDomain(ibzmonthlydtos);
+        boolean result = ibzmonthlyService.editGetCompleteTaskBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMonthly-HaveRead-all')")
@@ -184,9 +191,11 @@ public class IbzMonthlyResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMonthly-HaveRead-all')")
     @ApiOperation(value = "批量处理[已读]", tags = {"月报" },  notes = "批量处理[已读]")
-	@RequestMapping(method = RequestMethod.POST, value = "/ibzmonthlies/{ibzmonthly_id}/havereadbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/ibzmonthlies/havereadbatch")
     public ResponseEntity<Boolean> haveReadBatch(@RequestBody List<IbzMonthlyDTO> ibzmonthlydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(ibzmonthlyService.haveReadBatch(ibzmonthlyMapping.toDomain(ibzmonthlydtos)));
+        List<IbzMonthly> domains = ibzmonthlyMapping.toDomain(ibzmonthlydtos);
+        boolean result = ibzmonthlyService.haveReadBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMonthly-PushUserMonthly-all')")
@@ -201,16 +210,20 @@ public class IbzMonthlyResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMonthly-PushUserMonthly-all')")
     @ApiOperation(value = "批量处理[定时推送待阅提醒用户月报]", tags = {"月报" },  notes = "批量处理[定时推送待阅提醒用户月报]")
-	@RequestMapping(method = RequestMethod.POST, value = "/ibzmonthlies/{ibzmonthly_id}/pushusermonthlybatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/ibzmonthlies/pushusermonthlybatch")
     public ResponseEntity<Boolean> pushUserMonthlyBatch(@RequestBody List<IbzMonthlyDTO> ibzmonthlydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(ibzmonthlyService.pushUserMonthlyBatch(ibzmonthlyMapping.toDomain(ibzmonthlydtos)));
+        List<IbzMonthly> domains = ibzmonthlyMapping.toDomain(ibzmonthlydtos);
+        boolean result = ibzmonthlyService.pushUserMonthlyBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasPermission(this.ibzmonthlyMapping.toDomain(#ibzmonthlydto),'pms-IbzMonthly-Save')")
     @ApiOperation(value = "保存月报", tags = {"月报" },  notes = "保存月报")
 	@RequestMapping(method = RequestMethod.POST, value = "/ibzmonthlies/save")
-    public ResponseEntity<Boolean> save(@RequestBody IbzMonthlyDTO ibzmonthlydto) {
-        return ResponseEntity.status(HttpStatus.OK).body(ibzmonthlyService.save(ibzmonthlyMapping.toDomain(ibzmonthlydto)));
+    public ResponseEntity<IbzMonthlyDTO> save(@RequestBody IbzMonthlyDTO ibzmonthlydto) {
+        IbzMonthly domain = ibzmonthlyMapping.toDomain(ibzmonthlydto);
+        ibzmonthlyService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(ibzmonthlyMapping.toDto(domain));
     }
 
     @PreAuthorize("hasPermission(this.ibzmonthlyMapping.toDomain(#ibzmonthlydtos),'pms-IbzMonthly-Save')")
@@ -233,9 +246,11 @@ public class IbzMonthlyResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMonthly-Submit-all')")
     @ApiOperation(value = "批量处理[提交]", tags = {"月报" },  notes = "批量处理[提交]")
-	@RequestMapping(method = RequestMethod.PUT, value = "/ibzmonthlies/{ibzmonthly_id}/submitbatch")
+	@RequestMapping(method = RequestMethod.PUT, value = "/ibzmonthlies/submitbatch")
     public ResponseEntity<Boolean> submitBatch(@RequestBody List<IbzMonthlyDTO> ibzmonthlydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(ibzmonthlyService.submitBatch(ibzmonthlyMapping.toDomain(ibzmonthlydtos)));
+        List<IbzMonthly> domains = ibzmonthlyMapping.toDomain(ibzmonthlydtos);
+        boolean result = ibzmonthlyService.submitBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMonthly-searchDefault-all') and hasPermission(#context,'pms-IbzMonthly-Get')")
@@ -391,6 +406,7 @@ public class IbzMonthlyResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(ibzmonthlyMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
 
 
 }

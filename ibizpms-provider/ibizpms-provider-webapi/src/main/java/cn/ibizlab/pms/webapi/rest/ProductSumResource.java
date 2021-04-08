@@ -72,7 +72,7 @@ public class ProductSumResource {
 		ProductSum domain  = productsumMapping.toDomain(productsumdto);
         domain .setId(productsum_id);
 		productsumService.update(domain );
-		ProductSumDTO dto = productsumMapping.toDto(domain );
+		ProductSumDTO dto = productsumMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
@@ -110,8 +110,9 @@ public class ProductSumResource {
 
     @ApiOperation(value = "获取产品汇总表草稿", tags = {"产品汇总表" },  notes = "获取产品汇总表草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/productsums/getdraft")
-    public ResponseEntity<ProductSumDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(productsumMapping.toDto(productsumService.getDraft(new ProductSum())));
+    public ResponseEntity<ProductSumDTO> getDraft(ProductSumDTO dto) {
+        ProductSum domain = productsumMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(productsumMapping.toDto(productsumService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查产品汇总表", tags = {"产品汇总表" },  notes = "检查产品汇总表")
@@ -123,8 +124,10 @@ public class ProductSumResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductSum-Save-all')")
     @ApiOperation(value = "保存产品汇总表", tags = {"产品汇总表" },  notes = "保存产品汇总表")
 	@RequestMapping(method = RequestMethod.POST, value = "/productsums/save")
-    public ResponseEntity<Boolean> save(@RequestBody ProductSumDTO productsumdto) {
-        return ResponseEntity.status(HttpStatus.OK).body(productsumService.save(productsumMapping.toDomain(productsumdto)));
+    public ResponseEntity<ProductSumDTO> save(@RequestBody ProductSumDTO productsumdto) {
+        ProductSum domain = productsumMapping.toDomain(productsumdto);
+        productsumService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(productsumMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductSum-Save-all')")
@@ -288,6 +291,7 @@ public class ProductSumResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(productsumMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
 
 
 }

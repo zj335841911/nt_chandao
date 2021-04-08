@@ -9,30 +9,30 @@
 
 | 属性名称        |    中文名称    | 类型     |  备注  |
 | --------   |------------| -----   |  -------- | 
-|标识|IBZ_TOPID|GUID|&nbsp;|
 |建立时间|CREATEDATE|DATETIME|&nbsp;|
 |更新人|UPDATEMAN|TEXT|&nbsp;|
-|置顶名称|IBZ_TOPNAME|TEXT|&nbsp;|
-|建立人|CREATEMAN|TEXT|&nbsp;|
-|更新时间|UPDATEDATE|DATETIME|&nbsp;|
-|类型|TYPE|SSCODELIST|&nbsp;类型|
-|数据对象标识|OBJECTID|INT|&nbsp;|
 |排序|OBJECTORDER|INT|&nbsp;|
+|标识|IBZ_TOPID|GUID|&nbsp;|
+|数据对象标识|OBJECTID|INT|&nbsp;|
+|置顶名称|IBZ_TOPNAME|TEXT|&nbsp;|
+|更新时间|UPDATEDATE|DATETIME|&nbsp;|
+|建立人|CREATEMAN|TEXT|&nbsp;|
 |置顶用户|ACCOUNT|SSCODELIST|&nbsp;|
+|类型|TYPE|SSCODELIST|&nbsp;类型|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
 | --------   |------------| ----- | 
-|标识|默认规则|内容长度必须小于等于[100]|
 |建立时间|默认规则|默认规则|
 |更新人|默认规则|内容长度必须小于等于[60]|
-|置顶名称|默认规则|内容长度必须小于等于[200]|
-|建立人|默认规则|内容长度必须小于等于[60]|
-|更新时间|默认规则|默认规则|
-|类型|默认规则|内容长度必须小于等于[60]|
-|数据对象标识|默认规则|默认规则|
 |排序|默认规则|默认规则|
+|标识|默认规则|内容长度必须小于等于[100]|
+|数据对象标识|默认规则|默认规则|
+|置顶名称|默认规则|内容长度必须小于等于[200]|
+|更新时间|默认规则|默认规则|
+|建立人|默认规则|内容长度必须小于等于[60]|
 |置顶用户|默认规则|内容长度必须小于等于[60]|
+|类型|默认规则|内容长度必须小于等于[60]|
 
 ## 状态控制
 
@@ -59,7 +59,7 @@
 
 | 查询编号 | 查询名称       | 默认查询 |   备注|
 | --------  | --------   | --------   | ----- |
-|DEFAULT|数据查询([MYSQL5](../../appendix/query_MYSQL5.md#IbzTop_Default))|否|&nbsp;|
+|DEFAULT|数据查询([MYSQL5](../../appendix/query_MYSQL5.md#IbzTop_Default))|是|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#IbzTop_View))|否|&nbsp;|
 
 * **数据集合**
@@ -72,8 +72,8 @@
 | 属性      |    搜索模式     |
 | --------   |------------|
 |置顶名称(IBZ_TOPNAME)|LIKE|
-|类型(TYPE)|EQ|
 |置顶用户(ACCOUNT)|EQ|
+|类型(TYPE)|EQ|
 
 ## 导入模式
 无

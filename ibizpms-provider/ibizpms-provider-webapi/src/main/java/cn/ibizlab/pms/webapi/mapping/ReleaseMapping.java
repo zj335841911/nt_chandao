@@ -12,4 +12,3 @@ public interface ReleaseMapping extends MappingBase<ReleaseDTO, Release> {
 
 
 }
-

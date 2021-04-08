@@ -12,4 +12,3 @@ public interface UserContactMapping extends MappingBase<UserContactDTO, UserCont
 
 
 }
-

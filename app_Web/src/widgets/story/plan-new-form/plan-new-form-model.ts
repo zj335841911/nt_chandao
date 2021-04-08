@@ -143,12 +143,12 @@ export default class PlanNewModel {
       {
         name: 'spec',
         prop: 'spec',
-        dataType: 'TEXT',
+        dataType: 'HTMLTEXT',
       },
       {
         name: 'verify',
         prop: 'verify',
-        dataType: 'TEXT',
+        dataType: 'LONGTEXT',
       },
       {
         name: 'files',

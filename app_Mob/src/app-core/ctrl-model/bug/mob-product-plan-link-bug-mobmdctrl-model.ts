@@ -15,24 +15,24 @@ export class MOB_ProductPlanLink_BugModel {
 	public getDataItems(): any[] {
 		return [
 			{
-				name: 'pri1',
-				prop: 'pri',
-				dataType: 'NSCODELIST',
-			},
-			{
-				name: 'status',
-			},
-			{
 				name: 'resolution',
 			},
 			{
 				name: 'assignedto',
 			},
 			{
-				name: 'title',
+				name: 'status',
+			},
+			{
+				name: 'pri1',
+				prop: 'pri',
+				dataType: 'NSCODELIST',
 			},
 			{
 				name: 'severity',
+			},
+			{
+				name: 'title',
 			},
 			{
 				name: 'srfkey',

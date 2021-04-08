@@ -30,18 +30,18 @@ export class MobListModel {
 				dataType: 'TEXT',
 			},
 			{
+				name: 'addedby',
+			},
+			{
 				name: 'size',
 				prop: 'strsize',
 				dataType: 'TEXT',
 			},
 			{
-				name: 'strsize',
-			},
-			{
-				name: 'addedby',
-			},
-			{
 				name: 'extension',
+			},
+			{
+				name: 'strsize',
 			},
 			{
 				name: 'srfkey',

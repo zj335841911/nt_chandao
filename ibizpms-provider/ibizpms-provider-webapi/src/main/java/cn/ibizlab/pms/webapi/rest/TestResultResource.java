@@ -72,7 +72,7 @@ public class TestResultResource {
 		TestResult domain  = testresultMapping.toDomain(testresultdto);
         domain .setId(testresult_id);
 		testresultService.update(domain );
-		TestResultDTO dto = testresultMapping.toDto(domain );
+		TestResultDTO dto = testresultMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
@@ -110,8 +110,9 @@ public class TestResultResource {
 
     @ApiOperation(value = "获取测试结果草稿", tags = {"测试结果" },  notes = "获取测试结果草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/testresults/getdraft")
-    public ResponseEntity<TestResultDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(testresultMapping.toDto(testresultService.getDraft(new TestResult())));
+    public ResponseEntity<TestResultDTO> getDraft(TestResultDTO dto) {
+        TestResult domain = testresultMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(testresultMapping.toDto(testresultService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查测试结果", tags = {"测试结果" },  notes = "检查测试结果")
@@ -123,8 +124,10 @@ public class TestResultResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestResult-Save-all')")
     @ApiOperation(value = "保存测试结果", tags = {"测试结果" },  notes = "保存测试结果")
 	@RequestMapping(method = RequestMethod.POST, value = "/testresults/save")
-    public ResponseEntity<Boolean> save(@RequestBody TestResultDTO testresultdto) {
-        return ResponseEntity.status(HttpStatus.OK).body(testresultService.save(testresultMapping.toDomain(testresultdto)));
+    public ResponseEntity<TestResultDTO> save(@RequestBody TestResultDTO testresultdto) {
+        TestResult domain = testresultMapping.toDomain(testresultdto);
+        testresultService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(testresultMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestResult-Save-all')")
@@ -178,6 +181,7 @@ public class TestResultResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(testresultMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
 
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestResult-Create-all')")
@@ -253,8 +257,8 @@ public class TestResultResource {
 
     @ApiOperation(value = "根据测试用例获取测试结果草稿", tags = {"测试结果" },  notes = "根据测试用例获取测试结果草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/cases/{case_id}/testresults/getdraft")
-    public ResponseEntity<TestResultDTO> getDraftByCase(@PathVariable("case_id") Long case_id) {
-        TestResult domain = new TestResult();
+    public ResponseEntity<TestResultDTO> getDraftByCase(@PathVariable("case_id") Long case_id, TestResultDTO dto) {
+        TestResult domain = testresultMapping.toDomain(dto);
         domain.setIbizcase(case_id);
         return ResponseEntity.status(HttpStatus.OK).body(testresultMapping.toDto(testresultService.getDraft(domain)));
     }
@@ -268,10 +272,11 @@ public class TestResultResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestResult-Save-all')")
     @ApiOperation(value = "根据测试用例保存测试结果", tags = {"测试结果" },  notes = "根据测试用例保存测试结果")
 	@RequestMapping(method = RequestMethod.POST, value = "/cases/{case_id}/testresults/save")
-    public ResponseEntity<Boolean> saveByCase(@PathVariable("case_id") Long case_id, @RequestBody TestResultDTO testresultdto) {
+    public ResponseEntity<TestResultDTO> saveByCase(@PathVariable("case_id") Long case_id, @RequestBody TestResultDTO testresultdto) {
         TestResult domain = testresultMapping.toDomain(testresultdto);
         domain.setIbizcase(case_id);
-        return ResponseEntity.status(HttpStatus.OK).body(testresultService.save(domain));
+        testresultService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(testresultMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestResult-Save-all')")
@@ -405,8 +410,8 @@ public class TestResultResource {
 
     @ApiOperation(value = "根据产品测试用例获取测试结果草稿", tags = {"测试结果" },  notes = "根据产品测试用例获取测试结果草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/cases/{case_id}/testresults/getdraft")
-    public ResponseEntity<TestResultDTO> getDraftByProductCase(@PathVariable("product_id") Long product_id, @PathVariable("case_id") Long case_id) {
-        TestResult domain = new TestResult();
+    public ResponseEntity<TestResultDTO> getDraftByProductCase(@PathVariable("product_id") Long product_id, @PathVariable("case_id") Long case_id, TestResultDTO dto) {
+        TestResult domain = testresultMapping.toDomain(dto);
         domain.setIbizcase(case_id);
         return ResponseEntity.status(HttpStatus.OK).body(testresultMapping.toDto(testresultService.getDraft(domain)));
     }
@@ -420,10 +425,11 @@ public class TestResultResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestResult-Save-all')")
     @ApiOperation(value = "根据产品测试用例保存测试结果", tags = {"测试结果" },  notes = "根据产品测试用例保存测试结果")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/cases/{case_id}/testresults/save")
-    public ResponseEntity<Boolean> saveByProductCase(@PathVariable("product_id") Long product_id, @PathVariable("case_id") Long case_id, @RequestBody TestResultDTO testresultdto) {
+    public ResponseEntity<TestResultDTO> saveByProductCase(@PathVariable("product_id") Long product_id, @PathVariable("case_id") Long case_id, @RequestBody TestResultDTO testresultdto) {
         TestResult domain = testresultMapping.toDomain(testresultdto);
         domain.setIbizcase(case_id);
-        return ResponseEntity.status(HttpStatus.OK).body(testresultService.save(domain));
+        testresultService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(testresultMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestResult-Save-all')")
@@ -557,8 +563,8 @@ public class TestResultResource {
 
     @ApiOperation(value = "根据需求测试用例获取测试结果草稿", tags = {"测试结果" },  notes = "根据需求测试用例获取测试结果草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/stories/{story_id}/cases/{case_id}/testresults/getdraft")
-    public ResponseEntity<TestResultDTO> getDraftByStoryCase(@PathVariable("story_id") Long story_id, @PathVariable("case_id") Long case_id) {
-        TestResult domain = new TestResult();
+    public ResponseEntity<TestResultDTO> getDraftByStoryCase(@PathVariable("story_id") Long story_id, @PathVariable("case_id") Long case_id, TestResultDTO dto) {
+        TestResult domain = testresultMapping.toDomain(dto);
         domain.setIbizcase(case_id);
         return ResponseEntity.status(HttpStatus.OK).body(testresultMapping.toDto(testresultService.getDraft(domain)));
     }
@@ -572,10 +578,11 @@ public class TestResultResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestResult-Save-all')")
     @ApiOperation(value = "根据需求测试用例保存测试结果", tags = {"测试结果" },  notes = "根据需求测试用例保存测试结果")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/cases/{case_id}/testresults/save")
-    public ResponseEntity<Boolean> saveByStoryCase(@PathVariable("story_id") Long story_id, @PathVariable("case_id") Long case_id, @RequestBody TestResultDTO testresultdto) {
+    public ResponseEntity<TestResultDTO> saveByStoryCase(@PathVariable("story_id") Long story_id, @PathVariable("case_id") Long case_id, @RequestBody TestResultDTO testresultdto) {
         TestResult domain = testresultMapping.toDomain(testresultdto);
         domain.setIbizcase(case_id);
-        return ResponseEntity.status(HttpStatus.OK).body(testresultService.save(domain));
+        testresultService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(testresultMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestResult-Save-all')")
@@ -709,8 +716,8 @@ public class TestResultResource {
 
     @ApiOperation(value = "根据产品需求测试用例获取测试结果草稿", tags = {"测试结果" },  notes = "根据产品需求测试用例获取测试结果草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/stories/{story_id}/cases/{case_id}/testresults/getdraft")
-    public ResponseEntity<TestResultDTO> getDraftByProductStoryCase(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("case_id") Long case_id) {
-        TestResult domain = new TestResult();
+    public ResponseEntity<TestResultDTO> getDraftByProductStoryCase(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("case_id") Long case_id, TestResultDTO dto) {
+        TestResult domain = testresultMapping.toDomain(dto);
         domain.setIbizcase(case_id);
         return ResponseEntity.status(HttpStatus.OK).body(testresultMapping.toDto(testresultService.getDraft(domain)));
     }
@@ -724,10 +731,11 @@ public class TestResultResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestResult-Save-all')")
     @ApiOperation(value = "根据产品需求测试用例保存测试结果", tags = {"测试结果" },  notes = "根据产品需求测试用例保存测试结果")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/cases/{case_id}/testresults/save")
-    public ResponseEntity<Boolean> saveByProductStoryCase(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("case_id") Long case_id, @RequestBody TestResultDTO testresultdto) {
+    public ResponseEntity<TestResultDTO> saveByProductStoryCase(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @PathVariable("case_id") Long case_id, @RequestBody TestResultDTO testresultdto) {
         TestResult domain = testresultMapping.toDomain(testresultdto);
         domain.setIbizcase(case_id);
-        return ResponseEntity.status(HttpStatus.OK).body(testresultService.save(domain));
+        testresultService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(testresultMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestResult-Save-all')")

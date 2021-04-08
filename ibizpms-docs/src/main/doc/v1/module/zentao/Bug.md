@@ -1468,7 +1468,7 @@ Long
 无
 
 - 是否支持快速搜索
-否
+是
 
 - 搜索条件
 | 序号 | 组合方式 |
@@ -4442,7 +4442,8 @@ Save
 ### 快速搜索项
 | 序号 | 属性 |
 | ---- | ---- |
-| 1 | [Bug标题（TITLE）](#属性-Bug标题（TITLE）) |
+| 1 | [Bug编号（ID）](#属性-Bug编号（ID）) |
+| 2 | [Bug标题（TITLE）](#属性-Bug标题（TITLE）) |
 
 ### 搜索条件
 | 序号 | 属性 | 组合方式 |
@@ -5024,7 +5025,7 @@ LEFT JOIN zt_story t31 ON t1.STORY = t31.ID
 LEFT JOIN zt_task t41 ON t1.TASK = t41.ID 
 LEFT JOIN zt_module t51 ON t1.MODULE = t51.ID 
 LEFT JOIN zt_branch t61 ON t1.BRANCH = t61.ID 
-LEFT JOIN zt_case t71 ON t1.CASE = t71.ID 
+LEFT JOIN zt_case t71 ON t1.`CASE` = t71.ID 
 
 ```
 ### 数据查询-Build产生的Bug-模块分布（BuildProduceBugModule）
@@ -5513,7 +5514,7 @@ LEFT JOIN zt_story t31 ON t1.STORY = t31.ID
 LEFT JOIN zt_task t41 ON t1.TASK = t41.ID 
 LEFT JOIN zt_module t51 ON t1.MODULE = t51.ID 
 LEFT JOIN zt_branch t61 ON t1.BRANCH = t61.ID 
-LEFT JOIN zt_case t71 ON t1.CASE = t71.ID 
+LEFT JOIN zt_case t71 ON t1.`CASE` = t71.ID 
 
 ```
 ### 数据查询-Build产生的Bug-解决者分布（BuildProduceBugRESOLVEDBY）
@@ -6132,7 +6133,7 @@ LEFT JOIN zt_story t31 ON t1.STORY = t31.ID
 LEFT JOIN zt_task t41 ON t1.TASK = t41.ID 
 LEFT JOIN zt_module t51 ON t1.MODULE = t51.ID 
 LEFT JOIN zt_branch t61 ON t1.BRANCH = t61.ID 
-LEFT JOIN zt_case t71 ON t1.CASE = t71.ID 
+LEFT JOIN zt_case t71 ON t1.`CASE` = t71.ID 
 
 ```
 ### 数据查询-DEFAULT（Default）
@@ -6148,83 +6149,7 @@ DEFAULT
 #### SQL
 - MYSQL5
 ```SQL
-SELECT
-t1.`ACTIVATEDCOUNT`,
-t1.`ACTIVATEDDATE`,
-t1.`ASSIGNEDDATE`,
-t1.`ASSIGNEDTO`,
-t1.`BRANCH`,
-t61.`NAME` AS `BRANCHNAME`,
-t1.`BROWSER`,
-t1.`CASE`,
-t71.`TITLE` AS `CASENAME`,
-t1.`CASEVERSION`,
-t1.`CLOSEDBY`,
-t1.`CLOSEDDATE`,
-t1.`COLOR`,
-t1.`CONFIRMED`,
-t1.`DEADLINE`,
-(case when t1.deadline is null or t1.deadline = '0000-00-00' or t1.deadline = '1970-01-01' then '' when t1.`status` ='active' and t1.deadline <DATE_FORMAT(now(),'%y-%m-%d')  then CONCAT_WS('','延期',TIMESTAMPDIFF(DAY, t1.deadline, now()),'天') else '' end) AS `DELAY`,
-( CASE WHEN t1.deadline IS NULL  OR t1.deadline = '0000-00-00'  OR t1.deadline = '1970-01-01' THEN ''  WHEN t1.`status` = 'resolved'  AND t1.deadline < DATE_FORMAT( t1.resolvedDate, '%y-%m-%d' ) THEN CONCAT_WS( '', '延期', TIMESTAMPDIFF( DAY, t1.deadline, t1.resolvedDate ), '天' ) ELSE ''  END ) AS `DELAYRESOLVE`,
-t1.`DELETED`,
-t1.`DUPLICATEBUG`,
-t1.`ENTRY`,
-t1.`FOUND`,
-t1.`HARDWARE`,
-t1.`ID`,
-0 AS `ISFAVORITES`,
-t1.`KEYWORDS`,
-t1.`LASTEDITEDBY`,
-t1.`LASTEDITEDDATE`,
-t1.`LINES`,
-t1.`LINKBUG`,
-t1.`MAILTO`,
-'' AS `MAILTOPK`,
-t1.`MODULE`,
-t51.`NAME` AS `MODULENAME`,
-(case when t1.module = '0' then '/' else (SELECT GROUP_CONCAT( tt.NAME SEPARATOR '>' )  FROM zt_module tt WHERE FIND_IN_SET( tt.id, t51.path ) AND tt.type = 'story'  GROUP BY tt.root limit 0,1) end) AS `MODULENAME1`,
-t1.`OPENEDBUILD`,
-t1.`OPENEDBY`,
-t1.`OPENEDDATE`,
-t1.`OS`,
-(case when t1.DEADLINE = '0000-00-00' then 0 else datediff(t1.deadline, now() ) end) AS `OVERDUEBUGS`,
-t1.`PLAN`,
-t1.`PRI`,
-t1.`PRODUCT`,
-t11.`NAME` AS `PRODUCTNAME`,
-t1.`PROJECT`,
-t21.`NAME` AS `PROJECTNAME`,
-t1.`REPO`,
-t1.`REPOTYPE`,
-t1.`RESOLUTION`,
-t1.`RESOLVEDBUILD`,
-t1.`RESOLVEDBY`,
-t1.`RESOLVEDDATE`,
-t1.`RESULT`,
-t1.`SEVERITY`,
-t1.`STATUS`,
-t1.`STORY`,
-t31.`TITLE` AS `STORYNAME`,
-t1.`STORYVERSION`,
-t1.`SUBSTATUS`,
-t1.`TASK`,
-t41.`NAME` AS `TASKNAME`,
-t1.`TESTTASK`,
-t1.`TITLE`,
-t1.`TOSTORY`,
-t1.`TOTASK`,
-t1.`TYPE`,
-t1.`V1`,
-t1.`V2`
-FROM `zt_bug` t1 
-LEFT JOIN zt_product t11 ON t1.PRODUCT = t11.ID 
-LEFT JOIN zt_project t21 ON t1.PROJECT = t21.ID 
-LEFT JOIN zt_story t31 ON t1.STORY = t31.ID 
-LEFT JOIN zt_task t41 ON t1.TASK = t41.ID 
-LEFT JOIN zt_module t51 ON t1.MODULE = t51.ID 
-LEFT JOIN zt_branch t61 ON t1.BRANCH = t61.ID 
-LEFT JOIN zt_case t71 ON t1.CASE = t71.ID 
-
+SELECT t1.`ACTIVATEDCOUNT`, t1.`ACTIVATEDDATE`, t1.`ASSIGNEDDATE`, t1.`ASSIGNEDTO`, t1.`BRANCH`, t61.`NAME` AS `BRANCHNAME`, t1.`BROWSER`, t1.`CASE`, t1.`CASEVERSION`, t1.`CLOSEDBY`, t1.`CLOSEDDATE`, t1.`COLOR`, t1.`CONFIRMED`, t1.`DEADLINE`, t1.`DELETED`, t1.`DUPLICATEBUG`, t1.`ENTRY`, t1.`FOUND`, t1.`HARDWARE`, t1.`ID`, (select (case when COUNT(t.IBZ_FAVORITESID) > 0 then 1 else 0 end ) as ISFAVORITES from T_IBZ_FAVORITES t where t.TYPE = 'bug' and t.ACCOUNT = #{srf.sessioncontext.srfloginname} and t.OBJECTID = t1.id) AS `ISFAVORITES`, t1.`KEYWORDS`, t1.`LASTEDITEDBY`, t1.`LASTEDITEDDATE`, t1.`LINES`, t1.`LINKBUG`, t1.`MAILTO`, t1.`MODULE`, t51.`NAME` AS `MODULENAME`, (SELECT GROUP_CONCAT( tt.NAME SEPARATOR '>' )  FROM zt_module tt WHERE FIND_IN_SET( tt.id, t51.path ) AND tt.type = 'story'  GROUP BY tt.root ) AS `MODULENAME1`, t1.`OPENEDBUILD`, t1.`OPENEDBY`, t1.`OPENEDDATE`, t1.`OS`, t1.`PLAN`, t1.`PRI`, t1.`PRODUCT`, t11.`NAME` AS `PRODUCTNAME`, t1.`PROJECT`, t21.`NAME` AS `PROJECTNAME`, t1.`REPO`, t1.`REPOTYPE`, t1.`RESOLUTION`, t1.`RESOLVEDBUILD`, t1.`RESOLVEDBY`, t1.`RESOLVEDDATE`, t1.`RESULT`, t1.`SEVERITY`, t1.`STATUS`, t1.`STORY`, t31.`TITLE` AS `STORYNAME`, t1.`STORYVERSION`, t1.`SUBSTATUS`, t1.`TASK`, t41.`NAME` AS `TASKNAME`, t1.`TESTTASK`, t1.`TITLE`, t1.`TOSTORY`, t1.`TOTASK`, t1.`TYPE`, t1.`V1`, t1.`V2`, (case when t1.DEADLINE = '0000-00-00' then 0 else datediff(t1.deadline, now() ) end) as overduebugs,  ( CASE WHEN t1.deadline IS NULL  			OR t1.deadline = '0000-00-00'  			OR t1.deadline = '1970-01-01' THEN 				''  				WHEN t1.`status` = 'active'  				AND t1.deadline < DATE_FORMAT( now(), '%y-%m-%d' ) THEN 					CONCAT_WS( '', '延期', TIMESTAMPDIFF( DAY, t1.deadline, now()), '天' ) ELSE ''  			END ) AS `DELAY`,  ( CASE WHEN t1.deadline IS NULL  			OR t1.deadline = '0000-00-00'  			OR t1.deadline = '1970-01-01' THEN 				''  				WHEN t1.`status` = 'resolved'  				AND t1.deadline < DATE_FORMAT( t1.resolvedDate, '%y-%m-%d' ) THEN 					CONCAT_WS( '', '延期', TIMESTAMPDIFF( DAY, t1.deadline, t1.resolvedDate ), '天' ) ELSE ''  			END ) AS `DELAYRESOLVE` FROM `zt_bug` t1  LEFT JOIN zt_product t11 ON t1.PRODUCT = t11.ID  LEFT JOIN zt_project t21 ON t1.PROJECT = t21.ID  LEFT JOIN zt_story t31 ON t1.STORY = t31.ID  LEFT JOIN zt_task t41 ON t1.TASK = t41.ID  LEFT JOIN zt_module t51 ON t1.MODULE = t51.ID  LEFT JOIN zt_branch t61 ON t1.BRANCH = t61.ID
 ```
 ### 数据查询-ES批量的导入（ESBulk）
 #### 说明
@@ -6440,7 +6365,7 @@ LEFT JOIN zt_story t31 ON t1.STORY = t31.ID
 LEFT JOIN zt_task t41 ON t1.TASK = t41.ID 
 LEFT JOIN zt_module t51 ON t1.MODULE = t51.ID 
 LEFT JOIN zt_branch t61 ON t1.BRANCH = t61.ID 
-LEFT JOIN zt_case t71 ON t1.CASE = t71.ID 
+LEFT JOIN zt_case t71 ON t1.`CASE` = t71.ID 
 
 ```
 ### 数据查询-我的收藏（MyFavorites）
@@ -6614,7 +6539,7 @@ LEFT JOIN zt_story t31 ON t1.STORY = t31.ID
 LEFT JOIN zt_task t41 ON t1.TASK = t41.ID 
 LEFT JOIN zt_module t51 ON t1.MODULE = t51.ID 
 LEFT JOIN zt_branch t61 ON t1.BRANCH = t61.ID 
-LEFT JOIN zt_case t71 ON t1.CASE = t71.ID 
+LEFT JOIN zt_case t71 ON t1.`CASE` = t71.ID 
 
 ```
 ### 数据查询-发布关联Bug（已解决）（ReleaseBugs）
@@ -6863,7 +6788,7 @@ LEFT JOIN zt_story t31 ON t1.STORY = t31.ID
 LEFT JOIN zt_task t41 ON t1.TASK = t41.ID 
 LEFT JOIN zt_module t51 ON t1.MODULE = t51.ID 
 LEFT JOIN zt_branch t61 ON t1.BRANCH = t61.ID 
-LEFT JOIN zt_case t71 ON t1.CASE = t71.ID 
+LEFT JOIN zt_case t71 ON t1.`CASE` = t71.ID 
 
 ```
 ### 数据查询-发布可关联的bug（已解决）（ReleaseLinkableResolvedBug）
@@ -6954,7 +6879,7 @@ LEFT JOIN zt_story t31 ON t1.STORY = t31.ID
 LEFT JOIN zt_task t41 ON t1.TASK = t41.ID 
 LEFT JOIN zt_module t51 ON t1.MODULE = t51.ID 
 LEFT JOIN zt_branch t61 ON t1.BRANCH = t61.ID 
-LEFT JOIN zt_case t71 ON t1.CASE = t71.ID 
+LEFT JOIN zt_case t71 ON t1.`CASE` = t71.ID 
 
 ```
 ### 数据查询-发布关联Bug（未解决）（ReportBugs）
@@ -7124,7 +7049,7 @@ LEFT JOIN zt_story t31 ON t1.STORY = t31.ID
 LEFT JOIN zt_task t41 ON t1.TASK = t41.ID 
 LEFT JOIN zt_module t51 ON t1.MODULE = t51.ID 
 LEFT JOIN zt_branch t61 ON t1.BRANCH = t61.ID 
-LEFT JOIN zt_case t71 ON t1.CASE = t71.ID 
+LEFT JOIN zt_case t71 ON t1.`CASE` = t71.ID 
 
 ```
 ### 数据查询-查询遗留得bug(项目)（SelectBugsByProject）
@@ -7354,13 +7279,13 @@ t1.`TYPE`,
 t1.`V1`,
 t1.`V2`
 FROM `zt_bug` t1 
-LEFT JOIN zt_product t11 ON t1.PRODUCT = t11.ID 
-LEFT JOIN zt_project t21 ON t1.PROJECT = t21.ID 
-LEFT JOIN zt_story t31 ON t1.STORY = t31.ID 
-LEFT JOIN zt_task t41 ON t1.TASK = t41.ID 
-LEFT JOIN zt_module t51 ON t1.MODULE = t51.ID 
-LEFT JOIN zt_branch t61 ON t1.BRANCH = t61.ID 
-LEFT JOIN zt_case t71 ON t1.CASE = t71.ID 
+LEFT JOIN `zt_product` t11 ON t1.`PRODUCT` = t11.`ID` 
+LEFT JOIN `zt_project` t21 ON t1.`PROJECT` = t21.`ID` 
+LEFT JOIN `zt_story` t31 ON t1.`STORY` = t31.`ID` 
+LEFT JOIN `zt_task` t41 ON t1.`TASK` = t41.`ID` 
+LEFT JOIN `zt_module` t51 ON t1.`MODULE` = t51.`ID` 
+LEFT JOIN `zt_branch` t61 ON t1.`BRANCH` = t61.`ID` 
+LEFT JOIN `zt_case` t71 ON t1.`CASE` = t71.`ID` 
 
 ```
 

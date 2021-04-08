@@ -1,6 +1,6 @@
 
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { ListView9Base } from '@/studio-core';
 import IbzMyTerritoryService from '@/service/ibz-my-territory/ibz-my-territory-service';
 import IbzMyTerritoryAuthService from '@/authservice/ibz-my-territory/ibz-my-territory-auth-service';
@@ -119,7 +119,7 @@ export class IbzMyTerritoryListView9Base extends ListView9Base {
      * @type {string}
      * @memberof IbzMyTerritoryListView9Base
      */
-	protected viewtag: string = 'e9f72c81d94c56a08c355c2ba2e20d07';
+	protected viewtag: string = 'ecc0369834ef12678e1c34ca782aad23';
 
     /**
      * 视图名称

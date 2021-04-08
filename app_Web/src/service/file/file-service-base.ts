@@ -1,3 +1,4 @@
+import { Environment } from '@/environments/environment';
 import { Http } from '@/utils';
 import { Util } from '@/utils';
 import EntityService from '../entity-service';
@@ -49,7 +50,7 @@ export default class FileServiceBase extends EntityService {
      * @memberof FileServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().get(`/files/${context.file}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/files/${context.file}/select`,isloading);
             
             return res;
     }
@@ -105,7 +106,7 @@ export default class FileServiceBase extends EntityService {
      * @memberof FileServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().delete(`/files/${context.file}`,isloading);
+            let res:any = await Http.getInstance().delete(`/files/${context.file}`,isloading);
             return res;
     }
 
@@ -134,7 +135,10 @@ export default class FileServiceBase extends EntityService {
      * @memberof FileServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/files/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.file) delete tempData.file;
+        if(tempData.id) delete tempData.id;
+        let res:any = await  Http.getInstance().get(`/files/getdraft`,tempData,isloading);
         res.data.file = data.file;
         
         return res;
@@ -150,7 +154,7 @@ export default class FileServiceBase extends EntityService {
      * @memberof FileServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/files/${context.file}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/files/${context.file}/checkkey`,data,isloading);
             return res;
     }
 
@@ -172,6 +176,34 @@ export default class FileServiceBase extends EntityService {
     }
 
     /**
+     * UpdateObjectIDForPmsEe接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof FileServiceBase
+     */
+    public async UpdateObjectIDForPmsEe(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = await Http.getInstance().put(`/files/${context.file}/updateobjectidforpmsee`,data,isloading);
+            return res;
+    }
+
+    /**
+     * UpdateObjectIDForPmsEeBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof FileServiceBase
+     */
+    public async UpdateObjectIDForPmsEeBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/files/updateobjectidforpmseebatch`,tempData,isloading);
+    }
+
+    /**
      * FetchDefault接口方法
      *
      * @param {*} [context={}]
@@ -182,7 +214,7 @@ export default class FileServiceBase extends EntityService {
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/files/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/files/fetchdefault`,tempData,isloading);
         return res;
     }
 
@@ -211,7 +243,7 @@ export default class FileServiceBase extends EntityService {
      */
     public async FetchDocLibFile(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/files/fetchdoclibfile`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/files/fetchdoclibfile`,tempData,isloading);
         return res;
     }
 
@@ -240,7 +272,7 @@ export default class FileServiceBase extends EntityService {
      */
     public async FetchProductDocLibFile(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/files/fetchproductdoclibfile`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/files/fetchproductdoclibfile`,tempData,isloading);
         return res;
     }
 
@@ -269,7 +301,7 @@ export default class FileServiceBase extends EntityService {
      */
     public async FetchType(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/files/fetchtype`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/files/fetchtype`,tempData,isloading);
         return res;
     }
 
@@ -285,6 +317,35 @@ export default class FileServiceBase extends EntityService {
     public async searchType(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
         return await Http.getInstance().post(`/files/searchtype`,tempData,isloading);
+    }
+
+    /**
+     * FetchTypeNotBySrfparentkey接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof FileServiceBase
+     */
+    public async FetchTypeNotBySrfparentkey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = await Http.getInstance().get(`/files/fetchtypenotbysrfparentkey`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * searchTypeNotBySrfparentkey接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof FileServiceBase
+     */
+    public async searchTypeNotBySrfparentkey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/files/searchtypenotbysrfparentkey`,tempData,isloading);
     }
 
     /**

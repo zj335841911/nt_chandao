@@ -1,6 +1,6 @@
 
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { GridViewBase } from '@/studio-core';
 import BugService from '@/service/bug/bug-service';
 import BugAuthService from '@/authservice/bug/bug-auth-service';
@@ -127,7 +127,7 @@ export class BugReleaseSubGridView_UndoneBase extends GridViewBase {
      * @type {string}
      * @memberof BugReleaseSubGridView_UndoneBase
      */
-	protected viewtag: string = 'b507b8efc20db47d7b01d67561638cd6';
+	protected viewtag: string = '62d336dafb3ab2022a6f61fa06d7a1ef';
 
     /**
      * 视图名称

@@ -34,6 +34,13 @@ public class TaskSearchContext extends QueryWrapperContext<Task> {
             this.getSearchCond().eq("`canceledby`", n_canceledby_eq);
         }
     }
+	private String n_config_type_eq;//[周期类型]
+	public void setN_config_type_eq(String n_config_type_eq) {
+        this.n_config_type_eq = n_config_type_eq;
+        if(!ObjectUtils.isEmpty(this.n_config_type_eq)){
+            this.getSearchCond().eq("`config_type`", n_config_type_eq);
+        }
+    }
 	private String n_color_eq;//[标题颜色]
 	public void setN_color_eq(String n_color_eq) {
         this.n_color_eq = n_color_eq;
@@ -55,6 +62,13 @@ public class TaskSearchContext extends QueryWrapperContext<Task> {
             this.getSearchCond().eq("`finishedby`", n_finishedby_eq);
         }
     }
+	private String n_status1_eq;//[任务状态]
+	public void setN_status1_eq(String n_status1_eq) {
+        this.n_status1_eq = n_status1_eq;
+        if(!ObjectUtils.isEmpty(this.n_status1_eq)){
+            this.getSearchCond().eq("`status1`", n_status1_eq);
+        }
+    }
 	private String n_closedby_eq;//[由谁关闭]
 	public void setN_closedby_eq(String n_closedby_eq) {
         this.n_closedby_eq = n_closedby_eq;
@@ -67,6 +81,13 @@ public class TaskSearchContext extends QueryWrapperContext<Task> {
         this.n_closedreason_eq = n_closedreason_eq;
         if(!ObjectUtils.isEmpty(this.n_closedreason_eq)){
             this.getSearchCond().eq("`closedreason`", n_closedreason_eq);
+        }
+    }
+	private String n_taskspecies_eq;//[任务种别]
+	public void setN_taskspecies_eq(String n_taskspecies_eq) {
+        this.n_taskspecies_eq = n_taskspecies_eq;
+        if(!ObjectUtils.isEmpty(this.n_taskspecies_eq)){
+            this.getSearchCond().eq("`taskspecies`", n_taskspecies_eq);
         }
     }
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone="GMT+8")
@@ -157,8 +178,8 @@ public class TaskSearchContext extends QueryWrapperContext<Task> {
 			this.getSearchCond().in("`assignedto`",this.n_assignedto_in.split(";"));
         }
     }
-    @JsonFormat(pattern="yyyy-MM-dd", timezone="GMT+8")
-    @JSONField(format="yyyy-MM-dd")
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone="GMT+8")
+    @JSONField(format="yyyy-MM-dd HH:mm:ss")
 	private Timestamp n_eststarted_gtandeq;//[预计开始]
 	public void setN_eststarted_gtandeq(Timestamp n_eststarted_gtandeq) {
         this.n_eststarted_gtandeq = n_eststarted_gtandeq;
@@ -166,13 +187,20 @@ public class TaskSearchContext extends QueryWrapperContext<Task> {
             this.getSearchCond().ge("`eststarted`", n_eststarted_gtandeq);
         }
     }
-    @JsonFormat(pattern="yyyy-MM-dd", timezone="GMT+8")
-    @JSONField(format="yyyy-MM-dd")
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone="GMT+8")
+    @JSONField(format="yyyy-MM-dd HH:mm:ss")
 	private Timestamp n_eststarted_ltandeq;//[预计开始]
 	public void setN_eststarted_ltandeq(Timestamp n_eststarted_ltandeq) {
         this.n_eststarted_ltandeq = n_eststarted_ltandeq;
         if(!ObjectUtils.isEmpty(this.n_eststarted_ltandeq)){
             this.getSearchCond().le("`eststarted`", n_eststarted_ltandeq);
+        }
+    }
+	private Integer n_cycle_eq;//[周期]
+	public void setN_cycle_eq(Integer n_cycle_eq) {
+        this.n_cycle_eq = n_cycle_eq;
+        if(!ObjectUtils.isEmpty(this.n_cycle_eq)){
+            this.getSearchCond().eq("`cycle`", n_cycle_eq);
         }
     }
 	private String n_openedby_eq;//[由谁创建]
@@ -182,8 +210,15 @@ public class TaskSearchContext extends QueryWrapperContext<Task> {
             this.getSearchCond().eq("`openedby`", n_openedby_eq);
         }
     }
-    @JsonFormat(pattern="yyyy-MM-dd", timezone="GMT+8")
-    @JSONField(format="yyyy-MM-dd")
+	private String n_tasktype_eq;//[任务类型]
+	public void setN_tasktype_eq(String n_tasktype_eq) {
+        this.n_tasktype_eq = n_tasktype_eq;
+        if(!ObjectUtils.isEmpty(this.n_tasktype_eq)){
+            this.getSearchCond().eq("`tasktype`", n_tasktype_eq);
+        }
+    }
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone="GMT+8")
+    @JSONField(format="yyyy-MM-dd HH:mm:ss")
 	private Timestamp n_finisheddate_ltandeq;//[实际完成]
 	public void setN_finisheddate_ltandeq(Timestamp n_finisheddate_ltandeq) {
         this.n_finisheddate_ltandeq = n_finisheddate_ltandeq;
@@ -217,6 +252,27 @@ public class TaskSearchContext extends QueryWrapperContext<Task> {
         this.n_storyname_like = n_storyname_like;
         if(!ObjectUtils.isEmpty(this.n_storyname_like)){
             this.getSearchCond().like("`storyname`", n_storyname_like);
+        }
+    }
+	private String n_path_like;//[模块路径]
+	public void setN_path_like(String n_path_like) {
+        this.n_path_like = n_path_like;
+        if(!ObjectUtils.isEmpty(this.n_path_like)){
+            this.getSearchCond().like("`path`", n_path_like);
+        }
+    }
+	private String n_planname_eq;//[所属计划]
+	public void setN_planname_eq(String n_planname_eq) {
+        this.n_planname_eq = n_planname_eq;
+        if(!ObjectUtils.isEmpty(this.n_planname_eq)){
+            this.getSearchCond().eq("`planname`", n_planname_eq);
+        }
+    }
+	private String n_planname_like;//[所属计划]
+	public void setN_planname_like(String n_planname_like) {
+        this.n_planname_like = n_planname_like;
+        if(!ObjectUtils.isEmpty(this.n_planname_like)){
+            this.getSearchCond().like("`planname`", n_planname_like);
         }
     }
 	private String n_projectname_eq;//[所属项目]
@@ -261,6 +317,34 @@ public class TaskSearchContext extends QueryWrapperContext<Task> {
             this.getSearchCond().eq("`project`", n_project_eq);
         }
     }
+	private String n_project_in;//[所属项目]
+	public void setN_project_in(String n_project_in) {
+        this.n_project_in = n_project_in;
+        if(!ObjectUtils.isEmpty(this.n_project_in)){
+			this.getSearchCond().in("`project`",this.n_project_in.split(";"));
+        }
+    }
+	private Long n_plan_eq;//[编号]
+	public void setN_plan_eq(Long n_plan_eq) {
+        this.n_plan_eq = n_plan_eq;
+        if(!ObjectUtils.isEmpty(this.n_plan_eq)){
+            this.getSearchCond().eq("`plan`", n_plan_eq);
+        }
+    }
+	private Long n_plan_noteq;//[编号]
+	public void setN_plan_noteq(Long n_plan_noteq) {
+        this.n_plan_noteq = n_plan_noteq;
+        if(!ObjectUtils.isEmpty(this.n_plan_noteq)){
+            this.getSearchCond().ne("`plan`", n_plan_noteq);
+        }
+    }
+	private Long n_module_eq;//[模块]
+	public void setN_module_eq(Long n_module_eq) {
+        this.n_module_eq = n_module_eq;
+        if(!ObjectUtils.isEmpty(this.n_module_eq)){
+            this.getSearchCond().eq("`module`", n_module_eq);
+        }
+    }
 	private Long n_story_eq;//[相关需求]
 	public void setN_story_eq(Long n_story_eq) {
         this.n_story_eq = n_story_eq;
@@ -289,34 +373,6 @@ public class TaskSearchContext extends QueryWrapperContext<Task> {
             this.getSearchCond().eq("`frombug`", n_frombug_eq);
         }
     }
-	private Long n_module_eq;//[id]
-	public void setN_module_eq(Long n_module_eq) {
-        this.n_module_eq = n_module_eq;
-        if(!ObjectUtils.isEmpty(this.n_module_eq)){
-            this.getSearchCond().eq("`module`", n_module_eq);
-        }
-    }
-	private String n_path_like;//[模块路径]
-	public void setN_path_like(String n_path_like) {
-        this.n_path_like = n_path_like;
-        if(!ObjectUtils.isEmpty(this.n_path_like)){
-            this.getSearchCond().like("`path`", n_path_like);
-        }
-    }
-	private String n_status1_eq;//[任务状态]
-	public void setN_status1_eq(String n_status1_eq) {
-        this.n_status1_eq = n_status1_eq;
-        if(!ObjectUtils.isEmpty(this.n_status1_eq)){
-            this.getSearchCond().eq("`status1`", n_status1_eq);
-        }
-    }
-	private String n_tasktype_eq;//[任务类型]
-	public void setN_tasktype_eq(String n_tasktype_eq) {
-        this.n_tasktype_eq = n_tasktype_eq;
-        if(!ObjectUtils.isEmpty(this.n_tasktype_eq)){
-            this.getSearchCond().eq("`tasktype`", n_tasktype_eq);
-        }
-    }
 
     /**
 	 * 启用快速搜索
@@ -327,7 +383,8 @@ public class TaskSearchContext extends QueryWrapperContext<Task> {
 		 this.query=query;
 		 if(!StringUtils.isEmpty(query)){
             this.getSearchCond().and( wrapper ->
-                     wrapper.like("`name`", query)
+                     wrapper.like("`id`", query)
+                        .or().like("`name`", query)
             );
 		 }
 	}

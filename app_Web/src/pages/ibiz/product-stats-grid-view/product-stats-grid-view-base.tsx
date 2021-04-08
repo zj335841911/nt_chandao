@@ -1,6 +1,6 @@
 
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { GridViewBase } from '@/studio-core';
 import ProductStatsService from '@/service/product-stats/product-stats-service';
 import ProductStatsAuthService from '@/authservice/product-stats/product-stats-auth-service';
@@ -121,7 +121,7 @@ export class ProductStatsGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof ProductStatsGridViewBase
      */
-	protected viewtag: string = 'c53ef5993dc196b00f0cfdc21d6dd3a8';
+	protected viewtag: string = 'afe580bf35a93bd398c71148fd082a7c';
 
     /**
      * 视图名称

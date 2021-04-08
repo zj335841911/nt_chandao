@@ -96,6 +96,11 @@ export default class ConfirmModel {
         dataType: 'PICKUP',
       },
       {
+        name: 'product',
+        prop: 'product',
+        dataType: 'PICKUP',
+      },
+      {
         name: 'id',
         prop: 'id',
         dataType: 'ACID',

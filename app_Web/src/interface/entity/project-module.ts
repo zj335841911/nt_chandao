@@ -7,36 +7,12 @@
 export interface ProjectModule {
 
     /**
-     * 类型（task）
+     * 简称
      *
      * @returns {*}
      * @memberof ProjectModule
      */
-    type?: any;
-
-    /**
-     * collector
-     *
-     * @returns {*}
-     * @memberof ProjectModule
-     */
-    collector?: any;
-
-    /**
-     * id
-     *
-     * @returns {*}
-     * @memberof ProjectModule
-     */
-    id?: any;
-
-    /**
-     * 逻辑删除标志
-     *
-     * @returns {*}
-     * @memberof ProjectModule
-     */
-    deleted?: any;
+    ibizshort?: any;
 
     /**
      * 叶子模块
@@ -47,28 +23,20 @@ export interface ProjectModule {
     isleaf?: any;
 
     /**
-     * path
+     * 类型（task）
      *
      * @returns {*}
      * @memberof ProjectModule
      */
-    path?: any;
+    type?: any;
 
     /**
-     * owner
+     * 数据选择排序
      *
      * @returns {*}
      * @memberof ProjectModule
      */
-    owner?: any;
-
-    /**
-     * 简称
-     *
-     * @returns {*}
-     * @memberof ProjectModule
-     */
-    ibizshort?: any;
+    orderpk?: any;
 
     /**
      * 名称
@@ -79,20 +47,28 @@ export interface ProjectModule {
     name?: any;
 
     /**
-     * grade
-     *
-     * @returns {*}
-     * @memberof ProjectModule
-     */
-    grade?: any;
-
-    /**
      * 排序值
      *
      * @returns {*}
      * @memberof ProjectModule
      */
     order?: any;
+
+    /**
+     * collector
+     *
+     * @returns {*}
+     * @memberof ProjectModule
+     */
+    collector?: any;
+
+    /**
+     * grade
+     *
+     * @returns {*}
+     * @memberof ProjectModule
+     */
+    grade?: any;
 
     /**
      * branch
@@ -103,20 +79,36 @@ export interface ProjectModule {
     branch?: any;
 
     /**
+     * path
+     *
+     * @returns {*}
+     * @memberof ProjectModule
+     */
+    path?: any;
+
+    /**
      * id
      *
      * @returns {*}
      * @memberof ProjectModule
      */
-    parent?: any;
+    id?: any;
 
     /**
-     * 项目
+     * owner
      *
      * @returns {*}
      * @memberof ProjectModule
      */
-    root?: any;
+    owner?: any;
+
+    /**
+     * 逻辑删除标志
+     *
+     * @returns {*}
+     * @memberof ProjectModule
+     */
+    deleted?: any;
 
     /**
      * 所属项目
@@ -135,10 +127,18 @@ export interface ProjectModule {
     parentname?: any;
 
     /**
-     * 数据选择排序
+     * 项目
      *
      * @returns {*}
      * @memberof ProjectModule
      */
-    orderpk?: any;
+    root?: any;
+
+    /**
+     * id
+     *
+     * @returns {*}
+     * @memberof ProjectModule
+     */
+    parent?: any;
 }

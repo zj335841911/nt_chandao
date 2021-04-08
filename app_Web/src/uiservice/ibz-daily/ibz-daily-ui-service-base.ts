@@ -147,9 +147,26 @@ export default class IbzDailyUIServiceBase extends UIService {
         }
         context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
         data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        if(Object.is(actionTarget,"MULTIKEY")){
+            let tempDataArray:Array<any> = [];
+            if((_args.length >1) && (Object.keys(data).length >0)){
+                for(let i =0;i<_args.length;i++){
+                    let tempObject:any = {};
+                    Object.keys(data).forEach((key:string) =>{
+                        Object.assign(tempObject,{[key]:data[key].split(',')[i]});
+                    })
+                    tempDataArray.push(tempObject);
+                }
+            }else{
+                tempDataArray.push(data);
+            }
+            data = tempDataArray;
+        }
         context = Object.assign({},actionContext.context,context);
         let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
-        Object.assign(data,parentObj);
+        if(!Object.is(actionTarget,"MULTIKEY")){
+            Object.assign(data,parentObj);
+        }
         Object.assign(context,parentObj);
         // 直接调实体服务需要转换的数据
         if(context && context.srfsessionid){
@@ -189,7 +206,7 @@ export default class IbzDailyUIServiceBase extends UIService {
     }
 
     /**
-     * 项目日报查看详情
+     * 提交
      *
      * @param {any[]} args 当前数据
      * @param {any} context 行为附加上下文
@@ -200,12 +217,12 @@ export default class IbzDailyUIServiceBase extends UIService {
      * @param {*} [srfParentDeName] 父实体名称
      * @returns {Promise<any>}
      */
-    public async IbzDaily_ProjectDaily(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-    
+    public async IbzDaily_submit(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
         let data: any = {};
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
+        Object.assign(params,{mailto:"%MAILTO%",files:"%files%",tomorrowplanstask:"%tomorrowplanstask%",worktoday:"%worktoday%",todaytask:"%todaytask%",planstomorrow:"%planstomorrow%",comment:"%comment%",reportto:"%REPORTTO%"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(context, { ibzdaily: '%ibzdaily%' });
@@ -219,90 +236,63 @@ export default class IbzDailyUIServiceBase extends UIService {
         }
         context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
         data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        if(Object.is(actionTarget,"MULTIKEY")){
+            let tempDataArray:Array<any> = [];
+            if((_args.length >1) && (Object.keys(data).length >0)){
+                for(let i =0;i<_args.length;i++){
+                    let tempObject:any = {};
+                    Object.keys(data).forEach((key:string) =>{
+                        Object.assign(tempObject,{[key]:data[key].split(',')[i]});
+                    })
+                    tempDataArray.push(tempObject);
+                }
+            }else{
+                tempDataArray.push(data);
+            }
+            data = tempDataArray;
+        }
         context = Object.assign({},actionContext.context,context);
         let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
-        Object.assign(data,parentObj);
-        Object.assign(context,parentObj);
-        let deResParameters: any[] = [];
-        const parameters: any[] = [
-            { pathName: 'ibzdailies', parameterName: 'ibzdaily' },
-        ];
-            const openDrawer = (view: any, data: any) => {
-                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
-                container.subscribe((result: any) => {
-                    if (!result || !Object.is(result.ret, 'OK')) {
-                        return;
-                    }
-                    const _this: any = actionContext;
-                    return result.datas;
-                });
-            }
-            const view: any = {
-                viewname: 'ibz-daily-daily-info-edit-view', 
-                height: 0, 
-                width: 0,  
-                title: actionContext.$t('entities.ibzdaily.views.dailyinfoeditview.title'),
-                placement: 'DRAWER_TOP',
-            };
-            openDrawer(view, data);
-    }
-
-    /**
-     * 新建
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} context 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @param {*} [srfParentDeName] 父实体名称
-     * @returns {Promise<any>}
-     */
-    public async IbzDaily_create(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-    
-        let data: any = {};
-        let parentContext:any = {};
-        let parentViewParam:any = {};
-        const _this: any = actionContext;
-        Object.assign(context,{DATE:"%date% "});
-        Object.assign(params,{date:"%date%"});
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'NONE';
-        if(_this.context){
-            parentContext = _this.context;
+        if(!Object.is(actionTarget,"MULTIKEY")){
+            Object.assign(data,parentObj);
         }
-        if(_this.viewparams){
-            parentViewParam = _this.viewparams;
-        }
-        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
-        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
-        context = Object.assign({},actionContext.context,context);
-        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
-        Object.assign(data,parentObj);
         Object.assign(context,parentObj);
-        let deResParameters: any[] = [];
-        const parameters: any[] = [
-            { pathName: 'ibzdailies', parameterName: 'ibzdaily' },
-        ];
-            const openDrawer = (view: any, data: any) => {
-                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
-                container.subscribe((result: any) => {
-                    if (!result || !Object.is(result.ret, 'OK')) {
-                        return;
-                    }
-                    const _this: any = actionContext;
-                    return result.datas;
-                });
-            }
-            const view: any = {
-                viewname: 'ibz-daily-daily-edit-view', 
-                height: 0, 
-                width: 0,  
-                title: actionContext.$t('entities.ibzdaily.views.dailyeditview.title'),
-                placement: 'DRAWER_RIGHT',
-            };
-            openDrawer(view, data);
+        // 直接调实体服务需要转换的数据
+        if(context && context.srfsessionid){
+          context.srfsessionkey = context.srfsessionid;
+            delete context.srfsessionid;
+        }
+        
+        const backend = () => {
+            const curService:IbzDailyService =  new IbzDailyService();
+            curService.Submit(context,data, true).then((response: any) => {
+                if (!response || response.status !== 200) {
+                    actionContext.$Notice.error({ title: '错误', desc: response.message });
+                    return;
+                }
+                actionContext.$Notice.success({ title: '成功', desc: '提交成功！' });
+                const _this: any = actionContext;
+                if (xData && xData.refresh && xData.refresh instanceof Function) {
+                    xData.refresh(args);
+                }
+                actionContext.closeView(null);
+                return response;
+            }).catch((response: any) => {
+                if (!response || !response.status || !response.data) {
+                    actionContext.$Notice.error({ title: '错误', desc: '系统异常！' });
+                    return;
+                }
+                if (response && response.data) {
+                    actionContext.$Notice.error({ title: '错误', desc: response.data.message });
+                    return;
+                }
+                if (response.status === 401) {
+                    return;
+                }
+                return response;
+            });
+        };
+        backend();
     }
 
     /**
@@ -345,166 +335,14 @@ export default class IbzDailyUIServiceBase extends UIService {
         let deResParameters: any[] = [];
         const parameters: any[] = [
             { pathName: 'ibzdailies', parameterName: 'ibzdaily' },
+            { pathName: 'maineditview', parameterName: 'maineditview' },
         ];
-            const openDrawer = (view: any, data: any) => {
-                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
-                container.subscribe((result: any) => {
-                    if (!result || !Object.is(result.ret, 'OK')) {
-                        return;
-                    }
-                    const _this: any = actionContext;
-                    return result.datas;
-                });
-            }
-            const view: any = {
-                viewname: 'ibz-dailymain-edit-view', 
-                height: 0, 
-                width: 0,  
-                title: actionContext.$t('entities.ibzdaily.views.maineditview.title'),
-                placement: 'DRAWER_RIGHT',
-            };
-            openDrawer(view, data);
-    }
-
-    /**
-     * 修改
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} context 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @param {*} [srfParentDeName] 父实体名称
-     * @returns {Promise<any>}
-     */
-    public async IbzDaily_EditCz(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-    
-        let data: any = {};
-        let parentContext:any = {};
-        let parentViewParam:any = {};
-        const _this: any = actionContext;
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(context, { ibzdaily: '%ibzdaily%' });
-        Object.assign(params, { ibzdailyid: '%ibzdaily%' });
-        Object.assign(params, { ibzdailyname: '%ibzdailyname%' });
-        if(_this.context){
-            parentContext = _this.context;
+        const openIndexViewTab = (data: any) => {
+            const routePath = actionContext.$viewTool.buildUpRoutePath(actionContext.$route, context, deResParameters, parameters, _args, data);
+            actionContext.$router.push(routePath);
+            return null;
         }
-        if(_this.viewparams){
-            parentViewParam = _this.viewparams;
-        }
-        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
-        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
-        context = Object.assign({},actionContext.context,context);
-        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
-        Object.assign(data,parentObj);
-        Object.assign(context,parentObj);
-        let deResParameters: any[] = [];
-        const parameters: any[] = [
-            { pathName: 'ibzdailies', parameterName: 'ibzdaily' },
-        ];
-            const openDrawer = (view: any, data: any) => {
-                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
-                container.subscribe((result: any) => {
-                    if (!result || !Object.is(result.ret, 'OK')) {
-                        return;
-                    }
-                    const _this: any = actionContext;
-                    return result.datas;
-                });
-            }
-            const view: any = {
-                viewname: 'ibz-dailymain-edit-view', 
-                height: 0, 
-                width: 0,  
-                title: actionContext.$t('entities.ibzdaily.views.maineditview.title'),
-                placement: 'DRAWER_RIGHT',
-            };
-            openDrawer(view, data);
-    }
-
-    /**
-     * 提交
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} context 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @param {*} [srfParentDeName] 父实体名称
-     * @returns {Promise<any>}
-     */
-    public async IbzDaily_submitCz(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
-        let confirmResult:boolean = await new Promise((resolve: any, reject: any) => {
-          actionContext.$Modal.confirm({
-              title: '警告',
-              content: '确认要马上提交吗？',
-              onOk: () => {resolve(true);},
-              onCancel: () => {resolve(false);}
-          });
-        });
-        if(!confirmResult){
-            return;
-        }
-        let data: any = {};
-        let parentContext:any = {};
-        let parentViewParam:any = {};
-        const _this: any = actionContext;
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(context, { ibzdaily: '%ibzdaily%' });
-        Object.assign(params, { ibzdailyid: '%ibzdaily%' });
-        Object.assign(params, { ibzdailyname: '%ibzdailyname%' });
-        if(_this.context){
-            parentContext = _this.context;
-        }
-        if(_this.viewparams){
-            parentViewParam = _this.viewparams;
-        }
-        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
-        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
-        context = Object.assign({},actionContext.context,context);
-        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
-        Object.assign(data,parentObj);
-        Object.assign(context,parentObj);
-        // 直接调实体服务需要转换的数据
-        if(context && context.srfsessionid){
-          context.srfsessionkey = context.srfsessionid;
-            delete context.srfsessionid;
-        }
-        
-        const backend = () => {
-            const curService:IbzDailyService =  new IbzDailyService();
-            curService.Submit(context,data, true).then((response: any) => {
-                if (!response || response.status !== 200) {
-                    actionContext.$Notice.error({ title: '错误', desc: response.message });
-                    return;
-                }
-                actionContext.$Notice.success({ title: '成功', desc: '提交成功！' });
-                const _this: any = actionContext;
-                if (xData && xData.refresh && xData.refresh instanceof Function) {
-                    xData.refresh(args);
-                }
-                return response;
-            }).catch((response: any) => {
-                if (!response || !response.status || !response.data) {
-                    actionContext.$Notice.error({ title: '错误', desc: '系统异常！' });
-                    return;
-                }
-                if (response && response.data) {
-                    actionContext.$Notice.error({ title: '错误', desc: response.data.message });
-                    return;
-                }
-                if (response.status === 401) {
-                    return;
-                }
-                return response;
-            });
-        };
-        backend();
+        openIndexViewTab(data);
     }
 
     /**
@@ -567,7 +405,7 @@ export default class IbzDailyUIServiceBase extends UIService {
     }
 
     /**
-     * 提交
+     * 项目日报查看详情
      *
      * @param {any[]} args 当前数据
      * @param {any} context 行为附加上下文
@@ -578,12 +416,12 @@ export default class IbzDailyUIServiceBase extends UIService {
      * @param {*} [srfParentDeName] 父实体名称
      * @returns {Promise<any>}
      */
-    public async IbzDaily_submit(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
+    public async IbzDaily_ProjectDaily(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
         let data: any = {};
         let parentContext:any = {};
         let parentViewParam:any = {};
         const _this: any = actionContext;
-        Object.assign(params,{mailto:"%MAILTO%",files:"%files%",tomorrowplanstask:"%tomorrowplanstask%",worktoday:"%worktoday%",todaytask:"%todaytask%",planstomorrow:"%planstomorrow%",comment:"%comment%",reportto:"%REPORTTO%"});
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(context, { ibzdaily: '%ibzdaily%' });
@@ -600,6 +438,187 @@ export default class IbzDailyUIServiceBase extends UIService {
         context = Object.assign({},actionContext.context,context);
         let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
         Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'ibzdailies', parameterName: 'ibzdaily' },
+        ];
+            const openDrawer = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appdrawer.openDrawer(view, context,data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'ibz-daily-daily-info-edit-view', 
+                height: 0, 
+                width: 0,  
+                title: actionContext.$t('entities.ibzdaily.views.dailyinfoeditview.title'),
+                placement: 'DRAWER_TOP',
+            };
+            openDrawer(view, data);
+    }
+
+    /**
+     * 修改
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async IbzDaily_EditCz(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { ibzdaily: '%ibzdaily%' });
+        Object.assign(params, { ibzdailyid: '%ibzdaily%' });
+        Object.assign(params, { ibzdailyname: '%ibzdailyname%' });
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'ibzdailies', parameterName: 'ibzdaily' },
+            { pathName: 'maineditview', parameterName: 'maineditview' },
+        ];
+        const openIndexViewTab = (data: any) => {
+            const routePath = actionContext.$viewTool.buildUpRoutePath(actionContext.$route, context, deResParameters, parameters, _args, data);
+            actionContext.$router.push(routePath);
+            return null;
+        }
+        openIndexViewTab(data);
+    }
+
+    /**
+     * 新建
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async IbzDaily_create(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        Object.assign(context,{DATE:"%date% "});
+        Object.assign(params,{date:"%date%"});
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'NONE';
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'ibzdailies', parameterName: 'ibzdaily' },
+            { pathName: 'dailyeditview', parameterName: 'dailyeditview' },
+        ];
+        const openIndexViewTab = (data: any) => {
+            const routePath = actionContext.$viewTool.buildUpRoutePath(actionContext.$route, context, deResParameters, parameters, _args, data);
+            actionContext.$router.push(routePath);
+            return null;
+        }
+        openIndexViewTab(data);
+    }
+
+    /**
+     * 提交
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async IbzDaily_submitCz(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
+        let confirmResult:boolean = await new Promise((resolve: any, reject: any) => {
+          actionContext.$Modal.confirm({
+              title: '警告',
+              content: '确认要马上提交吗？',
+              onOk: () => {resolve(true);},
+              onCancel: () => {resolve(false);}
+          });
+        });
+        if(!confirmResult){
+            return;
+        }
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { ibzdaily: '%ibzdaily%' });
+        Object.assign(params, { ibzdailyid: '%ibzdaily%' });
+        Object.assign(params, { ibzdailyname: '%ibzdailyname%' });
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        if(Object.is(actionTarget,"MULTIKEY")){
+            let tempDataArray:Array<any> = [];
+            if((_args.length >1) && (Object.keys(data).length >0)){
+                for(let i =0;i<_args.length;i++){
+                    let tempObject:any = {};
+                    Object.keys(data).forEach((key:string) =>{
+                        Object.assign(tempObject,{[key]:data[key].split(',')[i]});
+                    })
+                    tempDataArray.push(tempObject);
+                }
+            }else{
+                tempDataArray.push(data);
+            }
+            data = tempDataArray;
+        }
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        if(!Object.is(actionTarget,"MULTIKEY")){
+            Object.assign(data,parentObj);
+        }
         Object.assign(context,parentObj);
         // 直接调实体服务需要转换的数据
         if(context && context.srfsessionid){
@@ -619,7 +638,6 @@ export default class IbzDailyUIServiceBase extends UIService {
                 if (xData && xData.refresh && xData.refresh instanceof Function) {
                     xData.refresh(args);
                 }
-                actionContext.closeView(null);
                 return response;
             }).catch((response: any) => {
                 if (!response || !response.status || !response.data) {

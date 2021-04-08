@@ -24,14 +24,14 @@ public interface SysEmployeeFeignClient {
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/sysemployees")
-    SysEmployee create(@RequestBody SysEmployee sysemployee);
+    SysEmployee create(@RequestBody SysEmployee et);
 
     @RequestMapping(method = RequestMethod.POST, value = "/sysemployees/batch")
     Boolean createBatch(@RequestBody List<SysEmployee> sysemployees);
 
 
     @RequestMapping(method = RequestMethod.PUT, value = "/sysemployees/{userid}")
-    SysEmployee update(@PathVariable("userid") String userid, @RequestBody SysEmployee sysemployee);
+    SysEmployee update(@PathVariable("userid") String userid, @RequestBody SysEmployee et);
 
     @RequestMapping(method = RequestMethod.PUT, value = "/sysemployees/batch")
     Boolean updateBatch(@RequestBody List<SysEmployee> sysemployees);
@@ -52,15 +52,17 @@ public interface SysEmployeeFeignClient {
 
 
     @RequestMapping(method = RequestMethod.GET, value = "/sysemployees/getdraft")
-    SysEmployee getDraft();
+    SysEmployee getDraft(SysEmployee entity);
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/sysemployees/checkkey")
-    Boolean checkKey(@RequestBody SysEmployee sysemployee);
+    Boolean checkKey(@RequestBody SysEmployee et);
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/sysemployees/save")
-    Boolean save(@RequestBody SysEmployee sysemployee);
+    Object saveEntity(@RequestBody SysEmployee et);
+
+    default Boolean save(@RequestBody SysEmployee et) { return saveEntity(et)!=null; }
 
     @RequestMapping(method = RequestMethod.POST, value = "/sysemployees/savebatch")
     Boolean saveBatch(@RequestBody List<SysEmployee> sysemployees);

@@ -12,4 +12,3 @@ public interface IBZProProductMapping extends MappingBase<IBZProProductDTO, IBZP
 
 
 }
-

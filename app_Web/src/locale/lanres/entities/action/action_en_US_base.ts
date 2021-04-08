@@ -3,39 +3,43 @@ import commonLogic from '@/locale/logic/common/common-logic';
 function getLocaleResourceBase(){
 	const data:any = {
 		fields: {
+			thismonth: commonLogic.appcommonhandle("本月",null),
+			yesterday: commonLogic.appcommonhandle("昨天",null),
 			extra: commonLogic.appcommonhandle("附加值",null),
+			files: commonLogic.appcommonhandle("文件",null),
+			lastmonth: commonLogic.appcommonhandle("上月",null),
+			isactorss: commonLogic.appcommonhandle("当前用户",null),
+			thisweek: commonLogic.appcommonhandle("本周",null),
+			today: commonLogic.appcommonhandle("今天",null),
+			date1: commonLogic.appcommonhandle("显示日期",null),
 			objecttype: commonLogic.appcommonhandle("对象类型",null),
 			id: commonLogic.appcommonhandle("id",null),
+			noticeusers: commonLogic.appcommonhandle("消息通知用户",null),
 			comment: commonLogic.appcommonhandle("备注",null),
 			read: commonLogic.appcommonhandle("已读",null),
 			action: commonLogic.appcommonhandle("动作",null),
 			date: commonLogic.appcommonhandle("日期",null),
 			product: commonLogic.appcommonhandle("产品",null),
+			lastcomment: commonLogic.appcommonhandle("备注",null),
+			srfkey: commonLogic.appcommonhandle("前端键值",null),
+			actionmanner: commonLogic.appcommonhandle("操作方式",null),
+			lastweek: commonLogic.appcommonhandle("上周",null),
 			objectid: commonLogic.appcommonhandle("对象ID",null),
 			actor: commonLogic.appcommonhandle("操作者",null),
 			project: commonLogic.appcommonhandle("项目",null),
-			lastcomment: commonLogic.appcommonhandle("备注",null),
-			actionmanner: commonLogic.appcommonhandle("操作方式",null),
-			isactorss: commonLogic.appcommonhandle("当前用户",null),
-			date1: commonLogic.appcommonhandle("显示日期",null),
-			today: commonLogic.appcommonhandle("今天",null),
-			yesterday: commonLogic.appcommonhandle("昨天",null),
-			thisweek: commonLogic.appcommonhandle("本周",null),
-			lastweek: commonLogic.appcommonhandle("上周",null),
-			thismonth: commonLogic.appcommonhandle("本月",null),
-			lastmonth: commonLogic.appcommonhandle("上月",null),
-			srfkey: commonLogic.appcommonhandle("前端键值",null),
-			noticeusers: commonLogic.appcommonhandle("消息通知用户",null),
-			files: commonLogic.appcommonhandle("文件",null),
 		},
 			views: {
-				myalltrendslistview: {
-					caption: commonLogic.appcommonhandle("系统日志",null),
-					title: commonLogic.appcommonhandle("系统日志列表视图",null),
-				},
 				historylistview: {
 					caption: commonLogic.appcommonhandle("系统日志",null),
 					title: commonLogic.appcommonhandle("历史记录",null),
+				},
+				addcommenthistorylistview: {
+					caption: commonLogic.appcommonhandle("系统日志",null),
+					title: commonLogic.appcommonhandle("历史记录",null),
+				},
+				alltrendslistview: {
+					caption: commonLogic.appcommonhandle("系统日志",null),
+					title: commonLogic.appcommonhandle("系统日志列表视图",null),
 				},
 				projecttrendslistview: {
 					caption: commonLogic.appcommonhandle("系统日志",null),
@@ -45,25 +49,21 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("系统日志",null),
 					title: commonLogic.appcommonhandle("产品动态",null),
 				},
-				mytrendslistview: {
-					caption: commonLogic.appcommonhandle("系统日志",null),
-					title: commonLogic.appcommonhandle("系统日志列表视图",null),
-				},
 				producttrendslistview9: {
 					caption: commonLogic.appcommonhandle("系统日志",null),
 					title: commonLogic.appcommonhandle("产品动态",null),
 				},
-				addcommenthistorylistview: {
+				myalltrendslistview: {
 					caption: commonLogic.appcommonhandle("系统日志",null),
-					title: commonLogic.appcommonhandle("历史记录",null),
+					title: commonLogic.appcommonhandle("系统日志列表视图",null),
+				},
+				mytrendslistview: {
+					caption: commonLogic.appcommonhandle("系统日志",null),
+					title: commonLogic.appcommonhandle("系统日志列表视图",null),
 				},
 				optionview: {
 					caption: commonLogic.appcommonhandle("添加备注",null),
 					title: commonLogic.appcommonhandle("添加备注",null),
-				},
-				alltrendslistview: {
-					caption: commonLogic.appcommonhandle("系统日志",null),
-					title: commonLogic.appcommonhandle("系统日志列表视图",null),
 				},
 				producttrendslistview: {
 					caption: commonLogic.appcommonhandle("系统日志",null),
@@ -90,6 +90,7 @@ function getLocaleResourceBase(){
 					comment: commonLogic.appcommonhandle("备注",null), 
 					files: commonLogic.appcommonhandle("文件",null), 
 					noticeusers: commonLogic.appcommonhandle("消息通知用户",null), 
+					extra: commonLogic.appcommonhandle("附加值",null), 
 					id: commonLogic.appcommonhandle("id",null), 
 				},
 				uiactions: {

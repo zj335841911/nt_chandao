@@ -1,6 +1,6 @@
 
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { GridViewBase } from '@/studio-core';
 import IBIZProPluginService from '@/service/ibizpro-plugin/ibizpro-plugin-service';
 import IBIZProPluginAuthService from '@/authservice/ibizpro-plugin/ibizpro-plugin-auth-service';
@@ -136,7 +136,7 @@ export class IBIZProPluginGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof IBIZProPluginGridViewBase
      */
-	protected viewtag: string = 'c4099c98661bbfac92a0e718c183e718';
+	protected viewtag: string = 'f17a5c894627e83a450a47a7cd75968b';
 
     /**
      * 视图名称

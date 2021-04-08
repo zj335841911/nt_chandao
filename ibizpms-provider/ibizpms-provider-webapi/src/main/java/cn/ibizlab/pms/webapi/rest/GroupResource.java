@@ -72,7 +72,7 @@ public class GroupResource {
 		Group domain  = groupMapping.toDomain(groupdto);
         domain .setId(group_id);
 		groupService.update(domain );
-		GroupDTO dto = groupMapping.toDto(domain );
+		GroupDTO dto = groupMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
@@ -110,8 +110,9 @@ public class GroupResource {
 
     @ApiOperation(value = "获取群组草稿", tags = {"群组" },  notes = "获取群组草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/groups/getdraft")
-    public ResponseEntity<GroupDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(groupMapping.toDto(groupService.getDraft(new Group())));
+    public ResponseEntity<GroupDTO> getDraft(GroupDTO dto) {
+        Group domain = groupMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(groupMapping.toDto(groupService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查群组", tags = {"群组" },  notes = "检查群组")
@@ -123,8 +124,10 @@ public class GroupResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Group-Save-all')")
     @ApiOperation(value = "保存群组", tags = {"群组" },  notes = "保存群组")
 	@RequestMapping(method = RequestMethod.POST, value = "/groups/save")
-    public ResponseEntity<Boolean> save(@RequestBody GroupDTO groupdto) {
-        return ResponseEntity.status(HttpStatus.OK).body(groupService.save(groupMapping.toDomain(groupdto)));
+    public ResponseEntity<GroupDTO> save(@RequestBody GroupDTO groupdto) {
+        Group domain = groupMapping.toDomain(groupdto);
+        groupService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(groupMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Group-Save-all')")
@@ -156,6 +159,7 @@ public class GroupResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(groupMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
 
 
 }

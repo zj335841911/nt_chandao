@@ -15,7 +15,7 @@ export class ImgswipeStyleMenuModel {
      */
     private items: any[] = [
         {
-	id: '6FE05C96-0FCF-4BC5-BA8B-7F3B69FFC3E8',
+	id: '000d9220401358534fd0d34ccc145d9d',
 	name: 'menuitem1',
 	text: '京东',
 	type: 'MENUITEM',
@@ -34,7 +34,7 @@ export class ImgswipeStyleMenuModel {
 	authtag:'Mob-ImgswipeStyleMenu-menuitem1',
 },
         {
-	id: '0BBD0F57-698A-4E5A-892D-4A7D9902533B',
+	id: 'bc0a0736c36a3723eede9e8424c931f9',
 	name: 'menuitem2',
 	text: '天猫',
 	type: 'MENUITEM',
@@ -53,7 +53,7 @@ export class ImgswipeStyleMenuModel {
 	authtag:'Mob-ImgswipeStyleMenu-menuitem2',
 },
         {
-	id: '2ECD49D6-8C64-4A11-B4E9-6B17ABD4D1B1',
+	id: 'ea1afc1ded5298692e0151a04ec18ac3',
 	name: 'menuitem3',
 	text: '亚马逊',
 	type: 'MENUITEM',

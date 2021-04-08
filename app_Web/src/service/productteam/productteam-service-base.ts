@@ -1,3 +1,4 @@
+import { Environment } from '@/environments/environment';
 import { Http } from '@/utils';
 import { Util } from '@/utils';
 import EntityService from '../entity-service';
@@ -50,11 +51,11 @@ export default class PRODUCTTEAMServiceBase extends EntityService {
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.productteam){
-            let res:any = Http.getInstance().get(`/products/${context.product}/productteams/${context.productteam}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productteams/${context.productteam}/select`,isloading);
             
             return res;
         }
-            let res:any = Http.getInstance().get(`/productteams/${context.productteam}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/productteams/${context.productteam}/select`,isloading);
             
             return res;
     }
@@ -132,10 +133,10 @@ export default class PRODUCTTEAMServiceBase extends EntityService {
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.productteam){
-            let res:any = Http.getInstance().delete(`/products/${context.product}/productteams/${context.productteam}`,isloading);
+            let res:any = await Http.getInstance().delete(`/products/${context.product}/productteams/${context.productteam}`,isloading);
             return res;
         }
-            let res:any = Http.getInstance().delete(`/productteams/${context.productteam}`,isloading);
+            let res:any = await Http.getInstance().delete(`/productteams/${context.productteam}`,isloading);
             return res;
     }
 
@@ -170,12 +171,18 @@ export default class PRODUCTTEAMServiceBase extends EntityService {
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
-            let res:any = await Http.getInstance().get(`/products/${context.product}/productteams/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.productteam) delete tempData.productteam;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productteams/getdraft`,tempData,isloading);
             res.data.productteam = data.productteam;
             
             return res;
         }
-        let res:any = await  Http.getInstance().get(`/productteams/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.productteam) delete tempData.productteam;
+        if(tempData.id) delete tempData.id;
+        let res:any = await  Http.getInstance().get(`/productteams/getdraft`,tempData,isloading);
         res.data.productteam = data.productteam;
         
         return res;
@@ -198,8 +205,47 @@ export default class PRODUCTTEAMServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/productteams/${context.productteam}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/productteams/${context.productteam}/checkkey`,data,isloading);
             return res;
+    }
+
+    /**
+     * ProductTeamGuoLv接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof PRODUCTTEAMServiceBase
+     */
+    public async ProductTeamGuoLv(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productteam){
+            let masterData:any = {};
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productteams/${context.productteam}/productteamguolv`,data,isloading);
+            
+            return res;
+        }
+            let res:any = await Http.getInstance().post(`/productteams/${context.productteam}/productteamguolv`,data,isloading);
+            return res;
+    }
+
+    /**
+     * ProductTeamGuoLvBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof PRODUCTTEAMServiceBase
+     */
+    public async ProductTeamGuoLvBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productteams/productteamguolvbatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/productteams/productteamguolvbatch`,tempData,isloading);
     }
 
     /**
@@ -238,11 +284,11 @@ export default class PRODUCTTEAMServiceBase extends EntityService {
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/productteams/fetchdefault`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productteams/fetchdefault`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/productteams/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/productteams/fetchdefault`,tempData,isloading);
         return res;
     }
 
@@ -276,11 +322,11 @@ export default class PRODUCTTEAMServiceBase extends EntityService {
     public async FetchProductTeamInfo(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/productteams/fetchproductteaminfo`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productteams/fetchproductteaminfo`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/productteams/fetchproductteaminfo`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/productteams/fetchproductteaminfo`,tempData,isloading);
         return res;
     }
 
@@ -303,6 +349,44 @@ export default class PRODUCTTEAMServiceBase extends EntityService {
     }
 
     /**
+     * FetchProjectApp接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof PRODUCTTEAMServiceBase
+     */
+    public async FetchProjectApp(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productteams/fetchprojectapp`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = await Http.getInstance().get(`/productteams/fetchprojectapp`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * searchProjectApp接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof PRODUCTTEAMServiceBase
+     */
+    public async searchProjectApp(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/products/${context.product}/productteams/searchprojectapp`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/productteams/searchprojectapp`,tempData,isloading);
+    }
+
+    /**
      * FetchRowEditDefaultProductTeam接口方法
      *
      * @param {*} [context={}]
@@ -314,11 +398,11 @@ export default class PRODUCTTEAMServiceBase extends EntityService {
     public async FetchRowEditDefaultProductTeam(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/productteams/fetchroweditdefaultproductteam`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/productteams/fetchroweditdefaultproductteam`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/productteams/fetchroweditdefaultproductteam`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/productteams/fetchroweditdefaultproductteam`,tempData,isloading);
         return res;
     }
 

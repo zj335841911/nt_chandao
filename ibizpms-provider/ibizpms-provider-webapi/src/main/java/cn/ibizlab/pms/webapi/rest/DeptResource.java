@@ -72,7 +72,7 @@ public class DeptResource {
 		Dept domain  = deptMapping.toDomain(deptdto);
         domain .setId(dept_id);
 		deptService.update(domain );
-		DeptDTO dto = deptMapping.toDto(domain );
+		DeptDTO dto = deptMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
@@ -110,8 +110,9 @@ public class DeptResource {
 
     @ApiOperation(value = "获取部门草稿", tags = {"部门" },  notes = "获取部门草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/depts/getdraft")
-    public ResponseEntity<DeptDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(deptMapping.toDto(deptService.getDraft(new Dept())));
+    public ResponseEntity<DeptDTO> getDraft(DeptDTO dto) {
+        Dept domain = deptMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(deptMapping.toDto(deptService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查部门", tags = {"部门" },  notes = "检查部门")
@@ -123,8 +124,10 @@ public class DeptResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Dept-Save-all')")
     @ApiOperation(value = "保存部门", tags = {"部门" },  notes = "保存部门")
 	@RequestMapping(method = RequestMethod.POST, value = "/depts/save")
-    public ResponseEntity<Boolean> save(@RequestBody DeptDTO deptdto) {
-        return ResponseEntity.status(HttpStatus.OK).body(deptService.save(deptMapping.toDomain(deptdto)));
+    public ResponseEntity<DeptDTO> save(@RequestBody DeptDTO deptdto) {
+        Dept domain = deptMapping.toDomain(deptdto);
+        deptService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(deptMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Dept-Save-all')")
@@ -178,6 +181,7 @@ public class DeptResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(deptMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
 
 
 }

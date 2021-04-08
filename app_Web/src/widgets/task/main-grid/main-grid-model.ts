@@ -151,14 +151,19 @@ export default class MainModel {
           dataType: 'ACID',
         },
         {
+          name: 'story',
+          prop: 'story',
+          dataType: 'PICKUP',
+        },
+        {
           name: 'assignedto',
           prop: 'assignedto',
           dataType: 'TEXT',
         },
         {
-          name: 'story',
-          prop: 'story',
-          dataType: 'PICKUP',
+          name: 'modulename',
+          prop: 'modulename',
+          dataType: 'PICKUPTEXT',
         },
         {
           name: 'consumed',
@@ -206,6 +211,11 @@ export default class MainModel {
           dataType: 'PICKUP',
         },
         {
+          name: 'storyname',
+          prop: 'storyname',
+          dataType: 'PICKUPTEXT',
+        },
+        {
           name: 'mailto',
           prop: 'mailto',
           dataType: 'SMCODELIST',
@@ -219,6 +229,11 @@ export default class MainModel {
           name: 'pri',
           prop: 'pri',
           dataType: 'NSCODELIST',
+        },
+        {
+          name: 'plan',
+          prop: 'plan',
+          dataType: 'PICKUP',
         },
         {
           name: 'color',

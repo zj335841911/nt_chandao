@@ -12,8 +12,8 @@
 |真实姓名|REALNAME|TEXT|&nbsp;|
 |ID|ID|ACID|&nbsp;|
 |账户|ACCOUNT|TEXT|&nbsp;|
-|源代码账户|COMMITER|TEXT|&nbsp;用于关联UAA账号|
 |token|TOKEN|TEXT|&nbsp;用于禅道API登录|
+|源代码账户|COMMITER|TEXT|&nbsp;用于关联UAA账号|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -21,8 +21,8 @@
 |真实姓名|默认规则|内容长度必须小于等于[100]|
 |ID|默认规则|默认规则|
 |账户|默认规则|内容长度必须小于等于[30]|
-|源代码账户|默认规则|内容长度必须小于等于[100]|
 |token|默认规则|内容长度必须小于等于[100]|
+|源代码账户|默认规则|内容长度必须小于等于[100]|
 
 ## 状态控制
 
@@ -44,7 +44,7 @@
 
 | 查询编号 | 查询名称       | 默认查询 |   备注|
 | --------  | --------   | --------   | ----- |
-|DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#IbiLogin_Default))|否|&nbsp;|
+|DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#IbiLogin_Default))|是|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#IbiLogin_View))|否|&nbsp;|
 
 * **数据集合**

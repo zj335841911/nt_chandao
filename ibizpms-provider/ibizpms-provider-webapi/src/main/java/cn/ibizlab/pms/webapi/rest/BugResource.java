@@ -73,7 +73,7 @@ public class BugResource {
 		Bug domain  = bugMapping.toDomain(bugdto);
         domain .setId(bug_id);
 		bugService.update(domain );
-		BugDTO dto = bugMapping.toDto(domain );
+		BugDTO dto = bugMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
@@ -111,8 +111,9 @@ public class BugResource {
 
     @ApiOperation(value = "获取Bug草稿", tags = {"Bug" },  notes = "获取Bug草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/bugs/getdraft")
-    public ResponseEntity<BugDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(bugMapping.toDto(bugService.getDraft(new Bug())));
+    public ResponseEntity<BugDTO> getDraft(BugDTO dto) {
+        Bug domain = bugMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(bugMapping.toDto(bugService.getDraft(domain)));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Activate-all')")
@@ -127,9 +128,11 @@ public class BugResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Activate-all')")
     @ApiOperation(value = "批量处理[激活]", tags = {"Bug" },  notes = "批量处理[激活]")
-	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/activatebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/bugs/activatebatch")
     public ResponseEntity<Boolean> activateBatch(@RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.activateBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.activateBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-AssignTo-all')")
@@ -144,9 +147,11 @@ public class BugResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-AssignTo-all')")
     @ApiOperation(value = "批量处理[指派]", tags = {"Bug" },  notes = "批量处理[指派]")
-	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/assigntobatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/bugs/assigntobatch")
     public ResponseEntity<Boolean> assignToBatch(@RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.assignToBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.assignToBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BatchUnlinkBug-all')")
@@ -161,9 +166,11 @@ public class BugResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BatchUnlinkBug-all')")
     @ApiOperation(value = "批量处理[批量解除关联Bug]", tags = {"Bug" },  notes = "批量处理[批量解除关联Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/batchunlinkbugbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/bugs/batchunlinkbugbatch")
     public ResponseEntity<Boolean> batchUnlinkBugBatch(@RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.batchUnlinkBugBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.batchUnlinkBugBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BugFavorites-all')")
@@ -200,9 +207,11 @@ public class BugResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BuildBatchUnlinkBug-all')")
     @ApiOperation(value = "批量处理[版本批量解除关联Bug]", tags = {"Bug" },  notes = "批量处理[版本批量解除关联Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/buildbatchunlinkbugbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/bugs/buildbatchunlinkbugbatch")
     public ResponseEntity<Boolean> buildBatchUnlinkBugBatch(@RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.buildBatchUnlinkBugBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.buildBatchUnlinkBugBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BuildLinkBug-all')")
@@ -217,9 +226,11 @@ public class BugResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BuildLinkBug-all')")
     @ApiOperation(value = "批量处理[版本关联Bug]", tags = {"Bug" },  notes = "批量处理[版本关联Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/buildlinkbugbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/bugs/buildlinkbugbatch")
     public ResponseEntity<Boolean> buildLinkBugBatch(@RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.buildLinkBugBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.buildLinkBugBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BuildUnlinkBug-all')")
@@ -234,9 +245,11 @@ public class BugResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BuildUnlinkBug-all')")
     @ApiOperation(value = "批量处理[版本解除关联Bug]", tags = {"Bug" },  notes = "批量处理[版本解除关联Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/buildunlinkbugbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/bugs/buildunlinkbugbatch")
     public ResponseEntity<Boolean> buildUnlinkBugBatch(@RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.buildUnlinkBugBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.buildUnlinkBugBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @ApiOperation(value = "检查Bug", tags = {"Bug" },  notes = "检查Bug")
@@ -257,9 +270,11 @@ public class BugResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Close-all')")
     @ApiOperation(value = "批量处理[关闭]", tags = {"Bug" },  notes = "批量处理[关闭]")
-	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/closebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/bugs/closebatch")
     public ResponseEntity<Boolean> closeBatch(@RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.closeBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.closeBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Confirm-all')")
@@ -274,9 +289,11 @@ public class BugResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Confirm-all')")
     @ApiOperation(value = "批量处理[确认]", tags = {"Bug" },  notes = "批量处理[确认]")
-	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/confirmbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/bugs/confirmbatch")
     public ResponseEntity<Boolean> confirmBatch(@RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.confirmBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.confirmBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-LinkBug-all')")
@@ -291,9 +308,11 @@ public class BugResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-LinkBug-all')")
     @ApiOperation(value = "批量处理[关联Bug]", tags = {"Bug" },  notes = "批量处理[关联Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/linkbugbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/bugs/linkbugbatch")
     public ResponseEntity<Boolean> linkBugBatch(@RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.linkBugBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.linkBugBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaaseBatchUnlinkBug-all')")
@@ -308,9 +327,11 @@ public class BugResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaaseBatchUnlinkBug-all')")
     @ApiOperation(value = "批量处理[批量解除关联Bug]", tags = {"Bug" },  notes = "批量处理[批量解除关联Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/releaasebatchunlinkbugbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/bugs/releaasebatchunlinkbugbatch")
     public ResponseEntity<Boolean> releaaseBatchUnlinkBugBatch(@RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.releaaseBatchUnlinkBugBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.releaaseBatchUnlinkBugBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseLinkBugbyBug-all')")
@@ -325,9 +346,11 @@ public class BugResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseLinkBugbyBug-all')")
     @ApiOperation(value = "批量处理[关联Bug（解决Bug）]", tags = {"Bug" },  notes = "批量处理[关联Bug（解决Bug）]")
-	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/releaselinkbugbybugbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/bugs/releaselinkbugbybugbatch")
     public ResponseEntity<Boolean> releaseLinkBugbyBugBatch(@RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.releaseLinkBugbyBugBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.releaseLinkBugbyBugBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseLinkBugbyLeftBug-all')")
@@ -342,9 +365,11 @@ public class BugResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseLinkBugbyLeftBug-all')")
     @ApiOperation(value = "批量处理[关联Bug（遗留Bug）]", tags = {"Bug" },  notes = "批量处理[关联Bug（遗留Bug）]")
-	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/releaselinkbugbyleftbugbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/bugs/releaselinkbugbyleftbugbatch")
     public ResponseEntity<Boolean> releaseLinkBugbyLeftBugBatch(@RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.releaseLinkBugbyLeftBugBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.releaseLinkBugbyLeftBugBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseUnLinkBugbyLeftBug-all')")
@@ -359,9 +384,11 @@ public class BugResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseUnLinkBugbyLeftBug-all')")
     @ApiOperation(value = "批量处理[移除关联Bug（遗留Bug）]", tags = {"Bug" },  notes = "批量处理[移除关联Bug（遗留Bug）]")
-	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/releaseunlinkbugbyleftbugbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/bugs/releaseunlinkbugbyleftbugbatch")
     public ResponseEntity<Boolean> releaseUnLinkBugbyLeftBugBatch(@RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.releaseUnLinkBugbyLeftBugBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.releaseUnLinkBugbyLeftBugBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseUnlinkBug-all')")
@@ -376,9 +403,11 @@ public class BugResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseUnlinkBug-all')")
     @ApiOperation(value = "批量处理[解除关联Bug]", tags = {"Bug" },  notes = "批量处理[解除关联Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/releaseunlinkbugbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/bugs/releaseunlinkbugbatch")
     public ResponseEntity<Boolean> releaseUnlinkBugBatch(@RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.releaseUnlinkBugBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.releaseUnlinkBugBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Resolve-all')")
@@ -393,16 +422,20 @@ public class BugResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Resolve-all')")
     @ApiOperation(value = "批量处理[解决]", tags = {"Bug" },  notes = "批量处理[解决]")
-	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/resolvebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/bugs/resolvebatch")
     public ResponseEntity<Boolean> resolveBatch(@RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.resolveBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.resolveBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Save-all')")
     @ApiOperation(value = "保存Bug", tags = {"Bug" },  notes = "保存Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/bugs/save")
-    public ResponseEntity<Boolean> save(@RequestBody BugDTO bugdto) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.save(bugMapping.toDomain(bugdto)));
+    public ResponseEntity<BugDTO> save(@RequestBody BugDTO bugdto) {
+        Bug domain = bugMapping.toDomain(bugdto);
+        bugService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Save-all')")
@@ -425,9 +458,11 @@ public class BugResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-SendMessage-all')")
     @ApiOperation(value = "批量处理[行为]", tags = {"Bug" },  notes = "批量处理[行为]")
-	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/sendmessagebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/bugs/sendmessagebatch")
     public ResponseEntity<Boolean> sendMessageBatch(@RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.sendMessageBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.sendMessageBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-SendMsgPreProcess-all')")
@@ -442,9 +477,11 @@ public class BugResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-SendMsgPreProcess-all')")
     @ApiOperation(value = "批量处理[发送消息前置处理]", tags = {"Bug" },  notes = "批量处理[发送消息前置处理]")
-	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/sendmsgpreprocessbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/bugs/sendmsgpreprocessbatch")
     public ResponseEntity<Boolean> sendMsgPreProcessBatch(@RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.sendMsgPreProcessBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.sendMsgPreProcessBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ToStory-all')")
@@ -459,9 +496,11 @@ public class BugResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ToStory-all')")
     @ApiOperation(value = "批量处理[转需求]", tags = {"Bug" },  notes = "批量处理[转需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/tostorybatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/bugs/tostorybatch")
     public ResponseEntity<Boolean> toStoryBatch(@RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.toStoryBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.toStoryBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-UnlinkBug-all')")
@@ -476,9 +515,11 @@ public class BugResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-UnlinkBug-all')")
     @ApiOperation(value = "批量处理[解除关联Bug]", tags = {"Bug" },  notes = "批量处理[解除关联Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/bugs/{bug_id}/unlinkbugbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/bugs/unlinkbugbatch")
     public ResponseEntity<Boolean> unlinkBugBatch(@RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.unlinkBugBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.unlinkBugBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-UpdateStoryVersion-all')")
@@ -1197,6 +1238,7 @@ public class BugResource {
 	}
 
 
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Create-all')")
     @ApiOperation(value = "根据产品建立Bug", tags = {"Bug" },  notes = "根据产品建立Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/bugs")
@@ -1271,8 +1313,8 @@ public class BugResource {
 
     @ApiOperation(value = "根据产品获取Bug草稿", tags = {"Bug" },  notes = "根据产品获取Bug草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/bugs/getdraft")
-    public ResponseEntity<BugDTO> getDraftByProduct(@PathVariable("product_id") Long product_id) {
-        Bug domain = new Bug();
+    public ResponseEntity<BugDTO> getDraftByProduct(@PathVariable("product_id") Long product_id, BugDTO dto) {
+        Bug domain = bugMapping.toDomain(dto);
         domain.setProduct(product_id);
         return ResponseEntity.status(HttpStatus.OK).body(bugMapping.toDto(bugService.getDraft(domain)));
     }
@@ -1288,9 +1330,11 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据产品Bug]", tags = {"Bug" },  notes = "批量处理[根据产品Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/bugs/{bug_id}/activatebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/bugs/activatebatch")
     public ResponseEntity<Boolean> activateByProduct(@PathVariable("product_id") Long product_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.activateBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.activateBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-AssignTo-all')")
     @ApiOperation(value = "根据产品Bug", tags = {"Bug" },  notes = "根据产品Bug")
@@ -1303,9 +1347,11 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据产品Bug]", tags = {"Bug" },  notes = "批量处理[根据产品Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/bugs/{bug_id}/assigntobatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/bugs/assigntobatch")
     public ResponseEntity<Boolean> assignToByProduct(@PathVariable("product_id") Long product_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.assignToBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.assignToBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BatchUnlinkBug-all')")
     @ApiOperation(value = "根据产品Bug", tags = {"Bug" },  notes = "根据产品Bug")
@@ -1318,9 +1364,11 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据产品Bug]", tags = {"Bug" },  notes = "批量处理[根据产品Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/bugs/{bug_id}/batchunlinkbugbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/bugs/batchunlinkbugbatch")
     public ResponseEntity<Boolean> batchUnlinkBugByProduct(@PathVariable("product_id") Long product_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.batchUnlinkBugBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.batchUnlinkBugBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BugFavorites-all')")
     @ApiOperation(value = "根据产品Bug", tags = {"Bug" },  notes = "根据产品Bug")
@@ -1353,9 +1401,11 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据产品Bug]", tags = {"Bug" },  notes = "批量处理[根据产品Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/bugs/{bug_id}/buildbatchunlinkbugbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/bugs/buildbatchunlinkbugbatch")
     public ResponseEntity<Boolean> buildBatchUnlinkBugByProduct(@PathVariable("product_id") Long product_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.buildBatchUnlinkBugBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.buildBatchUnlinkBugBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BuildLinkBug-all')")
     @ApiOperation(value = "根据产品Bug", tags = {"Bug" },  notes = "根据产品Bug")
@@ -1368,9 +1418,11 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据产品Bug]", tags = {"Bug" },  notes = "批量处理[根据产品Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/bugs/{bug_id}/buildlinkbugbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/bugs/buildlinkbugbatch")
     public ResponseEntity<Boolean> buildLinkBugByProduct(@PathVariable("product_id") Long product_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.buildLinkBugBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.buildLinkBugBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BuildUnlinkBug-all')")
     @ApiOperation(value = "根据产品Bug", tags = {"Bug" },  notes = "根据产品Bug")
@@ -1383,9 +1435,11 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据产品Bug]", tags = {"Bug" },  notes = "批量处理[根据产品Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/bugs/{bug_id}/buildunlinkbugbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/bugs/buildunlinkbugbatch")
     public ResponseEntity<Boolean> buildUnlinkBugByProduct(@PathVariable("product_id") Long product_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.buildUnlinkBugBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.buildUnlinkBugBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @ApiOperation(value = "根据产品检查Bug", tags = {"Bug" },  notes = "根据产品检查Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/bugs/checkkey")
@@ -1404,9 +1458,11 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据产品Bug]", tags = {"Bug" },  notes = "批量处理[根据产品Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/bugs/{bug_id}/closebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/bugs/closebatch")
     public ResponseEntity<Boolean> closeByProduct(@PathVariable("product_id") Long product_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.closeBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.closeBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Confirm-all')")
     @ApiOperation(value = "根据产品Bug", tags = {"Bug" },  notes = "根据产品Bug")
@@ -1419,9 +1475,11 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据产品Bug]", tags = {"Bug" },  notes = "批量处理[根据产品Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/bugs/{bug_id}/confirmbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/bugs/confirmbatch")
     public ResponseEntity<Boolean> confirmByProduct(@PathVariable("product_id") Long product_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.confirmBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.confirmBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-LinkBug-all')")
     @ApiOperation(value = "根据产品Bug", tags = {"Bug" },  notes = "根据产品Bug")
@@ -1434,9 +1492,11 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据产品Bug]", tags = {"Bug" },  notes = "批量处理[根据产品Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/bugs/{bug_id}/linkbugbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/bugs/linkbugbatch")
     public ResponseEntity<Boolean> linkBugByProduct(@PathVariable("product_id") Long product_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.linkBugBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.linkBugBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaaseBatchUnlinkBug-all')")
     @ApiOperation(value = "根据产品Bug", tags = {"Bug" },  notes = "根据产品Bug")
@@ -1449,9 +1509,11 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据产品Bug]", tags = {"Bug" },  notes = "批量处理[根据产品Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/bugs/{bug_id}/releaasebatchunlinkbugbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/bugs/releaasebatchunlinkbugbatch")
     public ResponseEntity<Boolean> releaaseBatchUnlinkBugByProduct(@PathVariable("product_id") Long product_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.releaaseBatchUnlinkBugBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.releaaseBatchUnlinkBugBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseLinkBugbyBug-all')")
     @ApiOperation(value = "根据产品Bug", tags = {"Bug" },  notes = "根据产品Bug")
@@ -1464,9 +1526,11 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据产品Bug]", tags = {"Bug" },  notes = "批量处理[根据产品Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/bugs/{bug_id}/releaselinkbugbybugbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/bugs/releaselinkbugbybugbatch")
     public ResponseEntity<Boolean> releaseLinkBugbyBugByProduct(@PathVariable("product_id") Long product_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.releaseLinkBugbyBugBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.releaseLinkBugbyBugBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseLinkBugbyLeftBug-all')")
     @ApiOperation(value = "根据产品Bug", tags = {"Bug" },  notes = "根据产品Bug")
@@ -1479,9 +1543,11 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据产品Bug]", tags = {"Bug" },  notes = "批量处理[根据产品Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/bugs/{bug_id}/releaselinkbugbyleftbugbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/bugs/releaselinkbugbyleftbugbatch")
     public ResponseEntity<Boolean> releaseLinkBugbyLeftBugByProduct(@PathVariable("product_id") Long product_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.releaseLinkBugbyLeftBugBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.releaseLinkBugbyLeftBugBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseUnLinkBugbyLeftBug-all')")
     @ApiOperation(value = "根据产品Bug", tags = {"Bug" },  notes = "根据产品Bug")
@@ -1494,9 +1560,11 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据产品Bug]", tags = {"Bug" },  notes = "批量处理[根据产品Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/bugs/{bug_id}/releaseunlinkbugbyleftbugbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/bugs/releaseunlinkbugbyleftbugbatch")
     public ResponseEntity<Boolean> releaseUnLinkBugbyLeftBugByProduct(@PathVariable("product_id") Long product_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.releaseUnLinkBugbyLeftBugBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.releaseUnLinkBugbyLeftBugBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseUnlinkBug-all')")
     @ApiOperation(value = "根据产品Bug", tags = {"Bug" },  notes = "根据产品Bug")
@@ -1509,9 +1577,11 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据产品Bug]", tags = {"Bug" },  notes = "批量处理[根据产品Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/bugs/{bug_id}/releaseunlinkbugbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/bugs/releaseunlinkbugbatch")
     public ResponseEntity<Boolean> releaseUnlinkBugByProduct(@PathVariable("product_id") Long product_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.releaseUnlinkBugBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.releaseUnlinkBugBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Resolve-all')")
     @ApiOperation(value = "根据产品Bug", tags = {"Bug" },  notes = "根据产品Bug")
@@ -1524,17 +1594,20 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据产品Bug]", tags = {"Bug" },  notes = "批量处理[根据产品Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/bugs/{bug_id}/resolvebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/bugs/resolvebatch")
     public ResponseEntity<Boolean> resolveByProduct(@PathVariable("product_id") Long product_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.resolveBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.resolveBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Save-all')")
     @ApiOperation(value = "根据产品保存Bug", tags = {"Bug" },  notes = "根据产品保存Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/bugs/save")
-    public ResponseEntity<Boolean> saveByProduct(@PathVariable("product_id") Long product_id, @RequestBody BugDTO bugdto) {
+    public ResponseEntity<BugDTO> saveByProduct(@PathVariable("product_id") Long product_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setProduct(product_id);
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.save(domain));
+        bugService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Save-all')")
@@ -1560,9 +1633,11 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据产品Bug]", tags = {"Bug" },  notes = "批量处理[根据产品Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/bugs/{bug_id}/sendmessagebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/bugs/sendmessagebatch")
     public ResponseEntity<Boolean> sendMessageByProduct(@PathVariable("product_id") Long product_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.sendMessageBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.sendMessageBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-SendMsgPreProcess-all')")
     @ApiOperation(value = "根据产品Bug", tags = {"Bug" },  notes = "根据产品Bug")
@@ -1575,9 +1650,11 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据产品Bug]", tags = {"Bug" },  notes = "批量处理[根据产品Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/bugs/{bug_id}/sendmsgpreprocessbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/bugs/sendmsgpreprocessbatch")
     public ResponseEntity<Boolean> sendMsgPreProcessByProduct(@PathVariable("product_id") Long product_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.sendMsgPreProcessBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.sendMsgPreProcessBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ToStory-all')")
     @ApiOperation(value = "根据产品Bug", tags = {"Bug" },  notes = "根据产品Bug")
@@ -1590,9 +1667,11 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据产品Bug]", tags = {"Bug" },  notes = "批量处理[根据产品Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/bugs/{bug_id}/tostorybatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/bugs/tostorybatch")
     public ResponseEntity<Boolean> toStoryByProduct(@PathVariable("product_id") Long product_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.toStoryBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.toStoryBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-UnlinkBug-all')")
     @ApiOperation(value = "根据产品Bug", tags = {"Bug" },  notes = "根据产品Bug")
@@ -1605,9 +1684,11 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据产品Bug]", tags = {"Bug" },  notes = "批量处理[根据产品Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/bugs/{bug_id}/unlinkbugbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/bugs/unlinkbugbatch")
     public ResponseEntity<Boolean> unlinkBugByProduct(@PathVariable("product_id") Long product_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.unlinkBugBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.unlinkBugBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-UpdateStoryVersion-all')")
     @ApiOperation(value = "根据产品Bug", tags = {"Bug" },  notes = "根据产品Bug")
@@ -2429,8 +2510,8 @@ public class BugResource {
 
     @ApiOperation(value = "根据需求获取Bug草稿", tags = {"Bug" },  notes = "根据需求获取Bug草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/stories/{story_id}/bugs/getdraft")
-    public ResponseEntity<BugDTO> getDraftByStory(@PathVariable("story_id") Long story_id) {
-        Bug domain = new Bug();
+    public ResponseEntity<BugDTO> getDraftByStory(@PathVariable("story_id") Long story_id, BugDTO dto) {
+        Bug domain = bugMapping.toDomain(dto);
         domain.setStory(story_id);
         return ResponseEntity.status(HttpStatus.OK).body(bugMapping.toDto(bugService.getDraft(domain)));
     }
@@ -2446,9 +2527,11 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据需求Bug]", tags = {"Bug" },  notes = "批量处理[根据需求Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/bugs/{bug_id}/activatebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/bugs/activatebatch")
     public ResponseEntity<Boolean> activateByStory(@PathVariable("story_id") Long story_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.activateBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.activateBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-AssignTo-all')")
     @ApiOperation(value = "根据需求Bug", tags = {"Bug" },  notes = "根据需求Bug")
@@ -2461,9 +2544,11 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据需求Bug]", tags = {"Bug" },  notes = "批量处理[根据需求Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/bugs/{bug_id}/assigntobatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/bugs/assigntobatch")
     public ResponseEntity<Boolean> assignToByStory(@PathVariable("story_id") Long story_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.assignToBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.assignToBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BatchUnlinkBug-all')")
     @ApiOperation(value = "根据需求Bug", tags = {"Bug" },  notes = "根据需求Bug")
@@ -2476,9 +2561,11 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据需求Bug]", tags = {"Bug" },  notes = "批量处理[根据需求Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/bugs/{bug_id}/batchunlinkbugbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/bugs/batchunlinkbugbatch")
     public ResponseEntity<Boolean> batchUnlinkBugByStory(@PathVariable("story_id") Long story_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.batchUnlinkBugBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.batchUnlinkBugBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BugFavorites-all')")
     @ApiOperation(value = "根据需求Bug", tags = {"Bug" },  notes = "根据需求Bug")
@@ -2511,9 +2598,11 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据需求Bug]", tags = {"Bug" },  notes = "批量处理[根据需求Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/bugs/{bug_id}/buildbatchunlinkbugbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/bugs/buildbatchunlinkbugbatch")
     public ResponseEntity<Boolean> buildBatchUnlinkBugByStory(@PathVariable("story_id") Long story_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.buildBatchUnlinkBugBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.buildBatchUnlinkBugBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BuildLinkBug-all')")
     @ApiOperation(value = "根据需求Bug", tags = {"Bug" },  notes = "根据需求Bug")
@@ -2526,9 +2615,11 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据需求Bug]", tags = {"Bug" },  notes = "批量处理[根据需求Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/bugs/{bug_id}/buildlinkbugbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/bugs/buildlinkbugbatch")
     public ResponseEntity<Boolean> buildLinkBugByStory(@PathVariable("story_id") Long story_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.buildLinkBugBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.buildLinkBugBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BuildUnlinkBug-all')")
     @ApiOperation(value = "根据需求Bug", tags = {"Bug" },  notes = "根据需求Bug")
@@ -2541,9 +2632,11 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据需求Bug]", tags = {"Bug" },  notes = "批量处理[根据需求Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/bugs/{bug_id}/buildunlinkbugbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/bugs/buildunlinkbugbatch")
     public ResponseEntity<Boolean> buildUnlinkBugByStory(@PathVariable("story_id") Long story_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.buildUnlinkBugBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.buildUnlinkBugBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @ApiOperation(value = "根据需求检查Bug", tags = {"Bug" },  notes = "根据需求检查Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/bugs/checkkey")
@@ -2562,9 +2655,11 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据需求Bug]", tags = {"Bug" },  notes = "批量处理[根据需求Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/bugs/{bug_id}/closebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/bugs/closebatch")
     public ResponseEntity<Boolean> closeByStory(@PathVariable("story_id") Long story_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.closeBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.closeBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Confirm-all')")
     @ApiOperation(value = "根据需求Bug", tags = {"Bug" },  notes = "根据需求Bug")
@@ -2577,9 +2672,11 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据需求Bug]", tags = {"Bug" },  notes = "批量处理[根据需求Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/bugs/{bug_id}/confirmbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/bugs/confirmbatch")
     public ResponseEntity<Boolean> confirmByStory(@PathVariable("story_id") Long story_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.confirmBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.confirmBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-LinkBug-all')")
     @ApiOperation(value = "根据需求Bug", tags = {"Bug" },  notes = "根据需求Bug")
@@ -2592,9 +2689,11 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据需求Bug]", tags = {"Bug" },  notes = "批量处理[根据需求Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/bugs/{bug_id}/linkbugbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/bugs/linkbugbatch")
     public ResponseEntity<Boolean> linkBugByStory(@PathVariable("story_id") Long story_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.linkBugBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.linkBugBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaaseBatchUnlinkBug-all')")
     @ApiOperation(value = "根据需求Bug", tags = {"Bug" },  notes = "根据需求Bug")
@@ -2607,9 +2706,11 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据需求Bug]", tags = {"Bug" },  notes = "批量处理[根据需求Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/bugs/{bug_id}/releaasebatchunlinkbugbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/bugs/releaasebatchunlinkbugbatch")
     public ResponseEntity<Boolean> releaaseBatchUnlinkBugByStory(@PathVariable("story_id") Long story_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.releaaseBatchUnlinkBugBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.releaaseBatchUnlinkBugBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseLinkBugbyBug-all')")
     @ApiOperation(value = "根据需求Bug", tags = {"Bug" },  notes = "根据需求Bug")
@@ -2622,9 +2723,11 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据需求Bug]", tags = {"Bug" },  notes = "批量处理[根据需求Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/bugs/{bug_id}/releaselinkbugbybugbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/bugs/releaselinkbugbybugbatch")
     public ResponseEntity<Boolean> releaseLinkBugbyBugByStory(@PathVariable("story_id") Long story_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.releaseLinkBugbyBugBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.releaseLinkBugbyBugBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseLinkBugbyLeftBug-all')")
     @ApiOperation(value = "根据需求Bug", tags = {"Bug" },  notes = "根据需求Bug")
@@ -2637,9 +2740,11 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据需求Bug]", tags = {"Bug" },  notes = "批量处理[根据需求Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/bugs/{bug_id}/releaselinkbugbyleftbugbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/bugs/releaselinkbugbyleftbugbatch")
     public ResponseEntity<Boolean> releaseLinkBugbyLeftBugByStory(@PathVariable("story_id") Long story_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.releaseLinkBugbyLeftBugBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.releaseLinkBugbyLeftBugBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseUnLinkBugbyLeftBug-all')")
     @ApiOperation(value = "根据需求Bug", tags = {"Bug" },  notes = "根据需求Bug")
@@ -2652,9 +2757,11 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据需求Bug]", tags = {"Bug" },  notes = "批量处理[根据需求Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/bugs/{bug_id}/releaseunlinkbugbyleftbugbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/bugs/releaseunlinkbugbyleftbugbatch")
     public ResponseEntity<Boolean> releaseUnLinkBugbyLeftBugByStory(@PathVariable("story_id") Long story_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.releaseUnLinkBugbyLeftBugBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.releaseUnLinkBugbyLeftBugBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseUnlinkBug-all')")
     @ApiOperation(value = "根据需求Bug", tags = {"Bug" },  notes = "根据需求Bug")
@@ -2667,9 +2774,11 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据需求Bug]", tags = {"Bug" },  notes = "批量处理[根据需求Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/bugs/{bug_id}/releaseunlinkbugbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/bugs/releaseunlinkbugbatch")
     public ResponseEntity<Boolean> releaseUnlinkBugByStory(@PathVariable("story_id") Long story_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.releaseUnlinkBugBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.releaseUnlinkBugBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Resolve-all')")
     @ApiOperation(value = "根据需求Bug", tags = {"Bug" },  notes = "根据需求Bug")
@@ -2682,17 +2791,20 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据需求Bug]", tags = {"Bug" },  notes = "批量处理[根据需求Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/bugs/{bug_id}/resolvebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/bugs/resolvebatch")
     public ResponseEntity<Boolean> resolveByStory(@PathVariable("story_id") Long story_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.resolveBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.resolveBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Save-all')")
     @ApiOperation(value = "根据需求保存Bug", tags = {"Bug" },  notes = "根据需求保存Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/bugs/save")
-    public ResponseEntity<Boolean> saveByStory(@PathVariable("story_id") Long story_id, @RequestBody BugDTO bugdto) {
+    public ResponseEntity<BugDTO> saveByStory(@PathVariable("story_id") Long story_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setStory(story_id);
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.save(domain));
+        bugService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Save-all')")
@@ -2718,9 +2830,11 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据需求Bug]", tags = {"Bug" },  notes = "批量处理[根据需求Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/bugs/{bug_id}/sendmessagebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/bugs/sendmessagebatch")
     public ResponseEntity<Boolean> sendMessageByStory(@PathVariable("story_id") Long story_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.sendMessageBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.sendMessageBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-SendMsgPreProcess-all')")
     @ApiOperation(value = "根据需求Bug", tags = {"Bug" },  notes = "根据需求Bug")
@@ -2733,9 +2847,11 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据需求Bug]", tags = {"Bug" },  notes = "批量处理[根据需求Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/bugs/{bug_id}/sendmsgpreprocessbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/bugs/sendmsgpreprocessbatch")
     public ResponseEntity<Boolean> sendMsgPreProcessByStory(@PathVariable("story_id") Long story_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.sendMsgPreProcessBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.sendMsgPreProcessBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ToStory-all')")
     @ApiOperation(value = "根据需求Bug", tags = {"Bug" },  notes = "根据需求Bug")
@@ -2748,9 +2864,11 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据需求Bug]", tags = {"Bug" },  notes = "批量处理[根据需求Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/bugs/{bug_id}/tostorybatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/bugs/tostorybatch")
     public ResponseEntity<Boolean> toStoryByStory(@PathVariable("story_id") Long story_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.toStoryBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.toStoryBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-UnlinkBug-all')")
     @ApiOperation(value = "根据需求Bug", tags = {"Bug" },  notes = "根据需求Bug")
@@ -2763,9 +2881,11 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据需求Bug]", tags = {"Bug" },  notes = "批量处理[根据需求Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/bugs/{bug_id}/unlinkbugbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/bugs/unlinkbugbatch")
     public ResponseEntity<Boolean> unlinkBugByStory(@PathVariable("story_id") Long story_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.unlinkBugBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.unlinkBugBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-UpdateStoryVersion-all')")
     @ApiOperation(value = "根据需求Bug", tags = {"Bug" },  notes = "根据需求Bug")
@@ -3587,8 +3707,8 @@ public class BugResource {
 
     @ApiOperation(value = "根据项目获取Bug草稿", tags = {"Bug" },  notes = "根据项目获取Bug草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/projects/{project_id}/bugs/getdraft")
-    public ResponseEntity<BugDTO> getDraftByProject(@PathVariable("project_id") Long project_id) {
-        Bug domain = new Bug();
+    public ResponseEntity<BugDTO> getDraftByProject(@PathVariable("project_id") Long project_id, BugDTO dto) {
+        Bug domain = bugMapping.toDomain(dto);
         domain.setProject(project_id);
         return ResponseEntity.status(HttpStatus.OK).body(bugMapping.toDto(bugService.getDraft(domain)));
     }
@@ -3604,9 +3724,11 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据项目Bug]", tags = {"Bug" },  notes = "批量处理[根据项目Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/bugs/{bug_id}/activatebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/bugs/activatebatch")
     public ResponseEntity<Boolean> activateByProject(@PathVariable("project_id") Long project_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.activateBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.activateBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-AssignTo-all')")
     @ApiOperation(value = "根据项目Bug", tags = {"Bug" },  notes = "根据项目Bug")
@@ -3619,9 +3741,11 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据项目Bug]", tags = {"Bug" },  notes = "批量处理[根据项目Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/bugs/{bug_id}/assigntobatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/bugs/assigntobatch")
     public ResponseEntity<Boolean> assignToByProject(@PathVariable("project_id") Long project_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.assignToBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.assignToBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BatchUnlinkBug-all')")
     @ApiOperation(value = "根据项目Bug", tags = {"Bug" },  notes = "根据项目Bug")
@@ -3634,9 +3758,11 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据项目Bug]", tags = {"Bug" },  notes = "批量处理[根据项目Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/bugs/{bug_id}/batchunlinkbugbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/bugs/batchunlinkbugbatch")
     public ResponseEntity<Boolean> batchUnlinkBugByProject(@PathVariable("project_id") Long project_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.batchUnlinkBugBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.batchUnlinkBugBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BugFavorites-all')")
     @ApiOperation(value = "根据项目Bug", tags = {"Bug" },  notes = "根据项目Bug")
@@ -3669,9 +3795,11 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据项目Bug]", tags = {"Bug" },  notes = "批量处理[根据项目Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/bugs/{bug_id}/buildbatchunlinkbugbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/bugs/buildbatchunlinkbugbatch")
     public ResponseEntity<Boolean> buildBatchUnlinkBugByProject(@PathVariable("project_id") Long project_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.buildBatchUnlinkBugBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.buildBatchUnlinkBugBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BuildLinkBug-all')")
     @ApiOperation(value = "根据项目Bug", tags = {"Bug" },  notes = "根据项目Bug")
@@ -3684,9 +3812,11 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据项目Bug]", tags = {"Bug" },  notes = "批量处理[根据项目Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/bugs/{bug_id}/buildlinkbugbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/bugs/buildlinkbugbatch")
     public ResponseEntity<Boolean> buildLinkBugByProject(@PathVariable("project_id") Long project_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.buildLinkBugBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.buildLinkBugBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BuildUnlinkBug-all')")
     @ApiOperation(value = "根据项目Bug", tags = {"Bug" },  notes = "根据项目Bug")
@@ -3699,9 +3829,11 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据项目Bug]", tags = {"Bug" },  notes = "批量处理[根据项目Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/bugs/{bug_id}/buildunlinkbugbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/bugs/buildunlinkbugbatch")
     public ResponseEntity<Boolean> buildUnlinkBugByProject(@PathVariable("project_id") Long project_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.buildUnlinkBugBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.buildUnlinkBugBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @ApiOperation(value = "根据项目检查Bug", tags = {"Bug" },  notes = "根据项目检查Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/bugs/checkkey")
@@ -3720,9 +3852,11 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据项目Bug]", tags = {"Bug" },  notes = "批量处理[根据项目Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/bugs/{bug_id}/closebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/bugs/closebatch")
     public ResponseEntity<Boolean> closeByProject(@PathVariable("project_id") Long project_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.closeBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.closeBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Confirm-all')")
     @ApiOperation(value = "根据项目Bug", tags = {"Bug" },  notes = "根据项目Bug")
@@ -3735,9 +3869,11 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据项目Bug]", tags = {"Bug" },  notes = "批量处理[根据项目Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/bugs/{bug_id}/confirmbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/bugs/confirmbatch")
     public ResponseEntity<Boolean> confirmByProject(@PathVariable("project_id") Long project_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.confirmBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.confirmBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-LinkBug-all')")
     @ApiOperation(value = "根据项目Bug", tags = {"Bug" },  notes = "根据项目Bug")
@@ -3750,9 +3886,11 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据项目Bug]", tags = {"Bug" },  notes = "批量处理[根据项目Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/bugs/{bug_id}/linkbugbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/bugs/linkbugbatch")
     public ResponseEntity<Boolean> linkBugByProject(@PathVariable("project_id") Long project_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.linkBugBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.linkBugBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaaseBatchUnlinkBug-all')")
     @ApiOperation(value = "根据项目Bug", tags = {"Bug" },  notes = "根据项目Bug")
@@ -3765,9 +3903,11 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据项目Bug]", tags = {"Bug" },  notes = "批量处理[根据项目Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/bugs/{bug_id}/releaasebatchunlinkbugbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/bugs/releaasebatchunlinkbugbatch")
     public ResponseEntity<Boolean> releaaseBatchUnlinkBugByProject(@PathVariable("project_id") Long project_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.releaaseBatchUnlinkBugBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.releaaseBatchUnlinkBugBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseLinkBugbyBug-all')")
     @ApiOperation(value = "根据项目Bug", tags = {"Bug" },  notes = "根据项目Bug")
@@ -3780,9 +3920,11 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据项目Bug]", tags = {"Bug" },  notes = "批量处理[根据项目Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/bugs/{bug_id}/releaselinkbugbybugbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/bugs/releaselinkbugbybugbatch")
     public ResponseEntity<Boolean> releaseLinkBugbyBugByProject(@PathVariable("project_id") Long project_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.releaseLinkBugbyBugBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.releaseLinkBugbyBugBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseLinkBugbyLeftBug-all')")
     @ApiOperation(value = "根据项目Bug", tags = {"Bug" },  notes = "根据项目Bug")
@@ -3795,9 +3937,11 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据项目Bug]", tags = {"Bug" },  notes = "批量处理[根据项目Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/bugs/{bug_id}/releaselinkbugbyleftbugbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/bugs/releaselinkbugbyleftbugbatch")
     public ResponseEntity<Boolean> releaseLinkBugbyLeftBugByProject(@PathVariable("project_id") Long project_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.releaseLinkBugbyLeftBugBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.releaseLinkBugbyLeftBugBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseUnLinkBugbyLeftBug-all')")
     @ApiOperation(value = "根据项目Bug", tags = {"Bug" },  notes = "根据项目Bug")
@@ -3810,9 +3954,11 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据项目Bug]", tags = {"Bug" },  notes = "批量处理[根据项目Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/bugs/{bug_id}/releaseunlinkbugbyleftbugbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/bugs/releaseunlinkbugbyleftbugbatch")
     public ResponseEntity<Boolean> releaseUnLinkBugbyLeftBugByProject(@PathVariable("project_id") Long project_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.releaseUnLinkBugbyLeftBugBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.releaseUnLinkBugbyLeftBugBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseUnlinkBug-all')")
     @ApiOperation(value = "根据项目Bug", tags = {"Bug" },  notes = "根据项目Bug")
@@ -3825,9 +3971,11 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据项目Bug]", tags = {"Bug" },  notes = "批量处理[根据项目Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/bugs/{bug_id}/releaseunlinkbugbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/bugs/releaseunlinkbugbatch")
     public ResponseEntity<Boolean> releaseUnlinkBugByProject(@PathVariable("project_id") Long project_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.releaseUnlinkBugBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.releaseUnlinkBugBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Resolve-all')")
     @ApiOperation(value = "根据项目Bug", tags = {"Bug" },  notes = "根据项目Bug")
@@ -3840,17 +3988,20 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据项目Bug]", tags = {"Bug" },  notes = "批量处理[根据项目Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/bugs/{bug_id}/resolvebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/bugs/resolvebatch")
     public ResponseEntity<Boolean> resolveByProject(@PathVariable("project_id") Long project_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.resolveBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.resolveBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Save-all')")
     @ApiOperation(value = "根据项目保存Bug", tags = {"Bug" },  notes = "根据项目保存Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/bugs/save")
-    public ResponseEntity<Boolean> saveByProject(@PathVariable("project_id") Long project_id, @RequestBody BugDTO bugdto) {
+    public ResponseEntity<BugDTO> saveByProject(@PathVariable("project_id") Long project_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setProject(project_id);
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.save(domain));
+        bugService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Save-all')")
@@ -3876,9 +4027,11 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据项目Bug]", tags = {"Bug" },  notes = "批量处理[根据项目Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/bugs/{bug_id}/sendmessagebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/bugs/sendmessagebatch")
     public ResponseEntity<Boolean> sendMessageByProject(@PathVariable("project_id") Long project_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.sendMessageBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.sendMessageBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-SendMsgPreProcess-all')")
     @ApiOperation(value = "根据项目Bug", tags = {"Bug" },  notes = "根据项目Bug")
@@ -3891,9 +4044,11 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据项目Bug]", tags = {"Bug" },  notes = "批量处理[根据项目Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/bugs/{bug_id}/sendmsgpreprocessbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/bugs/sendmsgpreprocessbatch")
     public ResponseEntity<Boolean> sendMsgPreProcessByProject(@PathVariable("project_id") Long project_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.sendMsgPreProcessBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.sendMsgPreProcessBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ToStory-all')")
     @ApiOperation(value = "根据项目Bug", tags = {"Bug" },  notes = "根据项目Bug")
@@ -3906,9 +4061,11 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据项目Bug]", tags = {"Bug" },  notes = "批量处理[根据项目Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/bugs/{bug_id}/tostorybatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/bugs/tostorybatch")
     public ResponseEntity<Boolean> toStoryByProject(@PathVariable("project_id") Long project_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.toStoryBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.toStoryBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-UnlinkBug-all')")
     @ApiOperation(value = "根据项目Bug", tags = {"Bug" },  notes = "根据项目Bug")
@@ -3921,9 +4078,11 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据项目Bug]", tags = {"Bug" },  notes = "批量处理[根据项目Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/bugs/{bug_id}/unlinkbugbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/bugs/unlinkbugbatch")
     public ResponseEntity<Boolean> unlinkBugByProject(@PathVariable("project_id") Long project_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.unlinkBugBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.unlinkBugBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-UpdateStoryVersion-all')")
     @ApiOperation(value = "根据项目Bug", tags = {"Bug" },  notes = "根据项目Bug")
@@ -4745,8 +4904,8 @@ public class BugResource {
 
     @ApiOperation(value = "根据产品需求获取Bug草稿", tags = {"Bug" },  notes = "根据产品需求获取Bug草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/stories/{story_id}/bugs/getdraft")
-    public ResponseEntity<BugDTO> getDraftByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id) {
-        Bug domain = new Bug();
+    public ResponseEntity<BugDTO> getDraftByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, BugDTO dto) {
+        Bug domain = bugMapping.toDomain(dto);
         domain.setStory(story_id);
         return ResponseEntity.status(HttpStatus.OK).body(bugMapping.toDto(bugService.getDraft(domain)));
     }
@@ -4762,9 +4921,11 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据产品需求Bug]", tags = {"Bug" },  notes = "批量处理[根据产品需求Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/bugs/{bug_id}/activatebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/bugs/activatebatch")
     public ResponseEntity<Boolean> activateByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.activateBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.activateBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-AssignTo-all')")
     @ApiOperation(value = "根据产品需求Bug", tags = {"Bug" },  notes = "根据产品需求Bug")
@@ -4777,9 +4938,11 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据产品需求Bug]", tags = {"Bug" },  notes = "批量处理[根据产品需求Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/bugs/{bug_id}/assigntobatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/bugs/assigntobatch")
     public ResponseEntity<Boolean> assignToByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.assignToBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.assignToBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BatchUnlinkBug-all')")
     @ApiOperation(value = "根据产品需求Bug", tags = {"Bug" },  notes = "根据产品需求Bug")
@@ -4792,9 +4955,11 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据产品需求Bug]", tags = {"Bug" },  notes = "批量处理[根据产品需求Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/bugs/{bug_id}/batchunlinkbugbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/bugs/batchunlinkbugbatch")
     public ResponseEntity<Boolean> batchUnlinkBugByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.batchUnlinkBugBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.batchUnlinkBugBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BugFavorites-all')")
     @ApiOperation(value = "根据产品需求Bug", tags = {"Bug" },  notes = "根据产品需求Bug")
@@ -4827,9 +4992,11 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据产品需求Bug]", tags = {"Bug" },  notes = "批量处理[根据产品需求Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/bugs/{bug_id}/buildbatchunlinkbugbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/bugs/buildbatchunlinkbugbatch")
     public ResponseEntity<Boolean> buildBatchUnlinkBugByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.buildBatchUnlinkBugBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.buildBatchUnlinkBugBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BuildLinkBug-all')")
     @ApiOperation(value = "根据产品需求Bug", tags = {"Bug" },  notes = "根据产品需求Bug")
@@ -4842,9 +5009,11 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据产品需求Bug]", tags = {"Bug" },  notes = "批量处理[根据产品需求Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/bugs/{bug_id}/buildlinkbugbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/bugs/buildlinkbugbatch")
     public ResponseEntity<Boolean> buildLinkBugByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.buildLinkBugBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.buildLinkBugBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-BuildUnlinkBug-all')")
     @ApiOperation(value = "根据产品需求Bug", tags = {"Bug" },  notes = "根据产品需求Bug")
@@ -4857,9 +5026,11 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据产品需求Bug]", tags = {"Bug" },  notes = "批量处理[根据产品需求Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/bugs/{bug_id}/buildunlinkbugbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/bugs/buildunlinkbugbatch")
     public ResponseEntity<Boolean> buildUnlinkBugByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.buildUnlinkBugBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.buildUnlinkBugBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @ApiOperation(value = "根据产品需求检查Bug", tags = {"Bug" },  notes = "根据产品需求检查Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/bugs/checkkey")
@@ -4878,9 +5049,11 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据产品需求Bug]", tags = {"Bug" },  notes = "批量处理[根据产品需求Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/bugs/{bug_id}/closebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/bugs/closebatch")
     public ResponseEntity<Boolean> closeByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.closeBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.closeBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Confirm-all')")
     @ApiOperation(value = "根据产品需求Bug", tags = {"Bug" },  notes = "根据产品需求Bug")
@@ -4893,9 +5066,11 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据产品需求Bug]", tags = {"Bug" },  notes = "批量处理[根据产品需求Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/bugs/{bug_id}/confirmbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/bugs/confirmbatch")
     public ResponseEntity<Boolean> confirmByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.confirmBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.confirmBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-LinkBug-all')")
     @ApiOperation(value = "根据产品需求Bug", tags = {"Bug" },  notes = "根据产品需求Bug")
@@ -4908,9 +5083,11 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据产品需求Bug]", tags = {"Bug" },  notes = "批量处理[根据产品需求Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/bugs/{bug_id}/linkbugbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/bugs/linkbugbatch")
     public ResponseEntity<Boolean> linkBugByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.linkBugBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.linkBugBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaaseBatchUnlinkBug-all')")
     @ApiOperation(value = "根据产品需求Bug", tags = {"Bug" },  notes = "根据产品需求Bug")
@@ -4923,9 +5100,11 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据产品需求Bug]", tags = {"Bug" },  notes = "批量处理[根据产品需求Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/bugs/{bug_id}/releaasebatchunlinkbugbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/bugs/releaasebatchunlinkbugbatch")
     public ResponseEntity<Boolean> releaaseBatchUnlinkBugByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.releaaseBatchUnlinkBugBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.releaaseBatchUnlinkBugBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseLinkBugbyBug-all')")
     @ApiOperation(value = "根据产品需求Bug", tags = {"Bug" },  notes = "根据产品需求Bug")
@@ -4938,9 +5117,11 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据产品需求Bug]", tags = {"Bug" },  notes = "批量处理[根据产品需求Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/bugs/{bug_id}/releaselinkbugbybugbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/bugs/releaselinkbugbybugbatch")
     public ResponseEntity<Boolean> releaseLinkBugbyBugByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.releaseLinkBugbyBugBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.releaseLinkBugbyBugBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseLinkBugbyLeftBug-all')")
     @ApiOperation(value = "根据产品需求Bug", tags = {"Bug" },  notes = "根据产品需求Bug")
@@ -4953,9 +5134,11 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据产品需求Bug]", tags = {"Bug" },  notes = "批量处理[根据产品需求Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/bugs/{bug_id}/releaselinkbugbyleftbugbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/bugs/releaselinkbugbyleftbugbatch")
     public ResponseEntity<Boolean> releaseLinkBugbyLeftBugByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.releaseLinkBugbyLeftBugBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.releaseLinkBugbyLeftBugBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseUnLinkBugbyLeftBug-all')")
     @ApiOperation(value = "根据产品需求Bug", tags = {"Bug" },  notes = "根据产品需求Bug")
@@ -4968,9 +5151,11 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据产品需求Bug]", tags = {"Bug" },  notes = "批量处理[根据产品需求Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/bugs/{bug_id}/releaseunlinkbugbyleftbugbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/bugs/releaseunlinkbugbyleftbugbatch")
     public ResponseEntity<Boolean> releaseUnLinkBugbyLeftBugByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.releaseUnLinkBugbyLeftBugBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.releaseUnLinkBugbyLeftBugBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ReleaseUnlinkBug-all')")
     @ApiOperation(value = "根据产品需求Bug", tags = {"Bug" },  notes = "根据产品需求Bug")
@@ -4983,9 +5168,11 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据产品需求Bug]", tags = {"Bug" },  notes = "批量处理[根据产品需求Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/bugs/{bug_id}/releaseunlinkbugbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/bugs/releaseunlinkbugbatch")
     public ResponseEntity<Boolean> releaseUnlinkBugByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.releaseUnlinkBugBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.releaseUnlinkBugBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Resolve-all')")
     @ApiOperation(value = "根据产品需求Bug", tags = {"Bug" },  notes = "根据产品需求Bug")
@@ -4998,17 +5185,20 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据产品需求Bug]", tags = {"Bug" },  notes = "批量处理[根据产品需求Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/bugs/{bug_id}/resolvebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/bugs/resolvebatch")
     public ResponseEntity<Boolean> resolveByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.resolveBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.resolveBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Save-all')")
     @ApiOperation(value = "根据产品需求保存Bug", tags = {"Bug" },  notes = "根据产品需求保存Bug")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/bugs/save")
-    public ResponseEntity<Boolean> saveByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody BugDTO bugdto) {
+    public ResponseEntity<BugDTO> saveByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody BugDTO bugdto) {
         Bug domain = bugMapping.toDomain(bugdto);
         domain.setStory(story_id);
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.save(domain));
+        bugService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-Save-all')")
@@ -5034,9 +5224,11 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据产品需求Bug]", tags = {"Bug" },  notes = "批量处理[根据产品需求Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/bugs/{bug_id}/sendmessagebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/bugs/sendmessagebatch")
     public ResponseEntity<Boolean> sendMessageByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.sendMessageBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.sendMessageBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-SendMsgPreProcess-all')")
     @ApiOperation(value = "根据产品需求Bug", tags = {"Bug" },  notes = "根据产品需求Bug")
@@ -5049,9 +5241,11 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据产品需求Bug]", tags = {"Bug" },  notes = "批量处理[根据产品需求Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/bugs/{bug_id}/sendmsgpreprocessbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/bugs/sendmsgpreprocessbatch")
     public ResponseEntity<Boolean> sendMsgPreProcessByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.sendMsgPreProcessBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.sendMsgPreProcessBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-ToStory-all')")
     @ApiOperation(value = "根据产品需求Bug", tags = {"Bug" },  notes = "根据产品需求Bug")
@@ -5064,9 +5258,11 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据产品需求Bug]", tags = {"Bug" },  notes = "批量处理[根据产品需求Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/bugs/{bug_id}/tostorybatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/bugs/tostorybatch")
     public ResponseEntity<Boolean> toStoryByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.toStoryBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.toStoryBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-UnlinkBug-all')")
     @ApiOperation(value = "根据产品需求Bug", tags = {"Bug" },  notes = "根据产品需求Bug")
@@ -5079,9 +5275,11 @@ public class BugResource {
         return ResponseEntity.status(HttpStatus.OK).body(bugdto);
     }
     @ApiOperation(value = "批量处理[根据产品需求Bug]", tags = {"Bug" },  notes = "批量处理[根据产品需求Bug]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/bugs/{bug_id}/unlinkbugbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/bugs/unlinkbugbatch")
     public ResponseEntity<Boolean> unlinkBugByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<BugDTO> bugdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugService.unlinkBugBatch(bugMapping.toDomain(bugdtos)));
+        List<Bug> domains = bugMapping.toDomain(bugdtos);
+        boolean result = bugService.unlinkBugBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Bug-UpdateStoryVersion-all')")
     @ApiOperation(value = "根据产品需求Bug", tags = {"Bug" },  notes = "根据产品需求Bug")

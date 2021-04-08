@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { EditViewBase } from '@/studio-core';
 import TestTaskService from '@/service/test-task/test-task-service';
 import TestTaskAuthService from '@/authservice/test-task/test-task-auth-service';
@@ -153,7 +153,7 @@ export class TestTaskProjectNewEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof TestTaskProjectNewEditViewBase
      */
-	protected viewtag: string = '513dfe852d9d8a97b32eccb44e7b55c3';
+	protected viewtag: string = '6f5b8ebffda0c9f3f83f5f59b5b80d81';
 
     /**
      * 视图名称

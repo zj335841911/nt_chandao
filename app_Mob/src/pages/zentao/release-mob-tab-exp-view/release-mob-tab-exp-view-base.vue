@@ -134,7 +134,7 @@ export default class ReleaseMobTabExpViewBase extends Vue {
 	 * @type {string}
 	 * @memberof ReleaseMobTabExpViewBase
 	 */
-	protected viewtag: string = '09fb65f64bb7dc0e95e24e03aa8de907';
+	protected viewtag: string = '6175cb4af7aab76586b3bb51e925c566';
 
     /**
      * 视图上下文

@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { EditViewBase } from '@/studio-core';
 import IbzReportlyService from '@/service/ibz-reportly/ibz-reportly-service';
 import IbzReportlyAuthService from '@/authservice/ibz-reportly/ibz-reportly-auth-service';
@@ -127,7 +127,7 @@ export class IbzReportlyCalendarEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof IbzReportlyCalendarEditViewBase
      */
-	protected viewtag: string = '2c91cdea9417e94544a5d73ac68cd78d';
+	protected viewtag: string = 'da1e5d81fc6839e5d3862946971b9eb5';
 
     /**
      * 视图名称

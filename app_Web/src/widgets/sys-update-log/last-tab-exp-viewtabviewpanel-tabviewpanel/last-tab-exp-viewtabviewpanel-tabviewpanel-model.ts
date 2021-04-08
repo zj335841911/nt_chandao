@@ -15,11 +15,7 @@ export default class LastTabExpViewtabviewpanelModel {
   public getDataItems(): any[] {
     return [
       {
-        name: 'sysupdatelog',
-        prop: 'sysupdatelogid',
-      },
-      {
-        name: 'sysupdatelogname',
+        name: 'updatedate',
       },
       {
         name: 'updateman',
@@ -31,22 +27,26 @@ export default class LastTabExpViewtabviewpanelModel {
         name: 'createdate',
       },
       {
-        name: 'updatedate',
+        name: 'sysupdatelog',
+        prop: 'sysupdatelogid',
       },
       {
-        name: 'update',
-      },
-      {
-        name: 'updesc',
-      },
-      {
-        name: 'latestupdate',
+        name: 'updatebranch',
       },
       {
         name: 'updatefeatures',
       },
       {
-        name: 'updatebranch',
+        name: 'updesc',
+      },
+      {
+        name: 'sysupdatelogname',
+      },
+      {
+        name: 'latestupdate',
+      },
+      {
+        name: 'update',
       },
     ]
   }

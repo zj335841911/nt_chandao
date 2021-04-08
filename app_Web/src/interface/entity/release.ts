@@ -31,6 +31,14 @@ export interface Release {
     id?: any;
 
     /**
+     * 运行数据库
+     *
+     * @returns {*}
+     * @memberof Release
+     */
+    sqlid?: any;
+
+    /**
      * 遗留的Bug
      *
      * @returns {*}
@@ -53,6 +61,22 @@ export interface Release {
      * @memberof Release
      */
     deleted?: any;
+
+    /**
+     * 消息通知用户
+     *
+     * @returns {*}
+     * @memberof Release
+     */
+    noticeusers?: any;
+
+    /**
+     * 重新构建
+     *
+     * @returns {*}
+     * @memberof Release
+     */
+    rebuild?: any;
 
     /**
      * 发布名称
@@ -79,12 +103,28 @@ export interface Release {
     status?: any;
 
     /**
+     * 运行模式
+     *
+     * @returns {*}
+     * @memberof Release
+     */
+    releasetype?: any;
+
+    /**
      * 子状态
      *
      * @returns {*}
      * @memberof Release
      */
     substatus?: any;
+
+    /**
+     * 后台体系
+     *
+     * @returns {*}
+     * @memberof Release
+     */
+    backgroundid?: any;
 
     /**
      * 描述
@@ -95,12 +135,52 @@ export interface Release {
     desc?: any;
 
     /**
+     * 附件
+     *
+     * @returns {*}
+     * @memberof Release
+     */
+    files?: any;
+
+    /**
+     * 系统应用
+     *
+     * @returns {*}
+     * @memberof Release
+     */
+    frontapplication?: any;
+
+    /**
+     * 产品名称
+     *
+     * @returns {*}
+     * @memberof Release
+     */
+    productname?: any;
+
+    /**
+     * 构建者
+     *
+     * @returns {*}
+     * @memberof Release
+     */
+    builder?: any;
+
+    /**
      * 版本
      *
      * @returns {*}
      * @memberof Release
      */
     buildname?: any;
+
+    /**
+     * 打包日期
+     *
+     * @returns {*}
+     * @memberof Release
+     */
+    builddate?: any;
 
     /**
      * 产品
@@ -125,84 +205,4 @@ export interface Release {
      * @memberof Release
      */
     branch?: any;
-
-    /**
-     * 产品名称
-     *
-     * @returns {*}
-     * @memberof Release
-     */
-    productname?: any;
-
-    /**
-     * 附件
-     *
-     * @returns {*}
-     * @memberof Release
-     */
-    files?: any;
-
-    /**
-     * 后台体系
-     *
-     * @returns {*}
-     * @memberof Release
-     */
-    backgroundid?: any;
-
-    /**
-     * 运行数据库
-     *
-     * @returns {*}
-     * @memberof Release
-     */
-    sqlid?: any;
-
-    /**
-     * 系统应用
-     *
-     * @returns {*}
-     * @memberof Release
-     */
-    frontapplication?: any;
-
-    /**
-     * 重新构建
-     *
-     * @returns {*}
-     * @memberof Release
-     */
-    rebuild?: any;
-
-    /**
-     * 运行模式
-     *
-     * @returns {*}
-     * @memberof Release
-     */
-    releasetype?: any;
-
-    /**
-     * 构建者
-     *
-     * @returns {*}
-     * @memberof Release
-     */
-    builder?: any;
-
-    /**
-     * 打包日期
-     *
-     * @returns {*}
-     * @memberof Release
-     */
-    builddate?: any;
-
-    /**
-     * 消息通知用户
-     *
-     * @returns {*}
-     * @memberof Release
-     */
-    noticeusers?: any;
 }

@@ -1,3 +1,4 @@
+import { Environment } from '@/environments/environment';
 import { Http } from '@/utils';
 import { Util } from '@/utils';
 import EntityService from '../entity-service';
@@ -49,7 +50,7 @@ export default class IbzDailyServiceBase extends EntityService {
      * @memberof IbzDailyServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().get(`/ibzdailies/${context.ibzdaily}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/ibzdailies/${context.ibzdaily}/select`,isloading);
             
             return res;
     }
@@ -105,7 +106,7 @@ export default class IbzDailyServiceBase extends EntityService {
      * @memberof IbzDailyServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().delete(`/ibzdailies/${context.ibzdaily}`,isloading);
+            let res:any = await Http.getInstance().delete(`/ibzdailies/${context.ibzdaily}`,isloading);
             return res;
     }
 
@@ -134,7 +135,10 @@ export default class IbzDailyServiceBase extends EntityService {
      * @memberof IbzDailyServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/ibzdailies/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.ibzdaily) delete tempData.ibzdaily;
+        if(tempData.ibzdailyid) delete tempData.ibzdailyid;
+        let res:any = await  Http.getInstance().get(`/ibzdailies/getdraft`,tempData,isloading);
         res.data.ibzdaily = data.ibzdaily;
         
         return res;
@@ -150,7 +154,7 @@ export default class IbzDailyServiceBase extends EntityService {
      * @memberof IbzDailyServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/ibzdailies/${context.ibzdaily}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/ibzdailies/${context.ibzdaily}/checkkey`,data,isloading);
             return res;
     }
 
@@ -164,8 +168,22 @@ export default class IbzDailyServiceBase extends EntityService {
      * @memberof IbzDailyServiceBase
      */
     public async CreateUserDaily(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/ibzdailies/${context.ibzdaily}/createuserdaily`,data,isloading);
+            let res:any = await Http.getInstance().post(`/ibzdailies/${context.ibzdaily}/createuserdaily`,data,isloading);
             return res;
+    }
+
+    /**
+     * CreateUserDailyBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzDailyServiceBase
+     */
+    public async CreateUserDailyBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/ibzdailies/createuserdailybatch`,tempData,isloading);
     }
 
     /**
@@ -178,8 +196,22 @@ export default class IbzDailyServiceBase extends EntityService {
      * @memberof IbzDailyServiceBase
      */
     public async GetYeaterdayDailyPlansTaskEdit(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/ibzdailies/${context.ibzdaily}/getyeaterdaydailyplanstaskedit`,data,isloading);
+            let res:any = await Http.getInstance().post(`/ibzdailies/${context.ibzdaily}/getyeaterdaydailyplanstaskedit`,data,isloading);
             return res;
+    }
+
+    /**
+     * GetYeaterdayDailyPlansTaskEditBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzDailyServiceBase
+     */
+    public async GetYeaterdayDailyPlansTaskEditBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/ibzdailies/getyeaterdaydailyplanstaskeditbatch`,tempData,isloading);
     }
 
     /**
@@ -192,8 +224,22 @@ export default class IbzDailyServiceBase extends EntityService {
      * @memberof IbzDailyServiceBase
      */
     public async GetYesterdayDailyPlansTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/ibzdailies/${context.ibzdaily}/getyesterdaydailyplanstask`,data,isloading);
+            let res:any = await Http.getInstance().post(`/ibzdailies/${context.ibzdaily}/getyesterdaydailyplanstask`,data,isloading);
             return res;
+    }
+
+    /**
+     * GetYesterdayDailyPlansTaskBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzDailyServiceBase
+     */
+    public async GetYesterdayDailyPlansTaskBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/ibzdailies/getyesterdaydailyplanstaskbatch`,tempData,isloading);
     }
 
     /**
@@ -206,8 +252,22 @@ export default class IbzDailyServiceBase extends EntityService {
      * @memberof IbzDailyServiceBase
      */
     public async HaveRead(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/ibzdailies/${context.ibzdaily}/haveread`,data,isloading);
+            let res:any = await Http.getInstance().post(`/ibzdailies/${context.ibzdaily}/haveread`,data,isloading);
             return res;
+    }
+
+    /**
+     * HaveReadBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzDailyServiceBase
+     */
+    public async HaveReadBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/ibzdailies/havereadbatch`,tempData,isloading);
     }
 
     /**
@@ -220,8 +280,22 @@ export default class IbzDailyServiceBase extends EntityService {
      * @memberof IbzDailyServiceBase
      */
     public async LinkCompleteTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().put(`/ibzdailies/${context.ibzdaily}/linkcompletetask`,data,isloading);
+            let res:any = await Http.getInstance().put(`/ibzdailies/${context.ibzdaily}/linkcompletetask`,data,isloading);
             return res;
+    }
+
+    /**
+     * LinkCompleteTaskBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzDailyServiceBase
+     */
+    public async LinkCompleteTaskBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/ibzdailies/linkcompletetaskbatch`,tempData,isloading);
     }
 
     /**
@@ -234,8 +308,22 @@ export default class IbzDailyServiceBase extends EntityService {
      * @memberof IbzDailyServiceBase
      */
     public async PushUserDaily(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/ibzdailies/${context.ibzdaily}/pushuserdaily`,data,isloading);
+            let res:any = await Http.getInstance().post(`/ibzdailies/${context.ibzdaily}/pushuserdaily`,data,isloading);
             return res;
+    }
+
+    /**
+     * PushUserDailyBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzDailyServiceBase
+     */
+    public async PushUserDailyBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/ibzdailies/pushuserdailybatch`,tempData,isloading);
     }
 
     /**
@@ -265,8 +353,22 @@ export default class IbzDailyServiceBase extends EntityService {
      * @memberof IbzDailyServiceBase
      */
     public async Submit(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().put(`/ibzdailies/${context.ibzdaily}/submit`,data,isloading);
+            let res:any = await Http.getInstance().put(`/ibzdailies/${context.ibzdaily}/submit`,data,isloading);
             return res;
+    }
+
+    /**
+     * SubmitBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzDailyServiceBase
+     */
+    public async SubmitBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/ibzdailies/submitbatch`,tempData,isloading);
     }
 
     /**
@@ -280,7 +382,7 @@ export default class IbzDailyServiceBase extends EntityService {
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/ibzdailies/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/ibzdailies/fetchdefault`,tempData,isloading);
         return res;
     }
 
@@ -309,7 +411,7 @@ export default class IbzDailyServiceBase extends EntityService {
      */
     public async FetchMyAllDaily(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/ibzdailies/fetchmyalldaily`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/ibzdailies/fetchmyalldaily`,tempData,isloading);
         return res;
     }
 
@@ -338,7 +440,7 @@ export default class IbzDailyServiceBase extends EntityService {
      */
     public async FetchMyDaily(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/ibzdailies/fetchmydaily`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/ibzdailies/fetchmydaily`,tempData,isloading);
         return res;
     }
 
@@ -367,7 +469,7 @@ export default class IbzDailyServiceBase extends EntityService {
      */
     public async FetchMyNotSubmit(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/ibzdailies/fetchmynotsubmit`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/ibzdailies/fetchmynotsubmit`,tempData,isloading);
         return res;
     }
 
@@ -396,7 +498,7 @@ export default class IbzDailyServiceBase extends EntityService {
      */
     public async FetchMySubmitDaily(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/ibzdailies/fetchmysubmitdaily`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/ibzdailies/fetchmysubmitdaily`,tempData,isloading);
         return res;
     }
 
@@ -425,7 +527,7 @@ export default class IbzDailyServiceBase extends EntityService {
      */
     public async FetchProductDaily(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/ibzdailies/fetchproductdaily`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/ibzdailies/fetchproductdaily`,tempData,isloading);
         return res;
     }
 
@@ -454,7 +556,7 @@ export default class IbzDailyServiceBase extends EntityService {
      */
     public async FetchProjectDaily(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/ibzdailies/fetchprojectdaily`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/ibzdailies/fetchprojectdaily`,tempData,isloading);
         return res;
     }
 

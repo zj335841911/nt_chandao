@@ -118,7 +118,7 @@ export default class IbzWeeklyMobEditViewMainMyTijiaoBase extends Vue {
 	 * @type {string}
 	 * @memberof IbzWeeklyMobEditViewMainMyTijiaoBase
 	 */
-	protected viewtag: string = '8143fb83617574eebbaa7f0819539924';
+	protected viewtag: string = '35ca3d97818e0d0088fc21584ba10261';
 
     /**
      * 视图上下文

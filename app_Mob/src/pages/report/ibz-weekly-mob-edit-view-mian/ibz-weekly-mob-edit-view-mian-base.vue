@@ -143,7 +143,7 @@ export default class IbzWeeklyMobEditViewMianBase extends Vue {
 	 * @type {string}
 	 * @memberof IbzWeeklyMobEditViewMianBase
 	 */
-	protected viewtag: string = 'df36c08961d3d1737f2f8d55a53fa46c';
+	protected viewtag: string = '269e263334d4c9210aecb38088a7c061';
 
     /**
      * 视图上下文

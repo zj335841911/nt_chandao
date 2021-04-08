@@ -1,6 +1,6 @@
 
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { GridView9Base } from '@/studio-core';
 import IbzLibCaseStepTmpService from '@/service/ibz-lib-case-step-tmp/ibz-lib-case-step-tmp-service';
 import IbzLibCaseStepTmpAuthService from '@/authservice/ibz-lib-case-step-tmp/ibz-lib-case-step-tmp-auth-service';
@@ -121,7 +121,7 @@ export class IbzLibCaseStepsGridView9Base extends GridView9Base {
      * @type {string}
      * @memberof IbzLibCaseStepsGridView9Base
      */
-	protected viewtag: string = 'cc94f92626c795b12a5598ae3bf3da39';
+	protected viewtag: string = '09ce67f87a5aab546496ec48bc5a77d7';
 
     /**
      * 视图名称

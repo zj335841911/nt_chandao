@@ -7,76 +7,12 @@
 export interface IbizproProjectDaily {
 
     /**
-     * 项目日报标识
-     *
-     * @returns {*}
-     * @memberof IbizproProjectDaily
-     */
-    ibizproprojectdailyid?: any;
-
-    /**
      * 项目日报名称
      *
      * @returns {*}
      * @memberof IbizproProjectDaily
      */
     ibizproprojectdailyname?: any;
-
-    /**
-     * 建立时间
-     *
-     * @returns {*}
-     * @memberof IbizproProjectDaily
-     */
-    createdate?: any;
-
-    /**
-     * 建立人
-     *
-     * @returns {*}
-     * @memberof IbizproProjectDaily
-     */
-    createman?: any;
-
-    /**
-     * 更新人
-     *
-     * @returns {*}
-     * @memberof IbizproProjectDaily
-     */
-    updateman?: any;
-
-    /**
-     * 更新时间
-     *
-     * @returns {*}
-     * @memberof IbizproProjectDaily
-     */
-    updatedate?: any;
-
-    /**
-     * 项目编号
-     *
-     * @returns {*}
-     * @memberof IbizproProjectDaily
-     */
-    project?: any;
-
-    /**
-     * 项目名称
-     *
-     * @returns {*}
-     * @memberof IbizproProjectDaily
-     */
-    projectname?: any;
-
-    /**
-     * 日期
-     *
-     * @returns {*}
-     * @memberof IbizproProjectDaily
-     */
-    date?: any;
 
     /**
      * 任务
@@ -87,12 +23,60 @@ export interface IbizproProjectDaily {
     tasks?: any;
 
     /**
+     * 开始日期
+     *
+     * @returns {*}
+     * @memberof IbizproProjectDaily
+     */
+    begin?: any;
+
+    /**
+     * 建立时间
+     *
+     * @returns {*}
+     * @memberof IbizproProjectDaily
+     */
+    createdate?: any;
+
+    /**
+     * 结束日期
+     *
+     * @returns {*}
+     * @memberof IbizproProjectDaily
+     */
+    end?: any;
+
+    /**
+     * 建立人
+     *
+     * @returns {*}
+     * @memberof IbizproProjectDaily
+     */
+    createman?: any;
+
+    /**
+     * 日期
+     *
+     * @returns {*}
+     * @memberof IbizproProjectDaily
+     */
+    date?: any;
+
+    /**
      * 总工时
      *
      * @returns {*}
      * @memberof IbizproProjectDaily
      */
     totalestimates?: any;
+
+    /**
+     * 更新人
+     *
+     * @returns {*}
+     * @memberof IbizproProjectDaily
+     */
+    updateman?: any;
 
     /**
      * 项目负责人
@@ -103,18 +87,34 @@ export interface IbizproProjectDaily {
     pm?: any;
 
     /**
-     * 开始日期
+     * 更新时间
      *
      * @returns {*}
      * @memberof IbizproProjectDaily
      */
-    begin?: any;
+    updatedate?: any;
 
     /**
-     * 结束日期
+     * 项目日报标识
      *
      * @returns {*}
      * @memberof IbizproProjectDaily
      */
-    end?: any;
+    ibizproprojectdailyid?: any;
+
+    /**
+     * 项目名称
+     *
+     * @returns {*}
+     * @memberof IbizproProjectDaily
+     */
+    projectname?: any;
+
+    /**
+     * 项目编号
+     *
+     * @returns {*}
+     * @memberof IbizproProjectDaily
+     */
+    project?: any;
 }

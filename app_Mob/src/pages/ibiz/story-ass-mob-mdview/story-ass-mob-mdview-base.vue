@@ -175,7 +175,7 @@ export default class StoryAssMobMDViewBase extends Vue {
 	 * @type {string}
 	 * @memberof StoryAssMobMDViewBase
 	 */
-	protected viewtag: string = 'a4a6fd9906bc1ecaac85b44ffcc466fe';
+	protected viewtag: string = 'f2ff9fc103492662975cb3fc89cc486d';
 
     /**
      * 视图上下文

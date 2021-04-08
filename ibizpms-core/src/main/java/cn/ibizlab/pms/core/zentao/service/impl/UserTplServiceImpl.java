@@ -48,9 +48,6 @@ import org.springframework.util.StringUtils;
 @Service("UserTplServiceImpl")
 public class UserTplServiceImpl extends ServiceImpl<UserTplMapper, UserTpl> implements IUserTplService {
 
-    @Autowired
-    @Lazy
-    IUserTplService proxyService;
 
     protected int batchSize = 500;
 
@@ -67,7 +64,7 @@ public class UserTplServiceImpl extends ServiceImpl<UserTplMapper, UserTpl> impl
     @Override
     @Transactional
     public boolean update(UserTpl et) {
-        if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", et.getId()))) {
+        if(!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", et.getId()))) {
             return false;
         }
         CachedBeanCopier.copy(get(et.getId()), et);
@@ -98,7 +95,7 @@ public class UserTplServiceImpl extends ServiceImpl<UserTplMapper, UserTpl> impl
     @Transactional
     public UserTpl get(Long key) {
         UserTpl et = getById(key);
-        if (et == null) {
+        if(et == null){
             et = new UserTpl();
             et.setId(key);
         }
@@ -119,7 +116,7 @@ public class UserTplServiceImpl extends ServiceImpl<UserTplMapper, UserTpl> impl
     @Override
     @Transactional
     public boolean save(UserTpl et) {
-        if (!saveOrUpdate(et)) {
+        if(!saveOrUpdate(et)) {
             return false;
         }
         return true;
@@ -131,7 +128,7 @@ public class UserTplServiceImpl extends ServiceImpl<UserTplMapper, UserTpl> impl
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
+            return checkKey(et) ? getProxyService().update(et) : getProxyService().create(et);
         }
     }
 
@@ -148,10 +145,10 @@ public class UserTplServiceImpl extends ServiceImpl<UserTplMapper, UserTpl> impl
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
         return true;
     }
@@ -169,10 +166,10 @@ public class UserTplServiceImpl extends ServiceImpl<UserTplMapper, UserTpl> impl
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
     }
 
@@ -183,7 +180,7 @@ public class UserTplServiceImpl extends ServiceImpl<UserTplMapper, UserTpl> impl
      */
     @Override
     public Page<UserTpl> searchDefault(UserTplSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<UserTpl> pages=baseMapper.searchDefault(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<UserTpl> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
         return new PageImpl<UserTpl>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -192,7 +189,7 @@ public class UserTplServiceImpl extends ServiceImpl<UserTplMapper, UserTpl> impl
      */
     @Override
     public Page<UserTpl> searchMyUserTpl(UserTplSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<UserTpl> pages=baseMapper.searchMyUserTpl(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<UserTpl> pages=baseMapper.searchMyUserTpl(context.getPages(),context,context.getSelectCond());
         return new PageImpl<UserTpl>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -203,24 +200,24 @@ public class UserTplServiceImpl extends ServiceImpl<UserTplMapper, UserTpl> impl
 
 
     @Override
-    public List<JSONObject> select(String sql, Map param) {
-        return this.baseMapper.selectBySQL(sql, param);
+    public List<JSONObject> select(String sql, Map param){
+        return this.baseMapper.selectBySQL(sql,param);
     }
 
     @Override
     @Transactional
-    public boolean execute(String sql, Map param) {
+    public boolean execute(String sql , Map param){
         if (sql == null || sql.isEmpty()) {
             return false;
         }
         if (sql.toLowerCase().trim().startsWith("insert")) {
-            return this.baseMapper.insertBySQL(sql, param);
+            return this.baseMapper.insertBySQL(sql,param);
         }
         if (sql.toLowerCase().trim().startsWith("update")) {
-            return this.baseMapper.updateBySQL(sql, param);
+            return this.baseMapper.updateBySQL(sql,param);
         }
         if (sql.toLowerCase().trim().startsWith("delete")) {
-            return this.baseMapper.deleteBySQL(sql, param);
+            return this.baseMapper.deleteBySQL(sql,param);
         }
         log.warn("暂未支持的SQL语法");
         return true;
@@ -228,9 +225,9 @@ public class UserTplServiceImpl extends ServiceImpl<UserTplMapper, UserTpl> impl
 
 
 
-
-
+    public IUserTplService getProxyService() {
+        return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
+    }
 }
-
 
 

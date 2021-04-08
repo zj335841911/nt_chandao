@@ -1,6 +1,6 @@
 
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { GridViewBase } from '@/studio-core';
 import IbzDailyService from '@/service/ibz-daily/ibz-daily-service';
 import IbzDailyAuthService from '@/authservice/ibz-daily/ibz-daily-auth-service';
@@ -143,7 +143,7 @@ export class IbzDailyDailyGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof IbzDailyDailyGridViewBase
      */
-	protected viewtag: string = 'a4a6e9515a944ab2976c5034fb049f63';
+	protected viewtag: string = '05c89f2ac0ec5594324c342827f1b7d3';
 
     /**
      * 视图名称
@@ -419,28 +419,16 @@ export class IbzDailyDailyGridViewBase extends GridViewBase {
         const deResParameters: any[] = [];
         const parameters: any[] = [
             { pathName: 'ibzdailies', parameterName: 'ibzdaily' },
+            { pathName: 'dailyeditview', parameterName: 'dailyeditview' },
         ];
         const _this: any = this;
-        const openDrawer = (view: any, data: any) => {
-            let container: Subject<any> = this.$appdrawer.openDrawer(view, tempContext, data);
-            container.subscribe((result: any) => {
-                if (!result || !Object.is(result.ret, 'OK')) {
-                    return;
-                }
-                if (!xData || !(xData.refresh instanceof Function)) {
-                    return;
-                }
-                xData.refresh(result.datas);
-            });
+        const openIndexViewTab = (data: any) => {
+            const _data: any = { w: (new Date().getTime()) };
+            Object.assign(_data, data);
+            const routePath = this.$viewTool.buildUpRoutePath(this.$route, tempContext, deResParameters, parameters, args, _data);
+            this.$router.push(routePath);
         }
-        const view: any = {
-            viewname: 'ibz-daily-daily-edit-view', 
-            height: 0, 
-            width: 0,  
-            title: this.$t('entities.ibzdaily.views.dailyeditview.title'),
-            placement: 'DRAWER_RIGHT',
-        };
-        openDrawer(view, data);
+        openIndexViewTab(data);
     }
 
 

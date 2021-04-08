@@ -72,7 +72,7 @@ public class UserResource {
 		User domain  = userMapping.toDomain(userdto);
         domain .setId(user_id);
 		userService.update(domain );
-		UserDTO dto = userMapping.toDto(domain );
+		UserDTO dto = userMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
@@ -110,8 +110,9 @@ public class UserResource {
 
     @ApiOperation(value = "获取用户草稿", tags = {"用户" },  notes = "获取用户草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/users/getdraft")
-    public ResponseEntity<UserDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(userMapping.toDto(userService.getDraft(new User())));
+    public ResponseEntity<UserDTO> getDraft(UserDTO dto) {
+        User domain = userMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(userMapping.toDto(userService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查用户", tags = {"用户" },  notes = "检查用户")
@@ -134,8 +135,10 @@ public class UserResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-User-Save-all')")
     @ApiOperation(value = "保存用户", tags = {"用户" },  notes = "保存用户")
 	@RequestMapping(method = RequestMethod.POST, value = "/users/save")
-    public ResponseEntity<Boolean> save(@RequestBody UserDTO userdto) {
-        return ResponseEntity.status(HttpStatus.OK).body(userService.save(userMapping.toDomain(userdto)));
+    public ResponseEntity<UserDTO> save(@RequestBody UserDTO userdto) {
+        User domain = userMapping.toDomain(userdto);
+        userService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(userMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-User-Save-all')")
@@ -158,9 +161,11 @@ public class UserResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-User-SyncAccount-all')")
     @ApiOperation(value = "批量处理[同步账号]", tags = {"用户" },  notes = "批量处理[同步账号]")
-	@RequestMapping(method = RequestMethod.POST, value = "/users/{user_id}/syncaccountbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/users/syncaccountbatch")
     public ResponseEntity<Boolean> syncAccountBatch(@RequestBody List<UserDTO> userdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(userService.syncAccountBatch(userMapping.toDomain(userdtos)));
+        List<User> domains = userMapping.toDomain(userdtos);
+        boolean result = userService.syncAccountBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-User-searchBugUser-all')")
@@ -316,6 +321,7 @@ public class UserResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(userMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
 
 
 }

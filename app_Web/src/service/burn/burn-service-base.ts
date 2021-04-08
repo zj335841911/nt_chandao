@@ -1,3 +1,4 @@
+import { Environment } from '@/environments/environment';
 import { Http } from '@/utils';
 import { Util } from '@/utils';
 import EntityService from '../entity-service';
@@ -50,11 +51,11 @@ export default class BurnServiceBase extends EntityService {
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.burn){
-            let res:any = Http.getInstance().get(`/projects/${context.project}/burns/${context.burn}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/burns/${context.burn}/select`,isloading);
             
             return res;
         }
-            let res:any = Http.getInstance().get(`/burns/${context.burn}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/burns/${context.burn}/select`,isloading);
             
             return res;
     }
@@ -132,10 +133,10 @@ export default class BurnServiceBase extends EntityService {
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && context.burn){
-            let res:any = Http.getInstance().delete(`/projects/${context.project}/burns/${context.burn}`,isloading);
+            let res:any = await Http.getInstance().delete(`/projects/${context.project}/burns/${context.burn}`,isloading);
             return res;
         }
-            let res:any = Http.getInstance().delete(`/burns/${context.burn}`,isloading);
+            let res:any = await Http.getInstance().delete(`/burns/${context.burn}`,isloading);
             return res;
     }
 
@@ -170,12 +171,18 @@ export default class BurnServiceBase extends EntityService {
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && true){
-            let res:any = await Http.getInstance().get(`/projects/${context.project}/burns/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.burn) delete tempData.burn;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/burns/getdraft`,tempData,isloading);
             res.data.burn = data.burn;
             
             return res;
         }
-        let res:any = await  Http.getInstance().get(`/burns/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.burn) delete tempData.burn;
+        if(tempData.id) delete tempData.id;
+        let res:any = await  Http.getInstance().get(`/burns/getdraft`,tempData,isloading);
         res.data.burn = data.burn;
         
         return res;
@@ -198,7 +205,7 @@ export default class BurnServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/burns/${context.burn}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/burns/${context.burn}/checkkey`,data,isloading);
             return res;
     }
 
@@ -219,8 +226,26 @@ export default class BurnServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/burns/${context.burn}/computeburn`,data,isloading);
+            let res:any = await Http.getInstance().post(`/burns/${context.burn}/computeburn`,data,isloading);
             return res;
+    }
+
+    /**
+     * ComputeBurnBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof BurnServiceBase
+     */
+    public async ComputeBurnBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.project && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            return await Http.getInstance().post(`/projects/${context.project}/burns/computeburnbatch`,tempData,isloading);
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/burns/computeburnbatch`,tempData,isloading);
     }
 
     /**
@@ -259,11 +284,11 @@ export default class BurnServiceBase extends EntityService {
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/burns/fetchdefault`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/burns/fetchdefault`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/burns/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/burns/fetchdefault`,tempData,isloading);
         return res;
     }
 
@@ -297,11 +322,11 @@ export default class BurnServiceBase extends EntityService {
     public async FetchESTIMATEANDLEFT(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.project && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/projects/${context.project}/burns/fetchestimateandleft`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/projects/${context.project}/burns/fetchestimateandleft`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/burns/fetchestimateandleft`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/burns/fetchestimateandleft`,tempData,isloading);
         return res;
     }
 

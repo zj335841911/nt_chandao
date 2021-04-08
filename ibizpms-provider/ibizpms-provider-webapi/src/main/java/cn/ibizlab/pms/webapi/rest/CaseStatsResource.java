@@ -72,7 +72,7 @@ public class CaseStatsResource {
 		CaseStats domain  = casestatsMapping.toDomain(casestatsdto);
         domain .setId(casestats_id);
 		casestatsService.update(domain );
-		CaseStatsDTO dto = casestatsMapping.toDto(domain );
+		CaseStatsDTO dto = casestatsMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
@@ -110,8 +110,9 @@ public class CaseStatsResource {
 
     @ApiOperation(value = "获取测试用例统计草稿", tags = {"测试用例统计" },  notes = "获取测试用例统计草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/casestats/getdraft")
-    public ResponseEntity<CaseStatsDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(casestatsMapping.toDto(casestatsService.getDraft(new CaseStats())));
+    public ResponseEntity<CaseStatsDTO> getDraft(CaseStatsDTO dto) {
+        CaseStats domain = casestatsMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(casestatsMapping.toDto(casestatsService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查测试用例统计", tags = {"测试用例统计" },  notes = "检查测试用例统计")
@@ -123,8 +124,10 @@ public class CaseStatsResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStats-Save-all')")
     @ApiOperation(value = "保存测试用例统计", tags = {"测试用例统计" },  notes = "保存测试用例统计")
 	@RequestMapping(method = RequestMethod.POST, value = "/casestats/save")
-    public ResponseEntity<Boolean> save(@RequestBody CaseStatsDTO casestatsdto) {
-        return ResponseEntity.status(HttpStatus.OK).body(casestatsService.save(casestatsMapping.toDomain(casestatsdto)));
+    public ResponseEntity<CaseStatsDTO> save(@RequestBody CaseStatsDTO casestatsdto) {
+        CaseStats domain = casestatsMapping.toDomain(casestatsdto);
+        casestatsService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(casestatsMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CaseStats-Save-all')")
@@ -178,6 +181,7 @@ public class CaseStatsResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(casestatsMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
 
 
 }

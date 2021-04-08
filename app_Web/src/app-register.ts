@@ -87,6 +87,8 @@ import AppMarkdownParser from './components/app-markdown-parser/app-markdown-par
 import AppFormatHtml  from './components/app-format-html/app-format-html.vue';
 import AppColorPicker from './components/app-color-picker/app-color-picker.vue';
 import AppColorSpan from './components/app-color-span/app-color-span.vue';
+import AppIconMenus from './components/app-icon-menus/app-icon-menus.vue';
+import AppMenuItem from './components/app-menu-item/app-menu-item.vue';
 
 // 全局挂载UI实体服务注册中心
 window['uiServiceRegister'] = uiServiceRegister;
@@ -194,5 +196,7 @@ export const AppComponents = {
         v.component('app-format-html', AppFormatHtml);
         v.component('app-color-picker', AppColorPicker);
         v.component('app-color-span', AppColorSpan);
+        v.component('app-icon-menus', AppIconMenus);
+        v.component('app-menu-item', AppMenuItem);
     },
 };

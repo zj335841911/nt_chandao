@@ -20,11 +20,14 @@ import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * 服务DTO对象[DeptDTO]
  */
 @Data
+@ApiModel("部门")
 public class DeptDTO extends DTOBase implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -36,7 +39,18 @@ public class DeptDTO extends DTOBase implements Serializable {
     @JSONField(name = "manager")
     @JsonProperty("manager")
     @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
+    @ApiModelProperty("负责人")
     private String manager;
+
+    /**
+     * 属性 [ISLEAF]
+     *
+     */
+    @JSONField(name = "isleaf")
+    @JsonProperty("isleaf")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("无子部门")
+    private String isleaf;
 
     /**
      * 属性 [GRADE]
@@ -44,6 +58,7 @@ public class DeptDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "grade")
     @JsonProperty("grade")
+    @ApiModelProperty("grade")
     private Integer grade;
 
     /**
@@ -53,6 +68,7 @@ public class DeptDTO extends DTOBase implements Serializable {
     @JSONField(name = "function")
     @JsonProperty("function")
     @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
+    @ApiModelProperty("function")
     private String function;
 
     /**
@@ -61,6 +77,7 @@ public class DeptDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "order")
     @JsonProperty("order")
+    @ApiModelProperty("order")
     private Integer order;
 
     /**
@@ -70,6 +87,7 @@ public class DeptDTO extends DTOBase implements Serializable {
     @JSONField(name = "path")
     @JsonProperty("path")
     @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
+    @ApiModelProperty("path")
     private String path;
 
     /**
@@ -79,6 +97,7 @@ public class DeptDTO extends DTOBase implements Serializable {
     @JSONField(name = "position")
     @JsonProperty("position")
     @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
+    @ApiModelProperty("position")
     private String position;
 
     /**
@@ -88,6 +107,7 @@ public class DeptDTO extends DTOBase implements Serializable {
     @JSONField(name = "id")
     @JsonProperty("id")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("id")
     private Long id;
 
     /**
@@ -98,6 +118,7 @@ public class DeptDTO extends DTOBase implements Serializable {
     @JsonProperty("name")
     @NotBlank(message = "[部门名称]不允许为空!")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("部门名称")
     private String name;
 
     /**
@@ -107,6 +128,7 @@ public class DeptDTO extends DTOBase implements Serializable {
     @JSONField(name = "parentname")
     @JsonProperty("parentname")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("上级部门")
     private String parentname;
 
     /**
@@ -116,16 +138,8 @@ public class DeptDTO extends DTOBase implements Serializable {
     @JSONField(name = "parent")
     @JsonProperty("parent")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("parent")
     private Long parent;
-
-    /**
-     * 属性 [ISLEAF]
-     *
-     */
-    @JSONField(name = "isleaf")
-    @JsonProperty("isleaf")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String isleaf;
 
 
     /**

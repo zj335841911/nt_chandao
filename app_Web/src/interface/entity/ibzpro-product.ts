@@ -7,22 +7,6 @@
 export interface IBZProProduct {
 
     /**
-     * 编号
-     *
-     * @returns {*}
-     * @memberof IBZProProduct
-     */
-    id?: any;
-
-    /**
-     * 产品名称
-     *
-     * @returns {*}
-     * @memberof IBZProProduct
-     */
-    name?: any;
-
-    /**
      * IBIZ标识
      *
      * @returns {*}
@@ -37,4 +21,20 @@ export interface IBZProProduct {
      * @memberof IBZProProduct
      */
     code?: any;
+
+    /**
+     * 产品名称
+     *
+     * @returns {*}
+     * @memberof IBZProProduct
+     */
+    name?: any;
+
+    /**
+     * 编号
+     *
+     * @returns {*}
+     * @memberof IBZProProduct
+     */
+    id?: any;
 }

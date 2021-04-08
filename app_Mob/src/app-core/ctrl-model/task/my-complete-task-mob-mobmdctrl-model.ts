@@ -15,10 +15,28 @@ export class MyCompleteTaskMobModel {
 	public getDataItems(): any[] {
 		return [
 			{
+				name: 'assignedto',
+			},
+			{
+				name: 'projectname',
+			},
+			{
+				name: 'finishedby',
+			},
+			{
 				name: 'estimate',
 			},
 			{
-				name: 'id',
+				name: 'left',
+			},
+			{
+				name: 'pri',
+			},
+			{
+				name: 'name',
+			},
+			{
+				name: 'deadline',
 			},
 			{
 				name: 'productname',
@@ -27,28 +45,10 @@ export class MyCompleteTaskMobModel {
 				name: 'consumed',
 			},
 			{
-				name: 'finishedby',
-			},
-			{
-				name: 'deadline',
-			},
-			{
-				name: 'pri',
-			},
-			{
-				name: 'projectname',
-			},
-			{
-				name: 'name',
-			},
-			{
-				name: 'left',
+				name: 'id',
 			},
 			{
 				name: 'status',
-			},
-			{
-				name: 'assignedto',
 			},
 			{
 				name: 'srfkey',
@@ -66,6 +66,16 @@ export class MyCompleteTaskMobModel {
 				dataType: 'PICKUP',
 			},
 			{
+				name: 'plan',
+				prop: 'plan',
+				dataType: 'PICKUP',
+			},
+			{
+				name: 'module',
+				prop: 'module',
+				dataType: 'PICKUP',
+			},
+			{
 				name: 'story',
 				prop: 'story',
 				dataType: 'PICKUP',
@@ -78,11 +88,6 @@ export class MyCompleteTaskMobModel {
 			{
 				name: 'frombug',
 				prop: 'frombug',
-				dataType: 'PICKUP',
-			},
-			{
-				name: 'module',
-				prop: 'module',
 				dataType: 'PICKUP',
 			},
 			{

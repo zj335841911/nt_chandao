@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { EditViewBase } from '@/studio-core';
 import UserYearWorkStatsService from '@/service/user-year-work-stats/user-year-work-stats-service';
 import UserYearWorkStatsAuthService from '@/authservice/user-year-work-stats/user-year-work-stats-auth-service';
@@ -153,7 +153,7 @@ export class UserYearWorkStatsEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof UserYearWorkStatsEditViewBase
      */
-	protected viewtag: string = 'db750bbb894c25f38ca2741f234df3c6';
+	protected viewtag: string = '92828782339ab18470626ac28292615a';
 
     /**
      * 视图名称

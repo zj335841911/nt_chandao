@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { EditViewBase } from '@/studio-core';
 import ProjectService from '@/service/project/project-service';
 import ProjectAuthService from '@/authservice/project/project-auth-service';
@@ -125,7 +125,7 @@ export class ProjectEditView_PutoffBase extends EditViewBase {
      * @type {string}
      * @memberof ProjectEditView_PutoffBase
      */
-	protected viewtag: string = '28557f7c31a387e1deb552076d51f9f1';
+	protected viewtag: string = '7c19182192fc3a1406b9cfcad17706cc';
 
     /**
      * 视图名称

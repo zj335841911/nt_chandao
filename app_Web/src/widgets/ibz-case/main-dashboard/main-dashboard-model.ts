@@ -15,16 +15,26 @@ export default class MainModel {
   public getDataItems(): any[] {
     return [
       {
-        name: 'order',
+        name: 'lasteditedby',
       },
       {
-        name: 'howrun',
+        name: 'path',
+      },
+      {
+        name: 'ibzcase',
+        prop: 'id',
       },
       {
         name: 'scriptedby',
       },
       {
-        name: 'path',
+        name: 'type',
+      },
+      {
+        name: 'scriptstatus',
+      },
+      {
+        name: 'stage',
       },
       {
         name: 'openeddate',
@@ -33,68 +43,58 @@ export default class MainModel {
         name: 'lastediteddate',
       },
       {
-        name: 'scripteddate',
-      },
-      {
-        name: 'comment',
-      },
-      {
         name: 'auto',
       },
       {
         name: 'title',
       },
       {
-        name: 'deleted',
-      },
-      {
-        name: 'scriptlocation',
-      },
-      {
-        name: 'scriptstatus',
-      },
-      {
-        name: 'keywords',
-      },
-      {
-        name: 'ibzcase',
-        prop: 'id',
-      },
-      {
-        name: 'precondition',
+        name: 'howrun',
       },
       {
         name: 'pri',
       },
       {
-        name: 'type',
+        name: 'comment',
+      },
+      {
+        name: 'keywords',
+      },
+      {
+        name: 'scriptlocation',
+      },
+      {
+        name: 'version',
       },
       {
         name: 'status',
       },
       {
-        name: 'stage',
+        name: 'precondition',
+      },
+      {
+        name: 'deleted',
+      },
+      {
+        name: 'order',
       },
       {
         name: 'openedby',
       },
       {
-        name: 'lasteditedby',
-      },
-      {
-        name: 'lib',
-      },
-      {
-        name: 'module',
-      },
-      {
-        name: 'modulename',
+        name: 'scripteddate',
       },
       {
         name: 'libname',
       },
       {
-        name: 'version',
+        name: 'modulename',
+      },
+      {
+        name: 'module',
+      },
+      {
+        name: 'lib',
       },
     ]
   }

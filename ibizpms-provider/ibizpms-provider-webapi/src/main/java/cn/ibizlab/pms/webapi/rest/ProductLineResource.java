@@ -70,7 +70,7 @@ public class ProductLineResource {
 		ProductLine domain  = productlineMapping.toDomain(productlinedto);
         domain .setProductlineid(productline_id);
 		productlineService.update(domain );
-		ProductLineDTO dto = productlineMapping.toDto(domain );
+		ProductLineDTO dto = productlineMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
@@ -104,8 +104,9 @@ public class ProductLineResource {
 
     @ApiOperation(value = "获取产品线草稿", tags = {"产品线" },  notes = "获取产品线草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/productlines/getdraft")
-    public ResponseEntity<ProductLineDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(productlineMapping.toDto(productlineService.getDraft(new ProductLine())));
+    public ResponseEntity<ProductLineDTO> getDraft(ProductLineDTO dto) {
+        ProductLine domain = productlineMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(productlineMapping.toDto(productlineService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查产品线", tags = {"产品线" },  notes = "检查产品线")
@@ -116,8 +117,10 @@ public class ProductLineResource {
 
     @ApiOperation(value = "保存产品线", tags = {"产品线" },  notes = "保存产品线")
 	@RequestMapping(method = RequestMethod.POST, value = "/productlines/save")
-    public ResponseEntity<Boolean> save(@RequestBody ProductLineDTO productlinedto) {
-        return ResponseEntity.status(HttpStatus.OK).body(productlineService.save(productlineMapping.toDomain(productlinedto)));
+    public ResponseEntity<ProductLineDTO> save(@RequestBody ProductLineDTO productlinedto) {
+        ProductLine domain = productlineMapping.toDomain(productlinedto);
+        productlineService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(productlineMapping.toDto(domain));
     }
 
     @ApiOperation(value = "批量保存产品线", tags = {"产品线" },  notes = "批量保存产品线")
@@ -146,6 +149,7 @@ public class ProductLineResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(productlineMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
 
 
 }

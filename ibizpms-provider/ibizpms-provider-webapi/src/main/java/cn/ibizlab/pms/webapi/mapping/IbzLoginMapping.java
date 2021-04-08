@@ -12,4 +12,3 @@ public interface IbzLoginMapping extends MappingBase<IbzLoginDTO, IbiLogin> {
 
 
 }
-

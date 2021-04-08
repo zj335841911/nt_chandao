@@ -126,7 +126,7 @@ export default class CaseStepMobMDView9Base extends Vue {
 	 * @type {string}
 	 * @memberof CaseStepMobMDView9Base
 	 */
-	protected viewtag: string = '28612624399832452f33d925194af274';
+	protected viewtag: string = 'dc7d07ed4a46da6e9b2f2bef47d1cc53';
 
     /**
      * 视图上下文
@@ -440,6 +440,13 @@ export default class CaseStepMobMDView9Base extends Vue {
      * @memberof CaseStepMobMDView9Base
      */
     protected afterDestroyed(){
+        if (this.viewDefaultUsage !== "indexView" && Object.keys(localStorage).length > 0) {
+            Object.keys(localStorage).forEach((item: string) => {
+                if (item.startsWith(this.context.srfsessionid)) {
+                    localStorage.removeItem(item);
+                }
+            });
+        }
         if (this.formDruipart) {
             this.formDruipart.unsubscribe();
         }

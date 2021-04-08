@@ -73,7 +73,7 @@ public class IbizproProductMonthlyResource {
 		IbizproProductMonthly domain  = ibizproproductmonthlyMapping.toDomain(ibizproproductmonthlydto);
         domain .setIbizproproductmonthlyid(ibizproproductmonthly_id);
 		ibizproproductmonthlyService.update(domain );
-		IbizproProductMonthlyDTO dto = ibizproproductmonthlyMapping.toDto(domain );
+		IbizproProductMonthlyDTO dto = ibizproproductmonthlyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
@@ -111,8 +111,9 @@ public class IbizproProductMonthlyResource {
 
     @ApiOperation(value = "获取产品月报草稿", tags = {"产品月报" },  notes = "获取产品月报草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/ibizproproductmonthlies/getdraft")
-    public ResponseEntity<IbizproProductMonthlyDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(ibizproproductmonthlyMapping.toDto(ibizproproductmonthlyService.getDraft(new IbizproProductMonthly())));
+    public ResponseEntity<IbizproProductMonthlyDTO> getDraft(IbizproProductMonthlyDTO dto) {
+        IbizproProductMonthly domain = ibizproproductmonthlyMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(ibizproproductmonthlyMapping.toDto(ibizproproductmonthlyService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查产品月报", tags = {"产品月报" },  notes = "检查产品月报")
@@ -133,16 +134,20 @@ public class IbizproProductMonthlyResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbizproProductMonthly-ManualCreateMonthly-all')")
     @ApiOperation(value = "批量处理[手动生成产品月报]", tags = {"产品月报" },  notes = "批量处理[手动生成产品月报]")
-	@RequestMapping(method = RequestMethod.POST, value = "/ibizproproductmonthlies/{ibizproproductmonthly_id}/manualcreatemonthlybatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/ibizproproductmonthlies/manualcreatemonthlybatch")
     public ResponseEntity<Boolean> manualCreateMonthlyBatch(@RequestBody List<IbizproProductMonthlyDTO> ibizproproductmonthlydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(ibizproproductmonthlyService.manualCreateMonthlyBatch(ibizproproductmonthlyMapping.toDomain(ibizproproductmonthlydtos)));
+        List<IbizproProductMonthly> domains = ibizproproductmonthlyMapping.toDomain(ibizproproductmonthlydtos);
+        boolean result = ibizproproductmonthlyService.manualCreateMonthlyBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasPermission(this.ibizproproductmonthlyMapping.toDomain(#ibizproproductmonthlydto),'pms-IbizproProductMonthly-Save')")
     @ApiOperation(value = "保存产品月报", tags = {"产品月报" },  notes = "保存产品月报")
 	@RequestMapping(method = RequestMethod.POST, value = "/ibizproproductmonthlies/save")
-    public ResponseEntity<Boolean> save(@RequestBody IbizproProductMonthlyDTO ibizproproductmonthlydto) {
-        return ResponseEntity.status(HttpStatus.OK).body(ibizproproductmonthlyService.save(ibizproproductmonthlyMapping.toDomain(ibizproproductmonthlydto)));
+    public ResponseEntity<IbizproProductMonthlyDTO> save(@RequestBody IbizproProductMonthlyDTO ibizproproductmonthlydto) {
+        IbizproProductMonthly domain = ibizproproductmonthlyMapping.toDomain(ibizproproductmonthlydto);
+        ibizproproductmonthlyService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(ibizproproductmonthlyMapping.toDto(domain));
     }
 
     @PreAuthorize("hasPermission(this.ibizproproductmonthlyMapping.toDomain(#ibizproproductmonthlydtos),'pms-IbizproProductMonthly-Save')")
@@ -165,9 +170,11 @@ public class IbizproProductMonthlyResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbizproProductMonthly-StatsProductMonthly-all')")
     @ApiOperation(value = "批量处理[汇总产品月报]", tags = {"产品月报" },  notes = "批量处理[汇总产品月报]")
-	@RequestMapping(method = RequestMethod.POST, value = "/ibizproproductmonthlies/{ibizproproductmonthly_id}/statsproductmonthlybatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/ibizproproductmonthlies/statsproductmonthlybatch")
     public ResponseEntity<Boolean> statsProductMonthlyBatch(@RequestBody List<IbizproProductMonthlyDTO> ibizproproductmonthlydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(ibizproproductmonthlyService.statsProductMonthlyBatch(ibizproproductmonthlyMapping.toDomain(ibizproproductmonthlydtos)));
+        List<IbizproProductMonthly> domains = ibizproproductmonthlyMapping.toDomain(ibizproproductmonthlydtos);
+        boolean result = ibizproproductmonthlyService.statsProductMonthlyBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbizproProductMonthly-searchDefault-all') and hasPermission(#context,'pms-IbizproProductMonthly-Get')")
@@ -191,6 +198,7 @@ public class IbizproProductMonthlyResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(ibizproproductmonthlyMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
 
 
 }

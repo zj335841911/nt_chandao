@@ -73,7 +73,7 @@ public class SysEmployeeResource {
 		SysEmployee domain  = sysemployeeMapping.toDomain(sysemployeedto);
         domain .setUserid(sysemployee_id);
 		sysemployeeService.update(domain );
-		SysEmployeeDTO dto = sysemployeeMapping.toDto(domain );
+		SysEmployeeDTO dto = sysemployeeMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
@@ -111,8 +111,9 @@ public class SysEmployeeResource {
 
     @ApiOperation(value = "获取人员草稿", tags = {"人员" },  notes = "获取人员草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/sysemployees/getdraft")
-    public ResponseEntity<SysEmployeeDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(sysemployeeMapping.toDto(sysemployeeService.getDraft(new SysEmployee())));
+    public ResponseEntity<SysEmployeeDTO> getDraft(SysEmployeeDTO dto) {
+        SysEmployee domain = sysemployeeMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(sysemployeeMapping.toDto(sysemployeeService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查人员", tags = {"人员" },  notes = "检查人员")
@@ -124,8 +125,10 @@ public class SysEmployeeResource {
     @PreAuthorize("hasPermission(this.sysemployeeMapping.toDomain(#sysemployeedto),'pms-SysEmployee-Save')")
     @ApiOperation(value = "保存人员", tags = {"人员" },  notes = "保存人员")
 	@RequestMapping(method = RequestMethod.POST, value = "/sysemployees/save")
-    public ResponseEntity<Boolean> save(@RequestBody SysEmployeeDTO sysemployeedto) {
-        return ResponseEntity.status(HttpStatus.OK).body(sysemployeeService.save(sysemployeeMapping.toDomain(sysemployeedto)));
+    public ResponseEntity<SysEmployeeDTO> save(@RequestBody SysEmployeeDTO sysemployeedto) {
+        SysEmployee domain = sysemployeeMapping.toDomain(sysemployeedto);
+        sysemployeeService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(sysemployeeMapping.toDto(domain));
     }
 
     @PreAuthorize("hasPermission(this.sysemployeeMapping.toDomain(#sysemployeedtos),'pms-SysEmployee-Save')")
@@ -421,6 +424,7 @@ public class SysEmployeeResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(sysemployeeMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
 
 
 }

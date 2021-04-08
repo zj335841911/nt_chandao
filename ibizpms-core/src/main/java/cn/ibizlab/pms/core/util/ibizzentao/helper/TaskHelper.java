@@ -23,9 +23,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.lang.reflect.Field;
 import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 /**
  * @author huwei
@@ -75,11 +75,17 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
     @Autowired
     ISysEmployeeService sysEmployeeService;
 
+    @Autowired
+    IProductPlanService productPlanService;
+    @Autowired
+    ProductPlanHelper productPlanHelper;
+
     String[] diffAttrs = {"desc"};
     List<String> ignore = Arrays.asList("totalwh", "totalleft", "totalconsumed", "totalestimate");
 
     /**
      * 判断起始时间和截至时间
+     *
      * @param et Task对象
      */
     public void jugEststartedAndDeadline(Task et) {
@@ -131,6 +137,11 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         if (et.getAssignedto() == null) {
             et.setAssignedto(assignedto);
         }
+        //如果是周期任务  设置周期为1 parent为-1 （父任务）
+        if (et.getTaskspecies() != null && et.getTaskspecies().equals(StaticDict.TaskSpecies.CYCLE.getValue())) {
+            et.setCycle(1);
+            et.setParent(-1L);
+        }
 
         fileHelper.processImgURL(et, null, null);
         if (et.getStory() != null && et.getStory() != 0L) {
@@ -143,7 +154,15 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         }
         String files = et.getFiles();
         String noticeusers = et.getNoticeusers();
-        bOk = super.create(et);
+
+        if (!super.create(et)) {
+            return false;
+        }
+        //周期循环处理
+        if (et.getCycle() != null && et.getCycle() == 1) {
+            et = createByCycle(et);
+        }
+
         fileHelper.updateObjectID(et.getId(), StaticDict.File__object_type.TASK.getValue(), files, "");
 
 
@@ -165,17 +184,23 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
                 team.setHours(0.0);
                 team.setOrder(i);
                 teamHelper.create(team);
-                i ++;
+                i++;
             }
             this.internalUpdate(et);
 
         }
+        //PmsEe操作任务，需判断状态，计算关联的计划的状态
+        if (et.getPlan() != null && et.getPlan() > 0){
+            //该任务有计划，根据任务状态更新计划状态
+            this.updateRelatedPlanStatus(et,et.getPlan());
+        }
+
         actionHelper.sendTodo(et.getId(), et.getName(), noticeusers, et.getAssignedto(), et.getMailto(), ITaskService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.TASK.getValue(), ITaskService.OBJECT_SOURCE_PATH, StaticDict.Action__type.OPENED.getText());
         actionHelper.create(StaticDict.Action__object_type.TASK.getValue(), et.getId(), StaticDict.Action__type.OPENED.getValue(), "", "", null, true);
         if (et.getStory() != null && et.getStory() != 0L) {
             storyHelper.setStage(et.getZtstory());
         }
-        return bOk;
+        return true;
     }
 
     @Transactional(rollbackFor = Exception.class)
@@ -469,6 +494,12 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
                 }
             }
         }
+        //PmsEe操作任务，需判断状态，计算关联的计划的状态
+        if (et.getPlan() != null && et.getPlan() > 0){
+            //该任务有计划，根据任务状态更新计划状态
+            this.updateRelatedPlanStatus(et,et.getPlan());
+        }
+
         et.setStatus1(old.getStatus1());
         List<History> changes = ChangeUtil.diff(old, et, null, null, diffAttrs);
         this.removeIgonreChanges(changes);
@@ -502,6 +533,12 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         }
         if (old.getStory() != null && old.getStory() != 0L) {
             storyHelper.setStage(old.getZtstory());
+        }
+
+        //PmsEe操作任务，需判断状态，计算关联的计划的状态
+        if (old.getPlan() != null && old.getPlan() > 0){
+            //该任务有计划，根据任务状态更新计划状态
+            this.updateRelatedPlanStatus(old,old.getPlan());
         }
         return bOk;
     }
@@ -727,7 +764,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         }
 
 //        String sql = String.format("select * from zt_task where parent = %1$s and status <> 'cancel' and deleted = '0'", et.getId());
-        List<Task> list = this.list(new QueryWrapper<Task>().eq("parent",et.getId()).ne("status","cancel").eq("deleted","0"));
+        List<Task> list = this.list(new QueryWrapper<Task>().eq("parent", et.getId()).ne("status", "cancel").eq("deleted", "0"));
 //        List<JSONObject> list = taskService.select(sql, null);
         if (list.size() == 0) {
             return;
@@ -779,32 +816,9 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             return;
         }
 
-        String status = "";
-        if (childTasks.size() == 1) {
-            status = childTasks.get(0).getString(FIELD_STATUS);
-        } else {
+        //根据子任务状态计算父任务状态
+        String status = this.getParentOrRelatedPlanStatusByChildTasks(childTasks);
 
-            String strStatus = "";
-            String strClose = "";
-            for (JSONObject task : childTasks) {
-                strStatus += task.getString(FIELD_STATUS) + MULTIPLE_CHOICE;
-                strClose += task.getString(FIELD_CLOSED_REASON) + MULTIPLE_CHOICE;
-            }
-
-            if (strStatus.contains(StaticDict.Task__status.DOING.getValue()) || strStatus.contains(StaticDict.Task__status.PAUSE.getValue())) {
-                status = StaticDict.Task__status.DOING.getValue();
-            } else if ((strStatus.contains(StaticDict.Task__status.DONE.getValue()) || strClose.contains(StaticDict.Task__closed_reason.DONE.getValue())) && strStatus.contains(StaticDict.Task__status.WAIT.getValue())) {
-                status = StaticDict.Task__status.DOING.getValue();
-            } else if (strStatus.contains(StaticDict.Task__status.WAIT.getValue())) {
-                status = StaticDict.Task__status.WAIT.getValue();
-            } else if (strStatus.contains(StaticDict.Task__status.DONE.getValue())) {
-                status = StaticDict.Task__status.DONE.getValue();
-            } else if (strStatus.contains(StaticDict.Task__status.CLOSED.getValue())) {
-                status = StaticDict.Task__status.CLOSED.getValue();
-            } else if (strStatus.contains(StaticDict.Task__status.CANCEL.getValue())) {
-                status = StaticDict.Task__status.CANCEL.getValue();
-            }
-        }
         Task parentTask = this.getOne(new QueryWrapper<Task>().eq(FIELD_ID, parentId).eq(FIELD_DELETED, '0'));
         if (parentTask == null) {
             Task task1 = new Task();
@@ -852,28 +866,21 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
                 task.setClosedreason("");
             }
             this.internalUpdate(task);
+            //PmsEe操作任务，需判断状态，计算关联的计划的状态
+            if (task.getPlan() != null && task.getPlan() > 0){
+                //该任务有计划，根据任务状态更新计划状态
+                this.updateRelatedPlanStatus(task,task.getPlan());
+            }
             if (!changed) {
                 return;
             }
 
             List<History> changes = ChangeUtil.diff(oldParentTask, this.get(parentId));
             this.removeIgonreChanges(changes);
-            String action = "";
-            if (StaticDict.Task__status.DOING.getValue().equals(status) && !StaticDict.Task__status.WAIT.getValue().equals(oldParentTask.getStatus()) && !StaticDict.Task__status.PAUSE.getValue().equals(oldParentTask.getStatus())) {
-                action = StaticDict.Action__type.ACTIVATED.getValue();
-            } else if (StaticDict.Task__status.DOING.getValue().equals(status) && StaticDict.Task__status.PAUSE.getValue().equals(oldParentTask.getStatus())) {
-                action = StaticDict.Action__type.RESTARTED.getValue();
-            } else if (StaticDict.Task__status.DOING.getValue().equals(status) && StaticDict.Task__status.WAIT.getValue().equals(oldParentTask.getStatus())) {
-                action = StaticDict.Action__type.STARTED.getValue();
-            } else if (StaticDict.Task__status.CANCEL.getValue().equals(status) && !StaticDict.Task__status.CANCEL.getValue().equals(oldParentTask.getStatus())) {
-                action = StaticDict.Action__type.CANCELED.getValue();
-            } else if (StaticDict.Task__status.PAUSE.getValue().equals(status) && !StaticDict.Task__status.PAUSE.getValue().equals(oldParentTask.getStatus())) {
-                action = StaticDict.Action__type.PAUSED.getValue();
-            } else if (StaticDict.Task__status.CLOSED.getValue().equals(status) && !StaticDict.Task__status.CLOSED.getValue().equals(oldParentTask.getStatus())) {
-                action = StaticDict.Action__type.CLOSED.getValue();
-            } else if (StaticDict.Task__status.DONE.getValue().equals(status) && !StaticDict.Task__status.DONE.getValue().equals(oldParentTask.getStatus())) {
-                action = StaticDict.Action__type.FINISHED.getValue();
-            }
+
+
+            //根据原本父任务状态，和stauts计算行为类型actiontype
+            String action = this.getActionTypeByStatus(oldParentTask.getStatus(),status);
             if (!"".equals(action)) {
                 Action action1 = actionHelper.create(StaticDict.Action__object_type.TASK.getValue(), parentId, action,
                         "", "", null, false);
@@ -903,6 +910,11 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         String noticeusers = et.getNoticeusers();
         starts(et, old, newTask);
 
+        //PmsEe操作任务，需判断状态，计算关联的计划的状态
+        if (newTask.getPlan() != null && newTask.getPlan() > 0){
+            //该任务有计划，根据任务状态更新计划状态
+            this.updateRelatedPlanStatus(newTask,newTask.getPlan());
+        }
         List<History> changes = ChangeUtil.diff(old, newTask);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
             String strAction = StaticDict.Action__type.STARTED.getValue();
@@ -928,6 +940,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
 
     @Transactional(rollbackFor = Exception.class)
     public void starts(Task et, Task old, Task newTask) {
+        String files = et.getFiles();
         newTask.setStatus(StaticDict.Task__status.DOING.getValue());
         newTask.setLeft(et.getLeft() != null ? et.getLeft() : 0d);
         newTask.setConsumed(et.getConsumed() != null ? et.getConsumed() : 0d);
@@ -963,6 +976,8 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         }
 
         this.internalUpdate(newTask);
+        //保存开始任务时上传的附件
+        fileHelper.updateObjectID(newTask.getId(),StaticDict.File__object_type.TASK.getValue(),files,"");
         if (old.getParent() > 0) {
             updateParentStatus(old, old.getParent(), true);
             computeBeginAndEnd(this.get(old.getParent()));
@@ -984,6 +999,11 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         String noticeusers = et.getNoticeusers();
         starts(et, old, newTask);
 
+        //PmsEe操作任务，需判断状态，计算关联的计划的状态
+        if (newTask.getPlan() != null && newTask.getPlan() > 0){
+            //该任务有计划，根据任务状态更新计划状态
+            this.updateRelatedPlanStatus(newTask,newTask.getPlan());
+        }
         List<History> changes = ChangeUtil.diff(old, newTask);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
             String strAction = StaticDict.Action__type.RESTARTED.getValue();
@@ -1021,6 +1041,11 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
 
         if (old.getParent() > 0) {
             this.updateParentStatus(newTask, newTask.getParent(), true);
+        }
+        //PmsEe操作任务，需判断状态，计算关联的计划的状态
+        if (newTask.getPlan() != null && newTask.getPlan() > 0){
+            //该任务有计划，根据任务状态更新计划状态
+            this.updateRelatedPlanStatus(newTask,newTask.getPlan());
         }
         List<History> changes = ChangeUtil.diff(old, newTask);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
@@ -1081,12 +1106,16 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         String noticeusers = et.getNoticeusers();
         this.internalUpdate(newTask);
 
-
+        //PmsEe操作任务，需判断状态，计算关联的计划的状态
+        if (newTask.getPlan() != null && newTask.getPlan() > 0){
+            //该任务有计划，根据任务状态更新计划状态
+            this.updateRelatedPlanStatus(newTask,newTask.getPlan());
+        }
         List<History> changes = ChangeUtil.diff(old, newTask);
         this.removeIgonreChanges(changes);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
-            if (jugAssignToIsChanged(old,et)) {
-                actionHelper.sendMarkDone(newTask.getId(),newTask.getName(),old.getAssignedto(),ITaskService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.TASK.getValue(), ITaskService.OBJECT_SOURCE_PATH,StaticDict.Action__type.ASSIGNED.getText());
+            if (jugAssignToIsChanged(old, et)) {
+                actionHelper.sendMarkDone(newTask.getId(), newTask.getName(), old.getAssignedto(), ITaskService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.TASK.getValue(), ITaskService.OBJECT_SOURCE_PATH, StaticDict.Action__type.ASSIGNED.getText());
                 actionHelper.sendTodo(newTask.getId(), newTask.getName(), noticeusers, newTask.getAssignedto(), newTask.getMailto(),
                         ITaskService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.TASK.getValue(), ITaskService.OBJECT_SOURCE_PATH, StaticDict.Action__type.ASSIGNED.getText());
             }
@@ -1099,9 +1128,9 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         return et;
     }
 
-    public boolean jugAssignToIsChanged(Task old,Task et){
+    public boolean jugAssignToIsChanged(Task old, Task et) {
         boolean flag = false;
-        if ((StaticDict.Task__status.WAIT.getValue().equals(et.getStatus()) || StaticDict.Task__status.DOING.getValue().equals(et.getStatus())) && ((old.getAssignedto() == null) || !old.getAssignedto().equals(et.getAssignedto()))){
+        if ((StaticDict.Task__status.WAIT.getValue().equals(et.getStatus()) || StaticDict.Task__status.DOING.getValue().equals(et.getStatus())) && ((old.getAssignedto() == null) || !old.getAssignedto().equals(et.getAssignedto()))) {
             flag = true;
         }
         return flag;
@@ -1144,7 +1173,11 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             this.update(task1, (Wrapper<Task>) task1.getUpdateWrapper(true).eq(FIELD_PARENT, old.getId()));
             this.computeWorkingHours(newTask);
         }
-
+        //PmsEe操作任务，需判断状态，计算关联的计划的状态
+        if (newTask.getPlan() != null && newTask.getPlan() > 0){
+            //该任务有计划，根据任务状态更新计划状态
+            this.updateRelatedPlanStatus(newTask,newTask.getPlan());
+        }
 
         newTask.setStatus1(old.getStatus1());
         List<History> changes = ChangeUtil.diff(old, newTask);
@@ -1206,6 +1239,11 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             Task childNewTask = new Task();
             this.setCancelNewTask(old, childNewTask);
             this.update(childNewTask, (Wrapper<Task>) childNewTask.getUpdateWrapper(true).eq(FIELD_PARENT, old.getId()));
+        }
+        //PmsEe操作任务，需判断状态，计算关联的计划的状态
+        if (newTask.getPlan() != null && newTask.getPlan() > 0){
+            //该任务有计划，根据任务状态更新计划状态
+            this.updateRelatedPlanStatus(newTask,newTask.getPlan());
         }
 
         List<History> changes = ChangeUtil.diff(old, newTask);
@@ -1285,7 +1323,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         TaskEstimate taskEstimate = new TaskEstimate();
         taskEstimate.setTask(newTask.getId());
         taskEstimate.setAccount(AuthenticationUser.getAuthenticationUser().getUsername());
-        taskEstimate.setDate(ZTDateUtil.now());
+        taskEstimate.setDate(et.getFinisheddate() == null ? ZTDateUtil.now() : et.getFinisheddate());
         taskEstimate.setLeft(0.0);
         taskEstimate.setConsumed(consumed == 0 ? et.getCurrentconsumed() : consumed);
 
@@ -1320,9 +1358,14 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             updateParentStatus(newTask, old.getParent(), true);
         }
 
+        //PmsEe操作任务，需判断状态，计算关联的计划的状态
+        if (newTask.getPlan() != null && newTask.getPlan() > 0){
+            //该任务有计划，根据任务状态更新计划状态
+            this.updateRelatedPlanStatus(newTask,newTask.getPlan());
+        }
         List<History> changes = ChangeUtil.diff(old, newTask);
         if (changes.size() > 0 || StringUtils.isNotBlank(comment)) {
-            actionHelper.sendMarkDone(newTask.getId(),newTask.getName(),old.getAssignedto(),ITaskService.OBJECT_TEXT_NAME,StaticDict.Action__object_type.TASK.getValue(), ITaskService.OBJECT_SOURCE_PATH,StaticDict.Action__type.FINISHED.getText());
+            actionHelper.sendMarkDone(newTask.getId(), newTask.getName(), old.getAssignedto(), ITaskService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.TASK.getValue(), ITaskService.OBJECT_SOURCE_PATH, StaticDict.Action__type.FINISHED.getText());
             actionHelper.sendTodo(newTask.getId(), newTask.getName(), noticeusers, newTask.getAssignedto(), newTask.getMailto(),
                     ITaskService.OBJECT_TEXT_NAME, StaticDict.Action__object_type.TASK.getValue(), ITaskService.OBJECT_SOURCE_PATH, StaticDict.Action__type.FINISHED.getText());
             Action action = actionHelper.create(StaticDict.Action__object_type.TASK.getValue(), newTask.getId(), StaticDict.Action__type.FINISHED.getValue(),
@@ -1366,7 +1409,11 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         if (old.getParent() > 0) {
             updateParentStatus(newTask, old.getParent(), true);
         }
-
+        //PmsEe操作任务，需判断状态，计算关联的计划的状态
+        if (newTask.getPlan() != null && newTask.getPlan() > 0){
+            //该任务有计划，根据任务状态更新计划状态
+            this.updateRelatedPlanStatus(newTask,newTask.getPlan());
+        }
 
         String[] ignores = {FIELD_ASSIGNED_DATE, FIELD_CLOSED_DATE};
         List<History> changes = ChangeUtil.diff(old, newTask, ignores, null, null);
@@ -1388,6 +1435,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
 
     @Transactional(rollbackFor = Exception.class)
     public Task recordEstimate(Task et) {
+        String files = et.getFiles();
         Task old = new Task();
         CachedBeanCopier.copy(this.get(et.getId()), old);
         List<TaskEstimate> taskEstimates = new ArrayList<>();
@@ -1422,7 +1470,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         double teamLeft = 0d;
         double taskLeft = 0d;
         Timestamp nowDate = ZTDateUtil.now();
-        List<TaskEstimate> list = taskEstimateHelper.list(new QueryWrapper<TaskEstimate>().eq("task",old.getId()).orderByDesc(FIELD_DATE,FIELD_ID));
+        List<TaskEstimate> list = taskEstimateHelper.list(new QueryWrapper<TaskEstimate>().eq("task", old.getId()).orderByDesc(FIELD_DATE, FIELD_ID));
         Timestamp lastDate = null;
         if (list.size() > 0) {
             lastDate = list.get(0).getDate();
@@ -1498,6 +1546,8 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         }
         this.internalUpdate(task);
 
+        fileHelper.updateObjectID(task.getId(),StaticDict.File__object_type.TASK.getValue(),files,"");
+
         List<History> changes = ChangeUtil.diff(old, task);
         if (actionid != null && changes.size() > 0) {
             actionHelper.logHistory(actionid, changes);
@@ -1507,6 +1557,11 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         }
         if (old.getStory() != null && old.getStory() != 0L) {
             storyHelper.setStage(old.getZtstory());
+        }
+        //PmsEe操作任务，需判断状态，计算关联的计划的状态
+        if (task.getPlan() != null && task.getPlan() > 0){
+            //该任务有计划，根据任务状态更新计划状态
+            this.updateRelatedPlanStatus(task,task.getPlan());
         }
         return task;
     }
@@ -1550,7 +1605,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
             }
         }
         Project project = projectService.get(list.get(0).getProject());
-        boolean isOps = project.getType().equalsIgnoreCase(StaticDict.Project__type.OPS.getValue());
+        boolean isOps = StaticDict.Project__type.OPS.getValue().equalsIgnoreCase(project.getType());
         String childTasks = "";
         for (Task task : list) {
             long story = task.getStory() == null ? 0 : task.getStory();
@@ -1565,10 +1620,10 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
 ////            task.set(FIELD_DEADLINE, task.getDeadline() == null ? DEFAULT_TIME : task.getDeadline());
             task.setStatus(StaticDict.Task__status.WAIT.getValue());
             task.setLeft(task.getEstimate());
-            if (task.getStory() != null && task.getStory() != 0L) {
+            if(isOps) {
+                task.setStory(0L);
+            }else if (task.getStory() != null && task.getStory() != 0L) {
                 task.setStoryversion(storyHelper.get(task.getStory()).getVersion());
-            } else if (isOps) {
-                continue;
             }
             if (assignedTo != "" && assignedTo != null) {
                 task.setAssigneddate(ZTDateUtil.now());
@@ -1609,4 +1664,246 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         }
         return true;
     }
+
+    @Transactional(rollbackFor = Exception.class)
+    public Task createByCycle(Task et) {
+        Date now = new Date(System.currentTimeMillis());
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Date today = null;
+        String curToday = sdf.format(now);
+        try {
+            today = sdf.parse(curToday);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        //开始时间
+        Date begin = et.getConfigbegin();
+        //结束时间
+        Date end = et.getConfigend();
+        //提前提醒天数
+        Integer beforeDays = et.getConfigbeforedays();
+        //设置提醒时间
+        Calendar calendar = Calendar.getInstance();
+        if (beforeDays != null && beforeDays > 0) {
+            if (begin != null) {
+                calendar.setTime(begin);
+            }
+            calendar.add(Calendar.DATE, -beforeDays);
+            begin = calendar.getTime();
+        }
+        //如果已经开始或者已经结束
+        if (today.before(begin) || today.after(end)) {
+            return et;
+        }
+
+        Task newTask = new Task();
+        CachedBeanCopier.copy(et, newTask);
+
+        //要更改的属性：parent idvalue cycle name
+        newTask.setParent(et.getId());
+        newTask.setIdvalue(et.getId());
+        newTask.setCycle(0);
+        newTask.setName(et.getName() + "-" + curToday + "-" + et.getAssignedto());
+
+        newTask.setStatus(StaticDict.Task__status.WAIT.getValue());
+        if (newTask.getAssignedto() != null) {
+            newTask.setAssigneddate(new Timestamp(now.getTime()));
+        }
+        calendar.setTime(today);
+        if (beforeDays != null) {
+            calendar.add(Calendar.DATE, beforeDays);
+        }
+        Date finish = calendar.getTime();
+        for (long time = begin.getTime(); time <= finish.getTime(); time += 86400000) {
+
+            Date today1 = new Date(time);
+            List<Task> lastCycleList = this.list(new QueryWrapper<Task>().eq("idvalue", et.getId()).orderByDesc("config_begin"));
+
+            Task lastCycleJson = null;
+            if (lastCycleList.size() > 0) {
+                lastCycleJson = lastCycleList.get(0);
+            }
+
+            Date date = null;
+
+            if (StaticDict.CycleType.DAY.getValue().equals(et.getConfigtype())) {
+                Integer day = et.getConfigday();
+                if (day <= 0) {
+                    continue;
+                }
+                if (lastCycleJson == null) {
+                    calendar.setTime(today1);
+                    calendar.add(Calendar.DATE, day - 1);
+                    date = calendar.getTime();
+                } else if (lastCycleJson.getConfigbegin() != null) {
+                    calendar.setTime(lastCycleJson.getConfigbegin());
+                    calendar.add(Calendar.DATE, day);
+                    date = calendar.getTime();
+                }
+            } else if (StaticDict.CycleType.WEEK.getValue().equals(et.getConfigtype())) {
+                calendar.setTime(today1);
+                int week = calendar.get(Calendar.DAY_OF_WEEK);
+                if (et.getConfigweek().equals(String.valueOf(week))) {
+                    if (lastCycleJson == null) {
+                        date = today1;
+                    } else if (lastCycleJson.getConfigbegin() != null && lastCycleJson.getConfigbegin().before(today1)) {
+                        date = today1;
+                    }
+                }
+            } else if (StaticDict.CycleType.MONTH.getValue().equals(et.getConfigtype())) {
+                calendar.setTime(today1);
+                int day = calendar.get(Calendar.DAY_OF_MONTH);
+                if (et.getConfigmonth().equals(String.valueOf(day))) {
+                    if (lastCycleJson == null) {
+                        date = today1;
+                    } else if (lastCycleJson.getConfigbegin() != null && lastCycleJson.getConfigbegin().before(today1)) {
+                        date = today1;
+                    }
+                }
+            }
+
+            if (date == null) {
+                continue;
+            }
+            Date configBegin = et.getConfigbegin();
+
+
+            if (date.before(configBegin)) {
+                continue;
+            }
+
+            if (date.before(today)) {
+                continue;
+            }
+            if (date.after(finish)) {
+                continue;
+            }
+            if (end != null && date.after(end)) {
+                continue;
+            }
+            this.baseMapper.insert(newTask);
+            actionHelper.create(StaticDict.Action__object_type.TASK.getValue(), newTask.getId(), StaticDict.Action__type.OPENED.getValue(),
+                    "", "", newTask.getOpenedby(), true);
+        }
+
+        return et;
+    }
+
+    @Transactional
+    public Task linkPlan(Task et) {
+        //先找到这个任务对应的productplan
+        List<ProductPlan> productPlanList = productPlanService.list(new QueryWrapper<ProductPlan>().eq("id", et.getPlan()));
+        ProductPlan oldProductPlan = productPlanList.get(0);
+        ProductPlan productPlan = new ProductPlan();
+        productPlan.setProduct(oldProductPlan.getProduct());
+        productPlan.setId(oldProductPlan.getId());
+        String tasksId = getTasks(et);
+        if ("[]".equals(tasksId)){
+            productPlan.set("tasks",null);
+        }else {
+            productPlan.set("tasks",tasksId);
+
+        }
+        cn.ibizlab.pms.util.security.SpringContextHolder.getBean(ProductPlanHelper.class).linkTask(productPlan);
+        return et;
+    }
+
+    public String getTasks(Task et) {
+        String tasks = "";
+        ArrayList<Map> list = (ArrayList) et.get(FIELD_SRFACTIONPARAM);
+        for (Map data : list) {
+            if (tasks.length() > 0) {
+                tasks += MULTIPLE_CHOICE;
+            }
+            tasks += data.get(FIELD_ID);
+        }
+        return tasks;
+    }
+
+
+    //根据子任务状态计算父任务(或者关联的计划)状态
+    public String getParentOrRelatedPlanStatusByChildTasks(List<JSONObject> childTasks){
+        String status = "";
+        if (childTasks.size() == 1) {
+            status = childTasks.get(0).getString(FIELD_STATUS);
+        } else {
+
+            String strStatus = "";
+            String strClose = "";
+            for (JSONObject task : childTasks) {
+                strStatus += task.getString(FIELD_STATUS) + MULTIPLE_CHOICE;
+                strClose += task.getString(FIELD_CLOSED_REASON) + MULTIPLE_CHOICE;
+            }
+
+            if (strStatus.contains(StaticDict.Task__status.DOING.getValue()) || strStatus.contains(StaticDict.Task__status.PAUSE.getValue())) {
+                status = StaticDict.Task__status.DOING.getValue();
+            } else if ((strStatus.contains(StaticDict.Task__status.DONE.getValue()) || strClose.contains(StaticDict.Task__closed_reason.DONE.getValue())) && strStatus.contains(StaticDict.Task__status.WAIT.getValue())) {
+                status = StaticDict.Task__status.DOING.getValue();
+            } else if (strStatus.contains(StaticDict.Task__status.WAIT.getValue())) {
+                status = StaticDict.Task__status.WAIT.getValue();
+            } else if (strStatus.contains(StaticDict.Task__status.DONE.getValue())) {
+                status = StaticDict.Task__status.DONE.getValue();
+            } else if (strStatus.contains(StaticDict.Task__status.CLOSED.getValue())) {
+                status = StaticDict.Task__status.CLOSED.getValue();
+            } else if (strStatus.contains(StaticDict.Task__status.CANCEL.getValue())) {
+                status = StaticDict.Task__status.CANCEL.getValue();
+            }
+        }
+        return status;
+    }
+
+    public String getActionTypeByStatus(String oldStatus,String status){
+        String action = "";
+        if (StaticDict.Task__status.DOING.getValue().equals(status) && !StaticDict.Task__status.WAIT.getValue().equals(oldStatus) && !StaticDict.Task__status.PAUSE.getValue().equals(oldStatus)) {
+            action = StaticDict.Action__type.ACTIVATED.getValue();
+        } else if (StaticDict.Task__status.DOING.getValue().equals(status) && StaticDict.Task__status.PAUSE.getValue().equals(oldStatus)) {
+            action = StaticDict.Action__type.RESTARTED.getValue();
+        } else if (StaticDict.Task__status.DOING.getValue().equals(status) && StaticDict.Task__status.WAIT.getValue().equals(oldStatus)) {
+            action = StaticDict.Action__type.STARTED.getValue();
+        } else if (StaticDict.Task__status.CANCEL.getValue().equals(status) && !StaticDict.Task__status.CANCEL.getValue().equals(oldStatus)) {
+            action = StaticDict.Action__type.CANCELED.getValue();
+        } else if (StaticDict.Task__status.PAUSE.getValue().equals(status) && !StaticDict.Task__status.PAUSE.getValue().equals(oldStatus)) {
+            action = StaticDict.Action__type.PAUSED.getValue();
+        } else if (StaticDict.Task__status.CLOSED.getValue().equals(status) && !StaticDict.Task__status.CLOSED.getValue().equals(oldStatus)) {
+            action = StaticDict.Action__type.CLOSED.getValue();
+        } else if (StaticDict.Task__status.DONE.getValue().equals(status) && !StaticDict.Task__status.DONE.getValue().equals(oldStatus)) {
+            action = StaticDict.Action__type.FINISHED.getValue();
+        }
+        return action;
+    }
+
+    //pmsee中，任务可以管理计划，操作任务时，需要更改任务关联的计划的状态
+    public void updateRelatedPlanStatus(Task relatedTask,Long planId){
+        if (planId == null){
+            planId = relatedTask.getPlan();
+        }
+        if (planId == null || planId <= 0){
+            return;
+        }
+        ProductPlan oldRelatePlan = productPlanService.getById(planId);//任务关联的计划
+        if (oldRelatePlan == null){
+            relatedTask.setPlan(0L);
+            this.internalUpdate(relatedTask);
+            return;
+        }
+        List<JSONObject> relatedTasks = taskService.select(String.format("select * from zt_task t1 where t1.deleted = '0' and t1.plan = %1$s",oldRelatePlan.getId()),null);
+        //根据关联的任务的状态，计算计划的状态
+        String status = this.getParentOrRelatedPlanStatusByChildTasks(relatedTasks);
+        if (StringUtils.compare(status,oldRelatePlan.getStatus()) != 0){
+            ProductPlan newProductPlan = new ProductPlan();
+            CachedBeanCopier.copy(oldRelatePlan,newProductPlan);
+            newProductPlan.setStatus(status);
+            productPlanHelper.internalUpdate(newProductPlan);
+            String actionType = this.getActionTypeByStatus(oldRelatePlan.getStatus() == null ? StaticDict.Task__status.WAIT.getValue() : oldRelatePlan.getStatus(),status);
+            Action action = actionHelper.create(StaticDict.Action__object_type.PRODUCTPLAN.getValue(),oldRelatePlan.getId(),actionType,"","","",false);
+            List<History> changes = ChangeUtil.diff(oldRelatePlan,newProductPlan);
+            if (changes.size() > 0){
+                actionHelper.logHistory(action.getId(),changes);
+            }
+        }
+
+
+
+    }
+
 }

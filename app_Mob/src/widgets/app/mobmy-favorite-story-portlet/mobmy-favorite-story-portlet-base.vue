@@ -159,7 +159,7 @@ export default class MOBMyFavoriteStoryBase extends Vue implements ControlInterf
      * @returns {Promise<any>}
      * @memberof Dashboard_sysportlet1Base
      */
-    protected async dashboard_sysportlet1_uc30733e_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async dashboard_sysportlet1_u1d8bd72_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
 
         // 取数
         let datas: any[] = [];
@@ -250,7 +250,7 @@ export default class MOBMyFavoriteStoryBase extends Vue implements ControlInterf
      */
     protected actionBarModelData: any[] = [
         {
-            viewlogicname: "dashboard_sysportlet1_uc30733e_click",
+            viewlogicname: "dashboard_sysportlet1_u1d8bd72_click",
             name: "更多",
         }
     ];
@@ -263,8 +263,8 @@ export default class MOBMyFavoriteStoryBase extends Vue implements ControlInterf
      * @memberof MOBMyFavoriteStory
      */
     protected handleItemClick($event: any) {
-        if (Object.is($event, 'dashboard_sysportlet1_uc30733e_click')) {
-            this.dashboard_sysportlet1_uc30733e_click(null);
+        if (Object.is($event, 'dashboard_sysportlet1_u1d8bd72_click')) {
+            this.dashboard_sysportlet1_u1d8bd72_click(null);
         }
     }
 

@@ -73,7 +73,7 @@ public class DynaDashboardResource {
 		DynaDashboard domain  = dynadashboardMapping.toDomain(dynadashboarddto);
         domain .setDynadashboardid(dynadashboard_id);
 		dynadashboardService.update(domain );
-		DynaDashboardDTO dto = dynadashboardMapping.toDto(domain );
+		DynaDashboardDTO dto = dynadashboardMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
@@ -111,8 +111,9 @@ public class DynaDashboardResource {
 
     @ApiOperation(value = "获取动态数据看板草稿", tags = {"动态数据看板" },  notes = "获取动态数据看板草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/dynadashboards/getdraft")
-    public ResponseEntity<DynaDashboardDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(dynadashboardMapping.toDto(dynadashboardService.getDraft(new DynaDashboard())));
+    public ResponseEntity<DynaDashboardDTO> getDraft(DynaDashboardDTO dto) {
+        DynaDashboard domain = dynadashboardMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(dynadashboardMapping.toDto(dynadashboardService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查动态数据看板", tags = {"动态数据看板" },  notes = "检查动态数据看板")
@@ -124,8 +125,10 @@ public class DynaDashboardResource {
     @PreAuthorize("hasPermission(this.dynadashboardMapping.toDomain(#dynadashboarddto),'pms-DynaDashboard-Save')")
     @ApiOperation(value = "保存动态数据看板", tags = {"动态数据看板" },  notes = "保存动态数据看板")
 	@RequestMapping(method = RequestMethod.POST, value = "/dynadashboards/save")
-    public ResponseEntity<Boolean> save(@RequestBody DynaDashboardDTO dynadashboarddto) {
-        return ResponseEntity.status(HttpStatus.OK).body(dynadashboardService.save(dynadashboardMapping.toDomain(dynadashboarddto)));
+    public ResponseEntity<DynaDashboardDTO> save(@RequestBody DynaDashboardDTO dynadashboarddto) {
+        DynaDashboard domain = dynadashboardMapping.toDomain(dynadashboarddto);
+        dynadashboardService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(dynadashboardMapping.toDto(domain));
     }
 
     @PreAuthorize("hasPermission(this.dynadashboardMapping.toDomain(#dynadashboarddtos),'pms-DynaDashboard-Save')")
@@ -157,6 +160,7 @@ public class DynaDashboardResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(dynadashboardMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
 
 
 }

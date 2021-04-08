@@ -15,35 +15,35 @@ export default class RelatedMembersModel {
   public getDataItems(): any[] {
     return [
       {
-        name: 'ibzprojectmember',
-        prop: 'id',
-      },
-      {
-        name: 'name',
+        name: 'secondmember',
       },
       {
         name: 'rd',
       },
       {
-        name: 'po',
-      },
-      {
-        name: 'pm',
-      },
-      {
         name: 'qd',
       },
       {
-        name: 'fristmember',
-      },
-      {
-        name: 'secondmember',
+        name: 'teamembers',
       },
       {
         name: 'thirdmember',
       },
       {
+        name: 'ibzprojectmember',
+        prop: 'id',
+      },
+      {
+        name: 'fristmember',
+      },
+      {
+        name: 'po',
+      },
+      {
         name: 'fourthmember',
+      },
+      {
+        name: 'pm',
       },
       {
         name: 'fifthmember',
@@ -52,7 +52,7 @@ export default class RelatedMembersModel {
         name: 'sixthmember',
       },
       {
-        name: 'teamembers',
+        name: 'name',
       },
     ]
   }

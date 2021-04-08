@@ -1,6 +1,6 @@
 
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { GridViewBase } from '@/studio-core';
 import IbzReportlyService from '@/service/ibz-reportly/ibz-reportly-service';
 import IbzReportlyAuthService from '@/authservice/ibz-reportly/ibz-reportly-auth-service';
@@ -141,7 +141,7 @@ export class IbzReportlyMainGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof IbzReportlyMainGridViewBase
      */
-	protected viewtag: string = 'a3d1a3af80fdf764f13a63f9c19934c6';
+	protected viewtag: string = '296712ee7d4af46fb909a47bc7490b78';
 
     /**
      * 视图名称

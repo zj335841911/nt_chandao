@@ -72,7 +72,7 @@ public class TestModuleResource {
 		TestModule domain  = testmoduleMapping.toDomain(testmoduledto);
         domain .setId(testmodule_id);
 		testmoduleService.update(domain );
-		TestModuleDTO dto = testmoduleMapping.toDto(domain );
+		TestModuleDTO dto = testmoduleMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
@@ -110,8 +110,9 @@ public class TestModuleResource {
 
     @ApiOperation(value = "获取测试模块草稿", tags = {"测试模块" },  notes = "获取测试模块草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/testmodules/getdraft")
-    public ResponseEntity<TestModuleDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(testmoduleMapping.toDto(testmoduleService.getDraft(new TestModule())));
+    public ResponseEntity<TestModuleDTO> getDraft(TestModuleDTO dto) {
+        TestModule domain = testmoduleMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(testmoduleMapping.toDto(testmoduleService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查测试模块", tags = {"测试模块" },  notes = "检查测试模块")
@@ -145,8 +146,10 @@ public class TestModuleResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestModule-Save-all')")
     @ApiOperation(value = "保存测试模块", tags = {"测试模块" },  notes = "保存测试模块")
 	@RequestMapping(method = RequestMethod.POST, value = "/testmodules/save")
-    public ResponseEntity<Boolean> save(@RequestBody TestModuleDTO testmoduledto) {
-        return ResponseEntity.status(HttpStatus.OK).body(testmoduleService.save(testmoduleMapping.toDomain(testmoduledto)));
+    public ResponseEntity<TestModuleDTO> save(@RequestBody TestModuleDTO testmoduledto) {
+        TestModule domain = testmoduleMapping.toDomain(testmoduledto);
+        testmoduleService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(testmoduleMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestModule-Save-all')")
@@ -290,6 +293,7 @@ public class TestModuleResource {
 	}
 
 
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestModule-Create-all')")
     @ApiOperation(value = "根据产品建立测试模块", tags = {"测试模块" },  notes = "根据产品建立测试模块")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/testmodules")
@@ -363,8 +367,8 @@ public class TestModuleResource {
 
     @ApiOperation(value = "根据产品获取测试模块草稿", tags = {"测试模块" },  notes = "根据产品获取测试模块草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/testmodules/getdraft")
-    public ResponseEntity<TestModuleDTO> getDraftByProduct(@PathVariable("product_id") Long product_id) {
-        TestModule domain = new TestModule();
+    public ResponseEntity<TestModuleDTO> getDraftByProduct(@PathVariable("product_id") Long product_id, TestModuleDTO dto) {
+        TestModule domain = testmoduleMapping.toDomain(dto);
         domain.setRoot(product_id);
         return ResponseEntity.status(HttpStatus.OK).body(testmoduleMapping.toDto(testmoduleService.getDraft(domain)));
     }
@@ -398,10 +402,11 @@ public class TestModuleResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestModule-Save-all')")
     @ApiOperation(value = "根据产品保存测试模块", tags = {"测试模块" },  notes = "根据产品保存测试模块")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/testmodules/save")
-    public ResponseEntity<Boolean> saveByProduct(@PathVariable("product_id") Long product_id, @RequestBody TestModuleDTO testmoduledto) {
+    public ResponseEntity<TestModuleDTO> saveByProduct(@PathVariable("product_id") Long product_id, @RequestBody TestModuleDTO testmoduledto) {
         TestModule domain = testmoduleMapping.toDomain(testmoduledto);
         domain.setRoot(product_id);
-        return ResponseEntity.status(HttpStatus.OK).body(testmoduleService.save(domain));
+        testmoduleService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(testmoduleMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestModule-Save-all')")

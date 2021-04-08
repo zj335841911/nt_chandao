@@ -74,7 +74,7 @@ export class Main_ReleaseSubGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_ue198e4c_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u3e3ef8e_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -586,7 +586,7 @@ export class Main_ReleaseSubGridBase extends GridControlBase {
 	public uiAction(row: any, tag: any, $event: any): void {
         $event.stopPropagation();
         if(Object.is('releaseUnlinkStory', tag)) {
-            this.grid_uagridcolumn1_ue198e4c_click(row, tag, $event);
+            this.grid_uagridcolumn1_u3e3ef8e_click(row, tag, $event);
         }
     }
 

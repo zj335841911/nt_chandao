@@ -1,6 +1,6 @@
 
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { GridViewBase } from '@/studio-core';
 import IbzPlanTempletService from '@/service/ibz-plan-templet/ibz-plan-templet-service';
 import IbzPlanTempletAuthService from '@/authservice/ibz-plan-templet/ibz-plan-templet-auth-service';
@@ -150,7 +150,7 @@ export class IbzPlanTempletGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof IbzPlanTempletGridViewBase
      */
-	protected viewtag: string = '5df2233b712eaa394f21be39b5807181';
+	protected viewtag: string = 'd378b177dcd91bb7920c5dc7a12175fa';
 
     /**
      * 视图名称

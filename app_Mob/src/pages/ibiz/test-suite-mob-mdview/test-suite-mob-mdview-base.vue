@@ -203,7 +203,7 @@ export default class TestSuiteMobMDViewBase extends Vue {
 	 * @type {string}
 	 * @memberof TestSuiteMobMDViewBase
 	 */
-	protected viewtag: string = 'a35eef7478f4f4a30f95c6919a45227f';
+	protected viewtag: string = 'a41eb2207b0aa2bef0f0fe36ac2b4ae8';
 
     /**
      * 视图上下文

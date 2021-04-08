@@ -15,24 +15,24 @@ export class MOB_BuildLink_BugModel {
 	public getDataItems(): any[] {
 		return [
 			{
-				name: 'assignedto',
-			},
-			{
-				name: 'status',
-			},
-			{
-				name: 'severity',
-			},
-			{
 				name: 'pri1',
 				prop: 'pri',
 				dataType: 'NSCODELIST',
 			},
 			{
-				name: 'title',
+				name: 'assignedto',
 			},
 			{
 				name: 'resolution',
+			},
+			{
+				name: 'status',
+			},
+			{
+				name: 'title',
+			},
+			{
+				name: 'severity',
 			},
 			{
 				name: 'srfkey',

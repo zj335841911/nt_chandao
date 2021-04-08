@@ -90,17 +90,17 @@ export default class ProductUIActionBase extends EntityUIActionBase {
      * @memberof  ProductUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'prodmobtabexpview',srfappde:'products'});
-        this.allViewMap.set(':',{viewname:'mobpickupmdview',srfappde:'products'});
-        this.allViewMap.set(':',{viewname:'mobchartview9',srfappde:'products'});
+        this.allViewMap.set(':',{viewname:'testmobmdview',srfappde:'products'});
         this.allViewMap.set(':',{viewname:'mobtabexpview',srfappde:'products'});
         this.allViewMap.set('MOBPICKUPVIEW:',{viewname:'mobpickupview',srfappde:'products'});
-        this.allViewMap.set(':',{viewname:'testmobmdview',srfappde:'products'});
-        this.allViewMap.set('MOBEDITVIEW:',{viewname:'mobeditview',srfappde:'products'});
-        this.allViewMap.set(':',{viewname:'mobchartview',srfappde:'products'});
         this.allViewMap.set('MOBMDATAVIEW:',{viewname:'mobmdview',srfappde:'products'});
         this.allViewMap.set(':',{viewname:'closemobeditview',srfappde:'products'});
+        this.allViewMap.set('MOBEDITVIEW:',{viewname:'mobeditview',srfappde:'products'});
+        this.allViewMap.set(':',{viewname:'prodmobtabexpview',srfappde:'products'});
         this.allViewMap.set(':',{viewname:'newmobeditview',srfappde:'products'});
+        this.allViewMap.set(':',{viewname:'mobpickupmdview',srfappde:'products'});
+        this.allViewMap.set(':',{viewname:'mobchartview',srfappde:'products'});
+        this.allViewMap.set(':',{viewname:'mobchartview9',srfappde:'products'});
     }
 
     /**
@@ -122,13 +122,13 @@ export default class ProductUIActionBase extends EntityUIActionBase {
      */  
     public initDeMainStateOPPrivsMap(){
         this.allDeMainStateOPPrivsMap.set('closed__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'TOP':0,'SRFUR__PROD_CLOSED_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('closed__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'NOTOP':0,'SRFUR__PROD_CLOSED_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('closed__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__PROD_CLOSED_BUT':0,'NOTOP':0,}));
         this.allDeMainStateOPPrivsMap.set('normal__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'TOP':0,}));
         this.allDeMainStateOPPrivsMap.set('normal__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'NOTOP':0,}));
     }
 
     /**
-     * 详情
+     * 新建
      *
      * @param {any[]} args 数据
      * @param {*} [contextJO={}] 行为上下文
@@ -140,12 +140,9 @@ export default class ProductUIActionBase extends EntityUIActionBase {
      * @returns {Promise<any>}
      * @memberof ProductUIService
      */
-    public async Product_EditMob(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+    public async Product_MobCreate(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
         const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(contextJO, { product: '%product%' });
-        Object.assign(paramJO, { id: '%product%' });
-        Object.assign(paramJO, { name: '%name%' });
+        const actionTarget: string | null = 'NONE';
             
         let context: any = this.handleContextParam(actionTarget, _args, contextJO);
         let params: any = this.handleActionParam(actionTarget, _args, paramJO);
@@ -160,72 +157,19 @@ export default class ProductUIActionBase extends EntityUIActionBase {
         let panelNavContext= { } ;
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
         let response: any = null;
-        const view: any = { 
-            viewname: 'product-mob-edit-view', 
-            height: 0, 
-            width: 0,  
-            title: '产品移动端编辑视图', 
-            placement: 'POPUPMODAL',
-        };
-        response = await this.openService.openModal(view, _context, _params);
-        return response;
-    }
-
-    /**
-     * 取消置顶
-     *
-     * @param {any[]} args 数据
-     * @param {*} [contextJO={}] 行为上下文
-     * @param {*} [paramJO={}] 行为参数
-     * @param {*} [$event] 事件
-     * @param {*} [xData] 数据目标
-     * @param {*} [container] 行为容器对象
-     * @param {string} [srfParentDeName] 
-     * @returns {Promise<any>}
-     * @memberof ProductUIService
-     */
-    public async Product_CancelProductTop(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        let _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(contextJO, { product: '%product%' });
-        Object.assign(paramJO, { id: '%product%' });
-        Object.assign(paramJO, { name: '%name%' });
-        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
-        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
-        context = { ...container.context, ...context };
-        let parentObj: any = {
-            srfparentdename: srfParentDeName ? srfParentDeName : null,
-            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
-        };
-        Object.assign(context, parentObj);
-        Object.assign(params, parentObj);
-        // 直接调实体服务需要转换的数据
-        if (context && context.srfsessionid) {
-            context.srfsessionkey = context.srfsessionid;
-            delete context.srfsessionid;
-        }
-        // 导航参数
-        let panelNavParam= { } ;
-        let panelNavContext= { } ;
-        if(Util.typeOf(_args) == 'array' && _args.length > 0){
-            _args = _args[0];
-        }
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
-        const backend = async () => {
-            const curUIService: any = await this.globaluiservice.getAppEntityService('product');
-            const response: any = await curUIService.CancelProductTop(_context, _params);
-            if (response && response.status === 200) {
-                this.notice.success('取消置顶成功！');
-                if (xData && xData.refresh && xData.refresh instanceof Function) {
-                    xData.refresh(args);
-                    AppCenterService.notifyMessage({name:"Product",action:'appRefresh',data:args});
-                }
-            } else {
-                this.notice.error('系统异常！');
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'newmobeditview', parameterName: 'newmobeditview' },
+        ];
+        const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
+        response = await this.openService.openView(routeParam);
+        if (response) {
+            if (xData && xData.refresh && xData.refresh instanceof Function) {
+                xData.refresh(args);
             }
-            return response;
-        };
-        return backend();
+        }
+        return response;
     }
 
     /**
@@ -291,55 +235,6 @@ export default class ProductUIActionBase extends EntityUIActionBase {
     }
 
     /**
-     * 关闭
-     *
-     * @param {any[]} args 数据
-     * @param {*} [contextJO={}] 行为上下文
-     * @param {*} [paramJO={}] 行为参数
-     * @param {*} [$event] 事件
-     * @param {*} [xData] 数据目标
-     * @param {*} [container] 行为容器对象
-     * @param {string} [srfParentDeName] 
-     * @returns {Promise<any>}
-     * @memberof ProductUIService
-     */
-    public async Product_CloseProductMob(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(contextJO, { product: '%product%' });
-        Object.assign(paramJO, { id: '%product%' });
-        Object.assign(paramJO, { name: '%name%' });
-            
-        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
-        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
-        context = { ...container.context, ...context };
-        let parentObj: any = {
-            srfparentdename: srfParentDeName ? srfParentDeName : null,
-            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
-        };
-        Object.assign(context, parentObj);
-        Object.assign(params, parentObj);
-        let panelNavParam= { } ;
-        let panelNavContext= { } ;
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
-        let response: any = null;
-        const view: any = { 
-            viewname: 'product-close-mob-edit-view', 
-            height: 0, 
-            width: 0,  
-            title: '关闭产品', 
-            placement: 'POPUPMODAL',
-        };
-        response = await this.openService.openModal(view, _context, _params);
-        if (response) {
-            if (xData && xData.refresh && xData.refresh instanceof Function) {
-                xData.refresh(args);
-            }
-        }
-        return response;
-    }
-
-    /**
      * 置顶
      *
      * @param {any[]} args 数据
@@ -397,7 +292,7 @@ export default class ProductUIActionBase extends EntityUIActionBase {
     }
 
     /**
-     * 新建
+     * 关闭
      *
      * @param {any[]} args 数据
      * @param {*} [contextJO={}] 行为上下文
@@ -409,9 +304,12 @@ export default class ProductUIActionBase extends EntityUIActionBase {
      * @returns {Promise<any>}
      * @memberof ProductUIService
      */
-    public async Product_MobCreate(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+    public async Product_CloseProductMob(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
         const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'NONE';
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(contextJO, { product: '%product%' });
+        Object.assign(paramJO, { id: '%product%' });
+        Object.assign(paramJO, { name: '%name%' });
             
         let context: any = this.handleContextParam(actionTarget, _args, contextJO);
         let params: any = this.handleActionParam(actionTarget, _args, paramJO);
@@ -426,18 +324,120 @@ export default class ProductUIActionBase extends EntityUIActionBase {
         let panelNavContext= { } ;
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
         let response: any = null;
-        const deResParameters: any[] = [];
-        const parameters: any[] = [
-            { pathName: 'products', parameterName: 'product' },
-            { pathName: 'newmobeditview', parameterName: 'newmobeditview' },
-        ];
-        const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
-        response = await this.openService.openView(routeParam);
+        const view: any = { 
+            viewname: 'product-close-mob-edit-view', 
+            height: 0, 
+            width: 0,  
+            title: '关闭产品', 
+            placement: 'POPUPMODAL',
+        };
+        response = await this.openService.openModal(view, _context, _params);
         if (response) {
             if (xData && xData.refresh && xData.refresh instanceof Function) {
                 xData.refresh(args);
             }
         }
+        return response;
+    }
+
+    /**
+     * 取消置顶
+     *
+     * @param {any[]} args 数据
+     * @param {*} [contextJO={}] 行为上下文
+     * @param {*} [paramJO={}] 行为参数
+     * @param {*} [$event] 事件
+     * @param {*} [xData] 数据目标
+     * @param {*} [container] 行为容器对象
+     * @param {string} [srfParentDeName] 
+     * @returns {Promise<any>}
+     * @memberof ProductUIService
+     */
+    public async Product_CancelProductTop(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+        let _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(contextJO, { product: '%product%' });
+        Object.assign(paramJO, { id: '%product%' });
+        Object.assign(paramJO, { name: '%name%' });
+        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
+        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
+        context = { ...container.context, ...context };
+        let parentObj: any = {
+            srfparentdename: srfParentDeName ? srfParentDeName : null,
+            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
+        };
+        Object.assign(context, parentObj);
+        Object.assign(params, parentObj);
+        // 直接调实体服务需要转换的数据
+        if (context && context.srfsessionid) {
+            context.srfsessionkey = context.srfsessionid;
+            delete context.srfsessionid;
+        }
+        // 导航参数
+        let panelNavParam= { } ;
+        let panelNavContext= { } ;
+        if(Util.typeOf(_args) == 'array' && _args.length > 0){
+            _args = _args[0];
+        }
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
+        const backend = async () => {
+            const curUIService: any = await this.globaluiservice.getAppEntityService('product');
+            const response: any = await curUIService.CancelProductTop(_context, _params);
+            if (response && response.status === 200) {
+                this.notice.success('取消置顶成功！');
+                if (xData && xData.refresh && xData.refresh instanceof Function) {
+                    xData.refresh(args);
+                    AppCenterService.notifyMessage({name:"Product",action:'appRefresh',data:args});
+                }
+            } else {
+                this.notice.error('系统异常！');
+            }
+            return response;
+        };
+        return backend();
+    }
+
+    /**
+     * 详情
+     *
+     * @param {any[]} args 数据
+     * @param {*} [contextJO={}] 行为上下文
+     * @param {*} [paramJO={}] 行为参数
+     * @param {*} [$event] 事件
+     * @param {*} [xData] 数据目标
+     * @param {*} [container] 行为容器对象
+     * @param {string} [srfParentDeName] 
+     * @returns {Promise<any>}
+     * @memberof ProductUIService
+     */
+    public async Product_EditMob(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(contextJO, { product: '%product%' });
+        Object.assign(paramJO, { id: '%product%' });
+        Object.assign(paramJO, { name: '%name%' });
+            
+        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
+        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
+        context = { ...container.context, ...context };
+        let parentObj: any = {
+            srfparentdename: srfParentDeName ? srfParentDeName : null,
+            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
+        };
+        Object.assign(context, parentObj);
+        Object.assign(params, parentObj);
+        let panelNavParam= { } ;
+        let panelNavContext= { } ;
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
+        let response: any = null;
+        const view: any = { 
+            viewname: 'product-mob-edit-view', 
+            height: 0, 
+            width: 0,  
+            title: '产品移动端编辑视图', 
+            placement: 'POPUPMODAL',
+        };
+        response = await this.openService.openModal(view, _context, _params);
         return response;
     }
 

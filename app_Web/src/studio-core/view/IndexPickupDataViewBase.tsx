@@ -25,4 +25,15 @@ export class IndexPickupDataViewBase extends MDViewBase {
     public dataviewDataSeletionchange(args: any) {
         this.$emit('viewdataschange', [...args]);
     }
+
+    /**
+     * 视图挂载完毕
+     *
+     * @protected
+     * @memberof IndexPickupDataViewBase
+     */
+    protected viewMounted(): void {
+        super.viewMounted();
+        this.viewState.next({tag: 'dataview', action: 'load', data: {}});
+    }
 }

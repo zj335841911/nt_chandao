@@ -12,4 +12,3 @@ public interface ProjectProductMapping extends MappingBase<ProjectProductDTO, Pr
 
 
 }
-

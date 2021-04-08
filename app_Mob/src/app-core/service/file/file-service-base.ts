@@ -171,6 +171,20 @@ export class FileServiceBase extends EntityService {
     }
 
     /**
+     * UpdateObjectIDForPmsEe接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof FileServiceBase
+     */
+    public async UpdateObjectIDForPmsEe(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+            let res:any = Http.getInstance().put(`/files/${context.file}/updateobjectidforpmsee`,data,isloading);
+            return res;
+    }
+
+    /**
      * FetchDefault接口方法
      *
      * @param {*} [context={}]
@@ -227,6 +241,21 @@ export class FileServiceBase extends EntityService {
     public async FetchType(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/files/fetchtype`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * FetchTypeNotBySrfparentkey接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof FileServiceBase
+     */
+    public async FetchTypeNotBySrfparentkey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/files/fetchtypenotbysrfparentkey`,tempData,isloading);
         return res;
     }
 

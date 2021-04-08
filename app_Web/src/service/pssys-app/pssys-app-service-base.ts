@@ -1,3 +1,4 @@
+import { Environment } from '@/environments/environment';
 import { Http } from '@/utils';
 import { Util } from '@/utils';
 import EntityService from '../entity-service';
@@ -49,7 +50,7 @@ export default class PSSysAppServiceBase extends EntityService {
      * @memberof PSSysAppServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().get(`/pssysapps/${context.pssysapp}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/pssysapps/${context.pssysapp}/select`,isloading);
             
             return res;
     }
@@ -105,7 +106,7 @@ export default class PSSysAppServiceBase extends EntityService {
      * @memberof PSSysAppServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().delete(`/pssysapps/${context.pssysapp}`,isloading);
+            let res:any = await Http.getInstance().delete(`/pssysapps/${context.pssysapp}`,isloading);
             return res;
     }
 
@@ -134,7 +135,10 @@ export default class PSSysAppServiceBase extends EntityService {
      * @memberof PSSysAppServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/pssysapps/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.pssysapp) delete tempData.pssysapp;
+        if(tempData.pssysappid) delete tempData.pssysappid;
+        let res:any = await  Http.getInstance().get(`/pssysapps/getdraft`,tempData,isloading);
         res.data.pssysapp = data.pssysapp;
         
         return res;
@@ -150,7 +154,7 @@ export default class PSSysAppServiceBase extends EntityService {
      * @memberof PSSysAppServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/pssysapps/${context.pssysapp}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/pssysapps/${context.pssysapp}/checkkey`,data,isloading);
             return res;
     }
 
@@ -182,7 +186,7 @@ export default class PSSysAppServiceBase extends EntityService {
      */
     public async FetchBuild(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/pssysapps/fetchbuild`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/pssysapps/fetchbuild`,tempData,isloading);
         return res;
     }
 
@@ -211,7 +215,7 @@ export default class PSSysAppServiceBase extends EntityService {
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/pssysapps/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/pssysapps/fetchdefault`,tempData,isloading);
         return res;
     }
 

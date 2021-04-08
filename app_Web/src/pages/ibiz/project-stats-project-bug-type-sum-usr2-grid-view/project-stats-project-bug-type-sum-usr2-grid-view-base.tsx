@@ -1,6 +1,6 @@
 
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { GridViewBase } from '@/studio-core';
 import ProjectStatsService from '@/service/project-stats/project-stats-service';
 import ProjectStatsAuthService from '@/authservice/project-stats/project-stats-auth-service';
@@ -121,7 +121,7 @@ export class ProjectStatsProjectBugTypeSumUsr2GridViewBase extends GridViewBase 
      * @type {string}
      * @memberof ProjectStatsProjectBugTypeSumUsr2GridViewBase
      */
-	protected viewtag: string = '24148503ec2063b36eab0deebf4bcfd1';
+	protected viewtag: string = 'f0533943874edff99f02a3cdfb584b38';
 
     /**
      * 视图名称

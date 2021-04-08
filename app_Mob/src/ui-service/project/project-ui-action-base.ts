@@ -90,17 +90,17 @@ export default class ProjectUIActionBase extends EntityUIActionBase {
      * @memberof  ProjectUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'mobchartview',srfappde:'projects'});
-        this.allViewMap.set(':',{viewname:'newmobeditview',srfappde:'projects'});
-        this.allViewMap.set('MOBEDITVIEW:',{viewname:'mobeditview',srfappde:'projects'});
-        this.allViewMap.set(':',{viewname:'supmobeditview',srfappde:'projects'});
         this.allViewMap.set(':',{viewname:'mobtabexpview',srfappde:'projects'});
-        this.allViewMap.set(':',{viewname:'mobpickupmdview',srfappde:'projects'});
-        this.allViewMap.set(':',{viewname:'activitemobeditview',srfappde:'projects'});
-        this.allViewMap.set('MOBPICKUPVIEW:',{viewname:'mobpickupview',srfappde:'projects'});
-        this.allViewMap.set(':',{viewname:'closemobeditview',srfappde:'projects'});
         this.allViewMap.set('MOBMDATAVIEW:',{viewname:'mobmdview',srfappde:'projects'});
+        this.allViewMap.set('MOBPICKUPVIEW:',{viewname:'mobpickupview',srfappde:'projects'});
+        this.allViewMap.set('MOBEDITVIEW:',{viewname:'mobeditview',srfappde:'projects'});
+        this.allViewMap.set(':',{viewname:'activitemobeditview',srfappde:'projects'});
         this.allViewMap.set(':',{viewname:'projectteammanagemobeditview',srfappde:'projects'});
+        this.allViewMap.set(':',{viewname:'supmobeditview',srfappde:'projects'});
+        this.allViewMap.set(':',{viewname:'mobchartview',srfappde:'projects'});
+        this.allViewMap.set(':',{viewname:'closemobeditview',srfappde:'projects'});
+        this.allViewMap.set(':',{viewname:'newmobeditview',srfappde:'projects'});
+        this.allViewMap.set(':',{viewname:'mobpickupmdview',srfappde:'projects'});
     }
 
     /**
@@ -125,18 +125,18 @@ export default class ProjectUIActionBase extends EntityUIActionBase {
      * @memberof  ProjectUIServiceBase
      */  
     public initDeMainStateOPPrivsMap(){
-        this.allDeMainStateOPPrivsMap.set('closed__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__PROJ_CLOSED_BUT':0,'SRFUR__PROJ_SUSPEND_BUT':0,'SRFUR__PROJ_DELAY_BUT':0,'SRFUR__PROJ_START_BUT':0,'TOP':0,}));
-        this.allDeMainStateOPPrivsMap.set('closed__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__PROJ_CLOSED_BUT':0,'NOTOP':0,'SRFUR__PROJ_SUSPEND_BUT':0,'SRFUR__PROJ_DELAY_BUT':0,'SRFUR__PROJ_START_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('doing__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__PROJ_ACTIVATION_BUT':0,'SRFUR__PROJ_START_BUT':0,'TOP':0,}));
-        this.allDeMainStateOPPrivsMap.set('doing__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__PROJ_START_BUT':0,'SRFUR__PROJ_ACTIVATION_BUT':0,'NOTOP':0,}));
-        this.allDeMainStateOPPrivsMap.set('suspended__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__PROJ_START_BUT':0,'TOP':0,'SRFUR__PROJ_SUSPEND_BUT':0,'SRFUR__PROJ_DELAY_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('suspended__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'NOTOP':0,'SRFUR__PROJ_DELAY_BUT':0,'SRFUR__PROJ_SUSPEND_BUT':0,'SRFUR__PROJ_START_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('wait__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__PROJ_ACTIVATION_BUT':0,'TOP':0,}));
+        this.allDeMainStateOPPrivsMap.set('closed__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'TOP':0,'SRFUR__PROJ_START_BUT':0,'SRFUR__PROJ_SUSPEND_BUT':0,'SRFUR__PROJ_CLOSED_BUT':0,'SRFUR__PROJ_DELAY_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('closed__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__PROJ_SUSPEND_BUT':0,'SRFUR__PROJ_START_BUT':0,'SRFUR__PROJ_CLOSED_BUT':0,'NOTOP':0,'SRFUR__PROJ_DELAY_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('doing__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'TOP':0,'SRFUR__PROJ_START_BUT':0,'SRFUR__PROJ_ACTIVATION_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('doing__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__PROJ_ACTIVATION_BUT':0,'NOTOP':0,'SRFUR__PROJ_START_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('suspended__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__PROJ_SUSPEND_BUT':0,'SRFUR__PROJ_START_BUT':0,'TOP':0,'SRFUR__PROJ_DELAY_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('suspended__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__PROJ_START_BUT':0,'NOTOP':0,'SRFUR__PROJ_SUSPEND_BUT':0,'SRFUR__PROJ_DELAY_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('wait__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'TOP':0,'SRFUR__PROJ_ACTIVATION_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('wait__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'NOTOP':0,'SRFUR__PROJ_ACTIVATION_BUT':0,}));
     }
 
     /**
-     * 激活
+     * 新建
      *
      * @param {any[]} args 数据
      * @param {*} [contextJO={}] 行为上下文
@@ -148,7 +148,109 @@ export default class ProjectUIActionBase extends EntityUIActionBase {
      * @returns {Promise<any>}
      * @memberof ProjectUIService
      */
-    public async Project_ProjectActivateMob(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+    public async Project_CreateMob(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'NONE';
+            
+        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
+        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
+        context = { ...container.context, ...context };
+        let parentObj: any = {
+            srfparentdename: srfParentDeName ? srfParentDeName : null,
+            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
+        };
+        Object.assign(context, parentObj);
+        Object.assign(params, parentObj);
+        let panelNavParam= { } ;
+        let panelNavContext= { } ;
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
+        let response: any = null;
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'projects', parameterName: 'project' },
+            { pathName: 'newmobeditview', parameterName: 'newmobeditview' },
+        ];
+        const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
+        response = await this.openService.openView(routeParam);
+        if (response) {
+            if (xData && xData.refresh && xData.refresh instanceof Function) {
+                xData.refresh(args);
+            }
+        }
+        return response;
+    }
+
+    /**
+     * 取消置顶
+     *
+     * @param {any[]} args 数据
+     * @param {*} [contextJO={}] 行为上下文
+     * @param {*} [paramJO={}] 行为参数
+     * @param {*} [$event] 事件
+     * @param {*} [xData] 数据目标
+     * @param {*} [container] 行为容器对象
+     * @param {string} [srfParentDeName] 
+     * @returns {Promise<any>}
+     * @memberof ProjectUIService
+     */
+    public async Project_CancelProjectTop(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+        let _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(contextJO, { project: '%project%' });
+        Object.assign(paramJO, { id: '%project%' });
+        Object.assign(paramJO, { name: '%name%' });
+        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
+        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
+        context = { ...container.context, ...context };
+        let parentObj: any = {
+            srfparentdename: srfParentDeName ? srfParentDeName : null,
+            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
+        };
+        Object.assign(context, parentObj);
+        Object.assign(params, parentObj);
+        // 直接调实体服务需要转换的数据
+        if (context && context.srfsessionid) {
+            context.srfsessionkey = context.srfsessionid;
+            delete context.srfsessionid;
+        }
+        // 导航参数
+        let panelNavParam= { } ;
+        let panelNavContext= { } ;
+        if(Util.typeOf(_args) == 'array' && _args.length > 0){
+            _args = _args[0];
+        }
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
+        const backend = async () => {
+            const curUIService: any = await this.globaluiservice.getAppEntityService('project');
+            const response: any = await curUIService.CancelProjectTop(_context, _params);
+            if (response && response.status === 200) {
+                this.notice.success('取消置顶成功！');
+                if (xData && xData.refresh && xData.refresh instanceof Function) {
+                    xData.refresh(args);
+                    AppCenterService.notifyMessage({name:"Project",action:'appRefresh',data:args});
+                }
+            } else {
+                this.notice.error('系统异常！');
+            }
+            return response;
+        };
+        return backend();
+    }
+
+    /**
+     * 详情
+     *
+     * @param {any[]} args 数据
+     * @param {*} [contextJO={}] 行为上下文
+     * @param {*} [paramJO={}] 行为参数
+     * @param {*} [$event] 事件
+     * @param {*} [xData] 数据目标
+     * @param {*} [container] 行为容器对象
+     * @param {string} [srfParentDeName] 
+     * @returns {Promise<any>}
+     * @memberof ProjectUIService
+     */
+    public async Project_EditMod(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(contextJO, { project: '%project%' });
@@ -169,19 +271,71 @@ export default class ProjectUIActionBase extends EntityUIActionBase {
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
         let response: any = null;
         const view: any = { 
-            viewname: 'project-activite-mob-edit-view', 
+            viewname: 'project-mob-edit-view', 
             height: 0, 
             width: 0,  
-            title: '项目移动端编辑视图激活）', 
+            title: '项目移动端编辑视图', 
             placement: 'POPUPMODAL',
         };
         response = await this.openService.openModal(view, _context, _params);
-        if (response) {
-            if (xData && xData.refresh && xData.refresh instanceof Function) {
-                xData.refresh(args);
-            }
-        }
         return response;
+    }
+
+    /**
+     * 置顶
+     *
+     * @param {any[]} args 数据
+     * @param {*} [contextJO={}] 行为上下文
+     * @param {*} [paramJO={}] 行为参数
+     * @param {*} [$event] 事件
+     * @param {*} [xData] 数据目标
+     * @param {*} [container] 行为容器对象
+     * @param {string} [srfParentDeName] 
+     * @returns {Promise<any>}
+     * @memberof ProjectUIService
+     */
+    public async Project_ProjectTop(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+        let _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(contextJO, { project: '%project%' });
+        Object.assign(paramJO, { id: '%project%' });
+        Object.assign(paramJO, { name: '%name%' });
+        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
+        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
+        context = { ...container.context, ...context };
+        let parentObj: any = {
+            srfparentdename: srfParentDeName ? srfParentDeName : null,
+            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
+        };
+        Object.assign(context, parentObj);
+        Object.assign(params, parentObj);
+        // 直接调实体服务需要转换的数据
+        if (context && context.srfsessionid) {
+            context.srfsessionkey = context.srfsessionid;
+            delete context.srfsessionid;
+        }
+        // 导航参数
+        let panelNavParam= { } ;
+        let panelNavContext= { } ;
+        if(Util.typeOf(_args) == 'array' && _args.length > 0){
+            _args = _args[0];
+        }
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
+        const backend = async () => {
+            const curUIService: any = await this.globaluiservice.getAppEntityService('project');
+            const response: any = await curUIService.ProjectTop(_context, _params);
+            if (response && response.status === 200) {
+                this.notice.success('置顶成功！');
+                if (xData && xData.refresh && xData.refresh instanceof Function) {
+                    xData.refresh(args);
+                    AppCenterService.notifyMessage({name:"Project",action:'appRefresh',data:args});
+                }
+            } else {
+                this.notice.error('系统异常！');
+            }
+            return response;
+        };
+        return backend();
     }
 
     /**
@@ -247,7 +401,7 @@ export default class ProjectUIActionBase extends EntityUIActionBase {
     }
 
     /**
-     * 置顶
+     * 关闭
      *
      * @param {any[]} args 数据
      * @param {*} [contextJO={}] 行为上下文
@@ -259,12 +413,13 @@ export default class ProjectUIActionBase extends EntityUIActionBase {
      * @returns {Promise<any>}
      * @memberof ProjectUIService
      */
-    public async Project_ProjectTop(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        let _args: any[] = Util.deepCopy(args);
+    public async Project_ProjectCloseMob(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+        const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(contextJO, { project: '%project%' });
         Object.assign(paramJO, { id: '%project%' });
         Object.assign(paramJO, { name: '%name%' });
+            
         let context: any = this.handleContextParam(actionTarget, _args, contextJO);
         let params: any = this.handleActionParam(actionTarget, _args, paramJO);
         context = { ...container.context, ...context };
@@ -274,33 +429,73 @@ export default class ProjectUIActionBase extends EntityUIActionBase {
         };
         Object.assign(context, parentObj);
         Object.assign(params, parentObj);
-        // 直接调实体服务需要转换的数据
-        if (context && context.srfsessionid) {
-            context.srfsessionkey = context.srfsessionid;
-            delete context.srfsessionid;
-        }
-        // 导航参数
         let panelNavParam= { } ;
         let panelNavContext= { } ;
-        if(Util.typeOf(_args) == 'array' && _args.length > 0){
-            _args = _args[0];
-        }
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
-        const backend = async () => {
-            const curUIService: any = await this.globaluiservice.getAppEntityService('project');
-            const response: any = await curUIService.ProjectTop(_context, _params);
-            if (response && response.status === 200) {
-                this.notice.success('置顶成功！');
-                if (xData && xData.refresh && xData.refresh instanceof Function) {
-                    xData.refresh(args);
-                    AppCenterService.notifyMessage({name:"Project",action:'appRefresh',data:args});
-                }
-            } else {
-                this.notice.error('系统异常！');
-            }
-            return response;
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
+        let response: any = null;
+        const view: any = { 
+            viewname: 'project-close-mob-edit-view', 
+            height: 0, 
+            width: 0,  
+            title: '项目移动端编辑视图（关闭）', 
+            placement: 'POPUPMODAL',
         };
-        return backend();
+        response = await this.openService.openModal(view, _context, _params);
+        if (response) {
+            if (xData && xData.refresh && xData.refresh instanceof Function) {
+                xData.refresh(args);
+            }
+        }
+        return response;
+    }
+
+    /**
+     * 激活
+     *
+     * @param {any[]} args 数据
+     * @param {*} [contextJO={}] 行为上下文
+     * @param {*} [paramJO={}] 行为参数
+     * @param {*} [$event] 事件
+     * @param {*} [xData] 数据目标
+     * @param {*} [container] 行为容器对象
+     * @param {string} [srfParentDeName] 
+     * @returns {Promise<any>}
+     * @memberof ProjectUIService
+     */
+    public async Project_ProjectActivateMob(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(contextJO, { project: '%project%' });
+        Object.assign(paramJO, { id: '%project%' });
+        Object.assign(paramJO, { name: '%name%' });
+            
+        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
+        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
+        context = { ...container.context, ...context };
+        let parentObj: any = {
+            srfparentdename: srfParentDeName ? srfParentDeName : null,
+            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
+        };
+        Object.assign(context, parentObj);
+        Object.assign(params, parentObj);
+        let panelNavParam= { } ;
+        let panelNavContext= { } ;
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
+        let response: any = null;
+        const view: any = { 
+            viewname: 'project-activite-mob-edit-view', 
+            height: 0, 
+            width: 0,  
+            title: '项目移动端编辑视图激活）', 
+            placement: 'POPUPMODAL',
+        };
+        response = await this.openService.openModal(view, _context, _params);
+        if (response) {
+            if (xData && xData.refresh && xData.refresh instanceof Function) {
+                xData.refresh(args);
+            }
+        }
+        return response;
     }
 
     /**
@@ -345,152 +540,6 @@ export default class ProjectUIActionBase extends EntityUIActionBase {
     }
 
     /**
-     * 详情
-     *
-     * @param {any[]} args 数据
-     * @param {*} [contextJO={}] 行为上下文
-     * @param {*} [paramJO={}] 行为参数
-     * @param {*} [$event] 事件
-     * @param {*} [xData] 数据目标
-     * @param {*} [container] 行为容器对象
-     * @param {string} [srfParentDeName] 
-     * @returns {Promise<any>}
-     * @memberof ProjectUIService
-     */
-    public async Project_EditMod(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(contextJO, { project: '%project%' });
-        Object.assign(paramJO, { id: '%project%' });
-        Object.assign(paramJO, { name: '%name%' });
-            
-        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
-        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
-        context = { ...container.context, ...context };
-        let parentObj: any = {
-            srfparentdename: srfParentDeName ? srfParentDeName : null,
-            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
-        };
-        Object.assign(context, parentObj);
-        Object.assign(params, parentObj);
-        let panelNavParam= { } ;
-        let panelNavContext= { } ;
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
-        let response: any = null;
-        const view: any = { 
-            viewname: 'project-mob-edit-view', 
-            height: 0, 
-            width: 0,  
-            title: '项目移动端编辑视图', 
-            placement: 'POPUPMODAL',
-        };
-        response = await this.openService.openModal(view, _context, _params);
-        return response;
-    }
-
-    /**
-     * 取消置顶
-     *
-     * @param {any[]} args 数据
-     * @param {*} [contextJO={}] 行为上下文
-     * @param {*} [paramJO={}] 行为参数
-     * @param {*} [$event] 事件
-     * @param {*} [xData] 数据目标
-     * @param {*} [container] 行为容器对象
-     * @param {string} [srfParentDeName] 
-     * @returns {Promise<any>}
-     * @memberof ProjectUIService
-     */
-    public async Project_CancelProjectTop(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        let _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(contextJO, { project: '%project%' });
-        Object.assign(paramJO, { id: '%project%' });
-        Object.assign(paramJO, { name: '%name%' });
-        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
-        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
-        context = { ...container.context, ...context };
-        let parentObj: any = {
-            srfparentdename: srfParentDeName ? srfParentDeName : null,
-            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
-        };
-        Object.assign(context, parentObj);
-        Object.assign(params, parentObj);
-        // 直接调实体服务需要转换的数据
-        if (context && context.srfsessionid) {
-            context.srfsessionkey = context.srfsessionid;
-            delete context.srfsessionid;
-        }
-        // 导航参数
-        let panelNavParam= { } ;
-        let panelNavContext= { } ;
-        if(Util.typeOf(_args) == 'array' && _args.length > 0){
-            _args = _args[0];
-        }
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
-        const backend = async () => {
-            const curUIService: any = await this.globaluiservice.getAppEntityService('project');
-            const response: any = await curUIService.CancelProjectTop(_context, _params);
-            if (response && response.status === 200) {
-                this.notice.success('取消置顶成功！');
-                if (xData && xData.refresh && xData.refresh instanceof Function) {
-                    xData.refresh(args);
-                    AppCenterService.notifyMessage({name:"Project",action:'appRefresh',data:args});
-                }
-            } else {
-                this.notice.error('系统异常！');
-            }
-            return response;
-        };
-        return backend();
-    }
-
-    /**
-     * 新建
-     *
-     * @param {any[]} args 数据
-     * @param {*} [contextJO={}] 行为上下文
-     * @param {*} [paramJO={}] 行为参数
-     * @param {*} [$event] 事件
-     * @param {*} [xData] 数据目标
-     * @param {*} [container] 行为容器对象
-     * @param {string} [srfParentDeName] 
-     * @returns {Promise<any>}
-     * @memberof ProjectUIService
-     */
-    public async Project_CreateMob(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'NONE';
-            
-        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
-        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
-        context = { ...container.context, ...context };
-        let parentObj: any = {
-            srfparentdename: srfParentDeName ? srfParentDeName : null,
-            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
-        };
-        Object.assign(context, parentObj);
-        Object.assign(params, parentObj);
-        let panelNavParam= { } ;
-        let panelNavContext= { } ;
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
-        let response: any = null;
-        const deResParameters: any[] = [];
-        const parameters: any[] = [
-            { pathName: 'projects', parameterName: 'project' },
-            { pathName: 'newmobeditview', parameterName: 'newmobeditview' },
-        ];
-        const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
-        response = await this.openService.openView(routeParam);
-        if (response) {
-            if (xData && xData.refresh && xData.refresh instanceof Function) {
-                xData.refresh(args);
-            }
-        }
-        return response;
-    }
-
-    /**
      * 挂起
      *
      * @param {any[]} args 数据
@@ -528,55 +577,6 @@ export default class ProjectUIActionBase extends EntityUIActionBase {
             height: 0, 
             width: 0,  
             title: '项目移动端编辑视图挂起）', 
-            placement: 'POPUPMODAL',
-        };
-        response = await this.openService.openModal(view, _context, _params);
-        if (response) {
-            if (xData && xData.refresh && xData.refresh instanceof Function) {
-                xData.refresh(args);
-            }
-        }
-        return response;
-    }
-
-    /**
-     * 关闭
-     *
-     * @param {any[]} args 数据
-     * @param {*} [contextJO={}] 行为上下文
-     * @param {*} [paramJO={}] 行为参数
-     * @param {*} [$event] 事件
-     * @param {*} [xData] 数据目标
-     * @param {*} [container] 行为容器对象
-     * @param {string} [srfParentDeName] 
-     * @returns {Promise<any>}
-     * @memberof ProjectUIService
-     */
-    public async Project_ProjectCloseMob(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(contextJO, { project: '%project%' });
-        Object.assign(paramJO, { id: '%project%' });
-        Object.assign(paramJO, { name: '%name%' });
-            
-        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
-        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
-        context = { ...container.context, ...context };
-        let parentObj: any = {
-            srfparentdename: srfParentDeName ? srfParentDeName : null,
-            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
-        };
-        Object.assign(context, parentObj);
-        Object.assign(params, parentObj);
-        let panelNavParam= { } ;
-        let panelNavContext= { } ;
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
-        let response: any = null;
-        const view: any = { 
-            viewname: 'project-close-mob-edit-view', 
-            height: 0, 
-            width: 0,  
-            title: '项目移动端编辑视图（关闭）', 
             placement: 'POPUPMODAL',
         };
         response = await this.openService.openModal(view, _context, _params);

@@ -1,7 +1,7 @@
 
 
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { KanBanViewBase } from '@/studio-core';
 import StoryService from '@/service/story/story-service';
 import StoryAuthService from '@/authservice/story/story-auth-service';
@@ -128,7 +128,7 @@ export class StoryKanbanViewBase extends KanBanViewBase {
      * @type {string}
      * @memberof StoryKanbanViewBase
      */
-	protected viewtag: string = '300e4e1f02be8e316e1e76b49c5c5ccc';
+	protected viewtag: string = 'f43e50ecf07b9c17a3a78139b17163f6';
 
     /**
      * 视图名称

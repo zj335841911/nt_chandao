@@ -54,6 +54,8 @@ public interface ITaskService extends IService<Task> {
     boolean closeBatch(List<Task> etList);
     Task confirmStoryChange(Task et);
     boolean confirmStoryChangeBatch(List<Task> etList);
+    Task createCycleTasks(Task et);
+    boolean createCycleTasksBatch(List<Task> etList);
     Task deleteEstimate(Task et);
     boolean deleteEstimateBatch(List<Task> etList);
     Task editEstimate(Task et);
@@ -67,6 +69,8 @@ public interface ITaskService extends IService<Task> {
     Task getTeamUserLeftStart(Task et);
     boolean getTeamUserLeftStartBatch(List<Task> etList);
     Task getUsernames(Task et);
+    Task linkPlan(Task et);
+    boolean linkPlanBatch(List<Task> etList);
     Task otherUpdate(Task et);
     boolean otherUpdateBatch(List<Task> etList);
     Task pause(Task et);
@@ -99,6 +103,7 @@ public interface ITaskService extends IService<Task> {
     Page<Task> searchDefaultRow(TaskSearchContext context);
     Page<Task> searchESBulk(TaskSearchContext context);
     Page<Task> searchMyAgentTask(TaskSearchContext context);
+    Page<Task> searchMyAllTask(TaskSearchContext context);
     Page<Task> searchMyCompleteTask(TaskSearchContext context);
     Page<Task> searchMyCompleteTaskMobDaily(TaskSearchContext context);
     Page<Task> searchMyCompleteTaskMobMonthly(TaskSearchContext context);
@@ -111,19 +116,25 @@ public interface ITaskService extends IService<Task> {
     Page<Task> searchNextWeekCompleteTaskMobZS(TaskSearchContext context);
     Page<Task> searchNextWeekCompleteTaskZS(TaskSearchContext context);
     Page<Task> searchNextWeekPlanCompleteTask(TaskSearchContext context);
+    Page<Task> searchPlanTask(TaskSearchContext context);
+    Page<Task> searchProjectAppTask(TaskSearchContext context);
     Page<Task> searchProjectTask(TaskSearchContext context);
     Page<Task> searchRootTask(TaskSearchContext context);
+    Page<Task> searchTaskLinkPlan(TaskSearchContext context);
     Page<Task> searchThisMonthCompleteTaskChoice(TaskSearchContext context);
     Page<Task> searchThisWeekCompleteTask(TaskSearchContext context);
     Page<Task> searchThisWeekCompleteTaskChoice(TaskSearchContext context);
     Page<Task> searchThisWeekCompleteTaskMobZS(TaskSearchContext context);
     Page<Task> searchThisWeekCompleteTaskZS(TaskSearchContext context);
     Page<Task> searchTodoListTask(TaskSearchContext context);
-    Page<HashMap> searchTypeGroup(TaskSearchContext context);
+    Page<Map> searchTypeGroup(TaskSearchContext context);
+    Page<Map> searchTypeGroupPlan(TaskSearchContext context);
     List<Task> selectByModule(Long id);
     void removeByModule(Long id);
     List<Task> selectByFrombug(Long id);
     void removeByFrombug(Long id);
+    List<Task> selectByPlan(Long id);
+    void removeByPlan(Long id);
     List<Task> selectByProject(Long id);
     void removeByProject(Long id);
     List<Task> selectByStory(Long id);
@@ -131,16 +142,16 @@ public interface ITaskService extends IService<Task> {
     List<Task> selectByParent(Long id);
     void removeByParent(Long id);
     /**
-     * 自定义查询SQL
+     *自定义查询SQL
      * @param sql  select * from table where id =#{et.param}
-     * @param param 参数列表  param.put("param", "1");
+     * @param param 参数列表  param.put("param","1");
      * @return select * from table where id = '1'
      */
     List<JSONObject> select(String sql, Map param);
     /**
-     * 自定义SQL
+     *自定义SQL
      * @param sql  update table  set name ='test' where id =#{et.param}
-     * @param param 参数列表  param.put("param", "1");
+     * @param param 参数列表  param.put("param","1");
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);

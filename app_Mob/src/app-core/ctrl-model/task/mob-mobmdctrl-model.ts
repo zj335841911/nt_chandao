@@ -15,28 +15,28 @@ export class MobModel {
 	public getDataItems(): any[] {
 		return [
 			{
-				name: 'left',
+				name: 'pri',
 			},
 			{
 				name: 'parentname',
 			},
 			{
+				name: 'parent',
+			},
+			{
 				name: 'assignedto',
-			},
-			{
-				name: 'name',
-			},
-			{
-				name: 'pri',
-			},
-			{
-				name: 'deadline',
 			},
 			{
 				name: 'status',
 			},
 			{
-				name: 'parent',
+				name: 'left',
+			},
+			{
+				name: 'deadline',
+			},
+			{
+				name: 'name',
 			},
 			{
 				name: 'srfkey',
@@ -54,6 +54,16 @@ export class MobModel {
 				dataType: 'PICKUP',
 			},
 			{
+				name: 'plan',
+				prop: 'plan',
+				dataType: 'PICKUP',
+			},
+			{
+				name: 'module',
+				prop: 'module',
+				dataType: 'PICKUP',
+			},
+			{
 				name: 'story',
 				prop: 'story',
 				dataType: 'PICKUP',
@@ -61,11 +71,6 @@ export class MobModel {
 			{
 				name: 'frombug',
 				prop: 'frombug',
-				dataType: 'PICKUP',
-			},
-			{
-				name: 'module',
-				prop: 'module',
 				dataType: 'PICKUP',
 			},
 			{

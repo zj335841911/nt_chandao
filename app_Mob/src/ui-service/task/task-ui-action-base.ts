@@ -90,40 +90,40 @@ export default class TaskUIActionBase extends EntityUIActionBase {
      * @memberof  TaskUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'mobmdview',srfappde:'tasks'});
-        this.allViewMap.set('MOBEDITVIEW:',{viewname:'mobeditview',srfappde:'tasks'});
-        this.allViewMap.set(':',{viewname:'assmoremobmdview',srfappde:'tasks'});
+        this.allViewMap.set(':',{viewname:'activemobtask',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'mycompletetaskmobmdviewweekly',srfappde:'tasks'});
+        this.allViewMap.set(':',{viewname:'editmobeditview',srfappde:'tasks'});
+        this.allViewMap.set(':',{viewname:'cancelmoboptionview',srfappde:'tasks'});
+        this.allViewMap.set(':',{viewname:'assmobmdview9',srfappde:'tasks'});
+        this.allViewMap.set(':',{viewname:'favoritemobmdview',srfappde:'tasks'});
+        this.allViewMap.set(':',{viewname:'moboptionview',srfappde:'tasks'});
+        this.allViewMap.set(':',{viewname:'favoritemobmdview9',srfappde:'tasks'});
+        this.allViewMap.set(':',{viewname:'newmobeditview',srfappde:'tasks'});
+        this.allViewMap.set(':',{viewname:'monthlyplanstaskmobmdview',srfappde:'tasks'});
+        this.allViewMap.set(':',{viewname:'mycompletetaskmobmdview1',srfappde:'tasks'});
+        this.allViewMap.set(':',{viewname:'dailydonetaskmobmdview',srfappde:'tasks'});
+        this.allViewMap.set(':',{viewname:'startmoboptionview',srfappde:'tasks'});
+        this.allViewMap.set(':',{viewname:'monthlymycompletetaskmobmdview',srfappde:'tasks'});
+        this.allViewMap.set(':',{viewname:'mobpickupmdview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'weeklyplanstaskmobmdview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'stopmoboptionview',srfappde:'tasks'});
-        this.allViewMap.set(':',{viewname:'mycompletetaskmobmdview',srfappde:'tasks'});
-        this.allViewMap.set(':',{viewname:'monthlymycompletetaskmobmdview',srfappde:'tasks'});
-        this.allViewMap.set(':',{viewname:'dailydonetaskmobmdview',srfappde:'tasks'});
-        this.allViewMap.set(':',{viewname:'editmobeditview',srfappde:'tasks'});
-        this.allViewMap.set(':',{viewname:'activemobtask',srfappde:'tasks'});
-        this.allViewMap.set(':',{viewname:'cancelmoboptionview',srfappde:'tasks'});
-        this.allViewMap.set(':',{viewname:'favoritemobmdview9',srfappde:'tasks'});
-        this.allViewMap.set(':',{viewname:'closemoboptionview',srfappde:'tasks'});
-        this.allViewMap.set(':',{viewname:'mobpickupmdview',srfappde:'tasks'});
-        this.allViewMap.set('MOBPICKUPVIEW:',{viewname:'mobpickupview',srfappde:'tasks'});
-        this.allViewMap.set(':',{viewname:'startmoboptionview',srfappde:'tasks'});
-        this.allViewMap.set(':',{viewname:'monthlyplanstaskmobmdview',srfappde:'tasks'});
-        this.allViewMap.set(':',{viewname:'dailyplanstaskmobmdview',srfappde:'tasks'});
-        this.allViewMap.set(':',{viewname:'favoritemoremobmdview',srfappde:'tasks'});
-        this.allViewMap.set(':',{viewname:'favoritemobmdview',srfappde:'tasks'});
-        this.allViewMap.set(':',{viewname:'commoboptionview',srfappde:'tasks'});
-        this.allViewMap.set(':',{viewname:'monthlydonetaskmobmdview',srfappde:'tasks'});
-        this.allViewMap.set(':',{viewname:'assmobmdview',srfappde:'tasks'});
-        this.allViewMap.set(':',{viewname:'mycompletetaskmobmdview1',srfappde:'tasks'});
-        this.allViewMap.set(':',{viewname:'monthlymyplanstaskmobmdview',srfappde:'tasks'});
-        this.allViewMap.set(':',{viewname:'moboptionview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'gsmoboptionview',srfappde:'tasks'});
-        this.allViewMap.set(':',{viewname:'weeklylydonetaskmobmdview',srfappde:'tasks'});
-        this.allViewMap.set(':',{viewname:'assmobmdview9',srfappde:'tasks'});
-        this.allViewMap.set(':',{viewname:'mycompletetaskmobmdviewnextplanweekly',srfappde:'tasks'});
-        this.allViewMap.set(':',{viewname:'newmobeditview',srfappde:'tasks'});
-        this.allViewMap.set(':',{viewname:'myplanstomorrowtaskmobmdview',srfappde:'tasks'});
         this.allViewMap.set(':',{viewname:'usr2moboptionview',srfappde:'tasks'});
+        this.allViewMap.set(':',{viewname:'weeklylydonetaskmobmdview',srfappde:'tasks'});
+        this.allViewMap.set(':',{viewname:'commoboptionview',srfappde:'tasks'});
+        this.allViewMap.set('MOBEDITVIEW:',{viewname:'mobeditview',srfappde:'tasks'});
+        this.allViewMap.set(':',{viewname:'assmobmdview',srfappde:'tasks'});
+        this.allViewMap.set(':',{viewname:'monthlydonetaskmobmdview',srfappde:'tasks'});
+        this.allViewMap.set(':',{viewname:'mycompletetaskmobmdview',srfappde:'tasks'});
+        this.allViewMap.set(':',{viewname:'favoritemoremobmdview',srfappde:'tasks'});
+        this.allViewMap.set(':',{viewname:'closemoboptionview',srfappde:'tasks'});
+        this.allViewMap.set(':',{viewname:'mobmdview',srfappde:'tasks'});
+        this.allViewMap.set(':',{viewname:'dailyplanstaskmobmdview',srfappde:'tasks'});
+        this.allViewMap.set(':',{viewname:'myplanstomorrowtaskmobmdview',srfappde:'tasks'});
+        this.allViewMap.set('MOBPICKUPVIEW:',{viewname:'mobpickupview',srfappde:'tasks'});
+        this.allViewMap.set(':',{viewname:'mycompletetaskmobmdviewnextplanweekly',srfappde:'tasks'});
+        this.allViewMap.set(':',{viewname:'assmoremobmdview',srfappde:'tasks'});
+        this.allViewMap.set(':',{viewname:'monthlymyplanstaskmobmdview',srfappde:'tasks'});
     }
 
     /**
@@ -198,64 +198,64 @@ export default class TaskUIActionBase extends EntityUIActionBase {
     public initDeMainStateOPPrivsMap(){
         this.allDeMainStateOPPrivsMap.set('cancel__0__10',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_PROCEED_BUT':0,'SRFUR__TASK_FAVOR_BUT':0,'SRFUR__TASK_COMPLETE_BUT':0,'SRFUR__TASK_CANCEL_BUT':0,'SRFUR__TASK_ASSIGN_BUT':0,'SRFUR__TASK_START_BUT':0,'SRFUR__TASK_XQCHANGE_BUT':0,'SRFUR__TASK_SUBTASKS_BUT':0,'SRFUR__TASK_PAUSE_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('cancel__0__20',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_PROCEED_BUT':0,'SRFUR__TASK_DELETE_BUT':0,'SRFUR__TASK_CONSUM_BUT':0,'SRFUR__TASK_CANCEL_BUT':0,'SRFUR__TASK_ASSIGN_BUT':0,'SRFUR__TASK_FORWARD_BUT':0,'SRFUR__STORY_FJTASK_BUT':0,'SRFUR__TASK_FAVOR_BUT':0,'SRFUR__TASK_CLOSE_BUT':0,'SRFUR__TASK_PAUSE_BUT':0,'SRFUR__TASK_XQCHANGE_BUT':0,'SRFUR__TASK_COMPLETE_BUT':0,'SRFUR__TASK_START_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('cancel__0__30',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_FORWARD_BUT':0,'SRFUR__TASK_COMPLETE_BUT':0,'SRFUR__TASK_FAVOR_BUT':0,'SRFUR__TASK_ASSIGN_BUT':0,'SRFUR__TASK_START_BUT':0,'SRFUR__TASK_CANCEL_BUT':0,'SRFUR__TASK_PROCEED_BUT':0,'SRFUR__TASK_PAUSE_BUT':0,'SRFUR__TASK_XQCHANGE_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('cancel__0__30',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_FORWARD_BUT':0,'SRFUR__TASK_COMPLETE_BUT':0,'SRFUR__TASK_FAVOR_BUT':0,'SRFUR__TASK_START_BUT':0,'SRFUR__TASK_ASSIGN_BUT':0,'SRFUR__TASK_XQCHANGE_BUT':0,'SRFUR__TASK_CANCEL_BUT':0,'SRFUR__TASK_PAUSE_BUT':0,'SRFUR__TASK_PROCEED_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('cancel__0__40',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_XQCHANGE_BUT':0,'SRFUR__TASK_START_BUT':0,'SRFUR__TASK_CANCEL_BUT':0,'SRFUR__TASK_FORWARD_BUT':0,'SRFUR__TASK_COMPLETE_BUT':0,'SRFUR__TASK_SUBTASKS_BUT':0,'SRFUR__TASK_PROCEED_BUT':0,'SRFUR__TASK_ASSIGN_BUT':0,'SRFUR__TASK_PAUSE_BUT':0,'SRFUR__TASK_FAVOR_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('cancel__1__10',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_PAUSE_BUT':0,'SRFUR__TASK_START_BUT':0,'SRFUR__TASK_CANCEL_BUT':0,'SRFUR__TASK_PROCEED_BUT':0,'SRFUR__TASK_SUBTASKS_BUT':0,'SRFUR__TASK_XQCHANGE_BUT':0,'SRFUR__TASK_COMPLETE_BUT':0,'SRFUR__TASK_ASSIGN_BUT':0,'SRFUR__TASK_NFAVOR_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('cancel__1__20',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_DELETE_BUT':0,'SRFUR__TASK_PROCEED_BUT':0,'SRFUR__TASK_XQCHANGE_BUT':0,'SRFUR__TASK_PAUSE_BUT':0,'SRFUR__STORY_FJTASK_BUT':0,'SRFUR__TASK_FORWARD_BUT':0,'SRFUR__TASK_START_BUT':0,'SRFUR__TASK_COMPLETE_BUT':0,'SRFUR__TASK_NFAVOR_BUT':0,'SRFUR__TASK_CLOSE_BUT':0,'SRFUR__TASK_CANCEL_BUT':0,'SRFUR__TASK_CONSUM_BUT':0,'SRFUR__TASK_ASSIGN_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('cancel__1__30',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_PAUSE_BUT':0,'SRFUR__TASK_NFAVOR_BUT':0,'SRFUR__TASK_COMPLETE_BUT':0,'SRFUR__TASK_START_BUT':0,'SRFUR__TASK_XQCHANGE_BUT':0,'SRFUR__TASK_CANCEL_BUT':0,'SRFUR__TASK_ASSIGN_BUT':0,'SRFUR__TASK_FORWARD_BUT':0,'SRFUR__TASK_PROCEED_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('cancel__1__30',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_CANCEL_BUT':0,'SRFUR__TASK_PAUSE_BUT':0,'SRFUR__TASK_FORWARD_BUT':0,'SRFUR__TASK_ASSIGN_BUT':0,'SRFUR__TASK_NFAVOR_BUT':0,'SRFUR__TASK_START_BUT':0,'SRFUR__TASK_COMPLETE_BUT':0,'SRFUR__TASK_PROCEED_BUT':0,'SRFUR__TASK_XQCHANGE_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('cancel__1__40',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_COMPLETE_BUT':0,'SRFUR__TASK_PAUSE_BUT':0,'SRFUR__TASK_NFAVOR_BUT':0,'SRFUR__TASK_PROCEED_BUT':0,'SRFUR__TASK_START_BUT':0,'SRFUR__TASK_SUBTASKS_BUT':0,'SRFUR__TASK_CANCEL_BUT':0,'SRFUR__TASK_FORWARD_BUT':0,'SRFUR__TASK_XQCHANGE_BUT':0,'SRFUR__TASK_ASSIGN_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('closed__0__10',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_COMPLETE_BUT':0,'SRFUR__TASK_START_BUT':0,'SRFUR__TASK_XQCHANGE_BUT':0,'SRFUR__TASK_SUBTASKS_BUT':0,'SRFUR__TASK_ASSIGN_BUT':0,'SRFUR__TASK_PROCEED_BUT':0,'SRFUR__TASK_CLOSE_BUT':0,'SRFUR__TASK_FAVOR_BUT':0,'SRFUR__TASK_FORWARD_BUT':0,'SRFUR__TASK_PAUSE_BUT':0,'SRFUR__TASK_CANCEL_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('closed__0__20',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_DELETE_BUT':0,'SRFUR__TASK_FAVOR_BUT':0,'SRFUR__TASK_XQCHANGE_BUT':0,'SRFUR__TASK_COMPLETE_BUT':0,'SRFUR__TASK_FORWARD_BUT':0,'SRFUR__TASK_ASSIGN_BUT':0,'SRFUR__TASK_START_BUT':0,'SRFUR__STORY_FJTASK_BUT':0,'SRFUR__TASK_CLOSE_BUT':0,'SRFUR__TASK_CONSUM_BUT':0,'SRFUR__TASK_PAUSE_BUT':0,'SRFUR__TASK_PROCEED_BUT':0,'SRFUR__TASK_CANCEL_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('closed__0__30',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_PROCEED_BUT':0,'SRFUR__TASK_START_BUT':0,'SRFUR__TASK_CANCEL_BUT':0,'SRFUR__TASK_FORWARD_BUT':0,'SRFUR__TASK_FAVOR_BUT':0,'SRFUR__TASK_ASSIGN_BUT':0,'SRFUR__TASK_COMPLETE_BUT':0,'SRFUR__TASK_PAUSE_BUT':0,'SRFUR__TASK_XQCHANGE_BUT':0,'SRFUR__TASK_CLOSE_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('closed__0__30',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_PAUSE_BUT':0,'SRFUR__TASK_FAVOR_BUT':0,'SRFUR__TASK_CLOSE_BUT':0,'SRFUR__TASK_ASSIGN_BUT':0,'SRFUR__TASK_CANCEL_BUT':0,'SRFUR__TASK_COMPLETE_BUT':0,'SRFUR__TASK_PROCEED_BUT':0,'SRFUR__TASK_FORWARD_BUT':0,'SRFUR__TASK_XQCHANGE_BUT':0,'SRFUR__TASK_START_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('closed__0__40',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_SUBTASKS_BUT':0,'SRFUR__TASK_ASSIGN_BUT':0,'SRFUR__TASK_CANCEL_BUT':0,'SRFUR__TASK_XQCHANGE_BUT':0,'SRFUR__TASK_COMPLETE_BUT':0,'SRFUR__TASK_FAVOR_BUT':0,'SRFUR__TASK_PROCEED_BUT':0,'SRFUR__TASK_START_BUT':0,'SRFUR__TASK_PAUSE_BUT':0,'SRFUR__TASK_CLOSE_BUT':0,'SRFUR__TASK_FORWARD_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('closed__1__10',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_SUBTASKS_BUT':0,'SRFUR__TASK_FORWARD_BUT':0,'SRFUR__TASK_ASSIGN_BUT':0,'SRFUR__TASK_CLOSE_BUT':0,'SRFUR__TASK_PROCEED_BUT':0,'SRFUR__TASK_CANCEL_BUT':0,'SRFUR__TASK_NFAVOR_BUT':0,'SRFUR__TASK_COMPLETE_BUT':0,'SRFUR__TASK_PAUSE_BUT':0,'SRFUR__TASK_XQCHANGE_BUT':0,'SRFUR__TASK_START_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('closed__1__20',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_ASSIGN_BUT':0,'SRFUR__TASK_COMPLETE_BUT':0,'SRFUR__TASK_CONSUM_BUT':0,'SRFUR__TASK_DELETE_BUT':0,'SRFUR__TASK_PROCEED_BUT':0,'SRFUR__TASK_FORWARD_BUT':0,'SRFUR__TASK_CANCEL_BUT':0,'SRFUR__TASK_START_BUT':0,'SRFUR__TASK_PAUSE_BUT':0,'SRFUR__TASK_CLOSE_BUT':0,'SRFUR__STORY_FJTASK_BUT':0,'SRFUR__TASK_NFAVOR_BUT':0,'SRFUR__TASK_XQCHANGE_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('closed__1__30',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_ASSIGN_BUT':0,'SRFUR__TASK_COMPLETE_BUT':0,'SRFUR__TASK_CANCEL_BUT':0,'SRFUR__TASK_CLOSE_BUT':0,'SRFUR__TASK_PAUSE_BUT':0,'SRFUR__TASK_FORWARD_BUT':0,'SRFUR__TASK_NFAVOR_BUT':0,'SRFUR__TASK_PROCEED_BUT':0,'SRFUR__TASK_XQCHANGE_BUT':0,'SRFUR__TASK_START_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('closed__1__30',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_NFAVOR_BUT':0,'SRFUR__TASK_XQCHANGE_BUT':0,'SRFUR__TASK_PROCEED_BUT':0,'SRFUR__TASK_CANCEL_BUT':0,'SRFUR__TASK_START_BUT':0,'SRFUR__TASK_PAUSE_BUT':0,'SRFUR__TASK_CLOSE_BUT':0,'SRFUR__TASK_FORWARD_BUT':0,'SRFUR__TASK_ASSIGN_BUT':0,'SRFUR__TASK_COMPLETE_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('closed__1__40',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_FORWARD_BUT':0,'SRFUR__TASK_XQCHANGE_BUT':0,'SRFUR__TASK_PROCEED_BUT':0,'SRFUR__TASK_COMPLETE_BUT':0,'SRFUR__TASK_PAUSE_BUT':0,'SRFUR__TASK_NFAVOR_BUT':0,'SRFUR__TASK_CLOSE_BUT':0,'SRFUR__TASK_ASSIGN_BUT':0,'SRFUR__TASK_START_BUT':0,'SRFUR__TASK_CANCEL_BUT':0,'SRFUR__TASK_SUBTASKS_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('doing__0__10',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_ACTIVATION_BUT':0,'SRFUR__TASK_START_BUT':0,'SRFUR__TASK_SUBTASKS_BUT':0,'SRFUR__TASK_CLOSE_BUT':0,'SRFUR__TASK_ASSIGN_BUT':0,'SRFUR__TASK_FAVOR_BUT':0,'SRFUR__TASK_XQCHANGE_BUT':0,'SRFUR__TASK_PROCEED_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('doing__0__20',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_START_BUT':0,'SRFUR__TASK_CONSUM_BUT':0,'SRFUR__STORY_FJTASK_BUT':0,'SRFUR__TASK_DELETE_BUT':0,'SRFUR__TASK_XQCHANGE_BUT':0,'SRFUR__TASK_PAUSE_BUT':0,'SRFUR__TASK_CLOSE_BUT':0,'SRFUR__TASK_FORWARD_BUT':0,'SRFUR__TASK_PROCEED_BUT':0,'SRFUR__TASK_ACTIVATION_BUT':0,'SRFUR__TASK_COMPLETE_BUT':0,'SRFUR__TASK_ASSIGN_BUT':0,'SRFUR__TASK_FAVOR_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('doing__0__30',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_XQCHANGE_BUT':0,'SRFUR__TASK_CLOSE_BUT':0,'SRFUR__TASK_ACTIVATION_BUT':0,'SRFUR__TASK_FAVOR_BUT':0,'SRFUR__TASK_START_BUT':0,'SRFUR__TASK_FORWARD_BUT':0,'SRFUR__TASK_PROCEED_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('doing__0__30',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_PROCEED_BUT':0,'SRFUR__TASK_CLOSE_BUT':0,'SRFUR__TASK_FAVOR_BUT':0,'SRFUR__TASK_XQCHANGE_BUT':0,'SRFUR__TASK_ACTIVATION_BUT':0,'SRFUR__TASK_START_BUT':0,'SRFUR__TASK_FORWARD_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('doing__0__40',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_CLOSE_BUT':0,'SRFUR__TASK_ACTIVATION_BUT':0,'SRFUR__TASK_XQCHANGE_BUT':0,'SRFUR__TASK_PROCEED_BUT':0,'SRFUR__TASK_START_BUT':0,'SRFUR__TASK_FORWARD_BUT':0,'SRFUR__TASK_FAVOR_BUT':0,'SRFUR__TASK_SUBTASKS_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('doing__1__10',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_START_BUT':0,'SRFUR__TASK_PROCEED_BUT':0,'SRFUR__TASK_SUBTASKS_BUT':0,'SRFUR__TASK_XQCHANGE_BUT':0,'SRFUR__TASK_NFAVOR_BUT':0,'SRFUR__TASK_CLOSE_BUT':0,'SRFUR__TASK_ACTIVATION_BUT':0,'SRFUR__TASK_ASSIGN_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('doing__1__20',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_PAUSE_BUT':0,'SRFUR__TASK_PROCEED_BUT':0,'SRFUR__TASK_NFAVOR_BUT':0,'SRFUR__TASK_ASSIGN_BUT':0,'SRFUR__TASK_COMPLETE_BUT':0,'SRFUR__TASK_ACTIVATION_BUT':0,'SRFUR__TASK_CLOSE_BUT':0,'SRFUR__TASK_CONSUM_BUT':0,'SRFUR__TASK_FORWARD_BUT':0,'SRFUR__TASK_XQCHANGE_BUT':0,'SRFUR__TASK_DELETE_BUT':0,'SRFUR__TASK_START_BUT':0,'SRFUR__STORY_FJTASK_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('doing__1__30',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_PROCEED_BUT':0,'SRFUR__TASK_START_BUT':0,'SRFUR__TASK_XQCHANGE_BUT':0,'SRFUR__TASK_NFAVOR_BUT':0,'SRFUR__TASK_ACTIVATION_BUT':0,'SRFUR__TASK_FORWARD_BUT':0,'SRFUR__TASK_CLOSE_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('doing__1__30',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_START_BUT':0,'SRFUR__TASK_CLOSE_BUT':0,'SRFUR__TASK_XQCHANGE_BUT':0,'SRFUR__TASK_PROCEED_BUT':0,'SRFUR__TASK_ACTIVATION_BUT':0,'SRFUR__TASK_FORWARD_BUT':0,'SRFUR__TASK_NFAVOR_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('doing__1__40',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_PROCEED_BUT':0,'SRFUR__TASK_CLOSE_BUT':0,'SRFUR__TASK_FORWARD_BUT':0,'SRFUR__TASK_ACTIVATION_BUT':0,'SRFUR__TASK_XQCHANGE_BUT':0,'SRFUR__TASK_NFAVOR_BUT':0,'SRFUR__TASK_START_BUT':0,'SRFUR__TASK_SUBTASKS_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('done__0__10',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_CANCEL_BUT':0,'SRFUR__TASK_START_BUT':0,'SRFUR__TASK_ASSIGN_BUT':0,'SRFUR__TASK_FAVOR_BUT':0,'SRFUR__TASK_PROCEED_BUT':0,'SRFUR__TASK_COMPLETE_BUT':0,'SRFUR__TASK_SUBTASKS_BUT':0,'SRFUR__TASK_PAUSE_BUT':0,'SRFUR__TASK_XQCHANGE_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('done__0__20',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_XQCHANGE_BUT':0,'SRFUR__TASK_CONSUM_BUT':0,'SRFUR__TASK_PAUSE_BUT':0,'SRFUR__TASK_DELETE_BUT':0,'SRFUR__TASK_COMPLETE_BUT':0,'SRFUR__TASK_FORWARD_BUT':0,'SRFUR__TASK_FAVOR_BUT':0,'SRFUR__TASK_PROCEED_BUT':0,'SRFUR__TASK_ASSIGN_BUT':0,'SRFUR__TASK_CANCEL_BUT':0,'SRFUR__TASK_CLOSE_BUT':0,'SRFUR__STORY_FJTASK_BUT':0,'SRFUR__TASK_START_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('done__0__30',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_FORWARD_BUT':0,'SRFUR__TASK_XQCHANGE_BUT':0,'SRFUR__TASK_CANCEL_BUT':0,'SRFUR__TASK_PROCEED_BUT':0,'SRFUR__TASK_FAVOR_BUT':0,'SRFUR__TASK_PAUSE_BUT':0,'SRFUR__TASK_COMPLETE_BUT':0,'SRFUR__TASK_START_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('done__0__30',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_FAVOR_BUT':0,'SRFUR__TASK_FORWARD_BUT':0,'SRFUR__TASK_XQCHANGE_BUT':0,'SRFUR__TASK_CANCEL_BUT':0,'SRFUR__TASK_START_BUT':0,'SRFUR__TASK_PAUSE_BUT':0,'SRFUR__TASK_COMPLETE_BUT':0,'SRFUR__TASK_PROCEED_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('done__0__40',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_XQCHANGE_BUT':0,'SRFUR__TASK_START_BUT':0,'SRFUR__TASK_CANCEL_BUT':0,'SRFUR__TASK_FAVOR_BUT':0,'SRFUR__TASK_COMPLETE_BUT':0,'SRFUR__TASK_FORWARD_BUT':0,'SRFUR__TASK_SUBTASKS_BUT':0,'SRFUR__TASK_PROCEED_BUT':0,'SRFUR__TASK_PAUSE_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('done__1__10',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_START_BUT':0,'SRFUR__TASK_ASSIGN_BUT':0,'SRFUR__TASK_COMPLETE_BUT':0,'SRFUR__TASK_CANCEL_BUT':0,'SRFUR__TASK_PROCEED_BUT':0,'SRFUR__TASK_SUBTASKS_BUT':0,'SRFUR__TASK_NFAVOR_BUT':0,'SRFUR__TASK_PAUSE_BUT':0,'SRFUR__TASK_XQCHANGE_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('done__1__20',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_PROCEED_BUT':0,'SRFUR__TASK_CLOSE_BUT':0,'SRFUR__TASK_CANCEL_BUT':0,'SRFUR__TASK_DELETE_BUT':0,'SRFUR__TASK_CONSUM_BUT':0,'SRFUR__TASK_COMPLETE_BUT':0,'SRFUR__TASK_NFAVOR_BUT':0,'SRFUR__TASK_PAUSE_BUT':0,'SRFUR__TASK_FORWARD_BUT':0,'SRFUR__TASK_XQCHANGE_BUT':0,'SRFUR__TASK_ASSIGN_BUT':0,'SRFUR__STORY_FJTASK_BUT':0,'SRFUR__TASK_START_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('done__1__30',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_COMPLETE_BUT':0,'SRFUR__TASK_NFAVOR_BUT':0,'SRFUR__TASK_START_BUT':0,'SRFUR__TASK_XQCHANGE_BUT':0,'SRFUR__TASK_CANCEL_BUT':0,'SRFUR__TASK_PROCEED_BUT':0,'SRFUR__TASK_FORWARD_BUT':0,'SRFUR__TASK_PAUSE_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('done__1__30',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_NFAVOR_BUT':0,'SRFUR__TASK_COMPLETE_BUT':0,'SRFUR__TASK_PROCEED_BUT':0,'SRFUR__TASK_CANCEL_BUT':0,'SRFUR__TASK_XQCHANGE_BUT':0,'SRFUR__TASK_START_BUT':0,'SRFUR__TASK_FORWARD_BUT':0,'SRFUR__TASK_PAUSE_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('done__1__40',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_FORWARD_BUT':0,'SRFUR__TASK_XQCHANGE_BUT':0,'SRFUR__TASK_SUBTASKS_BUT':0,'SRFUR__TASK_NFAVOR_BUT':0,'SRFUR__TASK_COMPLETE_BUT':0,'SRFUR__TASK_CANCEL_BUT':0,'SRFUR__TASK_PROCEED_BUT':0,'SRFUR__TASK_START_BUT':0,'SRFUR__TASK_PAUSE_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('pause__0__10',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_ACTIVATION_BUT':0,'SRFUR__TASK_START_BUT':0,'SRFUR__TASK_XQCHANGE_BUT':0,'SRFUR__TASK_ASSIGN_BUT':0,'SRFUR__TASK_SUBTASKS_BUT':0,'SRFUR__TASK_FAVOR_BUT':0,'SRFUR__TASK_PAUSE_BUT':0,'SRFUR__TASK_CLOSE_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('pause__0__20',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_FORWARD_BUT':0,'SRFUR__TASK_CANCEL_BUT':0,'SRFUR__TASK_FAVOR_BUT':0,'SRFUR__TASK_START_BUT':0,'SRFUR__TASK_DELETE_BUT':0,'SRFUR__TASK_CONSUM_BUT':0,'SRFUR__TASK_COMPLETE_BUT':0,'SRFUR__TASK_ASSIGN_BUT':0,'SRFUR__TASK_XQCHANGE_BUT':0,'SRFUR__TASK_PAUSE_BUT':0,'SRFUR__TASK_ACTIVATION_BUT':0,'SRFUR__TASK_CLOSE_BUT':0,'SRFUR__STORY_FJTASK_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('pause__0__30',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_XQCHANGE_BUT':0,'SRFUR__TASK_FORWARD_BUT':0,'SRFUR__TASK_START_BUT':0,'SRFUR__TASK_PAUSE_BUT':0,'SRFUR__TASK_FAVOR_BUT':0,'SRFUR__TASK_ACTIVATION_BUT':0,'SRFUR__TASK_CLOSE_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('pause__0__30',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_PAUSE_BUT':0,'SRFUR__TASK_CLOSE_BUT':0,'SRFUR__TASK_FORWARD_BUT':0,'SRFUR__TASK_START_BUT':0,'SRFUR__TASK_FAVOR_BUT':0,'SRFUR__TASK_XQCHANGE_BUT':0,'SRFUR__TASK_ACTIVATION_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('pause__0__40',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_FAVOR_BUT':0,'SRFUR__TASK_CLOSE_BUT':0,'SRFUR__TASK_SUBTASKS_BUT':0,'SRFUR__TASK_START_BUT':0,'SRFUR__TASK_FORWARD_BUT':0,'SRFUR__TASK_PAUSE_BUT':0,'SRFUR__TASK_XQCHANGE_BUT':0,'SRFUR__TASK_ACTIVATION_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('pause__1__10',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_XQCHANGE_BUT':0,'SRFUR__TASK_CLOSE_BUT':0,'SRFUR__TASK_ASSIGN_BUT':0,'SRFUR__TASK_NFAVOR_BUT':0,'SRFUR__TASK_PAUSE_BUT':0,'SRFUR__TASK_ACTIVATION_BUT':0,'SRFUR__TASK_SUBTASKS_BUT':0,'SRFUR__TASK_START_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('pause__1__20',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_START_BUT':0,'SRFUR__TASK_CANCEL_BUT':0,'SRFUR__STORY_FJTASK_BUT':0,'SRFUR__TASK_ASSIGN_BUT':0,'SRFUR__TASK_CLOSE_BUT':0,'SRFUR__TASK_ACTIVATION_BUT':0,'SRFUR__TASK_CONSUM_BUT':0,'SRFUR__TASK_NFAVOR_BUT':0,'SRFUR__TASK_FORWARD_BUT':0,'SRFUR__TASK_DELETE_BUT':0,'SRFUR__TASK_PAUSE_BUT':0,'SRFUR__TASK_XQCHANGE_BUT':0,'SRFUR__TASK_COMPLETE_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('pause__1__30',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_CLOSE_BUT':0,'SRFUR__TASK_NFAVOR_BUT':0,'SRFUR__TASK_START_BUT':0,'SRFUR__TASK_XQCHANGE_BUT':0,'SRFUR__TASK_FORWARD_BUT':0,'SRFUR__TASK_PAUSE_BUT':0,'SRFUR__TASK_ACTIVATION_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('pause__1__30',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_NFAVOR_BUT':0,'SRFUR__TASK_PAUSE_BUT':0,'SRFUR__TASK_START_BUT':0,'SRFUR__TASK_FORWARD_BUT':0,'SRFUR__TASK_CLOSE_BUT':0,'SRFUR__TASK_XQCHANGE_BUT':0,'SRFUR__TASK_ACTIVATION_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('pause__1__40',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_CLOSE_BUT':0,'SRFUR__TASK_XQCHANGE_BUT':0,'SRFUR__TASK_PAUSE_BUT':0,'SRFUR__TASK_START_BUT':0,'SRFUR__TASK_NFAVOR_BUT':0,'SRFUR__TASK_SUBTASKS_BUT':0,'SRFUR__TASK_FORWARD_BUT':0,'SRFUR__TASK_ACTIVATION_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('storychange__0__10',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_PROCEED_BUT':0,'SRFUR__TASK_CANCEL_BUT':0,'SRFUR__TASK_SUBTASKS_BUT':0,'SRFUR__TASK_FORWARD_BUT':0,'SRFUR__TASK_COMPLETE_BUT':0,'SRFUR__TASK_PAUSE_BUT':0,'SRFUR__TASK_ACTIVATION_BUT':0,'SRFUR__TASK_FAVOR_BUT':0,'SRFUR__TASK_ASSIGN_BUT':0,'SRFUR__TASK_CLOSE_BUT':0,'SRFUR__STORY_FJTASK_BUT':0,'SRFUR__TASK_START_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('storychange__0__20',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_ASSIGN_BUT':0,'SRFUR__TASK_DELETE_BUT':0,'SRFUR__TASK_PROCEED_BUT':0,'SRFUR__TASK_CONSUM_BUT':0,'SRFUR__TASK_PAUSE_BUT':0,'SRFUR__STORY_FJTASK_BUT':0,'SRFUR__TASK_SUBTASKS_BUT':0,'SRFUR__TASK_COMPLETE_BUT':0,'SRFUR__TASK_FORWARD_BUT':0,'SRFUR__TASK_START_BUT':0,'SRFUR__TASK_CANCEL_BUT':0,'SRFUR__TASK_FAVOR_BUT':0,'SRFUR__TASK_ACTIVATION_BUT':0,'SRFUR__TASK_CLOSE_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('storychange__0__30',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_START_BUT':0,'SRFUR__TASK_PROCEED_BUT':0,'SRFUR__TASK_COMPLETE_BUT':0,'SRFUR__TASK_ACTIVATION_BUT':0,'SRFUR__TASK_FAVOR_BUT':0,'SRFUR__TASK_CANCEL_BUT':0,'SRFUR__TASK_SUBTASKS_BUT':0,'SRFUR__TASK_PAUSE_BUT':0,'SRFUR__STORY_FJTASK_BUT':0,'SRFUR__TASK_CLOSE_BUT':0,'SRFUR__TASK_ASSIGN_BUT':0,'SRFUR__TASK_FORWARD_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('storychange__0__30',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_SUBTASKS_BUT':0,'SRFUR__TASK_ACTIVATION_BUT':0,'SRFUR__TASK_COMPLETE_BUT':0,'SRFUR__TASK_CANCEL_BUT':0,'SRFUR__TASK_START_BUT':0,'SRFUR__TASK_PAUSE_BUT':0,'SRFUR__TASK_FAVOR_BUT':0,'SRFUR__TASK_FORWARD_BUT':0,'SRFUR__TASK_PROCEED_BUT':0,'SRFUR__STORY_FJTASK_BUT':0,'SRFUR__TASK_CLOSE_BUT':0,'SRFUR__TASK_ASSIGN_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('storychange__0__40',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_ASSIGN_BUT':0,'SRFUR__TASK_SUBTASKS_BUT':0,'SRFUR__TASK_START_BUT':0,'SRFUR__TASK_PAUSE_BUT':0,'SRFUR__TASK_PROCEED_BUT':0,'SRFUR__TASK_CANCEL_BUT':0,'SRFUR__TASK_FORWARD_BUT':0,'SRFUR__TASK_FAVOR_BUT':0,'SRFUR__STORY_FJTASK_BUT':0,'SRFUR__TASK_CLOSE_BUT':0,'SRFUR__TASK_ACTIVATION_BUT':0,'SRFUR__TASK_COMPLETE_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('storychange__1__10',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_CANCEL_BUT':0,'SRFUR__TASK_PAUSE_BUT':0,'SRFUR__TASK_ASSIGN_BUT':0,'SRFUR__TASK_SUBTASKS_BUT':0,'SRFUR__TASK_CLOSE_BUT':0,'SRFUR__TASK_ACTIVATION_BUT':0,'SRFUR__TASK_FORWARD_BUT':0,'SRFUR__TASK_START_BUT':0,'SRFUR__TASK_NFAVOR_BUT':0,'SRFUR__STORY_FJTASK_BUT':0,'SRFUR__TASK_PROCEED_BUT':0,'SRFUR__TASK_COMPLETE_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('storychange__1__20',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_CONSUM_BUT':0,'SRFUR__TASK_ASSIGN_BUT':0,'SRFUR__TASK_START_BUT':0,'SRFUR__TASK_CANCEL_BUT':0,'SRFUR__TASK_DELETE_BUT':0,'SRFUR__TASK_ACTIVATION_BUT':0,'SRFUR__TASK_PROCEED_BUT':0,'SRFUR__TASK_PAUSE_BUT':0,'SRFUR__STORY_FJTASK_BUT':0,'SRFUR__TASK_NFAVOR_BUT':0,'SRFUR__TASK_CLOSE_BUT':0,'SRFUR__TASK_FORWARD_BUT':0,'SRFUR__TASK_COMPLETE_BUT':0,'SRFUR__TASK_SUBTASKS_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('storychange__1__30',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_CLOSE_BUT':0,'SRFUR__TASK_PAUSE_BUT':0,'SRFUR__TASK_START_BUT':0,'SRFUR__TASK_CANCEL_BUT':0,'SRFUR__STORY_FJTASK_BUT':0,'SRFUR__TASK_PROCEED_BUT':0,'SRFUR__TASK_ACTIVATION_BUT':0,'SRFUR__TASK_ASSIGN_BUT':0,'SRFUR__TASK_COMPLETE_BUT':0,'SRFUR__TASK_SUBTASKS_BUT':0,'SRFUR__TASK_FORWARD_BUT':0,'SRFUR__TASK_NFAVOR_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('storychange__1__30',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__STORY_FJTASK_BUT':0,'SRFUR__TASK_COMPLETE_BUT':0,'SRFUR__TASK_ASSIGN_BUT':0,'SRFUR__TASK_ACTIVATION_BUT':0,'SRFUR__TASK_SUBTASKS_BUT':0,'SRFUR__TASK_NFAVOR_BUT':0,'SRFUR__TASK_PROCEED_BUT':0,'SRFUR__TASK_PAUSE_BUT':0,'SRFUR__TASK_START_BUT':0,'SRFUR__TASK_FORWARD_BUT':0,'SRFUR__TASK_CANCEL_BUT':0,'SRFUR__TASK_CLOSE_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('storychange__1__40',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_ASSIGN_BUT':0,'SRFUR__TASK_CANCEL_BUT':0,'SRFUR__TASK_NFAVOR_BUT':0,'SRFUR__STORY_FJTASK_BUT':0,'SRFUR__TASK_PROCEED_BUT':0,'SRFUR__TASK_CLOSE_BUT':0,'SRFUR__TASK_COMPLETE_BUT':0,'SRFUR__TASK_PAUSE_BUT':0,'SRFUR__TASK_START_BUT':0,'SRFUR__TASK_ACTIVATION_BUT':0,'SRFUR__TASK_SUBTASKS_BUT':0,'SRFUR__TASK_FORWARD_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('wait__0__10',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_SUBTASKS_BUT':0,'SRFUR__TASK_ACTIVATION_BUT':0,'SRFUR__TASK_XQCHANGE_BUT':0,'SRFUR__TASK_CLOSE_BUT':0,'SRFUR__TASK_FAVOR_BUT':0,'SRFUR__TASK_ASSIGN_BUT':0,'SRFUR__TASK_PROCEED_BUT':0,'SRFUR__TASK_PAUSE_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('wait__0__20',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_FORWARD_BUT':0,'SRFUR__TASK_PAUSE_BUT':0,'SRFUR__TASK_ACTIVATION_BUT':0,'SRFUR__TASK_FAVOR_BUT':0,'SRFUR__TASK_PROCEED_BUT':0,'SRFUR__TASK_XQCHANGE_BUT':0,'SRFUR__TASK_DELETE_BUT':0,'SRFUR__TASK_START_BUT':0,'SRFUR__TASK_ASSIGN_BUT':0,'SRFUR__TASK_COMPLETE_BUT':0,'SRFUR__TASK_CLOSE_BUT':0,'SRFUR__STORY_FJTASK_BUT':0,'SRFUR__TASK_CONSUM_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('wait__0__30',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_XQCHANGE_BUT':0,'SRFUR__TASK_PROCEED_BUT':0,'SRFUR__TASK_FAVOR_BUT':0,'SRFUR__TASK_FORWARD_BUT':0,'SRFUR__TASK_PAUSE_BUT':0,'SRFUR__TASK_ACTIVATION_BUT':0,'SRFUR__TASK_CLOSE_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('wait__0__30',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_CLOSE_BUT':0,'SRFUR__TASK_PROCEED_BUT':0,'SRFUR__TASK_FAVOR_BUT':0,'SRFUR__TASK_FORWARD_BUT':0,'SRFUR__TASK_XQCHANGE_BUT':0,'SRFUR__TASK_ACTIVATION_BUT':0,'SRFUR__TASK_PAUSE_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('wait__0__40',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_ACTIVATION_BUT':0,'SRFUR__TASK_SUBTASKS_BUT':0,'SRFUR__TASK_FORWARD_BUT':0,'SRFUR__TASK_CLOSE_BUT':0,'SRFUR__TASK_FAVOR_BUT':0,'SRFUR__TASK_PROCEED_BUT':0,'SRFUR__TASK_PAUSE_BUT':0,'SRFUR__TASK_XQCHANGE_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('wait__1__10',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_SUBTASKS_BUT':0,'SRFUR__TASK_ASSIGN_BUT':0,'SRFUR__TASK_PAUSE_BUT':0,'SRFUR__TASK_NFAVOR_BUT':0,'SRFUR__TASK_XQCHANGE_BUT':0,'SRFUR__TASK_ACTIVATION_BUT':0,'SRFUR__TASK_CLOSE_BUT':0,'SRFUR__TASK_PROCEED_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('wait__1__20',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_DELETE_BUT':0,'SRFUR__TASK_FORWARD_BUT':0,'SRFUR__TASK_ASSIGN_BUT':0,'SRFUR__TASK_CONSUM_BUT':0,'SRFUR__TASK_PROCEED_BUT':0,'SRFUR__TASK_CLOSE_BUT':0,'SRFUR__TASK_PAUSE_BUT':0,'SRFUR__TASK_COMPLETE_BUT':0,'SRFUR__TASK_XQCHANGE_BUT':0,'SRFUR__TASK_NFAVOR_BUT':0,'SRFUR__STORY_FJTASK_BUT':0,'SRFUR__TASK_START_BUT':0,'SRFUR__TASK_ACTIVATION_BUT':0,}));
-        this.allDeMainStateOPPrivsMap.set('wait__1__30',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_ACTIVATION_BUT':0,'SRFUR__TASK_XQCHANGE_BUT':0,'SRFUR__TASK_PAUSE_BUT':0,'SRFUR__TASK_FORWARD_BUT':0,'SRFUR__TASK_NFAVOR_BUT':0,'SRFUR__TASK_CLOSE_BUT':0,'SRFUR__TASK_PROCEED_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('wait__1__30',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_FORWARD_BUT':0,'SRFUR__TASK_CLOSE_BUT':0,'SRFUR__TASK_XQCHANGE_BUT':0,'SRFUR__TASK_ACTIVATION_BUT':0,'SRFUR__TASK_PAUSE_BUT':0,'SRFUR__TASK_NFAVOR_BUT':0,'SRFUR__TASK_PROCEED_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('wait__1__40',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__TASK_ACTIVATION_BUT':0,'SRFUR__TASK_SUBTASKS_BUT':0,'SRFUR__TASK_XQCHANGE_BUT':0,'SRFUR__TASK_PAUSE_BUT':0,'SRFUR__TASK_PROCEED_BUT':0,'SRFUR__TASK_NFAVOR_BUT':0,'SRFUR__TASK_FORWARD_BUT':0,'SRFUR__TASK_CLOSE_BUT':0,}));
     }
 
     /**
-     * 确认
+     * 新建
      *
      * @param {any[]} args 数据
      * @param {*} [contextJO={}] 行为上下文
@@ -267,12 +267,10 @@ export default class TaskUIActionBase extends EntityUIActionBase {
      * @returns {Promise<any>}
      * @memberof TaskUIService
      */
-    public async Task_confirmStoryChangeCz(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        let _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(contextJO, { task: '%task%' });
-        Object.assign(paramJO, { id: '%task%' });
-        Object.assign(paramJO, { name: '%name%' });
+    public async Task_CreateMob(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'NONE';
+            
         let context: any = this.handleContextParam(actionTarget, _args, contextJO);
         let params: any = this.handleActionParam(actionTarget, _args, paramJO);
         context = { ...container.context, ...context };
@@ -282,37 +280,66 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         };
         Object.assign(context, parentObj);
         Object.assign(params, parentObj);
-        // 直接调实体服务需要转换的数据
-        if (context && context.srfsessionid) {
-            context.srfsessionkey = context.srfsessionid;
-            delete context.srfsessionid;
-        }
-        // 导航参数
         let panelNavParam= { } ;
         let panelNavContext= { } ;
-        if(Util.typeOf(_args) == 'array' && _args.length > 0){
-            _args = _args[0];
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
+        let response: any = null;
+        let deResParameters: any[] = [];
+        if ((context as any).project && (context as any).projectmodule && true) {
+            deResParameters = [
+            { pathName: 'projects', parameterName: 'project' },
+            { pathName: 'projectmodules', parameterName: 'projectmodule' },
+            ]
         }
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
-        const backend = async () => {
-            const curUIService: any = await this.globaluiservice.getAppEntityService('task');
-            const response: any = await curUIService.ConfirmStoryChange(_context, _params);
-            if (response && response.status === 200) {
-                this.notice.success('确认成功！');
-                if (xData && xData.refresh && xData.refresh instanceof Function) {
-                    xData.refresh(args);
-                    AppCenterService.notifyMessage({name:"Task",action:'appRefresh',data:args});
-                }
-            } else {
-                this.notice.error('系统异常！');
+        if ((context as any).product && (context as any).story && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        if ((context as any).product && (context as any).productplan && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'productplans', parameterName: 'productplan' },
+            ]
+        }
+        if ((context as any).project && true) {
+            deResParameters = [
+            { pathName: 'projects', parameterName: 'project' },
+            ]
+        }
+        if ((context as any).story && true) {
+            deResParameters = [
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        if ((context as any).productplan && true) {
+            deResParameters = [
+            { pathName: 'productplans', parameterName: 'productplan' },
+            ]
+        }
+        if ((context as any).projectmodule && true) {
+            deResParameters = [
+            { pathName: 'projectmodules', parameterName: 'projectmodule' },
+            ]
+        }
+
+        const parameters: any[] = [
+            { pathName: 'tasks', parameterName: 'task' },
+            { pathName: 'newmobeditview', parameterName: 'newmobeditview' },
+        ];
+        const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
+        response = await this.openService.openView(routeParam);
+        if (response) {
+            if (xData && xData.refresh && xData.refresh instanceof Function) {
+                xData.refresh(args);
             }
-            return response;
-        };
-        return backend();
+        }
+        return response;
     }
 
     /**
-     * 工时
+     * 暂停
      *
      * @param {any[]} args 数据
      * @param {*} [contextJO={}] 行为上下文
@@ -324,7 +351,7 @@ export default class TaskUIActionBase extends EntityUIActionBase {
      * @returns {Promise<any>}
      * @memberof TaskUIService
      */
-    public async Task_WorkHoursMob(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+    public async Task_PauseTaskMob(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(contextJO, { task: '%task%' });
@@ -345,10 +372,22 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
         let response: any = null;
         let deResParameters: any[] = [];
+        if ((context as any).project && (context as any).projectmodule && true) {
+            deResParameters = [
+            { pathName: 'projects', parameterName: 'project' },
+            { pathName: 'projectmodules', parameterName: 'projectmodule' },
+            ]
+        }
         if ((context as any).product && (context as any).story && true) {
             deResParameters = [
             { pathName: 'products', parameterName: 'product' },
             { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        if ((context as any).product && (context as any).productplan && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'productplans', parameterName: 'productplan' },
             ]
         }
         if ((context as any).project && true) {
@@ -361,249 +400,20 @@ export default class TaskUIActionBase extends EntityUIActionBase {
             { pathName: 'stories', parameterName: 'story' },
             ]
         }
-
-        const parameters: any[] = [
-            { pathName: 'tasks', parameterName: 'task' },
-            { pathName: 'gsmoboptionview', parameterName: 'gsmoboptionview' },
-        ];
-        const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
-        response = await this.openService.openView(routeParam);
-        return response;
-    }
-
-    /**
-     * 工时
-     *
-     * @param {any[]} args 数据
-     * @param {*} [contextJO={}] 行为上下文
-     * @param {*} [paramJO={}] 行为参数
-     * @param {*} [$event] 事件
-     * @param {*} [xData] 数据目标
-     * @param {*} [container] 行为容器对象
-     * @param {string} [srfParentDeName] 
-     * @returns {Promise<any>}
-     * @memberof TaskUIService
-     */
-    public async Task_ConsumedMobTaskTeam(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        let _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(contextJO, { task: '%task%' });
-        Object.assign(paramJO, { id: '%task%' });
-        Object.assign(paramJO, { name: '%name%' });
-        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
-        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
-        context = { ...container.context, ...context };
-        let parentObj: any = {
-            srfparentdename: srfParentDeName ? srfParentDeName : null,
-            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
-        };
-        Object.assign(context, parentObj);
-        Object.assign(params, parentObj);
-        // 直接调实体服务需要转换的数据
-        if (context && context.srfsessionid) {
-            context.srfsessionkey = context.srfsessionid;
-            delete context.srfsessionid;
-        }
-        // 导航参数
-        let panelNavParam= { "actioninfo": "当前任务只有%1$s才可以记录工时。" } ;
-        let panelNavContext= { } ;
-        if(Util.typeOf(_args) == 'array' && _args.length > 0){
-            _args = _args[0];
-        }
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
-        const backend = async () => {
-            const curUIService: any = await this.globaluiservice.getAppEntityService('task');
-            const response: any = await curUIService.TaskForward(_context, _params);
-            if (response && response.status === 200) {
-                const { data: result } = response;
-                let _args: any[] = [];
-                if (Object.is(container.$util.typeOf(result), 'array')) {
-                    _args = [...result];
-                } else if (Object.is(container.$util.typeOf(result), 'object')) {
-                    _args = [{...result}];
-                } else {
-                    _args = [...args];
-                }
-                const nextPSUIActionUIService: any = await this.globaluiservice.getService('task_ui_action');
-                if (nextPSUIActionUIService) {
-                    nextPSUIActionUIService.Task_WorkHoursMob(response.data, contextJO, paramJO, $event, xData, container);
-                }
-            } else {
-                this.notice.error('系统异常！');
-            }
-            return response;
-        };
-        return backend();
-    }
-
-    /**
-     * 取消收藏
-     *
-     * @param {any[]} args 数据
-     * @param {*} [contextJO={}] 行为上下文
-     * @param {*} [paramJO={}] 行为参数
-     * @param {*} [$event] 事件
-     * @param {*} [xData] 数据目标
-     * @param {*} [container] 行为容器对象
-     * @param {string} [srfParentDeName] 
-     * @returns {Promise<any>}
-     * @memberof TaskUIService
-     */
-    public async Task_TaskNFavoritesMob(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        let _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(contextJO, { task: '%task%' });
-        Object.assign(paramJO, { id: '%task%' });
-        Object.assign(paramJO, { name: '%name%' });
-        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
-        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
-        context = { ...container.context, ...context };
-        let parentObj: any = {
-            srfparentdename: srfParentDeName ? srfParentDeName : null,
-            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
-        };
-        Object.assign(context, parentObj);
-        Object.assign(params, parentObj);
-        // 直接调实体服务需要转换的数据
-        if (context && context.srfsessionid) {
-            context.srfsessionkey = context.srfsessionid;
-            delete context.srfsessionid;
-        }
-        // 导航参数
-        let panelNavParam= { } ;
-        let panelNavContext= { } ;
-        if(Util.typeOf(_args) == 'array' && _args.length > 0){
-            _args = _args[0];
-        }
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
-        const backend = async () => {
-            const curUIService: any = await this.globaluiservice.getAppEntityService('task');
-            const response: any = await curUIService.TaskNFavorites(_context, _params);
-            if (response && response.status === 200) {
-                this.notice.success('取消收藏成功！');
-                if (xData && xData.refresh && xData.refresh instanceof Function) {
-                    xData.refresh(args);
-                    AppCenterService.notifyMessage({name:"Task",action:'appRefresh',data:args});
-                }
-            } else {
-                this.notice.error('系统异常！');
-            }
-            return response;
-        };
-        return backend();
-    }
-
-    /**
-     * 更多
-     *
-     * @param {any[]} args 数据
-     * @param {*} [contextJO={}] 行为上下文
-     * @param {*} [paramJO={}] 行为参数
-     * @param {*} [$event] 事件
-     * @param {*} [xData] 数据目标
-     * @param {*} [container] 行为容器对象
-     * @param {string} [srfParentDeName] 
-     * @returns {Promise<any>}
-     * @memberof TaskUIService
-     */
-    public async Task_MyFavMore(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'NONE';
-            
-        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
-        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
-        context = { ...container.context, ...context };
-        let parentObj: any = {
-            srfparentdename: srfParentDeName ? srfParentDeName : null,
-            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
-        };
-        Object.assign(context, parentObj);
-        Object.assign(params, parentObj);
-        let panelNavParam= { } ;
-        let panelNavContext= { } ;
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
-        let response: any = null;
-        let deResParameters: any[] = [];
-        if ((context as any).product && (context as any).story && true) {
+        if ((context as any).productplan && true) {
             deResParameters = [
-            { pathName: 'products', parameterName: 'product' },
-            { pathName: 'stories', parameterName: 'story' },
+            { pathName: 'productplans', parameterName: 'productplan' },
             ]
         }
-        if ((context as any).project && true) {
+        if ((context as any).projectmodule && true) {
             deResParameters = [
-            { pathName: 'projects', parameterName: 'project' },
-            ]
-        }
-        if ((context as any).story && true) {
-            deResParameters = [
-            { pathName: 'stories', parameterName: 'story' },
+            { pathName: 'projectmodules', parameterName: 'projectmodule' },
             ]
         }
 
         const parameters: any[] = [
             { pathName: 'tasks', parameterName: 'task' },
-            { pathName: 'favoritemoremobmdview', parameterName: 'favoritemoremobmdview' },
-        ];
-        const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
-        response = await this.openService.openView(routeParam);
-        return response;
-    }
-
-    /**
-     * 开始
-     *
-     * @param {any[]} args 数据
-     * @param {*} [contextJO={}] 行为上下文
-     * @param {*} [paramJO={}] 行为参数
-     * @param {*} [$event] 事件
-     * @param {*} [xData] 数据目标
-     * @param {*} [container] 行为容器对象
-     * @param {string} [srfParentDeName] 
-     * @returns {Promise<any>}
-     * @memberof TaskUIService
-     */
-    public async Task_Restart(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(contextJO, { task: '%task%' });
-        Object.assign(paramJO, { id: '%task%' });
-        Object.assign(paramJO, { name: '%name%' });
-            
-        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
-        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
-        context = { ...container.context, ...context };
-        let parentObj: any = {
-            srfparentdename: srfParentDeName ? srfParentDeName : null,
-            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
-        };
-        Object.assign(context, parentObj);
-        Object.assign(params, parentObj);
-        let panelNavParam= { } ;
-        let panelNavContext= { } ;
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
-        let response: any = null;
-        let deResParameters: any[] = [];
-        if ((context as any).product && (context as any).story && true) {
-            deResParameters = [
-            { pathName: 'products', parameterName: 'product' },
-            { pathName: 'stories', parameterName: 'story' },
-            ]
-        }
-        if ((context as any).project && true) {
-            deResParameters = [
-            { pathName: 'projects', parameterName: 'project' },
-            ]
-        }
-        if ((context as any).story && true) {
-            deResParameters = [
-            { pathName: 'stories', parameterName: 'story' },
-            ]
-        }
-
-        const parameters: any[] = [
-            { pathName: 'tasks', parameterName: 'task' },
-            { pathName: 'usr2moboptionview', parameterName: 'usr2moboptionview' },
+            { pathName: 'stopmoboptionview', parameterName: 'stopmoboptionview' },
         ];
         const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
         response = await this.openService.openView(routeParam);
@@ -681,7 +491,7 @@ export default class TaskUIActionBase extends EntityUIActionBase {
     }
 
     /**
-     * 完成
+     * 收藏
      *
      * @param {any[]} args 数据
      * @param {*} [contextJO={}] 行为上下文
@@ -693,7 +503,64 @@ export default class TaskUIActionBase extends EntityUIActionBase {
      * @returns {Promise<any>}
      * @memberof TaskUIService
      */
-    public async Task_DoneTaskMob(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+    public async Task_TaskFavoritesMob(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+        let _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(contextJO, { task: '%task%' });
+        Object.assign(paramJO, { id: '%task%' });
+        Object.assign(paramJO, { name: '%name%' });
+        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
+        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
+        context = { ...container.context, ...context };
+        let parentObj: any = {
+            srfparentdename: srfParentDeName ? srfParentDeName : null,
+            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
+        };
+        Object.assign(context, parentObj);
+        Object.assign(params, parentObj);
+        // 直接调实体服务需要转换的数据
+        if (context && context.srfsessionid) {
+            context.srfsessionkey = context.srfsessionid;
+            delete context.srfsessionid;
+        }
+        // 导航参数
+        let panelNavParam= { } ;
+        let panelNavContext= { } ;
+        if(Util.typeOf(_args) == 'array' && _args.length > 0){
+            _args = _args[0];
+        }
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
+        const backend = async () => {
+            const curUIService: any = await this.globaluiservice.getAppEntityService('task');
+            const response: any = await curUIService.TaskFavorites(_context, _params);
+            if (response && response.status === 200) {
+                this.notice.success('收藏成功！');
+                if (xData && xData.refresh && xData.refresh instanceof Function) {
+                    xData.refresh(args);
+                    AppCenterService.notifyMessage({name:"Task",action:'appRefresh',data:args});
+                }
+            } else {
+                this.notice.error('系统异常！');
+            }
+            return response;
+        };
+        return backend();
+    }
+
+    /**
+     * 工时
+     *
+     * @param {any[]} args 数据
+     * @param {*} [contextJO={}] 行为上下文
+     * @param {*} [paramJO={}] 行为参数
+     * @param {*} [$event] 事件
+     * @param {*} [xData] 数据目标
+     * @param {*} [container] 行为容器对象
+     * @param {string} [srfParentDeName] 
+     * @returns {Promise<any>}
+     * @memberof TaskUIService
+     */
+    public async Task_WorkHoursMob(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
         const _args: any[] = Util.deepCopy(args);
         const actionTarget: string | null = 'SINGLEKEY';
         Object.assign(contextJO, { task: '%task%' });
@@ -714,10 +581,22 @@ export default class TaskUIActionBase extends EntityUIActionBase {
         const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
         let response: any = null;
         let deResParameters: any[] = [];
+        if ((context as any).project && (context as any).projectmodule && true) {
+            deResParameters = [
+            { pathName: 'projects', parameterName: 'project' },
+            { pathName: 'projectmodules', parameterName: 'projectmodule' },
+            ]
+        }
         if ((context as any).product && (context as any).story && true) {
             deResParameters = [
             { pathName: 'products', parameterName: 'product' },
             { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        if ((context as any).product && (context as any).productplan && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'productplans', parameterName: 'productplan' },
             ]
         }
         if ((context as any).project && true) {
@@ -730,10 +609,323 @@ export default class TaskUIActionBase extends EntityUIActionBase {
             { pathName: 'stories', parameterName: 'story' },
             ]
         }
+        if ((context as any).productplan && true) {
+            deResParameters = [
+            { pathName: 'productplans', parameterName: 'productplan' },
+            ]
+        }
+        if ((context as any).projectmodule && true) {
+            deResParameters = [
+            { pathName: 'projectmodules', parameterName: 'projectmodule' },
+            ]
+        }
 
         const parameters: any[] = [
             { pathName: 'tasks', parameterName: 'task' },
-            { pathName: 'commoboptionview', parameterName: 'commoboptionview' },
+            { pathName: 'gsmoboptionview', parameterName: 'gsmoboptionview' },
+        ];
+        const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
+        response = await this.openService.openView(routeParam);
+        return response;
+    }
+
+    /**
+     * 编辑
+     *
+     * @param {any[]} args 数据
+     * @param {*} [contextJO={}] 行为上下文
+     * @param {*} [paramJO={}] 行为参数
+     * @param {*} [$event] 事件
+     * @param {*} [xData] 数据目标
+     * @param {*} [container] 行为容器对象
+     * @param {string} [srfParentDeName] 
+     * @returns {Promise<any>}
+     * @memberof TaskUIService
+     */
+    public async Task_MobMainEdit(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(contextJO, { task: '%task%' });
+        Object.assign(paramJO, { id: '%task%' });
+        Object.assign(paramJO, { name: '%name%' });
+            
+        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
+        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
+        context = { ...container.context, ...context };
+        let parentObj: any = {
+            srfparentdename: srfParentDeName ? srfParentDeName : null,
+            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
+        };
+        Object.assign(context, parentObj);
+        Object.assign(params, parentObj);
+        let panelNavParam= { } ;
+        let panelNavContext= { } ;
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
+        let response: any = null;
+        let deResParameters: any[] = [];
+        if ((context as any).project && (context as any).projectmodule && true) {
+            deResParameters = [
+            { pathName: 'projects', parameterName: 'project' },
+            { pathName: 'projectmodules', parameterName: 'projectmodule' },
+            ]
+        }
+        if ((context as any).product && (context as any).story && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        if ((context as any).product && (context as any).productplan && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'productplans', parameterName: 'productplan' },
+            ]
+        }
+        if ((context as any).project && true) {
+            deResParameters = [
+            { pathName: 'projects', parameterName: 'project' },
+            ]
+        }
+        if ((context as any).story && true) {
+            deResParameters = [
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        if ((context as any).productplan && true) {
+            deResParameters = [
+            { pathName: 'productplans', parameterName: 'productplan' },
+            ]
+        }
+        if ((context as any).projectmodule && true) {
+            deResParameters = [
+            { pathName: 'projectmodules', parameterName: 'projectmodule' },
+            ]
+        }
+
+        const parameters: any[] = [
+            { pathName: 'tasks', parameterName: 'task' },
+            { pathName: 'editmobeditview', parameterName: 'editmobeditview' },
+        ];
+        const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
+        response = await this.openService.openView(routeParam);
+        return response;
+    }
+
+    /**
+     * 开始
+     *
+     * @param {any[]} args 数据
+     * @param {*} [contextJO={}] 行为上下文
+     * @param {*} [paramJO={}] 行为参数
+     * @param {*} [$event] 事件
+     * @param {*} [xData] 数据目标
+     * @param {*} [container] 行为容器对象
+     * @param {string} [srfParentDeName] 
+     * @returns {Promise<any>}
+     * @memberof TaskUIService
+     */
+    public async Task_StartTaskMob(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(contextJO, { task: '%task%' });
+        Object.assign(paramJO, { id: '%task%' });
+        Object.assign(paramJO, { name: '%name%' });
+            
+        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
+        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
+        context = { ...container.context, ...context };
+        let parentObj: any = {
+            srfparentdename: srfParentDeName ? srfParentDeName : null,
+            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
+        };
+        Object.assign(context, parentObj);
+        Object.assign(params, parentObj);
+        let panelNavParam= { } ;
+        let panelNavContext= { "task": "%id%" } ;
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
+        let response: any = null;
+        let deResParameters: any[] = [];
+        if ((context as any).project && (context as any).projectmodule && true) {
+            deResParameters = [
+            { pathName: 'projects', parameterName: 'project' },
+            { pathName: 'projectmodules', parameterName: 'projectmodule' },
+            ]
+        }
+        if ((context as any).product && (context as any).story && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        if ((context as any).product && (context as any).productplan && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'productplans', parameterName: 'productplan' },
+            ]
+        }
+        if ((context as any).project && true) {
+            deResParameters = [
+            { pathName: 'projects', parameterName: 'project' },
+            ]
+        }
+        if ((context as any).story && true) {
+            deResParameters = [
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        if ((context as any).productplan && true) {
+            deResParameters = [
+            { pathName: 'productplans', parameterName: 'productplan' },
+            ]
+        }
+        if ((context as any).projectmodule && true) {
+            deResParameters = [
+            { pathName: 'projectmodules', parameterName: 'projectmodule' },
+            ]
+        }
+
+        const parameters: any[] = [
+            { pathName: 'tasks', parameterName: 'task' },
+            { pathName: 'startmoboptionview', parameterName: 'startmoboptionview' },
+        ];
+        const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
+        response = await this.openService.openView(routeParam);
+        return response;
+    }
+
+    /**
+     * 取消收藏
+     *
+     * @param {any[]} args 数据
+     * @param {*} [contextJO={}] 行为上下文
+     * @param {*} [paramJO={}] 行为参数
+     * @param {*} [$event] 事件
+     * @param {*} [xData] 数据目标
+     * @param {*} [container] 行为容器对象
+     * @param {string} [srfParentDeName] 
+     * @returns {Promise<any>}
+     * @memberof TaskUIService
+     */
+    public async Task_TaskNFavoritesMob(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+        let _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(contextJO, { task: '%task%' });
+        Object.assign(paramJO, { id: '%task%' });
+        Object.assign(paramJO, { name: '%name%' });
+        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
+        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
+        context = { ...container.context, ...context };
+        let parentObj: any = {
+            srfparentdename: srfParentDeName ? srfParentDeName : null,
+            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
+        };
+        Object.assign(context, parentObj);
+        Object.assign(params, parentObj);
+        // 直接调实体服务需要转换的数据
+        if (context && context.srfsessionid) {
+            context.srfsessionkey = context.srfsessionid;
+            delete context.srfsessionid;
+        }
+        // 导航参数
+        let panelNavParam= { } ;
+        let panelNavContext= { } ;
+        if(Util.typeOf(_args) == 'array' && _args.length > 0){
+            _args = _args[0];
+        }
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
+        const backend = async () => {
+            const curUIService: any = await this.globaluiservice.getAppEntityService('task');
+            const response: any = await curUIService.TaskNFavorites(_context, _params);
+            if (response && response.status === 200) {
+                this.notice.success('取消收藏成功！');
+                if (xData && xData.refresh && xData.refresh instanceof Function) {
+                    xData.refresh(args);
+                    AppCenterService.notifyMessage({name:"Task",action:'appRefresh',data:args});
+                }
+            } else {
+                this.notice.error('系统异常！');
+            }
+            return response;
+        };
+        return backend();
+    }
+
+    /**
+     * 关闭
+     *
+     * @param {any[]} args 数据
+     * @param {*} [contextJO={}] 行为上下文
+     * @param {*} [paramJO={}] 行为参数
+     * @param {*} [$event] 事件
+     * @param {*} [xData] 数据目标
+     * @param {*} [container] 行为容器对象
+     * @param {string} [srfParentDeName] 
+     * @returns {Promise<any>}
+     * @memberof TaskUIService
+     */
+    public async Task_CloseTaskMob(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(contextJO, { task: '%task%' });
+        Object.assign(paramJO, { id: '%task%' });
+        Object.assign(paramJO, { name: '%name%' });
+            
+        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
+        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
+        context = { ...container.context, ...context };
+        let parentObj: any = {
+            srfparentdename: srfParentDeName ? srfParentDeName : null,
+            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
+        };
+        Object.assign(context, parentObj);
+        Object.assign(params, parentObj);
+        let panelNavParam= { } ;
+        let panelNavContext= { } ;
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
+        let response: any = null;
+        let deResParameters: any[] = [];
+        if ((context as any).project && (context as any).projectmodule && true) {
+            deResParameters = [
+            { pathName: 'projects', parameterName: 'project' },
+            { pathName: 'projectmodules', parameterName: 'projectmodule' },
+            ]
+        }
+        if ((context as any).product && (context as any).story && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        if ((context as any).product && (context as any).productplan && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'productplans', parameterName: 'productplan' },
+            ]
+        }
+        if ((context as any).project && true) {
+            deResParameters = [
+            { pathName: 'projects', parameterName: 'project' },
+            ]
+        }
+        if ((context as any).story && true) {
+            deResParameters = [
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        if ((context as any).productplan && true) {
+            deResParameters = [
+            { pathName: 'productplans', parameterName: 'productplan' },
+            ]
+        }
+        if ((context as any).projectmodule && true) {
+            deResParameters = [
+            { pathName: 'projectmodules', parameterName: 'projectmodule' },
+            ]
+        }
+
+        const parameters: any[] = [
+            { pathName: 'tasks', parameterName: 'task' },
+            { pathName: 'closemoboptionview', parameterName: 'closemoboptionview' },
         ];
         const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
         response = await this.openService.openView(routeParam);
@@ -743,6 +935,324 @@ export default class TaskUIActionBase extends EntityUIActionBase {
             }
         }
         return response;
+    }
+
+    /**
+     * 开始
+     *
+     * @param {any[]} args 数据
+     * @param {*} [contextJO={}] 行为上下文
+     * @param {*} [paramJO={}] 行为参数
+     * @param {*} [$event] 事件
+     * @param {*} [xData] 数据目标
+     * @param {*} [container] 行为容器对象
+     * @param {string} [srfParentDeName] 
+     * @returns {Promise<any>}
+     * @memberof TaskUIService
+     */
+    public async Task_Restart(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(contextJO, { task: '%task%' });
+        Object.assign(paramJO, { id: '%task%' });
+        Object.assign(paramJO, { name: '%name%' });
+            
+        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
+        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
+        context = { ...container.context, ...context };
+        let parentObj: any = {
+            srfparentdename: srfParentDeName ? srfParentDeName : null,
+            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
+        };
+        Object.assign(context, parentObj);
+        Object.assign(params, parentObj);
+        let panelNavParam= { } ;
+        let panelNavContext= { } ;
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
+        let response: any = null;
+        let deResParameters: any[] = [];
+        if ((context as any).project && (context as any).projectmodule && true) {
+            deResParameters = [
+            { pathName: 'projects', parameterName: 'project' },
+            { pathName: 'projectmodules', parameterName: 'projectmodule' },
+            ]
+        }
+        if ((context as any).product && (context as any).story && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        if ((context as any).product && (context as any).productplan && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'productplans', parameterName: 'productplan' },
+            ]
+        }
+        if ((context as any).project && true) {
+            deResParameters = [
+            { pathName: 'projects', parameterName: 'project' },
+            ]
+        }
+        if ((context as any).story && true) {
+            deResParameters = [
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        if ((context as any).productplan && true) {
+            deResParameters = [
+            { pathName: 'productplans', parameterName: 'productplan' },
+            ]
+        }
+        if ((context as any).projectmodule && true) {
+            deResParameters = [
+            { pathName: 'projectmodules', parameterName: 'projectmodule' },
+            ]
+        }
+
+        const parameters: any[] = [
+            { pathName: 'tasks', parameterName: 'task' },
+            { pathName: 'usr2moboptionview', parameterName: 'usr2moboptionview' },
+        ];
+        const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
+        response = await this.openService.openView(routeParam);
+        if (response) {
+            if (xData && xData.refresh && xData.refresh instanceof Function) {
+                xData.refresh(args);
+            }
+        }
+        return response;
+    }
+
+    /**
+     * 激活
+     *
+     * @param {any[]} args 数据
+     * @param {*} [contextJO={}] 行为上下文
+     * @param {*} [paramJO={}] 行为参数
+     * @param {*} [$event] 事件
+     * @param {*} [xData] 数据目标
+     * @param {*} [container] 行为容器对象
+     * @param {string} [srfParentDeName] 
+     * @returns {Promise<any>}
+     * @memberof TaskUIService
+     */
+    public async Task_ActiveMobTask(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(contextJO, { task: '%task%' });
+        Object.assign(paramJO, { id: '%task%' });
+        Object.assign(paramJO, { name: '%name%' });
+            
+        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
+        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
+        context = { ...container.context, ...context };
+        let parentObj: any = {
+            srfparentdename: srfParentDeName ? srfParentDeName : null,
+            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
+        };
+        Object.assign(context, parentObj);
+        Object.assign(params, parentObj);
+        let panelNavParam= { } ;
+        let panelNavContext= { } ;
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
+        let response: any = null;
+        let deResParameters: any[] = [];
+        if ((context as any).project && (context as any).projectmodule && true) {
+            deResParameters = [
+            { pathName: 'projects', parameterName: 'project' },
+            { pathName: 'projectmodules', parameterName: 'projectmodule' },
+            ]
+        }
+        if ((context as any).product && (context as any).story && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        if ((context as any).product && (context as any).productplan && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'productplans', parameterName: 'productplan' },
+            ]
+        }
+        if ((context as any).project && true) {
+            deResParameters = [
+            { pathName: 'projects', parameterName: 'project' },
+            ]
+        }
+        if ((context as any).story && true) {
+            deResParameters = [
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        if ((context as any).productplan && true) {
+            deResParameters = [
+            { pathName: 'productplans', parameterName: 'productplan' },
+            ]
+        }
+        if ((context as any).projectmodule && true) {
+            deResParameters = [
+            { pathName: 'projectmodules', parameterName: 'projectmodule' },
+            ]
+        }
+
+        const parameters: any[] = [
+            { pathName: 'tasks', parameterName: 'task' },
+            { pathName: 'activemobtask', parameterName: 'activemobtask' },
+        ];
+        const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
+        response = await this.openService.openView(routeParam);
+        return response;
+    }
+
+    /**
+     * 取消
+     *
+     * @param {any[]} args 数据
+     * @param {*} [contextJO={}] 行为上下文
+     * @param {*} [paramJO={}] 行为参数
+     * @param {*} [$event] 事件
+     * @param {*} [xData] 数据目标
+     * @param {*} [container] 行为容器对象
+     * @param {string} [srfParentDeName] 
+     * @returns {Promise<any>}
+     * @memberof TaskUIService
+     */
+    public async Task_CancelTaskMob(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(contextJO, { task: '%task%' });
+        Object.assign(paramJO, { id: '%task%' });
+        Object.assign(paramJO, { name: '%name%' });
+            
+        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
+        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
+        context = { ...container.context, ...context };
+        let parentObj: any = {
+            srfparentdename: srfParentDeName ? srfParentDeName : null,
+            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
+        };
+        Object.assign(context, parentObj);
+        Object.assign(params, parentObj);
+        let panelNavParam= { } ;
+        let panelNavContext= { } ;
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
+        let response: any = null;
+        let deResParameters: any[] = [];
+        if ((context as any).project && (context as any).projectmodule && true) {
+            deResParameters = [
+            { pathName: 'projects', parameterName: 'project' },
+            { pathName: 'projectmodules', parameterName: 'projectmodule' },
+            ]
+        }
+        if ((context as any).product && (context as any).story && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        if ((context as any).product && (context as any).productplan && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'productplans', parameterName: 'productplan' },
+            ]
+        }
+        if ((context as any).project && true) {
+            deResParameters = [
+            { pathName: 'projects', parameterName: 'project' },
+            ]
+        }
+        if ((context as any).story && true) {
+            deResParameters = [
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        if ((context as any).productplan && true) {
+            deResParameters = [
+            { pathName: 'productplans', parameterName: 'productplan' },
+            ]
+        }
+        if ((context as any).projectmodule && true) {
+            deResParameters = [
+            { pathName: 'projectmodules', parameterName: 'projectmodule' },
+            ]
+        }
+
+        const parameters: any[] = [
+            { pathName: 'tasks', parameterName: 'task' },
+            { pathName: 'cancelmoboptionview', parameterName: 'cancelmoboptionview' },
+        ];
+        const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
+        response = await this.openService.openView(routeParam);
+        if (response) {
+            if (xData && xData.refresh && xData.refresh instanceof Function) {
+                xData.refresh(args);
+            }
+        }
+        return response;
+    }
+
+    /**
+     * 删除
+     *
+     * @param {any[]} args 数据
+     * @param {*} [contextJO={}] 行为上下文
+     * @param {*} [paramJO={}] 行为参数
+     * @param {*} [$event] 事件
+     * @param {*} [xData] 数据目标
+     * @param {*} [container] 行为容器对象
+     * @param {string} [srfParentDeName] 
+     * @returns {Promise<any>}
+     * @memberof TaskUIService
+     */
+    public async Task_deleteMob(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+        const state: boolean = await Notice.getInstance().confirm('警告', '确认要删除，删除操作将不可恢复？');
+        if (!state) {
+            return Promise.reject();
+        }
+        let _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(contextJO, { task: '%task%' });
+        Object.assign(paramJO, { id: '%task%' });
+        Object.assign(paramJO, { name: '%name%' });
+        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
+        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
+        context = { ...container.context, ...context };
+        let parentObj: any = {
+            srfparentdename: srfParentDeName ? srfParentDeName : null,
+            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
+        };
+        Object.assign(context, parentObj);
+        Object.assign(params, parentObj);
+        // 直接调实体服务需要转换的数据
+        if (context && context.srfsessionid) {
+            context.srfsessionkey = context.srfsessionid;
+            delete context.srfsessionid;
+        }
+        // 导航参数
+        let panelNavParam= { } ;
+        let panelNavContext= { } ;
+        if(Util.typeOf(_args) == 'array' && _args.length > 0){
+            _args = _args[0];
+        }
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
+              container.closeView(null);
+        const backend = async () => {
+            const curUIService: any = await this.globaluiservice.getAppEntityService('task');
+            const response: any = await curUIService.Remove(_context, _params);
+            if (response && response.status === 200) {
+                this.notice.success('已删除');
+                if (xData && xData.refresh && xData.refresh instanceof Function) {
+                    xData.refresh(args);
+                    AppCenterService.notifyMessage({name:"Task",action:'appRefresh',data:args});
+                }
+            } else {
+                this.notice.error('系统异常！');
+            }
+            return response;
+        };
+        return backend();
     }
 
     /**
@@ -811,6 +1321,381 @@ export default class TaskUIActionBase extends EntityUIActionBase {
     }
 
     /**
+     * 更多
+     *
+     * @param {any[]} args 数据
+     * @param {*} [contextJO={}] 行为上下文
+     * @param {*} [paramJO={}] 行为参数
+     * @param {*} [$event] 事件
+     * @param {*} [xData] 数据目标
+     * @param {*} [container] 行为容器对象
+     * @param {string} [srfParentDeName] 
+     * @returns {Promise<any>}
+     * @memberof TaskUIService
+     */
+    public async Task_MyFavMore(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'NONE';
+            
+        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
+        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
+        context = { ...container.context, ...context };
+        let parentObj: any = {
+            srfparentdename: srfParentDeName ? srfParentDeName : null,
+            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
+        };
+        Object.assign(context, parentObj);
+        Object.assign(params, parentObj);
+        let panelNavParam= { } ;
+        let panelNavContext= { } ;
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
+        let response: any = null;
+        let deResParameters: any[] = [];
+        if ((context as any).project && (context as any).projectmodule && true) {
+            deResParameters = [
+            { pathName: 'projects', parameterName: 'project' },
+            { pathName: 'projectmodules', parameterName: 'projectmodule' },
+            ]
+        }
+        if ((context as any).product && (context as any).story && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        if ((context as any).product && (context as any).productplan && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'productplans', parameterName: 'productplan' },
+            ]
+        }
+        if ((context as any).project && true) {
+            deResParameters = [
+            { pathName: 'projects', parameterName: 'project' },
+            ]
+        }
+        if ((context as any).story && true) {
+            deResParameters = [
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        if ((context as any).productplan && true) {
+            deResParameters = [
+            { pathName: 'productplans', parameterName: 'productplan' },
+            ]
+        }
+        if ((context as any).projectmodule && true) {
+            deResParameters = [
+            { pathName: 'projectmodules', parameterName: 'projectmodule' },
+            ]
+        }
+
+        const parameters: any[] = [
+            { pathName: 'tasks', parameterName: 'task' },
+            { pathName: 'favoritemoremobmdview', parameterName: 'favoritemoremobmdview' },
+        ];
+        const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
+        response = await this.openService.openView(routeParam);
+        return response;
+    }
+
+    /**
+     * 指派
+     *
+     * @param {any[]} args 数据
+     * @param {*} [contextJO={}] 行为上下文
+     * @param {*} [paramJO={}] 行为参数
+     * @param {*} [$event] 事件
+     * @param {*} [xData] 数据目标
+     * @param {*} [container] 行为容器对象
+     * @param {string} [srfParentDeName] 
+     * @returns {Promise<any>}
+     * @memberof TaskUIService
+     */
+    public async Task_AssignTaskMob(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(contextJO, { task: '%task%' });
+        Object.assign(paramJO, { id: '%task%' });
+        Object.assign(paramJO, { name: '%name%' });
+            
+        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
+        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
+        context = { ...container.context, ...context };
+        let parentObj: any = {
+            srfparentdename: srfParentDeName ? srfParentDeName : null,
+            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
+        };
+        Object.assign(context, parentObj);
+        Object.assign(params, parentObj);
+        let panelNavParam= { } ;
+        let panelNavContext= { } ;
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
+        let response: any = null;
+        let deResParameters: any[] = [];
+        if ((context as any).project && (context as any).projectmodule && true) {
+            deResParameters = [
+            { pathName: 'projects', parameterName: 'project' },
+            { pathName: 'projectmodules', parameterName: 'projectmodule' },
+            ]
+        }
+        if ((context as any).product && (context as any).story && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        if ((context as any).product && (context as any).productplan && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'productplans', parameterName: 'productplan' },
+            ]
+        }
+        if ((context as any).project && true) {
+            deResParameters = [
+            { pathName: 'projects', parameterName: 'project' },
+            ]
+        }
+        if ((context as any).story && true) {
+            deResParameters = [
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        if ((context as any).productplan && true) {
+            deResParameters = [
+            { pathName: 'productplans', parameterName: 'productplan' },
+            ]
+        }
+        if ((context as any).projectmodule && true) {
+            deResParameters = [
+            { pathName: 'projectmodules', parameterName: 'projectmodule' },
+            ]
+        }
+
+        const parameters: any[] = [
+            { pathName: 'tasks', parameterName: 'task' },
+            { pathName: 'moboptionview', parameterName: 'moboptionview' },
+        ];
+        const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
+        response = await this.openService.openView(routeParam);
+        if (response) {
+            if (xData && xData.refresh && xData.refresh instanceof Function) {
+                xData.refresh(args);
+            }
+        }
+        return response;
+    }
+
+    /**
+     * 确认
+     *
+     * @param {any[]} args 数据
+     * @param {*} [contextJO={}] 行为上下文
+     * @param {*} [paramJO={}] 行为参数
+     * @param {*} [$event] 事件
+     * @param {*} [xData] 数据目标
+     * @param {*} [container] 行为容器对象
+     * @param {string} [srfParentDeName] 
+     * @returns {Promise<any>}
+     * @memberof TaskUIService
+     */
+    public async Task_confirmStoryChangeCz(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+        let _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(contextJO, { task: '%task%' });
+        Object.assign(paramJO, { id: '%task%' });
+        Object.assign(paramJO, { name: '%name%' });
+        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
+        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
+        context = { ...container.context, ...context };
+        let parentObj: any = {
+            srfparentdename: srfParentDeName ? srfParentDeName : null,
+            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
+        };
+        Object.assign(context, parentObj);
+        Object.assign(params, parentObj);
+        // 直接调实体服务需要转换的数据
+        if (context && context.srfsessionid) {
+            context.srfsessionkey = context.srfsessionid;
+            delete context.srfsessionid;
+        }
+        // 导航参数
+        let panelNavParam= { } ;
+        let panelNavContext= { } ;
+        if(Util.typeOf(_args) == 'array' && _args.length > 0){
+            _args = _args[0];
+        }
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
+        const backend = async () => {
+            const curUIService: any = await this.globaluiservice.getAppEntityService('task');
+            const response: any = await curUIService.ConfirmStoryChange(_context, _params);
+            if (response && response.status === 200) {
+                this.notice.success('确认成功！');
+                if (xData && xData.refresh && xData.refresh instanceof Function) {
+                    xData.refresh(args);
+                    AppCenterService.notifyMessage({name:"Task",action:'appRefresh',data:args});
+                }
+            } else {
+                this.notice.error('系统异常！');
+            }
+            return response;
+        };
+        return backend();
+    }
+
+    /**
+     * 工时
+     *
+     * @param {any[]} args 数据
+     * @param {*} [contextJO={}] 行为上下文
+     * @param {*} [paramJO={}] 行为参数
+     * @param {*} [$event] 事件
+     * @param {*} [xData] 数据目标
+     * @param {*} [container] 行为容器对象
+     * @param {string} [srfParentDeName] 
+     * @returns {Promise<any>}
+     * @memberof TaskUIService
+     */
+    public async Task_ConsumedMobTaskTeam(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+        let _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(contextJO, { task: '%task%' });
+        Object.assign(paramJO, { id: '%task%' });
+        Object.assign(paramJO, { name: '%name%' });
+        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
+        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
+        context = { ...container.context, ...context };
+        let parentObj: any = {
+            srfparentdename: srfParentDeName ? srfParentDeName : null,
+            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
+        };
+        Object.assign(context, parentObj);
+        Object.assign(params, parentObj);
+        // 直接调实体服务需要转换的数据
+        if (context && context.srfsessionid) {
+            context.srfsessionkey = context.srfsessionid;
+            delete context.srfsessionid;
+        }
+        // 导航参数
+        let panelNavParam= { "actioninfo": "当前任务只有%1$s才可以记录工时。" } ;
+        let panelNavContext= { } ;
+        if(Util.typeOf(_args) == 'array' && _args.length > 0){
+            _args = _args[0];
+        }
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
+        const backend = async () => {
+            const curUIService: any = await this.globaluiservice.getAppEntityService('task');
+            const response: any = await curUIService.TaskForward(_context, _params);
+            if (response && response.status === 200) {
+                const { data: result } = response;
+                let _args: any[] = [];
+                if (Object.is(container.$util.typeOf(result), 'array')) {
+                    _args = [...result];
+                } else if (Object.is(container.$util.typeOf(result), 'object')) {
+                    _args = [{...result}];
+                } else {
+                    _args = [...args];
+                }
+                const nextPSUIActionUIService: any = await this.globaluiservice.getService('task_ui_action');
+                if (nextPSUIActionUIService) {
+                    nextPSUIActionUIService.Task_WorkHoursMob(response.data, contextJO, paramJO, $event, xData, container);
+                }
+            } else {
+                this.notice.error('系统异常！');
+            }
+            return response;
+        };
+        return backend();
+    }
+
+    /**
+     * 完成
+     *
+     * @param {any[]} args 数据
+     * @param {*} [contextJO={}] 行为上下文
+     * @param {*} [paramJO={}] 行为参数
+     * @param {*} [$event] 事件
+     * @param {*} [xData] 数据目标
+     * @param {*} [container] 行为容器对象
+     * @param {string} [srfParentDeName] 
+     * @returns {Promise<any>}
+     * @memberof TaskUIService
+     */
+    public async Task_DoneTaskMob(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(contextJO, { task: '%task%' });
+        Object.assign(paramJO, { id: '%task%' });
+        Object.assign(paramJO, { name: '%name%' });
+            
+        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
+        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
+        context = { ...container.context, ...context };
+        let parentObj: any = {
+            srfparentdename: srfParentDeName ? srfParentDeName : null,
+            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
+        };
+        Object.assign(context, parentObj);
+        Object.assign(params, parentObj);
+        let panelNavParam= { } ;
+        let panelNavContext= { "task": "%id%" } ;
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
+        let response: any = null;
+        let deResParameters: any[] = [];
+        if ((context as any).project && (context as any).projectmodule && true) {
+            deResParameters = [
+            { pathName: 'projects', parameterName: 'project' },
+            { pathName: 'projectmodules', parameterName: 'projectmodule' },
+            ]
+        }
+        if ((context as any).product && (context as any).story && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        if ((context as any).product && (context as any).productplan && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'productplans', parameterName: 'productplan' },
+            ]
+        }
+        if ((context as any).project && true) {
+            deResParameters = [
+            { pathName: 'projects', parameterName: 'project' },
+            ]
+        }
+        if ((context as any).story && true) {
+            deResParameters = [
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        if ((context as any).productplan && true) {
+            deResParameters = [
+            { pathName: 'productplans', parameterName: 'productplan' },
+            ]
+        }
+        if ((context as any).projectmodule && true) {
+            deResParameters = [
+            { pathName: 'projectmodules', parameterName: 'projectmodule' },
+            ]
+        }
+
+        const parameters: any[] = [
+            { pathName: 'tasks', parameterName: 'task' },
+            { pathName: 'commoboptionview', parameterName: 'commoboptionview' },
+        ];
+        const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
+        response = await this.openService.openView(routeParam);
+        if (response) {
+            if (xData && xData.refresh && xData.refresh instanceof Function) {
+                xData.refresh(args);
+            }
+        }
+        return response;
+    }
+
+    /**
      * 暂停
      *
      * @param {any[]} args 数据
@@ -876,6 +1761,85 @@ export default class TaskUIActionBase extends EntityUIActionBase {
     }
 
     /**
+     * 更多
+     *
+     * @param {any[]} args 数据
+     * @param {*} [contextJO={}] 行为上下文
+     * @param {*} [paramJO={}] 行为参数
+     * @param {*} [$event] 事件
+     * @param {*} [xData] 数据目标
+     * @param {*} [container] 行为容器对象
+     * @param {string} [srfParentDeName] 
+     * @returns {Promise<any>}
+     * @memberof TaskUIService
+     */
+    public async Task_MyAssMore(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'NONE';
+            
+        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
+        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
+        context = { ...container.context, ...context };
+        let parentObj: any = {
+            srfparentdename: srfParentDeName ? srfParentDeName : null,
+            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
+        };
+        Object.assign(context, parentObj);
+        Object.assign(params, parentObj);
+        let panelNavParam= { } ;
+        let panelNavContext= { } ;
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
+        let response: any = null;
+        let deResParameters: any[] = [];
+        if ((context as any).project && (context as any).projectmodule && true) {
+            deResParameters = [
+            { pathName: 'projects', parameterName: 'project' },
+            { pathName: 'projectmodules', parameterName: 'projectmodule' },
+            ]
+        }
+        if ((context as any).product && (context as any).story && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        if ((context as any).product && (context as any).productplan && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'productplans', parameterName: 'productplan' },
+            ]
+        }
+        if ((context as any).project && true) {
+            deResParameters = [
+            { pathName: 'projects', parameterName: 'project' },
+            ]
+        }
+        if ((context as any).story && true) {
+            deResParameters = [
+            { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        if ((context as any).productplan && true) {
+            deResParameters = [
+            { pathName: 'productplans', parameterName: 'productplan' },
+            ]
+        }
+        if ((context as any).projectmodule && true) {
+            deResParameters = [
+            { pathName: 'projectmodules', parameterName: 'projectmodule' },
+            ]
+        }
+
+        const parameters: any[] = [
+            { pathName: 'tasks', parameterName: 'task' },
+            { pathName: 'assmoremobmdview', parameterName: 'assmoremobmdview' },
+        ];
+        const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
+        response = await this.openService.openView(routeParam);
+        return response;
+    }
+
+    /**
      * 开始
      *
      * @param {any[]} args 数据
@@ -938,684 +1902,6 @@ export default class TaskUIActionBase extends EntityUIActionBase {
             return response;
         };
         return backend();
-    }
-
-    /**
-     * 开始
-     *
-     * @param {any[]} args 数据
-     * @param {*} [contextJO={}] 行为上下文
-     * @param {*} [paramJO={}] 行为参数
-     * @param {*} [$event] 事件
-     * @param {*} [xData] 数据目标
-     * @param {*} [container] 行为容器对象
-     * @param {string} [srfParentDeName] 
-     * @returns {Promise<any>}
-     * @memberof TaskUIService
-     */
-    public async Task_StartTaskMob(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(contextJO, { task: '%task%' });
-        Object.assign(paramJO, { id: '%task%' });
-        Object.assign(paramJO, { name: '%name%' });
-            
-        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
-        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
-        context = { ...container.context, ...context };
-        let parentObj: any = {
-            srfparentdename: srfParentDeName ? srfParentDeName : null,
-            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
-        };
-        Object.assign(context, parentObj);
-        Object.assign(params, parentObj);
-        let panelNavParam= { } ;
-        let panelNavContext= { "task": "%id%" } ;
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
-        let response: any = null;
-        let deResParameters: any[] = [];
-        if ((context as any).product && (context as any).story && true) {
-            deResParameters = [
-            { pathName: 'products', parameterName: 'product' },
-            { pathName: 'stories', parameterName: 'story' },
-            ]
-        }
-        if ((context as any).project && true) {
-            deResParameters = [
-            { pathName: 'projects', parameterName: 'project' },
-            ]
-        }
-        if ((context as any).story && true) {
-            deResParameters = [
-            { pathName: 'stories', parameterName: 'story' },
-            ]
-        }
-
-        const parameters: any[] = [
-            { pathName: 'tasks', parameterName: 'task' },
-            { pathName: 'startmoboptionview', parameterName: 'startmoboptionview' },
-        ];
-        const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
-        response = await this.openService.openView(routeParam);
-        return response;
-    }
-
-    /**
-     * 删除
-     *
-     * @param {any[]} args 数据
-     * @param {*} [contextJO={}] 行为上下文
-     * @param {*} [paramJO={}] 行为参数
-     * @param {*} [$event] 事件
-     * @param {*} [xData] 数据目标
-     * @param {*} [container] 行为容器对象
-     * @param {string} [srfParentDeName] 
-     * @returns {Promise<any>}
-     * @memberof TaskUIService
-     */
-    public async Task_deleteMob(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const state: boolean = await Notice.getInstance().confirm('警告', '确认要删除，删除操作将不可恢复？');
-        if (!state) {
-            return Promise.reject();
-        }
-        let _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(contextJO, { task: '%task%' });
-        Object.assign(paramJO, { id: '%task%' });
-        Object.assign(paramJO, { name: '%name%' });
-        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
-        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
-        context = { ...container.context, ...context };
-        let parentObj: any = {
-            srfparentdename: srfParentDeName ? srfParentDeName : null,
-            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
-        };
-        Object.assign(context, parentObj);
-        Object.assign(params, parentObj);
-        // 直接调实体服务需要转换的数据
-        if (context && context.srfsessionid) {
-            context.srfsessionkey = context.srfsessionid;
-            delete context.srfsessionid;
-        }
-        // 导航参数
-        let panelNavParam= { } ;
-        let panelNavContext= { } ;
-        if(Util.typeOf(_args) == 'array' && _args.length > 0){
-            _args = _args[0];
-        }
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
-              container.closeView(null);
-        const backend = async () => {
-            const curUIService: any = await this.globaluiservice.getAppEntityService('task');
-            const response: any = await curUIService.Remove(_context, _params);
-            if (response && response.status === 200) {
-                this.notice.success('已删除');
-                if (xData && xData.refresh && xData.refresh instanceof Function) {
-                    xData.refresh(args);
-                    AppCenterService.notifyMessage({name:"Task",action:'appRefresh',data:args});
-                }
-            } else {
-                this.notice.error('系统异常！');
-            }
-            return response;
-        };
-        return backend();
-    }
-
-    /**
-     * 激活
-     *
-     * @param {any[]} args 数据
-     * @param {*} [contextJO={}] 行为上下文
-     * @param {*} [paramJO={}] 行为参数
-     * @param {*} [$event] 事件
-     * @param {*} [xData] 数据目标
-     * @param {*} [container] 行为容器对象
-     * @param {string} [srfParentDeName] 
-     * @returns {Promise<any>}
-     * @memberof TaskUIService
-     */
-    public async Task_ActiveMobTask(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(contextJO, { task: '%task%' });
-        Object.assign(paramJO, { id: '%task%' });
-        Object.assign(paramJO, { name: '%name%' });
-            
-        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
-        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
-        context = { ...container.context, ...context };
-        let parentObj: any = {
-            srfparentdename: srfParentDeName ? srfParentDeName : null,
-            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
-        };
-        Object.assign(context, parentObj);
-        Object.assign(params, parentObj);
-        let panelNavParam= { } ;
-        let panelNavContext= { } ;
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
-        let response: any = null;
-        let deResParameters: any[] = [];
-        if ((context as any).product && (context as any).story && true) {
-            deResParameters = [
-            { pathName: 'products', parameterName: 'product' },
-            { pathName: 'stories', parameterName: 'story' },
-            ]
-        }
-        if ((context as any).project && true) {
-            deResParameters = [
-            { pathName: 'projects', parameterName: 'project' },
-            ]
-        }
-        if ((context as any).story && true) {
-            deResParameters = [
-            { pathName: 'stories', parameterName: 'story' },
-            ]
-        }
-
-        const parameters: any[] = [
-            { pathName: 'tasks', parameterName: 'task' },
-            { pathName: 'activemobtask', parameterName: 'activemobtask' },
-        ];
-        const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
-        response = await this.openService.openView(routeParam);
-        return response;
-    }
-
-    /**
-     * 关闭
-     *
-     * @param {any[]} args 数据
-     * @param {*} [contextJO={}] 行为上下文
-     * @param {*} [paramJO={}] 行为参数
-     * @param {*} [$event] 事件
-     * @param {*} [xData] 数据目标
-     * @param {*} [container] 行为容器对象
-     * @param {string} [srfParentDeName] 
-     * @returns {Promise<any>}
-     * @memberof TaskUIService
-     */
-    public async Task_CloseTaskMob(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(contextJO, { task: '%task%' });
-        Object.assign(paramJO, { id: '%task%' });
-        Object.assign(paramJO, { name: '%name%' });
-            
-        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
-        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
-        context = { ...container.context, ...context };
-        let parentObj: any = {
-            srfparentdename: srfParentDeName ? srfParentDeName : null,
-            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
-        };
-        Object.assign(context, parentObj);
-        Object.assign(params, parentObj);
-        let panelNavParam= { } ;
-        let panelNavContext= { } ;
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
-        let response: any = null;
-        let deResParameters: any[] = [];
-        if ((context as any).product && (context as any).story && true) {
-            deResParameters = [
-            { pathName: 'products', parameterName: 'product' },
-            { pathName: 'stories', parameterName: 'story' },
-            ]
-        }
-        if ((context as any).project && true) {
-            deResParameters = [
-            { pathName: 'projects', parameterName: 'project' },
-            ]
-        }
-        if ((context as any).story && true) {
-            deResParameters = [
-            { pathName: 'stories', parameterName: 'story' },
-            ]
-        }
-
-        const parameters: any[] = [
-            { pathName: 'tasks', parameterName: 'task' },
-            { pathName: 'closemoboptionview', parameterName: 'closemoboptionview' },
-        ];
-        const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
-        response = await this.openService.openView(routeParam);
-        if (response) {
-            if (xData && xData.refresh && xData.refresh instanceof Function) {
-                xData.refresh(args);
-            }
-        }
-        return response;
-    }
-
-    /**
-     * 取消
-     *
-     * @param {any[]} args 数据
-     * @param {*} [contextJO={}] 行为上下文
-     * @param {*} [paramJO={}] 行为参数
-     * @param {*} [$event] 事件
-     * @param {*} [xData] 数据目标
-     * @param {*} [container] 行为容器对象
-     * @param {string} [srfParentDeName] 
-     * @returns {Promise<any>}
-     * @memberof TaskUIService
-     */
-    public async Task_CancelTaskMob(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(contextJO, { task: '%task%' });
-        Object.assign(paramJO, { id: '%task%' });
-        Object.assign(paramJO, { name: '%name%' });
-            
-        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
-        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
-        context = { ...container.context, ...context };
-        let parentObj: any = {
-            srfparentdename: srfParentDeName ? srfParentDeName : null,
-            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
-        };
-        Object.assign(context, parentObj);
-        Object.assign(params, parentObj);
-        let panelNavParam= { } ;
-        let panelNavContext= { } ;
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
-        let response: any = null;
-        let deResParameters: any[] = [];
-        if ((context as any).product && (context as any).story && true) {
-            deResParameters = [
-            { pathName: 'products', parameterName: 'product' },
-            { pathName: 'stories', parameterName: 'story' },
-            ]
-        }
-        if ((context as any).project && true) {
-            deResParameters = [
-            { pathName: 'projects', parameterName: 'project' },
-            ]
-        }
-        if ((context as any).story && true) {
-            deResParameters = [
-            { pathName: 'stories', parameterName: 'story' },
-            ]
-        }
-
-        const parameters: any[] = [
-            { pathName: 'tasks', parameterName: 'task' },
-            { pathName: 'cancelmoboptionview', parameterName: 'cancelmoboptionview' },
-        ];
-        const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
-        response = await this.openService.openView(routeParam);
-        if (response) {
-            if (xData && xData.refresh && xData.refresh instanceof Function) {
-                xData.refresh(args);
-            }
-        }
-        return response;
-    }
-
-    /**
-     * 收藏
-     *
-     * @param {any[]} args 数据
-     * @param {*} [contextJO={}] 行为上下文
-     * @param {*} [paramJO={}] 行为参数
-     * @param {*} [$event] 事件
-     * @param {*} [xData] 数据目标
-     * @param {*} [container] 行为容器对象
-     * @param {string} [srfParentDeName] 
-     * @returns {Promise<any>}
-     * @memberof TaskUIService
-     */
-    public async Task_TaskFavoritesMob(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        let _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(contextJO, { task: '%task%' });
-        Object.assign(paramJO, { id: '%task%' });
-        Object.assign(paramJO, { name: '%name%' });
-        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
-        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
-        context = { ...container.context, ...context };
-        let parentObj: any = {
-            srfparentdename: srfParentDeName ? srfParentDeName : null,
-            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
-        };
-        Object.assign(context, parentObj);
-        Object.assign(params, parentObj);
-        // 直接调实体服务需要转换的数据
-        if (context && context.srfsessionid) {
-            context.srfsessionkey = context.srfsessionid;
-            delete context.srfsessionid;
-        }
-        // 导航参数
-        let panelNavParam= { } ;
-        let panelNavContext= { } ;
-        if(Util.typeOf(_args) == 'array' && _args.length > 0){
-            _args = _args[0];
-        }
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params,_args);
-        const backend = async () => {
-            const curUIService: any = await this.globaluiservice.getAppEntityService('task');
-            const response: any = await curUIService.TaskFavorites(_context, _params);
-            if (response && response.status === 200) {
-                this.notice.success('收藏成功！');
-                if (xData && xData.refresh && xData.refresh instanceof Function) {
-                    xData.refresh(args);
-                    AppCenterService.notifyMessage({name:"Task",action:'appRefresh',data:args});
-                }
-            } else {
-                this.notice.error('系统异常！');
-            }
-            return response;
-        };
-        return backend();
-    }
-
-    /**
-     * 指派
-     *
-     * @param {any[]} args 数据
-     * @param {*} [contextJO={}] 行为上下文
-     * @param {*} [paramJO={}] 行为参数
-     * @param {*} [$event] 事件
-     * @param {*} [xData] 数据目标
-     * @param {*} [container] 行为容器对象
-     * @param {string} [srfParentDeName] 
-     * @returns {Promise<any>}
-     * @memberof TaskUIService
-     */
-    public async Task_AssignTaskMob(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(contextJO, { task: '%task%' });
-        Object.assign(paramJO, { id: '%task%' });
-        Object.assign(paramJO, { name: '%name%' });
-            
-        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
-        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
-        context = { ...container.context, ...context };
-        let parentObj: any = {
-            srfparentdename: srfParentDeName ? srfParentDeName : null,
-            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
-        };
-        Object.assign(context, parentObj);
-        Object.assign(params, parentObj);
-        let panelNavParam= { } ;
-        let panelNavContext= { } ;
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
-        let response: any = null;
-        let deResParameters: any[] = [];
-        if ((context as any).product && (context as any).story && true) {
-            deResParameters = [
-            { pathName: 'products', parameterName: 'product' },
-            { pathName: 'stories', parameterName: 'story' },
-            ]
-        }
-        if ((context as any).project && true) {
-            deResParameters = [
-            { pathName: 'projects', parameterName: 'project' },
-            ]
-        }
-        if ((context as any).story && true) {
-            deResParameters = [
-            { pathName: 'stories', parameterName: 'story' },
-            ]
-        }
-
-        const parameters: any[] = [
-            { pathName: 'tasks', parameterName: 'task' },
-            { pathName: 'moboptionview', parameterName: 'moboptionview' },
-        ];
-        const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
-        response = await this.openService.openView(routeParam);
-        if (response) {
-            if (xData && xData.refresh && xData.refresh instanceof Function) {
-                xData.refresh(args);
-            }
-        }
-        return response;
-    }
-
-    /**
-     * 编辑
-     *
-     * @param {any[]} args 数据
-     * @param {*} [contextJO={}] 行为上下文
-     * @param {*} [paramJO={}] 行为参数
-     * @param {*} [$event] 事件
-     * @param {*} [xData] 数据目标
-     * @param {*} [container] 行为容器对象
-     * @param {string} [srfParentDeName] 
-     * @returns {Promise<any>}
-     * @memberof TaskUIService
-     */
-    public async Task_MobMainEdit(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(contextJO, { task: '%task%' });
-        Object.assign(paramJO, { id: '%task%' });
-        Object.assign(paramJO, { name: '%name%' });
-            
-        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
-        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
-        context = { ...container.context, ...context };
-        let parentObj: any = {
-            srfparentdename: srfParentDeName ? srfParentDeName : null,
-            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
-        };
-        Object.assign(context, parentObj);
-        Object.assign(params, parentObj);
-        let panelNavParam= { } ;
-        let panelNavContext= { } ;
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
-        let response: any = null;
-        let deResParameters: any[] = [];
-        if ((context as any).product && (context as any).story && true) {
-            deResParameters = [
-            { pathName: 'products', parameterName: 'product' },
-            { pathName: 'stories', parameterName: 'story' },
-            ]
-        }
-        if ((context as any).project && true) {
-            deResParameters = [
-            { pathName: 'projects', parameterName: 'project' },
-            ]
-        }
-        if ((context as any).story && true) {
-            deResParameters = [
-            { pathName: 'stories', parameterName: 'story' },
-            ]
-        }
-
-        const parameters: any[] = [
-            { pathName: 'tasks', parameterName: 'task' },
-            { pathName: 'editmobeditview', parameterName: 'editmobeditview' },
-        ];
-        const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
-        response = await this.openService.openView(routeParam);
-        return response;
-    }
-
-    /**
-     * 新建
-     *
-     * @param {any[]} args 数据
-     * @param {*} [contextJO={}] 行为上下文
-     * @param {*} [paramJO={}] 行为参数
-     * @param {*} [$event] 事件
-     * @param {*} [xData] 数据目标
-     * @param {*} [container] 行为容器对象
-     * @param {string} [srfParentDeName] 
-     * @returns {Promise<any>}
-     * @memberof TaskUIService
-     */
-    public async Task_CreateMob(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'NONE';
-            
-        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
-        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
-        context = { ...container.context, ...context };
-        let parentObj: any = {
-            srfparentdename: srfParentDeName ? srfParentDeName : null,
-            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
-        };
-        Object.assign(context, parentObj);
-        Object.assign(params, parentObj);
-        let panelNavParam= { } ;
-        let panelNavContext= { } ;
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
-        let response: any = null;
-        let deResParameters: any[] = [];
-        if ((context as any).product && (context as any).story && true) {
-            deResParameters = [
-            { pathName: 'products', parameterName: 'product' },
-            { pathName: 'stories', parameterName: 'story' },
-            ]
-        }
-        if ((context as any).project && true) {
-            deResParameters = [
-            { pathName: 'projects', parameterName: 'project' },
-            ]
-        }
-        if ((context as any).story && true) {
-            deResParameters = [
-            { pathName: 'stories', parameterName: 'story' },
-            ]
-        }
-
-        const parameters: any[] = [
-            { pathName: 'tasks', parameterName: 'task' },
-            { pathName: 'newmobeditview', parameterName: 'newmobeditview' },
-        ];
-        const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
-        response = await this.openService.openView(routeParam);
-        if (response) {
-            if (xData && xData.refresh && xData.refresh instanceof Function) {
-                xData.refresh(args);
-            }
-        }
-        return response;
-    }
-
-    /**
-     * 更多
-     *
-     * @param {any[]} args 数据
-     * @param {*} [contextJO={}] 行为上下文
-     * @param {*} [paramJO={}] 行为参数
-     * @param {*} [$event] 事件
-     * @param {*} [xData] 数据目标
-     * @param {*} [container] 行为容器对象
-     * @param {string} [srfParentDeName] 
-     * @returns {Promise<any>}
-     * @memberof TaskUIService
-     */
-    public async Task_MyAssMore(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'NONE';
-            
-        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
-        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
-        context = { ...container.context, ...context };
-        let parentObj: any = {
-            srfparentdename: srfParentDeName ? srfParentDeName : null,
-            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
-        };
-        Object.assign(context, parentObj);
-        Object.assign(params, parentObj);
-        let panelNavParam= { } ;
-        let panelNavContext= { } ;
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
-        let response: any = null;
-        let deResParameters: any[] = [];
-        if ((context as any).product && (context as any).story && true) {
-            deResParameters = [
-            { pathName: 'products', parameterName: 'product' },
-            { pathName: 'stories', parameterName: 'story' },
-            ]
-        }
-        if ((context as any).project && true) {
-            deResParameters = [
-            { pathName: 'projects', parameterName: 'project' },
-            ]
-        }
-        if ((context as any).story && true) {
-            deResParameters = [
-            { pathName: 'stories', parameterName: 'story' },
-            ]
-        }
-
-        const parameters: any[] = [
-            { pathName: 'tasks', parameterName: 'task' },
-            { pathName: 'assmoremobmdview', parameterName: 'assmoremobmdview' },
-        ];
-        const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
-        response = await this.openService.openView(routeParam);
-        return response;
-    }
-
-    /**
-     * 暂停
-     *
-     * @param {any[]} args 数据
-     * @param {*} [contextJO={}] 行为上下文
-     * @param {*} [paramJO={}] 行为参数
-     * @param {*} [$event] 事件
-     * @param {*} [xData] 数据目标
-     * @param {*} [container] 行为容器对象
-     * @param {string} [srfParentDeName] 
-     * @returns {Promise<any>}
-     * @memberof TaskUIService
-     */
-    public async Task_PauseTaskMob(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(contextJO, { task: '%task%' });
-        Object.assign(paramJO, { id: '%task%' });
-        Object.assign(paramJO, { name: '%name%' });
-            
-        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
-        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
-        context = { ...container.context, ...context };
-        let parentObj: any = {
-            srfparentdename: srfParentDeName ? srfParentDeName : null,
-            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
-        };
-        Object.assign(context, parentObj);
-        Object.assign(params, parentObj);
-        let panelNavParam= { } ;
-        let panelNavContext= { "task": "%id%" } ;
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
-        let response: any = null;
-        let deResParameters: any[] = [];
-        if ((context as any).product && (context as any).story && true) {
-            deResParameters = [
-            { pathName: 'products', parameterName: 'product' },
-            { pathName: 'stories', parameterName: 'story' },
-            ]
-        }
-        if ((context as any).project && true) {
-            deResParameters = [
-            { pathName: 'projects', parameterName: 'project' },
-            ]
-        }
-        if ((context as any).story && true) {
-            deResParameters = [
-            { pathName: 'stories', parameterName: 'story' },
-            ]
-        }
-
-        const parameters: any[] = [
-            { pathName: 'tasks', parameterName: 'task' },
-            { pathName: 'stopmoboptionview', parameterName: 'stopmoboptionview' },
-        ];
-        const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
-        response = await this.openService.openView(routeParam);
-        if (response) {
-            if (xData && xData.refresh && xData.refresh instanceof Function) {
-                xData.refresh(args);
-            }
-        }
-        return response;
     }
 
 

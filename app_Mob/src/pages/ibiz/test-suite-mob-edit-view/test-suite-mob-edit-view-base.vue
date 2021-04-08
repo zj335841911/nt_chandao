@@ -118,7 +118,7 @@ export default class TestSuiteMobEditViewBase extends Vue {
 	 * @type {string}
 	 * @memberof TestSuiteMobEditViewBase
 	 */
-	protected viewtag: string = '46c4b323d60fd1658313b26c6b3ac34d';
+	protected viewtag: string = '786c48a03a15b21093b6ed4cc31ca1d0';
 
     /**
      * 视图上下文

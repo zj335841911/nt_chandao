@@ -24,6 +24,8 @@ import java.io.Serializable;
 import lombok.*;
 import org.springframework.data.annotation.Transient;
 import cn.ibizlab.pms.util.annotation.Audit;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -39,10 +41,163 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
 @TableName(value = "zt_product", resultMap = "ProductSumResultMap")
+@ApiModel("产品汇总表")
 public class ProductSum extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    /**
+     * 设计缺陷
+     */
+    @TableField(exist = false)
+    @JSONField(name = "designdefect")
+    @JsonProperty("designdefect")
+    @ApiModelProperty("设计缺陷")
+    private Integer designdefect;
+    /**
+     * 已变更
+     */
+    @TableField(exist = false)
+    @JSONField(name = "changedstorycnt")
+    @JsonProperty("changedstorycnt")
+    @ApiModelProperty("已变更")
+    private Integer changedstorycnt;
+    /**
+     * 研发中阶段需求工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "developingstagestoryhours")
+    @JsonProperty("developingstagestoryhours")
+    @ApiModelProperty("研发中阶段需求工时")
+    private Integer developingstagestoryhours;
+    /**
+     * 总计
+     */
+    @TableField(exist = false)
+    @JSONField(name = "storycnt")
+    @JsonProperty("storycnt")
+    @ApiModelProperty("总计")
+    private Integer storycnt;
+    /**
+     * 其他
+     */
+    @TableField(exist = false)
+    @JSONField(name = "others")
+    @JsonProperty("others")
+    @ApiModelProperty("其他")
+    private Integer others;
+    /**
+     * 配置相关
+     */
+    @TableField(exist = false)
+    @JSONField(name = "config")
+    @JsonProperty("config")
+    @ApiModelProperty("配置相关")
+    private Integer config;
+    /**
+     * 代码错误
+     */
+    @TableField(exist = false)
+    @JSONField(name = "codeerror")
+    @JsonProperty("codeerror")
+    @ApiModelProperty("代码错误")
+    private Integer codeerror;
+    /**
+     * bug总计
+     */
+    @TableField(exist = false)
+    @JSONField(name = "bugsum")
+    @JsonProperty("bugsum")
+    @ApiModelProperty("bug总计")
+    private Integer bugsum;
+    /**
+     * 性能问题
+     */
+    @TableField(exist = false)
+    @JSONField(name = "performance")
+    @JsonProperty("performance")
+    @ApiModelProperty("性能问题")
+    private Integer performance;
+    /**
+     * 结束日期
+     */
+    @TableField(exist = false)
+    @JSONField(name = "end")
+    @JsonProperty("end")
+    @ApiModelProperty("结束日期")
+    private String end;
+    /**
+     * 已关闭
+     */
+    @TableField(exist = false)
+    @JSONField(name = "closedstorycnt")
+    @JsonProperty("closedstorycnt")
+    @ApiModelProperty("已关闭")
+    private Integer closedstorycnt;
+    /**
+     * 已关闭阶段需求工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "closedstagestoryhours")
+    @JsonProperty("closedstagestoryhours")
+    @ApiModelProperty("已关闭阶段需求工时")
+    private Integer closedstagestoryhours;
+    /**
+     * 测试完毕阶段需求工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "testedstagestoryhours")
+    @JsonProperty("testedstagestoryhours")
+    @ApiModelProperty("测试完毕阶段需求工时")
+    private Integer testedstagestoryhours;
+    /**
+     * 未开始阶段需求工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "waitstagestoryhours")
+    @JsonProperty("waitstagestoryhours")
+    @ApiModelProperty("未开始阶段需求工时")
+    private Integer waitstagestoryhours;
+    /**
+     * 产品负责人
+     */
+    @TableField(value = "`po`")
+    @JSONField(name = "po")
+    @JsonProperty("po")
+    @ApiModelProperty("产品负责人")
+    private String po;
+    /**
+     * 测试中阶段需求工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "testingstagestoryhours")
+    @JsonProperty("testingstagestoryhours")
+    @ApiModelProperty("测试中阶段需求工时")
+    private Integer testingstagestoryhours;
+    /**
+     * 已立项阶段需求工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "projectedstagestoryhours")
+    @JsonProperty("projectedstagestoryhours")
+    @ApiModelProperty("已立项阶段需求工时")
+    private Integer projectedstagestoryhours;
+    /**
+     * 已立项阶段需求数量
+     */
+    @TableField(exist = false)
+    @JSONField(name = "projectedstagestorycnt")
+    @JsonProperty("projectedstagestorycnt")
+    @ApiModelProperty("已立项阶段需求数量")
+    private Integer projectedstagestorycnt;
+    /**
+     * 已验收阶段需求数量
+     */
+    @TableField(exist = false)
+    @JSONField(name = "verifiedstagestorycnt")
+    @JsonProperty("verifiedstagestorycnt")
+    @ApiModelProperty("已验收阶段需求数量")
+    private Integer verifiedstagestorycnt;
     /**
      * 主键标识
      */
@@ -50,83 +205,47 @@ public class ProductSum extends EntityMP implements Serializable {
     @TableId(value = "id", type = IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
+    @ApiModelProperty("主键标识")
     private Long id;
     /**
-     * 产品名称
-     */
-    @TableField(value = "`name`")
-    @JSONField(name = "name")
-    @JsonProperty("name")
-    private String name;
-    /**
-     * 产品负责人
-     */
-    @TableField(value = "`po`")
-    @JSONField(name = "po")
-    @JsonProperty("po")
-    private String po;
-    /**
-     * 计划
+     * 总工时
      */
     @TableField(exist = false)
-    @JSONField(name = "plan")
-    @JsonProperty("plan")
-    private Long plan;
+    @JSONField(name = "totalhours")
+    @JsonProperty("totalhours")
+    @ApiModelProperty("总工时")
+    private Integer totalhours;
     /**
-     * 开始日期
+     * 已计划阶段需求数量
      */
     @TableField(exist = false)
-    @JSONField(name = "begin")
-    @JsonProperty("begin")
-    private String begin;
+    @JSONField(name = "planedstagestorycnt")
+    @JsonProperty("planedstagestorycnt")
+    @ApiModelProperty("已计划阶段需求数量")
+    private Integer planedstagestorycnt;
     /**
-     * 结束日期
+     * 研发中阶段需求数量
      */
     @TableField(exist = false)
-    @JSONField(name = "end")
-    @JsonProperty("end")
-    private String end;
-    /**
-     * 草稿
-     */
-    @TableField(exist = false)
-    @JSONField(name = "waitstorycnt")
-    @JsonProperty("waitstorycnt")
-    private Integer waitstorycnt;
+    @JSONField(name = "developingstagestorycnt")
+    @JsonProperty("developingstagestorycnt")
+    @ApiModelProperty("研发中阶段需求数量")
+    private Integer developingstagestorycnt;
     /**
      * 激活
      */
     @TableField(exist = false)
     @JSONField(name = "activestorycnt")
     @JsonProperty("activestorycnt")
+    @ApiModelProperty("激活")
     private Integer activestorycnt;
-    /**
-     * 已变更
-     */
-    @TableField(exist = false)
-    @JSONField(name = "changedstorycnt")
-    @JsonProperty("changedstorycnt")
-    private Integer changedstorycnt;
-    /**
-     * 已关闭
-     */
-    @TableField(exist = false)
-    @JSONField(name = "closedstorycnt")
-    @JsonProperty("closedstorycnt")
-    private Integer closedstorycnt;
-    /**
-     * 总计
-     */
-    @TableField(exist = false)
-    @JSONField(name = "storycnt")
-    @JsonProperty("storycnt")
-    private Integer storycnt;
     /**
      * Bug数
      */
     @TableField(exist = false)
     @JSONField(name = "bugcnt")
     @JsonProperty("bugcnt")
+    @ApiModelProperty("Bug数")
     private Integer bugcnt;
     /**
      * 未开始阶段需求数量
@@ -134,167 +253,103 @@ public class ProductSum extends EntityMP implements Serializable {
     @TableField(exist = false)
     @JSONField(name = "waitstagestorycnt")
     @JsonProperty("waitstagestorycnt")
+    @ApiModelProperty("未开始阶段需求数量")
     private Integer waitstagestorycnt;
-    /**
-     * 已计划阶段需求数量
-     */
-    @TableField(exist = false)
-    @JSONField(name = "planedstagestorycnt")
-    @JsonProperty("planedstagestorycnt")
-    private Integer planedstagestorycnt;
-    /**
-     * 已立项阶段需求数量
-     */
-    @TableField(exist = false)
-    @JSONField(name = "projectedstagestorycnt")
-    @JsonProperty("projectedstagestorycnt")
-    private Integer projectedstagestorycnt;
-    /**
-     * 研发中阶段需求数量
-     */
-    @TableField(exist = false)
-    @JSONField(name = "developingstagestorycnt")
-    @JsonProperty("developingstagestorycnt")
-    private Integer developingstagestorycnt;
-    /**
-     * 研发完毕阶段需求数量
-     */
-    @TableField(exist = false)
-    @JSONField(name = "developedstagestorycnt")
-    @JsonProperty("developedstagestorycnt")
-    private Integer developedstagestorycnt;
-    /**
-     * 测试中阶段需求数量
-     */
-    @TableField(exist = false)
-    @JSONField(name = "testingstagestorycnt")
-    @JsonProperty("testingstagestorycnt")
-    private Integer testingstagestorycnt;
-    /**
-     * 测试完毕阶段需求数量
-     */
-    @TableField(exist = false)
-    @JSONField(name = "testedstagestorycnt")
-    @JsonProperty("testedstagestorycnt")
-    private Integer testedstagestorycnt;
-    /**
-     * 已验收阶段需求数量
-     */
-    @TableField(exist = false)
-    @JSONField(name = "verifiedstagestorycnt")
-    @JsonProperty("verifiedstagestorycnt")
-    private Integer verifiedstagestorycnt;
-    /**
-     * 已发布阶段需求数量
-     */
-    @TableField(exist = false)
-    @JSONField(name = "releasedstagestorycnt")
-    @JsonProperty("releasedstagestorycnt")
-    private Integer releasedstagestorycnt;
-    /**
-     * 已关闭阶段需求数量
-     */
-    @TableField(exist = false)
-    @JSONField(name = "closedstagestorycnt")
-    @JsonProperty("closedstagestorycnt")
-    private Integer closedstagestorycnt;
-    /**
-     * 未开始阶段需求工时
-     */
-    @TableField(exist = false)
-    @JSONField(name = "waitstagestoryhours")
-    @JsonProperty("waitstagestoryhours")
-    private Integer waitstagestoryhours;
-    /**
-     * 已关闭阶段需求工时
-     */
-    @TableField(exist = false)
-    @JSONField(name = "closedstagestoryhours")
-    @JsonProperty("closedstagestoryhours")
-    private Integer closedstagestoryhours;
-    /**
-     * 已发布阶段需求工时
-     */
-    @TableField(exist = false)
-    @JSONField(name = "releasedstagestoryhours")
-    @JsonProperty("releasedstagestoryhours")
-    private Integer releasedstagestoryhours;
     /**
      * 已验收阶段需求工时
      */
     @TableField(exist = false)
     @JSONField(name = "verifiedstagestoryhours")
     @JsonProperty("verifiedstagestoryhours")
+    @ApiModelProperty("已验收阶段需求工时")
     private Integer verifiedstagestoryhours;
     /**
-     * 测试完毕阶段需求工时
+     * 草稿
      */
     @TableField(exist = false)
-    @JSONField(name = "testedstagestoryhours")
-    @JsonProperty("testedstagestoryhours")
-    private Integer testedstagestoryhours;
+    @JSONField(name = "waitstorycnt")
+    @JsonProperty("waitstorycnt")
+    @ApiModelProperty("草稿")
+    private Integer waitstorycnt;
     /**
-     * 测试中阶段需求工时
+     * 测试中阶段需求数量
      */
     @TableField(exist = false)
-    @JSONField(name = "testingstagestoryhours")
-    @JsonProperty("testingstagestoryhours")
-    private Integer testingstagestoryhours;
+    @JSONField(name = "testingstagestorycnt")
+    @JsonProperty("testingstagestorycnt")
+    @ApiModelProperty("测试中阶段需求数量")
+    private Integer testingstagestorycnt;
+    /**
+     * 开始日期
+     */
+    @TableField(exist = false)
+    @JSONField(name = "begin")
+    @JsonProperty("begin")
+    @ApiModelProperty("开始日期")
+    private String begin;
+    /**
+     * 计划
+     */
+    @TableField(exist = false)
+    @JSONField(name = "plan")
+    @JsonProperty("plan")
+    @ApiModelProperty("计划")
+    private Long plan;
+    /**
+     * 已发布阶段需求工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "releasedstagestoryhours")
+    @JsonProperty("releasedstagestoryhours")
+    @ApiModelProperty("已发布阶段需求工时")
+    private Integer releasedstagestoryhours;
     /**
      * 研发完毕阶段需求工时
      */
     @TableField(exist = false)
     @JSONField(name = "developedstagestoryhours")
     @JsonProperty("developedstagestoryhours")
+    @ApiModelProperty("研发完毕阶段需求工时")
     private Integer developedstagestoryhours;
     /**
-     * 研发中阶段需求工时
+     * 产品名称
      */
-    @TableField(exist = false)
-    @JSONField(name = "developingstagestoryhours")
-    @JsonProperty("developingstagestoryhours")
-    private Integer developingstagestoryhours;
+    @TableField(value = "`name`")
+    @JSONField(name = "name")
+    @JsonProperty("name")
+    @ApiModelProperty("产品名称")
+    private String name;
     /**
-     * 已立项阶段需求工时
+     * 研发完毕阶段需求数量
      */
     @TableField(exist = false)
-    @JSONField(name = "projectedstagestoryhours")
-    @JsonProperty("projectedstagestoryhours")
-    private Integer projectedstagestoryhours;
+    @JSONField(name = "developedstagestorycnt")
+    @JsonProperty("developedstagestorycnt")
+    @ApiModelProperty("研发完毕阶段需求数量")
+    private Integer developedstagestorycnt;
+    /**
+     * 测试脚本
+     */
+    @TableField(exist = false)
+    @JSONField(name = "automation")
+    @JsonProperty("automation")
+    @ApiModelProperty("测试脚本")
+    private Integer automation;
     /**
      * 已计划阶段需求工时
      */
     @TableField(exist = false)
     @JSONField(name = "planedstagestoryhours")
     @JsonProperty("planedstagestoryhours")
+    @ApiModelProperty("已计划阶段需求工时")
     private Integer planedstagestoryhours;
-    /**
-     * 总工时
-     */
-    @TableField(exist = false)
-    @JSONField(name = "totalhours")
-    @JsonProperty("totalhours")
-    private Integer totalhours;
-    /**
-     * 代码错误
-     */
-    @TableField(exist = false)
-    @JSONField(name = "codeerror")
-    @JsonProperty("codeerror")
-    private Integer codeerror;
-    /**
-     * 配置相关
-     */
-    @TableField(exist = false)
-    @JSONField(name = "config")
-    @JsonProperty("config")
-    private Integer config;
     /**
      * 安装部署
      */
     @TableField(exist = false)
     @JSONField(name = "install")
     @JsonProperty("install")
+    @ApiModelProperty("安装部署")
     private Integer install;
     /**
      * 安全相关
@@ -302,59 +357,42 @@ public class ProductSum extends EntityMP implements Serializable {
     @TableField(exist = false)
     @JSONField(name = "security")
     @JsonProperty("security")
+    @ApiModelProperty("安全相关")
     private Integer security;
     /**
-     * 性能问题
+     * 已发布阶段需求数量
      */
     @TableField(exist = false)
-    @JSONField(name = "performance")
-    @JsonProperty("performance")
-    private Integer performance;
+    @JSONField(name = "releasedstagestorycnt")
+    @JsonProperty("releasedstagestorycnt")
+    @ApiModelProperty("已发布阶段需求数量")
+    private Integer releasedstagestorycnt;
+    /**
+     * 测试完毕阶段需求数量
+     */
+    @TableField(exist = false)
+    @JSONField(name = "testedstagestorycnt")
+    @JsonProperty("testedstagestorycnt")
+    @ApiModelProperty("测试完毕阶段需求数量")
+    private Integer testedstagestorycnt;
     /**
      * 标准规范
      */
     @TableField(exist = false)
     @JSONField(name = "standard")
     @JsonProperty("standard")
+    @ApiModelProperty("标准规范")
     private Integer standard;
     /**
-     * 测试脚本
+     * 已关闭阶段需求数量
      */
     @TableField(exist = false)
-    @JSONField(name = "automation")
-    @JsonProperty("automation")
-    private Integer automation;
-    /**
-     * 设计缺陷
-     */
-    @TableField(exist = false)
-    @JSONField(name = "designdefect")
-    @JsonProperty("designdefect")
-    private Integer designdefect;
-    /**
-     * 其他
-     */
-    @TableField(exist = false)
-    @JSONField(name = "others")
-    @JsonProperty("others")
-    private Integer others;
-    /**
-     * bug总计
-     */
-    @TableField(exist = false)
-    @JSONField(name = "bugsum")
-    @JsonProperty("bugsum")
-    private Integer bugsum;
+    @JSONField(name = "closedstagestorycnt")
+    @JsonProperty("closedstagestorycnt")
+    @ApiModelProperty("已关闭阶段需求数量")
+    private Integer closedstagestorycnt;
 
 
-
-    /**
-     * 设置 [产品名称]
-     */
-    public void setName(String name) {
-        this.name = name;
-        this.modify("name", name);
-    }
 
     /**
      * 设置 [产品负责人]
@@ -362,6 +400,14 @@ public class ProductSum extends EntityMP implements Serializable {
     public void setPo(String po) {
         this.po = po;
         this.modify("po", po);
+    }
+
+    /**
+     * 设置 [产品名称]
+     */
+    public void setName(String name) {
+        this.name = name;
+        this.modify("name", name);
     }
 
 

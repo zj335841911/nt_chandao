@@ -1,6 +1,6 @@
 
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { GridView9Base } from '@/studio-core';
 import CaseService from '@/service/case/case-service';
 import CaseAuthService from '@/authservice/case/case-auth-service';
@@ -105,7 +105,7 @@ export class CaseGridView9_StoryRelatedBase extends GridView9Base {
      * @type {string}
      * @memberof CaseGridView9_StoryRelatedBase
      */
-	protected viewtag: string = '5d3b1d4c90b8b3a2013ccd3f3a9d5f17';
+	protected viewtag: string = '578d2fd4888ee9b9a2d87ff640e786cd';
 
     /**
      * 视图名称

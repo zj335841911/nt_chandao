@@ -18,6 +18,9 @@ export default class TreeExpViewtreeexpbarModel {
         name: 'path',
       },
       {
+        name: 'orderpk',
+      },
+      {
         name: 'deleted',
       },
       {
@@ -52,19 +55,16 @@ export default class TreeExpViewtreeexpbarModel {
         name: 'collector',
       },
       {
-        name: 'root',
-      },
-      {
-        name: 'parent',
-      },
-      {
         name: 'rootname',
       },
       {
         name: 'parentname',
       },
       {
-        name: 'orderpk',
+        name: 'root',
+      },
+      {
+        name: 'parent',
       },
     ]
   }

@@ -25,13 +25,13 @@ import cn.ibizlab.pms.util.filter.SearchContextBase;
 @Slf4j
 @Data
 public class PSSubSysSADESearchContext extends SearchContextBase {
-	private String n_pssubsyssadename_like;//[外部接口实体名称]
+	private String n_syncmodelmode_eq;//[同步模型模式]
 
 	private Integer n_majorflag_eq;//[接口模式]
 
-	private String n_syncmodelmode_eq;//[同步模型模式]
-
 	private String n_usercat_eq;//[用户分类]
+
+	private String n_pssubsyssadename_like;//[外部接口实体名称]
 
 	private String n_pssubsysserviceapiname_eq;//[子系统接口]
 

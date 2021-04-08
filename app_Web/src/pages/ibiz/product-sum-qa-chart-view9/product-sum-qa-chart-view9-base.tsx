@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { ChartView9Base } from '@/studio-core';
 import ProductSumService from '@/service/product-sum/product-sum-service';
 import ProductSumAuthService from '@/authservice/product-sum/product-sum-auth-service';
@@ -121,7 +121,7 @@ export class ProductSumQaChartView9Base extends ChartView9Base {
      * @type {string}
      * @memberof ProductSumQaChartView9Base
      */
-	protected viewtag: string = 'e842d6d727d88c2c78b59c033fa27f34';
+	protected viewtag: string = '2e1e24a39d1f1969f411b507d49fc640';
 
     /**
      * 视图名称

@@ -15,38 +15,56 @@ export class Usr2MobTabExpViewMyTiJiaotabviewpanelModel {
   public getDataItems(): any[] {
     return [
       {
+        name: 'issubmit',
+      },
+      {
+        name: 'plannextweek',
+      },
+      {
         name: 'ibzweeklyname',
+      },
+      {
+        name: 'mailto',
+      },
+      {
+        name: 'reporttopk',
+      },
+      {
+        name: 'nextweektask',
       },
       {
         name: 'ibzweekly',
         prop: 'ibzweeklyid',
       },
       {
+        name: 'submittime',
+      },
+      {
+        name: 'mailtopk',
+      },
+      {
         name: 'createman',
       },
       {
-        name: 'createdate',
-      },
-      {
-        name: 'updateman',
-      },
-      {
-        name: 'updatedate',
-      },
-      {
-        name: 'account',
-      },
-      {
-        name: 'mailto',
+        name: 'reportstatus',
       },
       {
         name: 'files',
       },
       {
-        name: 'issubmit',
+        name: 'workthisweek',
       },
       {
         name: 'reportto',
+      },
+      {
+        name: 'updatemanname',
+      },
+      {
+        name: 'account',
+      },
+      {
+        name: 'thisweektask',
       },
       {
         name: 'comment',
@@ -55,34 +73,16 @@ export class Usr2MobTabExpViewMyTiJiaotabviewpanelModel {
         name: 'date',
       },
       {
-        name: 'workthisweek',
-      },
-      {
-        name: 'plannextweek',
-      },
-      {
-        name: 'thisweektask',
-      },
-      {
-        name: 'nextweektask',
-      },
-      {
-        name: 'updatemanname',
+        name: 'updateman',
       },
       {
         name: 'createmanname',
       },
       {
-        name: 'reportstatus',
+        name: 'createdate',
       },
       {
-        name: 'submittime',
-      },
-      {
-        name: 'reporttopk',
-      },
-      {
-        name: 'mailtopk',
+        name: 'updatedate',
       },
     ]
   }

@@ -1,6 +1,6 @@
 
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { GridViewBase } from '@/studio-core';
 import TaskService from '@/service/task/task-service';
 import TaskAuthService from '@/authservice/task/task-auth-service';
@@ -99,6 +99,14 @@ export class TaskStorySubTaskNewViewBase extends GridViewBase {
             isRawValue: false,
             value: 'story',
         },
+        'modulename': {
+            isRawValue: false,
+            value: 'modulename',
+        },
+        'title': {
+            isRawValue: false,
+            value: 'title',
+        },
         'module': {
             isRawValue: false,
             value: 'module',
@@ -159,7 +167,7 @@ export class TaskStorySubTaskNewViewBase extends GridViewBase {
      * @type {string}
      * @memberof TaskStorySubTaskNewViewBase
      */
-	protected viewtag: string = '1fb2e83b5cac45eddd44adf32ad9da14';
+	protected viewtag: string = '6a189c117bb2ba89148b30630a785736';
 
     /**
      * 视图名称

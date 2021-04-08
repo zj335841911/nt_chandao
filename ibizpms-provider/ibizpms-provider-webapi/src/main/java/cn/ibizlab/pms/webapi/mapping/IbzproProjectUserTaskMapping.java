@@ -12,4 +12,3 @@ public interface IbzproProjectUserTaskMapping extends MappingBase<IbzproProjectU
 
 
 }
-

@@ -27,45 +27,11 @@ import cn.ibizlab.pms.core.report.domain.IbzDaily;
 @Data
 public class IbzDailySearchContext extends QueryWrapperContext<IbzDaily> {
 
-	private String n_ibz_dailyname_like;//[日报名称]
-	public void setN_ibz_dailyname_like(String n_ibz_dailyname_like) {
-        this.n_ibz_dailyname_like = n_ibz_dailyname_like;
-        if(!ObjectUtils.isEmpty(this.n_ibz_dailyname_like)){
-            this.getSearchCond().like("`ibz_dailyname`", n_ibz_dailyname_like);
-        }
-    }
-    @JsonFormat(pattern="yyyy-MM-dd", timezone="GMT+8")
-    @JSONField(format="yyyy-MM-dd")
-	private Timestamp n_date_eq;//[日期]
-	public void setN_date_eq(Timestamp n_date_eq) {
-        this.n_date_eq = n_date_eq;
-        if(!ObjectUtils.isEmpty(this.n_date_eq)){
-            this.getSearchCond().eq("`date`", n_date_eq);
-        }
-    }
-    @JsonFormat(pattern="yyyy-MM-dd", timezone="GMT+8")
-    @JSONField(format="yyyy-MM-dd")
-	private Timestamp n_date_gtandeq;//[日期]
-	public void setN_date_gtandeq(Timestamp n_date_gtandeq) {
-        this.n_date_gtandeq = n_date_gtandeq;
-        if(!ObjectUtils.isEmpty(this.n_date_gtandeq)){
-            this.getSearchCond().ge("`date`", n_date_gtandeq);
-        }
-    }
-    @JsonFormat(pattern="yyyy-MM-dd", timezone="GMT+8")
-    @JSONField(format="yyyy-MM-dd")
-	private Timestamp n_date_ltandeq;//[日期]
-	public void setN_date_ltandeq(Timestamp n_date_ltandeq) {
-        this.n_date_ltandeq = n_date_ltandeq;
-        if(!ObjectUtils.isEmpty(this.n_date_ltandeq)){
-            this.getSearchCond().le("`date`", n_date_ltandeq);
-        }
-    }
-	private String n_account_eq;//[用户]
-	public void setN_account_eq(String n_account_eq) {
-        this.n_account_eq = n_account_eq;
-        if(!ObjectUtils.isEmpty(this.n_account_eq)){
-            this.getSearchCond().eq("`account`", n_account_eq);
+	private String n_reportto_eq;//[汇报给]
+	public void setN_reportto_eq(String n_reportto_eq) {
+        this.n_reportto_eq = n_reportto_eq;
+        if(!ObjectUtils.isEmpty(this.n_reportto_eq)){
+            this.getSearchCond().eq("`reportto`", n_reportto_eq);
         }
     }
 	private String n_issubmit_eq;//[是否提交]
@@ -75,11 +41,31 @@ public class IbzDailySearchContext extends QueryWrapperContext<IbzDaily> {
             this.getSearchCond().eq("`issubmit`", n_issubmit_eq);
         }
     }
-	private String n_reportto_eq;//[汇报给]
-	public void setN_reportto_eq(String n_reportto_eq) {
-        this.n_reportto_eq = n_reportto_eq;
-        if(!ObjectUtils.isEmpty(this.n_reportto_eq)){
-            this.getSearchCond().eq("`reportto`", n_reportto_eq);
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone="GMT+8")
+    @JSONField(format="yyyy-MM-dd HH:mm:ss")
+	private Timestamp n_date_eq;//[日期]
+	public void setN_date_eq(Timestamp n_date_eq) {
+        this.n_date_eq = n_date_eq;
+        if(!ObjectUtils.isEmpty(this.n_date_eq)){
+            this.getSearchCond().eq("`date`", n_date_eq);
+        }
+    }
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone="GMT+8")
+    @JSONField(format="yyyy-MM-dd HH:mm:ss")
+	private Timestamp n_date_gtandeq;//[日期]
+	public void setN_date_gtandeq(Timestamp n_date_gtandeq) {
+        this.n_date_gtandeq = n_date_gtandeq;
+        if(!ObjectUtils.isEmpty(this.n_date_gtandeq)){
+            this.getSearchCond().ge("`date`", n_date_gtandeq);
+        }
+    }
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", timezone="GMT+8")
+    @JSONField(format="yyyy-MM-dd HH:mm:ss")
+	private Timestamp n_date_ltandeq;//[日期]
+	public void setN_date_ltandeq(Timestamp n_date_ltandeq) {
+        this.n_date_ltandeq = n_date_ltandeq;
+        if(!ObjectUtils.isEmpty(this.n_date_ltandeq)){
+            this.getSearchCond().le("`date`", n_date_ltandeq);
         }
     }
 	private String n_reportstatus_eq;//[状态]
@@ -87,6 +73,20 @@ public class IbzDailySearchContext extends QueryWrapperContext<IbzDaily> {
         this.n_reportstatus_eq = n_reportstatus_eq;
         if(!ObjectUtils.isEmpty(this.n_reportstatus_eq)){
             this.getSearchCond().eq("`reportstatus`", n_reportstatus_eq);
+        }
+    }
+	private String n_account_eq;//[用户]
+	public void setN_account_eq(String n_account_eq) {
+        this.n_account_eq = n_account_eq;
+        if(!ObjectUtils.isEmpty(this.n_account_eq)){
+            this.getSearchCond().eq("`account`", n_account_eq);
+        }
+    }
+	private String n_ibz_dailyname_like;//[日报名称]
+	public void setN_ibz_dailyname_like(String n_ibz_dailyname_like) {
+        this.n_ibz_dailyname_like = n_ibz_dailyname_like;
+        if(!ObjectUtils.isEmpty(this.n_ibz_dailyname_like)){
+            this.getSearchCond().like("`ibz_dailyname`", n_ibz_dailyname_like);
         }
     }
 

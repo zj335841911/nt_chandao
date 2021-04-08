@@ -12,4 +12,3 @@ public interface IBZProStoryMapping extends MappingBase<IBZProStoryDTO, IBZProSt
 
 
 }
-

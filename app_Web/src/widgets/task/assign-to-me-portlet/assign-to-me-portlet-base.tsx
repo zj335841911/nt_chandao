@@ -75,7 +75,7 @@ export class AssignToMePortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet6_uddf7311_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet6_ueb3273b_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -251,8 +251,8 @@ export class AssignToMePortletBase extends MainControlBase {
      * @memberof AssignToMeBase
      */
     public uiAction(tag:string,event:any){
-        if(Object.is(tag,'uddf7311')){
-            this.dashboard_sysportlet6_uddf7311_click(null,tag,event);
+        if(Object.is(tag,'ueb3273b')){
+            this.dashboard_sysportlet6_ueb3273b_click(null,tag,event);
         }
     }
 

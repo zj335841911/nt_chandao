@@ -1,6 +1,6 @@
 
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { GridView9Base } from '@/studio-core';
 import ProductService from '@/service/product/product-service';
 import ProductAuthService from '@/authservice/product/product-auth-service';
@@ -105,7 +105,7 @@ export class ProductProjectGridView9Base extends GridView9Base {
      * @type {string}
      * @memberof ProductProjectGridView9Base
      */
-	protected viewtag: string = '0b1b51910ca13751bfd6d356dcadbbce';
+	protected viewtag: string = '581084cd753b743ee95f85d6b2ee472c';
 
     /**
      * 视图名称

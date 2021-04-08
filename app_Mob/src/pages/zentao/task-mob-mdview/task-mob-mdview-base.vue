@@ -210,7 +210,7 @@ export default class TaskMobMDViewBase extends Vue {
 	 * @type {string}
 	 * @memberof TaskMobMDViewBase
 	 */
-	protected viewtag: string = '0741315806513b247c661851d7746f51';
+	protected viewtag: string = 'd572dbdcbf9237fe732b4e587b4e2fd7';
 
     /**
      * 视图上下文
@@ -768,10 +768,22 @@ export default class TaskMobMDViewBase extends Vue {
         //导航参数处理
         const { context: _context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, {});
         let deResParameters: any[] = [];
+        if ((context as any).project && (context as any).projectmodule && true) {
+            deResParameters = [
+            { pathName: 'projects', parameterName: 'project' },
+            { pathName: 'projectmodules', parameterName: 'projectmodule' },
+            ]
+        }
         if ((context as any).product && (context as any).story && true) {
             deResParameters = [
             { pathName: 'products', parameterName: 'product' },
             { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        if ((context as any).product && (context as any).productplan && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'productplans', parameterName: 'productplan' },
             ]
         }
         if ((context as any).project && true) {
@@ -782,6 +794,16 @@ export default class TaskMobMDViewBase extends Vue {
         if ((context as any).story && true) {
             deResParameters = [
             { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        if ((context as any).productplan && true) {
+            deResParameters = [
+            { pathName: 'productplans', parameterName: 'productplan' },
+            ]
+        }
+        if ((context as any).projectmodule && true) {
+            deResParameters = [
+            { pathName: 'projectmodules', parameterName: 'projectmodule' },
             ]
         }
 
@@ -828,10 +850,22 @@ export default class TaskMobMDViewBase extends Vue {
         //导航参数处理
         const { context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, _context, params, {});
         let deResParameters: any[] = [];
+        if ((context as any).project && (context as any).projectmodule && true) {
+            deResParameters = [
+            { pathName: 'projects', parameterName: 'project' },
+            { pathName: 'projectmodules', parameterName: 'projectmodule' },
+            ]
+        }
         if ((context as any).product && (context as any).story && true) {
             deResParameters = [
             { pathName: 'products', parameterName: 'product' },
             { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        if ((context as any).product && (context as any).productplan && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'productplans', parameterName: 'productplan' },
             ]
         }
         if ((context as any).project && true) {
@@ -842,6 +876,16 @@ export default class TaskMobMDViewBase extends Vue {
         if ((context as any).story && true) {
             deResParameters = [
             { pathName: 'stories', parameterName: 'story' },
+            ]
+        }
+        if ((context as any).productplan && true) {
+            deResParameters = [
+            { pathName: 'productplans', parameterName: 'productplan' },
+            ]
+        }
+        if ((context as any).projectmodule && true) {
+            deResParameters = [
+            { pathName: 'projectmodules', parameterName: 'projectmodule' },
             ]
         }
 

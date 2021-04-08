@@ -15,16 +15,16 @@
 
     <dependencies>
         <dependency>
-		    <groupId>org.springframework.data</groupId>
-			<artifactId>spring-data-commons</artifactId>
-		</dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-commons</artifactId>
+        </dependency>
 
         <dependency>
-			<groupId>org.springframework.security</groupId>
-	    	<artifactId>spring-security-core</artifactId>
-		</dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-core</artifactId>
+        </dependency>
 
-		<dependency>
+        <dependency>
             <groupId>net.logstash.logback</groupId>
             <artifactId>logstash-logback-encoder</artifactId>
         </dependency>
@@ -130,6 +130,40 @@
             <groupId>org.sction</groupId>
             <artifactId>phprpc</artifactId>
             <version>3.0.2</version>
+        </dependency>
+
+        <!-- drools -->
+        <dependency>
+            <groupId>org.drools</groupId>
+            <artifactId>drools-compiler</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.drools</groupId>
+            <artifactId>drools-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.kie</groupId>
+            <artifactId>kie-spring</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.kie</groupId>
+            <artifactId>kie-api</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.flowable</groupId>
+            <artifactId>flowable-json-converter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.flowable</groupId>
+            <artifactId>flowable-ui-modeler-conf</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.apache.logging.log4j</groupId>
+                    <artifactId>log4j-slf4j-impl</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
     </dependencies>

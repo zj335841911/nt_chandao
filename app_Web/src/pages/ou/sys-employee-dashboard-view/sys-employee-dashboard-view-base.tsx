@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { DashboardViewBase } from '@/studio-core';
 import SysEmployeeService from '@/service/sys-employee/sys-employee-service';
 import SysEmployeeAuthService from '@/authservice/sys-employee/sys-employee-auth-service';
@@ -100,7 +100,7 @@ export class SysEmployeeDashboardViewBase extends DashboardViewBase {
      * @type {string}
      * @memberof SysEmployeeDashboardViewBase
      */
-	protected viewtag: string = 'a6e3310693a8abeade4e5d1f928ab1f6';
+	protected viewtag: string = 'e1d5f010f5462cd529bf9d820bc3d518';
 
     /**
      * 视图名称

@@ -12,4 +12,3 @@ public interface BugStatsMapping extends MappingBase<BugStatsDTO, BugStats> {
 
 
 }
-

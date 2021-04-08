@@ -8,6 +8,7 @@ import cn.ibizlab.pms.core.ibiz.service.impl.IbzFavoritesServiceImpl;
 import cn.ibizlab.pms.core.ou.client.SysEmployeeFeignClient;
 import cn.ibizlab.pms.core.ou.domain.SysEmployee;
 import cn.ibizlab.pms.core.ou.filter.SysEmployeeSearchContext;
+import cn.ibizlab.pms.core.util.ibizzentao.helper.TaskHelper;
 import cn.ibizlab.pms.core.util.ibizzentao.helper.ZTBaseHelper;
 import cn.ibizlab.pms.core.util.message.SendMessage;
 import cn.ibizlab.pms.core.util.zentao.service.IIBZZTFileService;
@@ -55,6 +56,9 @@ public class TaskExService extends TaskServiceImpl {
 
     @Autowired
     SysEmployeeFeignClient sysEmployeeFeignClient;
+
+    @Autowired
+    TaskHelper taskHelper;
 
     @Override
     protected Class currentModelClass() {
@@ -244,7 +248,110 @@ public class TaskExService extends TaskServiceImpl {
         return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
+    /**
+     * 查询集合 项目任务
+     */
     @Override
+    public Page<Task> searchPlanTask(TaskSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchPlanTask(context.getPages(),context,context.getSelectCond());
+        List<Task> records = pages.getRecords();
+
+        this.setChildTaskToParent(records,context,pages);
+        pages.setRecords(records);
+        return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+
+    public void setChildTaskToParent(List<Task> records,TaskSearchContext context,com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages){
+        List<Long> allTaskId = new ArrayList<>();
+        for (Task task : records) {
+            if (task.getParent() < 0){//父任务
+                allTaskId.add(task.getId());
+            }
+        }
+
+        for (int i = 0; i < records.size(); i++) {
+            if (records.get(i).getParent() > 0 && allTaskId.contains(records.get(i).getParent())){
+                //说明这个子任务的父任务也在这个查询中
+                records.remove(i);
+                i--;
+                continue;
+            }
+            if(records.get(i).getParent() == 0) {
+                continue;
+            }
+            TaskSearchContext context1 = new TaskSearchContext();
+            context1.setSelectCond(context.getSelectCond().clone());
+            context1.setN_parent_eq(records.get(i).getId());
+            List<Task> taskList = this.searchDefault(context1).getContent();
+            records.get(i).set("items", taskList);
+            pages.setPages(pages.getTotal() + taskList.size());
+        }
+    }
+    /**
+     * 查询集合 项目任务
+     */
+    @Override
+    public Page<Task> searchProjectAppTask(TaskSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchProjectAppTask(context.getPages(),context,context.getSelectCond());
+        for(Task task : pages.getRecords()) {
+            if(task.getParent() == 0) {
+                continue;
+            }
+            TaskSearchContext context1 = new TaskSearchContext();
+            context1.setSelectCond(context.getSelectCond().clone());
+            context1.setN_parent_eq(task.getId());
+            List<Task> taskList = this.searchDefault(context1).getContent();
+            task.set("items", taskList);
+            pages.setPages(pages.getTotal() + taskList.size());
+
+        }
+        return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 我相关的任务
+     */
+    @Override
+    public Page<Task> searchMyAllTask(TaskSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchMyAllTask(context.getPages(),context,context.getSelectCond());
+        for(Task task : pages.getRecords()) {
+            if(task.getParent() == 0) {
+                continue;
+            }
+            TaskSearchContext context1 = new TaskSearchContext();
+            context1.setSelectCond(context.getSelectCond().clone());
+            context1.setN_parent_eq(task.getId());
+            List<Task> taskList = this.searchDefault(context1).getContent();
+            task.set("items", taskList);
+            pages.setPages(pages.getTotal() + taskList.size());
+
+        }
+        return new PageImpl<Task>(pages.getRecords(),context.getPageable(),pages.getTotal());
+    }
+    /**
+     * 查询集合 我相关的任务
+     */
+    @Override
+    public Page<Task> searchAssignedToMyTask(TaskSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchAssignedToMyTask(context.getPages(),context,context.getSelectCond());
+        for(Task task : pages.getRecords()) {
+            if(task.getParent() == 0) {
+                continue;
+            }
+            TaskSearchContext context1 = new TaskSearchContext();
+            context1.setSelectCond(context.getSelectCond().clone());
+            context1.setN_parent_eq(task.getId());
+            List<Task> taskList = this.searchDefault(context1).getContent();
+            task.set("items", taskList);
+            pages.setPages(pages.getTotal() + taskList.size());
+
+        }
+        return new PageImpl<Task>(pages.getRecords(),context.getPageable(),pages.getTotal());
+    }
+
+
+        @Override
     @Transactional
     public Task get(Long key) {
         Task et = getById(key);
@@ -291,6 +398,17 @@ public class TaskExService extends TaskServiceImpl {
             et.setConsumed(taskTeams.get(0).getConsumed());
         }
         return et;
+    }
+
+    @Override
+    @Transactional
+    public Task createCycleTasks(Task et) {
+        List<Task> taskList = this.list(new QueryWrapper<Task>().eq("cycle", 1));
+        for (Task task : taskList) {
+            taskHelper.createByCycle(task);
+        }
+        //自定义代码
+        return  super.createCycleTasks(et);
     }
 }
 

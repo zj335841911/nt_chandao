@@ -67,45 +67,13 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
     protected cn.ibizlab.pms.core.ibiz.service.IProjectModuleService projectmoduleService;
     @Autowired
     @Lazy
+    protected cn.ibizlab.pms.core.zentao.service.IProductPlanService productplanService;
+    @Autowired
+    @Lazy
     protected cn.ibizlab.pms.core.zentao.service.IProjectService projectService;
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.IStoryService storyService;
-
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.ITaskUpdate__MSDenyLogic update__msdenyLogic;
-
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.ITaskRemove__MSDenyLogic remove__msdenyLogic;
-
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.ITaskResetTaskestimateLogic resettaskestimateLogic;
-
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.ITaskgetUsernamesLogic getusernamesLogic;
-
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.ITaskTaskFavoritesLogic taskfavoritesLogic;
-
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.ITaskTaskCancleFavoritesLogic taskcanclefavoritesLogic;
-
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.ITaskUpdateStoryVersionLogic updatestoryversionLogic;
-
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.ITaskUpdateStoryVersion__MSDenyLogic updatestoryversion__msdenyLogic;
-    @Autowired
-    @Lazy
-    ITaskService proxyService;
 
     protected int batchSize = 500;
 
@@ -146,10 +114,8 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
     @Override
     @Transactional
     public Task get(Long key) {
-        Task tempET = new Task();
-        tempET.set("id", key);
         Task et = getById(key);
-        if (et == null) {
+        if(et == null){
             et = new Task();
             et.setId(key);
         }
@@ -157,7 +123,6 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
             et.setTaskteam(taskteamService.selectByRoot(key));
             et.setTaskestimate(taskestimateService.selectByTask(key));
         }
-        resettaskestimateLogic.execute(et);
         return et;
     }
 
@@ -246,6 +211,22 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
 	 	 return true;
     }
 
+    @Override
+    @Transactional
+    public Task createCycleTasks(Task et) {
+        //自定义代码
+        return et;
+    }
+
+    @Override
+    @Transactional
+    public boolean createCycleTasksBatch(List<Task> etList) {
+        for(Task et : etList) {
+            createCycleTasks(et);
+        }
+        return true;
+    }
+
        @Override
     @Transactional
     public Task deleteEstimate(Task et) {
@@ -312,7 +293,8 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
         //自定义代码
         return et;
     }
-   @Override
+
+    @Override
     @Transactional
     public boolean getTeamUserLeftActivityBatch(List<Task> etList) {
         for(Task et : etList) {
@@ -327,7 +309,8 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
         //自定义代码
         return et;
     }
-   @Override
+
+    @Override
     @Transactional
     public boolean getTeamUserLeftStartBatch(List<Task> etList) {
         for(Task et : etList) {
@@ -339,8 +322,22 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
     @Override
     @Transactional
     public Task getUsernames(Task et) {
-        getusernamesLogic.execute(et);
-         return et;
+         return et ;
+    }
+
+       @Override
+    @Transactional
+    public Task linkPlan(Task et) {
+  			return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(cn.ibizlab.pms.core.util.ibizzentao.helper.TaskHelper.class).linkPlan(et);
+    }
+	
+	@Override
+    @Transactional
+    public boolean linkPlanBatch (List<Task> etList) {
+		 for(Task et : etList) {
+		   linkPlan(et);
+		 }
+	 	 return true;
     }
 
        @Override
@@ -406,7 +403,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
     @Override
     @Transactional
     public boolean save(Task et) {
-        if (!saveOrUpdate(et)) {
+        if(!saveOrUpdate(et)) {
             return false;
         }
         return true;
@@ -418,7 +415,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
+            return checkKey(et) ? getProxyService().update(et) : getProxyService().create(et);
         }
     }
 
@@ -436,10 +433,10 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
         return true;
     }
@@ -447,7 +444,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
     @Override
     @Transactional
     public void saveBatch(List<Task> list) {
-        list.forEach(item -> fillParentData(item));
+        list.forEach(item->fillParentData(item));
         List<Task> create = new ArrayList<>();
         List<Task> update = new ArrayList<>();
         for (Task et : list) {
@@ -458,10 +455,10 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
     }
 
@@ -537,8 +534,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
     @Override
     @Transactional
     public Task taskFavorites(Task et) {
-        taskfavoritesLogic.execute(et);
-         return et;
+         return et ;
     }
 
     @Override
@@ -547,7 +543,8 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
         //自定义代码
         return et;
     }
-   @Override
+
+    @Override
     @Transactional
     public boolean taskForwardBatch(List<Task> etList) {
         for(Task et : etList) {
@@ -559,61 +556,68 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
     @Override
     @Transactional
     public Task taskNFavorites(Task et) {
-        taskcanclefavoritesLogic.execute(et);
-         return et;
+         return et ;
     }
 
     @Override
     @Transactional
     public Task updateStoryVersion(Task et) {
-        updatestoryversionLogic.execute(et);
-         return et;
+         return et ;
     }
 
 
-    @Override
+	@Override
     public List<Task> selectByModule(Long id) {
         return baseMapper.selectByModule(id);
     }
     @Override
     public void removeByModule(Long id) {
-        this.remove(new QueryWrapper<Task>().eq("module", id));
+        this.remove(new QueryWrapper<Task>().eq("module",id));
     }
 
-    @Override
+	@Override
     public List<Task> selectByFrombug(Long id) {
         return baseMapper.selectByFrombug(id);
     }
     @Override
     public void removeByFrombug(Long id) {
-        this.remove(new QueryWrapper<Task>().eq("frombug", id));
+        this.remove(new QueryWrapper<Task>().eq("frombug",id));
     }
 
+	@Override
+    public List<Task> selectByPlan(Long id) {
+        return baseMapper.selectByPlan(id);
+    }
     @Override
+    public void removeByPlan(Long id) {
+        this.remove(new QueryWrapper<Task>().eq("plan",id));
+    }
+
+	@Override
     public List<Task> selectByProject(Long id) {
         return baseMapper.selectByProject(id);
     }
     @Override
     public void removeByProject(Long id) {
-        this.remove(new QueryWrapper<Task>().eq("project", id));
+        this.remove(new QueryWrapper<Task>().eq("project",id));
     }
 
-    @Override
+	@Override
     public List<Task> selectByStory(Long id) {
         return baseMapper.selectByStory(id);
     }
     @Override
     public void removeByStory(Long id) {
-        this.remove(new QueryWrapper<Task>().eq("story", id));
+        this.remove(new QueryWrapper<Task>().eq("story",id));
     }
 
-    @Override
+	@Override
     public List<Task> selectByParent(Long id) {
         return baseMapper.selectByParent(id);
     }
     @Override
     public void removeByParent(Long id) {
-        this.remove(new QueryWrapper<Task>().eq("parent", id));
+        this.remove(new QueryWrapper<Task>().eq("parent",id));
     }
 
 
@@ -622,7 +626,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
      */
     @Override
     public Page<Task> searchAssignedToMyTask(TaskSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchAssignedToMyTask(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchAssignedToMyTask(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -631,7 +635,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
      */
     @Override
     public Page<Task> searchAssignedToMyTaskPc(TaskSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchAssignedToMyTaskPc(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchAssignedToMyTaskPc(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -640,7 +644,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
      */
     @Override
     public Page<Task> searchBugTask(TaskSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchBugTask(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchBugTask(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -649,7 +653,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
      */
     @Override
     public Page<Task> searchByModule(TaskSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchByModule(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchByModule(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -658,7 +662,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
      */
     @Override
     public Page<Task> searchChildTask(TaskSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchChildTask(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchChildTask(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -667,7 +671,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
      */
     @Override
     public Page<Task> searchChildTaskTree(TaskSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchChildTaskTree(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchChildTaskTree(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -676,7 +680,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
      */
     @Override
     public Page<Task> searchCurFinishTask(TaskSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchCurFinishTask(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchCurFinishTask(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -685,7 +689,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
      */
     @Override
     public Page<Task> searchDefault(TaskSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchDefault(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -694,7 +698,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
      */
     @Override
     public Page<Task> searchDefaultRow(TaskSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchDefaultRow(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchDefaultRow(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -703,7 +707,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
      */
     @Override
     public Page<Task> searchESBulk(TaskSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchESBulk(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchESBulk(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -712,7 +716,16 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
      */
     @Override
     public Page<Task> searchMyAgentTask(TaskSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchMyAgentTask(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchMyAgentTask(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 我相关的任务
+     */
+    @Override
+    public Page<Task> searchMyAllTask(TaskSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchMyAllTask(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -721,7 +734,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
      */
     @Override
     public Page<Task> searchMyCompleteTask(TaskSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchMyCompleteTask(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchMyCompleteTask(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -730,7 +743,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
      */
     @Override
     public Page<Task> searchMyCompleteTaskMobDaily(TaskSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchMyCompleteTaskMobDaily(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchMyCompleteTaskMobDaily(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -739,7 +752,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
      */
     @Override
     public Page<Task> searchMyCompleteTaskMobMonthly(TaskSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchMyCompleteTaskMobMonthly(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchMyCompleteTaskMobMonthly(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -748,7 +761,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
      */
     @Override
     public Page<Task> searchMyCompleteTaskMonthlyZS(TaskSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchMyCompleteTaskMonthlyZS(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchMyCompleteTaskMonthlyZS(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -757,7 +770,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
      */
     @Override
     public Page<Task> searchMyCompleteTaskZS(TaskSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchMyCompleteTaskZS(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchMyCompleteTaskZS(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -766,7 +779,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
      */
     @Override
     public Page<Task> searchMyFavorites(TaskSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchMyFavorites(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchMyFavorites(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -775,7 +788,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
      */
     @Override
     public Page<Task> searchMyPlansTaskMobMonthly(TaskSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchMyPlansTaskMobMonthly(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchMyPlansTaskMobMonthly(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -784,7 +797,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
      */
     @Override
     public Page<Task> searchMyTomorrowPlanTask(TaskSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchMyTomorrowPlanTask(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchMyTomorrowPlanTask(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -793,7 +806,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
      */
     @Override
     public Page<Task> searchMyTomorrowPlanTaskMobDaily(TaskSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchMyTomorrowPlanTaskMobDaily(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchMyTomorrowPlanTaskMobDaily(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -802,7 +815,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
      */
     @Override
     public Page<Task> searchNextWeekCompleteTaskMobZS(TaskSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchNextWeekCompleteTaskMobZS(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchNextWeekCompleteTaskMobZS(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -811,7 +824,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
      */
     @Override
     public Page<Task> searchNextWeekCompleteTaskZS(TaskSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchNextWeekCompleteTaskZS(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchNextWeekCompleteTaskZS(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -820,7 +833,25 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
      */
     @Override
     public Page<Task> searchNextWeekPlanCompleteTask(TaskSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchNextWeekPlanCompleteTask(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchNextWeekPlanCompleteTask(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 相关任务（计划）
+     */
+    @Override
+    public Page<Task> searchPlanTask(TaskSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchPlanTask(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 项目任务（项目立项）
+     */
+    @Override
+    public Page<Task> searchProjectAppTask(TaskSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchProjectAppTask(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -829,7 +860,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
      */
     @Override
     public Page<Task> searchProjectTask(TaskSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchProjectTask(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchProjectTask(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -838,7 +869,16 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
      */
     @Override
     public Page<Task> searchRootTask(TaskSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchRootTask(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchRootTask(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 关联计划（当前项目未关联）
+     */
+    @Override
+    public Page<Task> searchTaskLinkPlan(TaskSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchTaskLinkPlan(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -847,7 +887,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
      */
     @Override
     public Page<Task> searchThisMonthCompleteTaskChoice(TaskSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchThisMonthCompleteTaskChoice(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchThisMonthCompleteTaskChoice(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -856,7 +896,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
      */
     @Override
     public Page<Task> searchThisWeekCompleteTask(TaskSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchThisWeekCompleteTask(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchThisWeekCompleteTask(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -865,7 +905,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
      */
     @Override
     public Page<Task> searchThisWeekCompleteTaskChoice(TaskSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchThisWeekCompleteTaskChoice(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchThisWeekCompleteTaskChoice(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -874,7 +914,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
      */
     @Override
     public Page<Task> searchThisWeekCompleteTaskMobZS(TaskSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchThisWeekCompleteTaskMobZS(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchThisWeekCompleteTaskMobZS(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -883,7 +923,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
      */
     @Override
     public Page<Task> searchThisWeekCompleteTaskZS(TaskSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchThisWeekCompleteTaskZS(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchThisWeekCompleteTaskZS(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -892,7 +932,7 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
      */
     @Override
     public Page<Task> searchTodoListTask(TaskSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchTodoListTask(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Task> pages=baseMapper.searchTodoListTask(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Task>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -900,9 +940,18 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
      * 查询集合 任务类型分组
      */
     @Override
-    public Page<HashMap> searchTypeGroup(TaskSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<HashMap> pages=baseMapper.searchTypeGroup(context.getPages(), context, context.getSelectCond());
-        return new PageImpl<HashMap>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    public Page<Map> searchTypeGroup(TaskSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Map> pages=baseMapper.searchTypeGroup(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Map>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 任务类型分组（计划）
+     */
+    @Override
+    public Page<Map> searchTypeGroupPlan(TaskSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Map> pages=baseMapper.searchTypeGroupPlan(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Map>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
 
@@ -913,33 +962,43 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
      */
     private void fillParentData(Task et){
         //实体关系[DER1N_ZT_TASK_IBZ_PROJECTMODULE_MODULE]
-        if (!ObjectUtils.isEmpty(et.getModule())) {
+        if(!ObjectUtils.isEmpty(et.getModule())){
             cn.ibizlab.pms.core.ibiz.domain.ProjectModule projectmodule=et.getProjectmodule();
-            if (ObjectUtils.isEmpty(projectmodule)) {
+            if(ObjectUtils.isEmpty(projectmodule)){
                 cn.ibizlab.pms.core.ibiz.domain.ProjectModule majorEntity=projectmoduleService.get(et.getModule());
                 et.setProjectmodule(majorEntity);
-                projectmodule = majorEntity;
+                projectmodule=majorEntity;
             }
             et.setModulename(projectmodule.getName());
             et.setPath(projectmodule.getPath());
         }
+        //实体关系[DER1N_ZT_TASK_ZT_PRODUCTPLAN_PLAN]
+        if(!ObjectUtils.isEmpty(et.getPlan())){
+            cn.ibizlab.pms.core.zentao.domain.ProductPlan productplan=et.getProductplan();
+            if(ObjectUtils.isEmpty(productplan)){
+                cn.ibizlab.pms.core.zentao.domain.ProductPlan majorEntity=productplanService.get(et.getPlan());
+                et.setProductplan(majorEntity);
+                productplan=majorEntity;
+            }
+            et.setPlanname(productplan.getTitle());
+        }
         //实体关系[DER1N_ZT_TASK_ZT_PROJECT_PROJECT]
-        if (!ObjectUtils.isEmpty(et.getProject())) {
+        if(!ObjectUtils.isEmpty(et.getProject())){
             cn.ibizlab.pms.core.zentao.domain.Project ztproject=et.getZtproject();
-            if (ObjectUtils.isEmpty(ztproject)) {
+            if(ObjectUtils.isEmpty(ztproject)){
                 cn.ibizlab.pms.core.zentao.domain.Project majorEntity=projectService.get(et.getProject());
                 et.setZtproject(majorEntity);
-                ztproject = majorEntity;
+                ztproject=majorEntity;
             }
             et.setProjectname(ztproject.getName());
         }
         //实体关系[DER1N_ZT_TASK_ZT_STORY_STORY]
-        if (!ObjectUtils.isEmpty(et.getStory())) {
+        if(!ObjectUtils.isEmpty(et.getStory())){
             cn.ibizlab.pms.core.zentao.domain.Story ztstory=et.getZtstory();
-            if (ObjectUtils.isEmpty(ztstory)) {
+            if(ObjectUtils.isEmpty(ztstory)){
                 cn.ibizlab.pms.core.zentao.domain.Story majorEntity=storyService.get(et.getStory());
                 et.setZtstory(majorEntity);
-                ztstory = majorEntity;
+                ztstory=majorEntity;
             }
             et.setStoryname(ztstory.getTitle());
             et.setProduct(ztstory.getProduct());
@@ -947,12 +1006,12 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
             et.setProductname(ztstory.getProductname());
         }
         //实体关系[DER1N__ZT_TASK__ZT_TASK__PARENT]
-        if (!ObjectUtils.isEmpty(et.getParent())) {
+        if(!ObjectUtils.isEmpty(et.getParent())){
             cn.ibizlab.pms.core.zentao.domain.Task ztparent=et.getZtparent();
-            if (ObjectUtils.isEmpty(ztparent)) {
+            if(ObjectUtils.isEmpty(ztparent)){
                 cn.ibizlab.pms.core.zentao.domain.Task majorEntity=taskService.get(et.getParent());
                 et.setZtparent(majorEntity);
-                ztparent = majorEntity;
+                ztparent=majorEntity;
             }
             et.setParentname(ztparent.getName());
         }
@@ -962,24 +1021,24 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
 
 
     @Override
-    public List<JSONObject> select(String sql, Map param) {
-        return this.baseMapper.selectBySQL(sql, param);
+    public List<JSONObject> select(String sql, Map param){
+        return this.baseMapper.selectBySQL(sql,param);
     }
 
     @Override
     @Transactional
-    public boolean execute(String sql, Map param) {
+    public boolean execute(String sql , Map param){
         if (sql == null || sql.isEmpty()) {
             return false;
         }
         if (sql.toLowerCase().trim().startsWith("insert")) {
-            return this.baseMapper.insertBySQL(sql, param);
+            return this.baseMapper.insertBySQL(sql,param);
         }
         if (sql.toLowerCase().trim().startsWith("update")) {
-            return this.baseMapper.updateBySQL(sql, param);
+            return this.baseMapper.updateBySQL(sql,param);
         }
         if (sql.toLowerCase().trim().startsWith("delete")) {
-            return this.baseMapper.deleteBySQL(sql, param);
+            return this.baseMapper.deleteBySQL(sql,param);
         }
         log.warn("暂未支持的SQL语法");
         return true;
@@ -987,9 +1046,9 @@ public class TaskServiceImpl extends ServiceImpl<TaskMapper, Task> implements IT
 
 
 
-
-
+    public ITaskService getProxyService() {
+        return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
+    }
 }
-
 
 

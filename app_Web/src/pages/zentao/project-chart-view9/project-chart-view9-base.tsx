@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { ChartView9Base } from '@/studio-core';
 import ProjectService from '@/service/project/project-service';
 import ProjectAuthService from '@/authservice/project/project-auth-service';
@@ -121,7 +121,7 @@ export class ProjectChartView9Base extends ChartView9Base {
      * @type {string}
      * @memberof ProjectChartView9Base
      */
-	protected viewtag: string = '3e8a8e6a89e8550bc64a2a8bbae01f15';
+	protected viewtag: string = 'd3faf41f12df89727a6f18eca8b7a117';
 
     /**
      * 视图名称

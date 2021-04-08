@@ -7,22 +7,6 @@
 export interface IbizproProductWeekly {
 
     /**
-     * 总工时
-     *
-     * @returns {*}
-     * @memberof IbizproProductWeekly
-     */
-    totalestimates?: any;
-
-    /**
-     * 任务
-     *
-     * @returns {*}
-     * @memberof IbizproProductWeekly
-     */
-    tasks?: any;
-
-    /**
      * 产品负责人
      *
      * @returns {*}
@@ -31,12 +15,12 @@ export interface IbizproProductWeekly {
     po?: any;
 
     /**
-     * 日期
+     * 产品周报标识
      *
      * @returns {*}
      * @memberof IbizproProductWeekly
      */
-    date?: any;
+    ibizpro_productweeklyid?: any;
 
     /**
      * 更新时间
@@ -47,12 +31,28 @@ export interface IbizproProductWeekly {
     updatedate?: any;
 
     /**
+     * 任务
+     *
+     * @returns {*}
+     * @memberof IbizproProductWeekly
+     */
+    tasks?: any;
+
+    /**
      * 更新人
      *
      * @returns {*}
      * @memberof IbizproProductWeekly
      */
     updateman?: any;
+
+    /**
+     * 日期
+     *
+     * @returns {*}
+     * @memberof IbizproProductWeekly
+     */
+    date?: any;
 
     /**
      * 建立人
@@ -79,20 +79,28 @@ export interface IbizproProductWeekly {
     ibizproproductweeklyname?: any;
 
     /**
-     * 产品周报标识
+     * 开始统计
      *
      * @returns {*}
      * @memberof IbizproProductWeekly
      */
-    ibizpro_productweeklyid?: any;
+    begindatestats?: any;
 
     /**
-     * 编号
+     * 总工时
      *
      * @returns {*}
      * @memberof IbizproProductWeekly
      */
-    product?: any;
+    totalestimates?: any;
+
+    /**
+     * 结束统计
+     *
+     * @returns {*}
+     * @memberof IbizproProductWeekly
+     */
+    enddatestats?: any;
 
     /**
      * 产品名称
@@ -103,18 +111,10 @@ export interface IbizproProductWeekly {
     productname?: any;
 
     /**
-     * 开始统计
+     * 编号
      *
      * @returns {*}
      * @memberof IbizproProductWeekly
      */
-    begindatestats?: any;
-
-    /**
-     * 结束统计
-     *
-     * @returns {*}
-     * @memberof IbizproProductWeekly
-     */
-    enddatestats?: any;
+    product?: any;
 }

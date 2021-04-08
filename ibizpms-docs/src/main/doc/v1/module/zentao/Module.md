@@ -1268,6 +1268,7 @@ LEFT JOIN zt_module t11 ON t1.PARENT = t11.ID
 | 4 | [文档目录](#数据集合-文档目录（DocModule）) | DocModule | 否 |
 | 5 | [产品线](#数据集合-产品线（Line）) | Line | 否 |
 | 6 | [需求模块](#数据集合-需求模块（StoryModule）) | StoryModule | 否 |
+| 7 | [任务模块](#数据集合-任务模块（TaskModule）) | TaskModule | 否 |
 
 ### 数据集合-BugModule（BugModule）
 #### 说明
@@ -1353,6 +1354,20 @@ DEFAULT
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [需求模块（StoryModule）](#数据查询-需求模块（StoryModule）) |
+### 数据集合-任务模块（TaskModule）
+#### 说明
+任务模块
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [任务模块（TaskModule）](#数据查询-任务模块（TaskModule）) |
 
 ## 数据导入
 无

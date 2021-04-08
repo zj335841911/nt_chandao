@@ -15,16 +15,16 @@ export class DailyReportSubmitMobModel {
 	public getDataItems(): any[] {
 		return [
 			{
-				name: 'date',
+				name: 'reportstatus',
+			},
+			{
+				name: 'issubmit',
 			},
 			{
 				name: 'account',
 			},
 			{
-				name: 'reportstatus',
-			},
-			{
-				name: 'issubmit',
+				name: 'date',
 			},
 			{
 				name: 'ibz_dailyname',

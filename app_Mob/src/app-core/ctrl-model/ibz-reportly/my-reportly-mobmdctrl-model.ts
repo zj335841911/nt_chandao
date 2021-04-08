@@ -15,13 +15,13 @@ export class MyReportlyModel {
 	public getDataItems(): any[] {
 		return [
 			{
-				name: 'submittime',
-			},
-			{
-				name: 'account',
+				name: 'reportstatus',
 			},
 			{
 				name: 'reportto',
+			},
+			{
+				name: 'account',
 			},
 			{
 				name: 'planstomorrow',
@@ -29,10 +29,10 @@ export class MyReportlyModel {
 				dataType: 'HTMLTEXT',
 			},
 			{
-				name: 'ibz_reportlyname',
+				name: 'submittime',
 			},
 			{
-				name: 'reportstatus',
+				name: 'ibz_reportlyname',
 			},
 			{
 				name: 'date',

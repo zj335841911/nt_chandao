@@ -1,11 +1,16 @@
 package cn.ibizlab.pms.core.extensions.service;
 
 import cn.ibizlab.pms.core.ibizpro.domain.IbzPlanTempletDetail;
+import cn.ibizlab.pms.core.util.ibizzentao.common.ChangeUtil;
+import cn.ibizlab.pms.core.zentao.domain.Action;
+import cn.ibizlab.pms.core.zentao.domain.History;
 import cn.ibizlab.pms.core.zentao.domain.Story;
 import cn.ibizlab.pms.core.zentao.filter.ProductPlanSearchContext;
 import cn.ibizlab.pms.core.zentao.filter.StorySearchContext;
+import cn.ibizlab.pms.core.zentao.service.IActionService;
 import cn.ibizlab.pms.core.zentao.service.impl.ProductPlanServiceImpl;
 import cn.ibizlab.pms.util.dict.StaticDict;
+import cn.ibizlab.pms.util.helper.CachedBeanCopier;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -32,6 +37,7 @@ public class ProductPlanExService extends ProductPlanServiceImpl {
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.ibizpro.service.IIbzPlanTempletDetailService ibzplantempletdetailService;
+
 
     @Override
     protected Class currentModelClass() {
@@ -122,5 +128,21 @@ public class ProductPlanExService extends ProductPlanServiceImpl {
         }
         return new PageImpl<ProductPlan>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
+    /**
+     * 查询集合 默认查询
+     */
+    @Override
+    public Page<ProductPlan> searchPlanTasks(ProductPlanSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProductPlan> pages=baseMapper.searchPlanTasks(context.getPages(),context,context.getSelectCond());
+        for (ProductPlan productPlan : pages.getRecords()) {
+            ProductPlanSearchContext productPlanSearchContext = new ProductPlanSearchContext();
+            productPlanSearchContext.setSelectCond(context.getSelectCond().clone());
+            productPlanSearchContext.setN_parent_eq(productPlan.getId());
+            productPlan.set("items", this.searchDefault(productPlanSearchContext).getContent());
+        }
+        return new PageImpl<ProductPlan>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+
 }
 

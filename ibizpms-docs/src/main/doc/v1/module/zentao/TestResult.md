@@ -39,6 +39,7 @@
 | 16 | [所属模块](#属性-所属模块（MODULE）) | MODULE | 外键值附加数据 | 否 | 是 | 是 |
 | 17 | [所属产品](#属性-所属产品（PRODUCT）) | PRODUCT | 外键值文本 | 否 | 是 | 是 |
 | 18 | [前置条件](#属性-前置条件（PRECONDITION）) | PRECONDITION | 外键值附加数据 | 否 | 是 | 是 |
+| 19 | [所属模块](#属性-所属模块（MODULENAME）) | MODULENAME | 外键值附加数据 | 否 | 是 | 是 |
 
 ### 属性-最后执行人（LASTRUNNER）
 #### 属性说明
@@ -78,7 +79,7 @@ String
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [测试用例（ZT_CASE）](../zentao/Case) |
-| 关系属性 | [前置条件（PRECONDITION）](../zentao/Case/#属性-前置条件（PRECONDITION）) |
+| 关系属性 | [模块名称（MODULENAME）](../zentao/Case/#属性-模块名称（MODULENAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-步骤结果（STEPRESULTS）
@@ -122,7 +123,7 @@ String
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [测试用例（ZT_CASE）](../zentao/Case) |
-| 关系属性 | [前置条件（PRECONDITION）](../zentao/Case/#属性-前置条件（PRECONDITION）) |
+| 关系属性 | [模块名称（MODULENAME）](../zentao/Case/#属性-模块名称（MODULENAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-测试结果（CASERESULT）
@@ -166,7 +167,7 @@ String
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [测试用例（ZT_CASE）](../zentao/Case) |
-| 关系属性 | [前置条件（PRECONDITION）](../zentao/Case/#属性-前置条件（PRECONDITION）) |
+| 关系属性 | [模块名称（MODULENAME）](../zentao/Case/#属性-模块名称（MODULENAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-结果文件（XML）
@@ -210,7 +211,7 @@ String
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [测试用例（ZT_CASE）](../zentao/Case) |
-| 关系属性 | [前置条件（PRECONDITION）](../zentao/Case/#属性-前置条件（PRECONDITION）) |
+| 关系属性 | [模块名称（MODULENAME）](../zentao/Case/#属性-模块名称（MODULENAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-持续时间（DURATION）
@@ -254,7 +255,7 @@ Double
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [测试用例（ZT_CASE）](../zentao/Case) |
-| 关系属性 | [前置条件（PRECONDITION）](../zentao/Case/#属性-前置条件（PRECONDITION）) |
+| 关系属性 | [模块名称（MODULENAME）](../zentao/Case/#属性-模块名称（MODULENAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-测试时间（DATE）
@@ -295,7 +296,7 @@ yyyy-MM-dd HH:mm:ss
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [测试用例（ZT_CASE）](../zentao/Case) |
-| 关系属性 | [前置条件（PRECONDITION）](../zentao/Case/#属性-前置条件（PRECONDITION）) |
+| 关系属性 | [模块名称（MODULENAME）](../zentao/Case/#属性-模块名称（MODULENAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-编号（ID）
@@ -336,7 +337,7 @@ Long
 | 项目 | 说明 |
 | ---- | ---- |
 | 关系实体 | [测试用例（ZT_CASE）](../zentao/Case) |
-| 关系属性 | [前置条件（PRECONDITION）](../zentao/Case/#属性-前置条件（PRECONDITION）) |
+| 关系属性 | [模块名称（MODULENAME）](../zentao/Case/#属性-模块名称（MODULENAME）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
 ### 属性-用例版本（VERSION）
@@ -813,6 +814,47 @@ String
 | 关系属性 | [前置条件（PRECONDITION）](../zentao/Case/#属性-前置条件（PRECONDITION）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
+### 属性-所属模块（MODULENAME）
+#### 属性说明
+所属模块
+
+- 是否是主键
+否
+
+- 属性类型
+链接字段[来自关系实体字段]
+
+- 数据类型
+外键值附加数据
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [测试用例（ZT_CASE）](../zentao/Case) |
+| 关系属性 | [模块名称（MODULENAME）](../zentao/Case/#属性-模块名称（MODULENAME）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
 
 ## 业务状态
 无
@@ -962,14 +1004,15 @@ t1.`ID`,
 t1.`JOB`,
 t1.`LASTRUNNER`,
 t11.`MODULE`,
+t21.`NAME` AS `MODULENAME`,
 t11.`PRODUCT`,
 t1.`RUN`,
 t11.`STORY`,
-t11.`TITLE`,
 t1.`VERSION`
 FROM `zt_testresult` t1 
 LEFT JOIN zt_case t11 ON t1.CASE = t11.ID 
-RIGHT JOIN zt_testrun t21 ON t1.RUN = t21.ID 
+LEFT JOIN zt_module t21 ON t11.MODULE = t21.ID 
+RIGHT JOIN zt_testrun t31 ON t1.RUN = t31.ID 
 
 ```
 ### 数据查询-DEFAULT（Default）
@@ -995,13 +1038,14 @@ t1.`ID`,
 t1.`JOB`,
 t1.`LASTRUNNER`,
 t11.`MODULE`,
+t21.`NAME` AS `MODULENAME`,
 t11.`PRODUCT`,
 t1.`RUN`,
 t11.`STORY`,
-t11.`TITLE`,
 t1.`VERSION`
 FROM `zt_testresult` t1 
 LEFT JOIN zt_case t11 ON t1.CASE = t11.ID 
+LEFT JOIN zt_module t21 ON t11.MODULE = t21.ID 
 
 ```
 ### 数据查询-默认（全部数据）（View）
@@ -1027,16 +1071,17 @@ t1.`ID`,
 t1.`JOB`,
 t1.`LASTRUNNER`,
 t11.`MODULE`,
+t21.`NAME` AS `MODULENAME`,
 t11.`PRECONDITION`,
 t11.`PRODUCT`,
 t1.`RUN`,
 t1.`STEPRESULTS`,
 t11.`STORY`,
-t11.`TITLE`,
 t1.`VERSION`,
 t1.`XML`
 FROM `zt_testresult` t1 
 LEFT JOIN zt_case t11 ON t1.CASE = t11.ID 
+LEFT JOIN zt_module t21 ON t11.MODULE = t21.ID 
 
 ```
 

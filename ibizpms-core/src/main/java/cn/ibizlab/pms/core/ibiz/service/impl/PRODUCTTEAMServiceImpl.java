@@ -51,16 +51,13 @@ public class PRODUCTTEAMServiceImpl extends ServiceImpl<PRODUCTTEAMMapper, PRODU
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.IProductService productService;
-    @Autowired
-    @Lazy
-    IPRODUCTTEAMService proxyService;
 
     protected int batchSize = 500;
 
     @Override
     @Transactional
     public boolean create(PRODUCTTEAM et) {
-        if (!this.retBool(this.baseMapper.insert(et))) {
+        if(!this.retBool(this.baseMapper.insert(et))) {
             return false;
         }
         CachedBeanCopier.copy(get(et.getId()), et);
@@ -76,7 +73,7 @@ public class PRODUCTTEAMServiceImpl extends ServiceImpl<PRODUCTTEAMMapper, PRODU
     @Override
     @Transactional
     public boolean update(PRODUCTTEAM et) {
-        if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", et.getId()))) {
+        if(!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", et.getId()))) {
             return false;
         }
         CachedBeanCopier.copy(get(et.getId()), et);
@@ -93,7 +90,7 @@ public class PRODUCTTEAMServiceImpl extends ServiceImpl<PRODUCTTEAMMapper, PRODU
     @Transactional
     public boolean remove(Long key) {
         boolean result = removeById(key);
-        return result;
+        return result ;
     }
 
     @Override
@@ -106,7 +103,7 @@ public class PRODUCTTEAMServiceImpl extends ServiceImpl<PRODUCTTEAMMapper, PRODU
     @Transactional
     public PRODUCTTEAM get(Long key) {
         PRODUCTTEAM et = getById(key);
-        if (et == null) {
+        if(et == null){
             et = new PRODUCTTEAM();
             et.setId(key);
         }
@@ -126,8 +123,24 @@ public class PRODUCTTEAMServiceImpl extends ServiceImpl<PRODUCTTEAMMapper, PRODU
     }
     @Override
     @Transactional
+    public PRODUCTTEAM productTeamGuoLv(PRODUCTTEAM et) {
+        //自定义代码
+        return et;
+    }
+
+    @Override
+    @Transactional
+    public boolean productTeamGuoLvBatch(List<PRODUCTTEAM> etList) {
+        for(PRODUCTTEAM et : etList) {
+            productTeamGuoLv(et);
+        }
+        return true;
+    }
+
+    @Override
+    @Transactional
     public boolean save(PRODUCTTEAM et) {
-        if (!saveOrUpdate(et)) {
+        if(!saveOrUpdate(et)) {
             return false;
         }
         return true;
@@ -139,7 +152,7 @@ public class PRODUCTTEAMServiceImpl extends ServiceImpl<PRODUCTTEAMMapper, PRODU
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
+            return checkKey(et) ? getProxyService().update(et) : getProxyService().create(et);
         }
     }
 
@@ -156,10 +169,10 @@ public class PRODUCTTEAMServiceImpl extends ServiceImpl<PRODUCTTEAMMapper, PRODU
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
         return true;
     }
@@ -177,56 +190,54 @@ public class PRODUCTTEAMServiceImpl extends ServiceImpl<PRODUCTTEAMMapper, PRODU
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
     }
 
 
-    @Override
+	@Override
     public List<PRODUCTTEAM> selectByRoot(Long id) {
         return baseMapper.selectByRoot(id);
     }
     @Override
     public void removeByRoot(Long id) {
-        this.remove(new QueryWrapper<PRODUCTTEAM>().eq("root", id));
+        this.remove(new QueryWrapper<PRODUCTTEAM>().eq("root",id));
     }
 
-    @Override
-    public void saveByRoot(Long id, List<PRODUCTTEAM> list) {
-        if (list == null) {
+    public IPRODUCTTEAMService getProxyService() {
+        return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
+    }
+	@Override
+    public void saveByRoot(Long id,List<PRODUCTTEAM> list) {
+        if(list==null)
             return;
-        }
         Set<Long> delIds=new HashSet<Long>();
         List<PRODUCTTEAM> _update=new ArrayList<PRODUCTTEAM>();
         List<PRODUCTTEAM> _create=new ArrayList<PRODUCTTEAM>();
-        for (PRODUCTTEAM before:selectByRoot(id)){
+        for(PRODUCTTEAM before:selectByRoot(id)){
             delIds.add(before.getId());
         }
-        for (PRODUCTTEAM sub : list) {
+        for(PRODUCTTEAM sub:list) {
             sub.setRoot(id);
-            if (ObjectUtils.isEmpty(sub.getId()))
+            if(ObjectUtils.isEmpty(sub.getId()))
                 sub.setId((Long)sub.getDefaultKey(true));
-            if (delIds.contains(sub.getId())) {
+            if(delIds.contains(sub.getId())) {
                 delIds.remove(sub.getId());
                 _update.add(sub);
             }
-            else {
+            else
                 _create.add(sub);
-            }
         }
-        if (_update.size() > 0) {
-            proxyService.updateBatch(_update);
-        }
-        if (_create.size() > 0) {
-            proxyService.createBatch(_create);
-        }
-        if (delIds.size() > 0) {
-            proxyService.removeBatch(delIds);
-        }
-    }
+        if(_update.size()>0)
+            getProxyService().updateBatch(_update);
+        if(_create.size()>0)
+            getProxyService().createBatch(_create);
+        if(delIds.size()>0)
+            getProxyService().removeBatch(delIds);
+	}
 
 
     /**
@@ -234,7 +245,7 @@ public class PRODUCTTEAMServiceImpl extends ServiceImpl<PRODUCTTEAMMapper, PRODU
      */
     @Override
     public Page<PRODUCTTEAM> searchDefault(PRODUCTTEAMSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<PRODUCTTEAM> pages=baseMapper.searchDefault(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<PRODUCTTEAM> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
         return new PageImpl<PRODUCTTEAM>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -243,7 +254,16 @@ public class PRODUCTTEAMServiceImpl extends ServiceImpl<PRODUCTTEAMMapper, PRODU
      */
     @Override
     public Page<PRODUCTTEAM> searchProductTeamInfo(PRODUCTTEAMSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<PRODUCTTEAM> pages=baseMapper.searchProductTeamInfo(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<PRODUCTTEAM> pages=baseMapper.searchProductTeamInfo(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<PRODUCTTEAM>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 项目立项
+     */
+    @Override
+    public Page<PRODUCTTEAM> searchProjectApp(PRODUCTTEAMSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<PRODUCTTEAM> pages=baseMapper.searchProjectApp(context.getPages(),context,context.getSelectCond());
         return new PageImpl<PRODUCTTEAM>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -252,7 +272,7 @@ public class PRODUCTTEAMServiceImpl extends ServiceImpl<PRODUCTTEAMMapper, PRODU
      */
     @Override
     public Page<PRODUCTTEAM> searchRowEditDefaultProductTeam(PRODUCTTEAMSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<PRODUCTTEAM> pages=baseMapper.searchRowEditDefaultProductTeam(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<PRODUCTTEAM> pages=baseMapper.searchRowEditDefaultProductTeam(context.getPages(),context,context.getSelectCond());
         return new PageImpl<PRODUCTTEAM>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -263,24 +283,24 @@ public class PRODUCTTEAMServiceImpl extends ServiceImpl<PRODUCTTEAMMapper, PRODU
 
 
     @Override
-    public List<JSONObject> select(String sql, Map param) {
-        return this.baseMapper.selectBySQL(sql, param);
+    public List<JSONObject> select(String sql, Map param){
+        return this.baseMapper.selectBySQL(sql,param);
     }
 
     @Override
     @Transactional
-    public boolean execute(String sql, Map param) {
+    public boolean execute(String sql , Map param){
         if (sql == null || sql.isEmpty()) {
             return false;
         }
         if (sql.toLowerCase().trim().startsWith("insert")) {
-            return this.baseMapper.insertBySQL(sql, param);
+            return this.baseMapper.insertBySQL(sql,param);
         }
         if (sql.toLowerCase().trim().startsWith("update")) {
-            return this.baseMapper.updateBySQL(sql, param);
+            return this.baseMapper.updateBySQL(sql,param);
         }
         if (sql.toLowerCase().trim().startsWith("delete")) {
-            return this.baseMapper.deleteBySQL(sql, param);
+            return this.baseMapper.deleteBySQL(sql,param);
         }
         log.warn("暂未支持的SQL语法");
         return true;
@@ -288,9 +308,6 @@ public class PRODUCTTEAMServiceImpl extends ServiceImpl<PRODUCTTEAMMapper, PRODU
 
 
 
-
-
 }
-
 
 

@@ -20,23 +20,17 @@ import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * 服务DTO对象[IbizproProjectMonthlyDTO]
  */
 @Data
+@ApiModel("项目月报")
 public class IbizproProjectMonthlyDTO extends DTOBase implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-
-    /**
-     * 属性 [IBIZPRO_PROJECTMONTHLYID]
-     *
-     */
-    @JSONField(name = "ibizproprojectmonthlyid")
-    @JsonProperty("ibizproprojectmonthlyid")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String ibizproprojectmonthlyid;
 
     /**
      * 属性 [IBIZPRO_PROJECTMONTHLYNAME]
@@ -45,16 +39,8 @@ public class IbizproProjectMonthlyDTO extends DTOBase implements Serializable {
     @JSONField(name = "ibizproprojectmonthlyname")
     @JsonProperty("ibizproprojectmonthlyname")
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("项目月报名称")
     private String ibizproprojectmonthlyname;
-
-    /**
-     * 属性 [CREATEMAN]
-     *
-     */
-    @JSONField(name = "createman")
-    @JsonProperty("createman")
-    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
-    private String createman;
 
     /**
      * 属性 [CREATEDATE]
@@ -63,7 +49,27 @@ public class IbizproProjectMonthlyDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "createdate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createdate")
+    @ApiModelProperty("建立时间")
     private Timestamp createdate;
+
+    /**
+     * 属性 [YEAR_MONTH]
+     *
+     */
+    @JSONField(name = "yearmonth")
+    @JsonProperty("yearmonth")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("年月")
+    private String yearmonth;
+
+    /**
+     * 属性 [TOTALESTIMATES]
+     *
+     */
+    @JSONField(name = "totalestimates")
+    @JsonProperty("totalestimates")
+    @ApiModelProperty("总工时")
+    private Double totalestimates;
 
     /**
      * 属性 [UPDATEMAN]
@@ -72,51 +78,8 @@ public class IbizproProjectMonthlyDTO extends DTOBase implements Serializable {
     @JSONField(name = "updateman")
     @JsonProperty("updateman")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("更新人")
     private String updateman;
-
-    /**
-     * 属性 [UPDATEDATE]
-     *
-     */
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
-    @JSONField(name = "updatedate" , format="yyyy-MM-dd HH:mm:ss")
-    @JsonProperty("updatedate")
-    private Timestamp updatedate;
-
-    /**
-     * 属性 [PROJECT]
-     *
-     */
-    @JSONField(name = "project")
-    @JsonProperty("project")
-    @JsonSerialize(using = ToStringSerializer.class)
-    private Long project;
-
-    /**
-     * 属性 [PROJECTNAME]
-     *
-     */
-    @JSONField(name = "projectname")
-    @JsonProperty("projectname")
-    @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
-    private String projectname;
-
-    /**
-     * 属性 [PM]
-     *
-     */
-    @JSONField(name = "pm")
-    @JsonProperty("pm")
-    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
-    private String pm;
-
-    /**
-     * 属性 [TOTALESTIMATES]
-     *
-     */
-    @JSONField(name = "totalestimates")
-    @JsonProperty("totalestimates")
-    private Double totalestimates;
 
     /**
      * 属性 [TASKS]
@@ -125,6 +88,7 @@ public class IbizproProjectMonthlyDTO extends DTOBase implements Serializable {
     @JSONField(name = "tasks")
     @JsonProperty("tasks")
     @Size(min = 0, max = 2000, message = "内容长度必须小于等于[2000]")
+    @ApiModelProperty("任务")
     private String tasks;
 
     /**
@@ -134,16 +98,68 @@ public class IbizproProjectMonthlyDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "date" , format="yyyy-MM-dd")
     @JsonProperty("date")
+    @ApiModelProperty("日期")
     private Timestamp date;
 
     /**
-     * 属性 [YEAR_MONTH]
+     * 属性 [IBIZPRO_PROJECTMONTHLYID]
      *
      */
-    @JSONField(name = "yearmonth")
-    @JsonProperty("yearmonth")
+    @JSONField(name = "ibizproprojectmonthlyid")
+    @JsonProperty("ibizproprojectmonthlyid")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String yearmonth;
+    @ApiModelProperty("项目月报标识")
+    private String ibizproprojectmonthlyid;
+
+    /**
+     * 属性 [UPDATEDATE]
+     *
+     */
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
+    @JSONField(name = "updatedate" , format="yyyy-MM-dd HH:mm:ss")
+    @JsonProperty("updatedate")
+    @ApiModelProperty("更新时间")
+    private Timestamp updatedate;
+
+    /**
+     * 属性 [CREATEMAN]
+     *
+     */
+    @JSONField(name = "createman")
+    @JsonProperty("createman")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("建立人")
+    private String createman;
+
+    /**
+     * 属性 [PM]
+     *
+     */
+    @JSONField(name = "pm")
+    @JsonProperty("pm")
+    @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
+    @ApiModelProperty("项目负责人")
+    private String pm;
+
+    /**
+     * 属性 [PROJECTNAME]
+     *
+     */
+    @JSONField(name = "projectname")
+    @JsonProperty("projectname")
+    @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
+    @ApiModelProperty("项目名称")
+    private String projectname;
+
+    /**
+     * 属性 [PROJECT]
+     *
+     */
+    @JSONField(name = "project")
+    @JsonProperty("project")
+    @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("项目编号")
+    private Long project;
 
 
     /**
@@ -155,11 +171,11 @@ public class IbizproProjectMonthlyDTO extends DTOBase implements Serializable {
     }
 
     /**
-     * 设置 [PROJECT]
+     * 设置 [YEAR_MONTH]
      */
-    public void setProject(Long  project){
-        this.project = project ;
-        this.modify("project",project);
+    public void setYearmonth(String  yearmonth){
+        this.yearmonth = yearmonth ;
+        this.modify("year_month",yearmonth);
     }
 
     /**
@@ -187,11 +203,11 @@ public class IbizproProjectMonthlyDTO extends DTOBase implements Serializable {
     }
 
     /**
-     * 设置 [YEAR_MONTH]
+     * 设置 [PROJECT]
      */
-    public void setYearmonth(String  yearmonth){
-        this.yearmonth = yearmonth ;
-        this.modify("year_month",yearmonth);
+    public void setProject(Long  project){
+        this.project = project ;
+        this.modify("project",project);
     }
 
 

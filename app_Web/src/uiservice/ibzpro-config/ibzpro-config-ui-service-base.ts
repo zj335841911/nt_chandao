@@ -96,20 +96,20 @@ export default class IbzproConfigUIServiceBase extends UIService {
      * @memberof  IbzproConfigUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set('MDATAVIEW:', {
-            viewname: 'gridview',
-            srfappde: 'ibzproconfigs',
-            component: 'ibzpro-config-grid-view',
-            openmode: '',
-            title: '系统配置表',
-            width: 0,
-            height: 0
-        });
         this.allViewMap.set('EDITVIEW:', {
             viewname: 'editview',
             srfappde: 'ibzproconfigs',
             component: 'ibzpro-config-edit-view',
             openmode: 'DRAWER_RIGHT',
+            title: '系统配置表',
+            width: 0,
+            height: 0
+        });
+        this.allViewMap.set('MDATAVIEW:', {
+            viewname: 'gridview',
+            srfappde: 'ibzproconfigs',
+            component: 'ibzpro-config-grid-view',
+            openmode: '',
             title: '系统配置表',
             width: 0,
             height: 0

@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { TabExpViewBase } from '@/studio-core';
 import DocLibService from '@/service/doc-lib/doc-lib-service';
 import DocLibAuthService from '@/authservice/doc-lib/doc-lib-auth-service';
@@ -128,7 +128,7 @@ export class DocLibLibTabExpViewBase extends TabExpViewBase {
      * @type {string}
      * @memberof DocLibLibTabExpViewBase
      */
-	protected viewtag: string = '7f0821e7efe42bbf91090b525b05c96d';
+	protected viewtag: string = '7cfc48856417e4a8740c3d82334f88c9';
 
     /**
      * 视图名称

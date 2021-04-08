@@ -1,6 +1,6 @@
 
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { GridViewBase } from '@/studio-core';
 import StoryService from '@/service/story/story-service';
 import StoryAuthService from '@/authservice/story/story-auth-service';
@@ -129,7 +129,7 @@ export class StoryReleaseSubGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof StoryReleaseSubGridViewBase
      */
-	protected viewtag: string = '87b3a9ce09500f304291ed2d69799d5e';
+	protected viewtag: string = '168e0a500b6f95099eb0bb5b30c0a5e0';
 
     /**
      * 视图名称

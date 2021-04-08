@@ -21,7 +21,7 @@ export class GetUserConcatLogicBase {
      * 
      * @memberof  GetUserConcatLogicBase
      */
-    private id:string = "A0E75F7B-F3D6-430A-9F25-AF78072BA7C5";
+    private id:string = "2f1f228ca8acbe8bfa13e2fa3e06d64a";
 
     /**
      * 默认参数名称

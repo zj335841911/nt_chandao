@@ -1,3 +1,4 @@
+import { Environment } from '@/environments/environment';
 import { Http } from '@/utils';
 import { Util } from '@/utils';
 import EntityService from '../entity-service';
@@ -49,7 +50,7 @@ export default class TaskestimatestatsServiceBase extends EntityService {
      * @memberof TaskestimatestatsServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().get(`/taskestimatestats/${context.taskestimatestats}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/taskestimatestats/${context.taskestimatestats}/select`,isloading);
             
             return res;
     }
@@ -105,7 +106,7 @@ export default class TaskestimatestatsServiceBase extends EntityService {
      * @memberof TaskestimatestatsServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().delete(`/taskestimatestats/${context.taskestimatestats}`,isloading);
+            let res:any = await Http.getInstance().delete(`/taskestimatestats/${context.taskestimatestats}`,isloading);
             return res;
     }
 
@@ -134,7 +135,10 @@ export default class TaskestimatestatsServiceBase extends EntityService {
      * @memberof TaskestimatestatsServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/taskestimatestats/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.taskestimatestats) delete tempData.taskestimatestats;
+        if(tempData.id) delete tempData.id;
+        let res:any = await  Http.getInstance().get(`/taskestimatestats/getdraft`,tempData,isloading);
         res.data.taskestimatestats = data.taskestimatestats;
         
         return res;
@@ -150,7 +154,7 @@ export default class TaskestimatestatsServiceBase extends EntityService {
      * @memberof TaskestimatestatsServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/taskestimatestats/${context.taskestimatestats}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/taskestimatestats/${context.taskestimatestats}/checkkey`,data,isloading);
             return res;
     }
 
@@ -172,6 +176,64 @@ export default class TaskestimatestatsServiceBase extends EntityService {
     }
 
     /**
+     * FetchActionMonth接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TaskestimatestatsServiceBase
+     */
+    public async FetchActionMonth(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = await Http.getInstance().get(`/taskestimatestats/fetchactionmonth`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * searchActionMonth接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TaskestimatestatsServiceBase
+     */
+    public async searchActionMonth(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/taskestimatestats/searchactionmonth`,tempData,isloading);
+    }
+
+    /**
+     * FetchActionYear接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TaskestimatestatsServiceBase
+     */
+    public async FetchActionYear(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = await Http.getInstance().get(`/taskestimatestats/fetchactionyear`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * searchActionYear接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof TaskestimatestatsServiceBase
+     */
+    public async searchActionYear(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/taskestimatestats/searchactionyear`,tempData,isloading);
+    }
+
+    /**
      * FetchDefault接口方法
      *
      * @param {*} [context={}]
@@ -182,7 +244,7 @@ export default class TaskestimatestatsServiceBase extends EntityService {
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/taskestimatestats/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/taskestimatestats/fetchdefault`,tempData,isloading);
         return res;
     }
 

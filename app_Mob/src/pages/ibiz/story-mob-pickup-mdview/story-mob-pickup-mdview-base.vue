@@ -112,7 +112,7 @@ export default class StoryMobPickupMDViewBase extends Vue {
 	 * @type {string}
 	 * @memberof StoryMobPickupMDViewBase
 	 */
-	protected viewtag: string = '42217665efecfb18bd26480ca0e2780a';
+	protected viewtag: string = '7355db114ff72204de4bdcb527f024e1';
 
     /**
      * 视图上下文

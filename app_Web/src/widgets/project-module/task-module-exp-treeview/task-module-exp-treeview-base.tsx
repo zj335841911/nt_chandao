@@ -92,6 +92,19 @@ export class TaskModuleExpTreeBase extends MainControlBase {
     }
 
     /**
+     * productnotroot_cm 部件 click 事件
+     *
+     * @param {*} [args={}]
+     * @param {*} $event
+     * @memberof TaskModuleExpTreeBase
+     */
+    public productnotroot_cm_click($event: any, $event2?: any) {
+        if (Object.is($event.tag, 'deuiaction1')) {
+            this.productnotroot_cm_deuiaction1_click(null, 'productnotroot_cm', $event2);
+        }
+    }
+
+    /**
      * all_cm 部件 click 事件
      *
      * @param {*} [args={}]
@@ -277,6 +290,34 @@ export class TaskModuleExpTreeBase extends MainControlBase {
      * @memberof 
      */
     public rootmodule_cm_deuiaction1_click(params: any = {}, tag?: any, $event?: any) {
+        // 参数
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        this.RefreshParent(datas, contextJO,paramJO,  $event, xData,this,"ProjectModule");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public productnotroot_cm_deuiaction1_click(params: any = {}, tag?: any, $event?: any) {
         // 参数
         // 取数
         let datas: any[] = [];
@@ -574,6 +615,7 @@ export class TaskModuleExpTreeBase extends MainControlBase {
      public actionModel: any = {
         ZT_PRODUCT_deuiaction1: {name:'deuiaction1',nodeOwner:'ZT_PRODUCT',type: 'DEUIACTION', tag: 'RefreshParent', noprivdisplaymode:2, visible: true, disabled: false},
         BRANCHS_deuiaction1: {name:'deuiaction1',nodeOwner:'BRANCHS',type: 'DEUIACTION', tag: 'RefreshParent', noprivdisplaymode:2, visible: true, disabled: false},
+        productNotRoot_deuiaction1: {name:'deuiaction1',nodeOwner:'productNotRoot',type: 'DEUIACTION', tag: 'RefreshParent', noprivdisplaymode:2, visible: true, disabled: false},
         ALL_deuiaction1: {name:'deuiaction1',nodeOwner:'ALL',type: 'DEUIACTION', tag: 'RefreshParent', noprivdisplaymode:2, visible: true, disabled: false},
         MODULE_deuiaction1: {name:'deuiaction1',nodeOwner:'MODULE',type: 'DEUIACTION', tag: 'RefreshParent', noprivdisplaymode:2, visible: true, disabled: false},
         ROOTMODULE_deuiaction1: {name:'deuiaction1',nodeOwner:'ROOTMODULE',type: 'DEUIACTION', tag: 'RefreshParent', noprivdisplaymode:2, visible: true, disabled: false},
@@ -850,7 +892,7 @@ export class TaskModuleExpTreeBase extends MainControlBase {
     public refresh_node(curContext:any,arg: any = {}, parentnode: boolean): void {
         const { srfnodeid: id } = arg;
         Object.assign(arg,{viewparams:this.viewparams});
-        const get: Promise<any> = this.service.getNodes(JSON.parse(JSON.stringify(this.context)),arg);
+        const get: Promise<any> = this.service.getNodes(JSON.parse(JSON.stringify(curContext)),arg);
         get.then((response: any) => {
             if (!response || response.status !== 200) {
                 this.$Notice.error({ title: (this.$t('app.commonWords.wrong') as string), desc: response.info });
@@ -977,6 +1019,9 @@ export class TaskModuleExpTreeBase extends MainControlBase {
             if (tags[0] === "BRANCHS") {
                 content = this.renderContextMenuBranchs();
             }
+            if (tags[0] === "productNotRoot") {
+                content = this.renderContextMenuProductnotroot();
+            }
             if (tags[0] === "ALL") {
                 content = this.renderContextMenuAll();
             }
@@ -1026,6 +1071,26 @@ export class TaskModuleExpTreeBase extends MainControlBase {
     public renderContextMenuBranchs() {
         return (
             <dropdown class="tree-right-menu" trigger="custom" visible={true} on-on-click={($event: any) => this.branchs_cm_click({tag: $event})}>
+                <dropdown-menu slot="list">
+                            <dropdown-item name="deuiaction1" v-show={this.copyActionModel['deuiaction1']?.visible} disabled={this.copyActionModel['deuiaction1']?.disabled}>
+                        <i class="fa fa-refresh"></i>
+                        刷新
+                    </dropdown-item>
+                </dropdown-menu>
+            </dropdown>
+        );
+    }
+
+    /**
+     * 绘制productNotRoot类型右键菜单
+     *
+     * @param {*} node
+     * @returns
+     * @memberof TaskModuleExpBase
+     */
+    public renderContextMenuProductnotroot() {
+        return (
+            <dropdown class="tree-right-menu" trigger="custom" visible={true} on-on-click={($event: any) => this.productnotroot_cm_click({tag: $event})}>
                 <dropdown-menu slot="list">
                             <dropdown-item name="deuiaction1" v-show={this.copyActionModel['deuiaction1']?.visible} disabled={this.copyActionModel['deuiaction1']?.disabled}>
                         <i class="fa fa-refresh"></i>
@@ -1206,19 +1271,10 @@ export class TaskModuleExpTreeBase extends MainControlBase {
         if(Object.is(nodeType,"STATIC")){
             return this.copyActionModel;
         }
-        let service:any = await this.appEntityService.getService(appEntityName);
         if(this.copyActionModel && Object.keys(this.copyActionModel).length > 0) {
-            if(service['Get'] && service['Get'] instanceof Function){
-                let tempContext:any = this.$util.deepCopy(this.context);
-                tempContext[appEntityName] = node.srfkey;
-                let targetData = await service.Get(tempContext,{}, false);
-                let uiservice:any = await this.appUIService.getService(appEntityName);
-                let result: any[] = ViewTool.calcActionItemAuthState(targetData.data,this.copyActionModel,uiservice);
-                return this.copyActionModel;
-            }else{
-                console.warn("获取数据异常");
-                return this.copyActionModel;
-            }
+            let uiservice:any = await this.appUIService.getService(appEntityName);
+            let result: any[] = ViewTool.calcActionItemAuthState(node.curData,this.copyActionModel,uiservice);
+            return this.copyActionModel;  
         }
     }
 

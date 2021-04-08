@@ -141,7 +141,7 @@ export default class TodoMobOptionViewBase extends Vue {
 	 * @type {string}
 	 * @memberof TodoMobOptionViewBase
 	 */
-	protected viewtag: string = 'ef4f4ba20f22ae8b09b7f5fad590ef39';
+	protected viewtag: string = '408fe78e73e857a785ba188e9468a539';
 
     /**
      * 视图上下文

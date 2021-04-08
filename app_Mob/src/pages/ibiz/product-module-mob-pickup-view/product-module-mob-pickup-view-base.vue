@@ -127,7 +127,7 @@ export default class ProductModuleMobPickupViewBase extends Vue {
 	 * @type {string}
 	 * @memberof ProductModuleMobPickupViewBase
 	 */
-	protected viewtag: string = '0a443f2f0f9dfa28a081d87d16655d27';
+	protected viewtag: string = '087925b3d578bcf7d5511d8d57b977b8';
 
     /**
      * 视图上下文

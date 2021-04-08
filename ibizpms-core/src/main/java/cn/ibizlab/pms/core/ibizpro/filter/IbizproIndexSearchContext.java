@@ -28,20 +28,20 @@ import cn.ibizlab.pms.core.ibizpro.domain.IbizproIndex;
 @Data
 public class IbizproIndexSearchContext extends QueryWrapperContext<IbizproIndex> {
 
-	private String n_index_type_eq;//[类型]
-	public void setN_index_type_eq(String n_index_type_eq) {
-        this.n_index_type_eq = n_index_type_eq;
-        if(!ObjectUtils.isEmpty(this.n_index_type_eq)){
-            this.getSearchCond().eq("`index_type`", n_index_type_eq);
-            this.getEsCond().must(QueryBuilders.termQuery("index_type", n_index_type_eq));
-        }
-    }
 	private String n_indexname_like;//[标题[需求、任务等]]
 	public void setN_indexname_like(String n_indexname_like) {
         this.n_indexname_like = n_indexname_like;
         if(!ObjectUtils.isEmpty(this.n_indexname_like)){
             this.getSearchCond().like("`indexname`", n_indexname_like);
             this.getEsCond().must(QueryBuilders.wildcardQuery("indexname", String.format("*%s*",n_indexname_like)));
+        }
+    }
+	private String n_index_type_eq;//[类型]
+	public void setN_index_type_eq(String n_index_type_eq) {
+        this.n_index_type_eq = n_index_type_eq;
+        if(!ObjectUtils.isEmpty(this.n_index_type_eq)){
+            this.getSearchCond().eq("`index_type`", n_index_type_eq);
+            this.getEsCond().must(QueryBuilders.termQuery("index_type", n_index_type_eq));
         }
     }
 

@@ -41,18 +41,18 @@ public class TestReportSearchContext extends QueryWrapperContext<TestReport> {
             this.getSearchCond().eq("`objecttype`", n_objecttype_eq);
         }
     }
-	private Long n_product_eq;//[所属产品]
-	public void setN_product_eq(Long n_product_eq) {
-        this.n_product_eq = n_product_eq;
-        if(!ObjectUtils.isEmpty(this.n_product_eq)){
-            this.getSearchCond().eq("`product`", n_product_eq);
+	private String n_projectname_eq;//[所属项目]
+	public void setN_projectname_eq(String n_projectname_eq) {
+        this.n_projectname_eq = n_projectname_eq;
+        if(!ObjectUtils.isEmpty(this.n_projectname_eq)){
+            this.getSearchCond().eq("`projectname`", n_projectname_eq);
         }
     }
-	private Long n_project_eq;//[所属项目]
-	public void setN_project_eq(Long n_project_eq) {
-        this.n_project_eq = n_project_eq;
-        if(!ObjectUtils.isEmpty(this.n_project_eq)){
-            this.getSearchCond().eq("`project`", n_project_eq);
+	private String n_projectname_like;//[所属项目]
+	public void setN_projectname_like(String n_projectname_like) {
+        this.n_projectname_like = n_projectname_like;
+        if(!ObjectUtils.isEmpty(this.n_projectname_like)){
+            this.getSearchCond().like("`projectname`", n_projectname_like);
         }
     }
 	private String n_productname_eq;//[所属产品]
@@ -69,18 +69,18 @@ public class TestReportSearchContext extends QueryWrapperContext<TestReport> {
             this.getSearchCond().like("`productname`", n_productname_like);
         }
     }
-	private String n_projectname_eq;//[所属项目]
-	public void setN_projectname_eq(String n_projectname_eq) {
-        this.n_projectname_eq = n_projectname_eq;
-        if(!ObjectUtils.isEmpty(this.n_projectname_eq)){
-            this.getSearchCond().eq("`projectname`", n_projectname_eq);
+	private Long n_product_eq;//[所属产品]
+	public void setN_product_eq(Long n_product_eq) {
+        this.n_product_eq = n_product_eq;
+        if(!ObjectUtils.isEmpty(this.n_product_eq)){
+            this.getSearchCond().eq("`product`", n_product_eq);
         }
     }
-	private String n_projectname_like;//[所属项目]
-	public void setN_projectname_like(String n_projectname_like) {
-        this.n_projectname_like = n_projectname_like;
-        if(!ObjectUtils.isEmpty(this.n_projectname_like)){
-            this.getSearchCond().like("`projectname`", n_projectname_like);
+	private Long n_project_eq;//[所属项目]
+	public void setN_project_eq(Long n_project_eq) {
+        this.n_project_eq = n_project_eq;
+        if(!ObjectUtils.isEmpty(this.n_project_eq)){
+            this.getSearchCond().eq("`project`", n_project_eq);
         }
     }
 

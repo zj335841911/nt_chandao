@@ -270,6 +270,44 @@ mock.onPost(new RegExp(/^\/files\/?([a-zA-Z0-9\-\;]{0,35})\/save$/)).reply((conf
     console.groupEnd();
     return [status, data];
 });
+        
+// UpdateObjectIDForPmsEe
+mock.onPut(new RegExp(/^\/files\/?([a-zA-Z0-9\-\;]{0,35})\/updateobjectidforpmsee$/)).reply((config: any) => {
+    console.groupCollapsed("实体:file 方法: UpdateObjectIDForPmsEe");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }    
+    const paramArray:Array<any> = ['id'];
+    const matchArray:any = new RegExp(/^\/files\/([a-zA-Z0-9\-\;]{1,35})\/updateobjectidforpmsee$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    //let items = mockDatas ? mockDatas : [];
+    //let _items = items.find((item: any) => Object.is(item.id, tempValue.id));
+      let data = JSON.parse(config.data);
+    mockDatas.forEach((item)=>{
+        if(item['id'] == tempValue['id'] ){
+            for(let value in data){
+              if(item.hasOwnProperty(value)){
+                  item[value] = data[value];
+              }
+            }
+        }
+    })
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(data);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, data];
+});
     
 // FetchDefault
 mock.onGet(new RegExp(/^\/files\/fetchdefault$/)).reply((config: any) => {
@@ -421,6 +459,50 @@ mock.onGet(new RegExp(/^\/files\/fetchtype$/)).reply((config: any) => {
 // FetchType
 mock.onGet(new RegExp(/^\/files\/fetchtype(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
     console.groupCollapsed("实体:file 方法: FetchType");
+    console.table({url:config.url, method: config.method, data:config.data});
+    if(config.url.includes('page')){
+        let url = config.url.split('?')[1];
+        let params  =  qs.parse(url);
+        Object.assign(config, params);
+    }
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    let total = mockDatas.length;
+    let records: Array<any> = [];
+    if(!config.page || !config.size){
+        records = mockDatas;
+    }else{
+        if((config.page-1)*config.size < total){
+          records = mockDatas.slice(config.page,config.size);
+        }
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(records ?  records : []);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, records ?  records : []];
+});
+    
+// FetchTypeNotBySrfparentkey
+mock.onGet(new RegExp(/^\/files\/fetchtypenotbysrfparentkey$/)).reply((config: any) => {
+    console.groupCollapsed("实体:file 方法: FetchTypeNotBySrfparentkey");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(mockDatas);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, mockDatas ? mockDatas : []];
+});
+
+// FetchTypeNotBySrfparentkey
+mock.onGet(new RegExp(/^\/files\/fetchtypenotbysrfparentkey(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
+    console.groupCollapsed("实体:file 方法: FetchTypeNotBySrfparentkey");
     console.table({url:config.url, method: config.method, data:config.data});
     if(config.url.includes('page')){
         let url = config.url.split('?')[1];

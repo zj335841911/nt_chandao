@@ -68,9 +68,6 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.IBranchService branchService;
-    @Autowired
-    @Lazy
-    IModuleService proxyService;
 
     protected int batchSize = 500;
 
@@ -78,7 +75,7 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
     @Transactional
     public boolean create(Module et) {
         fillParentData(et);
-        if (!this.retBool(this.baseMapper.insert(et))) {
+        if(!this.retBool(this.baseMapper.insert(et))) {
             return false;
         }
         CachedBeanCopier.copy(get(et.getId()), et);
@@ -120,7 +117,7 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
     @Transactional
     public Module get(Long key) {
         Module et = getById(key);
-        if (et == null) {
+        if(et == null){
             et = new Module();
             et.setId(key);
         }
@@ -157,7 +154,7 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
     @Override
     @Transactional
     public boolean save(Module et) {
-        if (!saveOrUpdate(et)) {
+        if(!saveOrUpdate(et)) {
             return false;
         }
         return true;
@@ -169,7 +166,7 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
+            return checkKey(et) ? getProxyService().update(et) : getProxyService().create(et);
         }
     }
 
@@ -187,10 +184,10 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
         return true;
     }
@@ -198,7 +195,7 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
     @Override
     @Transactional
     public void saveBatch(List<Module> list) {
-        list.forEach(item -> fillParentData(item));
+        list.forEach(item->fillParentData(item));
         List<Module> create = new ArrayList<>();
         List<Module> update = new ArrayList<>();
         for (Module et : list) {
@@ -209,30 +206,30 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
     }
 
 
-    @Override
+	@Override
     public List<Module> selectByBranch(Long id) {
         return baseMapper.selectByBranch(id);
     }
     @Override
     public void removeByBranch(Long id) {
-        this.remove(new QueryWrapper<Module>().eq("branch", id));
+        this.remove(new QueryWrapper<Module>().eq("branch",id));
     }
 
-    @Override
+	@Override
     public List<Module> selectByParent(Long id) {
         return baseMapper.selectByParent(id);
     }
     @Override
     public void removeByParent(Long id) {
-        this.remove(new QueryWrapper<Module>().eq("parent", id));
+        this.remove(new QueryWrapper<Module>().eq("parent",id));
     }
 
 
@@ -241,7 +238,7 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
      */
     @Override
     public Page<Module> searchBugModule(ModuleSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Module> pages=baseMapper.searchBugModule(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Module> pages=baseMapper.searchBugModule(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Module>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -250,7 +247,7 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
      */
     @Override
     public Page<Module> searchBugModuleCodeList(ModuleSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Module> pages=baseMapper.searchBugModuleCodeList(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Module> pages=baseMapper.searchBugModuleCodeList(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Module>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -259,7 +256,7 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
      */
     @Override
     public Page<Module> searchDefault(ModuleSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Module> pages=baseMapper.searchDefault(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Module> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Module>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -268,7 +265,7 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
      */
     @Override
     public Page<Module> searchDocModule(ModuleSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Module> pages=baseMapper.searchDocModule(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Module> pages=baseMapper.searchDocModule(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Module>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -277,7 +274,7 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
      */
     @Override
     public Page<Module> searchLine(ModuleSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Module> pages=baseMapper.searchLine(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Module> pages=baseMapper.searchLine(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Module>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -286,7 +283,16 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
      */
     @Override
     public Page<Module> searchStoryModule(ModuleSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Module> pages=baseMapper.searchStoryModule(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Module> pages=baseMapper.searchStoryModule(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<Module>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 任务模块
+     */
+    @Override
+    public Page<Module> searchTaskModule(ModuleSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<Module> pages=baseMapper.searchTaskModule(context.getPages(),context,context.getSelectCond());
         return new PageImpl<Module>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -298,12 +304,12 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
      */
     private void fillParentData(Module et){
         //实体关系[DER1N__ZT_MODULE__ZT_MODULE__PARENT]
-        if (!ObjectUtils.isEmpty(et.getParent())) {
+        if(!ObjectUtils.isEmpty(et.getParent())){
             cn.ibizlab.pms.core.zentao.domain.Module ibizparent=et.getIbizparent();
-            if (ObjectUtils.isEmpty(ibizparent)) {
+            if(ObjectUtils.isEmpty(ibizparent)){
                 cn.ibizlab.pms.core.zentao.domain.Module majorEntity=moduleService.get(et.getParent());
                 et.setIbizparent(majorEntity);
-                ibizparent = majorEntity;
+                ibizparent=majorEntity;
             }
             et.setParentname(ibizparent.getName());
         }
@@ -313,24 +319,24 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
 
 
     @Override
-    public List<JSONObject> select(String sql, Map param) {
-        return this.baseMapper.selectBySQL(sql, param);
+    public List<JSONObject> select(String sql, Map param){
+        return this.baseMapper.selectBySQL(sql,param);
     }
 
     @Override
     @Transactional
-    public boolean execute(String sql, Map param) {
+    public boolean execute(String sql , Map param){
         if (sql == null || sql.isEmpty()) {
             return false;
         }
         if (sql.toLowerCase().trim().startsWith("insert")) {
-            return this.baseMapper.insertBySQL(sql, param);
+            return this.baseMapper.insertBySQL(sql,param);
         }
         if (sql.toLowerCase().trim().startsWith("update")) {
-            return this.baseMapper.updateBySQL(sql, param);
+            return this.baseMapper.updateBySQL(sql,param);
         }
         if (sql.toLowerCase().trim().startsWith("delete")) {
-            return this.baseMapper.deleteBySQL(sql, param);
+            return this.baseMapper.deleteBySQL(sql,param);
         }
         log.warn("暂未支持的SQL语法");
         return true;
@@ -346,11 +352,11 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
         List ids =new ArrayList();
         for(Module entity : entities){
             Serializable id=entity.getId();
-            if (!ObjectUtils.isEmpty(id)) {
+            if(!ObjectUtils.isEmpty(id)){
                 ids.add(id);
             }
         }
-        if (ids.size() > 0) {
+        if(ids.size()>0) {
             return this.listByIds(ids);
         }
         else {
@@ -359,9 +365,9 @@ public class ModuleServiceImpl extends ServiceImpl<ModuleMapper, Module> impleme
     }
 
 
-
-
+    public IModuleService getProxyService() {
+        return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
+    }
 }
-
 
 

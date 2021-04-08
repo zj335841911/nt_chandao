@@ -72,7 +72,7 @@ public class ActionResource {
 		Action domain  = actionMapping.toDomain(actiondto);
         domain .setId(action_id);
 		actionService.update(domain );
-		ActionDTO dto = actionMapping.toDto(domain );
+		ActionDTO dto = actionMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
@@ -110,8 +110,9 @@ public class ActionResource {
 
     @ApiOperation(value = "获取系统日志草稿", tags = {"系统日志" },  notes = "获取系统日志草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/actions/getdraft")
-    public ResponseEntity<ActionDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(actionMapping.toDto(actionService.getDraft(new Action())));
+    public ResponseEntity<ActionDTO> getDraft(ActionDTO dto) {
+        Action domain = actionMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(actionMapping.toDto(actionService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查系统日志", tags = {"系统日志" },  notes = "检查系统日志")
@@ -143,16 +144,39 @@ public class ActionResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Action-EditComment-all')")
     @ApiOperation(value = "批量处理[编辑备注信息]", tags = {"系统日志" },  notes = "批量处理[编辑备注信息]")
-	@RequestMapping(method = RequestMethod.POST, value = "/actions/{action_id}/editcommentbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/actions/editcommentbatch")
     public ResponseEntity<Boolean> editCommentBatch(@RequestBody List<ActionDTO> actiondtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(actionService.editCommentBatch(actionMapping.toDomain(actiondtos)));
+        List<Action> domains = actionMapping.toDomain(actiondtos);
+        boolean result = actionService.editCommentBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Action-ManagePmsEe-all')")
+    @ApiOperation(value = "Pms企业专用", tags = {"系统日志" },  notes = "Pms企业专用")
+	@RequestMapping(method = RequestMethod.POST, value = "/actions/{action_id}/managepmsee")
+    public ResponseEntity<ActionDTO> managePmsEe(@PathVariable("action_id") Long action_id, @RequestBody ActionDTO actiondto) {
+        Action domain = actionMapping.toDomain(actiondto);
+        domain.setId(action_id);
+        domain = actionService.managePmsEe(domain);
+        actiondto = actionMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(actiondto);
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Action-ManagePmsEe-all')")
+    @ApiOperation(value = "批量处理[Pms企业专用]", tags = {"系统日志" },  notes = "批量处理[Pms企业专用]")
+	@RequestMapping(method = RequestMethod.POST, value = "/actions/managepmseebatch")
+    public ResponseEntity<Boolean> managePmsEeBatch(@RequestBody List<ActionDTO> actiondtos) {
+        List<Action> domains = actionMapping.toDomain(actiondtos);
+        boolean result = actionService.managePmsEeBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Action-Save-all')")
     @ApiOperation(value = "保存系统日志", tags = {"系统日志" },  notes = "保存系统日志")
 	@RequestMapping(method = RequestMethod.POST, value = "/actions/save")
-    public ResponseEntity<Boolean> save(@RequestBody ActionDTO actiondto) {
-        return ResponseEntity.status(HttpStatus.OK).body(actionService.save(actionMapping.toDomain(actiondto)));
+    public ResponseEntity<ActionDTO> save(@RequestBody ActionDTO actiondto) {
+        Action domain = actionMapping.toDomain(actiondto);
+        actionService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(actionMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Action-Save-all')")
@@ -316,6 +340,7 @@ public class ActionResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(actionMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
 
 
 }

@@ -7,6 +7,38 @@
 export interface IbzPlanTempletDetail {
 
     /**
+     * 类型
+     *
+     * @returns {*}
+     * @memberof IbzPlanTempletDetail
+     */
+    type?: any;
+
+    /**
+     * 计划编号
+     *
+     * @returns {*}
+     * @memberof IbzPlanTempletDetail
+     */
+    plancode?: any;
+
+    /**
+     * 计划名称
+     *
+     * @returns {*}
+     * @memberof IbzPlanTempletDetail
+     */
+    desc?: any;
+
+    /**
+     * 排序
+     *
+     * @returns {*}
+     * @memberof IbzPlanTempletDetail
+     */
+    order?: any;
+
+    /**
      * 计划模板详情标识
      *
      * @returns {*}
@@ -47,6 +79,14 @@ export interface IbzPlanTempletDetail {
     updateman?: any;
 
     /**
+     * 描述
+     *
+     * @returns {*}
+     * @memberof IbzPlanTempletDetail
+     */
+    expect?: any;
+
+    /**
      * 更新时间
      *
      * @returns {*}
@@ -61,44 +101,4 @@ export interface IbzPlanTempletDetail {
      * @memberof IbzPlanTempletDetail
      */
     plantempletid?: any;
-
-    /**
-     * 计划编号
-     *
-     * @returns {*}
-     * @memberof IbzPlanTempletDetail
-     */
-    plancode?: any;
-
-    /**
-     * 排序
-     *
-     * @returns {*}
-     * @memberof IbzPlanTempletDetail
-     */
-    order?: any;
-
-    /**
-     * 计划名称
-     *
-     * @returns {*}
-     * @memberof IbzPlanTempletDetail
-     */
-    desc?: any;
-
-    /**
-     * 描述
-     *
-     * @returns {*}
-     * @memberof IbzPlanTempletDetail
-     */
-    expect?: any;
-
-    /**
-     * 类型
-     *
-     * @returns {*}
-     * @memberof IbzPlanTempletDetail
-     */
-    type?: any;
 }

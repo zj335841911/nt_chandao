@@ -15,19 +15,10 @@ export class Exp_TestTaskModel {
 	public getDataItems(): any[] {
 		return [
 			{
-				name: 'title',
+				name: 'pri',
 			},
 			{
 				name: 'type',
-			},
-			{
-				name: 'id',
-			},
-			{
-				name: 'status1',
-			},
-			{
-				name: 'version',
 			},
 			{
 				name: 'task',
@@ -36,7 +27,16 @@ export class Exp_TestTaskModel {
 				name: 'lastrunresult',
 			},
 			{
-				name: 'pri',
+				name: 'title',
+			},
+			{
+				name: 'id',
+			},
+			{
+				name: 'version',
+			},
+			{
+				name: 'status1',
 			},
 			{
 				name: 'srfkey',

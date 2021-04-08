@@ -52,19 +52,13 @@ public class ProjectTeamServiceImpl extends ServiceImpl<ProjectTeamMapper, Proje
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.IProjectService projectService;
 
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.ibiz.service.logic.IProjectTeamGetProjectDaysLogic getprojectdaysLogic;
-    @Autowired
-    @Lazy
-    IProjectTeamService proxyService;
-
     protected int batchSize = 500;
 
     @Override
     @Transactional
     public boolean create(ProjectTeam et) {
-        if (!this.retBool(this.baseMapper.insert(et))) {
+        fillParentData(et);
+        if(!this.retBool(this.baseMapper.insert(et))) {
             return false;
         }
         CachedBeanCopier.copy(get(et.getId()), et);
@@ -74,13 +68,15 @@ public class ProjectTeamServiceImpl extends ServiceImpl<ProjectTeamMapper, Proje
     @Override
     @Transactional
     public void createBatch(List<ProjectTeam> list) {
+        list.forEach(item->fillParentData(item));
         this.saveBatch(list, batchSize);
     }
 
     @Override
     @Transactional
     public boolean update(ProjectTeam et) {
-        if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", et.getId()))) {
+        fillParentData(et);
+        if(!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", et.getId()))) {
             return false;
         }
         CachedBeanCopier.copy(get(et.getId()), et);
@@ -90,6 +86,7 @@ public class ProjectTeamServiceImpl extends ServiceImpl<ProjectTeamMapper, Proje
     @Override
     @Transactional
     public void updateBatch(List<ProjectTeam> list) {
+        list.forEach(item->fillParentData(item));
         updateBatchById(list, batchSize);
     }
 
@@ -97,7 +94,7 @@ public class ProjectTeamServiceImpl extends ServiceImpl<ProjectTeamMapper, Proje
     @Transactional
     public boolean remove(Long key) {
         boolean result = removeById(key);
-        return result;
+        return result ;
     }
 
     @Override
@@ -110,7 +107,7 @@ public class ProjectTeamServiceImpl extends ServiceImpl<ProjectTeamMapper, Proje
     @Transactional
     public ProjectTeam get(Long key) {
         ProjectTeam et = getById(key);
-        if (et == null) {
+        if(et == null){
             et = new ProjectTeam();
             et.setId(key);
         }
@@ -121,7 +118,7 @@ public class ProjectTeamServiceImpl extends ServiceImpl<ProjectTeamMapper, Proje
 
     @Override
     public ProjectTeam getDraft(ProjectTeam et) {
-        getprojectdaysLogic.execute(et);
+        fillParentData(et);
         return et;
     }
 
@@ -135,7 +132,8 @@ public class ProjectTeamServiceImpl extends ServiceImpl<ProjectTeamMapper, Proje
         //自定义代码
         return et;
     }
-   @Override
+
+    @Override
     @Transactional
     public boolean getUserRoleBatch(List<ProjectTeam> etList) {
         for(ProjectTeam et : etList) {
@@ -147,7 +145,7 @@ public class ProjectTeamServiceImpl extends ServiceImpl<ProjectTeamMapper, Proje
     @Override
     @Transactional
     public boolean save(ProjectTeam et) {
-        if (!saveOrUpdate(et)) {
+        if(!saveOrUpdate(et)) {
             return false;
         }
         return true;
@@ -159,13 +157,14 @@ public class ProjectTeamServiceImpl extends ServiceImpl<ProjectTeamMapper, Proje
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
+            return checkKey(et) ? getProxyService().update(et) : getProxyService().create(et);
         }
     }
 
     @Override
     @Transactional
     public boolean saveBatch(Collection<ProjectTeam> list) {
+        list.forEach(item->fillParentData(item));
         List<ProjectTeam> create = new ArrayList<>();
         List<ProjectTeam> update = new ArrayList<>();
         for (ProjectTeam et : list) {
@@ -176,10 +175,10 @@ public class ProjectTeamServiceImpl extends ServiceImpl<ProjectTeamMapper, Proje
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
         return true;
     }
@@ -187,6 +186,7 @@ public class ProjectTeamServiceImpl extends ServiceImpl<ProjectTeamMapper, Proje
     @Override
     @Transactional
     public void saveBatch(List<ProjectTeam> list) {
+        list.forEach(item->fillParentData(item));
         List<ProjectTeam> create = new ArrayList<>();
         List<ProjectTeam> update = new ArrayList<>();
         for (ProjectTeam et : list) {
@@ -197,56 +197,54 @@ public class ProjectTeamServiceImpl extends ServiceImpl<ProjectTeamMapper, Proje
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
     }
 
 
-    @Override
+	@Override
     public List<ProjectTeam> selectByRoot(Long id) {
         return baseMapper.selectByRoot(id);
     }
     @Override
     public void removeByRoot(Long id) {
-        this.remove(new QueryWrapper<ProjectTeam>().eq("root", id));
+        this.remove(new QueryWrapper<ProjectTeam>().eq("root",id));
     }
 
-    @Override
-    public void saveByRoot(Long id, List<ProjectTeam> list) {
-        if (list == null) {
+    public IProjectTeamService getProxyService() {
+        return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
+    }
+	@Override
+    public void saveByRoot(Long id,List<ProjectTeam> list) {
+        if(list==null)
             return;
-        }
         Set<Long> delIds=new HashSet<Long>();
         List<ProjectTeam> _update=new ArrayList<ProjectTeam>();
         List<ProjectTeam> _create=new ArrayList<ProjectTeam>();
-        for (ProjectTeam before:selectByRoot(id)){
+        for(ProjectTeam before:selectByRoot(id)){
             delIds.add(before.getId());
         }
-        for (ProjectTeam sub : list) {
+        for(ProjectTeam sub:list) {
             sub.setRoot(id);
-            if (ObjectUtils.isEmpty(sub.getId()))
+            if(ObjectUtils.isEmpty(sub.getId()))
                 sub.setId((Long)sub.getDefaultKey(true));
-            if (delIds.contains(sub.getId())) {
+            if(delIds.contains(sub.getId())) {
                 delIds.remove(sub.getId());
                 _update.add(sub);
             }
-            else {
+            else
                 _create.add(sub);
-            }
         }
-        if (_update.size() > 0) {
-            proxyService.updateBatch(_update);
-        }
-        if (_create.size() > 0) {
-            proxyService.createBatch(_create);
-        }
-        if (delIds.size() > 0) {
-            proxyService.removeBatch(delIds);
-        }
-    }
+        if(_update.size()>0)
+            getProxyService().updateBatch(_update);
+        if(_create.size()>0)
+            getProxyService().createBatch(_create);
+        if(delIds.size()>0)
+            getProxyService().removeBatch(delIds);
+	}
 
 
     /**
@@ -254,7 +252,16 @@ public class ProjectTeamServiceImpl extends ServiceImpl<ProjectTeamMapper, Proje
      */
     @Override
     public Page<ProjectTeam> searchDefault(ProjectTeamSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectTeam> pages=baseMapper.searchDefault(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectTeam> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<ProjectTeam>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 项目成员（项目经理）
+     */
+    @Override
+    public Page<ProjectTeam> searchProjectTeamPm(ProjectTeamSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectTeam> pages=baseMapper.searchProjectTeamPm(context.getPages(),context,context.getSelectCond());
         return new PageImpl<ProjectTeam>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -263,7 +270,7 @@ public class ProjectTeamServiceImpl extends ServiceImpl<ProjectTeamMapper, Proje
      */
     @Override
     public Page<ProjectTeam> searchRowEditDefault(ProjectTeamSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectTeam> pages=baseMapper.searchRowEditDefault(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectTeam> pages=baseMapper.searchRowEditDefault(context.getPages(),context,context.getSelectCond());
         return new PageImpl<ProjectTeam>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -272,35 +279,52 @@ public class ProjectTeamServiceImpl extends ServiceImpl<ProjectTeamMapper, Proje
      */
     @Override
     public Page<ProjectTeam> searchTaskCntEstimateConsumedLeft(ProjectTeamSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectTeam> pages=baseMapper.searchTaskCntEstimateConsumedLeft(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectTeam> pages=baseMapper.searchTaskCntEstimateConsumedLeft(context.getPages(),context,context.getSelectCond());
         return new PageImpl<ProjectTeam>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
 
 
+    /**
+     * 为当前实体填充父数据（外键值文本、外键值附加数据）
+     * @param et
+     */
+    private void fillParentData(ProjectTeam et){
+        //实体关系[DER1N_IBZ_PROJECTTEAM_ZT_PROJECT_ROOT]
+        if(!ObjectUtils.isEmpty(et.getRoot())){
+            cn.ibizlab.pms.core.zentao.domain.Project projectteam=et.getProjectteam();
+            if(ObjectUtils.isEmpty(projectteam)){
+                cn.ibizlab.pms.core.zentao.domain.Project majorEntity=projectService.get(et.getRoot());
+                et.setProjectteam(majorEntity);
+                projectteam=majorEntity;
+            }
+            et.setPm(projectteam.getPm());
+            et.setProjectname(projectteam.getName());
+        }
+    }
 
 
 
 
     @Override
-    public List<JSONObject> select(String sql, Map param) {
-        return this.baseMapper.selectBySQL(sql, param);
+    public List<JSONObject> select(String sql, Map param){
+        return this.baseMapper.selectBySQL(sql,param);
     }
 
     @Override
     @Transactional
-    public boolean execute(String sql, Map param) {
+    public boolean execute(String sql , Map param){
         if (sql == null || sql.isEmpty()) {
             return false;
         }
         if (sql.toLowerCase().trim().startsWith("insert")) {
-            return this.baseMapper.insertBySQL(sql, param);
+            return this.baseMapper.insertBySQL(sql,param);
         }
         if (sql.toLowerCase().trim().startsWith("update")) {
-            return this.baseMapper.updateBySQL(sql, param);
+            return this.baseMapper.updateBySQL(sql,param);
         }
         if (sql.toLowerCase().trim().startsWith("delete")) {
-            return this.baseMapper.deleteBySQL(sql, param);
+            return this.baseMapper.deleteBySQL(sql,param);
         }
         log.warn("暂未支持的SQL语法");
         return true;
@@ -308,9 +332,6 @@ public class ProjectTeamServiceImpl extends ServiceImpl<ProjectTeamMapper, Proje
 
 
 
-
-
 }
-
 
 

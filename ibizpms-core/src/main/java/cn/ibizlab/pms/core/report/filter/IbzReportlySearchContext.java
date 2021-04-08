@@ -27,6 +27,13 @@ import cn.ibizlab.pms.core.report.domain.IbzReportly;
 @Data
 public class IbzReportlySearchContext extends QueryWrapperContext<IbzReportly> {
 
+	private String n_account_eq;//[用户]
+	public void setN_account_eq(String n_account_eq) {
+        this.n_account_eq = n_account_eq;
+        if(!ObjectUtils.isEmpty(this.n_account_eq)){
+            this.getSearchCond().eq("`account`", n_account_eq);
+        }
+    }
 	private String n_ibz_reportlyname_like;//[汇报名称]
 	public void setN_ibz_reportlyname_like(String n_ibz_reportlyname_like) {
         this.n_ibz_reportlyname_like = n_ibz_reportlyname_like;
@@ -39,13 +46,6 @@ public class IbzReportlySearchContext extends QueryWrapperContext<IbzReportly> {
         this.n_issubmit_eq = n_issubmit_eq;
         if(!ObjectUtils.isEmpty(this.n_issubmit_eq)){
             this.getSearchCond().eq("`issubmit`", n_issubmit_eq);
-        }
-    }
-	private String n_account_eq;//[用户]
-	public void setN_account_eq(String n_account_eq) {
-        this.n_account_eq = n_account_eq;
-        if(!ObjectUtils.isEmpty(this.n_account_eq)){
-            this.getSearchCond().eq("`account`", n_account_eq);
         }
     }
 

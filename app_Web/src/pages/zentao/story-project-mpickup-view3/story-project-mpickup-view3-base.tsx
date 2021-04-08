@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { MPickupViewBase } from '@/studio-core';
 import StoryService from '@/service/story/story-service';
 import StoryAuthService from '@/authservice/story/story-auth-service';
@@ -146,7 +146,7 @@ export class StoryProjectMPickupView3Base extends MPickupViewBase {
      * @type {string}
      * @memberof StoryProjectMPickupView3Base
      */
-	protected viewtag: string = '645efdb73a5b13723410903dff447667';
+	protected viewtag: string = '8bfb46334946f52f856a6a54b9d49d89';
 
     /**
      * 视图名称

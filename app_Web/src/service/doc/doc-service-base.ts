@@ -1,3 +1,4 @@
+import { Environment } from '@/environments/environment';
 import { Http } from '@/utils';
 import { Util } from '@/utils';
 import EntityService from '../entity-service';
@@ -49,7 +50,7 @@ export default class DocServiceBase extends EntityService {
      * @memberof DocServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().get(`/docs/${context.doc}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/docs/${context.doc}/select`,isloading);
             
             return res;
     }
@@ -106,7 +107,7 @@ export default class DocServiceBase extends EntityService {
      * @memberof DocServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().delete(`/docs/${context.doc}`,isloading);
+            let res:any = await Http.getInstance().delete(`/docs/${context.doc}`,isloading);
             return res;
     }
 
@@ -135,7 +136,10 @@ export default class DocServiceBase extends EntityService {
      * @memberof DocServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/docs/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.doc) delete tempData.doc;
+        if(tempData.id) delete tempData.id;
+        let res:any = await  Http.getInstance().get(`/docs/getdraft`,tempData,isloading);
         res.data.doc = data.doc;
         
         return res;
@@ -151,8 +155,22 @@ export default class DocServiceBase extends EntityService {
      * @memberof DocServiceBase
      */
     public async ByVersionUpdateContext(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().put(`/docs/${context.doc}/byversionupdatecontext`,data,isloading);
+            let res:any = await Http.getInstance().put(`/docs/${context.doc}/byversionupdatecontext`,data,isloading);
             return res;
+    }
+
+    /**
+     * ByVersionUpdateContextBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocServiceBase
+     */
+    public async ByVersionUpdateContextBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/docs/byversionupdatecontextbatch`,tempData,isloading);
     }
 
     /**
@@ -165,7 +183,7 @@ export default class DocServiceBase extends EntityService {
      * @memberof DocServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/docs/${context.doc}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/docs/${context.doc}/checkkey`,data,isloading);
             return res;
     }
 
@@ -179,8 +197,22 @@ export default class DocServiceBase extends EntityService {
      * @memberof DocServiceBase
      */
     public async Collect(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/docs/${context.doc}/collect`,data,isloading);
+            let res:any = await Http.getInstance().post(`/docs/${context.doc}/collect`,data,isloading);
             return res;
+    }
+
+    /**
+     * CollectBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocServiceBase
+     */
+    public async CollectBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/docs/collectbatch`,tempData,isloading);
     }
 
     /**
@@ -193,8 +225,22 @@ export default class DocServiceBase extends EntityService {
      * @memberof DocServiceBase
      */
     public async GetDocStatus(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().put(`/docs/${context.doc}/getdocstatus`,data,isloading);
+            let res:any = await Http.getInstance().put(`/docs/${context.doc}/getdocstatus`,data,isloading);
             return res;
+    }
+
+    /**
+     * GetDocStatusBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocServiceBase
+     */
+    public async GetDocStatusBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/docs/getdocstatusbatch`,tempData,isloading);
     }
 
     /**
@@ -207,8 +253,22 @@ export default class DocServiceBase extends EntityService {
      * @memberof DocServiceBase
      */
     public async OnlyCollectDoc(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/docs/${context.doc}/onlycollectdoc`,data,isloading);
+            let res:any = await Http.getInstance().post(`/docs/${context.doc}/onlycollectdoc`,data,isloading);
             return res;
+    }
+
+    /**
+     * OnlyCollectDocBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocServiceBase
+     */
+    public async OnlyCollectDocBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/docs/onlycollectdocbatch`,tempData,isloading);
     }
 
     /**
@@ -221,8 +281,22 @@ export default class DocServiceBase extends EntityService {
      * @memberof DocServiceBase
      */
     public async OnlyUnCollectDoc(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/docs/${context.doc}/onlyuncollectdoc`,data,isloading);
+            let res:any = await Http.getInstance().post(`/docs/${context.doc}/onlyuncollectdoc`,data,isloading);
             return res;
+    }
+
+    /**
+     * OnlyUnCollectDocBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocServiceBase
+     */
+    public async OnlyUnCollectDocBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/docs/onlyuncollectdocbatch`,tempData,isloading);
     }
 
     /**
@@ -252,8 +326,22 @@ export default class DocServiceBase extends EntityService {
      * @memberof DocServiceBase
      */
     public async UnCollect(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/docs/${context.doc}/uncollect`,data,isloading);
+            let res:any = await Http.getInstance().post(`/docs/${context.doc}/uncollect`,data,isloading);
             return res;
+    }
+
+    /**
+     * UnCollectBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof DocServiceBase
+     */
+    public async UnCollectBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/docs/uncollectbatch`,tempData,isloading);
     }
 
     /**
@@ -267,7 +355,7 @@ export default class DocServiceBase extends EntityService {
      */
     public async FetchChildDocLibDoc(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().post(`/docs/fetchchilddoclibdoc`,tempData,isloading);
+        let res:any = await Http.getInstance().post(`/docs/fetchchilddoclibdoc`,tempData,isloading);
         return res;
     }
 
@@ -296,7 +384,7 @@ export default class DocServiceBase extends EntityService {
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().post(`/docs/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().post(`/docs/fetchdefault`,tempData,isloading);
         return res;
     }
 
@@ -325,7 +413,7 @@ export default class DocServiceBase extends EntityService {
      */
     public async FetchDocLibAndDoc(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/docs/fetchdoclibanddoc`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/docs/fetchdoclibanddoc`,tempData,isloading);
         return res;
     }
 
@@ -354,7 +442,7 @@ export default class DocServiceBase extends EntityService {
      */
     public async FetchDocLibDoc(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().post(`/docs/fetchdoclibdoc`,tempData,isloading);
+        let res:any = await Http.getInstance().post(`/docs/fetchdoclibdoc`,tempData,isloading);
         return res;
     }
 
@@ -383,7 +471,7 @@ export default class DocServiceBase extends EntityService {
      */
     public async FetchDocModuleDoc(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().post(`/docs/fetchdocmoduledoc`,tempData,isloading);
+        let res:any = await Http.getInstance().post(`/docs/fetchdocmoduledoc`,tempData,isloading);
         return res;
     }
 
@@ -412,7 +500,7 @@ export default class DocServiceBase extends EntityService {
      */
     public async FetchDocStatus(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/docs/fetchdocstatus`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/docs/fetchdocstatus`,tempData,isloading);
         return res;
     }
 
@@ -441,7 +529,7 @@ export default class DocServiceBase extends EntityService {
      */
     public async FetchModuleDocChild(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/docs/fetchmoduledocchild`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/docs/fetchmoduledocchild`,tempData,isloading);
         return res;
     }
 
@@ -470,7 +558,7 @@ export default class DocServiceBase extends EntityService {
      */
     public async FetchMyFavourite(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().post(`/docs/fetchmyfavourite`,tempData,isloading);
+        let res:any = await Http.getInstance().post(`/docs/fetchmyfavourite`,tempData,isloading);
         return res;
     }
 
@@ -499,7 +587,7 @@ export default class DocServiceBase extends EntityService {
      */
     public async FetchMyFavouritesOnlyDoc(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/docs/fetchmyfavouritesonlydoc`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/docs/fetchmyfavouritesonlydoc`,tempData,isloading);
         return res;
     }
 
@@ -528,7 +616,7 @@ export default class DocServiceBase extends EntityService {
      */
     public async FetchNotRootDoc(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/docs/fetchnotrootdoc`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/docs/fetchnotrootdoc`,tempData,isloading);
         return res;
     }
 
@@ -557,7 +645,7 @@ export default class DocServiceBase extends EntityService {
      */
     public async FetchRootDoc(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/docs/fetchrootdoc`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/docs/fetchrootdoc`,tempData,isloading);
         return res;
     }
 

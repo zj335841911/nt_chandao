@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { EditViewBase } from '@/studio-core';
 import ReleaseService from '@/service/release/release-service';
 import ReleaseAuthService from '@/authservice/release/release-auth-service';
@@ -125,7 +125,7 @@ export class ReleaseQuickCreateViewBase extends EditViewBase {
      * @type {string}
      * @memberof ReleaseQuickCreateViewBase
      */
-	protected viewtag: string = 'ed51615a22255e84a3b276815ef5c96e';
+	protected viewtag: string = '120a2786f83e79c901470f9f38c4cd7a';
 
     /**
      * 视图名称

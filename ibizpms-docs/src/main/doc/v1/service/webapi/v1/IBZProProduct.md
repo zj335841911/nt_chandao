@@ -225,10 +225,10 @@ POST
 #### IBZProProductDTO
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
-| 1 | id | Long | 不可 | 编号 |
-| 2 | name | String | 不可 | 产品名称 |
-| 3 | ibizid | String | 允许 | IBIZ标识 |
-| 4 | code | String | 允许 | 产品代号 |
+| 1 | ibizid | String | 允许 | IBIZ标识 |
+| 2 | code | String | 允许 | 产品代号 |
+| 3 | name | String | 不可 | 产品名称 |
+| 4 | id | Long | 不可 | 编号 |
 | 5 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### IBZProProductSearchContext

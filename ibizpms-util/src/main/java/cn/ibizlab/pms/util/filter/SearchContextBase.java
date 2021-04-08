@@ -72,6 +72,7 @@ public class SearchContextBase implements ISearchContext{
      * es查询条件
      */
     public BoolQueryBuilder esCond=new BoolQueryBuilder();
+
     /**
      * 获取工作流步骤标识
      */

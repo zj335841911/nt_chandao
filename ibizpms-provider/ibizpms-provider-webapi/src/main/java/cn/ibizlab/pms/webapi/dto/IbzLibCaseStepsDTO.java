@@ -20,31 +20,27 @@ import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * 服务DTO对象[IbzLibCaseStepsDTO]
  */
 @Data
+@ApiModel("用例库用例步骤")
 public class IbzLibCaseStepsDTO extends DTOBase implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
     /**
-     * 属性 [VERSION]
+     * 属性 [REALS]
      *
      */
-    @JSONField(name = "version")
-    @JsonProperty("version")
-    private Integer version;
-
-    /**
-     * 属性 [CASE]
-     *
-     */
-    @JSONField(name = "ibizcase")
-    @JsonProperty("ibizcase")
-    @JsonSerialize(using = ToStringSerializer.class)
-    private Long ibizcase;
+    @JSONField(name = "reals")
+    @JsonProperty("reals")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("实际情况")
+    private String reals;
 
     /**
      * 属性 [EXPECT]
@@ -53,7 +49,18 @@ public class IbzLibCaseStepsDTO extends DTOBase implements Serializable {
     @JSONField(name = "expect")
     @JsonProperty("expect")
     @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
+    @ApiModelProperty("预期")
     private String expect;
+
+    /**
+     * 属性 [DESC]
+     *
+     */
+    @JSONField(name = "desc")
+    @JsonProperty("desc")
+    @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
+    @ApiModelProperty("步骤")
+    private String desc;
 
     /**
      * 属性 [FILES]
@@ -62,6 +69,7 @@ public class IbzLibCaseStepsDTO extends DTOBase implements Serializable {
     @JSONField(name = "files")
     @JsonProperty("files")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("附件")
     private String files;
 
     /**
@@ -71,34 +79,8 @@ public class IbzLibCaseStepsDTO extends DTOBase implements Serializable {
     @JSONField(name = "id")
     @JsonProperty("id")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("编号")
     private Long id;
-
-    /**
-     * 属性 [REALS]
-     *
-     */
-    @JSONField(name = "reals")
-    @JsonProperty("reals")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String reals;
-
-    /**
-     * 属性 [DESC]
-     *
-     */
-    @JSONField(name = "desc")
-    @JsonProperty("desc")
-    @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
-    private String desc;
-
-    /**
-     * 属性 [PARENT]
-     *
-     */
-    @JSONField(name = "parent")
-    @JsonProperty("parent")
-    @JsonSerialize(using = ToStringSerializer.class)
-    private Long parent;
 
     /**
      * 属性 [TYPE]
@@ -107,16 +89,38 @@ public class IbzLibCaseStepsDTO extends DTOBase implements Serializable {
     @JSONField(name = "type")
     @JsonProperty("type")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("类型")
     private String type;
 
+    /**
+     * 属性 [VERSION]
+     *
+     */
+    @JSONField(name = "version")
+    @JsonProperty("version")
+    @ApiModelProperty("版本")
+    private Integer version;
 
     /**
-     * 设置 [CASE]
+     * 属性 [PARENT]
+     *
      */
-    public void setIbizcase(Long  ibizcase){
-        this.ibizcase = ibizcase ;
-        this.modify("case",ibizcase);
-    }
+    @JSONField(name = "parent")
+    @JsonProperty("parent")
+    @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("编号")
+    private Long parent;
+
+    /**
+     * 属性 [CASE]
+     *
+     */
+    @JSONField(name = "ibizcase")
+    @JsonProperty("ibizcase")
+    @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("用例编号")
+    private Long ibizcase;
+
 
     /**
      * 设置 [EXPECT]
@@ -135,6 +139,14 @@ public class IbzLibCaseStepsDTO extends DTOBase implements Serializable {
     }
 
     /**
+     * 设置 [TYPE]
+     */
+    public void setType(String  type){
+        this.type = type ;
+        this.modify("type",type);
+    }
+
+    /**
      * 设置 [PARENT]
      */
     public void setParent(Long  parent){
@@ -143,11 +155,11 @@ public class IbzLibCaseStepsDTO extends DTOBase implements Serializable {
     }
 
     /**
-     * 设置 [TYPE]
+     * 设置 [CASE]
      */
-    public void setType(String  type){
-        this.type = type ;
-        this.modify("type",type);
+    public void setIbizcase(Long  ibizcase){
+        this.ibizcase = ibizcase ;
+        this.modify("case",ibizcase);
     }
 
 

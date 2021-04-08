@@ -24,14 +24,14 @@ public interface PSSysRunSessionFeignClient {
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/pssysrunsessions")
-    PSSysRunSession create(@RequestBody PSSysRunSession pssysrunsession);
+    PSSysRunSession create(@RequestBody PSSysRunSession et);
 
     @RequestMapping(method = RequestMethod.POST, value = "/pssysrunsessions/batch")
     Boolean createBatch(@RequestBody List<PSSysRunSession> pssysrunsessions);
 
 
     @RequestMapping(method = RequestMethod.PUT, value = "/pssysrunsessions/{pssysrunsessionid}")
-    PSSysRunSession update(@PathVariable("pssysrunsessionid") String pssysrunsessionid, @RequestBody PSSysRunSession pssysrunsession);
+    PSSysRunSession update(@PathVariable("pssysrunsessionid") String pssysrunsessionid, @RequestBody PSSysRunSession et);
 
     @RequestMapping(method = RequestMethod.PUT, value = "/pssysrunsessions/batch")
     Boolean updateBatch(@RequestBody List<PSSysRunSession> pssysrunsessions);
@@ -52,15 +52,17 @@ public interface PSSysRunSessionFeignClient {
 
 
     @RequestMapping(method = RequestMethod.GET, value = "/pssysrunsessions/getdraft")
-    PSSysRunSession getDraft();
+    PSSysRunSession getDraft(PSSysRunSession entity);
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/pssysrunsessions/checkkey")
-    Boolean checkKey(@RequestBody PSSysRunSession pssysrunsession);
+    Boolean checkKey(@RequestBody PSSysRunSession et);
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/pssysrunsessions/save")
-    Boolean save(@RequestBody PSSysRunSession pssysrunsession);
+    Object saveEntity(@RequestBody PSSysRunSession et);
+
+    default Boolean save(@RequestBody PSSysRunSession et) { return saveEntity(et)!=null; }
 
     @RequestMapping(method = RequestMethod.POST, value = "/pssysrunsessions/savebatch")
     Boolean saveBatch(@RequestBody List<PSSysRunSession> pssysrunsessions);

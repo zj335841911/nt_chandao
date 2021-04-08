@@ -131,7 +131,7 @@ export default class IbzDailyDailyMobTabExpViewBase extends Vue {
 	 * @type {string}
 	 * @memberof IbzDailyDailyMobTabExpViewBase
 	 */
-	protected viewtag: string = '5cf685aa2765b112906a6b8ed57cdfc1';
+	protected viewtag: string = '61c39e479b48562ea5dd171967cf9975';
 
     /**
      * 视图上下文

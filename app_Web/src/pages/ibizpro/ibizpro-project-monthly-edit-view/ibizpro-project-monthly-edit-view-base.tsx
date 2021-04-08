@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { EditViewBase } from '@/studio-core';
 import IbizproProjectMonthlyService from '@/service/ibizpro-project-monthly/ibizpro-project-monthly-service';
 import IbizproProjectMonthlyAuthService from '@/authservice/ibizpro-project-monthly/ibizpro-project-monthly-auth-service';
@@ -109,7 +109,7 @@ export class IbizproProjectMonthlyEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof IbizproProjectMonthlyEditViewBase
      */
-	protected viewtag: string = '436294cf39a8a5ad49acd7e4501e7e2d';
+	protected viewtag: string = 'a94ed0bf755673ee7dde89bbfac6d619';
 
     /**
      * 视图名称

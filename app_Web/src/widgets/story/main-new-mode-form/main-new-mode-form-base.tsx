@@ -506,6 +506,9 @@ export class Main_NewModeEditFormBase extends EditFormControlBase {
         if (this.data.hasOwnProperty('branch')) {
             this.data['branch'] = this.viewparams['storybranch'];
         }
+        if (this.data.hasOwnProperty('modulename')) {
+            this.data['modulename'] = this.viewparams['modulename'];
+        }
         if (this.data.hasOwnProperty('plan')) {
             this.data['plan'] = this.viewparams['plan'];
         }

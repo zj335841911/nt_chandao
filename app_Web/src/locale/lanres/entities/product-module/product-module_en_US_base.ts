@@ -4,6 +4,7 @@ function getLocaleResourceBase(){
 	const data:any = {
 		fields: {
 			path: commonLogic.appcommonhandle("path",null),
+			orderpk: commonLogic.appcommonhandle("数据选择排序",null),
 			deleted: commonLogic.appcommonhandle("逻辑删除标志",null),
 			name: commonLogic.appcommonhandle("名称",null),
 			branch: commonLogic.appcommonhandle("branch",null),
@@ -15,11 +16,10 @@ function getLocaleResourceBase(){
 			isleaf: commonLogic.appcommonhandle("叶子模块",null),
 			id: commonLogic.appcommonhandle("id",null),
 			collector: commonLogic.appcommonhandle("collector",null),
-			root: commonLogic.appcommonhandle("产品",null),
-			parent: commonLogic.appcommonhandle("id",null),
 			rootname: commonLogic.appcommonhandle("所属产品",null),
 			parentname: commonLogic.appcommonhandle("上级模块",null),
-			orderpk: commonLogic.appcommonhandle("数据选择排序",null),
+			root: commonLogic.appcommonhandle("产品",null),
+			parent: commonLogic.appcommonhandle("id",null),
 		},
 			views: {
 				gridviewbranch: {
@@ -30,6 +30,10 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("需求模块",null),
 					title: commonLogic.appcommonhandle("产品模块表格视图",null),
 				},
+				quickcfgview: {
+					caption: commonLogic.appcommonhandle("需求模块",null),
+					title: commonLogic.appcommonhandle("需求模块",null),
+				},
 				treeexpview: {
 					caption: commonLogic.appcommonhandle("需求模块",null),
 					title: commonLogic.appcommonhandle("需求模块树导航视图",null),
@@ -37,10 +41,6 @@ function getLocaleResourceBase(){
 				editview: {
 					caption: commonLogic.appcommonhandle("需求模块",null),
 					title: commonLogic.appcommonhandle("产品模块编辑视图",null),
-				},
-				quickcfgview: {
-					caption: commonLogic.appcommonhandle("需求模块",null),
-					title: commonLogic.appcommonhandle("需求模块",null),
 				},
 			},
 			main_form: {
@@ -147,14 +147,14 @@ function getLocaleResourceBase(){
 			moduleexp_treeview: {
 				nodata:commonLogic.appcommonhandle("",null),
 				nodes: {
-					root: commonLogic.appcommonhandle("默认根节点",null),
 					branch: commonLogic.appcommonhandle("平台",null),
+					root: commonLogic.appcommonhandle("默认根节点",null),
 					all: commonLogic.appcommonhandle("所有模块",null),
 				},
 				uiactions: {
 				refreshparent: commonLogic.appcommonhandle("刷新",null),
-				productmodule_openquickcfgview: commonLogic.appcommonhandle("编辑",null),
 				refreshall: commonLogic.appcommonhandle("刷新",null),
+				productmodule_openquickcfgview: commonLogic.appcommonhandle("编辑",null),
 				},
 			},
 			bugexp_treeview: {

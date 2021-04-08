@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { DashboardViewBase } from '@/studio-core';
 import DocService from '@/service/doc/doc-service';
 import DocAuthService from '@/authservice/doc/doc-auth-service';
@@ -118,7 +118,7 @@ export class DocDashboardViewBase extends DashboardViewBase {
      * @type {string}
      * @memberof DocDashboardViewBase
      */
-	protected viewtag: string = '23cc93d7fdddff5077a7952d26802a7b';
+	protected viewtag: string = '86e1fc6d46d804998a58ab21982c2874';
 
     /**
      * 视图名称

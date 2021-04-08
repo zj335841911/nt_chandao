@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { EditViewBase } from '@/studio-core';
 import IBIZProTagService from '@/service/ibizpro-tag/ibizpro-tag-service';
 import IBIZProTagAuthService from '@/authservice/ibizpro-tag/ibizpro-tag-auth-service';
@@ -123,7 +123,7 @@ export class IBIZProTagEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof IBIZProTagEditViewBase
      */
-	protected viewtag: string = '66ea594caa3b4caf0a9e6944eec6d80c';
+	protected viewtag: string = '1dbebd55ab7518c3a31b7cc8af22a1a3';
 
     /**
      * 视图名称

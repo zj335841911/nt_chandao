@@ -72,7 +72,7 @@ public class IbzMyTerritoryResource {
 		IbzMyTerritory domain  = ibzmyterritoryMapping.toDomain(ibzmyterritorydto);
         domain .setId(ibzmyterritory_id);
 		ibzmyterritoryService.update(domain );
-		IbzMyTerritoryDTO dto = ibzmyterritoryMapping.toDto(domain );
+		IbzMyTerritoryDTO dto = ibzmyterritoryMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
@@ -110,8 +110,9 @@ public class IbzMyTerritoryResource {
 
     @ApiOperation(value = "获取我的地盘草稿", tags = {"我的地盘" },  notes = "获取我的地盘草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/ibzmyterritories/getdraft")
-    public ResponseEntity<IbzMyTerritoryDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(ibzmyterritoryMapping.toDto(ibzmyterritoryService.getDraft(new IbzMyTerritory())));
+    public ResponseEntity<IbzMyTerritoryDTO> getDraft(IbzMyTerritoryDTO dto) {
+        IbzMyTerritory domain = ibzmyterritoryMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(ibzmyterritoryMapping.toDto(ibzmyterritoryService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查我的地盘", tags = {"我的地盘" },  notes = "检查我的地盘")
@@ -153,8 +154,10 @@ public class IbzMyTerritoryResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMyTerritory-Save-all')")
     @ApiOperation(value = "保存我的地盘", tags = {"我的地盘" },  notes = "保存我的地盘")
 	@RequestMapping(method = RequestMethod.POST, value = "/ibzmyterritories/save")
-    public ResponseEntity<Boolean> save(@RequestBody IbzMyTerritoryDTO ibzmyterritorydto) {
-        return ResponseEntity.status(HttpStatus.OK).body(ibzmyterritoryService.save(ibzmyterritoryMapping.toDomain(ibzmyterritorydto)));
+    public ResponseEntity<IbzMyTerritoryDTO> save(@RequestBody IbzMyTerritoryDTO ibzmyterritorydto) {
+        IbzMyTerritory domain = ibzmyterritoryMapping.toDomain(ibzmyterritorydto);
+        ibzmyterritoryService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(ibzmyterritoryMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMyTerritory-Save-all')")
@@ -231,6 +234,28 @@ public class IbzMyTerritoryResource {
                 .body(new PageImpl(ibzmyterritoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMyTerritory-searchMyWorkPm-all')")
+	@ApiOperation(value = "获取我的工作（项目经理）", tags = {"我的地盘" } ,notes = "获取我的工作（项目经理）")
+    @RequestMapping(method= RequestMethod.GET , value="/ibzmyterritories/fetchmyworkpm")
+	public ResponseEntity<List<IbzMyTerritoryDTO>> fetchMyWorkPm(IbzMyTerritorySearchContext context) {
+        Page<IbzMyTerritory> domains = ibzmyterritoryService.searchMyWorkPm(context) ;
+        List<IbzMyTerritoryDTO> list = ibzmyterritoryMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMyTerritory-searchMyWorkPm-all')")
+	@ApiOperation(value = "查询我的工作（项目经理）", tags = {"我的地盘" } ,notes = "查询我的工作（项目经理）")
+    @RequestMapping(method= RequestMethod.POST , value="/ibzmyterritories/searchmyworkpm")
+	public ResponseEntity<Page<IbzMyTerritoryDTO>> searchMyWorkPm(@RequestBody IbzMyTerritorySearchContext context) {
+        Page<IbzMyTerritory> domains = ibzmyterritoryService.searchMyWorkPm(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(ibzmyterritoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzMyTerritory-searchPersonInfo-all')")
 	@ApiOperation(value = "获取个人信息-个人贡献", tags = {"我的地盘" } ,notes = "获取个人信息-个人贡献")
     @RequestMapping(method= RequestMethod.GET , value="/ibzmyterritories/fetchpersoninfo")
@@ -274,6 +299,7 @@ public class IbzMyTerritoryResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(ibzmyterritoryMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
 
 
 }

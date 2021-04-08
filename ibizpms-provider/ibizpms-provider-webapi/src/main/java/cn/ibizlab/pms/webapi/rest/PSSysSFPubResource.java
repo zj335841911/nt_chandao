@@ -73,7 +73,7 @@ public class PSSysSFPubResource {
 		PSSysSFPub domain  = pssyssfpubMapping.toDomain(pssyssfpubdto);
         domain .setPssyssfpubid(pssyssfpub_id);
 		pssyssfpubService.update(domain );
-		PSSysSFPubDTO dto = pssyssfpubMapping.toDto(domain );
+		PSSysSFPubDTO dto = pssyssfpubMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
@@ -111,8 +111,9 @@ public class PSSysSFPubResource {
 
     @ApiOperation(value = "获取后台服务架构草稿", tags = {"后台服务架构" },  notes = "获取后台服务架构草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/pssyssfpubs/getdraft")
-    public ResponseEntity<PSSysSFPubDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(pssyssfpubMapping.toDto(pssyssfpubService.getDraft(new PSSysSFPub())));
+    public ResponseEntity<PSSysSFPubDTO> getDraft(PSSysSFPubDTO dto) {
+        PSSysSFPub domain = pssyssfpubMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(pssyssfpubMapping.toDto(pssyssfpubService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查后台服务架构", tags = {"后台服务架构" },  notes = "检查后台服务架构")
@@ -124,8 +125,10 @@ public class PSSysSFPubResource {
     @PreAuthorize("hasPermission(this.pssyssfpubMapping.toDomain(#pssyssfpubdto),'pms-PSSysSFPub-Save')")
     @ApiOperation(value = "保存后台服务架构", tags = {"后台服务架构" },  notes = "保存后台服务架构")
 	@RequestMapping(method = RequestMethod.POST, value = "/pssyssfpubs/save")
-    public ResponseEntity<Boolean> save(@RequestBody PSSysSFPubDTO pssyssfpubdto) {
-        return ResponseEntity.status(HttpStatus.OK).body(pssyssfpubService.save(pssyssfpubMapping.toDomain(pssyssfpubdto)));
+    public ResponseEntity<PSSysSFPubDTO> save(@RequestBody PSSysSFPubDTO pssyssfpubdto) {
+        PSSysSFPub domain = pssyssfpubMapping.toDomain(pssyssfpubdto);
+        pssyssfpubService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(pssyssfpubMapping.toDto(domain));
     }
 
     @PreAuthorize("hasPermission(this.pssyssfpubMapping.toDomain(#pssyssfpubdtos),'pms-PSSysSFPub-Save')")
@@ -179,6 +182,7 @@ public class PSSysSFPubResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(pssyssfpubMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
 
 
 }

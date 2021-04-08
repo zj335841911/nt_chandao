@@ -186,6 +186,25 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | [ActionDTO](#ActionDTO)：系统日志实体传输对象 |
 
+### Pms企业专用
+#### 访问路径
+/actions/{action_id}/managepmsee
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | action_id | Long | 系统日志主键ID |
+| 2 | actiondto | [ActionDTO](#ActionDTO) | 系统日志实体传输对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | [ActionDTO](#ActionDTO)：系统日志实体传输对象 |
+
 ### 保存系统日志
 #### 访问路径
 /actions/save
@@ -479,48 +498,48 @@ POST
 #### ActionDTO
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
-| 1 | extra | String | 允许 | 附加值 |
-| 2 | objecttype | String | 允许 | 对象类型 |
-| 3 | id | Long | 不可 | id |
-| 4 | comment | String | 允许 | 备注 |
-| 5 | read | String | 允许 | 已读 |
-| 6 | action | String | 允许 | 动作 |
-| 7 | date | Timestamp | 允许 | 日期<br>时间格式：yyyy-MM-dd HH:mm:ss |
-| 8 | product | String | 允许 | 产品 |
-| 9 | objectid | Long | 允许 | 对象ID |
-| 10 | actor | String | 允许 | 操作者 |
-| 11 | project | Long | 允许 | 项目 |
-| 12 | lastcomment | String | 允许 | 备注 |
-| 13 | actionmanner | String | 允许 | 操作方式 |
-| 14 | isactorss | Long | 允许 | 当前用户 |
-| 15 | date1 | String | 允许 | 显示日期 |
-| 16 | today | String | 允许 | 今天 |
-| 17 | yesterday | String | 允许 | 昨天 |
-| 18 | thisweek | String | 允许 | 本周 |
-| 19 | lastweek | String | 允许 | 上周 |
-| 20 | thismonth | String | 允许 | 本月 |
-| 21 | lastmonth | String | 允许 | 上月 |
-| 22 | srfkey | Long | 允许 | 前端键值 |
-| 23 | noticeusers | String | 允许 | 消息通知用户 |
-| 24 | files | String | 允许 | 文件 |
+| 1 | thismonth | String | 允许 | 本月 |
+| 2 | yesterday | String | 允许 | 昨天 |
+| 3 | extra | String | 允许 | 附加值 |
+| 4 | files | String | 允许 | 文件 |
+| 5 | lastmonth | String | 允许 | 上月 |
+| 6 | isactorss | Long | 允许 | 当前用户 |
+| 7 | thisweek | String | 允许 | 本周 |
+| 8 | today | String | 允许 | 今天 |
+| 9 | date1 | String | 允许 | 显示日期 |
+| 10 | objecttype | String | 允许 | 对象类型 |
+| 11 | id | Long | 不可 | id |
+| 12 | noticeusers | String | 允许 | 消息通知用户 |
+| 13 | comment | String | 允许 | 备注 |
+| 14 | read | String | 允许 | 已读 |
+| 15 | action | String | 允许 | 动作 |
+| 16 | date | Timestamp | 允许 | 日期<br>时间格式：yyyy-MM-dd HH:mm:ss |
+| 17 | product | String | 允许 | 产品 |
+| 18 | lastcomment | String | 允许 | 备注 |
+| 19 | srfkey | Long | 允许 | 前端键值 |
+| 20 | actionmanner | String | 允许 | 操作方式 |
+| 21 | lastweek | String | 允许 | 上周 |
+| 22 | objectid | Long | 允许 | 对象ID |
+| 23 | actor | String | 允许 | 操作者 |
+| 24 | project | Long | 允许 | 项目 |
 | 25 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### ActionSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
-| 1 | n_objecttype_eq | String | 允许 | 条件字段：objecttype<br>条件组合方式：`=` |
-| 2 | n_comment_like | String | 允许 | 条件字段：comment<br>条件组合方式：`%like%` |
-| 3 | n_read_eq | String | 允许 | 条件字段：read<br>条件组合方式：`=` |
-| 4 | n_action_eq | String | 允许 | 条件字段：action<br>条件组合方式：`=` |
-| 5 | n_objectid_eq | Long | 允许 | 条件字段：objectid<br>条件组合方式：`=` |
-| 6 | n_project_eq | Long | 允许 | 条件字段：project<br>条件组合方式：`=` |
-| 7 | n_actionmanner_eq | String | 允许 | 条件字段：actionmanner<br>条件组合方式：`=` |
-| 8 | n_today_eq | String | 允许 | 条件字段：today<br>条件组合方式：`=` |
-| 9 | n_yesterday_eq | String | 允许 | 条件字段：yesterday<br>条件组合方式：`=` |
-| 10 | n_thisweek_eq | String | 允许 | 条件字段：thisweek<br>条件组合方式：`=` |
+| 1 | n_thismonth_eq | String | 允许 | 条件字段：thismonth<br>条件组合方式：`=` |
+| 2 | n_yesterday_eq | String | 允许 | 条件字段：yesterday<br>条件组合方式：`=` |
+| 3 | n_lastmonth_eq | String | 允许 | 条件字段：lastmonth<br>条件组合方式：`=` |
+| 4 | n_thisweek_eq | String | 允许 | 条件字段：thisweek<br>条件组合方式：`=` |
+| 5 | n_today_eq | String | 允许 | 条件字段：today<br>条件组合方式：`=` |
+| 6 | n_objecttype_eq | String | 允许 | 条件字段：objecttype<br>条件组合方式：`=` |
+| 7 | n_comment_like | String | 允许 | 条件字段：comment<br>条件组合方式：`%like%` |
+| 8 | n_read_eq | String | 允许 | 条件字段：read<br>条件组合方式：`=` |
+| 9 | n_action_eq | String | 允许 | 条件字段：action<br>条件组合方式：`=` |
+| 10 | n_actionmanner_eq | String | 允许 | 条件字段：actionmanner<br>条件组合方式：`=` |
 | 11 | n_lastweek_eq | String | 允许 | 条件字段：lastweek<br>条件组合方式：`=` |
-| 12 | n_thismonth_eq | String | 允许 | 条件字段：thismonth<br>条件组合方式：`=` |
-| 13 | n_lastmonth_eq | String | 允许 | 条件字段：lastmonth<br>条件组合方式：`=` |
+| 12 | n_objectid_eq | Long | 允许 | 条件字段：objectid<br>条件组合方式：`=` |
+| 13 | n_project_eq | Long | 允许 | 条件字段：project<br>条件组合方式：`=` |
 | 14 | customcond | String | 允许 | 自定义查询条件 |
 | 15 | customparams | String | 允许 | 自定义查询参数 |
 | 16 | query | String | 允许 | 快速搜索 |

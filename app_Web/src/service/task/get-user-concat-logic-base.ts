@@ -21,7 +21,7 @@ export default class GetUserConcatLogicBase {
      * 
      * @memberof  GetUserConcatLogicBase
      */
-    private id:string = "A0E75F7B-F3D6-430A-9F25-AF78072BA7C5";
+    private id:string = "2f1f228ca8acbe8bfa13e2fa3e06d64a";
 
     /**
      * 默认参数名称
@@ -86,7 +86,7 @@ export default class GetUserConcatLogicBase {
     */
     private async executePrepareparam1(context:any,params:any,isloading:boolean){
         // 准备参数节点
-    let tempDstParam0Context:any = this.paramsMap.get('Default').context?this.paramsMap.get('Default').context:{};
+    let tempDstParam0Context:any = this.paramsMap.get('Default').context?this.paramsMap.get('Default').context:context;
     let tempDstParam0Data:any = this.paramsMap.get('Default').data?this.paramsMap.get('Default').data:{};
     let tempSrcParam0Data:any = this.paramsMap.get('Default').data?this.paramsMap.get('Default').data:{};
     Object.assign(tempDstParam0Data,{mailto:tempSrcParam0Data['mailtopk']});

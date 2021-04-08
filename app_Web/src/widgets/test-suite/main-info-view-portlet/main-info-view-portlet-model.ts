@@ -40,13 +40,13 @@ export default class MainInfoViewModel {
         name: 'addedby',
       },
       {
+        name: 'casecnt',
+      },
+      {
         name: 'desc',
       },
       {
         name: 'product',
-      },
-      {
-        name: 'casecnt',
       },
     ]
   }

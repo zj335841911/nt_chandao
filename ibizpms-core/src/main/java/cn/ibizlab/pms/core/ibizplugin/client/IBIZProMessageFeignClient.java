@@ -24,14 +24,14 @@ public interface IBIZProMessageFeignClient {
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/ibizpromessages")
-    IBIZProMessage create(@RequestBody IBIZProMessage ibizpromessage);
+    IBIZProMessage create(@RequestBody IBIZProMessage et);
 
     @RequestMapping(method = RequestMethod.POST, value = "/ibizpromessages/batch")
     Boolean createBatch(@RequestBody List<IBIZProMessage> ibizpromessages);
 
 
     @RequestMapping(method = RequestMethod.PUT, value = "/ibizpromessages/{ibizpromessageid}")
-    IBIZProMessage update(@PathVariable("ibizpromessageid") String ibizpromessageid, @RequestBody IBIZProMessage ibizpromessage);
+    IBIZProMessage update(@PathVariable("ibizpromessageid") String ibizpromessageid, @RequestBody IBIZProMessage et);
 
     @RequestMapping(method = RequestMethod.PUT, value = "/ibizpromessages/batch")
     Boolean updateBatch(@RequestBody List<IBIZProMessage> ibizpromessages);
@@ -52,30 +52,32 @@ public interface IBIZProMessageFeignClient {
 
 
     @RequestMapping(method = RequestMethod.GET, value = "/ibizpromessages/getdraft")
-    IBIZProMessage getDraft();
+    IBIZProMessage getDraft(IBIZProMessage entity);
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/ibizpromessages/checkkey")
-    Boolean checkKey(@RequestBody IBIZProMessage ibizpromessage);
+    Boolean checkKey(@RequestBody IBIZProMessage et);
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/ibizpromessages/{ibizpromessageid}/markdone")
-    IBIZProMessage markDone(@PathVariable("ibizpromessageid") String ibizpromessageid, @RequestBody IBIZProMessage ibizpromessage);
+    IBIZProMessage markDone(@PathVariable("ibizpromessageid") String ibizpromessageid, @RequestBody IBIZProMessage et);
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/ibizpromessages/{ibizpromessageid}/markread")
-    IBIZProMessage markRead(@PathVariable("ibizpromessageid") String ibizpromessageid, @RequestBody IBIZProMessage ibizpromessage);
+    IBIZProMessage markRead(@PathVariable("ibizpromessageid") String ibizpromessageid, @RequestBody IBIZProMessage et);
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/ibizpromessages/save")
-    Boolean save(@RequestBody IBIZProMessage ibizpromessage);
+    Object saveEntity(@RequestBody IBIZProMessage et);
+
+    default Boolean save(@RequestBody IBIZProMessage et) { return saveEntity(et)!=null; }
 
     @RequestMapping(method = RequestMethod.POST, value = "/ibizpromessages/savebatch")
     Boolean saveBatch(@RequestBody List<IBIZProMessage> ibizpromessages);
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/ibizpromessages/{ibizpromessageid}/send")
-    IBIZProMessage send(@PathVariable("ibizpromessageid") String ibizpromessageid, @RequestBody IBIZProMessage ibizpromessage);
+    IBIZProMessage send(@PathVariable("ibizpromessageid") String ibizpromessageid, @RequestBody IBIZProMessage et);
 
 
 

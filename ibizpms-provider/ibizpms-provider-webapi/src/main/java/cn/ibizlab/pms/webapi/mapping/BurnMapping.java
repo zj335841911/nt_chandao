@@ -12,4 +12,3 @@ public interface BurnMapping extends MappingBase<BurnDTO, Burn> {
 
 
 }
-

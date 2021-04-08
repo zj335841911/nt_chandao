@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { EditViewBase } from '@/studio-core';
 import SysUpdateLogService from '@/service/sys-update-log/sys-update-log-service';
 import SysUpdateLogAuthService from '@/authservice/sys-update-log/sys-update-log-auth-service';
@@ -109,7 +109,7 @@ export class SysUpdateLogInfoEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof SysUpdateLogInfoEditViewBase
      */
-	protected viewtag: string = 'e77b0ab085994e29f1906ab1b90a2f53';
+	protected viewtag: string = 'f05b112ce6c2ef73ca7d15ad98a0f689';
 
     /**
      * 视图名称

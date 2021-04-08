@@ -15,19 +15,19 @@ export class Mob_PlanModel {
 	public getDataItems(): any[] {
 		return [
 			{
-				name: 'assignedto',
-			},
-			{
 				name: 'status',
 			},
 			{
 				name: 'stage',
 			},
 			{
+				name: 'title',
+			},
+			{
 				name: 'pri',
 			},
 			{
-				name: 'title',
+				name: 'assignedto',
 			},
 			{
 				name: 'srfkey',

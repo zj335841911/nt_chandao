@@ -15,34 +15,34 @@ export class MyReModel {
 	public getDataItems(): any[] {
 		return [
 			{
-				name: 'worktoday',
-			},
-			{
-				name: 'comment',
-			},
-			{
-				name: 'type',
-			},
-			{
 				name: 'planstomorrow',
-			},
-			{
-				name: 'date',
-			},
-			{
-				name: 'ibz_dailyname',
-			},
-			{
-				name: 'reportstatus',
-			},
-			{
-				name: 'account',
 			},
 			{
 				name: 'ibz_dailyid',
 			},
 			{
+				name: 'date',
+			},
+			{
+				name: 'account',
+			},
+			{
+				name: 'comment',
+			},
+			{
+				name: 'ibz_dailyname',
+			},
+			{
+				name: 'type',
+			},
+			{
+				name: 'reportstatus',
+			},
+			{
 				name: 'issubmit',
+			},
+			{
+				name: 'worktoday',
 			},
 			{
 				name: 'srfkey',

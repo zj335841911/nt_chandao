@@ -75,7 +75,7 @@ export class ProjectMainToolbarPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet5_uad3d648_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet5_u1fe0a32_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -103,7 +103,7 @@ export class ProjectMainToolbarPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet5_u6e94857_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet5_uca4a1f6_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -131,7 +131,7 @@ export class ProjectMainToolbarPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet5_u2db4a08_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet5_ue19d831_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -159,7 +159,7 @@ export class ProjectMainToolbarPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet5_u698efc2_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet5_u3fed8d8_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -187,7 +187,7 @@ export class ProjectMainToolbarPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet5_u209627c_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet5_u66eccda_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -215,7 +215,7 @@ export class ProjectMainToolbarPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet5_ufb9f459_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet5_uc2afabc_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -281,7 +281,7 @@ export class ProjectMainToolbarPortletBase extends MainControlBase {
      * @memberof ProjectMainToolbarBase
      */
     public actionBarModelData:any[] =[
-        { viewlogicname:"dashboard_sysportlet5_uad3d648_click",
+        { viewlogicname:"dashboard_sysportlet5_u1fe0a32_click",
         text: "延期",
         iconcls: "fa fa-calendar-o",
         icon: "",
@@ -291,7 +291,7 @@ export class ProjectMainToolbarPortletBase extends MainControlBase {
         visible:true,
         disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet5_u6e94857_click",
+        { viewlogicname:"dashboard_sysportlet5_uca4a1f6_click",
         text: "挂起",
         iconcls: "fa fa-pause",
         icon: "",
@@ -301,7 +301,7 @@ export class ProjectMainToolbarPortletBase extends MainControlBase {
         visible:true,
         disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet5_u2db4a08_click",
+        { viewlogicname:"dashboard_sysportlet5_ue19d831_click",
         text: "激活",
         iconcls: "fa fa-plug",
         icon: "",
@@ -311,7 +311,7 @@ export class ProjectMainToolbarPortletBase extends MainControlBase {
         visible:true,
         disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet5_u698efc2_click",
+        { viewlogicname:"dashboard_sysportlet5_u3fed8d8_click",
         text: "关闭",
         iconcls: "fa fa-power-off",
         icon: "",
@@ -321,7 +321,7 @@ export class ProjectMainToolbarPortletBase extends MainControlBase {
         visible:true,
         disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet5_u209627c_click",
+        { viewlogicname:"dashboard_sysportlet5_u66eccda_click",
         text: "编辑",
         iconcls: "fa fa-edit",
         icon: "",
@@ -331,7 +331,7 @@ export class ProjectMainToolbarPortletBase extends MainControlBase {
         visible:true,
         disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet5_ufb9f459_click",
+        { viewlogicname:"dashboard_sysportlet5_uc2afabc_click",
         text: "删除",
         iconcls: "fa fa-remove",
         icon: "",
@@ -349,23 +349,23 @@ export class ProjectMainToolbarPortletBase extends MainControlBase {
      * @memberof ProjectMainToolbarBase
      */
     public handleItemClick($event:any){
-        if(Object.is($event,'dashboard_sysportlet5_uad3d648_click')){
-            this.dashboard_sysportlet5_uad3d648_click(null);
+        if(Object.is($event,'dashboard_sysportlet5_u1fe0a32_click')){
+            this.dashboard_sysportlet5_u1fe0a32_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet5_u6e94857_click')){
-            this.dashboard_sysportlet5_u6e94857_click(null);
+        if(Object.is($event,'dashboard_sysportlet5_uca4a1f6_click')){
+            this.dashboard_sysportlet5_uca4a1f6_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet5_u2db4a08_click')){
-            this.dashboard_sysportlet5_u2db4a08_click(null);
+        if(Object.is($event,'dashboard_sysportlet5_ue19d831_click')){
+            this.dashboard_sysportlet5_ue19d831_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet5_u698efc2_click')){
-            this.dashboard_sysportlet5_u698efc2_click(null);
+        if(Object.is($event,'dashboard_sysportlet5_u3fed8d8_click')){
+            this.dashboard_sysportlet5_u3fed8d8_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet5_u209627c_click')){
-            this.dashboard_sysportlet5_u209627c_click(null);
+        if(Object.is($event,'dashboard_sysportlet5_u66eccda_click')){
+            this.dashboard_sysportlet5_u66eccda_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet5_ufb9f459_click')){
-            this.dashboard_sysportlet5_ufb9f459_click(null);
+        if(Object.is($event,'dashboard_sysportlet5_uc2afabc_click')){
+            this.dashboard_sysportlet5_uc2afabc_click(null);
         }
     }
 

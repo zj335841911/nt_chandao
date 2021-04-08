@@ -15,16 +15,7 @@ export class MOB_ReleaseLink_reBugModel {
 	public getDataItems(): any[] {
 		return [
 			{
-				name: 'resolution',
-			},
-			{
 				name: 'severity',
-			},
-			{
-				name: 'status',
-			},
-			{
-				name: 'title',
 			},
 			{
 				name: 'assignedto',
@@ -33,6 +24,15 @@ export class MOB_ReleaseLink_reBugModel {
 				name: 'pri1',
 				prop: 'pri',
 				dataType: 'NSCODELIST',
+			},
+			{
+				name: 'resolution',
+			},
+			{
+				name: 'status',
+			},
+			{
+				name: 'title',
 			},
 			{
 				name: 'srfkey',

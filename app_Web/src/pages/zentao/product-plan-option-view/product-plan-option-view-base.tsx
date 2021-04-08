@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { OptionViewBase } from '@/studio-core';
 import ProductPlanService from '@/service/product-plan/product-plan-service';
 import ProductPlanAuthService from '@/authservice/product-plan/product-plan-auth-service';
@@ -144,7 +144,7 @@ export class ProductPlanOptionViewBase extends OptionViewBase {
      * @type {string}
      * @memberof ProductPlanOptionViewBase
      */
-	protected viewtag: string = 'e4e450c40addd5d706151ea60dbe7826';
+	protected viewtag: string = '3a8c3a9bd689ed17ac4d40e679d383d2';
 
     /**
      * 视图名称

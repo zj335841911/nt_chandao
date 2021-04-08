@@ -11,85 +11,87 @@
 | --------   |------------| -----   |  -------- | 
 |编号|ID|ACID|&nbsp;|
 |所有者|ACCOUNT|TEXT|&nbsp;|
+|间隔天数|CONFIG_DAY|INT|&nbsp;|
+|指派给（选择）|ASSIGNEDTOPK|TEXT|&nbsp;|
+|日期|DATE1|TEXT|&nbsp;|
+|周期类型|CONFIG_TYPE|SSCODELIST|&nbsp;|
 |关闭时间|CLOSEDDATE|DATETIME|&nbsp;|
 |由谁关闭|CLOSEDBY|TEXT|&nbsp;|
 |类型|TYPE|TEXT|&nbsp;|
 |结束|END|NSCODELIST|&nbsp;|
 |描述|DESC|LONGTEXT|&nbsp;|
+|消息通知用户|NOTICEUSERS|TEXT|&nbsp;|
 |由谁完成|FINISHEDBY|TEXT|&nbsp;|
 |开始|BEGIN|NSCODELIST|&nbsp;|
 |关联编号|IDVALUE|BIGINT|&nbsp;|
 |由谁指派|ASSIGNEDBY|TEXT|&nbsp;|
+|周期设置月|CONFIG_MONTH|SMCODELIST|&nbsp;|
+|待办名称|TASK|TEXT|&nbsp;|
+|待办名称|BUG|TEXT|&nbsp;|
 |完成时间|FINISHEDDATE|DATETIME|&nbsp;|
 |周期|CYCLE|INT|&nbsp;|
+|待定|DATE_DISABLE|TEXT|&nbsp;|
+|周期设置周几|CONFIG_WEEK|SMCODELIST|&nbsp;|
 |指派给|ASSIGNEDTO|TEXT|&nbsp;|
 |状态|STATUS|SSCODELIST|&nbsp;|
+|提前|CONFIG_BEFOREDAYS|INT|&nbsp;|
 |待办名称|NAME|TEXT|&nbsp;|
 |指派日期|ASSIGNEDDATE|DATE|&nbsp;|
+|过期时间|CONFIG_END|DATE|&nbsp;|
+|费用|COST|INT|&nbsp;|
 |优先级|PRI|INT|&nbsp;|
 |日期|DATE|DATE|&nbsp;|
+|待办名称|STORY|TEXT|&nbsp;|
 |私人事务|PRIVATE|SMCODELIST|&nbsp;|
 |config|CONFIG|TEXT|&nbsp;|
-|间隔天数|CONFIG_DAY|INT|&nbsp;|
-|提前|CONFIG_BEFOREDAYS|INT|&nbsp;|
-|周期设置周几|CONFIG_WEEK|SMCODELIST|&nbsp;|
-|周期设置月|CONFIG_MONTH|SMCODELIST|&nbsp;|
-|周期类型|CONFIG_TYPE|SSCODELIST|&nbsp;|
-|过期时间|CONFIG_END|DATE|&nbsp;|
-|待办名称|BUG|TEXT|&nbsp;|
-|待办名称|TASK|TEXT|&nbsp;|
-|待办名称|STORY|TEXT|&nbsp;|
-|日期|DATE1|TEXT|&nbsp;|
-|待定|DATE_DISABLE|TEXT|&nbsp;|
-|指派给（选择）|ASSIGNEDTOPK|TEXT|&nbsp;|
-|消息通知用户|NOTICEUSERS|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
 | --------   |------------| ----- | 
 |编号|默认规则|默认规则|
 |所有者|默认规则|内容长度必须小于等于[30]|
+|间隔天数|默认规则|默认规则|
+|指派给（选择）|默认规则|内容长度必须小于等于[200]|
+|日期|默认规则|内容长度必须小于等于[200]|
+|周期类型|默认规则|内容长度必须小于等于[200]|
 |关闭时间|默认规则|默认规则|
 |由谁关闭|默认规则|内容长度必须小于等于[30]|
 |类型|默认规则|内容长度必须小于等于[10]|
 |结束|默认规则|默认规则|
 |描述|默认规则|内容长度必须小于等于[65535]|
+|消息通知用户|默认规则|内容长度必须小于等于[100]|
 |由谁完成|默认规则|内容长度必须小于等于[30]|
 |开始|默认规则|默认规则|
 |关联编号|默认规则|默认规则|
 |由谁指派|默认规则|内容长度必须小于等于[30]|
+|周期设置月|默认规则|内容长度必须小于等于[4000]|
+|待办名称|默认规则|内容长度必须小于等于[100]|
+|待办名称|默认规则|内容长度必须小于等于[100]|
 |完成时间|默认规则|默认规则|
 |周期|默认规则|默认规则|
+|待定|默认规则|内容长度必须小于等于[100]|
+|周期设置周几|默认规则|内容长度必须小于等于[4000]|
 |指派给|默认规则|内容长度必须小于等于[30]|
 |状态|默认规则|内容长度必须小于等于[6]|
+|提前|默认规则|默认规则|
 |待办名称|默认规则|内容长度必须小于等于[150]|
 |指派日期|默认规则|默认规则|
+|过期时间|默认规则|默认规则|
+|费用|默认规则|默认规则|
 |优先级|默认规则|默认规则|
 |日期|默认规则|默认规则|
+|待办名称|默认规则|内容长度必须小于等于[100]|
 |私人事务|默认规则|内容长度必须小于等于[4000]|
 |config|默认规则|内容长度必须小于等于[255]|
-|间隔天数|默认规则|默认规则|
-|提前|默认规则|默认规则|
-|周期设置周几|默认规则|内容长度必须小于等于[4000]|
-|周期设置月|默认规则|内容长度必须小于等于[4000]|
-|周期类型|默认规则|内容长度必须小于等于[200]|
-|过期时间|默认规则|默认规则|
-|待办名称|默认规则|内容长度必须小于等于[100]|
-|待办名称|默认规则|内容长度必须小于等于[100]|
-|待办名称|默认规则|内容长度必须小于等于[100]|
-|日期|默认规则|内容长度必须小于等于[200]|
-|待定|默认规则|内容长度必须小于等于[100]|
-|指派给（选择）|默认规则|内容长度必须小于等于[200]|
-|消息通知用户|默认规则|内容长度必须小于等于[100]|
 
 ## 状态控制
 
 |状态|行为控制模式| 控制行为 | 操作标识控制模式 | 控制操作 |
 | --------   | ------------|------------|------------|------------|
-|Value| 允许|  | 允许 | DELETE<br>ACTIVATE<br>UPDATE<br> |
-|Value| 允许|  | 允许 | TOBUG<br>UPDATE<br>ASSIGNTO<br>FINISH<br>TOTASK<br>DELETE<br> |
-|Value| 允许|  | 允许 | DELETE<br>CLOSE<br>ACTIVATE<br>UPDATE<br> |
-|Value| 允许|  | 允许 | FINISH<br>TOBUG<br>DELETE<br>UPDATE<br>ASSIGNTO<br>TOTASK<br> |
+|Value| 允许|  | 允许 | UPDATE<br>DELETE<br>ACTIVATE<br> |
+|Value| 允许|  | 允许 | FINISH<br>ASSIGNTO<br>DELETE<br>TOTASK<br>TOBUG<br>UPDATE<br> |
+|Value| 允许|  | 允许 | DELETE<br>CLOSE<br>UPDATE<br>ACTIVATE<br> |
+|Value| 允许|  | 允许 | DELETE<br>FINISH<br>UPDATE<br>TOBUG<br>ASSIGNTO<br>TOTASK<br> |
 
 状态
 
@@ -156,7 +158,7 @@ hide footbox
 
 | 查询编号 | 查询名称       | 默认查询 |   备注|
 | --------  | --------   | --------   | ----- |
-|DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#Todo_Default))|否|&nbsp;|
+|DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#Todo_Default))|是|&nbsp;|
 |MyTodo|我的待办([MYSQL5](../../appendix/query_MYSQL5.md#Todo_MyTodo))|否|&nbsp;|
 |MyTodoPc|我的待办([MYSQL5](../../appendix/query_MYSQL5.md#Todo_MyTodoPc))|否|&nbsp;|
 |MyUpcoming|MyUpcoming([MYSQL5](../../appendix/query_MYSQL5.md#Todo_MyUpcoming))|否|&nbsp;|
@@ -175,6 +177,7 @@ hide footbox
 | 属性      |    搜索模式     |
 | --------   |------------|
 |所有者(ACCOUNT)|EQ|
+|周期类型(CONFIG_TYPE)|EQ|
 |类型(TYPE)|EQ|
 |类型(TYPE)|NOTEQ|
 |结束(END)|EQ|
@@ -188,7 +191,6 @@ hide footbox
 |日期(DATE)|LTANDEQ|
 |日期(DATE)|NOTEQ|
 |私人事务(PRIVATE)|EQ|
-|周期类型(CONFIG_TYPE)|EQ|
 
 ## 导入模式
 无

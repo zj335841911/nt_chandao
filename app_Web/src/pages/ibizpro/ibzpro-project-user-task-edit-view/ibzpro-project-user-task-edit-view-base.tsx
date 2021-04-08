@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { EditViewBase } from '@/studio-core';
 import IbzproProjectUserTaskService from '@/service/ibzpro-project-user-task/ibzpro-project-user-task-service';
 import IbzproProjectUserTaskAuthService from '@/authservice/ibzpro-project-user-task/ibzpro-project-user-task-auth-service';
@@ -131,7 +131,7 @@ export class IbzproProjectUserTaskEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof IbzproProjectUserTaskEditViewBase
      */
-	protected viewtag: string = '9c16791b436de259a12aa770fc3e260b';
+	protected viewtag: string = 'b92ece30dcfe04edd190f452807e350d';
 
     /**
      * 视图名称

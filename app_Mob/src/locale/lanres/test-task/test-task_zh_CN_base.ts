@@ -3,56 +3,56 @@ export default {
   fields: {
     end: "结束日期",
     begin: "开始日期",
+    ownerpk: "负责人（选择）",
     mailto: "抄送给",
+    casecnt: "用例数",
+    mailtopk: "抄送给",
     pri: "优先级",
+    comment: "备注",
     substatus: "子状态",
     report: "report",
     desc: "描述",
     id: "编号",
     status: "当前状态",
+    mailtoconact: "联系人",
     owner: "负责人",
     deleted: "已删除",
     auto: "auto",
     name: "名称",
+    buildname: "版本",
+    productname: "产品",
+    projecttname: "项目",
     product: "所属产品",
     build: "版本",
     project: "所属项目",
-    productname: "产品",
-    projecttname: "项目",
-    buildname: "版本",
-    comment: "备注",
-    casecnt: "用例数",
-    ownerpk: "负责人（选择）",
-    mailtoconact: "联系人",
-    mailtopk: "抄送给",
   },
 	views: {
 		moboptionviewclose: {
 			caption: commonLogic.appcommonhandle("关闭",null),
 		},
-		mobtabexpview: {
-			caption: commonLogic.appcommonhandle("测试版本",null),
-		},
-		moboptionviewstart: {
-			caption: commonLogic.appcommonhandle("开始",null),
-		},
-		moboptionviewactivite: {
-			caption: commonLogic.appcommonhandle("激活",null),
-		},
 		mobeditview: {
-			caption: commonLogic.appcommonhandle("测试版本",null),
-		},
-		editnewmobeditview: {
-			caption: commonLogic.appcommonhandle("测试版本",null),
-		},
-		mobmdview: {
 			caption: commonLogic.appcommonhandle("测试版本",null),
 		},
 		newmobeditview: {
 			caption: commonLogic.appcommonhandle("测试版本",null),
 		},
+		moboptionviewactivite: {
+			caption: commonLogic.appcommonhandle("激活",null),
+		},
+		editnewmobeditview: {
+			caption: commonLogic.appcommonhandle("测试版本",null),
+		},
 		moboptionviewblock: {
 			caption: commonLogic.appcommonhandle("阻塞",null),
+		},
+		mobtabexpview: {
+			caption: commonLogic.appcommonhandle("测试版本",null),
+		},
+		mobmdview: {
+			caption: commonLogic.appcommonhandle("测试版本",null),
+		},
+		moboptionviewstart: {
+			caption: commonLogic.appcommonhandle("开始",null),
 		},
 	},
 	mobstart_form: {

@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { EditViewBase } from '@/studio-core';
 import StoryService from '@/service/story/story-service';
 import StoryAuthService from '@/authservice/story/story-auth-service';
@@ -139,7 +139,7 @@ export class StoryReleaseSubEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof StoryReleaseSubEditViewBase
      */
-	protected viewtag: string = '928e6614bcfbd67af3b596cf5dc5a46b';
+	protected viewtag: string = 'c0f0cf52489e90899fc76ed262ed907b';
 
     /**
      * 视图名称

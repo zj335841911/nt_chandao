@@ -1,6 +1,6 @@
 
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { GridViewBase } from '@/studio-core';
 import IbizproProjectDailyService from '@/service/ibizpro-project-daily/ibizpro-project-daily-service';
 import IbizproProjectDailyAuthService from '@/authservice/ibizpro-project-daily/ibizpro-project-daily-auth-service';
@@ -145,7 +145,7 @@ export class IbizproProjectDailyGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof IbizproProjectDailyGridViewBase
      */
-	protected viewtag: string = 'ad54d5021cc21a2ec7eb02ac05cf402e';
+	protected viewtag: string = '9682c1d45f5c4aa7868b241dc74f0e0b';
 
     /**
      * 视图名称

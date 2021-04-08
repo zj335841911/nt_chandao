@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { OptionViewBase } from '@/studio-core';
 import TestTaskService from '@/service/test-task/test-task-service';
 import TestTaskAuthService from '@/authservice/test-task/test-task-auth-service';
@@ -158,7 +158,7 @@ export class TestTaskStartOptionViewBase extends OptionViewBase {
      * @type {string}
      * @memberof TestTaskStartOptionViewBase
      */
-	protected viewtag: string = 'e3daebb0eca3c90b800021c84de8c19e';
+	protected viewtag: string = '5819d04a7d331ae7399e251d7a35183c';
 
     /**
      * 视图名称

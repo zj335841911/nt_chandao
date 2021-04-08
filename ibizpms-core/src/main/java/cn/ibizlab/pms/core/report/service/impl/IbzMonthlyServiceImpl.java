@@ -48,9 +48,6 @@ import org.springframework.util.StringUtils;
 @Service("IbzMonthlyServiceImpl")
 public class IbzMonthlyServiceImpl extends ServiceImpl<IbzMonthlyMapper, IbzMonthly> implements IIbzMonthlyService {
 
-    @Autowired
-    @Lazy
-    IIbzMonthlyService proxyService;
 
     protected int batchSize = 500;
 
@@ -92,7 +89,7 @@ public class IbzMonthlyServiceImpl extends ServiceImpl<IbzMonthlyMapper, IbzMont
     @Transactional
     public IbzMonthly get(Long key) {
         IbzMonthly et = getById(key);
-        if (et == null) {
+        if(et == null){
             et = new IbzMonthly();
             et.setIbzmonthlyid(key);
         }
@@ -116,7 +113,8 @@ public class IbzMonthlyServiceImpl extends ServiceImpl<IbzMonthlyMapper, IbzMont
         //自定义代码
         return et;
     }
-   @Override
+
+    @Override
     @Transactional
     public boolean createGetInfoBatch(List<IbzMonthly> etList) {
         for(IbzMonthly et : etList) {
@@ -146,7 +144,8 @@ public class IbzMonthlyServiceImpl extends ServiceImpl<IbzMonthlyMapper, IbzMont
         //自定义代码
         return et;
     }
-   @Override
+
+    @Override
     @Transactional
     public boolean editGetCompleteTaskBatch(List<IbzMonthly> etList) {
         for(IbzMonthly et : etList) {
@@ -188,7 +187,7 @@ public class IbzMonthlyServiceImpl extends ServiceImpl<IbzMonthlyMapper, IbzMont
     @Override
     @Transactional
     public boolean save(IbzMonthly et) {
-        if (!saveOrUpdate(et)) {
+        if(!saveOrUpdate(et)) {
             return false;
         }
         return true;
@@ -200,7 +199,7 @@ public class IbzMonthlyServiceImpl extends ServiceImpl<IbzMonthlyMapper, IbzMont
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
+            return checkKey(et) ? getProxyService().update(et) : getProxyService().create(et);
         }
     }
 
@@ -217,10 +216,10 @@ public class IbzMonthlyServiceImpl extends ServiceImpl<IbzMonthlyMapper, IbzMont
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
         return true;
     }
@@ -238,10 +237,10 @@ public class IbzMonthlyServiceImpl extends ServiceImpl<IbzMonthlyMapper, IbzMont
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
     }
 
@@ -267,7 +266,7 @@ public class IbzMonthlyServiceImpl extends ServiceImpl<IbzMonthlyMapper, IbzMont
      */
     @Override
     public Page<IbzMonthly> searchDefault(IbzMonthlySearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzMonthly> pages=baseMapper.searchDefault(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzMonthly> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
         return new PageImpl<IbzMonthly>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -276,7 +275,7 @@ public class IbzMonthlyServiceImpl extends ServiceImpl<IbzMonthlyMapper, IbzMont
      */
     @Override
     public Page<IbzMonthly> searchMyMonthly(IbzMonthlySearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzMonthly> pages=baseMapper.searchMyMonthly(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzMonthly> pages=baseMapper.searchMyMonthly(context.getPages(),context,context.getSelectCond());
         return new PageImpl<IbzMonthly>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -285,7 +284,7 @@ public class IbzMonthlyServiceImpl extends ServiceImpl<IbzMonthlyMapper, IbzMont
      */
     @Override
     public Page<IbzMonthly> searchMyMonthlyMob(IbzMonthlySearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzMonthly> pages=baseMapper.searchMyMonthlyMob(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzMonthly> pages=baseMapper.searchMyMonthlyMob(context.getPages(),context,context.getSelectCond());
         return new PageImpl<IbzMonthly>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -294,7 +293,7 @@ public class IbzMonthlyServiceImpl extends ServiceImpl<IbzMonthlyMapper, IbzMont
      */
     @Override
     public Page<IbzMonthly> searchMyReceivedMonthly(IbzMonthlySearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzMonthly> pages=baseMapper.searchMyReceivedMonthly(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzMonthly> pages=baseMapper.searchMyReceivedMonthly(context.getPages(),context,context.getSelectCond());
         return new PageImpl<IbzMonthly>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -303,7 +302,7 @@ public class IbzMonthlyServiceImpl extends ServiceImpl<IbzMonthlyMapper, IbzMont
      */
     @Override
     public Page<IbzMonthly> searchMySubmitMonthly(IbzMonthlySearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzMonthly> pages=baseMapper.searchMySubmitMonthly(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzMonthly> pages=baseMapper.searchMySubmitMonthly(context.getPages(),context,context.getSelectCond());
         return new PageImpl<IbzMonthly>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -312,7 +311,7 @@ public class IbzMonthlyServiceImpl extends ServiceImpl<IbzMonthlyMapper, IbzMont
      */
     @Override
     public Page<IbzMonthly> searchProductMonthly(IbzMonthlySearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzMonthly> pages=baseMapper.searchProductMonthly(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzMonthly> pages=baseMapper.searchProductMonthly(context.getPages(),context,context.getSelectCond());
         return new PageImpl<IbzMonthly>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -321,7 +320,7 @@ public class IbzMonthlyServiceImpl extends ServiceImpl<IbzMonthlyMapper, IbzMont
      */
     @Override
     public Page<IbzMonthly> searchProjectMonthly(IbzMonthlySearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzMonthly> pages=baseMapper.searchProjectMonthly(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzMonthly> pages=baseMapper.searchProjectMonthly(context.getPages(),context,context.getSelectCond());
         return new PageImpl<IbzMonthly>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -332,24 +331,24 @@ public class IbzMonthlyServiceImpl extends ServiceImpl<IbzMonthlyMapper, IbzMont
 
 
     @Override
-    public List<JSONObject> select(String sql, Map param) {
-        return this.baseMapper.selectBySQL(sql, param);
+    public List<JSONObject> select(String sql, Map param){
+        return this.baseMapper.selectBySQL(sql,param);
     }
 
     @Override
     @Transactional
-    public boolean execute(String sql, Map param) {
+    public boolean execute(String sql , Map param){
         if (sql == null || sql.isEmpty()) {
             return false;
         }
         if (sql.toLowerCase().trim().startsWith("insert")) {
-            return this.baseMapper.insertBySQL(sql, param);
+            return this.baseMapper.insertBySQL(sql,param);
         }
         if (sql.toLowerCase().trim().startsWith("update")) {
-            return this.baseMapper.updateBySQL(sql, param);
+            return this.baseMapper.updateBySQL(sql,param);
         }
         if (sql.toLowerCase().trim().startsWith("delete")) {
-            return this.baseMapper.deleteBySQL(sql, param);
+            return this.baseMapper.deleteBySQL(sql,param);
         }
         log.warn("暂未支持的SQL语法");
         return true;
@@ -365,11 +364,11 @@ public class IbzMonthlyServiceImpl extends ServiceImpl<IbzMonthlyMapper, IbzMont
         List ids =new ArrayList();
         for(IbzMonthly entity : entities){
             Serializable id=entity.getIbzmonthlyid();
-            if (!ObjectUtils.isEmpty(id)) {
+            if(!ObjectUtils.isEmpty(id)){
                 ids.add(id);
             }
         }
-        if (ids.size() > 0) {
+        if(ids.size()>0) {
             return this.listByIds(ids);
         }
         else {
@@ -378,9 +377,9 @@ public class IbzMonthlyServiceImpl extends ServiceImpl<IbzMonthlyMapper, IbzMont
     }
 
 
-
-
+    public IIbzMonthlyService getProxyService() {
+        return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
+    }
 }
-
 
 

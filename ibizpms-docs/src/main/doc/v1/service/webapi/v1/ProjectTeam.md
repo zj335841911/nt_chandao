@@ -239,6 +239,42 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[ProjectTeamDTO](#ProjectTeamDTO)>：项目团队实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
+### 获取项目成员（项目经理）
+#### 访问路径
+/projectteams/fetchprojectteampm
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [ProjectTeamSearchContext](#ProjectTeamSearchContext) | 项目团队查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[ProjectTeamDTO](#ProjectTeamDTO)>：项目团队实体传输对象列表 |
+
+### 查询项目成员（项目经理）
+#### 访问路径
+/projectteams/searchprojectteampm
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [ProjectTeamSearchContext](#ProjectTeamSearchContext) | 项目团队查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[ProjectTeamDTO](#ProjectTeamDTO)>：项目团队实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
 ### 获取行编辑查询
 #### 访问路径
 /projectteams/fetchroweditdefault
@@ -560,6 +596,44 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[ProjectTeamDTO](#ProjectTeamDTO)>：项目团队实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
+### 根据获取项目成员（项目经理）
+#### 访问路径
+/projects/{project_id}/projectteams/fetchprojectteampm
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | project_id | Long | 项目主键ID |
+| 2 | context | [ProjectTeamSearchContext](#ProjectTeamSearchContext) | 项目团队查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[ProjectTeamDTO](#ProjectTeamDTO)>：项目团队实体传输对象列表 |
+
+### 根据查询项目成员（项目经理）
+#### 访问路径
+/projects/{project_id}/projectteams/searchprojectteampm
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | project_id | Long | 项目主键ID |
+| 2 | context | [ProjectTeamSearchContext](#ProjectTeamSearchContext) | 项目团队查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[ProjectTeamDTO](#ProjectTeamDTO)>：项目团队实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
 ### 根据获取行编辑查询
 #### 访问路径
 /projects/{project_id}/projectteams/fetchroweditdefault
@@ -641,36 +715,41 @@ POST
 #### ProjectTeamDTO
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
-| 1 | join | Timestamp | 允许 | 加盟日<br>时间格式：yyyy-MM-dd |
-| 2 | account | String | 允许 | 用户 |
-| 3 | hours | Double | 允许 | 可用工时/天 |
-| 4 | left | Double | 允许 | 预计剩余 |
+| 1 | role | String | 允许 | 角色 |
+| 2 | limited | String | 允许 | 受限用户 |
+| 3 | total | Integer | 允许 | 总计可用 |
+| 4 | username | String | 允许 | 用户 |
 | 5 | days | Integer | 允许 | 可用工日 |
-| 6 | id | Long | 不可 | 编号 |
-| 7 | consumed | Double | 允许 | 总计消耗 |
+| 6 | exitdate | Timestamp | 允许 | 退场时间<br>时间格式：yyyy-MM-dd |
+| 7 | type | String | 允许 | 团队类型 |
 | 8 | order | Integer | 允许 | 排序 |
-| 9 | estimate | Double | 允许 | 最初预计 |
-| 10 | limited | String | 允许 | 受限用户 |
-| 11 | role | String | 允许 | 角色 |
-| 12 | type | String | 允许 | 团队类型 |
-| 13 | total | Integer | 允许 | 总计可用 |
-| 14 | root | Long | 允许 | 项目编号 |
-| 15 | username | String | 允许 | 用户 |
-| 16 | taskcnt | Integer | 允许 | 任务数 |
-| 17 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 9 | id | Long | 不可 | 编号 |
+| 10 | consumed | Double | 允许 | 总计消耗 |
+| 11 | account | String | 允许 | 用户 |
+| 12 | estimate | Double | 允许 | 最初预计 |
+| 13 | join | Timestamp | 允许 | 加盟日<br>时间格式：yyyy-MM-dd |
+| 14 | hours | Double | 允许 | 可用工时/天 |
+| 15 | taskcnt | Integer | 允许 | 任务数 |
+| 16 | left | Double | 允许 | 预计剩余 |
+| 17 | pm | String | 允许 | 项目经理 |
+| 18 | projectname | String | 允许 | 所属项目 |
+| 19 | root | Long | 允许 | 项目编号 |
+| 20 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### ProjectTeamSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
-| 1 | n_account_eq | String | 允许 | 条件字段：account<br>条件组合方式：`=` |
-| 2 | n_account_like | String | 允许 | 条件字段：account<br>条件组合方式：`%like%` |
-| 3 | n_limited_eq | String | 允许 | 条件字段：limited<br>条件组合方式：`=` |
-| 4 | n_type_eq | String | 允许 | 条件字段：type<br>条件组合方式：`=` |
-| 5 | n_root_eq | Long | 允许 | 条件字段：root<br>条件组合方式：`=` |
-| 6 | customcond | String | 允许 | 自定义查询条件 |
-| 7 | customparams | String | 允许 | 自定义查询参数 |
-| 8 | query | String | 允许 | 快速搜索 |
-| 9 | filter | QueryFilter | 允许 | 条件表达式<br>参照`cn.ibizlab.pms.util.filter.QueryFilter` |
-| 10 | page | int | 允许 | 当前页数<br>默认值0 |
-| 11 | size | int | 允许 | 每页显示条数<br>默认值20 |
-| 12 | sort | String | 允许 | 排序 |
+| 1 | n_limited_eq | String | 允许 | 条件字段：limited<br>条件组合方式：`=` |
+| 2 | n_type_eq | String | 允许 | 条件字段：type<br>条件组合方式：`=` |
+| 3 | n_account_eq | String | 允许 | 条件字段：account<br>条件组合方式：`=` |
+| 4 | n_account_like | String | 允许 | 条件字段：account<br>条件组合方式：`%like%` |
+| 5 | n_projectname_eq | String | 允许 | 条件字段：projectname<br>条件组合方式：`=` |
+| 6 | n_projectname_like | String | 允许 | 条件字段：projectname<br>条件组合方式：`%like%` |
+| 7 | n_root_eq | Long | 允许 | 条件字段：root<br>条件组合方式：`=` |
+| 8 | customcond | String | 允许 | 自定义查询条件 |
+| 9 | customparams | String | 允许 | 自定义查询参数 |
+| 10 | query | String | 允许 | 快速搜索 |
+| 11 | filter | QueryFilter | 允许 | 条件表达式<br>参照`cn.ibizlab.pms.util.filter.QueryFilter` |
+| 12 | page | int | 允许 | 当前页数<br>默认值0 |
+| 13 | size | int | 允许 | 每页显示条数<br>默认值20 |
+| 14 | sort | String | 允许 | 排序 |

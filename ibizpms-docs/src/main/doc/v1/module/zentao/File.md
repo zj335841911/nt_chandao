@@ -490,6 +490,7 @@ String
 | 序号 | 组合方式 |
 | ---- | ---- |
 | 1 | `=` |
+| 2 | `!=`或者`<>` |
 
 #### 关系属性
 无
@@ -586,6 +587,7 @@ String
 | 7 | [下载](#实体行为-下载（Ibzdownload）) | ibzdownload | 用户自定义 | 前台 |
 | 8 | [预览](#实体行为-预览（Preview）) | Preview | 用户自定义 | 前台 |
 | 9 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+| 10 | [保存附件](#实体行为-保存附件（UpdateObjectIDForPmsEe）) | updateObjectIDForPmsEe | 用户自定义 | 后台 |
 
 ### 实体行为-Create（Create）
 #### 说明
@@ -695,6 +697,18 @@ Save
 
 #### 逻辑附加
 无
+### 实体行为-保存附件（UpdateObjectIDForPmsEe）
+#### 说明
+保存附件
+
+- 行为类型
+用户自定义
+
+- 行为持有者
+后台
+
+#### 逻辑附加
+无
 
 ## 逻辑处理
 无
@@ -712,6 +726,7 @@ Save
 | 2 | [对象类型（OBJECTTYPE）](#属性-对象类型（OBJECTTYPE）) | `=` |
 | 3 | [标题（TITLE）](#属性-标题（TITLE）) | `%like%` |
 | 4 | [备注（EXTRA）](#属性-备注（EXTRA）) | `=` |
+| 5 | [备注（EXTRA）](#属性-备注（EXTRA）) | `!=`或者`<>` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |
@@ -720,7 +735,8 @@ Save
 | 2 | [文件库查询](#数据查询-文件库查询（DocLibFile）) | DocLibFile | 否 |
 | 3 | [文件库查询](#数据查询-文件库查询（ProductDocLibFile）) | ProductDocLibFile | 否 |
 | 4 | [动态(根据类型过滤)](#数据查询-动态(根据类型过滤)（Type）) | Type | 否 |
-| 5 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 5 | [查询附件](#数据查询-查询附件（TypeNotBySrfparentkey）) | TypeNotBySrfparentkey | 否 |
+| 6 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-DEFAULT（Default）
 #### 说明
@@ -842,6 +858,36 @@ t1.`TITLE`
 FROM `zt_file` t1 
 
 ```
+### 数据查询-查询附件（TypeNotBySrfparentkey）
+#### 说明
+查询附件
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+t1.`ADDEDBY`,
+t1.`ADDEDDATE`,
+t1.`DELETED`,
+t1.`DOWNLOADS`,
+t1.`EXTENSION`,
+t1.`EXTRA`,
+t1.`ID`,
+t1.`OBJECTID`,
+t1.`OBJECTTYPE`,
+t1.`PATHNAME`,
+t1.`SIZE`,
+CONCAT_WS('',case when (t1.size/1024) > 1024 then ROUND(t1.size/(1024 * 1024), 1) when (t1.size/1024) > 1 then ROUND(t1.size/1024, 1) else ROUND(t1.size, 1) end, case when (t1.size/1024) > 1024 then 'MB' when (t1.size/1024) > 1 then 'KB' else 'B' end) AS `STRSIZE`,
+t1.`TITLE`
+FROM `zt_file` t1 
+
+```
 ### 数据查询-默认（全部数据）（View）
 #### 说明
 默认（全部数据）
@@ -880,6 +926,7 @@ FROM `zt_file` t1
 | 2 | [文件库查询](#数据集合-文件库查询（DocLibFile）) | DocLibFile | 否 |
 | 3 | [文件库查询](#数据集合-文件库查询（ProductDocLibFile）) | ProductDocLibFile | 否 |
 | 4 | [动态(根据类型过滤)](#数据集合-动态(根据类型过滤)（Type）) | Type | 否 |
+| 5 | [查询附件](#数据集合-查询附件（TypeNotBySrfparentkey）) | TypeNotBySrfparentkey | 否 |
 
 ### 数据集合-DEFAULT（Default）
 #### 说明
@@ -937,6 +984,20 @@ DEFAULT
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [动态(根据类型过滤)（Type）](#数据查询-动态(根据类型过滤)（Type）) |
+### 数据集合-查询附件（TypeNotBySrfparentkey）
+#### 说明
+查询附件
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [查询附件（TypeNotBySrfparentkey）](#数据查询-查询附件（TypeNotBySrfparentkey）) |
 
 ## 数据导入
 无

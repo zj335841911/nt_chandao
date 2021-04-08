@@ -12,4 +12,3 @@ public interface BugMapping extends MappingBase<BugDTO, Bug> {
 
 
 }
-

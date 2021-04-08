@@ -1,6 +1,6 @@
 
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { GridView9Base } from '@/studio-core';
 import TaskService from '@/service/task/task-service';
 import TaskAuthService from '@/authservice/task/task-auth-service';
@@ -119,7 +119,7 @@ export class TaskMonthlyCompleteZsGridViewBase extends GridView9Base {
      * @type {string}
      * @memberof TaskMonthlyCompleteZsGridViewBase
      */
-	protected viewtag: string = '277d3227691197cf610211b0051693e4';
+	protected viewtag: string = '9be426255f9bdea95b9adf237b278782';
 
     /**
      * 视图名称

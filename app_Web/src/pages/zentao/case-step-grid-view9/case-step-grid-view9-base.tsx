@@ -1,6 +1,6 @@
 
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { GridView9Base } from '@/studio-core';
 import CaseStepService from '@/service/case-step/case-step-service';
 import CaseStepAuthService from '@/authservice/case-step/case-step-auth-service';
@@ -133,7 +133,7 @@ export class CaseStepGridView9Base extends GridView9Base {
      * @type {string}
      * @memberof CaseStepGridView9Base
      */
-	protected viewtag: string = '41bfd828761fc42ef9a7acdd4f4babcf';
+	protected viewtag: string = '21c4e5c64f8c35ef32192c3a1c27259d';
 
     /**
      * 视图名称

@@ -12,4 +12,3 @@ public interface ActionMapping extends MappingBase<ActionDTO, Action> {
 
 
 }
-

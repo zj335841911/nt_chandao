@@ -102,7 +102,7 @@
     :formState="formState" 
     :parentdata='{"srfparentdename":"IBZ_DAILY","SRFPARENTTYPE":"CUSTOM"}' 
     :parameters="[
-        { pathName: 'stories', parameterName: 'story' },
+        { pathName: 'projectmodules', parameterName: 'projectmodule' },
     ]" 
     tempMode='0'
     :context="context" 
@@ -168,7 +168,7 @@
     :formState="formState" 
     :parentdata='{"srfparentdename":"IBZ_DAILY","SRFPARENTTYPE":"CUSTOM"}' 
     :parameters="[
-        { pathName: 'stories', parameterName: 'story' },
+        { pathName: 'projectmodules', parameterName: 'projectmodule' },
     ]" 
     tempMode='0'
     :context="context" 

@@ -42,9 +42,9 @@ hide members
 |排序|SHOWORDER|INT|&nbsp;|
 |逻辑有效|ENABLE|YESNO|&nbsp;|
 |创建时间|CREATEDATE|DATETIME|&nbsp;|
+|更新时间|UPDATEDATE|DATETIME|&nbsp;|
 |更新人|UPDATEMAN|TEXT|&nbsp;|
 |建立人|CREATEMAN|TEXT|&nbsp;|
-|更新时间|UPDATEDATE|DATETIME|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -77,9 +77,9 @@ hide members
 |排序|默认规则|默认规则|
 |逻辑有效|默认规则|默认规则|
 |创建时间|默认规则|默认规则|
+|更新时间|默认规则|默认规则|
 |更新人|默认规则|内容长度必须小于等于[60]|
 |建立人|默认规则|内容长度必须小于等于[60]|
-|更新时间|默认规则|默认规则|
 
 ## 状态控制
 
@@ -108,7 +108,7 @@ hide members
 | --------  | --------   | --------   | ----- |
 |BugUser|Bug用户([MYSQL5](../../appendix/query_MYSQL5.md#SysEmployee_BugUser))|否|&nbsp;|
 |ContActList|联系人用户([MYSQL5](../../appendix/query_MYSQL5.md#SysEmployee_ContActList))|否|&nbsp;|
-|DEFAULT|数据查询([MYSQL5](../../appendix/query_MYSQL5.md#SysEmployee_Default))|否|&nbsp;|
+|DEFAULT|数据查询([MYSQL5](../../appendix/query_MYSQL5.md#SysEmployee_Default))|是|&nbsp;|
 |ProductTeamM|项目团队管理([MYSQL5](../../appendix/query_MYSQL5.md#SysEmployee_ProductTeamM))|否|&nbsp;排除当前项目已经选择的用户|
 |ProjectTeamM|项目团队管理([MYSQL5](../../appendix/query_MYSQL5.md#SysEmployee_ProjectTeamM))|否|&nbsp;排除当前项目已经选择的用户|
 |ProjectTeamMProduct|项目团队管理([MYSQL5](../../appendix/query_MYSQL5.md#SysEmployee_ProjectTeamMProduct))|否|&nbsp;排除当前项目已经选择的用户|

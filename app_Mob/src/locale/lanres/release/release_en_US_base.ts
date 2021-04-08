@@ -4,50 +4,75 @@ export default {
     stories:  commonLogic.appcommonhandle("完成的需求",null),
     marker:  commonLogic.appcommonhandle("里程碑",null),
     id:  commonLogic.appcommonhandle("ID",null),
+    sqlid:  commonLogic.appcommonhandle("运行数据库",null),
     leftBugs:  commonLogic.appcommonhandle("遗留的Bug",null),
     bugs:  commonLogic.appcommonhandle("解决的Bug",null),
     deleted:  commonLogic.appcommonhandle("已删除",null),
+    noticeusers:  commonLogic.appcommonhandle("消息通知用户",null),
+    rebuild:  commonLogic.appcommonhandle("重新构建",null),
     name:  commonLogic.appcommonhandle("发布名称",null),
     date:  commonLogic.appcommonhandle("发布日期",null),
     status:  commonLogic.appcommonhandle("状态",null),
+    releasetype:  commonLogic.appcommonhandle("运行模式",null),
     subStatus:  commonLogic.appcommonhandle("子状态",null),
+    backgroundid:  commonLogic.appcommonhandle("后台体系",null),
     desc:  commonLogic.appcommonhandle("描述",null),
+    files:  commonLogic.appcommonhandle("附件",null),
+    frontapplication:  commonLogic.appcommonhandle("系统应用",null),
+    productName:  commonLogic.appcommonhandle("产品名称",null),
+    builder:  commonLogic.appcommonhandle("构建者",null),
     buildname:  commonLogic.appcommonhandle("版本",null),
+    builddate:  commonLogic.appcommonhandle("打包日期",null),
     product:  commonLogic.appcommonhandle("产品",null),
     build:  commonLogic.appcommonhandle("版本",null),
     branch:  commonLogic.appcommonhandle("平台/分支",null),
-    productName:  commonLogic.appcommonhandle("产品名称",null),
-    files:  commonLogic.appcommonhandle("附件",null),
-    backgroundid:  commonLogic.appcommonhandle("后台体系",null),
-    sqlid:  commonLogic.appcommonhandle("运行数据库",null),
-    frontapplication:  commonLogic.appcommonhandle("系统应用",null),
-    rebuild:  commonLogic.appcommonhandle("重新构建",null),
-    releasetype:  commonLogic.appcommonhandle("运行模式",null),
-    builder:  commonLogic.appcommonhandle("构建者",null),
-    builddate:  commonLogic.appcommonhandle("打包日期",null),
-    noticeusers:  commonLogic.appcommonhandle("消息通知用户",null),
   },
 	views: {
-		mobtabexpview: {
+		mobmdview: {
 			caption: commonLogic.appcommonhandle("发布",null),
 		},
-		mobpickupview: {
+		mobpickupmdview: {
+			caption: commonLogic.appcommonhandle("发布",null),
+		},
+		mobtabexpview: {
 			caption: commonLogic.appcommonhandle("发布",null),
 		},
 		editmobeditview: {
 			caption: commonLogic.appcommonhandle("发布",null),
 		},
-		mobeditview: {
-			caption: commonLogic.appcommonhandle("发布",null),
-		},
-		mobmdview: {
+		mobpickupview: {
 			caption: commonLogic.appcommonhandle("发布",null),
 		},
 		newmobeditview: {
 			caption: commonLogic.appcommonhandle("发布",null),
 		},
-		mobpickupmdview: {
+		mobeditview: {
 			caption: commonLogic.appcommonhandle("发布",null),
+		},
+	},
+	mobnewform_form: {
+		details: {
+			grouppanel1: commonLogic.appcommonhandle("分组面板",null), 
+			group1: commonLogic.appcommonhandle("release基本信息",null), 
+			formpage1: commonLogic.appcommonhandle("基本信息",null), 
+			srforikey: commonLogic.appcommonhandle("",null), 
+			srfkey: commonLogic.appcommonhandle("ID",null), 
+			srfmajortext: commonLogic.appcommonhandle("发布名称",null), 
+			srftempmode: commonLogic.appcommonhandle("",null), 
+			srfuf: commonLogic.appcommonhandle("",null), 
+			srfdeid: commonLogic.appcommonhandle("",null), 
+			srfsourcekey: commonLogic.appcommonhandle("",null), 
+			product: commonLogic.appcommonhandle("产品",null), 
+			productname: commonLogic.appcommonhandle("产品名称",null), 
+			name: commonLogic.appcommonhandle("发布名称",null), 
+			marker: commonLogic.appcommonhandle("里程碑",null), 
+			buildname: commonLogic.appcommonhandle("版本",null), 
+			date: commonLogic.appcommonhandle("发布日期",null), 
+			desc: commonLogic.appcommonhandle("描述",null), 
+			files: commonLogic.appcommonhandle("附件",null), 
+			id: commonLogic.appcommonhandle("ID",null), 
+		},
+		uiactions: {
 		},
 	},
 	mobmain_form: {
@@ -100,31 +125,6 @@ export default {
 		uiactions: {
 		},
 	},
-	mobnewform_form: {
-		details: {
-			grouppanel1: commonLogic.appcommonhandle("分组面板",null), 
-			group1: commonLogic.appcommonhandle("release基本信息",null), 
-			formpage1: commonLogic.appcommonhandle("基本信息",null), 
-			srforikey: commonLogic.appcommonhandle("",null), 
-			srfkey: commonLogic.appcommonhandle("ID",null), 
-			srfmajortext: commonLogic.appcommonhandle("发布名称",null), 
-			srftempmode: commonLogic.appcommonhandle("",null), 
-			srfuf: commonLogic.appcommonhandle("",null), 
-			srfdeid: commonLogic.appcommonhandle("",null), 
-			srfsourcekey: commonLogic.appcommonhandle("",null), 
-			product: commonLogic.appcommonhandle("产品",null), 
-			productname: commonLogic.appcommonhandle("产品名称",null), 
-			name: commonLogic.appcommonhandle("发布名称",null), 
-			marker: commonLogic.appcommonhandle("里程碑",null), 
-			buildname: commonLogic.appcommonhandle("版本",null), 
-			date: commonLogic.appcommonhandle("发布日期",null), 
-			desc: commonLogic.appcommonhandle("描述",null), 
-			files: commonLogic.appcommonhandle("附件",null), 
-			id: commonLogic.appcommonhandle("ID",null), 
-		},
-		uiactions: {
-		},
-	},
 	mobdef_searchform: {
 		details: {
 			formpage1: commonLogic.appcommonhandle("常规条件",null), 
@@ -133,6 +133,18 @@ export default {
 			n_date_ltandeq: commonLogic.appcommonhandle("发布日期",null), 
 		},
 		uiactions: {
+		},
+	},
+	newmobeditviewrighttoolbar_toolbar: {
+		tbitem1: {
+			caption: commonLogic.appcommonhandle("Save And Close",null),
+			tip: 'tbitem1',
+		},
+	},
+	mobmdviewrighttoolbar_toolbar: {
+		deuiaction1: {
+			caption: commonLogic.appcommonhandle("创建发布",null),
+			tip: 'deuiaction1',
 		},
 	},
 	editmobeditviewrighttoolbar_toolbar: {
@@ -157,18 +169,6 @@ export default {
 		deuiaction1_mobremove: {
 			caption: commonLogic.appcommonhandle("删除",null),
 			tip: 'deuiaction1_mobremove',
-		},
-	},
-	newmobeditviewrighttoolbar_toolbar: {
-		tbitem1: {
-			caption: commonLogic.appcommonhandle("Save And Close",null),
-			tip: 'tbitem1',
-		},
-	},
-	mobmdviewrighttoolbar_toolbar: {
-		deuiaction1: {
-			caption: commonLogic.appcommonhandle("创建发布",null),
-			tip: 'deuiaction1',
 		},
 	},
 };

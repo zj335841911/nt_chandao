@@ -898,6 +898,19 @@ export default class MobNewFromBase extends Vue implements ControlInterface {
      * @memberof MobNewFromBase
      */
     public deRules:any = {
+                estimate:[
+                  {
+                      type:"VALUERANGE2",
+                      condOP:"",
+                      ruleInfo:"预计消耗大于等于0", 
+                      isKeyCond:false,
+                      isNotMode:false,
+                      minValue:0,
+                      deName:"estimate",
+                      isIncludeMaxValue:false,
+                      isIncludeMinValue:true,
+                  },
+                ],
                 deadline:[
                   {
                       type:"GROUP",
@@ -913,6 +926,14 @@ export default class MobNewFromBase extends Vue implements ControlInterface {
                       isKeyCond:false,
                       isNotMode:false,
                       deName:"eststarted",
+                  },
+                  {
+                      type:"SIMPLE",
+                      condOP:"ISNULL",
+                      ruleInfo:"", 
+                      isKeyCond:false,
+                      isNotMode:false,
+                      deName:"deadline",
                   },
                   {
                       type:"SIMPLE",
@@ -938,19 +959,6 @@ export default class MobNewFromBase extends Vue implements ControlInterface {
                       deName:"name",
                       isIncludeMaxValue:true,
                       isIncludeMinValue:false,
-                  },
-                ],
-                estimate:[
-                  {
-                      type:"VALUERANGE2",
-                      condOP:"",
-                      ruleInfo:"预计消耗大于等于0", 
-                      isKeyCond:false,
-                      isNotMode:false,
-                      minValue:0,
-                      deName:"estimate",
-                      isIncludeMaxValue:false,
-                      isIncludeMinValue:true,
                   },
                 ],
     };
@@ -1059,7 +1067,7 @@ export default class MobNewFromBase extends Vue implements ControlInterface {
 , 
         project: new FormItemModel({ caption: '所属项目', detailType: 'FORMITEM', name: 'project', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        module: new FormItemModel({ caption: 'id', detailType: 'FORMITEM', name: 'module', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        module: new FormItemModel({ caption: '模块', detailType: 'FORMITEM', name: 'module', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         type: new FormItemModel({ caption: '任务类型', detailType: 'FORMITEM', name: 'type', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 

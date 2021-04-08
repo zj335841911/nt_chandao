@@ -27,6 +27,9 @@ export default class MainModel {
         name: 'xml',
       },
       {
+        name: 'task',
+      },
+      {
         name: 'duration',
       },
       {
@@ -40,6 +43,24 @@ export default class MainModel {
         name: 'version',
       },
       {
+        name: 'story',
+      },
+      {
+        name: 'title',
+      },
+      {
+        name: 'modulename',
+      },
+      {
+        name: 'module',
+      },
+      {
+        name: 'precondition',
+      },
+      {
+        name: 'product',
+      },
+      {
         name: 'job',
       },
       {
@@ -50,24 +71,6 @@ export default class MainModel {
       },
       {
         name: 'compile',
-      },
-      {
-        name: 'task',
-      },
-      {
-        name: 'title',
-      },
-      {
-        name: 'story',
-      },
-      {
-        name: 'module',
-      },
-      {
-        name: 'product',
-      },
-      {
-        name: 'precondition',
       },
     ]
   }

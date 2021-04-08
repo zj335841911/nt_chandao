@@ -72,7 +72,7 @@ public class TestRunResource {
 		TestRun domain  = testrunMapping.toDomain(testrundto);
         domain .setId(testrun_id);
 		testrunService.update(domain );
-		TestRunDTO dto = testrunMapping.toDto(domain );
+		TestRunDTO dto = testrunMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
@@ -110,8 +110,9 @@ public class TestRunResource {
 
     @ApiOperation(value = "获取测试运行草稿", tags = {"测试运行" },  notes = "获取测试运行草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/testruns/getdraft")
-    public ResponseEntity<TestRunDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(testrunMapping.toDto(testrunService.getDraft(new TestRun())));
+    public ResponseEntity<TestRunDTO> getDraft(TestRunDTO dto) {
+        TestRun domain = testrunMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(testrunMapping.toDto(testrunService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查测试运行", tags = {"测试运行" },  notes = "检查测试运行")
@@ -123,8 +124,10 @@ public class TestRunResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestRun-Save-all')")
     @ApiOperation(value = "保存测试运行", tags = {"测试运行" },  notes = "保存测试运行")
 	@RequestMapping(method = RequestMethod.POST, value = "/testruns/save")
-    public ResponseEntity<Boolean> save(@RequestBody TestRunDTO testrundto) {
-        return ResponseEntity.status(HttpStatus.OK).body(testrunService.save(testrunMapping.toDomain(testrundto)));
+    public ResponseEntity<TestRunDTO> save(@RequestBody TestRunDTO testrundto) {
+        TestRun domain = testrunMapping.toDomain(testrundto);
+        testrunService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(testrunMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestRun-Save-all')")
@@ -156,6 +159,7 @@ public class TestRunResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(testrunMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
 
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestRun-Create-all')")
@@ -231,8 +235,8 @@ public class TestRunResource {
 
     @ApiOperation(value = "根据测试版本获取测试运行草稿", tags = {"测试运行" },  notes = "根据测试版本获取测试运行草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/testtasks/{testtask_id}/testruns/getdraft")
-    public ResponseEntity<TestRunDTO> getDraftByTestTask(@PathVariable("testtask_id") Long testtask_id) {
-        TestRun domain = new TestRun();
+    public ResponseEntity<TestRunDTO> getDraftByTestTask(@PathVariable("testtask_id") Long testtask_id, TestRunDTO dto) {
+        TestRun domain = testrunMapping.toDomain(dto);
         domain.setTask(testtask_id);
         return ResponseEntity.status(HttpStatus.OK).body(testrunMapping.toDto(testrunService.getDraft(domain)));
     }
@@ -246,10 +250,11 @@ public class TestRunResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestRun-Save-all')")
     @ApiOperation(value = "根据测试版本保存测试运行", tags = {"测试运行" },  notes = "根据测试版本保存测试运行")
 	@RequestMapping(method = RequestMethod.POST, value = "/testtasks/{testtask_id}/testruns/save")
-    public ResponseEntity<Boolean> saveByTestTask(@PathVariable("testtask_id") Long testtask_id, @RequestBody TestRunDTO testrundto) {
+    public ResponseEntity<TestRunDTO> saveByTestTask(@PathVariable("testtask_id") Long testtask_id, @RequestBody TestRunDTO testrundto) {
         TestRun domain = testrunMapping.toDomain(testrundto);
         domain.setTask(testtask_id);
-        return ResponseEntity.status(HttpStatus.OK).body(testrunService.save(domain));
+        testrunService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(testrunMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestRun-Save-all')")
@@ -360,8 +365,8 @@ public class TestRunResource {
 
     @ApiOperation(value = "根据产品测试版本获取测试运行草稿", tags = {"测试运行" },  notes = "根据产品测试版本获取测试运行草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/testtasks/{testtask_id}/testruns/getdraft")
-    public ResponseEntity<TestRunDTO> getDraftByProductTestTask(@PathVariable("product_id") Long product_id, @PathVariable("testtask_id") Long testtask_id) {
-        TestRun domain = new TestRun();
+    public ResponseEntity<TestRunDTO> getDraftByProductTestTask(@PathVariable("product_id") Long product_id, @PathVariable("testtask_id") Long testtask_id, TestRunDTO dto) {
+        TestRun domain = testrunMapping.toDomain(dto);
         domain.setTask(testtask_id);
         return ResponseEntity.status(HttpStatus.OK).body(testrunMapping.toDto(testrunService.getDraft(domain)));
     }
@@ -375,10 +380,11 @@ public class TestRunResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestRun-Save-all')")
     @ApiOperation(value = "根据产品测试版本保存测试运行", tags = {"测试运行" },  notes = "根据产品测试版本保存测试运行")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/testtasks/{testtask_id}/testruns/save")
-    public ResponseEntity<Boolean> saveByProductTestTask(@PathVariable("product_id") Long product_id, @PathVariable("testtask_id") Long testtask_id, @RequestBody TestRunDTO testrundto) {
+    public ResponseEntity<TestRunDTO> saveByProductTestTask(@PathVariable("product_id") Long product_id, @PathVariable("testtask_id") Long testtask_id, @RequestBody TestRunDTO testrundto) {
         TestRun domain = testrunMapping.toDomain(testrundto);
         domain.setTask(testtask_id);
-        return ResponseEntity.status(HttpStatus.OK).body(testrunService.save(domain));
+        testrunService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(testrunMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestRun-Save-all')")
@@ -489,8 +495,8 @@ public class TestRunResource {
 
     @ApiOperation(value = "根据项目测试版本获取测试运行草稿", tags = {"测试运行" },  notes = "根据项目测试版本获取测试运行草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/projects/{project_id}/testtasks/{testtask_id}/testruns/getdraft")
-    public ResponseEntity<TestRunDTO> getDraftByProjectTestTask(@PathVariable("project_id") Long project_id, @PathVariable("testtask_id") Long testtask_id) {
-        TestRun domain = new TestRun();
+    public ResponseEntity<TestRunDTO> getDraftByProjectTestTask(@PathVariable("project_id") Long project_id, @PathVariable("testtask_id") Long testtask_id, TestRunDTO dto) {
+        TestRun domain = testrunMapping.toDomain(dto);
         domain.setTask(testtask_id);
         return ResponseEntity.status(HttpStatus.OK).body(testrunMapping.toDto(testrunService.getDraft(domain)));
     }
@@ -504,10 +510,11 @@ public class TestRunResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestRun-Save-all')")
     @ApiOperation(value = "根据项目测试版本保存测试运行", tags = {"测试运行" },  notes = "根据项目测试版本保存测试运行")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/testtasks/{testtask_id}/testruns/save")
-    public ResponseEntity<Boolean> saveByProjectTestTask(@PathVariable("project_id") Long project_id, @PathVariable("testtask_id") Long testtask_id, @RequestBody TestRunDTO testrundto) {
+    public ResponseEntity<TestRunDTO> saveByProjectTestTask(@PathVariable("project_id") Long project_id, @PathVariable("testtask_id") Long testtask_id, @RequestBody TestRunDTO testrundto) {
         TestRun domain = testrunMapping.toDomain(testrundto);
         domain.setTask(testtask_id);
-        return ResponseEntity.status(HttpStatus.OK).body(testrunService.save(domain));
+        testrunService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(testrunMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TestRun-Save-all')")

@@ -7,6 +7,7 @@ import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.util.ObjectUtils;
 import java.sql.Timestamp;
@@ -47,6 +48,19 @@ public class AuthenticationUser implements UserDetails
 	 * 区属
 	 */
 	private String domain;
+	/**
+     * 租户
+     */
+    private String srfdcid;
+    /**
+     * 系统标识
+     */
+    private String srfsystemid;
+	/**
+    /**
+     * 动态实例标识
+     */
+    private String srfdynainstid;
 	/**
 	 * 部门标识
 	 */
@@ -231,11 +245,22 @@ public class AuthenticationUser implements UserDetails
 	 	return authuserdetail;
 	}
 
+	public static AuthenticationUser setAuthenticationUser(String userId , String userName) {
+		AuthenticationUser user = new AuthenticationUser();
+		user.setUserid(userId);
+		user.setPersonname(userName);
+		UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities());
+		SecurityContextHolder.getContext().setAuthentication(authentication);
+		return user;
+	}
+
     public Map <String,Object> getSessionParams()
     {
 		if(this.sessionParams==null)
 		{
 			sessionParams = getUserSessionParam();
+			sessionParams.put("srfsystemid",this.getSrfsystemid());
+			sessionParams.put("srfdynainstid",this.getSrfdynainstid());
 			sessionParams.put("srfpersonid", this.getUserid());
 			sessionParams.put("srfpersonname", this.getPersonname());
 			sessionParams.put("srforgsectorid", this.getMdeptid());

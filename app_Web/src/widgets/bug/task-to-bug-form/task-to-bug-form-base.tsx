@@ -496,6 +496,9 @@ export class TaskToBugEditFormBase extends EditFormControlBase {
             this.onFormItemValueChange({ name: 'modulename', value: null });
             this.onFormItemValueChange({ name: 'module', value: null });
         }
+        if (Object.is(name, 'productname')) {
+            this.onFormItemValueChange({ name: 'module', value: null });
+        }
         if (Object.is(name, 'modulename')) {
             this.onFormItemValueChange({ name: 'storyname', value: null });
             this.onFormItemValueChange({ name: 'story', value: null });
@@ -504,10 +507,10 @@ export class TaskToBugEditFormBase extends EditFormControlBase {
             this.onFormItemValueChange({ name: 'taskname', value: null });
             this.onFormItemValueChange({ name: 'task', value: null });
         }
-        if (Object.is(name, 'product')) {
+        if (Object.is(name, 'modulename')) {
             this.onFormItemValueChange({ name: 'story', value: null });
         }
-        if (Object.is(name, 'project')) {
+        if (Object.is(name, 'projectname')) {
             this.onFormItemValueChange({ name: 'task', value: null });
         }
     }
@@ -576,6 +579,9 @@ export class TaskToBugEditFormBase extends EditFormControlBase {
         if (this.data.hasOwnProperty('branch')) {
             this.data['branch'] = this.viewparams['branch'];
         }
+        if (this.data.hasOwnProperty('modulename')) {
+            this.data['modulename'] = this.viewparams['modulename'];
+        }
         if (this.data.hasOwnProperty('module')) {
             this.data['module'] = this.viewparams['module'];
         }
@@ -599,6 +605,12 @@ export class TaskToBugEditFormBase extends EditFormControlBase {
         }
         if (this.data.hasOwnProperty('color')) {
             this.data['color'] = this.viewparams['color'];
+        }
+        if (this.data.hasOwnProperty('storyname')) {
+            this.data['storyname'] = this.viewparams['storyname'];
+        }
+        if (this.data.hasOwnProperty('taskname')) {
+            this.data['taskname'] = this.viewparams['title'];
         }
         if (this.data.hasOwnProperty('mailto')) {
             this.data['mailto'] = this.viewparams['mailto'];

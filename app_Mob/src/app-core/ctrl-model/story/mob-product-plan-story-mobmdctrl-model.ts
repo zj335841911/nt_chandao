@@ -18,19 +18,19 @@ export class Mob_ProductPlan_StoryModel {
 				name: 'pri',
 			},
 			{
+				name: 'status',
+			},
+			{
 				name: 'stage',
 			},
 			{
-				name: 'title',
-			},
-			{
-				name: 'status',
+				name: 'isfavorites',
 			},
 			{
 				name: 'assignedto',
 			},
 			{
-				name: 'isfavorites',
+				name: 'title',
 			},
 			{
 				name: 'srfkey',

@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { EditViewBase } from '@/studio-core';
 import IbzproConfigService from '@/service/ibzpro-config/ibzpro-config-service';
 import IbzproConfigAuthService from '@/authservice/ibzpro-config/ibzpro-config-auth-service';
@@ -125,7 +125,7 @@ export class IbzproConfigEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof IbzproConfigEditViewBase
      */
-	protected viewtag: string = 'ecbb62865a85af39d70c88ebecc95d99';
+	protected viewtag: string = 'c4eda443b150028cdcefd6cd1a7f272c';
 
     /**
      * 视图名称

@@ -90,9 +90,9 @@ export default class TestSuiteUIActionBase extends EntityUIActionBase {
      * @memberof  TestSuiteUIServiceBase
      */  
     public initViewMap(){
+        this.allViewMap.set(':',{viewname:'mobtabexpview',srfappde:'testsuites'});
         this.allViewMap.set(':',{viewname:'newmobeditview',srfappde:'testsuites'});
         this.allViewMap.set('MOBEDITVIEW:',{viewname:'mobeditview',srfappde:'testsuites'});
-        this.allViewMap.set(':',{viewname:'mobtabexpview',srfappde:'testsuites'});
         this.allViewMap.set('MOBMDATAVIEW:',{viewname:'mobmdview',srfappde:'testsuites'});
     }
 

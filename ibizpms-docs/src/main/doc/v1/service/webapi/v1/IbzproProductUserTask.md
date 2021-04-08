@@ -333,17 +333,17 @@ POST
 #### IbzproProductUserTaskDTO
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
-| 1 | id | Long | 不可 | 编号 |
+| 1 | tasktype | String | 允许 | 任务类型 |
 | 2 | account | String | 允许 | 用户 |
-| 3 | date | Timestamp | 允许 | 日期<br>时间格式：yyyy-MM-dd |
-| 4 | consumed | Double | 允许 | 总计消耗 |
-| 5 | left | Double | 允许 | 预计剩余 |
-| 6 | task | Long | 允许 | 任务 |
-| 7 | taskname | String | 允许 | 任务名称 |
-| 8 | tasktype | String | 允许 | 任务类型 |
-| 9 | progressrate | String | 允许 | 进度 |
-| 10 | delaydays | String | 允许 | 延期天数 |
-| 11 | eststarted | Timestamp | 允许 | 预计开始<br>时间格式：yyyy-MM-dd |
+| 3 | consumed | Double | 允许 | 总计消耗 |
+| 4 | id | Long | 不可 | 编号 |
+| 5 | taskname | String | 允许 | 任务名称 |
+| 6 | progressrate | String | 允许 | 进度 |
+| 7 | eststarted | Timestamp | 允许 | 预计开始<br>时间格式：yyyy-MM-dd |
+| 8 | date | Timestamp | 允许 | 日期<br>时间格式：yyyy-MM-dd |
+| 9 | delaydays | String | 允许 | 延期天数 |
+| 10 | task | Long | 允许 | 任务 |
+| 11 | left | Double | 允许 | 预计剩余 |
 | 12 | deadline | Timestamp | 允许 | 截止日期<br>时间格式：yyyy-MM-dd |
 | 13 | <动态属性> | Object | 允许 | 支持动态属性 |
 

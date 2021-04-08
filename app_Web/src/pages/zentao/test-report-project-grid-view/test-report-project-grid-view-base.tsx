@@ -1,6 +1,6 @@
 
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { GridViewBase } from '@/studio-core';
 import TestReportService from '@/service/test-report/test-report-service';
 import TestReportAuthService from '@/authservice/test-report/test-report-auth-service';
@@ -175,7 +175,7 @@ export class TestReportProjectGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof TestReportProjectGridViewBase
      */
-	protected viewtag: string = '038fb7788a6add9cc268fe8dd67e6262';
+	protected viewtag: string = '1342a35f73e4fc60b094784cf18338cb';
 
     /**
      * 视图名称

@@ -74,7 +74,7 @@ export class MainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_ua405f96_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u34fb5eb_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -404,7 +404,7 @@ export class MainGridBase extends GridControlBase {
 	public uiAction(row: any, tag: any, $event: any): void {
         $event.stopPropagation();
         if(Object.is('Remove', tag)) {
-            this.grid_uagridcolumn1_ua405f96_click(row, tag, $event);
+            this.grid_uagridcolumn1_u34fb5eb_click(row, tag, $event);
         }
     }
 

@@ -73,7 +73,7 @@ public class SysUpdateLogResource {
 		SysUpdateLog domain  = sysupdatelogMapping.toDomain(sysupdatelogdto);
         domain .setSysupdatelogid(sysupdatelog_id);
 		sysupdatelogService.update(domain );
-		SysUpdateLogDTO dto = sysupdatelogMapping.toDto(domain );
+		SysUpdateLogDTO dto = sysupdatelogMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
@@ -111,8 +111,9 @@ public class SysUpdateLogResource {
 
     @ApiOperation(value = "获取更新日志草稿", tags = {"更新日志" },  notes = "获取更新日志草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/sysupdatelogs/getdraft")
-    public ResponseEntity<SysUpdateLogDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(sysupdatelogMapping.toDto(sysupdatelogService.getDraft(new SysUpdateLog())));
+    public ResponseEntity<SysUpdateLogDTO> getDraft(SysUpdateLogDTO dto) {
+        SysUpdateLog domain = sysupdatelogMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(sysupdatelogMapping.toDto(sysupdatelogService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查更新日志", tags = {"更新日志" },  notes = "检查更新日志")
@@ -133,16 +134,20 @@ public class SysUpdateLogResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-SysUpdateLog-GetLastUpdateInfo-all')")
     @ApiOperation(value = "批量处理[获取最新更新信息]", tags = {"更新日志" },  notes = "批量处理[获取最新更新信息]")
-	@RequestMapping(method = RequestMethod.PUT, value = "/sysupdatelogs/{sysupdatelog_id}/getlastupdateinfobatch")
+	@RequestMapping(method = RequestMethod.PUT, value = "/sysupdatelogs/getlastupdateinfobatch")
     public ResponseEntity<Boolean> getLastUpdateInfoBatch(@RequestBody List<SysUpdateLogDTO> sysupdatelogdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(sysupdatelogService.getLastUpdateInfoBatch(sysupdatelogMapping.toDomain(sysupdatelogdtos)));
+        List<SysUpdateLog> domains = sysupdatelogMapping.toDomain(sysupdatelogdtos);
+        boolean result = sysupdatelogService.getLastUpdateInfoBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasPermission(this.sysupdatelogMapping.toDomain(#sysupdatelogdto),'pms-SysUpdateLog-Save')")
     @ApiOperation(value = "保存更新日志", tags = {"更新日志" },  notes = "保存更新日志")
 	@RequestMapping(method = RequestMethod.POST, value = "/sysupdatelogs/save")
-    public ResponseEntity<Boolean> save(@RequestBody SysUpdateLogDTO sysupdatelogdto) {
-        return ResponseEntity.status(HttpStatus.OK).body(sysupdatelogService.save(sysupdatelogMapping.toDomain(sysupdatelogdto)));
+    public ResponseEntity<SysUpdateLogDTO> save(@RequestBody SysUpdateLogDTO sysupdatelogdto) {
+        SysUpdateLog domain = sysupdatelogMapping.toDomain(sysupdatelogdto);
+        sysupdatelogService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(sysupdatelogMapping.toDto(domain));
     }
 
     @PreAuthorize("hasPermission(this.sysupdatelogMapping.toDomain(#sysupdatelogdtos),'pms-SysUpdateLog-Save')")
@@ -174,6 +179,7 @@ public class SysUpdateLogResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(sysupdatelogMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
 
 
 }

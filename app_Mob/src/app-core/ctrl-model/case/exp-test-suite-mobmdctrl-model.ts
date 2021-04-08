@@ -15,19 +15,19 @@ export class Exp_TestSuiteModel {
 	public getDataItems(): any[] {
 		return [
 			{
-				name: 'type',
+				name: 'lastrunresult',
 			},
 			{
 				name: 'pri',
 			},
 			{
-				name: 'status1',
+				name: 'type',
 			},
 			{
 				name: 'title',
 			},
 			{
-				name: 'lastrunresult',
+				name: 'status1',
 			},
 			{
 				name: 'srfkey',

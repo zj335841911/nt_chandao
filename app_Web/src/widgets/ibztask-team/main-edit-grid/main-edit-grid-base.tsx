@@ -220,15 +220,15 @@ export class MainEditGridBase extends GridControlBase {
      * @memberof MainEditBase
      */
     public deRules:any = {
-                left:[
+                consumed:[
                   {
                       type:"VALUERANGE2",
                       condOP:"",
-                      ruleInfo:"预计剩余大于等于0", 
+                      ruleInfo:"总计消耗大于等于0", 
                       isKeyCond:false,
                       isNotMode:false,
                       minValue:0,
-                      deName:"left",
+                      deName:"consumed",
                       isIncludeMaxValue:false,
                       isIncludeMinValue:true,
                   },
@@ -244,15 +244,15 @@ export class MainEditGridBase extends GridControlBase {
                       deName:"estimate",
                   },
                 ],
-                consumed:[
+                left:[
                   {
                       type:"VALUERANGE2",
                       condOP:"",
-                      ruleInfo:"总计消耗大于等于0", 
+                      ruleInfo:"预计剩余大于等于0", 
                       isKeyCond:false,
                       isNotMode:false,
                       minValue:0,
-                      deName:"consumed",
+                      deName:"left",
                       isIncludeMaxValue:false,
                       isIncludeMinValue:true,
                   },

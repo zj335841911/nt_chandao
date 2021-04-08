@@ -73,11 +73,6 @@ export default class MainLookModel {
           isEditable:true
         },
         {
-          name: 'task',
-          prop: 'task',
-          dataType: 'FONTKEY',
-        },
-        {
           name: 'taskestimate',
           prop: 'id',
         },

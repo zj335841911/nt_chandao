@@ -73,7 +73,7 @@ public class IbzFavoritesResource {
 		IbzFavorites domain  = ibzfavoritesMapping.toDomain(ibzfavoritesdto);
         domain .setIbzfavoritesid(ibzfavorites_id);
 		ibzfavoritesService.update(domain );
-		IbzFavoritesDTO dto = ibzfavoritesMapping.toDto(domain );
+		IbzFavoritesDTO dto = ibzfavoritesMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
@@ -111,8 +111,9 @@ public class IbzFavoritesResource {
 
     @ApiOperation(value = "获取收藏草稿", tags = {"收藏" },  notes = "获取收藏草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/ibzfavorites/getdraft")
-    public ResponseEntity<IbzFavoritesDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(ibzfavoritesMapping.toDto(ibzfavoritesService.getDraft(new IbzFavorites())));
+    public ResponseEntity<IbzFavoritesDTO> getDraft(IbzFavoritesDTO dto) {
+        IbzFavorites domain = ibzfavoritesMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(ibzfavoritesMapping.toDto(ibzfavoritesService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查收藏", tags = {"收藏" },  notes = "检查收藏")
@@ -124,8 +125,10 @@ public class IbzFavoritesResource {
     @PreAuthorize("hasPermission(this.ibzfavoritesMapping.toDomain(#ibzfavoritesdto),'pms-IbzFavorites-Save')")
     @ApiOperation(value = "保存收藏", tags = {"收藏" },  notes = "保存收藏")
 	@RequestMapping(method = RequestMethod.POST, value = "/ibzfavorites/save")
-    public ResponseEntity<Boolean> save(@RequestBody IbzFavoritesDTO ibzfavoritesdto) {
-        return ResponseEntity.status(HttpStatus.OK).body(ibzfavoritesService.save(ibzfavoritesMapping.toDomain(ibzfavoritesdto)));
+    public ResponseEntity<IbzFavoritesDTO> save(@RequestBody IbzFavoritesDTO ibzfavoritesdto) {
+        IbzFavorites domain = ibzfavoritesMapping.toDomain(ibzfavoritesdto);
+        ibzfavoritesService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(ibzfavoritesMapping.toDto(domain));
     }
 
     @PreAuthorize("hasPermission(this.ibzfavoritesMapping.toDomain(#ibzfavoritesdtos),'pms-IbzFavorites-Save')")
@@ -157,6 +160,7 @@ public class IbzFavoritesResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(ibzfavoritesMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
 
 
 }

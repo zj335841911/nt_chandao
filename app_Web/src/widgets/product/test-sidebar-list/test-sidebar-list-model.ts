@@ -18,9 +18,6 @@ export default class TestSidebarModel {
 				name: 'id',
 			},
 			{
-				name: 'notclosedbugcnt',
-			},
-			{
 				name: 'istop',
 			},
 			{
@@ -28,20 +25,23 @@ export default class TestSidebarModel {
         codelist:{tag:'Product__status',codelistType:'STATIC'},
 			},
 			{
-				name: 'unconfirmbugcnt',
+				name: 'activebugcnt',
 			},
 			{
 				name: 'type',
         codelist:{tag:'Product__type',codelistType:'STATIC'},
 			},
 			{
-				name: 'code',
+				name: 'unconfirmbugcnt',
 			},
 			{
 				name: 'name',
 			},
 			{
-				name: 'activebugcnt',
+				name: 'notclosedbugcnt',
+			},
+			{
+				name: 'code',
 			},
 			{
 				name: 'srfkey',

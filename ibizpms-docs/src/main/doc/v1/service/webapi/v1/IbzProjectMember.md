@@ -225,19 +225,19 @@ POST
 #### IbzProjectMemberDTO
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
-| 1 | id | Long | 允许 | 编号 |
-| 2 | name | String | 允许 | 项目名称 |
-| 3 | rd | String | 允许 | 发布负责人 |
-| 4 | po | String | 允许 | 产品负责人 |
-| 5 | pm | String | 允许 | 项目负责人 |
-| 6 | qd | String | 允许 | 测试负责人 |
+| 1 | secondmember | String | 允许 | 团队成员（二） |
+| 2 | rd | String | 允许 | 发布负责人 |
+| 3 | qd | String | 允许 | 测试负责人 |
+| 4 | teamembers | String | 允许 | 全部成员 |
+| 5 | thirdmember | String | 允许 | 团队成员（三） |
+| 6 | id | Long | 允许 | 编号 |
 | 7 | fristmember | String | 允许 | 团队成员（一） |
-| 8 | secondmember | String | 允许 | 团队成员（二） |
-| 9 | thirdmember | String | 允许 | 团队成员（三） |
-| 10 | fourthmember | String | 允许 | 团队成员（四） |
+| 8 | po | String | 允许 | 产品负责人 |
+| 9 | fourthmember | String | 允许 | 团队成员（四） |
+| 10 | pm | String | 允许 | 项目负责人 |
 | 11 | fifthmember | String | 允许 | 团队成员（五） |
 | 12 | sixthmember | String | 允许 | 团队成员（六） |
-| 13 | teamembers | String | 允许 | 全部成员 |
+| 13 | name | String | 允许 | 项目名称 |
 | 14 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### IbzProjectMemberSearchContext

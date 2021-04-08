@@ -247,8 +247,8 @@ POST
 | 1 | userid | String | 允许 | 用户标识 |
 | 2 | username | String | 允许 | 用户全局名 |
 | 3 | personname | String | 允许 | 用户姓名 |
-| 4 | password | String | 允许 | 密码 |
-| 5 | usercode | String | 不可 | 用户工号 |
+| 4 | usercode | String | 不可 | 用户工号 |
+| 5 | password | String | 允许 | 密码 |
 | 6 | loginname | String | 不可 | 登录名 |
 | 7 | domains | String | 允许 | 区属 |
 | 8 | mdeptid | String | 允许 | 主部门 |

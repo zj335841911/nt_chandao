@@ -14,6 +14,8 @@ hide members
 | --------   |------------| -----   |  -------- | 
 |路径|PATHNAME|TEXT|&nbsp;|
 |对象ID|OBJECTID|BIGINT|&nbsp;|
+|显示大小|STRSIZE|TEXT|&nbsp;|
+|文档类型|DOCLIBTYPE|TEXT|&nbsp;|
 |已删除|DELETED|TEXT|&nbsp;|
 |文件类型|EXTENSION|TEXT|&nbsp;|
 |对象类型|OBJECTTYPE|SSCODELIST|&nbsp;|
@@ -24,14 +26,14 @@ hide members
 |大小|SIZE|INT|&nbsp;|
 |id|ID|ACID|&nbsp;|
 |备注|EXTRA|TEXT|&nbsp;|
-|显示大小|STRSIZE|TEXT|&nbsp;|
-|文档类型|DOCLIBTYPE|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
 | --------   |------------| ----- | 
 |路径|默认规则|内容长度必须小于等于[100]|
 |对象ID|默认规则|默认规则|
+|显示大小|默认规则|内容长度必须小于等于[200]|
+|文档类型|默认规则|内容长度必须小于等于[100]|
 |已删除|默认规则|内容长度必须小于等于[1]|
 |文件类型|默认规则|内容长度必须小于等于[30]|
 |对象类型|默认规则|内容长度必须小于等于[30]|
@@ -42,8 +44,6 @@ hide members
 |大小|默认规则|默认规则|
 |id|默认规则|默认规则|
 |备注|默认规则|内容长度必须小于等于[255]|
-|显示大小|默认规则|内容长度必须小于等于[200]|
-|文档类型|默认规则|内容长度必须小于等于[100]|
 
 ## 状态控制
 
@@ -62,6 +62,7 @@ hide members
 |下载|用户自定义|&nbsp;|
 |预览|用户自定义|&nbsp;|
 |Save|内置方法|&nbsp;|
+|保存附件|用户自定义|&nbsp;|
 
 ## 处理逻辑
 无
@@ -72,10 +73,11 @@ hide members
 
 | 查询编号 | 查询名称       | 默认查询 |   备注|
 | --------  | --------   | --------   | ----- |
-|DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#File_Default))|否|&nbsp;|
+|DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#File_Default))|是|&nbsp;|
 |DocLibFile|文件库查询([MYSQL5](../../appendix/query_MYSQL5.md#File_DocLibFile))|否|&nbsp;|
 |ProductDocLibFile|文件库查询([MYSQL5](../../appendix/query_MYSQL5.md#File_ProductDocLibFile))|否|&nbsp;|
 |Type|动态(根据类型过滤)([MYSQL5](../../appendix/query_MYSQL5.md#File_Type))|否|&nbsp;过滤编辑器中上传的图片|
+|TypeNotBySrfparentkey|查询附件([MYSQL5](../../appendix/query_MYSQL5.md#File_TypeNotBySrfparentkey))|否|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#File_View))|否|&nbsp;|
 
 * **数据集合**
@@ -86,6 +88,7 @@ hide members
 |DocLibFile|文件库查询|DocLibFile|否|&nbsp;|
 |ProductDocLibFile|文件库查询|ProductDocLibFile|否|&nbsp;|
 |Type|动态(根据类型过滤)|Type|否|&nbsp;|
+|TypeNotBySrfparentkey|查询附件|TypeNotBySrfparentkey|否|&nbsp;|
 
 ## 查询模式
 | 属性      |    搜索模式     |
@@ -94,6 +97,7 @@ hide members
 |对象类型(OBJECTTYPE)|EQ|
 |标题(TITLE)|LIKE|
 |备注(EXTRA)|EQ|
+|备注(EXTRA)|NOTEQ|
 
 ## 导入模式
 无

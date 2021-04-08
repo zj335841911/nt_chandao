@@ -27,11 +27,25 @@ import cn.ibizlab.pms.core.zentao.domain.Product;
 @Data
 public class ProductSearchContext extends QueryWrapperContext<Product> {
 
+	private String n_productclass_eq;//[产品分类]
+	public void setN_productclass_eq(String n_productclass_eq) {
+        this.n_productclass_eq = n_productclass_eq;
+        if(!ObjectUtils.isEmpty(this.n_productclass_eq)){
+            this.getSearchCond().eq("`productclass`", n_productclass_eq);
+        }
+    }
 	private String n_acl_eq;//[访问控制]
 	public void setN_acl_eq(String n_acl_eq) {
         this.n_acl_eq = n_acl_eq;
         if(!ObjectUtils.isEmpty(this.n_acl_eq)){
             this.getSearchCond().eq("`acl`", n_acl_eq);
+        }
+    }
+	private String n_name_eq;//[产品名称]
+	public void setN_name_eq(String n_name_eq) {
+        this.n_name_eq = n_name_eq;
+        if(!ObjectUtils.isEmpty(this.n_name_eq)){
+            this.getSearchCond().eq("`name`", n_name_eq);
         }
     }
 	private String n_name_like;//[产品名称]
@@ -46,6 +60,13 @@ public class ProductSearchContext extends QueryWrapperContext<Product> {
         this.n_id_eq = n_id_eq;
         if(!ObjectUtils.isEmpty(this.n_id_eq)){
             this.getSearchCond().eq("`id`", n_id_eq);
+        }
+    }
+	private String n_id_in;//[编号]
+	public void setN_id_in(String n_id_in) {
+        this.n_id_in = n_id_in;
+        if(!ObjectUtils.isEmpty(this.n_id_in)){
+			this.getSearchCond().in("`id`",this.n_id_in.split(";"));
         }
     }
 	private String n_type_eq;//[产品类型]
@@ -66,7 +87,7 @@ public class ProductSearchContext extends QueryWrapperContext<Product> {
 	public void setN_status_isnotnull(String n_status_isnotnull) {
         this.n_status_isnotnull = n_status_isnotnull;
         if(!ObjectUtils.isEmpty(this.n_status_isnotnull)){
-			if(this.n_status_isnotnull.toString().equals("1")){
+			if(this.n_status_isnotnull.equals("1")){
 				this.getSearchCond().isNotNull("`status`");
 			}
         }

@@ -72,7 +72,7 @@ public class PRODUCTTEAMResource {
 		PRODUCTTEAM domain  = productteamMapping.toDomain(productteamdto);
         domain .setId(productteam_id);
 		productteamService.update(domain );
-		PRODUCTTEAMDTO dto = productteamMapping.toDto(domain );
+		PRODUCTTEAMDTO dto = productteamMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
@@ -110,8 +110,9 @@ public class PRODUCTTEAMResource {
 
     @ApiOperation(value = "获取产品团队草稿", tags = {"产品团队" },  notes = "获取产品团队草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/productteams/getdraft")
-    public ResponseEntity<PRODUCTTEAMDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(productteamMapping.toDto(productteamService.getDraft(new PRODUCTTEAM())));
+    public ResponseEntity<PRODUCTTEAMDTO> getDraft(PRODUCTTEAMDTO dto) {
+        PRODUCTTEAM domain = productteamMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(productteamMapping.toDto(productteamService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查产品团队", tags = {"产品团队" },  notes = "检查产品团队")
@@ -120,11 +121,32 @@ public class PRODUCTTEAMResource {
         return  ResponseEntity.status(HttpStatus.OK).body(productteamService.checkKey(productteamMapping.toDomain(productteamdto)));
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-PRODUCTTEAM-ProductTeamGuoLv-all')")
+    @ApiOperation(value = "PmsEe团队管理过滤", tags = {"产品团队" },  notes = "PmsEe团队管理过滤")
+	@RequestMapping(method = RequestMethod.POST, value = "/productteams/{productteam_id}/productteamguolv")
+    public ResponseEntity<PRODUCTTEAMDTO> productTeamGuoLv(@PathVariable("productteam_id") Long productteam_id, @RequestBody PRODUCTTEAMDTO productteamdto) {
+        PRODUCTTEAM domain = productteamMapping.toDomain(productteamdto);
+        domain.setId(productteam_id);
+        domain = productteamService.productTeamGuoLv(domain);
+        productteamdto = productteamMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(productteamdto);
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-PRODUCTTEAM-ProductTeamGuoLv-all')")
+    @ApiOperation(value = "批量处理[PmsEe团队管理过滤]", tags = {"产品团队" },  notes = "批量处理[PmsEe团队管理过滤]")
+	@RequestMapping(method = RequestMethod.POST, value = "/productteams/productteamguolvbatch")
+    public ResponseEntity<Boolean> productTeamGuoLvBatch(@RequestBody List<PRODUCTTEAMDTO> productteamdtos) {
+        List<PRODUCTTEAM> domains = productteamMapping.toDomain(productteamdtos);
+        boolean result = productteamService.productTeamGuoLvBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
+    }
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-PRODUCTTEAM-Save-all')")
     @ApiOperation(value = "保存产品团队", tags = {"产品团队" },  notes = "保存产品团队")
 	@RequestMapping(method = RequestMethod.POST, value = "/productteams/save")
-    public ResponseEntity<Boolean> save(@RequestBody PRODUCTTEAMDTO productteamdto) {
-        return ResponseEntity.status(HttpStatus.OK).body(productteamService.save(productteamMapping.toDomain(productteamdto)));
+    public ResponseEntity<PRODUCTTEAMDTO> save(@RequestBody PRODUCTTEAMDTO productteamdto) {
+        PRODUCTTEAM domain = productteamMapping.toDomain(productteamdto);
+        productteamService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(productteamMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-PRODUCTTEAM-Save-all')")
@@ -179,6 +201,28 @@ public class PRODUCTTEAMResource {
                 .body(new PageImpl(productteamMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-PRODUCTTEAM-searchProjectApp-all')")
+	@ApiOperation(value = "获取项目立项", tags = {"产品团队" } ,notes = "获取项目立项")
+    @RequestMapping(method= RequestMethod.GET , value="/productteams/fetchprojectapp")
+	public ResponseEntity<List<PRODUCTTEAMDTO>> fetchProjectApp(PRODUCTTEAMSearchContext context) {
+        Page<PRODUCTTEAM> domains = productteamService.searchProjectApp(context) ;
+        List<PRODUCTTEAMDTO> list = productteamMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-PRODUCTTEAM-searchProjectApp-all')")
+	@ApiOperation(value = "查询项目立项", tags = {"产品团队" } ,notes = "查询项目立项")
+    @RequestMapping(method= RequestMethod.POST , value="/productteams/searchprojectapp")
+	public ResponseEntity<Page<PRODUCTTEAMDTO>> searchProjectApp(@RequestBody PRODUCTTEAMSearchContext context) {
+        Page<PRODUCTTEAM> domains = productteamService.searchProjectApp(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(productteamMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-PRODUCTTEAM-searchRowEditDefaultProductTeam-all')")
 	@ApiOperation(value = "获取产品团队管理", tags = {"产品团队" } ,notes = "获取产品团队管理")
     @RequestMapping(method= RequestMethod.GET , value="/productteams/fetchroweditdefaultproductteam")
@@ -200,6 +244,7 @@ public class PRODUCTTEAMResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(productteamMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
 
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-PRODUCTTEAM-Create-all')")
@@ -275,8 +320,8 @@ public class PRODUCTTEAMResource {
 
     @ApiOperation(value = "根据产品获取产品团队草稿", tags = {"产品团队" },  notes = "根据产品获取产品团队草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/productteams/getdraft")
-    public ResponseEntity<PRODUCTTEAMDTO> getDraftByProduct(@PathVariable("product_id") Long product_id) {
-        PRODUCTTEAM domain = new PRODUCTTEAM();
+    public ResponseEntity<PRODUCTTEAMDTO> getDraftByProduct(@PathVariable("product_id") Long product_id, PRODUCTTEAMDTO dto) {
+        PRODUCTTEAM domain = productteamMapping.toDomain(dto);
         domain.setRoot(product_id);
         return ResponseEntity.status(HttpStatus.OK).body(productteamMapping.toDto(productteamService.getDraft(domain)));
     }
@@ -287,13 +332,31 @@ public class PRODUCTTEAMResource {
         return  ResponseEntity.status(HttpStatus.OK).body(productteamService.checkKey(productteamMapping.toDomain(productteamdto)));
     }
 
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-PRODUCTTEAM-ProductTeamGuoLv-all')")
+    @ApiOperation(value = "根据产品产品团队", tags = {"产品团队" },  notes = "根据产品产品团队")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productteams/{productteam_id}/productteamguolv")
+    public ResponseEntity<PRODUCTTEAMDTO> productTeamGuoLvByProduct(@PathVariable("product_id") Long product_id, @PathVariable("productteam_id") Long productteam_id, @RequestBody PRODUCTTEAMDTO productteamdto) {
+        PRODUCTTEAM domain = productteamMapping.toDomain(productteamdto);
+        domain.setRoot(product_id);
+        domain = productteamService.productTeamGuoLv(domain) ;
+        productteamdto = productteamMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(productteamdto);
+    }
+    @ApiOperation(value = "批量处理[根据产品产品团队]", tags = {"产品团队" },  notes = "批量处理[根据产品产品团队]")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productteams/productteamguolvbatch")
+    public ResponseEntity<Boolean> productTeamGuoLvByProduct(@PathVariable("product_id") Long product_id, @RequestBody List<PRODUCTTEAMDTO> productteamdtos) {
+        List<PRODUCTTEAM> domains = productteamMapping.toDomain(productteamdtos);
+        boolean result = productteamService.productTeamGuoLvBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
+    }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-PRODUCTTEAM-Save-all')")
     @ApiOperation(value = "根据产品保存产品团队", tags = {"产品团队" },  notes = "根据产品保存产品团队")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/productteams/save")
-    public ResponseEntity<Boolean> saveByProduct(@PathVariable("product_id") Long product_id, @RequestBody PRODUCTTEAMDTO productteamdto) {
+    public ResponseEntity<PRODUCTTEAMDTO> saveByProduct(@PathVariable("product_id") Long product_id, @RequestBody PRODUCTTEAMDTO productteamdto) {
         PRODUCTTEAM domain = productteamMapping.toDomain(productteamdto);
         domain.setRoot(product_id);
-        return ResponseEntity.status(HttpStatus.OK).body(productteamService.save(domain));
+        productteamService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(productteamMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-PRODUCTTEAM-Save-all')")
@@ -351,6 +414,29 @@ public class PRODUCTTEAMResource {
 	public ResponseEntity<Page<PRODUCTTEAMDTO>> searchPRODUCTTEAMProductTeamInfoByProduct(@PathVariable("product_id") Long product_id, @RequestBody PRODUCTTEAMSearchContext context) {
         context.setN_root_eq(product_id);
         Page<PRODUCTTEAM> domains = productteamService.searchProductTeamInfo(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(productteamMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-PRODUCTTEAM-searchProjectApp-all')")
+	@ApiOperation(value = "根据产品获取项目立项", tags = {"产品团队" } ,notes = "根据产品获取项目立项")
+    @RequestMapping(method= RequestMethod.GET , value="/products/{product_id}/productteams/fetchprojectapp")
+	public ResponseEntity<List<PRODUCTTEAMDTO>> fetchPRODUCTTEAMProjectAppByProduct(@PathVariable("product_id") Long product_id,PRODUCTTEAMSearchContext context) {
+        context.setN_root_eq(product_id);
+        Page<PRODUCTTEAM> domains = productteamService.searchProjectApp(context) ;
+        List<PRODUCTTEAMDTO> list = productteamMapping.toDto(domains.getContent());
+	    return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-PRODUCTTEAM-searchProjectApp-all')")
+	@ApiOperation(value = "根据产品查询项目立项", tags = {"产品团队" } ,notes = "根据产品查询项目立项")
+    @RequestMapping(method= RequestMethod.POST , value="/products/{product_id}/productteams/searchprojectapp")
+	public ResponseEntity<Page<PRODUCTTEAMDTO>> searchPRODUCTTEAMProjectAppByProduct(@PathVariable("product_id") Long product_id, @RequestBody PRODUCTTEAMSearchContext context) {
+        context.setN_root_eq(product_id);
+        Page<PRODUCTTEAM> domains = productteamService.searchProjectApp(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(productteamMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}

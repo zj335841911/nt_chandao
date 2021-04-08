@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { GridExpViewBase } from '@/studio-core';
 import SysEmployeeService from '@/service/sys-employee/sys-employee-service';
 import SysEmployeeAuthService from '@/authservice/sys-employee/sys-employee-auth-service';
@@ -100,7 +100,7 @@ export class SysEmployeeGridExpViewProjectMemberBase extends GridExpViewBase {
      * @type {string}
      * @memberof SysEmployeeGridExpViewProjectMemberBase
      */
-	protected viewtag: string = 'ca485afa013ed409b2274ed390ae7db0';
+	protected viewtag: string = '725bda9b64e41595bdb7bca3385b73d5';
 
     /**
      * 视图名称

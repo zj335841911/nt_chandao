@@ -49,19 +49,12 @@ import org.springframework.util.StringUtils;
 public class ProjectStatsServiceImpl extends ServiceImpl<ProjectStatsMapper, ProjectStats> implements IProjectStatsService {
 
 
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.ibiz.service.logic.IProjectStatsProjectQualitySumLogic projectqualitysumLogic;
-    @Autowired
-    @Lazy
-    IProjectStatsService proxyService;
-
     protected int batchSize = 500;
 
     @Override
     @Transactional
     public boolean create(ProjectStats et) {
-        if (!this.retBool(this.baseMapper.insert(et))) {
+        if(!this.retBool(this.baseMapper.insert(et))) {
             return false;
         }
         CachedBeanCopier.copy(get(et.getId()), et);
@@ -77,7 +70,7 @@ public class ProjectStatsServiceImpl extends ServiceImpl<ProjectStatsMapper, Pro
     @Override
     @Transactional
     public boolean update(ProjectStats et) {
-        if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", et.getId()))) {
+        if(!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", et.getId()))) {
             return false;
         }
         CachedBeanCopier.copy(get(et.getId()), et);
@@ -94,7 +87,7 @@ public class ProjectStatsServiceImpl extends ServiceImpl<ProjectStatsMapper, Pro
     @Transactional
     public boolean remove(Long key) {
         boolean result = removeById(key);
-        return result;
+        return result ;
     }
 
     @Override
@@ -107,7 +100,7 @@ public class ProjectStatsServiceImpl extends ServiceImpl<ProjectStatsMapper, Pro
     @Transactional
     public ProjectStats get(Long key) {
         ProjectStats et = getById(key);
-        if (et == null) {
+        if(et == null){
             et = new ProjectStats();
             et.setId(key);
         }
@@ -128,14 +121,13 @@ public class ProjectStatsServiceImpl extends ServiceImpl<ProjectStatsMapper, Pro
     @Override
     @Transactional
     public ProjectStats projectQualitySum(ProjectStats et) {
-        projectqualitysumLogic.execute(et);
-         return et;
+         return et ;
     }
 
     @Override
     @Transactional
     public boolean save(ProjectStats et) {
-        if (!saveOrUpdate(et)) {
+        if(!saveOrUpdate(et)) {
             return false;
         }
         return true;
@@ -147,7 +139,7 @@ public class ProjectStatsServiceImpl extends ServiceImpl<ProjectStatsMapper, Pro
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
+            return checkKey(et) ? getProxyService().update(et) : getProxyService().create(et);
         }
     }
 
@@ -164,10 +156,10 @@ public class ProjectStatsServiceImpl extends ServiceImpl<ProjectStatsMapper, Pro
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
         return true;
     }
@@ -185,10 +177,10 @@ public class ProjectStatsServiceImpl extends ServiceImpl<ProjectStatsMapper, Pro
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
     }
 
@@ -199,7 +191,7 @@ public class ProjectStatsServiceImpl extends ServiceImpl<ProjectStatsMapper, Pro
      */
     @Override
     public Page<ProjectStats> searchDefault(ProjectStatsSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectStats> pages=baseMapper.searchDefault(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectStats> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
         return new PageImpl<ProjectStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -208,7 +200,7 @@ public class ProjectStatsServiceImpl extends ServiceImpl<ProjectStatsMapper, Pro
      */
     @Override
     public Page<ProjectStats> searchNoOpenProduct(ProjectStatsSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectStats> pages=baseMapper.searchNoOpenProduct(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectStats> pages=baseMapper.searchNoOpenProduct(context.getPages(),context,context.getSelectCond());
         return new PageImpl<ProjectStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -217,7 +209,7 @@ public class ProjectStatsServiceImpl extends ServiceImpl<ProjectStatsMapper, Pro
      */
     @Override
     public Page<ProjectStats> searchProjectBugType(ProjectStatsSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectStats> pages=baseMapper.searchProjectBugType(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectStats> pages=baseMapper.searchProjectBugType(context.getPages(),context,context.getSelectCond());
         return new PageImpl<ProjectStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -226,7 +218,7 @@ public class ProjectStatsServiceImpl extends ServiceImpl<ProjectStatsMapper, Pro
      */
     @Override
     public Page<ProjectStats> searchProjectInputStats(ProjectStatsSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectStats> pages=baseMapper.searchProjectInputStats(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectStats> pages=baseMapper.searchProjectInputStats(context.getPages(),context,context.getSelectCond());
         return new PageImpl<ProjectStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -235,7 +227,7 @@ public class ProjectStatsServiceImpl extends ServiceImpl<ProjectStatsMapper, Pro
      */
     @Override
     public Page<ProjectStats> searchProjectProgress(ProjectStatsSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectStats> pages=baseMapper.searchProjectProgress(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectStats> pages=baseMapper.searchProjectProgress(context.getPages(),context,context.getSelectCond());
         return new PageImpl<ProjectStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -244,7 +236,7 @@ public class ProjectStatsServiceImpl extends ServiceImpl<ProjectStatsMapper, Pro
      */
     @Override
     public Page<ProjectStats> searchProjectQuality(ProjectStatsSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectStats> pages=baseMapper.searchProjectQuality(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectStats> pages=baseMapper.searchProjectQuality(context.getPages(),context,context.getSelectCond());
         return new PageImpl<ProjectStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -253,7 +245,7 @@ public class ProjectStatsServiceImpl extends ServiceImpl<ProjectStatsMapper, Pro
      */
     @Override
     public Page<ProjectStats> searchProjectStoryStageStats(ProjectStatsSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectStats> pages=baseMapper.searchProjectStoryStageStats(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectStats> pages=baseMapper.searchProjectStoryStageStats(context.getPages(),context,context.getSelectCond());
         return new PageImpl<ProjectStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -262,7 +254,7 @@ public class ProjectStatsServiceImpl extends ServiceImpl<ProjectStatsMapper, Pro
      */
     @Override
     public Page<ProjectStats> searchProjectStoryStatusStats(ProjectStatsSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectStats> pages=baseMapper.searchProjectStoryStatusStats(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectStats> pages=baseMapper.searchProjectStoryStatusStats(context.getPages(),context,context.getSelectCond());
         return new PageImpl<ProjectStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -271,7 +263,7 @@ public class ProjectStatsServiceImpl extends ServiceImpl<ProjectStatsMapper, Pro
      */
     @Override
     public Page<ProjectStats> searchProjectTaskCountByTaskStatus(ProjectStatsSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectStats> pages=baseMapper.searchProjectTaskCountByTaskStatus(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectStats> pages=baseMapper.searchProjectTaskCountByTaskStatus(context.getPages(),context,context.getSelectCond());
         return new PageImpl<ProjectStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -280,7 +272,7 @@ public class ProjectStatsServiceImpl extends ServiceImpl<ProjectStatsMapper, Pro
      */
     @Override
     public Page<ProjectStats> searchProjectTaskCountByType(ProjectStatsSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectStats> pages=baseMapper.searchProjectTaskCountByType(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectStats> pages=baseMapper.searchProjectTaskCountByType(context.getPages(),context,context.getSelectCond());
         return new PageImpl<ProjectStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -289,7 +281,7 @@ public class ProjectStatsServiceImpl extends ServiceImpl<ProjectStatsMapper, Pro
      */
     @Override
     public Page<ProjectStats> searchTaskTime(ProjectStatsSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectStats> pages=baseMapper.searchTaskTime(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<ProjectStats> pages=baseMapper.searchTaskTime(context.getPages(),context,context.getSelectCond());
         return new PageImpl<ProjectStats>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -300,24 +292,24 @@ public class ProjectStatsServiceImpl extends ServiceImpl<ProjectStatsMapper, Pro
 
 
     @Override
-    public List<JSONObject> select(String sql, Map param) {
-        return this.baseMapper.selectBySQL(sql, param);
+    public List<JSONObject> select(String sql, Map param){
+        return this.baseMapper.selectBySQL(sql,param);
     }
 
     @Override
     @Transactional
-    public boolean execute(String sql, Map param) {
+    public boolean execute(String sql , Map param){
         if (sql == null || sql.isEmpty()) {
             return false;
         }
         if (sql.toLowerCase().trim().startsWith("insert")) {
-            return this.baseMapper.insertBySQL(sql, param);
+            return this.baseMapper.insertBySQL(sql,param);
         }
         if (sql.toLowerCase().trim().startsWith("update")) {
-            return this.baseMapper.updateBySQL(sql, param);
+            return this.baseMapper.updateBySQL(sql,param);
         }
         if (sql.toLowerCase().trim().startsWith("delete")) {
-            return this.baseMapper.deleteBySQL(sql, param);
+            return this.baseMapper.deleteBySQL(sql,param);
         }
         log.warn("暂未支持的SQL语法");
         return true;
@@ -325,9 +317,9 @@ public class ProjectStatsServiceImpl extends ServiceImpl<ProjectStatsMapper, Pro
 
 
 
-
-
+    public IProjectStatsService getProxyService() {
+        return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
+    }
 }
-
 
 

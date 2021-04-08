@@ -244,6 +244,8 @@ export class Main_EditModeEditFormBase extends EditFormControlBase {
         openeddate: null,
         assignedto: null,
         assigneddate: null,
+        version: null,
+        versionc: null,
         linkstories: null,
         module: null,
         story: null,
@@ -581,6 +583,20 @@ export class Main_EditModeEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
+        version: new FormItemModel({
+    caption: '版本号', detailType: 'FORMITEM', name: 'version', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
+        versionc: new FormItemModel({
+    caption: '版本号', detailType: 'FORMITEM', name: 'versionc', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
         linkstories: new FormItemModel({
     caption: '相关需求', detailType: 'FORMITEM', name: 'linkstories', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
@@ -712,6 +728,8 @@ export class Main_EditModeEditFormBase extends EditFormControlBase {
             }
             this.detailsModel.assigneddate.setVisible(ret);
         }
+
+
 
 
 

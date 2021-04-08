@@ -48,12 +48,29 @@ public interface IProductPlanService extends IService<ProductPlan> {
     ProductPlan batchUnlinkStory(ProductPlan et);
     boolean batchUnlinkStoryBatch(List<ProductPlan> etList);
     boolean checkKey(ProductPlan et);
+    ProductPlan eeActivePlan(ProductPlan et);
+    boolean eeActivePlanBatch(List<ProductPlan> etList);
+    ProductPlan eeCancelPlan(ProductPlan et);
+    boolean eeCancelPlanBatch(List<ProductPlan> etList);
+    ProductPlan eeClosePlan(ProductPlan et);
+    boolean eeClosePlanBatch(List<ProductPlan> etList);
+    ProductPlan eeFinishPlan(ProductPlan et);
+    boolean eeFinishPlanBatch(List<ProductPlan> etList);
+    ProductPlan eePausePlan(ProductPlan et);
+    boolean eePausePlanBatch(List<ProductPlan> etList);
+    ProductPlan eeRestartPlan(ProductPlan et);
+    boolean eeRestartPlanBatch(List<ProductPlan> etList);
+    ProductPlan eeStartPlan(ProductPlan et);
+    boolean eeStartPlanBatch(List<ProductPlan> etList);
+    ProductPlan getOldPlanName(ProductPlan et);
     ProductPlan importPlanTemplet(ProductPlan et);
     boolean importPlanTempletBatch(List<ProductPlan> etList);
     ProductPlan linkBug(ProductPlan et);
     boolean linkBugBatch(List<ProductPlan> etList);
     ProductPlan linkStory(ProductPlan et);
     boolean linkStoryBatch(List<ProductPlan> etList);
+    ProductPlan linkTask(ProductPlan et);
+    boolean linkTaskBatch(List<ProductPlan> etList);
     ProductPlan mobProductPlanCounter(ProductPlan et);
     boolean save(ProductPlan et);
     void saveBatch(List<ProductPlan> list);
@@ -61,11 +78,16 @@ public interface IProductPlanService extends IService<ProductPlan> {
     boolean unlinkBugBatch(List<ProductPlan> etList);
     ProductPlan unlinkStory(ProductPlan et);
     boolean unlinkStoryBatch(List<ProductPlan> etList);
+    Page<ProductPlan> searchChildPlan(ProductPlanSearchContext context);
     Page<ProductPlan> searchCurProductPlan(ProductPlanSearchContext context);
     Page<ProductPlan> searchDefault(ProductPlanSearchContext context);
     Page<ProductPlan> searchDefaultParent(ProductPlanSearchContext context);
     Page<ProductPlan> searchPlanCodeList(ProductPlanSearchContext context);
+    Page<ProductPlan> searchPlanTasks(ProductPlanSearchContext context);
+    Page<ProductPlan> searchProjectApp(ProductPlanSearchContext context);
     Page<ProductPlan> searchProjectPlan(ProductPlanSearchContext context);
+    Page<ProductPlan> searchRootPlan(ProductPlanSearchContext context);
+    Page<ProductPlan> searchTaskPlan(ProductPlanSearchContext context);
     List<ProductPlan> selectByBranch(Long id);
     void removeByBranch(Long id);
     List<ProductPlan> selectByProduct(Long id);
@@ -73,16 +95,16 @@ public interface IProductPlanService extends IService<ProductPlan> {
     List<ProductPlan> selectByParent(Long id);
     void removeByParent(Long id);
     /**
-     * 自定义查询SQL
+     *自定义查询SQL
      * @param sql  select * from table where id =#{et.param}
-     * @param param 参数列表  param.put("param", "1");
+     * @param param 参数列表  param.put("param","1");
      * @return select * from table where id = '1'
      */
     List<JSONObject> select(String sql, Map param);
     /**
-     * 自定义SQL
+     *自定义SQL
      * @param sql  update table  set name ='test' where id =#{et.param}
-     * @param param 参数列表  param.put("param", "1");
+     * @param param 参数列表  param.put("param","1");
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);

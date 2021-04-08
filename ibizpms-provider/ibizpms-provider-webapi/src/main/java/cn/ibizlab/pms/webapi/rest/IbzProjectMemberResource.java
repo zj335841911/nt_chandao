@@ -72,7 +72,7 @@ public class IbzProjectMemberResource {
 		IbzProjectMember domain  = ibzprojectmemberMapping.toDomain(ibzprojectmemberdto);
         domain .setId(ibzprojectmember_id);
 		ibzprojectmemberService.update(domain );
-		IbzProjectMemberDTO dto = ibzprojectmemberMapping.toDto(domain );
+		IbzProjectMemberDTO dto = ibzprojectmemberMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
@@ -110,8 +110,9 @@ public class IbzProjectMemberResource {
 
     @ApiOperation(value = "获取项目相关成员草稿", tags = {"项目相关成员" },  notes = "获取项目相关成员草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/ibzprojectmembers/getdraft")
-    public ResponseEntity<IbzProjectMemberDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(ibzprojectmemberMapping.toDto(ibzprojectmemberService.getDraft(new IbzProjectMember())));
+    public ResponseEntity<IbzProjectMemberDTO> getDraft(IbzProjectMemberDTO dto) {
+        IbzProjectMember domain = ibzprojectmemberMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(ibzprojectmemberMapping.toDto(ibzprojectmemberService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查项目相关成员", tags = {"项目相关成员" },  notes = "检查项目相关成员")
@@ -123,8 +124,10 @@ public class IbzProjectMemberResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzProjectMember-Save-all')")
     @ApiOperation(value = "保存项目相关成员", tags = {"项目相关成员" },  notes = "保存项目相关成员")
 	@RequestMapping(method = RequestMethod.POST, value = "/ibzprojectmembers/save")
-    public ResponseEntity<Boolean> save(@RequestBody IbzProjectMemberDTO ibzprojectmemberdto) {
-        return ResponseEntity.status(HttpStatus.OK).body(ibzprojectmemberService.save(ibzprojectmemberMapping.toDomain(ibzprojectmemberdto)));
+    public ResponseEntity<IbzProjectMemberDTO> save(@RequestBody IbzProjectMemberDTO ibzprojectmemberdto) {
+        IbzProjectMember domain = ibzprojectmemberMapping.toDomain(ibzprojectmemberdto);
+        ibzprojectmemberService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(ibzprojectmemberMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzProjectMember-Save-all')")
@@ -156,6 +159,7 @@ public class IbzProjectMemberResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(ibzprojectmemberMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
 
 
 }

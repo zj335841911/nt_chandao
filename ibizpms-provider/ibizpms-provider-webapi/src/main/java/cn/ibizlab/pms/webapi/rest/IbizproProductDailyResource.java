@@ -73,7 +73,7 @@ public class IbizproProductDailyResource {
 		IbizproProductDaily domain  = ibizproproductdailyMapping.toDomain(ibizproproductdailydto);
         domain .setIbizproproductdailyid(ibizproproductdaily_id);
 		ibizproproductdailyService.update(domain );
-		IbizproProductDailyDTO dto = ibizproproductdailyMapping.toDto(domain );
+		IbizproProductDailyDTO dto = ibizproproductdailyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
@@ -111,8 +111,9 @@ public class IbizproProductDailyResource {
 
     @ApiOperation(value = "获取产品日报草稿", tags = {"产品日报" },  notes = "获取产品日报草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/ibizproproductdailies/getdraft")
-    public ResponseEntity<IbizproProductDailyDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(ibizproproductdailyMapping.toDto(ibizproproductdailyService.getDraft(new IbizproProductDaily())));
+    public ResponseEntity<IbizproProductDailyDTO> getDraft(IbizproProductDailyDTO dto) {
+        IbizproProductDaily domain = ibizproproductdailyMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(ibizproproductdailyMapping.toDto(ibizproproductdailyService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查产品日报", tags = {"产品日报" },  notes = "检查产品日报")
@@ -133,16 +134,20 @@ public class IbizproProductDailyResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbizproProductDaily-ManualCreateDaily-all')")
     @ApiOperation(value = "批量处理[手动生成产品日报]", tags = {"产品日报" },  notes = "批量处理[手动生成产品日报]")
-	@RequestMapping(method = RequestMethod.POST, value = "/ibizproproductdailies/{ibizproproductdaily_id}/manualcreatedailybatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/ibizproproductdailies/manualcreatedailybatch")
     public ResponseEntity<Boolean> manualCreateDailyBatch(@RequestBody List<IbizproProductDailyDTO> ibizproproductdailydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(ibizproproductdailyService.manualCreateDailyBatch(ibizproproductdailyMapping.toDomain(ibizproproductdailydtos)));
+        List<IbizproProductDaily> domains = ibizproproductdailyMapping.toDomain(ibizproproductdailydtos);
+        boolean result = ibizproproductdailyService.manualCreateDailyBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasPermission(this.ibizproproductdailyMapping.toDomain(#ibizproproductdailydto),'pms-IbizproProductDaily-Save')")
     @ApiOperation(value = "保存产品日报", tags = {"产品日报" },  notes = "保存产品日报")
 	@RequestMapping(method = RequestMethod.POST, value = "/ibizproproductdailies/save")
-    public ResponseEntity<Boolean> save(@RequestBody IbizproProductDailyDTO ibizproproductdailydto) {
-        return ResponseEntity.status(HttpStatus.OK).body(ibizproproductdailyService.save(ibizproproductdailyMapping.toDomain(ibizproproductdailydto)));
+    public ResponseEntity<IbizproProductDailyDTO> save(@RequestBody IbizproProductDailyDTO ibizproproductdailydto) {
+        IbizproProductDaily domain = ibizproproductdailyMapping.toDomain(ibizproproductdailydto);
+        ibizproproductdailyService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(ibizproproductdailyMapping.toDto(domain));
     }
 
     @PreAuthorize("hasPermission(this.ibizproproductdailyMapping.toDomain(#ibizproproductdailydtos),'pms-IbizproProductDaily-Save')")
@@ -165,9 +170,11 @@ public class IbizproProductDailyResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbizproProductDaily-StatsProductDaily-all')")
     @ApiOperation(value = "批量处理[汇总产品日报]", tags = {"产品日报" },  notes = "批量处理[汇总产品日报]")
-	@RequestMapping(method = RequestMethod.POST, value = "/ibizproproductdailies/{ibizproproductdaily_id}/statsproductdailybatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/ibizproproductdailies/statsproductdailybatch")
     public ResponseEntity<Boolean> statsProductDailyBatch(@RequestBody List<IbizproProductDailyDTO> ibizproproductdailydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(ibizproproductdailyService.statsProductDailyBatch(ibizproproductdailyMapping.toDomain(ibizproproductdailydtos)));
+        List<IbizproProductDaily> domains = ibizproproductdailyMapping.toDomain(ibizproproductdailydtos);
+        boolean result = ibizproproductdailyService.statsProductDailyBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbizproProductDaily-searchDefault-all') and hasPermission(#context,'pms-IbizproProductDaily-Get')")
@@ -213,6 +220,7 @@ public class IbizproProductDailyResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(ibizproproductdailyMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
 
 
 }

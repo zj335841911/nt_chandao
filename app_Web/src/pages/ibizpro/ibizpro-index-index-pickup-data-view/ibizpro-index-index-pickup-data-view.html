@@ -12,8 +12,9 @@
                 updateAction="Update"
                 fetchAction="FetchIndexDER"
                 :showBusyIndicator="true" 
+                @selectionchange="dataviewDataSeletionchange.apply(_self, arguments)"
                 name="dataview"  
-                ref="dataview"
+                ref="dataview" 
                 @closeview="closeView($event)">
             </view_dataview>
         </div>

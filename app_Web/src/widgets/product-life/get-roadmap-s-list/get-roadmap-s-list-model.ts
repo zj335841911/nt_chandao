@@ -15,26 +15,26 @@ export default class GetRoadmapSModel {
 	public getDataItems(): any[] {
 		return [
 			{
-				name: 'end',
-			},
-			{
 				name: 'marker',
         codelist:{tag:'YesNo3',codelistType:'STATIC'},
 			},
 			{
-				name: 'year',
+				name: 'productlifeid',
 			},
 			{
-				name: 'parent',
+				name: 'product',
 			},
 			{
 				name: 'type',
 			},
 			{
-				name: 'begin',
+				name: 'end',
 			},
 			{
-				name: 'product',
+				name: 'parent',
+			},
+			{
+				name: 'year',
 			},
 			{
 				name: 'branch',
@@ -43,7 +43,7 @@ export default class GetRoadmapSModel {
 				name: 'productlifename',
 			},
 			{
-				name: 'productlifeid',
+				name: 'begin',
 			},
       {
         name:'size',

@@ -119,7 +119,7 @@ export default class IbzMyTerritoryMobCalendarViewBase extends Vue {
 	 * @type {string}
 	 * @memberof IbzMyTerritoryMobCalendarViewBase
 	 */
-	protected viewtag: string = '053879e9b47bc845598b68abbdbb2e0a';
+	protected viewtag: string = 'b515371dad6b1f2619ede640d4481ecb';
 
     /**
      * 视图上下文

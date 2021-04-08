@@ -72,7 +72,7 @@ public class ProductStatsResource {
 		ProductStats domain  = productstatsMapping.toDomain(productstatsdto);
         domain .setId(productstats_id);
 		productstatsService.update(domain );
-		ProductStatsDTO dto = productstatsMapping.toDto(domain );
+		ProductStatsDTO dto = productstatsMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
@@ -110,8 +110,9 @@ public class ProductStatsResource {
 
     @ApiOperation(value = "获取产品统计草稿", tags = {"产品统计" },  notes = "获取产品统计草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/productstats/getdraft")
-    public ResponseEntity<ProductStatsDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(productstatsMapping.toDto(productstatsService.getDraft(new ProductStats())));
+    public ResponseEntity<ProductStatsDTO> getDraft(ProductStatsDTO dto) {
+        ProductStats domain = productstatsMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(productstatsMapping.toDto(productstatsService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查产品统计", tags = {"产品统计" },  notes = "检查产品统计")
@@ -134,8 +135,10 @@ public class ProductStatsResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductStats-Save-all')")
     @ApiOperation(value = "保存产品统计", tags = {"产品统计" },  notes = "保存产品统计")
 	@RequestMapping(method = RequestMethod.POST, value = "/productstats/save")
-    public ResponseEntity<Boolean> save(@RequestBody ProductStatsDTO productstatsdto) {
-        return ResponseEntity.status(HttpStatus.OK).body(productstatsService.save(productstatsMapping.toDomain(productstatsdto)));
+    public ResponseEntity<ProductStatsDTO> save(@RequestBody ProductStatsDTO productstatsdto) {
+        ProductStats domain = productstatsMapping.toDomain(productstatsdto);
+        productstatsService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(productstatsMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProductStats-Save-all')")
@@ -255,6 +258,7 @@ public class ProductStatsResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(productstatsMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
 
 
 }

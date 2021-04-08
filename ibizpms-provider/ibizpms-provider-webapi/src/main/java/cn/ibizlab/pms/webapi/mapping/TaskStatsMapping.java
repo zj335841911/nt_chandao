@@ -12,4 +12,3 @@ public interface TaskStatsMapping extends MappingBase<TaskStatsDTO, TaskStats> {
 
 
 }
-

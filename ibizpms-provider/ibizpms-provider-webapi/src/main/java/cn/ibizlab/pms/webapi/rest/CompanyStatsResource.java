@@ -72,7 +72,7 @@ public class CompanyStatsResource {
 		CompanyStats domain  = companystatsMapping.toDomain(companystatsdto);
         domain .setId(companystats_id);
 		companystatsService.update(domain );
-		CompanyStatsDTO dto = companystatsMapping.toDto(domain );
+		CompanyStatsDTO dto = companystatsMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
@@ -110,8 +110,9 @@ public class CompanyStatsResource {
 
     @ApiOperation(value = "获取公司动态汇总草稿", tags = {"公司动态汇总" },  notes = "获取公司动态汇总草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/companystats/getdraft")
-    public ResponseEntity<CompanyStatsDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(companystatsMapping.toDto(companystatsService.getDraft(new CompanyStats())));
+    public ResponseEntity<CompanyStatsDTO> getDraft(CompanyStatsDTO dto) {
+        CompanyStats domain = companystatsMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(companystatsMapping.toDto(companystatsService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查公司动态汇总", tags = {"公司动态汇总" },  notes = "检查公司动态汇总")
@@ -123,8 +124,10 @@ public class CompanyStatsResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CompanyStats-Save-all')")
     @ApiOperation(value = "保存公司动态汇总", tags = {"公司动态汇总" },  notes = "保存公司动态汇总")
 	@RequestMapping(method = RequestMethod.POST, value = "/companystats/save")
-    public ResponseEntity<Boolean> save(@RequestBody CompanyStatsDTO companystatsdto) {
-        return ResponseEntity.status(HttpStatus.OK).body(companystatsService.save(companystatsMapping.toDomain(companystatsdto)));
+    public ResponseEntity<CompanyStatsDTO> save(@RequestBody CompanyStatsDTO companystatsdto) {
+        CompanyStats domain = companystatsMapping.toDomain(companystatsdto);
+        companystatsService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(companystatsMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-CompanyStats-Save-all')")
@@ -178,6 +181,7 @@ public class CompanyStatsResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(companystatsMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
 
 
 }

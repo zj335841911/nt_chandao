@@ -1,3 +1,4 @@
+import { Environment } from '@/environments/environment';
 import { Http } from '@/utils';
 import { Util } from '@/utils';
 import EntityService from '../entity-service';
@@ -50,26 +51,26 @@ export default class TestResultServiceBase extends EntityService {
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.case && context.testresult){
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/${context.case}/testresults/${context.testresult}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/${context.case}/testresults/${context.testresult}/select`,isloading);
             
             return res;
         }
         if(context.story && context.case && context.testresult){
-            let res:any = Http.getInstance().get(`/stories/${context.story}/cases/${context.case}/testresults/${context.testresult}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/cases/${context.case}/testresults/${context.testresult}/select`,isloading);
             
             return res;
         }
         if(context.product && context.case && context.testresult){
-            let res:any = Http.getInstance().get(`/products/${context.product}/cases/${context.case}/testresults/${context.testresult}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/cases/${context.case}/testresults/${context.testresult}/select`,isloading);
             
             return res;
         }
         if(context.case && context.testresult){
-            let res:any = Http.getInstance().get(`/cases/${context.case}/testresults/${context.testresult}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/cases/${context.case}/testresults/${context.testresult}/select`,isloading);
             
             return res;
         }
-            let res:any = Http.getInstance().get(`/testresults/${context.testresult}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/testresults/${context.testresult}/select`,isloading);
             
             return res;
     }
@@ -210,22 +211,22 @@ export default class TestResultServiceBase extends EntityService {
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.case && context.testresult){
-            let res:any = Http.getInstance().delete(`/products/${context.product}/stories/${context.story}/cases/${context.case}/testresults/${context.testresult}`,isloading);
+            let res:any = await Http.getInstance().delete(`/products/${context.product}/stories/${context.story}/cases/${context.case}/testresults/${context.testresult}`,isloading);
             return res;
         }
         if(context.story && context.case && context.testresult){
-            let res:any = Http.getInstance().delete(`/stories/${context.story}/cases/${context.case}/testresults/${context.testresult}`,isloading);
+            let res:any = await Http.getInstance().delete(`/stories/${context.story}/cases/${context.case}/testresults/${context.testresult}`,isloading);
             return res;
         }
         if(context.product && context.case && context.testresult){
-            let res:any = Http.getInstance().delete(`/products/${context.product}/cases/${context.case}/testresults/${context.testresult}`,isloading);
+            let res:any = await Http.getInstance().delete(`/products/${context.product}/cases/${context.case}/testresults/${context.testresult}`,isloading);
             return res;
         }
         if(context.case && context.testresult){
-            let res:any = Http.getInstance().delete(`/cases/${context.case}/testresults/${context.testresult}`,isloading);
+            let res:any = await Http.getInstance().delete(`/cases/${context.case}/testresults/${context.testresult}`,isloading);
             return res;
         }
-            let res:any = Http.getInstance().delete(`/testresults/${context.testresult}`,isloading);
+            let res:any = await Http.getInstance().delete(`/testresults/${context.testresult}`,isloading);
             return res;
     }
 
@@ -275,30 +276,45 @@ export default class TestResultServiceBase extends EntityService {
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.case && true){
-            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/${context.case}/testresults/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.testresult) delete tempData.testresult;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/${context.case}/testresults/getdraft`,tempData,isloading);
             res.data.testresult = data.testresult;
             
             return res;
         }
         if(context.story && context.case && true){
-            let res:any = await Http.getInstance().get(`/stories/${context.story}/cases/${context.case}/testresults/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.testresult) delete tempData.testresult;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/cases/${context.case}/testresults/getdraft`,tempData,isloading);
             res.data.testresult = data.testresult;
             
             return res;
         }
         if(context.product && context.case && true){
-            let res:any = await Http.getInstance().get(`/products/${context.product}/cases/${context.case}/testresults/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.testresult) delete tempData.testresult;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/products/${context.product}/cases/${context.case}/testresults/getdraft`,tempData,isloading);
             res.data.testresult = data.testresult;
             
             return res;
         }
         if(context.case && true){
-            let res:any = await Http.getInstance().get(`/cases/${context.case}/testresults/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.testresult) delete tempData.testresult;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/cases/${context.case}/testresults/getdraft`,tempData,isloading);
             res.data.testresult = data.testresult;
             
             return res;
         }
-        let res:any = await  Http.getInstance().get(`/testresults/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.testresult) delete tempData.testresult;
+        if(tempData.id) delete tempData.id;
+        let res:any = await  Http.getInstance().get(`/testresults/getdraft`,tempData,isloading);
         res.data.testresult = data.testresult;
         
         return res;
@@ -342,7 +358,7 @@ export default class TestResultServiceBase extends EntityService {
             
             return res;
         }
-            let res:any = Http.getInstance().post(`/testresults/${context.testresult}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/testresults/${context.testresult}/checkkey`,data,isloading);
             return res;
     }
 
@@ -403,26 +419,26 @@ export default class TestResultServiceBase extends EntityService {
     public async FetchCurTestRun(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.case && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/${context.case}/testresults/fetchcurtestrun`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/${context.case}/testresults/fetchcurtestrun`,tempData,isloading);
             return res;
         }
         if(context.story && context.case && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/cases/${context.case}/testresults/fetchcurtestrun`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/cases/${context.case}/testresults/fetchcurtestrun`,tempData,isloading);
             return res;
         }
         if(context.product && context.case && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/cases/${context.case}/testresults/fetchcurtestrun`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/cases/${context.case}/testresults/fetchcurtestrun`,tempData,isloading);
             return res;
         }
         if(context.case && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/cases/${context.case}/testresults/fetchcurtestrun`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/cases/${context.case}/testresults/fetchcurtestrun`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/testresults/fetchcurtestrun`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/testresults/fetchcurtestrun`,tempData,isloading);
         return res;
     }
 
@@ -468,26 +484,26 @@ export default class TestResultServiceBase extends EntityService {
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.case && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/${context.case}/testresults/fetchdefault`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/${context.case}/testresults/fetchdefault`,tempData,isloading);
             return res;
         }
         if(context.story && context.case && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/cases/${context.case}/testresults/fetchdefault`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/cases/${context.case}/testresults/fetchdefault`,tempData,isloading);
             return res;
         }
         if(context.product && context.case && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/cases/${context.case}/testresults/fetchdefault`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/cases/${context.case}/testresults/fetchdefault`,tempData,isloading);
             return res;
         }
         if(context.case && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/cases/${context.case}/testresults/fetchdefault`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/cases/${context.case}/testresults/fetchdefault`,tempData,isloading);
             return res;
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/testresults/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/testresults/fetchdefault`,tempData,isloading);
         return res;
     }
 

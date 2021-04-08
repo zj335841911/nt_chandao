@@ -73,7 +73,7 @@ public class IbzAgentResource {
 		IbzAgent domain  = ibzagentMapping.toDomain(ibzagentdto);
         domain .setIbzagentid(ibzagent_id);
 		ibzagentService.update(domain );
-		IbzAgentDTO dto = ibzagentMapping.toDto(domain );
+		IbzAgentDTO dto = ibzagentMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
@@ -111,8 +111,9 @@ public class IbzAgentResource {
 
     @ApiOperation(value = "获取代理草稿", tags = {"代理" },  notes = "获取代理草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/ibzagents/getdraft")
-    public ResponseEntity<IbzAgentDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(ibzagentMapping.toDto(ibzagentService.getDraft(new IbzAgent())));
+    public ResponseEntity<IbzAgentDTO> getDraft(IbzAgentDTO dto) {
+        IbzAgent domain = ibzagentMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(ibzagentMapping.toDto(ibzagentService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查代理", tags = {"代理" },  notes = "检查代理")
@@ -124,8 +125,10 @@ public class IbzAgentResource {
     @PreAuthorize("hasPermission(this.ibzagentMapping.toDomain(#ibzagentdto),'pms-IbzAgent-Save')")
     @ApiOperation(value = "保存代理", tags = {"代理" },  notes = "保存代理")
 	@RequestMapping(method = RequestMethod.POST, value = "/ibzagents/save")
-    public ResponseEntity<Boolean> save(@RequestBody IbzAgentDTO ibzagentdto) {
-        return ResponseEntity.status(HttpStatus.OK).body(ibzagentService.save(ibzagentMapping.toDomain(ibzagentdto)));
+    public ResponseEntity<IbzAgentDTO> save(@RequestBody IbzAgentDTO ibzagentdto) {
+        IbzAgent domain = ibzagentMapping.toDomain(ibzagentdto);
+        ibzagentService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(ibzagentMapping.toDto(domain));
     }
 
     @PreAuthorize("hasPermission(this.ibzagentMapping.toDomain(#ibzagentdtos),'pms-IbzAgent-Save')")
@@ -157,6 +160,7 @@ public class IbzAgentResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(ibzagentMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
 
 
 }

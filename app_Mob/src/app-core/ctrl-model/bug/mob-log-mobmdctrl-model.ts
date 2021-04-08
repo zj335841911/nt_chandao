@@ -15,9 +15,13 @@ export class MobLogModel {
 	public getDataItems(): any[] {
 		return [
 			{
-				name: 'pri1',
-				prop: 'pri',
-				dataType: 'NSCODELIST',
+				name: 'severity',
+			},
+			{
+				name: 'resolution',
+			},
+			{
+				name: 'assignedto',
 			},
 			{
 				name: 'status',
@@ -26,16 +30,12 @@ export class MobLogModel {
 				name: 'steps',
 			},
 			{
-				name: 'resolution',
+				name: 'pri1',
+				prop: 'pri',
+				dataType: 'NSCODELIST',
 			},
 			{
 				name: 'title',
-			},
-			{
-				name: 'assignedto',
-			},
-			{
-				name: 'severity',
 			},
 			{
 				name: 'srfkey',

@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { DashboardViewBase } from '@/studio-core';
 import TestReportService from '@/service/test-report/test-report-service';
 import TestReportAuthService from '@/authservice/test-report/test-report-auth-service';
@@ -128,7 +128,7 @@ export class TestReportprojectDashboardViewBase extends DashboardViewBase {
      * @type {string}
      * @memberof TestReportprojectDashboardViewBase
      */
-	protected viewtag: string = 'ea7b1f6631cb623ea079455b374ef9d4';
+	protected viewtag: string = 'ae03acf710d901c5b781d7b9615c2dc4';
 
     /**
      * 视图名称

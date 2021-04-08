@@ -20,11 +20,14 @@ import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * 服务DTO对象[FileDTO]
  */
 @Data
+@ApiModel("附件")
 public class FileDTO extends DTOBase implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -36,6 +39,7 @@ public class FileDTO extends DTOBase implements Serializable {
     @JSONField(name = "pathname")
     @JsonProperty("pathname")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("路径")
     private String pathname;
 
     /**
@@ -45,7 +49,28 @@ public class FileDTO extends DTOBase implements Serializable {
     @JSONField(name = "objectid")
     @JsonProperty("objectid")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("对象ID")
     private Long objectid;
+
+    /**
+     * 属性 [STRSIZE]
+     *
+     */
+    @JSONField(name = "strsize")
+    @JsonProperty("strsize")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("显示大小")
+    private String strsize;
+
+    /**
+     * 属性 [DOCLIBTYPE]
+     *
+     */
+    @JSONField(name = "doclibtype")
+    @JsonProperty("doclibtype")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("文档类型")
+    private String doclibtype;
 
     /**
      * 属性 [DELETED]
@@ -54,6 +79,7 @@ public class FileDTO extends DTOBase implements Serializable {
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
     @Size(min = 0, max = 1, message = "内容长度必须小于等于[1]")
+    @ApiModelProperty("已删除")
     private String deleted;
 
     /**
@@ -63,6 +89,7 @@ public class FileDTO extends DTOBase implements Serializable {
     @JSONField(name = "extension")
     @JsonProperty("extension")
     @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
+    @ApiModelProperty("文件类型")
     private String extension;
 
     /**
@@ -72,6 +99,7 @@ public class FileDTO extends DTOBase implements Serializable {
     @JSONField(name = "objecttype")
     @JsonProperty("objecttype")
     @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
+    @ApiModelProperty("对象类型")
     private String objecttype;
 
     /**
@@ -81,6 +109,7 @@ public class FileDTO extends DTOBase implements Serializable {
     @JSONField(name = "addedby")
     @JsonProperty("addedby")
     @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
+    @ApiModelProperty("由谁添加")
     private String addedby;
 
     /**
@@ -91,6 +120,7 @@ public class FileDTO extends DTOBase implements Serializable {
     @JsonProperty("title")
     @NotBlank(message = "[标题]不允许为空!")
     @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
+    @ApiModelProperty("标题")
     private String title;
 
     /**
@@ -100,6 +130,7 @@ public class FileDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "addeddate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("addeddate")
+    @ApiModelProperty("添加时间")
     private Timestamp addeddate;
 
     /**
@@ -108,6 +139,7 @@ public class FileDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "downloads")
     @JsonProperty("downloads")
+    @ApiModelProperty("下载次数")
     private Integer downloads;
 
     /**
@@ -116,6 +148,7 @@ public class FileDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "size")
     @JsonProperty("size")
+    @ApiModelProperty("大小")
     private Integer size;
 
     /**
@@ -125,6 +158,7 @@ public class FileDTO extends DTOBase implements Serializable {
     @JSONField(name = "id")
     @JsonProperty("id")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("id")
     private Long id;
 
     /**
@@ -134,25 +168,8 @@ public class FileDTO extends DTOBase implements Serializable {
     @JSONField(name = "extra")
     @JsonProperty("extra")
     @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
+    @ApiModelProperty("备注")
     private String extra;
-
-    /**
-     * 属性 [STRSIZE]
-     *
-     */
-    @JSONField(name = "strsize")
-    @JsonProperty("strsize")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String strsize;
-
-    /**
-     * 属性 [DOCLIBTYPE]
-     *
-     */
-    @JSONField(name = "doclibtype")
-    @JsonProperty("doclibtype")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String doclibtype;
 
 
     /**

@@ -108,7 +108,7 @@ export default class AppPortalViewBase extends Vue {
 	 * @type {string}
 	 * @memberof AppPortalViewBase
 	 */
-	protected viewtag: string = 'E34EC471-1197-49DF-8C6C-79E175C2FC0E';
+	protected viewtag: string = '57fa709c88c2c3f67d526db0bc5aee87';
 
     /**
      * 视图上下文

@@ -72,7 +72,7 @@ public class SysTeamResource {
 		SysTeam domain  = systeamMapping.toDomain(systeamdto);
         domain .setTeamid(systeam_id);
 		systeamService.update(domain );
-		SysTeamDTO dto = systeamMapping.toDto(domain );
+		SysTeamDTO dto = systeamMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
@@ -110,8 +110,9 @@ public class SysTeamResource {
 
     @ApiOperation(value = "获取组草稿", tags = {"组" },  notes = "获取组草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/systeams/getdraft")
-    public ResponseEntity<SysTeamDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(systeamMapping.toDto(systeamService.getDraft(new SysTeam())));
+    public ResponseEntity<SysTeamDTO> getDraft(SysTeamDTO dto) {
+        SysTeam domain = systeamMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(systeamMapping.toDto(systeamService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查组", tags = {"组" },  notes = "检查组")
@@ -123,8 +124,10 @@ public class SysTeamResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-SysTeam-Save-all')")
     @ApiOperation(value = "保存组", tags = {"组" },  notes = "保存组")
 	@RequestMapping(method = RequestMethod.POST, value = "/systeams/save")
-    public ResponseEntity<Boolean> save(@RequestBody SysTeamDTO systeamdto) {
-        return ResponseEntity.status(HttpStatus.OK).body(systeamService.save(systeamMapping.toDomain(systeamdto)));
+    public ResponseEntity<SysTeamDTO> save(@RequestBody SysTeamDTO systeamdto) {
+        SysTeam domain = systeamMapping.toDomain(systeamdto);
+        systeamService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(systeamMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-SysTeam-Save-all')")
@@ -156,6 +159,7 @@ public class SysTeamResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(systeamMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
 
 
 }

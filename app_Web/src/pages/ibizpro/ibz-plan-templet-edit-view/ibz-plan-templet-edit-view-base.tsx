@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { EditViewBase } from '@/studio-core';
 import IbzPlanTempletService from '@/service/ibz-plan-templet/ibz-plan-templet-service';
 import IbzPlanTempletAuthService from '@/authservice/ibz-plan-templet/ibz-plan-templet-auth-service';
@@ -125,7 +125,7 @@ export class IbzPlanTempletEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof IbzPlanTempletEditViewBase
      */
-	protected viewtag: string = '0c85027ec13bfdd00f46a4b2ec6f7430';
+	protected viewtag: string = '69072c07c875fb2f422378235b85ba69';
 
     /**
      * 视图名称

@@ -428,56 +428,56 @@ POST
 #### UserYearWorkStatsDTO
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
-| 1 | id | Long | 允许 | 用户编号 |
-| 2 | realname | String | 允许 | 真实用户名 |
-| 3 | account | String | 允许 | 账号 |
-| 4 | role | String | 允许 | 角色 |
-| 5 | dept | String | 允许 | 部门编号 |
-| 6 | visits | Integer | 允许 | 累计登录次数 |
-| 7 | yearplancnt | Integer | 允许 | 累计创建计划数 |
-| 8 | yearproductcnt | Integer | 允许 | 累计参与产品数 |
-| 9 | yearstorycnt | Integer | 允许 | 累计创建需求数 |
-| 10 | yearactioncnt | Integer | 允许 | 累计动态数 |
-| 11 | yearbugcnt | Integer | 允许 | 累计创建Bug数 |
-| 12 | yearcasecnt | Integer | 允许 | 累计创建用例数 |
-| 13 | yearlogcnt | Integer | 允许 | 累计日志数 |
-| 14 | yearestimatecnt | Integer | 允许 | 累计工时数 |
-| 15 | judgerole | String | 允许 | 判断角色 |
-| 16 | yearvisits | Integer | 允许 | 累计登录次数 |
-| 17 | curyear | String | 允许 | 年度 |
-| 18 | title | String | 允许 | 标题 |
-| 19 | monthfinishtask | Integer | 允许 | 月完成任务数 |
-| 20 | montestimate | Integer | 允许 | 月累计工时 |
-| 21 | montresolvedbug | Integer | 允许 | 月解决Bug数 |
-| 22 | curmonth | String | 允许 | 当前月 |
-| 23 | slack | String | 允许 | slack |
-| 24 | skype | String | 允许 | skype |
-| 25 | score | Integer | 允许 | score |
-| 26 | weixin | String | 允许 | 微信 |
-| 27 | join | Timestamp | 允许 | 入职日期<br>时间格式：yyyy-MM-dd HH:mm:ss |
-| 28 | phone | String | 允许 | 电话 |
-| 29 | fails | Integer | 允许 | fails |
-| 30 | email | String | 允许 | 邮箱 |
-| 31 | clientlang | String | 允许 | clientLang |
-| 32 | deleted | String | 允许 | 逻辑删除标志 |
-| 33 | ranzhi | String | 允许 | ranzhi |
-| 34 | avatar | String | 允许 | avatar |
-| 35 | commiter | String | 允许 | 源代码账户 |
-| 36 | gender | String | 允许 | 性别 |
-| 37 | qq | String | 允许 | QQ |
-| 38 | birthday | Timestamp | 允许 | birthday<br>时间格式：yyyy-MM-dd HH:mm:ss |
-| 39 | locked | Timestamp | 允许 | locked<br>时间格式：yyyy-MM-dd HH:mm:ss |
-| 40 | dingding | String | 允许 | 钉钉 |
-| 41 | ip | String | 允许 | ip |
-| 42 | whatsapp | String | 允许 | whatsapp |
-| 43 | zipcode | String | 允许 | zipcode |
-| 44 | password | String | 允许 | 密码 |
-| 45 | nickname | String | 允许 | nickname |
-| 46 | clientstatus | String | 允许 | clientStatus |
-| 47 | scorelevel | Integer | 允许 | scoreLevel |
-| 48 | mobile | String | 允许 | 手机 |
-| 49 | last | Integer | 允许 | 最后登录 |
-| 50 | address | String | 允许 | 通讯地址 |
+| 1 | password | String | 允许 | 密码 |
+| 2 | yearproductcnt | Integer | 允许 | 累计参与产品数 |
+| 3 | yearbugcnt | Integer | 允许 | 累计创建Bug数 |
+| 4 | weixin | String | 允许 | 微信 |
+| 5 | yearcasecnt | Integer | 允许 | 累计创建用例数 |
+| 6 | account | String | 允许 | 账号 |
+| 7 | qq | String | 允许 | QQ |
+| 8 | ranzhi | String | 允许 | ranzhi |
+| 9 | nickname | String | 允许 | nickname |
+| 10 | avatar | String | 允许 | avatar |
+| 11 | monthfinishtask | Integer | 允许 | 月完成任务数 |
+| 12 | fails | Integer | 允许 | fails |
+| 13 | join | Timestamp | 允许 | 入职日期<br>时间格式：yyyy-MM-dd HH:mm:ss |
+| 14 | yearstorycnt | Integer | 允许 | 累计创建需求数 |
+| 15 | yearplancnt | Integer | 允许 | 累计创建计划数 |
+| 16 | dingding | String | 允许 | 钉钉 |
+| 17 | ip | String | 允许 | ip |
+| 18 | yearactioncnt | Integer | 允许 | 累计动态数 |
+| 19 | mobile | String | 允许 | 手机 |
+| 20 | whatsapp | String | 允许 | whatsapp |
+| 21 | id | Long | 允许 | 用户编号 |
+| 22 | email | String | 允许 | 邮箱 |
+| 23 | yearestimatecnt | Integer | 允许 | 累计工时数 |
+| 24 | clientlang | String | 允许 | clientLang |
+| 25 | montestimate | Integer | 允许 | 月累计工时 |
+| 26 | realname | String | 允许 | 真实用户名 |
+| 27 | commiter | String | 允许 | 源代码账户 |
+| 28 | slack | String | 允许 | slack |
+| 29 | deleted | String | 允许 | 逻辑删除标志 |
+| 30 | last | Integer | 允许 | 最后登录 |
+| 31 | curyear | String | 允许 | 年度 |
+| 32 | judgerole | String | 允许 | 判断角色 |
+| 33 | skype | String | 允许 | skype |
+| 34 | birthday | Timestamp | 允许 | birthday<br>时间格式：yyyy-MM-dd HH:mm:ss |
+| 35 | phone | String | 允许 | 电话 |
+| 36 | yearvisits | Integer | 允许 | 累计登录次数 |
+| 37 | score | Integer | 允许 | score |
+| 38 | role | String | 允许 | 角色 |
+| 39 | clientstatus | String | 允许 | clientStatus |
+| 40 | dept | String | 允许 | 部门编号 |
+| 41 | title | String | 允许 | 标题 |
+| 42 | curmonth | String | 允许 | 当前月 |
+| 43 | montresolvedbug | Integer | 允许 | 月解决Bug数 |
+| 44 | address | String | 允许 | 通讯地址 |
+| 45 | scorelevel | Integer | 允许 | scoreLevel |
+| 46 | visits | Integer | 允许 | 累计登录次数 |
+| 47 | yearlogcnt | Integer | 允许 | 累计日志数 |
+| 48 | locked | Timestamp | 允许 | locked<br>时间格式：yyyy-MM-dd HH:mm:ss |
+| 49 | gender | String | 允许 | 性别 |
+| 50 | zipcode | String | 允许 | zipcode |
 | 51 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### UserYearWorkStatsSearchContext

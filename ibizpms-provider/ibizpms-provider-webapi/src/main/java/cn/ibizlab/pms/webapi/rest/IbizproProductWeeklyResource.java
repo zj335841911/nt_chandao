@@ -73,7 +73,7 @@ public class IbizproProductWeeklyResource {
 		IbizproProductWeekly domain  = ibizproproductweeklyMapping.toDomain(ibizproproductweeklydto);
         domain .setIbizproProductweeklyid(ibizproproductweekly_id);
 		ibizproproductweeklyService.update(domain );
-		IbizproProductWeeklyDTO dto = ibizproproductweeklyMapping.toDto(domain );
+		IbizproProductWeeklyDTO dto = ibizproproductweeklyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
@@ -111,8 +111,9 @@ public class IbizproProductWeeklyResource {
 
     @ApiOperation(value = "获取产品周报草稿", tags = {"产品周报" },  notes = "获取产品周报草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/ibizproproductweeklies/getdraft")
-    public ResponseEntity<IbizproProductWeeklyDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(ibizproproductweeklyMapping.toDto(ibizproproductweeklyService.getDraft(new IbizproProductWeekly())));
+    public ResponseEntity<IbizproProductWeeklyDTO> getDraft(IbizproProductWeeklyDTO dto) {
+        IbizproProductWeekly domain = ibizproproductweeklyMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(ibizproproductweeklyMapping.toDto(ibizproproductweeklyService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查产品周报", tags = {"产品周报" },  notes = "检查产品周报")
@@ -124,8 +125,10 @@ public class IbizproProductWeeklyResource {
     @PreAuthorize("hasPermission(this.ibizproproductweeklyMapping.toDomain(#ibizproproductweeklydto),'pms-IbizproProductWeekly-Save')")
     @ApiOperation(value = "保存产品周报", tags = {"产品周报" },  notes = "保存产品周报")
 	@RequestMapping(method = RequestMethod.POST, value = "/ibizproproductweeklies/save")
-    public ResponseEntity<Boolean> save(@RequestBody IbizproProductWeeklyDTO ibizproproductweeklydto) {
-        return ResponseEntity.status(HttpStatus.OK).body(ibizproproductweeklyService.save(ibizproproductweeklyMapping.toDomain(ibizproproductweeklydto)));
+    public ResponseEntity<IbizproProductWeeklyDTO> save(@RequestBody IbizproProductWeeklyDTO ibizproproductweeklydto) {
+        IbizproProductWeekly domain = ibizproproductweeklyMapping.toDomain(ibizproproductweeklydto);
+        ibizproproductweeklyService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(ibizproproductweeklyMapping.toDto(domain));
     }
 
     @PreAuthorize("hasPermission(this.ibizproproductweeklyMapping.toDomain(#ibizproproductweeklydtos),'pms-IbizproProductWeekly-Save')")
@@ -148,9 +151,11 @@ public class IbizproProductWeeklyResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbizproProductWeekly-SumProductWeekly-all')")
     @ApiOperation(value = "批量处理[统计产品周报]", tags = {"产品周报" },  notes = "批量处理[统计产品周报]")
-	@RequestMapping(method = RequestMethod.POST, value = "/ibizproproductweeklies/{ibizproproductweekly_id}/sumproductweeklybatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/ibizproproductweeklies/sumproductweeklybatch")
     public ResponseEntity<Boolean> sumProductWeeklyBatch(@RequestBody List<IbizproProductWeeklyDTO> ibizproproductweeklydtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(ibizproproductweeklyService.sumProductWeeklyBatch(ibizproproductweeklyMapping.toDomain(ibizproproductweeklydtos)));
+        List<IbizproProductWeekly> domains = ibizproproductweeklyMapping.toDomain(ibizproproductweeklydtos);
+        boolean result = ibizproproductweeklyService.sumProductWeeklyBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbizproProductWeekly-searchDefault-all') and hasPermission(#context,'pms-IbizproProductWeekly-Get')")
@@ -174,6 +179,7 @@ public class IbizproProductWeeklyResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(ibizproproductweeklyMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
 
 
 }

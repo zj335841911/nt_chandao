@@ -7,6 +7,30 @@
 export interface IBZCaseStep {
 
     /**
+     * 用例步骤编号
+     *
+     * @returns {*}
+     * @memberof IBZCaseStep
+     */
+    casestepid?: any;
+
+    /**
+     * 实际情况
+     *
+     * @returns {*}
+     * @memberof IBZCaseStep
+     */
+    reals?: any;
+
+    /**
+     * 测试结果
+     *
+     * @returns {*}
+     * @memberof IBZCaseStep
+     */
+    steps?: any;
+
+    /**
      * 用例步骤类型
      *
      * @returns {*}
@@ -39,6 +63,22 @@ export interface IBZCaseStep {
     expect?: any;
 
     /**
+     * 附件
+     *
+     * @returns {*}
+     * @memberof IBZCaseStep
+     */
+    files?: any;
+
+    /**
+     * 执行编号
+     *
+     * @returns {*}
+     * @memberof IBZCaseStep
+     */
+    runid?: any;
+
+    /**
      * 用例版本
      *
      * @returns {*}
@@ -61,44 +101,4 @@ export interface IBZCaseStep {
      * @memberof IBZCaseStep
      */
     parent?: any;
-
-    /**
-     * 实际情况
-     *
-     * @returns {*}
-     * @memberof IBZCaseStep
-     */
-    reals?: any;
-
-    /**
-     * 测试结果
-     *
-     * @returns {*}
-     * @memberof IBZCaseStep
-     */
-    steps?: any;
-
-    /**
-     * 附件
-     *
-     * @returns {*}
-     * @memberof IBZCaseStep
-     */
-    files?: any;
-
-    /**
-     * 执行编号
-     *
-     * @returns {*}
-     * @memberof IBZCaseStep
-     */
-    runid?: any;
-
-    /**
-     * 用例步骤编号
-     *
-     * @returns {*}
-     * @memberof IBZCaseStep
-     */
-    casestepid?: any;
 }

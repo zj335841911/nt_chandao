@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { EditViewBase } from '@/studio-core';
 import DocLibModuleService from '@/service/doc-lib-module/doc-lib-module-service';
 import DocLibModuleAuthService from '@/authservice/doc-lib-module/doc-lib-module-auth-service';
@@ -131,7 +131,7 @@ export class DocLibModuleEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof DocLibModuleEditViewBase
      */
-	protected viewtag: string = '6921cf59868031699419de5fb8e79ced';
+	protected viewtag: string = '70c256f328fb14ef9f4bbbe8158d2053';
 
     /**
      * 视图名称

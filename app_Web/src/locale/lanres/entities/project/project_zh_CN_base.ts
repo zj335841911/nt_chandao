@@ -5,131 +5,107 @@ function getLocaleResourceBase(){
 		fields: {
 			openedversion: commonLogic.appcommonhandle("当前系统版本",null),
 			begin: commonLogic.appcommonhandle("开始时间",null),
+			hours: commonLogic.appcommonhandle("可用工时/天",null),
+			pmseeprojectinfo: commonLogic.appcommonhandle("项目立项信息",null),
 			acl: commonLogic.appcommonhandle("访问控制",null),
 			deleted: commonLogic.appcommonhandle("已删除",null),
+			totalconsumed: commonLogic.appcommonhandle("任务消耗总工时",null),
+			products: commonLogic.appcommonhandle("关联产品",null),
+			ycompletetaskcnt: commonLogic.appcommonhandle("已完成任务数",null),
+			plans: commonLogic.appcommonhandle("关联计划",null),
 			desc: commonLogic.appcommonhandle("项目描述",null),
+			temptaskcnt: commonLogic.appcommonhandle("临时任务数",null),
+			doclibcnt: commonLogic.appcommonhandle("文档数量",null),
+			mycompletetaskcnt: commonLogic.appcommonhandle("我完成任务数",null),
+			istop: commonLogic.appcommonhandle("是否置顶",null),
+			uncompletetaskcnt: commonLogic.appcommonhandle("未完成任务数",null),
+			teamcnt: commonLogic.appcommonhandle("团队成员总数",null),
 			pm: commonLogic.appcommonhandle("项目负责人",null),
+			dept: commonLogic.appcommonhandle("选择部门",null),
 			id: commonLogic.appcommonhandle("项目编号",null),
 			name: commonLogic.appcommonhandle("项目名称",null),
 			substatus: commonLogic.appcommonhandle("子状态",null),
+			role: commonLogic.appcommonhandle("角色",null),
 			order: commonLogic.appcommonhandle("项目排序",null),
+			bugcnt: commonLogic.appcommonhandle("Bug总数",null),
 			rd: commonLogic.appcommonhandle("发布负责人",null),
+			managemembers: commonLogic.appcommonhandle("复制团队",null),
+			ystarttaskcnt: commonLogic.appcommonhandle("进行中任务数",null),
 			whitelist: commonLogic.appcommonhandle("分组白名单",null),
+			mobimage: commonLogic.appcommonhandle("移动端图片",null),
+			totalwh: commonLogic.appcommonhandle("总工时",null),
+			projectteams: commonLogic.appcommonhandle("项目团队成员",null),
+			totalhours: commonLogic.appcommonhandle("可用工时",null),
 			pri: commonLogic.appcommonhandle("优先级",null),
 			end: commonLogic.appcommonhandle("结束日期",null),
 			canceleddate: commonLogic.appcommonhandle("取消日期",null),
+			plantaskcnt: commonLogic.appcommonhandle("计划任务数",null),
+			join: commonLogic.appcommonhandle("加盟日",null),
+			totalestimate: commonLogic.appcommonhandle("任务最初预计总工时",null),
+			mdeptid: commonLogic.appcommonhandle("部门标识",null),
+			totalleft: commonLogic.appcommonhandle("任务预计剩余总工时",null),
+			srfarray: commonLogic.appcommonhandle("关联数据数组",null),
 			code: commonLogic.appcommonhandle("项目代号",null),
+			period: commonLogic.appcommonhandle("时间段",null),
+			closetaskcnt: commonLogic.appcommonhandle("关闭任务数",null),
+			branchs: commonLogic.appcommonhandle("关联产品平台集合",null),
 			catid: commonLogic.appcommonhandle("catID",null),
+			orgid: commonLogic.appcommonhandle("组织标识",null),
+			unstarttaskcnt: commonLogic.appcommonhandle("未开始任务数",null),
+			accounts: commonLogic.appcommonhandle("项目团队相关成员",null),
+			noticeusers: commonLogic.appcommonhandle("消息通知用户",null),
 			statge: commonLogic.appcommonhandle("statge",null),
+			canceltaskcnt: commonLogic.appcommonhandle("取消任务数",null),
+			taskcnt: commonLogic.appcommonhandle("任务总数",null),
+			alltaskcnt: commonLogic.appcommonhandle("所有任务数",null),
+			supproreport: commonLogic.appcommonhandle("支持项目汇报",null),
 			canceledby: commonLogic.appcommonhandle("由谁取消",null),
 			iscat: commonLogic.appcommonhandle("isCat",null),
 			openeddate: commonLogic.appcommonhandle("创建日期",null),
+			unclosetaskcnt: commonLogic.appcommonhandle("未关闭任务数",null),
+			storychangecnt: commonLogic.appcommonhandle("需求变更数",null),
 			closedby: commonLogic.appcommonhandle("由谁关闭",null),
 			type: commonLogic.appcommonhandle("项目类型",null),
+			buildcnt: commonLogic.appcommonhandle("版本总数",null),
+			account: commonLogic.appcommonhandle("项目团队成员",null),
 			po: commonLogic.appcommonhandle("产品负责人",null),
+			asstomytaskcnt: commonLogic.appcommonhandle("指派给我任务数",null),
+			order1: commonLogic.appcommonhandle("项目排序",null),
 			status: commonLogic.appcommonhandle("项目状态",null),
+			moretaskcnt: commonLogic.appcommonhandle("更多任务数",null),
 			days: commonLogic.appcommonhandle("可用工作日",null),
+			cycletaskcnt: commonLogic.appcommonhandle("周期任务数",null),
 			team: commonLogic.appcommonhandle("团队名称",null),
 			closeddate: commonLogic.appcommonhandle("关闭日期",null),
+			comment: commonLogic.appcommonhandle("备注",null),
 			openedby: commonLogic.appcommonhandle("由谁创建",null),
+			storycnt: commonLogic.appcommonhandle("需求总数",null),
 			qd: commonLogic.appcommonhandle("测试负责人",null),
 			parentname: commonLogic.appcommonhandle("parent",null),
 			parent: commonLogic.appcommonhandle("父项目",null),
-			taskcnt: commonLogic.appcommonhandle("任务总数",null),
-			bugcnt: commonLogic.appcommonhandle("Bug总数",null),
-			storycnt: commonLogic.appcommonhandle("需求总数",null),
-			products: commonLogic.appcommonhandle("关联产品",null),
-			branchs: commonLogic.appcommonhandle("关联产品平台集合",null),
-			plans: commonLogic.appcommonhandle("关联计划",null),
-			srfarray: commonLogic.appcommonhandle("关联数据数组",null),
-			comment: commonLogic.appcommonhandle("备注",null),
-			period: commonLogic.appcommonhandle("时间段",null),
-			account: commonLogic.appcommonhandle("项目团队成员",null),
-			join: commonLogic.appcommonhandle("加盟日",null),
-			hours: commonLogic.appcommonhandle("可用工时/天",null),
-			role: commonLogic.appcommonhandle("角色",null),
-			totalconsumed: commonLogic.appcommonhandle("任务消耗总工时",null),
-			totalwh: commonLogic.appcommonhandle("总工时",null),
-			totalleft: commonLogic.appcommonhandle("任务预计剩余总工时",null),
-			totalestimate: commonLogic.appcommonhandle("任务最初预计总工时",null),
-			totalhours: commonLogic.appcommonhandle("可用工时",null),
-			mobimage: commonLogic.appcommonhandle("移动端图片",null),
-			accounts: commonLogic.appcommonhandle("项目团队相关成员",null),
-			order1: commonLogic.appcommonhandle("项目排序",null),
-			istop: commonLogic.appcommonhandle("是否置顶",null),
-			dept: commonLogic.appcommonhandle("选择部门",null),
-			managemembers: commonLogic.appcommonhandle("复制团队",null),
-			buildcnt: commonLogic.appcommonhandle("版本总数",null),
-			teamcnt: commonLogic.appcommonhandle("团队成员总数",null),
-			alltaskcnt: commonLogic.appcommonhandle("所有任务数",null),
-			unclosetaskcnt: commonLogic.appcommonhandle("未关闭任务数",null),
-			asstomytaskcnt: commonLogic.appcommonhandle("指派给我任务数",null),
-			unstarttaskcnt: commonLogic.appcommonhandle("未开始任务数",null),
-			moretaskcnt: commonLogic.appcommonhandle("更多任务数",null),
-			ystarttaskcnt: commonLogic.appcommonhandle("进行中任务数",null),
-			uncompletetaskcnt: commonLogic.appcommonhandle("未完成任务数",null),
-			ycompletetaskcnt: commonLogic.appcommonhandle("已完成任务数",null),
-			mycompletetaskcnt: commonLogic.appcommonhandle("我完成任务数",null),
-			closetaskcnt: commonLogic.appcommonhandle("关闭任务数",null),
-			canceltaskcnt: commonLogic.appcommonhandle("取消任务数",null),
-			storychangecnt: commonLogic.appcommonhandle("需求变更数",null),
-			noticeusers: commonLogic.appcommonhandle("消息通知用户",null),
-			doclibcnt: commonLogic.appcommonhandle("文档数量",null),
-			orgid: commonLogic.appcommonhandle("组织标识",null),
-			mdeptid: commonLogic.appcommonhandle("部门标识",null),
-			projectteams: commonLogic.appcommonhandle("项目团队成员",null),
-			supproreport: commonLogic.appcommonhandle("支持项目汇报",null),
 		},
 			views: {
-				storymeditview9: {
-					caption: commonLogic.appcommonhandle("需求相关",null),
-					title: commonLogic.appcommonhandle("项目多表单编辑视图（需求相关）",null),
-				},
 				tasktreeexpview: {
 					caption: commonLogic.appcommonhandle("项目",null),
 					title: commonLogic.appcommonhandle("项目任务导航视图",null),
-				},
-				mgeditview: {
-					caption: commonLogic.appcommonhandle("团队管理",null),
-					title: commonLogic.appcommonhandle("项目编辑视图（团队管理）",null),
-				},
-				usr2gridview: {
-					caption: commonLogic.appcommonhandle("项目",null),
-					title: commonLogic.appcommonhandle("项目实体表格视图(参与项目)",null),
-				},
-				testtabexpview: {
-					caption: commonLogic.appcommonhandle("测试",null),
-					title: commonLogic.appcommonhandle("项目分页导航视图（测试）",null),
-				},
-				editview_putoff: {
-					caption: commonLogic.appcommonhandle("项目",null),
-					title: commonLogic.appcommonhandle("项目",null),
-				},
-				mainmygridview: {
-					caption: commonLogic.appcommonhandle("项目",null),
-					title: commonLogic.appcommonhandle("项目",null),
-				},
-				planaddeditview: {
-					caption: commonLogic.appcommonhandle("项目",null),
-					title: commonLogic.appcommonhandle("项目编辑视图（计划添加）",null),
 				},
 				burndownchartview: {
 					caption: commonLogic.appcommonhandle("项目",null),
 					title: commonLogic.appcommonhandle("燃尽图",null),
 				},
-				listexpview: {
-					caption: commonLogic.appcommonhandle("项目",null),
-					title: commonLogic.appcommonhandle("项目列表导航视图",null),
-				},
 				pickupgridview: {
 					caption: commonLogic.appcommonhandle("项目",null),
 					title: commonLogic.appcommonhandle("项目选择表格视图",null),
 				},
-				chartview9: {
-					caption: commonLogic.appcommonhandle("项目",null),
-					title: commonLogic.appcommonhandle("项目图表视图",null),
+				storymeditview9: {
+					caption: commonLogic.appcommonhandle("需求相关",null),
+					title: commonLogic.appcommonhandle("项目多表单编辑视图（需求相关）",null),
 				},
-				editview_activate: {
+				gridexpview: {
+					caption: commonLogic.appcommonhandle("项目",null),
+					title: commonLogic.appcommonhandle("项目表格导航视图",null),
+				},
+				gridviewemp: {
 					caption: commonLogic.appcommonhandle("项目",null),
 					title: commonLogic.appcommonhandle("项目",null),
 				},
@@ -141,17 +117,25 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("项目",null),
 					title: commonLogic.appcommonhandle("项目数据选择视图",null),
 				},
-				mainview_edit: {
+				planaddeditview: {
 					caption: commonLogic.appcommonhandle("项目",null),
-					title: commonLogic.appcommonhandle("项目编辑视图",null),
+					title: commonLogic.appcommonhandle("项目编辑视图（计划添加）",null),
 				},
-				storyeditview9: {
-					caption: commonLogic.appcommonhandle("需求",null),
-					title: commonLogic.appcommonhandle("项目编辑视图（需求相关）",null),
+				moreundoneprogridview: {
+					caption: commonLogic.appcommonhandle("未完成项目",null),
+					title: commonLogic.appcommonhandle("项目表格视图",null),
 				},
-				gridexpview: {
+				gridview9: {
 					caption: commonLogic.appcommonhandle("项目",null),
-					title: commonLogic.appcommonhandle("项目表格导航视图",null),
+					title: commonLogic.appcommonhandle("项目表格视图",null),
+				},
+				editview_close: {
+					caption: commonLogic.appcommonhandle("项目",null),
+					title: commonLogic.appcommonhandle("项目",null),
+				},
+				editview_putoff: {
+					caption: commonLogic.appcommonhandle("项目",null),
+					title: commonLogic.appcommonhandle("项目",null),
 				},
 				leftsidebarlistview: {
 					caption: commonLogic.appcommonhandle("项目",null),
@@ -165,13 +149,17 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("项目",null),
 					title: commonLogic.appcommonhandle("项目数据看板视图",null),
 				},
-				editview_close: {
+				mainmygridview: {
 					caption: commonLogic.appcommonhandle("项目",null),
 					title: commonLogic.appcommonhandle("项目",null),
 				},
-				gridview9: {
+				editview_suspend: {
 					caption: commonLogic.appcommonhandle("项目",null),
-					title: commonLogic.appcommonhandle("项目表格视图",null),
+					title: commonLogic.appcommonhandle("项目",null),
+				},
+				mgeditview: {
+					caption: commonLogic.appcommonhandle("团队管理",null),
+					title: commonLogic.appcommonhandle("项目编辑视图（团队管理）",null),
 				},
 				gridview9_unclosed: {
 					caption: commonLogic.appcommonhandle("未关闭的项目",null),
@@ -181,17 +169,29 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("未完成项目",null),
 					title: commonLogic.appcommonhandle("项目表格视图",null),
 				},
-				moreundoneprogridview: {
-					caption: commonLogic.appcommonhandle("未完成项目",null),
-					title: commonLogic.appcommonhandle("项目表格视图",null),
-				},
-				gridviewemp: {
+				editview_activate: {
 					caption: commonLogic.appcommonhandle("项目",null),
 					title: commonLogic.appcommonhandle("项目",null),
 				},
-				editview_suspend: {
+				testtabexpview: {
+					caption: commonLogic.appcommonhandle("测试",null),
+					title: commonLogic.appcommonhandle("项目分页导航视图（测试）",null),
+				},
+				usr2gridview: {
 					caption: commonLogic.appcommonhandle("项目",null),
-					title: commonLogic.appcommonhandle("项目",null),
+					title: commonLogic.appcommonhandle("项目实体表格视图(参与项目)",null),
+				},
+				listexpview: {
+					caption: commonLogic.appcommonhandle("项目",null),
+					title: commonLogic.appcommonhandle("项目列表导航视图",null),
+				},
+				chartview9: {
+					caption: commonLogic.appcommonhandle("项目",null),
+					title: commonLogic.appcommonhandle("项目图表视图",null),
+				},
+				mainview_edit: {
+					caption: commonLogic.appcommonhandle("项目",null),
+					title: commonLogic.appcommonhandle("项目编辑视图",null),
 				},
 				dashboardinfoview: {
 					caption: commonLogic.appcommonhandle("项目",null),
@@ -204,6 +204,10 @@ function getLocaleResourceBase(){
 				maintabexpview: {
 					caption: commonLogic.appcommonhandle("项目",null),
 					title: commonLogic.appcommonhandle("项目",null),
+				},
+				storyeditview9: {
+					caption: commonLogic.appcommonhandle("需求",null),
+					title: commonLogic.appcommonhandle("项目编辑视图（需求相关）",null),
 				},
 			},
 			putoff_form: {
@@ -474,6 +478,38 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
+			involvedproject_grid: {
+				columns: {
+					name: commonLogic.appcommonhandle("项目名称",null),
+					storycnt: commonLogic.appcommonhandle("需求总数",null),
+					ycompletetaskcnt: commonLogic.appcommonhandle("已完成任务数",null),
+					bugcnt: commonLogic.appcommonhandle("Bug总数",null),
+				},
+				nodata:commonLogic.appcommonhandle("",null),
+				uiactions: {
+				},
+			},
+			undoneproject_grid: {
+				columns: {
+					name: commonLogic.appcommonhandle("项目名称",null),
+					doclibcnt: commonLogic.appcommonhandle("文档数量",null),
+					openedby: commonLogic.appcommonhandle("由谁添加",null),
+					openeddate: commonLogic.appcommonhandle("添加时间",null),
+				},
+				nodata:commonLogic.appcommonhandle("",null),
+				uiactions: {
+				},
+			},
+			mainconcat_grid: {
+				columns: {
+					id: commonLogic.appcommonhandle("ID",null),
+					name: commonLogic.appcommonhandle("项目名称",null),
+					status: commonLogic.appcommonhandle("项目状态",null),
+				},
+				nodata:commonLogic.appcommonhandle("",null),
+				uiactions: {
+				},
+			},
 			mainmy_grid: {
 				columns: {
 					id: commonLogic.appcommonhandle("ID",null),
@@ -490,28 +526,7 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
-			involvedproject_grid: {
-				columns: {
-					name: commonLogic.appcommonhandle("项目名称",null),
-					storycnt: commonLogic.appcommonhandle("需求总数",null),
-					ycompletetaskcnt: commonLogic.appcommonhandle("已完成任务数",null),
-					bugcnt: commonLogic.appcommonhandle("Bug总数",null),
-				},
-				nodata:commonLogic.appcommonhandle("",null),
-				uiactions: {
-				},
-			},
-			mainconcat_grid: {
-				columns: {
-					id: commonLogic.appcommonhandle("ID",null),
-					name: commonLogic.appcommonhandle("项目名称",null),
-					status: commonLogic.appcommonhandle("项目状态",null),
-				},
-				nodata:commonLogic.appcommonhandle("",null),
-				uiactions: {
-				},
-			},
-			undoneproject_grid: {
+			moreundoneproject_grid: {
 				columns: {
 					name: commonLogic.appcommonhandle("项目名称",null),
 					doclibcnt: commonLogic.appcommonhandle("文档数量",null),
@@ -534,22 +549,6 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
-			moreundoneproject_grid: {
-				columns: {
-					name: commonLogic.appcommonhandle("项目名称",null),
-					doclibcnt: commonLogic.appcommonhandle("文档数量",null),
-					openedby: commonLogic.appcommonhandle("由谁添加",null),
-					openeddate: commonLogic.appcommonhandle("添加时间",null),
-				},
-				nodata:commonLogic.appcommonhandle("",null),
-				uiactions: {
-				},
-			},
-			exp_list: {
-				nodata:commonLogic.appcommonhandle("",null),
-				uiactions: {
-				},
-			},
 			sidebar_list: {
 				nodata:commonLogic.appcommonhandle("",null),
 				uiactions: {
@@ -557,10 +556,15 @@ function getLocaleResourceBase(){
 					project_cancelprojecttop: commonLogic.appcommonhandle("取消置顶",null),
 				},
 			},
-			projectstatusbar_chart: {
+			exp_list: {
 				nodata:commonLogic.appcommonhandle("",null),
+				uiactions: {
+				},
 			},
 			involvedproject_dev_chart: {
+				nodata:commonLogic.appcommonhandle("",null),
+			},
+			projectstatusbar_chart: {
 				nodata:commonLogic.appcommonhandle("",null),
 			},
 			burndown_chart: {
@@ -647,30 +651,6 @@ function getLocaleResourceBase(){
 					tip: commonLogic.appcommonhandle("过滤",null),
 				},
 			},
-			mainmygridviewtoolbar_toolbar: {
-				deuiaction3_create: {
-					caption: commonLogic.appcommonhandle("新建",null),
-					tip: commonLogic.appcommonhandle("新建",null),
-				},
-				deuiaction2: {
-					caption: commonLogic.appcommonhandle("刷新",null),
-					tip: commonLogic.appcommonhandle("刷新",null),
-				},
-				deuiaction1: {
-					caption: commonLogic.appcommonhandle("导出",null),
-					tip: commonLogic.appcommonhandle("导出",null),
-				},
-				deuiaction4: {
-					caption: commonLogic.appcommonhandle("过滤",null),
-					tip: commonLogic.appcommonhandle("过滤",null),
-				},
-			},
-			usr2gridviewtoolbar_toolbar: {
-				deuiaction1: {
-					caption: commonLogic.appcommonhandle("过滤",null),
-					tip: commonLogic.appcommonhandle("过滤",null),
-				},
-			},
 			leftsidebarlistviewtoolbar_toolbar: {
 				deuiaction3_manager: {
 					caption: commonLogic.appcommonhandle("管理",null),
@@ -695,7 +675,31 @@ function getLocaleResourceBase(){
 					tip: commonLogic.appcommonhandle("取消置顶",null),
 				},
 			},
+			mainmygridviewtoolbar_toolbar: {
+				deuiaction3_create: {
+					caption: commonLogic.appcommonhandle("新建",null),
+					tip: commonLogic.appcommonhandle("新建",null),
+				},
+				deuiaction2: {
+					caption: commonLogic.appcommonhandle("刷新",null),
+					tip: commonLogic.appcommonhandle("刷新",null),
+				},
+				deuiaction1: {
+					caption: commonLogic.appcommonhandle("导出",null),
+					tip: commonLogic.appcommonhandle("导出",null),
+				},
+				deuiaction4: {
+					caption: commonLogic.appcommonhandle("过滤",null),
+					tip: commonLogic.appcommonhandle("过滤",null),
+				},
+			},
 			moreundoneprogridviewtoolbar_toolbar: {
+				deuiaction1: {
+					caption: commonLogic.appcommonhandle("过滤",null),
+					tip: commonLogic.appcommonhandle("过滤",null),
+				},
+			},
+			usr2gridviewtoolbar_toolbar: {
 				deuiaction1: {
 					caption: commonLogic.appcommonhandle("过滤",null),
 					tip: commonLogic.appcommonhandle("过滤",null),
@@ -801,6 +805,14 @@ function getLocaleResourceBase(){
 				uiactions: {
 				},
 			},
+			undoneproject_portlet: {
+				undoneproject: {
+					title: commonLogic.appcommonhandle("未完成项目", null)
+				},
+				uiactions: {
+					project_moreundone: commonLogic.appcommonhandle("MORE",null),
+				},
+			},
 			projectexpview_portlet: {
 				projectexpview: {
 					title: commonLogic.appcommonhandle("项目统计", null)
@@ -820,14 +832,6 @@ function getLocaleResourceBase(){
 					title: commonLogic.appcommonhandle("项目总览", null)
 				},
 				uiactions: {
-				},
-			},
-			undoneproject_portlet: {
-				undoneproject: {
-					title: commonLogic.appcommonhandle("未完成项目", null)
-				},
-				uiactions: {
-					project_moreundone: commonLogic.appcommonhandle("MORE",null),
 				},
 			},
 		};

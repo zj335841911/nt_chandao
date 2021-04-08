@@ -31,11 +31,11 @@ part [shape=none, margin=0, label=<
 </TR>
 <TR>
 <TD BORDER="0" COLSPAN="4" CELLPADDING="10">
-最近更新<BR/>
-我的文档<BR/>
-我的收藏<BR/>
-创建文档库<BR/>
-创建文档<BR/>
+
+
+
+
+
 <BR/></TD>
 </TR>
 </TABLE>

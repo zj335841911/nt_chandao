@@ -1,6 +1,6 @@
 
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { GridViewBase } from '@/studio-core';
 import IbzCaseService from '@/service/ibz-case/ibz-case-service';
 import IbzCaseAuthService from '@/authservice/ibz-case/ibz-case-auth-service';
@@ -131,7 +131,7 @@ export class IbzCaseGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof IbzCaseGridViewBase
      */
-	protected viewtag: string = '0da13bc2f5883c69742cac5e4e866e2a';
+	protected viewtag: string = '409176d44884e69d4999342ec4c14176';
 
     /**
      * 视图名称

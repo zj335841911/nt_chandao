@@ -90,10 +90,10 @@ export default class ActionUIActionBase extends EntityUIActionBase {
      * @memberof  ActionUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'mobmapview',srfappde:'actions'});
-        this.allViewMap.set(':',{viewname:'moremobmdview',srfappde:'actions'});
         this.allViewMap.set(':',{viewname:'mobmdview9',srfappde:'actions'});
         this.allViewMap.set(':',{viewname:'allmobmdview9',srfappde:'actions'});
+        this.allViewMap.set(':',{viewname:'moremobmdview',srfappde:'actions'});
+        this.allViewMap.set(':',{viewname:'mobmapview',srfappde:'actions'});
     }
 
     /**

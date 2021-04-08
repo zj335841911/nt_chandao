@@ -49,27 +49,12 @@ import org.springframework.util.StringUtils;
 public class IbzMyTerritoryServiceImpl extends ServiceImpl<IbzMyTerritoryMapper, IbzMyTerritory> implements IIbzMyTerritoryService {
 
 
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.ibiz.service.logic.IIbzMyTerritoryMobMenuCountLogic mobmenucountLogic;
-
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.ibiz.service.logic.IIbzMyTerritoryMyFavoriteCountLogic myfavoritecountLogic;
-
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.ibiz.service.logic.IIbzMyTerritoryMyTerritoryCountLogic myterritorycountLogic;
-    @Autowired
-    @Lazy
-    IIbzMyTerritoryService proxyService;
-
     protected int batchSize = 500;
 
     @Override
     @Transactional
     public boolean create(IbzMyTerritory et) {
-        if (!this.retBool(this.baseMapper.insert(et))) {
+        if(!this.retBool(this.baseMapper.insert(et))) {
             return false;
         }
         CachedBeanCopier.copy(get(et.getId()), et);
@@ -85,7 +70,7 @@ public class IbzMyTerritoryServiceImpl extends ServiceImpl<IbzMyTerritoryMapper,
     @Override
     @Transactional
     public boolean update(IbzMyTerritory et) {
-        if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", et.getId()))) {
+        if(!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", et.getId()))) {
             return false;
         }
         CachedBeanCopier.copy(get(et.getId()), et);
@@ -102,7 +87,7 @@ public class IbzMyTerritoryServiceImpl extends ServiceImpl<IbzMyTerritoryMapper,
     @Transactional
     public boolean remove(Long key) {
         boolean result = removeById(key);
-        return result;
+        return result ;
     }
 
     @Override
@@ -115,7 +100,7 @@ public class IbzMyTerritoryServiceImpl extends ServiceImpl<IbzMyTerritoryMapper,
     @Transactional
     public IbzMyTerritory get(Long key) {
         IbzMyTerritory et = getById(key);
-        if (et == null) {
+        if(et == null){
             et = new IbzMyTerritory();
             et.setId(key);
         }
@@ -136,28 +121,25 @@ public class IbzMyTerritoryServiceImpl extends ServiceImpl<IbzMyTerritoryMapper,
     @Override
     @Transactional
     public IbzMyTerritory mobMenuCount(IbzMyTerritory et) {
-        mobmenucountLogic.execute(et);
-         return et;
+         return et ;
     }
 
     @Override
     @Transactional
     public IbzMyTerritory myFavoriteCount(IbzMyTerritory et) {
-        myfavoritecountLogic.execute(et);
-         return et;
+         return et ;
     }
 
     @Override
     @Transactional
     public IbzMyTerritory myTerritoryCount(IbzMyTerritory et) {
-        myterritorycountLogic.execute(et);
-         return et;
+         return et ;
     }
 
     @Override
     @Transactional
     public boolean save(IbzMyTerritory et) {
-        if (!saveOrUpdate(et)) {
+        if(!saveOrUpdate(et)) {
             return false;
         }
         return true;
@@ -169,7 +151,7 @@ public class IbzMyTerritoryServiceImpl extends ServiceImpl<IbzMyTerritoryMapper,
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
+            return checkKey(et) ? getProxyService().update(et) : getProxyService().create(et);
         }
     }
 
@@ -186,10 +168,10 @@ public class IbzMyTerritoryServiceImpl extends ServiceImpl<IbzMyTerritoryMapper,
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
         return true;
     }
@@ -207,10 +189,10 @@ public class IbzMyTerritoryServiceImpl extends ServiceImpl<IbzMyTerritoryMapper,
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
     }
 
@@ -221,7 +203,7 @@ public class IbzMyTerritoryServiceImpl extends ServiceImpl<IbzMyTerritoryMapper,
      */
     @Override
     public Page<IbzMyTerritory> searchDefault(IbzMyTerritorySearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzMyTerritory> pages=baseMapper.searchDefault(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzMyTerritory> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
         return new PageImpl<IbzMyTerritory>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -230,7 +212,7 @@ public class IbzMyTerritoryServiceImpl extends ServiceImpl<IbzMyTerritoryMapper,
      */
     @Override
     public Page<IbzMyTerritory> searchMyWork(IbzMyTerritorySearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzMyTerritory> pages=baseMapper.searchMyWork(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzMyTerritory> pages=baseMapper.searchMyWork(context.getPages(),context,context.getSelectCond());
         return new PageImpl<IbzMyTerritory>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -239,7 +221,16 @@ public class IbzMyTerritoryServiceImpl extends ServiceImpl<IbzMyTerritoryMapper,
      */
     @Override
     public Page<IbzMyTerritory> searchMyWorkMob(IbzMyTerritorySearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzMyTerritory> pages=baseMapper.searchMyWorkMob(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzMyTerritory> pages=baseMapper.searchMyWorkMob(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<IbzMyTerritory>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 我的工作（项目经理）
+     */
+    @Override
+    public Page<IbzMyTerritory> searchMyWorkPm(IbzMyTerritorySearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzMyTerritory> pages=baseMapper.searchMyWorkPm(context.getPages(),context,context.getSelectCond());
         return new PageImpl<IbzMyTerritory>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -248,7 +239,7 @@ public class IbzMyTerritoryServiceImpl extends ServiceImpl<IbzMyTerritoryMapper,
      */
     @Override
     public Page<IbzMyTerritory> searchPersonInfo(IbzMyTerritorySearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzMyTerritory> pages=baseMapper.searchPersonInfo(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzMyTerritory> pages=baseMapper.searchPersonInfo(context.getPages(),context,context.getSelectCond());
         return new PageImpl<IbzMyTerritory>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -257,7 +248,7 @@ public class IbzMyTerritoryServiceImpl extends ServiceImpl<IbzMyTerritoryMapper,
      */
     @Override
     public Page<IbzMyTerritory> searchWelcome(IbzMyTerritorySearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzMyTerritory> pages=baseMapper.searchWelcome(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzMyTerritory> pages=baseMapper.searchWelcome(context.getPages(),context,context.getSelectCond());
         return new PageImpl<IbzMyTerritory>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -268,24 +259,24 @@ public class IbzMyTerritoryServiceImpl extends ServiceImpl<IbzMyTerritoryMapper,
 
 
     @Override
-    public List<JSONObject> select(String sql, Map param) {
-        return this.baseMapper.selectBySQL(sql, param);
+    public List<JSONObject> select(String sql, Map param){
+        return this.baseMapper.selectBySQL(sql,param);
     }
 
     @Override
     @Transactional
-    public boolean execute(String sql, Map param) {
+    public boolean execute(String sql , Map param){
         if (sql == null || sql.isEmpty()) {
             return false;
         }
         if (sql.toLowerCase().trim().startsWith("insert")) {
-            return this.baseMapper.insertBySQL(sql, param);
+            return this.baseMapper.insertBySQL(sql,param);
         }
         if (sql.toLowerCase().trim().startsWith("update")) {
-            return this.baseMapper.updateBySQL(sql, param);
+            return this.baseMapper.updateBySQL(sql,param);
         }
         if (sql.toLowerCase().trim().startsWith("delete")) {
-            return this.baseMapper.deleteBySQL(sql, param);
+            return this.baseMapper.deleteBySQL(sql,param);
         }
         log.warn("暂未支持的SQL语法");
         return true;
@@ -293,9 +284,9 @@ public class IbzMyTerritoryServiceImpl extends ServiceImpl<IbzMyTerritoryMapper,
 
 
 
-
-
+    public IIbzMyTerritoryService getProxyService() {
+        return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
+    }
 }
-
 
 

@@ -15,22 +15,22 @@ export class AssMOBModel {
 	public getDataItems(): any[] {
 		return [
 			{
-				name: 'pri',
+				name: 'stage',
 			},
 			{
 				name: 'status',
 			},
 			{
-				name: 'stage',
-			},
-			{
-				name: 'title',
+				name: 'isfavorites',
 			},
 			{
 				name: 'assignedto',
 			},
 			{
-				name: 'isfavorites',
+				name: 'pri',
+			},
+			{
+				name: 'title',
 			},
 			{
 				name: 'srfkey',

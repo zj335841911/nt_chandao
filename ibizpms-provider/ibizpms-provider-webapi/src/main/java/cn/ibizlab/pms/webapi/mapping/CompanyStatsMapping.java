@@ -12,4 +12,3 @@ public interface CompanyStatsMapping extends MappingBase<CompanyStatsDTO, Compan
 
 
 }
-

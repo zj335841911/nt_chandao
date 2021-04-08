@@ -9,8 +9,8 @@
                 <ion-list class="items" ref="ionlist"  >
                   <ion-item-sliding  :ref="item.srfkey" v-for="(item,index) in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
-                            <ion-item-option v-show="item.StoryFavoritesMob.visabled" :disabled="item.StoryFavoritesMob.disabled" color="primary" @click="mdctrl_click($event, 'ubb909cc', item)"><app-mob-icon v-if="item.StoryFavoritesMob.icon && item.StoryFavoritesMob.isShowIcon" :name="item.StoryFavoritesMob.icon"></app-mob-icon><ion-label v-if="item.StoryFavoritesMob.isShowCaption">收藏</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.StoryNFavoritesMob.visabled" :disabled="item.StoryNFavoritesMob.disabled" color="primary" @click="mdctrl_click($event, 'u832a879', item)"><app-mob-icon v-if="item.StoryNFavoritesMob.icon && item.StoryNFavoritesMob.isShowIcon" :name="item.StoryNFavoritesMob.icon"></app-mob-icon><ion-label v-if="item.StoryNFavoritesMob.isShowCaption">取消收藏</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.StoryFavoritesMob.visabled" :disabled="item.StoryFavoritesMob.disabled" color="primary" @click="mdctrl_click($event, 'uae9608a', item)"><app-mob-icon v-if="item.StoryFavoritesMob.icon && item.StoryFavoritesMob.isShowIcon" :name="item.StoryFavoritesMob.icon"></app-mob-icon><ion-label v-if="item.StoryFavoritesMob.isShowCaption">收藏</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.StoryNFavoritesMob.visabled" :disabled="item.StoryNFavoritesMob.disabled" color="primary" @click="mdctrl_click($event, 'u7a40dc5', item)"><app-mob-icon v-if="item.StoryNFavoritesMob.icon && item.StoryNFavoritesMob.isShowIcon" :name="item.StoryNFavoritesMob.icon"></app-mob-icon><ion-label v-if="item.StoryNFavoritesMob.isShowCaption">取消收藏</ion-label></ion-item-option>
                         </ion-item-options>
                     <ion-item>
                       <template v-if="(viewType == 'DEMOBMDVIEW') && controlStyle != 'SWIPERVIEW' ">
@@ -170,7 +170,7 @@ export default class FavoriteMOBDasBase extends Vue implements ControlInterface 
      * @returns {Promise<any>}
      * @memberof MdctrlBase
      */
-    protected async mdctrl_ubb909cc_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async mdctrl_uae9608a_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
 
         // 取数
         let datas: any[] = [];
@@ -201,7 +201,7 @@ export default class FavoriteMOBDasBase extends Vue implements ControlInterface 
      * @returns {Promise<any>}
      * @memberof MdctrlBase
      */
-    protected async mdctrl_u832a879_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async mdctrl_u7a40dc5_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
 
         // 取数
         let datas: any[] = [];
@@ -943,11 +943,11 @@ export default class FavoriteMOBDasBase extends Vue implements ControlInterface 
         $event.stopPropagation();
         this.selectedArray = [];
         this.selectedArray.push(item);
-        if (Object.is(tag, 'ubb909cc')) {
-            this.mdctrl_ubb909cc_click();
+        if (Object.is(tag, 'uae9608a')) {
+            this.mdctrl_uae9608a_click();
         }
-        if (Object.is(tag, 'u832a879')) {
-            this.mdctrl_u832a879_click();
+        if (Object.is(tag, 'u7a40dc5')) {
+            this.mdctrl_u7a40dc5_click();
         }
         this.closeSlidings(item);
     }

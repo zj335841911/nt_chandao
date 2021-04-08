@@ -1096,7 +1096,8 @@ String
 | 6 | [CheckKey](#实体行为-CheckKey（CheckKey）) | CheckKey | 内置方法 | 后台及前台 |
 | 7 | [添加备注](#实体行为-添加备注（Comment）) | Comment | 实体处理逻辑 | 后台 |
 | 8 | [编辑备注信息](#实体行为-编辑备注信息（EditComment）) | editComment | 用户自定义 | 后台及前台 |
-| 9 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+| 9 | [Pms企业专用](#实体行为-Pms企业专用（ManagePmsEe）) | ManagePmsEe | 用户自定义 | 后台 |
+| 10 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
 
 ### 实体行为-Create（Create）
 #### 说明
@@ -1193,6 +1194,18 @@ CheckKey
 
 - 行为持有者
 后台及前台
+
+#### 逻辑附加
+无
+### 实体行为-Pms企业专用（ManagePmsEe）
+#### 说明
+Pms企业专用
+
+- 行为类型
+用户自定义
+
+- 行为持有者
+后台
 
 #### 逻辑附加
 无

@@ -3,28 +3,28 @@ function getLocaleResourceBase(){
 	const data:any = {
 		appdename: commonLogic.appcommonhandle("产品月报", null),
 		fields: {
-			ibizproproductmonthlyid: commonLogic.appcommonhandle("产品月报标识",null),
-			ibizproproductmonthlyname: commonLogic.appcommonhandle("产品月报名称",null),
-			createdate: commonLogic.appcommonhandle("建立时间",null),
-			createman: commonLogic.appcommonhandle("建立人",null),
-			updateman: commonLogic.appcommonhandle("更新人",null),
-			updatedate: commonLogic.appcommonhandle("更新时间",null),
-			product: commonLogic.appcommonhandle("产品编号",null),
-			productname: commonLogic.appcommonhandle("产品名称",null),
-			po: commonLogic.appcommonhandle("产品负责人",null),
-			totalestimates: commonLogic.appcommonhandle("总工时",null),
 			tasks: commonLogic.appcommonhandle("任务",null),
 			date: commonLogic.appcommonhandle("日期",null),
+			updateman: commonLogic.appcommonhandle("更新人",null),
+			totalestimates: commonLogic.appcommonhandle("总工时",null),
+			createdate: commonLogic.appcommonhandle("建立时间",null),
+			updatedate: commonLogic.appcommonhandle("更新时间",null),
 			yearmonth: commonLogic.appcommonhandle("年月",null),
+			ibizproproductmonthlyid: commonLogic.appcommonhandle("产品月报标识",null),
+			ibizproproductmonthlyname: commonLogic.appcommonhandle("产品月报名称",null),
+			createman: commonLogic.appcommonhandle("建立人",null),
+			po: commonLogic.appcommonhandle("产品负责人",null),
+			productname: commonLogic.appcommonhandle("产品名称",null),
+			product: commonLogic.appcommonhandle("产品编号",null),
 		},
 			views: {
-				editview: {
-					caption: commonLogic.appcommonhandle("产品月报",null),
-					title: commonLogic.appcommonhandle("产品月报编辑视图",null),
-				},
 				gridview: {
 					caption: commonLogic.appcommonhandle("产品月报",null),
 					title: commonLogic.appcommonhandle("产品月报表格视图",null),
+				},
+				editview: {
+					caption: commonLogic.appcommonhandle("产品月报",null),
+					title: commonLogic.appcommonhandle("产品月报编辑视图",null),
 				},
 			},
 			maininfo_form: {

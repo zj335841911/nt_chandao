@@ -1,6 +1,6 @@
 
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { GridView9Base } from '@/studio-core';
 import TaskService from '@/service/task/task-service';
 import TaskAuthService from '@/authservice/task/task-auth-service';
@@ -123,7 +123,7 @@ export class TaskGridView9_AssignedToMeBase extends GridView9Base {
      * @type {string}
      * @memberof TaskGridView9_AssignedToMeBase
      */
-	protected viewtag: string = '79b3a14f0431747becc48f5b9f3aa990';
+	protected viewtag: string = 'f20fe6d7aa45a13c1e7343fbe4c0caaf';
 
     /**
      * 视图名称
@@ -268,9 +268,9 @@ export class TaskGridView9_AssignedToMeBase extends GridView9Base {
             Object.assign(tempContext,args[0]);
         }
         let deResParameters: any[] = [];
-        if(tempContext.story && true){
+        if(tempContext.projectmodule && true){
             deResParameters = [
-            { pathName: 'stories', parameterName: 'story' },
+            { pathName: 'projectmodules', parameterName: 'projectmodule' },
             ]
         }
         const parameters: any[] = [

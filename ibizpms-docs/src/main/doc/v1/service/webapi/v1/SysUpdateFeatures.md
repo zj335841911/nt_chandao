@@ -455,27 +455,27 @@ POST
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
 | 1 | sysupdatefeaturesname | String | 允许 | 系统更新功能名称 |
-| 2 | sysupdatefeaturesid | String | 不可 | 系统更新功能标识 |
+| 2 | updatedate | Timestamp | 不可 | 更新时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
 | 3 | createman | String | 不可 | 建立人 |
 | 4 | updateman | String | 不可 | 更新人 |
-| 5 | createdate | Timestamp | 不可 | 建立时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
-| 6 | updatedate | Timestamp | 不可 | 更新时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
-| 7 | sysupdatelogid | String | 允许 | 系统更新日志标识 |
-| 8 | sysupdatelogname | String | 允许 | 所属更新 |
-| 9 | upfeatures | String | 允许 | 更新功能 |
+| 5 | type | String | 允许 | 更新类型 |
+| 6 | createdate | Timestamp | 不可 | 建立时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
+| 7 | upfeatures | String | 允许 | 更新功能 |
+| 8 | sysupdatefeaturesid | String | 不可 | 系统更新功能标识 |
+| 9 | displayorder | Integer | 允许 | 展示顺序 |
 | 10 | featuresdesc | String | 允许 | 功能描述 |
-| 11 | type | String | 允许 | 更新类型 |
-| 12 | displayorder | Integer | 允许 | 展示顺序 |
+| 11 | sysupdatelogname | String | 允许 | 所属更新 |
+| 12 | sysupdatelogid | String | 允许 | 系统更新日志标识 |
 | 13 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### SysUpdateFeaturesSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
 | 1 | n_sys_update_featuresname_like | String | 允许 | 条件字段：sys_update_featuresname<br>条件组合方式：`%like%` |
-| 2 | n_sys_update_logid_eq | String | 允许 | 条件字段：sys_update_logid<br>条件组合方式：`=` |
+| 2 | n_type_eq | String | 允许 | 条件字段：type<br>条件组合方式：`=` |
 | 3 | n_sys_update_logname_eq | String | 允许 | 条件字段：sys_update_logname<br>条件组合方式：`=` |
 | 4 | n_sys_update_logname_like | String | 允许 | 条件字段：sys_update_logname<br>条件组合方式：`%like%` |
-| 5 | n_type_eq | String | 允许 | 条件字段：type<br>条件组合方式：`=` |
+| 5 | n_sys_update_logid_eq | String | 允许 | 条件字段：sys_update_logid<br>条件组合方式：`=` |
 | 6 | customcond | String | 允许 | 自定义查询条件 |
 | 7 | customparams | String | 允许 | 自定义查询参数 |
 | 8 | query | String | 允许 | 快速搜索 |

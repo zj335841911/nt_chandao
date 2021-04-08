@@ -15,13 +15,13 @@ export class MobModel {
 	public getDataItems(): any[] {
 		return [
 			{
-				name: 'type',
-			},
-			{
 				name: 'desc',
 			},
 			{
 				name: 'expect',
+			},
+			{
+				name: 'type',
 			},
 			{
 				name: 'srfkey',
@@ -42,11 +42,6 @@ export class MobModel {
 				name: 'parent',
 				prop: 'parent',
 				dataType: 'PICKUP',
-			},
-			{
-				name: 'case',
-				prop: 'id',
-                dataType: 'FONTKEY',
 			},
 			{
 				name: 'casestep',

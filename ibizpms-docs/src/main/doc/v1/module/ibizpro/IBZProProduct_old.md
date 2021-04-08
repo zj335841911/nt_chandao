@@ -13,18 +13,18 @@ hide members
 
 | 属性名称        |    中文名称    | 类型     |  备注  |
 | --------   |------------| -----   |  -------- | 
-|编号|ID|ACID|&nbsp;|
-|产品名称|NAME|TEXT|&nbsp;|
 |IBIZ标识|IBIZ_ID|TEXT|&nbsp;|
 |产品代号|CODE|TEXT|&nbsp;|
+|产品名称|NAME|TEXT|&nbsp;|
+|编号|ID|ACID|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
 | --------   |------------| ----- | 
-|编号|默认规则|默认规则|
-|产品名称|默认规则|内容长度必须小于等于[90]|
 |IBIZ标识|默认规则|内容长度必须小于等于[100]|
 |产品代号|默认规则|内容长度必须小于等于[45]|
+|产品名称|默认规则|内容长度必须小于等于[90]|
+|编号|默认规则|默认规则|
 
 ## 状态控制
 
@@ -51,7 +51,7 @@ hide members
 
 | 查询编号 | 查询名称       | 默认查询 |   备注|
 | --------  | --------   | --------   | ----- |
-|DEFAULT|数据查询([MYSQL5](../../appendix/query_MYSQL5.md#IBZProProduct_Default))|否|&nbsp;|
+|DEFAULT|数据查询([MYSQL5](../../appendix/query_MYSQL5.md#IBZProProduct_Default))|是|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#IBZProProduct_View))|否|&nbsp;|
 
 * **数据集合**

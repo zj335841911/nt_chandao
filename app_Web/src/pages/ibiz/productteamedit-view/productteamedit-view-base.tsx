@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { EditViewBase } from '@/studio-core';
 import PRODUCTTEAMService from '@/service/productteam/productteam-service';
 import PRODUCTTEAMAuthService from '@/authservice/productteam/productteam-auth-service';
@@ -131,7 +131,7 @@ export class PRODUCTTEAMEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof PRODUCTTEAMEditViewBase
      */
-	protected viewtag: string = '24bd71cafa4143c58de671b37ce80b56';
+	protected viewtag: string = 'a139999da375ad637cf0b9d455734b21';
 
     /**
      * 视图名称

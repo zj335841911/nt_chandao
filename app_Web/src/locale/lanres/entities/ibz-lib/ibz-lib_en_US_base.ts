@@ -4,17 +4,21 @@ function getLocaleResourceBase(){
 	const data:any = {
 		fields: {
 			desc: commonLogic.appcommonhandle("描述",null),
-			lastediteddate: commonLogic.appcommonhandle("最后编辑时间",null),
+			product: commonLogic.appcommonhandle("产品",null),
 			addeddate: commonLogic.appcommonhandle("创建时间",null),
 			id: commonLogic.appcommonhandle("编号",null),
+			lastediteddate: commonLogic.appcommonhandle("最后编辑时间",null),
+			addedby: commonLogic.appcommonhandle("由谁创建",null),
 			deleted: commonLogic.appcommonhandle("已删除",null),
 			name: commonLogic.appcommonhandle("名称",null),
 			type: commonLogic.appcommonhandle("类型",null),
-			addedby: commonLogic.appcommonhandle("由谁创建",null),
 			lasteditedby: commonLogic.appcommonhandle("最后编辑人",null),
-			product: commonLogic.appcommonhandle("产品",null),
 		},
 			views: {
+				tabexpview: {
+					caption: commonLogic.appcommonhandle("用例库",null),
+					title: commonLogic.appcommonhandle("用例库",null),
+				},
 				editview9: {
 					caption: commonLogic.appcommonhandle("用例库",null),
 					title: commonLogic.appcommonhandle("用例库编辑视图",null),
@@ -23,17 +27,13 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("用例库",null),
 					title: commonLogic.appcommonhandle("用例库数据看板视图",null),
 				},
-				editview: {
-					caption: commonLogic.appcommonhandle("用例库",null),
-					title: commonLogic.appcommonhandle("用例库编辑视图",null),
-				},
 				gridview: {
 					caption: commonLogic.appcommonhandle("用例库",null),
 					title: commonLogic.appcommonhandle("用例库",null),
 				},
-				tabexpview: {
+				editview: {
 					caption: commonLogic.appcommonhandle("用例库",null),
-					title: commonLogic.appcommonhandle("用例库",null),
+					title: commonLogic.appcommonhandle("用例库编辑视图",null),
 				},
 			},
 			desc_form: {

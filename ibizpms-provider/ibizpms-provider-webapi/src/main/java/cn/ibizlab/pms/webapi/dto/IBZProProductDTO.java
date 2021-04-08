@@ -20,33 +20,17 @@ import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * 服务DTO对象[IBZProProductDTO]
  */
 @Data
+@ApiModel("平台产品")
 public class IBZProProductDTO extends DTOBase implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-
-    /**
-     * 属性 [ID]
-     *
-     */
-    @JSONField(name = "id")
-    @JsonProperty("id")
-    @JsonSerialize(using = ToStringSerializer.class)
-    private Long id;
-
-    /**
-     * 属性 [NAME]
-     *
-     */
-    @JSONField(name = "name")
-    @JsonProperty("name")
-    @NotBlank(message = "[产品名称]不允许为空!")
-    @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
-    private String name;
 
     /**
      * 属性 [IBIZ_ID]
@@ -55,6 +39,7 @@ public class IBZProProductDTO extends DTOBase implements Serializable {
     @JSONField(name = "ibizid")
     @JsonProperty("ibizid")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("IBIZ标识")
     private String ibizid;
 
     /**
@@ -64,16 +49,30 @@ public class IBZProProductDTO extends DTOBase implements Serializable {
     @JSONField(name = "code")
     @JsonProperty("code")
     @Size(min = 0, max = 45, message = "内容长度必须小于等于[45]")
+    @ApiModelProperty("产品代号")
     private String code;
 
+    /**
+     * 属性 [NAME]
+     *
+     */
+    @JSONField(name = "name")
+    @JsonProperty("name")
+    @NotBlank(message = "[产品名称]不允许为空!")
+    @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
+    @ApiModelProperty("产品名称")
+    private String name;
 
     /**
-     * 设置 [NAME]
+     * 属性 [ID]
+     *
      */
-    public void setName(String  name){
-        this.name = name ;
-        this.modify("name",name);
-    }
+    @JSONField(name = "id")
+    @JsonProperty("id")
+    @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("编号")
+    private Long id;
+
 
     /**
      * 设置 [IBIZ_ID]
@@ -89,6 +88,14 @@ public class IBZProProductDTO extends DTOBase implements Serializable {
     public void setCode(String  code){
         this.code = code ;
         this.modify("code",code);
+    }
+
+    /**
+     * 设置 [NAME]
+     */
+    public void setName(String  name){
+        this.name = name ;
+        this.modify("name",name);
     }
 
 

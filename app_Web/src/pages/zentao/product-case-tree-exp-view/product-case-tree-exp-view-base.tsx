@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { TreeExpViewBase } from '@/studio-core';
 import ProductService from '@/service/product/product-service';
 import ProductAuthService from '@/authservice/product/product-auth-service';
@@ -100,7 +100,7 @@ export class ProductCaseTreeExpViewBase extends TreeExpViewBase {
      * @type {string}
      * @memberof ProductCaseTreeExpViewBase
      */
-	protected viewtag: string = '63b82c8ee288130faca83833ec1f837c';
+	protected viewtag: string = 'efbe7c07b6176b6a48581178d27d39e5';
 
     /**
      * 视图名称

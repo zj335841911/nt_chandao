@@ -123,7 +123,7 @@ export default class ActionMobMDView9Base extends Vue {
 	 * @type {string}
 	 * @memberof ActionMobMDView9Base
 	 */
-	protected viewtag: string = '3c4e9f0d609bc0f1cf08431649cc8e67';
+	protected viewtag: string = '1d9d30b890d34ecfebbb4f33eb5999ad';
 
     /**
      * 视图上下文

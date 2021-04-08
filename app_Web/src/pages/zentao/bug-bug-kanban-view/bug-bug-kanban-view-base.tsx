@@ -1,7 +1,7 @@
 
 
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { KanBanViewBase } from '@/studio-core';
 import BugService from '@/service/bug/bug-service';
 import BugAuthService from '@/authservice/bug/bug-auth-service';
@@ -124,7 +124,7 @@ export class BugBugKanbanViewBase extends KanBanViewBase {
      * @type {string}
      * @memberof BugBugKanbanViewBase
      */
-	protected viewtag: string = '6e27d3c90de590e23204e3a310321f21';
+	protected viewtag: string = '4eab91076167a1215a6cbe746eb8033f';
 
     /**
      * 视图名称
@@ -542,6 +542,14 @@ export class BugBugKanbanViewBase extends KanBanViewBase {
     protected viewUID: string = 'zentao-bug-bug-kanban-view';
 
     /**
+     * 快速分组代码表标识
+     *
+     * @type {boolean}
+     * @memberof BugBugKanbanViewBase
+     */
+    public quickGroupCodelistTag: string = "";
+
+    /**
      * 加载快速分组模型
      *
      * @protected
@@ -549,6 +557,7 @@ export class BugBugKanbanViewBase extends KanBanViewBase {
      */
     protected loadQuickGroupModel(): void {
         const quickGroupCodeList: any = { tag: 'Bug__quickpacket', codelistType: 'STATIC' };
+        this.quickGroupCodelistTag = quickGroupCodeList.tag ? quickGroupCodeList.tag : "";
         if (quickGroupCodeList.tag && Object.is(quickGroupCodeList.codelistType, "STATIC")) {
             const codelist = this.$store.getters.getCodeList(quickGroupCodeList.tag);
             if (codelist) {

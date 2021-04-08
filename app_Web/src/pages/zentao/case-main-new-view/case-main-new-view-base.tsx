@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { EditViewBase } from '@/studio-core';
 import CaseService from '@/service/case/case-service';
 import CaseAuthService from '@/authservice/case/case-auth-service';
@@ -96,6 +96,10 @@ export class CaseMainNewViewBase extends EditViewBase {
             isRawValue: false,
             value: 'product',
         },
+        'modulename': {
+            isRawValue: false,
+            value: 'modulename',
+        },
         'productmodule': {
             isRawValue: false,
             value: 'productmodule',
@@ -161,7 +165,7 @@ export class CaseMainNewViewBase extends EditViewBase {
      * @type {string}
      * @memberof CaseMainNewViewBase
      */
-	protected viewtag: string = '5890a810365fec51e801d2cffce44fde';
+	protected viewtag: string = '6e8645d9fed039c0d242e50504074fb8';
 
     /**
      * 视图名称

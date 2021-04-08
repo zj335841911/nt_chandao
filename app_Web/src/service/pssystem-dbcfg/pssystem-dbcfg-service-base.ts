@@ -1,3 +1,4 @@
+import { Environment } from '@/environments/environment';
 import { Http } from '@/utils';
 import { Util } from '@/utils';
 import EntityService from '../entity-service';
@@ -49,7 +50,7 @@ export default class PSSystemDBCfgServiceBase extends EntityService {
      * @memberof PSSystemDBCfgServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().get(`/pssystemdbcfgs/${context.pssystemdbcfg}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/pssystemdbcfgs/${context.pssystemdbcfg}/select`,isloading);
             
             return res;
     }
@@ -105,7 +106,7 @@ export default class PSSystemDBCfgServiceBase extends EntityService {
      * @memberof PSSystemDBCfgServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().delete(`/pssystemdbcfgs/${context.pssystemdbcfg}`,isloading);
+            let res:any = await Http.getInstance().delete(`/pssystemdbcfgs/${context.pssystemdbcfg}`,isloading);
             return res;
     }
 
@@ -134,7 +135,10 @@ export default class PSSystemDBCfgServiceBase extends EntityService {
      * @memberof PSSystemDBCfgServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/pssystemdbcfgs/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.pssystemdbcfg) delete tempData.pssystemdbcfg;
+        if(tempData.pssystemdbcfgid) delete tempData.pssystemdbcfgid;
+        let res:any = await  Http.getInstance().get(`/pssystemdbcfgs/getdraft`,tempData,isloading);
         res.data.pssystemdbcfg = data.pssystemdbcfg;
         
         return res;
@@ -150,7 +154,7 @@ export default class PSSystemDBCfgServiceBase extends EntityService {
      * @memberof PSSystemDBCfgServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/pssystemdbcfgs/${context.pssystemdbcfg}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/pssystemdbcfgs/${context.pssystemdbcfg}/checkkey`,data,isloading);
             return res;
     }
 
@@ -182,7 +186,7 @@ export default class PSSystemDBCfgServiceBase extends EntityService {
      */
     public async FetchBuild(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/pssystemdbcfgs/fetchbuild`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/pssystemdbcfgs/fetchbuild`,tempData,isloading);
         return res;
     }
 
@@ -211,7 +215,7 @@ export default class PSSystemDBCfgServiceBase extends EntityService {
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/pssystemdbcfgs/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/pssystemdbcfgs/fetchdefault`,tempData,isloading);
         return res;
     }
 

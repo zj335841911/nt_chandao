@@ -15,16 +15,16 @@ export class MobLogModel {
 	public getDataItems(): any[] {
 		return [
 			{
-				name: 'builder',
-			},
-			{
 				name: 'productname',
 			},
 			{
-				name: 'name',
+				name: 'date',
 			},
 			{
-				name: 'date',
+				name: 'builder',
+			},
+			{
+				name: 'name',
 			},
 			{
 				name: 'srfkey',

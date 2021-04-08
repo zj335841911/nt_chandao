@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { DashboardViewBase } from '@/studio-core';
 import UserYearWorkStatsService from '@/service/user-year-work-stats/user-year-work-stats-service';
 import UserYearWorkStatsAuthService from '@/authservice/user-year-work-stats/user-year-work-stats-auth-service';
@@ -128,7 +128,7 @@ export class UserYearWorkStatsDashboardViewBase extends DashboardViewBase {
      * @type {string}
      * @memberof UserYearWorkStatsDashboardViewBase
      */
-	protected viewtag: string = 'a300309f336ad917bb9fae375cd5620a';
+	protected viewtag: string = '35452fdae20ad8f9a786c708744662b4';
 
     /**
      * 视图名称

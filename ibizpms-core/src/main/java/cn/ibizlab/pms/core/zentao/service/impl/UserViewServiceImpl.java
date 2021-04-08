@@ -48,16 +48,13 @@ import org.springframework.util.StringUtils;
 @Service("UserViewServiceImpl")
 public class UserViewServiceImpl extends ServiceImpl<UserViewMapper, UserView> implements IUserViewService {
 
-    @Autowired
-    @Lazy
-    IUserViewService proxyService;
 
     protected int batchSize = 500;
 
     @Override
     @Transactional
     public boolean create(UserView et) {
-        if (!this.retBool(this.baseMapper.insert(et))) {
+        if(!this.retBool(this.baseMapper.insert(et))) {
             return false;
         }
         CachedBeanCopier.copy(get(et.getId()), et);
@@ -73,7 +70,7 @@ public class UserViewServiceImpl extends ServiceImpl<UserViewMapper, UserView> i
     @Override
     @Transactional
     public boolean update(UserView et) {
-        if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", et.getId()))) {
+        if(!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", et.getId()))) {
             return false;
         }
         CachedBeanCopier.copy(get(et.getId()), et);
@@ -90,7 +87,7 @@ public class UserViewServiceImpl extends ServiceImpl<UserViewMapper, UserView> i
     @Transactional
     public boolean remove(String key) {
         boolean result = removeById(key);
-        return result;
+        return result ;
     }
 
     @Override
@@ -103,7 +100,7 @@ public class UserViewServiceImpl extends ServiceImpl<UserViewMapper, UserView> i
     @Transactional
     public UserView get(String key) {
         UserView et = getById(key);
-        if (et == null) {
+        if(et == null){
             et = new UserView();
             et.setId(key);
         }
@@ -124,7 +121,7 @@ public class UserViewServiceImpl extends ServiceImpl<UserViewMapper, UserView> i
     @Override
     @Transactional
     public boolean save(UserView et) {
-        if (!saveOrUpdate(et)) {
+        if(!saveOrUpdate(et)) {
             return false;
         }
         return true;
@@ -136,7 +133,7 @@ public class UserViewServiceImpl extends ServiceImpl<UserViewMapper, UserView> i
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
+            return checkKey(et) ? getProxyService().update(et) : getProxyService().create(et);
         }
     }
 
@@ -153,10 +150,10 @@ public class UserViewServiceImpl extends ServiceImpl<UserViewMapper, UserView> i
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
         return true;
     }
@@ -174,10 +171,10 @@ public class UserViewServiceImpl extends ServiceImpl<UserViewMapper, UserView> i
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
     }
 
@@ -188,7 +185,7 @@ public class UserViewServiceImpl extends ServiceImpl<UserViewMapper, UserView> i
      */
     @Override
     public Page<UserView> searchDefault(UserViewSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<UserView> pages=baseMapper.searchDefault(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<UserView> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
         return new PageImpl<UserView>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -199,24 +196,24 @@ public class UserViewServiceImpl extends ServiceImpl<UserViewMapper, UserView> i
 
 
     @Override
-    public List<JSONObject> select(String sql, Map param) {
-        return this.baseMapper.selectBySQL(sql, param);
+    public List<JSONObject> select(String sql, Map param){
+        return this.baseMapper.selectBySQL(sql,param);
     }
 
     @Override
     @Transactional
-    public boolean execute(String sql, Map param) {
+    public boolean execute(String sql , Map param){
         if (sql == null || sql.isEmpty()) {
             return false;
         }
         if (sql.toLowerCase().trim().startsWith("insert")) {
-            return this.baseMapper.insertBySQL(sql, param);
+            return this.baseMapper.insertBySQL(sql,param);
         }
         if (sql.toLowerCase().trim().startsWith("update")) {
-            return this.baseMapper.updateBySQL(sql, param);
+            return this.baseMapper.updateBySQL(sql,param);
         }
         if (sql.toLowerCase().trim().startsWith("delete")) {
-            return this.baseMapper.deleteBySQL(sql, param);
+            return this.baseMapper.deleteBySQL(sql,param);
         }
         log.warn("暂未支持的SQL语法");
         return true;
@@ -224,9 +221,9 @@ public class UserViewServiceImpl extends ServiceImpl<UserViewMapper, UserView> i
 
 
 
-
-
+    public IUserViewService getProxyService() {
+        return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
+    }
 }
-
 
 

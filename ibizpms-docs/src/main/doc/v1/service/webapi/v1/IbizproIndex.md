@@ -369,26 +369,26 @@ GET
 #### IbizproIndexDTO
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
-| 1 | indextype | String | 允许 | 类型 |
-| 2 | indexid | Long | 允许 | 主键 |
-| 3 | indexname | String | 允许 | 标题[需求、任务等] |
-| 4 | deleted | String | 允许 | 逻辑标识 |
-| 5 | orgid | String | 允许 | 组织标识 |
-| 6 | mdeptid | String | 允许 | 部门标识 |
-| 7 | indexdesc | String | 允许 | 内容[需求、任务等] |
-| 8 | color | String | 允许 | 颜色 |
-| 9 | project | Long | 允许 | 项目 |
-| 10 | acllist | String | 允许 | 权限列表 |
-| 11 | acl | String | 允许 | 权限 |
-| 12 | docid | String | 允许 | docid |
-| 13 | product | Long | 允许 | 产品 |
+| 1 | indexid | Long | 允许 | 主键 |
+| 2 | acl | String | 允许 | 权限 |
+| 3 | docid | String | 允许 | docid |
+| 4 | indexname | String | 允许 | 标题[需求、任务等] |
+| 5 | color | String | 允许 | 颜色 |
+| 6 | deleted | String | 允许 | 逻辑标识 |
+| 7 | acllist | String | 允许 | 权限列表 |
+| 8 | indexdesc | String | 允许 | 内容[需求、任务等] |
+| 9 | product | Long | 允许 | 产品 |
+| 10 | indextype | String | 允许 | 类型 |
+| 11 | mdeptid | String | 允许 | 部门标识 |
+| 12 | project | Long | 允许 | 项目 |
+| 13 | orgid | String | 允许 | 组织标识 |
 | 14 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### IbizproIndexSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
-| 1 | n_index_type_eq | String | 允许 | 条件字段：index_type<br>条件组合方式：`=` |
-| 2 | n_indexname_like | String | 允许 | 条件字段：indexname<br>条件组合方式：`%like%` |
+| 1 | n_indexname_like | String | 允许 | 条件字段：indexname<br>条件组合方式：`%like%` |
+| 2 | n_index_type_eq | String | 允许 | 条件字段：index_type<br>条件组合方式：`=` |
 | 3 | customcond | String | 允许 | 自定义查询条件 |
 | 4 | customparams | String | 允许 | 自定义查询参数 |
 | 5 | query | String | 允许 | 快速搜索 |

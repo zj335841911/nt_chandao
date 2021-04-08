@@ -1,3 +1,4 @@
+import { Environment } from '@/environments/environment';
 import { Http } from '@/utils';
 import { Util } from '@/utils';
 import EntityService from '../entity-service';
@@ -49,7 +50,7 @@ export default class IBIZProTagServiceBase extends EntityService {
      * @memberof IBIZProTagServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().get(`/ibizprotags/${context.ibizprotag}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/ibizprotags/${context.ibizprotag}/select`,isloading);
             
             return res;
     }
@@ -105,7 +106,7 @@ export default class IBIZProTagServiceBase extends EntityService {
      * @memberof IBIZProTagServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().delete(`/ibizprotags/${context.ibizprotag}`,isloading);
+            let res:any = await Http.getInstance().delete(`/ibizprotags/${context.ibizprotag}`,isloading);
             return res;
     }
 
@@ -134,7 +135,10 @@ export default class IBIZProTagServiceBase extends EntityService {
      * @memberof IBIZProTagServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/ibizprotags/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.ibizprotag) delete tempData.ibizprotag;
+        if(tempData.id) delete tempData.id;
+        let res:any = await  Http.getInstance().get(`/ibizprotags/getdraft`,tempData,isloading);
         res.data.ibizprotag = data.ibizprotag;
         
         return res;
@@ -150,7 +154,7 @@ export default class IBIZProTagServiceBase extends EntityService {
      * @memberof IBIZProTagServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/ibizprotags/${context.ibizprotag}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/ibizprotags/${context.ibizprotag}/checkkey`,data,isloading);
             return res;
     }
 
@@ -182,7 +186,7 @@ export default class IBIZProTagServiceBase extends EntityService {
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/ibizprotags/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/ibizprotags/fetchdefault`,tempData,isloading);
         return res;
     }
 

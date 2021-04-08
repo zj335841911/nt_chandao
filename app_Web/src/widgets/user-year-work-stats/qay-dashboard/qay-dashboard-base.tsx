@@ -295,7 +295,7 @@ export class QAYDashboardBase extends MainControlBase {
      * 刷新
      * 
      * @param args 
-     * @memberof Main
+     * @memberof QAY
      */
     public refresh(args?: any){
       this.$emit('refresh',args);

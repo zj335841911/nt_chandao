@@ -72,7 +72,7 @@ public class SuiteCaseResource {
 		SuiteCase domain  = suitecaseMapping.toDomain(suitecasedto);
         domain .setId(suitecase_id);
 		suitecaseService.update(domain );
-		SuiteCaseDTO dto = suitecaseMapping.toDto(domain );
+		SuiteCaseDTO dto = suitecaseMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
@@ -110,8 +110,9 @@ public class SuiteCaseResource {
 
     @ApiOperation(value = "获取套件用例草稿", tags = {"套件用例" },  notes = "获取套件用例草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/suitecases/getdraft")
-    public ResponseEntity<SuiteCaseDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(suitecaseMapping.toDto(suitecaseService.getDraft(new SuiteCase())));
+    public ResponseEntity<SuiteCaseDTO> getDraft(SuiteCaseDTO dto) {
+        SuiteCase domain = suitecaseMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(suitecaseMapping.toDto(suitecaseService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查套件用例", tags = {"套件用例" },  notes = "检查套件用例")
@@ -123,8 +124,10 @@ public class SuiteCaseResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-SuiteCase-Save-all')")
     @ApiOperation(value = "保存套件用例", tags = {"套件用例" },  notes = "保存套件用例")
 	@RequestMapping(method = RequestMethod.POST, value = "/suitecases/save")
-    public ResponseEntity<Boolean> save(@RequestBody SuiteCaseDTO suitecasedto) {
-        return ResponseEntity.status(HttpStatus.OK).body(suitecaseService.save(suitecaseMapping.toDomain(suitecasedto)));
+    public ResponseEntity<SuiteCaseDTO> save(@RequestBody SuiteCaseDTO suitecasedto) {
+        SuiteCase domain = suitecaseMapping.toDomain(suitecasedto);
+        suitecaseService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(suitecaseMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-SuiteCase-Save-all')")
@@ -156,6 +159,7 @@ public class SuiteCaseResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(suitecaseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
 
 
 }

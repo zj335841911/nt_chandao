@@ -23,6 +23,14 @@ export interface TestTask {
     begin?: any;
 
     /**
+     * 负责人（选择）
+     *
+     * @returns {*}
+     * @memberof TestTask
+     */
+    ownerpk?: any;
+
+    /**
      * 抄送给
      *
      * @returns {*}
@@ -31,12 +39,36 @@ export interface TestTask {
     mailto?: any;
 
     /**
+     * 用例数
+     *
+     * @returns {*}
+     * @memberof TestTask
+     */
+    casecnt?: any;
+
+    /**
+     * 抄送给
+     *
+     * @returns {*}
+     * @memberof TestTask
+     */
+    mailtopk?: any;
+
+    /**
      * 优先级
      *
      * @returns {*}
      * @memberof TestTask
      */
     pri?: any;
+
+    /**
+     * 备注
+     *
+     * @returns {*}
+     * @memberof TestTask
+     */
+    comment?: any;
 
     /**
      * 子状态
@@ -79,6 +111,14 @@ export interface TestTask {
     status?: any;
 
     /**
+     * 联系人
+     *
+     * @returns {*}
+     * @memberof TestTask
+     */
+    mailtoconact?: any;
+
+    /**
      * 负责人
      *
      * @returns {*}
@@ -111,6 +151,30 @@ export interface TestTask {
     name?: any;
 
     /**
+     * 版本
+     *
+     * @returns {*}
+     * @memberof TestTask
+     */
+    buildname?: any;
+
+    /**
+     * 产品
+     *
+     * @returns {*}
+     * @memberof TestTask
+     */
+    productname?: any;
+
+    /**
+     * 项目
+     *
+     * @returns {*}
+     * @memberof TestTask
+     */
+    projecttname?: any;
+
+    /**
      * 所属产品
      *
      * @returns {*}
@@ -133,68 +197,4 @@ export interface TestTask {
      * @memberof TestTask
      */
     project?: any;
-
-    /**
-     * 产品
-     *
-     * @returns {*}
-     * @memberof TestTask
-     */
-    productname?: any;
-
-    /**
-     * 项目
-     *
-     * @returns {*}
-     * @memberof TestTask
-     */
-    projecttname?: any;
-
-    /**
-     * 版本
-     *
-     * @returns {*}
-     * @memberof TestTask
-     */
-    buildname?: any;
-
-    /**
-     * 备注
-     *
-     * @returns {*}
-     * @memberof TestTask
-     */
-    comment?: any;
-
-    /**
-     * 用例数
-     *
-     * @returns {*}
-     * @memberof TestTask
-     */
-    casecnt?: any;
-
-    /**
-     * 负责人（选择）
-     *
-     * @returns {*}
-     * @memberof TestTask
-     */
-    ownerpk?: any;
-
-    /**
-     * 联系人
-     *
-     * @returns {*}
-     * @memberof TestTask
-     */
-    mailtoconact?: any;
-
-    /**
-     * 抄送给
-     *
-     * @returns {*}
-     * @memberof TestTask
-     */
-    mailtopk?: any;
 }

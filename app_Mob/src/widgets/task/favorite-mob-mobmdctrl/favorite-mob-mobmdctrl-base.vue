@@ -5,8 +5,8 @@
                 <template v-if="(viewType == 'DEMOBMDVIEW9') && controlStyle != 'SWIPERVIEW' ">
                     <ion-item-sliding ref="sliding" v-for="(item,index) in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
-                            <ion-item-option v-show="item.TaskFavoritesMob.visabled" :disabled="item.TaskFavoritesMob.disabled" color="primary" @click="mdctrl_click($event, 'ucc540fe', item)"><app-mob-icon v-if="item.TaskFavoritesMob.icon && item.TaskFavoritesMob.isShowIcon" :name="item.TaskFavoritesMob.icon"></app-mob-icon><ion-label v-if="item.TaskFavoritesMob.isShowCaption">收藏</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.TaskNFavoritesMob.visabled" :disabled="item.TaskNFavoritesMob.disabled" color="primary" @click="mdctrl_click($event, 'uf0e6d83', item)"><app-mob-icon v-if="item.TaskNFavoritesMob.icon && item.TaskNFavoritesMob.isShowIcon" :name="item.TaskNFavoritesMob.icon"></app-mob-icon><ion-label v-if="item.TaskNFavoritesMob.isShowCaption">取消收藏</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.TaskFavoritesMob.visabled" :disabled="item.TaskFavoritesMob.disabled" color="primary" @click="mdctrl_click($event, 'u2543f0b', item)"><app-mob-icon v-if="item.TaskFavoritesMob.icon && item.TaskFavoritesMob.isShowIcon" :name="item.TaskFavoritesMob.icon"></app-mob-icon><ion-label v-if="item.TaskFavoritesMob.isShowCaption">收藏</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.TaskNFavoritesMob.visabled" :disabled="item.TaskNFavoritesMob.disabled" color="primary" @click="mdctrl_click($event, 'u1de6edf', item)"><app-mob-icon v-if="item.TaskNFavoritesMob.icon && item.TaskNFavoritesMob.isShowIcon" :name="item.TaskNFavoritesMob.icon"></app-mob-icon><ion-label v-if="item.TaskNFavoritesMob.isShowCaption">取消收藏</ion-label></ion-item-option>
                         </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
@@ -21,8 +21,8 @@
                 <template v-if="(viewType == 'DEMOBMDVIEW') && controlStyle != 'SWIPERVIEW' ">
                       <ion-item-sliding  :ref="item.srfkey" v-for="(item,index) in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
-                            <ion-item-option v-show="item.TaskFavoritesMob.visabled" :disabled="item.TaskFavoritesMob.disabled" color="primary" @click="mdctrl_click($event, 'ucc540fe', item)"><app-mob-icon v-if="item.TaskFavoritesMob.icon && item.TaskFavoritesMob.isShowIcon" :name="item.TaskFavoritesMob.icon"></app-mob-icon><ion-label v-if="item.TaskFavoritesMob.isShowCaption">收藏</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.TaskNFavoritesMob.visabled" :disabled="item.TaskNFavoritesMob.disabled" color="primary" @click="mdctrl_click($event, 'uf0e6d83', item)"><app-mob-icon v-if="item.TaskNFavoritesMob.icon && item.TaskNFavoritesMob.isShowIcon" :name="item.TaskNFavoritesMob.icon"></app-mob-icon><ion-label v-if="item.TaskNFavoritesMob.isShowCaption">取消收藏</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.TaskFavoritesMob.visabled" :disabled="item.TaskFavoritesMob.disabled" color="primary" @click="mdctrl_click($event, 'u2543f0b', item)"><app-mob-icon v-if="item.TaskFavoritesMob.icon && item.TaskFavoritesMob.isShowIcon" :name="item.TaskFavoritesMob.icon"></app-mob-icon><ion-label v-if="item.TaskFavoritesMob.isShowCaption">收藏</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.TaskNFavoritesMob.visabled" :disabled="item.TaskNFavoritesMob.disabled" color="primary" @click="mdctrl_click($event, 'u1de6edf', item)"><app-mob-icon v-if="item.TaskNFavoritesMob.icon && item.TaskNFavoritesMob.isShowIcon" :name="item.TaskNFavoritesMob.icon"></app-mob-icon><ion-label v-if="item.TaskNFavoritesMob.isShowCaption">取消收藏</ion-label></ion-item-option>
                         </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
@@ -235,7 +235,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
      * @returns {Promise<any>}
      * @memberof MdctrlBase
      */
-    protected async mdctrl_ucc540fe_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async mdctrl_u2543f0b_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
 
         // 取数
         let datas: any[] = [];
@@ -266,7 +266,7 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
      * @returns {Promise<any>}
      * @memberof MdctrlBase
      */
-    protected async mdctrl_uf0e6d83_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async mdctrl_u1de6edf_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
 
         // 取数
         let datas: any[] = [];
@@ -1008,11 +1008,11 @@ export default class FavoriteMOBBase extends Vue implements ControlInterface {
         $event.stopPropagation();
         this.selectedArray = [];
         this.selectedArray.push(item);
-        if (Object.is(tag, 'ucc540fe')) {
-            this.mdctrl_ucc540fe_click();
+        if (Object.is(tag, 'u2543f0b')) {
+            this.mdctrl_u2543f0b_click();
         }
-        if (Object.is(tag, 'uf0e6d83')) {
-            this.mdctrl_uf0e6d83_click();
+        if (Object.is(tag, 'u1de6edf')) {
+            this.mdctrl_u1de6edf_click();
         }
         this.closeSlidings(item);
     }

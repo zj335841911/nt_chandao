@@ -31,12 +31,12 @@ part [shape=none, margin=0, label=<
 </TR>
 <TR>
 <TD BORDER="0" COLSPAN="4" CELLPADDING="10">
-新建<BR/>
-删除<BR/>
-刷新<BR/>
-导出<BR/>
-过滤<BR/>
-过滤<BR/>
+
+
+
+
+
+
 <BR/></TD>
 </TR>
 </TABLE>

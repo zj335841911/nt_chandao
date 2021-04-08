@@ -78,7 +78,7 @@ public class ProjectResource {
 		Project domain  = projectMapping.toDomain(projectdto);
         domain .setId(project_id);
 		projectService.update(domain );
-		ProjectDTO dto = projectMapping.toDto(domain );
+		ProjectDTO dto = projectMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
@@ -116,8 +116,9 @@ public class ProjectResource {
 
     @ApiOperation(value = "获取项目草稿", tags = {"项目" },  notes = "获取项目草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/projects/getdraft")
-    public ResponseEntity<ProjectDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(projectMapping.toDto(projectService.getDraft(new Project())));
+    public ResponseEntity<ProjectDTO> getDraft(ProjectDTO dto) {
+        Project domain = projectMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(projectMapping.toDto(projectService.getDraft(domain)));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-Activate-all')")
@@ -132,9 +133,11 @@ public class ProjectResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-Activate-all')")
     @ApiOperation(value = "批量处理[激活]", tags = {"项目" },  notes = "批量处理[激活]")
-	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/activatebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/activatebatch")
     public ResponseEntity<Boolean> activateBatch(@RequestBody List<ProjectDTO> projectdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(projectService.activateBatch(projectMapping.toDomain(projectdtos)));
+        List<Project> domains = projectMapping.toDomain(projectdtos);
+        boolean result = projectService.activateBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-BatchUnlinkStory-all')")
@@ -149,9 +152,11 @@ public class ProjectResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-BatchUnlinkStory-all')")
     @ApiOperation(value = "批量处理[批量解除关联需求]", tags = {"项目" },  notes = "批量处理[批量解除关联需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/batchunlinkstorybatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/batchunlinkstorybatch")
     public ResponseEntity<Boolean> batchUnlinkStoryBatch(@RequestBody List<ProjectDTO> projectdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(projectService.batchUnlinkStoryBatch(projectMapping.toDomain(projectdtos)));
+        List<Project> domains = projectMapping.toDomain(projectdtos);
+        boolean result = projectService.batchUnlinkStoryBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-CancelProjectTop-all')")
@@ -183,9 +188,11 @@ public class ProjectResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-Close-all')")
     @ApiOperation(value = "批量处理[关闭]", tags = {"项目" },  notes = "批量处理[关闭]")
-	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/closebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/closebatch")
     public ResponseEntity<Boolean> closeBatch(@RequestBody List<ProjectDTO> projectdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(projectService.closeBatch(projectMapping.toDomain(projectdtos)));
+        List<Project> domains = projectMapping.toDomain(projectdtos);
+        boolean result = projectService.closeBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-LinkStory-all')")
@@ -200,9 +207,11 @@ public class ProjectResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-LinkStory-all')")
     @ApiOperation(value = "批量处理[关联需求]", tags = {"项目" },  notes = "批量处理[关联需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/linkstorybatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/linkstorybatch")
     public ResponseEntity<Boolean> linkStoryBatch(@RequestBody List<ProjectDTO> projectdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(projectService.linkStoryBatch(projectMapping.toDomain(projectdtos)));
+        List<Project> domains = projectMapping.toDomain(projectdtos);
+        boolean result = projectService.linkStoryBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-ManageMembers-all')")
@@ -217,9 +226,11 @@ public class ProjectResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-ManageMembers-all')")
     @ApiOperation(value = "批量处理[团队管理]", tags = {"项目" },  notes = "批量处理[团队管理]")
-	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/managemembersbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/managemembersbatch")
     public ResponseEntity<Boolean> manageMembersBatch(@RequestBody List<ProjectDTO> projectdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(projectService.manageMembersBatch(projectMapping.toDomain(projectdtos)));
+        List<Project> domains = projectMapping.toDomain(projectdtos);
+        boolean result = projectService.manageMembersBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-MobProjectCount-all')")
@@ -231,6 +242,44 @@ public class ProjectResource {
         domain = projectService.mobProjectCount(domain);
         projectdto = projectMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(projectdto);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-PmsEeProjectAllTaskCount-all')")
+    @ApiOperation(value = "项目立项任务快速分组计数器", tags = {"项目" },  notes = "项目立项任务快速分组计数器")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/pmseeprojectalltaskcount")
+    public ResponseEntity<ProjectDTO> pmsEeProjectAllTaskCount(@PathVariable("project_id") Long project_id, @RequestBody ProjectDTO projectdto) {
+        Project domain = projectMapping.toDomain(projectdto);
+        domain.setId(project_id);
+        domain = projectService.pmsEeProjectAllTaskCount(domain);
+        projectdto = projectMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(projectdto);
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-PmsEeProjectAllTaskCount-all')")
+    @ApiOperation(value = "批量处理[项目立项任务快速分组计数器]", tags = {"项目" },  notes = "批量处理[项目立项任务快速分组计数器]")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/pmseeprojectalltaskcountbatch")
+    public ResponseEntity<Boolean> pmsEeProjectAllTaskCountBatch(@RequestBody List<ProjectDTO> projectdtos) {
+        List<Project> domains = projectMapping.toDomain(projectdtos);
+        boolean result = projectService.pmsEeProjectAllTaskCountBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
+    }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-PmsEeProjectTodoTaskCount-all')")
+    @ApiOperation(value = "项目立项待办任务快速分组计数器", tags = {"项目" },  notes = "项目立项待办任务快速分组计数器")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/pmseeprojecttodotaskcount")
+    public ResponseEntity<ProjectDTO> pmsEeProjectTodoTaskCount(@PathVariable("project_id") Long project_id, @RequestBody ProjectDTO projectdto) {
+        Project domain = projectMapping.toDomain(projectdto);
+        domain.setId(project_id);
+        domain = projectService.pmsEeProjectTodoTaskCount(domain);
+        projectdto = projectMapping.toDto(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(projectdto);
+    }
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-PmsEeProjectTodoTaskCount-all')")
+    @ApiOperation(value = "批量处理[项目立项待办任务快速分组计数器]", tags = {"项目" },  notes = "批量处理[项目立项待办任务快速分组计数器]")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/pmseeprojecttodotaskcountbatch")
+    public ResponseEntity<Boolean> pmsEeProjectTodoTaskCountBatch(@RequestBody List<ProjectDTO> projectdtos) {
+        List<Project> domains = projectMapping.toDomain(projectdtos);
+        boolean result = projectService.pmsEeProjectTodoTaskCountBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-ProjectTaskQCnt-all')")
@@ -267,16 +316,20 @@ public class ProjectResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-Putoff-all')")
     @ApiOperation(value = "批量处理[延期]", tags = {"项目" },  notes = "批量处理[延期]")
-	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/putoffbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/putoffbatch")
     public ResponseEntity<Boolean> putoffBatch(@RequestBody List<ProjectDTO> projectdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(projectService.putoffBatch(projectMapping.toDomain(projectdtos)));
+        List<Project> domains = projectMapping.toDomain(projectdtos);
+        boolean result = projectService.putoffBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasPermission(this.projectMapping.toDomain(#projectdto),'pms-Project-Save')")
     @ApiOperation(value = "保存项目", tags = {"项目" },  notes = "保存项目")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/save")
-    public ResponseEntity<Boolean> save(@RequestBody ProjectDTO projectdto) {
-        return ResponseEntity.status(HttpStatus.OK).body(projectService.save(projectMapping.toDomain(projectdto)));
+    public ResponseEntity<ProjectDTO> save(@RequestBody ProjectDTO projectdto) {
+        Project domain = projectMapping.toDomain(projectdto);
+        projectService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(projectMapping.toDto(domain));
     }
 
     @PreAuthorize("hasPermission(this.projectMapping.toDomain(#projectdtos),'pms-Project-Save')")
@@ -299,9 +352,11 @@ public class ProjectResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-Start-all')")
     @ApiOperation(value = "批量处理[开始]", tags = {"项目" },  notes = "批量处理[开始]")
-	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/startbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/startbatch")
     public ResponseEntity<Boolean> startBatch(@RequestBody List<ProjectDTO> projectdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(projectService.startBatch(projectMapping.toDomain(projectdtos)));
+        List<Project> domains = projectMapping.toDomain(projectdtos);
+        boolean result = projectService.startBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-Suspend-all')")
@@ -316,9 +371,11 @@ public class ProjectResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-Suspend-all')")
     @ApiOperation(value = "批量处理[挂起]", tags = {"项目" },  notes = "批量处理[挂起]")
-	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/suspendbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/suspendbatch")
     public ResponseEntity<Boolean> suspendBatch(@RequestBody List<ProjectDTO> projectdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(projectService.suspendBatch(projectMapping.toDomain(projectdtos)));
+        List<Project> domains = projectMapping.toDomain(projectdtos);
+        boolean result = projectService.suspendBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-UnlinkMember-all')")
@@ -333,9 +390,11 @@ public class ProjectResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-UnlinkMember-all')")
     @ApiOperation(value = "批量处理[移除成员]", tags = {"项目" },  notes = "批量处理[移除成员]")
-	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/unlinkmemberbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/unlinkmemberbatch")
     public ResponseEntity<Boolean> unlinkMemberBatch(@RequestBody List<ProjectDTO> projectdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(projectService.unlinkMemberBatch(projectMapping.toDomain(projectdtos)));
+        List<Project> domains = projectMapping.toDomain(projectdtos);
+        boolean result = projectService.unlinkMemberBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-UnlinkStory-all')")
@@ -350,9 +409,11 @@ public class ProjectResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-UnlinkStory-all')")
     @ApiOperation(value = "批量处理[解除关联需求]", tags = {"项目" },  notes = "批量处理[解除关联需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/unlinkstorybatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/projects/unlinkstorybatch")
     public ResponseEntity<Boolean> unlinkStoryBatch(@RequestBody List<ProjectDTO> projectdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(projectService.unlinkStoryBatch(projectMapping.toDomain(projectdtos)));
+        List<Project> domains = projectMapping.toDomain(projectdtos);
+        boolean result = projectService.unlinkStoryBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-UpdateOrder-all')")
@@ -367,9 +428,11 @@ public class ProjectResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-UpdateOrder-all')")
     @ApiOperation(value = "批量处理[排序]", tags = {"项目" },  notes = "批量处理[排序]")
-	@RequestMapping(method = RequestMethod.PUT, value = "/projects/{project_id}/updateorderbatch")
+	@RequestMapping(method = RequestMethod.PUT, value = "/projects/updateorderbatch")
     public ResponseEntity<Boolean> updateOrderBatch(@RequestBody List<ProjectDTO> projectdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(projectService.updateOrderBatch(projectMapping.toDomain(projectdtos)));
+        List<Project> domains = projectMapping.toDomain(projectdtos);
+        boolean result = projectService.updateOrderBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-searchBugProject-all') and hasPermission(#context,'pms-Project-Get')")
@@ -390,6 +453,28 @@ public class ProjectResource {
     @RequestMapping(method= RequestMethod.POST , value="/projects/searchbugproject")
 	public ResponseEntity<Page<ProjectDTO>> searchBugProject(@RequestBody ProjectSearchContext context) {
         Page<Project> domains = projectService.searchBugProject(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(projectMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-searchCurPlanProject-all') and hasPermission(#context,'pms-Project-Get')")
+	@ApiOperation(value = "获取当前计划项目", tags = {"项目" } ,notes = "获取当前计划项目")
+    @RequestMapping(method= RequestMethod.GET , value="/projects/fetchcurplanproject")
+	public ResponseEntity<List<ProjectDTO>> fetchCurPlanProject(ProjectSearchContext context) {
+        Page<Project> domains = projectService.searchCurPlanProject(context) ;
+        List<ProjectDTO> list = projectMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-searchCurPlanProject-all') and hasPermission(#context,'pms-Project-Get')")
+	@ApiOperation(value = "查询当前计划项目", tags = {"项目" } ,notes = "查询当前计划项目")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/searchcurplanproject")
+	public ResponseEntity<Page<ProjectDTO>> searchCurPlanProject(@RequestBody ProjectSearchContext context) {
+        Page<Project> domains = projectService.searchCurPlanProject(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(projectMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
@@ -434,6 +519,28 @@ public class ProjectResource {
     @RequestMapping(method= RequestMethod.POST , value="/projects/searchcuruser")
 	public ResponseEntity<Page<ProjectDTO>> searchCurUser(@RequestBody ProjectSearchContext context) {
         Page<Project> domains = projectService.searchCurUser(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(projectMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-searchCurUserSa-all') and hasPermission(#context,'pms-Project-Get')")
+	@ApiOperation(value = "获取当前用户项目（企业版）", tags = {"项目" } ,notes = "获取当前用户项目（企业版）")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/fetchcurusersa")
+	public ResponseEntity<List<ProjectDTO>> fetchCurUserSa(@RequestBody ProjectSearchContext context) {
+        Page<Project> domains = projectService.searchCurUserSa(context) ;
+        List<ProjectDTO> list = projectMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Project-searchCurUserSa-all') and hasPermission(#context,'pms-Project-Get')")
+	@ApiOperation(value = "查询当前用户项目（企业版）", tags = {"项目" } ,notes = "查询当前用户项目（企业版）")
+    @RequestMapping(method= RequestMethod.POST , value="/projects/searchcurusersa")
+	public ResponseEntity<Page<ProjectDTO>> searchCurUserSa(@RequestBody ProjectSearchContext context) {
+        Page<Project> domains = projectService.searchCurUserSa(context) ;
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(projectMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
@@ -613,6 +720,7 @@ public class ProjectResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(projectMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
 
 
 }

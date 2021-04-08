@@ -24,6 +24,8 @@ import java.io.Serializable;
 import lombok.*;
 import org.springframework.data.annotation.Transient;
 import cn.ibizlab.pms.util.annotation.Audit;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -39,26 +41,11 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
 @TableName(value = "T_IBZPRO_PROJECTWEEKLY", resultMap = "IbizproProjectWeeklyResultMap")
+@ApiModel("项目周报")
 public class IbizproProjectWeekly extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    /**
-     * 项目周报名称
-     */
-    @DEField(name = "ibzpro_projectweeklyname")
-    @TableField(value = "`ibzpro_projectweeklyname`")
-    @JSONField(name = "projectweeklyname")
-    @JsonProperty("projectweeklyname")
-    private String projectweeklyname;
-    /**
-     * 项目周报标识
-     */
-    @DEField(name = "ibzpro_projectweeklyid", isKeyField = true)
-    @TableId(value = "ibzpro_projectweeklyid", type = IdType.ASSIGN_UUID)
-    @JSONField(name = "projectweeklyid")
-    @JsonProperty("projectweeklyid")
-    private String projectweeklyid;
     /**
      * 建立时间
      */
@@ -67,6 +54,7 @@ public class IbizproProjectWeekly extends EntityMP implements Serializable {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "createdate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createdate")
+    @ApiModelProperty("建立时间")
     private Timestamp createdate;
     /**
      * 更新人
@@ -75,7 +63,24 @@ public class IbizproProjectWeekly extends EntityMP implements Serializable {
     @TableField(value = "`updateman`")
     @JSONField(name = "updateman")
     @JsonProperty("updateman")
+    @ApiModelProperty("更新人")
     private String updateman;
+    /**
+     * 年
+     */
+    @TableField(value = "`year`")
+    @JSONField(name = "year")
+    @JsonProperty("year")
+    @ApiModelProperty("年")
+    private String year;
+    /**
+     * 结束统计
+     */
+    @TableField(value = "`enddatestats`")
+    @JSONField(name = "enddatestats")
+    @JsonProperty("enddatestats")
+    @ApiModelProperty("结束统计")
+    private String enddatestats;
     /**
      * 建立人
      */
@@ -83,7 +88,75 @@ public class IbizproProjectWeekly extends EntityMP implements Serializable {
     @TableField(value = "`createman`", fill = FieldFill.INSERT)
     @JSONField(name = "createman")
     @JsonProperty("createman")
+    @ApiModelProperty("建立人")
     private String createman;
+    /**
+     * 任务
+     */
+    @TableField(value = "`tasks`")
+    @JSONField(name = "tasks")
+    @JsonProperty("tasks")
+    @ApiModelProperty("任务")
+    private String tasks;
+    /**
+     * 项目周报名称
+     */
+    @DEField(name = "ibzpro_projectweeklyname")
+    @TableField(value = "`ibzpro_projectweeklyname`")
+    @JSONField(name = "projectweeklyname")
+    @JsonProperty("projectweeklyname")
+    @ApiModelProperty("项目周报名称")
+    private String projectweeklyname;
+    /**
+     * 周
+     */
+    @TableField(value = "`week`")
+    @JSONField(name = "week")
+    @JsonProperty("week")
+    @ApiModelProperty("周")
+    private String week;
+    /**
+     * 项目周报标识
+     */
+    @DEField(name = "ibzpro_projectweeklyid", isKeyField = true)
+    @TableId(value = "ibzpro_projectweeklyid", type = IdType.ASSIGN_UUID)
+    @JSONField(name = "projectweeklyid")
+    @JsonProperty("projectweeklyid")
+    @ApiModelProperty("项目周报标识")
+    private String projectweeklyid;
+    /**
+     * 项目负责人
+     */
+    @TableField(value = "`pm`")
+    @JSONField(name = "pm")
+    @JsonProperty("pm")
+    @ApiModelProperty("项目负责人")
+    private String pm;
+    /**
+     * 日期
+     */
+    @TableField(value = "`date`")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "date", format = "yyyy-MM-dd")
+    @JsonProperty("date")
+    @ApiModelProperty("日期")
+    private Timestamp date;
+    /**
+     * 总工时
+     */
+    @TableField(value = "`totalestimates`")
+    @JSONField(name = "totalestimates")
+    @JsonProperty("totalestimates")
+    @ApiModelProperty("总工时")
+    private Double totalestimates;
+    /**
+     * 开始统计
+     */
+    @TableField(value = "`begindatestats`")
+    @JSONField(name = "begindatestats")
+    @JsonProperty("begindatestats")
+    @ApiModelProperty("开始统计")
+    private String begindatestats;
     /**
      * 更新时间
      */
@@ -92,85 +165,32 @@ public class IbizproProjectWeekly extends EntityMP implements Serializable {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "updatedate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("updatedate")
+    @ApiModelProperty("更新时间")
     private Timestamp updatedate;
-    /**
-     * 项目负责人
-     */
-    @TableField(value = "`pm`")
-    @JSONField(name = "pm")
-    @JsonProperty("pm")
-    private String pm;
-    /**
-     * 总工时
-     */
-    @TableField(value = "`totalestimates`")
-    @JSONField(name = "totalestimates")
-    @JsonProperty("totalestimates")
-    private Double totalestimates;
-    /**
-     * 任务
-     */
-    @TableField(value = "`tasks`")
-    @JSONField(name = "tasks")
-    @JsonProperty("tasks")
-    private String tasks;
-    /**
-     * 日期
-     */
-    @TableField(value = "`date`")
-    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
-    @JSONField(name = "date", format = "yyyy-MM-dd")
-    @JsonProperty("date")
-    private Timestamp date;
-    /**
-     * 项目编号
-     */
-    @TableField(value = "`project`")
-    @JSONField(name = "project")
-    @JsonProperty("project")
-    private Long project;
-    /**
-     * 项目名称
-     */
-    @TableField(exist = false)
-    @JSONField(name = "projectname")
-    @JsonProperty("projectname")
-    private String projectname;
-    /**
-     * 周
-     */
-    @TableField(value = "`week`")
-    @JSONField(name = "week")
-    @JsonProperty("week")
-    private String week;
-    /**
-     * 年
-     */
-    @TableField(value = "`year`")
-    @JSONField(name = "year")
-    @JsonProperty("year")
-    private String year;
     /**
      * 月
      */
     @TableField(value = "`month`")
     @JSONField(name = "month")
     @JsonProperty("month")
+    @ApiModelProperty("月")
     private String month;
     /**
-     * 开始统计
+     * 项目名称
      */
-    @TableField(value = "`begindatestats`")
-    @JSONField(name = "begindatestats")
-    @JsonProperty("begindatestats")
-    private String begindatestats;
+    @TableField(exist = false)
+    @JSONField(name = "projectname")
+    @JsonProperty("projectname")
+    @ApiModelProperty("项目名称")
+    private String projectname;
     /**
-     * 结束统计
+     * 项目编号
      */
-    @TableField(value = "`enddatestats`")
-    @JSONField(name = "enddatestats")
-    @JsonProperty("enddatestats")
-    private String enddatestats;
+    @TableField(value = "`project`")
+    @JSONField(name = "project")
+    @JsonProperty("project")
+    @ApiModelProperty("项目编号")
+    private Long project;
 
     /**
      * 项目
@@ -183,27 +203,19 @@ public class IbizproProjectWeekly extends EntityMP implements Serializable {
 
 
     /**
-     * 设置 [项目周报名称]
+     * 设置 [年]
      */
-    public void setProjectweeklyname(String projectweeklyname) {
-        this.projectweeklyname = projectweeklyname;
-        this.modify("ibzpro_projectweeklyname", projectweeklyname);
+    public void setYear(String year) {
+        this.year = year;
+        this.modify("year", year);
     }
 
     /**
-     * 设置 [项目负责人]
+     * 设置 [结束统计]
      */
-    public void setPm(String pm) {
-        this.pm = pm;
-        this.modify("pm", pm);
-    }
-
-    /**
-     * 设置 [总工时]
-     */
-    public void setTotalestimates(Double totalestimates) {
-        this.totalestimates = totalestimates;
-        this.modify("totalestimates", totalestimates);
+    public void setEnddatestats(String enddatestats) {
+        this.enddatestats = enddatestats;
+        this.modify("enddatestats", enddatestats);
     }
 
     /**
@@ -212,6 +224,30 @@ public class IbizproProjectWeekly extends EntityMP implements Serializable {
     public void setTasks(String tasks) {
         this.tasks = tasks;
         this.modify("tasks", tasks);
+    }
+
+    /**
+     * 设置 [项目周报名称]
+     */
+    public void setProjectweeklyname(String projectweeklyname) {
+        this.projectweeklyname = projectweeklyname;
+        this.modify("ibzpro_projectweeklyname", projectweeklyname);
+    }
+
+    /**
+     * 设置 [周]
+     */
+    public void setWeek(String week) {
+        this.week = week;
+        this.modify("week", week);
+    }
+
+    /**
+     * 设置 [项目负责人]
+     */
+    public void setPm(String pm) {
+        this.pm = pm;
+        this.modify("pm", pm);
     }
 
     /**
@@ -233,35 +269,11 @@ public class IbizproProjectWeekly extends EntityMP implements Serializable {
         return sdf.format(date);
     }
     /**
-     * 设置 [项目编号]
+     * 设置 [总工时]
      */
-    public void setProject(Long project) {
-        this.project = project;
-        this.modify("project", project);
-    }
-
-    /**
-     * 设置 [周]
-     */
-    public void setWeek(String week) {
-        this.week = week;
-        this.modify("week", week);
-    }
-
-    /**
-     * 设置 [年]
-     */
-    public void setYear(String year) {
-        this.year = year;
-        this.modify("year", year);
-    }
-
-    /**
-     * 设置 [月]
-     */
-    public void setMonth(String month) {
-        this.month = month;
-        this.modify("month", month);
+    public void setTotalestimates(Double totalestimates) {
+        this.totalestimates = totalestimates;
+        this.modify("totalestimates", totalestimates);
     }
 
     /**
@@ -273,11 +285,19 @@ public class IbizproProjectWeekly extends EntityMP implements Serializable {
     }
 
     /**
-     * 设置 [结束统计]
+     * 设置 [月]
      */
-    public void setEnddatestats(String enddatestats) {
-        this.enddatestats = enddatestats;
-        this.modify("enddatestats", enddatestats);
+    public void setMonth(String month) {
+        this.month = month;
+        this.modify("month", month);
+    }
+
+    /**
+     * 设置 [项目编号]
+     */
+    public void setProject(Long project) {
+        this.project = project;
+        this.modify("project", project);
     }
 
 

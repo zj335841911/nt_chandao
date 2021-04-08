@@ -24,14 +24,14 @@ public interface PSSystemDBCfgFeignClient {
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/pssystemdbcfgs")
-    PSSystemDBCfg create(@RequestBody PSSystemDBCfg pssystemdbcfg);
+    PSSystemDBCfg create(@RequestBody PSSystemDBCfg et);
 
     @RequestMapping(method = RequestMethod.POST, value = "/pssystemdbcfgs/batch")
     Boolean createBatch(@RequestBody List<PSSystemDBCfg> pssystemdbcfgs);
 
 
     @RequestMapping(method = RequestMethod.PUT, value = "/pssystemdbcfgs/{pssystemdbcfgid}")
-    PSSystemDBCfg update(@PathVariable("pssystemdbcfgid") String pssystemdbcfgid, @RequestBody PSSystemDBCfg pssystemdbcfg);
+    PSSystemDBCfg update(@PathVariable("pssystemdbcfgid") String pssystemdbcfgid, @RequestBody PSSystemDBCfg et);
 
     @RequestMapping(method = RequestMethod.PUT, value = "/pssystemdbcfgs/batch")
     Boolean updateBatch(@RequestBody List<PSSystemDBCfg> pssystemdbcfgs);
@@ -52,15 +52,17 @@ public interface PSSystemDBCfgFeignClient {
 
 
     @RequestMapping(method = RequestMethod.GET, value = "/pssystemdbcfgs/getdraft")
-    PSSystemDBCfg getDraft();
+    PSSystemDBCfg getDraft(PSSystemDBCfg entity);
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/pssystemdbcfgs/checkkey")
-    Boolean checkKey(@RequestBody PSSystemDBCfg pssystemdbcfg);
+    Boolean checkKey(@RequestBody PSSystemDBCfg et);
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/pssystemdbcfgs/save")
-    Boolean save(@RequestBody PSSystemDBCfg pssystemdbcfg);
+    Object saveEntity(@RequestBody PSSystemDBCfg et);
+
+    default Boolean save(@RequestBody PSSystemDBCfg et) { return saveEntity(et)!=null; }
 
     @RequestMapping(method = RequestMethod.POST, value = "/pssystemdbcfgs/savebatch")
     Boolean saveBatch(@RequestBody List<PSSystemDBCfg> pssystemdbcfgs);

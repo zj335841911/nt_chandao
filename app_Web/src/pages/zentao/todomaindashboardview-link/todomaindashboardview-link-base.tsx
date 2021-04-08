@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { DashboardViewBase } from '@/studio-core';
 import TodoService from '@/service/todo/todo-service';
 import TodoAuthService from '@/authservice/todo/todo-auth-service';
@@ -152,7 +152,7 @@ export class Todomaindashboardview_linkBase extends DashboardViewBase {
      * @type {string}
      * @memberof Todomaindashboardview_linkBase
      */
-	protected viewtag: string = '2d522dfacc8d37f56c2d684791a39d5d';
+	protected viewtag: string = '9683a2348afcd552208200ff81e3ff8a';
 
     /**
      * 视图名称

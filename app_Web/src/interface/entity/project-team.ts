@@ -7,12 +7,28 @@
 export interface ProjectTeam {
 
     /**
-     * 加盟日
+     * 角色
      *
      * @returns {*}
      * @memberof ProjectTeam
      */
-    join?: any;
+    role?: any;
+
+    /**
+     * 受限用户
+     *
+     * @returns {*}
+     * @memberof ProjectTeam
+     */
+    limited?: any;
+
+    /**
+     * 总计可用
+     *
+     * @returns {*}
+     * @memberof ProjectTeam
+     */
+    total?: any;
 
     /**
      * 用户
@@ -20,23 +36,7 @@ export interface ProjectTeam {
      * @returns {*}
      * @memberof ProjectTeam
      */
-    account?: any;
-
-    /**
-     * 可用工时/天
-     *
-     * @returns {*}
-     * @memberof ProjectTeam
-     */
-    hours?: any;
-
-    /**
-     * 预计剩余
-     *
-     * @returns {*}
-     * @memberof ProjectTeam
-     */
-    left?: any;
+    username?: any;
 
     /**
      * 可用工日
@@ -45,6 +45,30 @@ export interface ProjectTeam {
      * @memberof ProjectTeam
      */
     days?: any;
+
+    /**
+     * 退场时间
+     *
+     * @returns {*}
+     * @memberof ProjectTeam
+     */
+    exitdate?: any;
+
+    /**
+     * 团队类型
+     *
+     * @returns {*}
+     * @memberof ProjectTeam
+     */
+    type?: any;
+
+    /**
+     * 排序
+     *
+     * @returns {*}
+     * @memberof ProjectTeam
+     */
+    order?: any;
 
     /**
      * 编号
@@ -63,12 +87,12 @@ export interface ProjectTeam {
     consumed?: any;
 
     /**
-     * 排序
+     * 用户
      *
      * @returns {*}
      * @memberof ProjectTeam
      */
-    order?: any;
+    account?: any;
 
     /**
      * 最初预计
@@ -79,52 +103,20 @@ export interface ProjectTeam {
     estimate?: any;
 
     /**
-     * 受限用户
+     * 加盟日
      *
      * @returns {*}
      * @memberof ProjectTeam
      */
-    limited?: any;
+    join?: any;
 
     /**
-     * 角色
+     * 可用工时/天
      *
      * @returns {*}
      * @memberof ProjectTeam
      */
-    role?: any;
-
-    /**
-     * 团队类型
-     *
-     * @returns {*}
-     * @memberof ProjectTeam
-     */
-    type?: any;
-
-    /**
-     * 总计可用
-     *
-     * @returns {*}
-     * @memberof ProjectTeam
-     */
-    total?: any;
-
-    /**
-     * 项目编号
-     *
-     * @returns {*}
-     * @memberof ProjectTeam
-     */
-    root?: any;
-
-    /**
-     * 用户
-     *
-     * @returns {*}
-     * @memberof ProjectTeam
-     */
-    username?: any;
+    hours?: any;
 
     /**
      * 任务数
@@ -133,4 +125,36 @@ export interface ProjectTeam {
      * @memberof ProjectTeam
      */
     taskcnt?: any;
+
+    /**
+     * 预计剩余
+     *
+     * @returns {*}
+     * @memberof ProjectTeam
+     */
+    left?: any;
+
+    /**
+     * 项目经理
+     *
+     * @returns {*}
+     * @memberof ProjectTeam
+     */
+    pm?: any;
+
+    /**
+     * 所属项目
+     *
+     * @returns {*}
+     * @memberof ProjectTeam
+     */
+    projectname?: any;
+
+    /**
+     * 项目编号
+     *
+     * @returns {*}
+     * @memberof ProjectTeam
+     */
+    root?: any;
 }

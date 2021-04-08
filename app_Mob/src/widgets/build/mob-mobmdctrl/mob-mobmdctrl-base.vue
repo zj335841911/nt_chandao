@@ -5,8 +5,8 @@
                 <template v-if="(viewType == 'DEMOBMDVIEW9') && controlStyle != 'SWIPERVIEW' ">
                     <ion-item-sliding ref="sliding" v-for="(item,index) in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
-                            <ion-item-option v-show="item.MobEditBuild.visabled" :disabled="item.MobEditBuild.disabled" color="primary" @click="mdctrl_click($event, 'ud918ed6', item)"><app-mob-icon v-if="item.MobEditBuild.icon && item.MobEditBuild.isShowIcon" :name="item.MobEditBuild.icon"></app-mob-icon><ion-label v-if="item.MobEditBuild.isShowCaption">编辑版本</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.MobDelete.visabled" :disabled="item.MobDelete.disabled" color="primary" @click="mdctrl_click($event, 'u651837c', item)"><app-mob-icon v-if="item.MobDelete.icon && item.MobDelete.isShowIcon" :name="item.MobDelete.icon"></app-mob-icon><ion-label v-if="item.MobDelete.isShowCaption">删除</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.MobEditBuild.visabled" :disabled="item.MobEditBuild.disabled" color="primary" @click="mdctrl_click($event, 'u2c9112f', item)"><app-mob-icon v-if="item.MobEditBuild.icon && item.MobEditBuild.isShowIcon" :name="item.MobEditBuild.icon"></app-mob-icon><ion-label v-if="item.MobEditBuild.isShowCaption">编辑版本</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.MobDelete.visabled" :disabled="item.MobDelete.disabled" color="primary" @click="mdctrl_click($event, 'uc3b23ac', item)"><app-mob-icon v-if="item.MobDelete.icon && item.MobDelete.isShowIcon" :name="item.MobDelete.icon"></app-mob-icon><ion-label v-if="item.MobDelete.isShowCaption">删除</ion-label></ion-item-option>
                         </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
@@ -21,8 +21,8 @@
                 <template v-if="(viewType == 'DEMOBMDVIEW') && controlStyle != 'SWIPERVIEW' ">
                       <ion-item-sliding  :ref="item.srfkey" v-for="(item,index) in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
                         <ion-item-options v-if="controlStyle != 'LISTVIEW3'" side="end">
-                            <ion-item-option v-show="item.MobEditBuild.visabled" :disabled="item.MobEditBuild.disabled" color="primary" @click="mdctrl_click($event, 'ud918ed6', item)"><app-mob-icon v-if="item.MobEditBuild.icon && item.MobEditBuild.isShowIcon" :name="item.MobEditBuild.icon"></app-mob-icon><ion-label v-if="item.MobEditBuild.isShowCaption">编辑版本</ion-label></ion-item-option>
-                            <ion-item-option v-show="item.MobDelete.visabled" :disabled="item.MobDelete.disabled" color="primary" @click="mdctrl_click($event, 'u651837c', item)"><app-mob-icon v-if="item.MobDelete.icon && item.MobDelete.isShowIcon" :name="item.MobDelete.icon"></app-mob-icon><ion-label v-if="item.MobDelete.isShowCaption">删除</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.MobEditBuild.visabled" :disabled="item.MobEditBuild.disabled" color="primary" @click="mdctrl_click($event, 'u2c9112f', item)"><app-mob-icon v-if="item.MobEditBuild.icon && item.MobEditBuild.isShowIcon" :name="item.MobEditBuild.icon"></app-mob-icon><ion-label v-if="item.MobEditBuild.isShowCaption">编辑版本</ion-label></ion-item-option>
+                            <ion-item-option v-show="item.MobDelete.visabled" :disabled="item.MobDelete.disabled" color="primary" @click="mdctrl_click($event, 'uc3b23ac', item)"><app-mob-icon v-if="item.MobDelete.icon && item.MobDelete.isShowIcon" :name="item.MobDelete.icon"></app-mob-icon><ion-label v-if="item.MobDelete.isShowCaption">删除</ion-label></ion-item-option>
                         </ion-item-options>
                         <div style="width:100%;">
                             <ion-item class="ibz-ionic-item">
@@ -235,7 +235,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * @returns {Promise<any>}
      * @memberof MdctrlBase
      */
-    protected async mdctrl_ud918ed6_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async mdctrl_u2c9112f_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
 
         // 取数
         let datas: any[] = [];
@@ -266,7 +266,7 @@ export default class MobBase extends Vue implements ControlInterface {
      * @returns {Promise<any>}
      * @memberof MdctrlBase
      */
-    protected async mdctrl_u651837c_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async mdctrl_uc3b23ac_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
 
         // 取数
         let datas: any[] = [];
@@ -1008,11 +1008,11 @@ export default class MobBase extends Vue implements ControlInterface {
         $event.stopPropagation();
         this.selectedArray = [];
         this.selectedArray.push(item);
-        if (Object.is(tag, 'ud918ed6')) {
-            this.mdctrl_ud918ed6_click();
+        if (Object.is(tag, 'u2c9112f')) {
+            this.mdctrl_u2c9112f_click();
         }
-        if (Object.is(tag, 'u651837c')) {
-            this.mdctrl_u651837c_click();
+        if (Object.is(tag, 'uc3b23ac')) {
+            this.mdctrl_uc3b23ac_click();
         }
         this.closeSlidings(item);
     }

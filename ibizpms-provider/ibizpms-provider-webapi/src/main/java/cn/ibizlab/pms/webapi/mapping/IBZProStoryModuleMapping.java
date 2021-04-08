@@ -12,4 +12,3 @@ public interface IBZProStoryModuleMapping extends MappingBase<IBZProStoryModuleD
 
 
 }
-

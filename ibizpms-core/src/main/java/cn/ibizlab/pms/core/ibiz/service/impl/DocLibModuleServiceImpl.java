@@ -54,44 +54,16 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.IDocLibService doclibService;
 
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.ibiz.service.logic.IDocLibModuleFixPathLogic fixpathLogic;
-
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.ibiz.service.logic.IDocLibModuleUpdate__MSDenyLogic update__msdenyLogic;
-
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.ibiz.service.logic.IDocLibModuleRemove__MSDenyLogic remove__msdenyLogic;
-
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.ibiz.service.logic.IDocLibModuleCurUserIsFLogic curuserisfLogic;
-
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.ibiz.service.logic.IDocLibModuleDoclibModuleNFavoriteLogic doclibmodulenfavoriteLogic;
-
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.ibiz.service.logic.IDocLibModuleDocLibModuleFavoriteLogic doclibmodulefavoriteLogic;
-    @Autowired
-    @Lazy
-    IDocLibModuleService proxyService;
-
     protected int batchSize = 500;
 
     @Override
     @Transactional
     public boolean create(DocLibModule et) {
         fillParentData(et);
-        if (!this.retBool(this.baseMapper.insert(et))) {
+        if(!this.retBool(this.baseMapper.insert(et))) {
             return false;
         }
         CachedBeanCopier.copy(get(et.getId()), et);
-        fixpathLogic.execute(et);
         return true;
     }
 
@@ -106,11 +78,10 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
     @Transactional
     public boolean update(DocLibModule et) {
         fillParentData(et);
-        if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", et.getId()))) {
+        if(!update(et, (Wrapper) et.getUpdateWrapper(true).eq("id", et.getId()))) {
             return false;
         }
         CachedBeanCopier.copy(get(et.getId()), et);
-        fixpathLogic.execute(et);
         return true;
     }
 
@@ -124,10 +95,8 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
     @Override
     @Transactional
     public boolean remove(Long key) {
-        DocLibModule et = new DocLibModule();
-        et.set("id", key);
         boolean result = removeById(key);
-        return result;
+        return result ;
     }
 
     @Override
@@ -139,16 +108,13 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
     @Override
     @Transactional
     public DocLibModule get(Long key) {
-        DocLibModule tempET = new DocLibModule();
-        tempET.set("id", key);
         DocLibModule et = getById(key);
-        if (et == null) {
+        if(et == null){
             et = new DocLibModule();
             et.setId(key);
         }
         else {
         }
-        curuserisfLogic.execute(et);
         return et;
     }
 
@@ -168,7 +134,8 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
         //自定义代码
         return et;
     }
-   @Override
+
+    @Override
     @Transactional
     public boolean collectBatch(List<DocLibModule> etList) {
         for(DocLibModule et : etList) {
@@ -180,28 +147,25 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
     @Override
     @Transactional
     public DocLibModule docLibModuleNFavorite(DocLibModule et) {
-        doclibmodulenfavoriteLogic.execute(et);
-         return et;
+         return et ;
     }
 
     @Override
     @Transactional
     public DocLibModule doclibModuleFavorite(DocLibModule et) {
-        doclibmodulefavoriteLogic.execute(et);
-         return et;
+         return et ;
     }
 
     @Override
     @Transactional
     public DocLibModule fix(DocLibModule et) {
-        fixpathLogic.execute(et);
-         return et;
+         return et ;
     }
 
     @Override
     @Transactional
     public boolean save(DocLibModule et) {
-        if (!saveOrUpdate(et)) {
+        if(!saveOrUpdate(et)) {
             return false;
         }
         return true;
@@ -213,7 +177,7 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
+            return checkKey(et) ? getProxyService().update(et) : getProxyService().create(et);
         }
     }
 
@@ -231,10 +195,10 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
         return true;
     }
@@ -242,7 +206,7 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
     @Override
     @Transactional
     public void saveBatch(List<DocLibModule> list) {
-        list.forEach(item -> fillParentData(item));
+        list.forEach(item->fillParentData(item));
         List<DocLibModule> create = new ArrayList<>();
         List<DocLibModule> update = new ArrayList<>();
         for (DocLibModule et : list) {
@@ -253,10 +217,10 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
     }
 
@@ -266,7 +230,8 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
         //自定义代码
         return et;
     }
-   @Override
+
+    @Override
     @Transactional
     public boolean unCollectBatch(List<DocLibModule> etList) {
         for(DocLibModule et : etList) {
@@ -276,22 +241,22 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
     }
 
 
-    @Override
+	@Override
     public List<DocLibModule> selectByParent(Long id) {
         return baseMapper.selectByParent(id);
     }
     @Override
     public void removeByParent(Long id) {
-        this.remove(new QueryWrapper<DocLibModule>().eq("parent", id));
+        this.remove(new QueryWrapper<DocLibModule>().eq("parent",id));
     }
 
-    @Override
+	@Override
     public List<DocLibModule> selectByRoot(Long id) {
         return baseMapper.selectByRoot(id);
     }
     @Override
     public void removeByRoot(Long id) {
-        this.remove(new QueryWrapper<DocLibModule>().eq("root", id));
+        this.remove(new QueryWrapper<DocLibModule>().eq("root",id));
     }
 
 
@@ -300,7 +265,7 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
      */
     @Override
     public Page<DocLibModule> searchAllDocLibModule_Custom(DocLibModuleSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<DocLibModule> pages=baseMapper.searchAllDocLibModule_Custom(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<DocLibModule> pages=baseMapper.searchAllDocLibModule_Custom(context.getPages(),context,context.getSelectCond());
         return new PageImpl<DocLibModule>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -309,7 +274,7 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
      */
     @Override
     public Page<DocLibModule> searchAllDoclibModule(DocLibModuleSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<DocLibModule> pages=baseMapper.searchAllDoclibModule(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<DocLibModule> pages=baseMapper.searchAllDoclibModule(context.getPages(),context,context.getSelectCond());
         return new PageImpl<DocLibModule>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -318,7 +283,7 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
      */
     @Override
     public Page<DocLibModule> searchChildModuleByParent(DocLibModuleSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<DocLibModule> pages=baseMapper.searchChildModuleByParent(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<DocLibModule> pages=baseMapper.searchChildModuleByParent(context.getPages(),context,context.getSelectCond());
         return new PageImpl<DocLibModule>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -327,7 +292,7 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
      */
     @Override
     public Page<DocLibModule> searchChildModuleByRealParent(DocLibModuleSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<DocLibModule> pages=baseMapper.searchChildModuleByRealParent(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<DocLibModule> pages=baseMapper.searchChildModuleByRealParent(context.getPages(),context,context.getSelectCond());
         return new PageImpl<DocLibModule>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -336,7 +301,7 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
      */
     @Override
     public Page<DocLibModule> searchDefault(DocLibModuleSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<DocLibModule> pages=baseMapper.searchDefault(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<DocLibModule> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
         return new PageImpl<DocLibModule>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -345,7 +310,7 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
      */
     @Override
     public Page<DocLibModule> searchMyFavourites(DocLibModuleSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<DocLibModule> pages=baseMapper.searchMyFavourites(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<DocLibModule> pages=baseMapper.searchMyFavourites(context.getPages(),context,context.getSelectCond());
         return new PageImpl<DocLibModule>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -354,7 +319,7 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
      */
     @Override
     public Page<DocLibModule> searchParentModule(DocLibModuleSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<DocLibModule> pages=baseMapper.searchParentModule(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<DocLibModule> pages=baseMapper.searchParentModule(context.getPages(),context,context.getSelectCond());
         return new PageImpl<DocLibModule>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -363,7 +328,7 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
      */
     @Override
     public Page<DocLibModule> searchRootModuleMuLu(DocLibModuleSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<DocLibModule> pages=baseMapper.searchRootModuleMuLu(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<DocLibModule> pages=baseMapper.searchRootModuleMuLu(context.getPages(),context,context.getSelectCond());
         return new PageImpl<DocLibModule>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -372,7 +337,7 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
      */
     @Override
     public Page<DocLibModule> searchRootModuleMuLuByRoot(DocLibModuleSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<DocLibModule> pages=baseMapper.searchRootModuleMuLuByRoot(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<DocLibModule> pages=baseMapper.searchRootModuleMuLuByRoot(context.getPages(),context,context.getSelectCond());
         return new PageImpl<DocLibModule>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -381,7 +346,7 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
      */
     @Override
     public Page<DocLibModule> searchRootModuleMuLuBysrfparentkey(DocLibModuleSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<DocLibModule> pages=baseMapper.searchRootModuleMuLuBysrfparentkey(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<DocLibModule> pages=baseMapper.searchRootModuleMuLuBysrfparentkey(context.getPages(),context,context.getSelectCond());
         return new PageImpl<DocLibModule>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -393,22 +358,22 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
      */
     private void fillParentData(DocLibModule et){
         //实体关系[DER1N_IBZ_DOCLIBMODULE_IBZ_DOCLIBMODULE_PARENT]
-        if (!ObjectUtils.isEmpty(et.getParent())) {
+        if(!ObjectUtils.isEmpty(et.getParent())){
             cn.ibizlab.pms.core.ibiz.domain.DocLibModule pdoclibmodule=et.getPdoclibmodule();
-            if (ObjectUtils.isEmpty(pdoclibmodule)) {
+            if(ObjectUtils.isEmpty(pdoclibmodule)){
                 cn.ibizlab.pms.core.ibiz.domain.DocLibModule majorEntity=doclibmoduleService.get(et.getParent());
                 et.setPdoclibmodule(majorEntity);
-                pdoclibmodule = majorEntity;
+                pdoclibmodule=majorEntity;
             }
             et.setModulename(pdoclibmodule.getName());
         }
         //实体关系[DER1N_IBZ_DOCLIBMODULE_ZT_DOCLIB_ROOT]
-        if (!ObjectUtils.isEmpty(et.getRoot())) {
+        if(!ObjectUtils.isEmpty(et.getRoot())){
             cn.ibizlab.pms.core.zentao.domain.DocLib doclib=et.getDoclib();
-            if (ObjectUtils.isEmpty(doclib)) {
+            if(ObjectUtils.isEmpty(doclib)){
                 cn.ibizlab.pms.core.zentao.domain.DocLib majorEntity=doclibService.get(et.getRoot());
                 et.setDoclib(majorEntity);
-                doclib = majorEntity;
+                doclib=majorEntity;
             }
             et.setDoclibname(doclib.getName());
         }
@@ -418,24 +383,24 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
 
 
     @Override
-    public List<JSONObject> select(String sql, Map param) {
-        return this.baseMapper.selectBySQL(sql, param);
+    public List<JSONObject> select(String sql, Map param){
+        return this.baseMapper.selectBySQL(sql,param);
     }
 
     @Override
     @Transactional
-    public boolean execute(String sql, Map param) {
+    public boolean execute(String sql , Map param){
         if (sql == null || sql.isEmpty()) {
             return false;
         }
         if (sql.toLowerCase().trim().startsWith("insert")) {
-            return this.baseMapper.insertBySQL(sql, param);
+            return this.baseMapper.insertBySQL(sql,param);
         }
         if (sql.toLowerCase().trim().startsWith("update")) {
-            return this.baseMapper.updateBySQL(sql, param);
+            return this.baseMapper.updateBySQL(sql,param);
         }
         if (sql.toLowerCase().trim().startsWith("delete")) {
-            return this.baseMapper.deleteBySQL(sql, param);
+            return this.baseMapper.deleteBySQL(sql,param);
         }
         log.warn("暂未支持的SQL语法");
         return true;
@@ -443,9 +408,9 @@ public class DocLibModuleServiceImpl extends ServiceImpl<DocLibModuleMapper, Doc
 
 
 
-
-
+    public IDocLibModuleService getProxyService() {
+        return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
+    }
 }
-
 
 

@@ -72,7 +72,7 @@ public class IBZProProductResource {
 		IBZProProduct domain  = ibzproproductMapping.toDomain(ibzproproductdto);
         domain .setId(ibzproproduct_id);
 		ibzproproductService.update(domain );
-		IBZProProductDTO dto = ibzproproductMapping.toDto(domain );
+		IBZProProductDTO dto = ibzproproductMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
@@ -110,8 +110,9 @@ public class IBZProProductResource {
 
     @ApiOperation(value = "获取平台产品草稿", tags = {"平台产品" },  notes = "获取平台产品草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/ibzproproducts/getdraft")
-    public ResponseEntity<IBZProProductDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(ibzproproductMapping.toDto(ibzproproductService.getDraft(new IBZProProduct())));
+    public ResponseEntity<IBZProProductDTO> getDraft(IBZProProductDTO dto) {
+        IBZProProduct domain = ibzproproductMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(ibzproproductMapping.toDto(ibzproproductService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查平台产品", tags = {"平台产品" },  notes = "检查平台产品")
@@ -123,8 +124,10 @@ public class IBZProProductResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IBZProProduct-Save-all')")
     @ApiOperation(value = "保存平台产品", tags = {"平台产品" },  notes = "保存平台产品")
 	@RequestMapping(method = RequestMethod.POST, value = "/ibzproproducts/save")
-    public ResponseEntity<Boolean> save(@RequestBody IBZProProductDTO ibzproproductdto) {
-        return ResponseEntity.status(HttpStatus.OK).body(ibzproproductService.save(ibzproproductMapping.toDomain(ibzproproductdto)));
+    public ResponseEntity<IBZProProductDTO> save(@RequestBody IBZProProductDTO ibzproproductdto) {
+        IBZProProduct domain = ibzproproductMapping.toDomain(ibzproproductdto);
+        ibzproproductService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(ibzproproductMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IBZProProduct-Save-all')")
@@ -156,6 +159,7 @@ public class IBZProProductResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(ibzproproductMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
 
 
 }

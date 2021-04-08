@@ -73,7 +73,7 @@ public class IbzLibResource {
 		IbzLib domain  = ibzlibMapping.toDomain(ibzlibdto);
         domain .setId(ibzlib_id);
 		ibzlibService.update(domain );
-		IbzLibDTO dto = ibzlibMapping.toDto(domain );
+		IbzLibDTO dto = ibzlibMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
@@ -111,8 +111,9 @@ public class IbzLibResource {
 
     @ApiOperation(value = "获取用例库草稿", tags = {"用例库" },  notes = "获取用例库草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/ibzlibs/getdraft")
-    public ResponseEntity<IbzLibDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(ibzlibMapping.toDto(ibzlibService.getDraft(new IbzLib())));
+    public ResponseEntity<IbzLibDTO> getDraft(IbzLibDTO dto) {
+        IbzLib domain = ibzlibMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(ibzlibMapping.toDto(ibzlibService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查用例库", tags = {"用例库" },  notes = "检查用例库")
@@ -124,8 +125,10 @@ public class IbzLibResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzLib-Save-all')")
     @ApiOperation(value = "保存用例库", tags = {"用例库" },  notes = "保存用例库")
 	@RequestMapping(method = RequestMethod.POST, value = "/ibzlibs/save")
-    public ResponseEntity<Boolean> save(@RequestBody IbzLibDTO ibzlibdto) {
-        return ResponseEntity.status(HttpStatus.OK).body(ibzlibService.save(ibzlibMapping.toDomain(ibzlibdto)));
+    public ResponseEntity<IbzLibDTO> save(@RequestBody IbzLibDTO ibzlibdto) {
+        IbzLib domain = ibzlibMapping.toDomain(ibzlibdto);
+        ibzlibService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(ibzlibMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzLib-Save-all')")
@@ -157,6 +160,7 @@ public class IbzLibResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(ibzlibMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
 
 
 }

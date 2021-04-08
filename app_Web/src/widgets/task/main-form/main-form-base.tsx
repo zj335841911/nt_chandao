@@ -302,7 +302,7 @@ export class MainEditFormBase extends EditFormControlBase {
 }),
 
         module: new FormItemModel({
-    caption: 'id', detailType: 'FORMITEM', name: 'module', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    caption: '模块', detailType: 'FORMITEM', name: 'module', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,

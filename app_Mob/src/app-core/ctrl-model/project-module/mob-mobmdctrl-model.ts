@@ -25,13 +25,13 @@ export class MobModel {
 				dataType: 'TEXT',
 			},
 			{
-				name: 'parent',
-				prop: 'parent',
+				name: 'root',
+				prop: 'root',
 				dataType: 'PICKUP',
 			},
 			{
-				name: 'root',
-				prop: 'root',
+				name: 'parent',
+				prop: 'parent',
 				dataType: 'PICKUP',
 			},
 			{

@@ -90,19 +90,19 @@ export default class IbzDailyUIActionBase extends EntityUIActionBase {
      * @memberof  IbzDailyUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set(':',{viewname:'myremobeditview',srfappde:'ibzdailies'});
-        this.allViewMap.set(':',{viewname:'mymobmdview',srfappde:'ibzdailies'});
-        this.allViewMap.set('MOBEDITVIEW:',{viewname:'mobeditview',srfappde:'ibzdailies'});
-        this.allViewMap.set(':',{viewname:'dailycreatemobeditview',srfappde:'ibzdailies'});
-        this.allViewMap.set(':',{viewname:'reportreceivedmobmdview',srfappde:'ibzdailies'});
-        this.allViewMap.set(':',{viewname:'dailymobtabexpview',srfappde:'ibzdailies'});
-        this.allViewMap.set(':',{viewname:'dailymobeditview',srfappde:'ibzdailies'});
-        this.allViewMap.set(':',{viewname:'dailyinfomobeditview',srfappde:'ibzdailies'});
-        this.allViewMap.set(':',{viewname:'mydailymobtabexpview',srfappde:'ibzdailies'});
-        this.allViewMap.set(':',{viewname:'dailyplanstomorrowtaskmobmdview',srfappde:'ibzdailies'});
-        this.allViewMap.set(':',{viewname:'dailycompletetaskmobmdview',srfappde:'ibzdailies'});
         this.allViewMap.set(':',{viewname:'dailymobmdview',srfappde:'ibzdailies'});
         this.allViewMap.set(':',{viewname:'dailyreportsubmitmobmdview',srfappde:'ibzdailies'});
+        this.allViewMap.set(':',{viewname:'dailycreatemobeditview',srfappde:'ibzdailies'});
+        this.allViewMap.set(':',{viewname:'dailymobeditview',srfappde:'ibzdailies'});
+        this.allViewMap.set(':',{viewname:'dailycompletetaskmobmdview',srfappde:'ibzdailies'});
+        this.allViewMap.set(':',{viewname:'reportreceivedmobmdview',srfappde:'ibzdailies'});
+        this.allViewMap.set(':',{viewname:'dailymobtabexpview',srfappde:'ibzdailies'});
+        this.allViewMap.set(':',{viewname:'mydailymobtabexpview',srfappde:'ibzdailies'});
+        this.allViewMap.set('MOBEDITVIEW:',{viewname:'mobeditview',srfappde:'ibzdailies'});
+        this.allViewMap.set(':',{viewname:'mymobmdview',srfappde:'ibzdailies'});
+        this.allViewMap.set(':',{viewname:'myremobeditview',srfappde:'ibzdailies'});
+        this.allViewMap.set(':',{viewname:'dailyplanstomorrowtaskmobmdview',srfappde:'ibzdailies'});
+        this.allViewMap.set(':',{viewname:'dailyinfomobeditview',srfappde:'ibzdailies'});
     }
 
     /**
@@ -123,6 +123,49 @@ export default class IbzDailyUIActionBase extends EntityUIActionBase {
     public initDeMainStateOPPrivsMap(){
         this.allDeMainStateOPPrivsMap.set('1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__DAILY_SUBMIT_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{}));
+    }
+
+    /**
+     * 编辑
+     *
+     * @param {any[]} args 数据
+     * @param {*} [contextJO={}] 行为上下文
+     * @param {*} [paramJO={}] 行为参数
+     * @param {*} [$event] 事件
+     * @param {*} [xData] 数据目标
+     * @param {*} [container] 行为容器对象
+     * @param {string} [srfParentDeName] 
+     * @returns {Promise<any>}
+     * @memberof IbzDailyUIService
+     */
+    public async IbzDaily_MobEdit(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(contextJO, { ibzdaily: '%ibzdaily%' });
+        Object.assign(paramJO, { ibzdailyid: '%ibzdaily%' });
+        Object.assign(paramJO, { ibzdailyname: '%ibzdailyname%' });
+            
+        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
+        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
+        context = { ...container.context, ...context };
+        let parentObj: any = {
+            srfparentdename: srfParentDeName ? srfParentDeName : null,
+            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
+        };
+        Object.assign(context, parentObj);
+        Object.assign(params, parentObj);
+        let panelNavParam= { "date": "%date%" } ;
+        let panelNavContext= { "date": "%date%" } ;
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
+        let response: any = null;
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'ibzdailies', parameterName: 'ibzdaily' },
+            { pathName: 'dailymobeditview', parameterName: 'dailymobeditview' },
+        ];
+        const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
+        response = await this.openService.openView(routeParam);
+        return response;
     }
 
     /**
@@ -180,49 +223,6 @@ export default class IbzDailyUIActionBase extends EntityUIActionBase {
             return response;
         };
         return backend();
-    }
-
-    /**
-     * 编辑
-     *
-     * @param {any[]} args 数据
-     * @param {*} [contextJO={}] 行为上下文
-     * @param {*} [paramJO={}] 行为参数
-     * @param {*} [$event] 事件
-     * @param {*} [xData] 数据目标
-     * @param {*} [container] 行为容器对象
-     * @param {string} [srfParentDeName] 
-     * @returns {Promise<any>}
-     * @memberof IbzDailyUIService
-     */
-    public async IbzDaily_MobEdit(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(contextJO, { ibzdaily: '%ibzdaily%' });
-        Object.assign(paramJO, { ibzdailyid: '%ibzdaily%' });
-        Object.assign(paramJO, { ibzdailyname: '%ibzdailyname%' });
-            
-        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
-        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
-        context = { ...container.context, ...context };
-        let parentObj: any = {
-            srfparentdename: srfParentDeName ? srfParentDeName : null,
-            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
-        };
-        Object.assign(context, parentObj);
-        Object.assign(params, parentObj);
-        let panelNavParam= { "date": "%date%" } ;
-        let panelNavContext= { "date": "%date%" } ;
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
-        let response: any = null;
-        const deResParameters: any[] = [];
-        const parameters: any[] = [
-            { pathName: 'ibzdailies', parameterName: 'ibzdaily' },
-            { pathName: 'dailymobeditview', parameterName: 'dailymobeditview' },
-        ];
-        const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
-        response = await this.openService.openView(routeParam);
-        return response;
     }
 
     /**

@@ -113,7 +113,7 @@ export default class TaskTeamMobMEditView9Base extends Vue {
 	 * @type {string}
 	 * @memberof TaskTeamMobMEditView9Base
 	 */
-	protected viewtag: string = 'b33e569c1f501174e55e46274bf76406';
+	protected viewtag: string = '4bc49227ec9547eb6fa613706771da38';
 
     /**
      * 视图上下文

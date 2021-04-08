@@ -15,13 +15,13 @@ export class MobModel {
 	public getDataItems(): any[] {
 		return [
 			{
-				name: 'type',
+				name: 'upfeatures',
 			},
 			{
 				name: 'featuresdesc',
 			},
 			{
-				name: 'upfeatures',
+				name: 'type',
 			},
 			{
 				name: 'srfkey',

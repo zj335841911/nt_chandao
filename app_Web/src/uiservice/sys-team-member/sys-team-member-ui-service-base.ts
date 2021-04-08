@@ -96,19 +96,19 @@ export default class SysTeamMemberUIServiceBase extends UIService {
      * @memberof  SysTeamMemberUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set('EDITVIEW:', {
-            viewname: 'editview',
+        this.allViewMap.set('MDATAVIEW:', {
+            viewname: 'gridview',
             srfappde: 'systeammembers',
-            component: 'sys-team-member-edit-view',
+            component: 'sys-team-member-grid-view',
             openmode: '',
             title: '组成员',
             width: 0,
             height: 0
         });
-        this.allViewMap.set('MDATAVIEW:', {
-            viewname: 'gridview',
+        this.allViewMap.set('EDITVIEW:', {
+            viewname: 'editview',
             srfappde: 'systeammembers',
-            component: 'sys-team-member-grid-view',
+            component: 'sys-team-member-edit-view',
             openmode: '',
             title: '组成员',
             width: 0,

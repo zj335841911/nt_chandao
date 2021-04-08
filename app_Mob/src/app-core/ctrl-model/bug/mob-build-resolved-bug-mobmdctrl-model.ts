@@ -15,24 +15,24 @@ export class MOB_Build_ResolvedBugModel {
 	public getDataItems(): any[] {
 		return [
 			{
-				name: 'pri1',
-				prop: 'pri',
-				dataType: 'NSCODELIST',
-			},
-			{
-				name: 'assignedto',
+				name: 'status',
 			},
 			{
 				name: 'severity',
 			},
 			{
-				name: 'resolution',
-			},
-			{
 				name: 'title',
 			},
 			{
-				name: 'status',
+				name: 'resolution',
+			},
+			{
+				name: 'assignedto',
+			},
+			{
+				name: 'pri1',
+				prop: 'pri',
+				dataType: 'NSCODELIST',
 			},
 			{
 				name: 'srfkey',

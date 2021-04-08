@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:g="http://www.jboss.org/drools/flow/gpd" xmlns:tns="http://www.jboss.org/drools" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" expressionLanguage="http://www.mvel.org/2.0" id="Definition" name="" targetNamespace="http://www.jboss.org/drools" typeLanguage="http://www.java.com/javaTypes">
-    <process id="cn.ibizlab.pms.core.zentao.service.logic.productremove__msdeny" isClosed="false" isExecutable="true" name="ScoreRule" processType="Private" tns:packageName="cn.ibizlab.pms.core.zentao.service.logic.productremove__msdeny">
+    <process id="cn.ibizlab.pms.core.zentao.service.logic.productremove__msdeny" isClosed="false" isExecutable="true" name="zentao_product_remove__msdeny_RuleFlow" processType="Private" tns:packageName="cn.ibizlab.pms.core.zentao.service.logic.productremove__msdeny">
         <extensionElements>
             <tns:import name="java.util.Map" />
             <tns:import name="org.springframework.util.StringUtils"/>
             <tns:import name="cn.ibizlab.pms.util.helper.RuleUtils"/>
+            <tns:metaData express="new cn.ibizlab.pms.core.zentao.domain.Product()" name="productremove__msdenytemp" type="refentity"/>
+            <tns:metaData express="" name="productremove__msdenydefault" type="entity"/>
+            <tns:metaData express="T(cn.ibizlab.pms.util.security.SpringContextHolder).getBean(T(cn.ibizlab.pms.core.zentao.service.IProductService))" name="productservice" type="service"/>
+            <tns:metaData express="T(cn.ibizlab.pms.util.security.SpringContextHolder).getBean(T(cn.ibizlab.pms.core.zentao.service.IProductService))" name="iBzSysProductDefaultService" type="service"/>
+            <tns:metaData express="T(cn.ibizlab.pms.util.security.AuthenticationUser).getAuthenticationUser()" name="curuser" type="session"/>
         <tns:global identifier="productremove__msdenytemp" type="cn.ibizlab.pms.core.zentao.domain.Product" />
         <tns:global identifier="productremove__msdenydefault" type="cn.ibizlab.pms.core.zentao.domain.Product" />
         </extensionElements>

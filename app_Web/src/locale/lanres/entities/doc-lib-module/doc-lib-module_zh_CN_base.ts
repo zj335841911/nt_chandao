@@ -3,36 +3,48 @@ function getLocaleResourceBase(){
 	const data:any = {
 		appdename: commonLogic.appcommonhandle("文档库分类", null),
 		fields: {
-			isleaf: commonLogic.appcommonhandle("叶子模块",null),
-			name: commonLogic.appcommonhandle("名称",null),
-			ibizshort: commonLogic.appcommonhandle("简称",null),
-			grade: commonLogic.appcommonhandle("grade",null),
-			collector: commonLogic.appcommonhandle("collector",null),
-			branch: commonLogic.appcommonhandle("branch",null),
-			id: commonLogic.appcommonhandle("id",null),
-			order: commonLogic.appcommonhandle("排序值",null),
-			deleted: commonLogic.appcommonhandle("逻辑删除标志",null),
-			path: commonLogic.appcommonhandle("path",null),
-			owner: commonLogic.appcommonhandle("owner",null),
-			type: commonLogic.appcommonhandle("类型",null),
-			root: commonLogic.appcommonhandle("编号",null),
-			parent: commonLogic.appcommonhandle("id",null),
-			doclibname: commonLogic.appcommonhandle("所属文档库",null),
-			modulename: commonLogic.appcommonhandle("上级模块",null),
-			docqtype: commonLogic.appcommonhandle("查询类型",null),
 			isfavourites: commonLogic.appcommonhandle("是否已收藏",null),
+			grade: commonLogic.appcommonhandle("grade",null),
+			path: commonLogic.appcommonhandle("path",null),
+			order: commonLogic.appcommonhandle("排序值",null),
+			name: commonLogic.appcommonhandle("名称",null),
+			docqtype: commonLogic.appcommonhandle("查询类型",null),
+			owner: commonLogic.appcommonhandle("owner",null),
+			branch: commonLogic.appcommonhandle("branch",null),
+			isleaf: commonLogic.appcommonhandle("叶子模块",null),
+			type: commonLogic.appcommonhandle("类型",null),
+			ibizshort: commonLogic.appcommonhandle("简称",null),
 			doccnt: commonLogic.appcommonhandle("文档数",null),
+			collector: commonLogic.appcommonhandle("collector",null),
+			id: commonLogic.appcommonhandle("id",null),
+			deleted: commonLogic.appcommonhandle("逻辑删除标志",null),
+			modulename: commonLogic.appcommonhandle("上级模块",null),
+			doclibname: commonLogic.appcommonhandle("所属文档库",null),
+			parent: commonLogic.appcommonhandle("id",null),
+			root: commonLogic.appcommonhandle("编号",null),
 		},
 			views: {
-				childweihuitreeexpview: {
-					caption: commonLogic.appcommonhandle("文档库分类实体树导航视图",null),
-					title: commonLogic.appcommonhandle("文档库分类树导航视图",null),
-				},
-				mpickupview: {
+				gridview: {
 					caption: commonLogic.appcommonhandle("文档库分类",null),
-					title: commonLogic.appcommonhandle("文档库分类数据多项选择视图",null),
+					title: commonLogic.appcommonhandle("文档库分类表格视图",null),
+				},
+				usr2gridview: {
+					caption: commonLogic.appcommonhandle("文档库分类",null),
+					title: commonLogic.appcommonhandle("文档库分类表格视图",null),
+				},
+				pickupgridview: {
+					caption: commonLogic.appcommonhandle("文档库分类",null),
+					title: commonLogic.appcommonhandle("文档库分类选择表格视图",null),
 				},
 				editviewmain: {
+					caption: commonLogic.appcommonhandle("文档库分类",null),
+					title: commonLogic.appcommonhandle("文档库分类编辑视图",null),
+				},
+				redirectview: {
+					caption: commonLogic.appcommonhandle("文档库分类",null),
+					title: commonLogic.appcommonhandle("文档库分类数据重定向视图",null),
+				},
+				editview2: {
 					caption: commonLogic.appcommonhandle("文档库分类",null),
 					title: commonLogic.appcommonhandle("文档库分类编辑视图",null),
 				},
@@ -44,25 +56,13 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("文档库分类",null),
 					title: commonLogic.appcommonhandle("文档库分类编辑视图",null),
 				},
-				gridview: {
+				mpickupview: {
 					caption: commonLogic.appcommonhandle("文档库分类",null),
-					title: commonLogic.appcommonhandle("文档库分类表格视图",null),
+					title: commonLogic.appcommonhandle("文档库分类数据多项选择视图",null),
 				},
-				pickupgridview: {
-					caption: commonLogic.appcommonhandle("文档库分类",null),
-					title: commonLogic.appcommonhandle("文档库分类选择表格视图",null),
-				},
-				editview2: {
-					caption: commonLogic.appcommonhandle("文档库分类",null),
-					title: commonLogic.appcommonhandle("文档库分类编辑视图",null),
-				},
-				redirectview: {
-					caption: commonLogic.appcommonhandle("文档库分类",null),
-					title: commonLogic.appcommonhandle("文档库分类数据重定向视图",null),
-				},
-				usr2gridview: {
-					caption: commonLogic.appcommonhandle("文档库分类",null),
-					title: commonLogic.appcommonhandle("文档库分类表格视图",null),
+				childweihuitreeexpview: {
+					caption: commonLogic.appcommonhandle("文档库分类实体树导航视图",null),
+					title: commonLogic.appcommonhandle("文档库分类树导航视图",null),
 				},
 				treeexpview: {
 					caption: commonLogic.appcommonhandle("文档库分类",null),
@@ -142,24 +142,6 @@ function getLocaleResourceBase(){
 					tip: commonLogic.appcommonhandle("保存行",null),
 				},
 			},
-			editviewtoolbar_toolbar: {
-				tbitem3: {
-					caption: commonLogic.appcommonhandle("保存",null),
-					tip: commonLogic.appcommonhandle("保存",null),
-				},
-				tbitem4: {
-					caption: commonLogic.appcommonhandle("保存并新建",null),
-					tip: commonLogic.appcommonhandle("保存并新建",null),
-				},
-				tbitem5: {
-					caption: commonLogic.appcommonhandle("保存并关闭",null),
-					tip: commonLogic.appcommonhandle("保存并关闭",null),
-				},
-				tbitem7: {
-					caption: commonLogic.appcommonhandle("删除",null),
-					tip: commonLogic.appcommonhandle("删除",null),
-				},
-			},
 			gridviewtoolbar_toolbar: {
 				tbitem3: {
 					caption: commonLogic.appcommonhandle("新建",null),
@@ -218,6 +200,24 @@ function getLocaleResourceBase(){
 					tip: commonLogic.appcommonhandle("帮助",null),
 				},
 			},
+			editviewtoolbar_toolbar: {
+				tbitem3: {
+					caption: commonLogic.appcommonhandle("保存",null),
+					tip: commonLogic.appcommonhandle("保存",null),
+				},
+				tbitem4: {
+					caption: commonLogic.appcommonhandle("保存并新建",null),
+					tip: commonLogic.appcommonhandle("保存并新建",null),
+				},
+				tbitem5: {
+					caption: commonLogic.appcommonhandle("保存并关闭",null),
+					tip: commonLogic.appcommonhandle("保存并关闭",null),
+				},
+				tbitem7: {
+					caption: commonLogic.appcommonhandle("删除",null),
+					tip: commonLogic.appcommonhandle("删除",null),
+				},
+			},
 			editview2toolbar_toolbar: {
 				tbitem3: {
 					caption: commonLogic.appcommonhandle("保存",null),
@@ -239,8 +239,8 @@ function getLocaleResourceBase(){
 			treedoclib_treeview: {
 				nodata:commonLogic.appcommonhandle("",null),
 				nodes: {
-					allmodule: commonLogic.appcommonhandle("所有分类",null),
 					root: commonLogic.appcommonhandle("默认根节点",null),
+					allmodule: commonLogic.appcommonhandle("所有分类",null),
 				},
 				uiactions: {
 					refreshall: commonLogic.appcommonhandle("刷新",null),

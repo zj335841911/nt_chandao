@@ -14,6 +14,7 @@ hide members
 | 属性名称        |    中文名称    | 类型     |  备注  |
 | --------   |------------| -----   |  -------- | 
 |负责人|MANAGER|SSCODELIST|&nbsp;|
+|无子部门|ISLEAF|TEXT|&nbsp;|
 |grade|GRADE|INT|&nbsp;|
 |function|FUNCTION|TEXT|&nbsp;|
 |order|ORDER|INT|&nbsp;|
@@ -23,12 +24,12 @@ hide members
 |部门名称|NAME|TEXT|&nbsp;|
 |上级部门|PARENTNAME|PICKUPTEXT|&nbsp;|
 |parent|PARENT|PICKUP|&nbsp;|
-|无子部门|ISLEAF|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
 | --------   |------------| ----- | 
 |负责人|默认规则|内容长度必须小于等于[30]|
+|无子部门|默认规则|内容长度必须小于等于[200]|
 |grade|默认规则|默认规则|
 |function|默认规则|内容长度必须小于等于[255]|
 |order|默认规则|默认规则|
@@ -38,7 +39,6 @@ hide members
 |部门名称|默认规则|内容长度必须小于等于[60]|
 |上级部门|默认规则|内容长度必须小于等于[60]|
 |parent|默认规则|默认规则|
-|无子部门|默认规则|内容长度必须小于等于[200]|
 
 ## 状态控制
 
@@ -65,7 +65,7 @@ hide members
 
 | 查询编号 | 查询名称       | 默认查询 |   备注|
 | --------  | --------   | --------   | ----- |
-|DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#Dept_Default))|否|&nbsp;|
+|DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#Dept_Default))|是|&nbsp;|
 |ROOT|根部门([MYSQL5](../../appendix/query_MYSQL5.md#Dept_Root))|否|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#Dept_View))|否|&nbsp;|
 

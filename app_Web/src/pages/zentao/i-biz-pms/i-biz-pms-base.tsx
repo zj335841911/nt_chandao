@@ -88,7 +88,7 @@ export class IBizPMSBase extends Vue {
    * @type {string}
    * @memberof IBizPMSBase
    */
-  protected viewtag: string = '1ed8a475f4c185fc99c487900bbcf69e';
+  protected viewtag: string = '09b9ef8ce803717761b940cf3fd0173f';
 
   /**
    * 视图模型数据
@@ -318,9 +318,9 @@ export class IBizPMSBase extends Vue {
     inputMenus.forEach((_item: any) => {
       if (!this.authService.getMenusPermission(_item)) {
         _item.hidden = true;
-        if (_item.items && _item.items.length > 0) {
+      }
+      if (_item.items && _item.items.length > 0) {
           this.computedEffectiveMenus(_item.items);
-        }
       }
     })
   }
@@ -345,9 +345,14 @@ export class IBizPMSBase extends Vue {
         <template slot="header">
           <app-header>
             <template slot="header_left">
-              <div class="title">
+              <div class="title" style='display: flex;'>
                 { this.isEnableAppSwitch ? <span class="menuicon" on-click={() => this.contextMenuDragVisiable = !this.contextMenuDragVisiable}><icon type="md-menu" />&nbsp;</span> : null}
-                iBiz软件生产管理
+                <div class='title-image' style='width: 28px;height: 28px;'>
+                  <img src="./assets/img/logo.png" style='width: 100%;height: 100%;'/>
+                </div>
+                <div class='title-caption' style='padding-left: 6px;'>
+                  iBiz软件生产管理
+                </div>
               </div>
             </template>
             <template slot="header_right">

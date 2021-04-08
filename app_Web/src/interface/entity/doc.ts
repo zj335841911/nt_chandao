@@ -15,6 +15,22 @@ export interface Doc {
     groups?: any;
 
     /**
+     * 文档正文
+     *
+     * @returns {*}
+     * @memberof Doc
+     */
+    content?: any;
+
+    /**
+     * 文档查询类型
+     *
+     * @returns {*}
+     * @memberof Doc
+     */
+    docqtype?: any;
+
+    /**
      * 更新时间
      *
      * @returns {*}
@@ -71,12 +87,28 @@ export interface Doc {
     deleted?: any;
 
     /**
+     * 最近更新数量
+     *
+     * @returns {*}
+     * @memberof Doc
+     */
+    recentupdatecnt?: any;
+
+    /**
      * 文档类型
      *
      * @returns {*}
      * @memberof Doc
      */
     type?: any;
+
+    /**
+     * 所有文档数量
+     *
+     * @returns {*}
+     * @memberof Doc
+     */
+    alldoccnt?: any;
 
     /**
      * 添加时间
@@ -95,6 +127,38 @@ export interface Doc {
     acl?: any;
 
     /**
+     * 我的文档数量
+     *
+     * @returns {*}
+     * @memberof Doc
+     */
+    mydoccnt?: any;
+
+    /**
+     * 文档链接
+     *
+     * @returns {*}
+     * @memberof Doc
+     */
+    url?: any;
+
+    /**
+     * 文档数
+     *
+     * @returns {*}
+     * @memberof Doc
+     */
+    doccnt?: any;
+
+    /**
+     * 我的收藏数量
+     *
+     * @returns {*}
+     * @memberof Doc
+     */
+    myfavouritecnt?: any;
+
+    /**
      * 用户
      *
      * @returns {*}
@@ -103,12 +167,28 @@ export interface Doc {
     users?: any;
 
     /**
+     * 最近添加数量
+     *
+     * @returns {*}
+     * @memberof Doc
+     */
+    recentaddcnt?: any;
+
+    /**
      * 关键字
      *
      * @returns {*}
      * @memberof Doc
      */
     keywords?: any;
+
+    /**
+     * 是否收藏
+     *
+     * @returns {*}
+     * @memberof Doc
+     */
+    isfavourites?: any;
 
     /**
      * 收藏者
@@ -125,6 +205,54 @@ export interface Doc {
      * @memberof Doc
      */
     addedby?: any;
+
+    /**
+     * 今日更新数量
+     *
+     * @returns {*}
+     * @memberof Doc
+     */
+    todayupdatecnt?: any;
+
+    /**
+     * 附件
+     *
+     * @returns {*}
+     * @memberof Doc
+     */
+    files?: any;
+
+    /**
+     * 所属产品
+     *
+     * @returns {*}
+     * @memberof Doc
+     */
+    productname?: any;
+
+    /**
+     * 所属项目
+     *
+     * @returns {*}
+     * @memberof Doc
+     */
+    projectname?: any;
+
+    /**
+     * 所属文档库
+     *
+     * @returns {*}
+     * @memberof Doc
+     */
+    libname?: any;
+
+    /**
+     * 模块分类
+     *
+     * @returns {*}
+     * @memberof Doc
+     */
+    modulename?: any;
 
     /**
      * 所属文档库
@@ -157,132 +285,4 @@ export interface Doc {
      * @memberof Doc
      */
     module?: any;
-
-    /**
-     * 所属项目
-     *
-     * @returns {*}
-     * @memberof Doc
-     */
-    projectname?: any;
-
-    /**
-     * 所属产品
-     *
-     * @returns {*}
-     * @memberof Doc
-     */
-    productname?: any;
-
-    /**
-     * 所属文档库
-     *
-     * @returns {*}
-     * @memberof Doc
-     */
-    libname?: any;
-
-    /**
-     * 模块分类
-     *
-     * @returns {*}
-     * @memberof Doc
-     */
-    modulename?: any;
-
-    /**
-     * 文档正文
-     *
-     * @returns {*}
-     * @memberof Doc
-     */
-    content?: any;
-
-    /**
-     * 附件
-     *
-     * @returns {*}
-     * @memberof Doc
-     */
-    files?: any;
-
-    /**
-     * 文档链接
-     *
-     * @returns {*}
-     * @memberof Doc
-     */
-    url?: any;
-
-    /**
-     * 文档查询类型
-     *
-     * @returns {*}
-     * @memberof Doc
-     */
-    docqtype?: any;
-
-    /**
-     * 是否收藏
-     *
-     * @returns {*}
-     * @memberof Doc
-     */
-    isfavourites?: any;
-
-    /**
-     * 所有文档数量
-     *
-     * @returns {*}
-     * @memberof Doc
-     */
-    alldoccnt?: any;
-
-    /**
-     * 最近更新数量
-     *
-     * @returns {*}
-     * @memberof Doc
-     */
-    recentupdatecnt?: any;
-
-    /**
-     * 今日更新数量
-     *
-     * @returns {*}
-     * @memberof Doc
-     */
-    todayupdatecnt?: any;
-
-    /**
-     * 最近添加数量
-     *
-     * @returns {*}
-     * @memberof Doc
-     */
-    recentaddcnt?: any;
-
-    /**
-     * 我的文档数量
-     *
-     * @returns {*}
-     * @memberof Doc
-     */
-    mydoccnt?: any;
-
-    /**
-     * 我的收藏数量
-     *
-     * @returns {*}
-     * @memberof Doc
-     */
-    myfavouritecnt?: any;
-
-    /**
-     * 文档数
-     *
-     * @returns {*}
-     * @memberof Doc
-     */
-    doccnt?: any;
 }

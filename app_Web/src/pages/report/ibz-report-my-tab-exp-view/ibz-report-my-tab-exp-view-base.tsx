@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { TabExpViewBase } from '@/studio-core';
 import IbzReportService from '@/service/ibz-report/ibz-report-service';
 import IbzReportAuthService from '@/authservice/ibz-report/ibz-report-auth-service';
@@ -128,7 +128,7 @@ export class IbzReportMyTabExpViewBase extends TabExpViewBase {
      * @type {string}
      * @memberof IbzReportMyTabExpViewBase
      */
-	protected viewtag: string = 'cced9dfff799c2f6ed1012fd70161948';
+	protected viewtag: string = 'faea7e2d2427080c2bd6683de726ad8d';
 
     /**
      * 视图名称

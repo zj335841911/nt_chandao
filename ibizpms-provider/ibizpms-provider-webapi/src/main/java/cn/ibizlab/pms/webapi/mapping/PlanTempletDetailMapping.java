@@ -12,4 +12,3 @@ public interface PlanTempletDetailMapping extends MappingBase<PlanTempletDetailD
 
 
 }
-

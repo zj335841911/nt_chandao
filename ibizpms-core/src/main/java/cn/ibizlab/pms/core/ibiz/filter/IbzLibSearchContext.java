@@ -27,6 +27,13 @@ import cn.ibizlab.pms.core.ibiz.domain.IbzLib;
 @Data
 public class IbzLibSearchContext extends QueryWrapperContext<IbzLib> {
 
+	private String n_addedby_eq;//[由谁创建]
+	public void setN_addedby_eq(String n_addedby_eq) {
+        this.n_addedby_eq = n_addedby_eq;
+        if(!ObjectUtils.isEmpty(this.n_addedby_eq)){
+            this.getSearchCond().eq("`addedby`", n_addedby_eq);
+        }
+    }
 	private String n_name_like;//[名称]
 	public void setN_name_like(String n_name_like) {
         this.n_name_like = n_name_like;
@@ -39,13 +46,6 @@ public class IbzLibSearchContext extends QueryWrapperContext<IbzLib> {
         this.n_type_eq = n_type_eq;
         if(!ObjectUtils.isEmpty(this.n_type_eq)){
             this.getSearchCond().eq("`type`", n_type_eq);
-        }
-    }
-	private String n_addedby_eq;//[由谁创建]
-	public void setN_addedby_eq(String n_addedby_eq) {
-        this.n_addedby_eq = n_addedby_eq;
-        if(!ObjectUtils.isEmpty(this.n_addedby_eq)){
-            this.getSearchCond().eq("`addedby`", n_addedby_eq);
         }
     }
 	private String n_lasteditedby_eq;//[最后编辑人]

@@ -137,7 +137,7 @@ export default class IbzMonthlyMyReceivedMobMDViewBase extends Vue {
 	 * @type {string}
 	 * @memberof IbzMonthlyMyReceivedMobMDViewBase
 	 */
-	protected viewtag: string = 'bb00037ee518e24c062310bc79031627';
+	protected viewtag: string = '5dd784024e8526f41160f945d2ac562b';
 
     /**
      * 视图上下文

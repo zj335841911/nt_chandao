@@ -22,6 +22,14 @@
 | 4 | [消耗的工时](#属性-消耗的工时（CONSUMED）) | CONSUMED | 浮点 | 否 | 否 | 是 |
 | 5 | [编号](#属性-编号（ID）) | ID | 自增标识，整数类型，用户不可见 | 是 | 否 | 是 |
 | 6 | [项目名称](#属性-项目名称（NAME）) | NAME | 文本，可指定长度 | 否 | 否 | 是 |
+| 7 | [投入成本](#属性-投入成本（INPUTCOST）) | INPUTCOST | 浮点 | 否 | 否 | 是 |
+| 8 | [评估工时](#属性-评估工时（EVALUATIONTIME）) | EVALUATIONTIME | 浮点 | 否 | 否 | 是 |
+| 9 | [评估成本](#属性-评估成本（EVALUATIONCOST）) | EVALUATIONCOST | 浮点 | 否 | 否 | 是 |
+| 10 | [评估状态](#属性-评估状态（EVALUATIONSTATUS）) | EVALUATIONSTATUS | 文本，可指定长度 | 否 | 否 | 是 |
+| 11 | [年](#属性-年（YEAR）) | YEAR | 文本，可指定长度 | 否 | 否 | 是 |
+| 12 | [年（显示）](#属性-年（显示）（YEARNAME）) | YEARNAME | 文本，可指定长度 | 否 | 否 | 是 |
+| 13 | [月](#属性-月（MONTH）) | MONTH | 文本，可指定长度 | 否 | 否 | 是 |
+| 14 | [月（显示）](#属性-月（显示）（MONTHNAME）) | MONTHNAME | 文本，可指定长度 | 否 | 否 | 是 |
 
 ### 属性-用户（ACCOUNT）
 #### 属性说明
@@ -245,6 +253,302 @@ String
 #### 关系属性
 无
 
+### 属性-投入成本（INPUTCOST）
+#### 属性说明
+投入成本
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+浮点
+
+- Java类型
+Double
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-评估工时（EVALUATIONTIME）
+#### 属性说明
+评估工时
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+浮点
+
+- Java类型
+Double
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-评估成本（EVALUATIONCOST）
+#### 属性说明
+评估成本
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+浮点
+
+- Java类型
+Double
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-评估状态（EVALUATIONSTATUS）
+#### 属性说明
+评估状态
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+文本，可指定长度
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-年（YEAR）
+#### 属性说明
+年
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+文本，可指定长度
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-年（显示）（YEARNAME）
+#### 属性说明
+年（显示）
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+文本，可指定长度
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-月（MONTH）
+#### 属性说明
+月
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+文本，可指定长度
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
+### 属性-月（显示）（MONTHNAME）
+#### 属性说明
+月（显示）
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+文本，可指定长度
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+无
+
 
 ## 业务状态
 无
@@ -359,10 +663,42 @@ Save
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |
 | ---- | ---- | ---- | ---- |
-| 1 | [数据查询](#数据查询-数据查询（Default）) | Default | 否 |
-| 2 | [任务工时统计](#数据查询-任务工时统计（TaskEstimateStatsSum）) | TaskEstimateStatsSum | 否 |
-| 3 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 1 | [日志月](#数据查询-日志月（ActionMonth）) | ActionMonth | 否 |
+| 2 | [日志年](#数据查询-日志年（ActionYear）) | ActionYear | 否 |
+| 3 | [数据查询](#数据查询-数据查询（Default）) | Default | 否 |
+| 4 | [任务工时统计](#数据查询-任务工时统计（TaskEstimateStatsSum）) | TaskEstimateStatsSum | 否 |
+| 5 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
+### 数据查询-日志月（ActionMonth）
+#### 说明
+日志月
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+select t1.`YEAR`,concat(t1.`YEAR`, Right(100+ t1.`MONTH`,2)) as `MONTH`,concat(t1.`MONTH`,'月') as monthname from (select DISTINCT year( t1.date ) AS `year`,MONTH(t1.date) as `MONTH` from zt_taskestimate t1 where t1.date <> '0000-00-00' ) t1
+```
+### 数据查询-日志年（ActionYear）
+#### 说明
+日志年
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+select t1.`YEAR`,concat(t1.`year`, '年') as yearname from (select DISTINCT year( t1.date ) AS `year` from zt_taskestimate t1 where t1.date <> '0000-00-00' ) t1
+```
 ### 数据查询-数据查询（Default）
 #### 说明
 数据查询
@@ -379,7 +715,12 @@ Save
 SELECT
 t1.`ACCOUNT`,
 t1.`DATE`,
-t1.`ID`
+t1.`EVALUATIONCOST`,
+t1.`EVALUATIONSTATUS`,
+t1.`EVALUATIONTIME`,
+t1.`ID`,
+t1.`INPUTCOST`,
+t1.`MONTHNAME`
 FROM `zt_taskestimate` t1 
 
 ```
@@ -441,7 +782,12 @@ ORDER BY
 SELECT
 t1.`ACCOUNT`,
 t1.`DATE`,
-t1.`ID`
+t1.`EVALUATIONCOST`,
+t1.`EVALUATIONSTATUS`,
+t1.`EVALUATIONTIME`,
+t1.`ID`,
+t1.`INPUTCOST`,
+t1.`MONTHNAME`
 FROM `zt_taskestimate` t1 
 
 ```
@@ -449,8 +795,38 @@ FROM `zt_taskestimate` t1
 ## 数据集合
 | 序号 | 集合 | 集合名 | 默认 |
 | ---- | ---- | ---- | ---- |
-| 1 | [数据集](#数据集合-数据集（Default）) | Default | 是 |
+| 1 | [日志月](#数据集合-日志月（ActionMonth）) | ActionMonth | 否 |
+| 2 | [日志年](#数据集合-日志年（ActionYear）) | ActionYear | 否 |
+| 3 | [数据集](#数据集合-数据集（Default）) | Default | 是 |
 
+### 数据集合-日志月（ActionMonth）
+#### 说明
+日志月
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [日志月（ActionMonth）](#数据查询-日志月（ActionMonth）) |
+### 数据集合-日志年（ActionYear）
+#### 说明
+日志年
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [日志年（ActionYear）](#数据查询-日志年（ActionYear）) |
 ### 数据集合-数据集（Default）
 #### 说明
 数据集

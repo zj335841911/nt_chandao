@@ -58,13 +58,6 @@ public class TestSuiteServiceImpl extends ServiceImpl<TestSuiteMapper, TestSuite
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.IProductService productService;
 
-    @Autowired
-    @Lazy
-    protected cn.ibizlab.pms.core.zentao.service.logic.ITestSuiteMobTestSuiteCountLogic mobtestsuitecountLogic;
-    @Autowired
-    @Lazy
-    ITestSuiteService proxyService;
-
     protected int batchSize = 500;
 
         @Override
@@ -105,7 +98,7 @@ public class TestSuiteServiceImpl extends ServiceImpl<TestSuiteMapper, TestSuite
     @Transactional
     public TestSuite get(Long key) {
         TestSuite et = getById(key);
-        if (et == null) {
+        if(et == null){
             et = new TestSuite();
             et.setId(key);
         }
@@ -126,14 +119,13 @@ public class TestSuiteServiceImpl extends ServiceImpl<TestSuiteMapper, TestSuite
     @Override
     @Transactional
     public TestSuite mobTestSuiteCount(TestSuite et) {
-        mobtestsuitecountLogic.execute(et);
-         return et;
+         return et ;
     }
 
     @Override
     @Transactional
     public boolean save(TestSuite et) {
-        if (!saveOrUpdate(et)) {
+        if(!saveOrUpdate(et)) {
             return false;
         }
         return true;
@@ -145,7 +137,7 @@ public class TestSuiteServiceImpl extends ServiceImpl<TestSuiteMapper, TestSuite
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
+            return checkKey(et) ? getProxyService().update(et) : getProxyService().create(et);
         }
     }
 
@@ -162,10 +154,10 @@ public class TestSuiteServiceImpl extends ServiceImpl<TestSuiteMapper, TestSuite
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
         return true;
     }
@@ -183,21 +175,21 @@ public class TestSuiteServiceImpl extends ServiceImpl<TestSuiteMapper, TestSuite
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
     }
 
 
-    @Override
+	@Override
     public List<TestSuite> selectByProduct(Long id) {
         return baseMapper.selectByProduct(id);
     }
     @Override
     public void removeByProduct(Long id) {
-        this.remove(new QueryWrapper<TestSuite>().eq("product", id));
+        this.remove(new QueryWrapper<TestSuite>().eq("product",id));
     }
 
 
@@ -206,7 +198,7 @@ public class TestSuiteServiceImpl extends ServiceImpl<TestSuiteMapper, TestSuite
      */
     @Override
     public Page<TestSuite> searchDefault(TestSuiteSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<TestSuite> pages=baseMapper.searchDefault(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<TestSuite> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
         return new PageImpl<TestSuite>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -215,7 +207,7 @@ public class TestSuiteServiceImpl extends ServiceImpl<TestSuiteMapper, TestSuite
      */
     @Override
     public Page<TestSuite> searchPublicTestSuite(TestSuiteSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<TestSuite> pages=baseMapper.searchPublicTestSuite(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<TestSuite> pages=baseMapper.searchPublicTestSuite(context.getPages(),context,context.getSelectCond());
         return new PageImpl<TestSuite>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -226,24 +218,24 @@ public class TestSuiteServiceImpl extends ServiceImpl<TestSuiteMapper, TestSuite
 
 
     @Override
-    public List<JSONObject> select(String sql, Map param) {
-        return this.baseMapper.selectBySQL(sql, param);
+    public List<JSONObject> select(String sql, Map param){
+        return this.baseMapper.selectBySQL(sql,param);
     }
 
     @Override
     @Transactional
-    public boolean execute(String sql, Map param) {
+    public boolean execute(String sql , Map param){
         if (sql == null || sql.isEmpty()) {
             return false;
         }
         if (sql.toLowerCase().trim().startsWith("insert")) {
-            return this.baseMapper.insertBySQL(sql, param);
+            return this.baseMapper.insertBySQL(sql,param);
         }
         if (sql.toLowerCase().trim().startsWith("update")) {
-            return this.baseMapper.updateBySQL(sql, param);
+            return this.baseMapper.updateBySQL(sql,param);
         }
         if (sql.toLowerCase().trim().startsWith("delete")) {
-            return this.baseMapper.deleteBySQL(sql, param);
+            return this.baseMapper.deleteBySQL(sql,param);
         }
         log.warn("暂未支持的SQL语法");
         return true;
@@ -251,9 +243,9 @@ public class TestSuiteServiceImpl extends ServiceImpl<TestSuiteMapper, TestSuite
 
 
 
-
-
+    public ITestSuiteService getProxyService() {
+        return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
+    }
 }
-
 
 

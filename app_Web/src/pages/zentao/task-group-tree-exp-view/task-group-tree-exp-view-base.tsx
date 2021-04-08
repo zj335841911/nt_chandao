@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { TreeExpViewBase } from '@/studio-core';
 import TaskService from '@/service/task/task-service';
 import TaskAuthService from '@/authservice/task/task-auth-service';
@@ -100,7 +100,7 @@ export class TaskGroupTreeExpViewBase extends TreeExpViewBase {
      * @type {string}
      * @memberof TaskGroupTreeExpViewBase
      */
-	protected viewtag: string = 'a50dac41ffda9770f8d903de986ca47a';
+	protected viewtag: string = '25ad13bec39a81629f26d442db44d424';
 
     /**
      * 视图名称

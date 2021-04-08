@@ -73,7 +73,7 @@ public class IbzTopResource {
 		IbzTop domain  = ibztopMapping.toDomain(ibztopdto);
         domain .setIbztopid(ibztop_id);
 		ibztopService.update(domain );
-		IbzTopDTO dto = ibztopMapping.toDto(domain );
+		IbzTopDTO dto = ibztopMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
@@ -111,8 +111,9 @@ public class IbzTopResource {
 
     @ApiOperation(value = "获取置顶草稿", tags = {"置顶" },  notes = "获取置顶草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/ibztops/getdraft")
-    public ResponseEntity<IbzTopDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(ibztopMapping.toDto(ibztopService.getDraft(new IbzTop())));
+    public ResponseEntity<IbzTopDTO> getDraft(IbzTopDTO dto) {
+        IbzTop domain = ibztopMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(ibztopMapping.toDto(ibztopService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查置顶", tags = {"置顶" },  notes = "检查置顶")
@@ -124,8 +125,10 @@ public class IbzTopResource {
     @PreAuthorize("hasPermission(this.ibztopMapping.toDomain(#ibztopdto),'pms-IbzTop-Save')")
     @ApiOperation(value = "保存置顶", tags = {"置顶" },  notes = "保存置顶")
 	@RequestMapping(method = RequestMethod.POST, value = "/ibztops/save")
-    public ResponseEntity<Boolean> save(@RequestBody IbzTopDTO ibztopdto) {
-        return ResponseEntity.status(HttpStatus.OK).body(ibztopService.save(ibztopMapping.toDomain(ibztopdto)));
+    public ResponseEntity<IbzTopDTO> save(@RequestBody IbzTopDTO ibztopdto) {
+        IbzTop domain = ibztopMapping.toDomain(ibztopdto);
+        ibztopService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(ibztopMapping.toDto(domain));
     }
 
     @PreAuthorize("hasPermission(this.ibztopMapping.toDomain(#ibztopdtos),'pms-IbzTop-Save')")
@@ -157,6 +160,7 @@ public class IbzTopResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(ibztopMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
 
 
 }

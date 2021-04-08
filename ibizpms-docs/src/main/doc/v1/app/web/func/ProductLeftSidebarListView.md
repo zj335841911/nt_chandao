@@ -31,9 +31,9 @@ part [shape=none, margin=0, label=<
 </TR>
 <TR>
 <TD BORDER="0" COLSPAN="4" CELLPADDING="10">
-管理<BR/>
-新建<BR/>
-刷新<BR/>
+
+
+
 <BR/></TD>
 </TR>
 </TABLE>

@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { EditViewBase } from '@/studio-core';
 import SysUpdateFeaturesService from '@/service/sys-update-features/sys-update-features-service';
 import SysUpdateFeaturesAuthService from '@/authservice/sys-update-features/sys-update-features-auth-service';
@@ -109,7 +109,7 @@ export class SysUpdateFeaturesInfoEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof SysUpdateFeaturesInfoEditViewBase
      */
-	protected viewtag: string = 'd97806e4d30ee03bfd34d5df8f96b0a4';
+	protected viewtag: string = '69f603bbdaf1463452fe56bbd20aefcc';
 
     /**
      * 视图名称

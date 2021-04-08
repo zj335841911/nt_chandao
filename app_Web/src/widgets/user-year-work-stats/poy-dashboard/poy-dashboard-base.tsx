@@ -295,7 +295,7 @@ export class POYDashboardBase extends MainControlBase {
      * 刷新
      * 
      * @param args 
-     * @memberof Main
+     * @memberof POY
      */
     public refresh(args?: any){
       this.$emit('refresh',args);

@@ -24,14 +24,14 @@ public interface IBIZProTagFeignClient {
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/ibizprotags")
-    IBIZProTag create(@RequestBody IBIZProTag ibizprotag);
+    IBIZProTag create(@RequestBody IBIZProTag et);
 
     @RequestMapping(method = RequestMethod.POST, value = "/ibizprotags/batch")
     Boolean createBatch(@RequestBody List<IBIZProTag> ibizprotags);
 
 
     @RequestMapping(method = RequestMethod.PUT, value = "/ibizprotags/{id}")
-    IBIZProTag update(@PathVariable("id") String id, @RequestBody IBIZProTag ibizprotag);
+    IBIZProTag update(@PathVariable("id") String id, @RequestBody IBIZProTag et);
 
     @RequestMapping(method = RequestMethod.PUT, value = "/ibizprotags/batch")
     Boolean updateBatch(@RequestBody List<IBIZProTag> ibizprotags);
@@ -52,15 +52,17 @@ public interface IBIZProTagFeignClient {
 
 
     @RequestMapping(method = RequestMethod.GET, value = "/ibizprotags/getdraft")
-    IBIZProTag getDraft();
+    IBIZProTag getDraft(IBIZProTag entity);
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/ibizprotags/checkkey")
-    Boolean checkKey(@RequestBody IBIZProTag ibizprotag);
+    Boolean checkKey(@RequestBody IBIZProTag et);
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/ibizprotags/save")
-    Boolean save(@RequestBody IBIZProTag ibizprotag);
+    Object saveEntity(@RequestBody IBIZProTag et);
+
+    default Boolean save(@RequestBody IBIZProTag et) { return saveEntity(et)!=null; }
 
     @RequestMapping(method = RequestMethod.POST, value = "/ibizprotags/savebatch")
     Boolean saveBatch(@RequestBody List<IBIZProTag> ibizprotags);

@@ -119,7 +119,7 @@ mock.onGet('v7/app-index-viewappmenu').reply((config: any) => {
 	resourcetag: '',
 },
             {
-	id: 'A9234AE1-B762-4769-8790-26A98A6CB817',
+	id: 'e76dd92a08a5ec0045cde9fe7e659562',
 	name: 'menuitem8',
 	text: '更新日志',
 	type: 'MENUITEM',
@@ -137,7 +137,7 @@ mock.onGet('v7/app-index-viewappmenu').reply((config: any) => {
 	resourcetag: '',
 },
             {
-	id: 'A211AE8E-A134-4271-A075-5BB2D7F14E34',
+	id: '7aceef16a9ecd690aca5e89d63565d33',
 	name: 'menuitem9',
 	text: '登录地图test',
 	type: 'MENUITEM',
@@ -155,7 +155,7 @@ mock.onGet('v7/app-index-viewappmenu').reply((config: any) => {
 	resourcetag: '',
 },
             {
-	id: 'FBDFE12B-5722-44A3-BF45-D254CCBE153E',
+	id: '440650b717c9839bb6d06f8589fcc585',
 	name: 'menuitem10',
 	text: '头像',
 	type: 'MENUITEM',

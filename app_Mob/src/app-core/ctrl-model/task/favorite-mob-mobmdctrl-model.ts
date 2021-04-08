@@ -15,16 +15,16 @@ export class FavoriteMOBModel {
 	public getDataItems(): any[] {
 		return [
 			{
-				name: 'pri',
+				name: 'assignedto',
 			},
 			{
 				name: 'left',
 			},
 			{
-				name: 'name',
+				name: 'pri',
 			},
 			{
-				name: 'assignedto',
+				name: 'name',
 			},
 			{
 				name: 'status',
@@ -45,6 +45,16 @@ export class FavoriteMOBModel {
 				dataType: 'PICKUP',
 			},
 			{
+				name: 'plan',
+				prop: 'plan',
+				dataType: 'PICKUP',
+			},
+			{
+				name: 'module',
+				prop: 'module',
+				dataType: 'PICKUP',
+			},
+			{
 				name: 'story',
 				prop: 'story',
 				dataType: 'PICKUP',
@@ -57,11 +67,6 @@ export class FavoriteMOBModel {
 			{
 				name: 'frombug',
 				prop: 'frombug',
-				dataType: 'PICKUP',
-			},
-			{
-				name: 'module',
-				prop: 'module',
 				dataType: 'PICKUP',
 			},
 			{

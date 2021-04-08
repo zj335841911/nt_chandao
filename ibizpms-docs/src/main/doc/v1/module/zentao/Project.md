@@ -114,6 +114,10 @@
 | 74 | [部门标识](#属性-部门标识（MDEPTID）) | MDEPTID | 文本，可指定长度 | 否 | 是 | 是 |
 | 75 | [项目团队成员](#属性-项目团队成员（PROJECTTEAMS）) | PROJECTTEAMS | 一对多关系数据集合 | 否 | 是 | 是 |
 | 76 | [支持项目汇报](#属性-支持项目汇报（SUPPROREPORT）) | SUPPROREPORT | 单项选择(文本值) | 否 | 是 | 是 |
+| 77 | [项目立项信息](#属性-项目立项信息（PMSEEPROJECTINFO）) | PMSEEPROJECTINFO | 长文本，没有长度限制 | 否 | 是 | 是 |
+| 78 | [临时任务数](#属性-临时任务数（TEMPTASKCNT）) | TEMPTASKCNT | 整型 | 否 | 是 | 是 |
+| 79 | [周期任务数](#属性-周期任务数（CYCLETASKCNT）) | CYCLETASKCNT | 整型 | 否 | 是 | 是 |
+| 80 | [计划任务数](#属性-计划任务数（PLANTASKCNT）) | PLANTASKCNT | 整型 | 否 | 是 | 是 |
 
 ### 属性-当前系统版本（OPENEDVERSION）
 #### 属性说明
@@ -415,7 +419,8 @@ Long
 | 序号 | 组合方式 |
 | ---- | ---- |
 | 1 | `=` |
-| 2 | `!=`或者`<>` |
+| 2 | `in(...)` |
+| 3 | `!=`或者`<>` |
 
 #### 关系属性
 | 项目 | 说明 |
@@ -461,7 +466,8 @@ String
 - 搜索条件
 | 序号 | 组合方式 |
 | ---- | ---- |
-| 1 | `%like%` |
+| 1 | `=` |
+| 2 | `%like%` |
 
 #### 关系属性
 | 项目 | 说明 |
@@ -3367,6 +3373,170 @@ String
 | 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
 | 关系类型 | 关系实体 1:N 当前实体 |
 
+### 属性-项目立项信息（PMSEEPROJECTINFO）
+#### 属性说明
+项目立项信息
+
+- 是否是主键
+否
+
+- 属性类型
+物理字段[来自当前实体物理表字段]
+
+- 数据类型
+长文本，没有长度限制
+
+- Java类型
+String
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-临时任务数（TEMPTASKCNT）
+#### 属性说明
+临时任务数
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-周期任务数（CYCLETASKCNT）
+#### 属性说明
+周期任务数
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
+### 属性-计划任务数（PLANTASKCNT）
+#### 属性说明
+计划任务数
+
+- 是否是主键
+否
+
+- 属性类型
+应用界面字段[无存储]
+
+- 数据类型
+整型
+
+- Java类型
+Integer
+
+- 是否允许为空
+是
+
+- 默认值
+无
+
+- 取值范围/公式
+无
+
+- 数据格式
+无
+
+- 是否支持快速搜索
+否
+
+- 搜索条件
+无
+
+#### 关系属性
+| 项目 | 说明 |
+| ---- | ---- |
+| 关系实体 | [项目（ZT_PROJECT）](../zentao/Project) |
+| 关系属性 | [项目编号（ID）](../zentao/Project/#属性-项目编号（ID）) |
+| 关系类型 | 关系实体 1:N 当前实体 |
+
 
 ## 业务状态
 | 序号 | 状态名称 | [项目状态](#属性-项目状态（STATUS）)<br>（STATUS） | [是否置顶](#属性-是否置顶（ISTOP）)<br>（ISTOP） | 默认 |
@@ -3675,18 +3845,20 @@ String
 | 21 | [关联需求](#实体行为-关联需求（LinkStory）) | LinkStory | 用户自定义 | 后台及前台 |
 | 22 | [团队管理](#实体行为-团队管理（ManageMembers）) | ManageMembers | 用户自定义 | 后台及前台 |
 | 23 | [移动端项目计数器](#实体行为-移动端项目计数器（MobProjectCount）) | MobProjectCount | 实体处理逻辑 | 后台 |
-| 24 | [项目任务快速分组计数器](#实体行为-项目任务快速分组计数器（ProjectTaskQCnt）) | ProjectTaskQCnt | 实体处理逻辑 | 后台 |
-| 25 | [置顶](#实体行为-置顶（ProjectTop）) | projectTop | 实体处理逻辑 | 后台 |
-| 26 | [延期](#实体行为-延期（Putoff）) | Putoff | 用户自定义 | 后台及前台 |
-| 27 | [退出](#实体行为-退出（ReturnEdit）) | ReturnEdit | 用户自定义 | 前台 |
-| 28 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
-| 29 | [开始](#实体行为-开始（Start）) | Start | 用户自定义 | 后台及前台 |
-| 30 | [挂起](#实体行为-挂起（Suspend）) | Suspend | 用户自定义 | 后台及前台 |
-| 31 | [移除成员](#实体行为-移除成员（UnlinkMember）) | UnlinkMember | 用户自定义 | 后台及前台 |
-| 32 | [解除关联需求](#实体行为-解除关联需求（UnlinkStory）) | UnlinkStory | 用户自定义 | 后台及前台 |
-| 33 | [根据结束日期更新可用工作日](#实体行为-根据结束日期更新可用工作日（UpdateCycle）) | UpdateCycle | 用户自定义 | 前台 |
-| 34 | [排序](#实体行为-排序（UpdateOrder）) | UpdateOrder | 用户自定义 | 后台及前台 |
-| 35 | [更新项目周期及可用工作日](#实体行为-更新项目周期及可用工作日（UpdateProjectCycle）) | UpdateProjectCycle | 用户自定义 | 前台 |
+| 24 | [项目立项任务快速分组计数器](#实体行为-项目立项任务快速分组计数器（PmsEeProjectAllTaskCount）) | PmsEeProjectAllTaskCount | 用户自定义 | 后台 |
+| 25 | [项目立项待办任务快速分组计数器](#实体行为-项目立项待办任务快速分组计数器（PmsEeProjectTodoTaskCount）) | PmsEeProjectTodoTaskCount | 用户自定义 | 后台及前台 |
+| 26 | [项目任务快速分组计数器](#实体行为-项目任务快速分组计数器（ProjectTaskQCnt）) | ProjectTaskQCnt | 实体处理逻辑 | 后台 |
+| 27 | [置顶](#实体行为-置顶（ProjectTop）) | projectTop | 实体处理逻辑 | 后台 |
+| 28 | [延期](#实体行为-延期（Putoff）) | Putoff | 用户自定义 | 后台及前台 |
+| 29 | [退出](#实体行为-退出（ReturnEdit）) | ReturnEdit | 用户自定义 | 前台 |
+| 30 | [Save](#实体行为-Save（Save）) | Save | 内置方法 | 后台及前台 |
+| 31 | [开始](#实体行为-开始（Start）) | Start | 用户自定义 | 后台及前台 |
+| 32 | [挂起](#实体行为-挂起（Suspend）) | Suspend | 用户自定义 | 后台及前台 |
+| 33 | [移除成员](#实体行为-移除成员（UnlinkMember）) | UnlinkMember | 用户自定义 | 后台及前台 |
+| 34 | [解除关联需求](#实体行为-解除关联需求（UnlinkStory）) | UnlinkStory | 用户自定义 | 后台及前台 |
+| 35 | [根据结束日期更新可用工作日](#实体行为-根据结束日期更新可用工作日（UpdateCycle）) | UpdateCycle | 用户自定义 | 前台 |
+| 36 | [排序](#实体行为-排序（UpdateOrder）) | UpdateOrder | 用户自定义 | 后台及前台 |
+| 37 | [更新项目周期及可用工作日](#实体行为-更新项目周期及可用工作日（UpdateProjectCycle）) | UpdateProjectCycle | 用户自定义 | 前台 |
 
 ### 实体行为-Create（Create）
 #### 说明
@@ -3978,6 +4150,30 @@ CheckKey
 
 #### 逻辑附加
 无
+### 实体行为-项目立项任务快速分组计数器（PmsEeProjectAllTaskCount）
+#### 说明
+项目立项任务快速分组计数器
+
+- 行为类型
+用户自定义
+
+- 行为持有者
+后台
+
+#### 逻辑附加
+无
+### 实体行为-项目立项待办任务快速分组计数器（PmsEeProjectTodoTaskCount）
+#### 说明
+项目立项待办任务快速分组计数器
+
+- 行为类型
+用户自定义
+
+- 行为持有者
+后台及前台
+
+#### 逻辑附加
+无
 ### 实体行为-项目任务快速分组计数器（ProjectTaskQCnt）
 #### 说明
 项目任务快速分组计数器
@@ -4134,18 +4330,20 @@ Save
 | ---- | ---- | ---- | ---- |
 | 1 | [取消置顶](#逻辑处理-取消置顶（CancelProjectTop）) | CancelProjectTop | 后台 |
 | 2 | [移动端项目计数器](#逻辑处理-移动端项目计数器（MobProjectCount）) | MobProjectCount | 后台 |
-| 3 | [项目任务快速分组计数器](#逻辑处理-项目任务快速分组计数器（ProjectTaskQCnt）) | ProjectTaskQCnt | 后台及前台 |
-| 4 | [置顶](#逻辑处理-置顶（ProjectTop）) | ProjectTop | 后台 |
-| 5 | [获取项目产品计划](#逻辑处理-获取项目产品计划（getProjectProductPlan）) | getProjectProductPlan | 后台 |
-| 6 | [行为[Update]主状态拒绝逻辑](#逻辑处理-行为[Update]主状态拒绝逻辑（Update__MSDeny）) | Update__MSDeny | 后台 |
-| 7 | [行为[UpdateTemp]主状态拒绝逻辑](#逻辑处理-行为[UpdateTemp]主状态拒绝逻辑（UpdateTemp__MSDeny）) | UpdateTemp__MSDeny | 后台 |
-| 8 | [行为[UpdateTempMajor]主状态拒绝逻辑](#逻辑处理-行为[UpdateTempMajor]主状态拒绝逻辑（UpdateTempMajor__MSDeny）) | UpdateTempMajor__MSDeny | 后台 |
-| 9 | [行为[Remove]主状态拒绝逻辑](#逻辑处理-行为[Remove]主状态拒绝逻辑（Remove__MSDeny）) | Remove__MSDeny | 后台 |
-| 10 | [行为[RemoveTemp]主状态拒绝逻辑](#逻辑处理-行为[RemoveTemp]主状态拒绝逻辑（RemoveTemp__MSDeny）) | RemoveTemp__MSDeny | 后台 |
-| 11 | [行为[RemoveTempMajor]主状态拒绝逻辑](#逻辑处理-行为[RemoveTempMajor]主状态拒绝逻辑（RemoveTempMajor__MSDeny）) | RemoveTempMajor__MSDeny | 后台 |
-| 12 | [行为[UpdateCycle]主状态拒绝逻辑](#逻辑处理-行为[UpdateCycle]主状态拒绝逻辑（UpdateCycle__MSDeny）) | UpdateCycle__MSDeny | 后台 |
-| 13 | [行为[UpdateOrder]主状态拒绝逻辑](#逻辑处理-行为[UpdateOrder]主状态拒绝逻辑（UpdateOrder__MSDeny）) | UpdateOrder__MSDeny | 后台 |
-| 14 | [行为[UpdateProjectCycle]主状态拒绝逻辑](#逻辑处理-行为[UpdateProjectCycle]主状态拒绝逻辑（UpdateProjectCycle__MSDeny）) | UpdateProjectCycle__MSDeny | 后台 |
+| 3 | [项目立项全部任务快速分组计数器](#逻辑处理-项目立项全部任务快速分组计数器（PmsEeProjectAllTaskCount）) | PmsEeProjectAllTaskCount | 后台 |
+| 4 | [项目立项待办任务快速分组计数器](#逻辑处理-项目立项待办任务快速分组计数器（PmsEeProjectTodoTaskCount）) | PmsEeProjectTodoTaskCount | 后台 |
+| 5 | [项目任务快速分组计数器](#逻辑处理-项目任务快速分组计数器（ProjectTaskQCnt）) | ProjectTaskQCnt | 后台及前台 |
+| 6 | [置顶](#逻辑处理-置顶（ProjectTop）) | ProjectTop | 后台 |
+| 7 | [获取项目产品计划](#逻辑处理-获取项目产品计划（getProjectProductPlan）) | getProjectProductPlan | 后台 |
+| 8 | [行为[Update]主状态拒绝逻辑](#逻辑处理-行为[Update]主状态拒绝逻辑（Update__MSDeny）) | Update__MSDeny | 后台 |
+| 9 | [行为[UpdateTemp]主状态拒绝逻辑](#逻辑处理-行为[UpdateTemp]主状态拒绝逻辑（UpdateTemp__MSDeny）) | UpdateTemp__MSDeny | 后台 |
+| 10 | [行为[UpdateTempMajor]主状态拒绝逻辑](#逻辑处理-行为[UpdateTempMajor]主状态拒绝逻辑（UpdateTempMajor__MSDeny）) | UpdateTempMajor__MSDeny | 后台 |
+| 11 | [行为[Remove]主状态拒绝逻辑](#逻辑处理-行为[Remove]主状态拒绝逻辑（Remove__MSDeny）) | Remove__MSDeny | 后台 |
+| 12 | [行为[RemoveTemp]主状态拒绝逻辑](#逻辑处理-行为[RemoveTemp]主状态拒绝逻辑（RemoveTemp__MSDeny）) | RemoveTemp__MSDeny | 后台 |
+| 13 | [行为[RemoveTempMajor]主状态拒绝逻辑](#逻辑处理-行为[RemoveTempMajor]主状态拒绝逻辑（RemoveTempMajor__MSDeny）) | RemoveTempMajor__MSDeny | 后台 |
+| 14 | [行为[UpdateCycle]主状态拒绝逻辑](#逻辑处理-行为[UpdateCycle]主状态拒绝逻辑（UpdateCycle__MSDeny）) | UpdateCycle__MSDeny | 后台 |
+| 15 | [行为[UpdateOrder]主状态拒绝逻辑](#逻辑处理-行为[UpdateOrder]主状态拒绝逻辑（UpdateOrder__MSDeny）) | UpdateOrder__MSDeny | 后台 |
+| 16 | [行为[UpdateProjectCycle]主状态拒绝逻辑](#逻辑处理-行为[UpdateProjectCycle]主状态拒绝逻辑（UpdateProjectCycle__MSDeny）) | UpdateProjectCycle__MSDeny | 后台 |
 
 ### 逻辑处理-取消置顶（CancelProjectTop）
 #### 说明
@@ -4175,6 +4373,36 @@ Save
 | 4 | 团队成员 | Rawsqlcall5 | 直接SQL调用 |
 | 5 | 获取任务数 | Rawsqlcall2 | 直接SQL调用 |
 | 6 | 版本数 | Rawsqlcall4 | 直接SQL调用 |
+### 逻辑处理-项目立项全部任务快速分组计数器（PmsEeProjectAllTaskCount）
+#### 说明
+项目立项全部任务快速分组计数器
+
+- 逻辑持有者
+后台
+
+#### 逻辑节点
+| 序号 | 节点 | 节点名 | 节点类型 |
+| ---- | ---- | ---- | ---- |
+| 1 | 获取所有任务 | Rawsqlcall4 | 直接SQL调用 |
+| 2 | 获取周期任务 | Rawsqlcall2 | 直接SQL调用 |
+| 3 | 获取计划任务 | Rawsqlcall3 | 直接SQL调用 |
+| 4 | 获取临时任务 | Rawsqlcall1 | 直接SQL调用 |
+| 5 | 开始 | Begin | 开始 |
+### 逻辑处理-项目立项待办任务快速分组计数器（PmsEeProjectTodoTaskCount）
+#### 说明
+项目立项待办任务快速分组计数器
+
+- 逻辑持有者
+后台
+
+#### 逻辑节点
+| 序号 | 节点 | 节点名 | 节点类型 |
+| ---- | ---- | ---- | ---- |
+| 1 | 获取周期任务 | Rawsqlcall2 | 直接SQL调用 |
+| 2 | 开始 | Begin | 开始 |
+| 3 | 获取临时任务 | Rawsqlcall1 | 直接SQL调用 |
+| 4 | 获取所有任务 | Rawsqlcall4 | 直接SQL调用 |
+| 5 | 获取计划任务 | Rawsqlcall3 | 直接SQL调用 |
 ### 逻辑处理-项目任务快速分组计数器（ProjectTaskQCnt）
 #### 说明
 项目任务快速分组计数器
@@ -4420,41 +4648,45 @@ Save
 | 1 | [访问控制（ACL）](#属性-访问控制（ACL）) | `=` |
 | 2 | [项目负责人（PM）](#属性-项目负责人（PM）) | `=` |
 | 3 | [项目编号（ID）](#属性-项目编号（ID）) | `=` |
-| 4 | [项目编号（ID）](#属性-项目编号（ID）) | `!=`或者`<>` |
-| 5 | [项目名称（NAME）](#属性-项目名称（NAME）) | `%like%` |
-| 6 | [发布负责人（RD）](#属性-发布负责人（RD）) | `=` |
-| 7 | [优先级（PRI）](#属性-优先级（PRI）) | `=` |
-| 8 | [statge（STATGE）](#属性-statge（STATGE）) | `=` |
-| 9 | [isCat（ISCAT）](#属性-isCat（ISCAT）) | `=` |
-| 10 | [项目类型（TYPE）](#属性-项目类型（TYPE）) | `=` |
-| 11 | [产品负责人（PO）](#属性-产品负责人（PO）) | `=` |
-| 12 | [项目状态（STATUS）](#属性-项目状态（STATUS）) | `=` |
-| 13 | [项目状态（STATUS）](#属性-项目状态（STATUS）) | `!=`或者`<>` |
-| 14 | [测试负责人（QD）](#属性-测试负责人（QD）) | `=` |
-| 15 | [parent（PARENTNAME）](#属性-parent（PARENTNAME）) | `=` |
-| 16 | [parent（PARENTNAME）](#属性-parent（PARENTNAME）) | `%like%` |
-| 17 | [父项目（PARENT）](#属性-父项目（PARENT）) | `=` |
-| 18 | [时间段（PERIOD）](#属性-时间段（PERIOD）) | `=` |
-| 19 | [项目团队成员（ACCOUNT）](#属性-项目团队成员（ACCOUNT）) | `=` |
-| 20 | [选择部门（DEPT）](#属性-选择部门（DEPT）) | `=` |
-| 21 | [复制团队（MANAGEMEMBERS）](#属性-复制团队（MANAGEMEMBERS）) | `=` |
-| 22 | [支持项目汇报（SUPPROREPORT）](#属性-支持项目汇报（SUPPROREPORT）) | `=` |
+| 4 | [项目编号（ID）](#属性-项目编号（ID）) | `in(...)` |
+| 5 | [项目编号（ID）](#属性-项目编号（ID）) | `!=`或者`<>` |
+| 6 | [项目名称（NAME）](#属性-项目名称（NAME）) | `=` |
+| 7 | [项目名称（NAME）](#属性-项目名称（NAME）) | `%like%` |
+| 8 | [发布负责人（RD）](#属性-发布负责人（RD）) | `=` |
+| 9 | [优先级（PRI）](#属性-优先级（PRI）) | `=` |
+| 10 | [statge（STATGE）](#属性-statge（STATGE）) | `=` |
+| 11 | [isCat（ISCAT）](#属性-isCat（ISCAT）) | `=` |
+| 12 | [项目类型（TYPE）](#属性-项目类型（TYPE）) | `=` |
+| 13 | [产品负责人（PO）](#属性-产品负责人（PO）) | `=` |
+| 14 | [项目状态（STATUS）](#属性-项目状态（STATUS）) | `=` |
+| 15 | [项目状态（STATUS）](#属性-项目状态（STATUS）) | `!=`或者`<>` |
+| 16 | [测试负责人（QD）](#属性-测试负责人（QD）) | `=` |
+| 17 | [parent（PARENTNAME）](#属性-parent（PARENTNAME）) | `=` |
+| 18 | [parent（PARENTNAME）](#属性-parent（PARENTNAME）) | `%like%` |
+| 19 | [父项目（PARENT）](#属性-父项目（PARENT）) | `=` |
+| 20 | [时间段（PERIOD）](#属性-时间段（PERIOD）) | `=` |
+| 21 | [项目团队成员（ACCOUNT）](#属性-项目团队成员（ACCOUNT）) | `=` |
+| 22 | [选择部门（DEPT）](#属性-选择部门（DEPT）) | `=` |
+| 23 | [复制团队（MANAGEMEMBERS）](#属性-复制团队（MANAGEMEMBERS）) | `=` |
+| 24 | [支持项目汇报（SUPPROREPORT）](#属性-支持项目汇报（SUPPROREPORT）) | `=` |
 
 ## 数据查询
 | 序号 | 查询 | 查询名 | 默认 |
 | ---- | ---- | ---- | ---- |
 | 1 | [Bug表单中可选的项目列表](#数据查询-Bug表单中可选的项目列表（BugSelectableProjectList）) | BugSelectableProjectList | 否 |
-| 2 | [当前项目](#数据查询-当前项目（CurProduct）) | CurProduct | 否 |
-| 3 | [当前用户项目](#数据查询-当前用户项目（CurUser）) | CurUser | 否 |
-| 4 | [DEFAULT](#数据查询-DEFAULT（Default）) | Default | 否 |
-| 5 | [ES批量的导入](#数据查询-ES批量的导入（ESBulk）) | ESBulk | 否 |
-| 6 | [参与项目(年度总结)](#数据查询-参与项目(年度总结)（InvolvedProject）) | InvolvedProject | 否 |
-| 7 | [参与项目完成需求任务bug](#数据查询-参与项目完成需求任务bug（InvolvedProjectStoryTaskBug）) | InvolvedProjectStoryTaskBug | 否 |
-| 8 | [我的项目](#数据查询-我的项目（MyProject）) | MyProject | 否 |
-| 9 | [项目团队](#数据查询-项目团队（ProjectTeam）) | ProjectTeam | 否 |
-| 10 | [需求影响项目](#数据查询-需求影响项目（StoryProject）) | StoryProject | 否 |
-| 11 | [未完成项目](#数据查询-未完成项目（UnDoneProject）) | UnDoneProject | 否 |
-| 12 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
+| 2 | [当前计划项目](#数据查询-当前计划项目（CurPlanProject）) | CurPlanProject | 否 |
+| 3 | [当前项目](#数据查询-当前项目（CurProduct）) | CurProduct | 否 |
+| 4 | [当前用户项目](#数据查询-当前用户项目（CurUser）) | CurUser | 否 |
+| 5 | [当前用户项目（企业版）](#数据查询-当前用户项目（企业版）（CurUserSa）) | CurUserSa | 否 |
+| 6 | [DEFAULT](#数据查询-DEFAULT（Default）) | Default | 否 |
+| 7 | [ES批量的导入](#数据查询-ES批量的导入（ESBulk）) | ESBulk | 否 |
+| 8 | [参与项目(年度总结)](#数据查询-参与项目(年度总结)（InvolvedProject）) | InvolvedProject | 否 |
+| 9 | [参与项目完成需求任务bug](#数据查询-参与项目完成需求任务bug（InvolvedProjectStoryTaskBug）) | InvolvedProjectStoryTaskBug | 否 |
+| 10 | [我的项目](#数据查询-我的项目（MyProject）) | MyProject | 否 |
+| 11 | [项目团队](#数据查询-项目团队（ProjectTeam）) | ProjectTeam | 否 |
+| 12 | [需求影响项目](#数据查询-需求影响项目（StoryProject）) | StoryProject | 否 |
+| 13 | [未完成项目](#数据查询-未完成项目（UnDoneProject）) | UnDoneProject | 否 |
+| 14 | [默认（全部数据）](#数据查询-默认（全部数据）（View）) | View | 否 |
 
 ### 数据查询-Bug表单中可选的项目列表（BugSelectableProjectList）
 #### 说明
@@ -4514,8 +4746,70 @@ t1.`TEAM`,
 ((SELECT round(SUM( `LEFT` ),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' AND ( `parent` = '' OR `parent` = '0' OR `parent` = '-1' ) AND `status` in ('doing','wait','pause')) + (SELECT round(SUM( CONSUMED ),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' AND ( `parent` = '' OR `parent` = '0' OR `parent` = '-1' ))) AS `TOTALWH`,
 t1.`TYPE`
 FROM `zt_project` t1 
-LEFT JOIN zt_project t11 ON t1.PARENT = t11.ID 
-LEFT OUTER JOIN zt_projectproduct t21 ON t1.ID = t21.PROJECT 
+LEFT JOIN `zt_project` t11 ON t1.`PARENT` = t11.`ID` 
+LEFT OUTER JOIN `zt_projectproduct` t21 ON t1.`ID` = t21.`PROJECT` 
+
+```
+### 数据查询-当前计划项目（CurPlanProject）
+#### 说明
+当前计划项目
+
+- 默认查询
+否
+
+- 查询权限使用
+否
+
+#### SQL
+- MYSQL5
+```SQL
+SELECT
+t1.`ACL`,
+t1.`BEGIN`,
+(SELECT COUNT(1) FROM ZT_BUG WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `BUGCNT`,
+t1.`CANCELEDBY`,
+t1.`CANCELEDDATE`,
+t1.`CATID`,
+t1.`CLOSEDBY`,
+t1.`CLOSEDDATE`,
+t1.`CODE`,
+t1.`DAYS`,
+t1.`DELETED`,
+t1.`END`,
+t1.`ID`,
+t1.`ISCAT`,
+'0' AS `ISTOP`,
+t1.`MDEPTID`,
+t1.`NAME`,
+t1.`OPENEDBY`,
+t1.`OPENEDDATE`,
+t1.`OPENEDVERSION`,
+t1.`ORDER`,
+t1.`order` AS `ORDER1`,
+t1.`ORGID`,
+t1.`PARENT`,
+t11.`NAME` AS `PARENTNAME`,
+t1.`PM`,
+t1.`PO`,
+t1.`PRI`,
+t1.`QD`,
+t1.`RD`,
+t1.`STATGE`,
+t1.`STATUS`,
+(SELECT COUNT(1) FROM ZT_STORY LEFT JOIN ZT_PROJECTSTORY ON ZT_STORY.ID = ZT_PROJECTSTORY.STORY WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `STORYCNT`,
+t1.`SUBSTATUS`,
+t1.`SUPPROREPORT`,
+(SELECT COUNT(1) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `TASKCNT`,
+t1.`TEAM`,
+(SELECT round(SUM(CONSUMED),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' AND ( `parent` = '' or `parent` = '0' or `parent` = '-1')) AS `TOTALCONSUMED`,
+(SELECT round(SUM(ESTIMATE),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED =  '0' AND ( `parent` = '' or `parent` = '0' or `parent` = '-1')) AS `TOTALESTIMATE`,
+(select sum(days * hours)  from zt_team tt where type = 'project' and root = t1.id) AS `TOTALHOURS`,
+(SELECT round(SUM(`LEFT`),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' and `status` in ('doing','wait','pause') AND ( `parent` = '' or `parent` = '0' or `parent` = '-1')) AS `TOTALLEFT`,
+((SELECT round(SUM( `LEFT` ),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' AND ( `parent` = '' OR `parent` = '0' OR `parent` = '-1' ) AND `status` in ('doing','wait','pause')) + (SELECT round(SUM( CONSUMED ),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' AND ( `parent` = '' OR `parent` = '0' OR `parent` = '-1' ))) AS `TOTALWH`,
+t1.`TYPE`
+FROM `zt_project` t1 
+LEFT JOIN `zt_project` t11 ON t1.`PARENT` = t11.`ID` 
+LEFT OUTER JOIN `zt_projectproduct` t21 ON t1.`ID` = t21.`PROJECT` 
 
 ```
 ### 数据查询-当前项目（CurProduct）
@@ -4576,7 +4870,7 @@ t1.`TEAM`,
 ((SELECT round(SUM( `LEFT` ),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' AND ( `parent` = '' OR `parent` = '0' OR `parent` = '-1' ) AND `status` in ('doing','wait','pause')) + (SELECT round(SUM( CONSUMED ),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' AND ( `parent` = '' OR `parent` = '0' OR `parent` = '-1' ))) AS `TOTALWH`,
 t1.`TYPE`
 FROM `zt_project` t1 
-LEFT JOIN zt_project t11 ON t1.PARENT = t11.ID 
+LEFT JOIN `zt_project` t11 ON t1.`PARENT` = t11.`ID` 
 
 ```
 ### 数据查询-当前用户项目（CurUser）
@@ -4691,6 +4985,120 @@ LEFT JOIN zt_project t11 ON t1.PARENT = t11.ID
 where t1.deleted = '0' and t1.acl = 'private' and t1.id in (select t3.root from zt_team t3 where t3.account = #{srf.sessioncontext.srfloginname}  
 and t3.type = 'project')) t1
 ```
+### 数据查询-当前用户项目（企业版）（CurUserSa）
+#### 说明
+当前用户项目（企业版）
+
+- 默认查询
+否
+
+- 查询权限使用
+是
+
+#### SQL
+- MYSQL5
+```SQL
+select t1.* from (SELECT
+(select tt.product from zt_projectproduct tt where tt.project = t1.id LIMIT 0,1)as products,
+t1.MDEPTID,
+t1.orgid,
+t1.`ACL`,
+t1.`BEGIN`,
+(SELECT COUNT(1) FROM ZT_BUG WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `BUGCNT`,
+t1.`CANCELEDBY`,
+(select count(1) + 1 from zt_doclib where type = 'project' and project = t1.`id`) as `DOCLIBCNT`,
+t1.`CANCELEDDATE`,
+t1.`CATID`,
+t1.`CLOSEDBY`,
+t1.`CLOSEDDATE`,
+t1.`CODE`,
+t1.`DAYS`,
+t1.`DELETED`,
+t1.`END`,
+t1.`ID`,
+t1.`ISCAT`,
+t1.`NAME`,
+t1.`OPENEDBY`,
+t1.`OPENEDDATE`,
+t1.`OPENEDVERSION`,
+t1.`ORDER`,
+(CASE WHEN T2.OBJECTORDER IS NOT NULL THEN T2.OBJECTORDER ELSE  t1.`ORDER` END) as `ORDER1`,
+	(CASE WHEN T2.OBJECTORDER IS NOT NULL THEN 1 ELSE 0 END) as `ISTOP`,
+t1.`PARENT`,
+t11.`NAME` AS `PARENTNAME`,
+t1.`PM`,
+t1.`PO`,
+t1.`PRI`,
+t1.`QD`,
+t1.`RD`,
+t1.`STATGE`,
+t1.`STATUS`,
+(SELECT COUNT(1) FROM ZT_STORY LEFT JOIN ZT_PROJECTSTORY ON ZT_STORY.ID = ZT_PROJECTSTORY.STORY WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `STORYCNT`,
+t1.`SUBSTATUS`,
+(SELECT COUNT(1) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `TASKCNT`,
+t1.`TEAM`,
+(SELECT round(SUM(CONSUMED),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' AND ( `parent` = '' or `parent` = '0' or `parent` = '-1')) AS `TOTALCONSUMED`,
+(SELECT round(SUM(ESTIMATE),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED =  '0' AND ( `parent` = '' or `parent` = '0' or `parent` = '-1')) AS `TOTALESTIMATE`,
+(select sum(days * hours)  from zt_team tt where type = 'project' and root = t1.id) AS `TOTALHOURS`,
+(SELECT round(SUM(`LEFT`),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' and `status` in ('doing','wait','pause') AND ( `parent` = '' or `parent` = '0' or `parent` = '-1')) AS `TOTALLEFT`,
+((SELECT round(SUM( `LEFT` ),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' AND ( `parent` = '' OR `parent` = '0' OR `parent` = '-1' ) AND `status` in ('doing','wait','pause')) + (SELECT round(SUM( CONSUMED ),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' AND ( `parent` = '' OR `parent` = '0' OR `parent` = '-1' ))) AS `TOTALWH`,
+t1.`TYPE`
+FROM `zt_project` t1 
+left join t_ibz_top t2 on t1.id = t2.OBJECTID and t2.type = 'project' and t2.ACCOUNT = #{srf.sessioncontext.srfloginname}
+LEFT JOIN zt_project t11 ON t1.PARENT = t11.ID 
+where t1.deleted = '0' and (t1.acl = 'open' or t1.OPENEDBY = #{srf.sessioncontext.srfloginname} or  t1.pm =  #{srf.sessioncontext.srfloginname} or t1.PO = #{srf.sessioncontext.srfloginname} or t1.RD = #{srf.sessioncontext.srfloginname} or t1.QD =  #{srf.sessioncontext.srfloginname} )
+union 
+SELECT
+(select tt.product from zt_projectproduct tt where tt.project = t1.id LIMIT 0,1)as products,
+t1.MDEPTID,
+t1.orgid,
+t1.`ACL`,
+t1.`BEGIN`,
+(SELECT COUNT(1) FROM ZT_BUG WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `BUGCNT`,
+t1.`CANCELEDBY`,
+(select count(1) + 1 from zt_doclib where type = 'project' and project = t1.`id`) as `DOCLIBCNT`,
+t1.`CANCELEDDATE`,
+t1.`CATID`,
+t1.`CLOSEDBY`,
+t1.`CLOSEDDATE`,
+t1.`CODE`,
+t1.`DAYS`,
+t1.`DELETED`,
+t1.`END`,
+t1.`ID`,
+t1.`ISCAT`,
+t1.`NAME`,
+t1.`OPENEDBY`,
+t1.`OPENEDDATE`,
+t1.`OPENEDVERSION`,
+t1.`ORDER`,
+(CASE WHEN T2.OBJECTORDER IS NOT NULL THEN T2.OBJECTORDER ELSE  t1.`ORDER` END) as `ORDER1`,
+	(CASE WHEN T2.OBJECTORDER IS NOT NULL THEN 1 ELSE 0 END) as `ISTOP`,
+t1.`PARENT`,
+t11.`NAME` AS `PARENTNAME`,
+t1.`PM`,
+t1.`PO`,
+t1.`PRI`,
+t1.`QD`,
+t1.`RD`,
+t1.`STATGE`,
+t1.`STATUS`,
+(SELECT COUNT(1) FROM ZT_STORY LEFT JOIN ZT_PROJECTSTORY ON ZT_STORY.ID = ZT_PROJECTSTORY.STORY WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `STORYCNT`,
+t1.`SUBSTATUS`,
+(SELECT COUNT(1) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0') AS `TASKCNT`,
+t1.`TEAM`,
+(SELECT round(SUM(CONSUMED),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' AND ( `parent` = '' or `parent` = '0' or `parent` = '-1')) AS `TOTALCONSUMED`,
+(SELECT round(SUM(ESTIMATE),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED =  '0' AND ( `parent` = '' or `parent` = '0' or `parent` = '-1')) AS `TOTALESTIMATE`,
+(select sum(days * hours)  from zt_team tt where type = 'project' and root = t1.id) AS `TOTALHOURS`,
+(SELECT round(SUM(`LEFT`),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' and `status` in ('doing','wait','pause') AND ( `parent` = '' or `parent` = '0' or `parent` = '-1')) AS `TOTALLEFT`,
+((SELECT round(SUM( `LEFT` ),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' AND ( `parent` = '' OR `parent` = '0' OR `parent` = '-1' ) AND `status` in ('doing','wait','pause')) + (SELECT round(SUM( CONSUMED ),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' AND ( `parent` = '' OR `parent` = '0' OR `parent` = '-1' ))) AS `TOTALWH`,
+t1.`TYPE`
+FROM `zt_project` t1 
+left join t_ibz_top t2 on t1.id = t2.OBJECTID and t2.type = 'project' and t2.ACCOUNT = #{srf.sessioncontext.srfloginname}
+LEFT JOIN zt_project t11 ON t1.PARENT = t11.ID 
+where t1.deleted = '0' and t1.acl = 'private' and t1.id in (select t3.root from zt_team t3 where t3.account = #{srf.sessioncontext.srfloginname}  
+and t3.type = 'project')) t1
+```
 ### 数据查询-DEFAULT（Default）
 #### 说明
 DEFAULT
@@ -4749,7 +5157,7 @@ t1.`TEAM`,
 ((SELECT round(SUM( `LEFT` ),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' AND ( `parent` = '' OR `parent` = '0' OR `parent` = '-1' ) AND `status` in ('doing','wait','pause')) + (SELECT round(SUM( CONSUMED ),0) FROM ZT_TASK WHERE PROJECT = t1.`ID` AND DELETED = '0' AND ( `parent` = '' OR `parent` = '0' OR `parent` = '-1' ))) AS `TOTALWH`,
 t1.`TYPE`
 FROM `zt_project` t1 
-LEFT JOIN zt_project t11 ON t1.PARENT = t11.ID 
+LEFT JOIN `zt_project` t11 ON t1.`PARENT` = t11.`ID` 
 
 ```
 ### 数据查询-ES批量的导入（ESBulk）
@@ -5194,6 +5602,7 @@ t1.`ORGID`,
 t1.`PARENT`,
 t11.`NAME` AS `PARENTNAME`,
 t1.`PM`,
+t1.`PMSEEPROJECTINFO`,
 t1.`PO`,
 t1.`PRI`,
 t1.`QD`,
@@ -5213,7 +5622,7 @@ t1.`TEAM`,
 t1.`TYPE`,
 t1.`WHITELIST`
 FROM `zt_project` t1 
-LEFT JOIN zt_project t11 ON t1.PARENT = t11.ID 
+LEFT JOIN `zt_project` t11 ON t1.`PARENT` = t11.`ID` 
 
 ```
 
@@ -5221,16 +5630,18 @@ LEFT JOIN zt_project t11 ON t1.PARENT = t11.ID
 | 序号 | 集合 | 集合名 | 默认 |
 | ---- | ---- | ---- | ---- |
 | 1 | [BugProject](#数据集合-BugProject（BugProject）) | BugProject | 否 |
-| 2 | [当前项目](#数据集合-当前项目（CurProduct）) | CurProduct | 否 |
-| 3 | [当前用户项目](#数据集合-当前用户项目（CurUser）) | CurUser | 否 |
-| 4 | [DEFAULT](#数据集合-DEFAULT（Default）) | Default | 是 |
-| 5 | [ES批量的导入](#数据集合-ES批量的导入（ESBulk）) | ESBulk | 否 |
-| 6 | [参与项目(年度总结)](#数据集合-参与项目(年度总结)（InvolvedProject）) | InvolvedProject | 否 |
-| 7 | [参与项目完成需求任务bug](#数据集合-参与项目完成需求任务bug（InvolvedProject_StoryTaskBug）) | InvolvedProject_StoryTaskBug | 否 |
-| 8 | [我的项目](#数据集合-我的项目（MyProject）) | MyProject | 否 |
-| 9 | [项目团队](#数据集合-项目团队（ProjectTeam）) | ProjectTeam | 否 |
-| 10 | [需求影响项目](#数据集合-需求影响项目（StoryProject）) | StoryProject | 否 |
-| 11 | [未完成项目](#数据集合-未完成项目（UnDoneProject）) | UnDoneProject | 否 |
+| 2 | [当前计划项目](#数据集合-当前计划项目（CurPlanProject）) | CurPlanProject | 否 |
+| 3 | [当前项目](#数据集合-当前项目（CurProduct）) | CurProduct | 否 |
+| 4 | [当前用户项目](#数据集合-当前用户项目（CurUser）) | CurUser | 否 |
+| 5 | [当前用户项目（企业版）](#数据集合-当前用户项目（企业版）（CurUserSa）) | CurUserSa | 否 |
+| 6 | [DEFAULT](#数据集合-DEFAULT（Default）) | Default | 是 |
+| 7 | [ES批量的导入](#数据集合-ES批量的导入（ESBulk）) | ESBulk | 否 |
+| 8 | [参与项目(年度总结)](#数据集合-参与项目(年度总结)（InvolvedProject）) | InvolvedProject | 否 |
+| 9 | [参与项目完成需求任务bug](#数据集合-参与项目完成需求任务bug（InvolvedProject_StoryTaskBug）) | InvolvedProject_StoryTaskBug | 否 |
+| 10 | [我的项目](#数据集合-我的项目（MyProject）) | MyProject | 否 |
+| 11 | [项目团队](#数据集合-项目团队（ProjectTeam）) | ProjectTeam | 否 |
+| 12 | [需求影响项目](#数据集合-需求影响项目（StoryProject）) | StoryProject | 否 |
+| 13 | [未完成项目](#数据集合-未完成项目（UnDoneProject）) | UnDoneProject | 否 |
 
 ### 数据集合-BugProject（BugProject）
 #### 说明
@@ -5246,6 +5657,20 @@ BugProject
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [Bug表单中可选的项目列表（BugSelectableProjectList）](#数据查询-Bug表单中可选的项目列表（BugSelectableProjectList）) |
+### 数据集合-当前计划项目（CurPlanProject）
+#### 说明
+当前计划项目
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [当前计划项目（CurPlanProject）](#数据查询-当前计划项目（CurPlanProject）) |
 ### 数据集合-当前项目（CurProduct）
 #### 说明
 当前项目
@@ -5274,6 +5699,20 @@ BugProject
 | 序号 | 数据查询 |
 | ---- | ---- |
 | 1 | [当前用户项目（CurUser）](#数据查询-当前用户项目（CurUser）) |
+### 数据集合-当前用户项目（企业版）（CurUserSa）
+#### 说明
+当前用户项目（企业版）
+
+- 默认集合
+否
+
+- 行为持有者
+后台及前台
+
+#### 关联的数据查询
+| 序号 | 数据查询 |
+| ---- | ---- |
+| 1 | [当前用户项目（企业版）（CurUserSa）](#数据查询-当前用户项目（企业版）（CurUserSa）) |
 ### 数据集合-DEFAULT（Default）
 #### 说明
 DEFAULT

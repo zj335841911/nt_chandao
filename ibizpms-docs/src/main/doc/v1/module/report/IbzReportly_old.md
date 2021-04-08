@@ -9,43 +9,43 @@
 
 | 属性名称        |    中文名称    | 类型     |  备注  |
 | --------   |------------| -----   |  -------- | 
-|汇报标识|IBZ_REPORTLYID|ACID|&nbsp;|
-|汇报名称|IBZ_REPORTLYNAME|TEXT|&nbsp;|
+|附件|FILES|TEXT|&nbsp;|
+|用户|ACCOUNT|SSCODELIST|&nbsp;|
 |更新人|UPDATEMAN|TEXT|&nbsp;|
 |建立时间|CREATEDATE|DATETIME|&nbsp;|
+|抄送给|MAILTO|SMCODELIST|&nbsp;|
+|汇报标识|IBZ_REPORTLYID|ACID|&nbsp;|
+|汇报名称|IBZ_REPORTLYNAME|TEXT|&nbsp;|
+|状态|REPORTSTATUS|SSCODELIST|&nbsp;|
+|提交时间|SUBMITTIME|TIME|&nbsp;|
+|汇报给（选择）|REPORTTOPK|TEXT|&nbsp;|
+|汇报给|REPORTTO|SSCODELIST|&nbsp;|
 |建立人|CREATEMAN|TEXT|&nbsp;|
+|是否提交|ISSUBMIT|SSCODELIST|&nbsp;|
 |更新时间|UPDATEDATE|DATETIME|&nbsp;|
 |工作内容|CONTENT|HTMLTEXT|&nbsp;|
-|附件|FILES|TEXT|&nbsp;|
-|汇报给|REPORTTO|SSCODELIST|&nbsp;|
-|抄送给|MAILTO|SMCODELIST|&nbsp;|
 |汇报日期|DATE|DATE|&nbsp;|
-|是否提交|ISSUBMIT|SSCODELIST|&nbsp;|
-|提交时间|SUBMITTIME|TIME|&nbsp;|
-|用户|ACCOUNT|SSCODELIST|&nbsp;|
-|状态|REPORTSTATUS|SSCODELIST|&nbsp;|
-|汇报给（选择）|REPORTTOPK|TEXT|&nbsp;|
 |抄送给（选择）|MAILTOPK|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
 | --------   |------------| ----- | 
-|汇报标识|默认规则|默认规则|
-|汇报名称|默认规则|内容长度必须小于等于[200]|
+|附件|默认规则|内容长度必须小于等于[100]|
+|用户|默认规则|内容长度必须小于等于[60]|
 |更新人|默认规则|内容长度必须小于等于[60]|
 |建立时间|默认规则|默认规则|
+|抄送给|默认规则|内容长度必须小于等于[100]|
+|汇报标识|默认规则|默认规则|
+|汇报名称|默认规则|内容长度必须小于等于[200]|
+|状态|默认规则|内容长度必须小于等于[100]|
+|提交时间|默认规则|默认规则|
+|汇报给（选择）|默认规则|内容长度必须小于等于[200]|
+|汇报给|默认规则|内容长度必须小于等于[100]|
 |建立人|默认规则|内容长度必须小于等于[60]|
+|是否提交|默认规则|内容长度必须小于等于[100]|
 |更新时间|默认规则|默认规则|
 |工作内容|默认规则|内容长度必须小于等于[1048576]|
-|附件|默认规则|内容长度必须小于等于[100]|
-|汇报给|默认规则|内容长度必须小于等于[100]|
-|抄送给|默认规则|内容长度必须小于等于[100]|
 |汇报日期|默认规则|默认规则|
-|是否提交|默认规则|内容长度必须小于等于[100]|
-|提交时间|默认规则|默认规则|
-|用户|默认规则|内容长度必须小于等于[60]|
-|状态|默认规则|内容长度必须小于等于[100]|
-|汇报给（选择）|默认规则|内容长度必须小于等于[200]|
 |抄送给（选择）|默认规则|内容长度必须小于等于[200]|
 
 ## 状态控制
@@ -84,7 +84,7 @@
 
 | 查询编号 | 查询名称       | 默认查询 |   备注|
 | --------  | --------   | --------   | ----- |
-|DEFAULT|数据查询([MYSQL5](../../appendix/query_MYSQL5.md#IbzReportly_Default))|否|&nbsp;|
+|DEFAULT|数据查询([MYSQL5](../../appendix/query_MYSQL5.md#IbzReportly_Default))|是|&nbsp;|
 |MyAllReportly|我所有的汇报([MYSQL5](../../appendix/query_MYSQL5.md#IbzReportly_MyAllReportly))|否|&nbsp;|
 |MyReceived|我收到的汇报([MYSQL5](../../appendix/query_MYSQL5.md#IbzReportly_MyReceived))|否|&nbsp;|
 |MyReportlyMob|我的未提交汇报([MYSQL5](../../appendix/query_MYSQL5.md#IbzReportly_MyReportlyMob))|否|&nbsp;|
@@ -102,9 +102,9 @@
 ## 查询模式
 | 属性      |    搜索模式     |
 | --------   |------------|
+|用户(ACCOUNT)|EQ|
 |汇报名称(IBZ_REPORTLYNAME)|LIKE|
 |是否提交(ISSUBMIT)|EQ|
-|用户(ACCOUNT)|EQ|
 
 ## 导入模式
 无

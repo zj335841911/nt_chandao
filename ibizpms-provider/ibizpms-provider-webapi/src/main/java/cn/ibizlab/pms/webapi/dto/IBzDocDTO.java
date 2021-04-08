@@ -20,11 +20,14 @@ import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * 服务DTO对象[IBzDocDTO]
  */
 @Data
+@ApiModel("文档")
 public class IBzDocDTO extends DTOBase implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -36,6 +39,7 @@ public class IBzDocDTO extends DTOBase implements Serializable {
     @JSONField(name = "ibzdocid")
     @JsonProperty("ibzdocid")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("文档标识")
     private String ibzdocid;
 
     /**
@@ -45,6 +49,7 @@ public class IBzDocDTO extends DTOBase implements Serializable {
     @JSONField(name = "addedby")
     @JsonProperty("addedby")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("由谁添加")
     private String addedby;
 
     /**
@@ -54,6 +59,7 @@ public class IBzDocDTO extends DTOBase implements Serializable {
     @JSONField(name = "editedby")
     @JsonProperty("editedby")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("由谁更新")
     private String editedby;
 
     /**
@@ -63,6 +69,7 @@ public class IBzDocDTO extends DTOBase implements Serializable {
     @JSONField(name = "addeddate")
     @JsonProperty("addeddate")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("添加时间")
     private String addeddate;
 
     /**
@@ -72,6 +79,7 @@ public class IBzDocDTO extends DTOBase implements Serializable {
     @JSONField(name = "size")
     @JsonProperty("size")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("大小")
     private String size;
 
     /**
@@ -81,6 +89,7 @@ public class IBzDocDTO extends DTOBase implements Serializable {
     @JSONField(name = "lib")
     @JsonProperty("lib")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("所属文档库")
     private String lib;
 
     /**
@@ -90,6 +99,7 @@ public class IBzDocDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "createdate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createdate")
+    @ApiModelProperty("建立时间")
     private Timestamp createdate;
 
     /**
@@ -99,6 +109,7 @@ public class IBzDocDTO extends DTOBase implements Serializable {
     @JSONField(name = "ibzdocname")
     @JsonProperty("ibzdocname")
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("文档名称")
     private String ibzdocname;
 
     /**
@@ -108,6 +119,7 @@ public class IBzDocDTO extends DTOBase implements Serializable {
     @JSONField(name = "order")
     @JsonProperty("order")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("排序")
     private String order;
 
     /**
@@ -116,6 +128,7 @@ public class IBzDocDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "iscollect")
     @JsonProperty("iscollect")
+    @ApiModelProperty("是否已收藏")
     private Integer iscollect;
 
     /**
@@ -125,6 +138,7 @@ public class IBzDocDTO extends DTOBase implements Serializable {
     @JSONField(name = "createman")
     @JsonProperty("createman")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("建立人")
     private String createman;
 
     /**
@@ -134,6 +148,7 @@ public class IBzDocDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "updatedate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("updatedate")
+    @ApiModelProperty("更新时间")
     private Timestamp updatedate;
 
     /**
@@ -143,6 +158,7 @@ public class IBzDocDTO extends DTOBase implements Serializable {
     @JSONField(name = "editeddate")
     @JsonProperty("editeddate")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("更新时间")
     private String editeddate;
 
     /**
@@ -152,6 +168,7 @@ public class IBzDocDTO extends DTOBase implements Serializable {
     @JSONField(name = "objecttype")
     @JsonProperty("objecttype")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("对象类型")
     private String objecttype;
 
     /**
@@ -161,6 +178,7 @@ public class IBzDocDTO extends DTOBase implements Serializable {
     @JSONField(name = "updateman")
     @JsonProperty("updateman")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("更新人")
     private String updateman;
 
 

@@ -72,7 +72,7 @@ public class EmpLoyeeloadResource {
 		EmpLoyeeload domain  = employeeloadMapping.toDomain(employeeloaddto);
         domain .setId(employeeload_id);
 		employeeloadService.update(domain );
-		EmpLoyeeloadDTO dto = employeeloadMapping.toDto(domain );
+		EmpLoyeeloadDTO dto = employeeloadMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
@@ -110,8 +110,9 @@ public class EmpLoyeeloadResource {
 
     @ApiOperation(value = "获取员工负载表草稿", tags = {"员工负载表" },  notes = "获取员工负载表草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/employeeloads/getdraft")
-    public ResponseEntity<EmpLoyeeloadDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(employeeloadMapping.toDto(employeeloadService.getDraft(new EmpLoyeeload())));
+    public ResponseEntity<EmpLoyeeloadDTO> getDraft(EmpLoyeeloadDTO dto) {
+        EmpLoyeeload domain = employeeloadMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(employeeloadMapping.toDto(employeeloadService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查员工负载表", tags = {"员工负载表" },  notes = "检查员工负载表")
@@ -123,8 +124,10 @@ public class EmpLoyeeloadResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-EmpLoyeeload-Save-all')")
     @ApiOperation(value = "保存员工负载表", tags = {"员工负载表" },  notes = "保存员工负载表")
 	@RequestMapping(method = RequestMethod.POST, value = "/employeeloads/save")
-    public ResponseEntity<Boolean> save(@RequestBody EmpLoyeeloadDTO employeeloaddto) {
-        return ResponseEntity.status(HttpStatus.OK).body(employeeloadService.save(employeeloadMapping.toDomain(employeeloaddto)));
+    public ResponseEntity<EmpLoyeeloadDTO> save(@RequestBody EmpLoyeeloadDTO employeeloaddto) {
+        EmpLoyeeload domain = employeeloadMapping.toDomain(employeeloaddto);
+        employeeloadService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(employeeloadMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-EmpLoyeeload-Save-all')")
@@ -178,6 +181,7 @@ public class EmpLoyeeloadResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(employeeloadMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
 
 
 }

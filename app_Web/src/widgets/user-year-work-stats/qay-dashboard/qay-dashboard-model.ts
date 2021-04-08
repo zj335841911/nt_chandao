@@ -15,122 +15,49 @@ export default class QAYModel {
   public getDataItems(): any[] {
     return [
       {
-        name: 'useryearworkstats',
-        prop: 'id',
-      },
-      {
-        name: 'realname',
-      },
-      {
-        name: 'account',
-      },
-      {
-        name: 'role',
-      },
-      {
-        name: 'dept',
-      },
-      {
-        name: 'visits',
-      },
-      {
-        name: 'yearplancnt',
+        name: 'password',
       },
       {
         name: 'yearproductcnt',
       },
       {
-        name: 'yearstorycnt',
-      },
-      {
-        name: 'yearactioncnt',
-      },
-      {
         name: 'yearbugcnt',
-      },
-      {
-        name: 'yearcasecnt',
-      },
-      {
-        name: 'yearlogcnt',
-      },
-      {
-        name: 'yearestimatecnt',
-      },
-      {
-        name: 'judgerole',
-      },
-      {
-        name: 'yearvisits',
-      },
-      {
-        name: 'curyear',
-      },
-      {
-        name: 'title',
-      },
-      {
-        name: 'monthfinishtask',
-      },
-      {
-        name: 'montestimate',
-      },
-      {
-        name: 'montresolvedbug',
-      },
-      {
-        name: 'curmonth',
-      },
-      {
-        name: 'slack',
-      },
-      {
-        name: 'skype',
-      },
-      {
-        name: 'score',
       },
       {
         name: 'weixin',
       },
       {
-        name: 'join',
+        name: 'yearcasecnt',
       },
       {
-        name: 'phone',
-      },
-      {
-        name: 'fails',
-      },
-      {
-        name: 'email',
-      },
-      {
-        name: 'clientlang',
-      },
-      {
-        name: 'deleted',
-      },
-      {
-        name: 'ranzhi',
-      },
-      {
-        name: 'avatar',
-      },
-      {
-        name: 'commiter',
-      },
-      {
-        name: 'gender',
+        name: 'account',
       },
       {
         name: 'qq',
       },
       {
-        name: 'birthday',
+        name: 'ranzhi',
       },
       {
-        name: 'locked',
+        name: 'nickname',
+      },
+      {
+        name: 'avatar',
+      },
+      {
+        name: 'monthfinishtask',
+      },
+      {
+        name: 'fails',
+      },
+      {
+        name: 'join',
+      },
+      {
+        name: 'yearstorycnt',
+      },
+      {
+        name: 'yearplancnt',
       },
       {
         name: 'dingding',
@@ -139,31 +66,104 @@ export default class QAYModel {
         name: 'ip',
       },
       {
-        name: 'whatsapp',
-      },
-      {
-        name: 'zipcode',
-      },
-      {
-        name: 'password',
-      },
-      {
-        name: 'nickname',
-      },
-      {
-        name: 'clientstatus',
-      },
-      {
-        name: 'scorelevel',
+        name: 'yearactioncnt',
       },
       {
         name: 'mobile',
       },
       {
+        name: 'whatsapp',
+      },
+      {
+        name: 'useryearworkstats',
+        prop: 'id',
+      },
+      {
+        name: 'email',
+      },
+      {
+        name: 'yearestimatecnt',
+      },
+      {
+        name: 'clientlang',
+      },
+      {
+        name: 'montestimate',
+      },
+      {
+        name: 'realname',
+      },
+      {
+        name: 'commiter',
+      },
+      {
+        name: 'slack',
+      },
+      {
+        name: 'deleted',
+      },
+      {
         name: 'last',
       },
       {
+        name: 'curyear',
+      },
+      {
+        name: 'judgerole',
+      },
+      {
+        name: 'skype',
+      },
+      {
+        name: 'birthday',
+      },
+      {
+        name: 'phone',
+      },
+      {
+        name: 'yearvisits',
+      },
+      {
+        name: 'score',
+      },
+      {
+        name: 'role',
+      },
+      {
+        name: 'clientstatus',
+      },
+      {
+        name: 'dept',
+      },
+      {
+        name: 'title',
+      },
+      {
+        name: 'curmonth',
+      },
+      {
+        name: 'montresolvedbug',
+      },
+      {
         name: 'address',
+      },
+      {
+        name: 'scorelevel',
+      },
+      {
+        name: 'visits',
+      },
+      {
+        name: 'yearlogcnt',
+      },
+      {
+        name: 'locked',
+      },
+      {
+        name: 'gender',
+      },
+      {
+        name: 'zipcode',
       },
     ]
   }

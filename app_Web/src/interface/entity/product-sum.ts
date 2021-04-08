@@ -7,68 +7,12 @@
 export interface ProductSum {
 
     /**
-     * 主键标识
+     * 设计缺陷
      *
      * @returns {*}
      * @memberof ProductSum
      */
-    id?: any;
-
-    /**
-     * 产品名称
-     *
-     * @returns {*}
-     * @memberof ProductSum
-     */
-    name?: any;
-
-    /**
-     * 产品负责人
-     *
-     * @returns {*}
-     * @memberof ProductSum
-     */
-    po?: any;
-
-    /**
-     * 计划
-     *
-     * @returns {*}
-     * @memberof ProductSum
-     */
-    plan?: any;
-
-    /**
-     * 开始日期
-     *
-     * @returns {*}
-     * @memberof ProductSum
-     */
-    begin?: any;
-
-    /**
-     * 结束日期
-     *
-     * @returns {*}
-     * @memberof ProductSum
-     */
-    end?: any;
-
-    /**
-     * 草稿
-     *
-     * @returns {*}
-     * @memberof ProductSum
-     */
-    waitstorycnt?: any;
-
-    /**
-     * 激活
-     *
-     * @returns {*}
-     * @memberof ProductSum
-     */
-    activestorycnt?: any;
+    designdefect?: any;
 
     /**
      * 已变更
@@ -79,12 +23,12 @@ export interface ProductSum {
     changedstorycnt?: any;
 
     /**
-     * 已关闭
+     * 研发中阶段需求工时
      *
      * @returns {*}
      * @memberof ProductSum
      */
-    closedstorycnt?: any;
+    developingstagestoryhours?: any;
 
     /**
      * 总计
@@ -93,6 +37,166 @@ export interface ProductSum {
      * @memberof ProductSum
      */
     storycnt?: any;
+
+    /**
+     * 其他
+     *
+     * @returns {*}
+     * @memberof ProductSum
+     */
+    others?: any;
+
+    /**
+     * 配置相关
+     *
+     * @returns {*}
+     * @memberof ProductSum
+     */
+    config?: any;
+
+    /**
+     * 代码错误
+     *
+     * @returns {*}
+     * @memberof ProductSum
+     */
+    codeerror?: any;
+
+    /**
+     * bug总计
+     *
+     * @returns {*}
+     * @memberof ProductSum
+     */
+    bugsum?: any;
+
+    /**
+     * 性能问题
+     *
+     * @returns {*}
+     * @memberof ProductSum
+     */
+    performance?: any;
+
+    /**
+     * 结束日期
+     *
+     * @returns {*}
+     * @memberof ProductSum
+     */
+    end?: any;
+
+    /**
+     * 已关闭
+     *
+     * @returns {*}
+     * @memberof ProductSum
+     */
+    closedstorycnt?: any;
+
+    /**
+     * 已关闭阶段需求工时
+     *
+     * @returns {*}
+     * @memberof ProductSum
+     */
+    closedstagestoryhours?: any;
+
+    /**
+     * 测试完毕阶段需求工时
+     *
+     * @returns {*}
+     * @memberof ProductSum
+     */
+    testedstagestoryhours?: any;
+
+    /**
+     * 未开始阶段需求工时
+     *
+     * @returns {*}
+     * @memberof ProductSum
+     */
+    waitstagestoryhours?: any;
+
+    /**
+     * 产品负责人
+     *
+     * @returns {*}
+     * @memberof ProductSum
+     */
+    po?: any;
+
+    /**
+     * 测试中阶段需求工时
+     *
+     * @returns {*}
+     * @memberof ProductSum
+     */
+    testingstagestoryhours?: any;
+
+    /**
+     * 已立项阶段需求工时
+     *
+     * @returns {*}
+     * @memberof ProductSum
+     */
+    projectedstagestoryhours?: any;
+
+    /**
+     * 已立项阶段需求数量
+     *
+     * @returns {*}
+     * @memberof ProductSum
+     */
+    projectedstagestorycnt?: any;
+
+    /**
+     * 已验收阶段需求数量
+     *
+     * @returns {*}
+     * @memberof ProductSum
+     */
+    verifiedstagestorycnt?: any;
+
+    /**
+     * 主键标识
+     *
+     * @returns {*}
+     * @memberof ProductSum
+     */
+    id?: any;
+
+    /**
+     * 总工时
+     *
+     * @returns {*}
+     * @memberof ProductSum
+     */
+    totalhours?: any;
+
+    /**
+     * 已计划阶段需求数量
+     *
+     * @returns {*}
+     * @memberof ProductSum
+     */
+    planedstagestorycnt?: any;
+
+    /**
+     * 研发中阶段需求数量
+     *
+     * @returns {*}
+     * @memberof ProductSum
+     */
+    developingstagestorycnt?: any;
+
+    /**
+     * 激活
+     *
+     * @returns {*}
+     * @memberof ProductSum
+     */
+    activestorycnt?: any;
 
     /**
      * Bug数
@@ -111,36 +215,20 @@ export interface ProductSum {
     waitstagestorycnt?: any;
 
     /**
-     * 已计划阶段需求数量
+     * 已验收阶段需求工时
      *
      * @returns {*}
      * @memberof ProductSum
      */
-    planedstagestorycnt?: any;
+    verifiedstagestoryhours?: any;
 
     /**
-     * 已立项阶段需求数量
+     * 草稿
      *
      * @returns {*}
      * @memberof ProductSum
      */
-    projectedstagestorycnt?: any;
-
-    /**
-     * 研发中阶段需求数量
-     *
-     * @returns {*}
-     * @memberof ProductSum
-     */
-    developingstagestorycnt?: any;
-
-    /**
-     * 研发完毕阶段需求数量
-     *
-     * @returns {*}
-     * @memberof ProductSum
-     */
-    developedstagestorycnt?: any;
+    waitstorycnt?: any;
 
     /**
      * 测试中阶段需求数量
@@ -151,52 +239,20 @@ export interface ProductSum {
     testingstagestorycnt?: any;
 
     /**
-     * 测试完毕阶段需求数量
+     * 开始日期
      *
      * @returns {*}
      * @memberof ProductSum
      */
-    testedstagestorycnt?: any;
+    begin?: any;
 
     /**
-     * 已验收阶段需求数量
+     * 计划
      *
      * @returns {*}
      * @memberof ProductSum
      */
-    verifiedstagestorycnt?: any;
-
-    /**
-     * 已发布阶段需求数量
-     *
-     * @returns {*}
-     * @memberof ProductSum
-     */
-    releasedstagestorycnt?: any;
-
-    /**
-     * 已关闭阶段需求数量
-     *
-     * @returns {*}
-     * @memberof ProductSum
-     */
-    closedstagestorycnt?: any;
-
-    /**
-     * 未开始阶段需求工时
-     *
-     * @returns {*}
-     * @memberof ProductSum
-     */
-    waitstagestoryhours?: any;
-
-    /**
-     * 已关闭阶段需求工时
-     *
-     * @returns {*}
-     * @memberof ProductSum
-     */
-    closedstagestoryhours?: any;
+    plan?: any;
 
     /**
      * 已发布阶段需求工时
@@ -207,30 +263,6 @@ export interface ProductSum {
     releasedstagestoryhours?: any;
 
     /**
-     * 已验收阶段需求工时
-     *
-     * @returns {*}
-     * @memberof ProductSum
-     */
-    verifiedstagestoryhours?: any;
-
-    /**
-     * 测试完毕阶段需求工时
-     *
-     * @returns {*}
-     * @memberof ProductSum
-     */
-    testedstagestoryhours?: any;
-
-    /**
-     * 测试中阶段需求工时
-     *
-     * @returns {*}
-     * @memberof ProductSum
-     */
-    testingstagestoryhours?: any;
-
-    /**
      * 研发完毕阶段需求工时
      *
      * @returns {*}
@@ -239,20 +271,28 @@ export interface ProductSum {
     developedstagestoryhours?: any;
 
     /**
-     * 研发中阶段需求工时
+     * 产品名称
      *
      * @returns {*}
      * @memberof ProductSum
      */
-    developingstagestoryhours?: any;
+    name?: any;
 
     /**
-     * 已立项阶段需求工时
+     * 研发完毕阶段需求数量
      *
      * @returns {*}
      * @memberof ProductSum
      */
-    projectedstagestoryhours?: any;
+    developedstagestorycnt?: any;
+
+    /**
+     * 测试脚本
+     *
+     * @returns {*}
+     * @memberof ProductSum
+     */
+    automation?: any;
 
     /**
      * 已计划阶段需求工时
@@ -261,30 +301,6 @@ export interface ProductSum {
      * @memberof ProductSum
      */
     planedstagestoryhours?: any;
-
-    /**
-     * 总工时
-     *
-     * @returns {*}
-     * @memberof ProductSum
-     */
-    totalhours?: any;
-
-    /**
-     * 代码错误
-     *
-     * @returns {*}
-     * @memberof ProductSum
-     */
-    codeerror?: any;
-
-    /**
-     * 配置相关
-     *
-     * @returns {*}
-     * @memberof ProductSum
-     */
-    config?: any;
 
     /**
      * 安装部署
@@ -303,12 +319,20 @@ export interface ProductSum {
     security?: any;
 
     /**
-     * 性能问题
+     * 已发布阶段需求数量
      *
      * @returns {*}
      * @memberof ProductSum
      */
-    performance?: any;
+    releasedstagestorycnt?: any;
+
+    /**
+     * 测试完毕阶段需求数量
+     *
+     * @returns {*}
+     * @memberof ProductSum
+     */
+    testedstagestorycnt?: any;
 
     /**
      * 标准规范
@@ -319,34 +343,10 @@ export interface ProductSum {
     standard?: any;
 
     /**
-     * 测试脚本
+     * 已关闭阶段需求数量
      *
      * @returns {*}
      * @memberof ProductSum
      */
-    automation?: any;
-
-    /**
-     * 设计缺陷
-     *
-     * @returns {*}
-     * @memberof ProductSum
-     */
-    designdefect?: any;
-
-    /**
-     * 其他
-     *
-     * @returns {*}
-     * @memberof ProductSum
-     */
-    others?: any;
-
-    /**
-     * bug总计
-     *
-     * @returns {*}
-     * @memberof ProductSum
-     */
-    bugsum?: any;
+    closedstagestorycnt?: any;
 }

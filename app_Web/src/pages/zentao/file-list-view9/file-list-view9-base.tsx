@@ -1,6 +1,6 @@
 
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { ListView9Base } from '@/studio-core';
 import FileService from '@/service/file/file-service';
 import FileAuthService from '@/authservice/file/file-auth-service';
@@ -119,7 +119,7 @@ export class FileListView9Base extends ListView9Base {
      * @type {string}
      * @memberof FileListView9Base
      */
-	protected viewtag: string = '9ed41cee96088630f3d4b0a91e705930';
+	protected viewtag: string = 'd940bfd96f6087050755b99a3b6bab0a';
 
     /**
      * 视图名称

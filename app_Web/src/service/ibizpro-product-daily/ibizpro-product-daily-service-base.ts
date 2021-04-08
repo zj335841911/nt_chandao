@@ -1,3 +1,4 @@
+import { Environment } from '@/environments/environment';
 import { Http } from '@/utils';
 import { Util } from '@/utils';
 import EntityService from '../entity-service';
@@ -49,7 +50,7 @@ export default class IbizproProductDailyServiceBase extends EntityService {
      * @memberof IbizproProductDailyServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().get(`/ibizproproductdailies/${context.ibizproproductdaily}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/ibizproproductdailies/${context.ibizproproductdaily}/select`,isloading);
             
             return res;
     }
@@ -105,7 +106,7 @@ export default class IbizproProductDailyServiceBase extends EntityService {
      * @memberof IbizproProductDailyServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().delete(`/ibizproproductdailies/${context.ibizproproductdaily}`,isloading);
+            let res:any = await Http.getInstance().delete(`/ibizproproductdailies/${context.ibizproproductdaily}`,isloading);
             return res;
     }
 
@@ -134,7 +135,10 @@ export default class IbizproProductDailyServiceBase extends EntityService {
      * @memberof IbizproProductDailyServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/ibizproproductdailies/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.ibizproproductdaily) delete tempData.ibizproproductdaily;
+        if(tempData.ibizproproductdailyid) delete tempData.ibizproproductdailyid;
+        let res:any = await  Http.getInstance().get(`/ibizproproductdailies/getdraft`,tempData,isloading);
         res.data.ibizproproductdaily = data.ibizproproductdaily;
         
         return res;
@@ -150,7 +154,7 @@ export default class IbizproProductDailyServiceBase extends EntityService {
      * @memberof IbizproProductDailyServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/ibizproproductdailies/${context.ibizproproductdaily}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/ibizproproductdailies/${context.ibizproproductdaily}/checkkey`,data,isloading);
             return res;
     }
 
@@ -164,8 +168,22 @@ export default class IbizproProductDailyServiceBase extends EntityService {
      * @memberof IbizproProductDailyServiceBase
      */
     public async ManualCreateDaily(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/ibizproproductdailies/${context.ibizproproductdaily}/manualcreatedaily`,data,isloading);
+            let res:any = await Http.getInstance().post(`/ibizproproductdailies/${context.ibizproproductdaily}/manualcreatedaily`,data,isloading);
             return res;
+    }
+
+    /**
+     * ManualCreateDailyBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbizproProductDailyServiceBase
+     */
+    public async ManualCreateDailyBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/ibizproproductdailies/manualcreatedailybatch`,tempData,isloading);
     }
 
     /**
@@ -195,8 +213,22 @@ export default class IbizproProductDailyServiceBase extends EntityService {
      * @memberof IbizproProductDailyServiceBase
      */
     public async StatsProductDaily(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/ibizproproductdailies/${context.ibizproproductdaily}/statsproductdaily`,data,isloading);
+            let res:any = await Http.getInstance().post(`/ibizproproductdailies/${context.ibizproproductdaily}/statsproductdaily`,data,isloading);
             return res;
+    }
+
+    /**
+     * StatsProductDailyBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbizproProductDailyServiceBase
+     */
+    public async StatsProductDailyBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/ibizproproductdailies/statsproductdailybatch`,tempData,isloading);
     }
 
     /**
@@ -210,7 +242,7 @@ export default class IbizproProductDailyServiceBase extends EntityService {
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/ibizproproductdailies/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/ibizproproductdailies/fetchdefault`,tempData,isloading);
         return res;
     }
 
@@ -239,7 +271,7 @@ export default class IbizproProductDailyServiceBase extends EntityService {
      */
     public async FetchProductDaily(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/ibizproproductdailies/fetchproductdaily`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/ibizproproductdailies/fetchproductdaily`,tempData,isloading);
         return res;
     }
 

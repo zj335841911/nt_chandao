@@ -24,6 +24,8 @@ import java.io.Serializable;
 import lombok.*;
 import org.springframework.data.annotation.Transient;
 import cn.ibizlab.pms.util.annotation.Audit;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -39,6 +41,7 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
 @TableName(value = "zt_task", resultMap = "TaskResultMap")
+@ApiModel("任务")
 public class Task extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -50,7 +53,17 @@ public class Task extends EntityMP implements Serializable {
     @TableField(value = "`canceledby`")
     @JSONField(name = "canceledby")
     @JsonProperty("canceledby")
+    @ApiModelProperty("由谁取消")
     private String canceledby;
+    /**
+     * 周期类型
+     */
+    @DEField(name = "config_type")
+    @TableField(value = "`config_type`")
+    @JSONField(name = "configtype")
+    @JsonProperty("configtype")
+    @ApiModelProperty("周期类型")
+    private String configtype;
     /**
      * 预计剩余
      */
@@ -58,7 +71,34 @@ public class Task extends EntityMP implements Serializable {
     @TableField(value = "`left`")
     @JSONField(name = "left")
     @JsonProperty("left")
+    @ApiModelProperty("预计剩余")
     private Double left;
+    /**
+     * 是否收藏
+     */
+    @TableField(exist = false)
+    @JSONField(name = "isfavorites")
+    @JsonProperty("isfavorites")
+    @ApiModelProperty("是否收藏")
+    private String isfavorites;
+    /**
+     * 过期日期
+     */
+    @DEField(name = "config_end")
+    @TableField(value = "`config_end`")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "configend", format = "yyyy-MM-dd")
+    @JsonProperty("configend")
+    @ApiModelProperty("过期日期")
+    private Timestamp configend;
+    /**
+     * 是否填写描述
+     */
+    @TableField(exist = false)
+    @JSONField(name = "hasdetail")
+    @JsonProperty("hasdetail")
+    @ApiModelProperty("是否填写描述")
+    private String hasdetail;
     /**
      * 创建日期
      */
@@ -67,7 +107,16 @@ public class Task extends EntityMP implements Serializable {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "openeddate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("openeddate")
+    @ApiModelProperty("创建日期")
     private Timestamp openeddate;
+    /**
+     * 是否指派
+     */
+    @TableField(value = "`assign`")
+    @JSONField(name = "assign")
+    @JsonProperty("assign")
+    @ApiModelProperty("是否指派")
+    private String assign;
     /**
      * 标题颜色
      */
@@ -75,6 +124,7 @@ public class Task extends EntityMP implements Serializable {
     @TableField(value = "`color`")
     @JSONField(name = "color")
     @JsonProperty("color")
+    @ApiModelProperty("标题颜色")
     private String color;
     /**
      * 编号
@@ -83,6 +133,7 @@ public class Task extends EntityMP implements Serializable {
     @TableId(value = "id", type = IdType.AUTO)
     @JSONField(name = "id")
     @JsonProperty("id")
+    @ApiModelProperty("编号")
     private Long id;
     /**
      * 由谁完成
@@ -91,7 +142,24 @@ public class Task extends EntityMP implements Serializable {
     @TableField(value = "`finishedby`")
     @JSONField(name = "finishedby")
     @JsonProperty("finishedby")
+    @ApiModelProperty("由谁完成")
     private String finishedby;
+    /**
+     * 我的总消耗
+     */
+    @TableField(exist = false)
+    @JSONField(name = "mytotaltime")
+    @JsonProperty("mytotaltime")
+    @ApiModelProperty("我的总消耗")
+    private Double mytotaltime;
+    /**
+     * 抄送给
+     */
+    @TableField(exist = false)
+    @JSONField(name = "mailtopk")
+    @JsonProperty("mailtopk")
+    @ApiModelProperty("抄送给")
+    private String mailtopk;
     /**
      * 完成者列表
      */
@@ -99,7 +167,24 @@ public class Task extends EntityMP implements Serializable {
     @TableField(value = "`finishedlist`")
     @JSONField(name = "finishedlist")
     @JsonProperty("finishedlist")
+    @ApiModelProperty("完成者列表")
     private String finishedlist;
+    /**
+     * 所属模块
+     */
+    @TableField(exist = false)
+    @JSONField(name = "modulename1")
+    @JsonProperty("modulename1")
+    @ApiModelProperty("所属模块")
+    private String modulename1;
+    /**
+     * 是否子任务
+     */
+    @TableField(exist = false)
+    @JSONField(name = "isleaf")
+    @JsonProperty("isleaf")
+    @ApiModelProperty("是否子任务")
+    private String isleaf;
     /**
      * 实际开始
      */
@@ -107,7 +192,51 @@ public class Task extends EntityMP implements Serializable {
     @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "realstarted", format = "yyyy-MM-dd")
     @JsonProperty("realstarted")
+    @ApiModelProperty("实际开始")
     private Timestamp realstarted;
+    /**
+     * 任务状态
+     */
+    @TableField(exist = false)
+    @JSONField(name = "status1")
+    @JsonProperty("status1")
+    @ApiModelProperty("任务状态")
+    private String status1;
+    /**
+     * 回复数量
+     */
+    @TableField(exist = false)
+    @JSONField(name = "replycount")
+    @JsonProperty("replycount")
+    @ApiModelProperty("回复数量")
+    private Integer replycount;
+    /**
+     * 开始日期
+     */
+    @DEField(name = "config_begin")
+    @TableField(value = "`config_begin`")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "configbegin", format = "yyyy-MM-dd")
+    @JsonProperty("configbegin")
+    @ApiModelProperty("开始日期")
+    private Timestamp configbegin;
+    /**
+     * 最后的更新日期
+     */
+    @TableField(exist = false)
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "updatedate", format = "yyyy-MM-dd")
+    @JsonProperty("updatedate")
+    @ApiModelProperty("最后的更新日期")
+    private Timestamp updatedate;
+    /**
+     * 消息通知用户
+     */
+    @TableField(exist = false)
+    @JSONField(name = "noticeusers")
+    @JsonProperty("noticeusers")
+    @ApiModelProperty("消息通知用户")
+    private String noticeusers;
     /**
      * 由谁关闭
      */
@@ -115,7 +244,24 @@ public class Task extends EntityMP implements Serializable {
     @TableField(value = "`closedby`")
     @JSONField(name = "closedby")
     @JsonProperty("closedby")
+    @ApiModelProperty("由谁关闭")
     private String closedby;
+    /**
+     * 本次消耗
+     */
+    @TableField(exist = false)
+    @JSONField(name = "currentconsumed")
+    @JsonProperty("currentconsumed")
+    @ApiModelProperty("本次消耗")
+    private Double currentconsumed;
+    /**
+     * 附件
+     */
+    @TableField(exist = false)
+    @JSONField(name = "files")
+    @JsonProperty("files")
+    @ApiModelProperty("附件")
+    private String files;
     /**
      * 子状态
      */
@@ -123,6 +269,7 @@ public class Task extends EntityMP implements Serializable {
     @TableField(value = "`substatus`")
     @JSONField(name = "substatus")
     @JsonProperty("substatus")
+    @ApiModelProperty("子状态")
     private String substatus;
     /**
      * 关闭原因
@@ -131,7 +278,16 @@ public class Task extends EntityMP implements Serializable {
     @TableField(value = "`closedreason`")
     @JSONField(name = "closedreason")
     @JsonProperty("closedreason")
+    @ApiModelProperty("关闭原因")
     private String closedreason;
+    /**
+     * 任务种别
+     */
+    @TableField(value = "`taskspecies`")
+    @JSONField(name = "taskspecies")
+    @JsonProperty("taskspecies")
+    @ApiModelProperty("任务种别")
+    private String taskspecies;
     /**
      * 最后修改日期
      */
@@ -140,7 +296,17 @@ public class Task extends EntityMP implements Serializable {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "lastediteddate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("lastediteddate")
+    @ApiModelProperty("最后修改日期")
     private Timestamp lastediteddate;
+    /**
+     * 间隔天数
+     */
+    @DEField(name = "config_day")
+    @TableField(value = "`config_day`")
+    @JSONField(name = "configday")
+    @JsonProperty("configday")
+    @ApiModelProperty("间隔天数")
+    private Integer configday;
     /**
      * 指派日期
      */
@@ -148,6 +314,7 @@ public class Task extends EntityMP implements Serializable {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "assigneddate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("assigneddate")
+    @ApiModelProperty("指派日期")
     private Timestamp assigneddate;
     /**
      * 优先级
@@ -156,6 +323,7 @@ public class Task extends EntityMP implements Serializable {
     @TableField(value = "`pri`")
     @JSONField(name = "pri")
     @JsonProperty("pri")
+    @ApiModelProperty("优先级")
     private Integer pri;
     /**
      * 最后修改
@@ -164,7 +332,17 @@ public class Task extends EntityMP implements Serializable {
     @TableField(value = "`lasteditedby`")
     @JSONField(name = "lasteditedby")
     @JsonProperty("lasteditedby")
+    @ApiModelProperty("最后修改")
     private String lasteditedby;
+    /**
+     * 关联编号
+     */
+    @DEField(defaultValue = "0")
+    @TableField(value = "`idvalue`")
+    @JSONField(name = "idvalue")
+    @JsonProperty("idvalue")
+    @ApiModelProperty("关联编号")
+    private Long idvalue;
     /**
      * 任务状态
      */
@@ -172,13 +350,23 @@ public class Task extends EntityMP implements Serializable {
     @TableField(value = "`status`")
     @JSONField(name = "status")
     @JsonProperty("status")
+    @ApiModelProperty("任务状态")
     private String status;
+    /**
+     * 多人任务
+     */
+    @TableField(exist = false)
+    @JSONField(name = "multiple")
+    @JsonProperty("multiple")
+    @ApiModelProperty("多人任务")
+    private String multiple;
     /**
      * 任务名称
      */
     @TableField(value = "`name`")
     @JSONField(name = "name")
     @JsonProperty("name")
+    @ApiModelProperty("任务名称")
     private String name;
     /**
      * 关闭时间
@@ -187,7 +375,24 @@ public class Task extends EntityMP implements Serializable {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "closeddate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("closeddate")
+    @ApiModelProperty("关闭时间")
     private Timestamp closeddate;
+    /**
+     * 投入成本
+     */
+    @TableField(value = "`inputcost`")
+    @JSONField(name = "inputcost")
+    @JsonProperty("inputcost")
+    @ApiModelProperty("投入成本")
+    private Double inputcost;
+    /**
+     * 总计耗时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "totaltime")
+    @JsonProperty("totaltime")
+    @ApiModelProperty("总计耗时")
+    private Double totaltime;
     /**
      * 任务类型
      */
@@ -195,6 +400,7 @@ public class Task extends EntityMP implements Serializable {
     @TableField(value = "`type`")
     @JSONField(name = "type")
     @JsonProperty("type")
+    @ApiModelProperty("任务类型")
     private String type;
     /**
      * 指派给
@@ -203,7 +409,16 @@ public class Task extends EntityMP implements Serializable {
     @TableField(value = "`assignedto`")
     @JSONField(name = "assignedto")
     @JsonProperty("assignedto")
+    @ApiModelProperty("指派给")
     private String assignedto;
+    /**
+     * 延期
+     */
+    @TableField(exist = false)
+    @JSONField(name = "delay")
+    @JsonProperty("delay")
+    @ApiModelProperty("延期")
+    private String delay;
     /**
      * 任务描述
      */
@@ -211,6 +426,7 @@ public class Task extends EntityMP implements Serializable {
     @TableField(value = "`desc`")
     @JSONField(name = "desc")
     @JsonProperty("desc")
+    @ApiModelProperty("任务描述")
     private String desc;
     /**
      * 预计开始
@@ -219,6 +435,7 @@ public class Task extends EntityMP implements Serializable {
     @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "eststarted", format = "yyyy-MM-dd")
     @JsonProperty("eststarted")
+    @ApiModelProperty("预计开始")
     private Timestamp eststarted;
     /**
      * 截止日期
@@ -227,7 +444,24 @@ public class Task extends EntityMP implements Serializable {
     @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "deadline", format = "yyyy-MM-dd")
     @JsonProperty("deadline")
+    @ApiModelProperty("截止日期")
     private Timestamp deadline;
+    /**
+     * 排序
+     */
+    @TableField(exist = false)
+    @JSONField(name = "statusorder")
+    @JsonProperty("statusorder")
+    @ApiModelProperty("排序")
+    private Integer statusorder;
+    /**
+     * 联系人
+     */
+    @TableField(exist = false)
+    @JSONField(name = "mailtoconact")
+    @JsonProperty("mailtoconact")
+    @ApiModelProperty("联系人")
+    private String mailtoconact;
     /**
      * 已删除
      */
@@ -236,7 +470,17 @@ public class Task extends EntityMP implements Serializable {
     @TableField(value = "`deleted`")
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
+    @ApiModelProperty("已删除")
     private String deleted;
+    /**
+     * 周期
+     */
+    @DEField(defaultValue = "0")
+    @TableField(value = "`cycle`")
+    @JSONField(name = "cycle")
+    @JsonProperty("cycle")
+    @ApiModelProperty("周期")
+    private Integer cycle;
     /**
      * 抄送给
      */
@@ -244,6 +488,7 @@ public class Task extends EntityMP implements Serializable {
     @TableField(value = "`mailto`")
     @JSONField(name = "mailto")
     @JsonProperty("mailto")
+    @ApiModelProperty("抄送给")
     private String mailto;
     /**
      * 总计消耗
@@ -252,6 +497,7 @@ public class Task extends EntityMP implements Serializable {
     @TableField(value = "`consumed`")
     @JSONField(name = "consumed")
     @JsonProperty("consumed")
+    @ApiModelProperty("总计消耗")
     private Double consumed;
     /**
      * 最初预计
@@ -260,6 +506,7 @@ public class Task extends EntityMP implements Serializable {
     @TableField(value = "`estimate`")
     @JSONField(name = "estimate")
     @JsonProperty("estimate")
+    @ApiModelProperty("最初预计")
     private Double estimate;
     /**
      * 由谁创建
@@ -268,7 +515,16 @@ public class Task extends EntityMP implements Serializable {
     @TableField(value = "`openedby`")
     @JSONField(name = "openedby")
     @JsonProperty("openedby")
+    @ApiModelProperty("由谁创建")
     private String openedby;
+    /**
+     * 是否完成
+     */
+    @TableField(exist = false)
+    @JSONField(name = "isfinished")
+    @JsonProperty("isfinished")
+    @ApiModelProperty("是否完成")
+    private String isfinished;
     /**
      * 取消时间
      */
@@ -276,7 +532,91 @@ public class Task extends EntityMP implements Serializable {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "canceleddate", format = "yyyy-MM-dd HH:mm:ss")
     @JsonProperty("canceleddate")
+    @ApiModelProperty("取消时间")
     private Timestamp canceleddate;
+    /**
+     * 周期设置月
+     */
+    @DEField(name = "config_month")
+    @TableField(value = "`config_month`")
+    @JSONField(name = "configmonth")
+    @JsonProperty("configmonth")
+    @ApiModelProperty("周期设置月")
+    private String configmonth;
+    /**
+     * 备注
+     */
+    @TableField(exist = false)
+    @JSONField(name = "comment")
+    @JsonProperty("comment")
+    @ApiModelProperty("备注")
+    private String comment;
+    /**
+     * 持续时间
+     */
+    @TableField(exist = false)
+    @JSONField(name = "duration")
+    @JsonProperty("duration")
+    @ApiModelProperty("持续时间")
+    private String duration;
+    /**
+     * 转交给
+     */
+    @TableField(exist = false)
+    @JSONField(name = "assignedtozj")
+    @JsonProperty("assignedtozj")
+    @ApiModelProperty("转交给")
+    private String assignedtozj;
+    /**
+     * 团队用户
+     */
+    @TableField(exist = false)
+    @JSONField(name = "usernames")
+    @JsonProperty("usernames")
+    @ApiModelProperty("团队用户")
+    private String usernames;
+    /**
+     * 之前消耗
+     */
+    @TableField(exist = false)
+    @JSONField(name = "myconsumed")
+    @JsonProperty("myconsumed")
+    @ApiModelProperty("之前消耗")
+    private Double myconsumed;
+    /**
+     * 周期设置周几
+     */
+    @DEField(name = "config_week")
+    @TableField(value = "`config_week`")
+    @JSONField(name = "configweek")
+    @JsonProperty("configweek")
+    @ApiModelProperty("周期设置周几")
+    private String configweek;
+    /**
+     * 任务类型
+     */
+    @TableField(exist = false)
+    @JSONField(name = "tasktype")
+    @JsonProperty("tasktype")
+    @ApiModelProperty("任务类型")
+    private String tasktype;
+    /**
+     * 所有模块
+     */
+    @TableField(exist = false)
+    @JSONField(name = "allmodules")
+    @JsonProperty("allmodules")
+    @ApiModelProperty("所有模块")
+    private String allmodules;
+    /**
+     * 提前天数
+     */
+    @DEField(name = "config_beforedays")
+    @TableField(value = "`config_beforedays`")
+    @JSONField(name = "configbeforedays")
+    @JsonProperty("configbeforedays")
+    @ApiModelProperty("提前天数")
+    private Integer configbeforedays;
     /**
      * 实际完成
      */
@@ -284,13 +624,23 @@ public class Task extends EntityMP implements Serializable {
     @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "finisheddate", format = "yyyy-MM-dd")
     @JsonProperty("finisheddate")
+    @ApiModelProperty("实际完成")
     private Timestamp finisheddate;
+    /**
+     * 进度
+     */
+    @TableField(exist = false)
+    @JSONField(name = "progressrate")
+    @JsonProperty("progressrate")
+    @ApiModelProperty("进度")
+    private String progressrate;
     /**
      * 所属模块
      */
     @TableField(exist = false)
     @JSONField(name = "modulename")
     @JsonProperty("modulename")
+    @ApiModelProperty("所属模块")
     private String modulename;
     /**
      * 相关需求
@@ -298,13 +648,31 @@ public class Task extends EntityMP implements Serializable {
     @TableField(exist = false)
     @JSONField(name = "storyname")
     @JsonProperty("storyname")
+    @ApiModelProperty("相关需求")
     private String storyname;
+    /**
+     * 模块路径
+     */
+    @TableField(exist = false)
+    @JSONField(name = "path")
+    @JsonProperty("path")
+    @ApiModelProperty("模块路径")
+    private String path;
+    /**
+     * 所属计划
+     */
+    @TableField(exist = false)
+    @JSONField(name = "planname")
+    @JsonProperty("planname")
+    @ApiModelProperty("所属计划")
+    private String planname;
     /**
      * 所属项目
      */
     @TableField(exist = false)
     @JSONField(name = "projectname")
     @JsonProperty("projectname")
+    @ApiModelProperty("所属项目")
     private String projectname;
     /**
      * 产品
@@ -312,6 +680,7 @@ public class Task extends EntityMP implements Serializable {
     @TableField(exist = false)
     @JSONField(name = "product")
     @JsonProperty("product")
+    @ApiModelProperty("产品")
     private Long product;
     /**
      * 需求版本
@@ -320,6 +689,7 @@ public class Task extends EntityMP implements Serializable {
     @TableField(value = "`storyversion`")
     @JSONField(name = "storyversion")
     @JsonProperty("storyversion")
+    @ApiModelProperty("需求版本")
     private Integer storyversion;
     /**
      * 产品
@@ -327,6 +697,7 @@ public class Task extends EntityMP implements Serializable {
     @TableField(exist = false)
     @JSONField(name = "productname")
     @JsonProperty("productname")
+    @ApiModelProperty("产品")
     private String productname;
     /**
      * 父任务
@@ -334,6 +705,7 @@ public class Task extends EntityMP implements Serializable {
     @TableField(exist = false)
     @JSONField(name = "parentname")
     @JsonProperty("parentname")
+    @ApiModelProperty("父任务")
     private String parentname;
     /**
      * 所属项目
@@ -342,7 +714,25 @@ public class Task extends EntityMP implements Serializable {
     @TableField(value = "`project`")
     @JSONField(name = "project")
     @JsonProperty("project")
+    @ApiModelProperty("所属项目")
     private Long project;
+    /**
+     * 编号
+     */
+    @TableField(value = "`plan`")
+    @JSONField(name = "plan")
+    @JsonProperty("plan")
+    @ApiModelProperty("编号")
+    private Long plan;
+    /**
+     * 模块
+     */
+    @DEField(defaultValue = "0")
+    @TableField(value = "`module`")
+    @JSONField(name = "module")
+    @JsonProperty("module")
+    @ApiModelProperty("模块")
+    private Long module;
     /**
      * 相关需求
      */
@@ -350,6 +740,7 @@ public class Task extends EntityMP implements Serializable {
     @TableField(value = "`story`")
     @JSONField(name = "story")
     @JsonProperty("story")
+    @ApiModelProperty("相关需求")
     private Long story;
     /**
      * 父任务
@@ -358,6 +749,7 @@ public class Task extends EntityMP implements Serializable {
     @TableField(value = "`parent`")
     @JSONField(name = "parent")
     @JsonProperty("parent")
+    @ApiModelProperty("父任务")
     private Long parent;
     /**
      * 来源Bug
@@ -366,205 +758,8 @@ public class Task extends EntityMP implements Serializable {
     @TableField(value = "`frombug`")
     @JSONField(name = "frombug")
     @JsonProperty("frombug")
+    @ApiModelProperty("来源Bug")
     private Long frombug;
-    /**
-     * 持续时间
-     */
-    @TableField(exist = false)
-    @JSONField(name = "duration")
-    @JsonProperty("duration")
-    private String duration;
-    /**
-     * id
-     */
-    @DEField(defaultValue = "0")
-    @TableField(value = "`module`")
-    @JSONField(name = "module")
-    @JsonProperty("module")
-    private Long module;
-    /**
-     * 模块路径
-     */
-    @TableField(exist = false)
-    @JSONField(name = "path")
-    @JsonProperty("path")
-    private String path;
-    /**
-     * 备注
-     */
-    @TableField(exist = false)
-    @JSONField(name = "comment")
-    @JsonProperty("comment")
-    private String comment;
-    /**
-     * 本次消耗
-     */
-    @TableField(exist = false)
-    @JSONField(name = "currentconsumed")
-    @JsonProperty("currentconsumed")
-    private Double currentconsumed;
-    /**
-     * 总计耗时
-     */
-    @TableField(exist = false)
-    @JSONField(name = "totaltime")
-    @JsonProperty("totaltime")
-    private Double totaltime;
-    /**
-     * 是否子任务
-     */
-    @TableField(exist = false)
-    @JSONField(name = "isleaf")
-    @JsonProperty("isleaf")
-    private String isleaf;
-    /**
-     * 所有模块
-     */
-    @TableField(exist = false)
-    @JSONField(name = "allmodules")
-    @JsonProperty("allmodules")
-    private String allmodules;
-    /**
-     * 多人任务
-     */
-    @TableField(exist = false)
-    @JSONField(name = "multiple")
-    @JsonProperty("multiple")
-    private String multiple;
-    /**
-     * 所属模块
-     */
-    @TableField(exist = false)
-    @JSONField(name = "modulename1")
-    @JsonProperty("modulename1")
-    private String modulename1;
-    /**
-     * 是否收藏
-     */
-    @TableField(exist = false)
-    @JSONField(name = "isfavorites")
-    @JsonProperty("isfavorites")
-    private String isfavorites;
-    /**
-     * 任务状态
-     */
-    @TableField(exist = false)
-    @JSONField(name = "status1")
-    @JsonProperty("status1")
-    private String status1;
-    /**
-     * 任务类型
-     */
-    @TableField(exist = false)
-    @JSONField(name = "tasktype")
-    @JsonProperty("tasktype")
-    private String tasktype;
-    /**
-     * 附件
-     */
-    @TableField(exist = false)
-    @JSONField(name = "files")
-    @JsonProperty("files")
-    private String files;
-    /**
-     * 团队用户
-     */
-    @TableField(exist = false)
-    @JSONField(name = "usernames")
-    @JsonProperty("usernames")
-    private String usernames;
-    /**
-     * 是否完成
-     */
-    @TableField(exist = false)
-    @JSONField(name = "isfinished")
-    @JsonProperty("isfinished")
-    private String isfinished;
-    /**
-     * 回复数量
-     */
-    @TableField(exist = false)
-    @JSONField(name = "replycount")
-    @JsonProperty("replycount")
-    private Integer replycount;
-    /**
-     * 是否填写描述
-     */
-    @TableField(exist = false)
-    @JSONField(name = "hasdetail")
-    @JsonProperty("hasdetail")
-    private String hasdetail;
-    /**
-     * 最后的更新日期
-     */
-    @TableField(exist = false)
-    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
-    @JSONField(name = "updatedate", format = "yyyy-MM-dd")
-    @JsonProperty("updatedate")
-    private Timestamp updatedate;
-    /**
-     * 消息通知用户
-     */
-    @TableField(exist = false)
-    @JSONField(name = "noticeusers")
-    @JsonProperty("noticeusers")
-    private String noticeusers;
-    /**
-     * 进度
-     */
-    @TableField(exist = false)
-    @JSONField(name = "progressrate")
-    @JsonProperty("progressrate")
-    private String progressrate;
-    /**
-     * 延期
-     */
-    @TableField(exist = false)
-    @JSONField(name = "delay")
-    @JsonProperty("delay")
-    private String delay;
-    /**
-     * 抄送给
-     */
-    @TableField(exist = false)
-    @JSONField(name = "mailtopk")
-    @JsonProperty("mailtopk")
-    private String mailtopk;
-    /**
-     * 联系人
-     */
-    @TableField(exist = false)
-    @JSONField(name = "mailtoconact")
-    @JsonProperty("mailtoconact")
-    private String mailtoconact;
-    /**
-     * 排序
-     */
-    @TableField(exist = false)
-    @JSONField(name = "statusorder")
-    @JsonProperty("statusorder")
-    private Integer statusorder;
-    /**
-     * 之前消耗
-     */
-    @TableField(exist = false)
-    @JSONField(name = "myconsumed")
-    @JsonProperty("myconsumed")
-    private Double myconsumed;
-    /**
-     * 我的总消耗
-     */
-    @TableField(exist = false)
-    @JSONField(name = "mytotaltime")
-    @JsonProperty("mytotaltime")
-    private Double mytotaltime;
-    /**
-     * 转交给
-     */
-    @TableField(exist = false)
-    @JSONField(name = "assignedtozj")
-    @JsonProperty("assignedtozj")
-    private String assignedtozj;
 
     /**
      * 
@@ -581,6 +776,14 @@ public class Task extends EntityMP implements Serializable {
     @JSONField(serialize = false)
     @TableField(exist = false)
     private cn.ibizlab.pms.core.zentao.domain.Bug ztfrombug;
+
+    /**
+     * 相关计划
+     */
+    @JsonIgnore
+    @JSONField(serialize = false)
+    @TableField(exist = false)
+    private cn.ibizlab.pms.core.zentao.domain.ProductPlan productplan;
 
     /**
      * 
@@ -633,11 +836,45 @@ public class Task extends EntityMP implements Serializable {
     }
 
     /**
+     * 设置 [周期类型]
+     */
+    public void setConfigtype(String configtype) {
+        this.configtype = configtype;
+        this.modify("config_type", configtype);
+    }
+
+    /**
      * 设置 [预计剩余]
      */
     public void setLeft(Double left) {
         this.left = left;
         this.modify("left", left);
+    }
+
+    /**
+     * 设置 [过期日期]
+     */
+    public void setConfigend(Timestamp configend) {
+        this.configend = configend;
+        this.modify("config_end", configend);
+    }
+
+    /**
+     * 格式化日期 [过期日期]
+     */
+    public String formatConfigend() {
+        if (this.configend == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return sdf.format(configend);
+    }
+    /**
+     * 设置 [是否指派]
+     */
+    public void setAssign(String assign) {
+        this.assign = assign;
+        this.modify("assign", assign);
     }
 
     /**
@@ -683,6 +920,24 @@ public class Task extends EntityMP implements Serializable {
         return sdf.format(realstarted);
     }
     /**
+     * 设置 [开始日期]
+     */
+    public void setConfigbegin(Timestamp configbegin) {
+        this.configbegin = configbegin;
+        this.modify("config_begin", configbegin);
+    }
+
+    /**
+     * 格式化日期 [开始日期]
+     */
+    public String formatConfigbegin() {
+        if (this.configbegin == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return sdf.format(configbegin);
+    }
+    /**
      * 设置 [由谁关闭]
      */
     public void setClosedby(String closedby) {
@@ -704,6 +959,22 @@ public class Task extends EntityMP implements Serializable {
     public void setClosedreason(String closedreason) {
         this.closedreason = closedreason;
         this.modify("closedreason", closedreason);
+    }
+
+    /**
+     * 设置 [任务种别]
+     */
+    public void setTaskspecies(String taskspecies) {
+        this.taskspecies = taskspecies;
+        this.modify("taskspecies", taskspecies);
+    }
+
+    /**
+     * 设置 [间隔天数]
+     */
+    public void setConfigday(Integer configday) {
+        this.configday = configday;
+        this.modify("config_day", configday);
     }
 
     /**
@@ -730,6 +1001,14 @@ public class Task extends EntityMP implements Serializable {
     public void setPri(Integer pri) {
         this.pri = pri;
         this.modify("pri", pri);
+    }
+
+    /**
+     * 设置 [关联编号]
+     */
+    public void setIdvalue(Long idvalue) {
+        this.idvalue = idvalue;
+        this.modify("idvalue", idvalue);
     }
 
     /**
@@ -766,6 +1045,14 @@ public class Task extends EntityMP implements Serializable {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         return sdf.format(closeddate);
     }
+    /**
+     * 设置 [投入成本]
+     */
+    public void setInputcost(Double inputcost) {
+        this.inputcost = inputcost;
+        this.modify("inputcost", inputcost);
+    }
+
     /**
      * 设置 [任务类型]
      */
@@ -827,6 +1114,14 @@ public class Task extends EntityMP implements Serializable {
         return sdf.format(deadline);
     }
     /**
+     * 设置 [周期]
+     */
+    public void setCycle(Integer cycle) {
+        this.cycle = cycle;
+        this.modify("cycle", cycle);
+    }
+
+    /**
      * 设置 [抄送给]
      */
     public void setMailto(String mailto) {
@@ -869,6 +1164,30 @@ public class Task extends EntityMP implements Serializable {
         return sdf.format(canceleddate);
     }
     /**
+     * 设置 [周期设置月]
+     */
+    public void setConfigmonth(String configmonth) {
+        this.configmonth = configmonth;
+        this.modify("config_month", configmonth);
+    }
+
+    /**
+     * 设置 [周期设置周几]
+     */
+    public void setConfigweek(String configweek) {
+        this.configweek = configweek;
+        this.modify("config_week", configweek);
+    }
+
+    /**
+     * 设置 [提前天数]
+     */
+    public void setConfigbeforedays(Integer configbeforedays) {
+        this.configbeforedays = configbeforedays;
+        this.modify("config_beforedays", configbeforedays);
+    }
+
+    /**
      * 设置 [实际完成]
      */
     public void setFinisheddate(Timestamp finisheddate) {
@@ -903,6 +1222,22 @@ public class Task extends EntityMP implements Serializable {
     }
 
     /**
+     * 设置 [编号]
+     */
+    public void setPlan(Long plan) {
+        this.plan = plan;
+        this.modify("plan", plan);
+    }
+
+    /**
+     * 设置 [模块]
+     */
+    public void setModule(Long module) {
+        this.module = module;
+        this.modify("module", module);
+    }
+
+    /**
      * 设置 [相关需求]
      */
     public void setStory(Long story) {
@@ -924,14 +1259,6 @@ public class Task extends EntityMP implements Serializable {
     public void setFrombug(Long frombug) {
         this.frombug = frombug;
         this.modify("frombug", frombug);
-    }
-
-    /**
-     * 设置 [id]
-     */
-    public void setModule(Long module) {
-        this.module = module;
-        this.modify("module", module);
     }
 
 

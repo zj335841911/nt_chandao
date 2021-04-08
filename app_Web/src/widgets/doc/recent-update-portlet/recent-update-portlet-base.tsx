@@ -75,7 +75,7 @@ export class RecentUpdatePortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet1_u6ab12f4_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet1_u1d6b165_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -251,8 +251,8 @@ export class RecentUpdatePortletBase extends MainControlBase {
      * @memberof RecentUpdateBase
      */
     public uiAction(tag:string,event:any){
-        if(Object.is(tag,'u6ab12f4')){
-            this.dashboard_sysportlet1_u6ab12f4_click(null,tag,event);
+        if(Object.is(tag,'u1d6b165')){
+            this.dashboard_sysportlet1_u1d6b165_click(null,tag,event);
         }
     }
 

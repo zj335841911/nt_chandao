@@ -21,7 +21,7 @@ export default class CancelProductTopLogicBase {
      * 
      * @memberof  CancelProductTopLogicBase
      */
-    private id:string = "C5EF7BC5-38C8-49EC-927B-A09B6151CC0E";
+    private id:string = "18d97453cb1040444905af8316efbbee";
 
     /**
      * 默认参数名称
@@ -79,18 +79,6 @@ export default class CancelProductTopLogicBase {
 
 
     /**
-    * 删除置顶
-    * 
-    * @param context 应用上下文
-    * @param params 传入参数
-    */
-    private async executeRawsqlcall1(context:any,params:any,isloading:boolean){
-        // RAWSQLCALL暂未支持
-        console.log("RAWSQLCALL暂未支持");
-        return this.paramsMap.get(this.defaultParamName).data;
-    }
-
-    /**
     * 开始
     * 
     * @param params 传入参数
@@ -100,6 +88,18 @@ export default class CancelProductTopLogicBase {
         if(this.compute0Cond(params)){
             return this.executeRawsqlcall1(context,params,isloading);   
         }
+    }
+
+    /**
+    * 删除置顶
+    * 
+    * @param context 应用上下文
+    * @param params 传入参数
+    */
+    private async executeRawsqlcall1(context:any,params:any,isloading:boolean){
+        // RAWSQLCALL暂未支持
+        console.log("RAWSQLCALL暂未支持");
+        return this.paramsMap.get(this.defaultParamName).data;
     }
 
 

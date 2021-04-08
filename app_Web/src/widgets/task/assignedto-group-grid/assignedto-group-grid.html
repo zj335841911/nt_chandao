@@ -6,6 +6,7 @@
             :border="isDragendCol"
             :span-method="arraySpanMethod.bind(_self)"
             :tree-props="{children: 'children', hasChildren: 'children?true:false'}"
+            default-expand-all
             row-key="groupById"
             :highlight-current-row ="isSingleSelect"
             :row-class-name="getRowClassName.bind(_self)"
@@ -75,7 +76,7 @@
                             :viewparams="JSON.parse(JSON.stringify(viewparams))"
                             :data="row"
                             :linkview="{viewname: 'task-main-dashboard-view', height: 850,width: 1400,title: $t('entities.task.views.maindashboardview.title'),placement: 'DRAWER_TOP', isRedirectView: false,deResParameters: [
-            { pathName: 'stories', parameterName: 'story' },
+            { pathName: 'projectmodules', parameterName: 'projectmodule' },
             ]
             ,parameters: [
             { pathName: 'tasks', parameterName: 'task' },

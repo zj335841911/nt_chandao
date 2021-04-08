@@ -18,13 +18,13 @@ export class MobModel {
 				name: 'consumed',
 			},
 			{
+				name: 'estimate',
+			},
+			{
 				name: 'role',
 			},
 			{
 				name: 'account',
-			},
-			{
-				name: 'estimate',
 			},
 			{
 				name: 'left',

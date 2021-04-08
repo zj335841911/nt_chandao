@@ -1,3 +1,4 @@
+import { Environment } from '@/environments/environment';
 import { Http } from '@/utils';
 import { Util } from '@/utils';
 import EntityService from '../entity-service';
@@ -50,7 +51,7 @@ export default class IbzMyTerritoryServiceBase extends EntityService {
      * @memberof IbzMyTerritoryServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().get(`/ibzmyterritories/${context.ibzmyterritory}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/ibzmyterritories/${context.ibzmyterritory}/select`,isloading);
             
             return res;
     }
@@ -106,7 +107,7 @@ export default class IbzMyTerritoryServiceBase extends EntityService {
      * @memberof IbzMyTerritoryServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().delete(`/ibzmyterritories/${context.ibzmyterritory}`,isloading);
+            let res:any = await Http.getInstance().delete(`/ibzmyterritories/${context.ibzmyterritory}`,isloading);
             return res;
     }
 
@@ -135,7 +136,10 @@ export default class IbzMyTerritoryServiceBase extends EntityService {
      * @memberof IbzMyTerritoryServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/ibzmyterritories/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.ibzmyterritory) delete tempData.ibzmyterritory;
+        if(tempData.id) delete tempData.id;
+        let res:any = await  Http.getInstance().get(`/ibzmyterritories/getdraft`,tempData,isloading);
         res.data.ibzmyterritory = data.ibzmyterritory;
         
         return res;
@@ -151,7 +155,7 @@ export default class IbzMyTerritoryServiceBase extends EntityService {
      * @memberof IbzMyTerritoryServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/ibzmyterritories/${context.ibzmyterritory}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/ibzmyterritories/${context.ibzmyterritory}/checkkey`,data,isloading);
             return res;
     }
 
@@ -231,7 +235,7 @@ export default class IbzMyTerritoryServiceBase extends EntityService {
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/ibzmyterritories/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/ibzmyterritories/fetchdefault`,tempData,isloading);
         return res;
     }
 
@@ -260,7 +264,7 @@ export default class IbzMyTerritoryServiceBase extends EntityService {
      */
     public async FetchMyWork(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/ibzmyterritories/fetchmywork`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/ibzmyterritories/fetchmywork`,tempData,isloading);
         return res;
     }
 
@@ -289,7 +293,7 @@ export default class IbzMyTerritoryServiceBase extends EntityService {
      */
     public async FetchMyWorkMob(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/ibzmyterritories/fetchmyworkmob`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/ibzmyterritories/fetchmyworkmob`,tempData,isloading);
         return res;
     }
 
@@ -308,6 +312,35 @@ export default class IbzMyTerritoryServiceBase extends EntityService {
     }
 
     /**
+     * FetchMyWorkPm接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzMyTerritoryServiceBase
+     */
+    public async FetchMyWorkPm(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = await Http.getInstance().get(`/ibzmyterritories/fetchmyworkpm`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * searchMyWorkPm接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzMyTerritoryServiceBase
+     */
+    public async searchMyWorkPm(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/ibzmyterritories/searchmyworkpm`,tempData,isloading);
+    }
+
+    /**
      * FetchPersonInfo接口方法
      *
      * @param {*} [context={}]
@@ -318,7 +351,7 @@ export default class IbzMyTerritoryServiceBase extends EntityService {
      */
     public async FetchPersonInfo(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/ibzmyterritories/fetchpersoninfo`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/ibzmyterritories/fetchpersoninfo`,tempData,isloading);
         return res;
     }
 
@@ -347,7 +380,7 @@ export default class IbzMyTerritoryServiceBase extends EntityService {
      */
     public async FetchWelcome(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/ibzmyterritories/fetchwelcome`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/ibzmyterritories/fetchwelcome`,tempData,isloading);
         return res;
     }
 

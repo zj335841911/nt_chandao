@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { EditViewBase } from '@/studio-core';
 import TaskService from '@/service/task/task-service';
 import TaskAuthService from '@/authservice/task/task-auth-service';
@@ -127,7 +127,7 @@ export class TaskCalendarEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof TaskCalendarEditViewBase
      */
-	protected viewtag: string = 'bad9ebb60029d8c0854e22a02600cbc7';
+	protected viewtag: string = '5c702098d5b244f7e5f0676c7213f160';
 
     /**
      * 视图名称

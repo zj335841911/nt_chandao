@@ -115,7 +115,7 @@ export default class ActionMobMapViewBase extends Vue {
 	 * @type {string}
 	 * @memberof ActionMobMapViewBase
 	 */
-	protected viewtag: string = '214508ca1f0caa399539566a9a8b90cc';
+	protected viewtag: string = 'd51cddc777fcf4f78f512f5b9e0538ea';
 
     /**
      * 视图上下文

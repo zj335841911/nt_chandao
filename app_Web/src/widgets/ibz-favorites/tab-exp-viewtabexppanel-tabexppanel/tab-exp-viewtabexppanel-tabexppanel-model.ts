@@ -15,6 +15,9 @@ export default class TabExpViewtabexppanelModel {
   public getDataItems(): any[] {
     return [
       {
+        name: 'type',
+      },
+      {
         name: 'createman',
       },
       {
@@ -25,13 +28,7 @@ export default class TabExpViewtabexppanelModel {
         name: 'createdate',
       },
       {
-        name: 'ibzfavoritesname',
-      },
-      {
         name: 'updateman',
-      },
-      {
-        name: 'updatedate',
       },
       {
         name: 'objectid',
@@ -40,7 +37,10 @@ export default class TabExpViewtabexppanelModel {
         name: 'account',
       },
       {
-        name: 'type',
+        name: 'ibzfavoritesname',
+      },
+      {
+        name: 'updatedate',
       },
     ]
   }

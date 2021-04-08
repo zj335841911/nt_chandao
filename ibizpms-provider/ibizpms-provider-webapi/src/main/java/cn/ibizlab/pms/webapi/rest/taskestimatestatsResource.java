@@ -72,7 +72,7 @@ public class taskestimatestatsResource {
 		TaskEstimateStats domain  = taskestimatestatsMapping.toDomain(taskestimatestatsdto);
         domain .setId(taskestimatestats_id);
 		taskestimatestatsService.update(domain );
-		taskestimatestatsDTO dto = taskestimatestatsMapping.toDto(domain );
+		taskestimatestatsDTO dto = taskestimatestatsMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
@@ -110,8 +110,9 @@ public class taskestimatestatsResource {
 
     @ApiOperation(value = "获取任务工时统计草稿", tags = {"任务工时统计" },  notes = "获取任务工时统计草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/taskestimatestats/getdraft")
-    public ResponseEntity<taskestimatestatsDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(taskestimatestatsMapping.toDto(taskestimatestatsService.getDraft(new TaskEstimateStats())));
+    public ResponseEntity<taskestimatestatsDTO> getDraft(taskestimatestatsDTO dto) {
+        TaskEstimateStats domain = taskestimatestatsMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(taskestimatestatsMapping.toDto(taskestimatestatsService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查任务工时统计", tags = {"任务工时统计" },  notes = "检查任务工时统计")
@@ -123,8 +124,10 @@ public class taskestimatestatsResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimateStats-Save-all')")
     @ApiOperation(value = "保存任务工时统计", tags = {"任务工时统计" },  notes = "保存任务工时统计")
 	@RequestMapping(method = RequestMethod.POST, value = "/taskestimatestats/save")
-    public ResponseEntity<Boolean> save(@RequestBody taskestimatestatsDTO taskestimatestatsdto) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskestimatestatsService.save(taskestimatestatsMapping.toDomain(taskestimatestatsdto)));
+    public ResponseEntity<taskestimatestatsDTO> save(@RequestBody taskestimatestatsDTO taskestimatestatsdto) {
+        TaskEstimateStats domain = taskestimatestatsMapping.toDomain(taskestimatestatsdto);
+        taskestimatestatsService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(taskestimatestatsMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimateStats-Save-all')")
@@ -134,6 +137,50 @@ public class taskestimatestatsResource {
         taskestimatestatsService.saveBatch(taskestimatestatsMapping.toDomain(taskestimatestatsdtos));
         return  ResponseEntity.status(HttpStatus.OK).body(true);
     }
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimateStats-searchActionMonth-all')")
+	@ApiOperation(value = "获取日志月", tags = {"任务工时统计" } ,notes = "获取日志月")
+    @RequestMapping(method= RequestMethod.GET , value="/taskestimatestats/fetchactionmonth")
+	public ResponseEntity<List<taskestimatestatsDTO>> fetchActionMonth(TaskEstimateStatsSearchContext context) {
+        Page<TaskEstimateStats> domains = taskestimatestatsService.searchActionMonth(context) ;
+        List<taskestimatestatsDTO> list = taskestimatestatsMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimateStats-searchActionMonth-all')")
+	@ApiOperation(value = "查询日志月", tags = {"任务工时统计" } ,notes = "查询日志月")
+    @RequestMapping(method= RequestMethod.POST , value="/taskestimatestats/searchactionmonth")
+	public ResponseEntity<Page<taskestimatestatsDTO>> searchActionMonth(@RequestBody TaskEstimateStatsSearchContext context) {
+        Page<TaskEstimateStats> domains = taskestimatestatsService.searchActionMonth(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(taskestimatestatsMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimateStats-searchActionYear-all')")
+	@ApiOperation(value = "获取日志年", tags = {"任务工时统计" } ,notes = "获取日志年")
+    @RequestMapping(method= RequestMethod.GET , value="/taskestimatestats/fetchactionyear")
+	public ResponseEntity<List<taskestimatestatsDTO>> fetchActionYear(TaskEstimateStatsSearchContext context) {
+        Page<TaskEstimateStats> domains = taskestimatestatsService.searchActionYear(context) ;
+        List<taskestimatestatsDTO> list = taskestimatestatsMapping.toDto(domains.getContent());
+        return ResponseEntity.status(HttpStatus.OK)
+                .header("x-page", String.valueOf(context.getPageable().getPageNumber()))
+                .header("x-per-page", String.valueOf(context.getPageable().getPageSize()))
+                .header("x-total", String.valueOf(domains.getTotalElements()))
+                .body(list);
+	}
+
+    @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimateStats-searchActionYear-all')")
+	@ApiOperation(value = "查询日志年", tags = {"任务工时统计" } ,notes = "查询日志年")
+    @RequestMapping(method= RequestMethod.POST , value="/taskestimatestats/searchactionyear")
+	public ResponseEntity<Page<taskestimatestatsDTO>> searchActionYear(@RequestBody TaskEstimateStatsSearchContext context) {
+        Page<TaskEstimateStats> domains = taskestimatestatsService.searchActionYear(context) ;
+	    return ResponseEntity.status(HttpStatus.OK)
+                .body(new PageImpl(taskestimatestatsMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
+	}
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-TaskEstimateStats-searchDefault-all')")
 	@ApiOperation(value = "获取数据集", tags = {"任务工时统计" } ,notes = "获取数据集")
@@ -156,6 +203,7 @@ public class taskestimatestatsResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(taskestimatestatsMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
 
 
 }

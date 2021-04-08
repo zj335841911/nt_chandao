@@ -93,11 +93,6 @@ export default class MainRModel {
           dataType: 'PICKUP',
         },
         {
-          name: 'case',
-          prop: 'ibizcase',
-          dataType: 'FONTKEY',
-        },
-        {
           name: 'casestep',
           prop: 'id',
         },

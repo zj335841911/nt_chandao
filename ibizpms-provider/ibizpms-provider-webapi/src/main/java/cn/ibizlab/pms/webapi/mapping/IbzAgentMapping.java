@@ -12,4 +12,3 @@ public interface IbzAgentMapping extends MappingBase<IbzAgentDTO, IbzAgent> {
 
 
 }
-

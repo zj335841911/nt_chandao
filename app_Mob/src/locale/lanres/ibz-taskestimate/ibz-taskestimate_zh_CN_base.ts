@@ -1,20 +1,37 @@
 import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
+    monthname: "月（显示）",
+    year: "年",
     account: "用户",
     left: "预计剩余",
     consumed: "总计消耗",
+    evaluationcost: "评估成本",
+    monthorder: "月（排序）",
+    files: "附件",
     id: "编号",
+    evaluationstatus: "评估状态",
+    yearname: "年（显示）",
     date: "日期",
-    work: "work",
-    task: "任务",
+    evaluationtime: "评估工时",
+    inputcost: "投入成本",
     dates: "日期",
+    month: "月",
+    work: "work",
+    evaluationdesc: "评估说明",
+    taskspecies: "任务种别",
+    taskname: "任务名称",
+    projectname: "所属项目",
+    type: "任务类型",
+    deleted: "任务删除标识",
+    project: "项目",
+    task: "任务",
   },
 	views: {
-		mobeditview9: {
+		mobmeditview9: {
 			caption: commonLogic.appcommonhandle("任务预计",null),
 		},
-		mobmeditview9: {
+		mobeditview9: {
 			caption: commonLogic.appcommonhandle("任务预计",null),
 		},
 	},

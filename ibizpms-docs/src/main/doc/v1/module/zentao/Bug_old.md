@@ -33,18 +33,26 @@ hide members
 | --------   |------------| -----   |  -------- | 
 |严重程度|SEVERITY|NSCODELIST|&nbsp;|
 |需求版本|STORYVERSION|INT|&nbsp;更新业务自动加1|
+|版本名称|BUILDNAME|TEXT|&nbsp;|
 |相关Bug|LINKBUG|TEXT|&nbsp;|
 |激活日期|ACTIVATEDDATE|DATE|&nbsp;|
+|过期天数|OVERDUEBUGS|INT|&nbsp;|
+|创建版本|CREATEBUILD|INT|&nbsp;|
 |指派给|ASSIGNEDTO|TEXT|&nbsp;|
 |解决方案|RESOLUTION|SSCODELIST|&nbsp;|
 |修改日期|LASTEDITEDDATE|DATETIME|&nbsp;|
+|移动端图片|MOBIMAGE|TEXT|&nbsp;|
 |result|RESULT|INT|&nbsp;没有任何处理的代码|
 |关键词|KEYWORDS|TEXT|&nbsp;|
+|是否收藏|ISFAVORITES|TEXT|&nbsp;|
+|模块名称|MODULENAME1|TEXT|&nbsp;|
 |由谁关闭|CLOSEDBY|SSCODELIST|&nbsp;|
 |浏览器|BROWSER|SSCODELIST|&nbsp;|
+|消息通知用户|NOTICEUSERS|TEXT|&nbsp;|
 |重现步骤|STEPS|LONGTEXT|&nbsp;|
 |v2|V2|TEXT|&nbsp;|
 |是否确认|CONFIRMED|NSCODELIST|&nbsp;|
+|联系人|MAILTOCONACT|TEXT|&nbsp;|
 |由谁创建|OPENEDBY|SSCODELIST|&nbsp;|
 |激活次数|ACTIVATEDCOUNT|INT|&nbsp;|
 |创建日期|OPENEDDATE|DATETIME|&nbsp;|
@@ -53,15 +61,21 @@ hide members
 |指派日期|ASSIGNEDDATE|DATETIME|&nbsp;|
 |截止日期|DEADLINE|DATE|&nbsp;|
 |标题颜色|COLOR|SSCODELIST|&nbsp;|
+|备注|COMMENT|HTMLTEXT|&nbsp;|
 |解决日期|RESOLVEDDATE|DATETIME|&nbsp;|
 |Bug类型|TYPE|SSCODELIST|&nbsp;|
 |Bug状态|STATUS|SSCODELIST|&nbsp;|
 |影响版本|OPENEDBUILD|SMCODELIST|&nbsp;与build外键，且存在默认主干版本（trunk），逗号分开|
+|延期解决|DELAYRESOLVE|TEXT|&nbsp;|
+|附件|FILES|TEXT|&nbsp;|
+|抄送给|MAILTOPK|SMCODELIST|&nbsp;|
 |v1|V1|TEXT|&nbsp;|
 |已删除|DELETED|TEXT|&nbsp;|
 |lines|LINES|TEXT|&nbsp;|
 |子状态|SUBSTATUS|TEXT|&nbsp;|
+|版本项目|BUILDPROJECT|SSCODELIST|&nbsp;|
 |Bug编号|ID|ACID|&nbsp;|
+|延期|DELAY|TEXT|&nbsp;|
 |found|FOUND|TEXT|&nbsp;暂时还不知道做什么用的，没有任何处理的代码|
 |解决者|RESOLVEDBY|SSCODELIST|&nbsp;|
 |解决版本|RESOLVEDBUILD|SSCODELIST|&nbsp;与build外键，且存在默认主干版本（trunk），逗号分开|
@@ -71,10 +85,14 @@ hide members
 |最后修改者|LASTEDITEDBY|SSCODELIST|&nbsp;|
 |Bug标题|TITLE|TEXT|&nbsp;|
 |产品|PRODUCTNAME|PICKUPTEXT|&nbsp;|
+|平台/分支|BRANCHNAME|PICKUPTEXT|&nbsp;|
+|相关任务|TASKNAME|PICKUPTEXT|&nbsp;|
+|相关用例|CASENAME|PICKUPTEXT|&nbsp;|
 |项目|PROJECTNAME|PICKUPTEXT|&nbsp;|
 |相关需求|STORYNAME|PICKUPTEXT|&nbsp;|
 |用例版本|CASEVERSION|PICKUPDATA|&nbsp;|
 |代码类型|REPOTYPE|PICKUPDATA|&nbsp;|
+|模块名称|MODULENAME|PICKUPTEXT|&nbsp;|
 |转需求|TOSTORY|PICKUP|&nbsp;|
 |应用|ENTRY|PICKUP|&nbsp;|
 |所属产品|PRODUCT|PICKUP|&nbsp;|
@@ -89,42 +107,32 @@ hide members
 |所属项目|PROJECT|PICKUP|&nbsp;|
 |相关任务|TASK|PICKUP|&nbsp;|
 |测试单|TESTTASK|PICKUP|&nbsp;|
-|备注|COMMENT|HTMLTEXT|&nbsp;|
-|相关任务|TASKNAME|PICKUPTEXT|&nbsp;|
-|模块名称|MODULENAME|PICKUPTEXT|&nbsp;|
-|平台/分支|BRANCHNAME|PICKUPTEXT|&nbsp;|
-|模块名称|MODULENAME1|TEXT|&nbsp;|
-|附件|FILES|TEXT|&nbsp;|
-|移动端图片|MOBIMAGE|TEXT|&nbsp;|
-|是否收藏|ISFAVORITES|TEXT|&nbsp;|
-|版本名称|BUILDNAME|TEXT|&nbsp;|
-|版本项目|BUILDPROJECT|SSCODELIST|&nbsp;|
-|创建版本|CREATEBUILD|INT|&nbsp;|
-|过期天数|OVERDUEBUGS|INT|&nbsp;|
-|相关用例|CASENAME|PICKUPTEXT|&nbsp;|
-|延期|DELAY|TEXT|&nbsp;|
-|消息通知用户|NOTICEUSERS|TEXT|&nbsp;|
-|抄送给|MAILTOPK|SMCODELIST|&nbsp;|
-|联系人|MAILTOCONACT|TEXT|&nbsp;|
-|延期解决|DELAYRESOLVE|TEXT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
 | --------   |------------| ----- | 
 |严重程度|默认规则|默认规则|
 |需求版本|默认规则|默认规则|
+|版本名称|默认规则|内容长度必须小于等于[100]|
 |相关Bug|默认规则|内容长度必须小于等于[255]|
 |激活日期|默认规则|默认规则|
+|过期天数|默认规则|默认规则|
+|创建版本|默认规则|默认规则|
 |指派给|默认规则|内容长度必须小于等于[30]|
 |解决方案|默认规则|内容长度必须小于等于[30]|
 |修改日期|默认规则|默认规则|
+|移动端图片|默认规则|内容长度必须小于等于[4000]|
 |result|默认规则|默认规则|
 |关键词|默认规则|内容长度必须小于等于[255]|
+|是否收藏|默认规则|内容长度必须小于等于[200]|
+|模块名称|默认规则|内容长度必须小于等于[200]|
 |由谁关闭|默认规则|内容长度必须小于等于[200]|
 |浏览器|默认规则|内容长度必须小于等于[30]|
+|消息通知用户|默认规则|内容长度必须小于等于[100]|
 |重现步骤|默认规则|内容长度必须小于等于[65535]|
 |v2|默认规则|内容长度必须小于等于[40]|
 |是否确认|默认规则|默认规则|
+|联系人|默认规则|内容长度必须小于等于[100]|
 |由谁创建|默认规则|内容长度必须小于等于[200]|
 |激活次数|默认规则|默认规则|
 |创建日期|默认规则|默认规则|
@@ -133,15 +141,21 @@ hide members
 |指派日期|默认规则|默认规则|
 |截止日期|默认规则|默认规则|
 |标题颜色|默认规则|内容长度必须小于等于[7]|
+|备注|默认规则|内容长度必须小于等于[1048576]|
 |解决日期|默认规则|默认规则|
 |Bug类型|默认规则|内容长度必须小于等于[30]|
 |Bug状态|默认规则|内容长度必须小于等于[8]|
 |影响版本|默认规则|内容长度必须小于等于[255]|
+|延期解决|默认规则|内容长度必须小于等于[200]|
+|附件|默认规则|内容长度必须小于等于[1000]|
+|抄送给|默认规则|内容长度必须小于等于[65535]|
 |v1|默认规则|内容长度必须小于等于[40]|
 |已删除|默认规则|内容长度必须小于等于[1]|
 |lines|默认规则|内容长度必须小于等于[10]|
 |子状态|默认规则|内容长度必须小于等于[30]|
+|版本项目|默认规则|内容长度必须小于等于[200]|
 |Bug编号|默认规则|默认规则|
+|延期|默认规则|内容长度必须小于等于[200]|
 |found|默认规则|内容长度必须小于等于[30]|
 |解决者|默认规则|内容长度必须小于等于[200]|
 |解决版本|默认规则|内容长度必须小于等于[255]|
@@ -151,10 +165,14 @@ hide members
 |最后修改者|默认规则|内容长度必须小于等于[200]|
 |Bug标题|默认规则|内容长度必须小于等于[255]|
 |产品|默认规则|内容长度必须小于等于[90]|
+|平台/分支|默认规则|内容长度必须小于等于[255]|
+|相关任务|默认规则|内容长度必须小于等于[255]|
+|相关用例|默认规则|内容长度必须小于等于[255]|
 |项目|默认规则|内容长度必须小于等于[90]|
 |相关需求|默认规则|内容长度必须小于等于[255]|
 |用例版本|默认规则|默认规则|
 |代码类型|默认规则|内容长度必须小于等于[30]|
+|模块名称|默认规则|内容长度必须小于等于[60]|
 |转需求|默认规则|默认规则|
 |应用|默认规则|默认规则|
 |所属产品|默认规则|默认规则|
@@ -169,40 +187,22 @@ hide members
 |所属项目|默认规则|默认规则|
 |相关任务|默认规则|默认规则|
 |测试单|默认规则|默认规则|
-|备注|默认规则|内容长度必须小于等于[1048576]|
-|相关任务|默认规则|内容长度必须小于等于[255]|
-|模块名称|默认规则|内容长度必须小于等于[60]|
-|平台/分支|默认规则|内容长度必须小于等于[255]|
-|模块名称|默认规则|内容长度必须小于等于[200]|
-|附件|默认规则|内容长度必须小于等于[1000]|
-|移动端图片|默认规则|内容长度必须小于等于[4000]|
-|是否收藏|默认规则|内容长度必须小于等于[200]|
-|版本名称|默认规则|内容长度必须小于等于[100]|
-|版本项目|默认规则|内容长度必须小于等于[200]|
-|创建版本|默认规则|默认规则|
-|过期天数|默认规则|默认规则|
-|相关用例|默认规则|内容长度必须小于等于[255]|
-|延期|默认规则|内容长度必须小于等于[200]|
-|消息通知用户|默认规则|内容长度必须小于等于[100]|
-|抄送给|默认规则|内容长度必须小于等于[65535]|
-|联系人|默认规则|内容长度必须小于等于[100]|
-|延期解决|默认规则|内容长度必须小于等于[200]|
 
 ## 状态控制
 
 |Bug状态||是否收藏||是否确认|行为控制模式| 控制行为 | 操作标识控制模式 | 控制操作 |
 | --------   || --------   || --------   | ------------|------------|------------|------------|
-|Value||Value2||Value3| 允许| 关联Bug（解决Bug）<br>Create<br>转需求<br>指派<br>Update<br>关联Bug（遗留Bug）<br>版本批量解除关联Bug<br>确认<br>解除关联Bug<br>Get<br>解决<br>批量解除关联Bug<br>解除关联Bug<br>批量解除关联Bug<br>关联Bug<br>版本解除关联Bug<br>Remove<br> | 不允许 | SRFUR__PROP_LBUG_BUT<br>SRFUR__BUG_ACTIVATE_BUT<br>SRFUR__BUG_CLOSE_BUT<br>SRFUR__BUG_FAVOR_BUT<br> |
+|Value||Value2||Value3| 允许| 确认<br>Remove<br>Update<br>关联Bug<br>关联Bug（解决Bug）<br>解除关联Bug<br>解除关联Bug<br>Get<br>指派<br>批量解除关联Bug<br>转需求<br>解决<br>版本解除关联Bug<br>版本批量解除关联Bug<br>关联Bug（遗留Bug）<br>Create<br>批量解除关联Bug<br> | 不允许 | SRFUR__PROP_LBUG_BUT<br>SRFUR__BUG_FAVOR_BUT<br>SRFUR__BUG_CLOSE_BUT<br>SRFUR__BUG_ACTIVATE_BUT<br> |
 |Value||Value2||Value3| 允许|  | 不允许 | SRFUR__BUG_ACTIVATE_BUT<br>SRFUR__PROP_LBUG_BUT<br>SRFUR__BUG_CLOSE_BUT<br>SRFUR__BUG_FAVOR_BUT<br>SRFUR__BUG_CONFIRM_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__BUG_ACTIVATE_BUT<br>SRFUR__PROP_LBUG_BUT<br>SRFUR__BUG_CLOSE_BUT<br>SRFUR__BUG_NFAVOR_BUT<br> |
+|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__BUG_NFAVOR_BUT<br>SRFUR__BUG_CLOSE_BUT<br>SRFUR__BUG_ACTIVATE_BUT<br>SRFUR__PROP_LBUG_BUT<br> |
 |Value||Value2||Value3| 允许|  | 不允许 | SRFUR__BUG_CLOSE_BUT<br>SRFUR__BUG_CONFIRM_BUT<br>SRFUR__PROP_LBUG_BUT<br>SRFUR__BUG_NFAVOR_BUT<br>SRFUR__BUG_ACTIVATE_BUT<br> |
-|Value||Value2||Value3| 允许| 关联Bug（解决Bug）<br>指派<br>Create<br>Get<br>关联Bug<br>激活<br>Update<br>版本关联Bug<br>解除关联Bug<br>批量解除关联Bug<br>Remove<br>解除关联Bug<br>版本批量解除关联Bug<br>关联Bug（遗留Bug）<br>批量解除关联Bug<br>版本解除关联Bug<br>转需求<br> | 不允许 | SRFUR__PROP_LBUG_BUT<br>SRFUR__BUG_CONFIRM_BUT<br>SRFUR__BUG_RESOLVE_BUT<br>SRFUR__BUG_ASSIGNTO_BUT<br>SRFUR__BUG_CLOSE_BUT<br>SRFUR__BUG_TOSTORY_BUT<br>SRFUR__BUG_FAVOR_BUT<br> |
+|Value||Value2||Value3| 允许| 版本批量解除关联Bug<br>Get<br>关联Bug（解决Bug）<br>Create<br>转需求<br>批量解除关联Bug<br>关联Bug（遗留Bug）<br>解除关联Bug<br>版本解除关联Bug<br>Update<br>Remove<br>批量解除关联Bug<br>版本关联Bug<br>解除关联Bug<br>关联Bug<br>指派<br>激活<br> | 不允许 | SRFUR__BUG_RESOLVE_BUT<br>SRFUR__PROP_LBUG_BUT<br>SRFUR__BUG_TOSTORY_BUT<br>SRFUR__BUG_CLOSE_BUT<br>SRFUR__BUG_FAVOR_BUT<br>SRFUR__BUG_ASSIGNTO_BUT<br>SRFUR__BUG_CONFIRM_BUT<br> |
 |Value||Value2||Value3| 允许|  | 不允许 | SRFUR__BUG_ASSIGNTO_BUT<br>SRFUR__PROP_LBUG_BUT<br>SRFUR__BUG_RESOLVE_BUT<br>SRFUR__BUG_FAVOR_BUT<br>SRFUR__BUG_CLOSE_BUT<br>SRFUR__BUG_CONFIRM_BUT<br>SRFUR__BUG_TOSTORY_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__BUG_CONFIRM_BUT<br>SRFUR__BUG_RESOLVE_BUT<br>SRFUR__BUG_CLOSE_BUT<br>SRFUR__BUG_ASSIGNTO_BUT<br>SRFUR__BUG_TOSTORY_BUT<br>SRFUR__PROP_LBUG_BUT<br>SRFUR__BUG_NFAVOR_BUT<br> |
+|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__PROP_LBUG_BUT<br>SRFUR__BUG_NFAVOR_BUT<br>SRFUR__BUG_TOSTORY_BUT<br>SRFUR__BUG_CONFIRM_BUT<br>SRFUR__BUG_CLOSE_BUT<br>SRFUR__BUG_RESOLVE_BUT<br>SRFUR__BUG_ASSIGNTO_BUT<br> |
 |Value||Value2||Value3| 允许|  | 不允许 | SRFUR__BUG_CLOSE_BUT<br>SRFUR__BUG_RESOLVE_BUT<br>SRFUR__BUG_ASSIGNTO_BUT<br>SRFUR__BUG_TOSTORY_BUT<br>SRFUR__BUG_NFAVOR_BUT<br>SRFUR__BUG_CONFIRM_BUT<br>SRFUR__PROP_LBUG_BUT<br> |
-|Value||Value2||Value3| 允许| Remove<br>关闭<br>Get<br>激活<br>关联Bug<br>指派<br>版本关联Bug<br>转需求<br>版本解除关联Bug<br>关联Bug（解决Bug）<br>Create<br>Update<br>批量解除关联Bug<br>批量解除关联Bug<br>关联Bug（遗留Bug）<br>解除关联Bug<br>版本批量解除关联Bug<br>解除关联Bug<br> | 不允许 | SRFUR__PROP_LBUG_BUT<br>SRFUR__BUG_RESOLVE_BUT<br>SRFUR__BUG_FAVOR_BUT<br>SRFUR__BUG_CONFIRM_BUT<br> |
+|Value||Value2||Value3| 允许| Get<br>Remove<br>关闭<br>Update<br>版本解除关联Bug<br>指派<br>转需求<br>Create<br>激活<br>批量解除关联Bug<br>关联Bug（解决Bug）<br>解除关联Bug<br>关联Bug<br>解除关联Bug<br>版本关联Bug<br>批量解除关联Bug<br>关联Bug（遗留Bug）<br>版本批量解除关联Bug<br> | 不允许 | SRFUR__BUG_FAVOR_BUT<br>SRFUR__BUG_CONFIRM_BUT<br>SRFUR__PROP_LBUG_BUT<br>SRFUR__BUG_RESOLVE_BUT<br> |
 |Value||Value2||Value3| 允许|  | 不允许 | SRFUR__PROP_LBUG_BUT<br>SRFUR__BUG_FAVOR_BUT<br>SRFUR__BUG_RESOLVE_BUT<br>SRFUR__BUG_CONFIRM_BUT<br> |
-|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__BUG_RESOLVE_BUT<br>SRFUR__BUG_NFAVOR_BUT<br>SRFUR__PROP_LBUG_BUT<br>SRFUR__BUG_CONFIRM_BUT<br> |
+|Value||Value2||Value3| 允许|  | 不允许 | SRFUR__PROP_LBUG_BUT<br>SRFUR__BUG_CONFIRM_BUT<br>SRFUR__BUG_NFAVOR_BUT<br>SRFUR__BUG_RESOLVE_BUT<br> |
 |Value||Value2||Value3| 允许|  | 不允许 | SRFUR__BUG_CONFIRM_BUT<br>SRFUR__BUG_RESOLVE_BUT<br>SRFUR__BUG_NFAVOR_BUT<br>SRFUR__PROP_LBUG_BUT<br> |
 
 Bug状态
@@ -310,17 +310,17 @@ Bug -> Bug: 获取参数
 {% plantuml %}
 hide footbox
 
-模块 -> Bug: 设置bug平台值
-Bug -> Bug: 设置模块参数
 Bug -> 模块: 获取模块详情
+Bug -> Bug: 设置模块参数
+模块 -> Bug: 设置bug平台值
 {% endplantuml %}
 
 | 步骤       | 操作        |
 | --------   | --------   |
-|1|设置bug平台值 |
+|1|获取模块详情 |
 |1|开始 | 
 |2|设置模块参数 |
-|3|获取模块详情 |
+|3|设置bug平台值 |
 <center>获取模块的平台</center>
 * 获取产品 (GetProducts)
   
@@ -344,16 +344,16 @@ Bug -> Bug: 获取产品
 {% plantuml %}
 hide footbox
 
-Bug -> Bug: 获取需求版本
 Bug -> Bug: 重置需求版本
+Bug -> Bug: 获取需求版本
 {% endplantuml %}
 
 | 步骤       | 操作        |
 | --------   | --------   |
 |0|开始 | 
-|1|获取需求版本 |
+|1|重置需求版本 |
 |1|开始 | 
-|2|重置需求版本 |
+|2|获取需求版本 |
 <center>更新需求版本</center>
 * 发送通知 (sendNotice)
   
@@ -405,7 +405,7 @@ hide footbox
 |BuildProduceBugStatus_Project|Build产生的Bug-状态分布(项目)([MYSQL5](../../appendix/query_MYSQL5.md#Bug_BuildProduceBugStatus_Project))|否|&nbsp;|
 |BuildProduceBugType_Project|Build产生的Bug-类型分布(项目)([MYSQL5](../../appendix/query_MYSQL5.md#Bug_BuildProduceBugType_Project))|否|&nbsp;|
 |CurUserResolve|当前用户解决的Bug([MYSQL5](../../appendix/query_MYSQL5.md#Bug_CurUserResolve))|否|&nbsp;|
-|DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#Bug_Default))|否|&nbsp;|
+|DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#Bug_Default))|是|&nbsp;|
 |ESBulk|ES批量的导入([MYSQL5](../../appendix/query_MYSQL5.md#Bug_ESBulk))|否|&nbsp;|
 |MyAgentBug|我代理的Bug([MYSQL5](../../appendix/query_MYSQL5.md#Bug_MyAgentBug))|否|&nbsp;|
 |MyCurOpenedBug|累计创建的Bug数([MYSQL5](../../appendix/query_MYSQL5.md#Bug_MyCurOpenedBug))|否|&nbsp;|
@@ -462,6 +462,7 @@ hide footbox
 | 属性      |    搜索模式     |
 | --------   |------------|
 |严重程度(SEVERITY)|EQ|
+|过期天数(OVERDUEBUGS)|LT|
 |指派给(ASSIGNEDTO)|EQ|
 |解决方案(RESOLUTION)|EQ|
 |由谁关闭(CLOSEDBY)|EQ|
@@ -477,6 +478,7 @@ hide footbox
 |Bug类型(TYPE)|EQ|
 |Bug状态(STATUS)|EQ|
 |Bug状态(STATUS)|NOTEQ|
+|版本项目(BUILDPROJECT)|EQ|
 |Bug编号(ID)|EQ|
 |解决者(RESOLVEDBY)|EQ|
 |解决版本(RESOLVEDBUILD)|EQ|
@@ -486,10 +488,16 @@ hide footbox
 |Bug标题(TITLE)|LIKE|
 |产品(PRODUCTNAME)|EQ|
 |产品(PRODUCTNAME)|LIKE|
+|平台/分支(BRANCHNAME)|EQ|
+|平台/分支(BRANCHNAME)|LIKE|
+|相关任务(TASKNAME)|EQ|
+|相关任务(TASKNAME)|LIKE|
 |项目(PROJECTNAME)|EQ|
 |项目(PROJECTNAME)|LIKE|
 |相关需求(STORYNAME)|EQ|
 |相关需求(STORYNAME)|LIKE|
+|模块名称(MODULENAME)|EQ|
+|模块名称(MODULENAME)|LIKE|
 |转需求(TOSTORY)|EQ|
 |应用(ENTRY)|EQ|
 |所属产品(PRODUCT)|EQ|
@@ -504,14 +512,6 @@ hide footbox
 |所属项目(PROJECT)|EQ|
 |相关任务(TASK)|EQ|
 |测试单(TESTTASK)|EQ|
-|相关任务(TASKNAME)|EQ|
-|相关任务(TASKNAME)|LIKE|
-|模块名称(MODULENAME)|EQ|
-|模块名称(MODULENAME)|LIKE|
-|平台/分支(BRANCHNAME)|EQ|
-|平台/分支(BRANCHNAME)|LIKE|
-|版本项目(BUILDPROJECT)|EQ|
-|过期天数(OVERDUEBUGS)|LT|
 
 ## 导入模式
 无

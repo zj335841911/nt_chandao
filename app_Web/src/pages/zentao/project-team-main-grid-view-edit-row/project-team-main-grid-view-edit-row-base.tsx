@@ -1,6 +1,6 @@
 
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { GridViewBase } from '@/studio-core';
 import ProjectTeamService from '@/service/project-team/project-team-service';
 import ProjectTeamAuthService from '@/authservice/project-team/project-team-auth-service';
@@ -155,7 +155,7 @@ export class ProjectTeamMainGridView_EditRowBase extends GridViewBase {
      * @type {string}
      * @memberof ProjectTeamMainGridView_EditRowBase
      */
-	protected viewtag: string = 'ac21af5f9696e38031a7c2291ed02d64';
+	protected viewtag: string = '29447769aa6216b5f7a881c0a5d81d73';
 
     /**
      * 视图名称

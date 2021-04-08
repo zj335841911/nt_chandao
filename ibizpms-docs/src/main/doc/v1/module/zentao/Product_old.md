@@ -36,116 +36,118 @@ hide members
 
 | 属性名称        |    中文名称    | 类型     |  备注  |
 | --------   |------------| -----   |  -------- | 
+|组织标识|ORGID|TEXT|&nbsp;|
+|是否置顶|ISTOP|INT|&nbsp;|
+|备注|COMMENT|HTMLTEXT|&nbsp;|
 |测试负责人|QD|TEXT|&nbsp;|
+|产品分类|PRODUCTCLASS|SSCODELIST|&nbsp;|
+|未确认Bug数|UNCONFIRMBUGCNT|INT|&nbsp;|
 |访问控制|ACL|SSCODELIST|&nbsp;|
 |产品名称|NAME|TEXT|&nbsp;|
+|移动端图片|MOBIMAGE|TEXT|&nbsp;|
+|测试单数|TESTTASKCNT|INT|&nbsp;|
+|套件数|TESTSUITECNT|INT|&nbsp;|
+|计划总数|PRODUCTPLANCNT|INT|&nbsp;|
 |编号|ID|ACID|&nbsp;|
 |已删除|DELETED|TEXT|&nbsp;|
+|已关闭需求|CLOSEDSTORYCNT|INT|&nbsp;|
+|相关Bug数|RELATEDBUGCNT|INT|&nbsp;|
 |分组白名单|WHITELIST|LONGTEXT|&nbsp;|
+|部门标识|MDEPTID|TEXT|&nbsp;|
+|发布总数|RELEASECNT|INT|&nbsp;|
 |发布负责人|RD|TEXT|&nbsp;|
+|产品负责人（选择）|POPK|TEXT|&nbsp;|
+|未关闭Bug数|NOTCLOSEDBUGCNT|INT|&nbsp;|
+|支持产品汇报|SUPPROREPORT|SSCODELIST|&nbsp;|
 |排序|ORDER|INT|&nbsp;|
 |产品类型|TYPE|SSCODELIST|&nbsp;|
 |产品负责人|PO|TEXT|&nbsp;|
+|测试负责人（选择）|QDPK|TEXT|&nbsp;|
 |产品描述	|DESC|LONGTEXT|&nbsp;|
 |状态|STATUS|SSCODELIST|&nbsp;|
+|已变更需求|CHANGEDSTORYCNT|INT|&nbsp;|
+|未解决Bug数|ACTIVEBUGCNT|INT|&nbsp;|
 |由谁创建|CREATEDBY|TEXT|&nbsp;|
+|发布负责人（选择）|RDPK|TEXT|&nbsp;|
 |当前系统版本|CREATEDVERSION|TEXT|&nbsp;来自系统配置信息|
+|草稿需求|DRAFTSTORYCNT|INT|&nbsp;|
+|文档数|DOCCNT|INT|&nbsp;|
+|用例数|CASECNT|INT|&nbsp;|
+|关联项目数|RELATEDPROJECTS|INT|&nbsp;|
+|IBIZ标识|IBIZ_ID|TEXT|&nbsp;|
 |子状态|SUBSTATUS|TEXT|&nbsp;|
 |产品代号|CODE|TEXT|&nbsp;|
+|属性|SRFCOUNT|INT|&nbsp;|
+|排序|ORDER1|INT|&nbsp;|
+|BUILD数|BUILDCNT|INT|&nbsp;|
 |创建日期|CREATEDDATE|DATETIME|&nbsp;|
+|消息通知用户|NOTICEUSERS|TEXT|&nbsp;|
+|激活需求数|ACTIVESTORYCNT|INT|&nbsp;|
 |产品线|LINENAME|PICKUPTEXT|&nbsp;|
 |产品线|LINE|PICKUP|&nbsp;|
-|未解决Bug数|ACTIVEBUGCNT|INT|&nbsp;|
-|计划总数|PRODUCTPLANCNT|INT|&nbsp;|
-|发布总数|RELEASECNT|INT|&nbsp;|
-|激活需求数|ACTIVESTORYCNT|INT|&nbsp;|
-|未确认Bug数|UNCONFIRMBUGCNT|INT|&nbsp;|
-|未关闭Bug数|NOTCLOSEDBUGCNT|INT|&nbsp;|
-|备注|COMMENT|HTMLTEXT|&nbsp;|
-|相关Bug数|RELATEDBUGCNT|INT|&nbsp;|
-|已变更需求|CHANGEDSTORYCNT|INT|&nbsp;|
-|草稿需求|DRAFTSTORYCNT|INT|&nbsp;|
-|已关闭需求|CLOSEDSTORYCNT|INT|&nbsp;|
-|关联项目数|RELATEDPROJECTS|INT|&nbsp;|
-|文档数|DOCCNT|INT|&nbsp;|
-|BUILD数|BUILDCNT|INT|&nbsp;|
-|用例数|CASECNT|INT|&nbsp;|
-|属性|SRFCOUNT|INT|&nbsp;|
-|移动端图片|MOBIMAGE|TEXT|&nbsp;|
-|排序|ORDER1|INT|&nbsp;|
-|是否置顶|ISTOP|INT|&nbsp;|
-|测试单数|TESTTASKCNT|INT|&nbsp;|
-|套件数|TESTSUITECNT|INT|&nbsp;|
-|产品负责人（选择）|POPK|TEXT|&nbsp;|
-|测试负责人（选择）|QDPK|TEXT|&nbsp;|
-|发布负责人（选择）|RDPK|TEXT|&nbsp;|
-|消息通知用户|NOTICEUSERS|TEXT|&nbsp;|
-|组织标识|ORGID|TEXT|&nbsp;|
-|部门标识|MDEPTID|TEXT|&nbsp;|
-|IBIZ标识|IBIZ_ID|TEXT|&nbsp;|
-|支持产品汇报|SUPPROREPORT|SSCODELIST|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
 | --------   |------------| ----- | 
+|组织标识|默认规则|内容长度必须小于等于[100]|
+|是否置顶|默认规则|默认规则|
+|备注|默认规则|内容长度必须小于等于[1048576]|
 |测试负责人|默认规则|内容长度必须小于等于[30]|
+|产品分类|默认规则|内容长度必须小于等于[10]|
+|未确认Bug数|默认规则|默认规则|
 |访问控制|默认规则|内容长度必须小于等于[7]|
 |产品名称|产品名称重复值校验|『产品名称』已经有这条记录了。如果您确定该记录已删除，请到后台-数据-回收站还原。|
 |产品名称|默认规则|内容长度必须小于等于[90]|
+|移动端图片|默认规则|内容长度必须小于等于[4000]|
+|测试单数|默认规则|默认规则|
+|套件数|默认规则|默认规则|
+|计划总数|默认规则|默认规则|
 |编号|默认规则|默认规则|
 |已删除|默认规则|内容长度必须小于等于[1]|
+|已关闭需求|默认规则|默认规则|
+|相关Bug数|默认规则|默认规则|
 |分组白名单|默认规则|内容长度必须小于等于[65535]|
+|部门标识|默认规则|内容长度必须小于等于[100]|
+|发布总数|默认规则|默认规则|
 |发布负责人|默认规则|内容长度必须小于等于[30]|
+|产品负责人（选择）|默认规则|内容长度必须小于等于[200]|
+|未关闭Bug数|默认规则|默认规则|
+|支持产品汇报|默认规则|内容长度必须小于等于[200]|
 |排序|默认规则|默认规则|
 |产品类型|默认规则|内容长度必须小于等于[30]|
 |产品负责人|默认规则|内容长度必须小于等于[30]|
+|测试负责人（选择）|默认规则|内容长度必须小于等于[200]|
 |产品描述	|默认规则|内容长度必须小于等于[65535]|
 |状态|默认规则|内容长度必须小于等于[30]|
+|已变更需求|默认规则|默认规则|
+|未解决Bug数|默认规则|默认规则|
 |由谁创建|默认规则|内容长度必须小于等于[30]|
+|发布负责人（选择）|默认规则|内容长度必须小于等于[200]|
 |当前系统版本|默认规则|内容长度必须小于等于[20]|
+|草稿需求|默认规则|默认规则|
+|文档数|默认规则|默认规则|
+|用例数|默认规则|默认规则|
+|关联项目数|默认规则|默认规则|
+|IBIZ标识|默认规则|内容长度必须小于等于[100]|
 |子状态|默认规则|内容长度必须小于等于[30]|
 |产品代号|产品代号重复值校验|『产品代号』已经有这条记录了。如果您确定该记录已删除，请到后台-数据-回收站还原。|
 |产品代号|默认规则|内容长度必须小于等于[45]|
+|属性|默认规则|默认规则|
+|排序|默认规则|默认规则|
+|BUILD数|默认规则|默认规则|
 |创建日期|默认规则|默认规则|
+|消息通知用户|默认规则|内容长度必须小于等于[100]|
+|激活需求数|默认规则|默认规则|
 |产品线|默认规则|内容长度必须小于等于[60]|
 |产品线|默认规则|默认规则|
-|未解决Bug数|默认规则|默认规则|
-|计划总数|默认规则|默认规则|
-|发布总数|默认规则|默认规则|
-|激活需求数|默认规则|默认规则|
-|未确认Bug数|默认规则|默认规则|
-|未关闭Bug数|默认规则|默认规则|
-|备注|默认规则|内容长度必须小于等于[1048576]|
-|相关Bug数|默认规则|默认规则|
-|已变更需求|默认规则|默认规则|
-|草稿需求|默认规则|默认规则|
-|已关闭需求|默认规则|默认规则|
-|关联项目数|默认规则|默认规则|
-|文档数|默认规则|默认规则|
-|BUILD数|默认规则|默认规则|
-|用例数|默认规则|默认规则|
-|属性|默认规则|默认规则|
-|移动端图片|默认规则|内容长度必须小于等于[4000]|
-|排序|默认规则|默认规则|
-|是否置顶|默认规则|默认规则|
-|测试单数|默认规则|默认规则|
-|套件数|默认规则|默认规则|
-|产品负责人（选择）|默认规则|内容长度必须小于等于[200]|
-|测试负责人（选择）|默认规则|内容长度必须小于等于[200]|
-|发布负责人（选择）|默认规则|内容长度必须小于等于[200]|
-|消息通知用户|默认规则|内容长度必须小于等于[100]|
-|组织标识|默认规则|内容长度必须小于等于[100]|
-|部门标识|默认规则|内容长度必须小于等于[100]|
-|IBIZ标识|默认规则|内容长度必须小于等于[100]|
-|支持产品汇报|默认规则|内容长度必须小于等于[200]|
 
 ## 状态控制
 
 |状态||是否置顶|行为控制模式| 控制行为 | 操作标识控制模式 | 控制操作 |
 | --------   || --------   | ------------|------------|------------|------------|
-|Value||Value2| 允许| Get<br>Update<br>Save<br>Remove<br> | 不允许 | TOP<br>SRFUR__PROD_CLOSED_BUT<br> |
-|Value||Value2| 允许|  | 不允许 | NOTOP<br>SRFUR__PROD_CLOSED_BUT<br> |
-|Value||Value2| 允许| 关闭<br>Update<br>Get<br>Save<br>Remove<br> | 不允许 | TOP<br> |
+|Value||Value2| 允许| Update<br>Remove<br>Save<br>Get<br> | 不允许 | TOP<br>SRFUR__PROD_CLOSED_BUT<br> |
+|Value||Value2| 允许|  | 不允许 | SRFUR__PROD_CLOSED_BUT<br>NOTOP<br> |
+|Value||Value2| 允许| 关闭<br>Get<br>Update<br>Remove<br>Save<br> | 不允许 | TOP<br> |
 |Value||Value2| 允许|  | 不允许 | NOTOP<br> |
 
 状态
@@ -198,19 +200,19 @@ hide footbox
 {% plantuml %}
 hide footbox
 
-产品 -> 产品: 发布数
 产品 -> 产品: 获取相关BUG数
-产品 -> 产品: 计划数
 产品 -> 产品: 获取需求数
+产品 -> 产品: 发布数
+产品 -> 产品: 计划数
 {% endplantuml %}
 
 | 步骤       | 操作        |
 | --------   | --------   |
-|1|发布数 |
-|1|开始 | 
-|2|获取相关BUG数 |
-|3|计划数 |
-|4|获取需求数 |
+|0|开始 | 
+|1|获取相关BUG数 |
+|2|获取需求数 |
+|3|发布数 |
+|4|计划数 |
 <center>移动端产品计数器</center>
 * 移动端测试计数器 (MobProductTestCounter)
   
@@ -220,18 +222,18 @@ hide footbox
 hide footbox
 
 产品 -> 产品: 获取测试用例数
-产品 -> 产品: 获取相关BUG数
-产品 -> 产品: 套件数
 产品 -> 产品: 测试单数
+产品 -> 产品: 套件数
+产品 -> 产品: 获取相关BUG数
 {% endplantuml %}
 
 | 步骤       | 操作        |
 | --------   | --------   |
 |1|获取测试用例数 |
-|1|开始 | 
-|2|获取相关BUG数 |
+|2|测试单数 |
 |3|套件数 |
-|4|测试单数 |
+|3|开始 | 
+|4|获取相关BUG数 |
 <center>移动端测试计数器</center>
 * 置顶 (ProductTop)
   
@@ -240,17 +242,17 @@ hide footbox
 {% plantuml %}
 hide footbox
 
-产品 -> 产品: 设置置顶数据
-产品 -> 产品: 获取置顶最大排序值
 产品 -> 置顶: save置顶
+产品 -> 产品: 获取置顶最大排序值
+产品 -> 产品: 设置置顶数据
 {% endplantuml %}
 
 | 步骤       | 操作        |
 | --------   | --------   |
-|1|设置置顶数据 |
+|1|save置顶 |
 |1|开始 | 
 |2|获取置顶最大排序值 |
-|3|save置顶 |
+|3|设置置顶数据 |
 <center>置顶</center>
 * 行为[Update]主状态拒绝逻辑 (Update__MSDeny)
   
@@ -306,7 +308,7 @@ hide footbox
 |CheckNameOrCode|校验产品名称或产品代号是否已经存在([MYSQL5](../../appendix/query_MYSQL5.md#Product_CheckNameOrCode))|否|&nbsp;|
 |CURPROJECT|当前项目([MYSQL5](../../appendix/query_MYSQL5.md#Product_CurProject))|否|&nbsp;|
 |CurUer|当前用户([MYSQL5](../../appendix/query_MYSQL5.md#Product_CurUer))|否|&nbsp;|
-|DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#Product_Default))|否|&nbsp;|
+|DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#Product_Default))|是|&nbsp;|
 |ESBulk|ES批量的导入([MYSQL5](../../appendix/query_MYSQL5.md#Product_ESBulk))|否|&nbsp;|
 |ProductPM|产品总览([MYSQL5](../../appendix/query_MYSQL5.md#Product_ProductPM))|否|&nbsp;|
 |ProductTeam|产品团队([MYSQL5](../../appendix/query_MYSQL5.md#Product_ProductTeam))|否|&nbsp;|
@@ -331,9 +333,12 @@ hide footbox
 ## 查询模式
 | 属性      |    搜索模式     |
 | --------   |------------|
+|产品分类(PRODUCTCLASS)|EQ|
 |访问控制(ACL)|EQ|
+|产品名称(NAME)|EQ|
 |产品名称(NAME)|LIKE|
 |编号(ID)|EQ|
+|编号(ID)|IN|
 |产品类型(TYPE)|EQ|
 |状态(STATUS)|EQ|
 |状态(STATUS)|ISNOTNULL|

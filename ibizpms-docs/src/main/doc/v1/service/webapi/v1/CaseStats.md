@@ -261,27 +261,27 @@ POST
 #### CaseStatsDTO
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
-| 1 | id | Long | 允许 | 用例编号 |
-| 2 | title | String | 允许 | 用例标题 |
-| 3 | module | Long | 允许 | 模块 |
-| 4 | modulename | String | 允许 | 模块名称 |
-| 5 | totalcase | Integer | 允许 | 总用例数 |
-| 6 | passcase | Integer | 允许 | 通过用例数 |
-| 7 | failcase | Integer | 允许 | 失败用例数 |
-| 8 | blockedcase | Integer | 允许 | 阻塞用例数 |
-| 9 | totalruncase | Integer | 允许 | 总执行数 |
-| 10 | passrate | String | 允许 | 用例通过率 |
-| 11 | product | Long | 允许 | 产品 |
+| 1 | passcase | Integer | 允许 | 通过用例数 |
+| 2 | blockedcase | Integer | 允许 | 阻塞用例数 |
+| 3 | totalruncase | Integer | 允许 | 总执行数 |
+| 4 | failcase | Integer | 允许 | 失败用例数 |
+| 5 | title | String | 允许 | 用例标题 |
+| 6 | totalcase | Integer | 允许 | 总用例数 |
+| 7 | passrate | String | 允许 | 用例通过率 |
+| 8 | id | Long | 允许 | 用例编号 |
+| 9 | modulename | String | 允许 | 模块名称 |
+| 10 | product | Long | 允许 | 产品 |
+| 11 | module | Long | 允许 | 模块 |
 | 12 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### CaseStatsSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
 | 1 | n_title_like | String | 允许 | 条件字段：title<br>条件组合方式：`%like%` |
-| 2 | n_module_eq | Long | 允许 | 条件字段：module<br>条件组合方式：`=` |
-| 3 | n_modulename_eq | String | 允许 | 条件字段：modulename<br>条件组合方式：`=` |
-| 4 | n_modulename_like | String | 允许 | 条件字段：modulename<br>条件组合方式：`%like%` |
-| 5 | n_product_eq | Long | 允许 | 条件字段：product<br>条件组合方式：`=` |
+| 2 | n_modulename_eq | String | 允许 | 条件字段：modulename<br>条件组合方式：`=` |
+| 3 | n_modulename_like | String | 允许 | 条件字段：modulename<br>条件组合方式：`%like%` |
+| 4 | n_product_eq | Long | 允许 | 条件字段：product<br>条件组合方式：`=` |
+| 5 | n_module_eq | Long | 允许 | 条件字段：module<br>条件组合方式：`=` |
 | 6 | customcond | String | 允许 | 自定义查询条件 |
 | 7 | customparams | String | 允许 | 自定义查询参数 |
 | 8 | query | String | 允许 | 快速搜索 |

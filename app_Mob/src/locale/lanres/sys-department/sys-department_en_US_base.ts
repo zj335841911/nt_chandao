@@ -17,8 +17,8 @@ export default {
     parentDeptName:  commonLogic.appcommonhandle("上级部门",null),
     createDate:  commonLogic.appcommonhandle("建立时间",null),
     enable:  commonLogic.appcommonhandle("逻辑有效标志",null),
-    createMan:  commonLogic.appcommonhandle("建立人",null),
     updateMan:  commonLogic.appcommonhandle("更新人",null),
     updateDate:  commonLogic.appcommonhandle("更新时间",null),
+    createMan:  commonLogic.appcommonhandle("建立人",null),
   },
 };

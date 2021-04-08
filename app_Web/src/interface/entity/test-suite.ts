@@ -71,6 +71,14 @@ export interface TestSuite {
     addedby?: any;
 
     /**
+     * 用例数
+     *
+     * @returns {*}
+     * @memberof TestSuite
+     */
+    casecnt?: any;
+
+    /**
      * 描述
      *
      * @returns {*}
@@ -85,12 +93,4 @@ export interface TestSuite {
      * @memberof TestSuite
      */
     product?: any;
-
-    /**
-     * 用例数
-     *
-     * @returns {*}
-     * @memberof TestSuite
-     */
-    casecnt?: any;
 }

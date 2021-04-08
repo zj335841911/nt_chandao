@@ -1,6 +1,6 @@
 
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { GridView9Base } from '@/studio-core';
 import DocService from '@/service/doc/doc-service';
 import DocAuthService from '@/authservice/doc/doc-auth-service';
@@ -123,7 +123,7 @@ export class DocGridView10Base extends GridView9Base {
      * @type {string}
      * @memberof DocGridView10Base
      */
-	protected viewtag: string = '13f17793cbc4fc2b36473a74d1bad4b2';
+	protected viewtag: string = '797826f1129aa16855df1cb92ffe106d';
 
     /**
      * 视图名称

@@ -34,6 +34,7 @@
     "lodash": "^4.17.20",
     "marked": "^1.2.2",
     "moment": "^2.24.0",
+    "mqtt": "^4.2.6",
     "path-to-regexp": "^6.1.0",
     "qs": "^6.9.1",
     "rxjs": "^6.5.4",
@@ -47,7 +48,10 @@
     "vue-router": "^3.3.2",
     "vuedraggable": "^2.23.2",
     "vuex": "^3.1.2",
-    "xlsx": "^0.15.6"
+    "xlsx": "^0.15.6",
+    "xterm": "^4.9.0",
+    "xterm-addon-fit": "^0.4.0",
+    "xterm-addon-web-links": "^0.4.0"
   },
   "devDependencies": {
     "@types/echarts": "^4.4.3",

@@ -323,7 +323,6 @@ export class MainGridBase extends GridControlBase {
             let { data: Data,context: Context } = this.service.handleRequestData(this.createAction, _context, item, true);
             if (Object.is(item.rowDataState, 'create')) {
                 Data.id = null;
-                Data.ibizcase = null;
                 curAction = this.createAction;
             }
             if(Object.is(item.rowDataState, 'update')){

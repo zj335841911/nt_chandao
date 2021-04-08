@@ -74,7 +74,7 @@ export class MainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u8ad95f8_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_ub25eed2_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -102,7 +102,7 @@ export class MainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u5076e5e_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u3abf82d_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -130,35 +130,7 @@ export class MainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u7e4ae37_click(params: any = {}, tag?: any, $event?: any) {
-        // 取数
-        let datas: any[] = [];
-        let xData: any = null;
-        // _this 指向容器对象
-        const _this: any = this;
-        let paramJO:any = {};
-        let contextJO:any = {};
-        xData = this;
-        if (_this.getDatas && _this.getDatas instanceof Function) {
-            datas = [..._this.getDatas()];
-        }
-        if(params){
-          datas = [params];
-        }
-        // 界面行为
-        const curUIService:ReleaseUIService  = new ReleaseUIService();
-        curUIService.Release_active(datas,contextJO, paramJO,  $event, xData,this,"Release");
-    }
-
-    /**
-     * 逻辑事件
-     *
-     * @param {*} [params={}]
-     * @param {*} [tag]
-     * @param {*} [$event]
-     * @memberof 
-     */
-    public grid_uagridcolumn1_u7fc42ff_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u3ffc596_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -186,7 +158,35 @@ export class MainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u6847e62_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u5669a69_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:ReleaseUIService  = new ReleaseUIService();
+        curUIService.Release_active(datas,contextJO, paramJO,  $event, xData,this,"Release");
+    }
+
+    /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public grid_uagridcolumn1_u1f38f89_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -214,7 +214,7 @@ export class MainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_ubc55262_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u9b4e4f3_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -241,7 +241,7 @@ export class MainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u04119fb_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_udc5c646_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -321,8 +321,8 @@ export class MainGridBase extends GridControlBase {
         linkstory: { name: 'linkstory',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__RELEASE_COMMON', actiontarget: 'SINGLEKEY'},
         Refresh: { name: 'Refresh',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: '', actiontarget: ''},
         linkbug: { name: 'linkbug',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__RELEASE_COMMON', actiontarget: 'SINGLEKEY'},
-        active: { name: 'active',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__RELEASE_ACTIVE', actiontarget: 'SINGLEKEY'},
         terminal: { name: 'terminal',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__RELEASE_TERMINATE', actiontarget: 'SINGLEKEY'},
+        active: { name: 'active',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__RELEASE_ACTIVE', actiontarget: 'SINGLEKEY'},
         quickEdit: { name: 'quickEdit',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__RELEASE_COMMON', actiontarget: 'SINGLEKEY'},
         Copy: { name: 'Copy',disabled: false, visible: true,noprivdisplaymode:2,dataaccaction: 'SRFUR__UNIVERSALCREATE', actiontarget: 'SINGLEKEY'},
         remove: { name: 'remove',disabled: false, visible: true,noprivdisplaymode:1,dataaccaction: 'SRFUR__RELEASE_COMMON', actiontarget: 'SINGLEKEY'}
@@ -683,25 +683,25 @@ export class MainGridBase extends GridControlBase {
 	public uiAction(row: any, tag: any, $event: any): void {
         $event.stopPropagation();
         if(Object.is('linkstory', tag)) {
-            this.grid_uagridcolumn1_u8ad95f8_click(row, tag, $event);
+            this.grid_uagridcolumn1_ub25eed2_click(row, tag, $event);
         }
         if(Object.is('linkbug', tag)) {
-            this.grid_uagridcolumn1_u5076e5e_click(row, tag, $event);
-        }
-        if(Object.is('active', tag)) {
-            this.grid_uagridcolumn1_u7e4ae37_click(row, tag, $event);
+            this.grid_uagridcolumn1_u3abf82d_click(row, tag, $event);
         }
         if(Object.is('terminal', tag)) {
-            this.grid_uagridcolumn1_u7fc42ff_click(row, tag, $event);
+            this.grid_uagridcolumn1_u3ffc596_click(row, tag, $event);
+        }
+        if(Object.is('active', tag)) {
+            this.grid_uagridcolumn1_u5669a69_click(row, tag, $event);
         }
         if(Object.is('quickEdit', tag)) {
-            this.grid_uagridcolumn1_u6847e62_click(row, tag, $event);
+            this.grid_uagridcolumn1_u1f38f89_click(row, tag, $event);
         }
         if(Object.is('Copy', tag)) {
-            this.grid_uagridcolumn1_ubc55262_click(row, tag, $event);
+            this.grid_uagridcolumn1_u9b4e4f3_click(row, tag, $event);
         }
         if(Object.is('remove', tag)) {
-            this.grid_uagridcolumn1_u04119fb_click(row, tag, $event);
+            this.grid_uagridcolumn1_udc5c646_click(row, tag, $event);
         }
     }
 
@@ -809,10 +809,10 @@ export class MainGridBase extends GridControlBase {
                 linkbug:{
                     visible: false
                 },
-                active:{
+                terminal:{
                     visible: false
                 },
-                terminal:{
+                active:{
                     visible: false
                 },
                 quickEdit:{
@@ -859,10 +859,10 @@ export class MainGridBase extends GridControlBase {
             linkbug:{
                 visible: false
             },
-            active:{
+            terminal:{
                 visible: false
             },
-            terminal:{
+            active:{
                 visible: false
             },
             quickEdit:{
@@ -945,10 +945,10 @@ export class MainGridBase extends GridControlBase {
                 linkbug:{
                     visible: false
                 },
-                active:{
+                terminal:{
                     visible: false
                 },
-                terminal:{
+                active:{
                     visible: false
                 },
                 quickEdit:{

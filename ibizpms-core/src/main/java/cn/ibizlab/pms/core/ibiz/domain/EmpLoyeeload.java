@@ -24,6 +24,8 @@ import java.io.Serializable;
 import lombok.*;
 import org.springframework.data.annotation.Transient;
 import cn.ibizlab.pms.util.annotation.Audit;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -39,24 +41,18 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
 @TableName(value = "ZT_TASK", resultMap = "EmpLoyeeloadResultMap")
+@ApiModel("员工负载表")
 public class EmpLoyeeload extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    /**
-     * 主键
-     */
-    @DEField(isKeyField = true)
-    @TableId(value = "id", type = IdType.AUTO)
-    @JSONField(name = "id")
-    @JsonProperty("id")
-    private Long id;
     /**
      * 任务名
      */
     @TableField(value = "`name`")
     @JSONField(name = "name")
     @JsonProperty("name")
+    @ApiModelProperty("任务名")
     private String name;
     /**
      * 任务数
@@ -64,63 +60,65 @@ public class EmpLoyeeload extends EntityMP implements Serializable {
     @TableField(exist = false)
     @JSONField(name = "taskcnt")
     @JsonProperty("taskcnt")
+    @ApiModelProperty("任务数")
     private Integer taskcnt;
-    /**
-     * 项目编号
-     */
-    @TableField(value = "`project`")
-    @JSONField(name = "project")
-    @JsonProperty("project")
-    private Long project;
-    /**
-     * 项目
-     */
-    @TableField(exist = false)
-    @JSONField(name = "projectname")
-    @JsonProperty("projectname")
-    private String projectname;
-    /**
-     * 总任务数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "totaltaskcnt")
-    @JsonProperty("totaltaskcnt")
-    private Integer totaltaskcnt;
-    /**
-     * 总工时
-     */
-    @TableField(exist = false)
-    @JSONField(name = "totalleft")
-    @JsonProperty("totalleft")
-    private Integer totalleft;
-    /**
-     * 剩余工时
-     */
-    @TableField(exist = false)
-    @JSONField(name = "left")
-    @JsonProperty("left")
-    private Integer left;
-    /**
-     * 工作负载
-     */
-    @TableField(exist = false)
-    @JSONField(name = "workload")
-    @JsonProperty("workload")
-    private String workload;
-    /**
-     * 指派给
-     */
-    @TableField(value = "`assignedto`")
-    @JSONField(name = "assignedto")
-    @JsonProperty("assignedto")
-    private String assignedto;
     /**
      * 部门
      */
     @TableField(exist = false)
     @JSONField(name = "dept")
     @JsonProperty("dept")
+    @ApiModelProperty("部门")
     private String dept;
+    /**
+     * 主键
+     */
+    @DEField(isKeyField = true)
+    @TableId(value = "id", type = IdType.AUTO)
+    @JSONField(name = "id")
+    @JsonProperty("id")
+    @ApiModelProperty("主键")
+    private Long id;
+    /**
+     * 工作日天数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "workday")
+    @JsonProperty("workday")
+    @ApiModelProperty("工作日天数")
+    private Integer workday;
+    /**
+     * 总任务数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "totaltaskcnt")
+    @JsonProperty("totaltaskcnt")
+    @ApiModelProperty("总任务数")
+    private Integer totaltaskcnt;
+    /**
+     * 指派给
+     */
+    @TableField(value = "`assignedto`")
+    @JSONField(name = "assignedto")
+    @JsonProperty("assignedto")
+    @ApiModelProperty("指派给")
+    private String assignedto;
+    /**
+     * 剩余工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "left")
+    @JsonProperty("left")
+    @ApiModelProperty("剩余工时")
+    private Integer left;
+    /**
+     * 是否指派
+     */
+    @TableField(value = "`assign`")
+    @JSONField(name = "assign")
+    @JsonProperty("assign")
+    @ApiModelProperty("是否指派")
+    private String assign;
     /**
      * 属性
      */
@@ -128,7 +126,24 @@ public class EmpLoyeeload extends EntityMP implements Serializable {
     @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "begin", format = "yyyy-MM-dd")
     @JsonProperty("begin")
+    @ApiModelProperty("属性")
     private Timestamp begin;
+    /**
+     * 总工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "totalleft")
+    @JsonProperty("totalleft")
+    @ApiModelProperty("总工时")
+    private Integer totalleft;
+    /**
+     * 工作负载
+     */
+    @TableField(exist = false)
+    @JSONField(name = "workload")
+    @JsonProperty("workload")
+    @ApiModelProperty("工作负载")
+    private String workload;
     /**
      * 结束
      */
@@ -136,21 +151,24 @@ public class EmpLoyeeload extends EntityMP implements Serializable {
     @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "end", format = "yyyy-MM-dd")
     @JsonProperty("end")
+    @ApiModelProperty("结束")
     private Timestamp end;
     /**
-     * 工作日天数
+     * 项目
      */
     @TableField(exist = false)
-    @JSONField(name = "workday")
-    @JsonProperty("workday")
-    private Integer workday;
+    @JSONField(name = "projectname")
+    @JsonProperty("projectname")
+    @ApiModelProperty("项目")
+    private String projectname;
     /**
-     * 是否指派
+     * 项目编号
      */
-    @TableField(value = "`assign`")
-    @JSONField(name = "assign")
-    @JsonProperty("assign")
-    private String assign;
+    @TableField(value = "`project`")
+    @JSONField(name = "project")
+    @JsonProperty("project")
+    @ApiModelProperty("项目编号")
+    private Long project;
 
     /**
      * 项目
@@ -171,14 +189,6 @@ public class EmpLoyeeload extends EntityMP implements Serializable {
     }
 
     /**
-     * 设置 [项目编号]
-     */
-    public void setProject(Long project) {
-        this.project = project;
-        this.modify("project", project);
-    }
-
-    /**
      * 设置 [指派给]
      */
     public void setAssignedto(String assignedto) {
@@ -192,6 +202,14 @@ public class EmpLoyeeload extends EntityMP implements Serializable {
     public void setAssign(String assign) {
         this.assign = assign;
         this.modify("assign", assign);
+    }
+
+    /**
+     * 设置 [项目编号]
+     */
+    public void setProject(Long project) {
+        this.project = project;
+        this.modify("project", project);
     }
 
 

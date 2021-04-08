@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { OptionViewBase } from '@/studio-core';
 import ActionService from '@/service/action/action-service';
 import ActionAuthService from '@/authservice/action/action-auth-service';
@@ -176,7 +176,7 @@ export class ActionOptionViewBase extends OptionViewBase {
      * @type {string}
      * @memberof ActionOptionViewBase
      */
-	protected viewtag: string = 'af6f4065b0510b7994c3cd2bc6074440';
+	protected viewtag: string = 'd393b56053431c45eb3c8026e4bb2ca1';
 
     /**
      * 视图名称

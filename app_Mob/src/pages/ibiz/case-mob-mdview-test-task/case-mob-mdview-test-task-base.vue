@@ -210,7 +210,7 @@ export default class CaseMobMDView_TestTaskBase extends Vue {
 	 * @type {string}
 	 * @memberof CaseMobMDView_TestTaskBase
 	 */
-	protected viewtag: string = '0271b3d4e673b25df1637cdf2159d9fc';
+	protected viewtag: string = '9146f1331eed0a09d862217cc0b1a4c4';
 
     /**
      * 视图上下文

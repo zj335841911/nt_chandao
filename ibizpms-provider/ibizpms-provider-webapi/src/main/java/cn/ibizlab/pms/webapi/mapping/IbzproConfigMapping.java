@@ -12,4 +12,3 @@ public interface IbzproConfigMapping extends MappingBase<IbzproConfigDTO, Ibzpro
 
 
 }
-

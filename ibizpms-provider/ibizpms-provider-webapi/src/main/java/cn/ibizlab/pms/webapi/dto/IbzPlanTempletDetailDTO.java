@@ -20,14 +20,56 @@ import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * 服务DTO对象[IbzPlanTempletDetailDTO]
  */
 @Data
+@ApiModel("计划模板详情")
 public class IbzPlanTempletDetailDTO extends DTOBase implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+
+    /**
+     * 属性 [TYPE]
+     *
+     */
+    @JSONField(name = "type")
+    @JsonProperty("type")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("类型")
+    private String type;
+
+    /**
+     * 属性 [PLANCODE]
+     *
+     */
+    @JSONField(name = "plancode")
+    @JsonProperty("plancode")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("计划编号")
+    private String plancode;
+
+    /**
+     * 属性 [DESC]
+     *
+     */
+    @JSONField(name = "desc")
+    @JsonProperty("desc")
+    @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
+    @ApiModelProperty("计划名称")
+    private String desc;
+
+    /**
+     * 属性 [ORDER]
+     *
+     */
+    @JSONField(name = "order")
+    @JsonProperty("order")
+    @ApiModelProperty("排序")
+    private Integer order;
 
     /**
      * 属性 [IBZ_PLANTEMPLETDETAILID]
@@ -36,6 +78,7 @@ public class IbzPlanTempletDetailDTO extends DTOBase implements Serializable {
     @JSONField(name = "ibzplantempletdetailid")
     @JsonProperty("ibzplantempletdetailid")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("计划模板详情标识")
     private String ibzplantempletdetailid;
 
     /**
@@ -45,6 +88,7 @@ public class IbzPlanTempletDetailDTO extends DTOBase implements Serializable {
     @JSONField(name = "ibzplantempletdetailname")
     @JsonProperty("ibzplantempletdetailname")
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("计划模板详情名称")
     private String ibzplantempletdetailname;
 
     /**
@@ -54,6 +98,7 @@ public class IbzPlanTempletDetailDTO extends DTOBase implements Serializable {
     @JSONField(name = "createman")
     @JsonProperty("createman")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("建立人")
     private String createman;
 
     /**
@@ -63,6 +108,7 @@ public class IbzPlanTempletDetailDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "createdate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("createdate")
+    @ApiModelProperty("建立时间")
     private Timestamp createdate;
 
     /**
@@ -72,7 +118,18 @@ public class IbzPlanTempletDetailDTO extends DTOBase implements Serializable {
     @JSONField(name = "updateman")
     @JsonProperty("updateman")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("更新人")
     private String updateman;
+
+    /**
+     * 属性 [EXPECT]
+     *
+     */
+    @JSONField(name = "expect")
+    @JsonProperty("expect")
+    @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
+    @ApiModelProperty("描述")
+    private String expect;
 
     /**
      * 属性 [UPDATEDATE]
@@ -81,6 +138,7 @@ public class IbzPlanTempletDetailDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "updatedate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("updatedate")
+    @ApiModelProperty("更新时间")
     private Timestamp updatedate;
 
     /**
@@ -90,67 +148,16 @@ public class IbzPlanTempletDetailDTO extends DTOBase implements Serializable {
     @JSONField(name = "plantempletid")
     @JsonProperty("plantempletid")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("产品计划模板标识")
     private String plantempletid;
 
-    /**
-     * 属性 [PLANCODE]
-     *
-     */
-    @JSONField(name = "plancode")
-    @JsonProperty("plancode")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String plancode;
 
     /**
-     * 属性 [ORDER]
-     *
+     * 设置 [TYPE]
      */
-    @JSONField(name = "order")
-    @JsonProperty("order")
-    private Integer order;
-
-    /**
-     * 属性 [DESC]
-     *
-     */
-    @JSONField(name = "desc")
-    @JsonProperty("desc")
-    @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
-    private String desc;
-
-    /**
-     * 属性 [EXPECT]
-     *
-     */
-    @JSONField(name = "expect")
-    @JsonProperty("expect")
-    @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
-    private String expect;
-
-    /**
-     * 属性 [TYPE]
-     *
-     */
-    @JSONField(name = "type")
-    @JsonProperty("type")
-    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
-    private String type;
-
-
-    /**
-     * 设置 [IBZ_PLANTEMPLETDETAILNAME]
-     */
-    public void setIbzplantempletdetailname(String  ibzplantempletdetailname){
-        this.ibzplantempletdetailname = ibzplantempletdetailname ;
-        this.modify("ibz_plantempletdetailname",ibzplantempletdetailname);
-    }
-
-    /**
-     * 设置 [PLANTEMPLETID]
-     */
-    public void setPlantempletid(String  plantempletid){
-        this.plantempletid = plantempletid ;
-        this.modify("plantempletid",plantempletid);
+    public void setType(String  type){
+        this.type = type ;
+        this.modify("type",type);
     }
 
     /**
@@ -162,6 +169,14 @@ public class IbzPlanTempletDetailDTO extends DTOBase implements Serializable {
     }
 
     /**
+     * 设置 [DESC]
+     */
+    public void setDesc(String  desc){
+        this.desc = desc ;
+        this.modify("desc",desc);
+    }
+
+    /**
      * 设置 [ORDER]
      */
     public void setOrder(Integer  order){
@@ -170,11 +185,11 @@ public class IbzPlanTempletDetailDTO extends DTOBase implements Serializable {
     }
 
     /**
-     * 设置 [DESC]
+     * 设置 [IBZ_PLANTEMPLETDETAILNAME]
      */
-    public void setDesc(String  desc){
-        this.desc = desc ;
-        this.modify("desc",desc);
+    public void setIbzplantempletdetailname(String  ibzplantempletdetailname){
+        this.ibzplantempletdetailname = ibzplantempletdetailname ;
+        this.modify("ibz_plantempletdetailname",ibzplantempletdetailname);
     }
 
     /**
@@ -186,11 +201,11 @@ public class IbzPlanTempletDetailDTO extends DTOBase implements Serializable {
     }
 
     /**
-     * 设置 [TYPE]
+     * 设置 [PLANTEMPLETID]
      */
-    public void setType(String  type){
-        this.type = type ;
-        this.modify("type",type);
+    public void setPlantempletid(String  plantempletid){
+        this.plantempletid = plantempletid ;
+        this.modify("plantempletid",plantempletid);
     }
 
 

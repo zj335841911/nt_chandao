@@ -12,4 +12,3 @@ public interface IBZTaskEstimateMapping extends MappingBase<IBZTaskEstimateDTO, 
 
 
 }
-

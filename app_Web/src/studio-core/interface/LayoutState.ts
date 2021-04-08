@@ -14,6 +14,14 @@ export interface LayoutState {
      */
     styleMode: 'DEFAULT' | 'STYLE2';
     /**
+     * 当前主题
+     *
+     * @default 'dark'
+     * @type {('light' | 'blue-dark' | 'dark' | 'dark-white')}
+     * @memberof LayoutState
+     */
+    theme: 'light' | 'blue-dark' | 'dark' | 'dark-white';
+    /**
      * 内容区底部是否展示
      *
      * @default true

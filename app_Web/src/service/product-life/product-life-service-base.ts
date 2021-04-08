@@ -1,3 +1,4 @@
+import { Environment } from '@/environments/environment';
 import { Http } from '@/utils';
 import { Util } from '@/utils';
 import EntityService from '../entity-service';
@@ -40,35 +41,6 @@ export default class ProductLifeServiceBase extends EntityService {
 // 实体接口
 
     /**
-     * FetchGetRoadmap接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @param {boolean} [isloading]
-     * @returns {Promise<any>}
-     * @memberof ProductLifeServiceBase
-     */
-    public async FetchGetRoadmap(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/productlives/fetchgetroadmap`,tempData,isloading);
-        return res;
-    }
-
-    /**
-     * searchGetRoadmap接口方法
-     *
-     * @param {*} [context={}]
-     * @param {*} [data={}]
-     * @param {boolean} [isloading]
-     * @returns {Promise<any>}
-     * @memberof ProductLifeServiceBase
-     */
-    public async searchGetRoadmap(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let tempData:any = JSON.parse(JSON.stringify(data));
-        return await Http.getInstance().post(`/productlives/searchgetroadmap`,tempData,isloading);
-    }
-
-    /**
      * FetchRoadMapYear接口方法
      *
      * @param {*} [context={}]
@@ -79,7 +51,7 @@ export default class ProductLifeServiceBase extends EntityService {
      */
     public async FetchRoadMapYear(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/productlives/fetchroadmapyear`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/productlives/fetchroadmapyear`,tempData,isloading);
         return res;
     }
 
@@ -108,7 +80,7 @@ export default class ProductLifeServiceBase extends EntityService {
      */
     public async FetchGetRoadmapS(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/productlives/fetchgetroadmaps`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/productlives/fetchgetroadmaps`,tempData,isloading);
         return res;
     }
 
@@ -127,6 +99,35 @@ export default class ProductLifeServiceBase extends EntityService {
     }
 
     /**
+     * FetchGetRoadmap接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductLifeServiceBase
+     */
+    public async FetchGetRoadmap(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = await Http.getInstance().get(`/productlives/fetchgetroadmap`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * searchGetRoadmap接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductLifeServiceBase
+     */
+    public async searchGetRoadmap(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/productlives/searchgetroadmap`,tempData,isloading);
+    }
+
+    /**
      * Select接口方法
      *
      * @param {*} [context={}]
@@ -136,7 +137,7 @@ export default class ProductLifeServiceBase extends EntityService {
      * @memberof ProductLifeServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().get(`/productlives/${context.productlife}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/productlives/${context.productlife}/select`,isloading);
             
             return res;
     }

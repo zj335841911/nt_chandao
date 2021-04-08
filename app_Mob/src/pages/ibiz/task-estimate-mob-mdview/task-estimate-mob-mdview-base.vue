@@ -137,7 +137,7 @@ export default class TaskEstimateMobMDViewBase extends Vue {
 	 * @type {string}
 	 * @memberof TaskEstimateMobMDViewBase
 	 */
-	protected viewtag: string = 'c2ab529c7d645ca0bace6b925ea02c99';
+	protected viewtag: string = '4a2f002b2b5aa1501bbc9bb1ae438a87';
 
     /**
      * 视图上下文
@@ -442,6 +442,13 @@ export default class TaskEstimateMobMDViewBase extends Vue {
      * @memberof TaskEstimateMobMDViewBase
      */
     protected afterDestroyed(){
+        if (this.viewDefaultUsage !== "indexView" && Object.keys(localStorage).length > 0) {
+            Object.keys(localStorage).forEach((item: string) => {
+                if (item.startsWith(this.context.srfsessionid)) {
+                    localStorage.removeItem(item);
+                }
+            });
+        }
 
     }
 
@@ -533,9 +540,57 @@ export default class TaskEstimateMobMDViewBase extends Vue {
         //导航参数处理
         const { context, param: _params } = this.$viewTool.formatNavigateParam( panelNavContext, panelNavParam, _context, params, {});
         let deResParameters: any[] = [];
-        deResParameters = [
+        if ((context as any).project && (context as any).projectmodule && (context as any).task && true) {
+            deResParameters = [
+            { pathName: 'projects', parameterName: 'project' },
+            { pathName: 'projectmodules', parameterName: 'projectmodule' },
             { pathName: 'tasks', parameterName: 'task' },
-        ];
+            ]
+        }
+        if ((context as any).product && (context as any).story && (context as any).task && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'stories', parameterName: 'story' },
+            { pathName: 'tasks', parameterName: 'task' },
+            ]
+        }
+        if ((context as any).product && (context as any).productplan && (context as any).task && true) {
+            deResParameters = [
+            { pathName: 'products', parameterName: 'product' },
+            { pathName: 'productplans', parameterName: 'productplan' },
+            { pathName: 'tasks', parameterName: 'task' },
+            ]
+        }
+        if ((context as any).project && (context as any).task && true) {
+            deResParameters = [
+            { pathName: 'projects', parameterName: 'project' },
+            { pathName: 'tasks', parameterName: 'task' },
+            ]
+        }
+        if ((context as any).story && (context as any).task && true) {
+            deResParameters = [
+            { pathName: 'stories', parameterName: 'story' },
+            { pathName: 'tasks', parameterName: 'task' },
+            ]
+        }
+        if ((context as any).productplan && (context as any).task && true) {
+            deResParameters = [
+            { pathName: 'productplans', parameterName: 'productplan' },
+            { pathName: 'tasks', parameterName: 'task' },
+            ]
+        }
+        if ((context as any).projectmodule && (context as any).task && true) {
+            deResParameters = [
+            { pathName: 'projectmodules', parameterName: 'projectmodule' },
+            { pathName: 'tasks', parameterName: 'task' },
+            ]
+        }
+        if ((context as any).task && true) {
+            deResParameters = [
+            { pathName: 'tasks', parameterName: 'task' },
+            ]
+        }
+
         const parameters: any[] = [
             { pathName: 'taskestimates', parameterName: 'taskestimate' },
             { pathName: 'moboptionview', parameterName: 'moboptionview' },

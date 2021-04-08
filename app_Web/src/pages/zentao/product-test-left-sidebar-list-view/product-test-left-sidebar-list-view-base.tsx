@@ -1,6 +1,6 @@
 
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { ListViewBase } from '@/studio-core';
 import ProductService from '@/service/product/product-service';
 import ProductAuthService from '@/authservice/product/product-auth-service';
@@ -137,7 +137,7 @@ export class ProductTestLeftSidebarListViewBase extends ListViewBase {
      * @type {string}
      * @memberof ProductTestLeftSidebarListViewBase
      */
-	protected viewtag: string = '7af111f4c127f7032c3e12e8c5fc0045';
+	protected viewtag: string = 'ae1ea68f418b4b37b773adca6b349679';
 
     /**
      * 视图名称

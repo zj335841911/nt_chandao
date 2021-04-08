@@ -68,12 +68,12 @@ export default class Main_EditModeModel {
       {
         name: 'spec',
         prop: 'spec',
-        dataType: 'TEXT',
+        dataType: 'HTMLTEXT',
       },
       {
         name: 'verify',
         prop: 'verify',
-        dataType: 'TEXT',
+        dataType: 'LONGTEXT',
       },
       {
         name: 'prodoctname',
@@ -184,6 +184,16 @@ export default class Main_EditModeModel {
         name: 'assigneddate',
         prop: 'assigneddate',
         dataType: 'DATETIME',
+      },
+      {
+        name: 'version',
+        prop: 'version',
+        dataType: 'INT',
+      },
+      {
+        name: 'versionc',
+        prop: 'versionc',
+        dataType: 'TEXT',
       },
       {
         name: 'linkstories',

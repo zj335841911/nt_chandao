@@ -132,10 +132,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/" + uploadpath).permitAll()
                 .antMatchers("/" + ztuploadpath).permitAll()
                 .antMatchers("/" + previewpath + "/**").permitAll()
+                .antMatchers("/ibizutilpms/ztbatchdownload/**").permitAll()
                 .antMatchers("/uaa/open/dingtalk/auth/**").permitAll()
                 .antMatchers("/uaa/open/dingtalk/access_token").permitAll()
                 .antMatchers("/uaa/dingtalk/jsapi/sign").permitAll()
                 .antMatchers("/error").permitAll()
+                .antMatchers("/ibizutilpms/ztfilesbatchdownload/**").permitAll()
+                .antMatchers("/ibizutilpms/ztallfilesdownload/**").permitAll()
+
+
                 // 所有请求都需要认证
                 .anyRequest().authenticated()
                 // 防止iframe 造成跨域

@@ -225,16 +225,16 @@ POST
 #### DynaDashboardDTO
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
-| 1 | dynadashboardid | String | 不可 | 动态数据看板标识 |
-| 2 | dynadashboardname | String | 允许 | 动态数据看板名称 |
-| 3 | createman | String | 不可 | 建立人 |
-| 4 | updateman | String | 不可 | 更新人 |
-| 5 | updatedate | Timestamp | 不可 | 更新时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
-| 6 | createdate | Timestamp | 不可 | 建立时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
-| 7 | userid | String | 允许 | 用户标识 |
+| 1 | userid | String | 允许 | 用户标识 |
+| 2 | dynadashboardid | String | 不可 | 动态数据看板标识 |
+| 3 | dynadashboardname | String | 允许 | 动态数据看板名称 |
+| 4 | createman | String | 不可 | 建立人 |
+| 5 | updateman | String | 不可 | 更新人 |
+| 6 | modelid | String | 允许 | 模型标识 |
+| 7 | updatedate | Timestamp | 不可 | 更新时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
 | 8 | appid | String | 允许 | 应用标识 |
-| 9 | model | String | 允许 | 模型 |
-| 10 | modelid | String | 允许 | 模型标识 |
+| 9 | createdate | Timestamp | 不可 | 建立时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
+| 10 | model | String | 允许 | 模型 |
 | 11 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### DynaDashboardSearchContext

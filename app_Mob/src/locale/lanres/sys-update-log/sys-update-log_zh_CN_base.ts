@@ -1,23 +1,23 @@
 import commonLogic from '@/locale/logic/common/common-logic';
 export default {
   fields: {
-    sysupdatelogid: "系统更新日志标识",
-    sysupdatelogname: "更新名称",
+    updatedate: "更新时间",
     updateman: "更新人",
     createman: "建立人",
     createdate: "建立时间",
-    updatedate: "更新时间",
-    update: "更新日期",
-    updesc: "更新说明",
-    latestupdate: "最新更新",
-    updatefeatures: "更新功能列表详情",
+    sysupdatelogid: "系统更新日志标识",
     updatebranch: "更新平台",
+    updatefeatures: "更新功能列表详情",
+    updesc: "更新说明",
+    sysupdatelogname: "更新名称",
+    latestupdate: "最新更新",
+    update: "更新日期",
   },
 	views: {
-		mobmdview: {
+		mobeditview: {
 			caption: commonLogic.appcommonhandle("更新日志",null),
 		},
-		mobeditview: {
+		mobmdview: {
 			caption: commonLogic.appcommonhandle("更新日志",null),
 		},
 	},

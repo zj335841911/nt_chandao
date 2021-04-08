@@ -96,19 +96,19 @@ export default class IBZProStoryModuleUIServiceBase extends UIService {
      * @memberof  IBZProStoryModuleUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set('EDITVIEW:', {
-            viewname: 'editview',
+        this.allViewMap.set('MDATAVIEW:', {
+            viewname: 'gridview',
             srfappde: 'ibzprostorymodules',
-            component: 'ibzpro-story-module-edit-view',
+            component: 'ibzpro-story-module-grid-view',
             openmode: '',
             title: '需求模块',
             width: 0,
             height: 0
         });
-        this.allViewMap.set('MDATAVIEW:', {
-            viewname: 'gridview',
+        this.allViewMap.set('EDITVIEW:', {
+            viewname: 'editview',
             srfappde: 'ibzprostorymodules',
-            component: 'ibzpro-story-module-grid-view',
+            component: 'ibzpro-story-module-edit-view',
             openmode: '',
             title: '需求模块',
             width: 0,

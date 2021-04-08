@@ -7,7 +7,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
-import java.util.HashMap;
+import java.util.Map;
 import org.apache.ibatis.annotations.Select;
 import cn.ibizlab.pms.core.zentao.domain.ProductPlan;
 import cn.ibizlab.pms.core.zentao.filter.ProductPlanSearchContext;
@@ -19,11 +19,16 @@ import com.alibaba.fastjson.JSONObject;
 
 public interface ProductPlanMapper extends BaseMapper<ProductPlan> {
 
+    Page<ProductPlan> searchChildPlan(IPage page, @Param("srf") ProductPlanSearchContext context, @Param("ew") Wrapper<ProductPlan> wrapper);
     Page<ProductPlan> searchCurProductPlan(IPage page, @Param("srf") ProductPlanSearchContext context, @Param("ew") Wrapper<ProductPlan> wrapper);
     Page<ProductPlan> searchDefault(IPage page, @Param("srf") ProductPlanSearchContext context, @Param("ew") Wrapper<ProductPlan> wrapper);
     Page<ProductPlan> searchDefaultParent(IPage page, @Param("srf") ProductPlanSearchContext context, @Param("ew") Wrapper<ProductPlan> wrapper);
     Page<ProductPlan> searchPlanCodeList(IPage page, @Param("srf") ProductPlanSearchContext context, @Param("ew") Wrapper<ProductPlan> wrapper);
+    Page<ProductPlan> searchPlanTasks(IPage page, @Param("srf") ProductPlanSearchContext context, @Param("ew") Wrapper<ProductPlan> wrapper);
+    Page<ProductPlan> searchProjectApp(IPage page, @Param("srf") ProductPlanSearchContext context, @Param("ew") Wrapper<ProductPlan> wrapper);
     Page<ProductPlan> searchProjectPlan(IPage page, @Param("srf") ProductPlanSearchContext context, @Param("ew") Wrapper<ProductPlan> wrapper);
+    Page<ProductPlan> searchRootPlan(IPage page, @Param("srf") ProductPlanSearchContext context, @Param("ew") Wrapper<ProductPlan> wrapper);
+    Page<ProductPlan> searchTaskPlan(IPage page, @Param("srf") ProductPlanSearchContext context, @Param("ew") Wrapper<ProductPlan> wrapper);
     @Override
     ProductPlan selectById(Serializable id);
     @Override

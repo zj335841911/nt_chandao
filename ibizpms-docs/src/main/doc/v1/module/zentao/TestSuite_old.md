@@ -22,9 +22,9 @@ hide members
 |类型|TYPE|SSCODELIST|&nbsp;|
 |最后编辑时间|LASTEDITEDDATE|DATETIME|&nbsp;|
 |由谁创建|ADDEDBY|TEXT|&nbsp;|
+|用例数|CASECNT|INT|&nbsp;|
 |描述|DESC|LONGTEXT|&nbsp;|
 |所属产品|PRODUCT|PICKUP|&nbsp;|
-|用例数|CASECNT|INT|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
@@ -37,9 +37,9 @@ hide members
 |类型|默认规则|内容长度必须小于等于[20]|
 |最后编辑时间|默认规则|默认规则|
 |由谁创建|默认规则|内容长度必须小于等于[30]|
+|用例数|默认规则|默认规则|
 |描述|默认规则|内容长度必须小于等于[65535]|
 |所属产品|默认规则|默认规则|
-|用例数|默认规则|默认规则|
 
 ## 状态控制
 
@@ -81,7 +81,7 @@ hide footbox
 
 | 查询编号 | 查询名称       | 默认查询 |   备注|
 | --------  | --------   | --------   | ----- |
-|DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#TestSuite_Default))|否|&nbsp;|
+|DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#TestSuite_Default))|是|&nbsp;|
 |PublicTestSuite|公开套件([MYSQL5](../../appendix/query_MYSQL5.md#TestSuite_PublicTestSuite))|否|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#TestSuite_View))|否|&nbsp;|
 

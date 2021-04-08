@@ -20,14 +20,37 @@ import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * 服务DTO对象[ActionDTO]
  */
 @Data
+@ApiModel("系统日志")
 public class ActionDTO extends DTOBase implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+
+    /**
+     * 属性 [THISMONTH]
+     *
+     */
+    @JSONField(name = "thismonth")
+    @JsonProperty("thismonth")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("本月")
+    private String thismonth;
+
+    /**
+     * 属性 [YESTERDAY]
+     *
+     */
+    @JSONField(name = "yesterday")
+    @JsonProperty("yesterday")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("昨天")
+    private String yesterday;
 
     /**
      * 属性 [EXTRA]
@@ -36,7 +59,68 @@ public class ActionDTO extends DTOBase implements Serializable {
     @JSONField(name = "extra")
     @JsonProperty("extra")
     @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
+    @ApiModelProperty("附加值")
     private String extra;
+
+    /**
+     * 属性 [FILES]
+     *
+     */
+    @JSONField(name = "files")
+    @JsonProperty("files")
+    @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
+    @ApiModelProperty("文件")
+    private String files;
+
+    /**
+     * 属性 [LASTMONTH]
+     *
+     */
+    @JSONField(name = "lastmonth")
+    @JsonProperty("lastmonth")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("上月")
+    private String lastmonth;
+
+    /**
+     * 属性 [ISACTORSS]
+     *
+     */
+    @JSONField(name = "isactorss")
+    @JsonProperty("isactorss")
+    @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("当前用户")
+    private Long isactorss;
+
+    /**
+     * 属性 [THISWEEK]
+     *
+     */
+    @JSONField(name = "thisweek")
+    @JsonProperty("thisweek")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("本周")
+    private String thisweek;
+
+    /**
+     * 属性 [TODAY]
+     *
+     */
+    @JSONField(name = "today")
+    @JsonProperty("today")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("今天")
+    private String today;
+
+    /**
+     * 属性 [DATE1]
+     *
+     */
+    @JSONField(name = "date1")
+    @JsonProperty("date1")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("显示日期")
+    private String date1;
 
     /**
      * 属性 [OBJECTTYPE]
@@ -45,6 +129,7 @@ public class ActionDTO extends DTOBase implements Serializable {
     @JSONField(name = "objecttype")
     @JsonProperty("objecttype")
     @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
+    @ApiModelProperty("对象类型")
     private String objecttype;
 
     /**
@@ -54,7 +139,18 @@ public class ActionDTO extends DTOBase implements Serializable {
     @JSONField(name = "id")
     @JsonProperty("id")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("id")
     private Long id;
+
+    /**
+     * 属性 [NOTICEUSERS]
+     *
+     */
+    @JSONField(name = "noticeusers")
+    @JsonProperty("noticeusers")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("消息通知用户")
+    private String noticeusers;
 
     /**
      * 属性 [COMMENT]
@@ -63,6 +159,7 @@ public class ActionDTO extends DTOBase implements Serializable {
     @JSONField(name = "comment")
     @JsonProperty("comment")
     @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
+    @ApiModelProperty("备注")
     private String comment;
 
     /**
@@ -72,6 +169,7 @@ public class ActionDTO extends DTOBase implements Serializable {
     @JSONField(name = "read")
     @JsonProperty("read")
     @Size(min = 0, max = 1, message = "内容长度必须小于等于[1]")
+    @ApiModelProperty("已读")
     private String read;
 
     /**
@@ -81,6 +179,7 @@ public class ActionDTO extends DTOBase implements Serializable {
     @JSONField(name = "action")
     @JsonProperty("action")
     @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
+    @ApiModelProperty("动作")
     private String action;
 
     /**
@@ -90,6 +189,7 @@ public class ActionDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "date" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("date")
+    @ApiModelProperty("日期")
     private Timestamp date;
 
     /**
@@ -99,7 +199,48 @@ public class ActionDTO extends DTOBase implements Serializable {
     @JSONField(name = "product")
     @JsonProperty("product")
     @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
+    @ApiModelProperty("产品")
     private String product;
+
+    /**
+     * 属性 [LASTCOMMENT]
+     *
+     */
+    @JSONField(name = "lastcomment")
+    @JsonProperty("lastcomment")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("备注")
+    private String lastcomment;
+
+    /**
+     * 属性 [SRFKEY]
+     *
+     */
+    @JSONField(name = "srfkey")
+    @JsonProperty("srfkey")
+    @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("前端键值")
+    private Long srfkey;
+
+    /**
+     * 属性 [ACTIONMANNER]
+     *
+     */
+    @JSONField(name = "actionmanner")
+    @JsonProperty("actionmanner")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("操作方式")
+    private String actionmanner;
+
+    /**
+     * 属性 [LASTWEEK]
+     *
+     */
+    @JSONField(name = "lastweek")
+    @JsonProperty("lastweek")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("上周")
+    private String lastweek;
 
     /**
      * 属性 [OBJECTID]
@@ -108,6 +249,7 @@ public class ActionDTO extends DTOBase implements Serializable {
     @JSONField(name = "objectid")
     @JsonProperty("objectid")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("对象ID")
     private Long objectid;
 
     /**
@@ -117,6 +259,7 @@ public class ActionDTO extends DTOBase implements Serializable {
     @JSONField(name = "actor")
     @JsonProperty("actor")
     @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("操作者")
     private String actor;
 
     /**
@@ -126,124 +269,8 @@ public class ActionDTO extends DTOBase implements Serializable {
     @JSONField(name = "project")
     @JsonProperty("project")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("项目")
     private Long project;
-
-    /**
-     * 属性 [LASTCOMMENT]
-     *
-     */
-    @JSONField(name = "lastcomment")
-    @JsonProperty("lastcomment")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String lastcomment;
-
-    /**
-     * 属性 [ACTIONMANNER]
-     *
-     */
-    @JSONField(name = "actionmanner")
-    @JsonProperty("actionmanner")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String actionmanner;
-
-    /**
-     * 属性 [ISACTORSS]
-     *
-     */
-    @JSONField(name = "isactorss")
-    @JsonProperty("isactorss")
-    @JsonSerialize(using = ToStringSerializer.class)
-    private Long isactorss;
-
-    /**
-     * 属性 [DATE1]
-     *
-     */
-    @JSONField(name = "date1")
-    @JsonProperty("date1")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String date1;
-
-    /**
-     * 属性 [TODAY]
-     *
-     */
-    @JSONField(name = "today")
-    @JsonProperty("today")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String today;
-
-    /**
-     * 属性 [YESTERDAY]
-     *
-     */
-    @JSONField(name = "yesterday")
-    @JsonProperty("yesterday")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String yesterday;
-
-    /**
-     * 属性 [THISWEEK]
-     *
-     */
-    @JSONField(name = "thisweek")
-    @JsonProperty("thisweek")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String thisweek;
-
-    /**
-     * 属性 [LASTWEEK]
-     *
-     */
-    @JSONField(name = "lastweek")
-    @JsonProperty("lastweek")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String lastweek;
-
-    /**
-     * 属性 [THISMONTH]
-     *
-     */
-    @JSONField(name = "thismonth")
-    @JsonProperty("thismonth")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String thismonth;
-
-    /**
-     * 属性 [LASTMONTH]
-     *
-     */
-    @JSONField(name = "lastmonth")
-    @JsonProperty("lastmonth")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String lastmonth;
-
-    /**
-     * 属性 [SRFKEY]
-     *
-     */
-    @JSONField(name = "srfkey")
-    @JsonProperty("srfkey")
-    @JsonSerialize(using = ToStringSerializer.class)
-    private Long srfkey;
-
-    /**
-     * 属性 [NOTICEUSERS]
-     *
-     */
-    @JSONField(name = "noticeusers")
-    @JsonProperty("noticeusers")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String noticeusers;
-
-    /**
-     * 属性 [FILES]
-     *
-     */
-    @JSONField(name = "files")
-    @JsonProperty("files")
-    @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
-    private String files;
 
 
     /**

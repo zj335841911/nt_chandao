@@ -74,7 +74,7 @@ export class MyFavoriteMainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_ud5c812e_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u42aa5b1_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -102,7 +102,7 @@ export class MyFavoriteMainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u26a772c_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_ud7566dc_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -130,7 +130,7 @@ export class MyFavoriteMainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u19d1986_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u3724273_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -158,7 +158,7 @@ export class MyFavoriteMainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u57d0f95_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u05cc54b_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -186,7 +186,7 @@ export class MyFavoriteMainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_ue885baf_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u80dc357_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -214,7 +214,7 @@ export class MyFavoriteMainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u93d88d5_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u99b8788_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -242,7 +242,7 @@ export class MyFavoriteMainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u2573869_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u37ec274_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -270,7 +270,7 @@ export class MyFavoriteMainGridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_ud775625_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u658f7d3_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -682,28 +682,28 @@ export class MyFavoriteMainGridBase extends GridControlBase {
 	public uiAction(row: any, tag: any, $event: any): void {
         $event.stopPropagation();
         if(Object.is('ChangeStoryDetail', tag)) {
-            this.grid_uagridcolumn1_ud5c812e_click(row, tag, $event);
+            this.grid_uagridcolumn1_u42aa5b1_click(row, tag, $event);
         }
         if(Object.is('ReviewStory', tag)) {
-            this.grid_uagridcolumn1_u26a772c_click(row, tag, $event);
+            this.grid_uagridcolumn1_ud7566dc_click(row, tag, $event);
         }
         if(Object.is('CloseStory', tag)) {
-            this.grid_uagridcolumn1_u19d1986_click(row, tag, $event);
+            this.grid_uagridcolumn1_u3724273_click(row, tag, $event);
         }
         if(Object.is('OpenBaseInfoEditView', tag)) {
-            this.grid_uagridcolumn1_u57d0f95_click(row, tag, $event);
+            this.grid_uagridcolumn1_u05cc54b_click(row, tag, $event);
         }
         if(Object.is('OpenCaseCreateView', tag)) {
-            this.grid_uagridcolumn1_ue885baf_click(row, tag, $event);
+            this.grid_uagridcolumn1_u80dc357_click(row, tag, $event);
         }
         if(Object.is('SubStory', tag)) {
-            this.grid_uagridcolumn1_u93d88d5_click(row, tag, $event);
+            this.grid_uagridcolumn1_u99b8788_click(row, tag, $event);
         }
         if(Object.is('StoryFavorites', tag)) {
-            this.grid_uagridcolumn1_u2573869_click(row, tag, $event);
+            this.grid_uagridcolumn1_u37ec274_click(row, tag, $event);
         }
         if(Object.is('StoryNFavorites', tag)) {
-            this.grid_uagridcolumn1_ud775625_click(row, tag, $event);
+            this.grid_uagridcolumn1_u658f7d3_click(row, tag, $event);
         }
     }
 

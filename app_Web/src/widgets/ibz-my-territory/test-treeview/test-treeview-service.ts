@@ -64,6 +64,51 @@ export default class TestService extends ControlService {
     public TREENODE_SEPARATOR: string = ';';
 
     /**
+     * 用例统计表节点分隔符号
+     *
+     * @public
+     * @type {string}
+     * @memberof TestService
+     */
+	public TREENODE_TESTCASESTATS: string = 'TestCaseStats';
+
+    /**
+     * Bug创建表节点分隔符号
+     *
+     * @public
+     * @type {string}
+     * @memberof TestService
+     */
+	public TREENODE_BUGOPENENDBY: string = 'BugOpenendBy';
+
+    /**
+     * 默认根节点节点分隔符号
+     *
+     * @public
+     * @type {string}
+     * @memberof TestService
+     */
+	public TREENODE_ROOT: string = 'ROOT';
+
+    /**
+     * 产品Bug解决方案汇总表节点分隔符号
+     *
+     * @public
+     * @type {string}
+     * @memberof TestService
+     */
+	public TREENODE_PRODUCTBUGRESOLUTIONSTATS: string = 'ProductBugResolutionStats';
+
+    /**
+     * Bug完成表节点分隔符号
+     *
+     * @public
+     * @type {string}
+     * @memberof TestService
+     */
+	public TREENODE_BUGRESOLVEDBY: string = 'BugResolvedBy';
+
+    /**
      * 产品Bug状态汇总表节点分隔符号
      *
      * @public
@@ -80,51 +125,6 @@ export default class TestService extends ControlService {
      * @memberof TestService
      */
 	public TREENODE_BUGASSIGNEDTO: string = 'BugassignedTo';
-
-    /**
-     * 产品Bug解决方案汇总表节点分隔符号
-     *
-     * @public
-     * @type {string}
-     * @memberof TestService
-     */
-	public TREENODE_PRODUCTBUGRESOLUTIONSTATS: string = 'ProductBugResolutionStats';
-
-    /**
-     * Bug创建表节点分隔符号
-     *
-     * @public
-     * @type {string}
-     * @memberof TestService
-     */
-	public TREENODE_BUGOPENENDBY: string = 'BugOpenendBy';
-
-    /**
-     * Bug完成表节点分隔符号
-     *
-     * @public
-     * @type {string}
-     * @memberof TestService
-     */
-	public TREENODE_BUGRESOLVEDBY: string = 'BugResolvedBy';
-
-    /**
-     * 默认根节点节点分隔符号
-     *
-     * @public
-     * @type {string}
-     * @memberof TestService
-     */
-	public TREENODE_ROOT: string = 'ROOT';
-
-    /**
-     * 用例统计表节点分隔符号
-     *
-     * @public
-     * @type {string}
-     * @memberof TestService
-     */
-	public TREENODE_TESTCASESTATS: string = 'TestCaseStats';
 
     /**
      * 获取节点数据
@@ -200,6 +200,26 @@ export default class TestService extends ControlService {
             }
         }
 
+        if (Object.is(strNodeType, this.TREENODE_TESTCASESTATS)) {
+            await this.fillTestcasestatsNodeChilds(context,filter, list);
+            return Promise.resolve({ status: 200, data: list });
+        }
+        if (Object.is(strNodeType, this.TREENODE_BUGOPENENDBY)) {
+            await this.fillBugopenendbyNodeChilds(context,filter, list);
+            return Promise.resolve({ status: 200, data: list });
+        }
+        if (Object.is(strNodeType, this.TREENODE_ROOT)) {
+            await this.fillRootNodeChilds(context,filter, list);
+            return Promise.resolve({ status: 200, data: list });
+        }
+        if (Object.is(strNodeType, this.TREENODE_PRODUCTBUGRESOLUTIONSTATS)) {
+            await this.fillProductbugresolutionstatsNodeChilds(context,filter, list);
+            return Promise.resolve({ status: 200, data: list });
+        }
+        if (Object.is(strNodeType, this.TREENODE_BUGRESOLVEDBY)) {
+            await this.fillBugresolvedbyNodeChilds(context,filter, list);
+            return Promise.resolve({ status: 200, data: list });
+        }
         if (Object.is(strNodeType, this.TREENODE_PRODUCTBUGSTATUSSUM)) {
             await this.fillProductbugstatussumNodeChilds(context,filter, list);
             return Promise.resolve({ status: 200, data: list });
@@ -208,31 +228,11 @@ export default class TestService extends ControlService {
             await this.fillBugassignedtoNodeChilds(context,filter, list);
             return Promise.resolve({ status: 200, data: list });
         }
-        if (Object.is(strNodeType, this.TREENODE_PRODUCTBUGRESOLUTIONSTATS)) {
-            await this.fillProductbugresolutionstatsNodeChilds(context,filter, list);
-            return Promise.resolve({ status: 200, data: list });
-        }
-        if (Object.is(strNodeType, this.TREENODE_BUGOPENENDBY)) {
-            await this.fillBugopenendbyNodeChilds(context,filter, list);
-            return Promise.resolve({ status: 200, data: list });
-        }
-        if (Object.is(strNodeType, this.TREENODE_BUGRESOLVEDBY)) {
-            await this.fillBugresolvedbyNodeChilds(context,filter, list);
-            return Promise.resolve({ status: 200, data: list });
-        }
-        if (Object.is(strNodeType, this.TREENODE_ROOT)) {
-            await this.fillRootNodeChilds(context,filter, list);
-            return Promise.resolve({ status: 200, data: list });
-        }
-        if (Object.is(strNodeType, this.TREENODE_TESTCASESTATS)) {
-            await this.fillTestcasestatsNodeChilds(context,filter, list);
-            return Promise.resolve({ status: 200, data: list });
-        }
         return Promise.resolve({ status: 500, data: { title: '失败', message: `树节点${strTreeNodeId}标识无效` } });
     }
 
     /**
-     * 填充 树视图节点[产品Bug状态汇总表]
+     * 填充 树视图节点[用例统计表]
      *
      * @public
      * @param {any{}} context     
@@ -245,16 +245,16 @@ export default class TestService extends ControlService {
      * @memberof TestService
      */
     @Errorlog
-    public fillProductbugstatussumNodes(context:any={},filter: any, list: any[],rsNavContext?:any,rsNavParams?:any,rsParams?:any): Promise<any> {
+    public fillTestcasestatsNodes(context:any={},filter: any, list: any[],rsNavContext?:any,rsNavParams?:any,rsParams?:any): Promise<any> {
         context = this.handleResNavContext(context,filter,rsNavContext);
         filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
         return new Promise((resolve:any,reject:any) =>{
             let treeNode: any = {};
-            Object.assign(treeNode, { text: i18n.t('entities.ibzmyterritory.test_treeview.nodes.productbugstatussum') });
+            Object.assign(treeNode, { text: i18n.t('entities.ibzmyterritory.test_treeview.nodes.testcasestats') });
             Object.assign(treeNode, { isUseLangRes: true });
             Object.assign(treeNode,{srfappctx:context});
             Object.assign(treeNode, { srfmajortext: treeNode.text });
-            let strNodeId: string = 'ProductBugStatusSum';
+            let strNodeId: string = 'TestCaseStats';
 
             // 没有指定节点值，直接使用父节点值
             Object.assign(treeNode, { srfkey: filter.strRealNodeId });
@@ -274,7 +274,7 @@ export default class TestService extends ControlService {
 	}
 
     /**
-     * 填充 树视图节点[产品Bug状态汇总表]子节点
+     * 填充 树视图节点[用例统计表]子节点
      *
      * @public
      * @param {any{}} context         
@@ -284,125 +284,7 @@ export default class TestService extends ControlService {
      * @memberof TestService
      */
     @Errorlog
-    public async fillProductbugstatussumNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
-		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
-		} else {
-		}
-	}
-
-    /**
-     * 填充 树视图节点[Bug指派表]
-     *
-     * @public
-     * @param {any{}} context     
-     * @param {*} filter
-     * @param {any[]} list
-     * @param {*} rsNavContext   
-     * @param {*} rsNavParams
-     * @param {*} rsParams
-     * @returns {Promise<any>}
-     * @memberof TestService
-     */
-    @Errorlog
-    public fillBugassignedtoNodes(context:any={},filter: any, list: any[],rsNavContext?:any,rsNavParams?:any,rsParams?:any): Promise<any> {
-        context = this.handleResNavContext(context,filter,rsNavContext);
-        filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
-        return new Promise((resolve:any,reject:any) =>{
-            let treeNode: any = {};
-            Object.assign(treeNode, { text: i18n.t('entities.ibzmyterritory.test_treeview.nodes.bugassignedto') });
-            Object.assign(treeNode, { isUseLangRes: true });
-            Object.assign(treeNode,{srfappctx:context});
-            Object.assign(treeNode, { srfmajortext: treeNode.text });
-            let strNodeId: string = 'BugassignedTo';
-
-            // 没有指定节点值，直接使用父节点值
-            Object.assign(treeNode, { srfkey: filter.strRealNodeId });
-            strNodeId += this.TREENODE_SEPARATOR;
-            strNodeId += filter.strRealNodeId;
-
-            Object.assign(treeNode, { id: strNodeId });
-
-            Object.assign(treeNode, { expanded: filter.isAutoexpand });
-            Object.assign(treeNode, { leaf: true });
-            Object.assign(treeNode, { nodeid: treeNode.srfkey });
-            Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
-            Object.assign(treeNode, { nodeType: "STATIC" });
-            list.push(treeNode);
-            resolve(list);
-        });
-	}
-
-    /**
-     * 填充 树视图节点[Bug指派表]子节点
-     *
-     * @public
-     * @param {any{}} context         
-     * @param {*} filter
-     * @param {any[]} list
-     * @returns {Promise<any>}
-     * @memberof TestService
-     */
-    @Errorlog
-    public async fillBugassignedtoNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
-		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
-		} else {
-		}
-	}
-
-    /**
-     * 填充 树视图节点[产品Bug解决方案汇总表]
-     *
-     * @public
-     * @param {any{}} context     
-     * @param {*} filter
-     * @param {any[]} list
-     * @param {*} rsNavContext   
-     * @param {*} rsNavParams
-     * @param {*} rsParams
-     * @returns {Promise<any>}
-     * @memberof TestService
-     */
-    @Errorlog
-    public fillProductbugresolutionstatsNodes(context:any={},filter: any, list: any[],rsNavContext?:any,rsNavParams?:any,rsParams?:any): Promise<any> {
-        context = this.handleResNavContext(context,filter,rsNavContext);
-        filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
-        return new Promise((resolve:any,reject:any) =>{
-            let treeNode: any = {};
-            Object.assign(treeNode, { text: i18n.t('entities.ibzmyterritory.test_treeview.nodes.productbugresolutionstats') });
-            Object.assign(treeNode, { isUseLangRes: true });
-            Object.assign(treeNode,{srfappctx:context});
-            Object.assign(treeNode, { srfmajortext: treeNode.text });
-            let strNodeId: string = 'ProductBugResolutionStats';
-
-            // 没有指定节点值，直接使用父节点值
-            Object.assign(treeNode, { srfkey: filter.strRealNodeId });
-            strNodeId += this.TREENODE_SEPARATOR;
-            strNodeId += filter.strRealNodeId;
-
-            Object.assign(treeNode, { id: strNodeId });
-
-            Object.assign(treeNode, { expanded: filter.isAutoexpand });
-            Object.assign(treeNode, { leaf: true });
-            Object.assign(treeNode, { nodeid: treeNode.srfkey });
-            Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
-            Object.assign(treeNode, { nodeType: "STATIC" });
-            list.push(treeNode);
-            resolve(list);
-        });
-	}
-
-    /**
-     * 填充 树视图节点[产品Bug解决方案汇总表]子节点
-     *
-     * @public
-     * @param {any{}} context         
-     * @param {*} filter
-     * @param {any[]} list
-     * @returns {Promise<any>}
-     * @memberof TestService
-     */
-    @Errorlog
-    public async fillProductbugresolutionstatsNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
+    public async fillTestcasestatsNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
 		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
 		} else {
 		}
@@ -462,65 +344,6 @@ export default class TestService extends ControlService {
      */
     @Errorlog
     public async fillBugopenendbyNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
-		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
-		} else {
-		}
-	}
-
-    /**
-     * 填充 树视图节点[Bug完成表]
-     *
-     * @public
-     * @param {any{}} context     
-     * @param {*} filter
-     * @param {any[]} list
-     * @param {*} rsNavContext   
-     * @param {*} rsNavParams
-     * @param {*} rsParams
-     * @returns {Promise<any>}
-     * @memberof TestService
-     */
-    @Errorlog
-    public fillBugresolvedbyNodes(context:any={},filter: any, list: any[],rsNavContext?:any,rsNavParams?:any,rsParams?:any): Promise<any> {
-        context = this.handleResNavContext(context,filter,rsNavContext);
-        filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
-        return new Promise((resolve:any,reject:any) =>{
-            let treeNode: any = {};
-            Object.assign(treeNode, { text: i18n.t('entities.ibzmyterritory.test_treeview.nodes.bugresolvedby') });
-            Object.assign(treeNode, { isUseLangRes: true });
-            Object.assign(treeNode,{srfappctx:context});
-            Object.assign(treeNode, { srfmajortext: treeNode.text });
-            let strNodeId: string = 'BugResolvedBy';
-
-            // 没有指定节点值，直接使用父节点值
-            Object.assign(treeNode, { srfkey: filter.strRealNodeId });
-            strNodeId += this.TREENODE_SEPARATOR;
-            strNodeId += filter.strRealNodeId;
-
-            Object.assign(treeNode, { id: strNodeId });
-
-            Object.assign(treeNode, { expanded: filter.isAutoexpand });
-            Object.assign(treeNode, { leaf: true });
-            Object.assign(treeNode, { nodeid: treeNode.srfkey });
-            Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
-            Object.assign(treeNode, { nodeType: "STATIC" });
-            list.push(treeNode);
-            resolve(list);
-        });
-	}
-
-    /**
-     * 填充 树视图节点[Bug完成表]子节点
-     *
-     * @public
-     * @param {any{}} context         
-     * @param {*} filter
-     * @param {any[]} list
-     * @returns {Promise<any>}
-     * @memberof TestService
-     */
-    @Errorlog
-    public async fillBugresolvedbyNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
 		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
 		} else {
 		}
@@ -645,7 +468,7 @@ export default class TestService extends ControlService {
 	}
 
     /**
-     * 填充 树视图节点[用例统计表]
+     * 填充 树视图节点[产品Bug解决方案汇总表]
      *
      * @public
      * @param {any{}} context     
@@ -658,16 +481,16 @@ export default class TestService extends ControlService {
      * @memberof TestService
      */
     @Errorlog
-    public fillTestcasestatsNodes(context:any={},filter: any, list: any[],rsNavContext?:any,rsNavParams?:any,rsParams?:any): Promise<any> {
+    public fillProductbugresolutionstatsNodes(context:any={},filter: any, list: any[],rsNavContext?:any,rsNavParams?:any,rsParams?:any): Promise<any> {
         context = this.handleResNavContext(context,filter,rsNavContext);
         filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
         return new Promise((resolve:any,reject:any) =>{
             let treeNode: any = {};
-            Object.assign(treeNode, { text: i18n.t('entities.ibzmyterritory.test_treeview.nodes.testcasestats') });
+            Object.assign(treeNode, { text: i18n.t('entities.ibzmyterritory.test_treeview.nodes.productbugresolutionstats') });
             Object.assign(treeNode, { isUseLangRes: true });
             Object.assign(treeNode,{srfappctx:context});
             Object.assign(treeNode, { srfmajortext: treeNode.text });
-            let strNodeId: string = 'TestCaseStats';
+            let strNodeId: string = 'ProductBugResolutionStats';
 
             // 没有指定节点值，直接使用父节点值
             Object.assign(treeNode, { srfkey: filter.strRealNodeId });
@@ -687,7 +510,7 @@ export default class TestService extends ControlService {
 	}
 
     /**
-     * 填充 树视图节点[用例统计表]子节点
+     * 填充 树视图节点[产品Bug解决方案汇总表]子节点
      *
      * @public
      * @param {any{}} context         
@@ -697,7 +520,184 @@ export default class TestService extends ControlService {
      * @memberof TestService
      */
     @Errorlog
-    public async fillTestcasestatsNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
+    public async fillProductbugresolutionstatsNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
+		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
+		} else {
+		}
+	}
+
+    /**
+     * 填充 树视图节点[Bug完成表]
+     *
+     * @public
+     * @param {any{}} context     
+     * @param {*} filter
+     * @param {any[]} list
+     * @param {*} rsNavContext   
+     * @param {*} rsNavParams
+     * @param {*} rsParams
+     * @returns {Promise<any>}
+     * @memberof TestService
+     */
+    @Errorlog
+    public fillBugresolvedbyNodes(context:any={},filter: any, list: any[],rsNavContext?:any,rsNavParams?:any,rsParams?:any): Promise<any> {
+        context = this.handleResNavContext(context,filter,rsNavContext);
+        filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
+        return new Promise((resolve:any,reject:any) =>{
+            let treeNode: any = {};
+            Object.assign(treeNode, { text: i18n.t('entities.ibzmyterritory.test_treeview.nodes.bugresolvedby') });
+            Object.assign(treeNode, { isUseLangRes: true });
+            Object.assign(treeNode,{srfappctx:context});
+            Object.assign(treeNode, { srfmajortext: treeNode.text });
+            let strNodeId: string = 'BugResolvedBy';
+
+            // 没有指定节点值，直接使用父节点值
+            Object.assign(treeNode, { srfkey: filter.strRealNodeId });
+            strNodeId += this.TREENODE_SEPARATOR;
+            strNodeId += filter.strRealNodeId;
+
+            Object.assign(treeNode, { id: strNodeId });
+
+            Object.assign(treeNode, { expanded: filter.isAutoexpand });
+            Object.assign(treeNode, { leaf: true });
+            Object.assign(treeNode, { nodeid: treeNode.srfkey });
+            Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+            Object.assign(treeNode, { nodeType: "STATIC" });
+            list.push(treeNode);
+            resolve(list);
+        });
+	}
+
+    /**
+     * 填充 树视图节点[Bug完成表]子节点
+     *
+     * @public
+     * @param {any{}} context         
+     * @param {*} filter
+     * @param {any[]} list
+     * @returns {Promise<any>}
+     * @memberof TestService
+     */
+    @Errorlog
+    public async fillBugresolvedbyNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
+		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
+		} else {
+		}
+	}
+
+    /**
+     * 填充 树视图节点[产品Bug状态汇总表]
+     *
+     * @public
+     * @param {any{}} context     
+     * @param {*} filter
+     * @param {any[]} list
+     * @param {*} rsNavContext   
+     * @param {*} rsNavParams
+     * @param {*} rsParams
+     * @returns {Promise<any>}
+     * @memberof TestService
+     */
+    @Errorlog
+    public fillProductbugstatussumNodes(context:any={},filter: any, list: any[],rsNavContext?:any,rsNavParams?:any,rsParams?:any): Promise<any> {
+        context = this.handleResNavContext(context,filter,rsNavContext);
+        filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
+        return new Promise((resolve:any,reject:any) =>{
+            let treeNode: any = {};
+            Object.assign(treeNode, { text: i18n.t('entities.ibzmyterritory.test_treeview.nodes.productbugstatussum') });
+            Object.assign(treeNode, { isUseLangRes: true });
+            Object.assign(treeNode,{srfappctx:context});
+            Object.assign(treeNode, { srfmajortext: treeNode.text });
+            let strNodeId: string = 'ProductBugStatusSum';
+
+            // 没有指定节点值，直接使用父节点值
+            Object.assign(treeNode, { srfkey: filter.strRealNodeId });
+            strNodeId += this.TREENODE_SEPARATOR;
+            strNodeId += filter.strRealNodeId;
+
+            Object.assign(treeNode, { id: strNodeId });
+
+            Object.assign(treeNode, { expanded: filter.isAutoexpand });
+            Object.assign(treeNode, { leaf: true });
+            Object.assign(treeNode, { nodeid: treeNode.srfkey });
+            Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+            Object.assign(treeNode, { nodeType: "STATIC" });
+            list.push(treeNode);
+            resolve(list);
+        });
+	}
+
+    /**
+     * 填充 树视图节点[产品Bug状态汇总表]子节点
+     *
+     * @public
+     * @param {any{}} context         
+     * @param {*} filter
+     * @param {any[]} list
+     * @returns {Promise<any>}
+     * @memberof TestService
+     */
+    @Errorlog
+    public async fillProductbugstatussumNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
+		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
+		} else {
+		}
+	}
+
+    /**
+     * 填充 树视图节点[Bug指派表]
+     *
+     * @public
+     * @param {any{}} context     
+     * @param {*} filter
+     * @param {any[]} list
+     * @param {*} rsNavContext   
+     * @param {*} rsNavParams
+     * @param {*} rsParams
+     * @returns {Promise<any>}
+     * @memberof TestService
+     */
+    @Errorlog
+    public fillBugassignedtoNodes(context:any={},filter: any, list: any[],rsNavContext?:any,rsNavParams?:any,rsParams?:any): Promise<any> {
+        context = this.handleResNavContext(context,filter,rsNavContext);
+        filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
+        return new Promise((resolve:any,reject:any) =>{
+            let treeNode: any = {};
+            Object.assign(treeNode, { text: i18n.t('entities.ibzmyterritory.test_treeview.nodes.bugassignedto') });
+            Object.assign(treeNode, { isUseLangRes: true });
+            Object.assign(treeNode,{srfappctx:context});
+            Object.assign(treeNode, { srfmajortext: treeNode.text });
+            let strNodeId: string = 'BugassignedTo';
+
+            // 没有指定节点值，直接使用父节点值
+            Object.assign(treeNode, { srfkey: filter.strRealNodeId });
+            strNodeId += this.TREENODE_SEPARATOR;
+            strNodeId += filter.strRealNodeId;
+
+            Object.assign(treeNode, { id: strNodeId });
+
+            Object.assign(treeNode, { expanded: filter.isAutoexpand });
+            Object.assign(treeNode, { leaf: true });
+            Object.assign(treeNode, { nodeid: treeNode.srfkey });
+            Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
+            Object.assign(treeNode, { nodeType: "STATIC" });
+            list.push(treeNode);
+            resolve(list);
+        });
+	}
+
+    /**
+     * 填充 树视图节点[Bug指派表]子节点
+     *
+     * @public
+     * @param {any{}} context         
+     * @param {*} filter
+     * @param {any[]} list
+     * @returns {Promise<any>}
+     * @memberof TestService
+     */
+    @Errorlog
+    public async fillBugassignedtoNodeChilds(context:any={}, filter: any, list: any[]): Promise<any> {
 		if (filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")) {
 		} else {
 		}

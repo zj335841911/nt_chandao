@@ -14,48 +14,48 @@ hide members
 
 | 属性名称        |    中文名称    | 类型     |  备注  |
 | --------   |------------| -----   |  -------- | 
-|叶子模块|ISLEAF|TEXT|&nbsp;|
-|名称|NAME|TEXT|&nbsp;|
-|简称|SHORT|TEXT|&nbsp;|
-|grade|GRADE|INT|&nbsp;|
-|collector|COLLECTOR|LONGTEXT|&nbsp;|
-|branch|BRANCH|INT|&nbsp;|
-|id|ID|ACID|&nbsp;|
-|排序值|ORDER|INT|&nbsp;|
-|逻辑删除标志|DELETED|TEXT|&nbsp;|
-|path|PATH|TEXT|&nbsp;|
-|owner|OWNER|TEXT|&nbsp;|
-|类型|TYPE|TEXT|&nbsp;|
-|编号|ROOT|PICKUP|&nbsp;|
-|id|PARENT|PICKUP|&nbsp;|
-|所属文档库|DOCLIBNAME|PICKUPTEXT|&nbsp;|
-|上级模块|MODULENAME|PICKUPTEXT|&nbsp;|
-|查询类型|DOCQTYPE|TEXT|&nbsp;|
 |是否已收藏|ISFAVOURITES|TEXT|&nbsp;|
+|grade|GRADE|INT|&nbsp;|
+|path|PATH|TEXT|&nbsp;|
+|排序值|ORDER|INT|&nbsp;|
+|名称|NAME|TEXT|&nbsp;|
+|查询类型|DOCQTYPE|TEXT|&nbsp;|
+|owner|OWNER|TEXT|&nbsp;|
+|branch|BRANCH|INT|&nbsp;|
+|叶子模块|ISLEAF|TEXT|&nbsp;|
+|类型|TYPE|TEXT|&nbsp;|
+|简称|SHORT|TEXT|&nbsp;|
 |文档数|DOCCNT|INT|&nbsp;|
+|collector|COLLECTOR|LONGTEXT|&nbsp;|
+|id|ID|ACID|&nbsp;|
+|逻辑删除标志|DELETED|TEXT|&nbsp;|
+|上级模块|MODULENAME|PICKUPTEXT|&nbsp;|
+|所属文档库|DOCLIBNAME|PICKUPTEXT|&nbsp;|
+|id|PARENT|PICKUP|&nbsp;|
+|编号|ROOT|PICKUP|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
 | --------   |------------| ----- | 
-|叶子模块|默认规则|内容长度必须小于等于[200]|
-|名称|默认规则|内容长度必须小于等于[60]|
-|简称|默认规则|内容长度必须小于等于[30]|
-|grade|默认规则|默认规则|
-|collector|默认规则|内容长度必须小于等于[65535]|
-|branch|默认规则|默认规则|
-|id|默认规则|默认规则|
-|排序值|默认规则|默认规则|
-|逻辑删除标志|默认规则|内容长度必须小于等于[1]|
-|path|默认规则|内容长度必须小于等于[255]|
-|owner|默认规则|内容长度必须小于等于[30]|
-|类型|默认规则|内容长度必须小于等于[30]|
-|编号|默认规则|默认规则|
-|id|默认规则|默认规则|
-|所属文档库|默认规则|内容长度必须小于等于[60]|
-|上级模块|默认规则|内容长度必须小于等于[60]|
-|查询类型|默认规则|内容长度必须小于等于[100]|
 |是否已收藏|默认规则|内容长度必须小于等于[200]|
+|grade|默认规则|默认规则|
+|path|默认规则|内容长度必须小于等于[255]|
+|排序值|默认规则|默认规则|
+|名称|默认规则|内容长度必须小于等于[60]|
+|查询类型|默认规则|内容长度必须小于等于[100]|
+|owner|默认规则|内容长度必须小于等于[30]|
+|branch|默认规则|默认规则|
+|叶子模块|默认规则|内容长度必须小于等于[200]|
+|类型|默认规则|内容长度必须小于等于[30]|
+|简称|默认规则|内容长度必须小于等于[30]|
 |文档数|默认规则|默认规则|
+|collector|默认规则|内容长度必须小于等于[65535]|
+|id|默认规则|默认规则|
+|逻辑删除标志|默认规则|内容长度必须小于等于[1]|
+|上级模块|默认规则|内容长度必须小于等于[60]|
+|所属文档库|默认规则|内容长度必须小于等于[60]|
+|id|默认规则|默认规则|
+|编号|默认规则|默认规则|
 
 ## 状态控制
 
@@ -204,7 +204,7 @@ hide footbox
 |AllDoclibModule_Custom|数据查询([MYSQL5](../../appendix/query_MYSQL5.md#DocLibModule_AllDoclibModule_Custom))|否|&nbsp;|
 |ChildModuleByParent|子模块目录([MYSQL5](../../appendix/query_MYSQL5.md#DocLibModule_ChildModuleByParent))|否|&nbsp;|
 |ChildModuleByRealParent|文档库分类子模块([MYSQL5](../../appendix/query_MYSQL5.md#DocLibModule_ChildModuleByRealParent))|否|&nbsp;文档库分类下维护分类专属|
-|DEFAULT|数据查询([MYSQL5](../../appendix/query_MYSQL5.md#DocLibModule_Default))|否|&nbsp;|
+|DEFAULT|数据查询([MYSQL5](../../appendix/query_MYSQL5.md#DocLibModule_Default))|是|&nbsp;|
 |AllDoclibModule|数据查询([MYSQL5](../../appendix/query_MYSQL5.md#DocLibModule_DefaultDoclib))|否|&nbsp;|
 |MyFavourites|我的收藏([MYSQL5](../../appendix/query_MYSQL5.md#DocLibModule_MyFavourites))|否|&nbsp;|
 |ParentModule|父模块([MYSQL5](../../appendix/query_MYSQL5.md#DocLibModule_ParentModule))|否|&nbsp;|
@@ -232,12 +232,12 @@ hide footbox
 | 属性      |    搜索模式     |
 | --------   |------------|
 |名称(NAME)|LIKE|
-|编号(ROOT)|EQ|
-|id(PARENT)|EQ|
-|所属文档库(DOCLIBNAME)|EQ|
-|所属文档库(DOCLIBNAME)|LIKE|
 |上级模块(MODULENAME)|EQ|
 |上级模块(MODULENAME)|LIKE|
+|所属文档库(DOCLIBNAME)|EQ|
+|所属文档库(DOCLIBNAME)|LIKE|
+|id(PARENT)|EQ|
+|编号(ROOT)|EQ|
 
 ## 导入模式
 无

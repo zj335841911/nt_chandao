@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { EditViewBase } from '@/studio-core';
 import BugService from '@/service/bug/bug-service';
 import BugAuthService from '@/authservice/bug/bug-auth-service';
@@ -124,6 +124,10 @@ export class BugTaskToBugEditViewBase extends EditViewBase {
             isRawValue: false,
             value: 'mailto',
         },
+        'modulename': {
+            isRawValue: false,
+            value: 'modulename',
+        },
         'story': {
             isRawValue: false,
             value: 'story',
@@ -155,6 +159,10 @@ export class BugTaskToBugEditViewBase extends EditViewBase {
         'branch': {
             isRawValue: false,
             value: 'branch',
+        },
+        'storyname': {
+            isRawValue: false,
+            value: 'storyname',
         }
     };
 
@@ -217,7 +225,7 @@ export class BugTaskToBugEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof BugTaskToBugEditViewBase
      */
-	protected viewtag: string = 'c9c2b18a9b5b1e628179f9ab99ffe23a';
+	protected viewtag: string = '54638099445607e6cb16757f25193b2f';
 
     /**
      * 视图名称

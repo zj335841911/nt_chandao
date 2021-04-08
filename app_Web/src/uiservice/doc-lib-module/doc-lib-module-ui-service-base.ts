@@ -96,10 +96,19 @@ export default class DocLibModuleUIServiceBase extends UIService {
      * @memberof  DocLibModuleUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set('MPICKUPVIEW:', {
-            viewname: 'mpickupview',
+        this.allViewMap.set('MDATAVIEW:', {
+            viewname: 'gridview',
             srfappde: 'doclibmodules',
-            component: 'doc-lib-module-mpickup-view',
+            component: 'doc-lib-module-grid-view',
+            openmode: '',
+            title: '文档库分类',
+            width: 0,
+            height: 0
+        });
+        this.allViewMap.set('REDIRECTVIEW:', {
+            viewname: 'redirectview',
+            srfappde: 'doclibmodules',
+            component: 'doc-lib-module-redirect-view',
             openmode: '',
             title: '文档库分类',
             width: 0,
@@ -123,19 +132,10 @@ export default class DocLibModuleUIServiceBase extends UIService {
             width: 0,
             height: 0
         });
-        this.allViewMap.set('MDATAVIEW:', {
-            viewname: 'gridview',
+        this.allViewMap.set('MPICKUPVIEW:', {
+            viewname: 'mpickupview',
             srfappde: 'doclibmodules',
-            component: 'doc-lib-module-grid-view',
-            openmode: '',
-            title: '文档库分类',
-            width: 0,
-            height: 0
-        });
-        this.allViewMap.set('REDIRECTVIEW:', {
-            viewname: 'redirectview',
-            srfappde: 'doclibmodules',
-            component: 'doc-lib-module-redirect-view',
+            component: 'doc-lib-module-mpickup-view',
             openmode: '',
             title: '文档库分类',
             width: 0,
@@ -161,6 +161,154 @@ export default class DocLibModuleUIServiceBase extends UIService {
     public initDeMainStateOPPrivsMap(){
         this.allDeMainStateOPPrivsMap.set('module__0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__DOCLIBMODULE_NFAVOUR_BUT':0,}));
         this.allDeMainStateOPPrivsMap.set('module__1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__DOCLIBMODULE_FAVOUR_BUT':0,}));
+    }
+
+    /**
+     * 维护分类
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async DocLibModule_WeiHuFenLei(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
+    
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        Object.assign(context,{PROJECT:"%project%",SRFROOT:"%doclib%",SRFPARENT:"%doclibmodule%",PRODUCT:"%product%"});
+        Object.assign(params,{product:"%product%",project:"%project%",srfparent:"%doclibmodule%",srfroot:"%doclib%"});
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { doclibmodule: '%doclibmodule%' });
+        Object.assign(params, { id: '%doclibmodule%' });
+        Object.assign(params, { name: '%name%' });
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        Object.assign(data,parentObj);
+        Object.assign(context,parentObj);
+        let deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'doclibmodules', parameterName: 'doclibmodule' },
+        ];
+            const openPopupModal = (view: any, data: any) => {
+                let container: Subject<any> = actionContext.$appmodal.openModal(view, context, data);
+                container.subscribe((result: any) => {
+                    if (!result || !Object.is(result.ret, 'OK')) {
+                        return;
+                    }
+                    const _this: any = actionContext;
+                    return result.datas;
+                });
+            }
+            const view: any = {
+                viewname: 'doc-lib-module-child-wei-hui-tree-exp-view', 
+                height: 600, 
+                width: 800,  
+                title: actionContext.$t('entities.doclibmodule.views.childweihuitreeexpview.title'),
+            };
+            openPopupModal(view, data);
+    }
+
+    /**
+     * 取消收藏
+     *
+     * @param {any[]} args 当前数据
+     * @param {any} context 行为附加上下文
+     * @param {*} [params] 附加参数
+     * @param {*} [$event] 事件源
+     * @param {*} [xData]  执行行为所需当前部件
+     * @param {*} [actionContext]  执行行为上下文
+     * @param {*} [srfParentDeName] 父实体名称
+     * @returns {Promise<any>}
+     */
+    public async DocLibModule_NFavorite(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
+        let data: any = {};
+        let parentContext:any = {};
+        let parentViewParam:any = {};
+        const _this: any = actionContext;
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'SINGLEKEY';
+        Object.assign(context, { doclibmodule: '%doclibmodule%' });
+        Object.assign(params, { id: '%doclibmodule%' });
+        Object.assign(params, { name: '%name%' });
+        if(_this.context){
+            parentContext = _this.context;
+        }
+        if(_this.viewparams){
+            parentViewParam = _this.viewparams;
+        }
+        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
+        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        if(Object.is(actionTarget,"MULTIKEY")){
+            let tempDataArray:Array<any> = [];
+            if((_args.length >1) && (Object.keys(data).length >0)){
+                for(let i =0;i<_args.length;i++){
+                    let tempObject:any = {};
+                    Object.keys(data).forEach((key:string) =>{
+                        Object.assign(tempObject,{[key]:data[key].split(',')[i]});
+                    })
+                    tempDataArray.push(tempObject);
+                }
+            }else{
+                tempDataArray.push(data);
+            }
+            data = tempDataArray;
+        }
+        context = Object.assign({},actionContext.context,context);
+        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
+        if(!Object.is(actionTarget,"MULTIKEY")){
+            Object.assign(data,parentObj);
+        }
+        Object.assign(context,parentObj);
+        // 直接调实体服务需要转换的数据
+        if(context && context.srfsessionid){
+          context.srfsessionkey = context.srfsessionid;
+            delete context.srfsessionid;
+        }
+        
+        const backend = () => {
+            const curService:DocLibModuleService =  new DocLibModuleService();
+            curService.UnCollect(context,data, true).then((response: any) => {
+                if (!response || response.status !== 200) {
+                    actionContext.$Notice.error({ title: '错误', desc: response.message });
+                    return;
+                }
+                actionContext.$Notice.success({ title: '成功', desc: '取消收藏成功！' });
+                const _this: any = actionContext;
+                if (xData && xData.refresh && xData.refresh instanceof Function) {
+                    xData.refresh(args);
+                }
+                return response;
+            }).catch((response: any) => {
+                if (!response || !response.status || !response.data) {
+                    actionContext.$Notice.error({ title: '错误', desc: '系统异常！' });
+                    return;
+                }
+                if (response && response.data) {
+                    actionContext.$Notice.error({ title: '错误', desc: response.data.message });
+                    return;
+                }
+                if (response.status === 401) {
+                    return;
+                }
+                return response;
+            });
+        };
+        backend();
     }
 
     /**
@@ -193,9 +341,26 @@ export default class DocLibModuleUIServiceBase extends UIService {
         }
         context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
         data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
+        if(Object.is(actionTarget,"MULTIKEY")){
+            let tempDataArray:Array<any> = [];
+            if((_args.length >1) && (Object.keys(data).length >0)){
+                for(let i =0;i<_args.length;i++){
+                    let tempObject:any = {};
+                    Object.keys(data).forEach((key:string) =>{
+                        Object.assign(tempObject,{[key]:data[key].split(',')[i]});
+                    })
+                    tempDataArray.push(tempObject);
+                }
+            }else{
+                tempDataArray.push(data);
+            }
+            data = tempDataArray;
+        }
         context = Object.assign({},actionContext.context,context);
         let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
-        Object.assign(data,parentObj);
+        if(!Object.is(actionTarget,"MULTIKEY")){
+            Object.assign(data,parentObj);
+        }
         Object.assign(context,parentObj);
         // 直接调实体服务需要转换的数据
         if(context && context.srfsessionid){
@@ -290,137 +455,6 @@ export default class DocLibModuleUIServiceBase extends UIService {
                 title: actionContext.$t('entities.doclibmodule.views.editviewmain.title'),
             };
             openPopupModal(view, data);
-    }
-
-    /**
-     * 维护分类
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} context 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @param {*} [srfParentDeName] 父实体名称
-     * @returns {Promise<any>}
-     */
-    public async DocLibModule_WeiHuFenLei(args: any[], context:any = {} ,params: any={}, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
-    
-        let data: any = {};
-        let parentContext:any = {};
-        let parentViewParam:any = {};
-        const _this: any = actionContext;
-        Object.assign(context,{PROJECT:"%project%",SRFROOT:"%doclib%",SRFPARENT:"%doclibmodule%",PRODUCT:"%product%"});
-        Object.assign(params,{product:"%product%",project:"%project%",srfparent:"%doclibmodule%",srfroot:"%doclib%"});
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(context, { doclibmodule: '%doclibmodule%' });
-        Object.assign(params, { id: '%doclibmodule%' });
-        Object.assign(params, { name: '%name%' });
-        if(_this.context){
-            parentContext = _this.context;
-        }
-        if(_this.viewparams){
-            parentViewParam = _this.viewparams;
-        }
-        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
-        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
-        context = Object.assign({},actionContext.context,context);
-        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
-        Object.assign(data,parentObj);
-        Object.assign(context,parentObj);
-        let deResParameters: any[] = [];
-        const parameters: any[] = [
-            { pathName: 'doclibmodules', parameterName: 'doclibmodule' },
-        ];
-            const openPopupModal = (view: any, data: any) => {
-                let container: Subject<any> = actionContext.$appmodal.openModal(view, context, data);
-                container.subscribe((result: any) => {
-                    if (!result || !Object.is(result.ret, 'OK')) {
-                        return;
-                    }
-                    const _this: any = actionContext;
-                    return result.datas;
-                });
-            }
-            const view: any = {
-                viewname: 'doc-lib-module-child-wei-hui-tree-exp-view', 
-                height: 600, 
-                width: 800,  
-                title: actionContext.$t('entities.doclibmodule.views.childweihuitreeexpview.title'),
-            };
-            openPopupModal(view, data);
-    }
-
-    /**
-     * 取消收藏
-     *
-     * @param {any[]} args 当前数据
-     * @param {any} context 行为附加上下文
-     * @param {*} [params] 附加参数
-     * @param {*} [$event] 事件源
-     * @param {*} [xData]  执行行为所需当前部件
-     * @param {*} [actionContext]  执行行为上下文
-     * @param {*} [srfParentDeName] 父实体名称
-     * @returns {Promise<any>}
-     */
-    public async DocLibModule_NFavorite(args: any[],context:any = {}, params:any = {}, $event?: any, xData?: any,actionContext?: any,srfParentDeName?:string){
-        let data: any = {};
-        let parentContext:any = {};
-        let parentViewParam:any = {};
-        const _this: any = actionContext;
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'SINGLEKEY';
-        Object.assign(context, { doclibmodule: '%doclibmodule%' });
-        Object.assign(params, { id: '%doclibmodule%' });
-        Object.assign(params, { name: '%name%' });
-        if(_this.context){
-            parentContext = _this.context;
-        }
-        if(_this.viewparams){
-            parentViewParam = _this.viewparams;
-        }
-        context = UIActionTool.handleContextParam(actionTarget,_args,parentContext,parentViewParam,context);
-        data = UIActionTool.handleActionParam(actionTarget,_args,parentContext,parentViewParam,params);
-        context = Object.assign({},actionContext.context,context);
-        let parentObj:any = {srfparentdename:srfParentDeName?srfParentDeName:null,srfparentkey:srfParentDeName?context[srfParentDeName.toLowerCase()]:null};
-        Object.assign(data,parentObj);
-        Object.assign(context,parentObj);
-        // 直接调实体服务需要转换的数据
-        if(context && context.srfsessionid){
-          context.srfsessionkey = context.srfsessionid;
-            delete context.srfsessionid;
-        }
-        
-        const backend = () => {
-            const curService:DocLibModuleService =  new DocLibModuleService();
-            curService.UnCollect(context,data, true).then((response: any) => {
-                if (!response || response.status !== 200) {
-                    actionContext.$Notice.error({ title: '错误', desc: response.message });
-                    return;
-                }
-                actionContext.$Notice.success({ title: '成功', desc: '取消收藏成功！' });
-                const _this: any = actionContext;
-                if (xData && xData.refresh && xData.refresh instanceof Function) {
-                    xData.refresh(args);
-                }
-                return response;
-            }).catch((response: any) => {
-                if (!response || !response.status || !response.data) {
-                    actionContext.$Notice.error({ title: '错误', desc: '系统异常！' });
-                    return;
-                }
-                if (response && response.data) {
-                    actionContext.$Notice.error({ title: '错误', desc: response.data.message });
-                    return;
-                }
-                if (response.status === 401) {
-                    return;
-                }
-                return response;
-            });
-        };
-        backend();
     }
 
 

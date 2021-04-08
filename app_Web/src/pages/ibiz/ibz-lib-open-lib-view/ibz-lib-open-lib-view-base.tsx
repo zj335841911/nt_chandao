@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { DashboardViewBase } from '@/studio-core';
 import IbzLibService from '@/service/ibz-lib/ibz-lib-service';
 import IbzLibAuthService from '@/authservice/ibz-lib/ibz-lib-auth-service';
@@ -118,7 +118,7 @@ export class IbzLibOpenLibViewBase extends DashboardViewBase {
      * @type {string}
      * @memberof IbzLibOpenLibViewBase
      */
-	protected viewtag: string = '4a9b92e583e055d7081125b3e19079a6';
+	protected viewtag: string = '90b86f20a267e8dc7352eff044a34691';
 
     /**
      * 视图名称

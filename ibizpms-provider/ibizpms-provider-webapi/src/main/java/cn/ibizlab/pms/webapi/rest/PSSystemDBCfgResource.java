@@ -73,7 +73,7 @@ public class PSSystemDBCfgResource {
 		PSSystemDBCfg domain  = pssystemdbcfgMapping.toDomain(pssystemdbcfgdto);
         domain .setPssystemdbcfgid(pssystemdbcfg_id);
 		pssystemdbcfgService.update(domain );
-		PSSystemDBCfgDTO dto = pssystemdbcfgMapping.toDto(domain );
+		PSSystemDBCfgDTO dto = pssystemdbcfgMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
@@ -111,8 +111,9 @@ public class PSSystemDBCfgResource {
 
     @ApiOperation(value = "获取系统数据库草稿", tags = {"系统数据库" },  notes = "获取系统数据库草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/pssystemdbcfgs/getdraft")
-    public ResponseEntity<PSSystemDBCfgDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(pssystemdbcfgMapping.toDto(pssystemdbcfgService.getDraft(new PSSystemDBCfg())));
+    public ResponseEntity<PSSystemDBCfgDTO> getDraft(PSSystemDBCfgDTO dto) {
+        PSSystemDBCfg domain = pssystemdbcfgMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(pssystemdbcfgMapping.toDto(pssystemdbcfgService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查系统数据库", tags = {"系统数据库" },  notes = "检查系统数据库")
@@ -124,8 +125,10 @@ public class PSSystemDBCfgResource {
     @PreAuthorize("hasPermission(this.pssystemdbcfgMapping.toDomain(#pssystemdbcfgdto),'pms-PSSystemDBCfg-Save')")
     @ApiOperation(value = "保存系统数据库", tags = {"系统数据库" },  notes = "保存系统数据库")
 	@RequestMapping(method = RequestMethod.POST, value = "/pssystemdbcfgs/save")
-    public ResponseEntity<Boolean> save(@RequestBody PSSystemDBCfgDTO pssystemdbcfgdto) {
-        return ResponseEntity.status(HttpStatus.OK).body(pssystemdbcfgService.save(pssystemdbcfgMapping.toDomain(pssystemdbcfgdto)));
+    public ResponseEntity<PSSystemDBCfgDTO> save(@RequestBody PSSystemDBCfgDTO pssystemdbcfgdto) {
+        PSSystemDBCfg domain = pssystemdbcfgMapping.toDomain(pssystemdbcfgdto);
+        pssystemdbcfgService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(pssystemdbcfgMapping.toDto(domain));
     }
 
     @PreAuthorize("hasPermission(this.pssystemdbcfgMapping.toDomain(#pssystemdbcfgdtos),'pms-PSSystemDBCfg-Save')")
@@ -179,6 +182,7 @@ public class PSSystemDBCfgResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(pssystemdbcfgMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
 
 
 }

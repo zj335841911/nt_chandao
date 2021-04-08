@@ -7,7 +7,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
-import java.util.HashMap;
+import java.util.Map;
 import org.apache.ibatis.annotations.Select;
 import cn.ibizlab.pms.core.ibiz.domain.PRODUCTTEAM;
 import cn.ibizlab.pms.core.ibiz.filter.PRODUCTTEAMSearchContext;
@@ -21,6 +21,7 @@ public interface PRODUCTTEAMMapper extends BaseMapper<PRODUCTTEAM> {
 
     Page<PRODUCTTEAM> searchDefault(IPage page, @Param("srf") PRODUCTTEAMSearchContext context, @Param("ew") Wrapper<PRODUCTTEAM> wrapper);
     Page<PRODUCTTEAM> searchProductTeamInfo(IPage page, @Param("srf") PRODUCTTEAMSearchContext context, @Param("ew") Wrapper<PRODUCTTEAM> wrapper);
+    Page<PRODUCTTEAM> searchProjectApp(IPage page, @Param("srf") PRODUCTTEAMSearchContext context, @Param("ew") Wrapper<PRODUCTTEAM> wrapper);
     Page<PRODUCTTEAM> searchRowEditDefaultProductTeam(IPage page, @Param("srf") PRODUCTTEAMSearchContext context, @Param("ew") Wrapper<PRODUCTTEAM> wrapper);
     @Override
     PRODUCTTEAM selectById(Serializable id);

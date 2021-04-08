@@ -143,7 +143,7 @@ export default class IbzMonthlyCreateMobEditViewBase extends Vue {
 	 * @type {string}
 	 * @memberof IbzMonthlyCreateMobEditViewBase
 	 */
-	protected viewtag: string = 'd5dfb8e49ac109dec6ea502b80cb4419';
+	protected viewtag: string = '16ee5db84a05d1fd843d3930e8566a61';
 
     /**
      * 视图上下文

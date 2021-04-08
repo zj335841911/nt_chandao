@@ -48,16 +48,13 @@ import org.springframework.util.StringUtils;
 @Service("IbzproConfigServiceImpl")
 public class IbzproConfigServiceImpl extends ServiceImpl<IbzproConfigMapper, IbzproConfig> implements IIbzproConfigService {
 
-    @Autowired
-    @Lazy
-    IIbzproConfigService proxyService;
 
     protected int batchSize = 500;
 
     @Override
     @Transactional
     public boolean create(IbzproConfig et) {
-        if (!this.retBool(this.baseMapper.insert(et))) {
+        if(!this.retBool(this.baseMapper.insert(et))) {
             return false;
         }
         CachedBeanCopier.copy(get(et.getIbzproconfigid()), et);
@@ -73,7 +70,7 @@ public class IbzproConfigServiceImpl extends ServiceImpl<IbzproConfigMapper, Ibz
     @Override
     @Transactional
     public boolean update(IbzproConfig et) {
-        if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("ibzpro_configid", et.getIbzproconfigid()))) {
+        if(!update(et, (Wrapper) et.getUpdateWrapper(true).eq("ibzpro_configid", et.getIbzproconfigid()))) {
             return false;
         }
         CachedBeanCopier.copy(get(et.getIbzproconfigid()), et);
@@ -90,7 +87,7 @@ public class IbzproConfigServiceImpl extends ServiceImpl<IbzproConfigMapper, Ibz
     @Transactional
     public boolean remove(String key) {
         boolean result = removeById(key);
-        return result;
+        return result ;
     }
 
     @Override
@@ -103,7 +100,7 @@ public class IbzproConfigServiceImpl extends ServiceImpl<IbzproConfigMapper, Ibz
     @Transactional
     public IbzproConfig get(String key) {
         IbzproConfig et = getById(key);
-        if (et == null) {
+        if(et == null){
             et = new IbzproConfig();
             et.setIbzproconfigid(key);
         }
@@ -127,7 +124,8 @@ public class IbzproConfigServiceImpl extends ServiceImpl<IbzproConfigMapper, Ibz
         //自定义代码
         return et;
     }
-   @Override
+
+    @Override
     @Transactional
     public boolean getSystemConfigBatch(List<IbzproConfig> etList) {
         for(IbzproConfig et : etList) {
@@ -139,7 +137,7 @@ public class IbzproConfigServiceImpl extends ServiceImpl<IbzproConfigMapper, Ibz
     @Override
     @Transactional
     public boolean save(IbzproConfig et) {
-        if (!saveOrUpdate(et)) {
+        if(!saveOrUpdate(et)) {
             return false;
         }
         return true;
@@ -151,7 +149,7 @@ public class IbzproConfigServiceImpl extends ServiceImpl<IbzproConfigMapper, Ibz
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
+            return checkKey(et) ? getProxyService().update(et) : getProxyService().create(et);
         }
     }
 
@@ -168,10 +166,10 @@ public class IbzproConfigServiceImpl extends ServiceImpl<IbzproConfigMapper, Ibz
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
         return true;
     }
@@ -189,10 +187,10 @@ public class IbzproConfigServiceImpl extends ServiceImpl<IbzproConfigMapper, Ibz
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
     }
 
@@ -203,7 +201,7 @@ public class IbzproConfigServiceImpl extends ServiceImpl<IbzproConfigMapper, Ibz
      */
     @Override
     public Page<IbzproConfig> searchDefault(IbzproConfigSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzproConfig> pages=baseMapper.searchDefault(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbzproConfig> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
         return new PageImpl<IbzproConfig>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -214,24 +212,24 @@ public class IbzproConfigServiceImpl extends ServiceImpl<IbzproConfigMapper, Ibz
 
 
     @Override
-    public List<JSONObject> select(String sql, Map param) {
-        return this.baseMapper.selectBySQL(sql, param);
+    public List<JSONObject> select(String sql, Map param){
+        return this.baseMapper.selectBySQL(sql,param);
     }
 
     @Override
     @Transactional
-    public boolean execute(String sql, Map param) {
+    public boolean execute(String sql , Map param){
         if (sql == null || sql.isEmpty()) {
             return false;
         }
         if (sql.toLowerCase().trim().startsWith("insert")) {
-            return this.baseMapper.insertBySQL(sql, param);
+            return this.baseMapper.insertBySQL(sql,param);
         }
         if (sql.toLowerCase().trim().startsWith("update")) {
-            return this.baseMapper.updateBySQL(sql, param);
+            return this.baseMapper.updateBySQL(sql,param);
         }
         if (sql.toLowerCase().trim().startsWith("delete")) {
-            return this.baseMapper.deleteBySQL(sql, param);
+            return this.baseMapper.deleteBySQL(sql,param);
         }
         log.warn("暂未支持的SQL语法");
         return true;
@@ -247,11 +245,11 @@ public class IbzproConfigServiceImpl extends ServiceImpl<IbzproConfigMapper, Ibz
         List ids =new ArrayList();
         for(IbzproConfig entity : entities){
             Serializable id=entity.getIbzproconfigid();
-            if (!ObjectUtils.isEmpty(id)) {
+            if(!ObjectUtils.isEmpty(id)){
                 ids.add(id);
             }
         }
-        if (ids.size() > 0) {
+        if(ids.size()>0) {
             return this.listByIds(ids);
         }
         else {
@@ -260,9 +258,9 @@ public class IbzproConfigServiceImpl extends ServiceImpl<IbzproConfigMapper, Ibz
     }
 
 
-
-
+    public IIbzproConfigService getProxyService() {
+        return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
+    }
 }
-
 
 

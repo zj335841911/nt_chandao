@@ -12,4 +12,3 @@ public interface DocLibModuleMapping extends MappingBase<DocLibModuleDTO, DocLib
 
 
 }
-

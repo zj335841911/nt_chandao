@@ -73,7 +73,7 @@ public class SysDepartmentResource {
 		SysDepartment domain  = sysdepartmentMapping.toDomain(sysdepartmentdto);
         domain .setDeptid(sysdepartment_id);
 		sysdepartmentService.update(domain );
-		SysDepartmentDTO dto = sysdepartmentMapping.toDto(domain );
+		SysDepartmentDTO dto = sysdepartmentMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
@@ -111,8 +111,9 @@ public class SysDepartmentResource {
 
     @ApiOperation(value = "获取部门草稿", tags = {"部门" },  notes = "获取部门草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/sysdepartments/getdraft")
-    public ResponseEntity<SysDepartmentDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(sysdepartmentMapping.toDto(sysdepartmentService.getDraft(new SysDepartment())));
+    public ResponseEntity<SysDepartmentDTO> getDraft(SysDepartmentDTO dto) {
+        SysDepartment domain = sysdepartmentMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(sysdepartmentMapping.toDto(sysdepartmentService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查部门", tags = {"部门" },  notes = "检查部门")
@@ -124,8 +125,10 @@ public class SysDepartmentResource {
     @PreAuthorize("hasPermission(this.sysdepartmentMapping.toDomain(#sysdepartmentdto),'pms-SysDepartment-Save')")
     @ApiOperation(value = "保存部门", tags = {"部门" },  notes = "保存部门")
 	@RequestMapping(method = RequestMethod.POST, value = "/sysdepartments/save")
-    public ResponseEntity<Boolean> save(@RequestBody SysDepartmentDTO sysdepartmentdto) {
-        return ResponseEntity.status(HttpStatus.OK).body(sysdepartmentService.save(sysdepartmentMapping.toDomain(sysdepartmentdto)));
+    public ResponseEntity<SysDepartmentDTO> save(@RequestBody SysDepartmentDTO sysdepartmentdto) {
+        SysDepartment domain = sysdepartmentMapping.toDomain(sysdepartmentdto);
+        sysdepartmentService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(sysdepartmentMapping.toDto(domain));
     }
 
     @PreAuthorize("hasPermission(this.sysdepartmentMapping.toDomain(#sysdepartmentdtos),'pms-SysDepartment-Save')")
@@ -157,6 +160,7 @@ public class SysDepartmentResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(sysdepartmentMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
 
 
 }

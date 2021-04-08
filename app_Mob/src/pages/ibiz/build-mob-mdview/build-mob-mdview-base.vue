@@ -203,7 +203,7 @@ export default class BuildMobMDViewBase extends Vue {
 	 * @type {string}
 	 * @memberof BuildMobMDViewBase
 	 */
-	protected viewtag: string = '6a5ac6590255906c36e1cdd50bd0bcab';
+	protected viewtag: string = 'f161ff01df08e348417da210d18b8a5d';
 
     /**
      * 视图上下文

@@ -72,7 +72,7 @@ public class ProjectModuleResource {
 		ProjectModule domain  = projectmoduleMapping.toDomain(projectmoduledto);
         domain .setId(projectmodule_id);
 		projectmoduleService.update(domain );
-		ProjectModuleDTO dto = projectmoduleMapping.toDto(domain );
+		ProjectModuleDTO dto = projectmoduleMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
@@ -110,8 +110,9 @@ public class ProjectModuleResource {
 
     @ApiOperation(value = "获取任务模块草稿", tags = {"任务模块" },  notes = "获取任务模块草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/projectmodules/getdraft")
-    public ResponseEntity<ProjectModuleDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(projectmoduleMapping.toDto(projectmoduleService.getDraft(new ProjectModule())));
+    public ResponseEntity<ProjectModuleDTO> getDraft(ProjectModuleDTO dto) {
+        ProjectModule domain = projectmoduleMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(projectmoduleMapping.toDto(projectmoduleService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查任务模块", tags = {"任务模块" },  notes = "检查任务模块")
@@ -145,8 +146,10 @@ public class ProjectModuleResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectModule-Save-all')")
     @ApiOperation(value = "保存任务模块", tags = {"任务模块" },  notes = "保存任务模块")
 	@RequestMapping(method = RequestMethod.POST, value = "/projectmodules/save")
-    public ResponseEntity<Boolean> save(@RequestBody ProjectModuleDTO projectmoduledto) {
-        return ResponseEntity.status(HttpStatus.OK).body(projectmoduleService.save(projectmoduleMapping.toDomain(projectmoduledto)));
+    public ResponseEntity<ProjectModuleDTO> save(@RequestBody ProjectModuleDTO projectmoduledto) {
+        ProjectModule domain = projectmoduleMapping.toDomain(projectmoduledto);
+        projectmoduleService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(projectmoduleMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectModule-Save-all')")
@@ -312,6 +315,7 @@ public class ProjectModuleResource {
 	}
 
 
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectModule-Create-all')")
     @ApiOperation(value = "根据项目建立任务模块", tags = {"任务模块" },  notes = "根据项目建立任务模块")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/projectmodules")
@@ -385,8 +389,8 @@ public class ProjectModuleResource {
 
     @ApiOperation(value = "根据项目获取任务模块草稿", tags = {"任务模块" },  notes = "根据项目获取任务模块草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/projects/{project_id}/projectmodules/getdraft")
-    public ResponseEntity<ProjectModuleDTO> getDraftByProject(@PathVariable("project_id") Long project_id) {
-        ProjectModule domain = new ProjectModule();
+    public ResponseEntity<ProjectModuleDTO> getDraftByProject(@PathVariable("project_id") Long project_id, ProjectModuleDTO dto) {
+        ProjectModule domain = projectmoduleMapping.toDomain(dto);
         domain.setRoot(project_id);
         return ResponseEntity.status(HttpStatus.OK).body(projectmoduleMapping.toDto(projectmoduleService.getDraft(domain)));
     }
@@ -420,10 +424,11 @@ public class ProjectModuleResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectModule-Save-all')")
     @ApiOperation(value = "根据项目保存任务模块", tags = {"任务模块" },  notes = "根据项目保存任务模块")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/projectmodules/save")
-    public ResponseEntity<Boolean> saveByProject(@PathVariable("project_id") Long project_id, @RequestBody ProjectModuleDTO projectmoduledto) {
+    public ResponseEntity<ProjectModuleDTO> saveByProject(@PathVariable("project_id") Long project_id, @RequestBody ProjectModuleDTO projectmoduledto) {
         ProjectModule domain = projectmoduleMapping.toDomain(projectmoduledto);
         domain.setRoot(project_id);
-        return ResponseEntity.status(HttpStatus.OK).body(projectmoduleService.save(domain));
+        projectmoduleService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(projectmoduleMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectModule-Save-all')")

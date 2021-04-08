@@ -551,6 +551,7 @@ export class FormControlBase extends MainControlBase {
             this.$Notice.error({ title: '错误', desc: `${this.name}表单loaddraftAction参数未配置` });
             return;
         }
+        this.createDefault();
         const arg: any = { ...opt };
         let viewparamResult: any = Object.assign(arg, this.viewparams);
         let post: Promise<any> = this.service.loadDraft(

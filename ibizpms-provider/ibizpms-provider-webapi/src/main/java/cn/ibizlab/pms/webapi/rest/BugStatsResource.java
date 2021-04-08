@@ -72,7 +72,7 @@ public class BugStatsResource {
 		BugStats domain  = bugstatsMapping.toDomain(bugstatsdto);
         domain .setId(bugstats_id);
 		bugstatsService.update(domain );
-		BugStatsDTO dto = bugstatsMapping.toDto(domain );
+		BugStatsDTO dto = bugstatsMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
@@ -110,8 +110,9 @@ public class BugStatsResource {
 
     @ApiOperation(value = "获取Bug统计草稿", tags = {"Bug统计" },  notes = "获取Bug统计草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/bugstats/getdraft")
-    public ResponseEntity<BugStatsDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(bugstatsMapping.toDto(bugstatsService.getDraft(new BugStats())));
+    public ResponseEntity<BugStatsDTO> getDraft(BugStatsDTO dto) {
+        BugStats domain = bugstatsMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(bugstatsMapping.toDto(bugstatsService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查Bug统计", tags = {"Bug统计" },  notes = "检查Bug统计")
@@ -123,8 +124,10 @@ public class BugStatsResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-BugStats-Save-all')")
     @ApiOperation(value = "保存Bug统计", tags = {"Bug统计" },  notes = "保存Bug统计")
 	@RequestMapping(method = RequestMethod.POST, value = "/bugstats/save")
-    public ResponseEntity<Boolean> save(@RequestBody BugStatsDTO bugstatsdto) {
-        return ResponseEntity.status(HttpStatus.OK).body(bugstatsService.save(bugstatsMapping.toDomain(bugstatsdto)));
+    public ResponseEntity<BugStatsDTO> save(@RequestBody BugStatsDTO bugstatsdto) {
+        BugStats domain = bugstatsMapping.toDomain(bugstatsdto);
+        bugstatsService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(bugstatsMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-BugStats-Save-all')")
@@ -332,6 +335,7 @@ public class BugStatsResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(bugstatsMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
 
 
 }

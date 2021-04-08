@@ -15,25 +15,25 @@ export class MobModel {
 	public getDataItems(): any[] {
 		return [
 			{
-				name: 'notclosedbugcnt',
-			},
-			{
-				name: 'unconfirmbugcnt',
-			},
-			{
-				name: 'code',
+				name: 'activebugcnt',
 			},
 			{
 				name: 'status',
 			},
 			{
-				name: 'activebugcnt',
+				name: 'code',
+			},
+			{
+				name: 'type',
+			},
+			{
+				name: 'unconfirmbugcnt',
 			},
 			{
 				name: 'name',
 			},
 			{
-				name: 'type',
+				name: 'notclosedbugcnt',
 			},
 			{
 				name: 'srfkey',

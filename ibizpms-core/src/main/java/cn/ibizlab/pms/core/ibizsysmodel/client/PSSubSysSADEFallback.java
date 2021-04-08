@@ -23,14 +23,14 @@ public class PSSubSysSADEFallback implements PSSubSysSADEFeignClient {
         return null;
     }
 
-    public PSSubSysSADE create(PSSubSysSADE pssubsyssade) {
+    public PSSubSysSADE create(PSSubSysSADE et) {
         return null;
     }
     public Boolean createBatch(List<PSSubSysSADE> pssubsyssades) {
         return false;
     }
 
-    public PSSubSysSADE update(String pssubsyssadeid, PSSubSysSADE pssubsyssade) {
+    public PSSubSysSADE update(String pssubsyssadeid, PSSubSysSADE et) {
         return null;
     }
     public Boolean updateBatch(List<PSSubSysSADE> pssubsyssades) {
@@ -55,18 +55,21 @@ public class PSSubSysSADEFallback implements PSSubSysSADEFeignClient {
     }
 
 
-    public PSSubSysSADE getDraft(){
+    public PSSubSysSADE getDraft(PSSubSysSADE entity){
         return null;
     }
 
 
 
-    public Boolean checkKey(PSSubSysSADE pssubsyssade) {
+    public Boolean checkKey(PSSubSysSADE et) {
         return false;
     }
 
 
-    public Boolean save(PSSubSysSADE pssubsyssade) {
+    public Object saveEntity(PSSubSysSADE et) {
+        return null;
+    }
+    public Boolean save(PSSubSysSADE et) {
         return false;
     }
     public Boolean saveBatch(List<PSSubSysSADE> pssubsyssades) {

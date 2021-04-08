@@ -44,24 +44,31 @@ public interface ITaskEstimateService extends IService<TaskEstimate> {
     TaskEstimate get(Long key);
     TaskEstimate getDraft(TaskEstimate et);
     boolean checkKey(TaskEstimate et);
+    TaskEstimate pMEvaluation(TaskEstimate et);
+    boolean pMEvaluationBatch(List<TaskEstimate> etList);
     boolean save(TaskEstimate et);
     void saveBatch(List<TaskEstimate> list);
+    Page<TaskEstimate> searchActionMonth(TaskEstimateSearchContext context);
+    Page<TaskEstimate> searchActionYear(TaskEstimateSearchContext context);
     Page<TaskEstimate> searchDefault(TaskEstimateSearchContext context);
     Page<TaskEstimate> searchDefaults(TaskEstimateSearchContext context);
+    Page<TaskEstimate> searchProjectActionMonth(TaskEstimateSearchContext context);
+    Page<TaskEstimate> searchProjectActionYear(TaskEstimateSearchContext context);
+    Page<TaskEstimate> searchProjectTaskEstimate(TaskEstimateSearchContext context);
     List<TaskEstimate> selectByTask(Long id);
     void removeByTask(Long id);
     void saveByTask(Long id, List<TaskEstimate> list) ;
     /**
-     * 自定义查询SQL
+     *自定义查询SQL
      * @param sql  select * from table where id =#{et.param}
-     * @param param 参数列表  param.put("param", "1");
+     * @param param 参数列表  param.put("param","1");
      * @return select * from table where id = '1'
      */
     List<JSONObject> select(String sql, Map param);
     /**
-     * 自定义SQL
+     *自定义SQL
      * @param sql  update table  set name ='test' where id =#{et.param}
-     * @param param 参数列表  param.put("param", "1");
+     * @param param 参数列表  param.put("param","1");
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);

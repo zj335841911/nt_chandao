@@ -1,3 +1,4 @@
+import { Environment } from '@/environments/environment';
 import { Http } from '@/utils';
 import { Util } from '@/utils';
 import EntityService from '../entity-service';
@@ -49,7 +50,7 @@ export default class IbizproProjectWeeklyServiceBase extends EntityService {
      * @memberof IbizproProjectWeeklyServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().get(`/ibizproprojectweeklies/${context.ibizproprojectweekly}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/ibizproprojectweeklies/${context.ibizproprojectweekly}/select`,isloading);
             
             return res;
     }
@@ -105,7 +106,7 @@ export default class IbizproProjectWeeklyServiceBase extends EntityService {
      * @memberof IbizproProjectWeeklyServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().delete(`/ibizproprojectweeklies/${context.ibizproprojectweekly}`,isloading);
+            let res:any = await Http.getInstance().delete(`/ibizproprojectweeklies/${context.ibizproprojectweekly}`,isloading);
             return res;
     }
 
@@ -134,7 +135,10 @@ export default class IbizproProjectWeeklyServiceBase extends EntityService {
      * @memberof IbizproProjectWeeklyServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/ibizproprojectweeklies/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.ibizproprojectweekly) delete tempData.ibizproprojectweekly;
+        if(tempData.projectweeklyid) delete tempData.projectweeklyid;
+        let res:any = await  Http.getInstance().get(`/ibizproprojectweeklies/getdraft`,tempData,isloading);
         res.data.ibizproprojectweekly = data.ibizproprojectweekly;
         
         return res;
@@ -150,7 +154,7 @@ export default class IbizproProjectWeeklyServiceBase extends EntityService {
      * @memberof IbizproProjectWeeklyServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/ibizproprojectweeklies/${context.ibizproprojectweekly}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/ibizproprojectweeklies/${context.ibizproprojectweekly}/checkkey`,data,isloading);
             return res;
     }
 
@@ -164,8 +168,22 @@ export default class IbizproProjectWeeklyServiceBase extends EntityService {
      * @memberof IbizproProjectWeeklyServiceBase
      */
     public async PushSumProjectWeekly(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/ibizproprojectweeklies/${context.ibizproprojectweekly}/pushsumprojectweekly`,data,isloading);
+            let res:any = await Http.getInstance().post(`/ibizproprojectweeklies/${context.ibizproprojectweekly}/pushsumprojectweekly`,data,isloading);
             return res;
+    }
+
+    /**
+     * PushSumProjectWeeklyBatch接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbizproProjectWeeklyServiceBase
+     */
+    public async PushSumProjectWeeklyBatch(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/ibizproprojectweeklies/pushsumprojectweeklybatch`,tempData,isloading);
     }
 
     /**
@@ -196,7 +214,7 @@ export default class IbizproProjectWeeklyServiceBase extends EntityService {
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/ibizproprojectweeklies/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/ibizproprojectweeklies/fetchdefault`,tempData,isloading);
         return res;
     }
 

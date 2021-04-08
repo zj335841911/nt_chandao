@@ -110,7 +110,7 @@ export default class TodoMobListViewBase extends Vue {
 	 * @type {string}
 	 * @memberof TodoMobListViewBase
 	 */
-	protected viewtag: string = '5c7549595faf9ebf62619140c2bf32e3';
+	protected viewtag: string = '761136c7925a9c8214302cff481a0696';
 
     /**
      * 视图上下文

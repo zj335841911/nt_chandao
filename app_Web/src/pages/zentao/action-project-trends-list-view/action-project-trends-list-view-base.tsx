@@ -1,6 +1,6 @@
 
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { ListViewBase } from '@/studio-core';
 import ActionService from '@/service/action/action-service';
 import ActionAuthService from '@/authservice/action/action-auth-service';
@@ -313,6 +313,14 @@ export class ActionProjectTrendsListViewBase extends ListViewBase {
 
 
     /**
+     * 快速分组代码表标识
+     *
+     * @type {boolean}
+     * @memberof ActionProjectTrendsListViewBase
+     */
+    public quickGroupCodelistTag: string = "";
+
+    /**
      * 加载快速分组模型
      *
      * @protected
@@ -320,6 +328,7 @@ export class ActionProjectTrendsListViewBase extends ListViewBase {
      */
     protected loadQuickGroupModel(): void {
         const quickGroupCodeList: any = { tag: 'ProductActionQuickpacket', codelistType: 'STATIC' };
+        this.quickGroupCodelistTag = quickGroupCodeList.tag ? quickGroupCodeList.tag : "";
         if (quickGroupCodeList.tag && Object.is(quickGroupCodeList.codelistType, "STATIC")) {
             const codelist = this.$store.getters.getCodeList(quickGroupCodeList.tag);
             if (codelist) {

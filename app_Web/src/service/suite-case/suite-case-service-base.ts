@@ -1,3 +1,4 @@
+import { Environment } from '@/environments/environment';
 import { Http } from '@/utils';
 import { Util } from '@/utils';
 import EntityService from '../entity-service';
@@ -49,7 +50,7 @@ export default class SuiteCaseServiceBase extends EntityService {
      * @memberof SuiteCaseServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().get(`/suitecases/${context.suitecase}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/suitecases/${context.suitecase}/select`,isloading);
             
             return res;
     }
@@ -105,7 +106,7 @@ export default class SuiteCaseServiceBase extends EntityService {
      * @memberof SuiteCaseServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().delete(`/suitecases/${context.suitecase}`,isloading);
+            let res:any = await Http.getInstance().delete(`/suitecases/${context.suitecase}`,isloading);
             return res;
     }
 
@@ -134,7 +135,10 @@ export default class SuiteCaseServiceBase extends EntityService {
      * @memberof SuiteCaseServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/suitecases/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.suitecase) delete tempData.suitecase;
+        if(tempData.id) delete tempData.id;
+        let res:any = await  Http.getInstance().get(`/suitecases/getdraft`,tempData,isloading);
         res.data.suitecase = data.suitecase;
         
         return res;
@@ -150,7 +154,7 @@ export default class SuiteCaseServiceBase extends EntityService {
      * @memberof SuiteCaseServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/suitecases/${context.suitecase}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/suitecases/${context.suitecase}/checkkey`,data,isloading);
             return res;
     }
 
@@ -182,7 +186,7 @@ export default class SuiteCaseServiceBase extends EntityService {
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/suitecases/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/suitecases/fetchdefault`,tempData,isloading);
         return res;
     }
 

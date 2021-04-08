@@ -27,18 +27,18 @@ import cn.ibizlab.pms.core.ibiz.domain.IbzAgent;
 @Data
 public class IbzAgentSearchContext extends QueryWrapperContext<IbzAgent> {
 
-	private String n_ibz_agentname_like;//[代理名称]
-	public void setN_ibz_agentname_like(String n_ibz_agentname_like) {
-        this.n_ibz_agentname_like = n_ibz_agentname_like;
-        if(!ObjectUtils.isEmpty(this.n_ibz_agentname_like)){
-            this.getSearchCond().like("`ibz_agentname`", n_ibz_agentname_like);
-        }
-    }
 	private String n_createmanname_eq;//[创建人姓名]
 	public void setN_createmanname_eq(String n_createmanname_eq) {
         this.n_createmanname_eq = n_createmanname_eq;
         if(!ObjectUtils.isEmpty(this.n_createmanname_eq)){
             this.getSearchCond().eq("`createmanname`", n_createmanname_eq);
+        }
+    }
+	private String n_ibz_agentname_like;//[代理名称]
+	public void setN_ibz_agentname_like(String n_ibz_agentname_like) {
+        this.n_ibz_agentname_like = n_ibz_agentname_like;
+        if(!ObjectUtils.isEmpty(this.n_ibz_agentname_like)){
+            this.getSearchCond().like("`ibz_agentname`", n_ibz_agentname_like);
         }
     }
 

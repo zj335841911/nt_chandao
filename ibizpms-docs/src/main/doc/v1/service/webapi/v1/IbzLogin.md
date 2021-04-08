@@ -49,8 +49,8 @@ POST
 | 1 | realname | String | 允许 | 真实姓名 |
 | 2 | id | Long | 不可 | ID |
 | 3 | account | String | 允许 | 账户 |
-| 4 | commiter | String | 允许 | 源代码账户 |
-| 5 | token | String | 允许 | token |
+| 4 | token | String | 允许 | token |
+| 5 | commiter | String | 允许 | 源代码账户 |
 | 6 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### IbiLoginSearchContext

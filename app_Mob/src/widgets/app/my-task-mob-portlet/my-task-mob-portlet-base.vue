@@ -159,7 +159,7 @@ export default class MyTaskMobBase extends Vue implements ControlInterface {
      * @returns {Promise<any>}
      * @memberof Dashboard_sysportlet2Base
      */
-    protected async dashboard_sysportlet2_ue5ceff5_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
+    protected async dashboard_sysportlet2_u2be114f_click(params: any = {}, tag?: any, $event?: any): Promise<any> {
 
         // 取数
         let datas: any[] = [];
@@ -250,7 +250,7 @@ export default class MyTaskMobBase extends Vue implements ControlInterface {
      */
     protected actionBarModelData: any[] = [
         {
-            viewlogicname: "dashboard_sysportlet2_ue5ceff5_click",
+            viewlogicname: "dashboard_sysportlet2_u2be114f_click",
             name: "更多",
         }
     ];
@@ -263,8 +263,8 @@ export default class MyTaskMobBase extends Vue implements ControlInterface {
      * @memberof MyTaskMob
      */
     protected handleItemClick($event: any) {
-        if (Object.is($event, 'dashboard_sysportlet2_ue5ceff5_click')) {
-            this.dashboard_sysportlet2_ue5ceff5_click(null);
+        if (Object.is($event, 'dashboard_sysportlet2_u2be114f_click')) {
+            this.dashboard_sysportlet2_u2be114f_click(null);
         }
     }
 

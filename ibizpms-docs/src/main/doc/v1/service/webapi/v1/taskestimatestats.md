@@ -184,6 +184,78 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | true：处理成功。false：处理失败。 |
 
+### 获取日志月
+#### 访问路径
+/taskestimatestats/fetchactionmonth
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [TaskEstimateStatsSearchContext](#TaskEstimateStatsSearchContext) | 任务工时统计查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[taskestimatestatsDTO](#taskestimatestatsDTO)>：任务工时统计实体传输对象列表 |
+
+### 查询日志月
+#### 访问路径
+/taskestimatestats/searchactionmonth
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [TaskEstimateStatsSearchContext](#TaskEstimateStatsSearchContext) | 任务工时统计查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[taskestimatestatsDTO](#taskestimatestatsDTO)>：任务工时统计实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
+### 获取日志年
+#### 访问路径
+/taskestimatestats/fetchactionyear
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [TaskEstimateStatsSearchContext](#TaskEstimateStatsSearchContext) | 任务工时统计查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[taskestimatestatsDTO](#taskestimatestatsDTO)>：任务工时统计实体传输对象列表 |
+
+### 查询日志年
+#### 访问路径
+/taskestimatestats/searchactionyear
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [TaskEstimateStatsSearchContext](#TaskEstimateStatsSearchContext) | 任务工时统计查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[taskestimatestatsDTO](#taskestimatestatsDTO)>：任务工时统计实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
 ### 获取数据集
 #### 访问路径
 /taskestimatestats/fetchdefault
@@ -225,13 +297,21 @@ POST
 #### taskestimatestatsDTO
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
-| 1 | account | String | 允许 | 用户 |
-| 2 | date | String | 允许 | 日期 |
-| 3 | taskcnt | Integer | 允许 | 任务数 |
-| 4 | consumed | Double | 允许 | 消耗的工时 |
-| 5 | id | Long | 允许 | 编号 |
-| 6 | name | String | 允许 | 项目名称 |
-| 7 | <动态属性> | Object | 允许 | 支持动态属性 |
+| 1 | date | String | 允许 | 日期 |
+| 2 | year | String | 允许 | 年 |
+| 3 | consumed | Double | 允许 | 消耗的工时 |
+| 4 | evaluationstatus | String | 允许 | 评估状态 |
+| 5 | account | String | 允许 | 用户 |
+| 6 | id | Long | 允许 | 编号 |
+| 7 | monthname | String | 允许 | 月（显示） |
+| 8 | name | String | 允许 | 项目名称 |
+| 9 | yearname | String | 允许 | 年（显示） |
+| 10 | evaluationtime | Double | 允许 | 评估工时 |
+| 11 | evaluationcost | Double | 允许 | 评估成本 |
+| 12 | inputcost | Double | 允许 | 投入成本 |
+| 13 | month | String | 允许 | 月 |
+| 14 | taskcnt | Integer | 允许 | 任务数 |
+| 15 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### TaskEstimateStatsSearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |

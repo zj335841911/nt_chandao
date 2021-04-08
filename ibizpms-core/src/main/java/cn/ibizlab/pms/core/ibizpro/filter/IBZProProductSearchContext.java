@@ -44,8 +44,8 @@ public class IBZProProductSearchContext extends QueryWrapperContext<IBZProProduc
 		 this.query=query;
 		 if(!StringUtils.isEmpty(query)){
             this.getSearchCond().and( wrapper ->
-                     wrapper.like("`id`", query)
-                        .or().like("`name`", query)
+                     wrapper.like("`name`", query)
+                        .or().like("`id`", query)
             );
 		 }
 	}

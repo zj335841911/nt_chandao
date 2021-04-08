@@ -135,7 +135,7 @@ export default class ProductProdMobTabExpViewBase extends Vue {
 	 * @type {string}
 	 * @memberof ProductProdMobTabExpViewBase
 	 */
-	protected viewtag: string = '0d3c069c216a16c6d57a9464e959a805';
+	protected viewtag: string = 'b68e2a38a9d5453e87e0f3bf672b7068';
 
     /**
      * 视图上下文

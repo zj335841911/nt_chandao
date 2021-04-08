@@ -1,3 +1,4 @@
+import { Environment } from '@/environments/environment';
 import { Http } from '@/utils';
 import { Util } from '@/utils';
 import EntityService from '../entity-service';
@@ -49,7 +50,7 @@ export default class IbzproProductUserTaskServiceBase extends EntityService {
      * @memberof IbzproProductUserTaskServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().get(`/ibzproproductusertasks/${context.ibzproproductusertask}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/ibzproproductusertasks/${context.ibzproproductusertask}/select`,isloading);
             
             return res;
     }
@@ -105,7 +106,7 @@ export default class IbzproProductUserTaskServiceBase extends EntityService {
      * @memberof IbzproProductUserTaskServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().delete(`/ibzproproductusertasks/${context.ibzproproductusertask}`,isloading);
+            let res:any = await Http.getInstance().delete(`/ibzproproductusertasks/${context.ibzproproductusertask}`,isloading);
             return res;
     }
 
@@ -134,7 +135,10 @@ export default class IbzproProductUserTaskServiceBase extends EntityService {
      * @memberof IbzproProductUserTaskServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/ibzproproductusertasks/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.ibzproproductusertask) delete tempData.ibzproproductusertask;
+        if(tempData.id) delete tempData.id;
+        let res:any = await  Http.getInstance().get(`/ibzproproductusertasks/getdraft`,tempData,isloading);
         res.data.ibzproproductusertask = data.ibzproproductusertask;
         
         return res;
@@ -150,7 +154,7 @@ export default class IbzproProductUserTaskServiceBase extends EntityService {
      * @memberof IbzproProductUserTaskServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/ibzproproductusertasks/${context.ibzproproductusertask}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/ibzproproductusertasks/${context.ibzproproductusertask}/checkkey`,data,isloading);
             return res;
     }
 
@@ -182,7 +186,7 @@ export default class IbzproProductUserTaskServiceBase extends EntityService {
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/ibzproproductusertasks/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/ibzproproductusertasks/fetchdefault`,tempData,isloading);
         return res;
     }
 
@@ -211,7 +215,7 @@ export default class IbzproProductUserTaskServiceBase extends EntityService {
      */
     public async FetchProductDailyUserTaskStats(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/ibzproproductusertasks/fetchproductdailyusertaskstats`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/ibzproproductusertasks/fetchproductdailyusertaskstats`,tempData,isloading);
         return res;
     }
 
@@ -240,7 +244,7 @@ export default class IbzproProductUserTaskServiceBase extends EntityService {
      */
     public async FetchProductMonthlyUserTaskStats(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/ibzproproductusertasks/fetchproductmonthlyusertaskstats`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/ibzproproductusertasks/fetchproductmonthlyusertaskstats`,tempData,isloading);
         return res;
     }
 
@@ -269,7 +273,7 @@ export default class IbzproProductUserTaskServiceBase extends EntityService {
      */
     public async FetchProductWeeklyUserTaskStats(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/ibzproproductusertasks/fetchproductweeklyusertaskstats`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/ibzproproductusertasks/fetchproductweeklyusertaskstats`,tempData,isloading);
         return res;
     }
 

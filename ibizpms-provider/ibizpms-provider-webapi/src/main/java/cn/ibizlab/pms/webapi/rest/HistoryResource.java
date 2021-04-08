@@ -72,7 +72,7 @@ public class HistoryResource {
 		History domain  = historyMapping.toDomain(historydto);
         domain .setId(history_id);
 		historyService.update(domain );
-		HistoryDTO dto = historyMapping.toDto(domain );
+		HistoryDTO dto = historyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
@@ -110,8 +110,9 @@ public class HistoryResource {
 
     @ApiOperation(value = "获取操作历史草稿", tags = {"操作历史" },  notes = "获取操作历史草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/histories/getdraft")
-    public ResponseEntity<HistoryDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(historyMapping.toDto(historyService.getDraft(new History())));
+    public ResponseEntity<HistoryDTO> getDraft(HistoryDTO dto) {
+        History domain = historyMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(historyMapping.toDto(historyService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查操作历史", tags = {"操作历史" },  notes = "检查操作历史")
@@ -123,8 +124,10 @@ public class HistoryResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-History-Save-all')")
     @ApiOperation(value = "保存操作历史", tags = {"操作历史" },  notes = "保存操作历史")
 	@RequestMapping(method = RequestMethod.POST, value = "/histories/save")
-    public ResponseEntity<Boolean> save(@RequestBody HistoryDTO historydto) {
-        return ResponseEntity.status(HttpStatus.OK).body(historyService.save(historyMapping.toDomain(historydto)));
+    public ResponseEntity<HistoryDTO> save(@RequestBody HistoryDTO historydto) {
+        History domain = historyMapping.toDomain(historydto);
+        historyService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(historyMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-History-Save-all')")
@@ -156,6 +159,7 @@ public class HistoryResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(historyMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
 
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-History-Create-all')")
@@ -231,8 +235,8 @@ public class HistoryResource {
 
     @ApiOperation(value = "根据系统日志获取操作历史草稿", tags = {"操作历史" },  notes = "根据系统日志获取操作历史草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/actions/{action_id}/histories/getdraft")
-    public ResponseEntity<HistoryDTO> getDraftByAction(@PathVariable("action_id") Long action_id) {
-        History domain = new History();
+    public ResponseEntity<HistoryDTO> getDraftByAction(@PathVariable("action_id") Long action_id, HistoryDTO dto) {
+        History domain = historyMapping.toDomain(dto);
         domain.setAction(action_id);
         return ResponseEntity.status(HttpStatus.OK).body(historyMapping.toDto(historyService.getDraft(domain)));
     }
@@ -246,10 +250,11 @@ public class HistoryResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-History-Save-all')")
     @ApiOperation(value = "根据系统日志保存操作历史", tags = {"操作历史" },  notes = "根据系统日志保存操作历史")
 	@RequestMapping(method = RequestMethod.POST, value = "/actions/{action_id}/histories/save")
-    public ResponseEntity<Boolean> saveByAction(@PathVariable("action_id") Long action_id, @RequestBody HistoryDTO historydto) {
+    public ResponseEntity<HistoryDTO> saveByAction(@PathVariable("action_id") Long action_id, @RequestBody HistoryDTO historydto) {
         History domain = historyMapping.toDomain(historydto);
         domain.setAction(action_id);
-        return ResponseEntity.status(HttpStatus.OK).body(historyService.save(domain));
+        historyService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(historyMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-History-Save-all')")

@@ -15,40 +15,40 @@ export default class GroupTrendsModel {
 	public getDataItems(): any[] {
 		return [
 			{
+				name: 'objecttype',
+			},
+			{
+				name: 'date',
+			},
+			{
 				name: 'project',
+			},
+			{
+				name: 'action',
+			},
+			{
+				name: 'srfkey',
+			},
+			{
+				name: 'product',
+			},
+			{
+				name: 'objectid',
 			},
 			{
 				name: 'actionmanner',
         codelist:{tag:'ActionManner',codelistType:'STATIC'},
 			},
 			{
-				name: 'date',
-			},
-			{
-				name: 'srfkey',
-			},
-			{
-				name: 'objectid',
-			},
-			{
-				name: 'action',
-			},
-			{
-				name: 'read',
-        codelist:{tag:'Action__read',codelistType:'STATIC'},
+				name: 'actor',
+        codelist:{tag:'UserRealName',codelistType:'DYNAMIC'},
 			},
 			{
 				name: 'id',
 			},
 			{
-				name: 'product',
-			},
-			{
-				name: 'actor',
-        codelist:{tag:'UserRealName',codelistType:'DYNAMIC'},
-			},
-			{
-				name: 'objecttype',
+				name: 'read',
+        codelist:{tag:'Action__read',codelistType:'STATIC'},
 			},
       {
         name:'size',

@@ -72,7 +72,7 @@ public class SysPostResource {
 		SysPost domain  = syspostMapping.toDomain(syspostdto);
         domain .setPostid(syspost_id);
 		syspostService.update(domain );
-		SysPostDTO dto = syspostMapping.toDto(domain );
+		SysPostDTO dto = syspostMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
@@ -110,8 +110,9 @@ public class SysPostResource {
 
     @ApiOperation(value = "获取岗位草稿", tags = {"岗位" },  notes = "获取岗位草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/sysposts/getdraft")
-    public ResponseEntity<SysPostDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(syspostMapping.toDto(syspostService.getDraft(new SysPost())));
+    public ResponseEntity<SysPostDTO> getDraft(SysPostDTO dto) {
+        SysPost domain = syspostMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(syspostMapping.toDto(syspostService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查岗位", tags = {"岗位" },  notes = "检查岗位")
@@ -123,8 +124,10 @@ public class SysPostResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-SysPost-Save-all')")
     @ApiOperation(value = "保存岗位", tags = {"岗位" },  notes = "保存岗位")
 	@RequestMapping(method = RequestMethod.POST, value = "/sysposts/save")
-    public ResponseEntity<Boolean> save(@RequestBody SysPostDTO syspostdto) {
-        return ResponseEntity.status(HttpStatus.OK).body(syspostService.save(syspostMapping.toDomain(syspostdto)));
+    public ResponseEntity<SysPostDTO> save(@RequestBody SysPostDTO syspostdto) {
+        SysPost domain = syspostMapping.toDomain(syspostdto);
+        syspostService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(syspostMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-SysPost-Save-all')")
@@ -156,6 +159,7 @@ public class SysPostResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(syspostMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
 
 
 }

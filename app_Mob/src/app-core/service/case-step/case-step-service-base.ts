@@ -68,6 +68,9 @@ export class CaseStepServiceBase extends EntityService {
             
             return res;
         }
+            let res:any = Http.getInstance().get(`/casesteps/${context.casestep}/select`,isloading);
+            
+            return res;
     }
 
     /**
@@ -136,6 +139,18 @@ export class CaseStepServiceBase extends EntityService {
             
             return res;
         }
+        let masterData:any = {};
+        Object.assign(data,masterData);
+        if(!data.srffrontuf || data.srffrontuf !== "1"){
+            data[this.APPDEKEY] = null;
+        }
+        if(data.srffrontuf){
+            delete data.srffrontuf;
+        }
+        let tempContext:any = JSON.parse(JSON.stringify(context));
+        let res:any = await Http.getInstance().post(`/casesteps`,data,isloading);
+        
+        return res;
     }
 
     /**
@@ -176,6 +191,11 @@ export class CaseStepServiceBase extends EntityService {
             
             return res;
         }
+        let masterData:any = {};
+        Object.assign(data,masterData);
+            let res:any = await  Http.getInstance().put(`/casesteps/${context.casestep}`,data,isloading);
+            
+            return res;
     }
 
     /**
@@ -204,6 +224,8 @@ export class CaseStepServiceBase extends EntityService {
             let res:any = Http.getInstance().delete(`/cases/${context.case}/casesteps/${context.casestep}`,isloading);
             return res;
         }
+            let res:any = Http.getInstance().delete(`/casesteps/${context.casestep}`,isloading);
+            return res;
     }
 
     /**
@@ -236,6 +258,9 @@ export class CaseStepServiceBase extends EntityService {
             
             return res;
         }
+            let res:any = await Http.getInstance().get(`/casesteps/${context.casestep}`,isloading);
+            
+            return res;
     }
 
     /**
@@ -272,6 +297,10 @@ export class CaseStepServiceBase extends EntityService {
             
             return res;
         }
+        let res:any = await  Http.getInstance().get(`/casesteps/getdraft`,isloading);
+        res.data.casestep = data.casestep;
+        
+        return res;
     }
 
     /**
@@ -312,6 +341,8 @@ export class CaseStepServiceBase extends EntityService {
             
             return res;
         }
+            let res:any = Http.getInstance().post(`/casesteps/${context.casestep}/checkkey`,data,isloading);
+            return res;
     }
 
     /**
@@ -352,6 +383,11 @@ export class CaseStepServiceBase extends EntityService {
             
             return res;
         }
+        let masterData:any = {};
+        Object.assign(data,masterData);
+            let res:any = await  Http.getInstance().post(`/casesteps/${context.casestep}/save`,data,isloading);
+            
+            return res;
     }
 
     /**
@@ -384,6 +420,9 @@ export class CaseStepServiceBase extends EntityService {
             let res:any = Http.getInstance().get(`/cases/${context.case}/casesteps/fetchcurtest`,tempData,isloading);
             return res;
         }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/casesteps/fetchcurtest`,tempData,isloading);
+        return res;
     }
 
     /**
@@ -416,6 +455,9 @@ export class CaseStepServiceBase extends EntityService {
             let res:any = Http.getInstance().get(`/cases/${context.case}/casesteps/fetchdefault`,tempData,isloading);
             return res;
         }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/casesteps/fetchdefault`,tempData,isloading);
+        return res;
     }
 
     /**
@@ -448,6 +490,9 @@ export class CaseStepServiceBase extends EntityService {
             let res:any = Http.getInstance().get(`/cases/${context.case}/casesteps/fetchdefault1`,tempData,isloading);
             return res;
         }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/casesteps/fetchdefault1`,tempData,isloading);
+        return res;
     }
 
     /**
@@ -480,6 +525,9 @@ export class CaseStepServiceBase extends EntityService {
             let res:any = Http.getInstance().get(`/cases/${context.case}/casesteps/fetchmob`,tempData,isloading);
             return res;
         }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/casesteps/fetchmob`,tempData,isloading);
+        return res;
     }
 
     /**
@@ -512,6 +560,9 @@ export class CaseStepServiceBase extends EntityService {
             let res:any = Http.getInstance().get(`/cases/${context.case}/casesteps/fetchversion`,tempData,isloading);
             return res;
         }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/casesteps/fetchversion`,tempData,isloading);
+        return res;
     }
 
     /**
@@ -544,6 +595,9 @@ export class CaseStepServiceBase extends EntityService {
             let res:any = Http.getInstance().get(`/cases/${context.case}/casesteps/fetchversions`,tempData,isloading);
             return res;
         }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/casesteps/fetchversions`,tempData,isloading);
+        return res;
     }
 
     /**
@@ -556,17 +610,6 @@ export class CaseStepServiceBase extends EntityService {
      * @memberof CaseStepServiceBase
      */
     public async FetchTempCurTest(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // FetchTempCurTest ---FETCHTEMP
-        if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
-            let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(result){
-                return new HttpResponse(200,result);
-            }else{
-                return new HttpResponse(200,{});
-            } 
-        }else{
-            return new HttpResponse(200,{});
-        }
     }
 
     /**
@@ -579,17 +622,6 @@ export class CaseStepServiceBase extends EntityService {
      * @memberof CaseStepServiceBase
      */
     public async FetchTempDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // FetchTempDefault ---FETCHTEMP
-        if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
-            let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(result){
-                return new HttpResponse(200,result);
-            }else{
-                return new HttpResponse(200,{});
-            } 
-        }else{
-            return new HttpResponse(200,{});
-        }
     }
 
     /**
@@ -602,17 +634,6 @@ export class CaseStepServiceBase extends EntityService {
      * @memberof CaseStepServiceBase
      */
     public async FetchTempDefault1(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // FetchTempDefault1 ---FETCHTEMP
-        if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
-            let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(result){
-                return new HttpResponse(200,result);
-            }else{
-                return new HttpResponse(200,{});
-            } 
-        }else{
-            return new HttpResponse(200,{});
-        }
     }
 
     /**
@@ -625,17 +646,6 @@ export class CaseStepServiceBase extends EntityService {
      * @memberof CaseStepServiceBase
      */
     public async FetchTempMob(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // FetchTempMob ---FETCHTEMP
-        if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
-            let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(result){
-                return new HttpResponse(200,result);
-            }else{
-                return new HttpResponse(200,{});
-            } 
-        }else{
-            return new HttpResponse(200,{});
-        }
     }
 
     /**
@@ -648,17 +658,6 @@ export class CaseStepServiceBase extends EntityService {
      * @memberof CaseStepServiceBase
      */
     public async FetchTempVersion(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // FetchTempVersion ---FETCHTEMP
-        if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
-            let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(result){
-                return new HttpResponse(200,result);
-            }else{
-                return new HttpResponse(200,{});
-            } 
-        }else{
-            return new HttpResponse(200,{});
-        }
     }
 
     /**
@@ -671,16 +670,5 @@ export class CaseStepServiceBase extends EntityService {
      * @memberof CaseStepServiceBase
      */
     public async FetchTempVersions(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // FetchTempVersions ---FETCHTEMP
-        if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
-            let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(result){
-                return new HttpResponse(200,result);
-            }else{
-                return new HttpResponse(200,{});
-            } 
-        }else{
-            return new HttpResponse(200,{});
-        }
     }
 }

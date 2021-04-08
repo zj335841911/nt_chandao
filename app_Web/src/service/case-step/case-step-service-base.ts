@@ -1,3 +1,4 @@
+import { Environment } from '@/environments/environment';
 import { Http } from '@/utils';
 import { Util } from '@/utils';
 import EntityService from '../entity-service';
@@ -50,25 +51,28 @@ export default class CaseStepServiceBase extends EntityService {
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.case && context.casestep){
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/${context.case}/casesteps/${context.casestep}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/${context.case}/casesteps/${context.casestep}/select`,isloading);
             
             return res;
         }
         if(context.story && context.case && context.casestep){
-            let res:any = Http.getInstance().get(`/stories/${context.story}/cases/${context.case}/casesteps/${context.casestep}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/cases/${context.case}/casesteps/${context.casestep}/select`,isloading);
             
             return res;
         }
         if(context.product && context.case && context.casestep){
-            let res:any = Http.getInstance().get(`/products/${context.product}/cases/${context.case}/casesteps/${context.casestep}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/cases/${context.case}/casesteps/${context.casestep}/select`,isloading);
             
             return res;
         }
         if(context.case && context.casestep){
-            let res:any = Http.getInstance().get(`/cases/${context.case}/casesteps/${context.casestep}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/cases/${context.case}/casesteps/${context.casestep}/select`,isloading);
             
             return res;
         }
+            let res:any = await Http.getInstance().get(`/casesteps/${context.casestep}/select`,isloading);
+            
+            return res;
     }
 
     /**
@@ -137,6 +141,18 @@ export default class CaseStepServiceBase extends EntityService {
             
             return res;
         }
+        let masterData:any = {};
+        Object.assign(data,masterData);
+        if(!data.srffrontuf || data.srffrontuf !== "1"){
+            data[this.APPDEKEY] = null;
+        }
+        if(data.srffrontuf){
+            delete data.srffrontuf;
+        }
+        let tempContext:any = JSON.parse(JSON.stringify(context));
+        let res:any = await Http.getInstance().post(`/casesteps`,data,isloading);
+        
+        return res;
     }
 
     /**
@@ -177,6 +193,11 @@ export default class CaseStepServiceBase extends EntityService {
             
             return res;
         }
+        let masterData:any = {};
+        Object.assign(data,masterData);
+            let res:any = await  Http.getInstance().put(`/casesteps/${context.casestep}`,data,isloading);
+            
+            return res;
     }
 
     /**
@@ -190,21 +211,23 @@ export default class CaseStepServiceBase extends EntityService {
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.case && context.casestep){
-            let res:any = Http.getInstance().delete(`/products/${context.product}/stories/${context.story}/cases/${context.case}/casesteps/${context.casestep}`,isloading);
+            let res:any = await Http.getInstance().delete(`/products/${context.product}/stories/${context.story}/cases/${context.case}/casesteps/${context.casestep}`,isloading);
             return res;
         }
         if(context.story && context.case && context.casestep){
-            let res:any = Http.getInstance().delete(`/stories/${context.story}/cases/${context.case}/casesteps/${context.casestep}`,isloading);
+            let res:any = await Http.getInstance().delete(`/stories/${context.story}/cases/${context.case}/casesteps/${context.casestep}`,isloading);
             return res;
         }
         if(context.product && context.case && context.casestep){
-            let res:any = Http.getInstance().delete(`/products/${context.product}/cases/${context.case}/casesteps/${context.casestep}`,isloading);
+            let res:any = await Http.getInstance().delete(`/products/${context.product}/cases/${context.case}/casesteps/${context.casestep}`,isloading);
             return res;
         }
         if(context.case && context.casestep){
-            let res:any = Http.getInstance().delete(`/cases/${context.case}/casesteps/${context.casestep}`,isloading);
+            let res:any = await Http.getInstance().delete(`/cases/${context.case}/casesteps/${context.casestep}`,isloading);
             return res;
         }
+            let res:any = await Http.getInstance().delete(`/casesteps/${context.casestep}`,isloading);
+            return res;
     }
 
     /**
@@ -237,6 +260,9 @@ export default class CaseStepServiceBase extends EntityService {
             
             return res;
         }
+            let res:any = await Http.getInstance().get(`/casesteps/${context.casestep}`,isloading);
+            
+            return res;
     }
 
     /**
@@ -250,29 +276,48 @@ export default class CaseStepServiceBase extends EntityService {
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.case && true){
-            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/${context.case}/casesteps/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.casestep) delete tempData.casestep;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/${context.case}/casesteps/getdraft`,tempData,isloading);
             res.data.casestep = data.casestep;
             
             return res;
         }
         if(context.story && context.case && true){
-            let res:any = await Http.getInstance().get(`/stories/${context.story}/cases/${context.case}/casesteps/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.casestep) delete tempData.casestep;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/cases/${context.case}/casesteps/getdraft`,tempData,isloading);
             res.data.casestep = data.casestep;
             
             return res;
         }
         if(context.product && context.case && true){
-            let res:any = await Http.getInstance().get(`/products/${context.product}/cases/${context.case}/casesteps/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.casestep) delete tempData.casestep;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/products/${context.product}/cases/${context.case}/casesteps/getdraft`,tempData,isloading);
             res.data.casestep = data.casestep;
             
             return res;
         }
         if(context.case && true){
-            let res:any = await Http.getInstance().get(`/cases/${context.case}/casesteps/getdraft`,isloading);
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            if(tempData.casestep) delete tempData.casestep;
+            if(tempData.id) delete tempData.id;
+            let res:any = await Http.getInstance().get(`/cases/${context.case}/casesteps/getdraft`,tempData,isloading);
             res.data.casestep = data.casestep;
             
             return res;
         }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.casestep) delete tempData.casestep;
+        if(tempData.id) delete tempData.id;
+        let res:any = await  Http.getInstance().get(`/casesteps/getdraft`,tempData,isloading);
+        res.data.casestep = data.casestep;
+        
+        return res;
     }
 
     /**
@@ -313,6 +358,8 @@ export default class CaseStepServiceBase extends EntityService {
             
             return res;
         }
+            let res:any = await Http.getInstance().post(`/casesteps/${context.casestep}/checkkey`,data,isloading);
+            return res;
     }
 
     /**
@@ -353,6 +400,11 @@ export default class CaseStepServiceBase extends EntityService {
             
             return res;
         }
+        let masterData:any = {};
+        Object.assign(data,masterData);
+            let res:any = await  Http.getInstance().post(`/casesteps/${context.casestep}/save`,data,isloading);
+            
+            return res;
     }
 
     /**
@@ -367,24 +419,27 @@ export default class CaseStepServiceBase extends EntityService {
     public async FetchCurTest(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.case && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/${context.case}/casesteps/fetchcurtest`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/${context.case}/casesteps/fetchcurtest`,tempData,isloading);
             return res;
         }
         if(context.story && context.case && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/cases/${context.case}/casesteps/fetchcurtest`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/cases/${context.case}/casesteps/fetchcurtest`,tempData,isloading);
             return res;
         }
         if(context.product && context.case && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/cases/${context.case}/casesteps/fetchcurtest`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/cases/${context.case}/casesteps/fetchcurtest`,tempData,isloading);
             return res;
         }
         if(context.case && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/cases/${context.case}/casesteps/fetchcurtest`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/cases/${context.case}/casesteps/fetchcurtest`,tempData,isloading);
             return res;
         }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = await Http.getInstance().get(`/casesteps/fetchcurtest`,tempData,isloading);
+        return res;
     }
 
     /**
@@ -413,6 +468,8 @@ export default class CaseStepServiceBase extends EntityService {
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/cases/${context.case}/casesteps/searchcurtest`,tempData,isloading);
         }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/casesteps/searchcurtest`,tempData,isloading);
     }
 
     /**
@@ -427,24 +484,27 @@ export default class CaseStepServiceBase extends EntityService {
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.case && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/${context.case}/casesteps/fetchdefault`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/${context.case}/casesteps/fetchdefault`,tempData,isloading);
             return res;
         }
         if(context.story && context.case && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/cases/${context.case}/casesteps/fetchdefault`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/cases/${context.case}/casesteps/fetchdefault`,tempData,isloading);
             return res;
         }
         if(context.product && context.case && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/cases/${context.case}/casesteps/fetchdefault`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/cases/${context.case}/casesteps/fetchdefault`,tempData,isloading);
             return res;
         }
         if(context.case && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/cases/${context.case}/casesteps/fetchdefault`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/cases/${context.case}/casesteps/fetchdefault`,tempData,isloading);
             return res;
         }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = await Http.getInstance().get(`/casesteps/fetchdefault`,tempData,isloading);
+        return res;
     }
 
     /**
@@ -473,6 +533,8 @@ export default class CaseStepServiceBase extends EntityService {
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/cases/${context.case}/casesteps/searchdefault`,tempData,isloading);
         }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/casesteps/searchdefault`,tempData,isloading);
     }
 
     /**
@@ -487,24 +549,27 @@ export default class CaseStepServiceBase extends EntityService {
     public async FetchDefault1(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.case && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/${context.case}/casesteps/fetchdefault1`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/${context.case}/casesteps/fetchdefault1`,tempData,isloading);
             return res;
         }
         if(context.story && context.case && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/cases/${context.case}/casesteps/fetchdefault1`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/cases/${context.case}/casesteps/fetchdefault1`,tempData,isloading);
             return res;
         }
         if(context.product && context.case && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/cases/${context.case}/casesteps/fetchdefault1`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/cases/${context.case}/casesteps/fetchdefault1`,tempData,isloading);
             return res;
         }
         if(context.case && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/cases/${context.case}/casesteps/fetchdefault1`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/cases/${context.case}/casesteps/fetchdefault1`,tempData,isloading);
             return res;
         }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = await Http.getInstance().get(`/casesteps/fetchdefault1`,tempData,isloading);
+        return res;
     }
 
     /**
@@ -533,6 +598,8 @@ export default class CaseStepServiceBase extends EntityService {
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/cases/${context.case}/casesteps/searchdefault1`,tempData,isloading);
         }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/casesteps/searchdefault1`,tempData,isloading);
     }
 
     /**
@@ -547,24 +614,27 @@ export default class CaseStepServiceBase extends EntityService {
     public async FetchMob(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.case && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/${context.case}/casesteps/fetchmob`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/${context.case}/casesteps/fetchmob`,tempData,isloading);
             return res;
         }
         if(context.story && context.case && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/cases/${context.case}/casesteps/fetchmob`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/cases/${context.case}/casesteps/fetchmob`,tempData,isloading);
             return res;
         }
         if(context.product && context.case && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/cases/${context.case}/casesteps/fetchmob`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/cases/${context.case}/casesteps/fetchmob`,tempData,isloading);
             return res;
         }
         if(context.case && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/cases/${context.case}/casesteps/fetchmob`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/cases/${context.case}/casesteps/fetchmob`,tempData,isloading);
             return res;
         }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = await Http.getInstance().get(`/casesteps/fetchmob`,tempData,isloading);
+        return res;
     }
 
     /**
@@ -593,6 +663,8 @@ export default class CaseStepServiceBase extends EntityService {
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/cases/${context.case}/casesteps/searchmob`,tempData,isloading);
         }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/casesteps/searchmob`,tempData,isloading);
     }
 
     /**
@@ -607,24 +679,27 @@ export default class CaseStepServiceBase extends EntityService {
     public async FetchVersion(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.case && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/${context.case}/casesteps/fetchversion`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/${context.case}/casesteps/fetchversion`,tempData,isloading);
             return res;
         }
         if(context.story && context.case && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/cases/${context.case}/casesteps/fetchversion`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/cases/${context.case}/casesteps/fetchversion`,tempData,isloading);
             return res;
         }
         if(context.product && context.case && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/cases/${context.case}/casesteps/fetchversion`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/cases/${context.case}/casesteps/fetchversion`,tempData,isloading);
             return res;
         }
         if(context.case && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/cases/${context.case}/casesteps/fetchversion`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/cases/${context.case}/casesteps/fetchversion`,tempData,isloading);
             return res;
         }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = await Http.getInstance().get(`/casesteps/fetchversion`,tempData,isloading);
+        return res;
     }
 
     /**
@@ -653,6 +728,8 @@ export default class CaseStepServiceBase extends EntityService {
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/cases/${context.case}/casesteps/searchversion`,tempData,isloading);
         }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/casesteps/searchversion`,tempData,isloading);
     }
 
     /**
@@ -667,24 +744,27 @@ export default class CaseStepServiceBase extends EntityService {
     public async FetchVersions(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.story && context.case && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/${context.case}/casesteps/fetchversions`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/stories/${context.story}/cases/${context.case}/casesteps/fetchversions`,tempData,isloading);
             return res;
         }
         if(context.story && context.case && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/stories/${context.story}/cases/${context.case}/casesteps/fetchversions`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/stories/${context.story}/cases/${context.case}/casesteps/fetchversions`,tempData,isloading);
             return res;
         }
         if(context.product && context.case && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/products/${context.product}/cases/${context.case}/casesteps/fetchversions`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/products/${context.product}/cases/${context.case}/casesteps/fetchversions`,tempData,isloading);
             return res;
         }
         if(context.case && true){
             let tempData:any = JSON.parse(JSON.stringify(data));
-            let res:any = Http.getInstance().get(`/cases/${context.case}/casesteps/fetchversions`,tempData,isloading);
+            let res:any = await Http.getInstance().get(`/cases/${context.case}/casesteps/fetchversions`,tempData,isloading);
             return res;
         }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = await Http.getInstance().get(`/casesteps/fetchversions`,tempData,isloading);
+        return res;
     }
 
     /**
@@ -713,6 +793,8 @@ export default class CaseStepServiceBase extends EntityService {
             let tempData:any = JSON.parse(JSON.stringify(data));
             return await Http.getInstance().post(`/cases/${context.case}/casesteps/searchversions`,tempData,isloading);
         }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        return await Http.getInstance().post(`/casesteps/searchversions`,tempData,isloading);
     }
 
     /**
@@ -725,17 +807,6 @@ export default class CaseStepServiceBase extends EntityService {
      * @memberof CaseStepServiceBase
      */
     public async FetchTempCurTest(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // FetchTempCurTest ---FETCHTEMP
-        if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
-            let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(result){
-                return {"status":200,"data":result};
-            }else{
-                return {"status":200,"data":[]};
-            } 
-        }else{
-            return {"status":200,"data":[]};
-        }
     }
 
     /**
@@ -748,17 +819,6 @@ export default class CaseStepServiceBase extends EntityService {
      * @memberof CaseStepServiceBase
      */
     public async FetchTempDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // FetchTempDefault ---FETCHTEMP
-        if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
-            let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(result){
-                return {"status":200,"data":result};
-            }else{
-                return {"status":200,"data":[]};
-            } 
-        }else{
-            return {"status":200,"data":[]};
-        }
     }
 
     /**
@@ -771,17 +831,6 @@ export default class CaseStepServiceBase extends EntityService {
      * @memberof CaseStepServiceBase
      */
     public async FetchTempDefault1(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // FetchTempDefault1 ---FETCHTEMP
-        if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
-            let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(result){
-                return {"status":200,"data":result};
-            }else{
-                return {"status":200,"data":[]};
-            } 
-        }else{
-            return {"status":200,"data":[]};
-        }
     }
 
     /**
@@ -794,17 +843,6 @@ export default class CaseStepServiceBase extends EntityService {
      * @memberof CaseStepServiceBase
      */
     public async FetchTempMob(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // FetchTempMob ---FETCHTEMP
-        if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
-            let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(result){
-                return {"status":200,"data":result};
-            }else{
-                return {"status":200,"data":[]};
-            } 
-        }else{
-            return {"status":200,"data":[]};
-        }
     }
 
     /**
@@ -817,17 +855,6 @@ export default class CaseStepServiceBase extends EntityService {
      * @memberof CaseStepServiceBase
      */
     public async FetchTempVersion(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // FetchTempVersion ---FETCHTEMP
-        if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
-            let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(result){
-                return {"status":200,"data":result};
-            }else{
-                return {"status":200,"data":[]};
-            } 
-        }else{
-            return {"status":200,"data":[]};
-        }
     }
 
     /**
@@ -840,16 +867,5 @@ export default class CaseStepServiceBase extends EntityService {
      * @memberof CaseStepServiceBase
      */
     public async FetchTempVersions(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        // FetchTempVersions ---FETCHTEMP
-        if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_casesteps'),'undefined')){
-            let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_casesteps') as any);
-            if(result){
-                return {"status":200,"data":result};
-            }else{
-                return {"status":200,"data":[]};
-            } 
-        }else{
-            return {"status":200,"data":[]};
-        }
     }
 }

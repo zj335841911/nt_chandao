@@ -263,29 +263,29 @@ POST
 #### IbizproProjectMonthlyDTO
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
-| 1 | ibizproprojectmonthlyid | String | 不可 | 项目月报标识 |
-| 2 | ibizproprojectmonthlyname | String | 允许 | 项目月报名称 |
-| 3 | createman | String | 不可 | 建立人 |
-| 4 | createdate | Timestamp | 不可 | 建立时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
+| 1 | ibizproprojectmonthlyname | String | 允许 | 项目月报名称 |
+| 2 | createdate | Timestamp | 不可 | 建立时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
+| 3 | yearmonth | String | 允许 | 年月 |
+| 4 | totalestimates | Double | 允许 | 总工时 |
 | 5 | updateman | String | 不可 | 更新人 |
-| 6 | updatedate | Timestamp | 不可 | 更新时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
-| 7 | project | Long | 允许 | 项目编号 |
-| 8 | projectname | String | 允许 | 项目名称 |
-| 9 | pm | String | 允许 | 项目负责人 |
-| 10 | totalestimates | Double | 允许 | 总工时 |
-| 11 | tasks | String | 允许 | 任务 |
-| 12 | date | Timestamp | 允许 | 日期<br>时间格式：yyyy-MM-dd |
-| 13 | yearmonth | String | 允许 | 年月 |
+| 6 | tasks | String | 允许 | 任务 |
+| 7 | date | Timestamp | 允许 | 日期<br>时间格式：yyyy-MM-dd |
+| 8 | ibizproprojectmonthlyid | String | 不可 | 项目月报标识 |
+| 9 | updatedate | Timestamp | 不可 | 更新时间<br>时间格式：yyyy-MM-dd HH:mm:ss |
+| 10 | createman | String | 不可 | 建立人 |
+| 11 | pm | String | 允许 | 项目负责人 |
+| 12 | projectname | String | 允许 | 项目名称 |
+| 13 | project | Long | 允许 | 项目编号 |
 | 14 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### IbizproProjectMonthlySearchContext
 | 序号 | 属性名 | 属性类型 | 是否可以为空 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
 | 1 | n_ibizpro_projectmonthlyname_like | String | 允许 | 条件字段：ibizpro_projectmonthlyname<br>条件组合方式：`%like%` |
-| 2 | n_project_eq | Long | 允许 | 条件字段：project<br>条件组合方式：`=` |
+| 2 | n_pm_eq | String | 允许 | 条件字段：pm<br>条件组合方式：`=` |
 | 3 | n_projectname_eq | String | 允许 | 条件字段：projectname<br>条件组合方式：`=` |
 | 4 | n_projectname_like | String | 允许 | 条件字段：projectname<br>条件组合方式：`%like%` |
-| 5 | n_pm_eq | String | 允许 | 条件字段：pm<br>条件组合方式：`=` |
+| 5 | n_project_eq | Long | 允许 | 条件字段：project<br>条件组合方式：`=` |
 | 6 | customcond | String | 允许 | 自定义查询条件 |
 | 7 | customparams | String | 允许 | 自定义查询参数 |
 | 8 | query | String | 允许 | 快速搜索 |

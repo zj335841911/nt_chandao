@@ -11,7 +11,7 @@
         clearable
         v-show="!isExpandSearchForm"
         v-model="query"
-        :placeholder="$t('entities.bug.fields.title')"
+        :placeholder="$t('entities.bug.fields.id')+','+$t('entities.bug.fields.title')"
         search
         @on-search="onSearch($event)"
     ></i-input>
@@ -29,7 +29,7 @@
             loadAction="FilterGet"
         
             name="searchform"  
-            ref="searchform"
+            ref="searchform" 
             @save="searchform_save($event)"  
             @search="searchform_search($event)"  
             @load="searchform_load($event)"  
@@ -44,7 +44,7 @@
             v-show="isExpandSearchForm"
             @search="onSearch($event)"
             name="searchbar"  
-            ref="searchbar"
+            ref="searchbar" 
             @closeview="closeView($event)">
         </view_searchbar>
     </template>
@@ -67,7 +67,7 @@
         :newdata="newdata.bind(_self)"
         :opendata="opendata.bind(_self)"
         name="grid"  
-        ref="grid"
+        ref="grid" 
         @selectionchange="grid_selectionchange($event)"  
         @beforeload="grid_beforeload($event)"  
         @rowdblclick="grid_rowdblclick($event)"  

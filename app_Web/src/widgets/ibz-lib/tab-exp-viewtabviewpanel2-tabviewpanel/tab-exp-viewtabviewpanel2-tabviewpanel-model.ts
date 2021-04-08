@@ -18,7 +18,7 @@ export default class TabExpViewtabviewpanel2Model {
         name: 'desc',
       },
       {
-        name: 'lastediteddate',
+        name: 'product',
       },
       {
         name: 'addeddate',
@@ -26,6 +26,12 @@ export default class TabExpViewtabviewpanel2Model {
       {
         name: 'ibzlib',
         prop: 'id',
+      },
+      {
+        name: 'lastediteddate',
+      },
+      {
+        name: 'addedby',
       },
       {
         name: 'deleted',
@@ -37,13 +43,7 @@ export default class TabExpViewtabviewpanel2Model {
         name: 'type',
       },
       {
-        name: 'addedby',
-      },
-      {
         name: 'lasteditedby',
-      },
-      {
-        name: 'product',
       },
     ]
   }

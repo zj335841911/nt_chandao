@@ -78,7 +78,7 @@ public class IbzCaseResource {
 		IbzCase domain  = ibzcaseMapping.toDomain(ibzcasedto);
         domain .setId(ibzcase_id);
 		ibzcaseService.update(domain );
-		IbzCaseDTO dto = ibzcaseMapping.toDto(domain );
+		IbzCaseDTO dto = ibzcaseMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
@@ -116,8 +116,9 @@ public class IbzCaseResource {
 
     @ApiOperation(value = "获取测试用例草稿", tags = {"测试用例" },  notes = "获取测试用例草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/ibzcases/getdraft")
-    public ResponseEntity<IbzCaseDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(ibzcaseMapping.toDto(ibzcaseService.getDraft(new IbzCase())));
+    public ResponseEntity<IbzCaseDTO> getDraft(IbzCaseDTO dto) {
+        IbzCase domain = ibzcaseMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(ibzcaseMapping.toDto(ibzcaseService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查测试用例", tags = {"测试用例" },  notes = "检查测试用例")
@@ -129,8 +130,10 @@ public class IbzCaseResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzCase-Save-all')")
     @ApiOperation(value = "保存测试用例", tags = {"测试用例" },  notes = "保存测试用例")
 	@RequestMapping(method = RequestMethod.POST, value = "/ibzcases/save")
-    public ResponseEntity<Boolean> save(@RequestBody IbzCaseDTO ibzcasedto) {
-        return ResponseEntity.status(HttpStatus.OK).body(ibzcaseService.save(ibzcaseMapping.toDomain(ibzcasedto)));
+    public ResponseEntity<IbzCaseDTO> save(@RequestBody IbzCaseDTO ibzcasedto) {
+        IbzCase domain = ibzcaseMapping.toDomain(ibzcasedto);
+        ibzcaseService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(ibzcaseMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzCase-Save-all')")
@@ -162,6 +165,7 @@ public class IbzCaseResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(ibzcaseMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
 
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzCase-Create-all')")
@@ -237,8 +241,8 @@ public class IbzCaseResource {
 
     @ApiOperation(value = "根据用例库获取测试用例草稿", tags = {"测试用例" },  notes = "根据用例库获取测试用例草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/ibzlibs/{ibzlib_id}/ibzcases/getdraft")
-    public ResponseEntity<IbzCaseDTO> getDraftByIbzLib(@PathVariable("ibzlib_id") Long ibzlib_id) {
-        IbzCase domain = new IbzCase();
+    public ResponseEntity<IbzCaseDTO> getDraftByIbzLib(@PathVariable("ibzlib_id") Long ibzlib_id, IbzCaseDTO dto) {
+        IbzCase domain = ibzcaseMapping.toDomain(dto);
         domain.setLib(ibzlib_id);
         return ResponseEntity.status(HttpStatus.OK).body(ibzcaseMapping.toDto(ibzcaseService.getDraft(domain)));
     }
@@ -252,10 +256,11 @@ public class IbzCaseResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzCase-Save-all')")
     @ApiOperation(value = "根据用例库保存测试用例", tags = {"测试用例" },  notes = "根据用例库保存测试用例")
 	@RequestMapping(method = RequestMethod.POST, value = "/ibzlibs/{ibzlib_id}/ibzcases/save")
-    public ResponseEntity<Boolean> saveByIbzLib(@PathVariable("ibzlib_id") Long ibzlib_id, @RequestBody IbzCaseDTO ibzcasedto) {
+    public ResponseEntity<IbzCaseDTO> saveByIbzLib(@PathVariable("ibzlib_id") Long ibzlib_id, @RequestBody IbzCaseDTO ibzcasedto) {
         IbzCase domain = ibzcaseMapping.toDomain(ibzcasedto);
         domain.setLib(ibzlib_id);
-        return ResponseEntity.status(HttpStatus.OK).body(ibzcaseService.save(domain));
+        ibzcaseService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(ibzcaseMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-IbzCase-Save-all')")

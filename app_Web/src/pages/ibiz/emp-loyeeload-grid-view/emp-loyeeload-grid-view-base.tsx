@@ -1,6 +1,6 @@
 
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { GridViewBase } from '@/studio-core';
 import EmpLoyeeloadService from '@/service/emp-loyeeload/emp-loyeeload-service';
 import EmpLoyeeloadAuthService from '@/authservice/emp-loyeeload/emp-loyeeload-auth-service';
@@ -109,7 +109,7 @@ export class EmpLoyeeloadGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof EmpLoyeeloadGridViewBase
      */
-	protected viewtag: string = 'e008123fe4c3014fac07b33dd79f6b13';
+	protected viewtag: string = 'fed7280032d303b9f49070bd3817d668';
 
     /**
      * 视图名称

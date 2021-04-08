@@ -15,10 +15,7 @@ export class MobModel {
 	public getDataItems(): any[] {
 		return [
 			{
-				name: 'item',
-			},
-			{
-				name: 'date',
+				name: 'actor',
 			},
 			{
 				name: 'actions',
@@ -26,10 +23,13 @@ export class MobModel {
 				dataType: 'SSCODELIST',
 			},
 			{
-				name: 'actionmanner',
+				name: 'item',
 			},
 			{
-				name: 'actor',
+				name: 'date',
+			},
+			{
+				name: 'actionmanner',
 			},
 			{
 				name: 'srfkey',

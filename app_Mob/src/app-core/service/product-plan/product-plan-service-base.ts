@@ -70,6 +70,22 @@ export class ProductPlanServiceBase extends EntityService {
     public async Create(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && true){
             let masterData:any = {};
+        let tasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
+            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
+            if(tasksData && tasksData.length && tasksData.length > 0){
+                tasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.tasks = tasksData;
             Object.assign(data,masterData);
             if(!data.srffrontuf || data.srffrontuf !== "1"){
                 data[this.APPDEKEY] = null;
@@ -79,10 +95,27 @@ export class ProductPlanServiceBase extends EntityService {
             }
             let tempContext:any = JSON.parse(JSON.stringify(context));
             let res:any = await Http.getInstance().post(`/products/${context.product}/productplans`,data,isloading);
+            this.tempStorage.setItem(tempContext.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks?res.data.tasks:[]));
             
             return res;
         }
         let masterData:any = {};
+        let tasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
+            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
+            if(tasksData && tasksData.length && tasksData.length > 0){
+                tasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.tasks = tasksData;
         Object.assign(data,masterData);
         if(!data.srffrontuf || data.srffrontuf !== "1"){
             data[this.APPDEKEY] = null;
@@ -92,6 +125,7 @@ export class ProductPlanServiceBase extends EntityService {
         }
         let tempContext:any = JSON.parse(JSON.stringify(context));
         let res:any = await Http.getInstance().post(`/productplans`,data,isloading);
+        this.tempStorage.setItem(tempContext.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks?res.data.tasks:[]));
         
         return res;
     }
@@ -108,15 +142,49 @@ export class ProductPlanServiceBase extends EntityService {
     public async Update(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.productplan){
             let masterData:any = {};
+        let tasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
+            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
+            if(tasksData && tasksData.length && tasksData.length > 0){
+                tasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.tasks = tasksData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().put(`/products/${context.product}/productplans/${context.productplan}`,data,isloading);
-            
+                        this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks?res.data.tasks:[]));
+
             return res;
         }
         let masterData:any = {};
+        let tasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
+            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
+            if(tasksData && tasksData.length && tasksData.length > 0){
+                tasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.tasks = tasksData;
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().put(`/productplans/${context.productplan}`,data,isloading);
-            
+                        this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks?res.data.tasks:[]));
+
             return res;
     }
 
@@ -150,11 +218,13 @@ export class ProductPlanServiceBase extends EntityService {
     public async Get(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.productplan){
             let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/${context.productplan}`,isloading);
-            
+                        this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks?res.data.tasks:[]));
+
             return res;
         }
             let res:any = await Http.getInstance().get(`/productplans/${context.productplan}`,isloading);
-            
+                        this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks?res.data.tasks:[]));
+
             return res;
     }
 
@@ -171,12 +241,14 @@ export class ProductPlanServiceBase extends EntityService {
         if(context.product && true){
             let res:any = await Http.getInstance().get(`/products/${context.product}/productplans/getdraft`,isloading);
             res.data.productplan = data.productplan;
-            
+                        this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks?res.data.tasks:[]));
+
             return res;
         }
         let res:any = await  Http.getInstance().get(`/productplans/getdraft`,isloading);
         res.data.productplan = data.productplan;
-        
+                    this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks?res.data.tasks:[]));
+
         return res;
     }
 
@@ -192,9 +264,26 @@ export class ProductPlanServiceBase extends EntityService {
     public async BatchUnlinkBug(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.productplan){
             let masterData:any = {};
+        let tasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
+            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
+            if(tasksData && tasksData.length && tasksData.length > 0){
+                tasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.tasks = tasksData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/batchunlinkbug`,data,isloading);
-            
+                        this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks?res.data.tasks:[]));
+
             return res;
         }
             let res:any = Http.getInstance().post(`/productplans/${context.productplan}/batchunlinkbug`,data,isloading);
@@ -213,9 +302,26 @@ export class ProductPlanServiceBase extends EntityService {
     public async BatchUnlinkStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.productplan){
             let masterData:any = {};
+        let tasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
+            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
+            if(tasksData && tasksData.length && tasksData.length > 0){
+                tasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.tasks = tasksData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/batchunlinkstory`,data,isloading);
-            
+                        this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks?res.data.tasks:[]));
+
             return res;
         }
             let res:any = Http.getInstance().post(`/productplans/${context.productplan}/batchunlinkstory`,data,isloading);
@@ -234,12 +340,333 @@ export class ProductPlanServiceBase extends EntityService {
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.productplan){
             let masterData:any = {};
+        let tasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
+            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
+            if(tasksData && tasksData.length && tasksData.length > 0){
+                tasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.tasks = tasksData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/checkkey`,data,isloading);
-            
+                        this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks?res.data.tasks:[]));
+
             return res;
         }
             let res:any = Http.getInstance().post(`/productplans/${context.productplan}/checkkey`,data,isloading);
+            return res;
+    }
+
+    /**
+     * EeActivePlan接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductPlanServiceBase
+     */
+    public async EeActivePlan(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productplan){
+            let masterData:any = {};
+        let tasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
+            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
+            if(tasksData && tasksData.length && tasksData.length > 0){
+                tasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.tasks = tasksData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/eeactiveplan`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks?res.data.tasks:[]));
+
+            return res;
+        }
+            let res:any = Http.getInstance().post(`/productplans/${context.productplan}/eeactiveplan`,data,isloading);
+            return res;
+    }
+
+    /**
+     * EeCancelPlan接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductPlanServiceBase
+     */
+    public async EeCancelPlan(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productplan){
+            let masterData:any = {};
+        let tasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
+            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
+            if(tasksData && tasksData.length && tasksData.length > 0){
+                tasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.tasks = tasksData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/eecancelplan`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks?res.data.tasks:[]));
+
+            return res;
+        }
+            let res:any = Http.getInstance().post(`/productplans/${context.productplan}/eecancelplan`,data,isloading);
+            return res;
+    }
+
+    /**
+     * EeClosePlan接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductPlanServiceBase
+     */
+    public async EeClosePlan(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productplan){
+            let masterData:any = {};
+        let tasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
+            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
+            if(tasksData && tasksData.length && tasksData.length > 0){
+                tasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.tasks = tasksData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/eecloseplan`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks?res.data.tasks:[]));
+
+            return res;
+        }
+            let res:any = Http.getInstance().post(`/productplans/${context.productplan}/eecloseplan`,data,isloading);
+            return res;
+    }
+
+    /**
+     * EeFinishPlan接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductPlanServiceBase
+     */
+    public async EeFinishPlan(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productplan){
+            let masterData:any = {};
+        let tasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
+            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
+            if(tasksData && tasksData.length && tasksData.length > 0){
+                tasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.tasks = tasksData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/eefinishplan`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks?res.data.tasks:[]));
+
+            return res;
+        }
+            let res:any = Http.getInstance().post(`/productplans/${context.productplan}/eefinishplan`,data,isloading);
+            return res;
+    }
+
+    /**
+     * EePausePlan接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductPlanServiceBase
+     */
+    public async EePausePlan(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productplan){
+            let masterData:any = {};
+        let tasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
+            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
+            if(tasksData && tasksData.length && tasksData.length > 0){
+                tasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.tasks = tasksData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/eepauseplan`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks?res.data.tasks:[]));
+
+            return res;
+        }
+            let res:any = Http.getInstance().post(`/productplans/${context.productplan}/eepauseplan`,data,isloading);
+            return res;
+    }
+
+    /**
+     * EeRestartPlan接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductPlanServiceBase
+     */
+    public async EeRestartPlan(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productplan){
+            let masterData:any = {};
+        let tasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
+            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
+            if(tasksData && tasksData.length && tasksData.length > 0){
+                tasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.tasks = tasksData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/eerestartplan`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks?res.data.tasks:[]));
+
+            return res;
+        }
+            let res:any = Http.getInstance().post(`/productplans/${context.productplan}/eerestartplan`,data,isloading);
+            return res;
+    }
+
+    /**
+     * EeStartPlan接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductPlanServiceBase
+     */
+    public async EeStartPlan(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productplan){
+            let masterData:any = {};
+        let tasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
+            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
+            if(tasksData && tasksData.length && tasksData.length > 0){
+                tasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.tasks = tasksData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/eestartplan`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks?res.data.tasks:[]));
+
+            return res;
+        }
+            let res:any = Http.getInstance().post(`/productplans/${context.productplan}/eestartplan`,data,isloading);
+            return res;
+    }
+
+    /**
+     * GetOldPlanName接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductPlanServiceBase
+     */
+    public async GetOldPlanName(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productplan){
+            let masterData:any = {};
+        let tasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
+            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
+            if(tasksData && tasksData.length && tasksData.length > 0){
+                tasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.tasks = tasksData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/getoldplanname`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks?res.data.tasks:[]));
+
+            return res;
+        }
+            let res:any = Http.getInstance().post(`/productplans/${context.productplan}/getoldplanname`,data,isloading);
             return res;
     }
 
@@ -255,9 +682,26 @@ export class ProductPlanServiceBase extends EntityService {
     public async ImportPlanTemplet(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.productplan){
             let masterData:any = {};
+        let tasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
+            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
+            if(tasksData && tasksData.length && tasksData.length > 0){
+                tasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.tasks = tasksData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/importplantemplet`,data,isloading);
-            
+                        this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks?res.data.tasks:[]));
+
             return res;
         }
             let res:any = Http.getInstance().post(`/productplans/${context.productplan}/importplantemplet`,data,isloading);
@@ -276,9 +720,26 @@ export class ProductPlanServiceBase extends EntityService {
     public async LinkBug(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.productplan){
             let masterData:any = {};
+        let tasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
+            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
+            if(tasksData && tasksData.length && tasksData.length > 0){
+                tasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.tasks = tasksData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/linkbug`,data,isloading);
-            
+                        this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks?res.data.tasks:[]));
+
             return res;
         }
             let res:any = Http.getInstance().post(`/productplans/${context.productplan}/linkbug`,data,isloading);
@@ -297,12 +758,67 @@ export class ProductPlanServiceBase extends EntityService {
     public async LinkStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.productplan){
             let masterData:any = {};
+        let tasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
+            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
+            if(tasksData && tasksData.length && tasksData.length > 0){
+                tasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.tasks = tasksData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/linkstory`,data,isloading);
-            
+                        this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks?res.data.tasks:[]));
+
             return res;
         }
             let res:any = Http.getInstance().post(`/productplans/${context.productplan}/linkstory`,data,isloading);
+            return res;
+    }
+
+    /**
+     * LinkTask接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductPlanServiceBase
+     */
+    public async LinkTask(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && context.productplan){
+            let masterData:any = {};
+        let tasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
+            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
+            if(tasksData && tasksData.length && tasksData.length > 0){
+                tasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.tasks = tasksData;
+            Object.assign(data,masterData);
+            let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/linktask`,data,isloading);
+                        this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks?res.data.tasks:[]));
+
+            return res;
+        }
+            let res:any = Http.getInstance().post(`/productplans/${context.productplan}/linktask`,data,isloading);
             return res;
     }
 
@@ -318,9 +834,26 @@ export class ProductPlanServiceBase extends EntityService {
     public async MobProductPlanCounter(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.productplan){
             let masterData:any = {};
+        let tasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
+            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
+            if(tasksData && tasksData.length && tasksData.length > 0){
+                tasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.tasks = tasksData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().put(`/products/${context.product}/productplans/${context.productplan}/mobproductplancounter`,data,isloading);
-            
+                        this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks?res.data.tasks:[]));
+
             return res;
         }
             let res:any = Http.getInstance().put(`/productplans/${context.productplan}/mobproductplancounter`,data,isloading);
@@ -339,15 +872,49 @@ export class ProductPlanServiceBase extends EntityService {
     public async Save(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.productplan){
             let masterData:any = {};
+        let tasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
+            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
+            if(tasksData && tasksData.length && tasksData.length > 0){
+                tasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.tasks = tasksData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/save`,data,isloading);
-            
+                        this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks?res.data.tasks:[]));
+
             return res;
         }
         let masterData:any = {};
+        let tasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
+            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
+            if(tasksData && tasksData.length && tasksData.length > 0){
+                tasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.tasks = tasksData;
         Object.assign(data,masterData);
             let res:any = await  Http.getInstance().post(`/productplans/${context.productplan}/save`,data,isloading);
-            
+                        this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks?res.data.tasks:[]));
+
             return res;
     }
 
@@ -363,9 +930,26 @@ export class ProductPlanServiceBase extends EntityService {
     public async UnlinkBug(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.productplan){
             let masterData:any = {};
+        let tasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
+            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
+            if(tasksData && tasksData.length && tasksData.length > 0){
+                tasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.tasks = tasksData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/unlinkbug`,data,isloading);
-            
+                        this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks?res.data.tasks:[]));
+
             return res;
         }
             let res:any = Http.getInstance().post(`/productplans/${context.productplan}/unlinkbug`,data,isloading);
@@ -384,13 +968,50 @@ export class ProductPlanServiceBase extends EntityService {
     public async UnlinkStory(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         if(context.product && context.productplan){
             let masterData:any = {};
+        let tasksData:any = [];
+        if(!Object.is(this.tempStorage.getItem(context.srfsessionkey+'_tasks'),'undefined')){
+            tasksData = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_tasks') as any);
+            if(tasksData && tasksData.length && tasksData.length > 0){
+                tasksData.forEach((item:any) => {
+                    if(item.srffrontuf){
+                        if(Object.is(item.srffrontuf,"0")){
+                            item.id = null;
+                            if(item.hasOwnProperty('id') && item.id) item.id = null;
+                        }
+                        delete item.srffrontuf;
+                    }
+                });
+            }
+        }
+        masterData.tasks = tasksData;
             Object.assign(data,masterData);
             let res:any = await Http.getInstance().post(`/products/${context.product}/productplans/${context.productplan}/unlinkstory`,data,isloading);
-            
+                        this.tempStorage.setItem(context.srfsessionkey+'_tasks',JSON.stringify(res.data.tasks?res.data.tasks:[]));
+
             return res;
         }
             let res:any = Http.getInstance().post(`/productplans/${context.productplan}/unlinkstory`,data,isloading);
             return res;
+    }
+
+    /**
+     * FetchChildPlan接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductPlanServiceBase
+     */
+    public async FetchChildPlan(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/fetchchildplan`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/productplans/fetchchildplan`,tempData,isloading);
+        return res;
     }
 
     /**
@@ -474,6 +1095,46 @@ export class ProductPlanServiceBase extends EntityService {
     }
 
     /**
+     * FetchPlanTasks接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductPlanServiceBase
+     */
+    public async FetchPlanTasks(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/fetchplantasks`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/productplans/fetchplantasks`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * FetchProjectApp接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductPlanServiceBase
+     */
+    public async FetchProjectApp(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/fetchprojectapp`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/productplans/fetchprojectapp`,tempData,isloading);
+        return res;
+    }
+
+    /**
      * FetchProjectPlan接口方法
      *
      * @param {*} [context={}]
@@ -490,6 +1151,46 @@ export class ProductPlanServiceBase extends EntityService {
         }
         let tempData:any = JSON.parse(JSON.stringify(data));
         let res:any = Http.getInstance().get(`/productplans/fetchprojectplan`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * FetchRootPlan接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductPlanServiceBase
+     */
+    public async FetchRootPlan(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/fetchrootplan`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/productplans/fetchrootplan`,tempData,isloading);
+        return res;
+    }
+
+    /**
+     * FetchTaskPlan接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof ProductPlanServiceBase
+     */
+    public async FetchTaskPlan(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        if(context.product && true){
+            let tempData:any = JSON.parse(JSON.stringify(data));
+            let res:any = Http.getInstance().get(`/products/${context.product}/productplans/fetchtaskplan`,tempData,isloading);
+            return res;
+        }
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/productplans/fetchtaskplan`,tempData,isloading);
         return res;
     }
 

@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { PickupViewBase } from '@/studio-core';
 import IbizproIndexService from '@/service/ibizpro-index/ibizpro-index-service';
 import IbizproIndexAuthService from '@/authservice/ibizpro-index/ibizpro-index-auth-service';
@@ -128,7 +128,7 @@ export class IbizproIndexIndexPickupViewBase extends PickupViewBase {
      * @type {string}
      * @memberof IbizproIndexIndexPickupViewBase
      */
-	protected viewtag: string = '31dc3f821fafa9e92cc28d217373a67b';
+	protected viewtag: string = '6dec69ecabb41af1b4fffe82c077724a';
 
     /**
      * 视图名称

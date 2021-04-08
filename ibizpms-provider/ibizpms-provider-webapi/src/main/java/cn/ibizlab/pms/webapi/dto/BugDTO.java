@@ -20,11 +20,14 @@ import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * 服务DTO对象[BugDTO]
  */
 @Data
+@ApiModel("Bug")
 public class BugDTO extends DTOBase implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -35,6 +38,7 @@ public class BugDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "severity")
     @JsonProperty("severity")
+    @ApiModelProperty("严重程度")
     private Integer severity;
 
     /**
@@ -43,7 +47,18 @@ public class BugDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "storyversion")
     @JsonProperty("storyversion")
+    @ApiModelProperty("需求版本")
     private Integer storyversion;
+
+    /**
+     * 属性 [BUILDNAME]
+     *
+     */
+    @JSONField(name = "buildname")
+    @JsonProperty("buildname")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("版本名称")
+    private String buildname;
 
     /**
      * 属性 [LINKBUG]
@@ -52,6 +67,7 @@ public class BugDTO extends DTOBase implements Serializable {
     @JSONField(name = "linkbug")
     @JsonProperty("linkbug")
     @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
+    @ApiModelProperty("相关Bug")
     private String linkbug;
 
     /**
@@ -61,7 +77,26 @@ public class BugDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "activateddate" , format="yyyy-MM-dd")
     @JsonProperty("activateddate")
+    @ApiModelProperty("激活日期")
     private Timestamp activateddate;
+
+    /**
+     * 属性 [OVERDUEBUGS]
+     *
+     */
+    @JSONField(name = "overduebugs")
+    @JsonProperty("overduebugs")
+    @ApiModelProperty("过期天数")
+    private Integer overduebugs;
+
+    /**
+     * 属性 [CREATEBUILD]
+     *
+     */
+    @JSONField(name = "createbuild")
+    @JsonProperty("createbuild")
+    @ApiModelProperty("创建版本")
+    private Integer createbuild;
 
     /**
      * 属性 [ASSIGNEDTO]
@@ -70,6 +105,7 @@ public class BugDTO extends DTOBase implements Serializable {
     @JSONField(name = "assignedto")
     @JsonProperty("assignedto")
     @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
+    @ApiModelProperty("指派给")
     private String assignedto;
 
     /**
@@ -79,6 +115,7 @@ public class BugDTO extends DTOBase implements Serializable {
     @JSONField(name = "resolution")
     @JsonProperty("resolution")
     @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
+    @ApiModelProperty("解决方案")
     private String resolution;
 
     /**
@@ -88,7 +125,18 @@ public class BugDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "lastediteddate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("lastediteddate")
+    @ApiModelProperty("修改日期")
     private Timestamp lastediteddate;
+
+    /**
+     * 属性 [MOBIMAGE]
+     *
+     */
+    @JSONField(name = "mobimage")
+    @JsonProperty("mobimage")
+    @Size(min = 0, max = 4000, message = "内容长度必须小于等于[4000]")
+    @ApiModelProperty("移动端图片")
+    private String mobimage;
 
     /**
      * 属性 [RESULT]
@@ -96,6 +144,7 @@ public class BugDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "result")
     @JsonProperty("result")
+    @ApiModelProperty("result")
     private Integer result;
 
     /**
@@ -105,7 +154,28 @@ public class BugDTO extends DTOBase implements Serializable {
     @JSONField(name = "keywords")
     @JsonProperty("keywords")
     @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
+    @ApiModelProperty("关键词")
     private String keywords;
+
+    /**
+     * 属性 [ISFAVORITES]
+     *
+     */
+    @JSONField(name = "isfavorites")
+    @JsonProperty("isfavorites")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("是否收藏")
+    private String isfavorites;
+
+    /**
+     * 属性 [MODULENAME1]
+     *
+     */
+    @JSONField(name = "modulename1")
+    @JsonProperty("modulename1")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("模块名称")
+    private String modulename1;
 
     /**
      * 属性 [CLOSEDBY]
@@ -114,6 +184,7 @@ public class BugDTO extends DTOBase implements Serializable {
     @JSONField(name = "closedby")
     @JsonProperty("closedby")
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("由谁关闭")
     private String closedby;
 
     /**
@@ -123,7 +194,18 @@ public class BugDTO extends DTOBase implements Serializable {
     @JSONField(name = "browser")
     @JsonProperty("browser")
     @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
+    @ApiModelProperty("浏览器")
     private String browser;
+
+    /**
+     * 属性 [NOTICEUSERS]
+     *
+     */
+    @JSONField(name = "noticeusers")
+    @JsonProperty("noticeusers")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("消息通知用户")
+    private String noticeusers;
 
     /**
      * 属性 [STEPS]
@@ -132,6 +214,7 @@ public class BugDTO extends DTOBase implements Serializable {
     @JSONField(name = "steps")
     @JsonProperty("steps")
     @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
+    @ApiModelProperty("重现步骤")
     private String steps;
 
     /**
@@ -141,6 +224,7 @@ public class BugDTO extends DTOBase implements Serializable {
     @JSONField(name = "v2")
     @JsonProperty("v2")
     @Size(min = 0, max = 40, message = "内容长度必须小于等于[40]")
+    @ApiModelProperty("v2")
     private String v2;
 
     /**
@@ -149,7 +233,18 @@ public class BugDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "confirmed")
     @JsonProperty("confirmed")
+    @ApiModelProperty("是否确认")
     private Integer confirmed;
+
+    /**
+     * 属性 [MAILTOCONACT]
+     *
+     */
+    @JSONField(name = "mailtoconact")
+    @JsonProperty("mailtoconact")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("联系人")
+    private String mailtoconact;
 
     /**
      * 属性 [OPENEDBY]
@@ -158,6 +253,7 @@ public class BugDTO extends DTOBase implements Serializable {
     @JSONField(name = "openedby")
     @JsonProperty("openedby")
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("由谁创建")
     private String openedby;
 
     /**
@@ -166,6 +262,7 @@ public class BugDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "activatedcount")
     @JsonProperty("activatedcount")
+    @ApiModelProperty("激活次数")
     private Integer activatedcount;
 
     /**
@@ -175,6 +272,7 @@ public class BugDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "openeddate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("openeddate")
+    @ApiModelProperty("创建日期")
     private Timestamp openeddate;
 
     /**
@@ -184,6 +282,7 @@ public class BugDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "closeddate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("closeddate")
+    @ApiModelProperty("关闭日期")
     private Timestamp closeddate;
 
     /**
@@ -193,6 +292,7 @@ public class BugDTO extends DTOBase implements Serializable {
     @JSONField(name = "mailto")
     @JsonProperty("mailto")
     @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
+    @ApiModelProperty("抄送给")
     private String mailto;
 
     /**
@@ -202,6 +302,7 @@ public class BugDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "assigneddate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("assigneddate")
+    @ApiModelProperty("指派日期")
     private Timestamp assigneddate;
 
     /**
@@ -211,6 +312,7 @@ public class BugDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "deadline" , format="yyyy-MM-dd")
     @JsonProperty("deadline")
+    @ApiModelProperty("截止日期")
     private Timestamp deadline;
 
     /**
@@ -220,7 +322,18 @@ public class BugDTO extends DTOBase implements Serializable {
     @JSONField(name = "color")
     @JsonProperty("color")
     @Size(min = 0, max = 7, message = "内容长度必须小于等于[7]")
+    @ApiModelProperty("标题颜色")
     private String color;
+
+    /**
+     * 属性 [COMMENT]
+     *
+     */
+    @JSONField(name = "comment")
+    @JsonProperty("comment")
+    @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
+    @ApiModelProperty("备注")
+    private String comment;
 
     /**
      * 属性 [RESOLVEDDATE]
@@ -229,6 +342,7 @@ public class BugDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "resolveddate" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("resolveddate")
+    @ApiModelProperty("解决日期")
     private Timestamp resolveddate;
 
     /**
@@ -238,6 +352,7 @@ public class BugDTO extends DTOBase implements Serializable {
     @JSONField(name = "type")
     @JsonProperty("type")
     @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
+    @ApiModelProperty("Bug类型")
     private String type;
 
     /**
@@ -247,6 +362,7 @@ public class BugDTO extends DTOBase implements Serializable {
     @JSONField(name = "status")
     @JsonProperty("status")
     @Size(min = 0, max = 8, message = "内容长度必须小于等于[8]")
+    @ApiModelProperty("Bug状态")
     private String status;
 
     /**
@@ -256,7 +372,38 @@ public class BugDTO extends DTOBase implements Serializable {
     @JSONField(name = "openedbuild")
     @JsonProperty("openedbuild")
     @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
+    @ApiModelProperty("影响版本")
     private String openedbuild;
+
+    /**
+     * 属性 [DELAYRESOLVE]
+     *
+     */
+    @JSONField(name = "delayresolve")
+    @JsonProperty("delayresolve")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("延期解决")
+    private String delayresolve;
+
+    /**
+     * 属性 [FILES]
+     *
+     */
+    @JSONField(name = "files")
+    @JsonProperty("files")
+    @Size(min = 0, max = 1000, message = "内容长度必须小于等于[1000]")
+    @ApiModelProperty("附件")
+    private String files;
+
+    /**
+     * 属性 [MAILTOPK]
+     *
+     */
+    @JSONField(name = "mailtopk")
+    @JsonProperty("mailtopk")
+    @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
+    @ApiModelProperty("抄送给")
+    private String mailtopk;
 
     /**
      * 属性 [V1]
@@ -265,6 +412,7 @@ public class BugDTO extends DTOBase implements Serializable {
     @JSONField(name = "v1")
     @JsonProperty("v1")
     @Size(min = 0, max = 40, message = "内容长度必须小于等于[40]")
+    @ApiModelProperty("v1")
     private String v1;
 
     /**
@@ -274,6 +422,7 @@ public class BugDTO extends DTOBase implements Serializable {
     @JSONField(name = "deleted")
     @JsonProperty("deleted")
     @Size(min = 0, max = 1, message = "内容长度必须小于等于[1]")
+    @ApiModelProperty("已删除")
     private String deleted;
 
     /**
@@ -283,6 +432,7 @@ public class BugDTO extends DTOBase implements Serializable {
     @JSONField(name = "lines")
     @JsonProperty("lines")
     @Size(min = 0, max = 10, message = "内容长度必须小于等于[10]")
+    @ApiModelProperty("lines")
     private String lines;
 
     /**
@@ -292,7 +442,18 @@ public class BugDTO extends DTOBase implements Serializable {
     @JSONField(name = "substatus")
     @JsonProperty("substatus")
     @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
+    @ApiModelProperty("子状态")
     private String substatus;
+
+    /**
+     * 属性 [BUILDPROJECT]
+     *
+     */
+    @JSONField(name = "buildproject")
+    @JsonProperty("buildproject")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("版本项目")
+    private String buildproject;
 
     /**
      * 属性 [ID]
@@ -301,7 +462,18 @@ public class BugDTO extends DTOBase implements Serializable {
     @JSONField(name = "id")
     @JsonProperty("id")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("Bug编号")
     private Long id;
+
+    /**
+     * 属性 [DELAY]
+     *
+     */
+    @JSONField(name = "delay")
+    @JsonProperty("delay")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("延期")
+    private String delay;
 
     /**
      * 属性 [FOUND]
@@ -310,6 +482,7 @@ public class BugDTO extends DTOBase implements Serializable {
     @JSONField(name = "found")
     @JsonProperty("found")
     @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
+    @ApiModelProperty("found")
     private String found;
 
     /**
@@ -319,6 +492,7 @@ public class BugDTO extends DTOBase implements Serializable {
     @JSONField(name = "resolvedby")
     @JsonProperty("resolvedby")
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("解决者")
     private String resolvedby;
 
     /**
@@ -328,6 +502,7 @@ public class BugDTO extends DTOBase implements Serializable {
     @JSONField(name = "resolvedbuild")
     @JsonProperty("resolvedbuild")
     @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
+    @ApiModelProperty("解决版本")
     private String resolvedbuild;
 
     /**
@@ -336,6 +511,7 @@ public class BugDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "pri")
     @JsonProperty("pri")
+    @ApiModelProperty("优先级")
     private Integer pri;
 
     /**
@@ -345,6 +521,7 @@ public class BugDTO extends DTOBase implements Serializable {
     @JSONField(name = "os")
     @JsonProperty("os")
     @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
+    @ApiModelProperty("操作系统")
     private String os;
 
     /**
@@ -354,6 +531,7 @@ public class BugDTO extends DTOBase implements Serializable {
     @JSONField(name = "hardware")
     @JsonProperty("hardware")
     @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
+    @ApiModelProperty("hardware")
     private String hardware;
 
     /**
@@ -363,6 +541,7 @@ public class BugDTO extends DTOBase implements Serializable {
     @JSONField(name = "lasteditedby")
     @JsonProperty("lasteditedby")
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("最后修改者")
     private String lasteditedby;
 
     /**
@@ -373,6 +552,7 @@ public class BugDTO extends DTOBase implements Serializable {
     @JsonProperty("title")
     @NotBlank(message = "[Bug标题]不允许为空!")
     @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
+    @ApiModelProperty("Bug标题")
     private String title;
 
     /**
@@ -382,7 +562,38 @@ public class BugDTO extends DTOBase implements Serializable {
     @JSONField(name = "productname")
     @JsonProperty("productname")
     @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
+    @ApiModelProperty("产品")
     private String productname;
+
+    /**
+     * 属性 [BRANCHNAME]
+     *
+     */
+    @JSONField(name = "branchname")
+    @JsonProperty("branchname")
+    @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
+    @ApiModelProperty("平台/分支")
+    private String branchname;
+
+    /**
+     * 属性 [TASKNAME]
+     *
+     */
+    @JSONField(name = "taskname")
+    @JsonProperty("taskname")
+    @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
+    @ApiModelProperty("相关任务")
+    private String taskname;
+
+    /**
+     * 属性 [CASENAME]
+     *
+     */
+    @JSONField(name = "casename")
+    @JsonProperty("casename")
+    @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
+    @ApiModelProperty("相关用例")
+    private String casename;
 
     /**
      * 属性 [PROJECTNAME]
@@ -391,6 +602,7 @@ public class BugDTO extends DTOBase implements Serializable {
     @JSONField(name = "projectname")
     @JsonProperty("projectname")
     @Size(min = 0, max = 90, message = "内容长度必须小于等于[90]")
+    @ApiModelProperty("项目")
     private String projectname;
 
     /**
@@ -400,6 +612,7 @@ public class BugDTO extends DTOBase implements Serializable {
     @JSONField(name = "storyname")
     @JsonProperty("storyname")
     @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
+    @ApiModelProperty("相关需求")
     private String storyname;
 
     /**
@@ -408,6 +621,7 @@ public class BugDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "caseversion")
     @JsonProperty("caseversion")
+    @ApiModelProperty("用例版本")
     private Integer caseversion;
 
     /**
@@ -417,7 +631,18 @@ public class BugDTO extends DTOBase implements Serializable {
     @JSONField(name = "repotype")
     @JsonProperty("repotype")
     @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
+    @ApiModelProperty("代码类型")
     private String repotype;
+
+    /**
+     * 属性 [MODULENAME]
+     *
+     */
+    @JSONField(name = "modulename")
+    @JsonProperty("modulename")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("模块名称")
+    private String modulename;
 
     /**
      * 属性 [TOSTORY]
@@ -426,6 +651,7 @@ public class BugDTO extends DTOBase implements Serializable {
     @JSONField(name = "tostory")
     @JsonProperty("tostory")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("转需求")
     private Long tostory;
 
     /**
@@ -435,6 +661,7 @@ public class BugDTO extends DTOBase implements Serializable {
     @JSONField(name = "entry")
     @JsonProperty("entry")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("应用")
     private Long entry;
 
     /**
@@ -444,6 +671,7 @@ public class BugDTO extends DTOBase implements Serializable {
     @JSONField(name = "product")
     @JsonProperty("product")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("所属产品")
     private Long product;
 
     /**
@@ -453,6 +681,7 @@ public class BugDTO extends DTOBase implements Serializable {
     @JSONField(name = "totask")
     @JsonProperty("totask")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("转任务")
     private Long totask;
 
     /**
@@ -462,6 +691,7 @@ public class BugDTO extends DTOBase implements Serializable {
     @JSONField(name = "plan")
     @JsonProperty("plan")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("所属计划")
     private Long plan;
 
     /**
@@ -471,6 +701,7 @@ public class BugDTO extends DTOBase implements Serializable {
     @JSONField(name = "module")
     @JsonProperty("module")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("所属模块")
     private Long module;
 
     /**
@@ -480,6 +711,7 @@ public class BugDTO extends DTOBase implements Serializable {
     @JSONField(name = "branch")
     @JsonProperty("branch")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("平台/分支")
     private Long branch;
 
     /**
@@ -489,6 +721,7 @@ public class BugDTO extends DTOBase implements Serializable {
     @JSONField(name = "duplicatebug")
     @JsonProperty("duplicatebug")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("重复ID")
     private Long duplicatebug;
 
     /**
@@ -498,6 +731,7 @@ public class BugDTO extends DTOBase implements Serializable {
     @JSONField(name = "repo")
     @JsonProperty("repo")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("代码")
     private Long repo;
 
     /**
@@ -507,6 +741,7 @@ public class BugDTO extends DTOBase implements Serializable {
     @JSONField(name = "story")
     @JsonProperty("story")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("相关需求")
     private Long story;
 
     /**
@@ -516,6 +751,7 @@ public class BugDTO extends DTOBase implements Serializable {
     @JSONField(name = "ibizcase")
     @JsonProperty("ibizcase")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("相关用例")
     private Long ibizcase;
 
     /**
@@ -525,6 +761,7 @@ public class BugDTO extends DTOBase implements Serializable {
     @JSONField(name = "project")
     @JsonProperty("project")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("所属项目")
     private Long project;
 
     /**
@@ -534,6 +771,7 @@ public class BugDTO extends DTOBase implements Serializable {
     @JSONField(name = "task")
     @JsonProperty("task")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("相关任务")
     private Long task;
 
     /**
@@ -543,167 +781,8 @@ public class BugDTO extends DTOBase implements Serializable {
     @JSONField(name = "testtask")
     @JsonProperty("testtask")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("测试单")
     private Long testtask;
-
-    /**
-     * 属性 [COMMENT]
-     *
-     */
-    @JSONField(name = "comment")
-    @JsonProperty("comment")
-    @Size(min = 0, max = 1048576, message = "内容长度必须小于等于[1048576]")
-    private String comment;
-
-    /**
-     * 属性 [TASKNAME]
-     *
-     */
-    @JSONField(name = "taskname")
-    @JsonProperty("taskname")
-    @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
-    private String taskname;
-
-    /**
-     * 属性 [MODULENAME]
-     *
-     */
-    @JSONField(name = "modulename")
-    @JsonProperty("modulename")
-    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
-    private String modulename;
-
-    /**
-     * 属性 [BRANCHNAME]
-     *
-     */
-    @JSONField(name = "branchname")
-    @JsonProperty("branchname")
-    @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
-    private String branchname;
-
-    /**
-     * 属性 [MODULENAME1]
-     *
-     */
-    @JSONField(name = "modulename1")
-    @JsonProperty("modulename1")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String modulename1;
-
-    /**
-     * 属性 [FILES]
-     *
-     */
-    @JSONField(name = "files")
-    @JsonProperty("files")
-    @Size(min = 0, max = 1000, message = "内容长度必须小于等于[1000]")
-    private String files;
-
-    /**
-     * 属性 [MOBIMAGE]
-     *
-     */
-    @JSONField(name = "mobimage")
-    @JsonProperty("mobimage")
-    @Size(min = 0, max = 4000, message = "内容长度必须小于等于[4000]")
-    private String mobimage;
-
-    /**
-     * 属性 [ISFAVORITES]
-     *
-     */
-    @JSONField(name = "isfavorites")
-    @JsonProperty("isfavorites")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String isfavorites;
-
-    /**
-     * 属性 [BUILDNAME]
-     *
-     */
-    @JSONField(name = "buildname")
-    @JsonProperty("buildname")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String buildname;
-
-    /**
-     * 属性 [BUILDPROJECT]
-     *
-     */
-    @JSONField(name = "buildproject")
-    @JsonProperty("buildproject")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String buildproject;
-
-    /**
-     * 属性 [CREATEBUILD]
-     *
-     */
-    @JSONField(name = "createbuild")
-    @JsonProperty("createbuild")
-    private Integer createbuild;
-
-    /**
-     * 属性 [OVERDUEBUGS]
-     *
-     */
-    @JSONField(name = "overduebugs")
-    @JsonProperty("overduebugs")
-    private Integer overduebugs;
-
-    /**
-     * 属性 [CASENAME]
-     *
-     */
-    @JSONField(name = "casename")
-    @JsonProperty("casename")
-    @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
-    private String casename;
-
-    /**
-     * 属性 [DELAY]
-     *
-     */
-    @JSONField(name = "delay")
-    @JsonProperty("delay")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String delay;
-
-    /**
-     * 属性 [NOTICEUSERS]
-     *
-     */
-    @JSONField(name = "noticeusers")
-    @JsonProperty("noticeusers")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String noticeusers;
-
-    /**
-     * 属性 [MAILTOPK]
-     *
-     */
-    @JSONField(name = "mailtopk")
-    @JsonProperty("mailtopk")
-    @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
-    private String mailtopk;
-
-    /**
-     * 属性 [MAILTOCONACT]
-     *
-     */
-    @JSONField(name = "mailtoconact")
-    @JsonProperty("mailtoconact")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String mailtoconact;
-
-    /**
-     * 属性 [DELAYRESOLVE]
-     *
-     */
-    @JSONField(name = "delayresolve")
-    @JsonProperty("delayresolve")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String delayresolve;
 
 
     /**

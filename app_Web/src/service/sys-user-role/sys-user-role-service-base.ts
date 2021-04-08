@@ -1,3 +1,4 @@
+import { Environment } from '@/environments/environment';
 import { Http } from '@/utils';
 import { Util } from '@/utils';
 import EntityService from '../entity-service';
@@ -49,7 +50,7 @@ export default class SysUserRoleServiceBase extends EntityService {
      * @memberof SysUserRoleServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().get(`/sysuserroles/${context.sysuserrole}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/sysuserroles/${context.sysuserrole}/select`,isloading);
             
             return res;
     }
@@ -105,7 +106,7 @@ export default class SysUserRoleServiceBase extends EntityService {
      * @memberof SysUserRoleServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().delete(`/sysuserroles/${context.sysuserrole}`,isloading);
+            let res:any = await Http.getInstance().delete(`/sysuserroles/${context.sysuserrole}`,isloading);
             return res;
     }
 
@@ -134,7 +135,10 @@ export default class SysUserRoleServiceBase extends EntityService {
      * @memberof SysUserRoleServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/sysuserroles/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.sysuserrole) delete tempData.sysuserrole;
+        if(tempData.userroleid) delete tempData.userroleid;
+        let res:any = await  Http.getInstance().get(`/sysuserroles/getdraft`,tempData,isloading);
         res.data.sysuserrole = data.sysuserrole;
         
         return res;
@@ -150,7 +154,7 @@ export default class SysUserRoleServiceBase extends EntityService {
      * @memberof SysUserRoleServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/sysuserroles/${context.sysuserrole}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/sysuserroles/${context.sysuserrole}/checkkey`,data,isloading);
             return res;
     }
 
@@ -182,7 +186,7 @@ export default class SysUserRoleServiceBase extends EntityService {
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/sysuserroles/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/sysuserroles/fetchdefault`,tempData,isloading);
         return res;
     }
 

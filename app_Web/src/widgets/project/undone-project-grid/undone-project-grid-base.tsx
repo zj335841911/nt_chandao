@@ -337,7 +337,7 @@ export class UndoneProjectGridBase extends GridControlBase {
         return super.formatExcelData(filterVal, jsonData, [
             {
                 name: 'openedby',
-                srfkey: 'UserRealName',
+                srfkey: 'UserRealName_Gird',
                 codelistType : 'DYNAMIC',
                 textSeparator: ',',
                 renderMode: 'string',

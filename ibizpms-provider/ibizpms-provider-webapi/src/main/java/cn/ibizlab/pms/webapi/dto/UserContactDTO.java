@@ -20,11 +20,14 @@ import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * 服务DTO对象[UserContactDTO]
  */
 @Data
+@ApiModel("用户联系方式")
 public class UserContactDTO extends DTOBase implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -36,6 +39,7 @@ public class UserContactDTO extends DTOBase implements Serializable {
     @JSONField(name = "userlist")
     @JsonProperty("userlist")
     @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
+    @ApiModelProperty("userList")
     private String userlist;
 
     /**
@@ -45,6 +49,7 @@ public class UserContactDTO extends DTOBase implements Serializable {
     @JSONField(name = "listname")
     @JsonProperty("listname")
     @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("标题")
     private String listname;
 
     /**
@@ -54,6 +59,7 @@ public class UserContactDTO extends DTOBase implements Serializable {
     @JSONField(name = "id")
     @JsonProperty("id")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("id")
     private Long id;
 
     /**
@@ -63,6 +69,7 @@ public class UserContactDTO extends DTOBase implements Serializable {
     @JSONField(name = "account")
     @JsonProperty("account")
     @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
+    @ApiModelProperty("account")
     private String account;
 
 

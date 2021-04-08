@@ -20,8 +20,8 @@
                     </div>
                 </div>
                 <div class="mdview-tools-select">
-                    <app-van-select  name="n_severity_eq" title="严重程度" :items="[{value:'1',label:'1'},{value:'2',label:'2'},{value:'3',label:'3'},{value:'4',label:'4'},]" @onConfirm="onCategory"></app-van-select>
                     <app-van-select  name="n_resolution_eq" title="解决方案" :items="[{value:'bydesign',label:'设计如此'},{value:'duplicate',label:'重复Bug'},{value:'external',label:'外部原因'},{value:'fixed',label:'已解决'},{value:'notrepro',label:'无法重现'},{value:'postponed',label:'延期处理'},{value:'willnotfix',label:'不予解决'},{value:'tostory',label:'转为需求'},]" @onConfirm="onCategory"></app-van-select>
+                    <app-van-select  name="n_severity_eq" title="严重程度" :items="[{value:'1',label:'1'},{value:'2',label:'2'},{value:'3',label:'3'},{value:'4',label:'4'},]" @onConfirm="onCategory"></app-van-select>
                 </div>
             </div>
     </app-mob-header>
@@ -173,7 +173,7 @@ export default class BugUsr3MobMDViewBase extends Vue {
 	 * @type {string}
 	 * @memberof BugUsr3MobMDViewBase
 	 */
-	protected viewtag: string = 'eb58c920775bde88c1a32a93982cbfdd';
+	protected viewtag: string = '12184ba400e68252155775975dee71ec';
 
     /**
      * 视图上下文

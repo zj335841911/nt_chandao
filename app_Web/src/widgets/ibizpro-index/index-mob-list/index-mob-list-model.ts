@@ -15,28 +15,28 @@ export default class IndexMobModel {
 	public getDataItems(): any[] {
 		return [
 			{
-				name: 'mdeptid',
-			},
-			{
-				name: 'orgid',
-			},
-			{
-				name: 'color',
-			},
-			{
-				name: 'indexid',
-			},
-			{
 				name: 'indextype',
 				prop: 'indextype',
 				dataType: 'SSCODELIST',
         codelist:{tag:'IndexType',codelistType:'STATIC'},
 			},
 			{
+				name: 'indexname',
+			},
+			{
+				name: 'orgid',
+			},
+			{
+				name: 'indexid',
+			},
+			{
 				name: 'indexdesc',
 			},
 			{
-				name: 'indexname',
+				name: 'color',
+			},
+			{
+				name: 'mdeptid',
 			},
 			{
 				name: 'srfkey',

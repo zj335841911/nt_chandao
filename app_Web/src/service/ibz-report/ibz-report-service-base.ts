@@ -1,3 +1,4 @@
+import { Environment } from '@/environments/environment';
 import { Http } from '@/utils';
 import { Util } from '@/utils';
 import EntityService from '../entity-service';
@@ -49,7 +50,7 @@ export default class IbzReportServiceBase extends EntityService {
      * @memberof IbzReportServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().get(`/ibzreports/${context.ibzreport}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/ibzreports/${context.ibzreport}/select`,isloading);
             
             return res;
     }
@@ -105,7 +106,7 @@ export default class IbzReportServiceBase extends EntityService {
      * @memberof IbzReportServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().delete(`/ibzreports/${context.ibzreport}`,isloading);
+            let res:any = await Http.getInstance().delete(`/ibzreports/${context.ibzreport}`,isloading);
             return res;
     }
 
@@ -134,7 +135,10 @@ export default class IbzReportServiceBase extends EntityService {
      * @memberof IbzReportServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/ibzreports/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.ibzreport) delete tempData.ibzreport;
+        if(tempData.ibzdailyid) delete tempData.ibzdailyid;
+        let res:any = await  Http.getInstance().get(`/ibzreports/getdraft`,tempData,isloading);
         res.data.ibzreport = data.ibzreport;
         
         return res;
@@ -150,7 +154,7 @@ export default class IbzReportServiceBase extends EntityService {
      * @memberof IbzReportServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/ibzreports/${context.ibzreport}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/ibzreports/${context.ibzreport}/checkkey`,data,isloading);
             return res;
     }
 
@@ -164,7 +168,7 @@ export default class IbzReportServiceBase extends EntityService {
      * @memberof IbzReportServiceBase
      */
     public async MyReportINotSubmit(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/ibzreports/${context.ibzreport}/myreportinotsubmit`,data,isloading);
+            let res:any = await Http.getInstance().post(`/ibzreports/${context.ibzreport}/myreportinotsubmit`,data,isloading);
             return res;
     }
 
@@ -178,7 +182,7 @@ export default class IbzReportServiceBase extends EntityService {
      * @memberof IbzReportServiceBase
      */
     public async ReportIReceived(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/ibzreports/${context.ibzreport}/reportireceived`,data,isloading);
+            let res:any = await Http.getInstance().post(`/ibzreports/${context.ibzreport}/reportireceived`,data,isloading);
             return res;
     }
 
@@ -210,7 +214,7 @@ export default class IbzReportServiceBase extends EntityService {
      */
     public async FetchAllReport(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/ibzreports/fetchallreport`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/ibzreports/fetchallreport`,tempData,isloading);
         return res;
     }
 
@@ -239,7 +243,7 @@ export default class IbzReportServiceBase extends EntityService {
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/ibzreports/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/ibzreports/fetchdefault`,tempData,isloading);
         return res;
     }
 
@@ -268,7 +272,7 @@ export default class IbzReportServiceBase extends EntityService {
      */
     public async FetchMyReAllReport(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/ibzreports/fetchmyreallreport`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/ibzreports/fetchmyreallreport`,tempData,isloading);
         return res;
     }
 

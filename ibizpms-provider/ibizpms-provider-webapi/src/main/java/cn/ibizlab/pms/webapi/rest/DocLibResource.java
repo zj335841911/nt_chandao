@@ -72,7 +72,7 @@ public class DocLibResource {
 		DocLib domain  = doclibMapping.toDomain(doclibdto);
         domain .setId(doclib_id);
 		doclibService.update(domain );
-		DocLibDTO dto = doclibMapping.toDto(domain );
+		DocLibDTO dto = doclibMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
@@ -110,8 +110,9 @@ public class DocLibResource {
 
     @ApiOperation(value = "获取文档库草稿", tags = {"文档库" },  notes = "获取文档库草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/doclibs/getdraft")
-    public ResponseEntity<DocLibDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(doclibMapping.toDto(doclibService.getDraft(new DocLib())));
+    public ResponseEntity<DocLibDTO> getDraft(DocLibDTO dto) {
+        DocLib domain = doclibMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(doclibMapping.toDto(doclibService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查文档库", tags = {"文档库" },  notes = "检查文档库")
@@ -132,16 +133,20 @@ public class DocLibResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-DocLib-Collect-all')")
     @ApiOperation(value = "批量处理[收藏]", tags = {"文档库" },  notes = "批量处理[收藏]")
-	@RequestMapping(method = RequestMethod.POST, value = "/doclibs/{doclib_id}/collectbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/doclibs/collectbatch")
     public ResponseEntity<Boolean> collectBatch(@RequestBody List<DocLibDTO> doclibdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(doclibService.collectBatch(doclibMapping.toDomain(doclibdtos)));
+        List<DocLib> domains = doclibMapping.toDomain(doclibdtos);
+        boolean result = doclibService.collectBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasPermission(this.doclibMapping.toDomain(#doclibdto),'pms-DocLib-Save')")
     @ApiOperation(value = "保存文档库", tags = {"文档库" },  notes = "保存文档库")
 	@RequestMapping(method = RequestMethod.POST, value = "/doclibs/save")
-    public ResponseEntity<Boolean> save(@RequestBody DocLibDTO doclibdto) {
-        return ResponseEntity.status(HttpStatus.OK).body(doclibService.save(doclibMapping.toDomain(doclibdto)));
+    public ResponseEntity<DocLibDTO> save(@RequestBody DocLibDTO doclibdto) {
+        DocLib domain = doclibMapping.toDomain(doclibdto);
+        doclibService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(doclibMapping.toDto(domain));
     }
 
     @PreAuthorize("hasPermission(this.doclibMapping.toDomain(#doclibdtos),'pms-DocLib-Save')")
@@ -164,9 +169,11 @@ public class DocLibResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-DocLib-UnCollect-all')")
     @ApiOperation(value = "批量处理[取消收藏]", tags = {"文档库" },  notes = "批量处理[取消收藏]")
-	@RequestMapping(method = RequestMethod.POST, value = "/doclibs/{doclib_id}/uncollectbatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/doclibs/uncollectbatch")
     public ResponseEntity<Boolean> unCollectBatch(@RequestBody List<DocLibDTO> doclibdtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(doclibService.unCollectBatch(doclibMapping.toDomain(doclibdtos)));
+        List<DocLib> domains = doclibMapping.toDomain(doclibdtos);
+        boolean result = doclibService.unCollectBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-DocLib-searchByCustom-all') and hasPermission(#context,'pms-DocLib-Get')")
@@ -366,6 +373,7 @@ public class DocLibResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(doclibMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
 
 
 }

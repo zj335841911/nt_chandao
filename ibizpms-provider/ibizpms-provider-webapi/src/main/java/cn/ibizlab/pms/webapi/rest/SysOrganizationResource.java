@@ -73,7 +73,7 @@ public class SysOrganizationResource {
 		SysOrganization domain  = sysorganizationMapping.toDomain(sysorganizationdto);
         domain .setOrgid(sysorganization_id);
 		sysorganizationService.update(domain );
-		SysOrganizationDTO dto = sysorganizationMapping.toDto(domain );
+		SysOrganizationDTO dto = sysorganizationMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
@@ -111,8 +111,9 @@ public class SysOrganizationResource {
 
     @ApiOperation(value = "获取单位草稿", tags = {"单位" },  notes = "获取单位草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/sysorganizations/getdraft")
-    public ResponseEntity<SysOrganizationDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(sysorganizationMapping.toDto(sysorganizationService.getDraft(new SysOrganization())));
+    public ResponseEntity<SysOrganizationDTO> getDraft(SysOrganizationDTO dto) {
+        SysOrganization domain = sysorganizationMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(sysorganizationMapping.toDto(sysorganizationService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查单位", tags = {"单位" },  notes = "检查单位")
@@ -124,8 +125,10 @@ public class SysOrganizationResource {
     @PreAuthorize("hasPermission(this.sysorganizationMapping.toDomain(#sysorganizationdto),'pms-SysOrganization-Save')")
     @ApiOperation(value = "保存单位", tags = {"单位" },  notes = "保存单位")
 	@RequestMapping(method = RequestMethod.POST, value = "/sysorganizations/save")
-    public ResponseEntity<Boolean> save(@RequestBody SysOrganizationDTO sysorganizationdto) {
-        return ResponseEntity.status(HttpStatus.OK).body(sysorganizationService.save(sysorganizationMapping.toDomain(sysorganizationdto)));
+    public ResponseEntity<SysOrganizationDTO> save(@RequestBody SysOrganizationDTO sysorganizationdto) {
+        SysOrganization domain = sysorganizationMapping.toDomain(sysorganizationdto);
+        sysorganizationService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(sysorganizationMapping.toDto(domain));
     }
 
     @PreAuthorize("hasPermission(this.sysorganizationMapping.toDomain(#sysorganizationdtos),'pms-SysOrganization-Save')")
@@ -157,6 +160,7 @@ public class SysOrganizationResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(sysorganizationMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
 
 
 }

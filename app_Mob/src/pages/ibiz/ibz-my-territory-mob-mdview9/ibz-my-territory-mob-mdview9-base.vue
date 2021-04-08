@@ -123,7 +123,7 @@ export default class IbzMyTerritoryMobMDView9Base extends Vue {
 	 * @type {string}
 	 * @memberof IbzMyTerritoryMobMDView9Base
 	 */
-	protected viewtag: string = '178e7f1dff030873132eca2bda9461a2';
+	protected viewtag: string = '415ccde9624b4f80324c63281a7afe04';
 
     /**
      * 视图上下文

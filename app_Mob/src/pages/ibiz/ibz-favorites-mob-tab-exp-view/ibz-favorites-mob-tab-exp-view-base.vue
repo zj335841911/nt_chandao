@@ -118,7 +118,7 @@ export default class IbzFavoritesMobTabExpViewBase extends Vue {
 	 * @type {string}
 	 * @memberof IbzFavoritesMobTabExpViewBase
 	 */
-	protected viewtag: string = '5d43b04926a6169dfa0d6e8c35d1918b';
+	protected viewtag: string = 'b106ff27c9df980d1f4a72b20072b967';
 
     /**
      * 视图上下文

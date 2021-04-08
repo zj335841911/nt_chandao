@@ -18,9 +18,9 @@ public class SumProducctWeeklyJobHandler implements IJobsHandler {
 
     @Override
     public JobsResponse execute(String tenantId, String param) throws JobsException {
-        cn.ibizlab.pms.core.ibizpro.domain.IbizproProductWeekly entity=new cn.ibizlab.pms.core.ibizpro.domain.IbizproProductWeekly();
-        entity.set("tenantid",tenantId);
-        entity.set("param",param);
+        cn.ibizlab.pms.core.ibizpro.domain.IbizproProductWeekly entity = cn.ibizlab.pms.util.helper.Setting.getEntity(param, new cn.ibizlab.pms.core.ibizpro.domain.IbizproProductWeekly());
+        entity.set("tenantid", tenantId);
+        entity.set("param", param);
         ibizproproductweeklyService.sumProductWeekly(entity);
         log.info("执行 DemoJobHandler tenantId=" + tenantId + ",param=" + param);
         return JobsResponse.ok();

@@ -15,7 +15,20 @@ export default class CaseTreeExpViewtreeexpbarModel {
   public getDataItems(): any[] {
     return [
       {
+        name: 'deleted',
+      },
+      {
+        name: 'ibzlibmodule',
+        prop: 'id',
+      },
+      {
         name: 'branch',
+      },
+      {
+        name: 'isleaf',
+      },
+      {
+        name: 'type',
       },
       {
         name: 'ibizshort',
@@ -24,41 +37,28 @@ export default class CaseTreeExpViewtreeexpbarModel {
         name: 'grade',
       },
       {
-        name: 'order',
-      },
-      {
-        name: 'type',
-      },
-      {
         name: 'collector',
-      },
-      {
-        name: 'ibzlibmodule',
-        prop: 'id',
-      },
-      {
-        name: 'isleaf',
-      },
-      {
-        name: 'owner',
-      },
-      {
-        name: 'name',
-      },
-      {
-        name: 'deleted',
       },
       {
         name: 'path',
       },
       {
-        name: 'parent',
+        name: 'name',
+      },
+      {
+        name: 'owner',
+      },
+      {
+        name: 'order',
       },
       {
         name: 'parentname',
       },
       {
         name: 'root',
+      },
+      {
+        name: 'parent',
       },
     ]
   }

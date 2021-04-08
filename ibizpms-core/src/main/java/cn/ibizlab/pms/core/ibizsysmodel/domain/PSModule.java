@@ -24,6 +24,8 @@ import java.io.Serializable;
 import lombok.*;
 import org.springframework.data.annotation.Transient;
 import cn.ibizlab.pms.util.annotation.Audit;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 import cn.ibizlab.pms.util.domain.EntityClient;
 
@@ -31,6 +33,7 @@ import cn.ibizlab.pms.util.domain.EntityClient;
  * ServiceApi [系统模块] 对象
  */
 @Data
+@ApiModel("系统模块")
 public class PSModule extends EntityClient implements Serializable {
     @Override
     public void modify(String field, Object val) {
@@ -39,151 +42,11 @@ public class PSModule extends EntityClient implements Serializable {
     }
 
     /**
-     * 系统模块名称
-     */
-    @JSONField(name = "psmodulename")
-    @JsonProperty("psmodulename")
-    private String psmodulename;
-
-    /**
-     * 系统模块标识
-     */
-    @DEField(isKeyField = true)
-    @JSONField(name = "psmoduleid")
-    @JsonProperty("psmoduleid")
-    private String psmoduleid;
-
-    /**
-     * 建立人
-     */
-    @DEField(preType = DEPredefinedFieldType.CREATEMAN)
-    @JSONField(name = "createman")
-    @JsonProperty("createman")
-    private String createman;
-
-    /**
-     * 建立时间
-     */
-    @DEField(preType = DEPredefinedFieldType.CREATEDATE)
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
-    @JSONField(name = "createdate" , format = "yyyy-MM-dd HH:mm:ss")
-    @JsonProperty("createdate")
-    private Timestamp createdate;
-
-    /**
-     * 更新时间
-     */
-    @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
-    @JSONField(name = "updatedate" , format = "yyyy-MM-dd HH:mm:ss")
-    @JsonProperty("updatedate")
-    private Timestamp updatedate;
-
-    /**
-     * 更新人
-     */
-    @DEField(preType = DEPredefinedFieldType.UPDATEMAN)
-    @JSONField(name = "updateman")
-    @JsonProperty("updateman")
-    private String updateman;
-
-    /**
-     * 类包参数
-     */
-    @JSONField(name = "clspkgparams")
-    @JsonProperty("clspkgparams")
-    private String clspkgparams;
-
-    /**
-     * 显示颜色
-     */
-    @JSONField(name = "color")
-    @JsonProperty("color")
-    private String color;
-
-    /**
-     * 默认模块
-     */
-    @JSONField(name = "defaultflag")
-    @JsonProperty("defaultflag")
-    private Integer defaultflag;
-
-    /**
-     * 代码名称
-     */
-    @JSONField(name = "codename")
-    @JsonProperty("codename")
-    private String codename;
-
-    /**
-     * 模型锁模式
-     */
-    @JSONField(name = "lockflag")
-    @JsonProperty("lockflag")
-    private Integer lockflag;
-
-    /**
-     * 备注
-     */
-    @JSONField(name = "memo")
-    @JsonProperty("memo")
-    private String memo;
-
-    /**
-     * 模块标记2
-     */
-    @JSONField(name = "modtag2")
-    @JsonProperty("modtag2")
-    private String modtag2;
-
-    /**
-     * 模块标记
-     */
-    @JSONField(name = "modtag")
-    @JsonProperty("modtag")
-    private String modtag;
-
-    /**
-     * 模块标记4
-     */
-    @JSONField(name = "modtag4")
-    @JsonProperty("modtag4")
-    private String modtag4;
-
-    /**
-     * 模块标记3
-     */
-    @JSONField(name = "modtag3")
-    @JsonProperty("modtag3")
-    private String modtag3;
-
-    /**
-     * 模块编号
-     */
-    @JSONField(name = "modulesn")
-    @JsonProperty("modulesn")
-    private String modulesn;
-
-    /**
-     * 排序值
-     */
-    @DEField(defaultValue = "1000", preType = DEPredefinedFieldType.ORDERVALUE)
-    @JSONField(name = "ordervalue")
-    @JsonProperty("ordervalue")
-    private Integer ordervalue;
-
-    /**
-     * 无视图模式
-     */
-    @JSONField(name = "noviewmode")
-    @JsonProperty("noviewmode")
-    private Integer noviewmode;
-
-    /**
      * 代码包名
      */
     @JSONField(name = "pkgcodename")
     @JsonProperty("pkgcodename")
+    @ApiModelProperty("代码包名")
     private String pkgcodename;
 
     /**
@@ -192,192 +55,259 @@ public class PSModule extends EntityClient implements Serializable {
     @DEField(defaultValue = "0")
     @JSONField(name = "subsysmodule")
     @JsonProperty("subsysmodule")
+    @ApiModelProperty("子系统模块")
     private Integer subsysmodule;
 
     /**
-     * 服务API模式
+     * 模块标记4
      */
-    @JSONField(name = "serviceapiflag")
-    @JsonProperty("serviceapiflag")
-    private Integer serviceapiflag;
+    @JSONField(name = "modtag4")
+    @JsonProperty("modtag4")
+    @ApiModelProperty("模块标记4")
+    private String modtag4;
 
     /**
-     * 用户分类
+     * 模块标记3
      */
-    @JSONField(name = "usercat")
-    @JsonProperty("usercat")
-    private String usercat;
+    @JSONField(name = "modtag3")
+    @JsonProperty("modtag3")
+    @ApiModelProperty("模块标记3")
+    private String modtag3;
 
     /**
-     * 子系统类型
+     * 模型锁模式
      */
-    @JSONField(name = "sysreftype")
-    @JsonProperty("sysreftype")
-    private String sysreftype;
+    @JSONField(name = "lockflag")
+    @JsonProperty("lockflag")
+    @ApiModelProperty("模型锁模式")
+    private Integer lockflag;
 
     /**
-     * 用户标记2
+     * 显示颜色
      */
-    @JSONField(name = "usertag2")
-    @JsonProperty("usertag2")
-    private String usertag2;
+    @JSONField(name = "color")
+    @JsonProperty("color")
+    @ApiModelProperty("显示颜色")
+    private String color;
 
     /**
-     * 用户标记
+     * 模块编号
      */
-    @JSONField(name = "usertag")
-    @JsonProperty("usertag")
-    private String usertag;
+    @JSONField(name = "modulesn")
+    @JsonProperty("modulesn")
+    @ApiModelProperty("模块编号")
+    private String modulesn;
 
     /**
-     * 自定义参数
+     * 系统模块名称
      */
-    @JSONField(name = "userparams")
-    @JsonProperty("userparams")
-    private String userparams;
-
-    /**
-     * 用户标记3
-     */
-    @JSONField(name = "usertag3")
-    @JsonProperty("usertag3")
-    private String usertag3;
-
-    /**
-     * 用户标记4
-     */
-    @JSONField(name = "usertag4")
-    @JsonProperty("usertag4")
-    private String usertag4;
-
-    /**
-     * 系统
-     */
-    @JSONField(name = "pssystemid")
-    @JsonProperty("pssystemid")
-    private String pssystemid;
+    @JSONField(name = "psmodulename")
+    @JsonProperty("psmodulename")
+    @ApiModelProperty("系统模块名称")
+    private String psmodulename;
 
     /**
      * 系统
      */
     @JSONField(name = "pssystemname")
     @JsonProperty("pssystemname")
+    @ApiModelProperty("系统")
     private String pssystemname;
 
-
-
-
+    /**
+     * 备注
+     */
+    @JSONField(name = "memo")
+    @JsonProperty("memo")
+    @ApiModelProperty("备注")
+    private String memo;
 
     /**
-     * 设置 [系统模块名称]
+     * 用户标记2
      */
-    public void setPsmodulename(String psmodulename) {
-        this.psmodulename = psmodulename ;
-        this.modify("psmodulename", psmodulename);
-    }
+    @JSONField(name = "usertag2")
+    @JsonProperty("usertag2")
+    @ApiModelProperty("用户标记2")
+    private String usertag2;
 
     /**
-     * 设置 [类包参数]
+     * 默认模块
      */
-    public void setClspkgparams(String clspkgparams) {
-        this.clspkgparams = clspkgparams ;
-        this.modify("clspkgparams", clspkgparams);
-    }
+    @JSONField(name = "defaultflag")
+    @JsonProperty("defaultflag")
+    @ApiModelProperty("默认模块")
+    private Integer defaultflag;
 
     /**
-     * 设置 [显示颜色]
+     * 用户分类
      */
-    public void setColor(String color) {
-        this.color = color ;
-        this.modify("color", color);
-    }
+    @JSONField(name = "usercat")
+    @JsonProperty("usercat")
+    @ApiModelProperty("用户分类")
+    private String usercat;
 
     /**
-     * 设置 [默认模块]
+     * 类包参数
      */
-    public void setDefaultflag(Integer defaultflag) {
-        this.defaultflag = defaultflag ;
-        this.modify("defaultflag", defaultflag);
-    }
+    @JSONField(name = "clspkgparams")
+    @JsonProperty("clspkgparams")
+    @ApiModelProperty("类包参数")
+    private String clspkgparams;
 
     /**
-     * 设置 [代码名称]
+     * 用户标记
      */
-    public void setCodename(String codename) {
-        this.codename = codename ;
-        this.modify("codename", codename);
-    }
+    @JSONField(name = "usertag")
+    @JsonProperty("usertag")
+    @ApiModelProperty("用户标记")
+    private String usertag;
 
     /**
-     * 设置 [模型锁模式]
+     * 代码名称
      */
-    public void setLockflag(Integer lockflag) {
-        this.lockflag = lockflag ;
-        this.modify("lockflag", lockflag);
-    }
+    @JSONField(name = "codename")
+    @JsonProperty("codename")
+    @ApiModelProperty("代码名称")
+    private String codename;
 
     /**
-     * 设置 [备注]
+     * 自定义参数
      */
-    public void setMemo(String memo) {
-        this.memo = memo ;
-        this.modify("memo", memo);
-    }
+    @JSONField(name = "userparams")
+    @JsonProperty("userparams")
+    @ApiModelProperty("自定义参数")
+    private String userparams;
 
     /**
-     * 设置 [模块标记2]
+     * 模块标记2
      */
-    public void setModtag2(String modtag2) {
-        this.modtag2 = modtag2 ;
-        this.modify("modtag2", modtag2);
-    }
+    @JSONField(name = "modtag2")
+    @JsonProperty("modtag2")
+    @ApiModelProperty("模块标记2")
+    private String modtag2;
 
     /**
-     * 设置 [模块标记]
+     * 系统模块标识
      */
-    public void setModtag(String modtag) {
-        this.modtag = modtag ;
-        this.modify("modtag", modtag);
-    }
+    @DEField(isKeyField = true)
+    @JSONField(name = "psmoduleid")
+    @JsonProperty("psmoduleid")
+    @ApiModelProperty("系统模块标识")
+    private String psmoduleid;
 
     /**
-     * 设置 [模块标记4]
+     * 模块标记
      */
-    public void setModtag4(String modtag4) {
-        this.modtag4 = modtag4 ;
-        this.modify("modtag4", modtag4);
-    }
+    @JSONField(name = "modtag")
+    @JsonProperty("modtag")
+    @ApiModelProperty("模块标记")
+    private String modtag;
 
     /**
-     * 设置 [模块标记3]
+     * 更新时间
      */
-    public void setModtag3(String modtag3) {
-        this.modtag3 = modtag3 ;
-        this.modify("modtag3", modtag3);
-    }
+    @DEField(preType = DEPredefinedFieldType.UPDATEDATE)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "updatedate" , format = "yyyy-MM-dd HH:mm:ss")
+    @JsonProperty("updatedate")
+    @ApiModelProperty("更新时间")
+    private Timestamp updatedate;
 
     /**
-     * 设置 [模块编号]
+     * 服务API模式
      */
-    public void setModulesn(String modulesn) {
-        this.modulesn = modulesn ;
-        this.modify("modulesn", modulesn);
-    }
+    @JSONField(name = "serviceapiflag")
+    @JsonProperty("serviceapiflag")
+    @ApiModelProperty("服务API模式")
+    private Integer serviceapiflag;
 
     /**
-     * 设置 [无视图模式]
+     * 更新人
      */
-    public void setNoviewmode(Integer noviewmode) {
-        this.noviewmode = noviewmode ;
-        this.modify("noviewmode", noviewmode);
-    }
+    @DEField(preType = DEPredefinedFieldType.UPDATEMAN)
+    @JSONField(name = "updateman")
+    @JsonProperty("updateman")
+    @ApiModelProperty("更新人")
+    private String updateman;
+
+    /**
+     * 排序值
+     */
+    @DEField(defaultValue = "1000", preType = DEPredefinedFieldType.ORDERVALUE)
+    @JSONField(name = "ordervalue")
+    @JsonProperty("ordervalue")
+    @ApiModelProperty("排序值")
+    private Integer ordervalue;
+
+    /**
+     * 用户标记3
+     */
+    @JSONField(name = "usertag3")
+    @JsonProperty("usertag3")
+    @ApiModelProperty("用户标记3")
+    private String usertag3;
+
+    /**
+     * 无视图模式
+     */
+    @JSONField(name = "noviewmode")
+    @JsonProperty("noviewmode")
+    @ApiModelProperty("无视图模式")
+    private Integer noviewmode;
+
+    /**
+     * 建立人
+     */
+    @DEField(preType = DEPredefinedFieldType.CREATEMAN)
+    @JSONField(name = "createman")
+    @JsonProperty("createman")
+    @ApiModelProperty("建立人")
+    private String createman;
+
+    /**
+     * 系统
+     */
+    @JSONField(name = "pssystemid")
+    @JsonProperty("pssystemid")
+    @ApiModelProperty("系统")
+    private String pssystemid;
+
+    /**
+     * 用户标记4
+     */
+    @JSONField(name = "usertag4")
+    @JsonProperty("usertag4")
+    @ApiModelProperty("用户标记4")
+    private String usertag4;
+
+    /**
+     * 子系统类型
+     */
+    @JSONField(name = "sysreftype")
+    @JsonProperty("sysreftype")
+    @ApiModelProperty("子系统类型")
+    private String sysreftype;
+
+    /**
+     * 建立时间
+     */
+    @DEField(preType = DEPredefinedFieldType.CREATEDATE)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", locale = "zh", timezone = "GMT+8")
+    @JSONField(name = "createdate" , format = "yyyy-MM-dd HH:mm:ss")
+    @JsonProperty("createdate")
+    @ApiModelProperty("建立时间")
+    private Timestamp createdate;
+
+
+
+
 
     /**
      * 设置 [代码包名]
      */
     public void setPkgcodename(String pkgcodename) {
         this.pkgcodename = pkgcodename ;
-        this.modify("pkgcodename", pkgcodename);
+        this.modify("pkgcodename",pkgcodename);
     }
 
     /**
@@ -385,79 +315,55 @@ public class PSModule extends EntityClient implements Serializable {
      */
     public void setSubsysmodule(Integer subsysmodule) {
         this.subsysmodule = subsysmodule ;
-        this.modify("subsysmodule", subsysmodule);
+        this.modify("subsysmodule",subsysmodule);
     }
 
     /**
-     * 设置 [服务API模式]
+     * 设置 [模块标记4]
      */
-    public void setServiceapiflag(Integer serviceapiflag) {
-        this.serviceapiflag = serviceapiflag ;
-        this.modify("serviceapiflag", serviceapiflag);
+    public void setModtag4(String modtag4) {
+        this.modtag4 = modtag4 ;
+        this.modify("modtag4",modtag4);
     }
 
     /**
-     * 设置 [用户分类]
+     * 设置 [模块标记3]
      */
-    public void setUsercat(String usercat) {
-        this.usercat = usercat ;
-        this.modify("usercat", usercat);
+    public void setModtag3(String modtag3) {
+        this.modtag3 = modtag3 ;
+        this.modify("modtag3",modtag3);
     }
 
     /**
-     * 设置 [子系统类型]
+     * 设置 [模型锁模式]
      */
-    public void setSysreftype(String sysreftype) {
-        this.sysreftype = sysreftype ;
-        this.modify("sysreftype", sysreftype);
+    public void setLockflag(Integer lockflag) {
+        this.lockflag = lockflag ;
+        this.modify("lockflag",lockflag);
     }
 
     /**
-     * 设置 [用户标记2]
+     * 设置 [显示颜色]
      */
-    public void setUsertag2(String usertag2) {
-        this.usertag2 = usertag2 ;
-        this.modify("usertag2", usertag2);
+    public void setColor(String color) {
+        this.color = color ;
+        this.modify("color",color);
     }
 
     /**
-     * 设置 [用户标记]
+     * 设置 [模块编号]
      */
-    public void setUsertag(String usertag) {
-        this.usertag = usertag ;
-        this.modify("usertag", usertag);
+    public void setModulesn(String modulesn) {
+        this.modulesn = modulesn ;
+        this.modify("modulesn",modulesn);
     }
 
     /**
-     * 设置 [自定义参数]
+     * 设置 [系统模块名称]
      */
-    public void setUserparams(String userparams) {
-        this.userparams = userparams ;
-        this.modify("userparams", userparams);
-    }
-
-    /**
-     * 设置 [用户标记3]
-     */
-    public void setUsertag3(String usertag3) {
-        this.usertag3 = usertag3 ;
-        this.modify("usertag3", usertag3);
-    }
-
-    /**
-     * 设置 [用户标记4]
-     */
-    public void setUsertag4(String usertag4) {
-        this.usertag4 = usertag4 ;
-        this.modify("usertag4", usertag4);
-    }
-
-    /**
-     * 设置 [系统]
-     */
-    public void setPssystemid(String pssystemid) {
-        this.pssystemid = pssystemid ;
-        this.modify("pssystemid", pssystemid);
+    public void setPsmodulename(String psmodulename) {
+        this.psmodulename = psmodulename ;
+        this.modify("psmodulename",psmodulename);
     }
 
     /**
@@ -465,7 +371,135 @@ public class PSModule extends EntityClient implements Serializable {
      */
     public void setPssystemname(String pssystemname) {
         this.pssystemname = pssystemname ;
-        this.modify("pssystemname", pssystemname);
+        this.modify("pssystemname",pssystemname);
+    }
+
+    /**
+     * 设置 [备注]
+     */
+    public void setMemo(String memo) {
+        this.memo = memo ;
+        this.modify("memo",memo);
+    }
+
+    /**
+     * 设置 [用户标记2]
+     */
+    public void setUsertag2(String usertag2) {
+        this.usertag2 = usertag2 ;
+        this.modify("usertag2",usertag2);
+    }
+
+    /**
+     * 设置 [默认模块]
+     */
+    public void setDefaultflag(Integer defaultflag) {
+        this.defaultflag = defaultflag ;
+        this.modify("defaultflag",defaultflag);
+    }
+
+    /**
+     * 设置 [用户分类]
+     */
+    public void setUsercat(String usercat) {
+        this.usercat = usercat ;
+        this.modify("usercat",usercat);
+    }
+
+    /**
+     * 设置 [类包参数]
+     */
+    public void setClspkgparams(String clspkgparams) {
+        this.clspkgparams = clspkgparams ;
+        this.modify("clspkgparams",clspkgparams);
+    }
+
+    /**
+     * 设置 [用户标记]
+     */
+    public void setUsertag(String usertag) {
+        this.usertag = usertag ;
+        this.modify("usertag",usertag);
+    }
+
+    /**
+     * 设置 [代码名称]
+     */
+    public void setCodename(String codename) {
+        this.codename = codename ;
+        this.modify("codename",codename);
+    }
+
+    /**
+     * 设置 [自定义参数]
+     */
+    public void setUserparams(String userparams) {
+        this.userparams = userparams ;
+        this.modify("userparams",userparams);
+    }
+
+    /**
+     * 设置 [模块标记2]
+     */
+    public void setModtag2(String modtag2) {
+        this.modtag2 = modtag2 ;
+        this.modify("modtag2",modtag2);
+    }
+
+    /**
+     * 设置 [模块标记]
+     */
+    public void setModtag(String modtag) {
+        this.modtag = modtag ;
+        this.modify("modtag",modtag);
+    }
+
+    /**
+     * 设置 [服务API模式]
+     */
+    public void setServiceapiflag(Integer serviceapiflag) {
+        this.serviceapiflag = serviceapiflag ;
+        this.modify("serviceapiflag",serviceapiflag);
+    }
+
+    /**
+     * 设置 [用户标记3]
+     */
+    public void setUsertag3(String usertag3) {
+        this.usertag3 = usertag3 ;
+        this.modify("usertag3",usertag3);
+    }
+
+    /**
+     * 设置 [无视图模式]
+     */
+    public void setNoviewmode(Integer noviewmode) {
+        this.noviewmode = noviewmode ;
+        this.modify("noviewmode",noviewmode);
+    }
+
+    /**
+     * 设置 [系统]
+     */
+    public void setPssystemid(String pssystemid) {
+        this.pssystemid = pssystemid ;
+        this.modify("pssystemid",pssystemid);
+    }
+
+    /**
+     * 设置 [用户标记4]
+     */
+    public void setUsertag4(String usertag4) {
+        this.usertag4 = usertag4 ;
+        this.modify("usertag4",usertag4);
+    }
+
+    /**
+     * 设置 [子系统类型]
+     */
+    public void setSysreftype(String sysreftype) {
+        this.sysreftype = sysreftype ;
+        this.modify("sysreftype",sysreftype);
     }
 
     /**
@@ -478,7 +512,7 @@ public class PSModule extends EntityClient implements Serializable {
     @Override
     public <T> T copyTo(T targetEntity, boolean bIncEmpty) {
         this.reset("psmoduleid");
-        return super.copyTo(targetEntity, bIncEmpty);
+        return super.copyTo(targetEntity,bIncEmpty);
     }
 }
 

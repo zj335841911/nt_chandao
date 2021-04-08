@@ -12,4 +12,3 @@ public interface TestModuleMapping extends MappingBase<TestModuleDTO, TestModule
 
 
 }
-

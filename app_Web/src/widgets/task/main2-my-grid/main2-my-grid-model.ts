@@ -191,6 +191,11 @@ export default class Main2MyModel {
           dataType: 'FLOAT',
         },
         {
+          name: 'plan',
+          prop: 'plan',
+          dataType: 'PICKUP',
+        },
+        {
           name: 'left',
           prop: 'left',
           dataType: 'FLOAT',

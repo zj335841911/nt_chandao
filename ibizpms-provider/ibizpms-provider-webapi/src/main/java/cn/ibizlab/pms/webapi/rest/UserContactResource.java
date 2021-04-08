@@ -72,7 +72,7 @@ public class UserContactResource {
 		UserContact domain  = usercontactMapping.toDomain(usercontactdto);
         domain .setId(usercontact_id);
 		usercontactService.update(domain );
-		UserContactDTO dto = usercontactMapping.toDto(domain );
+		UserContactDTO dto = usercontactMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
@@ -110,8 +110,9 @@ public class UserContactResource {
 
     @ApiOperation(value = "获取用户联系方式草稿", tags = {"用户联系方式" },  notes = "获取用户联系方式草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/usercontacts/getdraft")
-    public ResponseEntity<UserContactDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(usercontactMapping.toDto(usercontactService.getDraft(new UserContact())));
+    public ResponseEntity<UserContactDTO> getDraft(UserContactDTO dto) {
+        UserContact domain = usercontactMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(usercontactMapping.toDto(usercontactService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查用户联系方式", tags = {"用户联系方式" },  notes = "检查用户联系方式")
@@ -123,8 +124,10 @@ public class UserContactResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-UserContact-Save-all')")
     @ApiOperation(value = "保存用户联系方式", tags = {"用户联系方式" },  notes = "保存用户联系方式")
 	@RequestMapping(method = RequestMethod.POST, value = "/usercontacts/save")
-    public ResponseEntity<Boolean> save(@RequestBody UserContactDTO usercontactdto) {
-        return ResponseEntity.status(HttpStatus.OK).body(usercontactService.save(usercontactMapping.toDomain(usercontactdto)));
+    public ResponseEntity<UserContactDTO> save(@RequestBody UserContactDTO usercontactdto) {
+        UserContact domain = usercontactMapping.toDomain(usercontactdto);
+        usercontactService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(usercontactMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-UserContact-Save-all')")
@@ -200,6 +203,7 @@ public class UserContactResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(usercontactMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
 
 
 }

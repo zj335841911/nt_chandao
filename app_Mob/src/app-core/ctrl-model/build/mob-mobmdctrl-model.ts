@@ -18,13 +18,13 @@ export class MobModel {
 				name: 'date',
 			},
 			{
-				name: 'name',
+				name: 'builder',
 			},
 			{
 				name: 'productname',
 			},
 			{
-				name: 'builder',
+				name: 'name',
 			},
 			{
 				name: 'project',

@@ -15,12 +15,12 @@ export interface IbzLib {
     desc?: any;
 
     /**
-     * 最后编辑时间
+     * 产品
      *
      * @returns {*}
      * @memberof IbzLib
      */
-    lastediteddate?: any;
+    product?: any;
 
     /**
      * 创建时间
@@ -37,6 +37,22 @@ export interface IbzLib {
      * @memberof IbzLib
      */
     id?: any;
+
+    /**
+     * 最后编辑时间
+     *
+     * @returns {*}
+     * @memberof IbzLib
+     */
+    lastediteddate?: any;
+
+    /**
+     * 由谁创建
+     *
+     * @returns {*}
+     * @memberof IbzLib
+     */
+    addedby?: any;
 
     /**
      * 已删除
@@ -63,26 +79,10 @@ export interface IbzLib {
     type?: any;
 
     /**
-     * 由谁创建
-     *
-     * @returns {*}
-     * @memberof IbzLib
-     */
-    addedby?: any;
-
-    /**
      * 最后编辑人
      *
      * @returns {*}
      * @memberof IbzLib
      */
     lasteditedby?: any;
-
-    /**
-     * 产品
-     *
-     * @returns {*}
-     * @memberof IbzLib
-     */
-    product?: any;
 }

@@ -74,7 +74,7 @@ export class Main_BuildSub2GridBase extends GridControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public grid_uagridcolumn1_u82990f2_click(params: any = {}, tag?: any, $event?: any) {
+    public grid_uagridcolumn1_u7c0c879_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -578,7 +578,7 @@ export class Main_BuildSub2GridBase extends GridControlBase {
 	public uiAction(row: any, tag: any, $event: any): void {
         $event.stopPropagation();
         if(Object.is('unlinkBug_build', tag)) {
-            this.grid_uagridcolumn1_u82990f2_click(row, tag, $event);
+            this.grid_uagridcolumn1_u7c0c879_click(row, tag, $event);
         }
     }
 

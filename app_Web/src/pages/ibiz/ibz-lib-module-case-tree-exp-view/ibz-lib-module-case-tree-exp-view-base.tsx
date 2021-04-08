@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { TreeExpViewBase } from '@/studio-core';
 import IbzLibModuleService from '@/service/ibz-lib-module/ibz-lib-module-service';
 import IbzLibModuleAuthService from '@/authservice/ibz-lib-module/ibz-lib-module-auth-service';
@@ -100,7 +100,7 @@ export class IbzLibModuleCaseTreeExpViewBase extends TreeExpViewBase {
      * @type {string}
      * @memberof IbzLibModuleCaseTreeExpViewBase
      */
-	protected viewtag: string = '99b83386d61eab84cd7d65a445def4ed';
+	protected viewtag: string = '870bc0de83b0395b5977daca546eed1e';
 
     /**
      * 视图名称

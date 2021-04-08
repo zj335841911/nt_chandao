@@ -11,14 +11,14 @@ function getLocaleResourceBase(){
 			type: commonLogic.appcommonhandle("类型",null),
 			lastediteddate: commonLogic.appcommonhandle("最后编辑时间",null),
 			addedby: commonLogic.appcommonhandle("由谁创建",null),
+			casecnt: commonLogic.appcommonhandle("用例数",null),
 			desc: commonLogic.appcommonhandle("描述",null),
 			product: commonLogic.appcommonhandle("所属产品",null),
-			casecnt: commonLogic.appcommonhandle("用例数",null),
 		},
 			views: {
-				editview9: {
+				maindashboardview: {
 					caption: commonLogic.appcommonhandle("测试套件",null),
-					title: commonLogic.appcommonhandle("测试套件编辑视图",null),
+					title: commonLogic.appcommonhandle("测试套件数据看板视图",null),
 				},
 				editview: {
 					caption: commonLogic.appcommonhandle("测试套件",null),
@@ -28,9 +28,9 @@ function getLocaleResourceBase(){
 					caption: commonLogic.appcommonhandle("测试套件",null),
 					title: commonLogic.appcommonhandle("测试套件表格视图",null),
 				},
-				maindashboardview: {
+				editview9: {
 					caption: commonLogic.appcommonhandle("测试套件",null),
-					title: commonLogic.appcommonhandle("测试套件数据看板视图",null),
+					title: commonLogic.appcommonhandle("测试套件编辑视图",null),
 				},
 			},
 			main_form: {

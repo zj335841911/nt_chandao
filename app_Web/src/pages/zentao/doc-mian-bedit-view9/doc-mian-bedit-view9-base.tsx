@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { EditView9Base } from '@/studio-core';
 import DocService from '@/service/doc/doc-service';
 import DocAuthService from '@/authservice/doc/doc-auth-service';
@@ -102,7 +102,7 @@ export class DocMianBEditView9Base extends EditView9Base {
      * @type {string}
      * @memberof DocMianBEditView9Base
      */
-	protected viewtag: string = '0e393401d3992dd5e2d1f435cd2cf63c';
+	protected viewtag: string = '6524537caa86877c2028a06c2665617e';
 
     /**
      * 视图名称

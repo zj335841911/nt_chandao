@@ -203,6 +203,34 @@ mock.onGet(new RegExp(/^\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/([a-zA-Z0-9
     return [status, _items];
 });
 
+// Select
+mock.onGet(new RegExp(/^\/casesteps\/([a-zA-Z0-9\-\;]{1,35})\/select$/)).reply((config: any) => {
+    console.groupCollapsed("实体:casestep 方法: Select");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }    
+    const paramArray:Array<any> = ['id'];
+    const matchArray:any = new RegExp(/^\/casesteps\/([a-zA-Z0-9\-\;]{1,35})\/select$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    let items = mockDatas ? mockDatas : [];
+    let _items = items.find((item: any) => Object.is(item.id, tempValue.id));
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(_items);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, _items];
+});
+
     
 // Create
 mock.onPost(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/stories\/([a-zA-Z0-9\-\;]{1,35})\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/([a-zA-Z0-9\-\;]{1,35})$/)).reply((config: any) => {
@@ -309,6 +337,32 @@ mock.onPost(new RegExp(/^\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/([a-zA-Z0-
     console.groupEnd();
     console.groupEnd();
     return [status, {}];
+});
+        
+// Create
+mock.onPost(new RegExp(/^\/casesteps\/?([a-zA-Z0-9\-\;]{0,35})$/)).reply((config: any) => {
+    console.groupCollapsed("实体:casestep 方法: Create");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }    
+    const paramArray:Array<any> = ['id'];
+    const matchArray:any = new RegExp(/^\/casesteps\/([a-zA-Z0-9\-\;]{1,35})$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(mockDatas[0]);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, mockDatas[0]];
 });
 
     
@@ -418,6 +472,44 @@ mock.onPut(new RegExp(/^\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/([a-zA-Z0-9
     console.groupEnd();
     return [status, {}];
 });
+        
+// Update
+mock.onPut(new RegExp(/^\/casesteps\/?([a-zA-Z0-9\-\;]{0,35})$/)).reply((config: any) => {
+    console.groupCollapsed("实体:casestep 方法: Update");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }    
+    const paramArray:Array<any> = ['id'];
+    const matchArray:any = new RegExp(/^\/casesteps\/([a-zA-Z0-9\-\;]{1,35})$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    //let items = mockDatas ? mockDatas : [];
+    //let _items = items.find((item: any) => Object.is(item.id, tempValue.id));
+      let data = JSON.parse(config.data);
+    mockDatas.forEach((item)=>{
+        if(item['id'] == tempValue['id'] ){
+            for(let value in data){
+              if(item.hasOwnProperty(value)){
+                  item[value] = data[value];
+              }
+            }
+        }
+    })
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(data);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, data];
+});
 
 
 
@@ -481,6 +573,22 @@ mock.onGet(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/cases\/([a-zA-Z0-9\
 
 // GetDraft
 mock.onGet(new RegExp(/^\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/getdraft$/)).reply((config: any) => {
+    console.groupCollapsed("实体:casestep 方法: GetDraft");
+    console.table({url:config.url, method: config.method, data:config.data});
+    // GetDraft
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table({});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, {}];
+});
+
+// GetDraft
+mock.onGet(new RegExp(/^\/casesteps\/getdraft$/)).reply((config: any) => {
     console.groupCollapsed("实体:casestep 方法: GetDraft");
     console.table({url:config.url, method: config.method, data:config.data});
     // GetDraft
@@ -602,6 +710,44 @@ mock.onPost(new RegExp(/^\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/([a-zA-Z0-
     console.groupEnd();
     return [status, {}];
 });
+        
+// CheckKey
+mock.onPost(new RegExp(/^\/casesteps\/?([a-zA-Z0-9\-\;]{0,35})\/checkkey$/)).reply((config: any) => {
+    console.groupCollapsed("实体:casestep 方法: CheckKey");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }    
+    const paramArray:Array<any> = ['id'];
+    const matchArray:any = new RegExp(/^\/casesteps\/([a-zA-Z0-9\-\;]{1,35})\/checkkey$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    //let items = mockDatas ? mockDatas : [];
+    //let _items = items.find((item: any) => Object.is(item.id, tempValue.id));
+      let data = JSON.parse(config.data);
+    mockDatas.forEach((item)=>{
+        if(item['id'] == tempValue['id'] ){
+            for(let value in data){
+              if(item.hasOwnProperty(value)){
+                  item[value] = data[value];
+              }
+            }
+        }
+    })
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(data);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, data];
+});
 
     
 // Save
@@ -709,6 +855,44 @@ mock.onPost(new RegExp(/^\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/([a-zA-Z0-
     console.groupEnd();
     console.groupEnd();
     return [status, {}];
+});
+        
+// Save
+mock.onPost(new RegExp(/^\/casesteps\/?([a-zA-Z0-9\-\;]{0,35})\/save$/)).reply((config: any) => {
+    console.groupCollapsed("实体:casestep 方法: Save");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }    
+    const paramArray:Array<any> = ['id'];
+    const matchArray:any = new RegExp(/^\/casesteps\/([a-zA-Z0-9\-\;]{1,35})\/save$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    //let items = mockDatas ? mockDatas : [];
+    //let _items = items.find((item: any) => Object.is(item.id, tempValue.id));
+      let data = JSON.parse(config.data);
+    mockDatas.forEach((item)=>{
+        if(item['id'] == tempValue['id'] ){
+            for(let value in data){
+              if(item.hasOwnProperty(value)){
+                  item[value] = data[value];
+              }
+            }
+        }
+    })
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(data);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, data];
 });
 
 
@@ -890,6 +1074,50 @@ mock.onGet(new RegExp(/^\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/fetchcurtes
     console.groupEnd();
     return [status, items];
 });
+    
+// FetchCurTest
+mock.onGet(new RegExp(/^\/casesteps\/fetchcurtest$/)).reply((config: any) => {
+    console.groupCollapsed("实体:casestep 方法: FetchCurTest");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(mockDatas);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, mockDatas ? mockDatas : []];
+});
+
+// FetchCurTest
+mock.onGet(new RegExp(/^\/casesteps\/fetchcurtest(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
+    console.groupCollapsed("实体:casestep 方法: FetchCurTest");
+    console.table({url:config.url, method: config.method, data:config.data});
+    if(config.url.includes('page')){
+        let url = config.url.split('?')[1];
+        let params  =  qs.parse(url);
+        Object.assign(config, params);
+    }
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    let total = mockDatas.length;
+    let records: Array<any> = [];
+    if(!config.page || !config.size){
+        records = mockDatas;
+    }else{
+        if((config.page-1)*config.size < total){
+          records = mockDatas.slice(config.page,config.size);
+        }
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(records ?  records : []);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, records ?  records : []];
+});
 
 
 // FetchDefault
@@ -1069,6 +1297,50 @@ mock.onGet(new RegExp(/^\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/fetchdefaul
     console.groupEnd();
     console.groupEnd();
     return [status, items];
+});
+    
+// FetchDefault
+mock.onGet(new RegExp(/^\/casesteps\/fetchdefault$/)).reply((config: any) => {
+    console.groupCollapsed("实体:casestep 方法: FetchDefault");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(mockDatas);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, mockDatas ? mockDatas : []];
+});
+
+// FetchDefault
+mock.onGet(new RegExp(/^\/casesteps\/fetchdefault(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
+    console.groupCollapsed("实体:casestep 方法: FetchDefault");
+    console.table({url:config.url, method: config.method, data:config.data});
+    if(config.url.includes('page')){
+        let url = config.url.split('?')[1];
+        let params  =  qs.parse(url);
+        Object.assign(config, params);
+    }
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    let total = mockDatas.length;
+    let records: Array<any> = [];
+    if(!config.page || !config.size){
+        records = mockDatas;
+    }else{
+        if((config.page-1)*config.size < total){
+          records = mockDatas.slice(config.page,config.size);
+        }
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(records ?  records : []);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, records ?  records : []];
 });
 
 
@@ -1250,6 +1522,50 @@ mock.onGet(new RegExp(/^\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/fetchdefaul
     console.groupEnd();
     return [status, items];
 });
+    
+// FetchDefault1
+mock.onGet(new RegExp(/^\/casesteps\/fetchdefault1$/)).reply((config: any) => {
+    console.groupCollapsed("实体:casestep 方法: FetchDefault1");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(mockDatas);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, mockDatas ? mockDatas : []];
+});
+
+// FetchDefault1
+mock.onGet(new RegExp(/^\/casesteps\/fetchdefault1(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
+    console.groupCollapsed("实体:casestep 方法: FetchDefault1");
+    console.table({url:config.url, method: config.method, data:config.data});
+    if(config.url.includes('page')){
+        let url = config.url.split('?')[1];
+        let params  =  qs.parse(url);
+        Object.assign(config, params);
+    }
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    let total = mockDatas.length;
+    let records: Array<any> = [];
+    if(!config.page || !config.size){
+        records = mockDatas;
+    }else{
+        if((config.page-1)*config.size < total){
+          records = mockDatas.slice(config.page,config.size);
+        }
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(records ?  records : []);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, records ?  records : []];
+});
 
 
 // FetchMob
@@ -1429,6 +1745,50 @@ mock.onGet(new RegExp(/^\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/fetchmob$/)
     console.groupEnd();
     console.groupEnd();
     return [status, items];
+});
+    
+// FetchMob
+mock.onGet(new RegExp(/^\/casesteps\/fetchmob$/)).reply((config: any) => {
+    console.groupCollapsed("实体:casestep 方法: FetchMob");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(mockDatas);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, mockDatas ? mockDatas : []];
+});
+
+// FetchMob
+mock.onGet(new RegExp(/^\/casesteps\/fetchmob(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
+    console.groupCollapsed("实体:casestep 方法: FetchMob");
+    console.table({url:config.url, method: config.method, data:config.data});
+    if(config.url.includes('page')){
+        let url = config.url.split('?')[1];
+        let params  =  qs.parse(url);
+        Object.assign(config, params);
+    }
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    let total = mockDatas.length;
+    let records: Array<any> = [];
+    if(!config.page || !config.size){
+        records = mockDatas;
+    }else{
+        if((config.page-1)*config.size < total){
+          records = mockDatas.slice(config.page,config.size);
+        }
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(records ?  records : []);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, records ?  records : []];
 });
 
 
@@ -1610,6 +1970,50 @@ mock.onGet(new RegExp(/^\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/fetchversio
     console.groupEnd();
     return [status, items];
 });
+    
+// FetchVersion
+mock.onGet(new RegExp(/^\/casesteps\/fetchversion$/)).reply((config: any) => {
+    console.groupCollapsed("实体:casestep 方法: FetchVersion");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(mockDatas);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, mockDatas ? mockDatas : []];
+});
+
+// FetchVersion
+mock.onGet(new RegExp(/^\/casesteps\/fetchversion(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
+    console.groupCollapsed("实体:casestep 方法: FetchVersion");
+    console.table({url:config.url, method: config.method, data:config.data});
+    if(config.url.includes('page')){
+        let url = config.url.split('?')[1];
+        let params  =  qs.parse(url);
+        Object.assign(config, params);
+    }
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    let total = mockDatas.length;
+    let records: Array<any> = [];
+    if(!config.page || !config.size){
+        records = mockDatas;
+    }else{
+        if((config.page-1)*config.size < total){
+          records = mockDatas.slice(config.page,config.size);
+        }
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(records ?  records : []);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, records ?  records : []];
+});
 
 
 // FetchVersions
@@ -1790,7 +2194,51 @@ mock.onGet(new RegExp(/^\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/fetchversio
     console.groupEnd();
     return [status, items];
 });
+    
+// FetchVersions
+mock.onGet(new RegExp(/^\/casesteps\/fetchversions$/)).reply((config: any) => {
+    console.groupCollapsed("实体:casestep 方法: FetchVersions");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(mockDatas);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, mockDatas ? mockDatas : []];
+});
 
+// FetchVersions
+mock.onGet(new RegExp(/^\/casesteps\/fetchversions(\?[\w-./?%&=,]*)*$/)).reply((config: any) => {
+    console.groupCollapsed("实体:casestep 方法: FetchVersions");
+    console.table({url:config.url, method: config.method, data:config.data});
+    if(config.url.includes('page')){
+        let url = config.url.split('?')[1];
+        let params  =  qs.parse(url);
+        Object.assign(config, params);
+    }
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }
+    let total = mockDatas.length;
+    let records: Array<any> = [];
+    if(!config.page || !config.size){
+        records = mockDatas;
+    }else{
+        if((config.page-1)*config.size < total){
+          records = mockDatas.slice(config.page,config.size);
+        }
+    }
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(records ?  records : []);
+    console.groupEnd();
+    console.groupEnd();
+    return [status, records ?  records : []];
+});
+
 // URI参数传递情况未实现
 
 // URI参数传递情况未实现
@@ -1798,6 +2246,7 @@ mock.onGet(new RegExp(/^\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/fetchversio
 // URI参数传递情况未实现
 
 // URI参数传递情况未实现
+// URI参数传递情况未实现
 
 // URI参数传递情况未实现
 
@@ -1805,6 +2254,7 @@ mock.onGet(new RegExp(/^\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/fetchversio
 
 // URI参数传递情况未实现
 
+// URI参数传递情况未实现
 // URI参数传递情况未实现
 
 // URI参数传递情况未实现
@@ -1814,6 +2264,7 @@ mock.onGet(new RegExp(/^\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/fetchversio
 // URI参数传递情况未实现
 
 // URI参数传递情况未实现
+// URI参数传递情况未实现
 
 // URI参数传递情况未实现
 
@@ -1822,6 +2273,7 @@ mock.onGet(new RegExp(/^\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/fetchversio
 // URI参数传递情况未实现
 
 // URI参数传递情况未实现
+// URI参数传递情况未实现
 
 // URI参数传递情况未实现
 
@@ -1829,6 +2281,7 @@ mock.onGet(new RegExp(/^\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/fetchversio
 
 // URI参数传递情况未实现
 
+// URI参数传递情况未实现
 // URI参数传递情况未实现
 
 // URI参数传递情况未实现
@@ -1838,6 +2291,7 @@ mock.onGet(new RegExp(/^\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/fetchversio
 // URI参数传递情况未实现
 
 // URI参数传递情况未实现
+// URI参数传递情况未实现
 
 // URI参数传递情况未实现
 
@@ -1846,6 +2300,7 @@ mock.onGet(new RegExp(/^\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/fetchversio
 // URI参数传递情况未实现
 
 // URI参数传递情况未实现
+// URI参数传递情况未实现
 
 // URI参数传递情况未实现
 
@@ -1853,6 +2308,7 @@ mock.onGet(new RegExp(/^\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/fetchversio
 
 // URI参数传递情况未实现
 
+// URI参数传递情况未实现
 // URI参数传递情况未实现
 
 // URI参数传递情况未实现
@@ -1862,6 +2318,7 @@ mock.onGet(new RegExp(/^\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/fetchversio
 // URI参数传递情况未实现
 
 // URI参数传递情况未实现
+// URI参数传递情况未实现
 
 // URI参数传递情况未实现
 
@@ -1870,6 +2327,7 @@ mock.onGet(new RegExp(/^\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/fetchversio
 // URI参数传递情况未实现
 
 // URI参数传递情况未实现
+// URI参数传递情况未实现
 
 // URI参数传递情况未实现
 
@@ -1877,6 +2335,7 @@ mock.onGet(new RegExp(/^\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/fetchversio
 
 // URI参数传递情况未实现
 
+// URI参数传递情况未实现
 // URI参数传递情况未实现
 
 // URI参数传递情况未实现
@@ -1886,6 +2345,7 @@ mock.onGet(new RegExp(/^\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/fetchversio
 // URI参数传递情况未实现
 
 // URI参数传递情况未实现
+// URI参数传递情况未实现
 
 // URI参数传递情况未实现
 
@@ -1894,6 +2354,7 @@ mock.onGet(new RegExp(/^\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/fetchversio
 // URI参数传递情况未实现
 
 // URI参数传递情况未实现
+// URI参数传递情况未实现
 
 // URI参数传递情况未实现
 
@@ -1901,6 +2362,7 @@ mock.onGet(new RegExp(/^\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/fetchversio
 
 // URI参数传递情况未实现
 
+// URI参数传递情况未实现
 // URI参数传递情况未实现
 
 // URI参数传递情况未实现
@@ -1910,6 +2372,7 @@ mock.onGet(new RegExp(/^\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/fetchversio
 // URI参数传递情况未实现
 
 // URI参数传递情况未实现
+// URI参数传递情况未实现
 
 // URI参数传递情况未实现
 
@@ -1918,6 +2381,7 @@ mock.onGet(new RegExp(/^\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/fetchversio
 // URI参数传递情况未实现
 
 // URI参数传递情况未实现
+// URI参数传递情况未实现
 
 // URI参数传递情况未实现
 
@@ -1925,6 +2389,7 @@ mock.onGet(new RegExp(/^\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/fetchversio
 
 // URI参数传递情况未实现
 
+// URI参数传递情况未实现
 // URI参数传递情况未实现
 
 // URI参数传递情况未实现
@@ -1934,6 +2399,7 @@ mock.onGet(new RegExp(/^\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/fetchversio
 // URI参数传递情况未实现
 
 // URI参数传递情况未实现
+// URI参数传递情况未实现
 
 // URI参数传递情况未实现
 
@@ -1942,6 +2408,7 @@ mock.onGet(new RegExp(/^\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/fetchversio
 // URI参数传递情况未实现
 
 // URI参数传递情况未实现
+// URI参数传递情况未实现
 
 // URI参数传递情况未实现
 
@@ -1949,6 +2416,7 @@ mock.onGet(new RegExp(/^\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/fetchversio
 
 // URI参数传递情况未实现
 
+// URI参数传递情况未实现
 // URI参数传递情况未实现
 
 // URI参数传递情况未实现
@@ -1958,6 +2426,7 @@ mock.onGet(new RegExp(/^\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/fetchversio
 // URI参数传递情况未实现
 
 // URI参数传递情况未实现
+// URI参数传递情况未实现
 
 // URI参数传递情况未实现
 
@@ -1966,6 +2435,7 @@ mock.onGet(new RegExp(/^\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/fetchversio
 // URI参数传递情况未实现
 
 // URI参数传递情况未实现
+// URI参数传递情况未实现
 
 // URI参数传递情况未实现
 
@@ -1973,6 +2443,7 @@ mock.onGet(new RegExp(/^\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/fetchversio
 
 // URI参数传递情况未实现
 
+// URI参数传递情况未实现
 // URI参数传递情况未实现
 
 
@@ -2088,6 +2559,34 @@ mock.onDelete(new RegExp(/^\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/([a-zA-Z
     return [status, _items?_items:{}];
 });
 
+// Remove
+mock.onDelete(new RegExp(/^\/casesteps\/([a-zA-Z0-9\-\;]{1,35})$/)).reply((config: any) => {
+    console.groupCollapsed("实体:casestep 方法: Remove");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }    
+    const paramArray:Array<any> = ['id'];
+    const matchArray:any = new RegExp(/^\/casesteps\/([a-zA-Z0-9\-\;]{1,35})$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    let items = mockDatas ? mockDatas : [];
+    let _items = items.find((item: any) => Object.is(item.id, tempValue.id));
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(_items?_items:{});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, _items?_items:{}];
+});
+
 // Get
 mock.onGet(new RegExp(/^\/products\/([a-zA-Z0-9\-\;]{1,35})\/stories\/([a-zA-Z0-9\-\;]{1,35})\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/([a-zA-Z0-9\-\;]{1,35})$/)).reply((config: any) => {
     console.groupCollapsed("实体:casestep 方法: Get");
@@ -2182,6 +2681,34 @@ mock.onGet(new RegExp(/^\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/([a-zA-Z0-9
     }    
     const paramArray:Array<any> = ['id','id'];
     const matchArray:any = new RegExp(/^\/cases\/([a-zA-Z0-9\-\;]{1,35})\/casesteps\/([a-zA-Z0-9\-\;]{1,35})$/).exec(config.url);
+    let tempValue: any = {};
+    if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
+        paramArray.forEach((item: any, index: number) => {
+            Object.defineProperty(tempValue, item, {
+                enumerable: true,
+                value: matchArray[index + 1]
+            });
+        });
+    }
+    let items = mockDatas ? mockDatas : [];
+    let _items = items.find((item: any) => Object.is(item.id, tempValue.id));
+    console.groupCollapsed("response数据  status: "+status+" data: ");
+    console.table(_items?_items:{});
+    console.groupEnd();
+    console.groupEnd();
+    return [status, _items?_items:{}];
+});
+
+// Get
+mock.onGet(new RegExp(/^\/casesteps\/([a-zA-Z0-9\-\;]{1,35})$/)).reply((config: any) => {
+    console.groupCollapsed("实体:casestep 方法: Get");
+    console.table({url:config.url, method: config.method, data:config.data});
+    let status = MockAdapter.mockStatus(config);
+    if (status !== 200) {
+        return [status, null];
+    }    
+    const paramArray:Array<any> = ['id'];
+    const matchArray:any = new RegExp(/^\/casesteps\/([a-zA-Z0-9\-\;]{1,35})$/).exec(config.url);
     let tempValue: any = {};
     if(matchArray && matchArray.length >1 && paramArray && paramArray.length >0){
         paramArray.forEach((item: any, index: number) => {

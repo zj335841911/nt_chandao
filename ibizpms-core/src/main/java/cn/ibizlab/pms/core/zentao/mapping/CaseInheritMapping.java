@@ -4,7 +4,7 @@ package cn.ibizlab.pms.core.zentao.mapping;
 
 import org.mapstruct.*;
 import cn.ibizlab.pms.core.zentao.domain.Case;
-import cn.ibizlab.pms.core.ibizpro.domain.IBIZPRO_INDEX;
+import cn.ibizlab.pms.core.ibizpro.domain.IbizproIndex;
 import java.util.List;
 
 @Mapper(componentModel = "spring", uses = {})
@@ -14,20 +14,22 @@ public interface CaseInheritMapping {
         @Mapping(source ="id",target = "indexid"),
         @Mapping(source ="title",target = "indexname"),
         @Mapping(target ="focusNull",ignore = true),
+        @Mapping(source ="deleted",target = "deleted"),
+        @Mapping(source ="precondition",target = "indexdesc"),
+        @Mapping(source ="product",target = "product"),
     })
-    IBIZPRO_INDEX toIbizproIndex(Case cases);
+    IbizproIndex toIbizproindex(Case minorEntity);
 
     @Mappings({
         @Mapping(source ="indexid" ,target = "id"),
         @Mapping(source ="indexname" ,target = "title"),
         @Mapping(target ="focusNull",ignore = true),
+        @Mapping(source ="indexdesc",target = "precondition"),
     })
-    Case toCase(IBIZPRO_INDEX ibizpro_index);
+    Case toCase(IbizproIndex majorEntity);
 
-    List<IBIZPRO_INDEX> toIbizproIndex(List<Case> cases);
+    List<IbizproIndex> toIbizproindex(List<Case> minorEntities);
 
-    List<Case> toCase(List<IBIZPRO_INDEX> ibizpro_index);
+    List<Case> toCase(List<IbizproIndex> majorEntities);
 
 }
-
-

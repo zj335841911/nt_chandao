@@ -56,6 +56,10 @@ public interface IProjectService extends IService<Project> {
     Project manageMembers(Project et);
     boolean manageMembersBatch(List<Project> etList);
     Project mobProjectCount(Project et);
+    Project pmsEeProjectAllTaskCount(Project et);
+    boolean pmsEeProjectAllTaskCountBatch(List<Project> etList);
+    Project pmsEeProjectTodoTaskCount(Project et);
+    boolean pmsEeProjectTodoTaskCountBatch(List<Project> etList);
     Project projectTaskQCnt(Project et);
     Project projectTop(Project et);
     Project putoff(Project et);
@@ -73,8 +77,10 @@ public interface IProjectService extends IService<Project> {
     Project updateOrder(Project et);
     boolean updateOrderBatch(List<Project> etList);
     Page<Project> searchBugProject(ProjectSearchContext context);
+    Page<Project> searchCurPlanProject(ProjectSearchContext context);
     Page<Project> searchCurProduct(ProjectSearchContext context);
     Page<Project> searchCurUser(ProjectSearchContext context);
+    Page<Project> searchCurUserSa(ProjectSearchContext context);
     Page<Project> searchDefault(ProjectSearchContext context);
     Page<Project> searchESBulk(ProjectSearchContext context);
     Page<Project> searchInvolvedProject(ProjectSearchContext context);
@@ -86,16 +92,16 @@ public interface IProjectService extends IService<Project> {
     List<Project> selectByParent(Long id);
     void removeByParent(Long id);
     /**
-     * 自定义查询SQL
+     *自定义查询SQL
      * @param sql  select * from table where id =#{et.param}
-     * @param param 参数列表  param.put("param", "1");
+     * @param param 参数列表  param.put("param","1");
      * @return select * from table where id = '1'
      */
     List<JSONObject> select(String sql, Map param);
     /**
-     * 自定义SQL
+     *自定义SQL
      * @param sql  update table  set name ='test' where id =#{et.param}
-     * @param param 参数列表  param.put("param", "1");
+     * @param param 参数列表  param.put("param","1");
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);

@@ -72,7 +72,7 @@ public class SysTeamMemberResource {
 		SysTeamMember domain  = systeammemberMapping.toDomain(systeammemberdto);
         domain .setTeammemberid(systeammember_id);
 		systeammemberService.update(domain );
-		SysTeamMemberDTO dto = systeammemberMapping.toDto(domain );
+		SysTeamMemberDTO dto = systeammemberMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
@@ -110,8 +110,9 @@ public class SysTeamMemberResource {
 
     @ApiOperation(value = "获取组成员草稿", tags = {"组成员" },  notes = "获取组成员草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/systeammembers/getdraft")
-    public ResponseEntity<SysTeamMemberDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(systeammemberMapping.toDto(systeammemberService.getDraft(new SysTeamMember())));
+    public ResponseEntity<SysTeamMemberDTO> getDraft(SysTeamMemberDTO dto) {
+        SysTeamMember domain = systeammemberMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(systeammemberMapping.toDto(systeammemberService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查组成员", tags = {"组成员" },  notes = "检查组成员")
@@ -123,8 +124,10 @@ public class SysTeamMemberResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-SysTeamMember-Save-all')")
     @ApiOperation(value = "保存组成员", tags = {"组成员" },  notes = "保存组成员")
 	@RequestMapping(method = RequestMethod.POST, value = "/systeammembers/save")
-    public ResponseEntity<Boolean> save(@RequestBody SysTeamMemberDTO systeammemberdto) {
-        return ResponseEntity.status(HttpStatus.OK).body(systeammemberService.save(systeammemberMapping.toDomain(systeammemberdto)));
+    public ResponseEntity<SysTeamMemberDTO> save(@RequestBody SysTeamMemberDTO systeammemberdto) {
+        SysTeamMember domain = systeammemberMapping.toDomain(systeammemberdto);
+        systeammemberService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(systeammemberMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-SysTeamMember-Save-all')")
@@ -156,6 +159,7 @@ public class SysTeamMemberResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(systeammemberMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
 
 
 }

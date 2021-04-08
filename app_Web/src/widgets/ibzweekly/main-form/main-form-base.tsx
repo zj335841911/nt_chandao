@@ -95,14 +95,14 @@ export class MainEditFormBase extends EditFormControlBase {
         srfsourcekey: null,
         ibz_weeklyname: null,
         date: null,
+        reportto: null,
+        mailto: null,
         thisweektask: null,
         workthisweek: null,
         nextweektask: null,
         plannextweek: null,
         comment: null,
         files: null,
-        reportto: null,
-        mailto: null,
         ibz_weeklyid: null,
         account: null,
         issubmit: null,
@@ -125,20 +125,6 @@ export class MainEditFormBase extends EditFormControlBase {
      */
     public rules(): any{
         return {
-            workthisweek: [
-                {
-                    required: this.detailsModel.workthisweek.required,
-                    type: 'string',
-                    message: `${this.$t('entities.ibzweekly.main_form.details.workthisweek')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
-                    trigger: 'change',
-                },
-                {
-                    required: this.detailsModel.workthisweek.required,
-                    type: 'string',
-                    message: `${this.$t('entities.ibzweekly.main_form.details.workthisweek')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
-                    trigger: 'blur',
-                },
-        ],
             reportto: [
                 {
                     required: this.detailsModel.reportto.required,
@@ -150,6 +136,20 @@ export class MainEditFormBase extends EditFormControlBase {
                     required: this.detailsModel.reportto.required,
                     type: 'string',
                     message: `${this.$t('entities.ibzweekly.main_form.details.reportto')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
+                    trigger: 'blur',
+                },
+        ],
+            workthisweek: [
+                {
+                    required: this.detailsModel.workthisweek.required,
+                    type: 'string',
+                    message: `${this.$t('entities.ibzweekly.main_form.details.workthisweek')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
+                    trigger: 'change',
+                },
+                {
+                    required: this.detailsModel.workthisweek.required,
+                    type: 'string',
+                    message: `${this.$t('entities.ibzweekly.main_form.details.workthisweek')}  ${this.$t('app.commonWords.valueNotEmpty')}`,
                     trigger: 'blur',
                 },
         ],
@@ -244,6 +244,20 @@ export class MainEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
+        reportto: new FormItemModel({
+    caption: '汇报给', detailType: 'FORMITEM', name: 'reportto', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:true,
+    disabled: false,
+    enableCond: 3,
+}),
+
+        mailto: new FormItemModel({
+    caption: '抄送给', detailType: 'FORMITEM', name: 'mailto', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
         thisweektask: new FormItemModel({
     caption: '本周完成任务', detailType: 'FORMITEM', name: 'thisweektask', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
@@ -281,20 +295,6 @@ export class MainEditFormBase extends EditFormControlBase {
 
         files: new FormItemModel({
     caption: '附件', detailType: 'FORMITEM', name: 'files', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
-    required:false,
-    disabled: false,
-    enableCond: 3,
-}),
-
-        reportto: new FormItemModel({
-    caption: '汇报给', detailType: 'FORMITEM', name: 'reportto', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
-    required:true,
-    disabled: false,
-    enableCond: 3,
-}),
-
-        mailto: new FormItemModel({
-    caption: '抄送给', detailType: 'FORMITEM', name: 'mailto', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
     disabled: false,
     enableCond: 3,

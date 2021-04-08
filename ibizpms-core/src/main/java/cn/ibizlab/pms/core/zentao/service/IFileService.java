@@ -46,21 +46,24 @@ public interface IFileService extends IService<File> {
     boolean checkKey(File et);
     boolean save(File et);
     void saveBatch(List<File> list);
+    File updateObjectIDForPmsEe(File et);
+    boolean updateObjectIDForPmsEeBatch(List<File> etList);
     Page<File> searchDefault(FileSearchContext context);
     Page<File> searchDocLibFile(FileSearchContext context);
     Page<File> searchProductDocLibFile(FileSearchContext context);
     Page<File> searchType(FileSearchContext context);
+    Page<File> searchTypeNotBySrfparentkey(FileSearchContext context);
     /**
-     * 自定义查询SQL
+     *自定义查询SQL
      * @param sql  select * from table where id =#{et.param}
-     * @param param 参数列表  param.put("param", "1");
+     * @param param 参数列表  param.put("param","1");
      * @return select * from table where id = '1'
      */
     List<JSONObject> select(String sql, Map param);
     /**
-     * 自定义SQL
+     *自定义SQL
      * @param sql  update table  set name ='test' where id =#{et.param}
-     * @param param 参数列表  param.put("param", "1");
+     * @param param 参数列表  param.put("param","1");
      * @return     update table  set name ='test' where id = '1'
      */
     boolean execute(String sql, Map param);

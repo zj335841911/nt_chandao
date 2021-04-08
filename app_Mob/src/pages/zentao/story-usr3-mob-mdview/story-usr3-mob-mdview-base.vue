@@ -154,7 +154,7 @@ export default class StoryUsr3MobMDViewBase extends Vue {
 	 * @type {string}
 	 * @memberof StoryUsr3MobMDViewBase
 	 */
-	protected viewtag: string = '592d81c326051b3b53d26f1eb18a72b9';
+	protected viewtag: string = '3dceb7a1b4d27f607da7cdf7f00212fd';
 
     /**
      * 视图上下文

@@ -119,7 +119,7 @@ mock.onGet('v7/zentaoappmenu').reply((config: any) => {
 	resourcetag: '',
 },
 		{
-	id: 'CC6C6D64-B2D5-4E49-AE4F-996AA44C8685',
+	id: '14f6f7ccec75782b74ec9838005815cc',
 	name: 'menuitem16',
 	text: '文档',
 	type: 'MENUITEM',
@@ -137,7 +137,7 @@ mock.onGet('v7/zentaoappmenu').reply((config: any) => {
 	resourcetag: '',
 },
 		{
-	id: '61D98BC4-BCF2-4CD0-AF45-6693EF3CCC72',
+	id: '15ba5f98334e576909fe37497f03f4a9',
 	name: 'menuitem23',
 	text: '计划模板',
 	type: 'MENUITEM',
@@ -155,7 +155,7 @@ mock.onGet('v7/zentaoappmenu').reply((config: any) => {
 	resourcetag: '',
 },
 		{
-	id: '832B4ECF-B32B-48DD-B1EE-CE25A5A11DD7',
+	id: '5d26bcc47f6fc152de01aa2e95449428',
 	name: 'menuitem22',
 	text: '统计',
 	type: 'MENUITEM',
@@ -173,7 +173,7 @@ mock.onGet('v7/zentaoappmenu').reply((config: any) => {
 	resourcetag: '',
 },
 		{
-	id: '2A5D7A95-FD8A-46D2-829A-B297A1CE6207',
+	id: '05995e93cb281b232231b5f332ff5520',
 	name: 'menuitem25',
 	text: '年度统计',
 	type: 'MENUITEM',
@@ -209,7 +209,7 @@ mock.onGet('v7/zentaoappmenu').reply((config: any) => {
 	resourcetag: '',
 },
 		{
-	id: '1CC661E6-9593-4C82-98B5-01496AE8D80C',
+	id: 'a35e4a4ea6fefcf9131ccac6f123f4d3',
 	name: 'menuitem26',
 	text: '通讯录',
 	type: 'MENUITEM',
@@ -227,7 +227,7 @@ mock.onGet('v7/zentaoappmenu').reply((config: any) => {
 	resourcetag: '',
 },
 		{
-	id: '1A933810-32D7-43CE-A664-5ABF5C5735A0',
+	id: '19bc3aa07a822b1a07832f145e438686',
 	name: 'menuitem27',
 	text: '全文检索',
 	type: 'MENUITEM',
@@ -245,7 +245,7 @@ mock.onGet('v7/zentaoappmenu').reply((config: any) => {
 	resourcetag: '',
 },
 		{
-	id: '50D22ECD-CF16-4313-856A-645B1E837DE7',
+	id: '3158d179fb23b4edddd5af69bd3e21c5',
 	name: 'menuitem24',
 	text: '系统管理',
 	type: 'MENUITEM',
@@ -263,7 +263,7 @@ mock.onGet('v7/zentaoappmenu').reply((config: any) => {
 	resourcetag: '',
 	items: [
 		{
-	id: 'dd9b338bb75db00a0974af4a4669e432',
+	id: '52cd9880b7fc15e4d8b1c7910fc041df',
 	name: 'menuitem11',
 	text: '用户',
 	type: 'MENUITEM',
@@ -281,7 +281,7 @@ mock.onGet('v7/zentaoappmenu').reply((config: any) => {
 	resourcetag: '',
 },
 		{
-	id: '28e753fc0b33a6fadf12f5f37150bb5a',
+	id: '8e70defb821f9fe5749d024bbe843085',
 	name: 'menuitem10',
 	text: '用例库',
 	type: 'MENUITEM',
@@ -299,7 +299,7 @@ mock.onGet('v7/zentaoappmenu').reply((config: any) => {
 	resourcetag: '',
 },
 		{
-	id: 'DCD81E08-ABA8-4E86-9C77-FB1DC04A51A8',
+	id: '5880e7271c300548ee7338f42532dd44',
 	name: 'menuitem21',
 	text: '系统配置',
 	type: 'MENUITEM',
@@ -317,7 +317,7 @@ mock.onGet('v7/zentaoappmenu').reply((config: any) => {
 	resourcetag: '',
 },
 		{
-	id: '80D6A552-4F24-4273-B535-1685F0A22CBF',
+	id: '0c3ef56f5716386446262261961ec24c',
 	name: 'menuitem19',
 	text: '汇报角色角色',
 	type: 'MENUITEM',
@@ -335,7 +335,7 @@ mock.onGet('v7/zentaoappmenu').reply((config: any) => {
 	resourcetag: '',
 },
 		{
-	id: 'C2324D75-EADF-4116-8EF3-2C62A3C8AB18',
+	id: 'acd3c33a446ff012e482fd85a5062f4c',
 	name: 'menuitem17',
 	text: '插件管理',
 	type: 'MENUITEM',
@@ -353,7 +353,7 @@ mock.onGet('v7/zentaoappmenu').reply((config: any) => {
 	resourcetag: '',
 },
 		{
-	id: '5AC6121D-1379-4944-8C3F-E7A2BAA9C7B3',
+	id: '1a18d640fc30433a139e45c4aaa27f06',
 	name: 'menuitem8',
 	text: '更新日志',
 	type: 'MENUITEM',

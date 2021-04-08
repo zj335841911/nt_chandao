@@ -1,6 +1,6 @@
 
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { GridViewBase } from '@/studio-core';
 import TaskService from '@/service/task/task-service';
 import TaskAuthService from '@/authservice/task/task-auth-service';
@@ -136,7 +136,7 @@ export class TaskChildMoreGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof TaskChildMoreGridViewBase
      */
-	protected viewtag: string = 'cc1f1d0cc16dddbdb7e9f9fd9aa443fa';
+	protected viewtag: string = 'f90755fad872031d4484f3c6791d6973';
 
     /**
      * 视图名称
@@ -436,9 +436,9 @@ export class TaskChildMoreGridViewBase extends GridViewBase {
             Object.assign(tempContext,args[0]);
         }
         let deResParameters: any[] = [];
-        if(tempContext.story && true){
+        if(tempContext.projectmodule && true){
             deResParameters = [
-            { pathName: 'stories', parameterName: 'story' },
+            { pathName: 'projectmodules', parameterName: 'projectmodule' },
             ]
         }
         const parameters: any[] = [
@@ -487,9 +487,9 @@ export class TaskChildMoreGridViewBase extends GridViewBase {
             Object.assign(tempContext,args[0]);
         }
         let deResParameters: any[] = [];
-        if(tempContext.story && true){
+        if(tempContext.projectmodule && true){
             deResParameters = [
-            { pathName: 'stories', parameterName: 'story' },
+            { pathName: 'projectmodules', parameterName: 'projectmodule' },
             ]
         }
         const parameters: any[] = [

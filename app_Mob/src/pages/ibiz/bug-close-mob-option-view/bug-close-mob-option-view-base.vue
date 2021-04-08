@@ -141,7 +141,7 @@ export default class BugCloseMobOptionViewBase extends Vue {
 	 * @type {string}
 	 * @memberof BugCloseMobOptionViewBase
 	 */
-	protected viewtag: string = 'eadccf64ed59f1b4f8a23dcc8d14ccf7';
+	protected viewtag: string = '34ee78aff2ce346248543da2afd5cd7c';
 
     /**
      * 视图上下文

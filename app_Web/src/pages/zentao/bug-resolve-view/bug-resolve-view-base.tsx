@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { OptionViewBase } from '@/studio-core';
 import BugService from '@/service/bug/bug-service';
 import BugAuthService from '@/authservice/bug/bug-auth-service';
@@ -162,7 +162,7 @@ export class BugResolveViewBase extends OptionViewBase {
      * @type {string}
      * @memberof BugResolveViewBase
      */
-	protected viewtag: string = 'c1e9611b6972b1877b75fa5d2c67aad6';
+	protected viewtag: string = '84a5000983bdbd576fba530e78e8f50d';
 
     /**
      * 视图名称

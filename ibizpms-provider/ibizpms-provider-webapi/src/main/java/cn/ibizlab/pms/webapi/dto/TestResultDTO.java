@@ -20,11 +20,14 @@ import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * 服务DTO对象[TestResultDTO]
  */
 @Data
+@ApiModel("测试结果")
 public class TestResultDTO extends DTOBase implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -36,6 +39,7 @@ public class TestResultDTO extends DTOBase implements Serializable {
     @JSONField(name = "lastrunner")
     @JsonProperty("lastrunner")
     @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
+    @ApiModelProperty("最后执行人")
     private String lastrunner;
 
     /**
@@ -45,6 +49,7 @@ public class TestResultDTO extends DTOBase implements Serializable {
     @JSONField(name = "stepresults")
     @JsonProperty("stepresults")
     @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
+    @ApiModelProperty("步骤结果")
     private String stepresults;
 
     /**
@@ -54,6 +59,7 @@ public class TestResultDTO extends DTOBase implements Serializable {
     @JSONField(name = "caseresult")
     @JsonProperty("caseresult")
     @Size(min = 0, max = 30, message = "内容长度必须小于等于[30]")
+    @ApiModelProperty("测试结果")
     private String caseresult;
 
     /**
@@ -63,7 +69,18 @@ public class TestResultDTO extends DTOBase implements Serializable {
     @JSONField(name = "xml")
     @JsonProperty("xml")
     @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
+    @ApiModelProperty("结果文件")
     private String xml;
+
+    /**
+     * 属性 [TASK]
+     *
+     */
+    @JSONField(name = "task")
+    @JsonProperty("task")
+    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
+    @ApiModelProperty("属性")
+    private String task;
 
     /**
      * 属性 [DURATION]
@@ -71,6 +88,7 @@ public class TestResultDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "duration")
     @JsonProperty("duration")
+    @ApiModelProperty("持续时间")
     private Double duration;
 
     /**
@@ -80,6 +98,7 @@ public class TestResultDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "date" , format="yyyy-MM-dd HH:mm:ss")
     @JsonProperty("date")
+    @ApiModelProperty("测试时间")
     private Timestamp date;
 
     /**
@@ -89,6 +108,7 @@ public class TestResultDTO extends DTOBase implements Serializable {
     @JSONField(name = "id")
     @JsonProperty("id")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("编号")
     private Long id;
 
     /**
@@ -97,7 +117,68 @@ public class TestResultDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "version")
     @JsonProperty("version")
+    @ApiModelProperty("用例版本")
     private Integer version;
+
+    /**
+     * 属性 [STORY]
+     *
+     */
+    @JSONField(name = "story")
+    @JsonProperty("story")
+    @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("相关需求")
+    private Long story;
+
+    /**
+     * 属性 [TITLE]
+     *
+     */
+    @JSONField(name = "title")
+    @JsonProperty("title")
+    @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
+    @ApiModelProperty("用例名称")
+    private String title;
+
+    /**
+     * 属性 [MODULENAME]
+     *
+     */
+    @JSONField(name = "modulename")
+    @JsonProperty("modulename")
+    @Size(min = 0, max = 60, message = "内容长度必须小于等于[60]")
+    @ApiModelProperty("所属模块")
+    private String modulename;
+
+    /**
+     * 属性 [MODULE]
+     *
+     */
+    @JSONField(name = "module")
+    @JsonProperty("module")
+    @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("所属模块")
+    private Long module;
+
+    /**
+     * 属性 [PRECONDITION]
+     *
+     */
+    @JSONField(name = "precondition")
+    @JsonProperty("precondition")
+    @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
+    @ApiModelProperty("前置条件")
+    private String precondition;
+
+    /**
+     * 属性 [PRODUCT]
+     *
+     */
+    @JSONField(name = "product")
+    @JsonProperty("product")
+    @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("所属产品")
+    private Long product;
 
     /**
      * 属性 [JOB]
@@ -106,6 +187,7 @@ public class TestResultDTO extends DTOBase implements Serializable {
     @JSONField(name = "job")
     @JsonProperty("job")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("构建任务")
     private Long job;
 
     /**
@@ -115,6 +197,7 @@ public class TestResultDTO extends DTOBase implements Serializable {
     @JSONField(name = "ibizcase")
     @JsonProperty("ibizcase")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("用例")
     private Long ibizcase;
 
     /**
@@ -124,6 +207,7 @@ public class TestResultDTO extends DTOBase implements Serializable {
     @JSONField(name = "run")
     @JsonProperty("run")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("测试执行")
     private Long run;
 
     /**
@@ -133,61 +217,8 @@ public class TestResultDTO extends DTOBase implements Serializable {
     @JSONField(name = "compile")
     @JsonProperty("compile")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("代码编译")
     private Long compile;
-
-    /**
-     * 属性 [TASK]
-     *
-     */
-    @JSONField(name = "task")
-    @JsonProperty("task")
-    @Size(min = 0, max = 100, message = "内容长度必须小于等于[100]")
-    private String task;
-
-    /**
-     * 属性 [TITLE]
-     *
-     */
-    @JSONField(name = "title")
-    @JsonProperty("title")
-    @Size(min = 0, max = 255, message = "内容长度必须小于等于[255]")
-    private String title;
-
-    /**
-     * 属性 [STORY]
-     *
-     */
-    @JSONField(name = "story")
-    @JsonProperty("story")
-    @JsonSerialize(using = ToStringSerializer.class)
-    private Long story;
-
-    /**
-     * 属性 [MODULE]
-     *
-     */
-    @JSONField(name = "module")
-    @JsonProperty("module")
-    @JsonSerialize(using = ToStringSerializer.class)
-    private Long module;
-
-    /**
-     * 属性 [PRODUCT]
-     *
-     */
-    @JSONField(name = "product")
-    @JsonProperty("product")
-    @JsonSerialize(using = ToStringSerializer.class)
-    private Long product;
-
-    /**
-     * 属性 [PRECONDITION]
-     *
-     */
-    @JSONField(name = "precondition")
-    @JsonProperty("precondition")
-    @Size(min = 0, max = 65535, message = "内容长度必须小于等于[65535]")
-    private String precondition;
 
 
     /**

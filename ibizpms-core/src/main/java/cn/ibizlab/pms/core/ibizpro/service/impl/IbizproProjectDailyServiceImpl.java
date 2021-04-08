@@ -51,9 +51,6 @@ public class IbizproProjectDailyServiceImpl extends ServiceImpl<IbizproProjectDa
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.IProjectService projectService;
-    @Autowired
-    @Lazy
-    IIbizproProjectDailyService proxyService;
 
     protected int batchSize = 500;
 
@@ -61,7 +58,7 @@ public class IbizproProjectDailyServiceImpl extends ServiceImpl<IbizproProjectDa
     @Transactional
     public boolean create(IbizproProjectDaily et) {
         fillParentData(et);
-        if (!this.retBool(this.baseMapper.insert(et))) {
+        if(!this.retBool(this.baseMapper.insert(et))) {
             return false;
         }
         CachedBeanCopier.copy(get(et.getIbizproprojectdailyid()), et);
@@ -79,7 +76,7 @@ public class IbizproProjectDailyServiceImpl extends ServiceImpl<IbizproProjectDa
     @Transactional
     public boolean update(IbizproProjectDaily et) {
         fillParentData(et);
-        if (!update(et, (Wrapper) et.getUpdateWrapper(true).eq("ibizpro_projectdailyid", et.getIbizproprojectdailyid()))) {
+        if(!update(et, (Wrapper) et.getUpdateWrapper(true).eq("ibizpro_projectdailyid", et.getIbizproprojectdailyid()))) {
             return false;
         }
         CachedBeanCopier.copy(get(et.getIbizproprojectdailyid()), et);
@@ -97,7 +94,7 @@ public class IbizproProjectDailyServiceImpl extends ServiceImpl<IbizproProjectDa
     @Transactional
     public boolean remove(String key) {
         boolean result = removeById(key);
-        return result;
+        return result ;
     }
 
     @Override
@@ -110,7 +107,7 @@ public class IbizproProjectDailyServiceImpl extends ServiceImpl<IbizproProjectDa
     @Transactional
     public IbizproProjectDaily get(String key) {
         IbizproProjectDaily et = getById(key);
-        if (et == null) {
+        if(et == null){
             et = new IbizproProjectDaily();
             et.setIbizproprojectdailyid(key);
         }
@@ -132,7 +129,7 @@ public class IbizproProjectDailyServiceImpl extends ServiceImpl<IbizproProjectDa
     @Override
     @Transactional
     public boolean save(IbizproProjectDaily et) {
-        if (!saveOrUpdate(et)) {
+        if(!saveOrUpdate(et)) {
             return false;
         }
         return true;
@@ -144,7 +141,7 @@ public class IbizproProjectDailyServiceImpl extends ServiceImpl<IbizproProjectDa
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
+            return checkKey(et) ? getProxyService().update(et) : getProxyService().create(et);
         }
     }
 
@@ -162,10 +159,10 @@ public class IbizproProjectDailyServiceImpl extends ServiceImpl<IbizproProjectDa
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
         return true;
     }
@@ -173,7 +170,7 @@ public class IbizproProjectDailyServiceImpl extends ServiceImpl<IbizproProjectDa
     @Override
     @Transactional
     public void saveBatch(List<IbizproProjectDaily> list) {
-        list.forEach(item -> fillParentData(item));
+        list.forEach(item->fillParentData(item));
         List<IbizproProjectDaily> create = new ArrayList<>();
         List<IbizproProjectDaily> update = new ArrayList<>();
         for (IbizproProjectDaily et : list) {
@@ -184,10 +181,10 @@ public class IbizproProjectDailyServiceImpl extends ServiceImpl<IbizproProjectDa
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
     }
 
@@ -197,7 +194,8 @@ public class IbizproProjectDailyServiceImpl extends ServiceImpl<IbizproProjectDa
         //自定义代码
         return et;
     }
-   @Override
+
+    @Override
     @Transactional
     public boolean sumProjectDailyBatch(List<IbizproProjectDaily> etList) {
         for(IbizproProjectDaily et : etList) {
@@ -207,13 +205,13 @@ public class IbizproProjectDailyServiceImpl extends ServiceImpl<IbizproProjectDa
     }
 
 
-    @Override
+	@Override
     public List<IbizproProjectDaily> selectByProject(Long id) {
         return baseMapper.selectByProject(id);
     }
     @Override
     public void removeByProject(Long id) {
-        this.remove(new QueryWrapper<IbizproProjectDaily>().eq("project", id));
+        this.remove(new QueryWrapper<IbizproProjectDaily>().eq("project",id));
     }
 
 
@@ -222,7 +220,7 @@ public class IbizproProjectDailyServiceImpl extends ServiceImpl<IbizproProjectDa
      */
     @Override
     public Page<IbizproProjectDaily> searchDefault(IbizproProjectDailySearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbizproProjectDaily> pages=baseMapper.searchDefault(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<IbizproProjectDaily> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
         return new PageImpl<IbizproProjectDaily>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -234,12 +232,12 @@ public class IbizproProjectDailyServiceImpl extends ServiceImpl<IbizproProjectDa
      */
     private void fillParentData(IbizproProjectDaily et){
         //实体关系[DER1N_IBIZPRO_PROJECTDAILY_ZT_PROJECT_PROJECT]
-        if (!ObjectUtils.isEmpty(et.getProject())) {
+        if(!ObjectUtils.isEmpty(et.getProject())){
             cn.ibizlab.pms.core.zentao.domain.Project ztproject=et.getZtproject();
-            if (ObjectUtils.isEmpty(ztproject)) {
+            if(ObjectUtils.isEmpty(ztproject)){
                 cn.ibizlab.pms.core.zentao.domain.Project majorEntity=projectService.get(et.getProject());
                 et.setZtproject(majorEntity);
-                ztproject = majorEntity;
+                ztproject=majorEntity;
             }
             et.setProjectname(ztproject.getName());
         }
@@ -249,24 +247,24 @@ public class IbizproProjectDailyServiceImpl extends ServiceImpl<IbizproProjectDa
 
 
     @Override
-    public List<JSONObject> select(String sql, Map param) {
-        return this.baseMapper.selectBySQL(sql, param);
+    public List<JSONObject> select(String sql, Map param){
+        return this.baseMapper.selectBySQL(sql,param);
     }
 
     @Override
     @Transactional
-    public boolean execute(String sql, Map param) {
+    public boolean execute(String sql , Map param){
         if (sql == null || sql.isEmpty()) {
             return false;
         }
         if (sql.toLowerCase().trim().startsWith("insert")) {
-            return this.baseMapper.insertBySQL(sql, param);
+            return this.baseMapper.insertBySQL(sql,param);
         }
         if (sql.toLowerCase().trim().startsWith("update")) {
-            return this.baseMapper.updateBySQL(sql, param);
+            return this.baseMapper.updateBySQL(sql,param);
         }
         if (sql.toLowerCase().trim().startsWith("delete")) {
-            return this.baseMapper.deleteBySQL(sql, param);
+            return this.baseMapper.deleteBySQL(sql,param);
         }
         log.warn("暂未支持的SQL语法");
         return true;
@@ -282,11 +280,11 @@ public class IbizproProjectDailyServiceImpl extends ServiceImpl<IbizproProjectDa
         List ids =new ArrayList();
         for(IbizproProjectDaily entity : entities){
             Serializable id=entity.getIbizproprojectdailyid();
-            if (!ObjectUtils.isEmpty(id)) {
+            if(!ObjectUtils.isEmpty(id)){
                 ids.add(id);
             }
         }
-        if (ids.size() > 0) {
+        if(ids.size()>0) {
             return this.listByIds(ids);
         }
         else {
@@ -295,9 +293,9 @@ public class IbizproProjectDailyServiceImpl extends ServiceImpl<IbizproProjectDa
     }
 
 
-
-
+    public IIbizproProjectDailyService getProxyService() {
+        return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
+    }
 }
-
 
 

@@ -23,14 +23,14 @@ public class PSSystemDBCfgFallback implements PSSystemDBCfgFeignClient {
         return null;
     }
 
-    public PSSystemDBCfg create(PSSystemDBCfg pssystemdbcfg) {
+    public PSSystemDBCfg create(PSSystemDBCfg et) {
         return null;
     }
     public Boolean createBatch(List<PSSystemDBCfg> pssystemdbcfgs) {
         return false;
     }
 
-    public PSSystemDBCfg update(String pssystemdbcfgid, PSSystemDBCfg pssystemdbcfg) {
+    public PSSystemDBCfg update(String pssystemdbcfgid, PSSystemDBCfg et) {
         return null;
     }
     public Boolean updateBatch(List<PSSystemDBCfg> pssystemdbcfgs) {
@@ -55,18 +55,21 @@ public class PSSystemDBCfgFallback implements PSSystemDBCfgFeignClient {
     }
 
 
-    public PSSystemDBCfg getDraft(){
+    public PSSystemDBCfg getDraft(PSSystemDBCfg entity){
         return null;
     }
 
 
 
-    public Boolean checkKey(PSSystemDBCfg pssystemdbcfg) {
+    public Boolean checkKey(PSSystemDBCfg et) {
         return false;
     }
 
 
-    public Boolean save(PSSystemDBCfg pssystemdbcfg) {
+    public Object saveEntity(PSSystemDBCfg et) {
+        return null;
+    }
+    public Boolean save(PSSystemDBCfg et) {
         return false;
     }
     public Boolean saveBatch(List<PSSystemDBCfg> pssystemdbcfgs) {

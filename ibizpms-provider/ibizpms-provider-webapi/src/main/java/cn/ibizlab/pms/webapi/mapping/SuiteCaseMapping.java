@@ -12,4 +12,3 @@ public interface SuiteCaseMapping extends MappingBase<SuiteCaseDTO, SuiteCase> {
 
 
 }
-

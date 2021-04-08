@@ -12,4 +12,3 @@ public interface TestResultMapping extends MappingBase<TestResultDTO, TestResult
 
 
 }
-

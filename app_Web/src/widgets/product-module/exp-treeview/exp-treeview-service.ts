@@ -262,8 +262,8 @@ export default class ExpService extends ControlService {
             Object.assign(treeNode, { text: i18n.t('entities.productmodule.exp_treeview.nodes.all') });
             Object.assign(treeNode, { isUseLangRes: true });
             if(filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")){
-                if((i18n.t(treeNode.text) as string).toUpperCase().indexOf(filter.getSrfnodefilter().toUpperCase())==-1)
-                    return Promise.reject();
+                if((i18n.t(treeNode.text) as string).toUpperCase().indexOf(filter.srfnodefilter.toUpperCase())!=-1)
+                    return resolve(list);
             }
             Object.assign(treeNode,{srfappctx:context});
             Object.assign(treeNode, { srfmajortext: treeNode.text });
@@ -493,8 +493,8 @@ export default class ExpService extends ControlService {
             Object.assign(treeNode, { text: i18n.t('entities.productmodule.exp_treeview.nodes.branch') });
             Object.assign(treeNode, { isUseLangRes: true });
             if(filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")){
-                if((i18n.t(treeNode.text) as string).toUpperCase().indexOf(filter.getSrfnodefilter().toUpperCase())==-1)
-                    return Promise.reject();
+                if((i18n.t(treeNode.text) as string).toUpperCase().indexOf(filter.srfnodefilter.toUpperCase())!=-1)
+                    return resolve(list);
             }
             Object.assign(treeNode,{srfappctx:context});
             Object.assign(treeNode, { srfmajortext: treeNode.text });
@@ -568,8 +568,8 @@ export default class ExpService extends ControlService {
             Object.assign(treeNode, { text: i18n.t('entities.productmodule.exp_treeview.nodes.root') });
             Object.assign(treeNode, { isUseLangRes: true });
             if(filter.srfnodefilter && !Object.is(filter.srfnodefilter,"")){
-                if((i18n.t(treeNode.text) as string).toUpperCase().indexOf(filter.getSrfnodefilter().toUpperCase())==-1)
-                    return Promise.reject();
+                if((i18n.t(treeNode.text) as string).toUpperCase().indexOf(filter.srfnodefilter.toUpperCase())!=-1)
+                    return resolve(list);
             }
             Object.assign(treeNode,{srfappctx:context});
             Object.assign(treeNode, { srfmajortext: treeNode.text });
@@ -675,8 +675,8 @@ export default class ExpService extends ControlService {
                             }
                         }
                         Object.assign(treeNode, { curData: entity });
-                        Object.assign(treeNode, {navigateContext: {BRANCH:"%branch%"} });
-                        Object.assign(treeNode, {navigateParams: {branch:"%branch%"} });
+                        Object.assign(treeNode, {navigateContext: {MODULENAME:"%name%",BRANCH:"%branch%"} });
+                        Object.assign(treeNode, {navigateParams: {modulename:"%name%",branch:"%branch%"} });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
                         Object.assign(treeNode, { nodeType: "DE",appEntityName:"productmodule" });
@@ -795,15 +795,15 @@ export default class ExpService extends ControlService {
         filter = this.handleResNavParams(context,filter,rsNavParams,rsParams);
         return new Promise((resolve:any,reject:any) =>{
             let searchFilter: any = {};
-            if (Object.is(filter.strNodeType, this.TREENODE_MODULE)) {
-                Object.assign(searchFilter, { n_parent_eq: filter.nodeid });
-            }
-
             if (Object.is(filter.strNodeType, this.TREENODE_ROOT_NOBRANCH)) {
                 Object.assign(searchFilter, { n_parent_eq: filter.nodeid });
             }
 
             if (Object.is(filter.strNodeType, this.TREENODE_ROOTMODULE)) {
+                Object.assign(searchFilter, { n_parent_eq: filter.nodeid });
+            }
+
+            if (Object.is(filter.strNodeType, this.TREENODE_MODULE)) {
                 Object.assign(searchFilter, { n_parent_eq: filter.nodeid });
             }
 
@@ -840,8 +840,8 @@ export default class ExpService extends ControlService {
                             }
                         }
                         Object.assign(treeNode, { curData: entity });
-                        Object.assign(treeNode, {navigateContext: {BRANCH:"0"} });
-                        Object.assign(treeNode, {navigateParams: {branch:"0"} });
+                        Object.assign(treeNode, {navigateContext: {MODULENAME:"%name%",BRANCH:"0"} });
+                        Object.assign(treeNode, {navigateParams: {modulename:"%name%",branch:"0"} });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
                         Object.assign(treeNode, { nodeType: "DE",appEntityName:"productmodule" });
@@ -993,8 +993,8 @@ export default class ExpService extends ControlService {
                             }
                         }
                         Object.assign(treeNode, { curData: entity });
-                        Object.assign(treeNode, {navigateContext: {BRANCH:"0"} });
-                        Object.assign(treeNode, {navigateParams: {branch:"0"} });
+                        Object.assign(treeNode, {navigateContext: {MODULENAME:"%name%",BRANCH:"0"} });
+                        Object.assign(treeNode, {navigateParams: {modulename:"%name%",branch:"0"} });
                         Object.assign(treeNode, { nodeid: treeNode.srfkey });
                         Object.assign(treeNode, { nodeid2: filter.strRealNodeId });
                         Object.assign(treeNode, { nodeType: "DE",appEntityName:"productmodule" });

@@ -36,6 +36,9 @@ public class ProductPlanHelper extends ZTBaseHelper<ProductPlanMapper, ProductPl
     @Autowired
     IProductPlanService productPlanService;
 
+    @Autowired
+    TaskHelper taskHelper;
+
     @Override
     @Transactional(rollbackFor = Exception.class)
     public boolean create(ProductPlan et) {
@@ -231,5 +234,225 @@ public class ProductPlanHelper extends ZTBaseHelper<ProductPlanMapper, ProductPl
     public ProductPlan batchUnlinkBug(ProductPlan et) {
 
         throw new RuntimeException("未实现");
+    }
+
+    @Transactional(rollbackFor = Exception.class)
+    public ProductPlan linkTask(ProductPlan et) {
+        Long productPlanId = et.getId();
+        if (productPlanId == null) {
+            if (et.get(StaticDict.Action__object_type.PRODUCTPLAN.getValue()) == null) {
+                throw new RuntimeException("缺少计划");
+            }
+            productPlanId = Long.parseLong(et.get(StaticDict.Action__object_type.PRODUCTPLAN.getValue()).toString());
+        }
+        String tasks = "";
+        if (et.get(FIELD_SRFACTIONPARAM) != null) {
+            List<Map<String, Object>> list = (List<Map<String, Object>>) et.get(FIELD_SRFACTIONPARAM);
+            for (Map<String, Object> jsonObject : list) {
+                if (!"".equals(tasks)) {
+                    tasks += MULTIPLE_CHOICE;
+                }
+                tasks += jsonObject.get(FIELD_ID);
+            }
+        }else if (et.get("tasks") != null) {
+            tasks = et.get("tasks").toString();
+        }
+        if ("".equals(tasks)) {
+            return et;
+        }
+        ProductPlan old = this.get(productPlanId);
+
+        Product product = productHelper.get(et.getProduct());
+        String curOrder = old.getOrder();
+
+        for (String taskId : tasks.split(MULTIPLE_CHOICE)) {
+            if (curOrder.contains(taskId)) {
+                continue;
+            }
+            curOrder += taskId + MULTIPLE_CHOICE;
+            Task task = new Task();
+            task.setId(Long.parseLong(taskId));
+            if (StringUtils.compare(product.getType(), StaticDict.Product__type.NORMAL.getValue()) == 0) {
+                task.setPlan(productPlanId);
+            } else {
+                task.setPlan(productPlanId);
+            }
+            taskHelper.internalUpdate(task);
+            actionHelper.create(StaticDict.Action__object_type.TASK.getValue(), Long.parseLong(taskId), StaticDict.Action__type.LINKED2PLAN.getValue(), "", String.valueOf(productPlanId), null, true);
+
+        }
+        old.setOrder(curOrder);
+        this.internalUpdate(old);
+
+        taskHelper.updateRelatedPlanStatus(null,et.getId());
+
+        return old;
+    }
+
+
+
+
+    /**
+     * 自定义行为[eeStartPlan]Ee开始计划
+     * @param et
+     * @return
+     */
+    @Transactional
+    public ProductPlan eeStartPlan(ProductPlan et){
+        String comment = StringUtils.isNotBlank(et.getComment()) ? et.getComment() : "";
+
+        ProductPlan old = new ProductPlan();
+        CachedBeanCopier.copy(this.get(et.getId()),old);
+//        if (old.getParent() > 0 ){
+//            throw new RuntimeException("功能未开发！");
+//        }
+        et.setStatus(StaticDict.Task__status.DOING.getValue());
+        this.internalUpdate(et);
+        List<History> changes = ChangeUtil.diff(old,et);
+        if (changes.size() > 0 || StringUtils.isNotBlank(comment)){
+            Action action = actionHelper.create(StaticDict.Action__object_type.PRODUCTPLAN.getValue(),et.getId(),StaticDict.Action__type.STARTED.getValue(),comment,"",null,false);
+            actionHelper.logHistory(action.getId(),changes);
+        }
+        return et;
+    }
+
+    /**
+     * 自定义行为[eeStartPlan]Ee开始计划
+     * @param et
+     * @return
+     */
+    @Transactional
+    public ProductPlan eePausePlan(ProductPlan et){
+        String comment = StringUtils.isNotBlank(et.getComment()) ? et.getComment() : "";
+
+        ProductPlan old = new ProductPlan();
+        CachedBeanCopier.copy(this.get(et.getId()),old);
+//        if (old.getParent() > 0 ){
+//            throw new RuntimeException("功能未开发！");
+//        }
+        et.setStatus(StaticDict.Task__status.PAUSE.getValue());
+        this.internalUpdate(et);
+        List<History> changes = ChangeUtil.diff(old,et);
+        if (changes.size() > 0 || StringUtils.isNotBlank(comment)){
+            Action action = actionHelper.create(StaticDict.Action__object_type.PRODUCTPLAN.getValue(),et.getId(),StaticDict.Action__type.PAUSED.getValue(),comment,"",null,false);
+            actionHelper.logHistory(action.getId(),changes);
+        }
+        return et;
+    }
+    /**
+     * 自定义行为[eeStartPlan]Ee开始计划
+     * @param et
+     * @return
+     */
+    @Transactional
+    public ProductPlan eeRestartPlan(ProductPlan et){
+        String comment = StringUtils.isNotBlank(et.getComment()) ? et.getComment() : "";
+
+        ProductPlan old = new ProductPlan();
+        CachedBeanCopier.copy(this.get(et.getId()),old);
+//        if (old.getParent() > 0 ){
+//            throw new RuntimeException("功能未开发！");
+//        }
+        et.setStatus(StaticDict.Task__status.DOING.getValue());
+        this.internalUpdate(et);
+        List<History> changes = ChangeUtil.diff(old,et);
+        if (changes.size() > 0 || StringUtils.isNotBlank(comment)){
+            Action action = actionHelper.create(StaticDict.Action__object_type.PRODUCTPLAN.getValue(),et.getId(),StaticDict.Action__type.RESTARTED.getValue(),comment,"",null,false);
+            actionHelper.logHistory(action.getId(),changes);
+        }
+        return et;
+    }
+    /**
+     * 自定义行为[eeStartPlan]Ee开始计划
+     * @param et
+     * @return
+     */
+    @Transactional
+    public ProductPlan eeFinishPlan(ProductPlan et){
+        String comment = StringUtils.isNotBlank(et.getComment()) ? et.getComment() : "";
+
+        ProductPlan old = new ProductPlan();
+        CachedBeanCopier.copy(this.get(et.getId()),old);
+//        if (old.getParent() > 0 ){
+//            throw new RuntimeException("功能未开发！");
+//        }
+        et.setStatus(StaticDict.Task__status.DONE.getValue());
+        this.internalUpdate(et);
+        List<History> changes = ChangeUtil.diff(old,et);
+        if (changes.size() > 0 || StringUtils.isNotBlank(comment)){
+            Action action = actionHelper.create(StaticDict.Action__object_type.PRODUCTPLAN.getValue(),et.getId(),StaticDict.Action__type.FINISHED.getValue(),comment,"",null,false);
+            actionHelper.logHistory(action.getId(),changes);
+        }
+        return et;
+    }
+
+    /**
+     * 自定义行为[eeStartPlan]Ee开始计划
+     * @param et
+     * @return
+     */
+    @Transactional
+    public ProductPlan eeCancelPlan(ProductPlan et){
+        String comment = StringUtils.isNotBlank(et.getComment()) ? et.getComment() : "";
+        ProductPlan old = new ProductPlan();
+        CachedBeanCopier.copy(this.get(et.getId()),old);
+//        if (old.getParent() > 0 ){
+//            throw new RuntimeException("功能未开发！");
+//        }
+        et.setStatus(StaticDict.Task__status.CANCEL.getValue());
+        this.internalUpdate(et);
+
+        List<History> changes = ChangeUtil.diff(old,et);
+        if (changes.size() > 0 || StringUtils.isNotBlank(comment)){
+            Action action = actionHelper.create(StaticDict.Action__object_type.PRODUCTPLAN.getValue(),et.getId(),StaticDict.Action__type.CANCELED.getValue(),comment,"",null,false);
+            actionHelper.logHistory(action.getId(),changes);
+        }
+        return et;
+    }
+    /**
+     * 自定义行为[eeStartPlan]Ee开始计划
+     * @param et
+     * @return
+     */
+    @Transactional
+    public ProductPlan eeActivePlan(ProductPlan et){
+        String comment = StringUtils.isNotBlank(et.getComment()) ? et.getComment() : "";
+        ProductPlan old = new ProductPlan();
+        CachedBeanCopier.copy(this.get(et.getId()),old);
+//        if (old.getParent() > 0 ){
+//            throw new RuntimeException("功能未开发！");
+//        }
+        et.setStatus(StaticDict.Task__status.DOING.getValue());
+        this.internalUpdate(et);
+        List<History> changes = ChangeUtil.diff(old,et);
+        if (changes.size() > 0 || StringUtils.isNotBlank(comment)){
+            Action action = actionHelper.create(StaticDict.Action__object_type.PRODUCTPLAN.getValue(),et.getId(),StaticDict.Action__type.ACTIVATED.getValue(),comment,"",null,false);
+            actionHelper.logHistory(action.getId(),changes);
+        }
+        return et;
+    }
+
+    /**
+     * 自定义行为[eeStartPlan]Ee关闭计划
+     * @param et
+     * @return
+     */
+    @Transactional
+    public ProductPlan eeClosePlan(ProductPlan et){
+        String comment = StringUtils.isNotBlank(et.getComment()) ? et.getComment() : "";
+
+        ProductPlan old = new ProductPlan();
+        CachedBeanCopier.copy(this.get(et.getId()),old);
+//        if (old.getParent() > 0 ){
+//            throw new RuntimeException("功能未开发！");
+//        }
+        et.setStatus(StaticDict.Task__status.CLOSED.getValue());
+        this.internalUpdate(et);
+        List<History> changes = ChangeUtil.diff(old,et);
+        if (changes.size() > 0 || StringUtils.isNotBlank(comment)){
+            Action action = actionHelper.create(StaticDict.Action__object_type.PRODUCTPLAN.getValue(),et.getId(),StaticDict.Action__type.CLOSED.getValue(),comment,"",null,false);
+            actionHelper.logHistory(action.getId(),changes);
+        }
+        return et;
     }
 }

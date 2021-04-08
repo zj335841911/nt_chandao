@@ -15,42 +15,42 @@ export default class ProjectTeamPcModel {
 	public getDataItems(): any[] {
 		return [
 			{
-				name: 'role',
-			},
-			{
-				name: 'left',
-			},
-			{
-				name: 'total',
-			},
-			{
-				name: 'consumed',
-			},
-			{
-				name: 'id',
+				name: 'days',
 			},
 			{
 				name: 'join',
 			},
 			{
-				name: 'hours',
+				name: 'left',
+			},
+			{
+				name: 'role',
+			},
+			{
+				name: 'consumed',
+			},
+			{
+				name: 'root',
 			},
 			{
 				name: 'estimate',
 			},
 			{
-				name: 'type',
-        codelist:{tag:'Team__type',codelistType:'STATIC'},
+				name: 'id',
+			},
+			{
+				name: 'total',
+			},
+			{
+				name: 'hours',
 			},
 			{
 				name: 'account',
         codelist:{tag:'UserRealName',codelistType:'DYNAMIC'},
 			},
 			{
-				name: 'days',
-			},
-			{
-				name: 'root',
+				name: 'type',
+        codelist:{tag:'Team__type',codelistType:'STATIC'},
 			},
 			{
 				name: 'srfkey',

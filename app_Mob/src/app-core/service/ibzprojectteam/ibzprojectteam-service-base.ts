@@ -100,6 +100,52 @@ export class IBZPROJECTTEAMServiceBase extends EntityService {
     }
 
     /**
+     * FetchProjectTeamPm接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IBZPROJECTTEAMServiceBase
+     */
+    public async FetchProjectTeamPm(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // FetchProjectTeamPm ---FETCH
+        if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzprojectteams'),'undefined')){
+            let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzprojectteams') as any);
+            if(result){
+                return {"status":200,"data":result};
+            }else{
+                return {"status":200,"data":[]};
+            } 
+        }else{
+            return {"status":200,"data":[]};
+        }
+    }
+
+    /**
+     * FetchTempProjectTeamPm接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IBZPROJECTTEAMServiceBase
+     */
+    public async FetchTempProjectTeamPm(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        // FetchTempProjectTeamPm ---FETCHTEMP
+        if(context.srfsessionkey && !Object.is(this.tempStorage.getItem(context.srfsessionkey+'_ibzprojectteams'),'undefined')){
+            let result:any = JSON.parse(this.tempStorage.getItem(context.srfsessionkey+'_ibzprojectteams') as any);
+            if(result){
+                return new HttpResponse(200,result);
+            }else{
+                return new HttpResponse(200,{});
+            } 
+        }else{
+            return new HttpResponse(200,{});
+        }
+    }
+
+    /**
      * FetchRowEditDefault接口方法
      *
      * @param {*} [context={}]

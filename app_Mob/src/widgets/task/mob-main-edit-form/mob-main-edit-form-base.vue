@@ -1532,6 +1532,14 @@ export default class MobMainEditBase extends Vue implements ControlInterface {
                   },
                   {
                       type:"SIMPLE",
+                      condOP:"ISNULL",
+                      ruleInfo:"", 
+                      isKeyCond:false,
+                      isNotMode:false,
+                      deName:"deadline",
+                  },
+                  {
+                      type:"SIMPLE",
                       condOP:"GTANDEQ",
                       ruleInfo:"截至日期必须大于等于预计开始", 
                       isKeyCond:false,
@@ -1684,7 +1692,7 @@ export default class MobMainEditBase extends Vue implements ControlInterface {
 , 
         project: new FormItemModel({ caption: '所属项目', detailType: 'FORMITEM', name: 'project', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
-        module: new FormItemModel({ caption: 'id', detailType: 'FORMITEM', name: 'module', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
+        module: new FormItemModel({ caption: '模块', detailType: 'FORMITEM', name: 'module', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 
         modulename: new FormItemModel({ caption: '所属模块', detailType: 'FORMITEM', name: 'modulename', visible: true, isShowCaption: true, form: this, disabled: false, enableCond: 3 })
 , 

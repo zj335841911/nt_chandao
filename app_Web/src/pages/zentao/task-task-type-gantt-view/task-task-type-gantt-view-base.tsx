@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { GanttViewBase } from '@/studio-core';
 import TaskService from '@/service/task/task-service';
 import TaskAuthService from '@/authservice/task/task-auth-service';
@@ -64,6 +64,20 @@ export class TaskTaskTypeGanttViewBase extends GanttViewBase {
      * @memberof TaskTaskTypeGanttViewBase
      */
     public appUIService: TaskUIService = new TaskUIService(this.$store);
+
+	/**
+	 * 自定义视图导航参数集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof TaskTaskTypeGanttViewBase
+	 */
+    protected customViewParams: any = {
+        'project': {
+            isRawValue: false,
+            value: 'project',
+        }
+    };
 
     /**
      * 视图模型数据

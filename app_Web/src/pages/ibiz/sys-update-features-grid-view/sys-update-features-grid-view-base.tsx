@@ -1,6 +1,6 @@
 
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { GridViewBase } from '@/studio-core';
 import SysUpdateFeaturesService from '@/service/sys-update-features/sys-update-features-service';
 import SysUpdateFeaturesAuthService from '@/authservice/sys-update-features/sys-update-features-auth-service';
@@ -136,7 +136,7 @@ export class SysUpdateFeaturesGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof SysUpdateFeaturesGridViewBase
      */
-	protected viewtag: string = 'b7f6ef0166a2f8f4cb554e7db6814c75';
+	protected viewtag: string = '8cee8f79bfe729f53121904e9ebd7422';
 
     /**
      * 视图名称

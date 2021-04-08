@@ -81,12 +81,12 @@ export default class TaskKanBanModel {
 				dataType: 'TEXT',
 			},
 			{
-				name: 'left',
-			},
-			{
 				name: 'eststarted',
 				prop: 'eststarted',
 				dataType: 'DATE',
+			},
+			{
+				name: 'left',
 			},
 			{
 				name: 'isfavorites',
@@ -122,6 +122,11 @@ export default class TaskKanBanModel {
 				name: 'pri',
 				prop: 'pri',
 				dataType: 'NSCODELIST',
+			},
+			{
+				name: 'plan',
+				prop: 'plan',
+				dataType: 'PICKUP',
 			},
 			{
 				name: 'color',

@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { TabExpViewBase } from '@/studio-core';
 import TestReportService from '@/service/test-report/test-report-service';
 import TestReportAuthService from '@/authservice/test-report/test-report-auth-service';
@@ -132,7 +132,7 @@ export class TestReportProjectTabExpViewBase extends TabExpViewBase {
      * @type {string}
      * @memberof TestReportProjectTabExpViewBase
      */
-	protected viewtag: string = '34d99e271bca6539e707f467f9575044';
+	protected viewtag: string = '2dda1b4d7b8bacd3d921f0f0108f2fa1';
 
     /**
      * 视图名称

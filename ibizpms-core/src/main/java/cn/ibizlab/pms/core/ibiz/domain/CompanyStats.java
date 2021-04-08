@@ -24,6 +24,8 @@ import java.io.Serializable;
 import lombok.*;
 import org.springframework.data.annotation.Transient;
 import cn.ibizlab.pms.util.annotation.Audit;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -39,25 +41,27 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
 @TableName(value = "zt_action", resultMap = "CompanyStatsResultMap")
+@ApiModel("公司动态汇总")
 public class CompanyStats extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     /**
-     * 标识
+     * 登录次数
      */
-    @DEField(isKeyField = true)
-    @TableId(value = "id", type = IdType.AUTO)
-    @JSONField(name = "id")
-    @JsonProperty("id")
-    private Long id;
+    @TableField(exist = false)
+    @JSONField(name = "logincnt")
+    @JsonProperty("logincnt")
+    @ApiModelProperty("登录次数")
+    private Integer logincnt;
     /**
-     * 备注
+     * 新增需求数
      */
-    @TableField(value = "`comment`")
-    @JSONField(name = "comment")
-    @JsonProperty("comment")
-    private String comment;
+    @TableField(exist = false)
+    @JSONField(name = "openedstorycnt")
+    @JsonProperty("openedstorycnt")
+    @ApiModelProperty("新增需求数")
+    private Integer openedstorycnt;
     /**
      * 日期
      */
@@ -65,70 +69,8 @@ public class CompanyStats extends EntityMP implements Serializable {
     @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "ztdate", format = "yyyy-MM-dd")
     @JsonProperty("ztdate")
+    @ApiModelProperty("日期")
     private Timestamp ztdate;
-    /**
-     * 登录次数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "logincnt")
-    @JsonProperty("logincnt")
-    private Integer logincnt;
-    /**
-     * 日志工时
-     */
-    @TableField(exist = false)
-    @JSONField(name = "loghours")
-    @JsonProperty("loghours")
-    private Integer loghours;
-    /**
-     * 新增需求数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "openedstorycnt")
-    @JsonProperty("openedstorycnt")
-    private Integer openedstorycnt;
-    /**
-     * 关闭需求数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "closedstorycnt")
-    @JsonProperty("closedstorycnt")
-    private Integer closedstorycnt;
-    /**
-     * 新增任务数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "openedtaskcnt")
-    @JsonProperty("openedtaskcnt")
-    private Integer openedtaskcnt;
-    /**
-     * 完成任务数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "finishedtaskcnt")
-    @JsonProperty("finishedtaskcnt")
-    private Integer finishedtaskcnt;
-    /**
-     * 新增Bug数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "openedbugcnt")
-    @JsonProperty("openedbugcnt")
-    private Integer openedbugcnt;
-    /**
-     * 解决Bug数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "resolvedbugcnt")
-    @JsonProperty("resolvedbugcnt")
-    private Integer resolvedbugcnt;
-    /**
-     * 动态数
-     */
-    @TableField(exist = false)
-    @JSONField(name = "dynamiccnt")
-    @JsonProperty("dynamiccnt")
-    private Integer dynamiccnt;
     /**
      * 日志日期
      */
@@ -136,17 +78,83 @@ public class CompanyStats extends EntityMP implements Serializable {
     @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
     @JSONField(name = "date", format = "yyyy-MM-dd")
     @JsonProperty("date")
+    @ApiModelProperty("日志日期")
     private Timestamp date;
-
-
-
     /**
-     * 设置 [备注]
+     * 关闭需求数
      */
-    public void setComment(String comment) {
-        this.comment = comment;
-        this.modify("comment", comment);
-    }
+    @TableField(exist = false)
+    @JSONField(name = "closedstorycnt")
+    @JsonProperty("closedstorycnt")
+    @ApiModelProperty("关闭需求数")
+    private Integer closedstorycnt;
+    /**
+     * 新增Bug数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "openedbugcnt")
+    @JsonProperty("openedbugcnt")
+    @ApiModelProperty("新增Bug数")
+    private Integer openedbugcnt;
+    /**
+     * 日志工时
+     */
+    @TableField(exist = false)
+    @JSONField(name = "loghours")
+    @JsonProperty("loghours")
+    @ApiModelProperty("日志工时")
+    private Integer loghours;
+    /**
+     * 动态数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "dynamiccnt")
+    @JsonProperty("dynamiccnt")
+    @ApiModelProperty("动态数")
+    private Integer dynamiccnt;
+    /**
+     * 完成任务数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "finishedtaskcnt")
+    @JsonProperty("finishedtaskcnt")
+    @ApiModelProperty("完成任务数")
+    private Integer finishedtaskcnt;
+    /**
+     * 解决Bug数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "resolvedbugcnt")
+    @JsonProperty("resolvedbugcnt")
+    @ApiModelProperty("解决Bug数")
+    private Integer resolvedbugcnt;
+    /**
+     * 备注
+     */
+    @TableField(value = "`comment`")
+    @JSONField(name = "comment")
+    @JsonProperty("comment")
+    @ApiModelProperty("备注")
+    private String comment;
+    /**
+     * 新增任务数
+     */
+    @TableField(exist = false)
+    @JSONField(name = "openedtaskcnt")
+    @JsonProperty("openedtaskcnt")
+    @ApiModelProperty("新增任务数")
+    private Integer openedtaskcnt;
+    /**
+     * 标识
+     */
+    @DEField(isKeyField = true)
+    @TableId(value = "id", type = IdType.AUTO)
+    @JSONField(name = "id")
+    @JsonProperty("id")
+    @ApiModelProperty("标识")
+    private Long id;
+
+
 
     /**
      * 设置 [日志日期]
@@ -166,6 +174,14 @@ public class CompanyStats extends EntityMP implements Serializable {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         return sdf.format(date);
     }
+    /**
+     * 设置 [备注]
+     */
+    public void setComment(String comment) {
+        this.comment = comment;
+        this.modify("comment", comment);
+    }
+
 
     @Override
     public Serializable getDefaultKey(boolean gen) {

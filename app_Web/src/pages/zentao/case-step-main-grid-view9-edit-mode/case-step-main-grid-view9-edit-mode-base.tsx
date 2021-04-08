@@ -1,6 +1,6 @@
 
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { GridView9Base } from '@/studio-core';
 import IBZCaseStepService from '@/service/ibzcase-step/ibzcase-step-service';
 import IBZCaseStepAuthService from '@/authservice/ibzcase-step/ibzcase-step-auth-service';
@@ -121,7 +121,7 @@ export class CaseStepMainGridView9_EditModeBase extends GridView9Base {
      * @type {string}
      * @memberof CaseStepMainGridView9_EditModeBase
      */
-	protected viewtag: string = 'ac71a1cfaecb07640c14f75b8f202b1e';
+	protected viewtag: string = 'cc95ccdffa772694833ec569e8aaa025';
 
     /**
      * 视图名称

@@ -51,16 +51,14 @@ public class TaskEstimateServiceImpl extends ServiceImpl<TaskEstimateMapper, Tas
     @Autowired
     @Lazy
     protected cn.ibizlab.pms.core.zentao.service.ITaskService taskService;
-    @Autowired
-    @Lazy
-    ITaskEstimateService proxyService;
 
     protected int batchSize = 500;
 
     @Override
     @Transactional
     public boolean create(TaskEstimate et) {
-        if (!this.retBool(this.baseMapper.insert(et))) {
+        fillParentData(et);
+        if(!this.retBool(this.baseMapper.insert(et))) {
             return false;
         }
         CachedBeanCopier.copy(get(et.getId()), et);
@@ -70,6 +68,7 @@ public class TaskEstimateServiceImpl extends ServiceImpl<TaskEstimateMapper, Tas
     @Override
     @Transactional
     public void createBatch(List<TaskEstimate> list) {
+        list.forEach(item->fillParentData(item));
         this.saveBatch(list, batchSize);
     }
 
@@ -101,7 +100,7 @@ public class TaskEstimateServiceImpl extends ServiceImpl<TaskEstimateMapper, Tas
     @Transactional
     public TaskEstimate get(Long key) {
         TaskEstimate et = getById(key);
-        if (et == null) {
+        if(et == null){
             et = new TaskEstimate();
             et.setId(key);
         }
@@ -112,6 +111,7 @@ public class TaskEstimateServiceImpl extends ServiceImpl<TaskEstimateMapper, Tas
 
     @Override
     public TaskEstimate getDraft(TaskEstimate et) {
+        fillParentData(et);
         return et;
     }
 
@@ -121,8 +121,24 @@ public class TaskEstimateServiceImpl extends ServiceImpl<TaskEstimateMapper, Tas
     }
     @Override
     @Transactional
+    public TaskEstimate pMEvaluation(TaskEstimate et) {
+        //自定义代码
+        return et;
+    }
+
+    @Override
+    @Transactional
+    public boolean pMEvaluationBatch(List<TaskEstimate> etList) {
+        for(TaskEstimate et : etList) {
+            pMEvaluation(et);
+        }
+        return true;
+    }
+
+    @Override
+    @Transactional
     public boolean save(TaskEstimate et) {
-        if (!saveOrUpdate(et)) {
+        if(!saveOrUpdate(et)) {
             return false;
         }
         return true;
@@ -134,13 +150,14 @@ public class TaskEstimateServiceImpl extends ServiceImpl<TaskEstimateMapper, Tas
         if (null == et) {
             return false;
         } else {
-            return checkKey(et) ? proxyService.update(et) : proxyService.create(et);
+            return checkKey(et) ? getProxyService().update(et) : getProxyService().create(et);
         }
     }
 
     @Override
     @Transactional
     public boolean saveBatch(Collection<TaskEstimate> list) {
+        list.forEach(item->fillParentData(item));
         List<TaskEstimate> create = new ArrayList<>();
         List<TaskEstimate> update = new ArrayList<>();
         for (TaskEstimate et : list) {
@@ -151,10 +168,10 @@ public class TaskEstimateServiceImpl extends ServiceImpl<TaskEstimateMapper, Tas
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
         return true;
     }
@@ -162,6 +179,7 @@ public class TaskEstimateServiceImpl extends ServiceImpl<TaskEstimateMapper, Tas
     @Override
     @Transactional
     public void saveBatch(List<TaskEstimate> list) {
+        list.forEach(item->fillParentData(item));
         List<TaskEstimate> create = new ArrayList<>();
         List<TaskEstimate> update = new ArrayList<>();
         for (TaskEstimate et : list) {
@@ -172,64 +190,80 @@ public class TaskEstimateServiceImpl extends ServiceImpl<TaskEstimateMapper, Tas
             }
         }
         if (create.size() > 0) {
-            proxyService.createBatch(create);
+            getProxyService().createBatch(create);
         }
         if (update.size() > 0) {
-            proxyService.updateBatch(update);
+            getProxyService().updateBatch(update);
         }
     }
 
 
-    @Override
+	@Override
     public List<TaskEstimate> selectByTask(Long id) {
         return baseMapper.selectByTask(id);
     }
     @Override
     public void removeByTask(Long id) {
-        this.remove(new QueryWrapper<TaskEstimate>().eq("task", id));
+        this.remove(new QueryWrapper<TaskEstimate>().eq("task",id));
     }
 
-    @Override
-    public void saveByTask(Long id, List<TaskEstimate> list) {
-        if (list == null) {
+    public ITaskEstimateService getProxyService() {
+        return cn.ibizlab.pms.util.security.SpringContextHolder.getBean(this.getClass());
+    }
+	@Override
+    public void saveByTask(Long id,List<TaskEstimate> list) {
+        if(list==null)
             return;
-        }
         Set<Long> delIds=new HashSet<Long>();
         List<TaskEstimate> _update=new ArrayList<TaskEstimate>();
         List<TaskEstimate> _create=new ArrayList<TaskEstimate>();
-        for (TaskEstimate before:selectByTask(id)){
+        for(TaskEstimate before:selectByTask(id)){
             delIds.add(before.getId());
         }
-        for (TaskEstimate sub : list) {
+        for(TaskEstimate sub:list) {
             sub.setTask(id);
-            if (ObjectUtils.isEmpty(sub.getId()))
+            if(ObjectUtils.isEmpty(sub.getId()))
                 sub.setId((Long)sub.getDefaultKey(true));
-            if (delIds.contains(sub.getId())) {
+            if(delIds.contains(sub.getId())) {
                 delIds.remove(sub.getId());
                 _update.add(sub);
             }
-            else {
+            else
                 _create.add(sub);
-            }
         }
-        if (_update.size() > 0) {
-            proxyService.updateBatch(_update);
-        }
-        if (_create.size() > 0) {
-            proxyService.createBatch(_create);
-        }
-        if (delIds.size() > 0) {
-            proxyService.removeBatch(delIds);
-        }
+        if(_update.size()>0)
+            getProxyService().updateBatch(_update);
+        if(_create.size()>0)
+            getProxyService().createBatch(_create);
+        if(delIds.size()>0)
+            getProxyService().removeBatch(delIds);
+	}
+
+
+    /**
+     * 查询集合 日志月
+     */
+    @Override
+    public Page<TaskEstimate> searchActionMonth(TaskEstimateSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<TaskEstimate> pages=baseMapper.searchActionMonth(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<TaskEstimate>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
+    /**
+     * 查询集合 日志年
+     */
+    @Override
+    public Page<TaskEstimate> searchActionYear(TaskEstimateSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<TaskEstimate> pages=baseMapper.searchActionYear(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<TaskEstimate>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
 
     /**
      * 查询集合 DEFAULT
      */
     @Override
     public Page<TaskEstimate> searchDefault(TaskEstimateSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<TaskEstimate> pages=baseMapper.searchDefault(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<TaskEstimate> pages=baseMapper.searchDefault(context.getPages(),context,context.getSelectCond());
         return new PageImpl<TaskEstimate>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
@@ -238,35 +272,83 @@ public class TaskEstimateServiceImpl extends ServiceImpl<TaskEstimateMapper, Tas
      */
     @Override
     public Page<TaskEstimate> searchDefaults(TaskEstimateSearchContext context) {
-        com.baomidou.mybatisplus.extension.plugins.pagination.Page<TaskEstimate> pages=baseMapper.searchDefaults(context.getPages(), context, context.getSelectCond());
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<TaskEstimate> pages=baseMapper.searchDefaults(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<TaskEstimate>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 日志月（项目）
+     */
+    @Override
+    public Page<TaskEstimate> searchProjectActionMonth(TaskEstimateSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<TaskEstimate> pages=baseMapper.searchProjectActionMonth(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<TaskEstimate>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 日志年（项目）
+     */
+    @Override
+    public Page<TaskEstimate> searchProjectActionYear(TaskEstimateSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<TaskEstimate> pages=baseMapper.searchProjectActionYear(context.getPages(),context,context.getSelectCond());
+        return new PageImpl<TaskEstimate>(pages.getRecords(), context.getPageable(), pages.getTotal());
+    }
+
+    /**
+     * 查询集合 项目日志
+     */
+    @Override
+    public Page<TaskEstimate> searchProjectTaskEstimate(TaskEstimateSearchContext context) {
+        com.baomidou.mybatisplus.extension.plugins.pagination.Page<TaskEstimate> pages=baseMapper.searchProjectTaskEstimate(context.getPages(),context,context.getSelectCond());
         return new PageImpl<TaskEstimate>(pages.getRecords(), context.getPageable(), pages.getTotal());
     }
 
 
 
+    /**
+     * 为当前实体填充父数据（外键值文本、外键值附加数据）
+     * @param et
+     */
+    private void fillParentData(TaskEstimate et){
+        //实体关系[DER1N_ZT_TASKESTIMATE_ZT_TASK_TASK]
+        if(!ObjectUtils.isEmpty(et.getTask())){
+            cn.ibizlab.pms.core.zentao.domain.Task zttask=et.getZttask();
+            if(ObjectUtils.isEmpty(zttask)){
+                cn.ibizlab.pms.core.zentao.domain.Task majorEntity=taskService.get(et.getTask());
+                et.setZttask(majorEntity);
+                zttask=majorEntity;
+            }
+            et.setTaskspecies(zttask.getTaskspecies());
+            et.setTaskname(zttask.getName());
+            et.setProjectname(zttask.getProjectname());
+            et.setType(zttask.getType());
+            et.setDeleted(zttask.getDeleted());
+            et.setProject(zttask.getProject());
+        }
+    }
 
 
 
 
     @Override
-    public List<JSONObject> select(String sql, Map param) {
-        return this.baseMapper.selectBySQL(sql, param);
+    public List<JSONObject> select(String sql, Map param){
+        return this.baseMapper.selectBySQL(sql,param);
     }
 
     @Override
     @Transactional
-    public boolean execute(String sql, Map param) {
+    public boolean execute(String sql , Map param){
         if (sql == null || sql.isEmpty()) {
             return false;
         }
         if (sql.toLowerCase().trim().startsWith("insert")) {
-            return this.baseMapper.insertBySQL(sql, param);
+            return this.baseMapper.insertBySQL(sql,param);
         }
         if (sql.toLowerCase().trim().startsWith("update")) {
-            return this.baseMapper.updateBySQL(sql, param);
+            return this.baseMapper.updateBySQL(sql,param);
         }
         if (sql.toLowerCase().trim().startsWith("delete")) {
-            return this.baseMapper.deleteBySQL(sql, param);
+            return this.baseMapper.deleteBySQL(sql,param);
         }
         log.warn("暂未支持的SQL语法");
         return true;
@@ -274,9 +356,6 @@ public class TaskEstimateServiceImpl extends ServiceImpl<TaskEstimateMapper, Tas
 
 
 
-
-
 }
-
 
 

@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { EditViewBase } from '@/studio-core';
 import TaskService from '@/service/task/task-service';
 import TaskAuthService from '@/authservice/task/task-auth-service';
@@ -66,6 +66,28 @@ export class TaskStoryNewEditViewBase extends EditViewBase {
      */
     public appUIService: TaskUIService = new TaskUIService(this.$store);
 
+	/**
+	 * 自定义视图导航参数集合
+	 *
+     * @protected
+	 * @type {*}
+	 * @memberof TaskStoryNewEditViewBase
+	 */
+    protected customViewParams: any = {
+        'modulename': {
+            isRawValue: false,
+            value: 'modulename',
+        },
+        'title': {
+            isRawValue: false,
+            value: 'title',
+        },
+        'module': {
+            isRawValue: false,
+            value: 'module',
+        }
+    };
+
     /**
      * 是否显示信息栏
      *
@@ -125,7 +147,7 @@ export class TaskStoryNewEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof TaskStoryNewEditViewBase
      */
-	protected viewtag: string = 'ecbf5b4a77da69166a45c1ad211d047a';
+	protected viewtag: string = '52a6a2a4e6961e9fe8c7f07df59309d0';
 
     /**
      * 视图名称

@@ -15,6 +15,9 @@ export default class BurnDownChartModel {
   public getDataItems(): any[] {
     return [
       {
+        name: 'isweekend',
+      },
+      {
         name: 'date',
       },
       {
@@ -35,9 +38,6 @@ export default class BurnDownChartModel {
       },
       {
         name: 'task',
-      },
-      {
-        name: 'isweekend',
       },
     ]
   }

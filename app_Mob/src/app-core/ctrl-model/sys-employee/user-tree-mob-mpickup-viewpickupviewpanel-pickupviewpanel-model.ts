@@ -100,13 +100,13 @@ export class UserTreeMobMPickupViewpickupviewpanelModel {
         name: 'createdate',
       },
       {
+        name: 'updatedate',
+      },
+      {
         name: 'updateman',
       },
       {
         name: 'createman',
-      },
-      {
-        name: 'updatedate',
       },
     ]
   }

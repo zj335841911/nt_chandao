@@ -90,16 +90,16 @@ export default class IbzMonthlyUIActionBase extends EntityUIActionBase {
      * @memberof  IbzMonthlyUIServiceBase
      */  
     public initViewMap(){
-        this.allViewMap.set('MOBEDITVIEW:',{viewname:'mobeditview',srfappde:'ibzmonthlies'});
-        this.allViewMap.set(':',{viewname:'myreceivedmobeditview',srfappde:'ibzmonthlies'});
-        this.allViewMap.set(':',{viewname:'maininfomobeditview',srfappde:'ibzmonthlies'});
-        this.allViewMap.set(':',{viewname:'mysubmitmobmdview',srfappde:'ibzmonthlies'});
-        this.allViewMap.set(':',{viewname:'editmobeditview',srfappde:'ibzmonthlies'});
-        this.allViewMap.set(':',{viewname:'maininfomobtabexpview',srfappde:'ibzmonthlies'});
-        this.allViewMap.set(':',{viewname:'monthlymobmdview',srfappde:'ibzmonthlies'});
-        this.allViewMap.set(':',{viewname:'myreceivedmobmdview',srfappde:'ibzmonthlies'});
         this.allViewMap.set(':',{viewname:'createmobeditview',srfappde:'ibzmonthlies'});
         this.allViewMap.set(':',{viewname:'myreceivedmobtabexpview',srfappde:'ibzmonthlies'});
+        this.allViewMap.set(':',{viewname:'myreceivedmobeditview',srfappde:'ibzmonthlies'});
+        this.allViewMap.set(':',{viewname:'editmobeditview',srfappde:'ibzmonthlies'});
+        this.allViewMap.set('MOBEDITVIEW:',{viewname:'mobeditview',srfappde:'ibzmonthlies'});
+        this.allViewMap.set(':',{viewname:'myreceivedmobmdview',srfappde:'ibzmonthlies'});
+        this.allViewMap.set(':',{viewname:'maininfomobtabexpview',srfappde:'ibzmonthlies'});
+        this.allViewMap.set(':',{viewname:'monthlymobmdview',srfappde:'ibzmonthlies'});
+        this.allViewMap.set(':',{viewname:'maininfomobeditview',srfappde:'ibzmonthlies'});
+        this.allViewMap.set(':',{viewname:'mysubmitmobmdview',srfappde:'ibzmonthlies'});
     }
 
     /**
@@ -119,7 +119,7 @@ export default class IbzMonthlyUIActionBase extends EntityUIActionBase {
      */  
     public initDeMainStateOPPrivsMap(){
         this.allDeMainStateOPPrivsMap.set('0',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{}));
-        this.allDeMainStateOPPrivsMap.set('1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__MONTHLY_EDIT_BUT':0,'SRFUR__MONTHLY_SUBMIT_BUT':0,}));
+        this.allDeMainStateOPPrivsMap.set('1',Object.assign({'CREATE':1,'DELETE':1,'READ':1,'UPDATE':1},{'SRFUR__MONTHLY_SUBMIT_BUT':0,'SRFUR__MONTHLY_EDIT_BUT':0,}));
     }
 
     /**
@@ -180,51 +180,6 @@ export default class IbzMonthlyUIActionBase extends EntityUIActionBase {
     }
 
     /**
-     * 新建
-     *
-     * @param {any[]} args 数据
-     * @param {*} [contextJO={}] 行为上下文
-     * @param {*} [paramJO={}] 行为参数
-     * @param {*} [$event] 事件
-     * @param {*} [xData] 数据目标
-     * @param {*} [container] 行为容器对象
-     * @param {string} [srfParentDeName] 
-     * @returns {Promise<any>}
-     * @memberof IbzMonthlyUIService
-     */
-    public async IbzMonthly_MobCreate(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
-        const _args: any[] = Util.deepCopy(args);
-        const actionTarget: string | null = 'NONE';
-            
-        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
-        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
-        context = { ...container.context, ...context };
-        let parentObj: any = {
-            srfparentdename: srfParentDeName ? srfParentDeName : null,
-            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
-        };
-        Object.assign(context, parentObj);
-        Object.assign(params, parentObj);
-        let panelNavParam= { "date": "%date%" } ;
-        let panelNavContext= { "date": "%date%" } ;
-        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
-        let response: any = null;
-        const deResParameters: any[] = [];
-        const parameters: any[] = [
-            { pathName: 'ibzmonthlies', parameterName: 'ibzmonthly' },
-            { pathName: 'createmobeditview', parameterName: 'createmobeditview' },
-        ];
-        const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
-        response = await this.openService.openView(routeParam);
-        if (response) {
-            if (xData && xData.refresh && xData.refresh instanceof Function) {
-                xData.refresh(args);
-            }
-        }
-        return response;
-    }
-
-    /**
      * 修改
      *
      * @param {any[]} args 数据
@@ -261,6 +216,51 @@ export default class IbzMonthlyUIActionBase extends EntityUIActionBase {
         const parameters: any[] = [
             { pathName: 'ibzmonthlies', parameterName: 'ibzmonthly' },
             { pathName: 'editmobeditview', parameterName: 'editmobeditview' },
+        ];
+        const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
+        response = await this.openService.openView(routeParam);
+        if (response) {
+            if (xData && xData.refresh && xData.refresh instanceof Function) {
+                xData.refresh(args);
+            }
+        }
+        return response;
+    }
+
+    /**
+     * 新建
+     *
+     * @param {any[]} args 数据
+     * @param {*} [contextJO={}] 行为上下文
+     * @param {*} [paramJO={}] 行为参数
+     * @param {*} [$event] 事件
+     * @param {*} [xData] 数据目标
+     * @param {*} [container] 行为容器对象
+     * @param {string} [srfParentDeName] 
+     * @returns {Promise<any>}
+     * @memberof IbzMonthlyUIService
+     */
+    public async IbzMonthly_MobCreate(args: any[], contextJO: any = {}, paramJO: any = {}, $event?: any, xData?: any, container?: any, srfParentDeName?: string): Promise<any> {
+        const _args: any[] = Util.deepCopy(args);
+        const actionTarget: string | null = 'NONE';
+            
+        let context: any = this.handleContextParam(actionTarget, _args, contextJO);
+        let params: any = this.handleActionParam(actionTarget, _args, paramJO);
+        context = { ...container.context, ...context };
+        let parentObj: any = {
+            srfparentdename: srfParentDeName ? srfParentDeName : null,
+            srfparentkey: srfParentDeName ? context[srfParentDeName.toLowerCase()] : null,
+        };
+        Object.assign(context, parentObj);
+        Object.assign(params, parentObj);
+        let panelNavParam= { "date": "%date%" } ;
+        let panelNavContext= { "date": "%date%" } ;
+        const { context: _context, param: _params } = this.viewTool.formatNavigateParam( panelNavContext, panelNavParam, context, params, _args);
+        let response: any = null;
+        const deResParameters: any[] = [];
+        const parameters: any[] = [
+            { pathName: 'ibzmonthlies', parameterName: 'ibzmonthly' },
+            { pathName: 'createmobeditview', parameterName: 'createmobeditview' },
         ];
         const routeParam: any = this.openService.formatRouteParam(_context, deResParameters, parameters, _args, _params);
         response = await this.openService.openView(routeParam);

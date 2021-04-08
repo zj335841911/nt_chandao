@@ -58,12 +58,12 @@ export default class TaskStorySpecModel {
       {
         name: 'spec',
         prop: 'spec',
-        dataType: 'TEXT',
+        dataType: 'HTMLTEXT',
       },
       {
         name: 'verify',
         prop: 'verify',
-        dataType: 'TEXT',
+        dataType: 'LONGTEXT',
       },
       {
         name: 'id',

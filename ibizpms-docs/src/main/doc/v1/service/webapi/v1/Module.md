@@ -419,6 +419,42 @@ POST
 | 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
 | 返回类型 | Page<[ModuleDTO](#ModuleDTO)>：模块实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
 
+### 获取任务模块
+#### 访问路径
+/modules/fetchtaskmodule
+
+#### 请求方法
+GET
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [ModuleSearchContext](#ModuleSearchContext) | 模块查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | List<[ModuleDTO](#ModuleDTO)>：模块实体传输对象列表 |
+
+### 查询任务模块
+#### 访问路径
+/modules/searchtaskmodule
+
+#### 请求方法
+POST
+
+#### 参数说明
+| 序号 | 参数名 | 参数类型 | 说明 |
+| ---- | ---- | ---- | ---- |
+| 1 | context | [ModuleSearchContext](#ModuleSearchContext) | 模块查询条件对象 |
+
+#### 返回说明
+| 项目 | 说明 |
+| ---- | ---- |
+| 返回状态 | 200：请求成功。<br>401：用户未认证。<br>500：服务异常。 |
+| 返回类型 | Page<[ModuleDTO](#ModuleDTO)>：模块实体传输对象分页对象<br>分页对象为`org.springframework.data.domain.Page` |
+
 ## 附录
 ### 数据类型说明
 #### ModuleDTO
@@ -431,16 +467,16 @@ POST
 | 5 | order | Integer | 允许 | 排序 |
 | 6 | owner | String | 允许 | 负责人 |
 | 7 | id | Long | 不可 | id |
-| 8 | collector | String | 允许 | 收藏者 |
-| 9 | ibizshort | String | 允许 | 简称 |
-| 10 | path | String | 允许 | 路径 |
-| 11 | deleted | String | 允许 | 已删除 |
-| 12 | parentname | String | 允许 | 上级模块 |
-| 13 | branch | Long | 允许 | 平台/分支 |
-| 14 | parent | Long | 允许 | 上级模块 |
-| 15 | mdeptid | String | 允许 | 部门标识 |
-| 16 | orgid | String | 允许 | 组织标识 |
-| 17 | orderpk | String | 允许 | 数据选择排序 |
+| 8 | orderpk | String | 允许 | 数据选择排序 |
+| 9 | collector | String | 允许 | 收藏者 |
+| 10 | ibizshort | String | 允许 | 简称 |
+| 11 | path | String | 允许 | 路径 |
+| 12 | mdeptid | String | 允许 | 部门标识 |
+| 13 | orgid | String | 允许 | 组织标识 |
+| 14 | deleted | String | 允许 | 已删除 |
+| 15 | parentname | String | 允许 | 上级模块 |
+| 16 | branch | Long | 允许 | 平台/分支 |
+| 17 | parent | Long | 允许 | 上级模块 |
 | 18 | <动态属性> | Object | 允许 | 支持动态属性 |
 
 #### ModuleSearchContext

@@ -265,6 +265,21 @@ export class IbzMyTerritoryServiceBase extends EntityService {
     }
 
     /**
+     * FetchMyWorkPm接口方法
+     *
+     * @param {*} [context={}]
+     * @param {*} [data={}]
+     * @param {boolean} [isloading]
+     * @returns {Promise<any>}
+     * @memberof IbzMyTerritoryServiceBase
+     */
+    public async FetchMyWorkPm(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        let res:any = Http.getInstance().get(`/ibzmyterritories/fetchmyworkpm`,tempData,isloading);
+        return res;
+    }
+
+    /**
      * FetchPersonInfo接口方法
      *
      * @param {*} [context={}]

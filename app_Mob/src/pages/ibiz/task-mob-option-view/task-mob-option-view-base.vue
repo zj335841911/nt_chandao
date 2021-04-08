@@ -141,7 +141,7 @@ export default class TaskMobOptionViewBase extends Vue {
 	 * @type {string}
 	 * @memberof TaskMobOptionViewBase
 	 */
-	protected viewtag: string = 'd739ee414172cbfdc3d6e2d2e01e3676';
+	protected viewtag: string = '3bd86e587ad5e786d09099a305690a98';
 
     /**
      * 视图上下文

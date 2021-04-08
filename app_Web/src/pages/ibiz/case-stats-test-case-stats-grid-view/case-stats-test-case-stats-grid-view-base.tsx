@@ -1,6 +1,6 @@
 
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { GridViewBase } from '@/studio-core';
 import CaseStatsService from '@/service/case-stats/case-stats-service';
 import CaseStatsAuthService from '@/authservice/case-stats/case-stats-auth-service';
@@ -125,7 +125,7 @@ export class CaseStatsTestCaseStatsGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof CaseStatsTestCaseStatsGridViewBase
      */
-	protected viewtag: string = 'bc06c199f827cebb36cfd2a5128e1bca';
+	protected viewtag: string = '551947ec5cc35c89fa33deeac4fd3696';
 
     /**
      * 视图名称

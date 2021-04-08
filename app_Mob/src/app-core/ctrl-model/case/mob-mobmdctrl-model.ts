@@ -18,9 +18,6 @@ export class MobModel {
 				name: 'title',
 			},
 			{
-				name: 'status1',
-			},
-			{
 				name: 'type',
 			},
 			{
@@ -28,6 +25,9 @@ export class MobModel {
 			},
 			{
 				name: 'pri',
+			},
+			{
+				name: 'status1',
 			},
 			{
 				name: 'srfkey',

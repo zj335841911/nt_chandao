@@ -1,6 +1,6 @@
 
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { GridViewBase } from '@/studio-core';
 import IbzReportRoleConfigService from '@/service/ibz-report-role-config/ibz-report-role-config-service';
 import IbzReportRoleConfigAuthService from '@/authservice/ibz-report-role-config/ibz-report-role-config-auth-service';
@@ -136,7 +136,7 @@ export class IbzReportRoleConfigGridViewBase extends GridViewBase {
      * @type {string}
      * @memberof IbzReportRoleConfigGridViewBase
      */
-	protected viewtag: string = 'd03a65f09905f6286e89671dfcfaed4a';
+	protected viewtag: string = '356dfaec96b208208e3a9febae855a65';
 
     /**
      * 视图名称

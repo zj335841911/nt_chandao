@@ -79,7 +79,7 @@ public class CaseResource {
 		Case domain  = caseMapping.toDomain(casedto);
         domain .setId(case_id);
 		caseService.update(domain );
-		CaseDTO dto = caseMapping.toDto(domain );
+		CaseDTO dto = caseMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
@@ -117,8 +117,9 @@ public class CaseResource {
 
     @ApiOperation(value = "获取测试用例草稿", tags = {"测试用例" },  notes = "获取测试用例草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/cases/getdraft")
-    public ResponseEntity<CaseDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(caseMapping.toDto(caseService.getDraft(new Case())));
+    public ResponseEntity<CaseDTO> getDraft(CaseDTO dto) {
+        Case domain = caseMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(caseMapping.toDto(caseService.getDraft(domain)));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-CaseFavorite-all')")
@@ -161,9 +162,11 @@ public class CaseResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-ConfirmChange-all')")
     @ApiOperation(value = "批量处理[确认用例变更]", tags = {"测试用例" },  notes = "批量处理[确认用例变更]")
-	@RequestMapping(method = RequestMethod.PUT, value = "/cases/{case_id}/confirmchangebatch")
+	@RequestMapping(method = RequestMethod.PUT, value = "/cases/confirmchangebatch")
     public ResponseEntity<Boolean> confirmChangeBatch(@RequestBody List<CaseDTO> casedtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(caseService.confirmChangeBatch(caseMapping.toDomain(casedtos)));
+        List<Case> domains = caseMapping.toDomain(casedtos);
+        boolean result = caseService.confirmChangeBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-Confirmstorychange-all')")
@@ -178,9 +181,11 @@ public class CaseResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-Confirmstorychange-all')")
     @ApiOperation(value = "批量处理[确认需求变更]", tags = {"测试用例" },  notes = "批量处理[确认需求变更]")
-	@RequestMapping(method = RequestMethod.POST, value = "/cases/{case_id}/confirmstorychangebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/cases/confirmstorychangebatch")
     public ResponseEntity<Boolean> confirmstorychangeBatch(@RequestBody List<CaseDTO> casedtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(caseService.confirmstorychangeBatch(caseMapping.toDomain(casedtos)));
+        List<Case> domains = caseMapping.toDomain(casedtos);
+        boolean result = caseService.confirmstorychangeBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-GetByTestTask-all')")
@@ -195,9 +200,11 @@ public class CaseResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-GetByTestTask-all')")
     @ApiOperation(value = "批量处理[根据测试单获取或者状态]", tags = {"测试用例" },  notes = "批量处理[根据测试单获取或者状态]")
-	@RequestMapping(method = RequestMethod.GET, value = "/cases/{case_id}/getbytesttaskbatch")
+	@RequestMapping(method = RequestMethod.GET, value = "/cases/getbytesttaskbatch")
     public ResponseEntity<Boolean> getByTestTaskBatch(@RequestBody List<CaseDTO> casedtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(caseService.getByTestTaskBatch(caseMapping.toDomain(casedtos)));
+        List<Case> domains = caseMapping.toDomain(casedtos);
+        boolean result = caseService.getByTestTaskBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-GetTestTaskCntRun-all')")
@@ -212,9 +219,11 @@ public class CaseResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-GetTestTaskCntRun-all')")
     @ApiOperation(value = "批量处理[获取测试单执行结果]", tags = {"测试用例" },  notes = "批量处理[获取测试单执行结果]")
-	@RequestMapping(method = RequestMethod.PUT, value = "/cases/{case_id}/gettesttaskcntrunbatch")
+	@RequestMapping(method = RequestMethod.PUT, value = "/cases/gettesttaskcntrunbatch")
     public ResponseEntity<Boolean> getTestTaskCntRunBatch(@RequestBody List<CaseDTO> casedtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(caseService.getTestTaskCntRunBatch(caseMapping.toDomain(casedtos)));
+        List<Case> domains = caseMapping.toDomain(casedtos);
+        boolean result = caseService.getTestTaskCntRunBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-LinkCase-all')")
@@ -229,9 +238,11 @@ public class CaseResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-LinkCase-all')")
     @ApiOperation(value = "批量处理[测试单关联测试用例]", tags = {"测试用例" },  notes = "批量处理[测试单关联测试用例]")
-	@RequestMapping(method = RequestMethod.POST, value = "/cases/{case_id}/linkcasebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/cases/linkcasebatch")
     public ResponseEntity<Boolean> linkCaseBatch(@RequestBody List<CaseDTO> casedtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(caseService.linkCaseBatch(caseMapping.toDomain(casedtos)));
+        List<Case> domains = caseMapping.toDomain(casedtos);
+        boolean result = caseService.linkCaseBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-MobLinkCase-all')")
@@ -246,9 +257,11 @@ public class CaseResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-MobLinkCase-all')")
     @ApiOperation(value = "批量处理[移动端关联需求]", tags = {"测试用例" },  notes = "批量处理[移动端关联需求]")
-	@RequestMapping(method = RequestMethod.POST, value = "/cases/{case_id}/moblinkcasebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/cases/moblinkcasebatch")
     public ResponseEntity<Boolean> mobLinkCaseBatch(@RequestBody List<CaseDTO> casedtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(caseService.mobLinkCaseBatch(caseMapping.toDomain(casedtos)));
+        List<Case> domains = caseMapping.toDomain(casedtos);
+        boolean result = caseService.mobLinkCaseBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-RunCase-all')")
@@ -263,9 +276,11 @@ public class CaseResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-RunCase-all')")
     @ApiOperation(value = "批量处理[执行测试]", tags = {"测试用例" },  notes = "批量处理[执行测试]")
-	@RequestMapping(method = RequestMethod.POST, value = "/cases/{case_id}/runcasebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/cases/runcasebatch")
     public ResponseEntity<Boolean> runCaseBatch(@RequestBody List<CaseDTO> casedtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(caseService.runCaseBatch(caseMapping.toDomain(casedtos)));
+        List<Case> domains = caseMapping.toDomain(casedtos);
+        boolean result = caseService.runCaseBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-RunCases-all')")
@@ -282,8 +297,10 @@ public class CaseResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-Save-all')")
     @ApiOperation(value = "保存测试用例", tags = {"测试用例" },  notes = "保存测试用例")
 	@RequestMapping(method = RequestMethod.POST, value = "/cases/save")
-    public ResponseEntity<Boolean> save(@RequestBody CaseDTO casedto) {
-        return ResponseEntity.status(HttpStatus.OK).body(caseService.save(caseMapping.toDomain(casedto)));
+    public ResponseEntity<CaseDTO> save(@RequestBody CaseDTO casedto) {
+        Case domain = caseMapping.toDomain(casedto);
+        caseService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(caseMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-Save-all')")
@@ -306,9 +323,11 @@ public class CaseResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-TestRunCase-all')")
     @ApiOperation(value = "批量处理[执行测试]", tags = {"测试用例" },  notes = "批量处理[执行测试]")
-	@RequestMapping(method = RequestMethod.POST, value = "/cases/{case_id}/testruncasebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/cases/testruncasebatch")
     public ResponseEntity<Boolean> testRunCaseBatch(@RequestBody List<CaseDTO> casedtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(caseService.testRunCaseBatch(caseMapping.toDomain(casedtos)));
+        List<Case> domains = caseMapping.toDomain(casedtos);
+        boolean result = caseService.testRunCaseBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-TestRunCases-all')")
@@ -334,9 +353,11 @@ public class CaseResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-TestsuitelinkCase-all')")
     @ApiOperation(value = "批量处理[套件关联]", tags = {"测试用例" },  notes = "批量处理[套件关联]")
-	@RequestMapping(method = RequestMethod.POST, value = "/cases/{case_id}/testsuitelinkcasebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/cases/testsuitelinkcasebatch")
     public ResponseEntity<Boolean> testsuitelinkCaseBatch(@RequestBody List<CaseDTO> casedtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(caseService.testsuitelinkCaseBatch(caseMapping.toDomain(casedtos)));
+        List<Case> domains = caseMapping.toDomain(casedtos);
+        boolean result = caseService.testsuitelinkCaseBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-UnlinkCase-all')")
@@ -351,9 +372,11 @@ public class CaseResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-UnlinkCase-all')")
     @ApiOperation(value = "批量处理[移除用例]", tags = {"测试用例" },  notes = "批量处理[移除用例]")
-	@RequestMapping(method = RequestMethod.POST, value = "/cases/{case_id}/unlinkcasebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/cases/unlinkcasebatch")
     public ResponseEntity<Boolean> unlinkCaseBatch(@RequestBody List<CaseDTO> casedtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(caseService.unlinkCaseBatch(caseMapping.toDomain(casedtos)));
+        List<Case> domains = caseMapping.toDomain(casedtos);
+        boolean result = caseService.unlinkCaseBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-UnlinkCases-all')")
@@ -379,9 +402,11 @@ public class CaseResource {
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-UnlinkSuiteCase-all')")
     @ApiOperation(value = "批量处理[移除用例]", tags = {"测试用例" },  notes = "批量处理[移除用例]")
-	@RequestMapping(method = RequestMethod.POST, value = "/cases/{case_id}/unlinksuitecasebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/cases/unlinksuitecasebatch")
     public ResponseEntity<Boolean> unlinkSuiteCaseBatch(@RequestBody List<CaseDTO> casedtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(caseService.unlinkSuiteCaseBatch(caseMapping.toDomain(casedtos)));
+        List<Case> domains = caseMapping.toDomain(casedtos);
+        boolean result = caseService.unlinkSuiteCaseBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-UnlinkSuiteCases-all')")
@@ -880,6 +905,7 @@ public class CaseResource {
 	}
 
 
+
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-Create-all')")
     @ApiOperation(value = "根据产品建立测试用例", tags = {"测试用例" },  notes = "根据产品建立测试用例")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/cases")
@@ -954,8 +980,8 @@ public class CaseResource {
 
     @ApiOperation(value = "根据产品获取测试用例草稿", tags = {"测试用例" },  notes = "根据产品获取测试用例草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/cases/getdraft")
-    public ResponseEntity<CaseDTO> getDraftByProduct(@PathVariable("product_id") Long product_id) {
-        Case domain = new Case();
+    public ResponseEntity<CaseDTO> getDraftByProduct(@PathVariable("product_id") Long product_id, CaseDTO dto) {
+        Case domain = caseMapping.toDomain(dto);
         domain.setProduct(product_id);
         return ResponseEntity.status(HttpStatus.OK).body(caseMapping.toDto(caseService.getDraft(domain)));
     }
@@ -997,9 +1023,11 @@ public class CaseResource {
         return ResponseEntity.status(HttpStatus.OK).body(casedto);
     }
     @ApiOperation(value = "批量处理[根据产品测试用例]", tags = {"测试用例" },  notes = "批量处理[根据产品测试用例]")
-	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/cases/{case_id}/confirmchangebatch")
+	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/cases/confirmchangebatch")
     public ResponseEntity<Boolean> confirmChangeByProduct(@PathVariable("product_id") Long product_id, @RequestBody List<CaseDTO> casedtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(caseService.confirmChangeBatch(caseMapping.toDomain(casedtos)));
+        List<Case> domains = caseMapping.toDomain(casedtos);
+        boolean result = caseService.confirmChangeBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-Confirmstorychange-all')")
     @ApiOperation(value = "根据产品测试用例", tags = {"测试用例" },  notes = "根据产品测试用例")
@@ -1012,9 +1040,11 @@ public class CaseResource {
         return ResponseEntity.status(HttpStatus.OK).body(casedto);
     }
     @ApiOperation(value = "批量处理[根据产品测试用例]", tags = {"测试用例" },  notes = "批量处理[根据产品测试用例]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/cases/{case_id}/confirmstorychangebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/cases/confirmstorychangebatch")
     public ResponseEntity<Boolean> confirmstorychangeByProduct(@PathVariable("product_id") Long product_id, @RequestBody List<CaseDTO> casedtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(caseService.confirmstorychangeBatch(caseMapping.toDomain(casedtos)));
+        List<Case> domains = caseMapping.toDomain(casedtos);
+        boolean result = caseService.confirmstorychangeBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-GetByTestTask-all')")
     @ApiOperation(value = "根据产品测试用例", tags = {"测试用例" },  notes = "根据产品测试用例")
@@ -1027,9 +1057,11 @@ public class CaseResource {
         return ResponseEntity.status(HttpStatus.OK).body(casedto);
     }
     @ApiOperation(value = "批量处理[根据产品测试用例]", tags = {"测试用例" },  notes = "批量处理[根据产品测试用例]")
-	@RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/cases/{case_id}/getbytesttaskbatch")
+	@RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/cases/getbytesttaskbatch")
     public ResponseEntity<Boolean> getByTestTaskByProduct(@PathVariable("product_id") Long product_id, @RequestBody List<CaseDTO> casedtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(caseService.getByTestTaskBatch(caseMapping.toDomain(casedtos)));
+        List<Case> domains = caseMapping.toDomain(casedtos);
+        boolean result = caseService.getByTestTaskBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-GetTestTaskCntRun-all')")
     @ApiOperation(value = "根据产品测试用例", tags = {"测试用例" },  notes = "根据产品测试用例")
@@ -1042,9 +1074,11 @@ public class CaseResource {
         return ResponseEntity.status(HttpStatus.OK).body(casedto);
     }
     @ApiOperation(value = "批量处理[根据产品测试用例]", tags = {"测试用例" },  notes = "批量处理[根据产品测试用例]")
-	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/cases/{case_id}/gettesttaskcntrunbatch")
+	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/cases/gettesttaskcntrunbatch")
     public ResponseEntity<Boolean> getTestTaskCntRunByProduct(@PathVariable("product_id") Long product_id, @RequestBody List<CaseDTO> casedtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(caseService.getTestTaskCntRunBatch(caseMapping.toDomain(casedtos)));
+        List<Case> domains = caseMapping.toDomain(casedtos);
+        boolean result = caseService.getTestTaskCntRunBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-LinkCase-all')")
     @ApiOperation(value = "根据产品测试用例", tags = {"测试用例" },  notes = "根据产品测试用例")
@@ -1057,9 +1091,11 @@ public class CaseResource {
         return ResponseEntity.status(HttpStatus.OK).body(casedto);
     }
     @ApiOperation(value = "批量处理[根据产品测试用例]", tags = {"测试用例" },  notes = "批量处理[根据产品测试用例]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/cases/{case_id}/linkcasebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/cases/linkcasebatch")
     public ResponseEntity<Boolean> linkCaseByProduct(@PathVariable("product_id") Long product_id, @RequestBody List<CaseDTO> casedtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(caseService.linkCaseBatch(caseMapping.toDomain(casedtos)));
+        List<Case> domains = caseMapping.toDomain(casedtos);
+        boolean result = caseService.linkCaseBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-MobLinkCase-all')")
     @ApiOperation(value = "根据产品测试用例", tags = {"测试用例" },  notes = "根据产品测试用例")
@@ -1072,9 +1108,11 @@ public class CaseResource {
         return ResponseEntity.status(HttpStatus.OK).body(casedto);
     }
     @ApiOperation(value = "批量处理[根据产品测试用例]", tags = {"测试用例" },  notes = "批量处理[根据产品测试用例]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/cases/{case_id}/moblinkcasebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/cases/moblinkcasebatch")
     public ResponseEntity<Boolean> mobLinkCaseByProduct(@PathVariable("product_id") Long product_id, @RequestBody List<CaseDTO> casedtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(caseService.mobLinkCaseBatch(caseMapping.toDomain(casedtos)));
+        List<Case> domains = caseMapping.toDomain(casedtos);
+        boolean result = caseService.mobLinkCaseBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-RunCase-all')")
     @ApiOperation(value = "根据产品测试用例", tags = {"测试用例" },  notes = "根据产品测试用例")
@@ -1087,9 +1125,11 @@ public class CaseResource {
         return ResponseEntity.status(HttpStatus.OK).body(casedto);
     }
     @ApiOperation(value = "批量处理[根据产品测试用例]", tags = {"测试用例" },  notes = "批量处理[根据产品测试用例]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/cases/{case_id}/runcasebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/cases/runcasebatch")
     public ResponseEntity<Boolean> runCaseByProduct(@PathVariable("product_id") Long product_id, @RequestBody List<CaseDTO> casedtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(caseService.runCaseBatch(caseMapping.toDomain(casedtos)));
+        List<Case> domains = caseMapping.toDomain(casedtos);
+        boolean result = caseService.runCaseBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-RunCases-all')")
     @ApiOperation(value = "根据产品测试用例", tags = {"测试用例" },  notes = "根据产品测试用例")
@@ -1104,10 +1144,11 @@ public class CaseResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-Save-all')")
     @ApiOperation(value = "根据产品保存测试用例", tags = {"测试用例" },  notes = "根据产品保存测试用例")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/cases/save")
-    public ResponseEntity<Boolean> saveByProduct(@PathVariable("product_id") Long product_id, @RequestBody CaseDTO casedto) {
+    public ResponseEntity<CaseDTO> saveByProduct(@PathVariable("product_id") Long product_id, @RequestBody CaseDTO casedto) {
         Case domain = caseMapping.toDomain(casedto);
         domain.setProduct(product_id);
-        return ResponseEntity.status(HttpStatus.OK).body(caseService.save(domain));
+        caseService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(caseMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-Save-all')")
@@ -1133,9 +1174,11 @@ public class CaseResource {
         return ResponseEntity.status(HttpStatus.OK).body(casedto);
     }
     @ApiOperation(value = "批量处理[根据产品测试用例]", tags = {"测试用例" },  notes = "批量处理[根据产品测试用例]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/cases/{case_id}/testruncasebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/cases/testruncasebatch")
     public ResponseEntity<Boolean> testRunCaseByProduct(@PathVariable("product_id") Long product_id, @RequestBody List<CaseDTO> casedtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(caseService.testRunCaseBatch(caseMapping.toDomain(casedtos)));
+        List<Case> domains = caseMapping.toDomain(casedtos);
+        boolean result = caseService.testRunCaseBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-TestRunCases-all')")
     @ApiOperation(value = "根据产品测试用例", tags = {"测试用例" },  notes = "根据产品测试用例")
@@ -1158,9 +1201,11 @@ public class CaseResource {
         return ResponseEntity.status(HttpStatus.OK).body(casedto);
     }
     @ApiOperation(value = "批量处理[根据产品测试用例]", tags = {"测试用例" },  notes = "批量处理[根据产品测试用例]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/cases/{case_id}/testsuitelinkcasebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/cases/testsuitelinkcasebatch")
     public ResponseEntity<Boolean> testsuitelinkCaseByProduct(@PathVariable("product_id") Long product_id, @RequestBody List<CaseDTO> casedtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(caseService.testsuitelinkCaseBatch(caseMapping.toDomain(casedtos)));
+        List<Case> domains = caseMapping.toDomain(casedtos);
+        boolean result = caseService.testsuitelinkCaseBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-UnlinkCase-all')")
     @ApiOperation(value = "根据产品测试用例", tags = {"测试用例" },  notes = "根据产品测试用例")
@@ -1173,9 +1218,11 @@ public class CaseResource {
         return ResponseEntity.status(HttpStatus.OK).body(casedto);
     }
     @ApiOperation(value = "批量处理[根据产品测试用例]", tags = {"测试用例" },  notes = "批量处理[根据产品测试用例]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/cases/{case_id}/unlinkcasebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/cases/unlinkcasebatch")
     public ResponseEntity<Boolean> unlinkCaseByProduct(@PathVariable("product_id") Long product_id, @RequestBody List<CaseDTO> casedtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(caseService.unlinkCaseBatch(caseMapping.toDomain(casedtos)));
+        List<Case> domains = caseMapping.toDomain(casedtos);
+        boolean result = caseService.unlinkCaseBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-UnlinkCases-all')")
     @ApiOperation(value = "根据产品测试用例", tags = {"测试用例" },  notes = "根据产品测试用例")
@@ -1198,9 +1245,11 @@ public class CaseResource {
         return ResponseEntity.status(HttpStatus.OK).body(casedto);
     }
     @ApiOperation(value = "批量处理[根据产品测试用例]", tags = {"测试用例" },  notes = "批量处理[根据产品测试用例]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/cases/{case_id}/unlinksuitecasebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/cases/unlinksuitecasebatch")
     public ResponseEntity<Boolean> unlinkSuiteCaseByProduct(@PathVariable("product_id") Long product_id, @RequestBody List<CaseDTO> casedtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(caseService.unlinkSuiteCaseBatch(caseMapping.toDomain(casedtos)));
+        List<Case> domains = caseMapping.toDomain(casedtos);
+        boolean result = caseService.unlinkSuiteCaseBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-UnlinkSuiteCases-all')")
     @ApiOperation(value = "根据产品测试用例", tags = {"测试用例" },  notes = "根据产品测试用例")
@@ -1792,8 +1841,8 @@ public class CaseResource {
 
     @ApiOperation(value = "根据需求获取测试用例草稿", tags = {"测试用例" },  notes = "根据需求获取测试用例草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/stories/{story_id}/cases/getdraft")
-    public ResponseEntity<CaseDTO> getDraftByStory(@PathVariable("story_id") Long story_id) {
-        Case domain = new Case();
+    public ResponseEntity<CaseDTO> getDraftByStory(@PathVariable("story_id") Long story_id, CaseDTO dto) {
+        Case domain = caseMapping.toDomain(dto);
         domain.setStory(story_id);
         return ResponseEntity.status(HttpStatus.OK).body(caseMapping.toDto(caseService.getDraft(domain)));
     }
@@ -1835,9 +1884,11 @@ public class CaseResource {
         return ResponseEntity.status(HttpStatus.OK).body(casedto);
     }
     @ApiOperation(value = "批量处理[根据需求测试用例]", tags = {"测试用例" },  notes = "批量处理[根据需求测试用例]")
-	@RequestMapping(method = RequestMethod.PUT, value = "/stories/{story_id}/cases/{case_id}/confirmchangebatch")
+	@RequestMapping(method = RequestMethod.PUT, value = "/stories/{story_id}/cases/confirmchangebatch")
     public ResponseEntity<Boolean> confirmChangeByStory(@PathVariable("story_id") Long story_id, @RequestBody List<CaseDTO> casedtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(caseService.confirmChangeBatch(caseMapping.toDomain(casedtos)));
+        List<Case> domains = caseMapping.toDomain(casedtos);
+        boolean result = caseService.confirmChangeBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-Confirmstorychange-all')")
     @ApiOperation(value = "根据需求测试用例", tags = {"测试用例" },  notes = "根据需求测试用例")
@@ -1850,9 +1901,11 @@ public class CaseResource {
         return ResponseEntity.status(HttpStatus.OK).body(casedto);
     }
     @ApiOperation(value = "批量处理[根据需求测试用例]", tags = {"测试用例" },  notes = "批量处理[根据需求测试用例]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/cases/{case_id}/confirmstorychangebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/cases/confirmstorychangebatch")
     public ResponseEntity<Boolean> confirmstorychangeByStory(@PathVariable("story_id") Long story_id, @RequestBody List<CaseDTO> casedtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(caseService.confirmstorychangeBatch(caseMapping.toDomain(casedtos)));
+        List<Case> domains = caseMapping.toDomain(casedtos);
+        boolean result = caseService.confirmstorychangeBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-GetByTestTask-all')")
     @ApiOperation(value = "根据需求测试用例", tags = {"测试用例" },  notes = "根据需求测试用例")
@@ -1865,9 +1918,11 @@ public class CaseResource {
         return ResponseEntity.status(HttpStatus.OK).body(casedto);
     }
     @ApiOperation(value = "批量处理[根据需求测试用例]", tags = {"测试用例" },  notes = "批量处理[根据需求测试用例]")
-	@RequestMapping(method = RequestMethod.GET, value = "/stories/{story_id}/cases/{case_id}/getbytesttaskbatch")
+	@RequestMapping(method = RequestMethod.GET, value = "/stories/{story_id}/cases/getbytesttaskbatch")
     public ResponseEntity<Boolean> getByTestTaskByStory(@PathVariable("story_id") Long story_id, @RequestBody List<CaseDTO> casedtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(caseService.getByTestTaskBatch(caseMapping.toDomain(casedtos)));
+        List<Case> domains = caseMapping.toDomain(casedtos);
+        boolean result = caseService.getByTestTaskBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-GetTestTaskCntRun-all')")
     @ApiOperation(value = "根据需求测试用例", tags = {"测试用例" },  notes = "根据需求测试用例")
@@ -1880,9 +1935,11 @@ public class CaseResource {
         return ResponseEntity.status(HttpStatus.OK).body(casedto);
     }
     @ApiOperation(value = "批量处理[根据需求测试用例]", tags = {"测试用例" },  notes = "批量处理[根据需求测试用例]")
-	@RequestMapping(method = RequestMethod.PUT, value = "/stories/{story_id}/cases/{case_id}/gettesttaskcntrunbatch")
+	@RequestMapping(method = RequestMethod.PUT, value = "/stories/{story_id}/cases/gettesttaskcntrunbatch")
     public ResponseEntity<Boolean> getTestTaskCntRunByStory(@PathVariable("story_id") Long story_id, @RequestBody List<CaseDTO> casedtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(caseService.getTestTaskCntRunBatch(caseMapping.toDomain(casedtos)));
+        List<Case> domains = caseMapping.toDomain(casedtos);
+        boolean result = caseService.getTestTaskCntRunBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-LinkCase-all')")
     @ApiOperation(value = "根据需求测试用例", tags = {"测试用例" },  notes = "根据需求测试用例")
@@ -1895,9 +1952,11 @@ public class CaseResource {
         return ResponseEntity.status(HttpStatus.OK).body(casedto);
     }
     @ApiOperation(value = "批量处理[根据需求测试用例]", tags = {"测试用例" },  notes = "批量处理[根据需求测试用例]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/cases/{case_id}/linkcasebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/cases/linkcasebatch")
     public ResponseEntity<Boolean> linkCaseByStory(@PathVariable("story_id") Long story_id, @RequestBody List<CaseDTO> casedtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(caseService.linkCaseBatch(caseMapping.toDomain(casedtos)));
+        List<Case> domains = caseMapping.toDomain(casedtos);
+        boolean result = caseService.linkCaseBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-MobLinkCase-all')")
     @ApiOperation(value = "根据需求测试用例", tags = {"测试用例" },  notes = "根据需求测试用例")
@@ -1910,9 +1969,11 @@ public class CaseResource {
         return ResponseEntity.status(HttpStatus.OK).body(casedto);
     }
     @ApiOperation(value = "批量处理[根据需求测试用例]", tags = {"测试用例" },  notes = "批量处理[根据需求测试用例]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/cases/{case_id}/moblinkcasebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/cases/moblinkcasebatch")
     public ResponseEntity<Boolean> mobLinkCaseByStory(@PathVariable("story_id") Long story_id, @RequestBody List<CaseDTO> casedtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(caseService.mobLinkCaseBatch(caseMapping.toDomain(casedtos)));
+        List<Case> domains = caseMapping.toDomain(casedtos);
+        boolean result = caseService.mobLinkCaseBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-RunCase-all')")
     @ApiOperation(value = "根据需求测试用例", tags = {"测试用例" },  notes = "根据需求测试用例")
@@ -1925,9 +1986,11 @@ public class CaseResource {
         return ResponseEntity.status(HttpStatus.OK).body(casedto);
     }
     @ApiOperation(value = "批量处理[根据需求测试用例]", tags = {"测试用例" },  notes = "批量处理[根据需求测试用例]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/cases/{case_id}/runcasebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/cases/runcasebatch")
     public ResponseEntity<Boolean> runCaseByStory(@PathVariable("story_id") Long story_id, @RequestBody List<CaseDTO> casedtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(caseService.runCaseBatch(caseMapping.toDomain(casedtos)));
+        List<Case> domains = caseMapping.toDomain(casedtos);
+        boolean result = caseService.runCaseBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-RunCases-all')")
     @ApiOperation(value = "根据需求测试用例", tags = {"测试用例" },  notes = "根据需求测试用例")
@@ -1942,10 +2005,11 @@ public class CaseResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-Save-all')")
     @ApiOperation(value = "根据需求保存测试用例", tags = {"测试用例" },  notes = "根据需求保存测试用例")
 	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/cases/save")
-    public ResponseEntity<Boolean> saveByStory(@PathVariable("story_id") Long story_id, @RequestBody CaseDTO casedto) {
+    public ResponseEntity<CaseDTO> saveByStory(@PathVariable("story_id") Long story_id, @RequestBody CaseDTO casedto) {
         Case domain = caseMapping.toDomain(casedto);
         domain.setStory(story_id);
-        return ResponseEntity.status(HttpStatus.OK).body(caseService.save(domain));
+        caseService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(caseMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-Save-all')")
@@ -1971,9 +2035,11 @@ public class CaseResource {
         return ResponseEntity.status(HttpStatus.OK).body(casedto);
     }
     @ApiOperation(value = "批量处理[根据需求测试用例]", tags = {"测试用例" },  notes = "批量处理[根据需求测试用例]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/cases/{case_id}/testruncasebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/cases/testruncasebatch")
     public ResponseEntity<Boolean> testRunCaseByStory(@PathVariable("story_id") Long story_id, @RequestBody List<CaseDTO> casedtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(caseService.testRunCaseBatch(caseMapping.toDomain(casedtos)));
+        List<Case> domains = caseMapping.toDomain(casedtos);
+        boolean result = caseService.testRunCaseBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-TestRunCases-all')")
     @ApiOperation(value = "根据需求测试用例", tags = {"测试用例" },  notes = "根据需求测试用例")
@@ -1996,9 +2062,11 @@ public class CaseResource {
         return ResponseEntity.status(HttpStatus.OK).body(casedto);
     }
     @ApiOperation(value = "批量处理[根据需求测试用例]", tags = {"测试用例" },  notes = "批量处理[根据需求测试用例]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/cases/{case_id}/testsuitelinkcasebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/cases/testsuitelinkcasebatch")
     public ResponseEntity<Boolean> testsuitelinkCaseByStory(@PathVariable("story_id") Long story_id, @RequestBody List<CaseDTO> casedtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(caseService.testsuitelinkCaseBatch(caseMapping.toDomain(casedtos)));
+        List<Case> domains = caseMapping.toDomain(casedtos);
+        boolean result = caseService.testsuitelinkCaseBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-UnlinkCase-all')")
     @ApiOperation(value = "根据需求测试用例", tags = {"测试用例" },  notes = "根据需求测试用例")
@@ -2011,9 +2079,11 @@ public class CaseResource {
         return ResponseEntity.status(HttpStatus.OK).body(casedto);
     }
     @ApiOperation(value = "批量处理[根据需求测试用例]", tags = {"测试用例" },  notes = "批量处理[根据需求测试用例]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/cases/{case_id}/unlinkcasebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/cases/unlinkcasebatch")
     public ResponseEntity<Boolean> unlinkCaseByStory(@PathVariable("story_id") Long story_id, @RequestBody List<CaseDTO> casedtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(caseService.unlinkCaseBatch(caseMapping.toDomain(casedtos)));
+        List<Case> domains = caseMapping.toDomain(casedtos);
+        boolean result = caseService.unlinkCaseBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-UnlinkCases-all')")
     @ApiOperation(value = "根据需求测试用例", tags = {"测试用例" },  notes = "根据需求测试用例")
@@ -2036,9 +2106,11 @@ public class CaseResource {
         return ResponseEntity.status(HttpStatus.OK).body(casedto);
     }
     @ApiOperation(value = "批量处理[根据需求测试用例]", tags = {"测试用例" },  notes = "批量处理[根据需求测试用例]")
-	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/cases/{case_id}/unlinksuitecasebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/stories/{story_id}/cases/unlinksuitecasebatch")
     public ResponseEntity<Boolean> unlinkSuiteCaseByStory(@PathVariable("story_id") Long story_id, @RequestBody List<CaseDTO> casedtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(caseService.unlinkSuiteCaseBatch(caseMapping.toDomain(casedtos)));
+        List<Case> domains = caseMapping.toDomain(casedtos);
+        boolean result = caseService.unlinkSuiteCaseBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-UnlinkSuiteCases-all')")
     @ApiOperation(value = "根据需求测试用例", tags = {"测试用例" },  notes = "根据需求测试用例")
@@ -2630,8 +2702,8 @@ public class CaseResource {
 
     @ApiOperation(value = "根据产品需求获取测试用例草稿", tags = {"测试用例" },  notes = "根据产品需求获取测试用例草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/stories/{story_id}/cases/getdraft")
-    public ResponseEntity<CaseDTO> getDraftByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id) {
-        Case domain = new Case();
+    public ResponseEntity<CaseDTO> getDraftByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, CaseDTO dto) {
+        Case domain = caseMapping.toDomain(dto);
         domain.setStory(story_id);
         return ResponseEntity.status(HttpStatus.OK).body(caseMapping.toDto(caseService.getDraft(domain)));
     }
@@ -2673,9 +2745,11 @@ public class CaseResource {
         return ResponseEntity.status(HttpStatus.OK).body(casedto);
     }
     @ApiOperation(value = "批量处理[根据产品需求测试用例]", tags = {"测试用例" },  notes = "批量处理[根据产品需求测试用例]")
-	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/stories/{story_id}/cases/{case_id}/confirmchangebatch")
+	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/stories/{story_id}/cases/confirmchangebatch")
     public ResponseEntity<Boolean> confirmChangeByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<CaseDTO> casedtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(caseService.confirmChangeBatch(caseMapping.toDomain(casedtos)));
+        List<Case> domains = caseMapping.toDomain(casedtos);
+        boolean result = caseService.confirmChangeBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-Confirmstorychange-all')")
     @ApiOperation(value = "根据产品需求测试用例", tags = {"测试用例" },  notes = "根据产品需求测试用例")
@@ -2688,9 +2762,11 @@ public class CaseResource {
         return ResponseEntity.status(HttpStatus.OK).body(casedto);
     }
     @ApiOperation(value = "批量处理[根据产品需求测试用例]", tags = {"测试用例" },  notes = "批量处理[根据产品需求测试用例]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/cases/{case_id}/confirmstorychangebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/cases/confirmstorychangebatch")
     public ResponseEntity<Boolean> confirmstorychangeByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<CaseDTO> casedtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(caseService.confirmstorychangeBatch(caseMapping.toDomain(casedtos)));
+        List<Case> domains = caseMapping.toDomain(casedtos);
+        boolean result = caseService.confirmstorychangeBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-GetByTestTask-all')")
     @ApiOperation(value = "根据产品需求测试用例", tags = {"测试用例" },  notes = "根据产品需求测试用例")
@@ -2703,9 +2779,11 @@ public class CaseResource {
         return ResponseEntity.status(HttpStatus.OK).body(casedto);
     }
     @ApiOperation(value = "批量处理[根据产品需求测试用例]", tags = {"测试用例" },  notes = "批量处理[根据产品需求测试用例]")
-	@RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/stories/{story_id}/cases/{case_id}/getbytesttaskbatch")
+	@RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/stories/{story_id}/cases/getbytesttaskbatch")
     public ResponseEntity<Boolean> getByTestTaskByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<CaseDTO> casedtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(caseService.getByTestTaskBatch(caseMapping.toDomain(casedtos)));
+        List<Case> domains = caseMapping.toDomain(casedtos);
+        boolean result = caseService.getByTestTaskBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-GetTestTaskCntRun-all')")
     @ApiOperation(value = "根据产品需求测试用例", tags = {"测试用例" },  notes = "根据产品需求测试用例")
@@ -2718,9 +2796,11 @@ public class CaseResource {
         return ResponseEntity.status(HttpStatus.OK).body(casedto);
     }
     @ApiOperation(value = "批量处理[根据产品需求测试用例]", tags = {"测试用例" },  notes = "批量处理[根据产品需求测试用例]")
-	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/stories/{story_id}/cases/{case_id}/gettesttaskcntrunbatch")
+	@RequestMapping(method = RequestMethod.PUT, value = "/products/{product_id}/stories/{story_id}/cases/gettesttaskcntrunbatch")
     public ResponseEntity<Boolean> getTestTaskCntRunByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<CaseDTO> casedtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(caseService.getTestTaskCntRunBatch(caseMapping.toDomain(casedtos)));
+        List<Case> domains = caseMapping.toDomain(casedtos);
+        boolean result = caseService.getTestTaskCntRunBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-LinkCase-all')")
     @ApiOperation(value = "根据产品需求测试用例", tags = {"测试用例" },  notes = "根据产品需求测试用例")
@@ -2733,9 +2813,11 @@ public class CaseResource {
         return ResponseEntity.status(HttpStatus.OK).body(casedto);
     }
     @ApiOperation(value = "批量处理[根据产品需求测试用例]", tags = {"测试用例" },  notes = "批量处理[根据产品需求测试用例]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/cases/{case_id}/linkcasebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/cases/linkcasebatch")
     public ResponseEntity<Boolean> linkCaseByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<CaseDTO> casedtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(caseService.linkCaseBatch(caseMapping.toDomain(casedtos)));
+        List<Case> domains = caseMapping.toDomain(casedtos);
+        boolean result = caseService.linkCaseBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-MobLinkCase-all')")
     @ApiOperation(value = "根据产品需求测试用例", tags = {"测试用例" },  notes = "根据产品需求测试用例")
@@ -2748,9 +2830,11 @@ public class CaseResource {
         return ResponseEntity.status(HttpStatus.OK).body(casedto);
     }
     @ApiOperation(value = "批量处理[根据产品需求测试用例]", tags = {"测试用例" },  notes = "批量处理[根据产品需求测试用例]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/cases/{case_id}/moblinkcasebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/cases/moblinkcasebatch")
     public ResponseEntity<Boolean> mobLinkCaseByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<CaseDTO> casedtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(caseService.mobLinkCaseBatch(caseMapping.toDomain(casedtos)));
+        List<Case> domains = caseMapping.toDomain(casedtos);
+        boolean result = caseService.mobLinkCaseBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-RunCase-all')")
     @ApiOperation(value = "根据产品需求测试用例", tags = {"测试用例" },  notes = "根据产品需求测试用例")
@@ -2763,9 +2847,11 @@ public class CaseResource {
         return ResponseEntity.status(HttpStatus.OK).body(casedto);
     }
     @ApiOperation(value = "批量处理[根据产品需求测试用例]", tags = {"测试用例" },  notes = "批量处理[根据产品需求测试用例]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/cases/{case_id}/runcasebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/cases/runcasebatch")
     public ResponseEntity<Boolean> runCaseByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<CaseDTO> casedtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(caseService.runCaseBatch(caseMapping.toDomain(casedtos)));
+        List<Case> domains = caseMapping.toDomain(casedtos);
+        boolean result = caseService.runCaseBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-RunCases-all')")
     @ApiOperation(value = "根据产品需求测试用例", tags = {"测试用例" },  notes = "根据产品需求测试用例")
@@ -2780,10 +2866,11 @@ public class CaseResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-Save-all')")
     @ApiOperation(value = "根据产品需求保存测试用例", tags = {"测试用例" },  notes = "根据产品需求保存测试用例")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/cases/save")
-    public ResponseEntity<Boolean> saveByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody CaseDTO casedto) {
+    public ResponseEntity<CaseDTO> saveByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody CaseDTO casedto) {
         Case domain = caseMapping.toDomain(casedto);
         domain.setStory(story_id);
-        return ResponseEntity.status(HttpStatus.OK).body(caseService.save(domain));
+        caseService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(caseMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-Save-all')")
@@ -2809,9 +2896,11 @@ public class CaseResource {
         return ResponseEntity.status(HttpStatus.OK).body(casedto);
     }
     @ApiOperation(value = "批量处理[根据产品需求测试用例]", tags = {"测试用例" },  notes = "批量处理[根据产品需求测试用例]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/cases/{case_id}/testruncasebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/cases/testruncasebatch")
     public ResponseEntity<Boolean> testRunCaseByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<CaseDTO> casedtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(caseService.testRunCaseBatch(caseMapping.toDomain(casedtos)));
+        List<Case> domains = caseMapping.toDomain(casedtos);
+        boolean result = caseService.testRunCaseBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-TestRunCases-all')")
     @ApiOperation(value = "根据产品需求测试用例", tags = {"测试用例" },  notes = "根据产品需求测试用例")
@@ -2834,9 +2923,11 @@ public class CaseResource {
         return ResponseEntity.status(HttpStatus.OK).body(casedto);
     }
     @ApiOperation(value = "批量处理[根据产品需求测试用例]", tags = {"测试用例" },  notes = "批量处理[根据产品需求测试用例]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/cases/{case_id}/testsuitelinkcasebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/cases/testsuitelinkcasebatch")
     public ResponseEntity<Boolean> testsuitelinkCaseByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<CaseDTO> casedtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(caseService.testsuitelinkCaseBatch(caseMapping.toDomain(casedtos)));
+        List<Case> domains = caseMapping.toDomain(casedtos);
+        boolean result = caseService.testsuitelinkCaseBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-UnlinkCase-all')")
     @ApiOperation(value = "根据产品需求测试用例", tags = {"测试用例" },  notes = "根据产品需求测试用例")
@@ -2849,9 +2940,11 @@ public class CaseResource {
         return ResponseEntity.status(HttpStatus.OK).body(casedto);
     }
     @ApiOperation(value = "批量处理[根据产品需求测试用例]", tags = {"测试用例" },  notes = "批量处理[根据产品需求测试用例]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/cases/{case_id}/unlinkcasebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/cases/unlinkcasebatch")
     public ResponseEntity<Boolean> unlinkCaseByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<CaseDTO> casedtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(caseService.unlinkCaseBatch(caseMapping.toDomain(casedtos)));
+        List<Case> domains = caseMapping.toDomain(casedtos);
+        boolean result = caseService.unlinkCaseBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-UnlinkCases-all')")
     @ApiOperation(value = "根据产品需求测试用例", tags = {"测试用例" },  notes = "根据产品需求测试用例")
@@ -2874,9 +2967,11 @@ public class CaseResource {
         return ResponseEntity.status(HttpStatus.OK).body(casedto);
     }
     @ApiOperation(value = "批量处理[根据产品需求测试用例]", tags = {"测试用例" },  notes = "批量处理[根据产品需求测试用例]")
-	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/cases/{case_id}/unlinksuitecasebatch")
+	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/stories/{story_id}/cases/unlinksuitecasebatch")
     public ResponseEntity<Boolean> unlinkSuiteCaseByProductStory(@PathVariable("product_id") Long product_id, @PathVariable("story_id") Long story_id, @RequestBody List<CaseDTO> casedtos) {
-        return ResponseEntity.status(HttpStatus.OK).body(caseService.unlinkSuiteCaseBatch(caseMapping.toDomain(casedtos)));
+        List<Case> domains = caseMapping.toDomain(casedtos);
+        boolean result = caseService.unlinkSuiteCaseBatch(domains);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Case-UnlinkSuiteCases-all')")
     @ApiOperation(value = "根据产品需求测试用例", tags = {"测试用例" },  notes = "根据产品需求测试用例")

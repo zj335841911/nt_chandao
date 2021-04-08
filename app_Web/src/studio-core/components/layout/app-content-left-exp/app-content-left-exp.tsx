@@ -106,7 +106,7 @@ export class AppContentLeftExp extends Vue {
      * @memberof AppContentLeftExp
      */
     protected changeActiveItem(item: any, index: number): void {
-        if (!Object.is(item.appfuncyype, 'APPVIEW')) {
+        if (!Object.is(item.appfunctype, 'APPVIEW')) {
             return;
         }
         this.uiState.layoutState.leftExpActiveIndex = index;
@@ -145,7 +145,7 @@ export class AppContentLeftExp extends Vue {
                 </div>
                 <div class="exp-content">
                     {this.menus.map((item: any, index: number) => {
-                        if (!Object.is(item.appfuncyype, 'APPVIEW') || !item.isActivated || item.hidden) {
+                        if (!Object.is(item.appfunctype, 'APPVIEW') || !item.isActivated || item.hidden) {
                             return;
                         }
                         return (

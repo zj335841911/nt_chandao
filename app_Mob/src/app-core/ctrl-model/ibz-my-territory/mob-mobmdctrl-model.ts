@@ -18,19 +18,16 @@ export class MobModel {
 				name: 'mytasks',
 			},
 			{
-				name: 'myebugs',
+				name: 'projects',
 			},
 			{
 				name: 'realname',
 			},
 			{
-				name: 'myetasks',
+				name: 'myebugs',
 			},
 			{
-				name: 'projects',
-			},
-			{
-				name: 'eprojects',
+				name: 'products',
 			},
 			{
 				name: 'mybugs',
@@ -39,7 +36,10 @@ export class MobModel {
 				name: 'mystorys',
 			},
 			{
-				name: 'products',
+				name: 'myetasks',
+			},
+			{
+				name: 'eprojects',
 			},
 			{
 				name: 'srfkey',

@@ -24,14 +24,14 @@ public interface PSSubSysServiceAPIFeignClient {
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/pssubsysserviceapis")
-    PSSubSysServiceAPI create(@RequestBody PSSubSysServiceAPI pssubsysserviceapi);
+    PSSubSysServiceAPI create(@RequestBody PSSubSysServiceAPI et);
 
     @RequestMapping(method = RequestMethod.POST, value = "/pssubsysserviceapis/batch")
     Boolean createBatch(@RequestBody List<PSSubSysServiceAPI> pssubsysserviceapis);
 
 
     @RequestMapping(method = RequestMethod.PUT, value = "/pssubsysserviceapis/{pssubsysserviceapiid}")
-    PSSubSysServiceAPI update(@PathVariable("pssubsysserviceapiid") String pssubsysserviceapiid, @RequestBody PSSubSysServiceAPI pssubsysserviceapi);
+    PSSubSysServiceAPI update(@PathVariable("pssubsysserviceapiid") String pssubsysserviceapiid, @RequestBody PSSubSysServiceAPI et);
 
     @RequestMapping(method = RequestMethod.PUT, value = "/pssubsysserviceapis/batch")
     Boolean updateBatch(@RequestBody List<PSSubSysServiceAPI> pssubsysserviceapis);
@@ -52,15 +52,17 @@ public interface PSSubSysServiceAPIFeignClient {
 
 
     @RequestMapping(method = RequestMethod.GET, value = "/pssubsysserviceapis/getdraft")
-    PSSubSysServiceAPI getDraft();
+    PSSubSysServiceAPI getDraft(PSSubSysServiceAPI entity);
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/pssubsysserviceapis/checkkey")
-    Boolean checkKey(@RequestBody PSSubSysServiceAPI pssubsysserviceapi);
+    Boolean checkKey(@RequestBody PSSubSysServiceAPI et);
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/pssubsysserviceapis/save")
-    Boolean save(@RequestBody PSSubSysServiceAPI pssubsysserviceapi);
+    Object saveEntity(@RequestBody PSSubSysServiceAPI et);
+
+    default Boolean save(@RequestBody PSSubSysServiceAPI et) { return saveEntity(et)!=null; }
 
     @RequestMapping(method = RequestMethod.POST, value = "/pssubsysserviceapis/savebatch")
     Boolean saveBatch(@RequestBody List<PSSubSysServiceAPI> pssubsysserviceapis);

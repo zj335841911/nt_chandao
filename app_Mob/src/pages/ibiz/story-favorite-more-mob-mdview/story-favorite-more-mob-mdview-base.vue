@@ -186,7 +186,7 @@ export default class StoryFavoriteMoreMobMDViewBase extends Vue {
 	 * @type {string}
 	 * @memberof StoryFavoriteMoreMobMDViewBase
 	 */
-	protected viewtag: string = '62196028f5dcb2261905206f6bf86ec6';
+	protected viewtag: string = '8d305ad08a55bf35174181eedcbb8caa';
 
     /**
      * 视图上下文

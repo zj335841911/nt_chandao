@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { EditViewBase } from '@/studio-core';
 import CaseService from '@/service/case/case-service';
 import CaseAuthService from '@/authservice/case/case-auth-service';
@@ -137,7 +137,7 @@ export class CaseToBugEditViewBase extends EditViewBase {
      * @type {string}
      * @memberof CaseToBugEditViewBase
      */
-	protected viewtag: string = '3a9645e5ad29ed73b59ccd2f548d602c';
+	protected viewtag: string = '61eeda70f76acc759232dae5b6e56324';
 
     /**
      * 视图名称

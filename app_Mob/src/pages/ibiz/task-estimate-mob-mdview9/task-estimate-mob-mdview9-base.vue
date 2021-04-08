@@ -123,7 +123,7 @@ export default class TaskEstimateMobMDView9Base extends Vue {
 	 * @type {string}
 	 * @memberof TaskEstimateMobMDView9Base
 	 */
-	protected viewtag: string = 'fbf2ab564a03804151c06f4be7cc68e6';
+	protected viewtag: string = 'b32237a5f8c8246577934d7872801a81';
 
     /**
      * 视图上下文
@@ -437,6 +437,13 @@ export default class TaskEstimateMobMDView9Base extends Vue {
      * @memberof TaskEstimateMobMDView9Base
      */
     protected afterDestroyed(){
+        if (this.viewDefaultUsage !== "indexView" && Object.keys(localStorage).length > 0) {
+            Object.keys(localStorage).forEach((item: string) => {
+                if (item.startsWith(this.context.srfsessionid)) {
+                    localStorage.removeItem(item);
+                }
+            });
+        }
         if (this.formDruipart) {
             this.formDruipart.unsubscribe();
         }

@@ -62,7 +62,7 @@
     labelPos="LEFT"
 >
     
-<app-span name='title' :value="data.title" dataType="TEXT"     :precision="0"
+<app-span name='title' :value="data.title" dataType="TEXT" unitName=""     :precision="0"
 :data="data" :context="context" :viewparams="viewparams" :localContext ='{ }'  :localParam ='{ }'    style=""
 >  
 </app-span>
@@ -620,6 +620,7 @@
     :animated="false"
     name="tabpanel1"
     v-show="detailsModel.tabpanel1.visible"
+    size="small"
     class="" 
     :value="detailsModel.tabpanel1.activiedPage"
     @on-click="detailsModel.tabpanel1.clickPage($event)"

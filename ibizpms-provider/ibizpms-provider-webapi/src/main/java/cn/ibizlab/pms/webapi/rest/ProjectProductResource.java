@@ -72,7 +72,7 @@ public class ProjectProductResource {
 		ProjectProduct domain  = projectproductMapping.toDomain(projectproductdto);
         domain .setId(projectproduct_id);
 		projectproductService.update(domain );
-		ProjectProductDTO dto = projectproductMapping.toDto(domain );
+		ProjectProductDTO dto = projectproductMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
@@ -110,8 +110,9 @@ public class ProjectProductResource {
 
     @ApiOperation(value = "获取项目产品草稿", tags = {"项目产品" },  notes = "获取项目产品草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/projectproducts/getdraft")
-    public ResponseEntity<ProjectProductDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(projectproductMapping.toDto(projectproductService.getDraft(new ProjectProduct())));
+    public ResponseEntity<ProjectProductDTO> getDraft(ProjectProductDTO dto) {
+        ProjectProduct domain = projectproductMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(projectproductMapping.toDto(projectproductService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查项目产品", tags = {"项目产品" },  notes = "检查项目产品")
@@ -123,8 +124,10 @@ public class ProjectProductResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-Save-all')")
     @ApiOperation(value = "保存项目产品", tags = {"项目产品" },  notes = "保存项目产品")
 	@RequestMapping(method = RequestMethod.POST, value = "/projectproducts/save")
-    public ResponseEntity<Boolean> save(@RequestBody ProjectProductDTO projectproductdto) {
-        return ResponseEntity.status(HttpStatus.OK).body(projectproductService.save(projectproductMapping.toDomain(projectproductdto)));
+    public ResponseEntity<ProjectProductDTO> save(@RequestBody ProjectProductDTO projectproductdto) {
+        ProjectProduct domain = projectproductMapping.toDomain(projectproductdto);
+        projectproductService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(projectproductMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-Save-all')")
@@ -178,6 +181,7 @@ public class ProjectProductResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(projectproductMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
 
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-Create-all')")
@@ -253,8 +257,8 @@ public class ProjectProductResource {
 
     @ApiOperation(value = "根据产品获取项目产品草稿", tags = {"项目产品" },  notes = "根据产品获取项目产品草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/products/{product_id}/projectproducts/getdraft")
-    public ResponseEntity<ProjectProductDTO> getDraftByProduct(@PathVariable("product_id") Long product_id) {
-        ProjectProduct domain = new ProjectProduct();
+    public ResponseEntity<ProjectProductDTO> getDraftByProduct(@PathVariable("product_id") Long product_id, ProjectProductDTO dto) {
+        ProjectProduct domain = projectproductMapping.toDomain(dto);
         domain.setProduct(product_id);
         return ResponseEntity.status(HttpStatus.OK).body(projectproductMapping.toDto(projectproductService.getDraft(domain)));
     }
@@ -268,10 +272,11 @@ public class ProjectProductResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-Save-all')")
     @ApiOperation(value = "根据产品保存项目产品", tags = {"项目产品" },  notes = "根据产品保存项目产品")
 	@RequestMapping(method = RequestMethod.POST, value = "/products/{product_id}/projectproducts/save")
-    public ResponseEntity<Boolean> saveByProduct(@PathVariable("product_id") Long product_id, @RequestBody ProjectProductDTO projectproductdto) {
+    public ResponseEntity<ProjectProductDTO> saveByProduct(@PathVariable("product_id") Long product_id, @RequestBody ProjectProductDTO projectproductdto) {
         ProjectProduct domain = projectproductMapping.toDomain(projectproductdto);
         domain.setProduct(product_id);
-        return ResponseEntity.status(HttpStatus.OK).body(projectproductService.save(domain));
+        projectproductService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(projectproductMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-Save-all')")
@@ -405,8 +410,8 @@ public class ProjectProductResource {
 
     @ApiOperation(value = "根据项目获取项目产品草稿", tags = {"项目产品" },  notes = "根据项目获取项目产品草稿")
     @RequestMapping(method = RequestMethod.GET, value = "/projects/{project_id}/projectproducts/getdraft")
-    public ResponseEntity<ProjectProductDTO> getDraftByProject(@PathVariable("project_id") Long project_id) {
-        ProjectProduct domain = new ProjectProduct();
+    public ResponseEntity<ProjectProductDTO> getDraftByProject(@PathVariable("project_id") Long project_id, ProjectProductDTO dto) {
+        ProjectProduct domain = projectproductMapping.toDomain(dto);
         domain.setProject(project_id);
         return ResponseEntity.status(HttpStatus.OK).body(projectproductMapping.toDto(projectproductService.getDraft(domain)));
     }
@@ -420,10 +425,11 @@ public class ProjectProductResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-Save-all')")
     @ApiOperation(value = "根据项目保存项目产品", tags = {"项目产品" },  notes = "根据项目保存项目产品")
 	@RequestMapping(method = RequestMethod.POST, value = "/projects/{project_id}/projectproducts/save")
-    public ResponseEntity<Boolean> saveByProject(@PathVariable("project_id") Long project_id, @RequestBody ProjectProductDTO projectproductdto) {
+    public ResponseEntity<ProjectProductDTO> saveByProject(@PathVariable("project_id") Long project_id, @RequestBody ProjectProductDTO projectproductdto) {
         ProjectProduct domain = projectproductMapping.toDomain(projectproductdto);
         domain.setProject(project_id);
-        return ResponseEntity.status(HttpStatus.OK).body(projectproductService.save(domain));
+        projectproductService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(projectproductMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-ProjectProduct-Save-all')")

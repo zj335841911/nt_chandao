@@ -12,4 +12,3 @@ public interface IbizproProductMonthlyMapping extends MappingBase<IbizproProduct
 
 
 }
-

@@ -9,17 +9,13 @@ function getLocaleResourceBase(){
 			domains: commonLogic.appcommonhandle("区属",null),
 		},
 			views: {
-				pickupview: {
+				gridexpview: {
 					caption: commonLogic.appcommonhandle("组",null),
-					title: commonLogic.appcommonhandle("组数据选择视图",null),
+					title: commonLogic.appcommonhandle("组表格导航视图",null),
 				},
 				editview: {
 					caption: commonLogic.appcommonhandle("组",null),
 					title: commonLogic.appcommonhandle("组编辑视图",null),
-				},
-				gridexpview: {
-					caption: commonLogic.appcommonhandle("组",null),
-					title: commonLogic.appcommonhandle("组表格导航视图",null),
 				},
 				usr2gridview: {
 					caption: commonLogic.appcommonhandle("组",null),
@@ -28,6 +24,10 @@ function getLocaleResourceBase(){
 				pickupgridview: {
 					caption: commonLogic.appcommonhandle("组",null),
 					title: commonLogic.appcommonhandle("组选择表格视图",null),
+				},
+				pickupview: {
+					caption: commonLogic.appcommonhandle("组",null),
+					title: commonLogic.appcommonhandle("组数据选择视图",null),
 				},
 				gridview: {
 					caption: commonLogic.appcommonhandle("组",null),

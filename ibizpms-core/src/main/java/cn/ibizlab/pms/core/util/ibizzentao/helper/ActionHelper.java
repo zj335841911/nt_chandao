@@ -67,6 +67,9 @@ public class ActionHelper extends ZTBaseHelper<ActionMapper, Action> {
     StoryHelper storyHelper;
 
     @Autowired
+    CaseHelper caseHelper;
+
+    @Autowired
     BugHelper bugHelper;
 
     /**
@@ -95,7 +98,22 @@ public class ActionHelper extends ZTBaseHelper<ActionMapper, Action> {
         // 发送待阅提醒
         send(noticeusers, et);
         // 保存文件
-        fileHelper.updateObjectID(et.getObjectid(), et.getObjecttype(), files, "0");//更新附件
+        String extra = "0";
+        if(files != null) {
+            if (StaticDict.Action__object_type.STORY.getValue().equals(et.getObjecttype())) {
+                Story story = storyHelper.get(et.getObjectid());
+                if (story != null && story.getVersion() != null) {
+                    extra = String.valueOf(story.getVersion());
+                }
+            } else if (StaticDict.Action__object_type.CASE.getValue().equals(et.getObjecttype())) {
+                Case case1 = caseHelper.get(et.getObjectid());
+                if (case1 != null && case1.getVersion() != null) {
+                    extra = String.valueOf(case1.getVersion());
+                }
+            }
+        }
+        //更新附件
+        fileHelper.updateObjectID(et.getObjectid(), et.getObjecttype(), files, extra);
         return true;
     }
 
@@ -405,5 +423,47 @@ public class ActionHelper extends ZTBaseHelper<ActionMapper, Action> {
         return et;
     }
 
+    public Action managePmsEe(Action et){
+        et.setId(null);
+        String actor = et.getActor();
+        String objectType = et.getObjecttype();
+        if (actor == null) {
+            actor = AuthenticationUser.getAuthenticationUser().getUsername();
+        }
+        objectType = objectType.replace("`", "");
+        et.setObjecttype(objectType.toLowerCase());
+        et.setActor(actor);
+        et.setAction(et.getAction().toLowerCase());
+        et.setDate(ZTDateUtil.now());
+        et.setRead(StaticDict.YesNo.ITEM_0.getValue());
+        et.setComment(Fixer.stripDataTags(et.getComment()));
+
+        et.setProduct(",0,");
+        et.setProject(0L);
+        if (StringUtils.compare(objectType, StaticDict.Action__object_type.PRODUCT.getValue()) == 0) {
+            et.setProduct(MULTIPLE_CHOICE + et.getObjectid() + MULTIPLE_CHOICE);
+        } else if (StringUtils.compare(objectType, StaticDict.Action__object_type.PROJECT.getValue()) == 0) {
+            ProjectProductSearchContext ctx = new ProjectProductSearchContext();
+            ctx.setN_project_eq(et.getObjectid());
+            List<ProjectProduct> projectProducts = projectProductService.searchDefault(ctx).getContent();
+            String products = "";
+            for (int i = 0; i < projectProducts.size(); i++) {
+                if (i > 0) {
+                    products += MULTIPLE_CHOICE;
+                }
+                products += String.valueOf(projectProducts.get(i).getProduct());
+            }
+            et.setProduct(MULTIPLE_CHOICE + products + MULTIPLE_CHOICE);
+            et.setProject(et.getObjectid());
+        } else if (Arrays.deepToString(processType).contains(objectType)) {
+            JSONObject jsonObject = getProductAndProject(objectType, et.getObjectid());
+            et.setProduct(jsonObject.getString(StaticDict.Action__object_type.PRODUCT.getValue()));
+            et.setProject(jsonObject.getLongValue(StaticDict.Action__object_type.PROJECT.getValue()));
+            log.info(processType + "product、project设置未实现");
+
+        }
+        super.create(et);
+        return et;
+    }
 
 }

@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { EditViewBase } from '@/studio-core';
 import TestReportService from '@/service/test-report/test-report-service';
 import TestReportAuthService from '@/authservice/test-report/test-report-auth-service';
@@ -125,7 +125,7 @@ export class TestReportEditView_RBase extends EditViewBase {
      * @type {string}
      * @memberof TestReportEditView_RBase
      */
-	protected viewtag: string = '88b0a618836437a54b879dfb94ee0f3c';
+	protected viewtag: string = '52821aa021e3efa8bc47b4cc4bfc7302';
 
     /**
      * 视图名称

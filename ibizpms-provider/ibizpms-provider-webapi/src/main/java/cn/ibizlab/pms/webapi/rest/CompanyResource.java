@@ -72,7 +72,7 @@ public class CompanyResource {
 		Company domain  = companyMapping.toDomain(companydto);
         domain .setId(company_id);
 		companyService.update(domain );
-		CompanyDTO dto = companyMapping.toDto(domain );
+		CompanyDTO dto = companyMapping.toDto(domain);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
 
@@ -110,8 +110,9 @@ public class CompanyResource {
 
     @ApiOperation(value = "获取公司草稿", tags = {"公司" },  notes = "获取公司草稿")
 	@RequestMapping(method = RequestMethod.GET, value = "/companies/getdraft")
-    public ResponseEntity<CompanyDTO> getDraft() {
-        return ResponseEntity.status(HttpStatus.OK).body(companyMapping.toDto(companyService.getDraft(new Company())));
+    public ResponseEntity<CompanyDTO> getDraft(CompanyDTO dto) {
+        Company domain = companyMapping.toDomain(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(companyMapping.toDto(companyService.getDraft(domain)));
     }
 
     @ApiOperation(value = "检查公司", tags = {"公司" },  notes = "检查公司")
@@ -123,8 +124,10 @@ public class CompanyResource {
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Company-Save-all')")
     @ApiOperation(value = "保存公司", tags = {"公司" },  notes = "保存公司")
 	@RequestMapping(method = RequestMethod.POST, value = "/companies/save")
-    public ResponseEntity<Boolean> save(@RequestBody CompanyDTO companydto) {
-        return ResponseEntity.status(HttpStatus.OK).body(companyService.save(companyMapping.toDomain(companydto)));
+    public ResponseEntity<CompanyDTO> save(@RequestBody CompanyDTO companydto) {
+        Company domain = companyMapping.toDomain(companydto);
+        companyService.save(domain);
+        return ResponseEntity.status(HttpStatus.OK).body(companyMapping.toDto(domain));
     }
 
     @PreAuthorize("hasAnyAuthority('ROLE_SUPERADMIN','pms-Company-Save-all')")
@@ -156,6 +159,7 @@ public class CompanyResource {
 	    return ResponseEntity.status(HttpStatus.OK)
                 .body(new PageImpl(companyMapping.toDto(domains.getContent()), context.getPageable(), domains.getTotalElements()));
 	}
+
 
 
 }

@@ -1,13 +1,12 @@
 
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { GridViewBase } from '@/studio-core';
 import TaskService from '@/service/task/task-service';
 import TaskAuthService from '@/authservice/task/task-auth-service';
 import GridViewEngine from '@engine/view/grid-view-engine';
 import TaskUIService from '@/uiservice/task/task-ui-service';
 import CodeListService from '@service/app/codelist-service';
-import  ProjectTaskQCounterCounterService  from '@/counter/project-task-qcounter/project-task-qcounter-counter';
 
 
 /**
@@ -442,9 +441,9 @@ export class TaskMainGridViewBase extends GridViewBase {
             Object.assign(tempContext,args[0]);
         }
         let deResParameters: any[] = [];
-        if(tempContext.story && true){
+        if(tempContext.projectmodule && true){
             deResParameters = [
-            { pathName: 'stories', parameterName: 'story' },
+            { pathName: 'projectmodules', parameterName: 'projectmodule' },
             ]
         }
         const parameters: any[] = [
@@ -493,9 +492,9 @@ export class TaskMainGridViewBase extends GridViewBase {
             Object.assign(tempContext,args[0]);
         }
         let deResParameters: any[] = [];
-        if(tempContext.story && true){
+        if(tempContext.projectmodule && true){
             deResParameters = [
-            { pathName: 'stories', parameterName: 'story' },
+            { pathName: 'projectmodules', parameterName: 'projectmodule' },
             ]
         }
         const parameters: any[] = [
@@ -579,14 +578,6 @@ export class TaskMainGridViewBase extends GridViewBase {
             _this.isExpandSearchForm = !_this.isExpandSearchForm;
         }
     }
-
-    /**
-     * ProjectTaskQCounterCounterService计数器服务对象
-     *
-     * @type {ProjectTaskQCounterCounterService}
-     * @memberof TaskMainGridViewBase
-     */
-    protected projecttaskqcountercounterservice: ProjectTaskQCounterCounterService = new ProjectTaskQCounterCounterService({ $store: this.$store,context:this.context,viewparams:this.viewparams });
 
     /**
      * 是否启用快速分组

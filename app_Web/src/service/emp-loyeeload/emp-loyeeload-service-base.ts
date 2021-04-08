@@ -1,3 +1,4 @@
+import { Environment } from '@/environments/environment';
 import { Http } from '@/utils';
 import { Util } from '@/utils';
 import EntityService from '../entity-service';
@@ -49,7 +50,7 @@ export default class EmpLoyeeloadServiceBase extends EntityService {
      * @memberof EmpLoyeeloadServiceBase
      */
     public async Select(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().get(`/employeeloads/${context.employeeload}/select`,isloading);
+            let res:any = await Http.getInstance().get(`/employeeloads/${context.employeeload}/select`,isloading);
             
             return res;
     }
@@ -105,7 +106,7 @@ export default class EmpLoyeeloadServiceBase extends EntityService {
      * @memberof EmpLoyeeloadServiceBase
      */
     public async Remove(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().delete(`/employeeloads/${context.employeeload}`,isloading);
+            let res:any = await Http.getInstance().delete(`/employeeloads/${context.employeeload}`,isloading);
             return res;
     }
 
@@ -134,7 +135,10 @@ export default class EmpLoyeeloadServiceBase extends EntityService {
      * @memberof EmpLoyeeloadServiceBase
      */
     public async GetDraft(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-        let res:any = await  Http.getInstance().get(`/employeeloads/getdraft`,isloading);
+        let tempData:any = JSON.parse(JSON.stringify(data));
+        if(tempData.employeeload) delete tempData.employeeload;
+        if(tempData.id) delete tempData.id;
+        let res:any = await  Http.getInstance().get(`/employeeloads/getdraft`,tempData,isloading);
         res.data.employeeload = data.employeeload;
         
         return res;
@@ -150,7 +154,7 @@ export default class EmpLoyeeloadServiceBase extends EntityService {
      * @memberof EmpLoyeeloadServiceBase
      */
     public async CheckKey(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
-            let res:any = Http.getInstance().post(`/employeeloads/${context.employeeload}/checkkey`,data,isloading);
+            let res:any = await Http.getInstance().post(`/employeeloads/${context.employeeload}/checkkey`,data,isloading);
             return res;
     }
 
@@ -182,7 +186,7 @@ export default class EmpLoyeeloadServiceBase extends EntityService {
      */
     public async FetchDefault(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/employeeloads/fetchdefault`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/employeeloads/fetchdefault`,tempData,isloading);
         return res;
     }
 
@@ -211,7 +215,7 @@ export default class EmpLoyeeloadServiceBase extends EntityService {
      */
     public async FetchGETWOERKLOAD(context: any = {},data: any = {}, isloading?: boolean): Promise<any> {
         let tempData:any = JSON.parse(JSON.stringify(data));
-        let res:any = Http.getInstance().get(`/employeeloads/fetchgetwoerkload`,tempData,isloading);
+        let res:any = await Http.getInstance().get(`/employeeloads/fetchgetwoerkload`,tempData,isloading);
         return res;
     }
 

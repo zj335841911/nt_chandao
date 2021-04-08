@@ -15,22 +15,22 @@ export class Mob_3817Model {
 	public getDataItems(): any[] {
 		return [
 			{
-				name: 'assignedto',
+				name: 'stage',
 			},
 			{
 				name: 'pri',
 			},
 			{
-				name: 'status',
+				name: 'assignedto',
 			},
 			{
-				name: 'isfavorites',
+				name: 'status',
 			},
 			{
 				name: 'title',
 			},
 			{
-				name: 'stage',
+				name: 'isfavorites',
 			},
 			{
 				name: 'srfkey',

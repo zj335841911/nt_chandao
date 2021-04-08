@@ -6,7 +6,7 @@
                     <ion-item-sliding ref="sliding" v-for="(item,index) in items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
                         <ion-item>
                             <!-- 列表视图样式 -->
-                            <app-list-index-text :dataItemNames = "['resolution','pri1','pri','severity',]" :item="item" :index="index" major="title" v-if="controlStyle.substring(0,8) === 'LISTVIEW'"></app-list-index-text>
+                            <app-list-index-text :dataItemNames = "['severity','resolution','pri','pri1',]" :item="item" :index="index" major="title" v-if="controlStyle.substring(0,8) === 'LISTVIEW'"></app-list-index-text>
                                 <!-- 图标视图样式 -->
                             <app-icon-list :item="item" v-if="controlStyle === 'ICONVIEW'"></app-icon-list>
                         </ion-item>
@@ -24,7 +24,7 @@
                       <ion-item-sliding  :ref="item.srfkey" v-for="(item,index) in obj.items" @click="item_click(item)" :key="item.srfkey" class="app-mob-mdctrl-item" :disabled="item.sliding_disabled" @ionDrag="ionDrag">
                         <ion-item>
                             <!-- 列表视图样式 -->
-                            <app-list-index-text :dataItemNames = "['resolution','pri1','pri','severity',]" :item="item" :index="index" major="title" v-if="controlStyle.substring(0,8) === 'LISTVIEW'"></app-list-index-text>
+                            <app-list-index-text :dataItemNames = "['severity','resolution','pri','pri1',]" :item="item" :index="index" major="title" v-if="controlStyle.substring(0,8) === 'LISTVIEW'"></app-list-index-text>
                             <!-- 图标视图样式 -->
                             <app-icon-list :item="item" v-if="controlStyle === 'ICONVIEW'"></app-icon-list>
                         </ion-item>                      

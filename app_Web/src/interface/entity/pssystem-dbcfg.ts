@@ -7,68 +7,44 @@
 export interface PSSystemDBCfg {
 
     /**
-     * 系统数据库名称
+     * 表空间2名称
      *
      * @returns {*}
      * @memberof PSSystemDBCfg
      */
-    pssystemdbcfgname?: any;
+    tabspace2?: any;
 
     /**
-     * 系统数据库标识
+     * 资源状态
      *
      * @returns {*}
      * @memberof PSSystemDBCfg
      */
-    pssystemdbcfgid?: any;
+    resstate?: any;
 
     /**
-     * 更新人
+     * 空值排序
      *
      * @returns {*}
      * @memberof PSSystemDBCfg
      */
-    updateman?: any;
+    nullvalorder?: any;
 
     /**
-     * 建立时间
+     * 用户标记3
      *
      * @returns {*}
      * @memberof PSSystemDBCfg
      */
-    createdate?: any;
+    usertag3?: any;
 
     /**
-     * 建立人
+     * 默认表空间名称
      *
      * @returns {*}
      * @memberof PSSystemDBCfg
      */
-    createman?: any;
-
-    /**
-     * 更新时间
-     *
-     * @returns {*}
-     * @memberof PSSystemDBCfg
-     */
-    updatedate?: any;
-
-    /**
-     * 附加模式名称
-     *
-     * @returns {*}
-     * @memberof PSSystemDBCfg
-     */
-    appendschema?: any;
-
-    /**
-     * 数据库模式名称
-     *
-     * @returns {*}
-     * @memberof PSSystemDBCfg
-     */
-    dbschemaname?: any;
+    tabspace?: any;
 
     /**
      * 默认数据源
@@ -77,14 +53,6 @@ export interface PSSystemDBCfg {
      * @memberof PSSystemDBCfg
      */
     defaultflag?: any;
-
-    /**
-     * 支持Web管理
-     *
-     * @returns {*}
-     * @memberof PSSystemDBCfg
-     */
-    enablewebtool?: any;
 
     /**
      * 备注
@@ -103,44 +71,28 @@ export interface PSSystemDBCfg {
     nodbinstmode?: any;
 
     /**
-     * 空值排序
+     * 用户标记4
      *
      * @returns {*}
      * @memberof PSSystemDBCfg
      */
-    nullvalorder?: any;
+    usertag4?: any;
 
     /**
-     * 发布模型注释
+     * 系统数据库名称
      *
      * @returns {*}
      * @memberof PSSystemDBCfg
      */
-    pubcommentflag?: any;
+    pssystemdbcfgname?: any;
 
     /**
-     * 对象名称转换
+     * 系统
      *
      * @returns {*}
      * @memberof PSSystemDBCfg
      */
-    objnamecase?: any;
-
-    /**
-     * 发布外键
-     *
-     * @returns {*}
-     * @memberof PSSystemDBCfg
-     */
-    pubfkeyflag?: any;
-
-    /**
-     * 发布数据库模型
-     *
-     * @returns {*}
-     * @memberof PSSystemDBCfg
-     */
-    pubdbmodelflag?: any;
+    pssystemname?: any;
 
     /**
      * 资源信息
@@ -149,78 +101,6 @@ export interface PSSystemDBCfg {
      * @memberof PSSystemDBCfg
      */
     resinfo?: any;
-
-    /**
-     * 发布索引
-     *
-     * @returns {*}
-     * @memberof PSSystemDBCfg
-     */
-    pubindexflag?: any;
-
-    /**
-     * 发布视图
-     *
-     * @returns {*}
-     * @memberof PSSystemDBCfg
-     */
-    pubviewflag?: any;
-
-    /**
-     * 资源状态
-     *
-     * @returns {*}
-     * @memberof PSSystemDBCfg
-     */
-    resstate?: any;
-
-    /**
-     * 资源就绪时间
-     *
-     * @returns {*}
-     * @memberof PSSystemDBCfg
-     */
-    resreadytime?: any;
-
-    /**
-     * 表空间2名称
-     *
-     * @returns {*}
-     * @memberof PSSystemDBCfg
-     */
-    tabspace2?: any;
-
-    /**
-     * 默认表空间名称
-     *
-     * @returns {*}
-     * @memberof PSSystemDBCfg
-     */
-    tabspace?: any;
-
-    /**
-     * 表空间3名称
-     *
-     * @returns {*}
-     * @memberof PSSystemDBCfg
-     */
-    tabspace3?: any;
-
-    /**
-     * 表空间4名称
-     *
-     * @returns {*}
-     * @memberof PSSystemDBCfg
-     */
-    tabspace4?: any;
-
-    /**
-     * 用户分类
-     *
-     * @returns {*}
-     * @memberof PSSystemDBCfg
-     */
-    usercat?: any;
 
     /**
      * 用户标记
@@ -239,6 +119,30 @@ export interface PSSystemDBCfg {
     userparams?: any;
 
     /**
+     * 资源就绪时间
+     *
+     * @returns {*}
+     * @memberof PSSystemDBCfg
+     */
+    resreadytime?: any;
+
+    /**
+     * 发布外键
+     *
+     * @returns {*}
+     * @memberof PSSystemDBCfg
+     */
+    pubfkeyflag?: any;
+
+    /**
+     * 系统数据库标识
+     *
+     * @returns {*}
+     * @memberof PSSystemDBCfg
+     */
+    pssystemdbcfgid?: any;
+
+    /**
      * 用户标记2
      *
      * @returns {*}
@@ -247,20 +151,76 @@ export interface PSSystemDBCfg {
     usertag2?: any;
 
     /**
-     * 用户标记3
+     * 更新人
      *
      * @returns {*}
      * @memberof PSSystemDBCfg
      */
-    usertag3?: any;
+    updateman?: any;
 
     /**
-     * 用户标记4
+     * 发布模型注释
      *
      * @returns {*}
      * @memberof PSSystemDBCfg
      */
-    usertag4?: any;
+    pubcommentflag?: any;
+
+    /**
+     * 建立时间
+     *
+     * @returns {*}
+     * @memberof PSSystemDBCfg
+     */
+    createdate?: any;
+
+    /**
+     * 表空间3名称
+     *
+     * @returns {*}
+     * @memberof PSSystemDBCfg
+     */
+    tabspace3?: any;
+
+    /**
+     * 支持Web管理
+     *
+     * @returns {*}
+     * @memberof PSSystemDBCfg
+     */
+    enablewebtool?: any;
+
+    /**
+     * 发布数据库模型
+     *
+     * @returns {*}
+     * @memberof PSSystemDBCfg
+     */
+    pubdbmodelflag?: any;
+
+    /**
+     * 对象名称转换
+     *
+     * @returns {*}
+     * @memberof PSSystemDBCfg
+     */
+    objnamecase?: any;
+
+    /**
+     * 发布索引
+     *
+     * @returns {*}
+     * @memberof PSSystemDBCfg
+     */
+    pubindexflag?: any;
+
+    /**
+     * 附加模式名称
+     *
+     * @returns {*}
+     * @memberof PSSystemDBCfg
+     */
+    appendschema?: any;
 
     /**
      * 系统
@@ -271,10 +231,50 @@ export interface PSSystemDBCfg {
     pssystemid?: any;
 
     /**
-     * 系统
+     * 数据库模式名称
      *
      * @returns {*}
      * @memberof PSSystemDBCfg
      */
-    pssystemname?: any;
+    dbschemaname?: any;
+
+    /**
+     * 表空间4名称
+     *
+     * @returns {*}
+     * @memberof PSSystemDBCfg
+     */
+    tabspace4?: any;
+
+    /**
+     * 用户分类
+     *
+     * @returns {*}
+     * @memberof PSSystemDBCfg
+     */
+    usercat?: any;
+
+    /**
+     * 建立人
+     *
+     * @returns {*}
+     * @memberof PSSystemDBCfg
+     */
+    createman?: any;
+
+    /**
+     * 更新时间
+     *
+     * @returns {*}
+     * @memberof PSSystemDBCfg
+     */
+    updatedate?: any;
+
+    /**
+     * 发布视图
+     *
+     * @returns {*}
+     * @memberof PSSystemDBCfg
+     */
+    pubviewflag?: any;
 }

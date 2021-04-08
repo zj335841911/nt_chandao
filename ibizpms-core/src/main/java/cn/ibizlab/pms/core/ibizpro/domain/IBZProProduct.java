@@ -24,6 +24,8 @@ import java.io.Serializable;
 import lombok.*;
 import org.springframework.data.annotation.Transient;
 import cn.ibizlab.pms.util.annotation.Audit;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -39,25 +41,11 @@ import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 @NoArgsConstructor
 @JsonIgnoreProperties(value = "handler")
 @TableName(value = "zt_product", resultMap = "IBZProProductResultMap")
+@ApiModel("平台产品")
 public class IBZProProduct extends EntityMP implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    /**
-     * 编号
-     */
-    @DEField(isKeyField = true)
-    @TableId(value = "id", type = IdType.AUTO)
-    @JSONField(name = "id")
-    @JsonProperty("id")
-    private Long id;
-    /**
-     * 产品名称
-     */
-    @TableField(value = "`name`")
-    @JSONField(name = "name")
-    @JsonProperty("name")
-    private String name;
     /**
      * IBIZ标识
      */
@@ -65,6 +53,7 @@ public class IBZProProduct extends EntityMP implements Serializable {
     @TableField(value = "`ibiz_id`")
     @JSONField(name = "ibizid")
     @JsonProperty("ibizid")
+    @ApiModelProperty("IBIZ标识")
     private String ibizid;
     /**
      * 产品代号
@@ -72,17 +61,27 @@ public class IBZProProduct extends EntityMP implements Serializable {
     @TableField(value = "`code`")
     @JSONField(name = "code")
     @JsonProperty("code")
+    @ApiModelProperty("产品代号")
     private String code;
-
-
-
     /**
-     * 设置 [产品名称]
+     * 产品名称
      */
-    public void setName(String name) {
-        this.name = name;
-        this.modify("name", name);
-    }
+    @TableField(value = "`name`")
+    @JSONField(name = "name")
+    @JsonProperty("name")
+    @ApiModelProperty("产品名称")
+    private String name;
+    /**
+     * 编号
+     */
+    @DEField(isKeyField = true)
+    @TableId(value = "id", type = IdType.AUTO)
+    @JSONField(name = "id")
+    @JsonProperty("id")
+    @ApiModelProperty("编号")
+    private Long id;
+
+
 
     /**
      * 设置 [IBIZ标识]
@@ -98,6 +97,14 @@ public class IBZProProduct extends EntityMP implements Serializable {
     public void setCode(String code) {
         this.code = code;
         this.modify("code", code);
+    }
+
+    /**
+     * 设置 [产品名称]
+     */
+    public void setName(String name) {
+        this.name = name;
+        this.modify("name", name);
     }
 
 

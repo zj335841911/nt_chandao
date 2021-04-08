@@ -149,7 +149,7 @@ export default class TestTaskMobEditViewBase extends Vue {
 	 * @type {string}
 	 * @memberof TestTaskMobEditViewBase
 	 */
-	protected viewtag: string = '9576fe405a243332b6f648c8d0632e88';
+	protected viewtag: string = '2dcb11edbdc6de15c263a1424d6d97a4';
 
     /**
      * 视图上下文

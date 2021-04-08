@@ -75,7 +75,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet5_u3f6a0e7_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet5_u9797c2b_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -102,7 +102,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet5_u7bbaff3_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet5_u0e69512_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -130,7 +130,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet5_u46c6b98_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet5_u272ff65_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -158,7 +158,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet5_u9666cf2_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet5_u20733a7_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -186,7 +186,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet5_u28b30c8_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet5_u038caad_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -214,7 +214,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet5_u18c7ab6_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet5_u69890c3_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -242,7 +242,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet5_u1b279b1_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet5_u4117bb0_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -270,7 +270,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet5_uf577fc4_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet5_u5229954_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -298,7 +298,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet5_ucf86385_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet5_u76dfc47_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -326,7 +326,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
      * @param {*} [$event]
      * @memberof 
      */
-    public dashboard_sysportlet5_u5cd6c83_click(params: any = {}, tag?: any, $event?: any) {
+    public dashboard_sysportlet5_uba14cc8_click(params: any = {}, tag?: any, $event?: any) {
         // 取数
         let datas: any[] = [];
         let xData: any = null;
@@ -347,6 +347,34 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
     }
 
     /**
+     * 逻辑事件
+     *
+     * @param {*} [params={}]
+     * @param {*} [tag]
+     * @param {*} [$event]
+     * @memberof 
+     */
+    public dashboard_sysportlet5_batchdownload_click(params: any = {}, tag?: any, $event?: any) {
+        // 取数
+        let datas: any[] = [];
+        let xData: any = null;
+        // _this 指向容器对象
+        const _this: any = this;
+        let paramJO:any = {};
+        let contextJO:any = {};
+        xData = this;
+        if (_this.getDatas && _this.getDatas instanceof Function) {
+            datas = [..._this.getDatas()];
+        }
+        if(params){
+          datas = [params];
+        }
+        // 界面行为
+        const curUIService:BugUIService  = new BugUIService();
+        curUIService.Bug_BatchDownload(datas,contextJO, paramJO,  $event, xData,this,"Bug");
+    }
+
+    /**
      * 返回
      *
      * @param {any[]} args 当前数据
@@ -355,7 +383,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
      * @param {*} [$event] 事件源
      * @param {*} [xData]  执行行为所需当前部件
      * @param {*} [actionContext]  执行行为上下文
-     * @memberof Bugmaindashboardview_linkBase
+     * @memberof BugMainDashboardViewBase
      */
     public Exit(args: any[],contextJO?:any, params?: any, $event?: any, xData?: any,actionContext?:any,srfParentDeName?:string) {
         this.closeView(args);
@@ -406,6 +434,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         tostory: {name: 'tostory', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__BUG_TOSTORY_BUT', uiaction: { tag: 'toStory', target: 'SINGLEKEY' } },
         buildusecase: {name: 'buildusecase', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__BUG_CREATECASE_BUT', uiaction: { tag: 'BuildUseCase', target: 'SINGLEKEY' } },
         delete: {name: 'delete', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: 'SRFUR__BUG_DELETE_BUT', uiaction: { tag: 'delete', target: 'SINGLEKEY' } },
+        batchdownload: {name: 'batchdownload', actiontarget: 'SINGLEKEY', caption: '', disabled: false, type: 'DEUIACTION', visible: true, noprivdisplaymode: 2, dataaccaction: '', uiaction: { tag: 'BatchDownload', target: 'SINGLEKEY' } },
     }
 
     /**
@@ -415,7 +444,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
      * @memberof BugDashboardActionsBase
      */
     public actionBarModelData:any[] =[
-        { viewlogicname:"dashboard_sysportlet5_u3f6a0e7_click",
+        { viewlogicname:"dashboard_sysportlet5_u9797c2b_click",
         text: "返回",
         iconcls: "fa fa-sign-out",
         icon: "",
@@ -424,7 +453,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         visible:true,
         disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet5_u7bbaff3_click",
+        { viewlogicname:"dashboard_sysportlet5_u0e69512_click",
         text: "编辑",
         iconcls: "fa fa-edit",
         icon: "",
@@ -434,7 +463,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         visible:true,
         disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet5_u46c6b98_click",
+        { viewlogicname:"dashboard_sysportlet5_u272ff65_click",
         text: "关闭",
         iconcls: "fa fa-close",
         icon: "",
@@ -444,7 +473,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         visible:true,
         disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet5_u9666cf2_click",
+        { viewlogicname:"dashboard_sysportlet5_u20733a7_click",
         text: "解决",
         iconcls: "fa fa-check-square-o",
         icon: "",
@@ -454,7 +483,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         visible:true,
         disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet5_u28b30c8_click",
+        { viewlogicname:"dashboard_sysportlet5_u038caad_click",
         text: "指派",
         iconcls: "fa fa-hand-o-right",
         icon: "",
@@ -464,7 +493,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         visible:true,
         disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet5_u18c7ab6_click",
+        { viewlogicname:"dashboard_sysportlet5_u69890c3_click",
         text: "确认",
         iconcls: "fa fa-eye",
         icon: "",
@@ -474,7 +503,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         visible:true,
         disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet5_u1b279b1_click",
+        { viewlogicname:"dashboard_sysportlet5_u4117bb0_click",
         text: "激活",
         iconcls: "fa fa-magic",
         icon: "",
@@ -484,7 +513,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         visible:true,
         disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet5_uf577fc4_click",
+        { viewlogicname:"dashboard_sysportlet5_u5229954_click",
         text: "提需求",
         iconcls: null,
         icon: null,
@@ -494,7 +523,7 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         visible:true,
         disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet5_ucf86385_click",
+        { viewlogicname:"dashboard_sysportlet5_u76dfc47_click",
         text: "建用例",
         iconcls: null,
         icon: null,
@@ -504,12 +533,21 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
         visible:true,
         disabled:false
         },
-        { viewlogicname:"dashboard_sysportlet5_u5cd6c83_click",
+        { viewlogicname:"dashboard_sysportlet5_uba14cc8_click",
         text: "删除",
         iconcls: null,
         icon: null,
         noprivdisplaymode: 2,
         dataaccaction:'SRFUR__BUG_DELETE_BUT',
+        actiontarget:'SINGLEKEY',
+        visible:true,
+        disabled:false
+        },
+        { viewlogicname:"dashboard_sysportlet5_batchdownload_click",
+        text: "下载",
+        iconcls: "download",
+        icon: "",
+        noprivdisplaymode: 2,
         actiontarget:'SINGLEKEY',
         visible:true,
         disabled:false
@@ -522,35 +560,38 @@ export class BugDashboardActionsPortletBase extends MainControlBase {
      * @memberof BugDashboardActionsBase
      */
     public handleItemClick($event:any){
-        if(Object.is($event,'dashboard_sysportlet5_u3f6a0e7_click')){
-            this.dashboard_sysportlet5_u3f6a0e7_click(null);
+        if(Object.is($event,'dashboard_sysportlet5_u9797c2b_click')){
+            this.dashboard_sysportlet5_u9797c2b_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet5_u7bbaff3_click')){
-            this.dashboard_sysportlet5_u7bbaff3_click(null);
+        if(Object.is($event,'dashboard_sysportlet5_u0e69512_click')){
+            this.dashboard_sysportlet5_u0e69512_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet5_u46c6b98_click')){
-            this.dashboard_sysportlet5_u46c6b98_click(null);
+        if(Object.is($event,'dashboard_sysportlet5_u272ff65_click')){
+            this.dashboard_sysportlet5_u272ff65_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet5_u9666cf2_click')){
-            this.dashboard_sysportlet5_u9666cf2_click(null);
+        if(Object.is($event,'dashboard_sysportlet5_u20733a7_click')){
+            this.dashboard_sysportlet5_u20733a7_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet5_u28b30c8_click')){
-            this.dashboard_sysportlet5_u28b30c8_click(null);
+        if(Object.is($event,'dashboard_sysportlet5_u038caad_click')){
+            this.dashboard_sysportlet5_u038caad_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet5_u18c7ab6_click')){
-            this.dashboard_sysportlet5_u18c7ab6_click(null);
+        if(Object.is($event,'dashboard_sysportlet5_u69890c3_click')){
+            this.dashboard_sysportlet5_u69890c3_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet5_u1b279b1_click')){
-            this.dashboard_sysportlet5_u1b279b1_click(null);
+        if(Object.is($event,'dashboard_sysportlet5_u4117bb0_click')){
+            this.dashboard_sysportlet5_u4117bb0_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet5_uf577fc4_click')){
-            this.dashboard_sysportlet5_uf577fc4_click(null);
+        if(Object.is($event,'dashboard_sysportlet5_u5229954_click')){
+            this.dashboard_sysportlet5_u5229954_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet5_ucf86385_click')){
-            this.dashboard_sysportlet5_ucf86385_click(null);
+        if(Object.is($event,'dashboard_sysportlet5_u76dfc47_click')){
+            this.dashboard_sysportlet5_u76dfc47_click(null);
         }
-        if(Object.is($event,'dashboard_sysportlet5_u5cd6c83_click')){
-            this.dashboard_sysportlet5_u5cd6c83_click(null);
+        if(Object.is($event,'dashboard_sysportlet5_uba14cc8_click')){
+            this.dashboard_sysportlet5_uba14cc8_click(null);
+        }
+        if(Object.is($event,'dashboard_sysportlet5_batchdownload_click')){
+            this.dashboard_sysportlet5_batchdownload_click(null);
         }
     }
 

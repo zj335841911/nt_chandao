@@ -259,7 +259,7 @@ export class ProductPortalView_dbDashboardBase extends MainControlBase {
      * 刷新
      * 
      * @param args 
-     * @memberof Main
+     * @memberof ProductPortalView_db
      */
     public refresh(args?: any){
       this.$emit('refresh',args);

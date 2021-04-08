@@ -1,7 +1,7 @@
 
 
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { KanBanViewBase } from '@/studio-core';
 import TaskService from '@/service/task/task-service';
 import TaskAuthService from '@/authservice/task/task-auth-service';
@@ -138,7 +138,7 @@ export class TaskKanbanViewBase extends KanBanViewBase {
      * @type {string}
      * @memberof TaskKanbanViewBase
      */
-	protected viewtag: string = '7088260bcd6a0303378af2f8e207f479';
+	protected viewtag: string = 'd617e99633b9426aa8bd3ea293f91c6c';
 
     /**
      * 视图名称
@@ -418,9 +418,9 @@ export class TaskKanbanViewBase extends KanBanViewBase {
             Object.assign(tempContext,args[0]);
         }
         let deResParameters: any[] = [];
-        if(tempContext.story && true){
+        if(tempContext.projectmodule && true){
             deResParameters = [
-            { pathName: 'stories', parameterName: 'story' },
+            { pathName: 'projectmodules', parameterName: 'projectmodule' },
             ]
         }
         const parameters: any[] = [

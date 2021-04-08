@@ -15,25 +15,25 @@ export class MOBLogModel {
 	public getDataItems(): any[] {
 		return [
 			{
-				name: 'stage',
-			},
-			{
-				name: 'pri',
-			},
-			{
-				name: 'assignedto',
-			},
-			{
 				name: 'status',
-			},
-			{
-				name: 'title',
 			},
 			{
 				name: 'spec',
 			},
 			{
+				name: 'title',
+			},
+			{
+				name: 'stage',
+			},
+			{
 				name: 'isfavorites',
+			},
+			{
+				name: 'assignedto',
+			},
+			{
+				name: 'pri',
 			},
 			{
 				name: 'srfkey',

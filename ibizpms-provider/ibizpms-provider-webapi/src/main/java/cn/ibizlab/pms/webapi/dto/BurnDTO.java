@@ -20,14 +20,27 @@ import javax.validation.constraints.Size;
 import cn.ibizlab.pms.util.domain.DTOBase;
 import cn.ibizlab.pms.util.domain.DTOClient;
 import lombok.Data;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * 服务DTO对象[BurnDTO]
  */
 @Data
+@ApiModel("burn")
 public class BurnDTO extends DTOBase implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+
+    /**
+     * 属性 [ISWEEKEND]
+     *
+     */
+    @JSONField(name = "isweekend")
+    @JsonProperty("isweekend")
+    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("周末")
+    private String isweekend;
 
     /**
      * 属性 [DATE]
@@ -36,6 +49,7 @@ public class BurnDTO extends DTOBase implements Serializable {
     @JsonFormat(pattern="yyyy-MM-dd", locale = "zh" , timezone="GMT+8")
     @JSONField(name = "date" , format="yyyy-MM-dd")
     @JsonProperty("date")
+    @ApiModelProperty("日期")
     private Timestamp date;
 
     /**
@@ -45,6 +59,7 @@ public class BurnDTO extends DTOBase implements Serializable {
     @JSONField(name = "id")
     @JsonProperty("id")
     @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
+    @ApiModelProperty("虚拟主键")
     private String id;
 
     /**
@@ -53,6 +68,7 @@ public class BurnDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "consumed")
     @JsonProperty("consumed")
+    @ApiModelProperty("总计消耗")
     private Double consumed;
 
     /**
@@ -61,6 +77,7 @@ public class BurnDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "left")
     @JsonProperty("left")
+    @ApiModelProperty("预计剩余")
     private Double left;
 
     /**
@@ -69,6 +86,7 @@ public class BurnDTO extends DTOBase implements Serializable {
      */
     @JSONField(name = "estimate")
     @JsonProperty("estimate")
+    @ApiModelProperty("最初预计")
     private Double estimate;
 
     /**
@@ -78,6 +96,7 @@ public class BurnDTO extends DTOBase implements Serializable {
     @JSONField(name = "project")
     @JsonProperty("project")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("所属项目")
     private Long project;
 
     /**
@@ -87,16 +106,8 @@ public class BurnDTO extends DTOBase implements Serializable {
     @JSONField(name = "task")
     @JsonProperty("task")
     @JsonSerialize(using = ToStringSerializer.class)
+    @ApiModelProperty("任务")
     private Long task;
-
-    /**
-     * 属性 [ISWEEKEND]
-     *
-     */
-    @JSONField(name = "isweekend")
-    @JsonProperty("isweekend")
-    @Size(min = 0, max = 200, message = "内容长度必须小于等于[200]")
-    private String isweekend;
 
 
     /**

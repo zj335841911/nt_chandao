@@ -137,7 +137,7 @@ export default class StoryUsr2MobMPickupViewBase extends Vue {
 	 * @type {string}
 	 * @memberof StoryUsr2MobMPickupViewBase
 	 */
-	protected viewtag: string = '85de6d83db3b382b8448740bc09027db';
+	protected viewtag: string = 'ca79da983533a5a6bb5b3f026c31961a';
 
     /**
      * 视图上下文

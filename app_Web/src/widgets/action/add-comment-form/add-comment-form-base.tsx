@@ -97,6 +97,7 @@ export class AddCommentEditFormBase extends EditFormControlBase {
         comment: null,
         files: null,
         noticeusers: null,
+        extra: null,
         id: null,
         action: null,
     };
@@ -224,6 +225,13 @@ export class AddCommentEditFormBase extends EditFormControlBase {
     enableCond: 3,
 }),
 
+        extra: new FormItemModel({
+    caption: '附加值', detailType: 'FORMITEM', name: 'extra', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
+    required:false,
+    disabled: false,
+    enableCond: 3,
+}),
+
         id: new FormItemModel({
     caption: 'id', detailType: 'FORMITEM', name: 'id', visible: true, isShowCaption: true, form: this, showMoreMode: 0,
     required:false,
@@ -243,6 +251,9 @@ export class AddCommentEditFormBase extends EditFormControlBase {
         }
         if (this.data.hasOwnProperty('objectid')) {
             this.data['objectid'] = this.viewparams['objectid'];
+        }
+        if (this.data.hasOwnProperty('extra')) {
+            this.data['extra'] = this.viewparams['version'];
         }
     }
 

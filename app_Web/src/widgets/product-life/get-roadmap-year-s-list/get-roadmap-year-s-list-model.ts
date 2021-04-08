@@ -15,35 +15,35 @@ export default class GetRoadmapYearSModel {
 	public getDataItems(): any[] {
 		return [
 			{
-				name: 'productlifename',
-			},
-			{
-				name: 'parent',
-			},
-			{
-				name: 'marker',
-        codelist:{tag:'YesNo3',codelistType:'STATIC'},
+				name: 'type',
 			},
 			{
 				name: 'productlifeid',
 			},
 			{
+				name: 'parent',
+			},
+			{
 				name: 'end',
 			},
 			{
-				name: 'year',
-			},
-			{
-				name: 'branch',
+				name: 'productlifename',
 			},
 			{
 				name: 'begin',
 			},
 			{
+				name: 'branch',
+			},
+			{
 				name: 'product',
 			},
 			{
-				name: 'type',
+				name: 'year',
+			},
+			{
+				name: 'marker',
+        codelist:{tag:'YesNo3',codelistType:'STATIC'},
 			},
       {
         name:'size',

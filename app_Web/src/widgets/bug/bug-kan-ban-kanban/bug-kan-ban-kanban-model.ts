@@ -25,14 +25,14 @@ export default class BugKanBanModel {
 				dataType: 'PICKUP',
 			},
 			{
-				name: 'resolution',
-				prop: 'resolution',
-				dataType: 'SSCODELIST',
-			},
-			{
 				name: 'closeddate',
 				prop: 'closeddate',
 				dataType: 'DATETIME',
+			},
+			{
+				name: 'resolution',
+				prop: 'resolution',
+				dataType: 'SSCODELIST',
 			},
 			{
 				name: 'srfmstag',
@@ -58,14 +58,14 @@ export default class BugKanBanModel {
 				dataType: 'ACID',
 			},
 			{
-				name: 'assignedto',
-				prop: 'assignedto',
-				dataType: 'TEXT',
-			},
-			{
 				name: 'story',
 				prop: 'story',
 				dataType: 'PICKUP',
+			},
+			{
+				name: 'assignedto',
+				prop: 'assignedto',
+				dataType: 'TEXT',
 			},
 			{
 				name: 'title',
@@ -141,14 +141,14 @@ export default class BugKanBanModel {
 				dataType: 'PICKUP',
 			},
 			{
-				name: 'resolvedby',
-				prop: 'resolvedby',
-				dataType: 'SSCODELIST',
-			},
-			{
 				name: 'resolveddate',
 				prop: 'resolveddate',
 				dataType: 'DATETIME',
+			},
+			{
+				name: 'resolvedby',
+				prop: 'resolvedby',
+				dataType: 'SSCODELIST',
 			},
 			{
 				name: 'entry',

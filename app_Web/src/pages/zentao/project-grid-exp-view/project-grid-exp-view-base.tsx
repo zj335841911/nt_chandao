@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { GridExpViewBase } from '@/studio-core';
 import ProjectService from '@/service/project/project-service';
 import ProjectAuthService from '@/authservice/project/project-auth-service';
@@ -100,7 +100,7 @@ export class ProjectGridExpViewBase extends GridExpViewBase {
      * @type {string}
      * @memberof ProjectGridExpViewBase
      */
-	protected viewtag: string = '6ad2193a7e06957b40700d3f23ea6f6f';
+	protected viewtag: string = '407b9d94c4c324b057e3ef37d1b343c8';
 
     /**
      * 视图名称

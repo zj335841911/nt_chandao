@@ -143,7 +143,7 @@ export default class BugResolveMobEditViewBase extends Vue {
 	 * @type {string}
 	 * @memberof BugResolveMobEditViewBase
 	 */
-	protected viewtag: string = 'd0dab56a25ae62257d276606a854f105';
+	protected viewtag: string = '18b2d96a89ba15058138d25f7720155a';
 
     /**
      * 视图上下文

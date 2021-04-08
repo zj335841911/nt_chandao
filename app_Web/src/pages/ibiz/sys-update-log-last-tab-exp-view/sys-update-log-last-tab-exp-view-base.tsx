@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { UIActionTool, ViewTool } from '@/utils';
+import { UIActionTool, ViewTool, Util } from '@/utils';
 import { TabExpViewBase } from '@/studio-core';
 import SysUpdateLogService from '@/service/sys-update-log/sys-update-log-service';
 import SysUpdateLogAuthService from '@/authservice/sys-update-log/sys-update-log-auth-service';
@@ -100,7 +100,7 @@ export class SysUpdateLogLastTabExpViewBase extends TabExpViewBase {
      * @type {string}
      * @memberof SysUpdateLogLastTabExpViewBase
      */
-	protected viewtag: string = '6203dc73c54acc8229989fecc87f058b';
+	protected viewtag: string = '7fe32344f7079d3359213223f8c3f63f';
 
     /**
      * 视图名称

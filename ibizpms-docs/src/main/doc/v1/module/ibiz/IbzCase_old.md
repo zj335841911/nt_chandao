@@ -14,64 +14,64 @@ hide members
 
 | 属性名称        |    中文名称    | 类型     |  备注  |
 | --------   |------------| -----   |  -------- | 
-|排序|ORDER|INT|&nbsp;|
-|howRun|HOWRUN|TEXT|&nbsp;应该是预留后期使用的字段|
-|scriptedBy|SCRIPTEDBY|TEXT|&nbsp;应该是预留后期使用的字段|
+|最后修改者|LASTEDITEDBY|SSCODELIST|&nbsp;|
 |path|PATH|INT|&nbsp;|
+|用例编号|ID|ACID|&nbsp;|
+|scriptedBy|SCRIPTEDBY|TEXT|&nbsp;应该是预留后期使用的字段|
+|用例类型|TYPE|SSCODELIST|&nbsp;|
+|scriptStatus|SCRIPTSTATUS|TEXT|&nbsp;应该是预留后期使用的字段|
+|适用阶段|STAGE|SMCODELIST|&nbsp;|
 |创建日期|OPENEDDATE|DATETIME|&nbsp;|
 |修改日期|LASTEDITEDDATE|DATETIME|&nbsp;|
-|scriptedDate|SCRIPTEDDATE|DATE|&nbsp;应该是预留后期使用的字段|
-|备注|COMMENT|HTMLTEXT|&nbsp;|
 |auto|AUTO|TEXT|&nbsp;推测应该是自动测试的flag，代码中值unit、func、no|
 |用例标题|TITLE|TEXT|&nbsp;|
-|已删除|DELETED|TEXT|&nbsp;|
-|scriptLocation|SCRIPTLOCATION|TEXT|&nbsp;应该是预留后期使用的字段|
-|scriptStatus|SCRIPTSTATUS|TEXT|&nbsp;应该是预留后期使用的字段|
-|关键词|KEYWORDS|TEXT|&nbsp;|
-|用例编号|ID|ACID|&nbsp;|
-|前置条件|PRECONDITION|LONGTEXT|&nbsp;|
+|howRun|HOWRUN|TEXT|&nbsp;应该是预留后期使用的字段|
 |优先级|PRI|SSCODELIST|&nbsp;|
-|用例类型|TYPE|SSCODELIST|&nbsp;|
-|状态|STATUS|SSCODELIST|&nbsp;|
-|适用阶段|STAGE|SMCODELIST|&nbsp;|
-|由谁创建|OPENEDBY|SSCODELIST|&nbsp;|
-|最后修改者|LASTEDITEDBY|SSCODELIST|&nbsp;|
-|编号|LIB|PICKUP|&nbsp;|
-|id|MODULE|PICKUP|&nbsp;|
-|所属模块|MODULENAME|PICKUPTEXT|&nbsp;|
-|用例库|LIBNAME|PICKUPTEXT|&nbsp;|
+|备注|COMMENT|HTMLTEXT|&nbsp;|
+|关键词|KEYWORDS|TEXT|&nbsp;|
+|scriptLocation|SCRIPTLOCATION|TEXT|&nbsp;应该是预留后期使用的字段|
 |用例版本|VERSION|INT|&nbsp;|
+|状态|STATUS|SSCODELIST|&nbsp;|
+|前置条件|PRECONDITION|LONGTEXT|&nbsp;|
+|已删除|DELETED|TEXT|&nbsp;|
+|排序|ORDER|INT|&nbsp;|
+|由谁创建|OPENEDBY|SSCODELIST|&nbsp;|
+|scriptedDate|SCRIPTEDDATE|DATE|&nbsp;应该是预留后期使用的字段|
+|用例库|LIBNAME|PICKUPTEXT|&nbsp;|
+|所属模块|MODULENAME|PICKUPTEXT|&nbsp;|
+|id|MODULE|PICKUP|&nbsp;|
+|编号|LIB|PICKUP|&nbsp;|
 
 ## 值规则
 | 属性名称    | 规则    |  说明  |
 | --------   |------------| ----- | 
-|排序|默认规则|默认规则|
-|howRun|默认规则|内容长度必须小于等于[30]|
-|scriptedBy|默认规则|内容长度必须小于等于[30]|
+|最后修改者|默认规则|内容长度必须小于等于[60]|
 |path|默认规则|默认规则|
+|用例编号|默认规则|默认规则|
+|scriptedBy|默认规则|内容长度必须小于等于[30]|
+|用例类型|默认规则|内容长度必须小于等于[60]|
+|scriptStatus|默认规则|内容长度必须小于等于[30]|
+|适用阶段|默认规则|内容长度必须小于等于[2000]|
 |创建日期|默认规则|默认规则|
 |修改日期|默认规则|默认规则|
-|scriptedDate|默认规则|默认规则|
-|备注|默认规则|内容长度必须小于等于[1048576]|
 |auto|默认规则|内容长度必须小于等于[10]|
 |用例标题|默认规则|内容长度必须小于等于[255]|
-|已删除|默认规则|内容长度必须小于等于[1]|
-|scriptLocation|默认规则|内容长度必须小于等于[255]|
-|scriptStatus|默认规则|内容长度必须小于等于[30]|
-|关键词|默认规则|内容长度必须小于等于[255]|
-|用例编号|默认规则|默认规则|
-|前置条件|默认规则|内容长度必须小于等于[65535]|
+|howRun|默认规则|内容长度必须小于等于[30]|
 |优先级|默认规则|内容长度必须小于等于[60]|
-|用例类型|默认规则|内容长度必须小于等于[60]|
-|状态|默认规则|内容长度必须小于等于[60]|
-|适用阶段|默认规则|内容长度必须小于等于[2000]|
-|由谁创建|默认规则|内容长度必须小于等于[60]|
-|最后修改者|默认规则|内容长度必须小于等于[60]|
-|编号|默认规则|默认规则|
-|id|默认规则|默认规则|
-|所属模块|默认规则|内容长度必须小于等于[60]|
-|用例库|默认规则|内容长度必须小于等于[255]|
+|备注|默认规则|内容长度必须小于等于[1048576]|
+|关键词|默认规则|内容长度必须小于等于[255]|
+|scriptLocation|默认规则|内容长度必须小于等于[255]|
 |用例版本|默认规则|默认规则|
+|状态|默认规则|内容长度必须小于等于[60]|
+|前置条件|默认规则|内容长度必须小于等于[65535]|
+|已删除|默认规则|内容长度必须小于等于[1]|
+|排序|默认规则|默认规则|
+|由谁创建|默认规则|内容长度必须小于等于[60]|
+|scriptedDate|默认规则|默认规则|
+|用例库|默认规则|内容长度必须小于等于[255]|
+|所属模块|默认规则|内容长度必须小于等于[60]|
+|id|默认规则|默认规则|
+|编号|默认规则|默认规则|
 
 ## 状态控制
 
@@ -108,7 +108,7 @@ hide members
 
 | 查询编号 | 查询名称       | 默认查询 |   备注|
 | --------  | --------   | --------   | ----- |
-|DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#IbzCase_Default))|否|&nbsp;|
+|DEFAULT|DEFAULT([MYSQL5](../../appendix/query_MYSQL5.md#IbzCase_Default))|是|&nbsp;|
 |VIEW|默认（全部数据）([MYSQL5](../../appendix/query_MYSQL5.md#IbzCase_View))|否|&nbsp;|
 
 * **数据集合**
@@ -120,18 +120,18 @@ hide members
 ## 查询模式
 | 属性      |    搜索模式     |
 | --------   |------------|
+|最后修改者(LASTEDITEDBY)|EQ|
+|用例类型(TYPE)|EQ|
 |用例标题(TITLE)|LIKE|
 |优先级(PRI)|EQ|
-|用例类型(TYPE)|EQ|
 |状态(STATUS)|EQ|
 |由谁创建(OPENEDBY)|EQ|
-|最后修改者(LASTEDITEDBY)|EQ|
-|编号(LIB)|EQ|
-|id(MODULE)|EQ|
-|所属模块(MODULENAME)|EQ|
-|所属模块(MODULENAME)|LIKE|
 |用例库(LIBNAME)|EQ|
 |用例库(LIBNAME)|LIKE|
+|所属模块(MODULENAME)|EQ|
+|所属模块(MODULENAME)|LIKE|
+|id(MODULE)|EQ|
+|编号(LIB)|EQ|
 
 ## 导入模式
 无

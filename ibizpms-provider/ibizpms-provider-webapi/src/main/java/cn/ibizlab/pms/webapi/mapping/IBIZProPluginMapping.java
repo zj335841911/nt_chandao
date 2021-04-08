@@ -12,4 +12,3 @@ public interface IBIZProPluginMapping extends MappingBase<IBIZProPluginDTO, IBIZ
 
 
 }
-

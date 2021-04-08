@@ -13,8 +13,8 @@
             @on-open-change="onClick"
             :placeholder="$t('components.dropDownListMpicker.placeholder')"
         >
-            <i-option v-for="(item, index) in items" :key="index" :value="item.value.toString()" :label="item.text">
-                <el-checkbox :value="currentVal.indexOf(item.value.toString()) == -1 ? false : true" :disabled="true">
+            <i-option v-for="(item, index) in items" :key="index" :value="item.value ? item.value.toString() : ''" :label="item.text">
+                <el-checkbox :value="currentVal.indexOf(item.value ? item.value.toString(): '') == -1 ? false : true" :disabled="true">
                     {{ Object.is(codelistType, 'STATIC') ? $t('codelist.' + tag + '.' + item.value) : item.text }}
                 </el-checkbox>
             </i-option>
