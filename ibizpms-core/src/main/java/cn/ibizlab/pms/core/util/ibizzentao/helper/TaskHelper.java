@@ -1704,6 +1704,7 @@ public class TaskHelper extends ZTBaseHelper<TaskMapper, Task> {
         newTask.setIdvalue(et.getId());
         newTask.setCycle(0);
         newTask.setConsumed(0.0D);
+        newTask.setLeft(0.0D);
         newTask.setName(et.getName() + "-" + curToday + "-" + et.getAssignedto());
 
         newTask.setStatus(StaticDict.Task__status.WAIT.getValue());
