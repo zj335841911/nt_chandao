@@ -18,10 +18,10 @@ import cn.ibizlab.pms.util.web.SearchContextHandlerMethodArgumentResolver;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @Slf4j
-@EnableDiscoveryClient
+//@EnableDiscoveryClient
 @Configuration
 @EnableTransactionManagement
-@EnableFeignClients(basePackages = {"cn.ibizlab.pms" })
+//@EnableFeignClients(basePackages = {"cn.ibizlab.pms" })
 @SpringBootApplication(exclude = {
 })
 @ComponentScan(basePackages = {"cn.ibizlab.pms"}
@@ -29,9 +29,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 //                @ComponentScan.Filter(type= org.springframework.context.annotation.FilterType.REGEX, pattern="cn.ibizlab.pms.xxx.rest.xxx"),
 //        }
 )
-@Import({
-        org.springframework.cloud.openfeign.FeignClientsConfiguration.class
-})
+//@Import({
+//        org.springframework.cloud.openfeign.FeignClientsConfiguration.class
+//})
 @EnableAsync
 @EnableScheduling
 public class DevBootApplication extends WebMvcConfigurerAdapter {

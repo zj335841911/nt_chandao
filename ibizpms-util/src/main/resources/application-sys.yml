@@ -1,30 +1,30 @@
 #缓存、数据源
 spring:
   cache:
-    redis:
-      time-to-live: 3600
-    caffeine:
-      spec: initialCapacity=5,maximumSize=500,expireAfterWrite=3600s
-  redis:
-    host: 172.16.240.130
-    port: 6379
-    password:
-    database: 0
-    lettuce:
-      pool:
-        max-active: 32
-        max-wait: 300ms
-        max-idle: 16
-        min-idle: 8
+#    redis:
+#      time-to-live: 3600
+#    caffeine:
+#      spec: initialCapacity=5,maximumSize=500,expireAfterWrite=3600s
+#  redis:
+#    host: 172.16.240.130
+#    port: 6379
+#    password:
+#    database: 0
+#    lettuce:
+#      pool:
+#        max-active: 32
+#        max-wait: 300ms
+#        max-idle: 16
+#        min-idle: 8
   servlet:
     multipart:
       max-file-size: 100MB
       max-request-size: 100MB
   datasource:
-    username: zentao
-    password: '123456'
-    url: jdbc:mysql://172.16.102.102:3306/zentao?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&useOldAliasMetadataBehavior=true&serverTimezone=Asia/Shanghai&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
-    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/nt_zentao?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&useOldAliasMetadataBehavior=true&serverTimezone=Asia/Shanghai&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
     filters: stat,wall,log4j2
     #配置初始化大小/最小/最大
     initial-size: 1
@@ -44,7 +44,7 @@ spring:
     pool-prepared-statements: false
     max-pool-prepared-statement-per-connection-size: 20
     isSyncDBSchema: false
-    defaultSchema: zentao
+    defaultSchema: nt_zentao
     conf: classpath:liquibase/master.xml
 
 #Mybatis-plus配置

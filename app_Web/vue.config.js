@@ -12,10 +12,10 @@ module.exports = {
     outputDir:"../ibizpms-app/ibizpms-app-web/target/classes/META-INF/resources",
     devServer: {
         host: '0.0.0.0',
-        port: 7111,
+        port: 8081,
         compress: true,
         disableHostCheck: true,
-        // proxy: "http://127.0.0.1:8080/Web",
+        proxy: "http://127.0.0.1:8080",
     },
     pages: {
         index: {

@@ -28,7 +28,7 @@ ibiz:
   cacheLevel: L2
   # 是否加载ES
   es:
-    enabled: true
+    enabled: false
     #ES服务器地址
     server: 172.16.180.217:9200
     bulk:
