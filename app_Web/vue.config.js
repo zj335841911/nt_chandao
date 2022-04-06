@@ -9,7 +9,7 @@ module.exports = {
     publicPath: './',
     // 去除 map 文件 1
     productionSourceMap: false,
-    outputDir:"../ibizpms-app/ibizpms-app-web/target/classes/META-INF/resources",
+    outputDir:"../ibizpms-core/target/classes/META-INF/resources",
     devServer: {
         host: '0.0.0.0',
         port: 8081,

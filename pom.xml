@@ -28,8 +28,6 @@
         <module>ibizpms-core</module>
         <!-- services -->
         <module>ibizpms-provider</module>
-        <!-- apps -->
-        <module>ibizpms-app</module>
         <!-- boot -->
         <module>ibizpms-boot</module>
     </modules>
